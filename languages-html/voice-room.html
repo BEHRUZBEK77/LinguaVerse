@@ -273,7 +273,7 @@
             font-size: 1rem
         }
 
-        /* ── MIC PERMISSION BANNER ── */
+        /* ══ MIC PERMISSION BANNER ══ */
         .mic-banner {
             display: none;
             align-items: center;
@@ -342,6 +342,178 @@
         .mic-banner-btn.primary:hover {
             opacity: 0.9;
             transform: translateY(-1px)
+        }
+
+        /* ══ MIC REQUEST OVERLAY ══ */
+        #micRequestOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 600;
+            background: rgba(4, 6, 15, 0.95);
+            backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0;
+            padding: 24px
+        }
+
+        #micRequestOverlay.show {
+            display: flex
+        }
+
+        .mic-req-card {
+            background: var(--surface);
+            border: 1px solid rgba(79, 110, 247, 0.3);
+            border-radius: 24px;
+            padding: 36px 32px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            animation: slideUp 0.3s ease
+        }
+
+        .mic-req-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: pulseIcon 2s ease-in-out infinite
+        }
+
+        @keyframes pulseIcon {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.08)
+            }
+        }
+
+        .mic-req-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text)
+        }
+
+        .mic-req-card p {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 24px
+        }
+
+        .mic-req-steps {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: left
+        }
+
+        .mic-req-steps h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px
+        }
+
+        .mic-req-step {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 0.82rem;
+            color: var(--text2)
+        }
+
+        .mic-req-step-num {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(79, 110, 247, 0.2);
+            border: 1px solid rgba(79, 110, 247, 0.4);
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .mic-req-btn-big {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px
+        }
+
+        .mic-req-btn-big:hover {
+            opacity: 0.9;
+            transform: translateY(-1px)
+        }
+
+        .mic-req-btn-big:active {
+            transform: scale(0.98)
+        }
+
+        .mic-req-skip {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 0.82rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            padding: 8px;
+            transition: color 0.2s
+        }
+
+        .mic-req-skip:hover {
+            color: var(--text)
+        }
+
+        .mic-denied-help {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 20px;
+            text-align: left
+        }
+
+        .mic-denied-help h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 8px
+        }
+
+        .mic-denied-help ol {
+            padding-left: 20px;
+            font-size: 0.8rem;
+            color: var(--text2);
+            line-height: 1.7
         }
 
         .setup-grid {
@@ -1860,6 +2032,10 @@
             .cursor-ring {
                 display: none
             }
+
+            .mic-req-card {
+                padding: 24px 20px
+            }
         }
     </style>
 </head>
@@ -1894,6 +2070,50 @@
                 class="fa-solid fa-crown"></i> Rejalar</a>
     </div>
 
+    <!-- ══ MIC REQUEST OVERLAY (MOBIL UCHUN) ══ -->
+    <div id="micRequestOverlay">
+        <div class="mic-req-card" id="micReqCard">
+            <span class="mic-req-icon">🎙️</span>
+            <h2>Mikrofon ruxsati</h2>
+            <p>Voice Rooms'da gapirishingiz uchun brauzeringiz mikrofon ruxsatini so'raydi. Pastdagi tugmani bosing.</p>
+            <div class="mic-req-steps">
+                <h4>Qanday ishlaydi?</h4>
+                <div class="mic-req-step">
+                    <div class="mic-req-step-num">1</div> Quyidagi tugmani bosing
+                </div>
+                <div class="mic-req-step">
+                    <div class="mic-req-step-num">2</div> Brauzer yuqorida ruxsat so'raydi
+                </div>
+                <div class="mic-req-step">
+                    <div class="mic-req-step-num">3</div> <strong>"Ruxsat berish"</strong> tugmasini tanlang
+                </div>
+            </div>
+            <button class="mic-req-btn-big" id="micReqBigBtn" onclick="triggerMicRequest()">
+                <i class="fa-solid fa-microphone"></i> Mikrofonga ruxsat berish
+            </button>
+            <button class="mic-req-skip" onclick="closeMicOverlay()">Hozircha o'tkazib yuborish</button>
+        </div>
+
+        <!-- Denied holat -->
+        <div class="mic-req-card" id="micDeniedCard" style="display:none">
+            <span class="mic-req-icon">🚫</span>
+            <h2>Mikrofon bloklangan</h2>
+            <div class="mic-denied-help">
+                <h4>Qanday yoqish mumkin:</h4>
+                <ol id="deniedInstructions">
+                    <li>Brauzer manzil satridagi qulf belgisini bosing</li>
+                    <li>"Mikrofon" bo'limini toping</li>
+                    <li>"Ruxsat berish" ni tanlang</li>
+                    <li>Sahifani qayta yuklang</li>
+                </ol>
+            </div>
+            <button class="mic-req-btn-big" onclick="window.location.reload()">
+                <i class="fa-solid fa-rotate"></i> Sahifani yangilash
+            </button>
+            <button class="mic-req-skip" onclick="closeMicOverlay()">Siz holida davom etish</button>
+        </div>
+    </div>
+
     <main>
         <div class="page-header">
             <div class="page-badge"><i class="fa-solid fa-tower-broadcast"></i> Live Voice Rooms</div>
@@ -1901,15 +2121,14 @@
             <p class="page-sub">Ochiq xonaga kiring yoki o'zingiz xona oching — cheksiz, bepul</p>
         </div>
 
-        <!-- ══ MIC PERMISSION BANNER ══ -->
+        <!-- ══ MIC STATUS BANNER (kichik, sahifa tepasida) ══ -->
         <div class="mic-banner" id="micBanner">
             <div class="mic-banner-icon" id="micBannerIcon">🎙️</div>
             <div class="mic-banner-text">
                 <strong id="micBannerTitle">Mikrofon ruxsati kerak</strong>
-                <p id="micBannerDesc">Voice Rooms ishlatish uchun brauzeringiz mikrofon ruxsatini bering. Bu bir marta
-                    so'raladi.</p>
+                <p id="micBannerDesc">Voice Rooms ishlatish uchun mikrofon ruxsatini bering.</p>
             </div>
-            <button class="mic-banner-btn primary" id="micBannerBtn" onclick="requestMicPermission()">
+            <button class="mic-banner-btn primary" id="micBannerBtn" onclick="showMicOverlay()">
                 <i class="fa-solid fa-microphone"></i> Ruxsat berish
             </button>
         </div>
@@ -2337,19 +2556,19 @@
         let waveformRAF = null;
         let myAnalyserForWave = null;
 
+        // ══ MIC PERMISSION STATE ══
+        // 'unknown' | 'granted' | 'denied' | 'prompt'
+        let micPermissionState = 'unknown';
+
         // ══ BROWSER COMPAT: getUserMedia polyfill ══
         (function patchGetUserMedia() {
-            if (!navigator.mediaDevices) {
-                navigator.mediaDevices = {};
-            }
+            if (!navigator.mediaDevices) navigator.mediaDevices = {};
             if (!navigator.mediaDevices.getUserMedia) {
-                const gum = navigator.getUserMedia
-                    || navigator.webkitGetUserMedia
-                    || navigator.mozGetUserMedia
-                    || navigator.msGetUserMedia;
+                const gum = navigator.getUserMedia || navigator.webkitGetUserMedia
+                    || navigator.mozGetUserMedia || navigator.msGetUserMedia;
                 if (gum) {
-                    navigator.mediaDevices.getUserMedia = (constraints) =>
-                        new Promise((resolve, reject) => gum.call(navigator, constraints, resolve, reject));
+                    navigator.mediaDevices.getUserMedia = (c) =>
+                        new Promise((res, rej) => gum.call(navigator, c, res, rej));
                 } else {
                     navigator.mediaDevices.getUserMedia = () =>
                         Promise.reject(new Error('getUserMedia not supported'));
@@ -2357,7 +2576,6 @@
             }
         })();
 
-        // ══ AudioContext polyfill ══
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
         // ══ CURSOR ══
@@ -2431,50 +2649,133 @@
         window.addEventListener('offline', () => { updateNetStatus(); showToast('<i class="fa-solid fa-wifi-slash"></i> Internet yo\'q!', 'error'); });
         updateNetStatus();
 
-        // ══════════════════════════════════════════
-        // MIKROFON RUXSAT TIZIMI (YANGI)
-        // ══════════════════════════════════════════
-        let micPermissionState = 'unknown'; // unknown | granted | denied | prompt
+        // ══════════════════════════════════════════════════════════
+        // MIKROFON RUXSAT TIZIMI — MOBIL VA DESKTOP UCHUN TO'G'RI
+        // ══════════════════════════════════════════════════════════
 
-        async function checkMicPermission() {
-            // permissions API bor bo'lsa (Chrome, Firefox ≥46, Edge)
+        // Qurilma turini aniqlash
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+        // Mikrofon overlay ko'rsatish (foydalanuvchi tugma bosishi kerak)
+        window.showMicOverlay = function () {
+            document.getElementById('micReqCard').style.display = 'block';
+            document.getElementById('micDeniedCard').style.display = 'none';
+            document.getElementById('micRequestOverlay').classList.add('show');
+        };
+
+        window.closeMicOverlay = function () {
+            document.getElementById('micRequestOverlay').classList.remove('show');
+        };
+
+        // Haqiqiy getUserMedia chaqiruvi — FAQAT TUGMA BOSILGANDA
+        window.triggerMicRequest = async function () {
+            const btn = document.getElementById('micReqBigBtn');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Kutilmoqda...';
+            btn.disabled = true;
+
+            try {
+                // Birinchi marta oddiy audio so'rash (barcha brauzerlar uchun)
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                // Muvaffaqiyatli bo'ldi
+                stream.getTracks().forEach(t => t.stop());
+                micPermissionState = 'granted';
+                document.getElementById('micRequestOverlay').classList.remove('show');
+                updateMicBanner();
+                await loadMicDevices();
+                showToast('<i class="fa-solid fa-microphone"></i> Mikrofon ruxsati berildi!', 'success');
+                // Avtomatik test boshlash
+                setTimeout(() => startMicTest(), 500);
+            } catch (e) {
+                btn.innerHTML = '<i class="fa-solid fa-microphone"></i> Qayta urinish';
+                btn.disabled = false;
+
+                if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError' || e.name === 'SecurityError') {
+                    micPermissionState = 'denied';
+                    // Denied kartochkasini ko'rsat
+                    document.getElementById('micReqCard').style.display = 'none';
+                    document.getElementById('micDeniedCard').style.display = 'block';
+                    // Brauzerga qarab yo'riqnoma
+                    const ol = document.getElementById('deniedInstructions');
+                    if (isIOS || isSafari) {
+                        ol.innerHTML = `
+          <li>Telefon <strong>Sozlamalari</strong>ga kiring</li>
+          <li><strong>Safari</strong> yoki brauzeringizni toping</li>
+          <li><strong>Mikrofon</strong> → <strong>Ruxsat</strong> qiling</li>
+          <li>Sahifani qayta oching</li>`;
+                    } else if (isMobile) {
+                        ol.innerHTML = `
+          <li>Brauzer manzil satrini bosing</li>
+          <li>🔒 yoki ℹ️ belgisini toping</li>
+          <li><strong>Sayt sozlamalari</strong> → <strong>Mikrofon</strong></li>
+          <li><strong>Ruxsat</strong> qilib sahifani yangilang</li>`;
+                    } else {
+                        ol.innerHTML = `
+          <li>Manzil satrida 🔒 belgisini bosing</li>
+          <li><strong>Mikrofon</strong> → <strong>Ruxsat berish</strong></li>
+          <li>Sahifani yangilang (F5)</li>`;
+                    }
+                    updateMicBanner();
+                } else if (e.name === 'NotFoundError' || e.name === 'DevicesNotFoundError') {
+                    document.getElementById('micRequestOverlay').classList.remove('show');
+                    showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon qurilmasi topilmadi!', 'error');
+                } else {
+                    showToast('<i class="fa-solid fa-triangle-exclamation"></i> ' + (e.message || 'Noma\'lum xatolik'), 'error');
+                }
+            }
+        };
+
+        // Sahifa yuklanishida — faqat permission API orqali tekshirish (getUserMedia chaqirmasdan)
+        async function checkMicPermissionSilent() {
             if (navigator.permissions && navigator.permissions.query) {
                 try {
                     const result = await navigator.permissions.query({ name: 'microphone' });
-                    micPermissionState = result.state; // 'granted' | 'denied' | 'prompt'
-                    result.addEventListener('change', () => {
+                    micPermissionState = result.state;
+
+                    // O'zgarishlarni kuzatish
+                    result.addEventListener('change', async () => {
                         micPermissionState = result.state;
                         updateMicBanner();
-                        if (result.state === 'granted') loadMicDevices();
+                        if (result.state === 'granted') {
+                            await loadMicDevices();
+                            startMicTest();
+                        }
                     });
-                    updateMicBanner();
+
                     if (result.state === 'granted') {
+                        // Allaqachon ruxsat berilgan — qurilmalarni yukla
                         await loadMicDevices();
-                        autoStartMicTest();
+                        updateMicBanner();
+                        setTimeout(() => startMicTest(), 300);
+                        return;
+                    } else if (result.state === 'denied') {
+                        updateMicBanner();
+                        return;
+                    } else {
+                        // 'prompt' — mobilda overlay ko'rsat, desktopda banner
+                        updateMicBanner();
+                        if (isMobile) {
+                            // Mobil uchun: kichik kechikma bilan overlay ko'rsat
+                            setTimeout(() => showMicOverlay(), 800);
+                        }
+                        return;
                     }
-                    return result.state;
-                } catch (e) { /* Safari doesn't support microphone permission query */ }
-            }
-            // Safari fallback: try silently
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                stream.getTracks().forEach(t => t.stop());
-                micPermissionState = 'granted';
-                updateMicBanner();
-                await loadMicDevices();
-                autoStartMicTest();
-                return 'granted';
-            } catch (e) {
-                if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
-                    micPermissionState = 'denied';
-                } else {
-                    micPermissionState = 'prompt';
+                } catch (e) {
+                    // Permission API yo'q (eski brauzerlar, iOS Safari)
                 }
-                updateMicBanner();
-                return micPermissionState;
+            }
+
+            // Fallback: iOS Safari va eski brauzerlar uchun
+            // getUserMedia chaqirmaymiz, faqat banner ko'rsatamiz
+            micPermissionState = 'prompt';
+            updateMicBanner();
+            if (isMobile) {
+                setTimeout(() => showMicOverlay(), 800);
             }
         }
 
+        // Banner holati yangilash
         function updateMicBanner() {
             const banner = document.getElementById('micBanner');
             const icon = document.getElementById('micBannerIcon');
@@ -2483,59 +2784,42 @@
             const btn = document.getElementById('micBannerBtn');
 
             if (micPermissionState === 'granted') {
-                banner.className = 'mic-banner show granted';
-                icon.textContent = '✅';
-                title.textContent = 'Mikrofon tayyor!';
-                desc.textContent = 'Mikrofon ruxsati berilgan. Xona yaratish yoki kirishingiz mumkin.';
-                btn.style.display = 'none';
-                setTimeout(() => banner.classList.remove('show'), 3000);
+                // Muvaffaqiyatli — bannerni yashir
+                banner.classList.remove('show');
             } else if (micPermissionState === 'denied') {
                 banner.className = 'mic-banner show denied';
                 icon.textContent = '🚫';
                 title.textContent = 'Mikrofon bloklangan!';
-                desc.innerHTML = 'Brauzer sozlamalaridan mikrofon ruxsatini qo\'lda yoqing: <strong>🔒 > Mikrofon > Ruxsat</strong>';
+                if (isIOS || isSafari) {
+                    desc.innerHTML = 'Sozlamalar → Safari → Mikrofon → Ruxsat qiling';
+                } else if (isMobile) {
+                    desc.innerHTML = 'Brauzer sozlamalaridan mikrofon ruxsatini yoqing';
+                } else {
+                    desc.innerHTML = 'Manzil satridagi 🔒 belgisi → Mikrofon → Ruxsat';
+                }
                 btn.style.display = 'none';
-            } else if (micPermissionState === 'prompt' || micPermissionState === 'unknown') {
+            } else {
+                // prompt yoki unknown
                 banner.className = 'mic-banner show';
                 icon.textContent = '🎙️';
                 title.textContent = 'Mikrofon ruxsati kerak';
-                desc.textContent = 'Voice Rooms ishlatish uchun mikrofon ruxsatini bering. Bu bir marta so\'raladi.';
+                desc.textContent = isMobile
+                    ? 'Gaplashish uchun mikrofon ruxsatini bering'
+                    : 'Voice Rooms uchun mikrofon ruxsatini bering';
                 btn.style.display = '';
+                btn.innerHTML = '<i class="fa-solid fa-microphone"></i> Ruxsat berish';
             }
         }
 
-        window.requestMicPermission = async () => {
-            showOverlay('Mikrofon ruxsati so\'ralmoqda...', 'Brauzer yuqorisidagi so\'rovni tasdiqlang');
-            try {
-                const stream = await getCompatibleStream({ audio: true });
-                stream.getTracks().forEach(t => t.stop());
-                micPermissionState = 'granted';
-                updateMicBanner();
-                hideOverlay();
-                showToast('<i class="fa-solid fa-microphone"></i> Mikrofon ruxsati berildi!', 'success');
-                await loadMicDevices();
-                autoStartMicTest();
-            } catch (e) {
-                hideOverlay();
-                if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError') {
-                    micPermissionState = 'denied';
-                    updateMicBanner();
-                    showToast('<i class="fa-solid fa-ban"></i> Mikrofon rad etildi. Sozlamalardan yoqing.', 'error');
-                } else {
-                    showToast('<i class="fa-solid fa-exclamation-triangle"></i> Mikrofon topilmadi!', 'error');
-                }
-            }
-        };
+        // Backward compat — eski nomni ham saqlash
+        window.requestMicPermission = window.showMicOverlay;
 
         // ══ CROSS-BROWSER getUserMedia wrapper ══
         async function getCompatibleStream(constraints) {
-            // Build safe constraints for all browsers
             let safeConstraints = { audio: true };
             if (constraints.audio && typeof constraints.audio === 'object') {
                 const audioConstr = constraints.audio;
-                // Safari doesn't support all constraints — strip unknown ones
-                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-                if (isSafari) {
+                if (isIOS || isSafari) {
                     safeConstraints.audio = {
                         echoCancellation: audioConstr.echoCancellation !== false,
                         noiseSuppression: audioConstr.noiseSuppression !== false,
@@ -2549,17 +2833,11 @@
             try {
                 return await navigator.mediaDevices.getUserMedia(safeConstraints);
             } catch (e) {
-                // If constrained request fails, try basic audio
                 if (safeConstraints.audio !== true) {
                     try { return await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e2) { throw e2; }
                 }
                 throw e;
             }
-        }
-
-        // Auto start mic test after permission
-        function autoStartMicTest() {
-            setTimeout(() => { startMicTest(); }, 300);
         }
 
         // ══ LOAD MIC DEVICES ══
@@ -2571,15 +2849,15 @@
                 ['micDeviceSelect', 'micDevSelect'].forEach(id => {
                     const sel = document.getElementById(id);
                     if (!sel) return;
-                    sel.innerHTML = mics.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Mikrofon ' + (i + 1)}</option>`).join('');
+                    sel.innerHTML = mics.length > 0
+                        ? mics.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Mikrofon ' + (i + 1)}</option>`).join('')
+                        : '<option value="">Standart mikrofon</option>';
                 });
                 const outSel = document.getElementById('outDevSelect');
                 if (outSel) {
-                    if (outDevs.length > 0) {
-                        outSel.innerHTML = outDevs.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Chiqish ' + (i + 1)}</option>`).join('');
-                    } else {
-                        outSel.innerHTML = '<option value="">Standart chiqish</option>';
-                    }
+                    outSel.innerHTML = outDevs.length > 0
+                        ? outDevs.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Chiqish ' + (i + 1)}</option>`).join('')
+                        : '<option value="">Standart chiqish</option>';
                 }
             } catch (e) { /* silent */ }
         }
@@ -2592,7 +2870,8 @@
                 return;
             }
             if (micPermissionState !== 'granted') {
-                await requestMicPermission();
+                // Tugma bosilishi orqali so'rash
+                showMicOverlay();
                 return;
             }
             try {
@@ -2762,12 +3041,11 @@
             const audio = document.createElement('audio');
             audio.id = 'audio-' + pid;
             audio.autoplay = true;
-            audio.playsInline = true; // iOS Safari
+            audio.playsInline = true;
             audio.muted = false;
             audio.volume = Math.min(1, parseFloat(document.getElementById('masterVolSlider').value) / 100);
             audio.srcObject = remoteStream;
             document.body.appendChild(audio);
-            // Resume audio context (required by Safari/Chrome autoplay policy)
             audio.play().catch(() => { });
 
             try {
@@ -2786,7 +3064,7 @@
                 connections[pid].gainNode = gainNode;
                 connections[pid].analyser = analyserNode;
                 startVolBars(pid, analyserNode);
-            } catch (e) { /* audio element fallback only */ }
+            } catch (e) { }
         }
 
         // ══ SPEAKING DETECTION ══
@@ -3103,7 +3381,7 @@
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
             if (e.key === 'm' || e.key === 'M') { if (myStream) toggleMic(); }
             if (e.key === 'h' || e.key === 'H') { if (myStream) toggleHand(); }
-            if (e.key === 'Escape') { closeModal('createModal'); closeModal('joinPassModal'); closeModal('settingsModal'); }
+            if (e.key === 'Escape') { closeModal('createModal'); closeModal('joinPassModal'); closeModal('settingsModal'); closeMicOverlay(); }
         });
 
         // ══ SHOW ROOM UI ══
@@ -3225,7 +3503,6 @@
                             { urls: 'stun:stun1.l.google.com:19302' },
                             { urls: 'stun:stun2.l.google.com:19302' },
                             { urls: 'stun:global.stun.twilio.com:3478' },
-                            // Free TURN server for NAT traversal
                             { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' },
                             { urls: 'turn:openrelay.metered.ca:443', username: 'openrelayproject', credential: 'openrelayproject' },
                         ]
@@ -3239,8 +3516,17 @@
 
         // ══ GET MIC STREAM ══
         async function getMicStream() {
+            // Agar ruxsat berilmagan bo'lsa — avval so'rash
+            if (micPermissionState !== 'granted') {
+                // getUserMedia orqali so'rash (bu haqiqiy ruxsat dialogi ochadi)
+                const stream = await getCompatibleStream({ audio: true });
+                stream.getTracks().forEach(t => t.stop());
+                micPermissionState = 'granted';
+                updateMicBanner();
+                await loadMicDevices();
+            }
             const deviceId = document.getElementById('micDeviceSelect').value;
-            const stream = await getCompatibleStream({
+            return await getCompatibleStream({
                 audio: {
                     deviceId: deviceId ? { exact: deviceId } : undefined,
                     echoCancellation: true,
@@ -3251,7 +3537,6 @@
                     latency: { ideal: 0.01 },
                 }
             });
-            return stream;
         }
 
         // ══ CREATE ROOM ══
@@ -3277,8 +3562,13 @@
                 myStream = await getMicStream();
             } catch (e) {
                 hideOverlay();
-                if (micPermissionState === 'denied') {
-                    showToast('<i class="fa-solid fa-ban"></i> Mikrofon bloklangan! Sozlamalardan yoqing.', 'error');
+                if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError' || e.name === 'SecurityError') {
+                    micPermissionState = 'denied';
+                    updateMicBanner();
+                    showToast('<i class="fa-solid fa-ban"></i> Mikrofon rad etildi!', 'error');
+                    showMicOverlay();
+                    document.getElementById('micReqCard').style.display = 'none';
+                    document.getElementById('micDeniedCard').style.display = 'block';
                 } else {
                     showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ochmadi: ' + (e.message || e.name), 'error');
                 }
@@ -3380,8 +3670,13 @@
                 myStream = await getMicStream();
             } catch (e) {
                 hideOverlay();
-                if (micPermissionState === 'denied') {
-                    showToast('<i class="fa-solid fa-ban"></i> Mikrofon bloklangan! Sozlamalardan yoqing.', 'error');
+                if (e.name === 'NotAllowedError' || e.name === 'PermissionDeniedError' || e.name === 'SecurityError') {
+                    micPermissionState = 'denied';
+                    updateMicBanner();
+                    showToast('<i class="fa-solid fa-ban"></i> Mikrofon rad etildi!', 'error');
+                    showMicOverlay();
+                    document.getElementById('micReqCard').style.display = 'none';
+                    document.getElementById('micDeniedCard').style.display = 'block';
                 } else {
                     showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ochmadi: ' + (e.message || e.name), 'error');
                 }
@@ -3489,7 +3784,7 @@
 
         window.addEventListener('beforeunload', () => { doLeave(true); });
 
-        // Resume AudioContext on first user interaction (required by all browsers)
+        // Resume AudioContext on user interaction
         document.addEventListener('click', () => {
             if (masterCtx && masterCtx.state === 'suspended') masterCtx.resume().catch(() => { });
         }, { once: false });
@@ -3506,7 +3801,8 @@
         }
 
         // ══ START ══
-        checkMicPermission(); // Check on page load - no blocking!
+        // Sahifa yuklanganda: FAQAT silent tekshirish (getUserMedia chaqirmasdan!)
+        checkMicPermissionSilent();
         loadRooms();
     </script>
 </body>

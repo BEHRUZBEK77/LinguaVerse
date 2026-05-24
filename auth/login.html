@@ -41,32 +41,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            ;
+
         }
 
-        .cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: screen;
-            transition: transform 0.1s;
-        }
 
-        .cursor-ring {
-            position: fixed;
-            width: 36px;
-            height: 36px;
-            border: 1.5px solid rgba(79, 110, 247, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.18s ease;
-        }
 
         body::before {
             content: '';
@@ -487,8 +465,6 @@
             Bosh sahifa</a>
     </div>
 
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
 
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -704,24 +680,7 @@
         });
     </script>
 
-    <script>
-        const cursor = document.getElementById('cursor');
-        const ring = document.getElementById('cursorRing');
-        let mx = 0, my = 0, rx = 0, ry = 0;
-        document.addEventListener('mousemove', e => {
-            mx = e.clientX; my = e.clientY;
-            cursor.style.left = mx - 5 + 'px';
-            cursor.style.top = my - 5 + 'px';
-        });
-        function animateRing() {
-            rx += (mx - rx - 18) * 0.12;
-            ry += (my - ry - 18) * 0.12;
-            ring.style.left = rx + 'px';
-            ring.style.top = ry + 'px';
-            requestAnimationFrame(animateRing);
-        }
-        animateRing();
-    </script>
+
 </body>
 
 </html>

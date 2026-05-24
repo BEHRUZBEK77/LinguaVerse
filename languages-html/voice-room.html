@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaVerse — Voice Rooms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #04060f;
+            --surface: #0b0f1e;
+            --surface2: #111629;
+            --border: rgba(255, 255, 255, 0.07);
+            --accent: #4f6ef7;
+            --accent2: #a78bfa;
+            --gold: #f5c842;
+            --text: #e8ecff;
+            --muted: #7580a8;
+            --green: #34d399;
+            --red: #ef4444;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            cursor: none;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: screen;
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(79, 110, 247, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.18s ease;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(79, 110, 247, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 110, 247, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(79, 110, 247, 0.12);
+            top: -100px;
+            left: -100px;
+            animation: drift1 20s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(167, 139, 250, 0.09);
+            bottom: 0;
+            right: -80px;
+            animation: drift2 25s ease-in-out infinite;
+        }
+
+        @keyframes drift1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(60px, 40px)
+            }
+        }
+
+        @keyframes drift2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-40px, -60px)
+            }
+        }
+
+        nav#navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            height: 64px;
+            background: rgba(4, 6, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 4px;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        .site-nav {
+            position: sticky;
+            top: 64px;
+            z-index: 99;
+            background: rgba(3, 5, 9, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .site-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .snav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .snav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(79, 110, 247, 0.12);
+            border: 1px solid rgba(79, 110, 247, 0.3);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-title span {
+            color: var(--accent);
+        }
+
+        .page-sub {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .name-bar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .name-bar label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .name-bar input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+        }
+
+        .name-bar input::placeholder {
+            color: var(--muted);
+        }
+
+        .create-area {
+            display: flex;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto 36px;
+        }
+
+        .create-area input {
+            flex: 1;
+            padding: 13px 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .create-area input:focus {
+            border-color: var(--accent);
+        }
+
+        .create-area input::placeholder {
+            color: var(--muted);
+        }
+
+        .btn-create {
+            padding: 13px 24px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            font-size: 0.92rem;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-create:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(79, 110, 247, 0.35);
+        }
+
+        .rooms-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .rooms-header h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rooms-header h3 i {
+            color: var(--accent);
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+
+        .room-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            transition: all 0.25s;
+        }
+
+        .room-card:hover {
+            border-color: rgba(79, 110, 247, 0.35);
+            background: var(--surface2);
+            transform: translateY(-2px);
+        }
+
+        .rc-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .rc-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .rc-badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .rc-badge.live {
+            background: rgba(52, 211, 153, 0.12);
+            color: var(--green);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rc-badge.live::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.3
+            }
+        }
+
+        .rc-meta {
+            display: flex;
+            gap: 14px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-bottom: 14px;
+        }
+
+        .rc-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rc-join {
+            width: 100%;
+            padding: 10px;
+            background: rgba(79, 110, 247, 0.1);
+            border: 1px solid rgba(79, 110, 247, 0.25);
+            border-radius: 10px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .rc-join:hover {
+            background: rgba(79, 110, 247, 0.25);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--muted);
+            grid-column: 1/-1;
+        }
+
+        .empty-state i {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            opacity: 0.35;
+            display: block;
+        }
+
+        .empty-state p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        #activeRoom {
+            display: none;
+        }
+
+        .voice-room-wrap {
+            background: var(--surface);
+            border: 1px solid rgba(79, 110, 247, 0.2);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .room-top {
+            background: linear-gradient(135deg, rgba(79, 110, 247, 0.15), rgba(167, 139, 250, 0.1));
+            border-bottom: 1px solid var(--border);
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .room-top-left h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .room-top-left p {
+            color: var(--muted);
+            font-size: 0.82rem;
+            margin-top: 2px;
+        }
+
+        .live-dot {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(52, 211, 153, 0.12);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            color: var(--green);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .live-dot::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 1.5s infinite;
+        }
+
+        .participants-area {
+            padding: 28px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            min-height: 180px;
+            align-items: flex-start;
+            align-content: flex-start;
+        }
+
+        .participant {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 80px;
+        }
+
+        .participant-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .participant-avatar.speaking {
+            border-color: var(--green);
+            box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2), 0 0 0 8px rgba(52, 211, 153, 0.08);
+        }
+
+        .participant-avatar.muted {
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .mute-icon {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--red);
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;
+            color: #fff;
+            display: none;
+        }
+
+        .participant-avatar.muted .mute-icon {
+            display: flex;
+        }
+
+        .participant-name {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 80px;
+        }
+
+        .participant-you {
+            font-size: 0.62rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .room-controls {
+            padding: 20px 24px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .ctrl-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .ctrl-btn.mic {
+            background: rgba(79, 110, 247, 0.15);
+            border: 2px solid rgba(79, 110, 247, 0.4);
+            color: var(--accent);
+        }
+
+        .ctrl-btn.mic:hover {
+            background: rgba(79, 110, 247, 0.3);
+        }
+
+        .ctrl-btn.mic.muted {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: rgba(239, 68, 68, 0.4);
+            color: var(--red);
+        }
+
+        .ctrl-btn.leave {
+            width: auto;
+            padding: 0 24px;
+            border-radius: 26px;
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            color: var(--red);
+            font-size: 0.85rem;
+            font-weight: 700;
+            gap: 8px;
+            display: flex;
+            align-items: center;
+            font-family: 'DM Sans', sans-serif;
+            height: 52px;
+        }
+
+        .ctrl-btn.leave:hover {
+            background: rgba(239, 68, 68, 0.3);
+        }
+
+        .ctrl-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .ctrl-label {
+            font-size: 0.68rem;
+            color: var(--muted);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 20px;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 9999;
+            transition: transform 0.3s;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.success {
+            border-color: rgba(52, 211, 153, 0.4);
+            color: var(--green);
+        }
+
+        .toast.error {
+            border-color: rgba(239, 68, 68, 0.4);
+            color: var(--red);
+        }
+
+        #connectingOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(4, 6, 15, 0.88);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        #connectingOverlay.show {
+            display: flex;
+        }
+
+        .spinner-big {
+            width: 56px;
+            height: 56px;
+            border: 3px solid rgba(79, 110, 247, 0.2);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #connectingOverlay p {
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .nav-center {
+                display: none;
+            }
+
+            main {
+                padding: 24px 16px 60px;
+            }
+
+            .create-area {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <nav id="navbar">
+        <a href="../index.html" class="logo">Lingua<span>Verse</span></a>
+        <div class="nav-center">
+            <a href="English.html" class="nav-link"><i class="fa-solid fa-graduation-cap"></i>English</a>
+            <a href="voice-room.html" class="nav-link active"><i class="fa-solid fa-microphone"></i>Voice Rooms</a>
+            <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profil</a>
+        </div>
+        <div id="navUserInfo" style="font-size:0.82rem;font-weight:600;color:var(--muted)"></div>
+    </nav>
+
+    <div class="site-nav">
+        <a href="../index.html" class="snav-link"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
+        <a href="../select-language.html" class="snav-link"><i class="fa-solid fa-globe"></i> Tillar</a>
+        <a href="English.html" class="snav-link"><i class="fa-solid fa-graduation-cap"></i> English</a>
+        <a href="shop.html" class="snav-link" style="color:#a78bfa;border-color:rgba(167,139,250,0.3)"><i
+                class="fa-solid fa-bag-shopping"></i> Do'kon</a>
+        <a href="../order.html" class="snav-link" style="color:#f472b6;border-color:rgba(244,114,182,0.25)"><i
+                class="fa-solid fa-crown"></i> Rejalar</a>
+    </div>
+
+    <main>
+        <div class="page-header">
+            <div class="page-badge"><i class="fa-solid fa-tower-broadcast"></i> Live Voice Rooms</div>
+            <h1 class="page-title">Xona tanlang va <span>gaplashing</span></h1>
+            <p class="page-sub">Ochiq xonaga kiring yoki o'zingiz xona oching — cheksiz, bepul</p>
+        </div>
+
+        <div id="setupArea">
+            <div class="name-bar">
+                <label><i class="fa-solid fa-user" style="color:var(--accent)"></i> Ismingiz:</label>
+                <input type="text" id="myName" placeholder="Masalan: Azizbek" maxlength="20" />
+            </div>
+            <div class="create-area">
+                <input type="text" id="roomNameInput" placeholder="Xona nomi... (masalan: English Practice)"
+                    maxlength="40" />
+                <button class="btn-create" onclick="createRoom()">
+                    <i class="fa-solid fa-plus"></i> Xona ochish
+                </button>
+            </div>
+            <div class="rooms-header">
+                <h3><i class="fa-solid fa-door-open"></i> Barcha ochiq xonalar</h3>
+            </div>
+            <div class="rooms-grid" id="roomsGrid">
+                <div class="empty-state"><i class="fa-solid fa-rotate fa-spin"></i>
+                    <p>Yuklanmoqda...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="activeRoom">
+            <div class="voice-room-wrap">
+                <div class="room-top">
+                    <div class="room-top-left">
+                        <h2 id="activeRoomName">Voice Room</h2>
+                        <p id="activeRoomSub"></p>
+                    </div>
+                    <div class="live-dot">LIVE</div>
+                </div>
+                <div class="participants-area" id="participantsArea"></div>
+                <div class="room-controls">
+                    <div class="ctrl-wrap">
+                        <button class="ctrl-btn mic" id="micBtn" onclick="toggleMic()">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                        <div class="ctrl-label" id="micLabel">Mikrofon</div>
+                    </div>
+                    <button class="ctrl-btn leave" onclick="leaveRoom()">
+                        <i class="fa-solid fa-phone-slash"></i> Chiqish
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="connectingOverlay">
+        <div class="spinner-big"></div>
+        <p id="connectingText">Ulanmoqda...</p>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <script type="module">
+        import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import {
+            getFirestore, collection, addDoc, doc, deleteDoc,
+            updateDoc, onSnapshot, serverTimestamp, query, orderBy, arrayUnion, arrayRemove, getDoc
+        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const FB_CONFIG = {
+            apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
+            authDomain: "linguaverse-ebe09.firebaseapp.com",
+            projectId: "linguaverse-ebe09",
+            storageBucket: "linguaverse-ebe09.firebasestorage.app",
+            messagingSenderId: "130625454868",
+            appId: "1:130625454868:web:3f02871f64cb5f8af27801"
+        };
+
+        let _app;
+        try { _app = getApp(); } catch { _app = initializeApp(FB_CONFIG); }
+        const db = getFirestore(_app);
+
+        // ── CURSOR ──
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursorRing');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX - 5 + 'px'; cursor.style.top = e.clientY - 5 + 'px';
+            cursorRing.style.left = e.clientX - 18 + 'px'; cursorRing.style.top = e.clientY - 18 + 'px';
+        });
+
+        // ── STATE ──
+        let peer = null;
+        let myStream = null;
+        let myPeerId = null;
+        let myRoomDocId = null;
+        let myRoomName = '';
+        let isMuted = false;
+        // connections: { peerId: { call, data } }
+        let connections = {};
+        // participants: { peerId: { name, muted } }
+        let participants = {};
+        // Firestore real-time listener xona ichida
+        let unsubRoom = null;
+
+        // ── UTILS ──
+        function showToast(msg, type = '') {
+            const t = document.getElementById('toast');
+            t.className = 'toast ' + type; t.innerHTML = msg; t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+        function showOverlay(text) {
+            document.getElementById('connectingText').textContent = text;
+            document.getElementById('connectingOverlay').classList.add('show');
+        }
+        function hideOverlay() { document.getElementById('connectingOverlay').classList.remove('show'); }
+
+        // ── RENDER ──
+        function renderParticipants() {
+            const area = document.getElementById('participantsArea');
+            const myName = document.getElementById('myName').value.trim() || 'Men';
+            area.innerHTML = '';
+
+            // O'zim
+            const me = document.createElement('div');
+            me.className = 'participant';
+            me.innerHTML = `
+    <div class="participant-avatar ${isMuted ? 'muted' : ''}" id="avatar-me">
+      ${myName.charAt(0).toUpperCase()}
+      <div class="mute-icon"><i class="fa-solid fa-microphone-slash"></i></div>
+    </div>
+    <div class="participant-name">${myName}</div>
+    <div class="participant-you">(Siz)</div>`;
+            area.appendChild(me);
+
+            Object.entries(participants).forEach(([pid, data]) => {
+                const div = document.createElement('div');
+                div.className = 'participant';
+                div.innerHTML = `
+      <div class="participant-avatar ${data.muted ? 'muted' : ''}" id="avatar-${pid}">
+        ${(data.name || '?').charAt(0).toUpperCase()}
+        <div class="mute-icon"><i class="fa-solid fa-microphone-slash"></i></div>
+      </div>
+      <div class="participant-name">${data.name || 'Mehmon'}</div>`;
+                area.appendChild(div);
+            });
+        }
+
+        // ── SPEAKING ──
+        function detectSpeaking(stream, avatarId) {
+            try {
+                const ctx = new AudioContext();
+                const analyser = ctx.createAnalyser();
+                ctx.createMediaStreamSource(stream).connect(analyser);
+                analyser.fftSize = 512;
+                const data = new Uint8Array(analyser.frequencyBinCount);
+                let speaking = false;
+                setInterval(() => {
+                    analyser.getByteFrequencyData(data);
+                    const avg = data.reduce((a, b) => a + b, 0) / data.length;
+                    const now = avg > 12;
+                    if (now !== speaking) {
+                        speaking = now;
+                        document.getElementById(avatarId)?.classList.toggle('speaking', now);
+                    }
+                }, 100);
+            } catch (e) { }
+        }
+
+        // ── CALL ONE PEER ──
+        function callPeer(targetPeerId, targetName) {
+            if (connections[targetPeerId]?.call) return; // allaqachon ulangan
+            const call = peer.call(targetPeerId, myStream, {
+                metadata: { name: document.getElementById('myName').value.trim() }
+            });
+            if (!call) return;
+            participants[targetPeerId] = { name: targetName || 'Mehmon', muted: false };
+
+            call.on('stream', remoteStream => {
+                let audio = document.getElementById('audio-' + targetPeerId);
+                if (!audio) {
+                    audio = document.createElement('audio');
+                    audio.id = 'audio-' + targetPeerId;
+                    audio.autoplay = true;
+                    document.body.appendChild(audio);
+                }
+                audio.srcObject = remoteStream;
+                detectSpeaking(remoteStream, 'avatar-' + targetPeerId);
+                renderParticipants();
+                showToast(`<i class="fa-solid fa-user-plus"></i> ${participants[targetPeerId]?.name || 'Mehmon'} qo'shildi!`, 'success');
+            });
+
+            call.on('close', () => removeParticipant(targetPeerId));
+            call.on('error', () => removeParticipant(targetPeerId));
+
+            if (!connections[targetPeerId]) connections[targetPeerId] = {};
+            connections[targetPeerId].call = call;
+        }
+
+        // ── ANSWER INCOMING CALL ──
+        function answerCall(call) {
+            if (connections[call.peer]?.answered) return;
+            if (!connections[call.peer]) connections[call.peer] = {};
+            connections[call.peer].answered = true;
+
+            call.answer(myStream);
+            const remoteName = call.metadata?.name || 'Mehmon';
+            participants[call.peer] = { name: remoteName, muted: false };
+
+            call.on('stream', remoteStream => {
+                let audio = document.getElementById('audio-' + call.peer);
+                if (!audio) {
+                    audio = document.createElement('audio');
+                    audio.id = 'audio-' + call.peer;
+                    audio.autoplay = true;
+                    document.body.appendChild(audio);
+                }
+                audio.srcObject = remoteStream;
+                detectSpeaking(remoteStream, 'avatar-' + call.peer);
+                renderParticipants();
+                showToast(`<i class="fa-solid fa-user-plus"></i> ${remoteName} qo'shildi!`, 'success');
+            });
+
+            call.on('close', () => removeParticipant(call.peer));
+            call.on('error', () => removeParticipant(call.peer));
+            connections[call.peer].call = call;
+        }
+
+        // ── REMOVE PARTICIPANT ──
+        function removeParticipant(pid) {
+            const name = participants[pid]?.name || 'Foydalanuvchi';
+            delete participants[pid];
+            delete connections[pid];
+            document.getElementById('audio-' + pid)?.remove();
+            renderParticipants();
+            showToast(`<i class="fa-solid fa-user-minus"></i> ${name} chiqdi`, '');
+        }
+
+        // ── DATA CONNECTION ──
+        function setupDataConn(conn) {
+            conn.on('data', data => {
+                if (data.type === 'mute' && participants[conn.peer]) {
+                    participants[conn.peer].muted = data.muted;
+                    renderParticipants();
+                }
+            });
+            if (!connections[conn.peer]) connections[conn.peer] = {};
+            connections[conn.peer].data = conn;
+        }
+
+        // ── MIC TOGGLE ──
+        window.toggleMic = function () {
+            if (!myStream) return;
+            isMuted = !isMuted;
+            myStream.getAudioTracks().forEach(t => t.enabled = !isMuted);
+            const btn = document.getElementById('micBtn');
+            btn.className = 'ctrl-btn mic' + (isMuted ? ' muted' : '');
+            btn.innerHTML = isMuted ? '<i class="fa-solid fa-microphone-slash"></i>' : '<i class="fa-solid fa-microphone"></i>';
+            document.getElementById('micLabel').textContent = isMuted ? 'Mute' : 'Mikrofon';
+            document.getElementById('avatar-me')?.classList.toggle('muted', isMuted);
+            Object.values(connections).forEach(c => {
+                try { c.data?.send({ type: 'mute', muted: isMuted }); } catch (e) { }
+            });
+        };
+
+        // ── SHOW ROOM UI ──
+        function showRoomUI(roomName) {
+            document.getElementById('setupArea').style.display = 'none';
+            document.getElementById('activeRoom').style.display = 'block';
+            document.getElementById('activeRoomName').textContent = roomName;
+            document.getElementById('activeRoomSub').textContent = Object.keys(participants).length + 1 + ' kishi';
+            renderParticipants();
+        }
+
+        // ── WATCH ROOM (real-time peers list) ──
+        // Har yangi peer qo'shilganda biz ham ulanamiz
+        function watchRoom(roomDocId) {
+            if (unsubRoom) unsubRoom();
+            unsubRoom = onSnapshot(doc(db, 'voiceRooms', roomDocId), async snap => {
+                if (!snap.exists()) {
+                    // Xona o'chirildi
+                    showToast('<i class="fa-solid fa-door-closed"></i> Xona yopildi!', 'error');
+                    await doLeave(false);
+                    return;
+                }
+                const data = snap.data();
+                const peers = data.peers || []; // [{ peerId, name }, ...]
+
+                // Har bir peer bilan ulaning (o'zimizdan tashqari, allaqachon ulanmagan)
+                peers.forEach(p => {
+                    if (p.peerId !== myPeerId && !connections[p.peerId]?.call) {
+                        callPeer(p.peerId, p.name);
+                    }
+                });
+
+                // Participant count yangilash
+                document.getElementById('activeRoomSub').textContent = peers.length + ' kishi';
+            });
+        }
+
+        // ── LOAD ROOMS ──
+        window.loadRooms = function () {
+            const q = query(collection(db, 'voiceRooms'), orderBy('createdAt', 'desc'));
+            onSnapshot(q, snap => {
+                const rooms = [];
+                snap.forEach(d => rooms.push({ id: d.id, ...d.data() }));
+                renderRooms(rooms);
+            });
+        };
+
+        function renderRooms(rooms) {
+            const grid = document.getElementById('roomsGrid');
+            if (rooms.length === 0) {
+                grid.innerHTML = `<div class="empty-state"><i class="fa-solid fa-satellite-dish"></i><p>Hozircha ochiq xona yo'q.<br>Birinchi bo'lib yarating! 🚀</p></div>`;
+                return;
+            }
+            grid.innerHTML = rooms.map(r => `
+    <div class="room-card">
+      <div class="rc-top">
+        <div class="rc-name">${escHtml(r.name)}</div>
+        <div class="rc-badge live">LIVE</div>
+      </div>
+      <div class="rc-meta">
+        <span><i class="fa-solid fa-user"></i> ${escHtml(r.hostName)}</span>
+        <span><i class="fa-solid fa-users"></i> ${(r.peers || []).length} kishi</span>
+      </div>
+      <button class="rc-join" onclick="window.joinRoom('${r.id}')">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Kirish
+      </button>
+    </div>
+  `).join('');
+        }
+
+        function escHtml(s) { return (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+        // ── INIT PEER ──
+        async function initPeer() {
+            return new Promise((resolve, reject) => {
+                const p = new Peer({
+                    host: '0.peerjs.com', port: 443, secure: true, path: '/', debug: 0
+                });
+                p.on('open', id => resolve({ p, id }));
+                p.on('error', reject);
+            });
+        }
+
+        // ── CREATE ROOM ──
+        window.createRoom = async function () {
+            const myName = document.getElementById('myName').value.trim();
+            myRoomName = document.getElementById('roomNameInput').value.trim();
+            if (!myName) { showToast('<i class="fa-solid fa-exclamation"></i> Ismingizni kiriting!', 'error'); return; }
+            if (!myRoomName) { showToast('<i class="fa-solid fa-exclamation"></i> Xona nomini kiriting!', 'error'); return; }
+
+            showOverlay('Mikrofonga ruxsat so\'ralmoqda...');
+            try {
+                myStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+            } catch (e) {
+                hideOverlay(); showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error'); return;
+            }
+
+            showOverlay('Xona yaratilmoqda...');
+            try {
+                const { p, id } = await initPeer();
+                peer = p; myPeerId = id;
+            } catch (e) {
+                hideOverlay(); showToast('<i class="fa-solid fa-triangle-exclamation"></i> Ulanishda xatolik!', 'error');
+                myStream.getTracks().forEach(t => t.stop()); myStream = null; return;
+            }
+
+            // Firebase ga xona yaratish
+            try {
+                const docRef = await addDoc(collection(db, 'voiceRooms'), {
+                    name: myRoomName,
+                    hostName: myName,
+                    hostPeerId: myPeerId,
+                    peers: [{ peerId: myPeerId, name: myName }],
+                    createdAt: serverTimestamp()
+                });
+                myRoomDocId = docRef.id;
+            } catch (e) {
+                hideOverlay(); showToast('<i class="fa-solid fa-triangle-exclamation"></i> Firebase xatosi!', 'error'); return;
+            }
+
+            // Incoming calls
+            peer.on('call', call => answerCall(call));
+            peer.on('connection', conn => setupDataConn(conn));
+            peer.on('error', err => showToast('Xatolik: ' + err.type, 'error'));
+
+            detectSpeaking(myStream, 'avatar-me');
+            watchRoom(myRoomDocId);
+            hideOverlay();
+            showRoomUI(myRoomName);
+            showToast('<i class="fa-solid fa-rocket"></i> Xona yaratildi!', 'success');
+        };
+
+        // ── JOIN ROOM ──
+        window.joinRoom = async function (roomDocId) {
+            const myName = document.getElementById('myName').value.trim();
+            if (!myName) { showToast('<i class="fa-solid fa-exclamation"></i> Avval ismingizni kiriting!', 'error'); return; }
+
+            showOverlay('Mikrofonga ruxsat so\'ralmoqda...');
+            try {
+                myStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+            } catch (e) {
+                hideOverlay(); showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error'); return;
+            }
+
+            showOverlay('Ulanmoqda...');
+            try {
+                const { p, id } = await initPeer();
+                peer = p; myPeerId = id;
+            } catch (e) {
+                hideOverlay(); showToast('<i class="fa-solid fa-triangle-exclamation"></i> Xatolik!', 'error');
+                myStream.getTracks().forEach(t => t.stop()); myStream = null; return;
+            }
+
+            // Xona ma'lumotlarini olish
+            let roomData;
+            try {
+                const snap = await getDoc(doc(db, 'voiceRooms', roomDocId));
+                if (!snap.exists()) { hideOverlay(); showToast('<i class="fa-solid fa-door-closed"></i> Xona topilmadi!', 'error'); peer.destroy(); return; }
+                roomData = snap.data();
+            } catch (e) {
+                hideOverlay(); showToast('Firebase xatosi!', 'error'); peer.destroy(); return;
+            }
+
+            myRoomDocId = roomDocId;
+            myRoomName = roomData.name;
+
+            // O'zimizni peers listiga qo'shish
+            try {
+                await updateDoc(doc(db, 'voiceRooms', roomDocId), {
+                    peers: arrayUnion({ peerId: myPeerId, name: myName })
+                });
+            } catch (e) { }
+
+            // Mavjud peers ga qo'ng'iroq qilish
+            const existingPeers = roomData.peers || [];
+            existingPeers.forEach(p => {
+                if (p.peerId !== myPeerId) callPeer(p.peerId, p.name);
+            });
+
+            // Incoming calls
+            peer.on('call', call => answerCall(call));
+            peer.on('connection', conn => setupDataConn(conn));
+            peer.on('error', err => showToast('Xatolik: ' + err.type, 'error'));
+
+            detectSpeaking(myStream, 'avatar-me');
+            watchRoom(roomDocId);
+            hideOverlay();
+            showRoomUI(myRoomName);
+            showToast('<i class="fa-solid fa-check-circle"></i> Xonaga kirdingiz!', 'success');
+        };
+
+        // ── LEAVE ──
+        async function doLeave(updateFirestore = true) {
+            if (unsubRoom) { unsubRoom(); unsubRoom = null; }
+            if (updateFirestore && myRoomDocId && myPeerId) {
+                try {
+                    const snap = await getDoc(doc(db, 'voiceRooms', myRoomDocId));
+                    if (snap.exists()) {
+                        const data = snap.data();
+                        const myName = document.getElementById('myName').value.trim();
+                        await updateDoc(doc(db, 'voiceRooms', myRoomDocId), {
+                            peers: arrayRemove({ peerId: myPeerId, name: myName })
+                        });
+                        // Agar host ketsa — xonani o'chir
+                        if (data.hostPeerId === myPeerId) {
+                            await deleteDoc(doc(db, 'voiceRooms', myRoomDocId));
+                        }
+                    }
+                } catch (e) { }
+            }
+            if (myStream) { myStream.getTracks().forEach(t => t.stop()); myStream = null; }
+            Object.values(connections).forEach(c => { try { c.call?.close(); c.data?.close(); } catch (e) { } });
+            connections = {}; participants = {};
+            document.querySelectorAll('audio[id^="audio-"]').forEach(a => a.remove());
+            if (peer) { peer.destroy(); peer = null; }
+            isMuted = false; myPeerId = null; myRoomDocId = null;
+            document.getElementById('activeRoom').style.display = 'none';
+            document.getElementById('setupArea').style.display = 'block';
+            document.getElementById('micBtn').className = 'ctrl-btn mic';
+            document.getElementById('micBtn').innerHTML = '<i class="fa-solid fa-microphone"></i>';
+        }
+
+        window.leaveRoom = async function () {
+            await doLeave(true);
+            showToast('<i class="fa-solid fa-door-open"></i> Xonadan chiqdingiz', '');
+        };
+
+        window.addEventListener('beforeunload', () => { doLeave(true); });
+
+        // ── START ──
+        loadRooms();
+    </script>
+</body>
+
+</html>

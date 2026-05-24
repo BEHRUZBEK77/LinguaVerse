@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>LinguaVerse — Deutsch (Nemis tili)</title>
+  <link rel="stylesheet" href="./css/German.css">
+</head>
+<body>
+
+<!-- BG ORBS -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="../index.html" class="logo">Lingua<span>Verse</span></a>
+  <div class="nav-center">
+    <a href="#units" class="nav-link">Units</a>
+    <a href="#words" class="nav-link">So'zlar</a>
+    <a href="#practice" class="nav-link">Mashqlar</a>
+    <a href="#videos" class="nav-link">Videolar</a>
+    <a href="#ai-chat" class="nav-link">AI Chat</a>
+  </div>
+  <div class="nav-right" id="navRight">
+    <div class="plan-badge-nav free" id="planBadgeNav">Free 🌱</div>
+    <div class="nav-user-info" id="navUserInfo">
+      <div class="nav-avatar" id="navAvatar">?</div>
+      <span class="nav-username" id="navUsername">Yuklanmoqda...</span>
+    </div>
+    <button class="nav-logout-btn" id="navLogoutBtn">Chiqish</button>
+  </div>
+</nav>
+    <!-- SITE NAV BAR -->
+    <div style="position:sticky;top:64px;z-index:99;background:rgba(3,5,9,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 24px;display:flex;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none">
+        <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🏠 Bosh sahifa</a>
+        <a href="../select-language.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🌍 Tillar</a>
+        <a href="shop.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(91,124,250,0.1);border:1px solid rgba(91,124,250,0.25);color:#a78bfa;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🛍️ Do'kon</a>
+        <a href="profile.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">👤 Profil</a>
+        <a href="../order.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(244,199,74,0.1);border:1px solid rgba(244,199,74,0.25);color:#f5c842;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">⭐ Rejalar</a>
+    </div>
+
+<!-- LIMIT BAR -->
+<div class="limit-bar" id="limitBar">
+  <div class="limit-bar-inner">
+    <span class="limit-icon">⏱</span>
+    <span id="limitText">Limit yuklanmoqda...</span>
+    <div class="limit-pills" id="limitPills"></div>
+    <span class="limit-reset" id="limitReset"></span>
+    <button class="upgrade-mini-btn" onclick="window.location.href='../order.html'">Upgrade →</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="de-hero">
+  <div class="de-hero-content">
+    <span class="lang-badge-big">🇩🇪</span>
+    <h1 class="de-title">Deutsch<br><span class="gradient-text">Kursi</span></h1>
+    <p class="de-subtitle">A1 dan C2 gacha — 4 daraja, grammatika, leksika,<br>AI suhbat sherigi bilan nemis tilini o'rgan!</p>
+    <div class="hero-stats-row">
+      <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l">Daraja</span></div>
+      <div class="hstat"><span class="hstat-n">60</span><span class="hstat-l">Unit</span></div>
+      <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">So'z</span></div>
+      <div class="hstat"><span class="hstat-n">AI</span><span class="hstat-l">Chat</span></div>
+    </div>
+  </div>
+  <div class="skill-radar-wrap">
+    <canvas id="radarCanvas" width="220" height="220"></canvas>
+    <div class="radar-labels">
+      <span class="rl rl-top">Lesen</span>
+      <span class="rl rl-right">Schreiben</span>
+      <span class="rl rl-bot-r">Sprechen</span>
+      <span class="rl rl-bot-l">Hören</span>
+      <span class="rl rl-left">Grammatik</span>
+    </div>
+  </div>
+</section>
+
+<!-- UNITS -->
+<section class="level-section" id="units">
+  <div class="container">
+    <div class="level-tabs" id="levelTabs">
+      <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner')">
+        🌱 Anfänger <span class="level-tag">A1</span>
+      </button>
+      <button class="level-tab" data-level="elementary" onclick="switchLevel('elementary')">
+        📗 Grundstufe <span class="level-tag">A2</span>
+      </button>
+      <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate')">
+        📘 Mittelstufe <span class="level-tag">B1</span>
+      </button>
+      <button class="level-tab" data-level="upperintermediate" onclick="switchLevel('upperintermediate')">
+        📙 Oberstufe <span class="level-tag">B2</span>
+      </button>
+      <button class="level-tab" data-level="advanced" onclick="switchLevel('advanced')">
+        🚀 Fortgeschritten <span class="level-tag">C1-C2</span>
+      </button>
+    </div>
+    <div class="units-grid" id="unitsGrid"></div>
+  </div>
+</section>
+
+<!-- WORDS -->
+<section class="words-section" id="words">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">📚 Lug'at</div>
+      <h2 class="section-title">So'zlar <span class="gradient-text">Kutubxonasi</span></h2>
+      <p class="section-sub">500+ nemischa so'z — o'zbek tarjimasi, audio talaffuz va misol jumlalar</p>
+    </div>
+    <div class="words-controls">
+      <input type="text" class="word-search" id="wordSearch" placeholder="So'z qidirish (nemischa yoki o'zbekcha)..." oninput="filterWords()">
+      <div class="word-filter-tabs" id="wordFilterTabs">
+        <button class="wf-tab active" onclick="filterByLevel('all',this)">Hammasi</button>
+        <button class="wf-tab" onclick="filterByLevel('beginner',this)">A1</button>
+        <button class="wf-tab" onclick="filterByLevel('elementary',this)">A2</button>
+        <button class="wf-tab" onclick="filterByLevel('intermediate',this)">B1</button>
+        <button class="wf-tab" onclick="filterByLevel('upperintermediate',this)">B2</button>
+        <button class="wf-tab" onclick="filterByLevel('advanced',this)">C1-C2</button>
+      </div>
+    </div>
+    <div class="words-grid" id="wordsGrid"></div>
+    <div class="load-more-wrap">
+      <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreWords()">Ko'proq ko'rish</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section class="practice-section" id="practice">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">🎯 Mashqlar</div>
+      <h2 class="section-title">6 xil <span class="gradient-text">Mashq</span></h2>
+      <p class="section-sub">Hören, Sprechen, Lesen, Schreiben, Grammatik va Postkarte</p>
+    </div>
+    <div class="practice-tabs">
+      <button class="ptab active" onclick="switchPractice('listening')">🎧 Hören</button>
+      <button class="ptab" onclick="switchPractice('speaking')">🎤 Sprechen</button>
+      <button class="ptab" onclick="switchPractice('reading')">📖 Lesen</button>
+      <button class="ptab" onclick="switchPractice('writing')">✍️ Schreiben</button>
+      <button class="ptab" onclick="switchPractice('grammar')">📝 Grammatik</button>
+      <button class="ptab" onclick="switchPractice('postcard')">📮 Postkarte</button>
+    </div>
+
+    <!-- HÖREN (Listening) -->
+    <div class="practice-panel active" id="panel-listening">
+      <div class="practice-card">
+        <div class="practice-icon">🎧</div>
+        <h3>Hören — Tinglab tushunish</h3>
+        <p class="practice-desc">Nemischa audio tinglang va savolga javob bering. Bir necha marta tinglashingiz mumkin.</p>
+        <div class="audio-player" id="audioPlayer">
+          <div class="audio-wave paused" id="audioWave">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶ Audio tinglash</button>
+          <div class="audio-text-hidden" id="audioTextHidden" style="display:none">
+            <p id="audioSentence"></p>
+          </div>
+        </div>
+        <div class="listening-q" id="listeningQ"></div>
+        <button class="check-btn" onclick="checkListening()">Tekshirish ✓</button>
+        <div class="feedback-box" id="listeningFeedback"></div>
+        <button class="next-ex-btn" onclick="nextListening()">Keyingi →</button>
+      </div>
+    </div>
+
+    <!-- SPRECHEN (Speaking) -->
+    <div class="practice-panel" id="panel-speaking">
+      <div class="practice-card">
+        <div class="practice-icon">🎤</div>
+        <h3>Sprechen — Gemini AI bilan suhbat</h3>
+        <p class="practice-desc">Mavzuni o'qing, nemischa gapiring. AI sizning talaffuzingizni baholaydi va xatolaringizni tuzatadi.</p>
+        <div class="speaking-prompt-box">
+          <div class="speak-topic" id="speakTopic"></div>
+          <div class="speak-example" id="speakExample"></div>
+        </div>
+        <div class="mic-area">
+          <button class="mic-btn" id="micBtn" onclick="toggleMic()">
+            <span class="mic-icon">🎤</span>
+            <span id="micBtnText">Gapirish boshlash</span>
+          </button>
+          <div class="mic-status" id="micStatus">Mikrofon tayyor</div>
+          <div class="transcript-box" id="transcriptBox"></div>
+        </div>
+        <button class="ai-analyze-btn" onclick="analyzeSpeaking()">AI tahlil qilsin 🤖</button>
+        <div class="feedback-box" id="speakingFeedback"></div>
+        <button class="next-ex-btn" onclick="nextSpeaking()">Yangi mavzu →</button>
+      </div>
+    </div>
+
+    <!-- LESEN (Reading) -->
+    <div class="practice-panel" id="panel-reading">
+      <div class="practice-card">
+        <div class="practice-icon">📖</div>
+        <h3>Lesen — O'qib tushunish</h3>
+        <p class="practice-desc">Nemischa matnni o'qing, so'zlarni tahlil qiling va savollarga javob bering.</p>
+        <div class="reading-text-box" id="readingTextBox"></div>
+        <div class="reading-questions" id="readingQuestions"></div>
+        <button class="check-btn" onclick="checkReading()">Tekshirish ✓</button>
+        <div class="feedback-box" id="readingFeedback"></div>
+        <button class="next-ex-btn" onclick="nextReading()">Keyingi matn →</button>
+      </div>
+    </div>
+
+    <!-- SCHREIBEN (Writing) -->
+    <div class="practice-panel" id="panel-writing">
+      <div class="practice-card">
+        <div class="practice-icon">✍️</div>
+        <h3>Schreiben — Gemini AI tekshiradi</h3>
+        <p class="practice-desc">Nemischa yozing. AI grammatika, uslub va so'z boyligingizni baholaydi.</p>
+        <div class="writing-prompt" id="writingPrompt"></div>
+        <textarea class="writing-textarea" id="writingTextarea" placeholder="Hier schreiben Sie auf Deutsch..." rows="6"></textarea>
+        <div class="writing-stats">
+          <span id="wordCount">0 so'z</span>
+          <span id="charCount">0 belgi</span>
+        </div>
+        <button class="ai-analyze-btn" onclick="analyzeWriting()">AI tekshirsin 🤖</button>
+        <div class="feedback-box" id="writingFeedback"></div>
+        <button class="next-ex-btn" onclick="nextWriting()">Yangi mavzu →</button>
+      </div>
+    </div>
+
+    <!-- GRAMMATIK -->
+    <div class="practice-panel" id="panel-grammar">
+      <div class="practice-card">
+        <div class="practice-icon">📝</div>
+        <h3>Grammatik — Nemis grammatikasi</h3>
+        <p class="practice-desc">Kasus, kelishik, fe'l zamonlari — nemis grammatikasini mashq qiling.</p>
+        <div class="grammar-q-box" id="grammarQBox"></div>
+        <div class="grammar-options" id="grammarOptions"></div>
+        <button class="check-btn" onclick="checkGrammar()">Tekshirish ✓</button>
+        <div class="feedback-box" id="grammarFeedback"></div>
+        <div class="grammar-explanation" id="grammarExplanation"></div>
+        <button class="next-ex-btn" onclick="nextGrammar()">Keyingi →</button>
+      </div>
+    </div>
+
+    <!-- POSTKARTE -->
+    <div class="practice-panel" id="panel-postcard">
+      <div class="practice-card">
+        <div class="practice-icon">📮</div>
+        <h3>Postkarte — AI bilan yozing</h3>
+        <p class="practice-desc">Mavzu tanlang — Gemini AI nemischa Postkarte yozishda yordam beradi.</p>
+        <div class="postcard-topics">
+          <button class="ptopic-btn active" onclick="selectPostcardTopic('reise',this)">✈️ Reise</button>
+          <button class="ptopic-btn" onclick="selectPostcardTopic('weihnachten',this)">🎄 Weihnachten</button>
+          <button class="ptopic-btn" onclick="selectPostcardTopic('geburtstag',this)">🎂 Geburtstag</button>
+          <button class="ptopic-btn" onclick="selectPostcardTopic('freundschaft',this)">🤝 Freundschaft</button>
+          <button class="ptopic-btn" onclick="selectPostcardTopic('neujahr',this)">🎆 Neujahr</button>
+        </div>
+        <div class="postcard-preview">
+          <div class="postcard-body">
+            <div class="postcard-left">
+              <div class="postcard-image-area" id="postcardImageArea">
+                <span>📸</span>
+                <p>Bild-Bereich</p>
+              </div>
+            </div>
+            <div class="postcard-right">
+              <div class="postcard-lines">
+                <div class="postcard-line"></div>
+                <div class="postcard-line"></div>
+              </div>
+              <textarea class="postcard-text" id="postcardText" placeholder="Liebe/Lieber ...&#10;&#10;Viele Grüße,&#10;..."></textarea>
+            </div>
+          </div>
+        </div>
+        <button class="ai-analyze-btn" onclick="aiWritePostcard()">AI yozib bersin 🤖</button>
+        <button class="ai-analyze-btn" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);margin-left:10px" onclick="aiCheckPostcard()">AI tekshirsin ✓</button>
+        <div class="feedback-box" id="postcardFeedback"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="video-section" id="videos">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">▶️ Video Darslar</div>
+      <h2 class="section-title">AI tanlagan <span class="gradient-text">Videolar</span></h2>
+      <p class="section-sub">Darajangiz va zaif tomonlaringizga mos nemischa YouTube videolari</p>
+    </div>
+    <button class="find-video-btn" onclick="findYoutubeVideos()">🤖 AI video topsin</button>
+    <div class="videos-grid" id="videosGrid">
+      <div class="video-placeholder">
+        <span>🤖</span>
+        <p>AI sizga mos nemischa o'quv videolarni topib beradi</p>
+        <small style="color:var(--text3)">Yuqoridagi tugmani bosing</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI CHAT -->
+<section class="ai-chat-section" id="ai-chat">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">🤖 AI Suhbat Sherigi</div>
+      <h2 class="section-title">Gemini <span class="gradient-text">AI Chat</span></h2>
+      <p class="section-sub">Nemischa suhbat, grammatika tuzatish, tarjima — hammasi bir joyda</p>
+    </div>
+    <div class="ai-chat-wrap">
+      <div class="ai-chat-sidebar">
+        <div class="chat-mode-label">Suhbat rejimi:</div>
+        <button class="chat-mode-btn active" onclick="_setChatMode('free',this)">💬 Freies Gespräch</button>
+        <button class="chat-mode-btn" onclick="_setChatMode('teacher',this)">👨‍🏫 Lehrer</button>
+        <button class="chat-mode-btn" onclick="_setChatMode('grammar',this)">📝 Grammatik</button>
+        <button class="chat-mode-btn" onclick="_setChatMode('translate',this)">🌐 Übersetzer</button>
+        <button class="chat-mode-btn" onclick="_setChatMode('goethe',this)">📋 Goethe-Prüfung</button>
+        <div class="ai-limit-info" id="aiLimitInfo">AI: yuklanmoqda...</div>
+      </div>
+      <div class="ai-chat-main">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg ai-msg">
+            <div class="chat-avatar">🤖</div>
+            <div class="chat-bubble">
+              Hallo! Ich bin dein Deutschlehrer! 🇩🇪<br><br>
+              Nemis tilini o'rganmoqchimisiz? Suhbat rejimini tanlang va boshlang! 😊
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <div class="chat-actions-row">
+            <button class="chat-action-btn" onclick="insertQuickPhrase('Erklären Sie bitte: ')" title="Tushuntir">💡</button>
+            <button class="chat-action-btn" onclick="insertQuickPhrase('Korrigieren Sie bitte: ')" title="Tuzat">✏️</button>
+            <button class="chat-action-btn" onclick="insertQuickPhrase('Übersetzen Sie: ')" title="Tarjima">🌐</button>
+            <button class="chat-action-btn voice-chat-btn" onclick="_startVoiceChat()" title="Ovozli suhbat" id="voiceChatBtn">🎤</button>
+          </div>
+          <div class="chat-input-row">
+            <textarea class="chat-input" id="chatInput" placeholder="Nemischa yoki o'zbekcha yozing..." rows="2" onkeydown="handleChatKey(event)"></textarea>
+            <button class="chat-send-btn" onclick="sendChatMessage()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT MODAL -->
+<div class="modal-overlay" id="unitModal" onclick="closeUnitModal(event)">
+  <div class="modal-box" id="unitModalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- WORD MODAL -->
+<div class="modal-overlay" id="wordModal" onclick="closeWordModal(event)">
+  <div class="modal-box word-modal-box" id="wordModalBox">
+    <button class="modal-close" onclick="document.getElementById('wordModal').classList.remove('open')">✕</button>
+    <div id="wordModalContent"></div>
+  </div>
+</div>
+
+<!-- UPGRADE MODAL -->
+<div class="modal-overlay" id="upgradeModal" onclick="closeUpgradeModal(event)">
+  <div class="modal-box upgrade-modal-box">
+    <button class="modal-close" onclick="closeUpgradeModal()">✕</button>
+    <div class="upgrade-modal-content">
+      <div class="upgrade-icon">🚀</div>
+      <h2>Limitga yetdingiz!</h2>
+      <p id="upgradeModalText">Rejangizning limiti tugadi. Yangilanish vaqtini kuting yoki planni yaxshilang.</p>
+      <div class="upgrade-timer" id="upgradeTimer"></div>
+      <div class="upgrade-btns">
+        <button class="upgrade-btn-primary" onclick="window.location.href='../index.html#plans'">Rejani yaxshilash →</button>
+        <button class="upgrade-btn-secondary" onclick="closeUpgradeModal()">Kutaman</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST & XP -->
+<div class="toast" id="toast"></div>
+<div class="xp-popup" id="xpPopup"></div>
+
+<script>
+  function handleChatKey(e){if(window._handleChatKey)window._handleChatKey(e);else if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChatMessage();}}
+  function sendChatMessage(){if(window._sendChatMessage)window._sendChatMessage();}
+  function insertQuickPhrase(p){const i=document.getElementById('chatInput');if(i){i.value=p;i.focus();}}
+  function startVoiceChat(){if(window._startVoiceChat)window._startVoiceChat();}
+  function setChatMode(m,el){if(window._setChatMode)window._setChatMode(m,el);}
+</script>
+<script type="module" src="./js/German.js"></script>
+</body>
+</html>

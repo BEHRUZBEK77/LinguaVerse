@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Russian — LinguaVerse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/langpage.css">
+</head>
+
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <nav id="mainNav">
+        <a href="/index.html" class="logo">Lingua<span>Verse</span></a>
+        <div class="nav-links">
+            <a href="/index.html" class="nav-link">Home</a>
+            <a href="/shop.html" class="nav-link">Shop</a>
+            <a href="/profile.html" class="nav-link">Profile</a>
+        </div>
+        <div class="nav-right">
+            <div id="navCoins" class="nav-coins">🪙 0</div>
+            <div id="navXP" class="nav-xp">⭐ 0 XP</div>
+            <div id="navUser"></div>
+        </div>
+    </nav>
+    <!-- SITE NAV BAR -->
+    <div style="position:sticky;top:64px;z-index:99;background:rgba(3,5,9,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 24px;display:flex;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none">
+        <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🏠 Bosh sahifa</a>
+        <a href="../select-language.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🌍 Tillar</a>
+        <a href="shop.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(91,124,250,0.1);border:1px solid rgba(91,124,250,0.25);color:#a78bfa;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🛍️ Do'kon</a>
+        <a href="profile.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">👤 Profil</a>
+        <a href="../order.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(244,199,74,0.1);border:1px solid rgba(244,199,74,0.25);color:#f5c842;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">⭐ Rejalar</a>
+    </div>
+    <div class="lang-hero" style="--lang-color:#ef4444">
+        <div class="lang-hero-inner">
+            <div class="lang-flag" style="font-size:4rem">🇷🇺</div>
+            <div>
+                <h1 class="lang-hero-title"><span class="lang-name">Russian</span></h1>
+                <p class="lang-hero-desc lang-desc">Master Cyrillic and Russian culture from scratch.</p>
+                <div class="lang-hero-meta">
+                    <span id="langLevel" class="badge badge-red">Level 1</span>
+                    <span id="langXP" class="badge badge-purple">0 XP</span>
+                </div>
+            </div>
+        </div>
+        <div class="lang-progress-bar">
+            <div class="lang-progress-fill" id="langProgress" style="width:0%"></div>
+        </div>
+    </div>
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="units" onclick="switchTab('units')">📚 Units</button>
+        <button class="tab-btn" data-tab="phrases" onclick="switchTab('phrases')">💬 Phrases</button>
+        <button class="tab-btn" data-tab="ai" onclick="switchTab('ai')">🤖 AI Chat</button>
+        <button class="tab-btn" data-tab="packs" onclick="switchTab('packs')">🎁 Packs</button>
+        <button class="tab-btn" data-tab="leaderboard" onclick="switchTab('leaderboard')">🏆 Leaderboard</button>
+    </div>
+    <div class="lang-body">
+        <div id="tab-units" class="tab-pane">
+            <div class="pane-head">
+                <h2>Learning Units</h2>
+                <p>Complete units to earn XP</p>
+            </div>
+            <div id="unitsGrid" class="units-grid"></div>
+        </div>
+        <div id="tab-phrases" class="tab-pane" style="display:none">
+            <div class="pane-head">
+                <h2>Essential Phrases</h2>
+                <p>Common Russian phrases</p>
+            </div>
+            <div id="phrasesGrid" class="phrases-grid"></div>
+        </div>
+        <div id="tab-ai" class="tab-pane" style="display:none">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div style="display:flex;align-items:center;gap:10px">
+                        <div class="chat-avatar">🤖</div>
+                        <div>
+                            <div style="font-weight:700;font-size:.95rem">Russian AI Tutor</div>
+                            <div style="font-size:.75rem;color:var(--green)">● Online</div>
+                        </div>
+                    </div>
+                    <button onclick="clearChat()" class="btn btn-ghost btn-sm">Clear</button>
+                </div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-bar">
+                    <input id="chatInput" class="chat-input"
+                        placeholder="Ask anything about Russian... Спросите о русском языке!"
+                        onkeydown="chatKeyDown(event)" />
+                    <button id="sendBtn" class="btn btn-primary" onclick="sendChatMsg()">Send →</button>
+                </div>
+            </div>
+        </div>
+        <div id="tab-packs" class="tab-pane" style="display:none">
+            <div class="pane-head">
+                <h2>Russian Packs</h2>
+                <p>Buy packs to unlock exclusive content</p>
+            </div>
+            <div id="langPacksGrid" class="lang-packs-grid"></div>
+            <div style="text-align:center;margin-top:24px"><a href="/shop.html" class="btn btn-primary">🛍️ Open Full
+                    Shop</a></div>
+        </div>
+        <div id="tab-leaderboard" class="tab-pane" style="display:none">
+            <div class="pane-head">
+                <h2>Russian Leaderboard</h2>
+                <p>Top learners ranked by XP</p>
+            </div>
+            <div id="lbList" class="lb-list">
+                <div style="text-align:center;padding:32px;color:var(--muted)">Loading...</div>
+            </div>
+        </div>
+    </div>
+    <div class="lesson-overlay" id="lessonOverlay">
+        <div class="lesson-box">
+            <div class="lesson-header">
+                <h2 id="lessonTitle">Unit Title</h2>
+                <button onclick="closeLesson()"
+                    style="background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer">✕</button>
+            </div>
+            <div id="lessonContent" class="lesson-content"></div>
+        </div>
+    </div>
+    <div class="toast-container"></div>
+    <script type="module">
+        import { initCursor, initScrollNav } from "/js/auth.js";
+        import { initLangPage } from "/js/lang-page.js";
+        initCursor(); initScrollNav();
+        initLangPage("russian");
+    </script>
+</body>
+
+</html>

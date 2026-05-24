@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>LinguaVerse — Admin Panel</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #030509;
+      --bg2: #06090f;
+      --bg3: #0a0d18;
+      --bg4: #0e1120;
+      --bg5: #121525;
+      --accent: #5b7cfa;
+      --accent2: #a78bfa;
+      --gold: #f5c842;
+      --green: #34d399;
+      --red: #f87171;
+      --orange: #fb923c;
+      --pink: #f472b6;
+      --cyan: #22d3ee;
+      --text: #e8ecff;
+      --text2: #b0b9d8;
+      --text3: #6b759a;
+      --border: rgba(255, 255, 255, 0.07);
+      --font-h: 'Syne', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      min-height: 100vh;
+      overflow-x: hidden
+    }
+
+    /* ── AUTH SCREEN ── */
+    #authScreen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    .auth-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center
+    }
+
+    .auth-logo {
+      font-family: var(--font-h);
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 6px
+    }
+
+    .auth-logo span {
+      color: var(--accent)
+    }
+
+    .auth-sub {
+      color: var(--text3);
+      font-size: .85rem;
+      margin-bottom: 28px
+    }
+
+    .auth-input {
+      width: 100%;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .9rem;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border .2s
+    }
+
+    .auth-input:focus {
+      border-color: rgba(91, 124, 250, .5)
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 13px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+      font-family: var(--font-b);
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      box-shadow: 0 8px 28px rgba(91, 124, 250, .3)
+    }
+
+    .auth-btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .auth-error {
+      color: var(--red);
+      font-size: .82rem;
+      margin-top: 8px;
+      display: none
+    }
+
+    /* ── LAYOUT ── */
+    #app {
+      display: none;
+      min-height: 100vh
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 5, 9, .95);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .nav-logo {
+      font-family: var(--font-h);
+      font-size: 1.1rem;
+      font-weight: 900
+    }
+
+    .nav-logo span {
+      color: var(--accent)
+    }
+
+    .nav-badge {
+      background: rgba(248, 113, 113, .15);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: var(--red);
+      font-size: .7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px
+    }
+
+    .nav-spacer {
+      flex: 1
+    }
+
+    .nav-user {
+      font-size: .8rem;
+      color: var(--text3)
+    }
+
+    .nav-logout {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .78rem;
+      font-weight: 600;
+      transition: all .2s
+    }
+
+    .nav-logout:hover {
+      background: rgba(248, 113, 113, .1);
+      border-color: rgba(248, 113, 113, .3);
+      color: var(--red)
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 220px;
+      height: calc(100vh - 60px);
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 16px 0
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text2);
+      transition: all .2s;
+      border-left: 3px solid transparent
+    }
+
+    .sidebar-item:hover {
+      background: rgba(255, 255, 255, .04);
+      color: var(--text)
+    }
+
+    .sidebar-item.active {
+      background: rgba(91, 124, 250, .1);
+      border-left-color: var(--accent);
+      color: var(--accent)
+    }
+
+    .sidebar-item .icon {
+      font-size: 1.1rem
+    }
+
+    .sidebar-badge {
+      margin-left: auto;
+      background: var(--red);
+      color: #fff;
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      border-radius: 100px
+    }
+
+    .sidebar-section {
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 14px 20px 6px
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 24px;
+      min-height: calc(100vh - 60px)
+    }
+
+    /* ── STATS ROW ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px
+    }
+
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px
+    }
+
+    .stat-val {
+      font-family: var(--font-h);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1
+    }
+
+    .stat-label {
+      font-size: .75rem;
+      color: var(--text3);
+      font-weight: 600;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: .04em
+    }
+
+    .stat-change {
+      font-size: .75rem;
+      margin-top: 6px;
+      font-weight: 600
+    }
+
+    .stat-change.up {
+      color: var(--green)
+    }
+
+    .stat-change.warn {
+      color: var(--orange)
+    }
+
+    /* ── PAGE HEADERS ── */
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px
+    }
+
+    .page-title {
+      font-family: var(--font-h);
+      font-size: 1.4rem;
+      font-weight: 900
+    }
+
+    .page-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 8px
+    }
+
+    /* ── FILTERS ── */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      align-items: center
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 6px 14px;
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .78rem;
+      font-weight: 600;
+      transition: all .2s
+    }
+
+    .filter-btn.active {
+      background: rgba(91, 124, 250, .15);
+      border-color: rgba(91, 124, 250, .4);
+      color: var(--accent2)
+    }
+
+    .filter-btn.pending {
+      border-color: rgba(245, 200, 66, .4);
+      color: var(--gold);
+      background: rgba(245, 200, 66, .1)
+    }
+
+    .filter-btn.approved {
+      border-color: rgba(52, 211, 153, .4);
+      color: var(--green);
+      background: rgba(52, 211, 153, .1)
+    }
+
+    .filter-btn.rejected {
+      border-color: rgba(248, 113, 113, .4);
+      color: var(--red);
+      background: rgba(248, 113, 113, .1)
+    }
+
+    .search-input {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 7px 14px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .82rem;
+      outline: none;
+      margin-left: auto;
+      width: 220px;
+      transition: border .2s
+    }
+
+    .search-input:focus {
+      border-color: rgba(91, 124, 250, .4)
+    }
+
+    /* ── ORDERS TABLE ── */
+    .orders-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .order-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border .2s
+    }
+
+    .order-card.pending {
+      border-left: 3px solid var(--gold)
+    }
+
+    .order-card.approved {
+      border-left: 3px solid var(--green)
+    }
+
+    .order-card.rejected {
+      border-left: 3px solid var(--red)
+    }
+
+    .order-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      cursor: pointer
+    }
+
+    .order-icon {
+      font-size: 1.6rem
+    }
+
+    .order-info {
+      flex: 1
+    }
+
+    .order-name {
+      font-family: var(--font-h);
+      font-size: .95rem;
+      font-weight: 800
+    }
+
+    .order-meta {
+      font-size: .75rem;
+      color: var(--text3);
+      margin-top: 2px
+    }
+
+    .order-price {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--gold)
+    }
+
+    .status-badge {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: .68rem;
+      font-weight: 700;
+      white-space: nowrap
+    }
+
+    .status-pending {
+      background: rgba(245, 200, 66, .15);
+      border: 1px solid rgba(245, 200, 66, .3);
+      color: var(--gold)
+    }
+
+    .status-approved {
+      background: rgba(52, 211, 153, .12);
+      border: 1px solid rgba(52, 211, 153, .3);
+      color: var(--green)
+    }
+
+    .status-rejected {
+      background: rgba(248, 113, 113, .12);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: var(--red)
+    }
+
+    .order-toggle {
+      color: var(--text3);
+      font-size: .9rem;
+      transition: transform .2s
+    }
+
+    .order-toggle.open {
+      transform: rotate(180deg)
+    }
+
+    .order-body {
+      display: none;
+      padding: 0 18px 18px;
+      border-top: 1px solid var(--border)
+    }
+
+    .order-body.open {
+      display: block
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px
+    }
+
+    @media(max-width:700px) {
+      .order-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .order-field {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px
+    }
+
+    .of-label {
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 4px
+    }
+
+    .of-val {
+      font-size: .85rem;
+      font-weight: 600;
+      word-break: break-all
+    }
+
+    .receipt-img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-top: 12px;
+      cursor: pointer
+    }
+
+    .receipt-placeholder {
+      background: rgba(255, 255, 255, .03);
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      color: var(--text3);
+      font-size: .82rem;
+      margin-top: 12px
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+      align-items: flex-end
+    }
+
+    .note-input {
+      flex: 1;
+      min-width: 180px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .82rem;
+      outline: none;
+      transition: border .2s
+    }
+
+    .note-input:focus {
+      border-color: rgba(91, 124, 250, .4)
+    }
+
+    .btn-approve {
+      background: rgba(52, 211, 153, .15);
+      border: 1px solid rgba(52, 211, 153, .4);
+      color: var(--green);
+      padding: 9px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .btn-approve:hover {
+      background: rgba(52, 211, 153, .25)
+    }
+
+    .btn-approve:disabled {
+      opacity: .5;
+      cursor: not-allowed
+    }
+
+    .btn-reject {
+      background: rgba(248, 113, 113, .12);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: var(--red);
+      padding: 9px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .btn-reject:hover {
+      background: rgba(248, 113, 113, .22)
+    }
+
+    .btn-reject:disabled {
+      opacity: .5;
+      cursor: not-allowed
+    }
+
+    .btn-view-user {
+      background: rgba(91, 124, 250, .1);
+      border: 1px solid rgba(91, 124, 250, .3);
+      color: var(--accent);
+      padding: 9px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .82rem;
+      font-weight: 600;
+      transition: all .2s
+    }
+
+    .btn-view-user:hover {
+      background: rgba(91, 124, 250, .2)
+    }
+
+    .action-result {
+      font-size: .78rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: none
+    }
+
+    .action-result.ok {
+      background: rgba(52, 211, 153, .1);
+      color: var(--green);
+      display: block
+    }
+
+    .action-result.err {
+      background: rgba(248, 113, 113, .1);
+      color: var(--red);
+      display: block
+    }
+
+    /* ── USERS TABLE ── */
+    .users-table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    .users-table th {
+      text-align: left;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .users-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
+      font-size: .83rem;
+      vertical-align: middle
+    }
+
+    .users-table tr:hover td {
+      background: rgba(255, 255, 255, .02)
+    }
+
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .8rem;
+      flex-shrink: 0
+    }
+
+    .user-name-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .plan-chip {
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: .65rem;
+      font-weight: 700
+    }
+
+    .plan-free {
+      background: rgba(107, 107, 128, .15);
+      color: var(--text3)
+    }
+
+    .plan-pro {
+      background: rgba(91, 124, 250, .15);
+      color: var(--accent)
+    }
+
+    .plan-premium {
+      background: rgba(167, 139, 250, .15);
+      color: var(--accent2)
+    }
+
+    .plan-ultimate {
+      background: rgba(245, 200, 66, .15);
+      color: var(--gold)
+    }
+
+    .vip-chip {
+      background: rgba(245, 200, 66, .15);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: .65rem;
+      font-weight: 700;
+      border: 1px solid rgba(245, 200, 66, .3)
+    }
+
+    /* ── USER DETAIL MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 5, 9, .92);
+      z-index: 400;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px
+    }
+
+    .modal-overlay.open {
+      display: flex
+    }
+
+    .modal-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px
+    }
+
+    .modal-title {
+      font-family: var(--font-h);
+      font-size: 1.1rem;
+      font-weight: 900
+    }
+
+    .modal-close {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .ud-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .ud-field {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px
+    }
+
+    .ud-label {
+      font-size: .68rem;
+      color: var(--text3);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 3px
+    }
+
+    .ud-val {
+      font-size: .9rem;
+      font-weight: 600
+    }
+
+    .edit-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap
+    }
+
+    .edit-input {
+      flex: 1;
+      min-width: 120px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .82rem;
+      outline: none
+    }
+
+    .edit-label {
+      font-size: .75rem;
+      color: var(--text3);
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block
+    }
+
+    .btn-save {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+      padding: 9px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .btn-save:hover {
+      transform: translateY(-1px)
+    }
+
+    .btn-danger {
+      background: rgba(248, 113, 113, .12);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: var(--red);
+      padding: 9px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .82rem;
+      font-weight: 700
+    }
+
+    /* ── RECEIPT LIGHTBOX ── */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .93);
+      z-index: 600;
+      display: none;
+      align-items: center;
+      justify-content: center
+    }
+
+    #lightbox.open {
+      display: flex
+    }
+
+    #lightboxImg {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px
+    }
+
+    #lightboxClose {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, .1);
+      border: none;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    /* ── EMPTY / LOADING ── */
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text3)
+    }
+
+    .empty span {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px
+    }
+
+    .loading-row {
+      text-align: center;
+      padding: 40px;
+      color: var(--text3);
+      font-size: .85rem
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(91, 124, 250, .3);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg4);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: .85rem;
+      font-weight: 600;
+      z-index: 999;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .3s;
+      pointer-events: none;
+      max-width: 320px
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1
+    }
+
+    .toast.success {
+      border-color: rgba(52, 211, 153, .4);
+      color: var(--green)
+    }
+
+    .toast.error {
+      border-color: rgba(248, 113, 113, .4);
+      color: var(--red)
+    }
+
+    .toast.info {
+      border-color: rgba(91, 124, 250, .4);
+      color: var(--accent)
+    }
+
+    /* ── PAGE SECTIONS ── */
+    .page-sec {
+      display: none
+    }
+
+    .page-sec.active {
+      display: block;
+      animation: fadeIn .25s ease
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ── PERMISSION BANNER ── */
+    .perm-banner {
+      display: none;
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .4);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      position: relative
+    }
+
+    .perm-banner.show {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start
+    }
+
+    .perm-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0
+    }
+
+    .perm-title {
+      font-family: var(--font-h);
+      font-size: .95rem;
+      font-weight: 800;
+      color: var(--red);
+      margin-bottom: 4px
+    }
+
+    .perm-desc {
+      font-size: .8rem;
+      color: var(--text2);
+      line-height: 1.6
+    }
+
+    .perm-btn {
+      display: inline-block;
+      margin-top: 8px;
+      background: rgba(248, 113, 113, .2);
+      border: 1px solid rgba(248, 113, 113, .5);
+      color: var(--red);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .78rem;
+      font-weight: 700;
+      transition: all .2s;
+      text-decoration: none
+    }
+
+    .perm-btn:hover {
+      background: rgba(248, 113, 113, .3)
+    }
+
+    /* ── CODE BLOCK ── */
+    .code-block {
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-family: 'Courier New', monospace;
+      font-size: .75rem;
+      color: #a5f3fc;
+      line-height: 1.7;
+      overflow-x: auto;
+      white-space: pre;
+      position: relative;
+      margin-top: 8px
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(91, 124, 250, .2);
+      border: 1px solid rgba(91, 124, 250, .4);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: .72rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .copy-btn:hover {
+      background: rgba(91, 124, 250, .35)
+    }
+
+    .copy-btn.copied {
+      background: rgba(52, 211, 153, .2);
+      border-color: rgba(52, 211, 153, .4);
+      color: var(--green)
+    }
+
+    /* ── CARDS ── */
+    .info-box {
+      background: rgba(91, 124, 250, .08);
+      border: 1px solid rgba(91, 124, 250, .2);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: .82rem;
+      color: var(--text2);
+      margin-bottom: 16px;
+      line-height: 1.6
+    }
+
+    /* ── ANNOUNCE ── */
+    .announce-form {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px
+    }
+
+    .announce-input {
+      width: 100%;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .9rem;
+      outline: none;
+      margin-bottom: 10px;
+      transition: border .2s
+    }
+
+    .announce-input:focus {
+      border-color: rgba(91, 124, 250, .4)
+    }
+
+    textarea.announce-input {
+      min-height: 80px;
+      resize: vertical
+    }
+
+    select.announce-input {
+      cursor: pointer
+    }
+
+    @media(max-width:768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform .3s
+      }
+
+      .sidebar.open {
+        transform: translateX(0)
+      }
+
+      .content {
+        margin-left: 0
+      }
+
+      .nav-logo {
+        font-size: .95rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- AUTH SCREEN -->
+  <div id="authScreen">
+    <div class="auth-card">
+      <div class="auth-logo">Lingua<span>Verse</span></div>
+      <div style="font-size:1.5rem;margin-bottom:6px">🔐</div>
+      <div class="auth-sub">Admin paneliga kirish</div>
+      <input type="email" id="adminEmail" class="auth-input" placeholder="Admin email" />
+      <input type="password" id="adminPass" class="auth-input" placeholder="Parol" />
+      <button class="auth-btn" id="loginBtn" onclick="doAdminLogin()">Kirish →</button>
+      <div class="auth-error" id="authErr"></div>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app">
+    <!-- NAV -->
+    <nav class="nav">
+      <button id="menuToggle"
+        style="background:none;border:none;color:var(--text2);font-size:1.2rem;cursor:pointer;display:none"
+        onclick="toggleSidebar()">☰</button>
+      <div class="nav-logo">Lingua<span>Verse</span> <span class="nav-badge">ADMIN</span></div>
+      <div class="nav-spacer"></div>
+      <div class="nav-user" id="navUserEmail"></div>
+      <button class="nav-logout" onclick="doLogout()">Chiqish</button>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-section">Asosiy</div>
+      <div class="sidebar-item active" onclick="showPage('dashboard')" data-page="dashboard"><span
+          class="icon">📊</span> Dashboard</div>
+      <div class="sidebar-item" onclick="showPage('orders')" data-page="orders"><span class="icon">📋</span> Buyurtmalar
+        <span class="sidebar-badge" id="pendingBadge">0</span></div>
+      <div class="sidebar-section">Foydalanuvchilar</div>
+      <div class="sidebar-item" onclick="showPage('users')" data-page="users"><span class="icon">👥</span> Barcha users
+      </div>
+      <div class="sidebar-item" onclick="showPage('search')" data-page="search"><span class="icon">🔍</span> User
+        qidirish</div>
+      <div class="sidebar-section">Tizim</div>
+      <div class="sidebar-item" onclick="showPage('announce')" data-page="announce"><span class="icon">📢</span> E'lon
+        yuborish</div>
+      <div class="sidebar-item" onclick="showPage('settings')" data-page="settings"><span class="icon">⚙️</span>
+        Sozlamalar</div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- PERMISSION ERROR BANNER -->
+      <div class="perm-banner" id="permBanner">
+        <div class="perm-icon">🔒</div>
+        <div>
+          <div class="perm-title">Firestore huquq xatosi — Missing or insufficient permissions</div>
+          <div class="perm-desc">
+            Firebase Firestore admin emailingizni o'qishga ruxsat bermayapti.<br>
+            Quyidagi amallarni bajaring: <strong>Firebase Console → Firestore Database → Rules</strong> ga kiring va
+            <strong>⚙️ Sozlamalar</strong> bo'limidagi rules ni nusxalab qo'ying.
+          </div>
+          <a class="perm-btn" href="https://console.firebase.google.com/project/linguaverse-ebe09/firestore/rules"
+            target="_blank">🔗 Firebase Console Rules ni ochish</a>
+          <button class="perm-btn" onclick="showPage('settings')" style="margin-left:8px">📋 Rules ni ko'rish</button>
+        </div>
+      </div>
+
+      <!-- DASHBOARD -->
+      <div class="page-sec active" id="page-dashboard">
+        <div class="page-header">
+          <div class="page-title">📊 Dashboard</div>
+          <button class="filter-btn" onclick="loadDashboard()" style="margin-left:auto">🔄 Yangilash</button>
+        </div>
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card">
+            <div class="stat-val" id="s-total-orders" style="color:var(--accent)">—</div>
+            <div class="stat-label">Jami buyurtmalar</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="s-pending" style="color:var(--gold)">—</div>
+            <div class="stat-label">Kutilmoqda</div>
+            <div class="stat-change warn" id="s-pending-sub"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="s-approved" style="color:var(--green)">—</div>
+            <div class="stat-label">Tasdiqlangan</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="s-rejected" style="color:var(--red)">—</div>
+            <div class="stat-label">Rad etilgan</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="s-users" style="color:var(--accent2)">—</div>
+            <div class="stat-label">Foydalanuvchilar</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="s-revenue" style="color:var(--gold)">—</div>
+            <div class="stat-label">Jami tushum (so'm)</div>
+          </div>
+        </div>
+        <div class="page-header" style="margin-top:4px">
+          <div style="font-family:var(--font-h);font-size:1rem;font-weight:800">⏳ Oxirgi kutilayotgan buyurtmalar</div>
+        </div>
+        <div id="recentOrders"></div>
+      </div>
+
+      <!-- ORDERS -->
+      <div class="page-sec" id="page-orders">
+        <div class="page-header">
+          <div class="page-title">📋 Buyurtmalar</div>
+          <button class="filter-btn" onclick="loadOrders()" style="margin-left:auto">🔄 Yangilash</button>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterOrders('all',this)">Hammasi</button>
+          <button class="filter-btn pending" onclick="filterOrders('pending',this)">⏳ Kutilmoqda</button>
+          <button class="filter-btn approved" onclick="filterOrders('approved',this)">✅ Tasdiqlangan</button>
+          <button class="filter-btn rejected" onclick="filterOrders('rejected',this)">❌ Rad etilgan</button>
+          <input type="text" class="search-input" id="orderSearch" placeholder="🔍 Qidirish..."
+            oninput="searchOrders()" />
+        </div>
+        <div class="orders-wrap" id="ordersWrap">
+          <div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>
+        </div>
+      </div>
+
+      <!-- USERS -->
+      <div class="page-sec" id="page-users">
+        <div class="page-header">
+          <div class="page-title">👥 Foydalanuvchilar</div>
+          <button class="filter-btn" onclick="loadUsers()" style="margin-left:auto">🔄 Yangilash</button>
+        </div>
+        <div class="info-box">Foydalanuvchini bosish orqali ma'lumotlarini ko'rish va tahrirlash mumkin.</div>
+        <div style="overflow-x:auto;background:var(--bg3);border:1px solid var(--border);border-radius:16px">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>Foydalanuvchi</th>
+                <th>Email</th>
+                <th>Reja</th>
+                <th>XP</th>
+                <th>Coins</th>
+                <th>Tokens</th>
+                <th>Sana</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="usersBody">
+              <tr>
+                <td colspan="8" class="loading-row"><span class="spinner"></span>Yuklanmoqda...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="page-sec" id="page-search">
+        <div class="page-header">
+          <div class="page-title">🔍 User Qidirish</div>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:20px">
+          <input type="text" id="userSearchQ" class="search-input" style="width:auto;flex:1"
+            placeholder="Email yoki UID kiriting..." />
+          <button class="btn-approve" onclick="searchUser()">Qidirish</button>
+        </div>
+        <div id="searchResult"></div>
+      </div>
+
+      <!-- ANNOUNCE -->
+      <div class="page-sec" id="page-announce">
+        <div class="page-header">
+          <div class="page-title">📢 E'lon Yuborish</div>
+        </div>
+        <div class="info-box">E'lon barcha foydalanuvchilarning <code>notifications</code> kollekciyasiga qo'shiladi.
+          Ilovada oqim (real-time listener) bo'lsa ko'rinadi.</div>
+        <div class="announce-form">
+          <label style="font-size:.78rem;color:var(--text3);font-weight:600;display:block;margin-bottom:6px">E'lon
+            turi</label>
+          <select class="announce-input" id="annType">
+            <option value="info">ℹ️ Ma'lumot</option>
+            <option value="update">🚀 Yangilanish</option>
+            <option value="promo">🎁 Aksiya</option>
+            <option value="maintenance">⚠️ Texnik ishlar</option>
+          </select>
+          <label
+            style="font-size:.78rem;color:var(--text3);font-weight:600;display:block;margin-bottom:6px;margin-top:12px">Sarlavha</label>
+          <input type="text" class="announce-input" id="annTitle" placeholder="E'lon sarlavhasi..." />
+          <label
+            style="font-size:.78rem;color:var(--text3);font-weight:600;display:block;margin-bottom:6px;margin-top:12px">Matn</label>
+          <textarea class="announce-input" id="annBody" placeholder="E'lon matni..."></textarea>
+          <button class="btn-save" onclick="sendAnnouncement()" style="margin-top:4px">📢 Yuborish</button>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="page-sec" id="page-settings">
+        <div class="page-header">
+          <div class="page-title">⚙️ Sozlamalar</div>
+        </div>
+
+        <!-- FIRESTORE RULES — asosiy fix -->
+        <div class="announce-form" style="margin-bottom:16px;border:1px solid rgba(248,113,113,.35)">
+          <div style="font-family:var(--font-h);font-size:1rem;font-weight:800;margin-bottom:6px;color:var(--red)">🔐
+            Firestore Security Rules — MUHIM!</div>
+          <div class="info-box"
+            style="background:rgba(248,113,113,.07);border-color:rgba(248,113,113,.25);color:var(--text2);margin-bottom:10px">
+            Agar <strong>"Missing or insufficient permissions"</strong> xatosi chiqsa, quyidagi rules ni Firebase
+            Console ga qo'ying:<br>
+            <strong>console.firebase.google.com → Firestore Database → Rules tab → Tahrirlash → Publish</strong>
+          </div>
+          <a href="https://console.firebase.google.com/project/linguaverse-ebe09/firestore/rules" target="_blank"
+            class="perm-btn" style="margin-bottom:10px;display:inline-block">🔗 Firebase Console → Rules ni ochish</a>
+          <div style="position:relative">
+            <div class="code-block" id="rulesCode">rules_version = '2';
+              service cloud.firestore {
+              match /databases/{database}/documents {
+
+              // ── Admin emaillarni o'zgartiring ──
+              function isAdmin() {
+              return request.auth != null &amp;&amp; request.auth.token.email in [
+              'owner@gmail.uz',
+              'linguaverse.admin@gmail.com'
+              ];
+              }
+
+              function isOwner(uid) {
+              return request.auth != null &amp;&amp; request.auth.uid == uid;
+              }
+
+              // Admin hamma narsaga to'liq kirish
+              match /{document=**} {
+              allow read, write: if isAdmin();
+              }
+
+              // Foydalanuvchilar o'z ma'lumotlarini o'qiy/yoza oladi
+              match /users/{userId} {
+              allow read, write: if isOwner(userId);
+              }
+
+              // Buyurtmalar: yaratish + o'z buyurtmasini ko'rish
+              match /orders/{orderId} {
+              allow create: if request.auth != null;
+              allow read, update: if request.auth != null &amp;&amp; (
+              request.auth.uid == resource.data.uid ||
+              request.auth.uid == resource.data.userId
+              );
+              }
+
+              // To'lov so'rovlari: yaratish
+              match /purchaseRequests/{docId} {
+              allow create: if request.auth != null;
+              }
+
+              // E'lonlar: o'qish
+              match /announcements/{docId} {
+              allow read: if request.auth != null;
+              }
+              }
+              }</div>
+            <button class="copy-btn" id="copyRulesBtn" onclick="copyRules()">📋 Nusxa</button>
+          </div>
+        </div>
+
+        <div class="announce-form" style="margin-bottom:16px">
+          <div style="font-family:var(--font-h);font-size:1rem;font-weight:800;margin-bottom:14px">🔧 Firebase
+            Ma'lumotlar</div>
+          <div class="ud-grid">
+            <div class="ud-field">
+              <div class="ud-label">Project ID</div>
+              <div class="ud-val" style="font-size:.78rem">linguaverse-ebe09</div>
+            </div>
+            <div class="ud-field">
+              <div class="ud-label">Auth Domain</div>
+              <div class="ud-val" style="font-size:.78rem">linguaverse-ebe09.firebaseapp.com</div>
+            </div>
+            <div class="ud-field">
+              <div class="ud-label">Orders kolleksiya</div>
+              <div class="ud-val">orders</div>
+            </div>
+            <div class="ud-field">
+              <div class="ud-label">Users kolleksiya</div>
+              <div class="ud-val">users</div>
+            </div>
+          </div>
+        </div>
+        <div class="announce-form">
+          <div style="font-family:var(--font-h);font-size:1rem;font-weight:800;margin-bottom:14px">👑 Admin ro'yxati
+          </div>
+          <div class="info-box" style="margin-bottom:12px">Ushbu email manzillar admin paneliga kira oladi. Ko'proq
+            qo'shish uchun kod ichida <code>ADMIN_EMAILS</code> massivini o'zgartiring.</div>
+          <div id="adminList" style="display:flex;flex-direction:column;gap:6px"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- USER DETAIL MODAL -->
+  <div class="modal-overlay" id="userModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="userModalTitle">👤 Foydalanuvchi</div>
+        <button class="modal-close" onclick="closeUserModal()">✕</button>
+      </div>
+      <div id="userModalBody"></div>
+    </div>
+  </div>
+
+  <!-- RECEIPT LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <button id="lightboxClose" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="Chek" />
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import {
+      getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import {
+      getFirestore, collection, getDocs, doc, getDoc, updateDoc,
+      query, orderBy, where, limit, addDoc, serverTimestamp, increment
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const FB = {
+      apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
+      authDomain: "linguaverse-ebe09.firebaseapp.com",
+      projectId: "linguaverse-ebe09",
+      storageBucket: "linguaverse-ebe09.firebasestorage.app",
+      messagingSenderId: "130625454868",
+      appId: "1:130625454868:web:3f02871f64cb5f8af27801"
+    };
+
+    const app = getApps().length ? getApps()[0] : initializeApp(FB);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // ── ADMIN EMAILS — o'z emailingizni qo'shing ──────────
+    const ADMIN_EMAILS = [
+      'owner@gmail.uz',
+      'linguaverse.admin@gmail.com',
+      // qo'shimcha admin emaillarini shu yerga qo'shing
+    ];
+
+    let CURRENT_ADMIN = null;
+    let ALL_ORDERS = [];
+    let FILTER_STATUS = 'all';
+
+    // ── AUTH ──────────────────────────────────────────────
+    onAuthStateChanged(auth, async user => {
+      if (user) {
+        if (!ADMIN_EMAILS.includes(user.email)) {
+          showErr('Bu email admin emas!');
+          await signOut(auth); return;
+        }
+        CURRENT_ADMIN = user;
+        document.getElementById('authScreen').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+        document.getElementById('navUserEmail').textContent = user.email;
+        document.getElementById('adminList').innerHTML = ADMIN_EMAILS.map(e =>
+          `<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-size:.82rem">${e === user.email ? '👑 ' : ''}${e}</div>`
+        ).join('');
+        loadDashboard();
+        loadOrders();
+      }
+    });
+
+    window.doAdminLogin = async function () {
+      const email = document.getElementById('adminEmail').value.trim();
+      const pass = document.getElementById('adminPass').value;
+      const btn = document.getElementById('loginBtn');
+      if (!email || !pass) { showErr('Email va parol kiriting!'); return; }
+      if (!ADMIN_EMAILS.includes(email)) { showErr('Bu email admin emas!'); return; }
+      btn.disabled = true; btn.textContent = 'Tekshirilmoqda...';
+      try {
+        await signInWithEmailAndPassword(auth, email, pass);
+      } catch (e) {
+        const msgs = { 'auth/wrong-password': 'Parol noto\'g\'ri', 'auth/user-not-found': 'Foydalanuvchi topilmadi', 'auth/invalid-credential': 'Email yoki parol xato' };
+        showErr(msgs[e.code] || e.message);
+        btn.disabled = false; btn.textContent = 'Kirish →';
+      }
+    };
+
+    window.doLogout = async function () {
+      await signOut(auth);
+      document.getElementById('authScreen').style.display = 'flex';
+      document.getElementById('app').style.display = 'none';
+    };
+
+    function showErr(msg) {
+      const el = document.getElementById('authErr');
+      el.textContent = '❌ ' + msg; el.style.display = 'block';
+      setTimeout(() => el.style.display = 'none', 4000);
+    }
+
+    // ── NAVIGATION ────────────────────────────────────────
+    window.showPage = function (page) {
+      document.querySelectorAll('.page-sec').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+      document.getElementById('page-' + page)?.classList.add('active');
+      document.querySelector(`[data-page="${page}"]`)?.classList.add('active');
+      if (page === 'users') loadUsers();
+    };
+
+    window.toggleSidebar = function () {
+      document.getElementById('sidebar').classList.toggle('open');
+    };
+
+    // ── PERMISSION ERROR HELPER ───────────────────────────
+    function showPermError(e) {
+      if (e.code === 'permission-denied' || e.message?.includes('permissions') || e.message?.includes('permission')) {
+        document.getElementById('permBanner').classList.add('show');
+      }
+    }
+
+    // ── DASHBOARD ────────────────────────────────────────
+    window.loadDashboard = async function () {
+      document.getElementById('permBanner').classList.remove('show');
+      try {
+        const ordSnap = await getDocs(collection(db, 'orders'));
+        const orders = []; ordSnap.forEach(d => orders.push({ id: d.id, ...d.data() }));
+        const pending = orders.filter(o => o.status === 'pending');
+        const approved = orders.filter(o => o.status === 'approved');
+        const rejected = orders.filter(o => o.status === 'rejected');
+        const revenue = approved.reduce((s, o) => s + (o.price_uzs || 0), 0);
+
+        document.getElementById('s-total-orders').textContent = orders.length;
+        document.getElementById('s-pending').textContent = pending.length;
+        document.getElementById('s-pending-sub').textContent = pending.length > 0 ? `${pending.length} ta kutilmoqda` : '';
+        document.getElementById('s-approved').textContent = approved.length;
+        document.getElementById('s-rejected').textContent = rejected.length;
+        document.getElementById('s-revenue').textContent = revenue.toLocaleString();
+
+        const usSnap = await getDocs(collection(db, 'users'));
+        document.getElementById('s-users').textContent = usSnap.size;
+        document.getElementById('pendingBadge').textContent = pending.length;
+
+        const recent = pending.slice(-5).reverse();
+        const rEl = document.getElementById('recentOrders');
+        if (!recent.length) { rEl.innerHTML = '<div class="empty"><span>✅</span>Kutilayotgan buyurtma yo\'q</div>'; return; }
+        rEl.innerHTML = '<div class="orders-wrap">' + recent.map(o => renderOrderCard(o, true)).join('') + '</div>';
+      } catch (e) {
+        console.error(e);
+        showPermError(e);
+        toast('Xato: ' + e.message, 'error');
+      }
+    };
+
+    // ── ORDERS ───────────────────────────────────────────
+    window.loadOrders = async function () {
+      document.getElementById('ordersWrap').innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      try {
+        const snap = await getDocs(query(collection(db, 'orders'), orderBy('createdAt', 'desc')));
+        ALL_ORDERS = [];
+        snap.forEach(d => ALL_ORDERS.push({ id: d.id, ...d.data() }));
+        document.getElementById('pendingBadge').textContent = ALL_ORDERS.filter(o => o.status === 'pending').length;
+        renderOrders();
+      } catch (e) {
+        showPermError(e);
+        document.getElementById('ordersWrap').innerHTML = `<div class="empty"><span>⚠️</span>${e.code === 'permission-denied' || e.message?.includes('permissions')
+            ? '🔒 Firestore huquq xatosi! Sozlamalar → Firestore Rules ga kiring.'
+            : e.message
+          }</div>`;
+      }
+    };
+
+    window.filterOrders = function (status, btn) {
+      FILTER_STATUS = status;
+      document.querySelectorAll('.filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderOrders();
+    };
+
+    window.searchOrders = function () { renderOrders(); };
+
+    function renderOrders() {
+      const q = (document.getElementById('orderSearch')?.value || '').toLowerCase();
+      let orders = ALL_ORDERS;
+      if (FILTER_STATUS !== 'all') orders = orders.filter(o => o.status === FILTER_STATUS);
+      if (q) orders = orders.filter(o =>
+        (o.userName || '').toLowerCase().includes(q) ||
+        (o.userEmail || '').toLowerCase().includes(q) ||
+        (o.itemName || '').toLowerCase().includes(q)
+      );
+      const wrap = document.getElementById('ordersWrap');
+      if (!orders.length) { wrap.innerHTML = '<div class="empty"><span>📭</span>Buyurtma topilmadi</div>'; return; }
+      wrap.innerHTML = orders.map(o => renderOrderCard(o)).join('');
+    }
+
+    function renderOrderCard(o, mini = false) {
+      const ts = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString('uz') : '—';
+      const hasReceipt = o.receiptBase64 || (o.receiptURL && o.receiptURL !== 'base64_stored' && o.receiptURL.startsWith('http'));
+      return `
+<div class="order-card ${o.status}" id="card-${o.id}">
+  <div class="order-header" onclick="toggleOrder('${o.id}')">
+    <span class="order-icon">${o.icon || '📦'}</span>
+    <div class="order-info">
+      <div class="order-name">${o.itemName || '—'}</div>
+      <div class="order-meta">${o.userName || '—'} · ${o.userEmail || '—'} · ${ts}</div>
+    </div>
+    <div class="order-price">${(o.price_uzs || 0).toLocaleString()} so'm</div>
+    <span class="status-badge status-${o.status}">${o.status === 'pending' ? '⏳ Kutilmoqda' : o.status === 'approved' ? '✅ Tasdiqlangan' : '❌ Rad etildi'}</span>
+    <span class="order-toggle" id="tog-${o.id}">▼</span>
+  </div>
+  <div class="order-body" id="body-${o.id}">
+    <div class="order-grid">
+      <div class="order-field"><div class="of-label">Mahsulot turi</div><div class="of-val">${o.itemType || '—'}</div></div>
+      <div class="order-field"><div class="of-label">User ID</div><div class="of-val" style="font-size:.72rem">${o.uid || '—'}</div></div>
+      <div class="order-field"><div class="of-label">Joriy reja</div><div class="of-val">${o.currentUserData?.plan || 'free'}</div></div>
+      <div class="order-field"><div class="of-label">Joriy coins/tokens</div><div class="of-val">🪙${o.currentUserData?.coins || 0} · 🎫${o.currentUserData?.tokens || 0}</div></div>
+      ${o.comment ? `<div class="order-field" style="grid-column:1/-1"><div class="of-label">Izoh</div><div class="of-val">${o.comment}</div></div>` : ''}
+      ${o.adminNote ? `<div class="order-field" style="grid-column:1/-1;border-color:rgba(248,113,113,.3)"><div class="of-label" style="color:var(--red)">Admin izohi</div><div class="of-val">${o.adminNote}</div></div>` : ''}
+    </div>
+    ${hasReceipt ? `<img class="receipt-img" src="${o.receiptBase64 || o.receiptURL}" alt="Chek" onclick="openLightbox(this.src)" title="Kattalashtirish uchun bosing"/>` : '<div class="receipt-placeholder">📸 Chek rasmi yuklangan emas</div>'}
+    ${o.status === 'pending' ? `
+    <div class="action-bar">
+      <input class="note-input" id="note-${o.id}" placeholder="Admin izohi (ixtiyoriy)..." />
+      <button class="btn-view-user" onclick="viewUser('${o.uid}')">👤 User</button>
+      <button class="btn-reject" id="rbtn-${o.id}" onclick="rejectOrder('${o.id}')">❌ Rad etish</button>
+      <button class="btn-approve" id="abtn-${o.id}" onclick="approveOrder('${o.id}','${o.itemType}','${o.itemId}',${o.price_uzs || 0},'${o.uid}')">✅ Tasdiqlash</button>
+    </div>
+    <div class="action-result" id="res-${o.id}"></div>` : ''}
+  </div>
+</div>`;
+    }
+
+    window.toggleOrder = function (id) {
+      const body = document.getElementById('body-' + id);
+      const tog = document.getElementById('tog-' + id);
+      if (body) { body.classList.toggle('open'); }
+      if (tog) { tog.classList.toggle('open'); }
+    };
+
+    // ── APPROVE ORDER ─────────────────────────────────────
+    window.approveOrder = async function (orderId, itemType, itemId, price, userId) {
+      const abtn = document.getElementById('abtn-' + orderId);
+      const rbtn = document.getElementById('rbtn-' + orderId);
+      const note = document.getElementById('note-' + orderId)?.value || '';
+      const res = document.getElementById('res-' + orderId);
+      if (!abtn) return;
+      abtn.disabled = true; if (rbtn) rbtn.disabled = true;
+      abtn.textContent = '⏳ Tasdiqlanmoqda...';
+      try {
+        // Update order status
+        await updateDoc(doc(db, 'orders', orderId), { status: 'approved', adminNote: note, approvedAt: serverTimestamp(), approvedBy: CURRENT_ADMIN.email });
+
+        // Update user data based on itemType
+        const userRef = doc(db, 'users', userId);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          const updates = {};
+          if (itemType === 'plan') {
+            updates.plan = itemId;
+            if (itemId === 'pro') { updates.tokens = increment(3000); }
+            else if (itemId === 'premium') { updates.tokens = increment(8000); }
+            else if (itemId === 'ultimate') { updates.plan = 'ultimate'; }
+          } else if (itemType === 'vip') {
+            updates.isVIP = true;
+            updates.vipExpiry = Date.now() + 30 * 24 * 3600000;
+            updates.tokens = increment(5000);
+          } else if (itemType === 'token_package') {
+            // Find token amount from itemId
+            const tokMap = { 'tok_500': 500, 'tok_1200': 1400, 'tok_3000': 3500, 'tok_7000': 8000, 'tok_15000': 18000 };
+            updates.tokens = increment(tokMap[itemId] || 500);
+          } else if (itemType === 'coin_package') {
+            const coinMap = { 'coin_200': 200, 'coin_500': 550, 'coin_1200': 1400, 'coin_3000': 3600, 'coin_8000': 10000, 'coin_20000': 26000 };
+            updates.coins = increment(coinMap[itemId] || 200);
+          } else if (itemType === 'pack') {
+            // Give some coins/tokens for pack purchases
+            updates.coins = increment(Math.floor((price || 0) / 200));
+          }
+          if (Object.keys(updates).length) await updateDoc(userRef, updates);
+        }
+
+        // Update card UI
+        const card = document.getElementById('card-' + orderId);
+        if (card) { card.className = 'order-card approved'; }
+        if (res) { res.className = 'action-result ok'; res.textContent = '✅ Tasdiqlandi! Foydalanuvchi ma\'lumotlari yangilandi.'; }
+        document.getElementById('pendingBadge').textContent = Math.max(0, (parseInt(document.getElementById('pendingBadge').textContent) || 1) - 1);
+        toast('✅ Buyurtma tasdiqlandi!', 'success');
+      } catch (e) {
+        if (res) { res.className = 'action-result err'; res.textContent = '❌ Xato: ' + e.message; }
+        if (abtn) { abtn.disabled = false; abtn.textContent = '✅ Tasdiqlash'; }
+        if (rbtn) { rbtn.disabled = false; }
+        toast('Xato: ' + e.message, 'error');
+      }
+    };
+
+    // ── REJECT ORDER ──────────────────────────────────────
+    window.rejectOrder = async function (orderId) {
+      const abtn = document.getElementById('abtn-' + orderId);
+      const rbtn = document.getElementById('rbtn-' + orderId);
+      const note = document.getElementById('note-' + orderId)?.value || '';
+      const res = document.getElementById('res-' + orderId);
+      if (!rbtn) return;
+      rbtn.disabled = true; if (abtn) abtn.disabled = true;
+      rbtn.textContent = '⏳...';
+      try {
+        await updateDoc(doc(db, 'orders', orderId), { status: 'rejected', adminNote: note || 'Rad etildi', rejectedAt: serverTimestamp(), rejectedBy: CURRENT_ADMIN.email });
+        const card = document.getElementById('card-' + orderId);
+        if (card) card.className = 'order-card rejected';
+        if (res) { res.className = 'action-result err'; res.textContent = '❌ Rad etildi.'; }
+        document.getElementById('pendingBadge').textContent = Math.max(0, (parseInt(document.getElementById('pendingBadge').textContent) || 1) - 1);
+        toast('Buyurtma rad etildi.', 'info');
+      } catch (e) {
+        if (res) { res.className = 'action-result err'; res.textContent = '❌ Xato: ' + e.message; }
+        if (rbtn) { rbtn.disabled = false; rbtn.textContent = '❌ Rad etish'; }
+        if (abtn) { abtn.disabled = false; }
+      }
+    };
+
+    // ── USERS ─────────────────────────────────────────────
+    window.loadUsers = async function () {
+      const tbody = document.getElementById('usersBody');
+      tbody.innerHTML = '<tr><td colspan="8" class="loading-row"><span class="spinner"></span>Yuklanmoqda...</td></tr>';
+      try {
+        const snap = await getDocs(query(collection(db, 'users'), orderBy('createdAt', 'desc'), limit(200)));
+        const users = []; snap.forEach(d => users.push({ id: d.id, ...d.data() }));
+        if (!users.length) { tbody.innerHTML = '<tr><td colspan="8" class="loading-row">Foydalanuvchi yo\'q</td></tr>'; return; }
+        tbody.innerHTML = users.map(u => {
+          const initials = (u.displayName || u.email || '?').substring(0, 1).toUpperCase();
+          const planClass = { 'free': 'plan-free', 'pro': 'plan-pro', 'premium': 'plan-premium', 'ultimate': 'plan-ultimate' }[u.plan || 'free'] || 'plan-free';
+          const dateStr = u.createdAt?.toDate ? u.createdAt.toDate().toLocaleDateString('uz') : '—';
+          return `<tr>
+        <td><div class="user-name-cell"><div class="user-avatar">${initials}</div><span>${u.displayName || '—'}</span>${u.isVIP ? '<span class="vip-chip">VIP</span>' : ''}</div></td>
+        <td style="color:var(--text3);font-size:.78rem">${u.email || '—'}</td>
+        <td><span class="plan-chip ${planClass}">${u.plan || 'free'}</span></td>
+        <td style="color:var(--accent)">${(u.xp || 0).toLocaleString()}</td>
+        <td style="color:var(--gold)">${(u.coins || 0).toLocaleString()}</td>
+        <td style="color:var(--cyan)">${(u.tokens || 0).toLocaleString()}</td>
+        <td style="color:var(--text3);font-size:.76rem">${dateStr}</td>
+        <td><button class="btn-view-user" onclick="viewUser('${u.id}')" style="font-size:.75rem;padding:5px 10px">Ko'rish</button></td>
+      </tr>`;
+        }).join('');
+      } catch (e) { tbody.innerHTML = `<tr><td colspan="8" class="loading-row" style="color:var(--red)">${e.message}</td></tr>`; }
+    };
+
+    // ── USER DETAIL ───────────────────────────────────────
+    window.viewUser = async function (uid) {
+      if (!uid) return;
+      const modal = document.getElementById('userModal');
+      const body = document.getElementById('userModalBody');
+      document.getElementById('userModalTitle').textContent = '👤 Foydalanuvchi';
+      body.innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      modal.classList.add('open');
+      try {
+        const snap = await getDoc(doc(db, 'users', uid));
+        if (!snap.exists()) { body.innerHTML = '<div style="color:var(--red)">Foydalanuvchi topilmadi</div>'; return; }
+        const u = { id: snap.id, ...snap.data() };
+        document.getElementById('userModalTitle').textContent = u.displayName || u.email || uid;
+        const planClass = { 'free': 'plan-free', 'pro': 'plan-pro', 'premium': 'plan-premium', 'ultimate': 'plan-ultimate' }[u.plan || 'free'] || 'plan-free';
+        body.innerHTML = `
+<div class="ud-grid">
+  <div class="ud-field"><div class="ud-label">Email</div><div class="ud-val" style="font-size:.78rem">${u.email || '—'}</div></div>
+  <div class="ud-field"><div class="ud-label">UID</div><div class="ud-val" style="font-size:.72rem">${u.id}</div></div>
+  <div class="ud-field"><div class="ud-label">Reja</div><div class="ud-val"><span class="plan-chip ${planClass}">${u.plan || 'free'}</span></div></div>
+  <div class="ud-field"><div class="ud-label">VIP</div><div class="ud-val">${u.isVIP ? '<span class="vip-chip">👑 VIP</span>' : 'Yo\'q'}</div></div>
+  <div class="ud-field"><div class="ud-label">XP</div><div class="ud-val" style="color:var(--accent)">${(u.xp || 0).toLocaleString()}</div></div>
+  <div class="ud-field"><div class="ud-label">Coins</div><div class="ud-val" style="color:var(--gold)">${(u.coins || 0).toLocaleString()}</div></div>
+  <div class="ud-field"><div class="ud-label">Tokens</div><div class="ud-val" style="color:var(--cyan)">${(u.tokens || 0).toLocaleString()}</div></div>
+  <div class="ud-field"><div class="ud-label">Rank</div><div class="ud-val">${u.rank || 'none'}</div></div>
+</div>
+<div style="font-family:var(--font-h);font-size:.9rem;font-weight:800;margin:18px 0 10px">✏️ Tahrirlash</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+  <div><label class="edit-label">Reja</label>
+    <select class="edit-input" id="edit-plan-${u.id}" style="cursor:pointer">
+      <option value="free" ${u.plan === 'free' ? 'selected' : ''}>Free</option>
+      <option value="pro" ${u.plan === 'pro' ? 'selected' : ''}>Pro</option>
+      <option value="premium" ${u.plan === 'premium' ? 'selected' : ''}>Premium</option>
+      <option value="ultimate" ${u.plan === 'ultimate' ? 'selected' : ''}>Ultimate</option>
+    </select>
+  </div>
+  <div><label class="edit-label">VIP</label>
+    <select class="edit-input" id="edit-vip-${u.id}" style="cursor:pointer">
+      <option value="false" ${!u.isVIP ? 'selected' : ''}>Yo'q</option>
+      <option value="true" ${u.isVIP ? 'selected' : ''}>Ha (VIP)</option>
+    </select>
+  </div>
+  <div><label class="edit-label">Coins qo'shish</label><input class="edit-input" type="number" id="add-coins-${u.id}" placeholder="0" min="0"/></div>
+  <div><label class="edit-label">Tokens qo'shish</label><input class="edit-input" type="number" id="add-tokens-${u.id}" placeholder="0" min="0"/></div>
+  <div><label class="edit-label">XP qo'shish</label><input class="edit-input" type="number" id="add-xp-${u.id}" placeholder="0" min="0"/></div>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+  <button class="btn-save" onclick="saveUser('${u.id}')">💾 Saqlash</button>
+  <button class="btn-danger" onclick="resetUserTokens('${u.id}')">🔄 Tokenlarni tiklash</button>
+</div>
+<div class="action-result" id="user-res-${u.id}" style="margin-top:10px"></div>`;
+      } catch (e) { body.innerHTML = `<div style="color:var(--red)">${e.message}</div>`; }
+    };
+
+    window.saveUser = async function (uid) {
+      const plan = document.getElementById(`edit-plan-${uid}`)?.value;
+      const isVIP = document.getElementById(`edit-vip-${uid}`)?.value === 'true';
+      const addCoins = parseInt(document.getElementById(`add-coins-${uid}`)?.value) || 0;
+      const addTokens = parseInt(document.getElementById(`add-tokens-${uid}`)?.value) || 0;
+      const addXP = parseInt(document.getElementById(`add-xp-${uid}`)?.value) || 0;
+      const res = document.getElementById(`user-res-${uid}`);
+      const updates = { plan, isVIP };
+      if (addCoins > 0) updates.coins = increment(addCoins);
+      if (addTokens > 0) updates.tokens = increment(addTokens);
+      if (addXP > 0) updates.xp = increment(addXP);
+      if (isVIP) updates.vipExpiry = Date.now() + 30 * 24 * 3600000;
+      try {
+        await updateDoc(doc(db, 'users', uid), updates);
+        if (res) { res.className = 'action-result ok'; res.textContent = '✅ Saqlandi!'; }
+        toast('Foydalanuvchi yangilandi!', 'success');
+      } catch (e) {
+        if (res) { res.className = 'action-result err'; res.textContent = '❌ ' + e.message; }
+      }
+    };
+
+    window.resetUserTokens = async function (uid) {
+      try {
+        await updateDoc(doc(db, 'users', uid), { tokens: 1000 });
+        const res = document.getElementById(`user-res-${uid}`);
+        if (res) { res.className = 'action-result ok'; res.textContent = '🔄 Tokenlar 1000 ga tiklandi!'; }
+        toast('Tokenlar tiklandi!', 'info');
+      } catch (e) { toast('Xato: ' + e.message, 'error'); }
+    };
+
+    window.closeUserModal = function () {
+      document.getElementById('userModal').classList.remove('open');
+    };
+
+    // ── USER SEARCH ───────────────────────────────────────
+    window.searchUser = async function () {
+      const q = document.getElementById('userSearchQ').value.trim();
+      const res = document.getElementById('searchResult');
+      if (!q) return;
+      res.innerHTML = '<div class="loading-row"><span class="spinner"></span>Qidirilmoqda...</div>';
+      try {
+        // Try by UID first
+        const byId = await getDoc(doc(db, 'users', q));
+        if (byId.exists()) {
+          const u = { id: byId.id, ...byId.data() };
+          res.innerHTML = renderUserCard(u);
+          return;
+        }
+        // Try by email
+        const byEmail = await getDocs(query(collection(db, 'users'), where('email', '==', q)));
+        if (!byEmail.empty) {
+          const results = [];
+          byEmail.forEach(d => results.push({ id: d.id, ...d.data() }));
+          res.innerHTML = results.map(renderUserCard).join('');
+          return;
+        }
+        res.innerHTML = '<div class="empty"><span>🔍</span>Topilmadi. Email yoki to\'g\'ri UID kiriting.</div>';
+      } catch (e) { res.innerHTML = `<div style="color:var(--red)">${e.message}</div>`; }
+    };
+
+    function renderUserCard(u) {
+      const planClass = { 'free': 'plan-free', 'pro': 'plan-pro', 'premium': 'plan-premium', 'ultimate': 'plan-ultimate' }[u.plan || 'free'] || 'plan-free';
+      return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:20px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+      <div class="user-avatar" style="width:44px;height:44px;font-size:1.1rem">${(u.displayName || u.email || '?').substring(0, 1).toUpperCase()}</div>
+      <div><div style="font-family:var(--font-h);font-weight:800">${u.displayName || '—'}</div><div style="font-size:.78rem;color:var(--text3)">${u.email || u.id}</div></div>
+      ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto">👑 VIP</span>' : ''}
+      <span class="plan-chip ${planClass}" style="${!u.isVIP ? 'margin-left:auto' : ''}"> ${u.plan || 'free'}</span>
+    </div>
+    <div class="ud-grid">
+      <div class="ud-field"><div class="ud-label">XP</div><div class="ud-val" style="color:var(--accent)">${(u.xp || 0).toLocaleString()}</div></div>
+      <div class="ud-field"><div class="ud-label">Coins</div><div class="ud-val" style="color:var(--gold)">${(u.coins || 0).toLocaleString()}</div></div>
+      <div class="ud-field"><div class="ud-label">Tokens</div><div class="ud-val" style="color:var(--cyan)">${(u.tokens || 0).toLocaleString()}</div></div>
+      <div class="ud-field"><div class="ud-label">Rank</div><div class="ud-val">${u.rank || 'none'}</div></div>
+    </div>
+    <button class="btn-view-user" onclick="viewUser('${u.id}')" style="margin-top:14px">✏️ Tahrirlash</button>
+  </div>`;
+    }
+
+    // ── ANNOUNCEMENTS ─────────────────────────────────────
+    window.sendAnnouncement = async function () {
+      const type = document.getElementById('annType').value;
+      const title = document.getElementById('annTitle').value.trim();
+      const body = document.getElementById('annBody').value.trim();
+      if (!title || !body) { toast('Sarlavha va matn kiriting!', 'error'); return; }
+      try {
+        await addDoc(collection(db, 'announcements'), { type, title, body, createdAt: serverTimestamp(), createdBy: CURRENT_ADMIN.email, read: false });
+        document.getElementById('annTitle').value = '';
+        document.getElementById('annBody').value = '';
+        toast('✅ E\'lon yuborildi!', 'success');
+      } catch (e) { toast('Xato: ' + e.message, 'error'); }
+    };
+
+    // ── COPY RULES ────────────────────────────────────────
+    window.copyRules = function () {
+      const rules = `rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n\n    function isAdmin() {\n      return request.auth != null && request.auth.token.email in [\n        'owner@gmail.uz',\n        'linguaverse.admin@gmail.com'\n      ];\n    }\n\n    function isOwner(uid) {\n      return request.auth != null && request.auth.uid == uid;\n    }\n\n    match /{document=**} {\n      allow read, write: if isAdmin();\n    }\n\n    match /users/{userId} {\n      allow read, write: if isOwner(userId);\n    }\n\n    match /orders/{orderId} {\n      allow create: if request.auth != null;\n      allow read, update: if request.auth != null && (\n        request.auth.uid == resource.data.uid ||\n        request.auth.uid == resource.data.userId\n      );\n    }\n\n    match /purchaseRequests/{docId} {\n      allow create: if request.auth != null;\n    }\n\n    match /announcements/{docId} {\n      allow read: if request.auth != null;\n    }\n  }\n}`;
+      navigator.clipboard.writeText(rules).then(() => {
+        const btn = document.getElementById('copyRulesBtn');
+        if (btn) { btn.textContent = '✅ Nusxalandi!'; btn.classList.add('copied'); setTimeout(() => { btn.textContent = '📋 Nusxa'; btn.classList.remove('copied'); }, 2500); }
+        toast('✅ Rules nusxalandi! Firebase Console ga yapishtirib Publish qiling.', 'success');
+      }).catch(() => toast('Nusxalash xato — qo\'lda nusxalab oling', 'error'));
+    };
+
+    // ── LIGHTBOX ─────────────────────────────────────────
+    window.openLightbox = function (src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    };
+    window.closeLightbox = function () {
+      document.getElementById('lightbox').classList.remove('open');
+    };
+
+    // ── TOAST ─────────────────────────────────────────────
+    function toast(msg, type = 'info') {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.className = 'toast ' + type + ' show';
+      clearTimeout(t._tid); t._tid = setTimeout(() => t.classList.remove('show'), 3500);
+    }
+    window.toast = toast;
+
+    // ── ENTER KEY LOGIN ──────────────────────────────────
+    document.getElementById('adminPass').addEventListener('keydown', e => {
+      if (e.key === 'Enter') window.doAdminLogin();
+    });
+
+    // ── MOBILE ───────────────────────────────────────────
+    if (window.innerWidth <= 768) {
+      document.getElementById('menuToggle').style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

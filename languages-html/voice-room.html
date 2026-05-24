@@ -10,7 +10,6 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
     <style>
         *,
         *::before,
@@ -52,7 +51,6 @@
             min-height: 100vh
         }
 
-        /* ── GRID BG ── */
         body::before {
             content: '';
             position: fixed;
@@ -63,7 +61,6 @@
             z-index: 0
         }
 
-        /* ── ORBS ── */
         .orb {
             position: fixed;
             border-radius: 50%;
@@ -114,7 +111,6 @@
             }
         }
 
-        /* ── CURSOR ── */
         .cursor {
             position: fixed;
             width: 10px;
@@ -138,7 +134,6 @@
             transition: all 0.18s ease
         }
 
-        /* ── NAV ── */
         nav#navbar {
             position: sticky;
             top: 0;
@@ -193,7 +188,6 @@
             color: var(--accent)
         }
 
-        /* ── SITE NAV ── */
         .site-nav {
             position: sticky;
             top: 64px;
@@ -233,7 +227,6 @@
             background: rgba(255, 255, 255, 0.1)
         }
 
-        /* ── MAIN ── */
         main {
             position: relative;
             z-index: 1;
@@ -242,7 +235,6 @@
             padding: 40px 24px 80px
         }
 
-        /* ── PAGE HEADER ── */
         .page-header {
             text-align: center;
             margin-bottom: 36px
@@ -280,7 +272,6 @@
             font-size: 1rem
         }
 
-        /* ── SETUP AREA ── */
         .setup-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -364,11 +355,6 @@
             box-shadow: 0 8px 24px rgba(79, 110, 247, 0.35)
         }
 
-        .btn-create:active {
-            transform: translateY(0)
-        }
-
-        /* ── FILTERS ── */
         .filters-row {
             display: flex;
             align-items: center;
@@ -419,7 +405,6 @@
             color: var(--muted)
         }
 
-        /* ── ROOMS GRID ── */
         .rooms-header {
             display: flex;
             align-items: center;
@@ -598,23 +583,6 @@
             background: rgba(79, 110, 247, 0.25)
         }
 
-        .rc-spec {
-            padding: 9px 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 9px;
-            color: var(--muted);
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: 'DM Sans', sans-serif
-        }
-
-        .rc-spec:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text)
-        }
-
         .participants-preview {
             display: flex;
             margin-bottom: 10px
@@ -665,7 +633,6 @@
             }
         }
 
-        /* ── EMPTY STATE ── */
         .empty-state {
             text-align: center;
             padding: 48px 24px;
@@ -685,9 +652,6 @@
             line-height: 1.6
         }
 
-        /* ═══════════════════════════════════════
-   ACTIVE ROOM UI
-═══════════════════════════════════════ */
         #activeRoom {
             display: none
         }
@@ -705,7 +669,6 @@
             }
         }
 
-        /* ── ROOM MAIN PANEL ── */
         .voice-room-wrap {
             background: var(--surface);
             border: 1px solid rgba(79, 110, 247, 0.2);
@@ -775,7 +738,6 @@
             font-weight: 600
         }
 
-        /* ── PARTICIPANTS ── */
         .participants-area {
             padding: 22px;
             display: flex;
@@ -899,23 +861,6 @@
             color: var(--gold)
         }
 
-        .volume-mini {
-            width: 48px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 3px;
-            overflow: hidden
-        }
-
-        .volume-mini-fill {
-            height: 100%;
-            background: var(--accent);
-            border-radius: 3px;
-            width: 0%;
-            transition: width 0.1s
-        }
-
-        /* ── VOLUME BARS (speaking animation) ── */
         .vol-bars {
             display: flex;
             align-items: center;
@@ -972,7 +917,6 @@
             }
         }
 
-        /* ── CONTROLS ── */
         .room-controls {
             padding: 16px 22px;
             background: rgba(0, 0, 0, 0.2);
@@ -1048,6 +992,30 @@
             color: var(--text)
         }
 
+        .ctrl-btn.record-btn {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+            color: var(--red)
+        }
+
+        .ctrl-btn.record-btn.recording {
+            background: rgba(239, 68, 68, 0.3);
+            border-color: var(--red);
+            animation: recordPulse 1s infinite
+        }
+
+        @keyframes recordPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4)
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(239, 68, 68, 0)
+            }
+        }
+
         .ctrl-btn.leave {
             width: auto;
             padding: 0 20px;
@@ -1102,7 +1070,6 @@
             opacity: 1
         }
 
-        /* ── VOL SLIDER ── */
         .vol-slider-wrap {
             display: flex;
             align-items: center;
@@ -1134,7 +1101,6 @@
             transform: scale(1.3)
         }
 
-        /* ── SIDE PANELS ── */
         .side-panels {
             display: flex;
             flex-direction: column;
@@ -1185,7 +1151,6 @@
             padding: 14px 16px
         }
 
-        /* ── CHAT ── */
         .chat-messages {
             height: 220px;
             overflow-y: auto;
@@ -1314,7 +1279,6 @@
             transform: scale(1.05)
         }
 
-        /* ── REACTIONS PICKER ── */
         .reactions-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -1339,26 +1303,6 @@
             transform: scale(1.15)
         }
 
-        .reaction-badge {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background: var(--accent);
-            color: #fff;
-            font-size: 0.55rem;
-            font-weight: 700;
-            padding: 1px 4px;
-            border-radius: 6px;
-            min-width: 16px;
-            text-align: center;
-            display: none
-        }
-
-        .reaction-badge.show {
-            display: block
-        }
-
-        /* ── FLOATING REACTIONS ── */
         .reaction-float {
             position: fixed;
             font-size: 1.8rem;
@@ -1383,7 +1327,6 @@
             }
         }
 
-        /* ── ROOM INFO PANEL ── */
         .info-row {
             display: flex;
             align-items: center;
@@ -1406,7 +1349,6 @@
             font-weight: 600
         }
 
-        /* ── QUALITY INDICATOR ── */
         .quality-dot {
             width: 8px;
             height: 8px;
@@ -1427,7 +1369,6 @@
             background: var(--red)
         }
 
-        /* ── PRIVATE MSG PANEL ── */
         .pm-list {
             display: flex;
             flex-direction: column;
@@ -1449,7 +1390,7 @@
             background: rgba(255, 255, 255, 0.05)
         }
 
-        .pm-item .pm-dot {
+        .pm-dot {
             width: 8px;
             height: 8px;
             border-radius: 50%;
@@ -1461,7 +1402,6 @@
             font-weight: 600
         }
 
-        /* ── MODAL ── */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -1619,7 +1559,6 @@
             background: rgba(255, 255, 255, 0.1)
         }
 
-        /* ── PASSWORD INPUT ── */
         .pass-input-wrap {
             position: relative
         }
@@ -1645,60 +1584,6 @@
             color: var(--text)
         }
 
-        /* ── DEVICE SETTINGS ── */
-        .device-select {
-            display: flex;
-            flex-direction: column;
-            gap: 10px
-        }
-
-        .device-row {
-            display: flex;
-            align-items: center;
-            gap: 10px
-        }
-
-        .device-row label {
-            font-size: 0.78rem;
-            color: var(--muted);
-            width: 80px;
-            flex-shrink: 0
-        }
-
-        .device-row select {
-            flex: 1;
-            padding: 8px 12px;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--text);
-            font-size: 0.82rem;
-            font-family: 'DM Sans', sans-serif;
-            outline: none
-        }
-
-        .device-row select:focus {
-            border-color: var(--accent)
-        }
-
-        .test-mic-btn {
-            padding: 8px 14px;
-            background: rgba(52, 211, 153, 0.1);
-            border: 1px solid rgba(52, 211, 153, 0.3);
-            border-radius: 10px;
-            color: var(--green);
-            font-size: 0.8rem;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: 'DM Sans', sans-serif;
-            transition: all 0.2s
-        }
-
-        .test-mic-btn:hover {
-            background: rgba(52, 211, 153, 0.2)
-        }
-
-        /* ── NOISE ── */
         .toggle-row {
             display: flex;
             align-items: center;
@@ -1756,7 +1641,6 @@
             transform: translateX(18px)
         }
 
-        /* ── MIC LEVEL BAR ── */
         .mic-level-bar {
             height: 6px;
             background: rgba(255, 255, 255, 0.08);
@@ -1773,7 +1657,6 @@
             transition: width 0.05s
         }
 
-        /* ── TOAST ── */
         .toast {
             position: fixed;
             bottom: 24px;
@@ -1814,7 +1697,6 @@
             color: var(--accent)
         }
 
-        /* ── CONNECTING OVERLAY ── */
         #connectingOverlay {
             display: none;
             position: fixed;
@@ -1858,7 +1740,6 @@
             font-size: 0.8rem
         }
 
-        /* ── NETWORK STATUS ── */
         .net-status {
             display: inline-flex;
             align-items: center;
@@ -1884,7 +1765,6 @@
             color: var(--red)
         }
 
-        /* ── WAVEFORM ── */
         .waveform-canvas {
             width: 100%;
             height: 40px;
@@ -1893,7 +1773,96 @@
             border: 1px solid var(--border)
         }
 
-        /* ── RESPONSIBE ── */
+        /* Audio unlock button */
+        .audio-unlock-btn {
+            padding: 8px 18px;
+            background: rgba(52, 211, 153, 0.15);
+            border: 1px solid rgba(52, 211, 153, 0.4);
+            border-radius: 10px;
+            color: var(--green);
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .audio-unlock-btn:hover {
+            background: rgba(52, 211, 153, 0.3)
+        }
+
+        /* Stats panel */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px 12px
+        }
+
+        .stat-val {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent)
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            color: var(--muted);
+            margin-top: 2px
+        }
+
+        /* Speaking indicator ring */
+        @keyframes speakRing {
+            0% {
+                box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5)
+            }
+
+            100% {
+                box-shadow: 0 0 0 12px rgba(52, 211, 153, 0)
+            }
+        }
+
+        .participant-avatar.speaking {
+            animation: speakRing 0.8s ease-out infinite
+        }
+
+        /* Noise meter */
+        .noise-meter {
+            display: flex;
+            gap: 2px;
+            align-items: flex-end;
+            height: 20px
+        }
+
+        .noise-bar {
+            width: 4px;
+            background: var(--surface3);
+            border-radius: 2px;
+            transition: height 0.1s, background 0.1s
+        }
+
+        /* Muted overlay */
+        .muted-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(239, 68, 68, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none
+        }
+
         @media(max-width:600px) {
             .nav-center {
                 display: none
@@ -1929,7 +1898,6 @@
 </head>
 
 <body>
-
     <div class="cursor" id="cursor"></div>
     <div class="cursor-ring" id="cursorRing"></div>
     <div class="orb orb-1"></div>
@@ -1943,8 +1911,7 @@
             <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profil</a>
         </div>
         <div style="display:flex;align-items:center;gap:12px">
-            <span id="netStatusBadge" class="net-status good" title="Tarmoq holati"><i class="fa-solid fa-wifi"></i>
-                Yaxshi</span>
+            <span id="netStatusBadge" class="net-status good"><i class="fa-solid fa-wifi"></i> Yaxshi</span>
             <span id="navUserInfo" style="font-size:0.82rem;font-weight:600;color:var(--muted)"></span>
         </div>
     </nav>
@@ -1966,7 +1933,7 @@
             <p class="page-sub">Ochiq xonaga kiring yoki o'zingiz xona oching — cheksiz, bepul</p>
         </div>
 
-        <!-- ═══ SETUP AREA ═══ -->
+        <!-- SETUP AREA -->
         <div id="setupArea">
             <div class="setup-grid">
                 <div class="setup-field">
@@ -1991,17 +1958,17 @@
                         <div class="mic-level-fill" id="micLevelFill"></div>
                     </div>
                     <div style="display:flex;gap:8px;margin-top:6px">
-                        <button class="test-mic-btn" onclick="startMicTest()"><i class="fa-solid fa-play"></i>
-                            Test</button>
-                        <button class="test-mic-btn" onclick="stopMicTest()"
-                            style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:var(--red)"><i
+                        <button class="test-mic-btn" onclick="startMicTest()"
+                            style="padding:8px 14px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);border-radius:10px;color:var(--green);font-size:0.8rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s"><i
+                                class="fa-solid fa-play"></i> Test</button>
+                        <button onclick="stopMicTest()"
+                            style="padding:8px 14px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:10px;color:var(--red);font-size:0.8rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s"><i
                                 class="fa-solid fa-stop"></i> To'xtat</button>
                         <select id="micDeviceSelect"
                             style="flex:1;padding:6px 10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.8rem;font-family:'DM Sans',sans-serif;outline:none"></select>
                     </div>
                 </div>
             </div>
-
             <div class="create-row">
                 <div style="flex:1;position:relative">
                     <input type="text" id="roomNameInput" placeholder="Xona nomi... (masalan: English Practice)"
@@ -2011,8 +1978,6 @@
                 <button class="btn-create" onclick="openCreateModal()"><i class="fa-solid fa-plus"></i> Xona
                     ochish</button>
             </div>
-
-            <!-- Filters -->
             <div class="filters-row">
                 <span style="font-size:0.78rem;color:var(--muted);font-weight:600;flex-shrink:0">Filter:</span>
                 <button class="filter-btn active" onclick="filterRooms('all',this)">Hammasi</button>
@@ -2023,7 +1988,6 @@
                 <input class="search-rooms" type="text" id="searchRooms" placeholder="🔍 Xona qidirish..."
                     oninput="renderRooms(allRooms)" />
             </div>
-
             <div class="rooms-header">
                 <h3><i class="fa-solid fa-door-open"></i> Barcha ochiq xonalar</h3>
                 <span class="room-count" id="roomCount">0 ta</span>
@@ -2035,10 +1999,9 @@
             </div>
         </div>
 
-        <!-- ═══ ACTIVE ROOM ═══ -->
+        <!-- ACTIVE ROOM -->
         <div id="activeRoom">
             <div class="voice-room-layout">
-                <!-- Main panel -->
                 <div>
                     <div class="voice-room-wrap">
                         <div class="room-top">
@@ -2053,9 +2016,18 @@
                             </div>
                         </div>
 
+                        <!-- Audio unlock banner (shown when browser blocks autoplay) -->
+                        <div id="audioUnlockBanner"
+                            style="display:none;padding:10px 22px;background:rgba(251,191,36,0.08);border-bottom:1px solid rgba(251,191,36,0.2);display:none;align-items:center;gap:10px">
+                            <i class="fa-solid fa-volume-xmark" style="color:var(--yellow)"></i>
+                            <span style="font-size:0.82rem;color:var(--text2);flex:1">Brauzer ovozni blokladi —
+                                aktivlashtirish uchun bosing</span>
+                            <button class="audio-unlock-btn" onclick="unlockAudio()"><i
+                                    class="fa-solid fa-volume-high"></i> Ovozni yoqish</button>
+                        </div>
+
                         <div class="participants-area" id="participantsArea"></div>
 
-                        <!-- Waveform -->
                         <div style="padding:0 22px 12px">
                             <canvas class="waveform-canvas" id="waveformCanvas"></canvas>
                         </div>
@@ -2063,28 +2035,32 @@
                         <div class="room-controls">
                             <div class="ctrl-wrap">
                                 <button class="ctrl-btn mic" id="micBtn" onclick="toggleMic()">
-                                    <i class="fa-solid fa-microphone"></i>
+                                    <i class="fa-solid fa-microphone" id="micIcon"></i>
                                     <span class="ctrl-tooltip">Mikrofon (M)</span>
                                 </button>
                                 <div class="ctrl-label" id="micLabel">Mikrofon</div>
                             </div>
-
                             <div class="ctrl-wrap">
                                 <button class="ctrl-btn hand-btn" id="handBtn" onclick="toggleHand()">
                                     <i class="fa-solid fa-hand"></i>
-                                    <span class="ctrl-tooltip">Qo'l ko'tarish</span>
+                                    <span class="ctrl-tooltip">Qo'l ko'tarish (H)</span>
                                 </button>
                                 <div class="ctrl-label">Qo'l</div>
                             </div>
-
                             <div class="ctrl-wrap">
                                 <button class="ctrl-btn react-btn" onclick="toggleReactPanel()">
                                     <i class="fa-solid fa-face-laugh"></i>
-                                    <span class="ctrl-tooltip">Reaksiyalar</span>
+                                    <span class="ctrl-tooltip">Reaksiyalar (R)</span>
                                 </button>
                                 <div class="ctrl-label">Reaksiya</div>
                             </div>
-
+                            <div class="ctrl-wrap">
+                                <button class="ctrl-btn record-btn" id="recBtn" onclick="toggleRecord()">
+                                    <i class="fa-solid fa-circle-dot"></i>
+                                    <span class="ctrl-tooltip">Yozib olish</span>
+                                </button>
+                                <div class="ctrl-label" id="recLabel">Yozish</div>
+                            </div>
                             <div class="ctrl-wrap">
                                 <button class="ctrl-btn settings-btn" onclick="openSettingsModal()">
                                     <i class="fa-solid fa-sliders"></i>
@@ -2092,7 +2068,6 @@
                                 </button>
                                 <div class="ctrl-label">Sozlama</div>
                             </div>
-
                             <div class="ctrl-wrap">
                                 <button class="ctrl-btn settings-btn" onclick="shareRoom()">
                                     <i class="fa-solid fa-share-nodes"></i>
@@ -2100,13 +2075,11 @@
                                 </button>
                                 <div class="ctrl-label">Ulash</div>
                             </div>
-
                             <button class="ctrl-btn leave" onclick="leaveRoom()">
                                 <i class="fa-solid fa-phone-slash"></i> Chiqish
                             </button>
                         </div>
 
-                        <!-- Reaction panel (collapsible) -->
                         <div id="reactPanel" style="display:none;padding:14px 22px;border-top:1px solid var(--border)">
                             <div class="reactions-grid" id="reactGrid"></div>
                         </div>
@@ -2137,9 +2110,10 @@
 
                     <!-- Chat -->
                     <div class="side-panel">
-                        <div class="sp-header" onclick="togglePanel('chatPanel',this)">
+                        <div class="sp-header" id="chatPanelHeader"
+                            onclick="togglePanel('chatPanel',this);clearUnread()">
                             <h4><i class="fa-solid fa-message"></i> Chat <span id="unreadBadge"
-                                    style="display:none;background:var(--red);color:#fff;font-size:0.6rem;padding:1px 5px;border-radius:8px;font-weight:700"></span>
+                                    style="display:none;background:var(--red);color:#fff;font-size:0.6rem;padding:1px 5px;border-radius:8px;font-weight:700;margin-left:4px"></span>
                             </h4>
                             <i class="fa-solid fa-chevron-down sp-toggle open"></i>
                         </div>
@@ -2147,19 +2121,51 @@
                             <div class="chat-messages" id="chatMessages"></div>
                             <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap">
                                 <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
-                                    onclick="insertQuick('👋 Salom!')">👋 Salom</button>
+                                    onclick="insertQuick('👋 Salom!')">👋</button>
                                 <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
-                                    onclick="insertQuick('👍 Yaxshi!')">👍 Yaxshi</button>
+                                    onclick="insertQuick('👍 Yaxshi!')">👍</button>
                                 <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
-                                    onclick="insertQuick('🙏 Rahmat')">🙏 Rahmat</button>
+                                    onclick="insertQuick('🙏 Rahmat')">🙏</button>
                                 <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
-                                    onclick="insertQuick('😄 Ha-ha!')">😄 lol</button>
+                                    onclick="insertQuick('😄 Ha-ha!')">😄</button>
+                                <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
+                                    onclick="insertQuick('❓ Iltimos qayta ayting')">❓</button>
+                                <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
+                                    onclick="insertQuick('🔇 Men ham eshitmayapman')">🔇</button>
                             </div>
                             <div class="chat-input-row">
                                 <input class="chat-input" id="chatInput" placeholder="Xabar yozing..." maxlength="200"
                                     onkeydown="if(event.key==='Enter')sendChat()" />
                                 <button class="chat-send" onclick="sendChat()"><i
                                         class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="side-panel">
+                        <div class="sp-header" onclick="togglePanel('statsPanel',this)">
+                            <h4><i class="fa-solid fa-chart-bar"></i> Statistika</h4>
+                            <i class="fa-solid fa-chevron-down sp-toggle open"></i>
+                        </div>
+                        <div class="sp-body" id="statsPanel">
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-val" id="statDuration">0:00</div>
+                                    <div class="stat-label">Davomiylik</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-val" id="statPeers">1</div>
+                                    <div class="stat-label">Ishtirokchilar</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-val" id="statMsgs">0</div>
+                                    <div class="stat-label">Xabarlar</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-val" id="statReacts">0</div>
+                                    <div class="stat-label">Reaksiyalar</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2204,23 +2210,17 @@
         </div>
     </main>
 
-    <!-- ═══ MODALS ═══ -->
-    <!-- Create Room Modal -->
+    <!-- MODALS -->
     <div class="modal-overlay" id="createModal">
         <div class="modal">
             <button class="modal-close" onclick="closeModal('createModal')"><i class="fa-solid fa-xmark"></i></button>
             <h3><i class="fa-solid fa-plus-circle"></i> Yangi xona yaratish</h3>
-            <div class="modal-field">
-                <label>Xona nomi *</label>
-                <input type="text" id="cm_name" placeholder="English Practice" maxlength="40" />
-            </div>
-            <div class="modal-field">
-                <label>Tavsif</label>
-                <textarea id="cm_desc" placeholder="Bu xona haqida qisqacha..."></textarea>
-            </div>
+            <div class="modal-field"><label>Xona nomi *</label><input type="text" id="cm_name"
+                    placeholder="English Practice" maxlength="40" /></div>
+            <div class="modal-field"><label>Tavsif</label><textarea id="cm_desc"
+                    placeholder="Bu xona haqida qisqacha..."></textarea></div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-                <div class="modal-field">
-                    <label>Til</label>
+                <div class="modal-field"><label>Til</label>
                     <select id="cm_lang">
                         <option value="English">🇬🇧 English</option>
                         <option value="Russian">🇷🇺 Russian</option>
@@ -2232,8 +2232,7 @@
                         <option value="Boshqa">🌐 Boshqa</option>
                     </select>
                 </div>
-                <div class="modal-field">
-                    <label>Daraja</label>
+                <div class="modal-field"><label>Daraja</label>
                     <select id="cm_level">
                         <option value="Hammasi">Hammasi</option>
                         <option value="Beginner">Beginner</option>
@@ -2243,8 +2242,7 @@
                 </div>
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-                <div class="modal-field">
-                    <label>Max ishtirokchilar</label>
+                <div class="modal-field"><label>Max ishtirokchilar</label>
                     <select id="cm_max">
                         <option value="5">5</option>
                         <option value="10" selected>10</option>
@@ -2252,9 +2250,9 @@
                         <option value="50">50</option>
                     </select>
                 </div>
-                <div class="modal-field">
-                    <label>Tur</label>
-                    <select id="cm_type">
+                <div class="modal-field"><label>Tur</label>
+                    <select id="cm_type"
+                        onchange="document.getElementById('cm_passWrap').style.display=this.value==='locked'?'block':'none'">
                         <option value="open">🔓 Ochiq</option>
                         <option value="locked">🔒 Parolli</option>
                     </select>
@@ -2275,7 +2273,6 @@
         </div>
     </div>
 
-    <!-- Join Password Modal -->
     <div class="modal-overlay" id="joinPassModal">
         <div class="modal">
             <button class="modal-close" onclick="closeModal('joinPassModal')"><i class="fa-solid fa-xmark"></i></button>
@@ -2299,31 +2296,23 @@
         </div>
     </div>
 
-    <!-- Settings Modal -->
     <div class="modal-overlay" id="settingsModal">
         <div class="modal" style="max-width:500px">
             <button class="modal-close" onclick="closeModal('settingsModal')"><i class="fa-solid fa-xmark"></i></button>
             <h3><i class="fa-solid fa-sliders"></i> Audio sozlamalari</h3>
-            <div class="modal-field">
-                <label>Mikrofon qurilmasi</label>
-                <div class="device-row">
-                    <select id="micDevSelect"
-                        style="flex:1;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.85rem;font-family:'DM Sans',sans-serif;outline:none"></select>
-                </div>
+            <div class="modal-field"><label>Mikrofon qurilmasi</label>
+                <select id="micDevSelect"
+                    style="width:100%;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.85rem;font-family:'DM Sans',sans-serif;outline:none"></select>
             </div>
-            <div class="modal-field">
-                <label>Chiqish qurilmasi</label>
-                <div class="device-row">
-                    <select id="outDevSelect"
-                        style="flex:1;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.85rem;font-family:'DM Sans',sans-serif;outline:none"></select>
-                </div>
+            <div class="modal-field"><label>Chiqish qurilmasi</label>
+                <select id="outDevSelect"
+                    style="width:100%;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.85rem;font-family:'DM Sans',sans-serif;outline:none"></select>
             </div>
             <div style="margin-bottom:12px">
                 <div class="toggle-row">
                     <span class="toggle-label"><i class="fa-solid fa-volume-xmark"
-                            style="color:var(--accent);margin-right:6px"></i> Shovqin filtri (Noise Suppression)</span>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="noiseSuppToggle" checked onchange="applyAudioConstraints()" />
+                            style="color:var(--accent);margin-right:6px"></i> Shovqin filtri</span>
+                    <label class="toggle-switch"><input type="checkbox" id="noiseSuppToggle" checked />
                         <div class="toggle-track"></div>
                         <div class="toggle-thumb"></div>
                     </label>
@@ -2331,8 +2320,7 @@
                 <div class="toggle-row">
                     <span class="toggle-label"><i class="fa-solid fa-waveform-lines"
                             style="color:var(--accent);margin-right:6px"></i> Echo bekor qilish</span>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="echoCancelToggle" checked onchange="applyAudioConstraints()" />
+                    <label class="toggle-switch"><input type="checkbox" id="echoCancelToggle" checked />
                         <div class="toggle-track"></div>
                         <div class="toggle-thumb"></div>
                     </label>
@@ -2340,8 +2328,7 @@
                 <div class="toggle-row">
                     <span class="toggle-label"><i class="fa-solid fa-signal"
                             style="color:var(--accent);margin-right:6px"></i> Auto darajani moslash (AGC)</span>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="agcToggle" checked onchange="applyAudioConstraints()" />
+                    <label class="toggle-switch"><input type="checkbox" id="agcToggle" checked />
                         <div class="toggle-track"></div>
                         <div class="toggle-thumb"></div>
                     </label>
@@ -2349,8 +2336,15 @@
                 <div class="toggle-row">
                     <span class="toggle-label"><i class="fa-solid fa-bell"
                             style="color:var(--accent);margin-right:6px"></i> Bildirishnomalar</span>
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="notifToggle" checked />
+                    <label class="toggle-switch"><input type="checkbox" id="notifToggle" checked />
+                        <div class="toggle-track"></div>
+                        <div class="toggle-thumb"></div>
+                    </label>
+                </div>
+                <div class="toggle-row">
+                    <span class="toggle-label"><i class="fa-solid fa-headphones"
+                            style="color:var(--accent);margin-right:6px"></i> Stereo rejim</span>
+                    <label class="toggle-switch"><input type="checkbox" id="stereoToggle" />
                         <div class="toggle-track"></div>
                         <div class="toggle-thumb"></div>
                     </label>
@@ -2370,7 +2364,6 @@
         </div>
     </div>
 
-    <!-- Connecting Overlay -->
     <div id="connectingOverlay">
         <div class="spinner-big"></div>
         <p id="connectingText">Ulanmoqda...</p>
@@ -2379,12 +2372,15 @@
 
     <div class="toast" id="toast"></div>
 
+    <!-- Load PeerJS -->
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+
     <script type="module">
-        import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
         import {
             getFirestore, collection, addDoc, doc, deleteDoc,
             updateDoc, onSnapshot, serverTimestamp, query, orderBy,
-            arrayUnion, arrayRemove, getDoc
+            getDoc, setDoc
         } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
         const FB_CONFIG = {
@@ -2396,48 +2392,47 @@
             appId: "1:130625454868:web:3f02871f64cb5f8af27801"
         };
 
-        let _app; try { _app = getApp(); } catch { _app = initializeApp(FB_CONFIG); }
+        const _app = getApps().length ? getApps()[0] : initializeApp(FB_CONFIG);
         const db = getFirestore(_app);
 
-        // ══════════════════════════════════════
-        // STATE
-        // ══════════════════════════════════════
+        // ══════════ STATE ══════════
         let peer = null, myStream = null, myPeerId = null;
         let myRoomDocId = null, myRoomName = '', myRoomData = null;
-        let isMuted = false, handRaised = false;
-        let connections = {}; // { peerId: { call, data, gainNode, audioEl, ctx, analyser } }
-        let participants = {}; // { peerId: { name, muted, hand, level } }
+        let isMuted = false, handRaised = false, isRecording = false;
+        let mediaRecorder = null, recordedChunks = [];
+
+        // connections[peerId] = { call, dataConn, audioEl, gainNode, analyser, volInterval, answered }
+        let connections = {};
+        // participants[peerId] = { name, muted, hand, level }
+        let participants = {};
+
         let unsubRoom = null;
-        let masterGain = null;
-        let masterCtx = null;
-        let masterDest = null;
+        let masterAudioCtx = null;
+        let masterGainNode = null;
         let durationInterval = null;
         let startTime = null;
         let pingInterval = null;
         let reconnectTimers = {};
-        let chatOpen = true;
         let unreadCount = 0;
         let currentFilter = 'all';
         let pendingJoinRoomId = null;
-        let micTestStream = null, micTestAnalyser = null, micTestInterval = null;
+        let micTestStream = null, micTestAnalyserNode = null, micTestInterval = null;
         let waveformRAF = null;
-        let myAnalyserForWave = null;
+        let myVoiceAnalyser = null;
+        let msgCount = 0, reactCount = 0;
 
-        // ══════════════════════════════════════
-        // CURSOR
-        // ══════════════════════════════════════
+        // Firestore peers: stored as subcollection of peerId docs to avoid arrayUnion/arrayRemove conflicts
+        // peers subcollection: voiceRooms/{roomId}/peers/{peerId} = { name, joinedAt }
+
+        // ══════════ CURSOR ══════════
         const cursor = document.getElementById('cursor');
         const cursorRing = document.getElementById('cursorRing');
         document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX - 5 + 'px';
-            cursor.style.top = e.clientY - 5 + 'px';
-            cursorRing.style.left = e.clientX - 18 + 'px';
-            cursorRing.style.top = e.clientY - 18 + 'px';
+            cursor.style.left = (e.clientX - 5) + 'px'; cursor.style.top = (e.clientY - 5) + 'px';
+            cursorRing.style.left = (e.clientX - 18) + 'px'; cursorRing.style.top = (e.clientY - 18) + 'px';
         });
 
-        // ══════════════════════════════════════
-        // TOAST
-        // ══════════════════════════════════════
+        // ══════════ TOAST ══════════
         function showToast(msg, type = '') {
             const t = document.getElementById('toast');
             t.className = 'toast ' + type;
@@ -2447,41 +2442,27 @@
             t._to = setTimeout(() => t.classList.remove('show'), 3500);
         }
 
-        // ══════════════════════════════════════
-        // OVERLAY
-        // ══════════════════════════════════════
+        // ══════════ OVERLAY ══════════
         function showOverlay(text, hint = '') {
             document.getElementById('connectingText').textContent = text;
             document.getElementById('connectingHint').textContent = hint;
             document.getElementById('connectingOverlay').classList.add('show');
         }
-        function hideOverlay() {
-            document.getElementById('connectingOverlay').classList.remove('show');
-        }
+        function hideOverlay() { document.getElementById('connectingOverlay').classList.remove('show'); }
 
-        // ══════════════════════════════════════
-        // MODAL HELPERS
-        // ══════════════════════════════════════
+        // ══════════ MODALS ══════════
         window.closeModal = id => document.getElementById(id).classList.remove('show');
-
         window.openCreateModal = () => {
             const n = document.getElementById('roomNameInput').value.trim();
             if (n) document.getElementById('cm_name').value = n;
             document.getElementById('createModal').classList.add('show');
         };
-
         window.togglePassVis = id => {
             const el = document.getElementById(id);
             el.type = el.type === 'password' ? 'text' : 'password';
         };
 
-        document.getElementById('cm_type').addEventListener('change', e => {
-            document.getElementById('cm_passWrap').style.display = e.target.value === 'locked' ? 'block' : 'none';
-        });
-
-        // ══════════════════════════════════════
-        // PANEL TOGGLE
-        // ══════════════════════════════════════
+        // ══════════ PANEL TOGGLE ══════════
         window.togglePanel = (panelId, header) => {
             const panel = document.getElementById(panelId);
             const icon = header.querySelector('.sp-toggle');
@@ -2490,9 +2471,7 @@
             icon.classList.toggle('open', !isOpen);
         };
 
-        // ══════════════════════════════════════
-        // NETWORK STATUS
-        // ══════════════════════════════════════
+        // ══════════ NET STATUS ══════════
         function updateNetStatus() {
             const badge = document.getElementById('netStatusBadge');
             if (!navigator.onLine) {
@@ -2507,47 +2486,67 @@
         window.addEventListener('offline', () => { updateNetStatus(); showToast('<i class="fa-solid fa-wifi-slash"></i> Internet yo\'q!', 'error'); });
         updateNetStatus();
 
-        // ══════════════════════════════════════
-        // MIC DEVICES
-        // ══════════════════════════════════════
+        // ══════════ AUDIO CONTEXT (lazy, user-gesture required) ══════════
+        function getOrCreateAudioCtx() {
+            if (!masterAudioCtx || masterAudioCtx.state === 'closed') {
+                masterAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                masterGainNode = masterAudioCtx.createGain();
+                masterGainNode.gain.value = parseFloat(document.getElementById('masterVolSlider').value) / 100;
+                masterGainNode.connect(masterAudioCtx.destination);
+            }
+            // Resume if suspended (autoplay policy)
+            if (masterAudioCtx.state === 'suspended') masterAudioCtx.resume().catch(() => { });
+            return masterAudioCtx;
+        }
+
+        // Called by the "Ovozni yoqish" button
+        window.unlockAudio = () => {
+            getOrCreateAudioCtx();
+            if (masterAudioCtx) masterAudioCtx.resume().then(() => {
+                document.getElementById('audioUnlockBanner').style.display = 'none';
+                showToast('<i class="fa-solid fa-volume-high"></i> Ovoz yoqildi!', 'success');
+                // Re-connect all existing remote streams
+                Object.entries(connections).forEach(([pid, c]) => {
+                    if (c.audioEl && c.audioEl.srcObject) {
+                        connectRemoteAudio(pid, c.audioEl.srcObject);
+                    }
+                });
+            });
+        };
+
+        // ══════════ MIC DEVICES ══════════
         async function loadMicDevices() {
             try {
-                await navigator.mediaDevices.getUserMedia({ audio: true });
                 const devices = await navigator.mediaDevices.enumerateDevices();
                 const mics = devices.filter(d => d.kind === 'audioinput');
-                const outDevs = devices.filter(d => d.kind === 'audiooutput');
+                const outs = devices.filter(d => d.kind === 'audiooutput');
                 ['micDeviceSelect', 'micDevSelect'].forEach(id => {
-                    const sel = document.getElementById(id);
-                    if (!sel) return;
-                    sel.innerHTML = mics.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Mikrofon ' + (i + 1)}</option>`).join('');
+                    const sel = document.getElementById(id); if (!sel) return;
+                    sel.innerHTML = mics.map((d, i) => `<option value="${d.deviceId}">${escHtml(d.label || 'Mikrofon ' + (i + 1))}</option>`).join('');
                 });
                 const outSel = document.getElementById('outDevSelect');
-                if (outSel) outSel.innerHTML = outDevs.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Chiqish ' + (i + 1)}</option>`).join('');
-            } catch (e) { /* silent */ }
+                if (outSel) outSel.innerHTML = outs.map((d, i) => `<option value="${d.deviceId}">${escHtml(d.label || 'Chiqish ' + (i + 1))}</option>`).join('');
+            } catch (e) { }
         }
         loadMicDevices();
 
-        // ══════════════════════════════════════
-        // MIC TEST (setup area)
-        // ══════════════════════════════════════
+        // ══════════ MIC TEST ══════════
         window.startMicTest = async () => {
             stopMicTest();
             try {
                 const deviceId = document.getElementById('micDeviceSelect').value;
                 const constr = { audio: deviceId ? { deviceId: { exact: deviceId }, echoCancellation: true, noiseSuppression: true } : { echoCancellation: true, noiseSuppression: true } };
                 micTestStream = await navigator.mediaDevices.getUserMedia(constr);
-                const ctx = new AudioContext();
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
                 const analyser = ctx.createAnalyser();
                 analyser.fftSize = 256;
                 ctx.createMediaStreamSource(micTestStream).connect(analyser);
-                micTestAnalyser = analyser;
+                micTestAnalyserNode = analyser;
                 const data = new Uint8Array(analyser.frequencyBinCount);
                 micTestInterval = setInterval(() => {
                     analyser.getByteFrequencyData(data);
                     const avg = data.reduce((a, b) => a + b, 0) / data.length;
                     document.getElementById('micLevelFill').style.width = Math.min(100, avg * 3) + '%';
-                    if (document.getElementById('settingsMicFill'))
-                        document.getElementById('settingsMicFill').style.width = Math.min(100, avg * 3) + '%';
                 }, 50);
                 showToast('<i class="fa-solid fa-microphone"></i> Mikrofon testi boshlandi', 'success');
             } catch (e) {
@@ -2558,59 +2557,55 @@
         window.stopMicTest = () => {
             if (micTestInterval) clearInterval(micTestInterval);
             if (micTestStream) micTestStream.getTracks().forEach(t => t.stop());
-            micTestStream = null; micTestAnalyser = null; micTestInterval = null;
-            document.getElementById('micLevelFill').style.width = '0%';
+            micTestStream = null; micTestAnalyserNode = null; micTestInterval = null;
+            const fill = document.getElementById('micLevelFill');
+            if (fill) fill.style.width = '0%';
         };
 
-        // ══════════════════════════════════════
-        // SETTINGS MODAL
-        // ══════════════════════════════════════
+        // ══════════ SETTINGS MODAL ══════════
         window.openSettingsModal = async () => {
             await loadMicDevices();
-            // Start mic level in settings
             if (myStream) {
-                const ctx2 = new AudioContext();
-                const an2 = ctx2.createAnalyser();
-                ctx2.createMediaStreamSource(myStream).connect(an2);
-                an2.fftSize = 256;
-                const d2 = new Uint8Array(an2.frequencyBinCount);
-                const intv = setInterval(() => {
-                    if (!document.getElementById('settingsModal').classList.contains('show')) { clearInterval(intv); return; }
-                    an2.getByteFrequencyData(d2);
-                    const avg = d2.reduce((a, b) => a + b, 0) / d2.length;
-                    const fill = document.getElementById('settingsMicFill');
-                    if (fill) fill.style.width = Math.min(100, avg * 3) + '%';
-                }, 50);
+                try {
+                    const ctx2 = new (window.AudioContext || window.webkitAudioContext)();
+                    const an2 = ctx2.createAnalyser(); an2.fftSize = 256;
+                    ctx2.createMediaStreamSource(myStream).connect(an2);
+                    const d2 = new Uint8Array(an2.frequencyBinCount);
+                    const intv = setInterval(() => {
+                        if (!document.getElementById('settingsModal').classList.contains('show')) { clearInterval(intv); ctx2.close(); return; }
+                        an2.getByteFrequencyData(d2);
+                        const avg = d2.reduce((a, b) => a + b, 0) / d2.length;
+                        const fill = document.getElementById('settingsMicFill');
+                        if (fill) fill.style.width = Math.min(100, avg * 3) + '%';
+                    }, 50);
+                } catch (e) { }
             }
             document.getElementById('settingsModal').classList.add('show');
         };
 
-        // Apply audio constraints live
         window.applyAudioConstraints = async () => {
             if (!myStream) return;
             const ns = document.getElementById('noiseSuppToggle').checked;
             const ec = document.getElementById('echoCancelToggle').checked;
             const agc = document.getElementById('agcToggle').checked;
+            const stereo = document.getElementById('stereoToggle').checked;
             const deviceId = document.getElementById('micDevSelect').value;
             try {
                 const constr = {
                     audio: {
                         deviceId: deviceId ? { exact: deviceId } : undefined,
-                        noiseSuppression: ns,
-                        echoCancellation: ec,
-                        autoGainControl: agc,
-                        sampleRate: 48000,
-                        channelCount: 1,
+                        noiseSuppression: ns, echoCancellation: ec, autoGainControl: agc,
+                        sampleRate: 48000, channelCount: stereo ? 2 : 1
                     }
                 };
                 const newStream = await navigator.mediaDevices.getUserMedia(constr);
-                const oldTrack = myStream.getAudioTracks()[0];
                 const newTrack = newStream.getAudioTracks()[0];
+                const oldTrack = myStream.getAudioTracks()[0];
                 // Replace track in all peer connections
                 Object.values(connections).forEach(c => {
-                    if (c.call && c.call.peerConnection) {
+                    if (c.call?.peerConnection) {
                         c.call.peerConnection.getSenders().forEach(s => {
-                            if (s.track && s.track.kind === 'audio') s.replaceTrack(newTrack);
+                            if (s.track?.kind === 'audio') s.replaceTrack(newTrack).catch(() => { });
                         });
                     }
                 });
@@ -2624,33 +2619,191 @@
             }
         };
 
-        // ══════════════════════════════════════
-        // MASTER VOLUME & AUDIO GRAPH
-        // ══════════════════════════════════════
-        function getMasterCtx() {
-            if (!masterCtx) {
-                masterCtx = new AudioContext();
-                masterGain = masterCtx.createGain();
-                masterGain.gain.value = 1.0;
-                masterGain.connect(masterCtx.destination);
-                masterDest = masterGain;
-            }
-            return masterCtx;
-        }
-
+        // ══════════ MASTER VOLUME ══════════
         window.setMasterVolume = (val) => {
             const v = parseFloat(val) / 100;
-            if (masterGain) masterGain.gain.value = v;
+            if (masterGainNode) masterGainNode.gain.value = v;
             document.getElementById('volLabel').textContent = Math.round(val) + '%';
-            // Also update all audio elements directly as fallback
-            document.querySelectorAll('audio[id^="audio-"]').forEach(a => {
-                a.volume = Math.min(1, v);
-            });
+            // Also set on all audio elements (fallback)
+            document.querySelectorAll('audio[id^="ra-"]').forEach(a => { a.volume = Math.min(1, v); });
         };
 
-        // ══════════════════════════════════════
-        // RENDER PARTICIPANTS
-        // ══════════════════════════════════════
+        // ══════════ CONNECT REMOTE AUDIO — FIXED ══════════
+        // This is the critical function. Key fixes:
+        // 1. Create AudioContext only after user gesture (already done via room join click)
+        // 2. Use audio element as primary playback + WebAudio for analysis
+        // 3. Resume AudioContext explicitly
+        // 4. Always autoplay the audio element
+        function connectRemoteAudio(pid, remoteStream) {
+            // Remove old audio element if exists
+            const oldEl = document.getElementById('ra-' + pid);
+            if (oldEl) { oldEl.pause(); oldEl.srcObject = null; oldEl.remove(); }
+
+            // Disconnect old web audio nodes
+            const c = connections[pid] || {};
+            try { if (c.srcNode) c.srcNode.disconnect(); } catch (e) { }
+            try { if (c.gainNode2) c.gainNode2.disconnect(); } catch (e) { }
+            try { if (c.analyserNode) c.analyserNode.disconnect(); } catch (e) { }
+
+            // ── PRIMARY: HTML Audio Element (most reliable for actual playback) ──
+            const audioEl = document.createElement('audio');
+            audioEl.id = 'ra-' + pid;
+            audioEl.autoplay = true;
+            audioEl.playsInline = true;
+            audioEl.muted = false;
+            audioEl.volume = Math.min(1, parseFloat(document.getElementById('masterVolSlider').value) / 100);
+            audioEl.srcObject = remoteStream;
+            document.body.appendChild(audioEl);
+
+            // Force play (handles autoplay policy)
+            const playPromise = audioEl.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    // Autoplay succeeded
+                    document.getElementById('audioUnlockBanner').style.display = 'none';
+                }).catch(err => {
+                    // Autoplay blocked — show unlock banner
+                    console.warn('Autoplay blocked:', err);
+                    document.getElementById('audioUnlockBanner').style.display = 'flex';
+                });
+            }
+
+            // Set sinkId (output device) if supported
+            const outDev = document.getElementById('outDevSelect')?.value;
+            if (outDev && typeof audioEl.setSinkId === 'function') {
+                audioEl.setSinkId(outDev).catch(() => { });
+            }
+
+            if (!connections[pid]) connections[pid] = {};
+            connections[pid].audioEl = audioEl;
+
+            // ── SECONDARY: WebAudio for volume analysis only (speaking detection) ──
+            try {
+                const ctx = getOrCreateAudioCtx();
+                ctx.resume().then(() => {
+                    try {
+                        const srcNode = ctx.createMediaStreamSource(remoteStream);
+                        const analyserNode = ctx.createAnalyser();
+                        analyserNode.fftSize = 512;
+                        analyserNode.smoothingTimeConstant = 0.8;
+                        srcNode.connect(analyserNode);
+                        // Note: DON'T connect analyserNode to ctx.destination — audio element handles playback
+                        // If we also connect to ctx.destination, we get double audio (echo)
+                        connections[pid].srcNode = srcNode;
+                        connections[pid].analyserNode = analyserNode;
+                        startSpeakingDetection(pid, analyserNode);
+                    } catch (e) { console.warn('WebAudio analysis setup failed:', e); }
+                }).catch(() => { });
+            } catch (e) { console.warn('AudioContext failed:', e); }
+        }
+
+        // ══════════ SPEAKING DETECTION ══════════
+        function startSpeakingDetection(pid, analyser) {
+            if (connections[pid]?.volInterval) clearInterval(connections[pid].volInterval);
+            const data = new Uint8Array(analyser.frequencyBinCount);
+            let speaking = false;
+            const intv = setInterval(() => {
+                const avEl = document.getElementById('avatar-' + pid);
+                if (!avEl) { clearInterval(intv); return; }
+                try {
+                    analyser.getByteFrequencyData(data);
+                    const avg = data.reduce((a, b) => a + b, 0) / data.length;
+                    const now = avg > 8;
+                    if (now !== speaking) {
+                        speaking = now;
+                        avEl.classList.toggle('speaking', now);
+                        document.getElementById('vbars-' + pid)?.classList.toggle('active', now);
+                    }
+                } catch (e) { clearInterval(intv); }
+            }, 80);
+            if (connections[pid]) connections[pid].volInterval = intv;
+        }
+
+        function startMyVoiceAnalysis() {
+            if (!myStream) return;
+            try {
+                const ctx = getOrCreateAudioCtx();
+                const analyser = ctx.createAnalyser();
+                analyser.fftSize = 512;
+                analyser.smoothingTimeConstant = 0.8;
+                const src = ctx.createMediaStreamSource(myStream);
+                src.connect(analyser);
+                myVoiceAnalyser = analyser;
+                const data = new Uint8Array(analyser.frequencyBinCount);
+                let speaking = false;
+                setInterval(() => {
+                    if (!myVoiceAnalyser) return;
+                    try {
+                        analyser.getByteFrequencyData(data);
+                        const avg = data.reduce((a, b) => a + b, 0) / data.length;
+                        const now = avg > 8 && !isMuted;
+                        if (now !== speaking) {
+                            speaking = now;
+                            document.getElementById('avatar-me')?.classList.toggle('speaking', now);
+                            document.getElementById('vbars-me')?.classList.toggle('active', now);
+                        }
+                    } catch (e) { }
+                }, 80);
+                drawWaveform();
+            } catch (e) { console.warn('My voice analysis failed:', e); }
+        }
+
+        // ══════════ WAVEFORM ══════════
+        function drawWaveform() {
+            const canvas = document.getElementById('waveformCanvas');
+            if (!canvas) return;
+            const ctx2 = canvas.getContext('2d');
+            let W, H;
+            function resize() {
+                W = canvas.offsetWidth || 600; H = canvas.offsetHeight || 40;
+                canvas.width = W; canvas.height = H;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+            const data = new Uint8Array(myVoiceAnalyser ? myVoiceAnalyser.frequencyBinCount : 128);
+            function draw() {
+                waveformRAF = requestAnimationFrame(draw);
+                ctx2.clearRect(0, 0, W, H);
+                if (!myVoiceAnalyser) {
+                    // Draw flat line
+                    ctx2.fillStyle = 'rgba(79,110,247,0.1)';
+                    ctx2.fillRect(0, H / 2 - 1, W, 2);
+                    return;
+                }
+                try {
+                    myVoiceAnalyser.getByteFrequencyData(data);
+                    const barW = (W / data.length) * 2.5;
+                    let x = 0;
+                    for (let i = 0; i < data.length; i++) {
+                        const h = (data[i] / 255) * H;
+                        const alpha = isMuted ? 0.2 : 0.7;
+                        const grad = ctx2.createLinearGradient(0, H - h, 0, H);
+                        grad.addColorStop(0, `rgba(79,110,247,${alpha})`);
+                        grad.addColorStop(1, `rgba(167,139,250,${alpha * 0.4})`);
+                        ctx2.fillStyle = grad;
+                        ctx2.fillRect(x, H - h, Math.max(1, barW - 1), h);
+                        x += barW + 0.5;
+                        if (x > W) break;
+                    }
+                } catch (e) { }
+            }
+            draw();
+        }
+
+        // ══════════ DURATION TIMER ══════════
+        function startTimer() {
+            startTime = Date.now();
+            durationInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const m = String(Math.floor(elapsed / 60)).padStart(2, '0');
+                const s = String(elapsed % 60).padStart(2, '0');
+                const txt = m + ':' + s;
+                document.getElementById('durationEl').textContent = txt;
+                document.getElementById('statDuration').textContent = txt;
+            }, 1000);
+        }
+
+        // ══════════ RENDER PARTICIPANTS ══════════
         function renderParticipants() {
             const area = document.getElementById('participantsArea');
             const myName = document.getElementById('myName').value.trim() || 'Men';
@@ -2670,7 +2823,7 @@
       </div>
     </div>
     <div class="participant-name">${escHtml(myName)}</div>
-    <div class="participant-you">(Siz) ${lvl ? '· ' + lvl : ''}</div>
+    <div class="participant-you">(Siz)${lvl ? ' · ' + lvl : ''}</div>
     ${myRoomData?.hostPeerId === myPeerId ? '<div class="participant-role host">HOST</div>' : ''}`;
             if (handRaised) me.querySelector('.participant-avatar').classList.add('hand-raised');
             area.appendChild(me);
@@ -2699,211 +2852,79 @@
                 pl.innerHTML = allPeers.map(p => `
       <div class="pm-item">
         <div class="pm-dot" style="background:${p.muted ? 'var(--red)' : 'var(--green)'}"></div>
-        <span class="pm-name">${escHtml(p.name)}${p.id === 'me' ? ' (Siz)' : ''}</span>
+        <span class="pm-name">${escHtml(p.name || 'Mehmon')}${p.id === 'me' ? ' (Siz)' : ''}</span>
         ${p.hand ? '<i class="fa-solid fa-hand" style="color:var(--yellow);font-size:0.8rem"></i>' : ''}
         ${p.muted ? '<i class="fa-solid fa-microphone-slash" style="color:var(--red);font-size:0.72rem"></i>' : '<i class="fa-solid fa-microphone" style="color:var(--green);font-size:0.72rem"></i>'}
       </div>`).join('');
                 document.getElementById('peerListCount').textContent = allPeers.length + ' kishi';
             }
 
-            // Info panel
             const totalPeers = Object.keys(participants).length + 1;
             document.getElementById('activeRoomSub').textContent = totalPeers + ' ishtirokchi';
             document.getElementById('infoPeers').textContent = totalPeers + ' kishi';
+            document.getElementById('statPeers').textContent = totalPeers;
         }
 
-        // ══════════════════════════════════════
-        // AUDIO: connect remote stream through gain
-        // ══════════════════════════════════════
-        function connectRemoteAudio(pid, remoteStream) {
-            const ctx = getMasterCtx();
-            // Remove existing if any
-            const old = document.getElementById('audio-' + pid);
-            if (old) old.remove();
-            if (connections[pid]?.sourceNode) {
-                try { connections[pid].sourceNode.disconnect(); } catch (e) { }
-            }
-
-            // Audio element (fallback + triggers autoplay)
-            const audio = new Audio();
-            audio.id = 'audio-' + pid;
-            audio.autoplay = true;
-            audio.muted = false;
-            audio.volume = Math.min(1, parseFloat(document.getElementById('masterVolSlider').value) / 100);
-            audio.srcObject = remoteStream;
-            document.body.appendChild(audio);
-
-            // Web Audio graph for gain boost
-            try {
-                const src = ctx.createMediaStreamSource(remoteStream);
-                const gainNode = ctx.createGain();
-                gainNode.gain.value = Math.max(1, parseFloat(document.getElementById('masterVolSlider').value) / 100);
-                const analyserNode = ctx.createAnalyser();
-                analyserNode.fftSize = 512;
-                src.connect(gainNode);
-                gainNode.connect(analyserNode);
-                gainNode.connect(ctx.destination);
-                if (!connections[pid]) connections[pid] = {};
-                connections[pid].sourceNode = src;
-                connections[pid].gainNode = gainNode;
-                connections[pid].analyser = analyserNode;
-                connections[pid].ctx = ctx;
-                startVolBars(pid, analyserNode);
-            } catch (e) { /* fallback: audio element only */ }
-        }
-
-        // ══════════════════════════════════════
-        // SPEAKING DETECTION
-        // ══════════════════════════════════════
-        function startVolBars(pid, analyser) {
-            const data = new Uint8Array(analyser.frequencyBinCount);
-            let speaking = false;
-            const intv = setInterval(() => {
-                const avEl = document.getElementById('avatar-' + pid);
-                if (!avEl) { clearInterval(intv); return; }
-                analyser.getByteFrequencyData(data);
-                const avg = data.reduce((a, b) => a + b, 0) / data.length;
-                const now = avg > 10;
-                if (now !== speaking) {
-                    speaking = now;
-                    avEl.classList.toggle('speaking', now);
-                    document.getElementById('vbars-' + pid)?.classList.toggle('active', now);
-                }
-            }, 80);
-            if (!connections[pid]) connections[pid] = {};
-            connections[pid].volInterval = intv;
-        }
-
-        function startMyVolBars() {
-            if (!myStream) return;
-            try {
-                const ctx = getMasterCtx();
-                const analyser = ctx.createAnalyser();
-                analyser.fftSize = 512;
-                ctx.createMediaStreamSource(myStream).connect(analyser);
-                myAnalyserForWave = analyser;
-                const data = new Uint8Array(analyser.frequencyBinCount);
-                let speaking = false;
-                setInterval(() => {
-                    analyser.getByteFrequencyData(data);
-                    const avg = data.reduce((a, b) => a + b, 0) / data.length;
-                    const now = avg > 10 && !isMuted;
-                    if (now !== speaking) {
-                        speaking = now;
-                        document.getElementById('avatar-me')?.classList.toggle('speaking', now);
-                        document.getElementById('vbars-me')?.classList.toggle('active', now);
-                    }
-                }, 80);
-                drawWaveform();
-            } catch (e) { }
-        }
-
-        // ══════════════════════════════════════
-        // WAVEFORM
-        // ══════════════════════════════════════
-        function drawWaveform() {
-            const canvas = document.getElementById('waveformCanvas');
-            if (!canvas || !myAnalyserForWave) return;
-            const ctx = canvas.getContext('2d');
-            const W = canvas.offsetWidth || 600;
-            const H = canvas.offsetHeight || 40;
-            canvas.width = W; canvas.height = H;
-            const data = new Uint8Array(myAnalyserForWave.frequencyBinCount);
-
-            function draw() {
-                waveformRAF = requestAnimationFrame(draw);
-                myAnalyserForWave.getByteFrequencyData(data);
-                ctx.clearRect(0, 0, W, H);
-                ctx.fillStyle = 'rgba(255,255,255,0.02)';
-                ctx.fillRect(0, 0, W, H);
-                const barW = W / data.length * 2.5;
-                let x = 0;
-                data.forEach((v, i) => {
-                    const h = (v / 255) * H;
-                    const alpha = isMuted ? 0.3 : 0.7;
-                    const grad = ctx.createLinearGradient(0, H - h, 0, H);
-                    grad.addColorStop(0, `rgba(79,110,247,${alpha})`);
-                    grad.addColorStop(1, `rgba(167,139,250,${alpha * 0.5})`);
-                    ctx.fillStyle = grad;
-                    ctx.fillRect(x, H - h, barW - 1, h);
-                    x += barW + 1;
-                    if (x > W) return;
-                });
-            }
-            draw();
-        }
-
-        // ══════════════════════════════════════
-        // DURATION TIMER
-        // ══════════════════════════════════════
-        function startTimer() {
-            startTime = Date.now();
-            durationInterval = setInterval(() => {
-                const elapsed = Math.floor((Date.now() - startTime) / 1000);
-                const m = String(Math.floor(elapsed / 60)).padStart(2, '0');
-                const s = String(elapsed % 60).padStart(2, '0');
-                document.getElementById('durationEl').textContent = m + ':' + s;
-            }, 1000);
-        }
-
-        // ══════════════════════════════════════
-        // CALL PEER (with retry)
-        // ══════════════════════════════════════
+        // ══════════ CALL PEER ══════════
         function callPeer(targetPeerId, targetName) {
             if (!peer || peer.destroyed || peer.disconnected) return;
-            if (connections[targetPeerId]?.call) return;
+            if (connections[targetPeerId]?.call) return; // already connected
+            const myName = document.getElementById('myName').value.trim();
 
             try {
-                const myName = document.getElementById('myName').value.trim();
                 const call = peer.call(targetPeerId, myStream, {
                     metadata: { name: myName, muted: isMuted, hand: handRaised }
                 });
                 if (!call) return;
+
                 if (!participants[targetPeerId]) participants[targetPeerId] = { name: targetName || 'Mehmon', muted: false, hand: false };
                 if (!connections[targetPeerId]) connections[targetPeerId] = {};
                 connections[targetPeerId].call = call;
 
-                let streamReceived = false;
                 call.on('stream', remoteStream => {
-                    streamReceived = true;
+                    clearTimeout(reconnectTimers[targetPeerId]);
                     connectRemoteAudio(targetPeerId, remoteStream);
                     renderParticipants();
                     addChatMsg({ type: 'system', text: `${participants[targetPeerId]?.name || 'Foydalanuvchi'} xonaga kirdi 🎉` });
                     showToast(`<i class="fa-solid fa-user-plus"></i> ${participants[targetPeerId]?.name || 'Mehmon'} qo'shildi!`, 'success');
-                    clearTimeout(reconnectTimers[targetPeerId]);
                 });
-
                 call.on('close', () => removeParticipant(targetPeerId));
                 call.on('error', () => {
                     removeParticipant(targetPeerId);
-                    // retry after 3s
-                    reconnectTimers[targetPeerId] = setTimeout(() => callPeer(targetPeerId, targetName), 3000);
+                    if (!reconnectTimers[targetPeerId])
+                        reconnectTimers[targetPeerId] = setTimeout(() => { delete reconnectTimers[targetPeerId]; callPeer(targetPeerId, targetName); }, 3000);
                 });
 
-                // Open data channel too
-                const dataConn = peer.connect(targetPeerId, { reliable: true });
-                dataConn.on('open', () => {
-                    setupDataConn(dataConn);
-                    // Immediately send my state
-                    try { dataConn.send({ type: 'hello', name: myName, muted: isMuted, hand: handRaised }); } catch (e) { }
-                });
+                // Data channel
+                openDataChannel(targetPeerId, myName);
             } catch (e) {
+                console.error('callPeer error', e);
                 setTimeout(() => callPeer(targetPeerId, targetName), 3000);
             }
         }
 
-        // ══════════════════════════════════════
-        // ANSWER INCOMING CALL
-        // ══════════════════════════════════════
+        function openDataChannel(targetPeerId, myName) {
+            try {
+                const conn = peer.connect(targetPeerId, { reliable: true, serialization: 'json' });
+                conn.on('open', () => {
+                    setupDataConn(conn);
+                    try { conn.send({ type: 'hello', name: myName, muted: isMuted, hand: handRaised }); } catch (e) { }
+                });
+                conn.on('error', e => console.warn('data conn error', e));
+            } catch (e) { }
+        }
+
+        // ══════════ ANSWER INCOMING CALL ══════════
         function answerCall(call) {
             if (connections[call.peer]?.answered) return;
             if (!connections[call.peer]) connections[call.peer] = {};
             connections[call.peer].answered = true;
+            connections[call.peer].call = call;
 
-            call.answer(myStream);
             const remoteName = call.metadata?.name || 'Mehmon';
             if (!participants[call.peer]) participants[call.peer] = { name: remoteName, muted: call.metadata?.muted || false, hand: call.metadata?.hand || false };
 
+            call.answer(myStream);
             call.on('stream', remoteStream => {
                 connectRemoteAudio(call.peer, remoteStream);
                 renderParticipants();
@@ -2912,54 +2933,47 @@
             });
             call.on('close', () => removeParticipant(call.peer));
             call.on('error', () => removeParticipant(call.peer));
-            connections[call.peer].call = call;
         }
 
-        // ══════════════════════════════════════
-        // REMOVE PARTICIPANT
-        // ══════════════════════════════════════
+        // ══════════ REMOVE PARTICIPANT ══════════
         function removeParticipant(pid) {
             const name = participants[pid]?.name || 'Foydalanuvchi';
-            if (connections[pid]) {
-                clearInterval(connections[pid].volInterval);
-                try { connections[pid].call?.close(); } catch (e) { }
-                try { connections[pid].data?.close(); } catch (e) { }
-                try { connections[pid].sourceNode?.disconnect(); } catch (e) { }
-                try { connections[pid].gainNode?.disconnect(); } catch (e) { }
-            }
+            const c = connections[pid] || {};
+            clearInterval(c.volInterval);
+            try { c.call?.close(); } catch (e) { }
+            try { c.dataConn?.close(); } catch (e) { }
+            try { c.srcNode?.disconnect(); } catch (e) { }
+            try { c.analyserNode?.disconnect(); } catch (e) { }
+            const audioEl = document.getElementById('ra-' + pid);
+            if (audioEl) { audioEl.pause(); audioEl.srcObject = null; audioEl.remove(); }
             delete participants[pid];
             delete connections[pid];
-            document.getElementById('audio-' + pid)?.remove();
             renderParticipants();
             addChatMsg({ type: 'system', text: `${name} xonadan chiqdi` });
             showToast(`<i class="fa-solid fa-user-minus"></i> ${name} chiqdi`, '');
         }
 
-        // ══════════════════════════════════════
-        // DATA CHANNEL
-        // ══════════════════════════════════════
+        // ══════════ DATA CHANNEL ══════════
         function setupDataConn(conn) {
             if (!connections[conn.peer]) connections[conn.peer] = {};
-            connections[conn.peer].data = conn;
+            connections[conn.peer].dataConn = conn;
 
             conn.on('data', data => {
+                if (typeof data !== 'object' || !data.type) return;
                 switch (data.type) {
                     case 'hello':
                         if (!participants[conn.peer]) participants[conn.peer] = {};
                         participants[conn.peer].name = data.name || participants[conn.peer].name || 'Mehmon';
-                        participants[conn.peer].muted = data.muted || false;
-                        participants[conn.peer].hand = data.hand || false;
+                        participants[conn.peer].muted = !!data.muted;
+                        participants[conn.peer].hand = !!data.hand;
                         renderParticipants();
                         break;
                     case 'mute':
-                        if (participants[conn.peer]) {
-                            participants[conn.peer].muted = data.muted;
-                            renderParticipants();
-                        }
+                        if (participants[conn.peer]) { participants[conn.peer].muted = !!data.muted; renderParticipants(); }
                         break;
                     case 'hand':
                         if (participants[conn.peer]) {
-                            participants[conn.peer].hand = data.raised;
+                            participants[conn.peer].hand = !!data.raised;
                             renderParticipants();
                             if (data.raised) showToast(`✋ ${participants[conn.peer]?.name || 'Kimdir'} qo'l ko'tardi`, 'info');
                         }
@@ -2968,74 +2982,61 @@
                         addChatMsg({ from: data.from, text: data.text, pid: conn.peer });
                         break;
                     case 'reaction':
+                        reactCount++;
+                        document.getElementById('statReacts').textContent = reactCount;
                         showReactionFloat(data.emoji, data.from);
                         break;
                     case 'ping':
                         try { conn.send({ type: 'pong', ts: data.ts }); } catch (e) { }
                         break;
                     case 'pong':
-                        const lat = Date.now() - data.ts;
-                        updateQuality(lat);
+                        updateQuality(Date.now() - data.ts);
                         break;
                 }
             });
-
-            conn.on('close', () => { /* handled by call close */ });
+            conn.on('close', () => { });
+            conn.on('error', e => console.warn('dataConn error', e));
         }
 
-        // ══════════════════════════════════════
-        // BROADCAST TO ALL DATA CHANNELS
-        // ══════════════════════════════════════
+        // ══════════ BROADCAST ══════════
         function broadcast(data) {
             Object.values(connections).forEach(c => {
-                try { if (c.data?.open) c.data.send(data); } catch (e) { }
+                try { if (c.dataConn?.open) c.dataConn.send(data); } catch (e) { }
             });
         }
 
-        // ══════════════════════════════════════
-        // PING / QUALITY
-        // ══════════════════════════════════════
+        // ══════════ PING ══════════
         function startPing() {
             pingInterval = setInterval(() => {
-                Object.entries(connections).forEach(([pid, c]) => {
-                    try { if (c.data?.open) c.data.send({ type: 'ping', ts: Date.now() }); } catch (e) { }
+                Object.values(connections).forEach(c => {
+                    try { if (c.dataConn?.open) c.dataConn.send({ type: 'ping', ts: Date.now() }); } catch (e) { }
                 });
             }, 5000);
         }
 
-        function updateQuality(latencyMs) {
+        function updateQuality(ms) {
             const el = document.getElementById('infoQuality');
             if (!el) return;
-            if (latencyMs < 80) {
-                el.innerHTML = '<span class="quality-dot good"></span>Ajoyib (' + latencyMs + 'ms)';
-            } else if (latencyMs < 200) {
-                el.innerHTML = '<span class="quality-dot ok"></span>O\'rtacha (' + latencyMs + 'ms)';
-            } else {
-                el.innerHTML = '<span class="quality-dot bad"></span>Yomon (' + latencyMs + 'ms)';
-            }
+            if (ms < 80) el.innerHTML = `<span class="quality-dot good"></span>Ajoyib (${ms}ms)`;
+            else if (ms < 200) el.innerHTML = `<span class="quality-dot ok"></span>O'rtacha (${ms}ms)`;
+            else el.innerHTML = `<span class="quality-dot bad"></span>Yomon (${ms}ms)`;
         }
 
-        // ══════════════════════════════════════
-        // MIC TOGGLE
-        // ══════════════════════════════════════
+        // ══════════ MIC TOGGLE ══════════
         window.toggleMic = () => {
             if (!myStream) return;
             isMuted = !isMuted;
             myStream.getAudioTracks().forEach(t => t.enabled = !isMuted);
             const btn = document.getElementById('micBtn');
             btn.className = 'ctrl-btn mic' + (isMuted ? ' muted' : '');
-            btn.innerHTML = isMuted
-                ? '<i class="fa-solid fa-microphone-slash"></i><span class="ctrl-tooltip">Mikrofon (M)</span>'
-                : '<i class="fa-solid fa-microphone"></i><span class="ctrl-tooltip">Mikrofon (M)</span>';
+            document.getElementById('micIcon').className = isMuted ? 'fa-solid fa-microphone-slash' : 'fa-solid fa-microphone';
             document.getElementById('micLabel').textContent = isMuted ? 'Mute' : 'Mikrofon';
             document.getElementById('avatar-me')?.classList.toggle('muted', isMuted);
             broadcast({ type: 'mute', muted: isMuted });
             showToast(isMuted ? '<i class="fa-solid fa-microphone-slash"></i> Mikrofon o\'chirildi' : '<i class="fa-solid fa-microphone"></i> Mikrofon yoniq', isMuted ? 'error' : 'success');
         };
 
-        // ══════════════════════════════════════
-        // HAND RAISE
-        // ══════════════════════════════════════
+        // ══════════ HAND RAISE ══════════
         window.toggleHand = () => {
             handRaised = !handRaised;
             document.getElementById('avatar-me')?.classList.toggle('hand-raised', handRaised);
@@ -3045,17 +3046,64 @@
             renderParticipants();
         };
 
-        // ══════════════════════════════════════
-        // REACTIONS
-        // ══════════════════════════════════════
-        const EMOJIS = ['👍', '❤️', '😂', '🎉', '😮', '👏', '🔥', '💯', '🥳', '😎', '🙏', '✨'];
+        // ══════════ RECORDING ══════════
+        window.toggleRecord = () => {
+            if (!isRecording) startRecording();
+            else stopRecording();
+        };
 
+        function startRecording() {
+            if (!myStream) return;
+            try {
+                // Merge my stream + remote streams into one
+                const ctx = getOrCreateAudioCtx();
+                const dest = ctx.createMediaStreamDestination();
+                // My mic
+                const myMicSrc = ctx.createMediaStreamSource(myStream);
+                myMicSrc.connect(dest);
+                // All remote audio elements' streams
+                Object.entries(connections).forEach(([pid, c]) => {
+                    if (c.audioEl?.srcObject) {
+                        try {
+                            const remoteSrc = ctx.createMediaStreamSource(c.audioEl.srcObject);
+                            remoteSrc.connect(dest);
+                        } catch (e) { }
+                    }
+                });
+                mediaRecorder = new MediaRecorder(dest.stream, { mimeType: 'audio/webm;codecs=opus' });
+                recordedChunks = [];
+                mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recordedChunks.push(e.data); };
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(recordedChunks, { type: 'audio/webm' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url; a.download = 'linguaverse-recording-' + Date.now() + '.webm';
+                    a.click(); URL.revokeObjectURL(url);
+                    showToast('<i class="fa-solid fa-download"></i> Yozuv yuklandi!', 'success');
+                };
+                mediaRecorder.start(1000);
+                isRecording = true;
+                document.getElementById('recBtn').classList.add('recording');
+                document.getElementById('recLabel').textContent = 'Yozilmoqda';
+                showToast('<i class="fa-solid fa-circle-dot"></i> Yozib olinmoqda...', 'error');
+            } catch (e) {
+                showToast('<i class="fa-solid fa-exclamation"></i> Yozib olish xatosi', 'error');
+            }
+        }
+
+        function stopRecording() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') { mediaRecorder.stop(); }
+            isRecording = false;
+            document.getElementById('recBtn').classList.remove('recording');
+            document.getElementById('recLabel').textContent = 'Yozish';
+        }
+
+        // ══════════ REACTIONS ══════════
+        const EMOJIS = ['👍', '❤️', '😂', '🎉', '😮', '👏', '🔥', '💯', '🥳', '😎', '🙏', '✨'];
         function buildReactionGrid() {
             const grid = document.getElementById('reactGrid');
             if (!grid) return;
-            grid.innerHTML = EMOJIS.map(e =>
-                `<button class="reaction-btn" onclick="sendReaction('${e}')">${e}</button>`
-            ).join('');
+            grid.innerHTML = EMOJIS.map(e => `<button class="reaction-btn" onclick="sendReaction('${e}')">${e}</button>`).join('');
         }
         buildReactionGrid();
 
@@ -3068,6 +3116,8 @@
             const myName = document.getElementById('myName').value.trim();
             showReactionFloat(emoji, myName);
             broadcast({ type: 'reaction', emoji, from: myName });
+            reactCount++;
+            document.getElementById('statReacts').textContent = reactCount;
         };
 
         function showReactionFloat(emoji, from) {
@@ -3080,15 +3130,18 @@
             setTimeout(() => el.remove(), 2600);
         }
 
-        // ══════════════════════════════════════
-        // CHAT
-        // ══════════════════════════════════════
+        // ══════════ CHAT ══════════
+        window.clearUnread = () => {
+            unreadCount = 0;
+            const badge = document.getElementById('unreadBadge');
+            if (badge) badge.style.display = 'none';
+        };
+
         function addChatMsg({ type, text, from, pid }) {
             const box = document.getElementById('chatMessages');
             if (!box) return;
             const atBottom = box.scrollHeight - box.clientHeight - box.scrollTop < 40;
             const div = document.createElement('div');
-
             if (type === 'system') {
                 div.className = 'chat-msg system';
                 div.innerHTML = `<div class="cm-bubble">${escHtml(text)}</div>`;
@@ -3101,12 +3154,18 @@
         <div class="cm-name">${isMine ? 'Siz' : escHtml(from || 'Mehmon')}</div>
         <div class="cm-bubble">${escHtml(text)}</div>
       </div>`;
-                if (!isMine && !chatOpen) {
-                    unreadCount++;
-                    const badge = document.getElementById('unreadBadge');
-                    badge.style.display = 'inline';
-                    badge.textContent = unreadCount;
+                if (!isMine) {
+                    // Check if chat panel is visible
+                    const chatPanel = document.getElementById('chatPanel');
+                    if (chatPanel && chatPanel.style.display === 'none') {
+                        unreadCount++;
+                        const badge = document.getElementById('unreadBadge');
+                        badge.style.display = 'inline';
+                        badge.textContent = unreadCount;
+                    }
                 }
+                msgCount++;
+                document.getElementById('statMsgs').textContent = msgCount;
             }
             box.appendChild(div);
             if (atBottom) box.scrollTop = box.scrollHeight;
@@ -3127,38 +3186,27 @@
             sendChat();
         };
 
-        // Reset unread when panel opened
-        document.querySelector('[onclick="togglePanel(\'chatPanel\',this)"]')?.addEventListener('click', () => {
-            unreadCount = 0;
-            const badge = document.getElementById('unreadBadge');
-            if (badge) badge.style.display = 'none';
-        });
-
-        // ══════════════════════════════════════
-        // SHARE ROOM
-        // ══════════════════════════════════════
+        // ══════════ SHARE ══════════
         window.shareRoom = () => {
-            const url = window.location.href + '?room=' + myRoomDocId;
+            if (!myRoomDocId) return;
+            const url = window.location.origin + window.location.pathname + '?room=' + myRoomDocId;
             navigator.clipboard?.writeText(url).then(() => {
                 showToast('<i class="fa-solid fa-copy"></i> Havola nusxalandi!', 'success');
             }).catch(() => {
-                showToast('<i class="fa-solid fa-link"></i> Xona ID: ' + myRoomDocId, 'info');
+                prompt('Xona havolasi:', url);
             });
         };
 
-        // ══════════════════════════════════════
-        // KEYBOARD SHORTCUTS
-        // ══════════════════════════════════════
+        // ══════════ KEYBOARD SHORTCUTS ══════════
         document.addEventListener('keydown', e => {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
             if (e.key === 'm' || e.key === 'M') { if (myStream) toggleMic(); }
             if (e.key === 'h' || e.key === 'H') { if (myStream) toggleHand(); }
+            if (e.key === 'r' || e.key === 'R') { if (myStream) toggleReactPanel(); }
             if (e.key === 'Escape') { closeModal('createModal'); closeModal('joinPassModal'); closeModal('settingsModal'); }
         });
 
-        // ══════════════════════════════════════
-        // SHOW ROOM UI
-        // ══════════════════════════════════════
+        // ══════════ SHOW ROOM UI ══════════
         function showRoomUI(roomName, roomData) {
             document.getElementById('setupArea').style.display = 'none';
             document.getElementById('activeRoom').style.display = 'block';
@@ -3171,50 +3219,49 @@
             document.getElementById('infoQuality').textContent = '—';
             renderParticipants();
             startTimer();
-            startMyVolBars();
+            startMyVoiceAnalysis();
             startPing();
-
-            // Keyboard shortcut hint
-            setTimeout(() => showToast('<i class="fa-solid fa-keyboard"></i> M = Mute, H = Qo\'l', 'info'), 1500);
+            setTimeout(() => showToast('<i class="fa-solid fa-keyboard"></i> M=Mute · H=Qo\'l · R=Reaksiya', 'info'), 2000);
         }
 
-        // ══════════════════════════════════════
-        // WATCH ROOM (Firestore real-time)
-        // ══════════════════════════════════════
+        // ══════════ WATCH ROOM ══════════
         function watchRoom(roomDocId) {
             if (unsubRoom) unsubRoom();
-            unsubRoom = onSnapshot(doc(db, 'voiceRooms', roomDocId), async snap => {
-                if (!snap.exists()) {
-                    showToast('<i class="fa-solid fa-door-closed"></i> Xona yopildi!', 'error');
-                    await doLeave(false);
-                    return;
-                }
-                const data = snap.data();
-                myRoomData = data;
-                const peers = data.peers || [];
-                document.getElementById('infoPeers').textContent = peers.length + ' kishi';
+            // Watch peers subcollection
+            unsubRoom = onSnapshot(collection(db, 'voiceRooms', roomDocId, 'peers'), snap => {
+                const peerDocs = [];
+                snap.forEach(d => peerDocs.push({ peerId: d.id, ...d.data() }));
 
-                // Call any peer we haven't connected to yet
-                peers.forEach(p => {
+                const myName = document.getElementById('myName').value.trim();
+
+                // Call any new peers
+                peerDocs.forEach(p => {
                     if (p.peerId !== myPeerId && !connections[p.peerId]?.call) {
+                        if (!participants[p.peerId]) participants[p.peerId] = { name: p.name || 'Mehmon', muted: false, hand: false };
                         callPeer(p.peerId, p.name);
                     }
                 });
 
-                // Remove participants no longer in Firestore
+                // Remove peers that left
+                const activePeerIds = peerDocs.map(p => p.peerId);
                 Object.keys(participants).forEach(pid => {
-                    if (!peers.find(p => p.peerId === pid)) {
-                        removeParticipant(pid);
-                    }
+                    if (!activePeerIds.includes(pid)) removeParticipant(pid);
                 });
 
-                document.getElementById('activeRoomSub').textContent = peers.length + ' ishtirokchi';
+                const totalCount = peerDocs.length;
+                document.getElementById('activeRoomSub').textContent = totalCount + ' ishtirokchi';
+                document.getElementById('infoPeers').textContent = totalCount + ' kishi';
+                document.getElementById('statPeers').textContent = totalCount;
+            });
+
+            // Also watch room doc for deletion
+            onSnapshot(doc(db, 'voiceRooms', roomDocId), snap => {
+                if (!snap.exists()) { showToast('<i class="fa-solid fa-door-closed"></i> Xona yopildi!', 'error'); doLeave(false); }
+                else { myRoomData = { ...myRoomData, ...snap.data() }; }
             });
         }
 
-        // ══════════════════════════════════════
-        // LOAD ROOMS (Firestore)
-        // ══════════════════════════════════════
+        // ══════════ LOAD ROOMS ══════════
         window.allRooms = [];
         window.filterRooms = (filter, btn) => {
             currentFilter = filter;
@@ -3223,40 +3270,49 @@
             renderRooms(window.allRooms);
         };
 
-        window.loadRooms = () => {
+        function loadRooms() {
             const q = query(collection(db, 'voiceRooms'), orderBy('createdAt', 'desc'));
-            onSnapshot(q, snap => {
+            onSnapshot(q, async snap => {
                 const rooms = [];
-                snap.forEach(d => rooms.push({ id: d.id, ...d.data() }));
+                for (const d of snap.docs) {
+                    const data = { id: d.id, ...d.data() };
+                    // Get peers count from subcollection
+                    try {
+                        const peersSnap = await new Promise(resolve => {
+                            const unsubP = onSnapshot(collection(db, 'voiceRooms', d.id, 'peers'), s => { unsubP(); resolve(s); });
+                        });
+                        data.peerCount = peersSnap.size;
+                        data.peerNames = [];
+                        peersSnap.forEach(pd => data.peerNames.push(pd.data().name || '?'));
+                    } catch (e) { data.peerCount = 0; data.peerNames = []; }
+                    rooms.push(data);
+                }
                 window.allRooms = rooms;
                 renderRooms(rooms);
             });
-        };
+        }
 
         window.renderRooms = (rooms) => {
             const searchQ = document.getElementById('searchRooms')?.value?.toLowerCase() || '';
             let filtered = rooms;
-
             if (searchQ) filtered = filtered.filter(r => r.name?.toLowerCase().includes(searchQ) || r.hostName?.toLowerCase().includes(searchQ));
             if (currentFilter === 'English') filtered = filtered.filter(r => r.lang === 'English');
             if (currentFilter === 'Russian') filtered = filtered.filter(r => r.lang === 'Russian');
             if (currentFilter === 'open') filtered = filtered.filter(r => !r.locked);
-            if (currentFilter === 'small') filtered = filtered.filter(r => (r.peers || []).length <= 3);
+            if (currentFilter === 'small') filtered = filtered.filter(r => (r.peerCount || 0) <= 3);
 
             document.getElementById('roomCount').textContent = filtered.length + ' ta';
             const grid = document.getElementById('roomsGrid');
-
             if (filtered.length === 0) {
                 grid.innerHTML = `<div class="empty-state"><i class="fa-solid fa-satellite-dish"></i><p>Hozircha ochiq xona yo'q.<br>Birinchi bo'lib yarating! 🚀</p></div>`;
                 return;
             }
-
             grid.innerHTML = filtered.map(r => {
-                const peers = r.peers || [];
-                const avatars = peers.slice(0, 3).map(p => `<div class="pp-avatar">${(p.name || '?').charAt(0).toUpperCase()}</div>`).join('');
-                const extra = peers.length > 3 ? `<div class="pp-more">+${peers.length - 3}</div>` : '';
-                return `
-    <div class="room-card ${r.locked ? 'locked' : ''}">
+                const count = r.peerCount || 0;
+                const names = r.peerNames || [];
+                const avatars = names.slice(0, 3).map(n => `<div class="pp-avatar">${(n || '?').charAt(0).toUpperCase()}</div>`).join('');
+                const extra = count > 3 ? `<div class="pp-more">+${count - 3}</div>` : '';
+                return `<div class="room-card ${r.locked ? 'locked' : ''}">
       <div class="rc-top">
         <div class="rc-name">${escHtml(r.name)}</div>
         <div class="rc-badges">
@@ -3268,7 +3324,7 @@
       ${r.description ? `<div class="rc-desc">${escHtml(r.description.substring(0, 80))}</div>` : ''}
       <div class="rc-meta">
         <span><i class="fa-solid fa-user"></i> ${escHtml(r.hostName)}</span>
-        <span><i class="fa-solid fa-users"></i> ${peers.length}${r.maxPeers ? '/' + r.maxPeers : ''} kishi</span>
+        <span><i class="fa-solid fa-users"></i> ${count}${r.maxPeers ? '/' + r.maxPeers : ''} kishi</span>
         ${r.level ? `<span><i class="fa-solid fa-signal"></i> ${escHtml(r.level)}</span>` : ''}
       </div>
       <div class="participants-preview">${avatars}${extra}</div>
@@ -3283,61 +3339,64 @@
 
         function escHtml(s) { return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
-        // ══════════════════════════════════════
-        // INIT PEER (with STUN/TURN)
-        // ══════════════════════════════════════
-        async function initPeer() {
+        // ══════════ INIT PEER ══════════
+        // Using multiple STUN/TURN servers with fallback PeerJS servers
+        async function initPeer(retryCount = 0) {
             return new Promise((resolve, reject) => {
+                // Try different PeerJS cloud servers
+                const servers = [
+                    { host: '0.peerjs.com', port: 443, secure: true, path: '/' },
+                    { host: 'peerjs.com', port: 443, secure: true, path: '/myapp' },
+                ];
+                const serverOpts = servers[retryCount % servers.length];
+
                 const p = new Peer(undefined, {
-                    host: '0.peerjs.com', port: 443, secure: true, path: '/', debug: 0,
+                    ...serverOpts,
+                    debug: 0,
                     config: {
                         iceServers: [
                             { urls: 'stun:stun.l.google.com:19302' },
                             { urls: 'stun:stun1.l.google.com:19302' },
                             { urls: 'stun:stun2.l.google.com:19302' },
                             { urls: 'stun:stun3.l.google.com:19302' },
-                            { urls: 'stun:global.stun.twilio.com:3478' },
-                        ]
+                            { urls: 'stun:stun4.l.google.com:19302' },
+                            { urls: 'stun:global.stun.twilio.com:3478?transport=udp' },
+                            { urls: 'stun:stun.services.mozilla.com' },
+                            // Free TURN servers
+                            { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' },
+                            { urls: 'turn:openrelay.metered.ca:443', username: 'openrelayproject', credential: 'openrelayproject' },
+                            { urls: 'turn:openrelay.metered.ca:443?transport=tcp', username: 'openrelayproject', credential: 'openrelayproject' },
+                        ],
+                        iceTransportPolicy: 'all',
+                        bundlePolicy: 'max-bundle',
+                        rtcpMuxPolicy: 'require'
                     }
                 });
-                const timeout = setTimeout(() => reject(new Error('timeout')), 15000);
+                const timeout = setTimeout(() => { p.destroy(); reject(new Error('timeout')); }, 20000);
                 p.on('open', id => { clearTimeout(timeout); resolve({ p, id }); });
-                p.on('error', e => { clearTimeout(timeout); reject(e); });
+                p.on('error', e => { clearTimeout(timeout); p.destroy(); reject(e); });
             });
         }
 
-        // ══════════════════════════════════════
-        // GET MIC STREAM (with best constraints)
-        // ══════════════════════════════════════
+        // ══════════ GET MIC STREAM ══════════
         async function getMicStream() {
             const deviceId = document.getElementById('micDeviceSelect').value;
             const ns = document.getElementById('noiseSuppToggle')?.checked !== false;
             const ec = document.getElementById('echoCancelToggle')?.checked !== false;
             const agc = document.getElementById('agcToggle')?.checked !== false;
-
-            const constr = {
+            const constraints = {
                 audio: {
                     deviceId: deviceId ? { exact: deviceId } : undefined,
-                    echoCancellation: ec,
-                    noiseSuppression: ns,
-                    autoGainControl: agc,
-                    sampleRate: { ideal: 48000 },
-                    channelCount: 1,
-                    latency: { ideal: 0.01 },
-                    sampleSize: { ideal: 16 }
+                    echoCancellation: ec, noiseSuppression: ns, autoGainControl: agc,
+                    sampleRate: { ideal: 48000 }, channelCount: 1,
+                    latency: { ideal: 0.01 }
                 }
             };
-            try {
-                return await navigator.mediaDevices.getUserMedia(constr);
-            } catch (e) {
-                // fallback: basic audio
-                return await navigator.mediaDevices.getUserMedia({ audio: true });
-            }
+            try { return await navigator.mediaDevices.getUserMedia(constraints); }
+            catch (e) { return await navigator.mediaDevices.getUserMedia({ audio: true }); }
         }
 
-        // ══════════════════════════════════════
-        // CREATE ROOM
-        // ══════════════════════════════════════
+        // ══════════ CREATE ROOM ══════════
         window.createRoom = async () => {
             const myName = document.getElementById('myName').value.trim();
             myRoomName = document.getElementById('cm_name').value.trim() || document.getElementById('roomNameInput').value.trim();
@@ -3354,16 +3413,15 @@
 
             closeModal('createModal');
             stopMicTest();
-            showOverlay('Mikrofonga ruxsat so\'ralmoqda...', 'Brauzer so\'rovini qabul qiling');
-            try {
-                myStream = await getMicStream();
-            } catch (e) {
-                hideOverlay();
-                showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error');
-                return;
-            }
 
-            showOverlay('PeerJS serverga ulanmoqda...', 'Bu 5-10 soniya olishi mumkin');
+            showOverlay('Mikrofonga ruxsat so\'ralmoqda...', 'Brauzer so\'rovini qabul qiling');
+            try { myStream = await getMicStream(); }
+            catch (e) { hideOverlay(); showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error'); return; }
+
+            // Initialize AudioContext immediately after user gesture (mic permission click)
+            getOrCreateAudioCtx();
+
+            showOverlay('PeerJS serverga ulanmoqda...', 'Bu 5-15 soniya olishi mumkin');
             try {
                 const { p, id } = await initPeer();
                 peer = p; myPeerId = id;
@@ -3375,19 +3433,21 @@
             }
 
             showOverlay('Xona yaratilmoqda...', 'Firebase ga saqlanmoqda');
+            let docRef;
             try {
-                const docRef = await addDoc(collection(db, 'voiceRooms'), {
-                    name: myRoomName,
-                    description: desc,
-                    hostName: myName,
-                    hostPeerId: myPeerId,
+                docRef = await addDoc(collection(db, 'voiceRooms'), {
+                    name: myRoomName, description: desc,
+                    hostName: myName, hostPeerId: myPeerId,
                     lang, level, maxPeers,
                     locked: roomType === 'locked',
                     password: roomType === 'locked' ? pass : '',
-                    peers: [{ peerId: myPeerId, name: myName }],
                     createdAt: serverTimestamp()
                 });
                 myRoomDocId = docRef.id;
+                // Add self to peers subcollection
+                await setDoc(doc(db, 'voiceRooms', myRoomDocId, 'peers', myPeerId), {
+                    name: myName, joinedAt: serverTimestamp()
+                });
             } catch (e) {
                 hideOverlay();
                 showToast('<i class="fa-solid fa-triangle-exclamation"></i> Firebase xatosi!', 'error');
@@ -3396,18 +3456,7 @@
                 return;
             }
 
-            peer.on('call', call => answerCall(call));
-            peer.on('connection', conn => setupDataConn(conn));
-            peer.on('error', err => {
-                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Xatolik: ' + err.type, 'error');
-                if (err.type === 'peer-unavailable') return;
-                if (err.type === 'disconnected') peer.reconnect();
-            });
-            peer.on('disconnected', () => {
-                showToast('<i class="fa-solid fa-rotate"></i> Qayta ulanmoqda...', 'info');
-                setTimeout(() => { if (peer && !peer.destroyed) peer.reconnect(); }, 2000);
-            });
-
+            setupPeerListeners(myName);
             myRoomData = { hostPeerId: myPeerId, hostName: myName, lang, level };
             watchRoom(myRoomDocId);
             hideOverlay();
@@ -3415,36 +3464,24 @@
             showToast('<i class="fa-solid fa-rocket"></i> Xona yaratildi!', 'success');
         };
 
-        // ══════════════════════════════════════
-        // JOIN ROOM
-        // ══════════════════════════════════════
+        // ══════════ JOIN ROOM ══════════
         window.joinRoom = async (roomDocId) => {
             const myName = document.getElementById('myName').value.trim();
             if (!myName) { showToast('<i class="fa-solid fa-exclamation"></i> Avval ismingizni kiriting!', 'error'); return; }
 
-            // Check if room exists first
             let roomData;
             try {
                 const snap = await getDoc(doc(db, 'voiceRooms', roomDocId));
                 if (!snap.exists()) { showToast('<i class="fa-solid fa-door-closed"></i> Xona topilmadi!', 'error'); return; }
                 roomData = snap.data();
-            } catch (e) {
-                showToast('Firebase xatosi!', 'error'); return;
-            }
+            } catch (e) { showToast('Firebase xatosi!', 'error'); return; }
 
-            // Check max capacity
-            if (roomData.maxPeers && (roomData.peers || []).length >= roomData.maxPeers) {
-                showToast('<i class="fa-solid fa-users"></i> Xona to\'lgan!', 'error'); return;
-            }
-
-            // Password check
             if (roomData.locked) {
                 pendingJoinRoomId = roomDocId;
                 document.getElementById('jp_pass').value = '';
                 document.getElementById('joinPassModal').classList.add('show');
                 return;
             }
-
             await doJoinRoom(roomDocId, roomData);
         };
 
@@ -3452,16 +3489,12 @@
             const pass = document.getElementById('jp_pass').value.trim();
             if (!pass) { showToast('<i class="fa-solid fa-lock"></i> Parol kiriting!', 'error'); return; }
             if (!pendingJoinRoomId) return;
-
             let roomData;
             try {
                 const snap = await getDoc(doc(db, 'voiceRooms', pendingJoinRoomId));
                 roomData = snap.data();
             } catch (e) { showToast('Xatolik!', 'error'); return; }
-
-            if (roomData.password !== pass) {
-                showToast('<i class="fa-solid fa-lock"></i> Noto\'g\'ri parol!', 'error'); return;
-            }
+            if (roomData.password !== pass) { showToast('<i class="fa-solid fa-lock"></i> Noto\'g\'ri parol!', 'error'); return; }
             closeModal('joinPassModal');
             await doJoinRoom(pendingJoinRoomId, roomData);
             pendingJoinRoomId = null;
@@ -3470,16 +3503,15 @@
         async function doJoinRoom(roomDocId, roomData) {
             const myName = document.getElementById('myName').value.trim();
             stopMicTest();
-            showOverlay('Mikrofonga ruxsat so\'ralmoqda...', 'Brauzer so\'rovini qabul qiling');
-            try {
-                myStream = await getMicStream();
-            } catch (e) {
-                hideOverlay();
-                showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error');
-                return;
-            }
 
-            showOverlay('PeerJS ga ulanmoqda...', 'Bu 5-10 soniya olishi mumkin');
+            showOverlay('Mikrofonga ruxsat so\'ralmoqda...', 'Brauzer so\'rovini qabul qiling');
+            try { myStream = await getMicStream(); }
+            catch (e) { hideOverlay(); showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error'); return; }
+
+            // Initialize AudioContext after user gesture
+            getOrCreateAudioCtx();
+
+            showOverlay('PeerJS ga ulanmoqda...', 'Bu 5-15 soniya olishi mumkin');
             try {
                 const { p, id } = await initPeer();
                 peer = p; myPeerId = id;
@@ -3494,94 +3526,116 @@
             myRoomName = roomData.name;
             myRoomData = roomData;
 
-            // Add ourselves to peers list
+            // Add self to peers subcollection
             try {
-                await updateDoc(doc(db, 'voiceRooms', roomDocId), {
-                    peers: arrayUnion({ peerId: myPeerId, name: myName })
+                await setDoc(doc(db, 'voiceRooms', roomDocId, 'peers', myPeerId), {
+                    name: myName, joinedAt: serverTimestamp()
                 });
-            } catch (e) { /* ignore */ }
+            } catch (e) { }
 
-            // Call existing peers
-            const existingPeers = roomData.peers || [];
-            existingPeers.forEach(p => {
-                if (p.peerId !== myPeerId) callPeer(p.peerId, p.name);
-            });
-
-            peer.on('call', call => answerCall(call));
-            peer.on('connection', conn => {
-                setupDataConn(conn);
-                conn.on('open', () => {
-                    try { conn.send({ type: 'hello', name: myName, muted: isMuted, hand: handRaised }); } catch (e) { }
+            // Get existing peers and call them
+            try {
+                const peersSnap = await new Promise(resolve => {
+                    const unsub = onSnapshot(collection(db, 'voiceRooms', roomDocId, 'peers'), s => { unsub(); resolve(s); });
                 });
-            });
-            peer.on('error', err => {
-                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Xatolik: ' + err.type, 'error');
-                if (err.type === 'disconnected') peer.reconnect();
-            });
-            peer.on('disconnected', () => {
-                showToast('<i class="fa-solid fa-rotate"></i> Qayta ulanmoqda...', 'info');
-                setTimeout(() => { if (peer && !peer.destroyed) peer.reconnect(); }, 2000);
-            });
+                peersSnap.forEach(pd => {
+                    if (pd.id !== myPeerId) {
+                        const pData = pd.data();
+                        if (!participants[pd.id]) participants[pd.id] = { name: pData.name || 'Mehmon', muted: false, hand: false };
+                        callPeer(pd.id, pData.name);
+                    }
+                });
+            } catch (e) { }
 
+            setupPeerListeners(myName);
             watchRoom(roomDocId);
             hideOverlay();
             showRoomUI(myRoomName, myRoomData);
             showToast('<i class="fa-solid fa-check-circle"></i> Xonaga kirdingiz!', 'success');
         }
 
-        // ══════════════════════════════════════
-        // LEAVE
-        // ══════════════════════════════════════
-        async function doLeave(updateFirestore = true) {
+        function setupPeerListeners(myName) {
+            peer.on('call', call => {
+                // Ensure AudioContext is ready before answering
+                getOrCreateAudioCtx();
+                answerCall(call);
+            });
+            peer.on('connection', conn => {
+                conn.on('open', () => {
+                    setupDataConn(conn);
+                    try { conn.send({ type: 'hello', name: myName, muted: isMuted, hand: handRaised }); } catch (e) { }
+                });
+                conn.on('error', e => console.warn('incoming conn error', e));
+            });
+            peer.on('error', err => {
+                console.error('PeerJS error:', err.type, err);
+                if (err.type === 'peer-unavailable') { showToast('<i class="fa-solid fa-user-xmark"></i> Peer topilmadi, qayta urinilmoqda...', 'info'); return; }
+                if (err.type === 'network' || err.type === 'disconnected') { peer.reconnect(); return; }
+                showToast(`<i class="fa-solid fa-triangle-exclamation"></i> Xatolik: ${err.type}`, 'error');
+            });
+            peer.on('disconnected', () => {
+                showToast('<i class="fa-solid fa-rotate"></i> Qayta ulanmoqda...', 'info');
+                setTimeout(() => { if (peer && !peer.destroyed) peer.reconnect(); }, 2000);
+            });
+            peer.on('close', () => { showToast('<i class="fa-solid fa-door-closed"></i> Peer connection yopildi', 'error'); });
+        }
+
+        // ══════════ LEAVE ══════════
+        async function doLeave(updateFs = true) {
+            stopRecording();
             if (unsubRoom) { unsubRoom(); unsubRoom = null; }
             if (durationInterval) { clearInterval(durationInterval); durationInterval = null; }
             if (pingInterval) { clearInterval(pingInterval); pingInterval = null; }
             if (waveformRAF) { cancelAnimationFrame(waveformRAF); waveformRAF = null; }
 
-            if (updateFirestore && myRoomDocId && myPeerId) {
+            if (updateFs && myRoomDocId && myPeerId) {
                 try {
-                    const snap = await getDoc(doc(db, 'voiceRooms', myRoomDocId));
-                    if (snap.exists()) {
-                        const data = snap.data();
-                        const myName = document.getElementById('myName').value.trim();
-                        await updateDoc(doc(db, 'voiceRooms', myRoomDocId), {
-                            peers: arrayRemove({ peerId: myPeerId, name: myName })
+                    // Remove self from peers subcollection
+                    await deleteDoc(doc(db, 'voiceRooms', myRoomDocId, 'peers', myPeerId));
+                    // If we're host, check if anyone is left; if not, delete room
+                    if (myRoomData?.hostPeerId === myPeerId) {
+                        const peersSnap = await new Promise(resolve => {
+                            const u = onSnapshot(collection(db, 'voiceRooms', myRoomDocId, 'peers'), s => { u(); resolve(s); });
                         });
-                        if (data.hostPeerId === myPeerId) {
-                            await deleteDoc(doc(db, 'voiceRooms', myRoomDocId));
-                        }
+                        if (peersSnap.empty) await deleteDoc(doc(db, 'voiceRooms', myRoomDocId));
                     }
-                } catch (e) { /* ignore */ }
+                } catch (e) { }
             }
 
             if (myStream) { myStream.getTracks().forEach(t => t.stop()); myStream = null; }
-            Object.values(connections).forEach(c => {
+
+            Object.keys(connections).forEach(pid => {
+                const c = connections[pid];
                 clearInterval(c.volInterval);
                 try { c.call?.close(); } catch (e) { }
-                try { c.data?.close(); } catch (e) { }
-                try { c.sourceNode?.disconnect(); } catch (e) { }
-                try { c.gainNode?.disconnect(); } catch (e) { }
+                try { c.dataConn?.close(); } catch (e) { }
+                try { c.srcNode?.disconnect(); } catch (e) { }
+                try { c.analyserNode?.disconnect(); } catch (e) { }
+                const el = document.getElementById('ra-' + pid);
+                if (el) { el.pause(); el.srcObject = null; el.remove(); }
             });
             connections = {}; participants = {};
-            document.querySelectorAll('audio[id^="audio-"]').forEach(a => a.remove());
-            if (peer) { peer.destroy(); peer = null; }
-            if (masterCtx) { try { masterCtx.close(); } catch (e) { } masterCtx = null; masterGain = null; masterDest = null; }
+
+            if (peer) { try { peer.destroy(); } catch (e) { } peer = null; }
+            if (masterAudioCtx) { try { masterAudioCtx.close(); } catch (e) { } masterAudioCtx = null; masterGainNode = null; }
 
             isMuted = false; handRaised = false; myPeerId = null; myRoomDocId = null; myRoomData = null;
-            unreadCount = 0;
-            myAnalyserForWave = null;
+            unreadCount = 0; msgCount = 0; reactCount = 0; myVoiceAnalyser = null;
 
             document.getElementById('activeRoom').style.display = 'none';
             document.getElementById('setupArea').style.display = 'block';
             document.getElementById('micBtn').className = 'ctrl-btn mic';
-            document.getElementById('micBtn').innerHTML = '<i class="fa-solid fa-microphone"></i><span class="ctrl-tooltip">Mikrofon (M)</span>';
+            document.getElementById('micIcon').className = 'fa-solid fa-microphone';
             document.getElementById('micLabel').textContent = 'Mikrofon';
             document.getElementById('durationEl').textContent = '00:00';
+            document.getElementById('statDuration').textContent = '0:00';
+            document.getElementById('statPeers').textContent = '1';
+            document.getElementById('statMsgs').textContent = '0';
+            document.getElementById('statReacts').textContent = '0';
             document.getElementById('chatMessages').innerHTML = '';
-
-            // Clear waveform
+            document.getElementById('audioUnlockBanner').style.display = 'none';
             const canvas = document.getElementById('waveformCanvas');
-            if (canvas) { const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
+            if (canvas) { const c = canvas.getContext('2d'); c.clearRect(0, 0, canvas.width, canvas.height); }
         }
 
         window.leaveRoom = async () => {
@@ -3589,25 +3643,20 @@
             showToast('<i class="fa-solid fa-door-open"></i> Xonadan chiqdingiz', '');
         };
 
-        // ══════════════════════════════════════
-        // BEFOREUNLOAD
-        // ══════════════════════════════════════
         window.addEventListener('beforeunload', () => { doLeave(true); });
+        window.addEventListener('pagehide', () => { doLeave(true); });
 
-        // Check URL param for direct room join
+        // URL param for direct room join
         const urlParams = new URLSearchParams(window.location.search);
         const directRoom = urlParams.get('room');
         if (directRoom) {
             setTimeout(() => {
-                const myName = document.getElementById('myName').value.trim();
-                if (myName) window.joinRoom(directRoom);
-                else showToast('<i class="fa-solid fa-user"></i> Avval ismingizni kiriting, keyin "room" havolasi ishlaydi', 'info');
-            }, 1000);
+                const n = document.getElementById('myName').value.trim();
+                if (n) window.joinRoom(directRoom);
+                else showToast('<i class="fa-solid fa-user"></i> Ismingizni kiriting, keyin xona havolasi ishlaydi', 'info');
+            }, 1500);
         }
 
-        // ══════════════════════════════════════
-        // START
-        // ══════════════════════════════════════
         loadRooms();
     </script>
 </body>

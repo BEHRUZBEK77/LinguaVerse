@@ -37,11 +37,6 @@
       --text2: #a8b0d0;
       --text3: #5a6288;
       --border: rgba(255, 255, 255, 0.06);
-      --c-common: #5b8cc4;
-      --c-rare: #7b6af5;
-      --c-epic: #d4a820;
-      --c-legendary: #e05a14;
-      --c-mythic: #c020e0;
       --font-display: 'Cinzel', serif;
       --font-head: 'Exo 2', sans-serif;
       --font-body: 'Rajdhani', sans-serif;
@@ -59,7 +54,7 @@
       overflow-x: hidden
     }
 
-    /* ── LOADING ── */
+    /* LOADING */
     .loading-screen {
       position: fixed;
       inset: 0;
@@ -111,7 +106,73 @@
       letter-spacing: .04em
     }
 
-    /* ── BACKGROUND ── */
+    /* AUTH */
+    .auth-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 8888;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px
+    }
+
+    .auth-screen.show {
+      display: flex
+    }
+
+    .auth-box {
+      background: var(--bg3);
+      border: 1px solid rgba(91, 124, 250, .3);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      margin: 16px
+    }
+
+    .auth-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .auth-sub {
+      font-size: .82rem;
+      color: var(--text3);
+      margin-bottom: 20px
+    }
+
+    .auth-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: .9rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: all .2s
+    }
+
+    .auth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(91, 124, 250, .4)
+    }
+
     #bgCanvas {
       position: fixed;
       top: 0;
@@ -123,7 +184,7 @@
       opacity: .35
     }
 
-    /* ── NAV ── */
+    /* NAV */
     .nav {
       position: sticky;
       top: 0;
@@ -168,7 +229,13 @@
       font-family: var(--font-head);
       font-size: .82rem;
       font-weight: 800;
-      white-space: nowrap
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .nav-stat:hover {
+      background: rgba(255, 255, 255, .06)
     }
 
     .nav-back {
@@ -188,7 +255,7 @@
       background: rgba(255, 255, 255, .08)
     }
 
-    /* ── TABS ── */
+    /* TABS */
     .tabs-row {
       position: sticky;
       top: 62px;
@@ -233,7 +300,7 @@
       color: var(--text)
     }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       position: relative;
       z-index: 1;
@@ -281,11 +348,11 @@
       line-height: 1.7
     }
 
-    /* ── WALLET ── */
+    /* WALLET */
     .wallet-bar {
       position: relative;
       z-index: 1;
-      max-width: 920px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 0 24px 24px;
       display: flex;
@@ -305,10 +372,6 @@
       padding: 9px 18px
     }
 
-    .wc-icon {
-      font-size: 1.1rem
-    }
-
     .wc-val {
       font-family: var(--font-display);
       font-size: 1rem;
@@ -323,72 +386,7 @@
       letter-spacing: .06em
     }
 
-    /* ── RARITY FILTER ── */
-    .rarity-filter {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1
-    }
-
-    .rf-btn {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-family: var(--font-head);
-      font-size: .75rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all .2s;
-      letter-spacing: .04em
-    }
-
-    .rf-btn.active,
-    .rf-btn:hover {
-      transform: translateY(-1px)
-    }
-
-    .rf-all.active {
-      background: rgba(255, 255, 255, .08);
-      border-color: rgba(255, 255, 255, .25);
-      color: #fff
-    }
-
-    .rf-common.active {
-      background: rgba(91, 140, 196, .15);
-      border-color: var(--c-common);
-      color: var(--c-common)
-    }
-
-    .rf-rare.active {
-      background: rgba(123, 106, 245, .15);
-      border-color: var(--c-rare);
-      color: var(--c-rare)
-    }
-
-    .rf-epic.active {
-      background: rgba(212, 168, 32, .15);
-      border-color: var(--c-epic);
-      color: var(--c-epic)
-    }
-
-    .rf-legendary.active {
-      background: rgba(224, 90, 20, .15);
-      border-color: var(--c-legendary);
-      color: var(--c-legendary)
-    }
-
-    .rf-mythic.active {
-      background: rgba(192, 32, 224, .15);
-      border-color: var(--c-mythic);
-      color: var(--c-mythic)
-    }
-
-    /* ── MAIN / SEC ── */
+    /* MAIN */
     .main {
       position: relative;
       z-index: 1;
@@ -435,13 +433,14 @@
       color: var(--text2)
     }
 
-    /* ── PACK CARD ── */
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
       gap: 16px
     }
 
+    /* PACK CARD */
     .pc {
       background: var(--bg3);
       border-radius: 22px;
@@ -489,7 +488,6 @@
       pointer-events: none
     }
 
-    /* The pack shape card */
     .pack-shape {
       width: 100px;
       height: 128px;
@@ -551,7 +549,6 @@
       text-transform: uppercase
     }
 
-    /* Rarity shine animation */
     .pc[data-rarity="epic"] .pack-shape::after,
     .pc[data-rarity="legendary"] .pack-shape::after,
     .pc[data-rarity="mythic"] .pack-shape::after {
@@ -656,7 +653,7 @@
       filter: brightness(1.15)
     }
 
-    /* ── BUY MODAL ── */
+    /* BUY MODAL */
     .modal-bg {
       position: fixed;
       inset: 0;
@@ -809,7 +806,198 @@
       color: var(--cyan)
     }
 
-    /* ── OPENER OVERLAY ── */
+    .bo-receipt {
+      background: rgba(52, 211, 153, .1);
+      border: 1px solid rgba(52, 211, 153, .3);
+      color: var(--green)
+    }
+
+    /* RECEIPT UPLOAD MODAL */
+    .receipt-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 4, 8, .92);
+      backdrop-filter: blur(20px);
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px
+    }
+
+    .receipt-modal.open {
+      display: flex;
+      animation: fadeUp .3s ease
+    }
+
+    .receipt-box {
+      background: var(--bg3);
+      border: 1px solid rgba(52, 211, 153, .2);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 460px;
+      overflow: hidden
+    }
+
+    .receipt-head {
+      padding: 20px 22px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .receipt-title {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: .04em
+    }
+
+    .receipt-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .step-badge {
+      background: rgba(91, 124, 250, .12);
+      border: 1px solid rgba(91, 124, 250, .25);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: .8rem;
+      color: var(--text2);
+      line-height: 1.6
+    }
+
+    .step-badge strong {
+      color: var(--accent2)
+    }
+
+    .card-number-big {
+      text-align: center;
+      padding: 16px;
+      background: rgba(245, 200, 66, .06);
+      border: 1px solid rgba(245, 200, 66, .2);
+      border-radius: 12px
+    }
+
+    .card-num {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: .1em;
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .card-sub {
+      font-size: .72rem;
+      color: var(--text3);
+      font-family: var(--font-head)
+    }
+
+    .upload-area {
+      border: 2px dashed rgba(52, 211, 153, .3);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .upload-area:hover {
+      border-color: rgba(52, 211, 153, .6);
+      background: rgba(52, 211, 153, .04)
+    }
+
+    .upload-area.has-file {
+      border-color: rgba(52, 211, 153, .7);
+      background: rgba(52, 211, 153, .07)
+    }
+
+    .upload-area input[type=file] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%
+    }
+
+    .upload-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      color: var(--green);
+      opacity: .7
+    }
+
+    .upload-text {
+      font-size: .82rem;
+      color: var(--text2);
+      font-family: var(--font-head)
+    }
+
+    .upload-preview {
+      width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+      border-radius: 8px;
+      display: none;
+      margin-top: 10px
+    }
+
+    .comment-inp {
+      width: 100%;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--font-head);
+      font-size: .85rem;
+      outline: none;
+      transition: border .2s;
+      resize: vertical;
+      min-height: 60px
+    }
+
+    .comment-inp:focus {
+      border-color: rgba(52, 211, 153, .4)
+    }
+
+    .btn-send-order {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--green), #059669);
+      border: none;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      box-shadow: 0 8px 24px rgba(52, 211, 153, .25);
+      letter-spacing: .04em
+    }
+
+    .btn-send-order:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(52, 211, 153, .4)
+    }
+
+    .btn-send-order:disabled {
+      opacity: .5;
+      cursor: not-allowed
+    }
+
+    /* OPENER OVERLAY */
     .overlay {
       position: fixed;
       inset: 0;
@@ -861,7 +1049,6 @@
       font-family: var(--font-head)
     }
 
-    /* Pack visual in opener */
     .ov-pack-wrap {
       cursor: pointer;
       transition: transform .15s
@@ -951,17 +1138,21 @@
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      border: 7px solid transparent
+      width: 0;
+      height: 0;
+      border-style: solid
     }
 
     .reel-pointer::before {
-      top: 0;
-      border-bottom-color: var(--gold)
+      top: -1px;
+      border-width: 0 8px 12px 8px;
+      border-color: transparent transparent var(--gold) transparent
     }
 
     .reel-pointer::after {
-      bottom: 0;
-      border-top-color: var(--gold)
+      bottom: -1px;
+      border-width: 12px 8px 0 8px;
+      border-color: var(--gold) transparent transparent transparent
     }
 
     .reel-fade-l {
@@ -1005,8 +1196,7 @@
       font-size: 1.8rem;
       border: 1.5px solid transparent;
       background: rgba(255, 255, 255, .03);
-      flex-shrink: 0;
-      transition: transform .3s
+      flex-shrink: 0
     }
 
     .ri-c {
@@ -1148,7 +1338,7 @@
       font-weight: 900
     }
 
-    /* OPENER BTN */
+    /* OPENER BTNS */
     .ov-btn {
       background: linear-gradient(135deg, var(--gold), var(--orange));
       border: none;
@@ -1217,7 +1407,6 @@
       }
     }
 
-    /* CONFETTI */
     #confettiCanvas {
       position: fixed;
       inset: 0;
@@ -1226,7 +1415,7 @@
       display: none
     }
 
-    /* ── TOAST ── */
+    /* TOAST */
     .toast {
       position: fixed;
       bottom: 28px;
@@ -1263,7 +1452,7 @@
       color: var(--red)
     }
 
-    /* ── KEY CARDS ── */
+    /* KEY CARDS */
     .key-card {
       background: var(--bg3);
       border-radius: 20px;
@@ -1364,7 +1553,7 @@
       letter-spacing: .03em
     }
 
-    /* Convert Section */
+    /* CONVERT */
     .convert-card {
       background: rgba(255, 255, 255, .02);
       border: 1px solid var(--border);
@@ -1435,7 +1624,7 @@
       filter: brightness(1.1)
     }
 
-    /* Item cards */
+    /* ITEM CARDS */
     .item-card {
       background: var(--bg3);
       border: 1px solid var(--border);
@@ -1478,12 +1667,6 @@
       background: rgba(52, 211, 153, .15);
       border: 1px solid rgba(52, 211, 153, .3);
       color: var(--green)
-    }
-
-    .ib-owned {
-      background: rgba(167, 139, 250, .15);
-      border: 1px solid rgba(167, 139, 250, .3);
-      color: var(--accent2)
     }
 
     .item-icon {
@@ -1549,72 +1732,19 @@
       color: var(--gold)
     }
 
-    .bi-uzs {
-      background: rgba(52, 211, 153, .1);
-      border: 1px solid rgba(52, 211, 153, .25);
-      color: var(--green)
-    }
-
-    .bi-tok {
-      background: rgba(34, 211, 238, .1);
-      border: 1px solid rgba(34, 211, 238, .25);
-      color: var(--cyan)
-    }
-
-    .bi-xp {
-      background: rgba(91, 124, 250, .12);
-      border: 1px solid rgba(91, 124, 250, .3);
-      color: var(--accent)
-    }
-
     .bi-green {
       background: rgba(52, 211, 153, .12);
       border: 1px solid rgba(52, 211, 153, .3);
       color: var(--green)
     }
 
-    .bi-disabled {
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid var(--border);
-      color: var(--text3)
+    .bi-red {
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .25);
+      color: var(--red)
     }
 
-    .tok-amount {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--cyan)
-    }
-
-    .tok-lbl {
-      font-size: .68rem;
-      color: var(--text3);
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      font-family: var(--font-head)
-    }
-
-    .tok-bonus {
-      font-size: .7rem;
-      color: var(--green);
-      font-weight: 700;
-      background: rgba(52, 211, 153, .1);
-      border-radius: 100px;
-      padding: 2px 9px;
-      font-family: var(--font-head)
-    }
-
-    .rank-ring {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 2px solid;
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-
+    /* VIP */
     .vip-card-big {
       background: rgba(245, 200, 66, .05);
       border: 1px solid rgba(245, 200, 66, .18);
@@ -1668,125 +1798,338 @@
       transform: translateY(-2px)
     }
 
-    .buy-opts-uzs {
-      background: rgba(52, 211, 153, .1);
-      border: 1px solid rgba(52, 211, 153, .25);
-      color: var(--green);
-      font-family: var(--font-head);
-      font-size: .78rem;
-      font-weight: 700
+    /* PLAN CARDS */
+    .plan-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: all .25s
     }
 
-    /* Order modal */
-    .pay-info {
-      background: rgba(52, 211, 153, .05);
-      border: 1px solid rgba(52, 211, 153, .18);
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 12px;
-      font-size: .78rem;
-      color: var(--text2);
-      line-height: 1.8;
-      font-family: var(--font-head)
+    .plan-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .5)
     }
 
-    .form-label {
+    .plan-card.popular {
+      border-color: rgba(245, 200, 66, .4);
+      background: rgba(245, 200, 66, .04)
+    }
+
+    .plan-popular-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #000;
       font-family: var(--font-head);
-      font-size: .68rem;
-      font-weight: 700;
-      color: var(--text3);
-      margin-bottom: 5px;
-      display: block;
-      text-transform: uppercase;
+      font-size: .62rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 100px;
       letter-spacing: .06em
     }
 
-    .form-input {
-      width: 100%;
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 9px 13px;
-      color: var(--text);
-      font-family: var(--font-head);
-      font-size: .85rem;
-      outline: none;
-      transition: border .2s;
-      margin-bottom: 11px;
-      resize: none
+    .plan-icon {
+      font-size: 2rem;
+      margin-bottom: 4px
     }
 
-    .form-input:focus {
-      border-color: rgba(245, 200, 66, .4)
-    }
-
-    .upload-area {
-      border: 2px dashed rgba(245, 200, 66, .2);
-      border-radius: 14px;
-      padding: 22px;
-      text-align: center;
-      cursor: pointer;
-      transition: all .2s;
-      margin-bottom: 12px;
-      background: rgba(245, 200, 66, .02)
-    }
-
-    .upload-area:hover {
-      border-color: rgba(245, 200, 66, .45)
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 13px;
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      border: none;
-      border-radius: 13px;
-      color: #000;
+    .plan-name {
       font-family: var(--font-display);
-      font-size: .9rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      cursor: pointer;
-      transition: all .25s;
       letter-spacing: .04em
     }
 
-    .btn-submit:hover {
+    .plan-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 4px 0
+    }
+
+    .plan-price span {
+      font-size: .75rem;
+      color: var(--text3)
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 6px 0
+    }
+
+    .plan-features li {
+      font-size: .75rem;
+      color: var(--text2);
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-head)
+    }
+
+    .plan-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 800;
+      font-size: .7rem
+    }
+
+    .btn-plan {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s;
+      margin-top: 6px;
+      letter-spacing: .02em
+    }
+
+    /* SELL */
+    .sell-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .sell-info {
+      flex: 1
+    }
+
+    .sell-name {
+      font-family: var(--font-display);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .02em
+    }
+
+    .sell-sub {
+      font-size: .7rem;
+      color: var(--text3);
+      font-family: var(--font-head)
+    }
+
+    .sell-price {
+      font-family: var(--font-display);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--gold)
+    }
+
+    .btn-sell {
+      padding: 7px 16px;
+      border-radius: 10px;
+      background: rgba(248, 113, 113, .12);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: var(--red);
+      font-family: var(--font-head);
+      font-size: .75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap
+    }
+
+    .btn-sell:hover {
+      background: rgba(248, 113, 113, .22);
       transform: translateY(-1px)
     }
 
-    .btn-submit:disabled {
-      opacity: .5;
-      cursor: not-allowed
+    /* CURRENCY */
+    .currency-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all .2s
     }
 
-    @keyframes fa-spin {
-      from {
-        transform: rotate(0deg)
-      }
-
-      to {
-        transform: rotate(360deg)
-      }
+    .currency-card:hover {
+      border-color: rgba(255, 255, 255, .12)
     }
 
-    .fa-spin {
-      animation: fa-spin 1s linear infinite
+    .curr-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px
     }
 
-    ::-webkit-scrollbar {
-      width: 4px
+    .curr-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0
     }
 
-    ::-webkit-scrollbar-track {
-      background: transparent
+    .curr-name {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .03em
     }
 
-    ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, .07);
-      border-radius: 100px
+    .curr-bal {
+      font-size: .72rem;
+      color: var(--text3);
+      font-family: var(--font-head)
     }
 
-    /* Rarity borders on cards */
+    .curr-packages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    .curr-pkg {
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .curr-pkg:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .curr-pkg-amount {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700
+    }
+
+    .curr-pkg-bonus {
+      font-size: .62rem;
+      color: var(--green);
+      font-weight: 700;
+      font-family: var(--font-head)
+    }
+
+    .curr-pkg-price {
+      font-size: .7rem;
+      color: var(--text3);
+      margin-top: 3px;
+      font-family: var(--font-head)
+    }
+
+    .curr-pkg-btn {
+      margin-top: 6px;
+      width: 100%;
+      padding: 6px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .7rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    /* RANK CARDS */
+    .rank-card {
+      background: var(--bg3);
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border)
+    }
+
+    .rank-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, .6)
+    }
+
+    .rank-card.owned {
+      border-color: rgba(52, 211, 153, .3)
+    }
+
+    .rank-card.active-rank {
+      border-color: rgba(245, 200, 66, .5);
+      box-shadow: 0 0 20px rgba(245, 200, 66, .2)
+    }
+
+    .rank-visual {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .rank-ring {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2.5px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem
+    }
+
+    .rank-body {
+      padding: 12px 14px 14px
+    }
+
+    .rank-name {
+      font-family: var(--font-display);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      margin-bottom: 4px
+    }
+
+    .rank-perks {
+      font-size: .7rem;
+      color: var(--text3);
+      font-family: var(--font-head);
+      margin-bottom: 8px
+    }
+
+    .rank-status {
+      font-size: .62rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-family: var(--font-head);
+      display: inline-block;
+      margin-bottom: 8px
+    }
+
+    /* RARITY BORDERS */
     .pc[data-rarity="common"] {
       border: 1px solid rgba(91, 140, 196, .25);
       --pc-glow: rgba(91, 140, 196, .1)
@@ -1838,6 +2181,19 @@
       }
     }
 
+    ::-webkit-scrollbar {
+      width: 4px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .07);
+      border-radius: 100px
+    }
+
     @media(max-width:600px) {
       .hero h1 {
         font-size: 2rem
@@ -1845,6 +2201,20 @@
 
       .grid {
         grid-template-columns: repeat(auto-fill, minmax(155px, 1fr))
+      }
+    }
+
+    .fa-spin {
+      animation: fa-spin 1s linear infinite
+    }
+
+    @keyframes fa-spin {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(360deg)
       }
     }
   </style>
@@ -1860,65 +2230,75 @@
     </div>
   </div>
 
+  <div class="auth-screen" id="authScreen">
+    <div class="auth-box">
+      <div style="font-size:3rem;margin-bottom:12px">🔐</div>
+      <div class="auth-title">Kirish talab qilinadi</div>
+      <div class="auth-sub">Do'kondan foydalanish uchun avval tizimga kiring.</div>
+      <a href="../auth/login.html" class="auth-btn"><i class="fa-solid fa-right-to-bracket"></i> Kirish</a>
+    </div>
+  </div>
+
   <canvas id="bgCanvas"></canvas>
   <canvas id="confettiCanvas"></canvas>
 
   <nav class="nav">
     <a href="../index.html" class="nav-logo">Lingua<span>Verse</span></a>
     <div class="nav-spacer"></div>
-    <div class="nav-stat" style="color:var(--gold)"><i class="fa-solid fa-coins"></i> <span id="nCoin">12,500</span>
+    <div class="nav-stat" style="color:var(--gold)" onclick="showSec('currency',null)">
+      <i class="fa-solid fa-coins"></i> <span id="nCoin">0</span>
     </div>
-    <div class="nav-stat" style="color:var(--accent2)"><i class="fa-solid fa-star"></i> <span id="nXP">8,400</span>
+    <div class="nav-stat" style="color:var(--accent2)" onclick="showSec('currency',null)">
+      <i class="fa-solid fa-star"></i> <span id="nXP">0</span>
     </div>
-    <div class="nav-stat" style="color:var(--cyan)"><i class="fa-solid fa-ticket"></i> <span id="nTok">3,200</span>
+    <div class="nav-stat" style="color:var(--cyan)" onclick="showSec('currency',null)">
+      <i class="fa-solid fa-ticket"></i> <span id="nTok">0</span>
     </div>
     <a href="../index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Orqaga</a>
   </nav>
 
   <div class="tabs-row">
     <button class="ftab active" onclick="filterPacks('all',this)"><i class="fa-solid fa-store"></i> Hammasi</button>
-    <button class="ftab rf-common" onclick="filterPacks('common',this)"><i class="fa-solid fa-circle"
-        style="font-size:.5rem"></i> Common</button>
-    <button class="ftab rf-rare" onclick="filterPacks('rare',this)"><i class="fa-solid fa-circle"
-        style="font-size:.5rem"></i> Rare</button>
-    <button class="ftab rf-epic" onclick="filterPacks('epic',this)"><i class="fa-solid fa-circle"
-        style="font-size:.5rem"></i> Epic</button>
-    <button class="ftab rf-legendary" onclick="filterPacks('legendary',this)"><i class="fa-solid fa-circle"
-        style="font-size:.5rem"></i> Legendary</button>
-    <button class="ftab rf-mythic" onclick="filterPacks('mythic',this)"><i class="fa-solid fa-circle"
-        style="font-size:.5rem"></i> Mythic</button>
+    <button class="ftab" onclick="filterPacks('common',this)">Common</button>
+    <button class="ftab" onclick="filterPacks('rare',this)">Rare</button>
+    <button class="ftab" onclick="filterPacks('epic',this)">Epic</button>
+    <button class="ftab" onclick="filterPacks('legendary',this)">Legendary</button>
+    <button class="ftab" onclick="filterPacks('mythic',this)">Mythic</button>
     <button class="ftab" onclick="showSec('keys',this)"><i class="fa-solid fa-key"></i> Kalitlar</button>
-    <button class="ftab" onclick="showSec('plans',this)"><i class="fa-solid fa-star"></i> Rejalar</button>
+    <button class="ftab" onclick="showSec('ranks',this)"><i class="fa-solid fa-trophy"></i> Ranklar</button>
+    <button class="ftab" onclick="showSec('plans',this)"><i class="fa-solid fa-gem"></i> Rejalar</button>
+    <button class="ftab" onclick="showSec('currency',this)"><i class="fa-solid fa-coins"></i> Valyuta</button>
+    <button class="ftab" onclick="showSec('sell',this)"><i class="fa-solid fa-tag"></i> Sotish</button>
     <button class="ftab" onclick="showSec('vip',this)"><i class="fa-solid fa-crown"></i> VIP</button>
     <button class="ftab" onclick="showSec('convert',this)"><i class="fa-solid fa-arrow-right-arrow-left"></i>
       Ayirbosh</button>
   </div>
 
   <div class="hero">
-    <div class="hero-badge"><i class="fa-solid fa-gem"></i> LINGUAVERSE XAZINA DO'KONI — 35 PACK · 50 KALIT</div>
+    <div class="hero-badge"><i class="fa-solid fa-gem"></i> LINGUAVERSE XAZINA DO'KONI</div>
     <h1>Xazina <span>Qutilari</span></h1>
-    <p class="hero-sub">Premium pack va kalitlarni oching. VIP, frame, booster va noyob sovgalar kutmoqda!</p>
+    <p class="hero-sub">Premium pack, kalit, rank va valyutalar. Sotish, ayirboshlash — hammasi shu yerda!</p>
   </div>
 
   <div class="wallet-bar">
     <div class="wallet-chip">
-      <span class="wc-icon"><i class="fa-solid fa-coins" style="color:var(--gold)"></i></span>
+      <i class="fa-solid fa-coins" style="color:var(--gold)"></i>
       <div>
-        <div class="wc-val" style="color:var(--gold)" id="wCoin">12,500</div>
+        <div class="wc-val" style="color:var(--gold)" id="wCoin">0</div>
         <div class="wc-lbl">Coin</div>
       </div>
     </div>
     <div class="wallet-chip">
-      <span class="wc-icon"><i class="fa-solid fa-star" style="color:var(--accent2)"></i></span>
+      <i class="fa-solid fa-star" style="color:var(--accent2)"></i>
       <div>
-        <div class="wc-val" style="color:var(--accent)" id="wXP">8,400</div>
+        <div class="wc-val" style="color:var(--accent)" id="wXP">0</div>
         <div class="wc-lbl">XP</div>
       </div>
     </div>
     <div class="wallet-chip">
-      <span class="wc-icon"><i class="fa-solid fa-ticket" style="color:var(--cyan)"></i></span>
+      <i class="fa-solid fa-ticket" style="color:var(--cyan)"></i>
       <div>
-        <div class="wc-val" style="color:var(--cyan)" id="wTok">3,200</div>
+        <div class="wc-val" style="color:var(--cyan)" id="wTok">0</div>
         <div class="wc-lbl">Token</div>
       </div>
     </div>
@@ -1941,12 +2321,72 @@
       <div class="grid" id="keysGrid"></div>
     </div>
 
+    <div class="sec" id="sec-ranks">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-trophy" style="color:var(--gold)"></i> Rank Tizimi</div>
+        <div class="sec-desc">Rank xarid qiling yoki coin bilan faollashtiring!</div>
+      </div>
+      <div class="grid" id="ranksGrid"></div>
+    </div>
+
     <div class="sec" id="sec-plans">
       <div class="sec-header">
-        <div class="sec-title"><i class="fa-solid fa-star" style="color:var(--accent2)"></i> Obuna Rejalari</div>
-        <div class="sec-desc">Ko'proq token va imkoniyatlar.</div>
+        <div class="sec-title"><i class="fa-solid fa-gem" style="color:var(--accent2)"></i> Obuna Rejalari</div>
+        <div class="sec-desc">Coin bilan premium rejalarni xarid qiling yoki to'lov cheki yuboring!</div>
       </div>
       <div class="grid" id="plansGrid"></div>
+    </div>
+
+    <div class="sec" id="sec-currency">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-coins" style="color:var(--gold)"></i> Valyuta Sotib Olish</div>
+        <div class="sec-desc">Coin, XP va Tokenlarni sotib oling yoki real pul bilan to'lang.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:680px">
+        <div class="currency-card" id="coinBuyCard">
+          <div class="curr-header">
+            <div class="curr-icon" style="background:rgba(245,200,66,.15)"><i class="fa-solid fa-coins"
+                style="color:var(--gold)"></i></div>
+            <div>
+              <div class="curr-name" style="color:var(--gold)">Coin</div>
+              <div class="curr-bal">Balans: <span id="coinBal">0</span></div>
+            </div>
+          </div>
+          <div class="curr-packages" id="coinPkgs"></div>
+        </div>
+        <div class="currency-card">
+          <div class="curr-header">
+            <div class="curr-icon" style="background:rgba(167,139,250,.15)"><i class="fa-solid fa-star"
+                style="color:var(--accent2)"></i></div>
+            <div>
+              <div class="curr-name" style="color:var(--accent2)">XP</div>
+              <div class="curr-bal">Balans: <span id="xpBal">0</span></div>
+            </div>
+          </div>
+          <div class="curr-packages" id="xpPkgs"></div>
+        </div>
+        <div class="currency-card">
+          <div class="curr-header">
+            <div class="curr-icon" style="background:rgba(34,211,238,.12)"><i class="fa-solid fa-ticket"
+                style="color:var(--cyan)"></i></div>
+            <div>
+              <div class="curr-name" style="color:var(--cyan)">Token</div>
+              <div class="curr-bal">Balans: <span id="tokBal">0</span></div>
+            </div>
+          </div>
+          <div class="curr-packages" id="tokPkgs"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec" id="sec-sell">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-tag" style="color:var(--red)"></i> Narsalarni Sotish</div>
+        <div class="sec-desc">Egalik qiladigan narsalaringizni coinga sotib yuboring!</div>
+      </div>
+      <div id="sellContent">
+        <div style="text-align:center;padding:40px;color:var(--text3)">Yuklanmoqda...</div>
+      </div>
     </div>
 
     <div class="sec" id="sec-vip">
@@ -2010,14 +2450,38 @@
     </div>
   </div>
 
-  <!-- ORDER MODAL -->
-  <div class="modal-bg" id="orderModal">
-    <div class="modal-box">
-      <div class="modal-head">
-        <div class="modal-title" id="orderModalTitle"><i class="fa-solid fa-file-invoice"></i> Buyurtma</div>
-        <button class="modal-close" onclick="closeOrderModal()"><i class="fa-solid fa-xmark"></i></button>
+  <!-- RECEIPT UPLOAD MODAL -->
+  <div class="receipt-modal" id="receiptModal">
+    <div class="receipt-box">
+      <div class="receipt-head">
+        <div class="receipt-title"><i class="fa-solid fa-file-invoice"></i> To'lov Cheki Yuborish</div>
+        <button class="modal-close" onclick="closeReceiptModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="modal-body" id="orderModalBody"></div>
+      <div class="receipt-body">
+        <div class="step-badge">
+          <strong>1-qadam:</strong> Quyidagi karta raqamiga to'lov qiling<br>
+          <strong>2-qadam:</strong> To'lov cheki rasmini yuklang<br>
+          <strong>3-qadam:</strong> Izoh yozing va yuboring — Admin 24 soat ichida tasdiqlaydi
+        </div>
+        <div class="card-number-big">
+          <span class="card-num" id="rcCardNum">8600 1234 5678 9012</span>
+          <div class="card-sub" id="rcCardOwner">Abdullayev Abdulla · UZCARD</div>
+          <div class="card-sub" style="color:var(--gold);margin-top:4px" id="rcAmount">Miqdor: — so'm</div>
+        </div>
+        <div class="upload-area" id="uploadArea" onclick="triggerUpload()">
+          <input type="file" id="receiptFileInput" accept="image/*" onchange="onFileSelect(event)" />
+          <div class="upload-icon"><i class="fa-solid fa-camera"></i></div>
+          <div class="upload-text">Chek rasmini tanlang yoki shu yerga tashlang</div>
+          <img id="uploadPreview" class="upload-preview" alt="preview" />
+        </div>
+        <textarea class="comment-inp" id="rcComment"
+          placeholder="Izoh (ixtiyoriy): bank nomi, to'lov vaqti..."></textarea>
+        <button class="btn-send-order" id="sendOrderBtn" onclick="sendOrder()">
+          <i class="fa-solid fa-paper-plane"></i> Buyurtma Yuborish
+        </button>
+        <div id="orderResult" style="text-align:center;font-size:.8rem;color:var(--text3);font-family:var(--font-head)">
+        </div>
+      </div>
     </div>
   </div>
 
@@ -2064,329 +2528,261 @@
     <span id="toastMsg"></span>
   </div>
 
+  <!-- FIREBASE -->
+  <script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const FB = {
+      apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
+      authDomain: "linguaverse-ebe09.firebaseapp.com",
+      projectId: "linguaverse-ebe09",
+      storageBucket: "linguaverse-ebe09.firebasestorage.app",
+      messagingSenderId: "130625454868",
+      appId: "1:130625454868:web:3f02871f64cb5f8af27801"
+    };
+    const app = getApps().length ? getApps()[0] : initializeApp(FB);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    window._db = db;
+    window._auth = auth;
+    window._doc = doc;
+    window._updateDoc = updateDoc;
+    window._setDoc = setDoc;
+    window._addDoc = addDoc;
+    window._collection = collection;
+    window._serverTimestamp = serverTimestamp;
+    window._getDoc = getDoc;
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        document.getElementById('authScreen').classList.add('show');
+        document.getElementById('loadScreen').classList.add('hidden');
+        return;
+      }
+      window._uid = user.uid;
+      window._userEmail = user.email;
+      window._userName = user.displayName || user.email || 'Foydalanuvchi';
+
+      try {
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        if (snap.exists()) {
+          const d = snap.data();
+          // ✅ FIX: To'g'ri o'qish — undefined bo'lsa 0
+          window.WALLET.coins = typeof d.coins === 'number' ? d.coins : 0;
+          window.WALLET.xp = typeof d.xp === 'number' ? d.xp : 0;
+          window.WALLET.tokens = typeof d.tokens === 'number' ? d.tokens : 0;
+          window.WALLET.ownedPacks = Array.isArray(d.ownedPacks) ? d.ownedPacks : [];
+          window.WALLET.ownedKeys = Array.isArray(d.ownedKeys) ? d.ownedKeys : [];
+          window.WALLET.ownedFrames = Array.isArray(d.ownedFrames) ? d.ownedFrames : [];
+          window.WALLET.ownedBadges = Array.isArray(d.ownedBadges) ? d.ownedBadges : [];
+          window.WALLET.ownedRanks = Array.isArray(d.ownedRanks) ? d.ownedRanks : [];
+          window.WALLET.rank = d.rank || 'none';
+          window.WALLET.plan = d.plan || 'free';
+          window.WALLET.isVIP = d.isVIP === true;
+        } else {
+          // Yangi foydalanuvchi — hujjat yaratish
+          await setDoc(doc(db, 'users', user.uid), {
+            coins: 0, xp: 0, tokens: 100,
+            ownedPacks: [], ownedKeys: [], ownedFrames: [], ownedBadges: [], ownedRanks: [],
+            rank: 'none', plan: 'free', isVIP: false,
+            email: user.email, displayName: user.displayName || '',
+            createdAt: serverTimestamp()
+          });
+          window.WALLET.tokens = 100;
+        }
+      } catch (e) { console.error('Firestore read error:', e); }
+
+      updateWallet();
+      renderPacks();
+      renderVIP();
+      renderSell();
+      renderCurrencySection();
+      renderPlans();
+      renderRanks();
+
+      document.getElementById('loadBar').style.width = '100%';
+      setTimeout(() => document.getElementById('loadScreen').classList.add('hidden'), 300);
+    });
+
+    // ✅ FIX: saveWallet — to'liq va ishonchli
+    window._saveWallet = async function () {
+      if (!window._uid) return;
+      const data = {
+        coins: window.WALLET.coins,
+        xp: window.WALLET.xp,
+        tokens: window.WALLET.tokens,
+        ownedPacks: window.WALLET.ownedPacks,
+        ownedKeys: window.WALLET.ownedKeys,
+        ownedFrames: window.WALLET.ownedFrames,
+        ownedBadges: window.WALLET.ownedBadges,
+        ownedRanks: window.WALLET.ownedRanks,
+        rank: window.WALLET.rank,
+        plan: window.WALLET.plan,
+        isVIP: window.WALLET.isVIP,
+        lastSeen: serverTimestamp()
+      };
+      try {
+        await updateDoc(doc(db, 'users', window._uid), data);
+      } catch (e) {
+        // Agar hujjat yo'q bo'lsa setDoc bilan yaratish
+        if (e.code === 'not-found') {
+          try {
+            await setDoc(doc(db, 'users', window._uid), { ...data, createdAt: serverTimestamp() });
+          } catch (e2) { console.error('setDoc error:', e2); }
+        } else {
+          console.error('saveWallet error:', e);
+        }
+      }
+    };
+
+    // ✅ Order yuborish (receipt bilan)
+    window._sendOrder = async function (orderData) {
+      if (!window._uid) return null;
+      try {
+        const ref = await addDoc(collection(db, 'orders'), {
+          ...orderData,
+          uid: window._uid,
+          userId: window._uid,
+          userEmail: window._userEmail || '',
+          userName: window._userName || '',
+          currentUserData: {
+            coins: window.WALLET.coins,
+            tokens: window.WALLET.tokens,
+            xp: window.WALLET.xp,
+            plan: window.WALLET.plan
+          },
+          status: 'pending',
+          createdAt: serverTimestamp()
+        });
+        return ref.id;
+      } catch (e) {
+        console.error('sendOrder error:', e);
+        return null;
+      }
+    };
+  </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
-    // ══════════ SOUND ENGINE ══════════
+    // THREE.JS BG
+    (function () {
+      const cv = document.getElementById('bgCanvas');
+      const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+      r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight);
+      const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);
+      cam.position.z = 5;
+      const geo = new THREE.BufferGeometry(); const cnt = 1400, pos = new Float32Array(cnt * 3);
+      for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30;
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x4a6fa5, size: .05, transparent: true, opacity: .4 }));
+      sc.add(pts);
+      let mx = 0, my = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+      window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight) });
+      let t = 0; (function loop() { requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .12; pts.rotation.x = t * .07; cam.position.x += (mx * .6 - cam.position.x) * .03; cam.position.y += (-my * .6 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam) })();
+    })();
+
+    // SFX
     const SFX = {
-      ctx: null,
-      init() {
-        if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-      },
+      ctx: null, init() { if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)() },
       play(type) {
         try {
-          this.init();
-          const ctx = this.ctx;
-          const o = ctx.createOscillator();
-          const g = ctx.createGain();
-          o.connect(g); g.connect(ctx.destination);
-          const now = ctx.currentTime;
+          this.init(); const ctx = this.ctx, o = ctx.createOscillator(), g = ctx.createGain();
+          o.connect(g); g.connect(ctx.destination); const now = ctx.currentTime;
           switch (type) {
-            case 'click':
-              o.type = 'sine'; o.frequency.setValueAtTime(660, now); o.frequency.exponentialRampToValueAtTime(440, now + .08);
-              g.gain.setValueAtTime(.12, now); g.gain.exponentialRampToValueAtTime(.001, now + .12);
-              o.start(now); o.stop(now + .12); break;
-            case 'open':
-              o.type = 'sine'; o.frequency.setValueAtTime(220, now); o.frequency.exponentialRampToValueAtTime(880, now + .3);
-              g.gain.setValueAtTime(.18, now); g.gain.exponentialRampToValueAtTime(.001, now + .5);
-              o.start(now); o.stop(now + .5);
-              // second tone
-              setTimeout(() => {
-                const o2 = ctx.createOscillator(), g2 = ctx.createGain();
-                o2.connect(g2); g2.connect(ctx.destination);
-                o2.type = 'sine'; o2.frequency.setValueAtTime(440, ctx.currentTime); o2.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + .25);
-                g2.gain.setValueAtTime(.1, ctx.currentTime); g2.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .3);
-                o2.start(ctx.currentTime); o2.stop(ctx.currentTime + .3);
-              }, 180); break;
-            case 'spin':
-              o.type = 'sawtooth'; o.frequency.setValueAtTime(80, now); o.frequency.linearRampToValueAtTime(400, now + .15);
-              g.gain.setValueAtTime(.08, now); g.gain.exponentialRampToValueAtTime(.001, now + .2);
-              o.start(now); o.stop(now + .2); break;
-            case 'reel':
-              o.type = 'square'; o.frequency.setValueAtTime(200 + Math.random() * 200, now);
-              g.gain.setValueAtTime(.03, now); g.gain.exponentialRampToValueAtTime(.001, now + .04);
-              o.start(now); o.stop(now + .04); break;
-            case 'win':
-              [523, 659, 784, 1047].forEach((f, i) => {
-                const o2 = ctx.createOscillator(), g2 = ctx.createGain();
-                o2.connect(g2); g2.connect(ctx.destination);
-                o2.type = 'sine'; o2.frequency.value = f;
-                const t = now + i * .1;
-                g2.gain.setValueAtTime(.15, t); g2.gain.exponentialRampToValueAtTime(.001, t + .4);
-                o2.start(t); o2.stop(t + .4);
-              }); break;
-            case 'epic_win':
-              [262, 330, 392, 523, 659, 784].forEach((f, i) => {
-                const o2 = ctx.createOscillator(), g2 = ctx.createGain();
-                o2.connect(g2); g2.connect(ctx.destination);
-                o2.type = 'sine'; o2.frequency.value = f;
-                const t = now + i * .08;
-                g2.gain.setValueAtTime(.18, t); g2.gain.exponentialRampToValueAtTime(.001, t + .5);
-                o2.start(t); o2.stop(t + .5);
-              }); break;
-            case 'key_spin':
-              // Dramatic key spin sound - ascending metallic
-              const buf = ctx.createBuffer(1, ctx.sampleRate * 0.4, ctx.sampleRate);
-              const data = buf.getChannelData(0);
-              for (let i = 0; i < data.length; i++) {
-                const t2 = i / ctx.sampleRate;
-                data[i] = Math.sin(2 * Math.PI * (200 + t2 * 800) * t2) * Math.exp(-t2 * 3) * 0.2;
-              }
-              const src = ctx.createBufferSource();
-              src.buffer = buf; src.connect(ctx.destination); src.start(now); break;
-            case 'buy':
-              [440, 554, 659].forEach((f, i) => {
-                const o2 = ctx.createOscillator(), g2 = ctx.createGain();
-                o2.connect(g2); g2.connect(ctx.destination);
-                o2.type = 'sine'; o2.frequency.value = f;
-                const t = now + i * .06;
-                g2.gain.setValueAtTime(.12, t); g2.gain.exponentialRampToValueAtTime(.001, t + .25);
-                o2.start(t); o2.stop(t + .25);
-              }); break;
-            case 'error':
-              o.type = 'sawtooth'; o.frequency.setValueAtTime(200, now); o.frequency.exponentialRampToValueAtTime(100, now + .2);
-              g.gain.setValueAtTime(.1, now); g.gain.exponentialRampToValueAtTime(.001, now + .22);
-              o.start(now); o.stop(now + .22); break;
+            case 'click': o.type = 'sine'; o.frequency.setValueAtTime(660, now); o.frequency.exponentialRampToValueAtTime(440, now + .08); g.gain.setValueAtTime(.12, now); g.gain.exponentialRampToValueAtTime(.001, now + .12); o.start(now); o.stop(now + .12); break;
+            case 'open': o.type = 'sine'; o.frequency.setValueAtTime(220, now); o.frequency.exponentialRampToValueAtTime(880, now + .3); g.gain.setValueAtTime(.18, now); g.gain.exponentialRampToValueAtTime(.001, now + .5); o.start(now); o.stop(now + .5); break;
+            case 'spin': o.type = 'sawtooth'; o.frequency.setValueAtTime(80, now); o.frequency.linearRampToValueAtTime(400, now + .15); g.gain.setValueAtTime(.08, now); g.gain.exponentialRampToValueAtTime(.001, now + .2); o.start(now); o.stop(now + .2); break;
+            case 'reel': o.type = 'square'; o.frequency.setValueAtTime(200 + Math.random() * 200, now); g.gain.setValueAtTime(.03, now); g.gain.exponentialRampToValueAtTime(.001, now + .04); o.start(now); o.stop(now + .04); break;
+            case 'win': [523, 659, 784, 1047].forEach((f, i) => { const o2 = ctx.createOscillator(), g2 = ctx.createGain(); o2.connect(g2); g2.connect(ctx.destination); o2.type = 'sine'; o2.frequency.value = f; const t = now + i * .1; g2.gain.setValueAtTime(.15, t); g2.gain.exponentialRampToValueAtTime(.001, t + .4); o2.start(t); o2.stop(t + .4) }); break;
+            case 'epic_win': [262, 330, 392, 523, 659, 784].forEach((f, i) => { const o2 = ctx.createOscillator(), g2 = ctx.createGain(); o2.connect(g2); g2.connect(ctx.destination); o2.type = 'sine'; o2.frequency.value = f; const t = now + i * .08; g2.gain.setValueAtTime(.18, t); g2.gain.exponentialRampToValueAtTime(.001, t + .5); o2.start(t); o2.stop(t + .5) }); break;
+            case 'buy': [440, 554, 659].forEach((f, i) => { const o2 = ctx.createOscillator(), g2 = ctx.createGain(); o2.connect(g2); g2.connect(ctx.destination); o2.type = 'sine'; o2.frequency.value = f; const t = now + i * .06; g2.gain.setValueAtTime(.12, t); g2.gain.exponentialRampToValueAtTime(.001, t + .25); o2.start(t); o2.stop(t + .25) }); break;
+            case 'error': o.type = 'sawtooth'; o.frequency.setValueAtTime(200, now); o.frequency.exponentialRampToValueAtTime(100, now + .2); g.gain.setValueAtTime(.1, now); g.gain.exponentialRampToValueAtTime(.001, now + .22); o.start(now); o.stop(now + .22); break;
           }
         } catch (e) { }
       }
     };
 
-    // ══════════ PACK DEFINITIONS ══════════
+    // ══════ WALLET STATE ══════
+    window.WALLET = {
+      coins: 0, xp: 0, tokens: 0,
+      ownedPacks: [], ownedKeys: [], ownedFrames: [], ownedBadges: [], ownedRanks: [],
+      rank: 'none', plan: 'free', isVIP: false
+    };
+
+    // ══════ PACK DEFINITIONS ══════
     const PACKS = [
-      {
-        id: 'starter', name: 'Starter Pack', fa: 'fa-box-open', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#1a2438 0%,#0f1726 100%)', stripe: '#4a6fa5', text: '#7fb3d3', rlbl: 'COMMON', rc: '#5b8cc4' },
-        series: 'Series 1', cost: { coins: 300 }, desc: 'Yangilar uchun ideal',
-        rewards: [{ type: 'coins', min: 150, max: 450, w: 38 }, { type: 'tokens', min: 80, max: 220, w: 34 }, { type: 'xp', min: 200, max: 600, w: 23 }, { type: 'key', w: 5, ch: .05 }]
-      },
-      {
-        id: 'daily', name: 'Daily Pack', fa: 'fa-calendar-day', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#281c1c 0%,#180e0e 100%)', stripe: '#c45a5a', text: '#e87878', rlbl: 'COMMON', rc: '#c45a5a' },
-        series: 'Daily', cost: { coins: 100, xp: 1000 }, desc: 'Kunlik bonus',
-        rewards: [{ type: 'tokens', min: 30, max: 100, w: 42 }, { type: 'xp', min: 100, max: 300, w: 40 }, { type: 'coins', min: 30, max: 80, w: 18 }]
-      },
-      {
-        id: 'grammar', name: 'Grammar Pack', fa: 'fa-pen-nib', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#181c30 0%,#0e1020 100%)', stripe: '#7b6af5', text: '#a39df7', rlbl: 'COMMON', rc: '#7b6af5' },
-        series: 'Language', cost: { coins: 250, xp: 2500 }, desc: 'Grammatika bonus',
-        rewards: [{ type: 'tokens', min: 100, max: 220, w: 52 }, { type: 'xp', min: 300, max: 800, w: 43 }, { type: 'key', w: 5, ch: .03 }]
-      },
-      {
-        id: 'ocean', name: 'Ocean Pack', fa: 'fa-water', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#0c1c2e 0%,#081420 100%)', stripe: '#1ea0cc', text: '#4dbee8', rlbl: 'COMMON', rc: '#1ea0cc' },
-        series: 'Elements', cost: { coins: 280, xp: 2800 }, desc: 'Okean saxovati',
-        rewards: [{ type: 'tokens', min: 100, max: 260, w: 52 }, { type: 'xp', min: 200, max: 600, w: 43 }, { type: 'key', w: 5, ch: .03 }]
-      },
-      {
-        id: 'forest', name: 'Forest Pack', fa: 'fa-tree', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#0c1c0e 0%,#081008 100%)', stripe: '#2ea64a', text: '#5ecf78', rlbl: 'COMMON', rc: '#2ea64a' },
-        series: 'Nature', cost: { coins: 260, tokens: 26 }, desc: "O'rmon ne'mati",
-        rewards: [{ type: 'xp', min: 300, max: 800, w: 52 }, { type: 'coins', min: 80, max: 200, w: 43 }, { type: 'key', w: 5, ch: .03 }]
-      },
-      {
-        id: 'star', name: 'Star Pack', fa: 'fa-star', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#26200c 0%,#180e04 100%)', stripe: '#d4a820', text: '#f5c842', rlbl: 'COMMON', rc: '#d4a820' },
-        series: 'Series 1', cost: { coins: 200, tokens: 20 }, desc: 'Yulduz kuchi',
-        rewards: [{ type: 'xp', min: 300, max: 700, w: 57 }, { type: 'tokens', min: 60, max: 160, w: 38 }, { type: 'key', w: 5, ch: .03 }]
-      },
-      {
-        id: 'music', name: 'Music Pack', fa: 'fa-music', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#261028 0%,#180c1c 100%)', stripe: '#d464c8', text: '#e890de', rlbl: 'COMMON', rc: '#d464c8' },
-        series: 'Arts', cost: { coins: 260, tokens: 26 }, desc: 'Musiqa paketi',
-        rewards: [{ type: 'xp', min: 300, max: 800, w: 52 }, { type: 'coins', min: 80, max: 220, w: 43 }, { type: 'key', w: 5, ch: .03 }]
-      },
-      {
-        id: 'weekend', name: 'Weekend Pack', fa: 'fa-champagne-glasses', rarity: 'common',
-        style: { bg: 'linear-gradient(155deg,#281020 0%,#1a0a14 100%)', stripe: '#e8608a', text: '#f090b0', rlbl: 'COMMON', rc: '#e8608a' },
-        series: 'Special', cost: { coins: 200, tokens: 20 }, desc: 'Dam olish bonus',
-        rewards: [{ type: 'tokens', min: 80, max: 200, w: 38 }, { type: 'xp', min: 200, max: 600, w: 38 }, { type: 'coins', min: 50, max: 150, w: 20 }, { type: 'key', w: 4, ch: .04 }]
-      },
-      // RARE
-      {
-        id: 'premium', name: 'Premium Pack', fa: 'fa-gem', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#180e3c 0%,#0e0828 100%)', stripe: '#7b6af5', text: '#a78bfa', rlbl: 'RARE', rc: '#7b6af5' },
-        series: 'Premium', cost: { coins: 800, xp: 8000 }, desc: 'Premium sovgalar',
-        rewards: [{ type: 'coins', min: 400, max: 900, w: 28 }, { type: 'tokens', min: 200, max: 500, w: 28 }, { type: 'xp', min: 500, max: 1500, w: 24 }, { type: 'booster', w: 12, ch: .5 }, { type: 'key', w: 8, ch: .08 }]
-      },
-      {
-        id: 'fire', name: 'Fire Pack', fa: 'fa-fire-flame-curved', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#280a0a 0%,#180404 100%)', stripe: '#e83c3c', text: '#f07070', rlbl: 'RARE', rc: '#e83c3c' },
-        series: 'Elements', cost: { coins: 350, xp: 3500 }, desc: 'Olov kuchi',
-        rewards: [{ type: 'coins', min: 150, max: 400, w: 38 }, { type: 'xp', min: 500, max: 1200, w: 45 }, { type: 'booster', w: 10, ch: .2 }, { type: 'key', w: 7, ch: .05 }]
-      },
-      {
-        id: 'thunder', name: 'Thunder Pack', fa: 'fa-bolt', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#22180a 0%,#140e04 100%)', stripe: '#d4a820', text: '#f0c840', rlbl: 'RARE', rc: '#d4a820' },
-        series: 'Elements', cost: { coins: 400, xp: 4000 }, desc: 'Chaqmoq kuchi',
-        rewards: [{ type: 'tokens', min: 200, max: 600, w: 43 }, { type: 'coins', min: 100, max: 300, w: 40 }, { type: 'booster', w: 12, ch: .25 }, { type: 'key', w: 5, ch: .05 }]
-      },
-      {
-        id: 'ice', name: 'Ice Pack', fa: 'fa-snowflake', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#0a1c26 0%,#061218 100%)', stripe: '#18b4d4', text: '#50d8f0', rlbl: 'RARE', rc: '#18b4d4' },
-        series: 'Elements', cost: { coins: 350, tokens: 35 }, desc: 'Muzlik kuchi',
-        rewards: [{ type: 'tokens', min: 200, max: 500, w: 50 }, { type: 'xp', min: 300, max: 900, w: 42 }, { type: 'key', w: 8, ch: .06 }]
-      },
-      {
-        id: 'lucky', name: 'Lucky Pack', fa: 'fa-clover', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#0c1e16 0%,#081008 100%)', stripe: '#28c870', text: '#50e090', rlbl: 'RARE', rc: '#28c870' },
-        series: 'Special', cost: { coins: 450, xp: 4500 }, desc: 'Omad sinang!',
-        rewards: [{ type: 'coins', min: 0, max: 2000, w: 23 }, { type: 'tokens', min: 0, max: 1000, w: 23 }, { type: 'xp', min: 0, max: 5000, w: 20 }, { type: 'booster', w: 15, ch: .35 }, { type: 'key', w: 12, ch: .12 }, { type: 'vip', w: 7, ch: .03 }]
-      },
-      {
-        id: 'space', name: 'Space Pack', fa: 'fa-rocket', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#0e1228 0%,#080a1c 100%)', stripe: '#4868d8', text: '#7898f0', rlbl: 'RARE', rc: '#4868d8' },
-        series: 'Cosmos', cost: { coins: 700, xp: 7000 }, desc: 'Kosmik sovga',
-        rewards: [{ type: 'coins', min: 350, max: 900, w: 28 }, { type: 'xp', min: 800, max: 2000, w: 30 }, { type: 'booster', w: 22, ch: .45 }, { type: 'key', w: 15, ch: .1 }, { type: 'vip', w: 5, ch: .03 }]
-      },
-      {
-        id: 'token_rush', name: 'Token Rush', fa: 'fa-ticket', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#0a1c28 0%,#060e18 100%)', stripe: '#18c8e8', text: '#40d8f8', rlbl: 'RARE', rc: '#18c8e8' },
-        series: 'Currency', cost: { coins: 350, xp: 3500 }, desc: "Ko'p tokenlar!",
-        rewards: [{ type: 'tokens', min: 300, max: 800, w: 73 }, { type: 'xp', min: 100, max: 400, w: 22 }, { type: 'key', w: 5, ch: .05 }]
-      },
-      {
-        id: 'xp_surge', name: 'XP Surge', fa: 'fa-chart-line', rarity: 'rare',
-        style: { bg: 'linear-gradient(155deg,#0c1c12 0%,#081008 100%)', stripe: '#28b888', text: '#50d8a8', rlbl: 'RARE', rc: '#28b888' },
-        series: 'Currency', cost: { coins: 400, tokens: 40 }, desc: 'XP portlashi!',
-        rewards: [{ type: 'xp', min: 1000, max: 5000, w: 78 }, { type: 'coins', min: 50, max: 200, w: 17 }, { type: 'key', w: 5, ch: .05 }]
-      },
-      // EPIC
-      {
-        id: 'vip_pack', name: 'VIP Pack', fa: 'fa-crown', rarity: 'epic',
-        style: { bg: 'linear-gradient(155deg,#261408 0%,#180c02 100%)', stripe: '#d4980c', text: '#f5c842', rlbl: 'EPIC', rc: '#d4980c' },
-        series: 'Elite', cost: { coins: 2000 }, desc: 'Eksklyuziv VIP',
-        rewards: [{ type: 'coins', min: 1000, max: 2500, w: 22 }, { type: 'tokens', min: 500, max: 1500, w: 22 }, { type: 'xp', min: 1000, max: 3000, w: 18 }, { type: 'frame', w: 18, ch: .7 }, { type: 'booster', w: 12, ch: .6 }, { type: 'key', w: 5, ch: .15 }, { type: 'vip', w: 3, ch: .06 }]
-      },
-      {
-        id: 'dragon', name: 'Dragon Pack', fa: 'fa-dragon', rarity: 'epic',
-        style: { bg: 'linear-gradient(155deg,#260808 0%,#180402 100%)', stripe: '#c83030', text: '#e86060', rlbl: 'EPIC', rc: '#c83030' },
-        series: 'Beasts', cost: { coins: 1200, xp: 12000 }, desc: 'Ajdaho kuchi!',
-        rewards: [{ type: 'coins', min: 600, max: 1500, w: 26 }, { type: 'tokens', min: 300, max: 800, w: 26 }, { type: 'frame', w: 22, ch: .6 }, { type: 'key', w: 18, ch: .14 }, { type: 'vip', w: 8, ch: .05 }]
-      },
-      {
-        id: 'galaxy', name: 'Galaxy Pack', fa: 'fa-meteor', rarity: 'epic',
-        style: { bg: 'linear-gradient(155deg,#0e0626 0%,#060414 100%)', stripe: '#5848d0', text: '#8878f0', rlbl: 'EPIC', rc: '#5848d0' },
-        series: 'Cosmos', cost: { coins: 1500, tokens: 150 }, desc: 'Galaktika sirlari!',
-        rewards: [{ type: 'coins', min: 800, max: 2000, w: 23 }, { type: 'xp', min: 1500, max: 4000, w: 23 }, { type: 'booster', w: 22, ch: .7 }, { type: 'key', w: 20, ch: .16 }, { type: 'vip', w: 12, ch: .07 }]
-      },
-      {
-        id: 'phoenix', name: 'Phoenix Pack', fa: 'fa-feather-pointed', rarity: 'epic',
-        style: { bg: 'linear-gradient(155deg,#260e06 0%,#180602 100%)', stripe: '#d05818', text: '#f08040', rlbl: 'EPIC', rc: '#d05818' },
-        series: 'Beasts', cost: { coins: 900, xp: 9000 }, desc: 'Feniks kuchi!',
-        rewards: [{ type: 'xp', min: 2000, max: 6000, w: 44 }, { type: 'tokens', min: 200, max: 500, w: 30 }, { type: 'booster', w: 18, ch: .5 }, { type: 'key', w: 8, ch: .1 }]
-      },
-      {
-        id: 'crystal', name: 'Crystal Pack', fa: 'fa-gem', rarity: 'epic',
-        style: { bg: 'linear-gradient(155deg,#0a1a26 0%,#060e1a 100%)', stripe: '#2090c8', text: '#60c8f0', rlbl: 'EPIC', rc: '#2090c8' },
-        series: 'Gems', cost: { coins: 850, tokens: 85 }, desc: 'Kristall kuchi!',
-        rewards: [{ type: 'coins', min: 400, max: 1000, w: 28 }, { type: 'xp', min: 800, max: 2500, w: 28 }, { type: 'booster', w: 22, ch: .5 }, { type: 'frame', w: 15, ch: .4 }, { type: 'key', w: 7, ch: .09 }]
-      },
-      {
-        id: 'diamond_rush', name: 'Diamond Rush', fa: 'fa-gem', rarity: 'epic',
-        style: { bg: 'linear-gradient(155deg,#0e1e2e 0%,#061220 100%)', stripe: '#3898e0', text: '#70c0f8', rlbl: 'EPIC', rc: '#3898e0' },
-        series: 'Gems', cost: { coins: 1800, xp: 18000 }, desc: 'Brilliant paket!',
-        rewards: [{ type: 'coins', min: 900, max: 2200, w: 23 }, { type: 'tokens', min: 500, max: 1200, w: 23 }, { type: 'xp', min: 1200, max: 3500, w: 18 }, { type: 'frame', w: 18, ch: .75 }, { type: 'key', w: 12, ch: .15 }, { type: 'vip', w: 6, ch: .05 }]
-      },
-      {
-        id: 'rainbow', name: 'Rainbow Pack', fa: 'fa-rainbow', rarity: 'epic',
-        style: { bg: 'linear-gradient(155deg,#1e0a26 0%,#120616 100%)', stripe: '#c040b0', text: '#e060d0', rlbl: 'EPIC', rc: '#c040b0' },
-        series: 'Special', cost: { coins: 380, xp: 3800 }, desc: 'Kamalak renglari!',
-        rewards: [{ type: 'coins', min: 150, max: 400, w: 30 }, { type: 'tokens', min: 100, max: 300, w: 30 }, { type: 'xp', min: 200, max: 600, w: 22 }, { type: 'frame', w: 10, ch: .25 }, { type: 'key', w: 8, ch: .07 }]
-      },
-      // LEGENDARY
-      {
-        id: 'mega', name: 'MEGA Pack', fa: 'fa-wand-magic-sparkles', rarity: 'legendary',
-        style: { bg: 'linear-gradient(155deg,#1a1208 0%,#120c02 100%)', stripe: '#c89010', text: '#f0b830', rlbl: 'LEGENDARY', rc: '#c89010' },
-        series: 'Mega Series', cost: { coins: 3000 }, desc: 'Eng katta paket!',
-        rewards: [{ type: 'coins', min: 2000, max: 5000, w: 18 }, { type: 'tokens', min: 1000, max: 3000, w: 18 }, { type: 'xp', min: 3000, max: 10000, w: 18 }, { type: 'frame', w: 16, ch: .85 }, { type: 'booster', w: 12, ch: .8 }, { type: 'key', w: 12, ch: .2 }, { type: 'vip', w: 6, ch: .1 }]
-      },
-      {
-        id: 'cosmos', name: 'Cosmos Pack', fa: 'fa-satellite', rarity: 'legendary',
-        style: { bg: 'linear-gradient(155deg,#0a061e 0%,#060414 100%)', stripe: '#8060f0', text: '#b090f8', rlbl: 'LEGENDARY', rc: '#8060f0' },
-        series: 'Cosmos', cost: { coins: 2500, xp: 25000 }, desc: 'Koinot sirlari!',
-        rewards: [{ type: 'coins', min: 1200, max: 3000, w: 20 }, { type: 'tokens', min: 600, max: 1500, w: 20 }, { type: 'xp', min: 2000, max: 6000, w: 18 }, { type: 'frame', w: 17, ch: .7 }, { type: 'key', w: 15, ch: .18 }, { type: 'vip', w: 10, ch: .08 }]
-      },
-      {
-        id: 'legend', name: 'Legend Pack', fa: 'fa-trophy', rarity: 'legendary',
-        style: { bg: 'linear-gradient(155deg,#1e1202 0%,#140c00 100%)', stripe: '#c07010', text: '#e09830', rlbl: 'LEGENDARY', rc: '#c07010' },
-        series: 'Legend', cost: { coins: 2000, xp: 20000 }, desc: 'Afsonaviy paket!',
-        rewards: [{ type: 'coins', min: 1000, max: 2500, w: 20 }, { type: 'tokens', min: 500, max: 1300, w: 20 }, { type: 'xp', min: 2000, max: 6000, w: 16 }, { type: 'frame', w: 16, ch: .65 }, { type: 'booster', w: 14, ch: .6 }, { type: 'key', w: 10, ch: .22 }, { type: 'vip', w: 4, ch: .1 }]
-      },
-      {
-        id: 'void', name: 'Void Pack', fa: 'fa-circle-dot', rarity: 'legendary',
-        style: { bg: 'linear-gradient(155deg,#060a1e 0%,#040610 100%)', stripe: '#3828b8', text: '#6858d8', rlbl: 'LEGENDARY', rc: '#3828b8' },
-        series: 'Special', cost: { coins: 1000, tokens: 100 }, desc: 'Void sirlari!',
-        rewards: [{ type: 'coins', min: 500, max: 1500, w: 28 }, { type: 'tokens', min: 250, max: 700, w: 28 }, { type: 'xp', min: 1000, max: 3500, w: 18 }, { type: 'booster', w: 13, ch: .65 }, { type: 'key', w: 10, ch: .12 }, { type: 'vip', w: 3, ch: .04 }]
-      },
-      // MYTHIC
-      {
-        id: 'omega', name: 'OMEGA Pack', fa: 'fa-infinity', rarity: 'mythic',
-        style: { bg: 'linear-gradient(155deg,#160620 0%,#0c0414 100%)', stripe: '#c020e0', text: '#e050f8', rlbl: 'MYTHIC', rc: '#c020e0' },
-        series: 'Omega Series', cost: { coins: 5000, xp: 50000 }, desc: 'OMEGA BOSS pack!',
-        rewards: [{ type: 'coins', min: 2500, max: 6000, w: 16 }, { type: 'tokens', min: 1200, max: 3000, w: 16 }, { type: 'xp', min: 5000, max: 15000, w: 14 }, { type: 'frame', w: 16, ch: .95 }, { type: 'booster', w: 12, ch: .95 }, { type: 'key', w: 14, ch: .4 }, { type: 'vip', w: 12, ch: .2 }]
-      },
-      {
-        id: 'ultimate', name: 'ULTIMATE', fa: 'fa-khanda', rarity: 'mythic',
-        style: { bg: 'linear-gradient(155deg,#160c02 0%,#0c0800 100%)', stripe: '#e0a000', text: '#f8c830', rlbl: 'MYTHIC', rc: '#e0a000' },
-        series: 'Ultimate', cost: { coins: 99000 }, desc: 'Hammasi ichida!',
-        rewards: [{ type: 'coins', min: 5000, max: 10000, w: 18 }, { type: 'tokens', min: 3000, max: 7000, w: 18 }, { type: 'xp', min: 5000, max: 20000, w: 18 }, { type: 'frame', w: 15, ch: 1 }, { type: 'booster', w: 12, ch: 1 }, { type: 'key', w: 10, ch: .35 }, { type: 'vip', w: 9, ch: .15 }]
-      },
+      { id: 'starter', name: 'Starter Pack', fa: 'fa-box-open', rarity: 'common', style: { bg: 'linear-gradient(155deg,#1a2438 0%,#0f1726 100%)', stripe: '#4a6fa5', text: '#7fb3d3', rlbl: 'COMMON', rc: '#5b8cc4' }, series: 'Series 1', cost: { coins: 300 }, desc: 'Yangilar uchun ideal', rewards: [{ type: 'coins', min: 150, max: 450, w: 38 }, { type: 'tokens', min: 80, max: 220, w: 34 }, { type: 'xp', min: 200, max: 600, w: 23 }, { type: 'key', w: 5, ch: .05 }] },
+      { id: 'daily', name: 'Daily Pack', fa: 'fa-calendar-day', rarity: 'common', style: { bg: 'linear-gradient(155deg,#281c1c 0%,#180e0e 100%)', stripe: '#c45a5a', text: '#e87878', rlbl: 'COMMON', rc: '#c45a5a' }, series: 'Daily', cost: { coins: 100, xp: 1000 }, desc: 'Kunlik bonus', rewards: [{ type: 'tokens', min: 30, max: 100, w: 42 }, { type: 'xp', min: 100, max: 300, w: 40 }, { type: 'coins', min: 30, max: 80, w: 18 }] },
+      { id: 'grammar', name: 'Grammar Pack', fa: 'fa-pen-nib', rarity: 'common', style: { bg: 'linear-gradient(155deg,#181c30 0%,#0e1020 100%)', stripe: '#7b6af5', text: '#a39df7', rlbl: 'COMMON', rc: '#7b6af5' }, series: 'Language', cost: { coins: 250, xp: 2500 }, desc: 'Grammatika bonus', rewards: [{ type: 'tokens', min: 100, max: 220, w: 52 }, { type: 'xp', min: 300, max: 800, w: 43 }, { type: 'key', w: 5, ch: .03 }] },
+      { id: 'ocean', name: 'Ocean Pack', fa: 'fa-water', rarity: 'common', style: { bg: 'linear-gradient(155deg,#0c1c2e 0%,#081420 100%)', stripe: '#1ea0cc', text: '#4dbee8', rlbl: 'COMMON', rc: '#1ea0cc' }, series: 'Elements', cost: { coins: 280, xp: 2800 }, desc: 'Okean saxovati', rewards: [{ type: 'tokens', min: 100, max: 260, w: 52 }, { type: 'xp', min: 200, max: 600, w: 43 }, { type: 'key', w: 5, ch: .03 }] },
+      { id: 'fire', name: 'Fire Pack', fa: 'fa-fire-flame-curved', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#280a0a 0%,#180404 100%)', stripe: '#e83c3c', text: '#f07070', rlbl: 'RARE', rc: '#e83c3c' }, series: 'Elements', cost: { coins: 350, xp: 3500 }, desc: 'Olov kuchi', rewards: [{ type: 'coins', min: 150, max: 400, w: 38 }, { type: 'xp', min: 500, max: 1200, w: 45 }, { type: 'booster', w: 10, ch: .2 }, { type: 'key', w: 7, ch: .05 }] },
+      { id: 'thunder', name: 'Thunder Pack', fa: 'fa-bolt', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#22180a 0%,#140e04 100%)', stripe: '#d4a820', text: '#f0c840', rlbl: 'RARE', rc: '#d4a820' }, series: 'Elements', cost: { coins: 400, xp: 4000 }, desc: 'Chaqmoq kuchi', rewards: [{ type: 'tokens', min: 200, max: 600, w: 43 }, { type: 'coins', min: 100, max: 300, w: 40 }, { type: 'booster', w: 12, ch: .25 }, { type: 'key', w: 5, ch: .05 }] },
+      { id: 'premium', name: 'Premium Pack', fa: 'fa-gem', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#180e3c 0%,#0e0828 100%)', stripe: '#7b6af5', text: '#a78bfa', rlbl: 'RARE', rc: '#7b6af5' }, series: 'Premium', cost: { coins: 800, xp: 8000 }, desc: 'Premium sovgalar', rewards: [{ type: 'coins', min: 400, max: 900, w: 28 }, { type: 'tokens', min: 200, max: 500, w: 28 }, { type: 'xp', min: 500, max: 1500, w: 24 }, { type: 'booster', w: 12, ch: .5 }, { type: 'key', w: 8, ch: .08 }] },
+      { id: 'lucky', name: 'Lucky Pack', fa: 'fa-clover', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#0c1e16 0%,#081008 100%)', stripe: '#28c870', text: '#50e090', rlbl: 'RARE', rc: '#28c870' }, series: 'Special', cost: { coins: 450, xp: 4500 }, desc: 'Omad sinang!', rewards: [{ type: 'coins', min: 0, max: 2000, w: 23 }, { type: 'tokens', min: 0, max: 1000, w: 23 }, { type: 'xp', min: 0, max: 5000, w: 20 }, { type: 'booster', w: 15, ch: .35 }, { type: 'key', w: 12, ch: .12 }, { type: 'vip', w: 7, ch: .03 }] },
+      { id: 'vip_pack', name: 'VIP Pack', fa: 'fa-crown', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#261408 0%,#180c02 100%)', stripe: '#d4980c', text: '#f5c842', rlbl: 'EPIC', rc: '#d4980c' }, series: 'Elite', cost: { coins: 2000 }, desc: 'Eksklyuziv VIP', rewards: [{ type: 'coins', min: 1000, max: 2500, w: 22 }, { type: 'tokens', min: 500, max: 1500, w: 22 }, { type: 'xp', min: 1000, max: 3000, w: 18 }, { type: 'frame', w: 18, ch: .7 }, { type: 'booster', w: 12, ch: .6 }, { type: 'key', w: 5, ch: .15 }, { type: 'vip', w: 3, ch: .06 }] },
+      { id: 'dragon', name: 'Dragon Pack', fa: 'fa-dragon', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#260808 0%,#180402 100%)', stripe: '#c83030', text: '#e86060', rlbl: 'EPIC', rc: '#c83030' }, series: 'Beasts', cost: { coins: 1200, xp: 12000 }, desc: 'Ajdaho kuchi!', rewards: [{ type: 'coins', min: 600, max: 1500, w: 26 }, { type: 'tokens', min: 300, max: 800, w: 26 }, { type: 'frame', w: 22, ch: .6 }, { type: 'key', w: 18, ch: .14 }, { type: 'vip', w: 8, ch: .05 }] },
+      { id: 'galaxy', name: 'Galaxy Pack', fa: 'fa-meteor', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#0e0626 0%,#060414 100%)', stripe: '#5848d0', text: '#8878f0', rlbl: 'EPIC', rc: '#5848d0' }, series: 'Cosmos', cost: { coins: 1500, tokens: 150 }, desc: 'Galaktika sirlari!', rewards: [{ type: 'coins', min: 800, max: 2000, w: 23 }, { type: 'xp', min: 1500, max: 4000, w: 23 }, { type: 'booster', w: 22, ch: .7 }, { type: 'key', w: 20, ch: .16 }, { type: 'vip', w: 12, ch: .07 }] },
+      { id: 'mega', name: 'MEGA Pack', fa: 'fa-wand-magic-sparkles', rarity: 'legendary', style: { bg: 'linear-gradient(155deg,#1a1208 0%,#120c02 100%)', stripe: '#c89010', text: '#f0b830', rlbl: 'LEGENDARY', rc: '#c89010' }, series: 'Mega Series', cost: { coins: 3000 }, desc: 'Eng katta paket!', rewards: [{ type: 'coins', min: 2000, max: 5000, w: 18 }, { type: 'tokens', min: 1000, max: 3000, w: 18 }, { type: 'xp', min: 3000, max: 10000, w: 18 }, { type: 'frame', w: 16, ch: .85 }, { type: 'booster', w: 12, ch: .8 }, { type: 'key', w: 12, ch: .2 }, { type: 'vip', w: 6, ch: .1 }] },
+      { id: 'cosmos', name: 'Cosmos Pack', fa: 'fa-satellite', rarity: 'legendary', style: { bg: 'linear-gradient(155deg,#0a061e 0%,#060414 100%)', stripe: '#8060f0', text: '#b090f8', rlbl: 'LEGENDARY', rc: '#8060f0' }, series: 'Cosmos', cost: { coins: 2500, xp: 25000 }, desc: 'Koinot sirlari!', rewards: [{ type: 'coins', min: 1200, max: 3000, w: 20 }, { type: 'tokens', min: 600, max: 1500, w: 20 }, { type: 'xp', min: 2000, max: 6000, w: 18 }, { type: 'frame', w: 17, ch: .7 }, { type: 'key', w: 15, ch: .18 }, { type: 'vip', w: 10, ch: .08 }] },
+      { id: 'omega', name: 'OMEGA Pack', fa: 'fa-infinity', rarity: 'mythic', style: { bg: 'linear-gradient(155deg,#160620 0%,#0c0414 100%)', stripe: '#c020e0', text: '#e050f8', rlbl: 'MYTHIC', rc: '#c020e0' }, series: 'Omega Series', cost: { coins: 5000, xp: 50000 }, desc: 'OMEGA BOSS pack!', rewards: [{ type: 'coins', min: 2500, max: 6000, w: 16 }, { type: 'tokens', min: 1200, max: 3000, w: 16 }, { type: 'xp', min: 5000, max: 15000, w: 14 }, { type: 'frame', w: 16, ch: .95 }, { type: 'booster', w: 12, ch: .95 }, { type: 'key', w: 14, ch: .4 }, { type: 'vip', w: 12, ch: .2 }] },
+      { id: 'ultimate', name: 'ULTIMATE', fa: 'fa-khanda', rarity: 'mythic', style: { bg: 'linear-gradient(155deg,#160c02 0%,#0c0800 100%)', stripe: '#e0a000', text: '#f8c830', rlbl: 'MYTHIC', rc: '#e0a000' }, series: 'Ultimate', cost: { coins: 99000 }, desc: 'Hammasi ichida!', rewards: [{ type: 'coins', min: 5000, max: 10000, w: 18 }, { type: 'tokens', min: 3000, max: 7000, w: 18 }, { type: 'xp', min: 5000, max: 20000, w: 18 }, { type: 'frame', w: 15, ch: 1 }, { type: 'booster', w: 12, ch: 1 }, { type: 'key', w: 10, ch: .35 }, { type: 'vip', w: 9, ch: .15 }] },
     ];
 
-    // KEYS
     const KEYS = [
-      {
-        id: 'key_bronze', name: 'Bronza Kalit', fa: 'fa-key', color: '#cd7f32', tier: 'BRONZA', price: { coins: 150 },
-        rewards: [{ type: 'coins', min: 80, max: 200, w: 52 }, { type: 'xp', min: 100, max: 300, w: 43 }, { type: 'key', w: 5, ch: .02 }]
-      },
-      {
-        id: 'key_silver', name: 'Kumush Kalit', fa: 'fa-key', color: '#C0C0C0', tier: 'KUMUSH', price: { coins: 300, xp: 3000 },
-        rewards: [{ type: 'coins', min: 150, max: 400, w: 37 }, { type: 'tokens', min: 30, max: 100, w: 37 }, { type: 'xp', min: 200, max: 600, w: 22 }, { type: 'key', w: 4, ch: .04 }]
-      },
-      {
-        id: 'key_gold', name: 'Oltin Kalit', fa: 'fa-star', color: '#FFD700', tier: 'OLTIN', price: { coins: 600, xp: 6000 },
-        rewards: [{ type: 'coins', min: 300, max: 800, w: 30 }, { type: 'tokens', min: 80, max: 250, w: 30 }, { type: 'xp', min: 400, max: 1200, w: 25 }, { type: 'key', w: 10, ch: .06 }, { type: 'booster', w: 5, ch: .15 }]
-      },
-      {
-        id: 'key_fire', name: 'Olov Kaliti', fa: 'fa-fire-flame-curved', color: '#ef4444', tier: 'OLOV', price: { coins: 400, xp: 4000 },
-        rewards: [{ type: 'xp', min: 500, max: 1500, w: 47 }, { type: 'coins', min: 150, max: 400, w: 42 }, { type: 'key', w: 8, ch: .04 }, { type: 'booster', w: 3, ch: .15 }]
-      },
-      {
-        id: 'key_ice', name: 'Muz Kaliti', fa: 'fa-snowflake', color: '#22d3ee', tier: 'MUZ', price: { coins: 400, tokens: 40 },
-        rewards: [{ type: 'tokens', min: 150, max: 400, w: 52 }, { type: 'xp', min: 300, max: 900, w: 42 }, { type: 'key', w: 6, ch: .04 }]
-      },
-      {
-        id: 'key_thunder', name: 'Chaqmoq Kaliti', fa: 'fa-bolt', color: '#f5c842', tier: 'CHAQMOQ', price: { coins: 450, xp: 4500 },
-        rewards: [{ type: 'coins', min: 200, max: 500, w: 47 }, { type: 'tokens', min: 100, max: 300, w: 42 }, { type: 'key', w: 8, ch: .04 }, { type: 'booster', w: 3, ch: .2 }]
-      },
-      {
-        id: 'key_diamond', name: 'Brilliant Kalit', fa: 'fa-gem', color: '#B9F2FF', tier: 'BRILLIANT', price: { coins: 1200, tokens: 120 },
-        rewards: [{ type: 'coins', min: 600, max: 1500, w: 25 }, { type: 'tokens', min: 200, max: 600, w: 25 }, { type: 'xp', min: 800, max: 2500, w: 22 }, { type: 'booster', w: 15, ch: .4 }, { type: 'key', w: 10, ch: .1 }, { type: 'vip', w: 3, ch: .02 }]
-      },
-      {
-        id: 'key_dragon', name: 'Ajdaho Kaliti', fa: 'fa-dragon', color: '#dc2626', tier: 'AJDAHO', price: { coins: 1000, xp: 10000 },
-        rewards: [{ type: 'coins', min: 500, max: 1300, w: 28 }, { type: 'tokens', min: 200, max: 600, w: 28 }, { type: 'frame', w: 18, ch: .4 }, { type: 'key', w: 18, ch: .12 }, { type: 'vip', w: 8, ch: .04 }]
-      },
-      {
-        id: 'key_galaxy', name: 'Galaktika Kaliti', fa: 'fa-meteor', color: '#4f6ef7', tier: 'GALAKTIKA', price: { coins: 1300, xp: 13000 },
-        rewards: [{ type: 'coins', min: 650, max: 1600, w: 25 }, { type: 'xp', min: 1000, max: 3000, w: 25 }, { type: 'booster', w: 20, ch: .5 }, { type: 'key', w: 20, ch: .15 }, { type: 'vip', w: 10, ch: .05 }]
-      },
-      {
-        id: 'key_phoenix', name: 'Feniks Kaliti', fa: 'fa-feather-pointed', color: '#fb923c', tier: 'FENIKS', price: { coins: 800, tokens: 80 },
-        rewards: [{ type: 'xp', min: 1200, max: 3500, w: 42 }, { type: 'tokens', min: 150, max: 400, w: 30 }, { type: 'booster', w: 18, ch: .4 }, { type: 'key', w: 8, ch: .08 }, { type: 'vip', w: 2, ch: .02 }]
-      },
-      {
-        id: 'key_legend', name: 'Afsonaviy Kalit', fa: 'fa-trophy', color: '#f5c842', tier: 'AFSONA', price: { coins: 2000, xp: 20000 },
-        rewards: [{ type: 'coins', min: 1000, max: 2500, w: 20 }, { type: 'tokens', min: 500, max: 1300, w: 20 }, { type: 'xp', min: 2000, max: 6000, w: 15 }, { type: 'frame', w: 15, ch: .6 }, { type: 'booster', w: 12, ch: .5 }, { type: 'key', w: 12, ch: .2 }, { type: 'vip', w: 6, ch: .08 }]
-      },
-      {
-        id: 'key_omega', name: 'Omega Kalit', fa: 'fa-infinity', color: '#a78bfa', tier: 'OMEGA', price: { coins: 5000, xp: 50000 },
-        rewards: [{ type: 'coins', min: 2500, max: 6000, w: 16 }, { type: 'tokens', min: 1200, max: 3000, w: 16 }, { type: 'xp', min: 5000, max: 15000, w: 13 }, { type: 'frame', w: 15, ch: .9 }, { type: 'booster', w: 12, ch: .9 }, { type: 'key', w: 18, ch: .35 }, { type: 'vip', w: 10, ch: .2 }]
-      },
+      { id: 'key_bronze', name: 'Bronza Kalit', fa: 'fa-key', color: '#cd7f32', tier: 'BRONZA', price: { coins: 150 }, rewards: [{ type: 'coins', min: 80, max: 200, w: 52 }, { type: 'xp', min: 100, max: 300, w: 43 }, { type: 'key', w: 5, ch: .02 }] },
+      { id: 'key_silver', name: 'Kumush Kalit', fa: 'fa-key', color: '#C0C0C0', tier: 'KUMUSH', price: { coins: 300, xp: 3000 }, rewards: [{ type: 'coins', min: 150, max: 400, w: 37 }, { type: 'tokens', min: 30, max: 100, w: 37 }, { type: 'xp', min: 200, max: 600, w: 22 }, { type: 'key', w: 4, ch: .04 }] },
+      { id: 'key_gold', name: 'Oltin Kalit', fa: 'fa-star', color: '#FFD700', tier: 'OLTIN', price: { coins: 600, xp: 6000 }, rewards: [{ type: 'coins', min: 300, max: 800, w: 30 }, { type: 'tokens', min: 80, max: 250, w: 30 }, { type: 'xp', min: 400, max: 1200, w: 25 }, { type: 'key', w: 10, ch: .06 }, { type: 'booster', w: 5, ch: .15 }] },
+      { id: 'key_fire', name: 'Olov Kaliti', fa: 'fa-fire-flame-curved', color: '#ef4444', tier: 'OLOV', price: { coins: 400, xp: 4000 }, rewards: [{ type: 'xp', min: 500, max: 1500, w: 47 }, { type: 'coins', min: 150, max: 400, w: 42 }, { type: 'key', w: 8, ch: .04 }, { type: 'booster', w: 3, ch: .15 }] },
+      { id: 'key_ice', name: 'Muz Kaliti', fa: 'fa-snowflake', color: '#22d3ee', tier: 'MUZ', price: { coins: 400, tokens: 40 }, rewards: [{ type: 'tokens', min: 150, max: 400, w: 52 }, { type: 'xp', min: 300, max: 900, w: 42 }, { type: 'key', w: 6, ch: .04 }] },
+      { id: 'key_diamond', name: 'Brilliant Kalit', fa: 'fa-gem', color: '#B9F2FF', tier: 'BRILLIANT', price: { coins: 1200, tokens: 120 }, rewards: [{ type: 'coins', min: 600, max: 1500, w: 25 }, { type: 'tokens', min: 200, max: 600, w: 25 }, { type: 'xp', min: 800, max: 2500, w: 22 }, { type: 'booster', w: 15, ch: .4 }, { type: 'key', w: 10, ch: .1 }, { type: 'vip', w: 3, ch: .02 }] },
+      { id: 'key_dragon', name: 'Ajdaho Kaliti', fa: 'fa-dragon', color: '#dc2626', tier: 'AJDAHO', price: { coins: 1000, xp: 10000 }, rewards: [{ type: 'coins', min: 500, max: 1300, w: 28 }, { type: 'tokens', min: 200, max: 600, w: 28 }, { type: 'frame', w: 18, ch: .4 }, { type: 'key', w: 18, ch: .12 }, { type: 'vip', w: 8, ch: .04 }] },
+      { id: 'key_omega', name: 'Omega Kalit', fa: 'fa-infinity', color: '#a78bfa', tier: 'OMEGA', price: { coins: 5000, xp: 50000 }, rewards: [{ type: 'coins', min: 2500, max: 6000, w: 16 }, { type: 'tokens', min: 1200, max: 3000, w: 16 }, { type: 'xp', min: 5000, max: 15000, w: 13 }, { type: 'frame', w: 15, ch: .9 }, { type: 'booster', w: 12, ch: .9 }, { type: 'key', w: 18, ch: .35 }, { type: 'vip', w: 10, ch: .2 }] },
+    ];
+
+    const RANKS = [
+      { id: 'silver', name: 'Silver', icon: '🥈', color: '#C0C0C0', coinCost: 5000, perks: ['+200 token/kun', '+30% XP', 'Silver profil ring'], sellValue: 2000 },
+      { id: 'gold', name: 'Gold', icon: '🥇', color: '#FFD700', coinCost: 10000, perks: ['+500 token/kun', '+80% XP', 'Gold glow border'], sellValue: 5000 },
+      { id: 'diamond', name: 'Diamond', icon: '💎', color: '#B9F2FF', coinCost: 25000, perks: ['+1000 token/kun', '+150% XP', 'Diamond frame effect'], sellValue: 12000 },
+      { id: 'legend', name: 'Legend', icon: '🔱', color: '#f5c842', coinCost: 50000, perks: ['+2000 token/kun', '+250% XP', 'Legend aura efekti'], sellValue: 25000 },
+      { id: 'omega', name: 'Omega', icon: '♾️', color: '#a78bfa', coinCost: 100000, perks: ['+5000 token/kun', '+500% XP', 'Omega animatsiya'], sellValue: 50000 },
+    ];
+
+    const COIN_PLANS = [
+      { id: 'own', name: 'Own', icon: '⭐', coinCost: 10000, realPrice: 49000, features: ['3000 token/5soat', 'Yaxshilangan AI', '+50% XP', '+30% Coin'] },
+      { id: 'team', name: 'Team', icon: '💎', coinCost: 20000, realPrice: 99000, features: ['8000 token/5soat', 'Ilgor AI', 'Ovozli suhbat', '+100% XP'] },
+      { id: 'universal', name: 'Universal', icon: '🚀', coinCost: 50000, realPrice: 199000, features: ['Cheksiz tokenlar', 'Eng yaxshi AI', 'Barcha imkoniyatlar', '+200% XP'] },
+    ];
+
+    // ✅ To'lov kartasi ma'lumotlari
+    const PAYMENT_CARD = {
+      number: '8600 1234 5678 9012',
+      owner: 'Abdullayev Abdulla · UZCARD'
+    };
+
+    const COIN_PKGS = [
+      { amount: 1000, bonus: '', price: "5 000 so'm", realPrice: 5000 },
+      { amount: 5000, bonus: '+500 bonus', price: "20 000 so'm", realPrice: 20000 },
+      { amount: 15000, bonus: '+2000 bonus', price: "50 000 so'm", realPrice: 50000 },
+      { amount: 50000, bonus: '+10000 bonus', price: "100 000 so'm", realPrice: 100000 },
+    ];
+    const XP_PKGS = [
+      { amount: 500, bonus: '', coinCost: 50 },
+      { amount: 2000, bonus: '+200 bonus', coinCost: 180 },
+      { amount: 10000, bonus: '+1000 bonus', coinCost: 800 },
+      { amount: 50000, bonus: '+5000 bonus', coinCost: 3500 },
+    ];
+    const TOK_PKGS = [
+      { amount: 500, bonus: '', coinCost: 100 },
+      { amount: 2000, bonus: '+200 bonus', coinCost: 350 },
+      { amount: 10000, bonus: '+1000 bonus', coinCost: 1500 },
+      { amount: 50000, bonus: '+5000 bonus', coinCost: 6000 },
     ];
 
     const GLOW = { common: 'rgba(90,140,200,0.12)', rare: 'rgba(100,90,245,0.18)', epic: 'rgba(200,150,20,0.18)', legendary: 'rgba(200,100,20,0.22)', mythic: 'rgba(200,20,240,0.26)' };
-
     const REEL_POOL = [
       { fa: 'fa-coins', lbl: 'Coin', cls: 'ri-c', col: '#888' },
       { fa: 'fa-star', lbl: 'XP', cls: 'ri-c', col: '#888' },
@@ -2402,35 +2798,11 @@
       { fa: 'fa-gem', lbl: 'Diamond', cls: 'ri-l', col: '#f5c842' },
     ];
 
-    let WALLET = { coins: 12500, xp: 8400, tokens: 3200 };
     let currentPack = null, openPhase = 0, currentFilter = 'all';
+    // ✅ Receipt modal state
+    let _rcItem = null, _rcBase64 = null;
 
-    // ══════════ BG THREE.JS ══════════
-    (function () {
-      const cv = document.getElementById('bgCanvas');
-      const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
-      r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight);
-      const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);
-      cam.position.z = 5;
-      const geo = new THREE.BufferGeometry(); const cnt = 1400, pos = new Float32Array(cnt * 3);
-      for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30;
-      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-      const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x4a6fa5, size: .05, transparent: true, opacity: .4 }));
-      sc.add(pts);
-      [0x4a6fa5, 0x7b6af5, 0xd4a820, 0xc020e0, 0xe05a14].forEach((c, i) => {
-        const m = new THREE.Mesh(new THREE.TorusGeometry(2 + i * 1.8, .01, 8, 100), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .06 }));
-        m.rotation.x = Math.random() * Math.PI; m.rotation.y = Math.random() * Math.PI; sc.add(m);
-      });
-      let mx = 0, my = 0;
-      document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
-      window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight) });
-      let t = 0; (function loop() {
-        requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .12; pts.rotation.x = t * .07;
-        cam.position.x += (mx * .6 - cam.position.x) * .03; cam.position.y += (-my * .6 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam);
-      })();
-    })();
-
-    // ══════════ RENDER PACKS ══════════
+    // ══════ RENDER PACKS ══════
     function renderPacks() {
       const grid = document.getElementById('packsGrid');
       const list = currentFilter === 'all' ? PACKS : PACKS.filter(p => p.rarity === currentFilter);
@@ -2439,28 +2811,22 @@
 
     function packCardHTML(p) {
       const s = p.style;
-      return `<div class="pc" data-rarity="${p.rarity}" onclick="openBuyModal('${p.id}')">
-  <div class="pc-stripe" style="background:${s.stripe}"></div>
-  <div class="pc-visual" style="background:linear-gradient(180deg,${s.bg.split(',')[1] || '#111'} 0%,var(--bg3) 100%)">
-    <div class="pack-shape" style="background:${s.bg};border:1px solid ${s.stripe}44">
-      <div class="ps-header">
-        <span class="ps-brand" style="color:${s.text}">LINGUA</span>
-        <span class="ps-num" style="color:${s.text}">01</span>
-      </div>
-      <i class="fa-solid ${p.fa} ps-fa" style="color:${s.text};filter:drop-shadow(0 0 10px ${s.stripe}99)"></i>
-      <div class="ps-footer">
-        <div class="ps-name" style="color:${s.text}">${p.name}</div>
-        <div class="ps-series" style="color:${s.rc}">${p.series}</div>
-      </div>
-    </div>
+      return `<div class="pc" data-rarity="${p.rarity}" onclick="openBuyModal('${p.id}','pack')">
+<div class="pc-stripe" style="background:${s.stripe}"></div>
+<div class="pc-visual" style="background:linear-gradient(180deg,${s.bg.split(',')[1] || '#111'} 0%,var(--bg3) 100%)">
+  <div class="pack-shape" style="background:${s.bg};border:1px solid ${s.stripe}44">
+    <div class="ps-header"><span style="color:${s.text}">LINGUA</span><span style="color:${s.text}">01</span></div>
+    <i class="fa-solid ${p.fa} ps-fa" style="color:${s.text};filter:drop-shadow(0 0 10px ${s.stripe}99)"></i>
+    <div class="ps-footer"><div class="ps-name" style="color:${s.text}">${p.name}</div><div class="ps-series" style="color:${s.rc}">${p.series}</div></div>
   </div>
-  <div class="pc-body">
-    <div class="pc-rarity" style="color:${s.rc}"><i class="fa-solid fa-circle" style="font-size:.4rem"></i> ${s.rlbl}</div>
-    <div class="pc-name">${p.name}</div>
-    <div class="pc-desc">${p.desc}</div>
-    <div class="pc-tags">${rewardTagsHTML(p)}</div>
-    <div class="pc-btns">${costBtns(p)}</div>
-  </div>
+</div>
+<div class="pc-body">
+  <div class="pc-rarity" style="color:${s.rc}"><i class="fa-solid fa-circle" style="font-size:.4rem"></i> ${s.rlbl}</div>
+  <div class="pc-name">${p.name}</div>
+  <div class="pc-desc">${p.desc}</div>
+  <div class="pc-tags">${rewardTagsHTML(p)}</div>
+  <div class="pc-btns">${costBtnsHTML(p, 'pack')}</div>
+</div>
 </div>`;
     }
 
@@ -2473,146 +2839,441 @@
       }).join('');
     }
 
-    function costBtns(p) {
+    function costBtnsHTML(p, type) {
+      const cost = p.cost || p.price || {};
       let h = '';
-      if (p.cost.coins) h += `<button class="pc-btn" style="background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.28);color:#f5c842" onclick="event.stopPropagation();openBuyModal('${p.id}')"><i class="fa-solid fa-coins"></i> ${p.cost.coins.toLocaleString()}</button>`;
-      if (p.cost.xp) h += `<button class="pc-btn" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.28);color:#a78bfa" onclick="event.stopPropagation();openBuyModal('${p.id}')"><i class="fa-solid fa-star"></i> ${p.cost.xp.toLocaleString()} XP</button>`;
-      if (p.cost.tokens) h += `<button class="pc-btn" style="background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.24);color:#22d3ee" onclick="event.stopPropagation();openBuyModal('${p.id}')"><i class="fa-solid fa-ticket"></i> ${p.cost.tokens}</button>`;
+      if (cost.coins) h += `<button class="pc-btn" style="background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.28);color:#f5c842" onclick="event.stopPropagation();openBuyModal('${p.id}','${type}')"><i class="fa-solid fa-coins"></i> ${cost.coins.toLocaleString()}</button>`;
+      if (cost.xp) h += `<button class="pc-btn" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.28);color:#a78bfa" onclick="event.stopPropagation();openBuyModal('${p.id}','${type}')"><i class="fa-solid fa-star"></i> ${cost.xp.toLocaleString()} XP</button>`;
+      if (cost.tokens) h += `<button class="pc-btn" style="background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.24);color:#22d3ee" onclick="event.stopPropagation();openBuyModal('${p.id}','${type}')"><i class="fa-solid fa-ticket"></i> ${cost.tokens}</button>`;
       return h;
     }
 
-    // ══════════ RENDER KEYS ══════════
+    // ══════ RENDER KEYS ══════
     function renderKeys() {
       document.getElementById('keysGrid').innerHTML = KEYS.map(keyCardHTML).join('');
     }
-
     function keyCardHTML(k) {
-      const glowCol = k.color + '33';
-      return `<div class="key-card" style="border-color:${k.color}33;--pc-glow:${glowCol}" onclick="openKeyBuyModal('${k.id}')">
-  <div class="key-visual" style="background:radial-gradient(ellipse at 50% 50%,${k.color}15,var(--bg3) 70%)">
-    <div class="key-icon-wrap" style="background:${k.color}18;color:${k.color}">
-      <i class="fa-solid ${k.fa}" style="color:${k.color};filter:drop-shadow(0 0 12px ${k.color}aa)"></i>
-    </div>
+      return `<div class="key-card" style="border-color:${k.color}33" onclick="openBuyModal('${k.id}','key')">
+<div class="key-visual" style="background:radial-gradient(ellipse at 50% 50%,${k.color}15,var(--bg3) 70%)">
+  <div class="key-icon-wrap" style="background:${k.color}18;color:${k.color}">
+    <i class="fa-solid ${k.fa}" style="color:${k.color};filter:drop-shadow(0 0 12px ${k.color}aa)"></i>
   </div>
-  <div class="key-body">
-    <div class="key-tier" style="background:${k.color}20;border:1px solid ${k.color}40;color:${k.color}">
-      <i class="fa-solid fa-certificate" style="font-size:.45rem"></i> ${k.tier}
-    </div>
-    <div class="key-name">${k.name}</div>
-    <div class="pc-tags" style="margin:4px 0">${rewardTagsHTML(k)}</div>
-    <div class="pc-btns">
-      ${k.price.coins ? `<button class="pc-btn" style="background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.28);color:#f5c842" onclick="event.stopPropagation();openKeyBuyModal('${k.id}')"><i class="fa-solid fa-coins"></i> ${k.price.coins.toLocaleString()}</button>` : ''}
-      ${k.price.xp ? `<button class="pc-btn" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.28);color:#a78bfa" onclick="event.stopPropagation();openKeyBuyModal('${k.id}')"><i class="fa-solid fa-star"></i> ${k.price.xp.toLocaleString()} XP</button>` : ''}
-      ${k.price.tokens ? `<button class="pc-btn" style="background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.24);color:#22d3ee" onclick="event.stopPropagation();openKeyBuyModal('${k.id}')"><i class="fa-solid fa-ticket"></i> ${k.price.tokens}</button>` : ''}
-    </div>
-  </div>
+</div>
+<div class="key-body">
+  <div class="key-tier" style="background:${k.color}20;border:1px solid ${k.color}40;color:${k.color}">${k.tier}</div>
+  <div class="key-name">${k.name}</div>
+  <div class="pc-tags" style="margin:4px 0">${rewardTagsHTML(k)}</div>
+  <div class="pc-btns">${costBtnsHTML(k, 'key')}</div>
+</div>
 </div>`;
     }
 
-    // ══════════ BUY MODAL ══════════
-    function openBuyModal(id) {
+    // ══════ RENDER RANKS ══════
+    function renderRanks() {
+      document.getElementById('ranksGrid').innerHTML = RANKS.map(rankCardHTML).join('');
+    }
+    function rankCardHTML(rk) {
+      const owned = WALLET.ownedRanks.includes(rk.id);
+      const isActive = WALLET.rank === rk.id;
+      return `<div class="rank-card ${owned ? 'owned' : ''} ${isActive ? 'active-rank' : ''}" style="--pc-glow:${rk.color}22">
+<div class="rank-visual" style="background:radial-gradient(ellipse at 50% 50%,${rk.color}15,var(--bg3) 70%)">
+  <div class="rank-ring" style="border-color:${rk.color};background:${rk.color}18;color:${rk.color}">${rk.icon}</div>
+</div>
+<div class="rank-body">
+  ${isActive ? `<span class="rank-status" style="background:${rk.color}20;color:${rk.color};border:1px solid ${rk.color}40">✅ Faol Rank</span>` : ''}
+  ${owned && !isActive ? `<span class="rank-status" style="background:rgba(52,211,153,.15);color:var(--green);border:1px solid rgba(52,211,153,.3)">Egalik qilasiz</span>` : ''}
+  <div class="rank-name" style="color:${rk.color}">${rk.icon} ${rk.name} Rank</div>
+  <div class="rank-perks">${rk.perks.join(' · ')}</div>
+  <div class="pc-btns" style="margin-top:8px">
+    ${!owned ? `<button class="pc-btn" style="background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.28);color:#f5c842" onclick="buyRank('${rk.id}')"><i class="fa-solid fa-coins"></i> ${rk.coinCost.toLocaleString()}</button>` : ''}
+    ${owned && !isActive ? `<button class="pc-btn" style="background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:var(--green)" onclick="equipRank('${rk.id}')"><i class="fa-solid fa-check"></i> Faollashtirish</button>` : ''}
+    ${owned ? `<button class="pc-btn" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.25);color:var(--red)" onclick="sellRankItem('${rk.id}')"><i class="fa-solid fa-tag"></i> Sotish (${rk.sellValue.toLocaleString()} coin)</button>` : ''}
+  </div>
+</div>
+</div>`;
+    }
+
+    // ══════ RENDER PLANS ══════
+    function renderPlans() {
+      document.getElementById('plansGrid').innerHTML = COIN_PLANS.map((p, i) => `
+<div class="plan-card ${i === 1 ? 'popular' : ''}">
+  ${i === 1 ? '<div class="plan-popular-tag">MASHHUR</div>' : ''}
+  <div class="plan-icon">${p.icon}</div>
+  <div class="plan-name">${p.name}</div>
+  <div class="plan-price"><i class="fa-solid fa-coins" style="color:var(--gold);margin-right:4px"></i>${p.coinCost.toLocaleString()} <span>coin</span></div>
+  <ul class="plan-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
+  <button class="btn-plan bi-coin" onclick="buyPlan('${p.id}','coin')"><i class="fa-solid fa-coins"></i> ${p.coinCost.toLocaleString()} Coin bilan</button>
+  <button class="btn-plan bi-green" style="margin-top:4px" onclick="openReceiptForPlan('${p.id}')"><i class="fa-solid fa-file-invoice"></i> ${p.realPrice.toLocaleString()} so'm — Chek yuborish</button>
+</div>`).join('');
+    }
+
+    // ══════ BUY RANK ══════
+    window.buyRank = function (id) {
+      const rk = RANKS.find(r => r.id === id); if (!rk) return;
+      if (WALLET.coins < rk.coinCost) { toast(`Yetarli coin yo'q! (${rk.coinCost.toLocaleString()} kerak)`, 'e', 'fa-circle-xmark'); SFX.play('error'); return; }
+      if (WALLET.ownedRanks.includes(id)) { toast('Bu rank allaqachon sizda bor!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; }
+      WALLET.coins -= rk.coinCost;
+      WALLET.ownedRanks.push(id);
+      WALLET.rank = id;
+      updateWallet(); renderRanks();
+      if (window._saveWallet) window._saveWallet();
+      SFX.play('buy'); toast(`${rk.icon} ${rk.name} Rank olindi!`, 's', 'fa-trophy'); doFlash();
+    };
+
+    window.equipRank = function (id) {
+      if (!WALLET.ownedRanks.includes(id)) { toast("Bu rank sizda yo'q!", 'e', 'fa-circle-xmark'); return; }
+      WALLET.rank = id; renderRanks();
+      if (window._saveWallet) window._saveWallet();
+      const rk = RANKS.find(r => r.id === id);
+      toast(`${rk?.icon || ''} ${id} rank faollashtirildi!`, 's', 'fa-check');
+    };
+
+    window.sellRankItem = function (id) {
+      const rk = RANKS.find(r => r.id === id); if (!rk) return;
+      if (!WALLET.ownedRanks.includes(id)) { toast("Bu rank sizda yo'q!", 'e', 'fa-circle-xmark'); return; }
+      WALLET.ownedRanks = WALLET.ownedRanks.filter(r => r !== id);
+      if (WALLET.rank === id) WALLET.rank = 'none';
+      WALLET.coins += rk.sellValue;
+      updateWallet(); renderRanks(); renderSell();
+      if (window._saveWallet) window._saveWallet();
+      SFX.play('buy'); toast(`${rk.name} Rank sotildi! +${rk.sellValue.toLocaleString()} coin`, 's', 'fa-coins');
+    };
+
+    // ══════ BUY PLAN ══════
+    window.buyPlan = function (id, method) {
+      const p = COIN_PLANS.find(x => x.id === id); if (!p) return;
+      if (method === 'coin') {
+        if (WALLET.coins < p.coinCost) { toast(`Yetarli coin yo'q! (${p.coinCost.toLocaleString()} kerak)`, 'e', 'fa-circle-xmark'); SFX.play('error'); return; }
+        WALLET.coins -= p.coinCost;
+        WALLET.plan = id;
+        updateWallet();
+        if (window._saveWallet) window._saveWallet();
+        SFX.play('buy'); toast(`${p.icon} ${p.name} rejasi faollashtirildi!`, 's', 'fa-check'); doFlash();
+      }
+    };
+
+    window.openReceiptForPlan = function (id) {
+      const p = COIN_PLANS.find(x => x.id === id); if (!p) return;
+      openReceiptModal({
+        itemId: id,
+        itemName: `${p.icon} ${p.name} Rejasi`,
+        itemType: 'plan',
+        icon: p.icon,
+        price_uzs: p.realPrice
+      });
+    };
+
+    // ══════ CURRENCY SECTION ══════
+    function renderCurrencySection() {
+      document.getElementById('coinBal').textContent = WALLET.coins.toLocaleString();
+      document.getElementById('xpBal').textContent = WALLET.xp.toLocaleString();
+      document.getElementById('tokBal').textContent = WALLET.tokens.toLocaleString();
+
+      document.getElementById('coinPkgs').innerHTML = COIN_PKGS.map((p, i) => `
+<div class="curr-pkg">
+  <div class="curr-pkg-amount" style="color:var(--gold)"><i class="fa-solid fa-coins"></i> ${p.amount.toLocaleString()}</div>
+  ${p.bonus ? `<div class="curr-pkg-bonus">${p.bonus}</div>` : ''}
+  <div class="curr-pkg-price">${p.price}</div>
+  <button class="curr-pkg-btn bi-green" onclick="openReceiptForCoin(${i})">Chek yuborish</button>
+</div>`).join('');
+
+      document.getElementById('xpPkgs').innerHTML = XP_PKGS.map(p => `
+<div class="curr-pkg">
+  <div class="curr-pkg-amount" style="color:var(--accent2)"><i class="fa-solid fa-star"></i> ${p.amount.toLocaleString()}</div>
+  ${p.bonus ? `<div class="curr-pkg-bonus">${p.bonus}</div>` : ''}
+  <div class="curr-pkg-price">${p.coinCost.toLocaleString()} coin</div>
+  <button class="curr-pkg-btn bi-coin" onclick="buyCurrencyWithCoin('xp',${p.amount},${p.coinCost})">Coin bilan</button>
+</div>`).join('');
+
+      document.getElementById('tokPkgs').innerHTML = TOK_PKGS.map(p => `
+<div class="curr-pkg">
+  <div class="curr-pkg-amount" style="color:var(--cyan)"><i class="fa-solid fa-ticket"></i> ${p.amount.toLocaleString()}</div>
+  ${p.bonus ? `<div class="curr-pkg-bonus">${p.bonus}</div>` : ''}
+  <div class="curr-pkg-price">${p.coinCost.toLocaleString()} coin</div>
+  <button class="curr-pkg-btn bi-coin" onclick="buyCurrencyWithCoin('token',${p.amount},${p.coinCost})">Coin bilan</button>
+</div>`).join('');
+    }
+
+    window.openReceiptForCoin = function (idx) {
+      const p = COIN_PKGS[idx]; if (!p) return;
+      openReceiptModal({
+        itemId: 'coin_pkg_' + p.amount,
+        itemName: `🪙 ${p.amount.toLocaleString()} Coin paketi`,
+        itemType: 'coin_package',
+        icon: '🪙',
+        price_uzs: p.realPrice,
+        coinAmount: p.amount
+      });
+    };
+
+    window.buyCurrencyWithCoin = function (type, amount, coinCost) {
+      if (WALLET.coins < coinCost) { toast(`Yetarli coin yo'q! (${coinCost.toLocaleString()} kerak)`, 'e', 'fa-circle-xmark'); SFX.play('error'); return; }
+      WALLET.coins -= coinCost;
+      if (type === 'xp') WALLET.xp += amount;
+      else if (type === 'token') WALLET.tokens += amount;
+      updateWallet(); renderCurrencySection();
+      if (window._saveWallet) window._saveWallet();
+      SFX.play('buy');
+      const icon = type === 'xp' ? '⭐' : '🎫';
+      toast(`${icon} +${amount.toLocaleString()} ${type.toUpperCase()} qo'shildi!`, 's', 'fa-check');
+    };
+
+    // ══════ SELL ══════
+    function renderSell() {
+      const el = document.getElementById('sellContent');
+      let html = '';
+      const FRAMES = [{ id: 'frame_fire', name: 'Fire Frame', color: '#ef4444', val: 200 }, { id: 'frame_ice', name: 'Ice Frame', color: '#22d3ee', val: 200 }, { id: 'frame_gold', name: 'Golden Frame', color: '#f5c842', val: 300 }, { id: 'frame_galaxy', name: 'Galaxy Frame', color: '#818cf8', val: 350 }, { id: 'frame_neon', name: 'Neon Frame', color: '#4ade80', val: 250 }, { id: 'frame_rainbow', name: 'Rainbow Frame', color: '#f472b6', val: 400 }, { id: 'frame_vip', name: 'VIP Frame', color: '#f5c842', val: 600 }, { id: 'frame_dragon', name: 'Dragon Frame', color: '#dc2626', val: 500 }];
+
+      if (WALLET.ownedPacks.length) {
+        html += `<div class="sub-title" style="margin-bottom:12px">📦 Packlar (50 coin/ta)</div>`;
+        WALLET.ownedPacks.forEach(pid => {
+          const p = PACKS.find(x => x.id === pid) || { id: pid, name: pid, style: { stripe: '#888', text: '#aaa', rlbl: 'Pack' } };
+          html += `<div class="sell-item-row">
+<div style="font-size:1.2rem">${p.fa ? `<i class="fa-solid ${p.fa}" style="color:${p.style?.text || '#aaa'}"></i>` : '📦'}</div>
+<div class="sell-info"><div class="sell-name">${p.name || pid}</div><div class="sell-sub">${p.style?.rlbl || 'Pack'}</div></div>
+<div class="sell-price"><i class="fa-solid fa-coins"></i> 50</div>
+<button class="btn-sell" onclick="sellItem('pack','${pid}',50)">Sotish</button>
+</div>`;
+        });
+      }
+      if (WALLET.ownedKeys.length) {
+        html += `<div class="sub-title" style="margin-bottom:12px;margin-top:16px">🗝️ Kalitlar</div>`;
+        WALLET.ownedKeys.forEach(kid => {
+          const k = KEYS.find(x => x.id === kid);
+          const val = k ? Math.floor((k.price?.coins || 100) * 0.4) : 40;
+          html += `<div class="sell-item-row">
+<div style="font-size:1.2rem"><i class="fa-solid ${k?.fa || 'fa-key'}" style="color:${k?.color || '#888'}"></i></div>
+<div class="sell-info"><div class="sell-name">${k?.name || kid}</div><div class="sell-sub">${k?.tier || 'Kalit'}</div></div>
+<div class="sell-price"><i class="fa-solid fa-coins"></i> ${val}</div>
+<button class="btn-sell" onclick="sellItem('key','${kid}',${val})">Sotish</button>
+</div>`;
+        });
+      }
+      if (WALLET.ownedFrames.length) {
+        html += `<div class="sub-title" style="margin-bottom:12px;margin-top:16px">🖼 Framlar</div>`;
+        WALLET.ownedFrames.forEach(fid => {
+          const f = FRAMES.find(x => x.id === fid); const val = f?.val || 100;
+          html += `<div class="sell-item-row">
+<div style="font-size:1.2rem">🖼</div>
+<div class="sell-info"><div class="sell-name">${f?.name || fid}</div><div class="sell-sub">Frame</div></div>
+<div class="sell-price" style="color:${f?.color || '#aaa'}"><i class="fa-solid fa-coins" style="color:var(--gold)"></i> ${val}</div>
+<button class="btn-sell" onclick="sellItem('frame','${fid}',${val})">Sotish</button>
+</div>`;
+        });
+      }
+      if (WALLET.ownedRanks.length) {
+        html += `<div class="sub-title" style="margin-bottom:12px;margin-top:16px">🏆 Ranklar</div>`;
+        WALLET.ownedRanks.forEach(rid => {
+          const rk = RANKS.find(x => x.id === rid); if (!rk) return;
+          html += `<div class="sell-item-row">
+<div style="font-size:1.5rem">${rk.icon}</div>
+<div class="sell-info"><div class="sell-name">${rk.name} Rank</div><div class="sell-sub">${rk.perks[0]}</div></div>
+<div class="sell-price"><i class="fa-solid fa-coins"></i> ${rk.sellValue.toLocaleString()}</div>
+<button class="btn-sell" onclick="sellRankItem('${rid}')">Sotish</button>
+</div>`;
+        });
+      }
+      if (!html) {
+        html = `<div style="text-align:center;padding:40px;color:var(--text3)">
+<i class="fa-solid fa-box" style="font-size:2rem;display:block;margin-bottom:12px;opacity:.3"></i>
+Sotadigan narsangiz yo'q. <a href="#" onclick="filterPacks('all',null)" style="color:var(--accent2)">Do'kondan xarid qiling!</a>
+</div>`;
+      }
+      el.innerHTML = html;
+    }
+
+    window.sellItem = function (type, id, coinVal) {
+      if (type === 'pack') {
+        if (!WALLET.ownedPacks.includes(id)) { toast("Bu narsangizda yo'q!", 'e', 'fa-circle-xmark'); return; }
+        WALLET.ownedPacks = WALLET.ownedPacks.filter(x => x !== id);
+      } else if (type === 'key') {
+        if (!WALLET.ownedKeys.includes(id)) { toast("Bu narsangizda yo'q!", 'e', 'fa-circle-xmark'); return; }
+        WALLET.ownedKeys = WALLET.ownedKeys.filter(x => x !== id);
+      } else if (type === 'frame') {
+        if (!WALLET.ownedFrames.includes(id)) { toast("Bu narsangizda yo'q!", 'e', 'fa-circle-xmark'); return; }
+        WALLET.ownedFrames = WALLET.ownedFrames.filter(x => x !== id);
+      }
+      WALLET.coins += coinVal;
+      updateWallet(); renderSell();
+      if (window._saveWallet) window._saveWallet();
+      SFX.play('buy'); toast(`Sotildi! +${coinVal} coin`, 's', 'fa-coins');
+    };
+
+    // ══════ BUY MODAL ══════
+    function openBuyModal(id, type) {
       SFX.play('click');
-      const p = PACKS.find(x => x.id === id); if (!p) return;
-      currentPack = p;
-      const s = p.style;
-      const hasCoin = p.cost.coins && WALLET.coins >= p.cost.coins;
-      const hasXP = p.cost.xp && WALLET.xp >= p.cost.xp;
-      const hasTok = p.cost.tokens && WALLET.tokens >= p.cost.tokens;
+      let item = null;
+      if (type === 'pack') item = PACKS.find(x => x.id === id);
+      else if (type === 'key') {
+        const k = KEYS.find(x => x.id === id);
+        if (k) item = { ...k, isKey: true, style: { bg: `linear-gradient(155deg,${k.color}22,#020408)`, stripe: k.color, text: k.color, rlbl: k.tier, rc: k.color }, cost: k.price };
+      }
+      if (!item) return;
+      currentPack = item;
+      const s = item.style; const cost = item.cost || {};
+      const hasCoin = cost.coins && WALLET.coins >= cost.coins;
+      const hasXP = cost.xp && WALLET.xp >= cost.xp;
+      const hasTok = cost.tokens && WALLET.tokens >= cost.tokens;
       let opts = '';
-      if (p.cost.coins) opts += `<button class="buy-opt bo-coins"${hasCoin ? '' : ' disabled'} onclick="doBuy('coins')"><span><i class="fa-solid fa-coins"></i> Coin bilan</span><span style="font-size:.78rem">${p.cost.coins.toLocaleString()}${!hasCoin ? ' — yetarli emas' : ''}</span></button>`;
-      if (p.cost.xp) opts += `<button class="buy-opt bo-xp"${hasXP ? '' : ' disabled'} onclick="doBuy('xp')"><span><i class="fa-solid fa-star"></i> XP bilan</span><span style="font-size:.78rem">${p.cost.xp.toLocaleString()} XP${!hasXP ? ' — yetarli emas' : ''}</span></button>`;
-      if (p.cost.tokens) opts += `<button class="buy-opt bo-tok"${hasTok ? '' : ' disabled'} onclick="doBuy('tokens')"><span><i class="fa-solid fa-ticket"></i> Token bilan</span><span style="font-size:.78rem">${p.cost.tokens}${!hasTok ? ' — yetarli emas' : ''}</span></button>`;
-      document.getElementById('buyTitle').innerHTML = `<i class="fa-solid ${p.fa}" style="color:${s.stripe}"></i> ${p.name}`;
+      if (cost.coins) opts += `<button class="buy-opt bo-coins"${hasCoin ? '' : ' disabled'} onclick="doBuy('coins')"><span><i class="fa-solid fa-coins"></i> Coin bilan</span><span style="font-size:.78rem">${cost.coins.toLocaleString()}${!hasCoin ? ' — yetarli emas' : ''}</span></button>`;
+      if (cost.xp) opts += `<button class="buy-opt bo-xp"${hasXP ? '' : ' disabled'} onclick="doBuy('xp')"><span><i class="fa-solid fa-star"></i> XP bilan</span><span style="font-size:.78rem">${cost.xp.toLocaleString()} XP${!hasXP ? ' — yetarli emas' : ''}</span></button>`;
+      if (cost.tokens) opts += `<button class="buy-opt bo-tok"${hasTok ? '' : ' disabled'} onclick="doBuy('tokens')"><span><i class="fa-solid fa-ticket"></i> Token bilan</span><span style="font-size:.78rem">${cost.tokens}${!hasTok ? ' — yetarli emas' : ''}</span></button>`;
+
+      document.getElementById('buyTitle').innerHTML = `<i class="fa-solid ${item.fa || 'fa-gem'}" style="color:${s.stripe}"></i> ${item.name}`;
       document.getElementById('buyBody').innerHTML = `
 <div class="ord-prev" style="background:${s.bg};border:1px solid ${s.stripe}40">
-  <div class="ord-fa" style="background:${s.stripe}22"><i class="fa-solid ${p.fa}" style="color:${s.text};font-size:1.6rem"></i></div>
-  <div><div class="ord-name" style="color:${s.text}">${p.name}</div><div class="ord-desc" style="color:${s.rc}">${s.rlbl} · ${p.desc}</div></div>
+  <div class="ord-fa" style="background:${s.stripe}22"><i class="fa-solid ${item.fa || 'fa-gem'}" style="color:${s.text};font-size:1.6rem"></i></div>
+  <div><div class="ord-name" style="color:${s.text}">${item.name}</div><div class="ord-desc" style="color:${s.rc}">${s.rlbl} · ${item.desc || 'Xazina'}</div></div>
 </div>
 <div style="font-size:.75rem;color:var(--text3);margin-bottom:10px;text-align:center;font-family:var(--font-head)">To'lov usulini tanlang:</div>
 <div class="buy-opts">${opts}</div>`;
       document.getElementById('buyModal').classList.add('open');
     }
-
-    function openKeyBuyModal(id) {
-      SFX.play('click');
-      const k = KEYS.find(x => x.id === id); if (!k) return;
-      currentPack = { ...k, isKey: true, style: { bg: `linear-gradient(155deg,${k.color}22,#020408)`, stripe: k.color, text: k.color, rlbl: k.tier, rc: k.color }, cost: k.price, rewards: k.rewards };
-      const hasCoin = k.price.coins && WALLET.coins >= k.price.coins;
-      const hasXP = k.price.xp && WALLET.xp >= k.price.xp;
-      const hasTok = k.price.tokens && WALLET.tokens >= k.price.tokens;
-      let opts = '';
-      if (k.price.coins) opts += `<button class="buy-opt bo-coins"${hasCoin ? '' : ' disabled'} onclick="doBuy('coins')"><span><i class="fa-solid fa-coins"></i> Coin bilan</span><span style="font-size:.78rem">${k.price.coins.toLocaleString()}${!hasCoin ? ' — yetarli emas' : ''}</span></button>`;
-      if (k.price.xp) opts += `<button class="buy-opt bo-xp"${hasXP ? '' : ' disabled'} onclick="doBuy('xp')"><span><i class="fa-solid fa-star"></i> XP bilan</span><span style="font-size:.78rem">${k.price.xp.toLocaleString()} XP${!hasXP ? ' — yetarli emas' : ''}</span></button>`;
-      if (k.price.tokens) opts += `<button class="buy-opt bo-tok"${hasTok ? '' : ' disabled'} onclick="doBuy('tokens')"><span><i class="fa-solid fa-ticket"></i> Token bilan</span><span style="font-size:.78rem">${k.price.tokens}${!hasTok ? ' — yetarli emas' : ''}</span></button>`;
-      document.getElementById('buyTitle').innerHTML = `<i class="fa-solid ${k.fa}" style="color:${k.color}"></i> ${k.name}`;
-      document.getElementById('buyBody').innerHTML = `
-<div class="ord-prev" style="background:linear-gradient(155deg,${k.color}18,#020408);border:1px solid ${k.color}40">
-  <div class="ord-fa" style="background:${k.color}22"><i class="fa-solid ${k.fa}" style="color:${k.color};font-size:1.6rem"></i></div>
-  <div><div class="ord-name" style="color:${k.color}">${k.name}</div><div class="ord-desc" style="color:${k.color}99">${k.tier} · Xazina kaliti</div></div>
-</div>
-<div style="font-size:.75rem;color:var(--text3);margin-bottom:10px;text-align:center;font-family:var(--font-head)">To'lov usulini tanlang:</div>
-<div class="buy-opts">${opts}</div>`;
-      document.getElementById('buyModal').classList.add('open');
-    }
+    window.openBuyModal = openBuyModal;
 
     function closeBuy() { document.getElementById('buyModal').classList.remove('open') }
+    window.closeBuy = closeBuy;
 
     function doBuy(currency) {
       const p = currentPack; if (!p) return;
-      if (currency === 'coins') { if (WALLET.coins < p.cost.coins) { toast('Yetarli coin yoq!', 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.coins -= p.cost.coins; }
-      else if (currency === 'xp') { if (WALLET.xp < p.cost.xp) { toast('Yetarli XP yoq!', 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.xp -= p.cost.xp; }
-      else if (currency === 'tokens') { if (WALLET.tokens < p.cost.tokens) { toast('Yetarli token yoq!', 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.tokens -= p.cost.tokens; }
-      SFX.play('buy');
-      updateWallet(); closeBuy(); openOpener(p);
-    }
+      const cost = p.cost || {};
+      if (currency === 'coins') { if (WALLET.coins < cost.coins) { toast("Yetarli coin yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.coins -= cost.coins; }
+      else if (currency === 'xp') { if (WALLET.xp < cost.xp) { toast("Yetarli XP yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.xp -= cost.xp; }
+      else if (currency === 'tokens') { if (WALLET.tokens < cost.tokens) { toast("Yetarli token yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.tokens -= cost.tokens; }
 
-    // ══════════ OPENER ══════════
+      if (p.isKey) { if (!WALLET.ownedKeys.includes(p.id)) WALLET.ownedKeys.push(p.id); }
+      else { if (!WALLET.ownedPacks.includes(p.id)) WALLET.ownedPacks.push(p.id); }
+
+      SFX.play('buy');
+      updateWallet();
+      closeBuy();
+      // ✅ Firebase saqlash — darhol
+      if (window._saveWallet) window._saveWallet();
+      openOpener(p);
+    }
+    window.doBuy = doBuy;
+
+    // ══════ RECEIPT MODAL ══════
+    function openReceiptModal(item) {
+      _rcItem = item; _rcBase64 = null;
+      document.getElementById('rcCardNum').textContent = PAYMENT_CARD.number;
+      document.getElementById('rcCardOwner').textContent = PAYMENT_CARD.owner;
+      document.getElementById('rcAmount').textContent = `Miqdor: ${item.price_uzs.toLocaleString()} so'm`;
+      document.getElementById('rcComment').value = '';
+      document.getElementById('orderResult').textContent = '';
+      document.getElementById('sendOrderBtn').disabled = false;
+      document.getElementById('sendOrderBtn').innerHTML = '<i class="fa-solid fa-paper-plane"></i> Buyurtma Yuborish';
+      // Reset upload
+      const area = document.getElementById('uploadArea');
+      area.classList.remove('has-file');
+      document.getElementById('uploadPreview').style.display = 'none';
+      document.getElementById('uploadPreview').src = '';
+      document.getElementById('receiptFileInput').value = '';
+      document.getElementById('receiptModal').classList.add('open');
+      closeBuy();
+    }
+    window.openReceiptModal = openReceiptModal;
+
+    window.closeReceiptModal = function () {
+      document.getElementById('receiptModal').classList.remove('open');
+      _rcItem = null; _rcBase64 = null;
+    };
+
+    window.triggerUpload = function () {
+      // click is handled by input[type=file] overlay
+    };
+
+    window.onFileSelect = function (e) {
+      const file = e.target.files[0]; if (!file) return;
+      if (!file.type.startsWith('image/')) { toast("Faqat rasm fayl yuklang!", 'e', 'fa-circle-xmark'); return; }
+      if (file.size > 4 * 1024 * 1024) { toast("Rasm 4MB dan kichik bo'lishi kerak", 'e', 'fa-circle-xmark'); return; }
+
+      const reader = new FileReader();
+      reader.onload = function (ev) {
+        _rcBase64 = ev.target.result; // full base64 data URL
+        const preview = document.getElementById('uploadPreview');
+        preview.src = _rcBase64; preview.style.display = 'block';
+        document.getElementById('uploadArea').classList.add('has-file');
+        toast("Rasm yuklandi! ✓", 's', 'fa-check');
+      };
+      reader.readAsDataURL(file);
+    };
+
+    window.sendOrder = async function () {
+      if (!_rcItem) { toast("Xato: mahsulot tanlanmagan", 'e', 'fa-circle-xmark'); return; }
+      if (!_rcBase64) { toast("Iltimos, to'lov cheki rasmini yuklang!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; }
+      if (!window._uid) { toast("Tizimga kiring!", 'e', 'fa-circle-xmark'); return; }
+
+      const btn = document.getElementById('sendOrderBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yuborilmoqda...';
+
+      const comment = document.getElementById('rcComment').value.trim();
+
+      const orderData = {
+        itemId: _rcItem.itemId,
+        itemName: _rcItem.itemName,
+        itemType: _rcItem.itemType,
+        icon: _rcItem.icon || '📦',
+        price_uzs: _rcItem.price_uzs,
+        coinAmount: _rcItem.coinAmount || 0,
+        receiptBase64: _rcBase64,  // ✅ base64 chek rasmi
+        comment: comment,
+      };
+
+      const orderId = await window._sendOrder(orderData);
+
+      if (orderId) {
+        document.getElementById('orderResult').innerHTML = `<div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:10px;padding:12px;color:var(--green);margin-top:8px"><i class="fa-solid fa-check-circle"></i> Buyurtma yuborildi! Admin 24 soat ichida tasdiqlaydi.<br><small style="opacity:.7">Order ID: ${orderId}</small></div>`;
+        SFX.play('buy');
+        doFlash();
+        launchConfetti('#34d399');
+        toast("✅ Buyurtma yuborildi! Admin tasdiqlashini kuting.", 's', 'fa-check');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Yuborildi!';
+        setTimeout(() => window.closeReceiptModal(), 4000);
+      } else {
+        document.getElementById('orderResult').innerHTML = `<div style="color:var(--red);margin-top:8px"><i class="fa-solid fa-circle-xmark"></i> Xato yuz berdi. Internet aloqasini tekshiring.</div>`;
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Yana Urinish';
+      }
+    };
+
+    // ══════ OPENER ══════
     function openOpener(p) {
       currentPack = p; openPhase = 0;
       const s = p.style;
       const card = document.getElementById('ovPackCard');
-      card.style.background = s.bg;
-      card.style.border = `1px solid ${s.stripe}60`;
+      card.style.background = s.bg; card.style.border = `1px solid ${s.stripe}60`;
       card.style.boxShadow = `0 24px 70px rgba(0,0,0,.75),0 0 50px ${GLOW[p.rarity] || GLOW.common},inset 0 1px 0 rgba(255,255,255,.18)`;
       document.getElementById('ovBrand').style.color = s.text;
       const faEl = document.getElementById('ovPackFa');
       faEl.className = `fa-solid ${p.fa || 'fa-gem'} ov-pack-fa`;
-      faEl.style.color = s.text;
-      faEl.style.filter = `drop-shadow(0 0 24px ${s.stripe}bb)`;
-      document.getElementById('ovName').textContent = p.name;
-      document.getElementById('ovName').style.color = s.text;
-      document.getElementById('ovSeries').textContent = p.series || p.tier || '';
-      document.getElementById('ovSeries').style.color = s.rc;
+      faEl.style.color = s.text; faEl.style.filter = `drop-shadow(0 0 24px ${s.stripe}bb)`;
+      document.getElementById('ovName').textContent = p.name; document.getElementById('ovName').style.color = s.text;
+      document.getElementById('ovSeries').textContent = p.series || p.tier || ''; document.getElementById('ovSeries').style.color = s.rc;
       const ot = document.getElementById('ovTitle');
-      ot.textContent = p.name;
-      ot.style.background = `linear-gradient(135deg,${s.stripe},${s.text})`;
-      ot.style.webkitBackgroundClip = 'text';
-      ot.style.webkitTextFillColor = 'transparent';
+      ot.textContent = p.name; ot.style.background = `linear-gradient(135deg,${s.stripe},${s.text})`;
+      ot.style.webkitBackgroundClip = 'text'; ot.style.webkitTextFillColor = 'transparent';
       document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-hand-pointer" style="color:${s.stripe}"></i> Pack ustiga bosing va oching!`;
       const btn = document.getElementById('ovBtn');
-      btn.style.background = `linear-gradient(135deg,${s.stripe},${s.text})`;
-      btn.style.color = '#000';
-      btn.style.boxShadow = `0 8px 30px ${GLOW[p.rarity] || GLOW.common}`;
+      btn.style.background = `linear-gradient(135deg,${s.stripe},${s.text})`; btn.style.color = '#000';
       btn.disabled = false; btn.style.display = 'flex';
       document.getElementById('ovBtnIcon').className = 'fa-solid fa-box-open';
       document.getElementById('ovBtnTxt').textContent = 'Ochish!';
       document.getElementById('ovPackWrap').style.display = 'block';
       document.getElementById('reelWrap').style.display = 'none';
-      document.getElementById('winScreen').className = 'win-screen';
-      document.getElementById('winScreen').innerHTML = '';
+      document.getElementById('winScreen').className = 'win-screen'; document.getElementById('winScreen').innerHTML = '';
       document.getElementById('btnAgain').style.display = 'none';
       document.getElementById('ovBg').style.background = `radial-gradient(ellipse at 50% 30%,${GLOW[p.rarity] || GLOW.common} 0%,rgba(2,4,8,.97) 65%)`;
       document.getElementById('overlay').classList.add('open');
       SFX.play('open');
     }
 
-    function onPackClick() { if (openPhase === 0) onOvBtn(); }
-
-    function onOvBtn() {
+    window.onPackClick = function () { if (openPhase === 0) onOvBtn(); };
+    window.onOvBtn = function () {
       if (openPhase === 0) {
         openPhase = 1; SFX.play('spin');
-        const btn = document.getElementById('ovBtn');
-        btn.disabled = true;
+        const btn = document.getElementById('ovBtn'); btn.disabled = true;
         document.getElementById('ovBtnIcon').className = 'fa-solid fa-spinner fa-spin';
         document.getElementById('ovBtnTxt').textContent = 'Ochilmoqda...';
         document.getElementById('ovHint').innerHTML = '<i class="fa-solid fa-bolt" style="color:#f5c842"></i> Pack ochilmoqda...';
@@ -2636,41 +3297,48 @@
         document.getElementById('ovHint').innerHTML = '<i class="fa-solid fa-hourglass-half fa-spin"></i> Aylanyapti...';
         runReel();
       }
-    }
+    };
 
-    // ══════════ REEL ══════════
+    // ══════ REEL ══════
     function runReel() {
       const track = document.getElementById('reelTrack');
-      const W = 98; const total = 72;
+      const ITEM_W = 90, GAP = 8, CELL = ITEM_W + GAP, PADDING = 10;
+      const total = 72;
       const rewards = calcRewards(currentPack);
-      const winIdx = Math.floor(total * .68 + Math.random() * 6);
+      const winIdx = Math.floor(total * 0.62) + Math.floor(Math.random() * 8);
       const winItem = getWinnerItem(rewards);
       const items = [];
       for (let i = 0; i < total; i++)items.push(i === winIdx ? winItem : REEL_POOL[Math.floor(Math.random() * REEL_POOL.length)]);
       track.innerHTML = items.map(it => `<div class="reel-item ${it.cls}"><i class="fa-solid ${it.fa}" style="color:${it.col}"></i><span class="ri-lbl">${it.lbl}</span></div>`).join('');
-      const viewW = 540;
-      const center = Math.floor(viewW / W / 2) * W;
-      const target = -(winIdx * W - center + W / 2);
-      let cur = 0, done = false, vel = 42, lastSfx = 0;
-      const slowStart = target + W * 12;
-      function af(ts) {
+
+      const reelWrap = document.getElementById('reelWrap');
+      const visibleW = reelWrap.offsetWidth || 540;
+      const centerOffset = Math.floor(visibleW / 2);
+      const winCenter = PADDING + winIdx * CELL + ITEM_W / 2;
+      const targetX = centerOffset - winCenter;
+
+      track.style.transform = 'translateX(0px)';
+      let done = false, lastSfx = 0;
+      const ease = (t) => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      const totalDuration = 3200; const startTime = performance.now();
+
+      function af(now) {
         if (done) return;
-        if (cur <= slowStart) { vel = Math.max(vel * .974, .4); } else { vel = 42; }
-        // reel tick sound
-        if (ts - lastSfx > 60 && vel > 8) { SFX.play('reel'); lastSfx = ts; }
-        cur -= vel;
-        if (cur <= target) {
-          cur = target; done = true;
-          track.style.transform = `translateX(${cur}px)`;
-          doFlash();
+        const elapsed = now - startTime; const progress = Math.min(elapsed / totalDuration, 1);
+        const eased = ease(progress); const cur = targetX * eased;
+        track.style.transform = `translateX(${cur}px)`;
+        if (progress < 0.85 && now - lastSfx > 60) { SFX.play('reel'); lastSfx = now; }
+        if (progress >= 1) {
+          done = true; track.style.transform = `translateX(${targetX}px)`;
           const cells = track.querySelectorAll('.reel-item');
-          if (cells[winIdx]) cells[winIdx].style.transform = 'scale(1.14)';
-          // win sound based on rarity
+          if (cells[winIdx]) { cells[winIdx].style.transform = 'scale(1.15)'; cells[winIdx].style.zIndex = '2'; }
+          doFlash();
           const isEpic = rewards.vip || rewards.frame || (rewards.xp > 3000) || (rewards.coins > 1000);
           setTimeout(() => { isEpic ? SFX.play('epic_win') : SFX.play('win'); }, 200);
-          setTimeout(() => showRewards(rewards), 800); return;
+          setTimeout(() => showRewards(rewards), 800);
+          return;
         }
-        track.style.transform = `translateX(${cur}px)`; requestAnimationFrame(af);
+        requestAnimationFrame(af);
       }
       requestAnimationFrame(af);
     }
@@ -2687,7 +3355,6 @@
       return { fa: 'fa-coins', lbl: 'Coin', cls: 'ri-c', col: '#888' };
     }
 
-    // ══════════ REWARDS ══════════
     function calcRewards(pack) {
       const got = {};
       const g = pack.rewards.filter(r => r.min !== undefined);
@@ -2705,69 +3372,123 @@
       if (r.coins) WALLET.coins += r.coins;
       if (r.tokens) WALLET.tokens += r.tokens;
       if (r.xp) WALLET.xp += r.xp;
+      if (r.frame) {
+        const frames = ['frame_fire', 'frame_ice', 'frame_gold', 'frame_galaxy', 'frame_neon', 'frame_rainbow', 'frame_vip', 'frame_dragon'];
+        const rf = frames[Math.floor(Math.random() * frames.length)];
+        if (!WALLET.ownedFrames.includes(rf)) WALLET.ownedFrames.push(rf);
+      }
+      if (r.vip) WALLET.isVIP = true;
       updateWallet();
+      // ✅ Firebase saqlash — mukofotdan keyin
+      if (window._saveWallet) window._saveWallet();
+
       document.getElementById('ovPackWrap').style.display = 'none';
       document.getElementById('reelWrap').style.display = 'none';
       document.getElementById('ovBtn').style.display = 'none';
-      document.getElementById('ovTitle').style.webkitTextFillColor = 'transparent';
-      if (['epic', 'legendary', 'mythic'].includes(p.rarity) || r.vip || r.frame) { launchConfetti(s.stripe); }
+      if (['epic', 'legendary', 'mythic'].includes(p.rarity) || r.vip || r.frame) launchConfetti(s.stripe);
+
       const box = document.getElementById('winScreen');
       const rarityBig = { common: 'Common', rare: 'Rare', epic: 'EPIC', legendary: 'LEGENDARY', mythic: 'MYTHIC' };
       let html = `<div class="win-banner" style="background:${s.bg};border:1px solid ${s.stripe}50;box-shadow:0 0 50px ${GLOW[p.rarity]}">
-  <div class="win-banner-label" style="color:${s.rc}"><i class="fa-solid fa-trophy"></i> ${rarityBig[p.rarity] || ''} · ${p.name}</div>
-  <div class="win-banner-title" style="background:linear-gradient(135deg,${s.stripe},${s.text});-webkit-background-clip:text;-webkit-text-fill-color:transparent">Siz Yutdingiz!</div>
-  <div class="win-banner-sub" style="color:${s.text}">Quyidagi mukofotlar qo'shildi</div>
+<div class="win-banner-label" style="color:${s.rc}"><i class="fa-solid fa-trophy"></i> ${rarityBig[p.rarity] || ''} · ${p.name}</div>
+<div class="win-banner-title" style="background:linear-gradient(135deg,${s.stripe},${s.text});-webkit-background-clip:text;-webkit-text-fill-color:transparent">Siz Yutdingiz!</div>
+<div class="win-banner-sub" style="color:${s.text}">Quyidagi mukofotlar qo'shildi</div>
 </div>`;
+
       let delay = .05; const rew = [];
-      if (r.vip) rew.push({ cls: '', fa: 'fa-crown', col: '#f5c842', name: 'VIP STATUS', desc: '30 kunlik VIP faollashdi', val: 'FAOL!' });
-      if (r.frame) rew.push({ cls: '', fa: 'fa-image', col: '#c060f0', name: 'Profil Frame', desc: 'Yangi eksklyuziv frame', val: '+1' });
-      if (r.key) rew.push({ cls: '', fa: 'fa-key', col: '#f5c842', name: 'Oltin Kalit', desc: 'Noyob kalit paket', val: '+1' });
-      if (r.booster) rew.push({ cls: '', fa: 'fa-rocket', col: '#fb923c', name: '2× XP Booster', desc: '1 soatlik XP multiplier', val: '1 soat' });
-      if (r.coins) rew.push({ cls: '', fa: 'fa-coins', col: '#f5c842', name: 'Coin', desc: 'Hamyoningizga qo\'shildi', val: `+${r.coins.toLocaleString()}` });
-      if (r.tokens) rew.push({ cls: '', fa: 'fa-ticket', col: '#22d3ee', name: 'Token', desc: 'AI chat tokenlari', val: `+${r.tokens.toLocaleString()}` });
-      if (r.xp) rew.push({ cls: '', fa: 'fa-star', col: '#a78bfa', name: 'XP', desc: 'Tajriba ballari', val: `+${r.xp.toLocaleString()}` });
+      if (r.vip) rew.push({ fa: 'fa-crown', col: '#f5c842', name: 'VIP STATUS', desc: '30 kunlik VIP faollashdi', val: 'FAOL!' });
+      if (r.frame) rew.push({ fa: 'fa-image', col: '#c060f0', name: 'Profil Frame', desc: 'Yangi eksklyuziv frame', val: '+1' });
+      if (r.key) rew.push({ fa: 'fa-key', col: '#f5c842', name: 'Oltin Kalit', desc: 'Noyob kalit paket', val: '+1' });
+      if (r.booster) rew.push({ fa: 'fa-rocket', col: '#fb923c', name: '2× XP Booster', desc: '1 soatlik XP multiplier', val: '1 soat' });
+      if (r.coins) rew.push({ fa: 'fa-coins', col: '#f5c842', name: 'Coin', desc: "Hamyoningizga qo'shildi", val: `+${r.coins.toLocaleString()}` });
+      if (r.tokens) rew.push({ fa: 'fa-ticket', col: '#22d3ee', name: 'Token', desc: 'AI chat tokenlari', val: `+${r.tokens.toLocaleString()}` });
+      if (r.xp) rew.push({ fa: 'fa-star', col: '#a78bfa', name: 'XP', desc: 'Tajriba ballari', val: `+${r.xp.toLocaleString()}` });
+
       rew.forEach((it, i) => {
         html += `<div class="rew-item" style="animation-delay:${delay + i * .1}s;background:${it.col}10;border:1px solid ${it.col}25">
-  <div class="rew-fa" style="background:${it.col}22"><i class="fa-solid ${it.fa}" style="color:${it.col}"></i></div>
-  <div class="rew-info"><div class="rew-name" style="color:${it.col}">${it.name}</div><div class="rew-desc">${it.desc}</div></div>
-  <div class="rew-val" style="color:${it.col}">${it.val}</div>
+<div class="rew-fa" style="background:${it.col}22"><i class="fa-solid ${it.fa}" style="color:${it.col}"></i></div>
+<div class="rew-info"><div class="rew-name" style="color:${it.col}">${it.name}</div><div class="rew-desc">${it.desc}</div></div>
+<div class="rew-val" style="color:${it.col}">${it.val}</div>
 </div>`;
       });
+
       box.innerHTML = html; box.classList.add('show');
       document.getElementById('btnAgain').style.display = 'flex';
       document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-party-horn" style="color:${s.stripe}"></i> Tabriklaymiz!`;
       toast("Pack ochildi! Mukofotlar qo'shildi", 's', 'fa-party-horn');
     }
 
-    function onAgain() { closeOverlay(); if (currentPack) { if (currentPack.isKey) openKeyBuyModal(currentPack.id); else openBuyModal(currentPack.id); } }
-    function closeOverlay() { document.getElementById('overlay').classList.remove('open'); openPhase = 0; stopConfetti(); }
+    window.onAgain = function () { closeOverlay(); if (currentPack) { if (currentPack.isKey) openBuyModal(currentPack.id, 'key'); else openBuyModal(currentPack.id, 'pack'); } };
+    window.closeOverlay = function () { document.getElementById('overlay').classList.remove('open'); openPhase = 0; stopConfetti(); };
 
-    // ══════════ CONFETTI ══════════
+    // ══════ VIP ══════
+    function renderVIP() {
+      document.getElementById('vipContent').innerHTML = `
+<div class="vip-card-big">
+  <div style="font-size:3.5rem;margin-bottom:8px"><i class="fa-solid fa-crown" style="color:var(--gold);filter:drop-shadow(0 0 20px rgba(245,200,66,.5))"></i></div>
+  <div class="vip-title-big">VIP STATUS</div>
+  ${WALLET.isVIP ? `<div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:12px;padding:10px 18px;margin:10px auto;max-width:280px;color:var(--green);font-family:var(--font-head);font-weight:700"><i class="fa-solid fa-check-circle"></i> VIP Faol — Siz VIP foydalanuvchisiz!</div>` : ''}
+  <ul class="vip-perks-list">
+    ${['👑 VIP badge va eksklyuziv rang', '🌟 Barcha profil fremlari', '🎨 Premium temalar', '🚀 Kunlik 3× XP bonus', '💎 Cheksiz AI suhbat', '🏆 Leaderboard yuqori o\'rni', '⚡ Har oy +5000 token'].map(x => `<li>${x}</li>`).join('')}
+  </ul>
+  <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);margin:14px 0">99,000 <span style="font-size:1rem;color:var(--text3)">so'm/oy</span></div>
+  ${!WALLET.isVIP ? `
+  <button class="btn-vip-big" onclick="buyVIPWithCoins()"><i class="fa-solid fa-coins"></i> 20,000 Coin bilan</button>
+  <div style="margin-top:10px">
+    <button class="btn-vip-big" style="background:linear-gradient(135deg,var(--green),#059669)" onclick="openVIPReceiptModal()"><i class="fa-solid fa-file-invoice"></i> 99,000 so'm — Chek yuborish</button>
+  </div>
+  <div style="font-size:.7rem;color:var(--text3);margin-top:10px;font-family:var(--font-head)">Admin 24 soat ichida tasdiqlaydi · @linguaverse_uz</div>`
+          : `<div style="font-size:.85rem;color:var(--text3);margin-top:8px;font-family:var(--font-head)">Keyingi oyga: <button class="btn-vip-big" style="padding:8px 18px;font-size:.8rem" onclick="openVIPReceiptModal()">Uzaytirish</button></div>`}
+</div>`;
+    }
+
+    window.openVIPReceiptModal = function () {
+      openReceiptModal({
+        itemId: 'vip_monthly',
+        itemName: '👑 VIP Status (1 oy)',
+        itemType: 'vip',
+        icon: '👑',
+        price_uzs: 99000
+      });
+    };
+
+    window.buyVIPWithCoins = function () {
+      if (WALLET.coins < 20000) { toast("Yetarli coin yo'q! (20,000 kerak)", 'e', 'fa-circle-xmark'); SFX.play('error'); return; }
+      WALLET.coins -= 20000; WALLET.isVIP = true;
+      updateWallet(); renderVIP();
+      if (window._saveWallet) window._saveWallet();
+      SFX.play('buy'); toast('👑 VIP faollashtirildi!', 's', 'fa-crown'); doFlash();
+    };
+
+    // ══════ CONVERT ══════
+    function updConv(type) {
+      if (type === 'c2t') { const v = parseInt(document.getElementById('c2tIn').value) || 0; document.getElementById('c2tRes').textContent = Math.floor(v / 2) + ' token'; }
+      else if (type === 'x2c') { const v = parseInt(document.getElementById('x2cIn').value) || 0; document.getElementById('x2cRes').textContent = Math.floor(v / 100) + ' coin'; }
+      else if (type === 't2c') { const v = parseInt(document.getElementById('t2cIn').value) || 0; document.getElementById('t2cRes').textContent = Math.floor(v / 3) + ' coin'; }
+    }
+    window.updConv = updConv;
+
+    function doConv(type) {
+      if (type === 'c2t') { const v = parseInt(document.getElementById('c2tIn').value) || 0; if (v < 10) { toast('Min 10 coin!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.coins < v) { toast("Yetarli coin yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const t = Math.floor(v / 2); WALLET.coins -= v; WALLET.tokens += t; toast(`${v} coin → ${t} token`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); }
+      else if (type === 'x2c') { const v = parseInt(document.getElementById('x2cIn').value) || 0; if (v < 100) { toast('Min 100 XP!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.xp < v) { toast("Yetarli XP yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const c = Math.floor(v / 100); WALLET.xp -= v; WALLET.coins += c; toast(`${v} XP → ${c} coin`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); }
+      else if (type === 't2c') { const v = parseInt(document.getElementById('t2cIn').value) || 0; if (v < 30) { toast('Min 30 token!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.tokens < v) { toast("Yetarli token yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const c = Math.floor(v / 3); WALLET.tokens -= v; WALLET.coins += c; toast(`${v} token → ${c} coin`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); }
+      if (window._saveWallet) window._saveWallet();
+    }
+    window.doConv = doConv;
+
+    // ══════ CONFETTI ══════
     let confettiAF = null, confettiParts = [];
     function launchConfetti(col) {
       const cv = document.getElementById('confettiCanvas');
       cv.width = innerWidth; cv.height = innerHeight; cv.style.display = 'block';
-      const ctx = cv.getContext('2d');
-      confettiParts = [];
+      const ctx = cv.getContext('2d'); confettiParts = [];
       const colors = [col, '#f5c842', '#a78bfa', '#22d3ee', '#f87171', '#34d399', '#fb923c'];
-      for (let i = 0; i < 140; i++) {
-        confettiParts.push({
-          x: innerWidth / 2 + (Math.random() - .5) * 130, y: innerHeight / 2 + (Math.random() - .5) * 80,
-          vx: (Math.random() - .5) * 14, vy: -(Math.random() * 14 + 6), rot: Math.random() * 360, rotV: (Math.random() - .5) * 12,
-          w: 8 + Math.random() * 8, h: 4 + Math.random() * 4, col: colors[Math.floor(Math.random() * colors.length)], alpha: 1, life: 1
-        });
-      }
+      for (let i = 0; i < 140; i++) { confettiParts.push({ x: innerWidth / 2 + (Math.random() - .5) * 130, y: innerHeight / 2 + (Math.random() - .5) * 80, vx: (Math.random() - .5) * 14, vy: -(Math.random() * 14 + 6), rot: Math.random() * 360, rotV: (Math.random() - .5) * 12, w: 8 + Math.random() * 8, h: 4 + Math.random() * 4, col: colors[Math.floor(Math.random() * colors.length)], alpha: 1, life: 1 }); }
       let t = 0;
       function loop() {
         ctx.clearRect(0, 0, cv.width, cv.height); let alive = false;
-        confettiParts.forEach(p => {
-          p.x += p.vx; p.y += p.vy; p.vy += .38; p.rot += p.rotV; p.life -= .012; p.alpha = Math.max(0, p.life);
-          if (p.life > 0) alive = true;
-          ctx.save(); ctx.globalAlpha = p.alpha; ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
-          ctx.fillStyle = p.col; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore();
-        });
-        t++; if (alive && t < 240) confettiAF = requestAnimationFrame(loop);
-        else { cv.style.display = 'none'; ctx.clearRect(0, 0, cv.width, cv.height); }
+        confettiParts.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .38; p.rot += p.rotV; p.life -= .012; p.alpha = Math.max(0, p.life); if (p.life > 0) alive = true; ctx.save(); ctx.globalAlpha = p.alpha; ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180); ctx.fillStyle = p.col; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore(); });
+        t++; if (alive && t < 240) confettiAF = requestAnimationFrame(loop); else { cv.style.display = 'none'; ctx.clearRect(0, 0, cv.width, cv.height); }
       }
       if (confettiAF) cancelAnimationFrame(confettiAF);
       confettiAF = requestAnimationFrame(loop);
@@ -2778,34 +3499,37 @@
       cv.getContext('2d').clearRect(0, 0, cv.width, cv.height);
     }
 
-    // ══════════ FILTER / NAV ══════════
+    // ══════ FILTER/NAV ══════
     function filterPacks(r, btn) {
       currentFilter = r;
       document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      // show packs sec
+      if (btn) btn.classList.add('active');
       document.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
       document.getElementById('sec-packs').classList.add('active');
       renderPacks(); SFX.play('click');
     }
+    window.filterPacks = filterPacks;
+
     function showSec(id, btn) {
       document.querySelectorAll('.sec').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
-      document.getElementById('sec-' + id)?.classList.add('active');
+      const el = document.getElementById('sec-' + id);
+      if (el) el.classList.add('active');
       if (btn) btn.classList.add('active');
       if (id === 'keys') renderKeys();
       if (id === 'plans') renderPlans();
       if (id === 'vip') renderVIP();
+      if (id === 'sell') renderSell();
+      if (id === 'ranks') renderRanks();
+      if (id === 'currency') renderCurrencySection();
       SFX.play('click');
     }
+    window.showSec = showSec;
 
-    // ══════════ FLASH ══════════
-    function doFlash() {
-      const f = document.createElement('div'); f.className = 'flash'; document.body.appendChild(f);
-      setTimeout(() => f.remove(), 600);
-    }
+    // ══════ FLASH ══════
+    function doFlash() { const f = document.createElement('div'); f.className = 'flash'; document.body.appendChild(f); setTimeout(() => f.remove(), 600); }
 
-    // ══════════ WALLET ══════════
+    // ══════ WALLET UI ══════
     function updateWallet() {
       const f = n => n.toLocaleString();
       document.getElementById('nCoin').textContent = f(WALLET.coins);
@@ -2814,56 +3538,13 @@
       document.getElementById('wXP').textContent = f(WALLET.xp);
       document.getElementById('nTok').textContent = f(WALLET.tokens);
       document.getElementById('wTok').textContent = f(WALLET.tokens);
+      if (document.getElementById('coinBal')) document.getElementById('coinBal').textContent = f(WALLET.coins);
+      if (document.getElementById('xpBal')) document.getElementById('xpBal').textContent = f(WALLET.xp);
+      if (document.getElementById('tokBal')) document.getElementById('tokBal').textContent = f(WALLET.tokens);
     }
+    window.updateWallet = updateWallet;
 
-    // ══════════ PLANS ══════════
-    const PLANS = [
-      { id: 'free', name: 'Free', icon: 'fa-user', price_uzs: 0, features: ['1000 token/5soat', 'Standart AI', 'Asosiy mashqlar'] },
-      { id: 'pro', name: 'Pro', icon: 'fa-star', price_uzs: 29000, features: ['3000 token/5soat', 'Yaxshilangan AI', '+50% XP', '+30% Coin'] },
-      { id: 'premium', name: 'Premium', icon: 'fa-gem', price_uzs: 59000, features: ['8000 token/5soat', 'Ilgor AI', 'Ovozli suhbat', '+100% XP'] },
-      { id: 'ultimate', name: 'Ultimate', icon: 'fa-infinity', price_uzs: 99000, features: ['Cheksiz tokenlar', 'Eng yaxshi AI', 'Barcha imkoniyatlar', '+200% XP'] },
-    ];
-    function renderPlans() {
-      document.getElementById('plansGrid').innerHTML = PLANS.map(p => `
-<div class="item-card">
-  <span class="item-icon"><i class="fa-solid ${p.icon}" style="color:var(--gold)"></i></span>
-  <div class="item-name">${p.name}</div>
-  <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--gold)">${p.price_uzs === 0 ? 'Bepul' : `${p.price_uzs.toLocaleString()} so'm`}</div>
-  <ul class="item-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
-  ${p.id === 'free' ? `<button class="btn-item bi-disabled" disabled>Bepul</button>` :
-          `<button class="btn-item bi-uzs"><i class="fa-solid fa-file-invoice"></i> ${p.price_uzs.toLocaleString()} so'm</button>`}
-</div>`).join('');
-    }
-
-    // ══════════ VIP ══════════
-    function renderVIP() {
-      document.getElementById('vipContent').innerHTML = `
-<div class="vip-card-big">
-  <div style="font-size:3.5rem;margin-bottom:8px"><i class="fa-solid fa-crown" style="color:var(--gold);filter:drop-shadow(0 0 20px rgba(245,200,66,.5))"></i></div>
-  <div class="vip-title-big">VIP STATUS</div>
-  <ul class="vip-perks-list">
-    ${['👑 VIP badge va eksklyuziv rang', '🌟 Barcha profil fremlari', '🎨 Premium temalar', '🚀 Kunlik 3× XP bonus', '💎 Cheksiz AI suhbat', '🏆 Leaderboard yuqori o\'rni', '⚡ Har oy +5000 token'].map(x => `<li>${x}</li>`).join('')}
-  </ul>
-  <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);margin:14px 0">99,000 <span style="font-size:1rem;color:var(--text3)">so'm/oy</span></div>
-  <button class="btn-vip-big"><i class="fa-solid fa-file-invoice"></i> Buyurtma berish</button>
-  <div style="font-size:.7rem;color:var(--text3);margin-top:10px;font-family:var(--font-head)">Admin 24 soat ichida tasdiqlaydi · @linguaverse_uz</div>
-</div>`;
-    }
-
-    // ══════════ CONVERT ══════════
-    function updConv(type) {
-      if (type === 'c2t') { const v = parseInt(document.getElementById('c2tIn').value) || 0; document.getElementById('c2tRes').textContent = Math.floor(v / 2) + ' token'; }
-      else if (type === 'x2c') { const v = parseInt(document.getElementById('x2cIn').value) || 0; document.getElementById('x2cRes').textContent = Math.floor(v / 100) + ' coin'; }
-      else if (type === 't2c') { const v = parseInt(document.getElementById('t2cIn').value) || 0; document.getElementById('t2cRes').textContent = Math.floor(v / 3) + ' coin'; }
-    }
-    function doConv(type) {
-      if (type === 'c2t') { const v = parseInt(document.getElementById('c2tIn').value) || 0; if (v < 10) { toast('Min 10 coin!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.coins < v) { toast('Yetarli coin yoq!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const t = Math.floor(v / 2); WALLET.coins -= v; WALLET.tokens += t; toast(`${v} coin → ${t} token`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); }
-      else if (type === 'x2c') { const v = parseInt(document.getElementById('x2cIn').value) || 0; if (v < 100) { toast('Min 100 XP!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.xp < v) { toast('Yetarli XP yoq!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const c = Math.floor(v / 100); WALLET.xp -= v; WALLET.coins += c; toast(`${v} XP → ${c} coin`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); }
-      else if (type === 't2c') { const v = parseInt(document.getElementById('t2cIn').value) || 0; if (v < 30) { toast('Min 30 token!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.tokens < v) { toast('Yetarli token yoq!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const c = Math.floor(v / 3); WALLET.tokens -= v; WALLET.coins += c; toast(`${v} token → ${c} coin`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); }
-    }
-    function closeOrderModal() { document.getElementById('orderModal').classList.remove('open'); }
-
-    // ══════════ TOAST ══════════
+    // ══════ TOAST ══════
     function toast(msg, type, fa) {
       const t = document.getElementById('toast');
       document.getElementById('toastIcon').className = `fa-solid ${fa || 'fa-check'}`;
@@ -2871,15 +3552,17 @@
       t.className = 'toast ' + type + ' show';
       clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3400);
     }
+    window.toast = toast;
 
-    // ══════════ INIT ══════════
-    renderPacks();
-    renderVIP();
-
-    // Loading screen
-    let p = 0;
-    const iv = setInterval(() => { p += 15; document.getElementById('loadBar').style.width = Math.min(p, 95) + '%'; if (p >= 95) clearInterval(iv); }, 100);
-    setTimeout(() => { document.getElementById('loadBar').style.width = '100%'; setTimeout(() => document.getElementById('loadScreen').classList.add('hidden'), 300); }, 600);
+    // ══════ LOADING BAR ══════
+    let p = 0; const iv = setInterval(() => { p += 20; document.getElementById('loadBar').style.width = Math.min(p, 90) + '%'; if (p >= 90) clearInterval(iv); }, 100);
+    setTimeout(() => {
+      if (!document.getElementById('loadScreen').classList.contains('hidden') && !document.getElementById('authScreen').classList.contains('show')) {
+        document.getElementById('loadBar').style.width = '100%';
+        setTimeout(() => document.getElementById('loadScreen').classList.add('hidden'), 300);
+        renderPacks(); renderVIP(); renderSell(); renderCurrencySection(); renderPlans(); renderRanks();
+      }
+    }, 8000);
   </script>
 </body>
 

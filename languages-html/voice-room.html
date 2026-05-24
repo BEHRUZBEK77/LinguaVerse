@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>LinguaVerse — Voice Rooms</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
@@ -17,25 +17,31 @@
         *::after {
             box-sizing: border-box;
             margin: 0;
-            padding: 0;
+            padding: 0
         }
 
         :root {
             --bg: #04060f;
             --surface: #0b0f1e;
             --surface2: #111629;
+            --surface3: #161c32;
             --border: rgba(255, 255, 255, 0.07);
+            --border2: rgba(255, 255, 255, 0.12);
             --accent: #4f6ef7;
             --accent2: #a78bfa;
             --gold: #f5c842;
             --text: #e8ecff;
+            --text2: #b0bcd8;
             --muted: #7580a8;
             --green: #34d399;
             --red: #ef4444;
+            --orange: #f97316;
+            --yellow: #fbbf24;
+            --pink: #f472b6;
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth
         }
 
         body {
@@ -43,66 +49,45 @@
             color: var(--text);
             font-family: 'DM Sans', sans-serif;
             overflow-x: hidden;
-            min-height: 100vh;
-            ;
+            min-height: 100vh
         }
 
-        .cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: screen;
-        }
-
-        .cursor-ring {
-            position: fixed;
-            width: 36px;
-            height: 36px;
-            border: 1.5px solid rgba(79, 110, 247, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.18s ease;
-        }
-
+        /* ── GRID BG ── */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            background-image: linear-gradient(rgba(79, 110, 247, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 110, 247, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(79, 110, 247, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 110, 247, 0.025) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
-            z-index: 0;
+            z-index: 0
         }
 
+        /* ── ORBS ── */
         .orb {
             position: fixed;
             border-radius: 50%;
             filter: blur(80px);
             pointer-events: none;
-            z-index: 0;
+            z-index: 0
         }
 
         .orb-1 {
             width: 500px;
             height: 500px;
-            background: rgba(79, 110, 247, 0.12);
+            background: rgba(79, 110, 247, 0.1);
             top: -100px;
             left: -100px;
-            animation: drift1 20s ease-in-out infinite;
+            animation: drift1 20s ease-in-out infinite
         }
 
         .orb-2 {
             width: 400px;
             height: 400px;
-            background: rgba(167, 139, 250, 0.09);
+            background: rgba(167, 139, 250, 0.08);
             bottom: 0;
             right: -80px;
-            animation: drift2 25s ease-in-out infinite;
+            animation: drift2 25s ease-in-out infinite
         }
 
         @keyframes drift1 {
@@ -129,6 +114,31 @@
             }
         }
 
+        /* ── CURSOR ── */
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: screen;
+            transition: transform 0.1s
+        }
+
+        .cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(79, 110, 247, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.18s ease
+        }
+
+        /* ── NAV ── */
         nav#navbar {
             position: sticky;
             top: 0;
@@ -140,7 +150,7 @@
             height: 64px;
             background: rgba(4, 6, 15, 0.92);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--border)
         }
 
         .logo {
@@ -148,16 +158,16 @@
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--text);
-            text-decoration: none;
+            text-decoration: none
         }
 
         .logo span {
-            color: var(--accent);
+            color: var(--accent)
         }
 
         .nav-center {
             display: flex;
-            gap: 4px;
+            gap: 4px
         }
 
         .nav-link {
@@ -170,19 +180,20 @@
             text-decoration: none;
             font-size: 0.82rem;
             font-weight: 600;
-            transition: all 0.2s;
+            transition: all 0.2s
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: var(--text);
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.06)
         }
 
         .nav-link.active {
-            color: var(--accent);
+            color: var(--accent)
         }
 
+        /* ── SITE NAV ── */
         .site-nav {
             position: sticky;
             top: 64px;
@@ -195,11 +206,11 @@
             align-items: center;
             gap: 10px;
             overflow-x: auto;
-            scrollbar-width: none;
+            scrollbar-width: none
         }
 
         .site-nav::-webkit-scrollbar {
-            display: none;
+            display: none
         }
 
         .snav-link {
@@ -215,24 +226,26 @@
             font-size: 0.78rem;
             font-weight: 600;
             white-space: nowrap;
-            transition: all 0.2s;
+            transition: all 0.2s
         }
 
         .snav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.1)
         }
 
+        /* ── MAIN ── */
         main {
             position: relative;
             z-index: 1;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 24px 80px;
+            padding: 40px 24px 80px
         }
 
+        /* ── PAGE HEADER ── */
         .page-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 36px
         }
 
         .page-badge {
@@ -248,95 +261,94 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 16px;
+            margin-bottom: 16px
         }
 
         .page-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 10px
         }
 
         .page-title span {
-            color: var(--accent);
+            color: var(--accent)
         }
 
         .page-sub {
             color: var(--muted);
-            font-size: 1rem;
+            font-size: 1rem
         }
 
-        .name-bar {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
+        /* ── SETUP AREA ── */
+        .setup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-bottom: 28px;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 640px;
+            margin: 0 auto 24px
         }
 
-        .name-bar label {
-            font-size: 0.82rem;
+        .setup-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .setup-field label {
+            font-size: 0.75rem;
             font-weight: 700;
             color: var(--muted);
-            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px
         }
 
-        .name-bar input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--text);
-            font-size: 0.95rem;
-            font-family: 'DM Sans', sans-serif;
-            outline: none;
-        }
-
-        .name-bar input::placeholder {
-            color: var(--muted);
-        }
-
-        .create-area {
-            display: flex;
-            gap: 10px;
-            max-width: 600px;
-            margin: 0 auto 36px;
-        }
-
-        .create-area input {
-            flex: 1;
-            padding: 13px 18px;
+        .setup-field input,
+        .setup-field select {
+            padding: 11px 14px;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 12px;
             color: var(--text);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-family: 'DM Sans', sans-serif;
             outline: none;
-            transition: all 0.2s;
+            transition: all 0.2s
         }
 
-        .create-area input:focus {
+        .setup-field input:focus,
+        .setup-field select:focus {
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.12)
         }
 
-        .create-area input::placeholder {
-            color: var(--muted);
+        .setup-field select option {
+            background: var(--surface2)
+        }
+
+        .setup-field input::placeholder {
+            color: var(--muted)
+        }
+
+        .setup-full {
+            grid-column: 1/-1
+        }
+
+        .create-row {
+            display: flex;
+            gap: 10px;
+            max-width: 640px;
+            margin: 0 auto 36px
         }
 
         .btn-create {
-            padding: 13px 24px;
+            flex-shrink: 0;
+            padding: 12px 22px;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             color: #fff;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             font-weight: 700;
             font-family: 'DM Sans', sans-serif;
             cursor: pointer;
@@ -344,19 +356,75 @@
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 8px
         }
 
         .btn-create:hover {
             transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(79, 110, 247, 0.35);
+            box-shadow: 0 8px 24px rgba(79, 110, 247, 0.35)
         }
 
+        .btn-create:active {
+            transform: translateY(0)
+        }
+
+        /* ── FILTERS ── */
+        .filters-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap
+        }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'DM Sans', sans-serif
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: rgba(79, 110, 247, 0.15);
+            border-color: rgba(79, 110, 247, 0.4);
+            color: var(--accent)
+        }
+
+        .search-rooms {
+            flex: 1;
+            max-width: 240px;
+            padding: 7px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text);
+            font-size: 0.82rem;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            transition: all 0.2s
+        }
+
+        .search-rooms:focus {
+            border-color: var(--accent)
+        }
+
+        .search-rooms::placeholder {
+            color: var(--muted)
+        }
+
+        /* ── ROOMS GRID ── */
         .rooms-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 16px;
+            margin-bottom: 12px
         }
 
         .rooms-header h3 {
@@ -365,53 +433,89 @@
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 8px
         }
 
         .rooms-header h3 i {
-            color: var(--accent);
+            color: var(--accent)
+        }
+
+        .room-count {
+            font-size: 0.75rem;
+            color: var(--muted);
+            background: var(--surface2);
+            padding: 2px 8px;
+            border-radius: 10px
         }
 
         .rooms-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
             gap: 14px;
-            margin-bottom: 32px;
+            margin-bottom: 32px
         }
 
         .room-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 18px;
-            padding: 20px;
+            padding: 18px;
             transition: all 0.25s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .room-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            opacity: 0;
+            transition: opacity 0.2s
         }
 
         .room-card:hover {
             border-color: rgba(79, 110, 247, 0.35);
             background: var(--surface2);
-            transform: translateY(-2px);
+            transform: translateY(-2px)
+        }
+
+        .room-card:hover::before {
+            opacity: 1
+        }
+
+        .room-card.locked {
+            border-color: rgba(245, 200, 66, 0.3)
         }
 
         .rc-top {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
+            margin-bottom: 8px
         }
 
         .rc-name {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
-            color: var(--text);
+            font-size: 0.95rem;
+            color: var(--text)
+        }
+
+        .rc-badges {
+            display: flex;
+            gap: 6px;
+            align-items: center
         }
 
         .rc-badge {
-            padding: 3px 10px;
+            padding: 3px 9px;
             border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-size: 0.68rem;
+            font-weight: 700
         }
 
         .rc-badge.live {
@@ -420,16 +524,133 @@
             border: 1px solid rgba(52, 211, 153, 0.3);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px
         }
 
         .rc-badge.live::before {
             content: '';
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: var(--green);
-            animation: pulse 1.5s infinite;
+            animation: pulse 1.5s infinite
+        }
+
+        .rc-badge.locked-badge {
+            background: rgba(245, 200, 66, 0.12);
+            color: var(--gold);
+            border: 1px solid rgba(245, 200, 66, 0.3)
+        }
+
+        .rc-badge.lang-tag {
+            background: rgba(167, 139, 250, 0.12);
+            color: var(--accent2);
+            border: 1px solid rgba(167, 139, 250, 0.25)
+        }
+
+        .rc-meta {
+            display: flex;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 0.78rem;
+            margin-bottom: 12px;
+            flex-wrap: wrap
+        }
+
+        .rc-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px
+        }
+
+        .rc-desc {
+            font-size: 0.78rem;
+            color: var(--text2);
+            margin-bottom: 12px;
+            line-height: 1.5;
+            opacity: 0.8
+        }
+
+        .rc-bottom {
+            display: flex;
+            gap: 8px
+        }
+
+        .rc-join {
+            flex: 1;
+            padding: 9px;
+            background: rgba(79, 110, 247, 0.1);
+            border: 1px solid rgba(79, 110, 247, 0.25);
+            border-radius: 9px;
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px
+        }
+
+        .rc-join:hover {
+            background: rgba(79, 110, 247, 0.25)
+        }
+
+        .rc-spec {
+            padding: 9px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'DM Sans', sans-serif
+        }
+
+        .rc-spec:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text)
+        }
+
+        .participants-preview {
+            display: flex;
+            margin-bottom: 10px
+        }
+
+        .pp-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: 2px solid var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #fff;
+            margin-left: -6px
+        }
+
+        .pp-avatar:first-child {
+            margin-left: 0
+        }
+
+        .pp-more {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--surface2);
+            border: 2px solid var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            color: var(--muted);
+            margin-left: -6px
         }
 
         @keyframes pulse {
@@ -444,104 +665,93 @@
             }
         }
 
-        .rc-meta {
-            display: flex;
-            gap: 14px;
-            color: var(--muted);
-            font-size: 0.8rem;
-            margin-bottom: 14px;
-        }
-
-        .rc-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .rc-join {
-            width: 100%;
-            padding: 10px;
-            background: rgba(79, 110, 247, 0.1);
-            border: 1px solid rgba(79, 110, 247, 0.25);
-            border-radius: 10px;
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 700;
-            font-family: 'DM Sans', sans-serif;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .rc-join:hover {
-            background: rgba(79, 110, 247, 0.25);
-        }
-
+        /* ── EMPTY STATE ── */
         .empty-state {
             text-align: center;
             padding: 48px 24px;
             color: var(--muted);
-            grid-column: 1/-1;
+            grid-column: 1/-1
         }
 
         .empty-state i {
             font-size: 2.8rem;
             margin-bottom: 12px;
             opacity: 0.35;
-            display: block;
+            display: block
         }
 
         .empty-state p {
             font-size: 0.9rem;
-            line-height: 1.6;
+            line-height: 1.6
         }
 
+        /* ═══════════════════════════════════════
+   ACTIVE ROOM UI
+═══════════════════════════════════════ */
         #activeRoom {
-            display: none;
+            display: none
         }
 
+        .voice-room-layout {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 16px;
+            align-items: start
+        }
+
+        @media(max-width:900px) {
+            .voice-room-layout {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ── ROOM MAIN PANEL ── */
         .voice-room-wrap {
             background: var(--surface);
             border: 1px solid rgba(79, 110, 247, 0.2);
             border-radius: 24px;
-            overflow: hidden;
+            overflow: hidden
         }
 
         .room-top {
-            background: linear-gradient(135deg, rgba(79, 110, 247, 0.15), rgba(167, 139, 250, 0.1));
+            background: linear-gradient(135deg, rgba(79, 110, 247, 0.12), rgba(167, 139, 250, 0.08));
             border-bottom: 1px solid var(--border);
-            padding: 20px 24px;
+            padding: 18px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 12px
         }
 
         .room-top-left h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1.15rem;
+            font-weight: 700
         }
 
         .room-top-left p {
             color: var(--muted);
-            font-size: 0.82rem;
-            margin-top: 2px;
+            font-size: 0.8rem;
+            margin-top: 2px
+        }
+
+        .room-top-right {
+            display: flex;
+            align-items: center;
+            gap: 10px
         }
 
         .live-dot {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 4px 12px;
+            padding: 4px 11px;
             border-radius: 20px;
             background: rgba(52, 211, 153, 0.12);
             border: 1px solid rgba(52, 211, 153, 0.3);
             color: var(--green);
-            font-size: 0.75rem;
-            font-weight: 700;
+            font-size: 0.72rem;
+            font-weight: 700
         }
 
         .live-dot::before {
@@ -550,159 +760,1020 @@
             height: 7px;
             border-radius: 50%;
             background: var(--green);
-            animation: pulse 1.5s infinite;
+            animation: pulse 1.5s infinite
         }
 
+        .duration-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 11px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 600
+        }
+
+        /* ── PARTICIPANTS ── */
         .participants-area {
-            padding: 28px 24px;
+            padding: 22px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            min-height: 180px;
+            gap: 16px;
+            min-height: 160px;
             align-items: flex-start;
-            align-content: flex-start;
+            align-content: flex-start
         }
 
         .participant {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            width: 80px;
+            gap: 6px;
+            width: 72px;
+            position: relative
         }
 
         .participant-avatar {
-            width: 64px;
-            height: 64px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--accent), var(--accent2));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: #fff;
-            border: 2px solid transparent;
+            border: 2.5px solid transparent;
             transition: all 0.3s;
             position: relative;
+            cursor: default;
+            user-select: none
         }
 
         .participant-avatar.speaking {
             border-color: var(--green);
-            box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2), 0 0 0 8px rgba(52, 211, 153, 0.08);
+            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2), 0 0 0 6px rgba(52, 211, 153, 0.06)
         }
 
         .participant-avatar.muted {
-            border-color: rgba(239, 68, 68, 0.5);
+            border-color: rgba(239, 68, 68, 0.5)
+        }
+
+        .participant-avatar.hand-raised {
+            border-color: var(--yellow);
+            box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2)
         }
 
         .mute-icon {
             position: absolute;
             bottom: -2px;
             right: -2px;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             background: var(--red);
             align-items: center;
             justify-content: center;
-            font-size: 0.55rem;
+            font-size: 0.5rem;
             color: #fff;
             display: none;
+            border: 2px solid var(--surface)
         }
 
         .participant-avatar.muted .mute-icon {
-            display: flex;
+            display: flex
+        }
+
+        .hand-icon {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            font-size: 0.85rem;
+            display: none;
+            animation: bounce 0.6s ease infinite alternate
+        }
+
+        .participant-avatar.hand-raised .hand-icon {
+            display: block
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0)
+            }
+
+            to {
+                transform: translateY(-3px)
+            }
         }
 
         .participant-name {
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--text);
             text-align: center;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 80px;
+            max-width: 72px
         }
 
         .participant-you {
-            font-size: 0.62rem;
+            font-size: 0.6rem;
             color: var(--accent);
-            font-weight: 700;
+            font-weight: 700
         }
 
+        .participant-role {
+            font-size: 0.58rem;
+            padding: 1px 6px;
+            border-radius: 6px;
+            font-weight: 700
+        }
+
+        .participant-role.host {
+            background: rgba(245, 200, 66, 0.15);
+            color: var(--gold)
+        }
+
+        .volume-mini {
+            width: 48px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 3px;
+            overflow: hidden
+        }
+
+        .volume-mini-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s
+        }
+
+        /* ── VOLUME BARS (speaking animation) ── */
+        .vol-bars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            height: 12px;
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.2s
+        }
+
+        .vol-bars.active {
+            opacity: 1
+        }
+
+        .vol-bar {
+            width: 3px;
+            border-radius: 2px;
+            background: var(--green);
+            animation: volAnim 0.4s ease-in-out infinite alternate
+        }
+
+        .vol-bar:nth-child(1) {
+            height: 4px;
+            animation-delay: 0s
+        }
+
+        .vol-bar:nth-child(2) {
+            height: 8px;
+            animation-delay: 0.1s
+        }
+
+        .vol-bar:nth-child(3) {
+            height: 12px;
+            animation-delay: 0.05s
+        }
+
+        .vol-bar:nth-child(4) {
+            height: 8px;
+            animation-delay: 0.15s
+        }
+
+        .vol-bar:nth-child(5) {
+            height: 4px;
+            animation-delay: 0.2s
+        }
+
+        @keyframes volAnim {
+            to {
+                height: 3px
+            }
+        }
+
+        /* ── CONTROLS ── */
         .room-controls {
-            padding: 20px 24px;
+            padding: 16px 22px;
             background: rgba(0, 0, 0, 0.2);
             border-top: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 12px;
+            flex-wrap: wrap
         }
 
         .ctrl-btn {
-            width: 52px;
-            height: 52px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.2s;
+            position: relative
         }
 
         .ctrl-btn.mic {
             background: rgba(79, 110, 247, 0.15);
             border: 2px solid rgba(79, 110, 247, 0.4);
-            color: var(--accent);
+            color: var(--accent)
         }
 
         .ctrl-btn.mic:hover {
             background: rgba(79, 110, 247, 0.3);
+            transform: scale(1.05)
         }
 
         .ctrl-btn.mic.muted {
             background: rgba(239, 68, 68, 0.15);
             border-color: rgba(239, 68, 68, 0.4);
-            color: var(--red);
+            color: var(--red)
+        }
+
+        .ctrl-btn.hand-btn {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            color: var(--yellow)
+        }
+
+        .ctrl-btn.hand-btn:hover,
+        .ctrl-btn.hand-btn.active {
+            background: rgba(251, 191, 36, 0.25);
+            border-color: rgba(251, 191, 36, 0.6)
+        }
+
+        .ctrl-btn.react-btn {
+            background: rgba(244, 114, 182, 0.1);
+            border: 2px solid rgba(244, 114, 182, 0.3);
+            color: var(--pink)
+        }
+
+        .ctrl-btn.react-btn:hover {
+            background: rgba(244, 114, 182, 0.25)
+        }
+
+        .ctrl-btn.settings-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            color: var(--muted)
+        }
+
+        .ctrl-btn.settings-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--text)
         }
 
         .ctrl-btn.leave {
             width: auto;
-            padding: 0 24px;
-            border-radius: 26px;
-            background: rgba(239, 68, 68, 0.15);
-            border: 2px solid rgba(239, 68, 68, 0.4);
+            padding: 0 20px;
+            border-radius: 24px;
+            background: rgba(239, 68, 68, 0.12);
+            border: 2px solid rgba(239, 68, 68, 0.35);
             color: var(--red);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            gap: 8px;
+            gap: 7px;
             display: flex;
             align-items: center;
             font-family: 'DM Sans', sans-serif;
-            height: 52px;
+            height: 48px;
+            transition: all 0.2s
         }
 
         .ctrl-btn.leave:hover {
-            background: rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.25)
         }
 
         .ctrl-wrap {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 3px
         }
 
         .ctrl-label {
-            font-size: 0.68rem;
-            color: var(--muted);
+            font-size: 0.62rem;
+            color: var(--muted)
         }
 
+        .ctrl-tooltip {
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--surface3);
+            border: 1px solid var(--border2);
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            color: var(--text);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s
+        }
+
+        .ctrl-btn:hover .ctrl-tooltip {
+            opacity: 1
+        }
+
+        /* ── VOL SLIDER ── */
+        .vol-slider-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0
+        }
+
+        .vol-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            cursor: pointer
+        }
+
+        .vol-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            transition: transform 0.2s
+        }
+
+        .vol-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.3)
+        }
+
+        /* ── SIDE PANELS ── */
+        .side-panels {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .side-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden
+        }
+
+        .sp-header {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none
+        }
+
+        .sp-header h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .sp-header h4 i {
+            color: var(--accent)
+        }
+
+        .sp-toggle {
+            color: var(--muted);
+            font-size: 0.75rem;
+            transition: transform 0.2s
+        }
+
+        .sp-toggle.open {
+            transform: rotate(180deg)
+        }
+
+        .sp-body {
+            padding: 14px 16px
+        }
+
+        /* ── CHAT ── */
+        .chat-messages {
+            height: 220px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(79, 110, 247, 0.3) transparent
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 4px
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: rgba(79, 110, 247, 0.3);
+            border-radius: 4px
+        }
+
+        .chat-msg {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start
+        }
+
+        .chat-msg.system {
+            justify-content: center
+        }
+
+        .chat-msg.system .cm-bubble {
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-style: italic;
+            padding: 0
+        }
+
+        .chat-msg.me .cm-bubble {
+            background: rgba(79, 110, 247, 0.18);
+            border-color: rgba(79, 110, 247, 0.3);
+            margin-left: auto
+        }
+
+        .cm-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        .cm-content {
+            flex: 1
+        }
+
+        .cm-name {
+            font-size: 0.65rem;
+            color: var(--muted);
+            margin-bottom: 2px;
+            font-weight: 600
+        }
+
+        .cm-bubble {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            word-break: break-word;
+            max-width: 100%
+        }
+
+        .chat-input-row {
+            display: flex;
+            gap: 6px
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 9px 12px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 0.82rem;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            transition: border-color 0.2s
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent)
+        }
+
+        .chat-input::placeholder {
+            color: var(--muted)
+        }
+
+        .chat-send {
+            width: 34px;
+            height: 34px;
+            background: var(--accent);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            flex-shrink: 0
+        }
+
+        .chat-send:hover {
+            background: #3d58e0;
+            transform: scale(1.05)
+        }
+
+        /* ── REACTIONS PICKER ── */
+        .reactions-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 6px;
+            margin-bottom: 10px
+        }
+
+        .reaction-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 6px;
+            text-align: center;
+            transition: all 0.2s;
+            line-height: 1
+        }
+
+        .reaction-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: scale(1.15)
+        }
+
+        .reaction-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 6px;
+            min-width: 16px;
+            text-align: center;
+            display: none
+        }
+
+        .reaction-badge.show {
+            display: block
+        }
+
+        /* ── FLOATING REACTIONS ── */
+        .reaction-float {
+            position: fixed;
+            font-size: 1.8rem;
+            pointer-events: none;
+            z-index: 9990;
+            animation: floatUp 2.5s ease-out forwards
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+
+            80% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) scale(1.3)
+            }
+        }
+
+        /* ── ROOM INFO PANEL ── */
+        .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.78rem
+        }
+
+        .info-row:last-child {
+            border: none
+        }
+
+        .info-label {
+            color: var(--muted)
+        }
+
+        .info-val {
+            color: var(--text);
+            font-weight: 600
+        }
+
+        /* ── QUALITY INDICATOR ── */
+        .quality-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px
+        }
+
+        .quality-dot.good {
+            background: var(--green)
+        }
+
+        .quality-dot.ok {
+            background: var(--yellow)
+        }
+
+        .quality-dot.bad {
+            background: var(--red)
+        }
+
+        /* ── PRIVATE MSG PANEL ── */
+        .pm-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px
+        }
+
+        .pm-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.15s;
+            font-size: 0.8rem
+        }
+
+        .pm-item:hover {
+            background: rgba(255, 255, 255, 0.05)
+        }
+
+        .pm-item .pm-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green)
+        }
+
+        .pm-name {
+            flex: 1;
+            font-weight: 600
+        }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            background: rgba(4, 6, 15, 0.85);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center
+        }
+
+        .modal-overlay.show {
+            display: flex
+        }
+
+        .modal {
+            background: var(--surface);
+            border: 1px solid var(--border2);
+            border-radius: 22px;
+            padding: 28px;
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            animation: slideUp 0.25s ease
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .modal h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .modal h3 i {
+            color: var(--accent)
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--text)
+        }
+
+        .modal-field {
+            margin-bottom: 14px
+        }
+
+        .modal-field label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px
+        }
+
+        .modal-field input,
+        .modal-field select,
+        .modal-field textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 0.88rem;
+            font-family: 'DM Sans', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: vertical
+        }
+
+        .modal-field input:focus,
+        .modal-field select:focus,
+        .modal-field textarea:focus {
+            border-color: var(--accent)
+        }
+
+        .modal-field textarea {
+            min-height: 70px
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px
+        }
+
+        .btn-modal-ok {
+            flex: 1;
+            padding: 11px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s
+        }
+
+        .btn-modal-ok:hover {
+            opacity: 0.9
+        }
+
+        .btn-modal-cancel {
+            flex: 1;
+            padding: 11px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text2);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s
+        }
+
+        .btn-modal-cancel:hover {
+            background: rgba(255, 255, 255, 0.1)
+        }
+
+        /* ── PASSWORD INPUT ── */
+        .pass-input-wrap {
+            position: relative
+        }
+
+        .pass-input-wrap input {
+            padding-right: 40px
+        }
+
+        .pass-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: color 0.2s
+        }
+
+        .pass-toggle:hover {
+            color: var(--text)
+        }
+
+        /* ── DEVICE SETTINGS ── */
+        .device-select {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .device-row {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .device-row label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            width: 80px;
+            flex-shrink: 0
+        }
+
+        .device-row select {
+            flex: 1;
+            padding: 8px 12px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 0.82rem;
+            font-family: 'DM Sans', sans-serif;
+            outline: none
+        }
+
+        .device-row select:focus {
+            border-color: var(--accent)
+        }
+
+        .test-mic-btn {
+            padding: 8px 14px;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            border-radius: 10px;
+            color: var(--green);
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s
+        }
+
+        .test-mic-btn:hover {
+            background: rgba(52, 211, 153, 0.2)
+        }
+
+        /* ── NOISE ── */
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05)
+        }
+
+        .toggle-row:last-child {
+            border: none
+        }
+
+        .toggle-label {
+            font-size: 0.82rem;
+            color: var(--text2)
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 38px;
+            height: 20px;
+            cursor: pointer
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0
+        }
+
+        .toggle-track {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: background 0.2s
+        }
+
+        .toggle-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #fff;
+            transition: transform 0.2s
+        }
+
+        .toggle-switch input:checked+.toggle-track {
+            background: var(--accent)
+        }
+
+        .toggle-switch input:checked~.toggle-thumb {
+            transform: translateX(18px)
+        }
+
+        /* ── MIC LEVEL BAR ── */
+        .mic-level-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 6px
+        }
+
+        .mic-level-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--green), var(--accent));
+            border-radius: 6px;
+            width: 0%;
+            transition: width 0.05s
+        }
+
+        /* ── TOAST ── */
         .toast {
             position: fixed;
             bottom: 24px;
@@ -711,9 +1782,9 @@
             background: var(--surface2);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 12px 20px;
+            padding: 11px 18px;
             color: var(--text);
-            font-size: 0.85rem;
+            font-size: 0.83rem;
             font-weight: 600;
             z-index: 9999;
             transition: transform 0.3s;
@@ -721,37 +1792,44 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            pointer-events: none
         }
 
         .toast.show {
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0)
         }
 
         .toast.success {
             border-color: rgba(52, 211, 153, 0.4);
-            color: var(--green);
+            color: var(--green)
         }
 
         .toast.error {
             border-color: rgba(239, 68, 68, 0.4);
-            color: var(--red);
+            color: var(--red)
         }
 
+        .toast.info {
+            border-color: rgba(79, 110, 247, 0.4);
+            color: var(--accent)
+        }
+
+        /* ── CONNECTING OVERLAY ── */
         #connectingOverlay {
             display: none;
             position: fixed;
             inset: 0;
-            z-index: 200;
-            background: rgba(4, 6, 15, 0.88);
+            z-index: 300;
+            background: rgba(4, 6, 15, 0.9);
             backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 16px;
+            gap: 16px
         }
 
         #connectingOverlay.show {
-            display: flex;
+            display: flex
         }
 
         .spinner-big {
@@ -760,32 +1838,91 @@
             border: 3px solid rgba(79, 110, 247, 0.2);
             border-top-color: var(--accent);
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            animation: spin 0.8s linear infinite
         }
 
         @keyframes spin {
             to {
-                transform: rotate(360deg);
+                transform: rotate(360deg)
             }
         }
 
         #connectingOverlay p {
             color: var(--text);
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 600
         }
 
-        @media (max-width: 600px) {
+        #connectingOverlay small {
+            color: var(--muted);
+            font-size: 0.8rem
+        }
+
+        /* ── NETWORK STATUS ── */
+        .net-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.72rem;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-weight: 600
+        }
+
+        .net-status.good {
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--green)
+        }
+
+        .net-status.ok {
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--yellow)
+        }
+
+        .net-status.bad {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--red)
+        }
+
+        /* ── WAVEFORM ── */
+        .waveform-canvas {
+            width: 100%;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border)
+        }
+
+        /* ── RESPONSIBE ── */
+        @media(max-width:600px) {
             .nav-center {
-                display: none;
+                display: none
             }
 
             main {
-                padding: 24px 16px 60px;
+                padding: 20px 14px 60px
             }
 
-            .create-area {
-                flex-direction: column;
+            .setup-grid {
+                grid-template-columns: 1fr
+            }
+
+            .create-row {
+                flex-direction: column
+            }
+
+            .room-controls {
+                gap: 8px
+            }
+
+            .ctrl-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 0.9rem
+            }
+
+            .voice-room-layout {
+                grid-template-columns: 1fr
             }
         }
     </style>
@@ -805,7 +1942,11 @@
             <a href="voice-room.html" class="nav-link active"><i class="fa-solid fa-microphone"></i>Voice Rooms</a>
             <a href="profile.html" class="nav-link"><i class="fa-solid fa-user"></i>Profil</a>
         </div>
-        <div id="navUserInfo" style="font-size:0.82rem;font-weight:600;color:var(--muted)"></div>
+        <div style="display:flex;align-items:center;gap:12px">
+            <span id="netStatusBadge" class="net-status good" title="Tarmoq holati"><i class="fa-solid fa-wifi"></i>
+                Yaxshi</span>
+            <span id="navUserInfo" style="font-size:0.82rem;font-weight:600;color:var(--muted)"></span>
+        </div>
     </nav>
 
     <div class="site-nav">
@@ -825,20 +1966,67 @@
             <p class="page-sub">Ochiq xonaga kiring yoki o'zingiz xona oching — cheksiz, bepul</p>
         </div>
 
+        <!-- ═══ SETUP AREA ═══ -->
         <div id="setupArea">
-            <div class="name-bar">
-                <label><i class="fa-solid fa-user" style="color:var(--accent)"></i> Ismingiz:</label>
-                <input type="text" id="myName" placeholder="Masalan: Azizbek" maxlength="20" />
+            <div class="setup-grid">
+                <div class="setup-field">
+                    <label><i class="fa-solid fa-user" style="color:var(--accent)"></i> Ismingiz</label>
+                    <input type="text" id="myName" placeholder="Masalan: Azizbek" maxlength="20" />
+                </div>
+                <div class="setup-field">
+                    <label><i class="fa-solid fa-flag" style="color:var(--accent)"></i> Daraja</label>
+                    <select id="myLevel">
+                        <option value="">— Tanlang —</option>
+                        <option value="Beginner">🌱 Beginner</option>
+                        <option value="Elementary">📘 Elementary</option>
+                        <option value="Intermediate">📗 Intermediate</option>
+                        <option value="Upper-Int">📙 Upper-Int</option>
+                        <option value="Advanced">🔥 Advanced</option>
+                        <option value="Native">⭐ Native</option>
+                    </select>
+                </div>
+                <div class="setup-field setup-full">
+                    <label><i class="fa-solid fa-microphone" style="color:var(--accent)"></i> Mikrofon testi</label>
+                    <div class="mic-level-bar">
+                        <div class="mic-level-fill" id="micLevelFill"></div>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:6px">
+                        <button class="test-mic-btn" onclick="startMicTest()"><i class="fa-solid fa-play"></i>
+                            Test</button>
+                        <button class="test-mic-btn" onclick="stopMicTest()"
+                            style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:var(--red)"><i
+                                class="fa-solid fa-stop"></i> To'xtat</button>
+                        <select id="micDeviceSelect"
+                            style="flex:1;padding:6px 10px;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.8rem;font-family:'DM Sans',sans-serif;outline:none"></select>
+                    </div>
+                </div>
             </div>
-            <div class="create-area">
-                <input type="text" id="roomNameInput" placeholder="Xona nomi... (masalan: English Practice)"
-                    maxlength="40" />
-                <button class="btn-create" onclick="createRoom()">
-                    <i class="fa-solid fa-plus"></i> Xona ochish
-                </button>
+
+            <div class="create-row">
+                <div style="flex:1;position:relative">
+                    <input type="text" id="roomNameInput" placeholder="Xona nomi... (masalan: English Practice)"
+                        maxlength="40"
+                        style="width:100%;padding:11px 14px;background:var(--surface);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:0.9rem;font-family:'DM Sans',sans-serif;outline:none;transition:all 0.2s" />
+                </div>
+                <button class="btn-create" onclick="openCreateModal()"><i class="fa-solid fa-plus"></i> Xona
+                    ochish</button>
             </div>
+
+            <!-- Filters -->
+            <div class="filters-row">
+                <span style="font-size:0.78rem;color:var(--muted);font-weight:600;flex-shrink:0">Filter:</span>
+                <button class="filter-btn active" onclick="filterRooms('all',this)">Hammasi</button>
+                <button class="filter-btn" onclick="filterRooms('English',this)">🇬🇧 English</button>
+                <button class="filter-btn" onclick="filterRooms('Russian',this)">🇷🇺 Russian</button>
+                <button class="filter-btn" onclick="filterRooms('open',this)">🔓 Ochiq</button>
+                <button class="filter-btn" onclick="filterRooms('small',this)">👤 1-3 kishi</button>
+                <input class="search-rooms" type="text" id="searchRooms" placeholder="🔍 Xona qidirish..."
+                    oninput="renderRooms(allRooms)" />
+            </div>
+
             <div class="rooms-header">
                 <h3><i class="fa-solid fa-door-open"></i> Barcha ochiq xonalar</h3>
+                <span class="room-count" id="roomCount">0 ta</span>
             </div>
             <div class="rooms-grid" id="roomsGrid">
                 <div class="empty-state"><i class="fa-solid fa-rotate fa-spin"></i>
@@ -847,42 +2035,356 @@
             </div>
         </div>
 
+        <!-- ═══ ACTIVE ROOM ═══ -->
         <div id="activeRoom">
-            <div class="voice-room-wrap">
-                <div class="room-top">
-                    <div class="room-top-left">
-                        <h2 id="activeRoomName">Voice Room</h2>
-                        <p id="activeRoomSub"></p>
+            <div class="voice-room-layout">
+                <!-- Main panel -->
+                <div>
+                    <div class="voice-room-wrap">
+                        <div class="room-top">
+                            <div class="room-top-left">
+                                <h2 id="activeRoomName">Voice Room</h2>
+                                <p id="activeRoomSub"></p>
+                            </div>
+                            <div class="room-top-right">
+                                <span class="duration-badge"><i class="fa-regular fa-clock"></i> <span
+                                        id="durationEl">00:00</span></span>
+                                <div class="live-dot">LIVE</div>
+                            </div>
+                        </div>
+
+                        <div class="participants-area" id="participantsArea"></div>
+
+                        <!-- Waveform -->
+                        <div style="padding:0 22px 12px">
+                            <canvas class="waveform-canvas" id="waveformCanvas"></canvas>
+                        </div>
+
+                        <div class="room-controls">
+                            <div class="ctrl-wrap">
+                                <button class="ctrl-btn mic" id="micBtn" onclick="toggleMic()">
+                                    <i class="fa-solid fa-microphone"></i>
+                                    <span class="ctrl-tooltip">Mikrofon (M)</span>
+                                </button>
+                                <div class="ctrl-label" id="micLabel">Mikrofon</div>
+                            </div>
+
+                            <div class="ctrl-wrap">
+                                <button class="ctrl-btn hand-btn" id="handBtn" onclick="toggleHand()">
+                                    <i class="fa-solid fa-hand"></i>
+                                    <span class="ctrl-tooltip">Qo'l ko'tarish</span>
+                                </button>
+                                <div class="ctrl-label">Qo'l</div>
+                            </div>
+
+                            <div class="ctrl-wrap">
+                                <button class="ctrl-btn react-btn" onclick="toggleReactPanel()">
+                                    <i class="fa-solid fa-face-laugh"></i>
+                                    <span class="ctrl-tooltip">Reaksiyalar</span>
+                                </button>
+                                <div class="ctrl-label">Reaksiya</div>
+                            </div>
+
+                            <div class="ctrl-wrap">
+                                <button class="ctrl-btn settings-btn" onclick="openSettingsModal()">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <span class="ctrl-tooltip">Sozlamalar</span>
+                                </button>
+                                <div class="ctrl-label">Sozlama</div>
+                            </div>
+
+                            <div class="ctrl-wrap">
+                                <button class="ctrl-btn settings-btn" onclick="shareRoom()">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                    <span class="ctrl-tooltip">Ulashish</span>
+                                </button>
+                                <div class="ctrl-label">Ulash</div>
+                            </div>
+
+                            <button class="ctrl-btn leave" onclick="leaveRoom()">
+                                <i class="fa-solid fa-phone-slash"></i> Chiqish
+                            </button>
+                        </div>
+
+                        <!-- Reaction panel (collapsible) -->
+                        <div id="reactPanel" style="display:none;padding:14px 22px;border-top:1px solid var(--border)">
+                            <div class="reactions-grid" id="reactGrid"></div>
+                        </div>
                     </div>
-                    <div class="live-dot">LIVE</div>
                 </div>
-                <div class="participants-area" id="participantsArea"></div>
-                <div class="room-controls">
-                    <div class="ctrl-wrap">
-                        <button class="ctrl-btn mic" id="micBtn" onclick="toggleMic()">
-                            <i class="fa-solid fa-microphone"></i>
-                        </button>
-                        <div class="ctrl-label" id="micLabel">Mikrofon</div>
+
+                <!-- Side panels -->
+                <div class="side-panels" id="sidePanels">
+                    <!-- Volume -->
+                    <div class="side-panel">
+                        <div class="sp-header" onclick="togglePanel('volPanel',this)">
+                            <h4><i class="fa-solid fa-volume-high"></i> Ovoz darajasi</h4>
+                            <i class="fa-solid fa-chevron-down sp-toggle open"></i>
+                        </div>
+                        <div class="sp-body" id="volPanel">
+                            <div class="vol-slider-wrap">
+                                <i class="fa-solid fa-volume-low" style="color:var(--muted);font-size:0.8rem"></i>
+                                <input type="range" class="vol-slider" id="masterVolSlider" min="0" max="200"
+                                    value="100" oninput="setMasterVolume(this.value)" />
+                                <i class="fa-solid fa-volume-high" style="color:var(--muted);font-size:0.8rem"></i>
+                                <span style="color:var(--text);font-size:0.8rem;min-width:36px;font-weight:700"
+                                    id="volLabel">100%</span>
+                            </div>
+                            <div style="font-size:0.72rem;color:var(--muted);text-align:center">Umumiy ovoz (0–200%)
+                            </div>
+                        </div>
                     </div>
-                    <button class="ctrl-btn leave" onclick="leaveRoom()">
-                        <i class="fa-solid fa-phone-slash"></i> Chiqish
-                    </button>
+
+                    <!-- Chat -->
+                    <div class="side-panel">
+                        <div class="sp-header" onclick="togglePanel('chatPanel',this)">
+                            <h4><i class="fa-solid fa-message"></i> Chat <span id="unreadBadge"
+                                    style="display:none;background:var(--red);color:#fff;font-size:0.6rem;padding:1px 5px;border-radius:8px;font-weight:700"></span>
+                            </h4>
+                            <i class="fa-solid fa-chevron-down sp-toggle open"></i>
+                        </div>
+                        <div class="sp-body" id="chatPanel">
+                            <div class="chat-messages" id="chatMessages"></div>
+                            <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap">
+                                <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
+                                    onclick="insertQuick('👋 Salom!')">👋 Salom</button>
+                                <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
+                                    onclick="insertQuick('👍 Yaxshi!')">👍 Yaxshi</button>
+                                <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
+                                    onclick="insertQuick('🙏 Rahmat')">🙏 Rahmat</button>
+                                <button class="filter-btn" style="font-size:0.7rem;padding:3px 8px"
+                                    onclick="insertQuick('😄 Ha-ha!')">😄 lol</button>
+                            </div>
+                            <div class="chat-input-row">
+                                <input class="chat-input" id="chatInput" placeholder="Xabar yozing..." maxlength="200"
+                                    onkeydown="if(event.key==='Enter')sendChat()" />
+                                <button class="chat-send" onclick="sendChat()"><i
+                                        class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Room info -->
+                    <div class="side-panel">
+                        <div class="sp-header" onclick="togglePanel('infoPanel',this)">
+                            <h4><i class="fa-solid fa-circle-info"></i> Xona ma'lumoti</h4>
+                            <i class="fa-solid fa-chevron-down sp-toggle open"></i>
+                        </div>
+                        <div class="sp-body" id="infoPanel">
+                            <div class="info-row"><span class="info-label">Xona nomi</span><span class="info-val"
+                                    id="infoName">—</span></div>
+                            <div class="info-row"><span class="info-label">Yaratuvchi</span><span class="info-val"
+                                    id="infoHost">—</span></div>
+                            <div class="info-row"><span class="info-label">Ishtirokchilar</span><span class="info-val"
+                                    id="infoPeers">—</span></div>
+                            <div class="info-row"><span class="info-label">Til</span><span class="info-val"
+                                    id="infoLang">—</span></div>
+                            <div class="info-row"><span class="info-label">Daraja</span><span class="info-val"
+                                    id="infoLevel">—</span></div>
+                            <div class="info-row"><span class="info-label">Aloqa sifati</span><span class="info-val"
+                                    id="infoQuality">—</span></div>
+                            <div class="info-row"><span class="info-label">Xona ID</span><span class="info-val"
+                                    id="infoId" style="font-size:0.7rem;word-break:break-all">—</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Participants list -->
+                    <div class="side-panel">
+                        <div class="sp-header" onclick="togglePanel('peersListPanel',this)">
+                            <h4><i class="fa-solid fa-users"></i> Ishtirokchilar <span id="peerListCount"
+                                    style="font-size:0.72rem;color:var(--muted);font-weight:400"></span></h4>
+                            <i class="fa-solid fa-chevron-down sp-toggle open"></i>
+                        </div>
+                        <div class="sp-body" id="peersListPanel">
+                            <div class="pm-list" id="peersList"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- ═══ MODALS ═══ -->
+    <!-- Create Room Modal -->
+    <div class="modal-overlay" id="createModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('createModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3><i class="fa-solid fa-plus-circle"></i> Yangi xona yaratish</h3>
+            <div class="modal-field">
+                <label>Xona nomi *</label>
+                <input type="text" id="cm_name" placeholder="English Practice" maxlength="40" />
+            </div>
+            <div class="modal-field">
+                <label>Tavsif</label>
+                <textarea id="cm_desc" placeholder="Bu xona haqida qisqacha..."></textarea>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div class="modal-field">
+                    <label>Til</label>
+                    <select id="cm_lang">
+                        <option value="English">🇬🇧 English</option>
+                        <option value="Russian">🇷🇺 Russian</option>
+                        <option value="Spanish">🇪🇸 Spanish</option>
+                        <option value="German">🇩🇪 German</option>
+                        <option value="French">🇫🇷 French</option>
+                        <option value="Korean">🇰🇷 Korean</option>
+                        <option value="Japanese">🇯🇵 Japanese</option>
+                        <option value="Boshqa">🌐 Boshqa</option>
+                    </select>
+                </div>
+                <div class="modal-field">
+                    <label>Daraja</label>
+                    <select id="cm_level">
+                        <option value="Hammasi">Hammasi</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <div class="modal-field">
+                    <label>Max ishtirokchilar</label>
+                    <select id="cm_max">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div class="modal-field">
+                    <label>Tur</label>
+                    <select id="cm_type">
+                        <option value="open">🔓 Ochiq</option>
+                        <option value="locked">🔒 Parolli</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-field" id="cm_passWrap" style="display:none">
+                <label>Parol</label>
+                <div class="pass-input-wrap">
+                    <input type="password" id="cm_pass" placeholder="Xona paroli..." maxlength="30" />
+                    <button class="pass-toggle" type="button" onclick="togglePassVis('cm_pass')"><i
+                            class="fa-solid fa-eye"></i></button>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-modal-cancel" onclick="closeModal('createModal')">Bekor</button>
+                <button class="btn-modal-ok" onclick="createRoom()"><i class="fa-solid fa-rocket"></i> Yaratish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Join Password Modal -->
+    <div class="modal-overlay" id="joinPassModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('joinPassModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3><i class="fa-solid fa-lock"></i> Parolni kiriting</h3>
+            <p style="color:var(--muted);font-size:0.85rem;margin-bottom:16px">Bu xona parolli. Kirish uchun parolni
+                yozing.</p>
+            <div class="modal-field">
+                <label>Parol</label>
+                <div class="pass-input-wrap">
+                    <input type="password" id="jp_pass" placeholder="Xona paroli..." maxlength="30"
+                        onkeydown="if(event.key==='Enter')confirmJoinPass()" />
+                    <button class="pass-toggle" type="button" onclick="togglePassVis('jp_pass')"><i
+                            class="fa-solid fa-eye"></i></button>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-modal-cancel" onclick="closeModal('joinPassModal')">Bekor</button>
+                <button class="btn-modal-ok" onclick="confirmJoinPass()"><i
+                        class="fa-solid fa-arrow-right-to-bracket"></i> Kirish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal" style="max-width:500px">
+            <button class="modal-close" onclick="closeModal('settingsModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h3><i class="fa-solid fa-sliders"></i> Audio sozlamalari</h3>
+            <div class="modal-field">
+                <label>Mikrofon qurilmasi</label>
+                <div class="device-row">
+                    <select id="micDevSelect"
+                        style="flex:1;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.85rem;font-family:'DM Sans',sans-serif;outline:none"></select>
+                </div>
+            </div>
+            <div class="modal-field">
+                <label>Chiqish qurilmasi</label>
+                <div class="device-row">
+                    <select id="outDevSelect"
+                        style="flex:1;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.85rem;font-family:'DM Sans',sans-serif;outline:none"></select>
+                </div>
+            </div>
+            <div style="margin-bottom:12px">
+                <div class="toggle-row">
+                    <span class="toggle-label"><i class="fa-solid fa-volume-xmark"
+                            style="color:var(--accent);margin-right:6px"></i> Shovqin filtri (Noise Suppression)</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="noiseSuppToggle" checked onchange="applyAudioConstraints()" />
+                        <div class="toggle-track"></div>
+                        <div class="toggle-thumb"></div>
+                    </label>
+                </div>
+                <div class="toggle-row">
+                    <span class="toggle-label"><i class="fa-solid fa-waveform-lines"
+                            style="color:var(--accent);margin-right:6px"></i> Echo bekor qilish</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="echoCancelToggle" checked onchange="applyAudioConstraints()" />
+                        <div class="toggle-track"></div>
+                        <div class="toggle-thumb"></div>
+                    </label>
+                </div>
+                <div class="toggle-row">
+                    <span class="toggle-label"><i class="fa-solid fa-signal"
+                            style="color:var(--accent);margin-right:6px"></i> Auto darajani moslash (AGC)</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="agcToggle" checked onchange="applyAudioConstraints()" />
+                        <div class="toggle-track"></div>
+                        <div class="toggle-thumb"></div>
+                    </label>
+                </div>
+                <div class="toggle-row">
+                    <span class="toggle-label"><i class="fa-solid fa-bell"
+                            style="color:var(--accent);margin-right:6px"></i> Bildirishnomalar</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notifToggle" checked />
+                        <div class="toggle-track"></div>
+                        <div class="toggle-thumb"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-field">
+                <label>Mikrofon sezgirligi testi</label>
+                <div class="mic-level-bar">
+                    <div class="mic-level-fill" id="settingsMicFill"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-modal-cancel" onclick="closeModal('settingsModal')">Yopish</button>
+                <button class="btn-modal-ok" onclick="applyAudioConstraints();closeModal('settingsModal')"><i
+                        class="fa-solid fa-check"></i> Qo'llash</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connecting Overlay -->
     <div id="connectingOverlay">
         <div class="spinner-big"></div>
         <p id="connectingText">Ulanmoqda...</p>
+        <small id="connectingHint"></small>
     </div>
+
     <div class="toast" id="toast"></div>
 
     <script type="module">
         import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
         import {
             getFirestore, collection, addDoc, doc, deleteDoc,
-            updateDoc, onSnapshot, serverTimestamp, query, orderBy, arrayUnion, arrayRemove, getDoc
+            updateDoc, onSnapshot, serverTimestamp, query, orderBy,
+            arrayUnion, arrayRemove, getDoc
         } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
         const FB_CONFIG = {
@@ -894,127 +2396,505 @@
             appId: "1:130625454868:web:3f02871f64cb5f8af27801"
         };
 
-        let _app;
-        try { _app = getApp(); } catch { _app = initializeApp(FB_CONFIG); }
+        let _app; try { _app = getApp(); } catch { _app = initializeApp(FB_CONFIG); }
         const db = getFirestore(_app);
 
-        // ── CURSOR ──
+        // ══════════════════════════════════════
+        // STATE
+        // ══════════════════════════════════════
+        let peer = null, myStream = null, myPeerId = null;
+        let myRoomDocId = null, myRoomName = '', myRoomData = null;
+        let isMuted = false, handRaised = false;
+        let connections = {}; // { peerId: { call, data, gainNode, audioEl, ctx, analyser } }
+        let participants = {}; // { peerId: { name, muted, hand, level } }
+        let unsubRoom = null;
+        let masterGain = null;
+        let masterCtx = null;
+        let masterDest = null;
+        let durationInterval = null;
+        let startTime = null;
+        let pingInterval = null;
+        let reconnectTimers = {};
+        let chatOpen = true;
+        let unreadCount = 0;
+        let currentFilter = 'all';
+        let pendingJoinRoomId = null;
+        let micTestStream = null, micTestAnalyser = null, micTestInterval = null;
+        let waveformRAF = null;
+        let myAnalyserForWave = null;
+
+        // ══════════════════════════════════════
+        // CURSOR
+        // ══════════════════════════════════════
         const cursor = document.getElementById('cursor');
         const cursorRing = document.getElementById('cursorRing');
         document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX - 5 + 'px'; cursor.style.top = e.clientY - 5 + 'px';
-            cursorRing.style.left = e.clientX - 18 + 'px'; cursorRing.style.top = e.clientY - 18 + 'px';
+            cursor.style.left = e.clientX - 5 + 'px';
+            cursor.style.top = e.clientY - 5 + 'px';
+            cursorRing.style.left = e.clientX - 18 + 'px';
+            cursorRing.style.top = e.clientY - 18 + 'px';
         });
 
-        // ── STATE ──
-        let peer = null;
-        let myStream = null;
-        let myPeerId = null;
-        let myRoomDocId = null;
-        let myRoomName = '';
-        let isMuted = false;
-        // connections: { peerId: { call, data } }
-        let connections = {};
-        // participants: { peerId: { name, muted } }
-        let participants = {};
-        // Firestore real-time listener xona ichida
-        let unsubRoom = null;
-
-        // ── UTILS ──
+        // ══════════════════════════════════════
+        // TOAST
+        // ══════════════════════════════════════
         function showToast(msg, type = '') {
             const t = document.getElementById('toast');
-            t.className = 'toast ' + type; t.innerHTML = msg; t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 3500);
+            t.className = 'toast ' + type;
+            t.innerHTML = msg;
+            t.classList.add('show');
+            clearTimeout(t._to);
+            t._to = setTimeout(() => t.classList.remove('show'), 3500);
         }
-        function showOverlay(text) {
+
+        // ══════════════════════════════════════
+        // OVERLAY
+        // ══════════════════════════════════════
+        function showOverlay(text, hint = '') {
             document.getElementById('connectingText').textContent = text;
+            document.getElementById('connectingHint').textContent = hint;
             document.getElementById('connectingOverlay').classList.add('show');
         }
-        function hideOverlay() { document.getElementById('connectingOverlay').classList.remove('show'); }
+        function hideOverlay() {
+            document.getElementById('connectingOverlay').classList.remove('show');
+        }
 
-        // ── RENDER ──
+        // ══════════════════════════════════════
+        // MODAL HELPERS
+        // ══════════════════════════════════════
+        window.closeModal = id => document.getElementById(id).classList.remove('show');
+
+        window.openCreateModal = () => {
+            const n = document.getElementById('roomNameInput').value.trim();
+            if (n) document.getElementById('cm_name').value = n;
+            document.getElementById('createModal').classList.add('show');
+        };
+
+        window.togglePassVis = id => {
+            const el = document.getElementById(id);
+            el.type = el.type === 'password' ? 'text' : 'password';
+        };
+
+        document.getElementById('cm_type').addEventListener('change', e => {
+            document.getElementById('cm_passWrap').style.display = e.target.value === 'locked' ? 'block' : 'none';
+        });
+
+        // ══════════════════════════════════════
+        // PANEL TOGGLE
+        // ══════════════════════════════════════
+        window.togglePanel = (panelId, header) => {
+            const panel = document.getElementById(panelId);
+            const icon = header.querySelector('.sp-toggle');
+            const isOpen = panel.style.display !== 'none';
+            panel.style.display = isOpen ? 'none' : 'block';
+            icon.classList.toggle('open', !isOpen);
+        };
+
+        // ══════════════════════════════════════
+        // NETWORK STATUS
+        // ══════════════════════════════════════
+        function updateNetStatus() {
+            const badge = document.getElementById('netStatusBadge');
+            if (!navigator.onLine) {
+                badge.className = 'net-status bad';
+                badge.innerHTML = '<i class="fa-solid fa-wifi-slash"></i> Offline';
+            } else {
+                badge.className = 'net-status good';
+                badge.innerHTML = '<i class="fa-solid fa-wifi"></i> Yaxshi';
+            }
+        }
+        window.addEventListener('online', () => { updateNetStatus(); showToast('<i class="fa-solid fa-wifi"></i> Internet tiklandi', 'success'); });
+        window.addEventListener('offline', () => { updateNetStatus(); showToast('<i class="fa-solid fa-wifi-slash"></i> Internet yo\'q!', 'error'); });
+        updateNetStatus();
+
+        // ══════════════════════════════════════
+        // MIC DEVICES
+        // ══════════════════════════════════════
+        async function loadMicDevices() {
+            try {
+                await navigator.mediaDevices.getUserMedia({ audio: true });
+                const devices = await navigator.mediaDevices.enumerateDevices();
+                const mics = devices.filter(d => d.kind === 'audioinput');
+                const outDevs = devices.filter(d => d.kind === 'audiooutput');
+                ['micDeviceSelect', 'micDevSelect'].forEach(id => {
+                    const sel = document.getElementById(id);
+                    if (!sel) return;
+                    sel.innerHTML = mics.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Mikrofon ' + (i + 1)}</option>`).join('');
+                });
+                const outSel = document.getElementById('outDevSelect');
+                if (outSel) outSel.innerHTML = outDevs.map((d, i) => `<option value="${d.deviceId}">${d.label || 'Chiqish ' + (i + 1)}</option>`).join('');
+            } catch (e) { /* silent */ }
+        }
+        loadMicDevices();
+
+        // ══════════════════════════════════════
+        // MIC TEST (setup area)
+        // ══════════════════════════════════════
+        window.startMicTest = async () => {
+            stopMicTest();
+            try {
+                const deviceId = document.getElementById('micDeviceSelect').value;
+                const constr = { audio: deviceId ? { deviceId: { exact: deviceId }, echoCancellation: true, noiseSuppression: true } : { echoCancellation: true, noiseSuppression: true } };
+                micTestStream = await navigator.mediaDevices.getUserMedia(constr);
+                const ctx = new AudioContext();
+                const analyser = ctx.createAnalyser();
+                analyser.fftSize = 256;
+                ctx.createMediaStreamSource(micTestStream).connect(analyser);
+                micTestAnalyser = analyser;
+                const data = new Uint8Array(analyser.frequencyBinCount);
+                micTestInterval = setInterval(() => {
+                    analyser.getByteFrequencyData(data);
+                    const avg = data.reduce((a, b) => a + b, 0) / data.length;
+                    document.getElementById('micLevelFill').style.width = Math.min(100, avg * 3) + '%';
+                    if (document.getElementById('settingsMicFill'))
+                        document.getElementById('settingsMicFill').style.width = Math.min(100, avg * 3) + '%';
+                }, 50);
+                showToast('<i class="fa-solid fa-microphone"></i> Mikrofon testi boshlandi', 'success');
+            } catch (e) {
+                showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon topilmadi!', 'error');
+            }
+        };
+
+        window.stopMicTest = () => {
+            if (micTestInterval) clearInterval(micTestInterval);
+            if (micTestStream) micTestStream.getTracks().forEach(t => t.stop());
+            micTestStream = null; micTestAnalyser = null; micTestInterval = null;
+            document.getElementById('micLevelFill').style.width = '0%';
+        };
+
+        // ══════════════════════════════════════
+        // SETTINGS MODAL
+        // ══════════════════════════════════════
+        window.openSettingsModal = async () => {
+            await loadMicDevices();
+            // Start mic level in settings
+            if (myStream) {
+                const ctx2 = new AudioContext();
+                const an2 = ctx2.createAnalyser();
+                ctx2.createMediaStreamSource(myStream).connect(an2);
+                an2.fftSize = 256;
+                const d2 = new Uint8Array(an2.frequencyBinCount);
+                const intv = setInterval(() => {
+                    if (!document.getElementById('settingsModal').classList.contains('show')) { clearInterval(intv); return; }
+                    an2.getByteFrequencyData(d2);
+                    const avg = d2.reduce((a, b) => a + b, 0) / d2.length;
+                    const fill = document.getElementById('settingsMicFill');
+                    if (fill) fill.style.width = Math.min(100, avg * 3) + '%';
+                }, 50);
+            }
+            document.getElementById('settingsModal').classList.add('show');
+        };
+
+        // Apply audio constraints live
+        window.applyAudioConstraints = async () => {
+            if (!myStream) return;
+            const ns = document.getElementById('noiseSuppToggle').checked;
+            const ec = document.getElementById('echoCancelToggle').checked;
+            const agc = document.getElementById('agcToggle').checked;
+            const deviceId = document.getElementById('micDevSelect').value;
+            try {
+                const constr = {
+                    audio: {
+                        deviceId: deviceId ? { exact: deviceId } : undefined,
+                        noiseSuppression: ns,
+                        echoCancellation: ec,
+                        autoGainControl: agc,
+                        sampleRate: 48000,
+                        channelCount: 1,
+                    }
+                };
+                const newStream = await navigator.mediaDevices.getUserMedia(constr);
+                const oldTrack = myStream.getAudioTracks()[0];
+                const newTrack = newStream.getAudioTracks()[0];
+                // Replace track in all peer connections
+                Object.values(connections).forEach(c => {
+                    if (c.call && c.call.peerConnection) {
+                        c.call.peerConnection.getSenders().forEach(s => {
+                            if (s.track && s.track.kind === 'audio') s.replaceTrack(newTrack);
+                        });
+                    }
+                });
+                oldTrack.stop();
+                myStream.removeTrack(oldTrack);
+                myStream.addTrack(newTrack);
+                newTrack.enabled = !isMuted;
+                showToast('<i class="fa-solid fa-check-circle"></i> Audio sozlamalari qo\'llandi', 'success');
+            } catch (e) {
+                showToast('<i class="fa-solid fa-exclamation-circle"></i> Qurilma o\'zgartirish xatosi', 'error');
+            }
+        };
+
+        // ══════════════════════════════════════
+        // MASTER VOLUME & AUDIO GRAPH
+        // ══════════════════════════════════════
+        function getMasterCtx() {
+            if (!masterCtx) {
+                masterCtx = new AudioContext();
+                masterGain = masterCtx.createGain();
+                masterGain.gain.value = 1.0;
+                masterGain.connect(masterCtx.destination);
+                masterDest = masterGain;
+            }
+            return masterCtx;
+        }
+
+        window.setMasterVolume = (val) => {
+            const v = parseFloat(val) / 100;
+            if (masterGain) masterGain.gain.value = v;
+            document.getElementById('volLabel').textContent = Math.round(val) + '%';
+            // Also update all audio elements directly as fallback
+            document.querySelectorAll('audio[id^="audio-"]').forEach(a => {
+                a.volume = Math.min(1, v);
+            });
+        };
+
+        // ══════════════════════════════════════
+        // RENDER PARTICIPANTS
+        // ══════════════════════════════════════
         function renderParticipants() {
             const area = document.getElementById('participantsArea');
             const myName = document.getElementById('myName').value.trim() || 'Men';
             area.innerHTML = '';
 
-            // O'zim
+            // Me
             const me = document.createElement('div');
             me.className = 'participant';
+            const lvl = document.getElementById('myLevel')?.value || '';
             me.innerHTML = `
     <div class="participant-avatar ${isMuted ? 'muted' : ''}" id="avatar-me">
       ${myName.charAt(0).toUpperCase()}
       <div class="mute-icon"><i class="fa-solid fa-microphone-slash"></i></div>
+      <div class="hand-icon">✋</div>
+      <div class="vol-bars" id="vbars-me">
+        <div class="vol-bar"></div><div class="vol-bar"></div><div class="vol-bar"></div><div class="vol-bar"></div><div class="vol-bar"></div>
+      </div>
     </div>
-    <div class="participant-name">${myName}</div>
-    <div class="participant-you">(Siz)</div>`;
+    <div class="participant-name">${escHtml(myName)}</div>
+    <div class="participant-you">(Siz) ${lvl ? '· ' + lvl : ''}</div>
+    ${myRoomData?.hostPeerId === myPeerId ? '<div class="participant-role host">HOST</div>' : ''}`;
+            if (handRaised) me.querySelector('.participant-avatar').classList.add('hand-raised');
             area.appendChild(me);
 
             Object.entries(participants).forEach(([pid, data]) => {
                 const div = document.createElement('div');
                 div.className = 'participant';
                 div.innerHTML = `
-      <div class="participant-avatar ${data.muted ? 'muted' : ''}" id="avatar-${pid}">
+      <div class="participant-avatar ${data.muted ? 'muted' : ''} ${data.hand ? 'hand-raised' : ''}" id="avatar-${pid}">
         ${(data.name || '?').charAt(0).toUpperCase()}
         <div class="mute-icon"><i class="fa-solid fa-microphone-slash"></i></div>
+        <div class="hand-icon">✋</div>
+        <div class="vol-bars" id="vbars-${pid}">
+          <div class="vol-bar"></div><div class="vol-bar"></div><div class="vol-bar"></div><div class="vol-bar"></div><div class="vol-bar"></div>
+        </div>
       </div>
-      <div class="participant-name">${data.name || 'Mehmon'}</div>`;
+      <div class="participant-name">${escHtml(data.name || 'Mehmon')}</div>
+      ${myRoomData?.hostPeerId === pid ? '<div class="participant-role host">HOST</div>' : ''}`;
                 area.appendChild(div);
             });
+
+            // Peers list panel
+            const pl = document.getElementById('peersList');
+            if (pl) {
+                const allPeers = [{ id: 'me', name: myName, muted: isMuted, hand: handRaised }, ...Object.entries(participants).map(([id, d]) => ({ id, ...d }))];
+                pl.innerHTML = allPeers.map(p => `
+      <div class="pm-item">
+        <div class="pm-dot" style="background:${p.muted ? 'var(--red)' : 'var(--green)'}"></div>
+        <span class="pm-name">${escHtml(p.name)}${p.id === 'me' ? ' (Siz)' : ''}</span>
+        ${p.hand ? '<i class="fa-solid fa-hand" style="color:var(--yellow);font-size:0.8rem"></i>' : ''}
+        ${p.muted ? '<i class="fa-solid fa-microphone-slash" style="color:var(--red);font-size:0.72rem"></i>' : '<i class="fa-solid fa-microphone" style="color:var(--green);font-size:0.72rem"></i>'}
+      </div>`).join('');
+                document.getElementById('peerListCount').textContent = allPeers.length + ' kishi';
+            }
+
+            // Info panel
+            const totalPeers = Object.keys(participants).length + 1;
+            document.getElementById('activeRoomSub').textContent = totalPeers + ' ishtirokchi';
+            document.getElementById('infoPeers').textContent = totalPeers + ' kishi';
         }
 
-        // ── SPEAKING ──
-        function detectSpeaking(stream, avatarId) {
+        // ══════════════════════════════════════
+        // AUDIO: connect remote stream through gain
+        // ══════════════════════════════════════
+        function connectRemoteAudio(pid, remoteStream) {
+            const ctx = getMasterCtx();
+            // Remove existing if any
+            const old = document.getElementById('audio-' + pid);
+            if (old) old.remove();
+            if (connections[pid]?.sourceNode) {
+                try { connections[pid].sourceNode.disconnect(); } catch (e) { }
+            }
+
+            // Audio element (fallback + triggers autoplay)
+            const audio = new Audio();
+            audio.id = 'audio-' + pid;
+            audio.autoplay = true;
+            audio.muted = false;
+            audio.volume = Math.min(1, parseFloat(document.getElementById('masterVolSlider').value) / 100);
+            audio.srcObject = remoteStream;
+            document.body.appendChild(audio);
+
+            // Web Audio graph for gain boost
             try {
-                const ctx = new AudioContext();
+                const src = ctx.createMediaStreamSource(remoteStream);
+                const gainNode = ctx.createGain();
+                gainNode.gain.value = Math.max(1, parseFloat(document.getElementById('masterVolSlider').value) / 100);
+                const analyserNode = ctx.createAnalyser();
+                analyserNode.fftSize = 512;
+                src.connect(gainNode);
+                gainNode.connect(analyserNode);
+                gainNode.connect(ctx.destination);
+                if (!connections[pid]) connections[pid] = {};
+                connections[pid].sourceNode = src;
+                connections[pid].gainNode = gainNode;
+                connections[pid].analyser = analyserNode;
+                connections[pid].ctx = ctx;
+                startVolBars(pid, analyserNode);
+            } catch (e) { /* fallback: audio element only */ }
+        }
+
+        // ══════════════════════════════════════
+        // SPEAKING DETECTION
+        // ══════════════════════════════════════
+        function startVolBars(pid, analyser) {
+            const data = new Uint8Array(analyser.frequencyBinCount);
+            let speaking = false;
+            const intv = setInterval(() => {
+                const avEl = document.getElementById('avatar-' + pid);
+                if (!avEl) { clearInterval(intv); return; }
+                analyser.getByteFrequencyData(data);
+                const avg = data.reduce((a, b) => a + b, 0) / data.length;
+                const now = avg > 10;
+                if (now !== speaking) {
+                    speaking = now;
+                    avEl.classList.toggle('speaking', now);
+                    document.getElementById('vbars-' + pid)?.classList.toggle('active', now);
+                }
+            }, 80);
+            if (!connections[pid]) connections[pid] = {};
+            connections[pid].volInterval = intv;
+        }
+
+        function startMyVolBars() {
+            if (!myStream) return;
+            try {
+                const ctx = getMasterCtx();
                 const analyser = ctx.createAnalyser();
-                ctx.createMediaStreamSource(stream).connect(analyser);
                 analyser.fftSize = 512;
+                ctx.createMediaStreamSource(myStream).connect(analyser);
+                myAnalyserForWave = analyser;
                 const data = new Uint8Array(analyser.frequencyBinCount);
                 let speaking = false;
                 setInterval(() => {
                     analyser.getByteFrequencyData(data);
                     const avg = data.reduce((a, b) => a + b, 0) / data.length;
-                    const now = avg > 12;
+                    const now = avg > 10 && !isMuted;
                     if (now !== speaking) {
                         speaking = now;
-                        document.getElementById(avatarId)?.classList.toggle('speaking', now);
+                        document.getElementById('avatar-me')?.classList.toggle('speaking', now);
+                        document.getElementById('vbars-me')?.classList.toggle('active', now);
                     }
-                }, 100);
+                }, 80);
+                drawWaveform();
             } catch (e) { }
         }
 
-        // ── CALL ONE PEER ──
-        function callPeer(targetPeerId, targetName) {
-            if (connections[targetPeerId]?.call) return; // allaqachon ulangan
-            const call = peer.call(targetPeerId, myStream, {
-                metadata: { name: document.getElementById('myName').value.trim() }
-            });
-            if (!call) return;
-            participants[targetPeerId] = { name: targetName || 'Mehmon', muted: false };
+        // ══════════════════════════════════════
+        // WAVEFORM
+        // ══════════════════════════════════════
+        function drawWaveform() {
+            const canvas = document.getElementById('waveformCanvas');
+            if (!canvas || !myAnalyserForWave) return;
+            const ctx = canvas.getContext('2d');
+            const W = canvas.offsetWidth || 600;
+            const H = canvas.offsetHeight || 40;
+            canvas.width = W; canvas.height = H;
+            const data = new Uint8Array(myAnalyserForWave.frequencyBinCount);
 
-            call.on('stream', remoteStream => {
-                let audio = document.getElementById('audio-' + targetPeerId);
-                if (!audio) {
-                    audio = document.createElement('audio');
-                    audio.id = 'audio-' + targetPeerId;
-                    audio.autoplay = true;
-                    document.body.appendChild(audio);
-                }
-                audio.srcObject = remoteStream;
-                detectSpeaking(remoteStream, 'avatar-' + targetPeerId);
-                renderParticipants();
-                showToast(`<i class="fa-solid fa-user-plus"></i> ${participants[targetPeerId]?.name || 'Mehmon'} qo'shildi!`, 'success');
-            });
-
-            call.on('close', () => removeParticipant(targetPeerId));
-            call.on('error', () => removeParticipant(targetPeerId));
-
-            if (!connections[targetPeerId]) connections[targetPeerId] = {};
-            connections[targetPeerId].call = call;
+            function draw() {
+                waveformRAF = requestAnimationFrame(draw);
+                myAnalyserForWave.getByteFrequencyData(data);
+                ctx.clearRect(0, 0, W, H);
+                ctx.fillStyle = 'rgba(255,255,255,0.02)';
+                ctx.fillRect(0, 0, W, H);
+                const barW = W / data.length * 2.5;
+                let x = 0;
+                data.forEach((v, i) => {
+                    const h = (v / 255) * H;
+                    const alpha = isMuted ? 0.3 : 0.7;
+                    const grad = ctx.createLinearGradient(0, H - h, 0, H);
+                    grad.addColorStop(0, `rgba(79,110,247,${alpha})`);
+                    grad.addColorStop(1, `rgba(167,139,250,${alpha * 0.5})`);
+                    ctx.fillStyle = grad;
+                    ctx.fillRect(x, H - h, barW - 1, h);
+                    x += barW + 1;
+                    if (x > W) return;
+                });
+            }
+            draw();
         }
 
-        // ── ANSWER INCOMING CALL ──
+        // ══════════════════════════════════════
+        // DURATION TIMER
+        // ══════════════════════════════════════
+        function startTimer() {
+            startTime = Date.now();
+            durationInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const m = String(Math.floor(elapsed / 60)).padStart(2, '0');
+                const s = String(elapsed % 60).padStart(2, '0');
+                document.getElementById('durationEl').textContent = m + ':' + s;
+            }, 1000);
+        }
+
+        // ══════════════════════════════════════
+        // CALL PEER (with retry)
+        // ══════════════════════════════════════
+        function callPeer(targetPeerId, targetName) {
+            if (!peer || peer.destroyed || peer.disconnected) return;
+            if (connections[targetPeerId]?.call) return;
+
+            try {
+                const myName = document.getElementById('myName').value.trim();
+                const call = peer.call(targetPeerId, myStream, {
+                    metadata: { name: myName, muted: isMuted, hand: handRaised }
+                });
+                if (!call) return;
+                if (!participants[targetPeerId]) participants[targetPeerId] = { name: targetName || 'Mehmon', muted: false, hand: false };
+                if (!connections[targetPeerId]) connections[targetPeerId] = {};
+                connections[targetPeerId].call = call;
+
+                let streamReceived = false;
+                call.on('stream', remoteStream => {
+                    streamReceived = true;
+                    connectRemoteAudio(targetPeerId, remoteStream);
+                    renderParticipants();
+                    addChatMsg({ type: 'system', text: `${participants[targetPeerId]?.name || 'Foydalanuvchi'} xonaga kirdi 🎉` });
+                    showToast(`<i class="fa-solid fa-user-plus"></i> ${participants[targetPeerId]?.name || 'Mehmon'} qo'shildi!`, 'success');
+                    clearTimeout(reconnectTimers[targetPeerId]);
+                });
+
+                call.on('close', () => removeParticipant(targetPeerId));
+                call.on('error', () => {
+                    removeParticipant(targetPeerId);
+                    // retry after 3s
+                    reconnectTimers[targetPeerId] = setTimeout(() => callPeer(targetPeerId, targetName), 3000);
+                });
+
+                // Open data channel too
+                const dataConn = peer.connect(targetPeerId, { reliable: true });
+                dataConn.on('open', () => {
+                    setupDataConn(dataConn);
+                    // Immediately send my state
+                    try { dataConn.send({ type: 'hello', name: myName, muted: isMuted, hand: handRaised }); } catch (e) { }
+                });
+            } catch (e) {
+                setTimeout(() => callPeer(targetPeerId, targetName), 3000);
+            }
+        }
+
+        // ══════════════════════════════════════
+        // ANSWER INCOMING CALL
+        // ══════════════════════════════════════
         function answerCall(call) {
             if (connections[call.peer]?.answered) return;
             if (!connections[call.peer]) connections[call.peer] = {};
@@ -1022,256 +2902,642 @@
 
             call.answer(myStream);
             const remoteName = call.metadata?.name || 'Mehmon';
-            participants[call.peer] = { name: remoteName, muted: false };
+            if (!participants[call.peer]) participants[call.peer] = { name: remoteName, muted: call.metadata?.muted || false, hand: call.metadata?.hand || false };
 
             call.on('stream', remoteStream => {
-                let audio = document.getElementById('audio-' + call.peer);
-                if (!audio) {
-                    audio = document.createElement('audio');
-                    audio.id = 'audio-' + call.peer;
-                    audio.autoplay = true;
-                    document.body.appendChild(audio);
-                }
-                audio.srcObject = remoteStream;
-                detectSpeaking(remoteStream, 'avatar-' + call.peer);
+                connectRemoteAudio(call.peer, remoteStream);
                 renderParticipants();
+                addChatMsg({ type: 'system', text: `${remoteName} xonaga kirdi 🎉` });
                 showToast(`<i class="fa-solid fa-user-plus"></i> ${remoteName} qo'shildi!`, 'success');
             });
-
             call.on('close', () => removeParticipant(call.peer));
             call.on('error', () => removeParticipant(call.peer));
             connections[call.peer].call = call;
         }
 
-        // ── REMOVE PARTICIPANT ──
+        // ══════════════════════════════════════
+        // REMOVE PARTICIPANT
+        // ══════════════════════════════════════
         function removeParticipant(pid) {
             const name = participants[pid]?.name || 'Foydalanuvchi';
+            if (connections[pid]) {
+                clearInterval(connections[pid].volInterval);
+                try { connections[pid].call?.close(); } catch (e) { }
+                try { connections[pid].data?.close(); } catch (e) { }
+                try { connections[pid].sourceNode?.disconnect(); } catch (e) { }
+                try { connections[pid].gainNode?.disconnect(); } catch (e) { }
+            }
             delete participants[pid];
             delete connections[pid];
             document.getElementById('audio-' + pid)?.remove();
             renderParticipants();
+            addChatMsg({ type: 'system', text: `${name} xonadan chiqdi` });
             showToast(`<i class="fa-solid fa-user-minus"></i> ${name} chiqdi`, '');
         }
 
-        // ── DATA CONNECTION ──
+        // ══════════════════════════════════════
+        // DATA CHANNEL
+        // ══════════════════════════════════════
         function setupDataConn(conn) {
-            conn.on('data', data => {
-                if (data.type === 'mute' && participants[conn.peer]) {
-                    participants[conn.peer].muted = data.muted;
-                    renderParticipants();
-                }
-            });
             if (!connections[conn.peer]) connections[conn.peer] = {};
             connections[conn.peer].data = conn;
+
+            conn.on('data', data => {
+                switch (data.type) {
+                    case 'hello':
+                        if (!participants[conn.peer]) participants[conn.peer] = {};
+                        participants[conn.peer].name = data.name || participants[conn.peer].name || 'Mehmon';
+                        participants[conn.peer].muted = data.muted || false;
+                        participants[conn.peer].hand = data.hand || false;
+                        renderParticipants();
+                        break;
+                    case 'mute':
+                        if (participants[conn.peer]) {
+                            participants[conn.peer].muted = data.muted;
+                            renderParticipants();
+                        }
+                        break;
+                    case 'hand':
+                        if (participants[conn.peer]) {
+                            participants[conn.peer].hand = data.raised;
+                            renderParticipants();
+                            if (data.raised) showToast(`✋ ${participants[conn.peer]?.name || 'Kimdir'} qo'l ko'tardi`, 'info');
+                        }
+                        break;
+                    case 'chat':
+                        addChatMsg({ from: data.from, text: data.text, pid: conn.peer });
+                        break;
+                    case 'reaction':
+                        showReactionFloat(data.emoji, data.from);
+                        break;
+                    case 'ping':
+                        try { conn.send({ type: 'pong', ts: data.ts }); } catch (e) { }
+                        break;
+                    case 'pong':
+                        const lat = Date.now() - data.ts;
+                        updateQuality(lat);
+                        break;
+                }
+            });
+
+            conn.on('close', () => { /* handled by call close */ });
         }
 
-        // ── MIC TOGGLE ──
-        window.toggleMic = function () {
+        // ══════════════════════════════════════
+        // BROADCAST TO ALL DATA CHANNELS
+        // ══════════════════════════════════════
+        function broadcast(data) {
+            Object.values(connections).forEach(c => {
+                try { if (c.data?.open) c.data.send(data); } catch (e) { }
+            });
+        }
+
+        // ══════════════════════════════════════
+        // PING / QUALITY
+        // ══════════════════════════════════════
+        function startPing() {
+            pingInterval = setInterval(() => {
+                Object.entries(connections).forEach(([pid, c]) => {
+                    try { if (c.data?.open) c.data.send({ type: 'ping', ts: Date.now() }); } catch (e) { }
+                });
+            }, 5000);
+        }
+
+        function updateQuality(latencyMs) {
+            const el = document.getElementById('infoQuality');
+            if (!el) return;
+            if (latencyMs < 80) {
+                el.innerHTML = '<span class="quality-dot good"></span>Ajoyib (' + latencyMs + 'ms)';
+            } else if (latencyMs < 200) {
+                el.innerHTML = '<span class="quality-dot ok"></span>O\'rtacha (' + latencyMs + 'ms)';
+            } else {
+                el.innerHTML = '<span class="quality-dot bad"></span>Yomon (' + latencyMs + 'ms)';
+            }
+        }
+
+        // ══════════════════════════════════════
+        // MIC TOGGLE
+        // ══════════════════════════════════════
+        window.toggleMic = () => {
             if (!myStream) return;
             isMuted = !isMuted;
             myStream.getAudioTracks().forEach(t => t.enabled = !isMuted);
             const btn = document.getElementById('micBtn');
             btn.className = 'ctrl-btn mic' + (isMuted ? ' muted' : '');
-            btn.innerHTML = isMuted ? '<i class="fa-solid fa-microphone-slash"></i>' : '<i class="fa-solid fa-microphone"></i>';
+            btn.innerHTML = isMuted
+                ? '<i class="fa-solid fa-microphone-slash"></i><span class="ctrl-tooltip">Mikrofon (M)</span>'
+                : '<i class="fa-solid fa-microphone"></i><span class="ctrl-tooltip">Mikrofon (M)</span>';
             document.getElementById('micLabel').textContent = isMuted ? 'Mute' : 'Mikrofon';
             document.getElementById('avatar-me')?.classList.toggle('muted', isMuted);
-            Object.values(connections).forEach(c => {
-                try { c.data?.send({ type: 'mute', muted: isMuted }); } catch (e) { }
+            broadcast({ type: 'mute', muted: isMuted });
+            showToast(isMuted ? '<i class="fa-solid fa-microphone-slash"></i> Mikrofon o\'chirildi' : '<i class="fa-solid fa-microphone"></i> Mikrofon yoniq', isMuted ? 'error' : 'success');
+        };
+
+        // ══════════════════════════════════════
+        // HAND RAISE
+        // ══════════════════════════════════════
+        window.toggleHand = () => {
+            handRaised = !handRaised;
+            document.getElementById('avatar-me')?.classList.toggle('hand-raised', handRaised);
+            document.getElementById('handBtn')?.classList.toggle('active', handRaised);
+            broadcast({ type: 'hand', raised: handRaised });
+            showToast(handRaised ? '✋ Qo\'l ko\'tardingiz' : '✊ Qo\'l tushirildi', handRaised ? 'info' : '');
+            renderParticipants();
+        };
+
+        // ══════════════════════════════════════
+        // REACTIONS
+        // ══════════════════════════════════════
+        const EMOJIS = ['👍', '❤️', '😂', '🎉', '😮', '👏', '🔥', '💯', '🥳', '😎', '🙏', '✨'];
+
+        function buildReactionGrid() {
+            const grid = document.getElementById('reactGrid');
+            if (!grid) return;
+            grid.innerHTML = EMOJIS.map(e =>
+                `<button class="reaction-btn" onclick="sendReaction('${e}')">${e}</button>`
+            ).join('');
+        }
+        buildReactionGrid();
+
+        window.toggleReactPanel = () => {
+            const p = document.getElementById('reactPanel');
+            p.style.display = p.style.display === 'none' ? 'block' : 'none';
+        };
+
+        window.sendReaction = (emoji) => {
+            const myName = document.getElementById('myName').value.trim();
+            showReactionFloat(emoji, myName);
+            broadcast({ type: 'reaction', emoji, from: myName });
+        };
+
+        function showReactionFloat(emoji, from) {
+            const el = document.createElement('div');
+            el.className = 'reaction-float';
+            el.textContent = emoji;
+            el.style.left = (20 + Math.random() * 60) + '%';
+            el.style.bottom = '80px';
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 2600);
+        }
+
+        // ══════════════════════════════════════
+        // CHAT
+        // ══════════════════════════════════════
+        function addChatMsg({ type, text, from, pid }) {
+            const box = document.getElementById('chatMessages');
+            if (!box) return;
+            const atBottom = box.scrollHeight - box.clientHeight - box.scrollTop < 40;
+            const div = document.createElement('div');
+
+            if (type === 'system') {
+                div.className = 'chat-msg system';
+                div.innerHTML = `<div class="cm-bubble">${escHtml(text)}</div>`;
+            } else {
+                const isMine = !pid;
+                div.className = 'chat-msg' + (isMine ? ' me' : '');
+                div.innerHTML = `
+      ${!isMine ? `<div class="cm-avatar">${(from || '?').charAt(0).toUpperCase()}</div>` : ''}
+      <div class="cm-content">
+        <div class="cm-name">${isMine ? 'Siz' : escHtml(from || 'Mehmon')}</div>
+        <div class="cm-bubble">${escHtml(text)}</div>
+      </div>`;
+                if (!isMine && !chatOpen) {
+                    unreadCount++;
+                    const badge = document.getElementById('unreadBadge');
+                    badge.style.display = 'inline';
+                    badge.textContent = unreadCount;
+                }
+            }
+            box.appendChild(div);
+            if (atBottom) box.scrollTop = box.scrollHeight;
+        }
+
+        window.sendChat = () => {
+            const inp = document.getElementById('chatInput');
+            const text = inp.value.trim();
+            if (!text) return;
+            const myName = document.getElementById('myName').value.trim();
+            broadcast({ type: 'chat', text, from: myName });
+            addChatMsg({ text, from: myName });
+            inp.value = '';
+        };
+
+        window.insertQuick = (text) => {
+            document.getElementById('chatInput').value = text;
+            sendChat();
+        };
+
+        // Reset unread when panel opened
+        document.querySelector('[onclick="togglePanel(\'chatPanel\',this)"]')?.addEventListener('click', () => {
+            unreadCount = 0;
+            const badge = document.getElementById('unreadBadge');
+            if (badge) badge.style.display = 'none';
+        });
+
+        // ══════════════════════════════════════
+        // SHARE ROOM
+        // ══════════════════════════════════════
+        window.shareRoom = () => {
+            const url = window.location.href + '?room=' + myRoomDocId;
+            navigator.clipboard?.writeText(url).then(() => {
+                showToast('<i class="fa-solid fa-copy"></i> Havola nusxalandi!', 'success');
+            }).catch(() => {
+                showToast('<i class="fa-solid fa-link"></i> Xona ID: ' + myRoomDocId, 'info');
             });
         };
 
-        // ── SHOW ROOM UI ──
-        function showRoomUI(roomName) {
+        // ══════════════════════════════════════
+        // KEYBOARD SHORTCUTS
+        // ══════════════════════════════════════
+        document.addEventListener('keydown', e => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === 'm' || e.key === 'M') { if (myStream) toggleMic(); }
+            if (e.key === 'h' || e.key === 'H') { if (myStream) toggleHand(); }
+            if (e.key === 'Escape') { closeModal('createModal'); closeModal('joinPassModal'); closeModal('settingsModal'); }
+        });
+
+        // ══════════════════════════════════════
+        // SHOW ROOM UI
+        // ══════════════════════════════════════
+        function showRoomUI(roomName, roomData) {
             document.getElementById('setupArea').style.display = 'none';
             document.getElementById('activeRoom').style.display = 'block';
             document.getElementById('activeRoomName').textContent = roomName;
-            document.getElementById('activeRoomSub').textContent = Object.keys(participants).length + 1 + ' kishi';
+            document.getElementById('infoName').textContent = roomName;
+            document.getElementById('infoHost').textContent = roomData?.hostName || '—';
+            document.getElementById('infoLang').textContent = roomData?.lang || '—';
+            document.getElementById('infoLevel').textContent = roomData?.level || '—';
+            document.getElementById('infoId').textContent = myRoomDocId;
+            document.getElementById('infoQuality').textContent = '—';
             renderParticipants();
+            startTimer();
+            startMyVolBars();
+            startPing();
+
+            // Keyboard shortcut hint
+            setTimeout(() => showToast('<i class="fa-solid fa-keyboard"></i> M = Mute, H = Qo\'l', 'info'), 1500);
         }
 
-        // ── WATCH ROOM (real-time peers list) ──
-        // Har yangi peer qo'shilganda biz ham ulanamiz
+        // ══════════════════════════════════════
+        // WATCH ROOM (Firestore real-time)
+        // ══════════════════════════════════════
         function watchRoom(roomDocId) {
             if (unsubRoom) unsubRoom();
             unsubRoom = onSnapshot(doc(db, 'voiceRooms', roomDocId), async snap => {
                 if (!snap.exists()) {
-                    // Xona o'chirildi
                     showToast('<i class="fa-solid fa-door-closed"></i> Xona yopildi!', 'error');
                     await doLeave(false);
                     return;
                 }
                 const data = snap.data();
-                const peers = data.peers || []; // [{ peerId, name }, ...]
+                myRoomData = data;
+                const peers = data.peers || [];
+                document.getElementById('infoPeers').textContent = peers.length + ' kishi';
 
-                // Har bir peer bilan ulaning (o'zimizdan tashqari, allaqachon ulanmagan)
+                // Call any peer we haven't connected to yet
                 peers.forEach(p => {
                     if (p.peerId !== myPeerId && !connections[p.peerId]?.call) {
                         callPeer(p.peerId, p.name);
                     }
                 });
 
-                // Participant count yangilash
-                document.getElementById('activeRoomSub').textContent = peers.length + ' kishi';
+                // Remove participants no longer in Firestore
+                Object.keys(participants).forEach(pid => {
+                    if (!peers.find(p => p.peerId === pid)) {
+                        removeParticipant(pid);
+                    }
+                });
+
+                document.getElementById('activeRoomSub').textContent = peers.length + ' ishtirokchi';
             });
         }
 
-        // ── LOAD ROOMS ──
-        window.loadRooms = function () {
+        // ══════════════════════════════════════
+        // LOAD ROOMS (Firestore)
+        // ══════════════════════════════════════
+        window.allRooms = [];
+        window.filterRooms = (filter, btn) => {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn?.classList.add('active');
+            renderRooms(window.allRooms);
+        };
+
+        window.loadRooms = () => {
             const q = query(collection(db, 'voiceRooms'), orderBy('createdAt', 'desc'));
             onSnapshot(q, snap => {
                 const rooms = [];
                 snap.forEach(d => rooms.push({ id: d.id, ...d.data() }));
+                window.allRooms = rooms;
                 renderRooms(rooms);
             });
         };
 
-        function renderRooms(rooms) {
+        window.renderRooms = (rooms) => {
+            const searchQ = document.getElementById('searchRooms')?.value?.toLowerCase() || '';
+            let filtered = rooms;
+
+            if (searchQ) filtered = filtered.filter(r => r.name?.toLowerCase().includes(searchQ) || r.hostName?.toLowerCase().includes(searchQ));
+            if (currentFilter === 'English') filtered = filtered.filter(r => r.lang === 'English');
+            if (currentFilter === 'Russian') filtered = filtered.filter(r => r.lang === 'Russian');
+            if (currentFilter === 'open') filtered = filtered.filter(r => !r.locked);
+            if (currentFilter === 'small') filtered = filtered.filter(r => (r.peers || []).length <= 3);
+
+            document.getElementById('roomCount').textContent = filtered.length + ' ta';
             const grid = document.getElementById('roomsGrid');
-            if (rooms.length === 0) {
+
+            if (filtered.length === 0) {
                 grid.innerHTML = `<div class="empty-state"><i class="fa-solid fa-satellite-dish"></i><p>Hozircha ochiq xona yo'q.<br>Birinchi bo'lib yarating! 🚀</p></div>`;
                 return;
             }
-            grid.innerHTML = rooms.map(r => `
-    <div class="room-card">
+
+            grid.innerHTML = filtered.map(r => {
+                const peers = r.peers || [];
+                const avatars = peers.slice(0, 3).map(p => `<div class="pp-avatar">${(p.name || '?').charAt(0).toUpperCase()}</div>`).join('');
+                const extra = peers.length > 3 ? `<div class="pp-more">+${peers.length - 3}</div>` : '';
+                return `
+    <div class="room-card ${r.locked ? 'locked' : ''}">
       <div class="rc-top">
         <div class="rc-name">${escHtml(r.name)}</div>
-        <div class="rc-badge live">LIVE</div>
+        <div class="rc-badges">
+          ${r.locked ? '<div class="rc-badge locked-badge">🔒</div>' : ''}
+          ${r.lang ? `<div class="rc-badge lang-tag">${escHtml(r.lang)}</div>` : ''}
+          <div class="rc-badge live">LIVE</div>
+        </div>
       </div>
+      ${r.description ? `<div class="rc-desc">${escHtml(r.description.substring(0, 80))}</div>` : ''}
       <div class="rc-meta">
         <span><i class="fa-solid fa-user"></i> ${escHtml(r.hostName)}</span>
-        <span><i class="fa-solid fa-users"></i> ${(r.peers || []).length} kishi</span>
+        <span><i class="fa-solid fa-users"></i> ${peers.length}${r.maxPeers ? '/' + r.maxPeers : ''} kishi</span>
+        ${r.level ? `<span><i class="fa-solid fa-signal"></i> ${escHtml(r.level)}</span>` : ''}
       </div>
-      <button class="rc-join" onclick="window.joinRoom('${r.id}')">
-        <i class="fa-solid fa-arrow-right-to-bracket"></i> Kirish
-      </button>
-    </div>
-  `).join('');
-        }
+      <div class="participants-preview">${avatars}${extra}</div>
+      <div class="rc-bottom">
+        <button class="rc-join" onclick="window.joinRoom('${r.id}')">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Kirish
+        </button>
+      </div>
+    </div>`;
+            }).join('');
+        };
 
-        function escHtml(s) { return (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+        function escHtml(s) { return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
-        // ── INIT PEER ──
+        // ══════════════════════════════════════
+        // INIT PEER (with STUN/TURN)
+        // ══════════════════════════════════════
         async function initPeer() {
             return new Promise((resolve, reject) => {
-                const p = new Peer({
-                    host: '0.peerjs.com', port: 443, secure: true, path: '/', debug: 0
+                const p = new Peer(undefined, {
+                    host: '0.peerjs.com', port: 443, secure: true, path: '/', debug: 0,
+                    config: {
+                        iceServers: [
+                            { urls: 'stun:stun.l.google.com:19302' },
+                            { urls: 'stun:stun1.l.google.com:19302' },
+                            { urls: 'stun:stun2.l.google.com:19302' },
+                            { urls: 'stun:stun3.l.google.com:19302' },
+                            { urls: 'stun:global.stun.twilio.com:3478' },
+                        ]
+                    }
                 });
-                p.on('open', id => resolve({ p, id }));
-                p.on('error', reject);
+                const timeout = setTimeout(() => reject(new Error('timeout')), 15000);
+                p.on('open', id => { clearTimeout(timeout); resolve({ p, id }); });
+                p.on('error', e => { clearTimeout(timeout); reject(e); });
             });
         }
 
-        // ── CREATE ROOM ──
-        window.createRoom = async function () {
+        // ══════════════════════════════════════
+        // GET MIC STREAM (with best constraints)
+        // ══════════════════════════════════════
+        async function getMicStream() {
+            const deviceId = document.getElementById('micDeviceSelect').value;
+            const ns = document.getElementById('noiseSuppToggle')?.checked !== false;
+            const ec = document.getElementById('echoCancelToggle')?.checked !== false;
+            const agc = document.getElementById('agcToggle')?.checked !== false;
+
+            const constr = {
+                audio: {
+                    deviceId: deviceId ? { exact: deviceId } : undefined,
+                    echoCancellation: ec,
+                    noiseSuppression: ns,
+                    autoGainControl: agc,
+                    sampleRate: { ideal: 48000 },
+                    channelCount: 1,
+                    latency: { ideal: 0.01 },
+                    sampleSize: { ideal: 16 }
+                }
+            };
+            try {
+                return await navigator.mediaDevices.getUserMedia(constr);
+            } catch (e) {
+                // fallback: basic audio
+                return await navigator.mediaDevices.getUserMedia({ audio: true });
+            }
+        }
+
+        // ══════════════════════════════════════
+        // CREATE ROOM
+        // ══════════════════════════════════════
+        window.createRoom = async () => {
             const myName = document.getElementById('myName').value.trim();
-            myRoomName = document.getElementById('roomNameInput').value.trim();
+            myRoomName = document.getElementById('cm_name').value.trim() || document.getElementById('roomNameInput').value.trim();
             if (!myName) { showToast('<i class="fa-solid fa-exclamation"></i> Ismingizni kiriting!', 'error'); return; }
             if (!myRoomName) { showToast('<i class="fa-solid fa-exclamation"></i> Xona nomini kiriting!', 'error'); return; }
 
-            showOverlay('Mikrofonga ruxsat so\'ralmoqda...');
+            const lang = document.getElementById('cm_lang').value;
+            const level = document.getElementById('cm_level').value;
+            const maxPeers = parseInt(document.getElementById('cm_max').value);
+            const roomType = document.getElementById('cm_type').value;
+            const pass = document.getElementById('cm_pass').value.trim();
+            const desc = document.getElementById('cm_desc').value.trim();
+            if (roomType === 'locked' && !pass) { showToast('<i class="fa-solid fa-lock"></i> Parol kiriting!', 'error'); return; }
+
+            closeModal('createModal');
+            stopMicTest();
+            showOverlay('Mikrofonga ruxsat so\'ralmoqda...', 'Brauzer so\'rovini qabul qiling');
             try {
-                myStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+                myStream = await getMicStream();
             } catch (e) {
-                hideOverlay(); showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error'); return;
+                hideOverlay();
+                showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error');
+                return;
             }
 
-            showOverlay('Xona yaratilmoqda...');
+            showOverlay('PeerJS serverga ulanmoqda...', 'Bu 5-10 soniya olishi mumkin');
             try {
                 const { p, id } = await initPeer();
                 peer = p; myPeerId = id;
             } catch (e) {
-                hideOverlay(); showToast('<i class="fa-solid fa-triangle-exclamation"></i> Ulanishda xatolik!', 'error');
-                myStream.getTracks().forEach(t => t.stop()); myStream = null; return;
+                hideOverlay();
+                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Ulanishda xatolik! Internet tekshiring.', 'error');
+                myStream.getTracks().forEach(t => t.stop()); myStream = null;
+                return;
             }
 
-            // Firebase ga xona yaratish
+            showOverlay('Xona yaratilmoqda...', 'Firebase ga saqlanmoqda');
             try {
                 const docRef = await addDoc(collection(db, 'voiceRooms'), {
                     name: myRoomName,
+                    description: desc,
                     hostName: myName,
                     hostPeerId: myPeerId,
+                    lang, level, maxPeers,
+                    locked: roomType === 'locked',
+                    password: roomType === 'locked' ? pass : '',
                     peers: [{ peerId: myPeerId, name: myName }],
                     createdAt: serverTimestamp()
                 });
                 myRoomDocId = docRef.id;
             } catch (e) {
-                hideOverlay(); showToast('<i class="fa-solid fa-triangle-exclamation"></i> Firebase xatosi!', 'error'); return;
+                hideOverlay();
+                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Firebase xatosi!', 'error');
+                myStream.getTracks().forEach(t => t.stop()); myStream = null;
+                peer.destroy(); peer = null;
+                return;
             }
 
-            // Incoming calls
             peer.on('call', call => answerCall(call));
             peer.on('connection', conn => setupDataConn(conn));
-            peer.on('error', err => showToast('Xatolik: ' + err.type, 'error'));
+            peer.on('error', err => {
+                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Xatolik: ' + err.type, 'error');
+                if (err.type === 'peer-unavailable') return;
+                if (err.type === 'disconnected') peer.reconnect();
+            });
+            peer.on('disconnected', () => {
+                showToast('<i class="fa-solid fa-rotate"></i> Qayta ulanmoqda...', 'info');
+                setTimeout(() => { if (peer && !peer.destroyed) peer.reconnect(); }, 2000);
+            });
 
-            detectSpeaking(myStream, 'avatar-me');
+            myRoomData = { hostPeerId: myPeerId, hostName: myName, lang, level };
             watchRoom(myRoomDocId);
             hideOverlay();
-            showRoomUI(myRoomName);
+            showRoomUI(myRoomName, myRoomData);
             showToast('<i class="fa-solid fa-rocket"></i> Xona yaratildi!', 'success');
         };
 
-        // ── JOIN ROOM ──
-        window.joinRoom = async function (roomDocId) {
+        // ══════════════════════════════════════
+        // JOIN ROOM
+        // ══════════════════════════════════════
+        window.joinRoom = async (roomDocId) => {
             const myName = document.getElementById('myName').value.trim();
             if (!myName) { showToast('<i class="fa-solid fa-exclamation"></i> Avval ismingizni kiriting!', 'error'); return; }
 
-            showOverlay('Mikrofonga ruxsat so\'ralmoqda...');
+            // Check if room exists first
+            let roomData;
             try {
-                myStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+                const snap = await getDoc(doc(db, 'voiceRooms', roomDocId));
+                if (!snap.exists()) { showToast('<i class="fa-solid fa-door-closed"></i> Xona topilmadi!', 'error'); return; }
+                roomData = snap.data();
             } catch (e) {
-                hideOverlay(); showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error'); return;
+                showToast('Firebase xatosi!', 'error'); return;
             }
 
-            showOverlay('Ulanmoqda...');
+            // Check max capacity
+            if (roomData.maxPeers && (roomData.peers || []).length >= roomData.maxPeers) {
+                showToast('<i class="fa-solid fa-users"></i> Xona to\'lgan!', 'error'); return;
+            }
+
+            // Password check
+            if (roomData.locked) {
+                pendingJoinRoomId = roomDocId;
+                document.getElementById('jp_pass').value = '';
+                document.getElementById('joinPassModal').classList.add('show');
+                return;
+            }
+
+            await doJoinRoom(roomDocId, roomData);
+        };
+
+        window.confirmJoinPass = async () => {
+            const pass = document.getElementById('jp_pass').value.trim();
+            if (!pass) { showToast('<i class="fa-solid fa-lock"></i> Parol kiriting!', 'error'); return; }
+            if (!pendingJoinRoomId) return;
+
+            let roomData;
+            try {
+                const snap = await getDoc(doc(db, 'voiceRooms', pendingJoinRoomId));
+                roomData = snap.data();
+            } catch (e) { showToast('Xatolik!', 'error'); return; }
+
+            if (roomData.password !== pass) {
+                showToast('<i class="fa-solid fa-lock"></i> Noto\'g\'ri parol!', 'error'); return;
+            }
+            closeModal('joinPassModal');
+            await doJoinRoom(pendingJoinRoomId, roomData);
+            pendingJoinRoomId = null;
+        };
+
+        async function doJoinRoom(roomDocId, roomData) {
+            const myName = document.getElementById('myName').value.trim();
+            stopMicTest();
+            showOverlay('Mikrofonga ruxsat so\'ralmoqda...', 'Brauzer so\'rovini qabul qiling');
+            try {
+                myStream = await getMicStream();
+            } catch (e) {
+                hideOverlay();
+                showToast('<i class="fa-solid fa-microphone-slash"></i> Mikrofon ruxsati berilmadi!', 'error');
+                return;
+            }
+
+            showOverlay('PeerJS ga ulanmoqda...', 'Bu 5-10 soniya olishi mumkin');
             try {
                 const { p, id } = await initPeer();
                 peer = p; myPeerId = id;
             } catch (e) {
-                hideOverlay(); showToast('<i class="fa-solid fa-triangle-exclamation"></i> Xatolik!', 'error');
-                myStream.getTracks().forEach(t => t.stop()); myStream = null; return;
-            }
-
-            // Xona ma'lumotlarini olish
-            let roomData;
-            try {
-                const snap = await getDoc(doc(db, 'voiceRooms', roomDocId));
-                if (!snap.exists()) { hideOverlay(); showToast('<i class="fa-solid fa-door-closed"></i> Xona topilmadi!', 'error'); peer.destroy(); return; }
-                roomData = snap.data();
-            } catch (e) {
-                hideOverlay(); showToast('Firebase xatosi!', 'error'); peer.destroy(); return;
+                hideOverlay();
+                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Ulanishda xatolik!', 'error');
+                myStream.getTracks().forEach(t => t.stop()); myStream = null;
+                return;
             }
 
             myRoomDocId = roomDocId;
             myRoomName = roomData.name;
+            myRoomData = roomData;
 
-            // O'zimizni peers listiga qo'shish
+            // Add ourselves to peers list
             try {
                 await updateDoc(doc(db, 'voiceRooms', roomDocId), {
                     peers: arrayUnion({ peerId: myPeerId, name: myName })
                 });
-            } catch (e) { }
+            } catch (e) { /* ignore */ }
 
-            // Mavjud peers ga qo'ng'iroq qilish
+            // Call existing peers
             const existingPeers = roomData.peers || [];
             existingPeers.forEach(p => {
                 if (p.peerId !== myPeerId) callPeer(p.peerId, p.name);
             });
 
-            // Incoming calls
             peer.on('call', call => answerCall(call));
-            peer.on('connection', conn => setupDataConn(conn));
-            peer.on('error', err => showToast('Xatolik: ' + err.type, 'error'));
+            peer.on('connection', conn => {
+                setupDataConn(conn);
+                conn.on('open', () => {
+                    try { conn.send({ type: 'hello', name: myName, muted: isMuted, hand: handRaised }); } catch (e) { }
+                });
+            });
+            peer.on('error', err => {
+                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Xatolik: ' + err.type, 'error');
+                if (err.type === 'disconnected') peer.reconnect();
+            });
+            peer.on('disconnected', () => {
+                showToast('<i class="fa-solid fa-rotate"></i> Qayta ulanmoqda...', 'info');
+                setTimeout(() => { if (peer && !peer.destroyed) peer.reconnect(); }, 2000);
+            });
 
-            detectSpeaking(myStream, 'avatar-me');
             watchRoom(roomDocId);
             hideOverlay();
-            showRoomUI(myRoomName);
+            showRoomUI(myRoomName, myRoomData);
             showToast('<i class="fa-solid fa-check-circle"></i> Xonaga kirdingiz!', 'success');
-        };
+        }
 
-        // ── LEAVE ──
+        // ══════════════════════════════════════
+        // LEAVE
+        // ══════════════════════════════════════
         async function doLeave(updateFirestore = true) {
             if (unsubRoom) { unsubRoom(); unsubRoom = null; }
+            if (durationInterval) { clearInterval(durationInterval); durationInterval = null; }
+            if (pingInterval) { clearInterval(pingInterval); pingInterval = null; }
+            if (waveformRAF) { cancelAnimationFrame(waveformRAF); waveformRAF = null; }
+
             if (updateFirestore && myRoomDocId && myPeerId) {
                 try {
                     const snap = await getDoc(doc(db, 'voiceRooms', myRoomDocId));
@@ -1281,33 +3547,67 @@
                         await updateDoc(doc(db, 'voiceRooms', myRoomDocId), {
                             peers: arrayRemove({ peerId: myPeerId, name: myName })
                         });
-                        // Agar host ketsa — xonani o'chir
                         if (data.hostPeerId === myPeerId) {
                             await deleteDoc(doc(db, 'voiceRooms', myRoomDocId));
                         }
                     }
-                } catch (e) { }
+                } catch (e) { /* ignore */ }
             }
+
             if (myStream) { myStream.getTracks().forEach(t => t.stop()); myStream = null; }
-            Object.values(connections).forEach(c => { try { c.call?.close(); c.data?.close(); } catch (e) { } });
+            Object.values(connections).forEach(c => {
+                clearInterval(c.volInterval);
+                try { c.call?.close(); } catch (e) { }
+                try { c.data?.close(); } catch (e) { }
+                try { c.sourceNode?.disconnect(); } catch (e) { }
+                try { c.gainNode?.disconnect(); } catch (e) { }
+            });
             connections = {}; participants = {};
             document.querySelectorAll('audio[id^="audio-"]').forEach(a => a.remove());
             if (peer) { peer.destroy(); peer = null; }
-            isMuted = false; myPeerId = null; myRoomDocId = null;
+            if (masterCtx) { try { masterCtx.close(); } catch (e) { } masterCtx = null; masterGain = null; masterDest = null; }
+
+            isMuted = false; handRaised = false; myPeerId = null; myRoomDocId = null; myRoomData = null;
+            unreadCount = 0;
+            myAnalyserForWave = null;
+
             document.getElementById('activeRoom').style.display = 'none';
             document.getElementById('setupArea').style.display = 'block';
             document.getElementById('micBtn').className = 'ctrl-btn mic';
-            document.getElementById('micBtn').innerHTML = '<i class="fa-solid fa-microphone"></i>';
+            document.getElementById('micBtn').innerHTML = '<i class="fa-solid fa-microphone"></i><span class="ctrl-tooltip">Mikrofon (M)</span>';
+            document.getElementById('micLabel').textContent = 'Mikrofon';
+            document.getElementById('durationEl').textContent = '00:00';
+            document.getElementById('chatMessages').innerHTML = '';
+
+            // Clear waveform
+            const canvas = document.getElementById('waveformCanvas');
+            if (canvas) { const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); }
         }
 
-        window.leaveRoom = async function () {
+        window.leaveRoom = async () => {
             await doLeave(true);
             showToast('<i class="fa-solid fa-door-open"></i> Xonadan chiqdingiz', '');
         };
 
+        // ══════════════════════════════════════
+        // BEFOREUNLOAD
+        // ══════════════════════════════════════
         window.addEventListener('beforeunload', () => { doLeave(true); });
 
-        // ── START ──
+        // Check URL param for direct room join
+        const urlParams = new URLSearchParams(window.location.search);
+        const directRoom = urlParams.get('room');
+        if (directRoom) {
+            setTimeout(() => {
+                const myName = document.getElementById('myName').value.trim();
+                if (myName) window.joinRoom(directRoom);
+                else showToast('<i class="fa-solid fa-user"></i> Avval ismingizni kiriting, keyin "room" havolasi ishlaydi', 'info');
+            }, 1000);
+        }
+
+        // ══════════════════════════════════════
+        // START
+        // ══════════════════════════════════════
         loadRooms();
     </script>
 </body>

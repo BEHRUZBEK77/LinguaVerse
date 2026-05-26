@@ -1900,7 +1900,10 @@ window.clearChat = function () {
 // AUTH STATE — FIXED (to'liq updateDisplays chaqiriladi)
 // German.js ni shu bilan almashtiring:
 onAuthStateChanged(_auth, async (user) => {
+
     if (!user) { window.location.href = '../auth/login.html'; return; }
+
+    if (!user) { window.location.href = '../index.html'; return; }
     CU = user;
     await loadUserData();
     updateDisplays();

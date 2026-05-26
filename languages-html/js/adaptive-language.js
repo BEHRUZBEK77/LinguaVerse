@@ -1,10 +1,8 @@
-// ============================================================
-// ai-adaptive-engine.js — LinguaVerse AI Adaptive Engine v3
+// =====================================================// ai-adaptive-engine.js — LinguaVerse AI Adaptive Engine v3
 // Reading | Speaking | Writing | Listening — FULL AUTO LESSONS
 // Token system: -400 lesson (own: 200, team: 100, universal: 50)
 // Firebase realtime + Groq AI + TTS audio + 300+ functions
-// ============================================================
-
+// =====================================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {

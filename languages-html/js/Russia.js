@@ -1,8 +1,6 @@
-// ============================================================
-// Russian.js — LinguaVerse (Русский язык — полная версия)
+// =====================================================// Russian.js — LinguaVerse (Русский язык — полная версия)
 // Firebase + Token система (1 токен за каждый символ в чате)
-// ============================================================
-
+// =====================================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {

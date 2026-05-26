@@ -1,7 +1,5 @@
-// ============================================================
-// English.js — LinguaVerse (FIXED VERSION - 100% corrected)
-// ============================================================
-
+// =====================================================// English.js — LinguaVerse (FIXED VERSION - 100% corrected)
+// =====================================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {

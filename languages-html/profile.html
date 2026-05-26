@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Profile — LinguaVerse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #030509;
+      --bg2: #06090f;
+      --bg3: #0a0d18;
+      --bg4: #0e1120;
+      --accent: #5b7cfa;
+      --accent2: #a78bfa;
+      --gold: #f5c842;
+      --green: #34d399;
+      --red: #f87171;
+      --orange: #fb923c;
+      --pink: #f472b6;
+      --cyan: #22d3ee;
+      --text: #e8ecff;
+      --text2: #b0b9d8;
+      --text3: #6b759a;
+      --border: rgba(255, 255, 255, 0.07);
+      --border2: rgba(255, 255, 255, 0.12);
+      --surface: rgba(11, 14, 30, 0.9);
+      --surface2: rgba(14, 17, 32, 0.95);
+      --font-h: 'Syne', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      min-height: 100vh;
+      overflow-x: hidden;
+      
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      mix-blend-mode: screen;
+      transition: transform .1s
+    }
+
+    .cursor-ring {
+      position: fixed;
+      width: 34px;
+      height: 34px;
+      border: 1.5px solid rgba(91, 124, 250, .5);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transition: all .18s ease
+    }
+
+    /* ── BG CANVAS ── */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .35
+    }
+
+    /* ── GRID OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(91, 124, 250, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(91, 124, 250, .025) 1px, transparent 1px);
+      background-size: 55px 55px;
+      pointer-events: none;
+      z-index: 0
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(3, 5, 9, .95);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .nav-logo {
+      font-family: var(--font-h);
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--text);
+      text-decoration: none
+    }
+
+    .nav-logo span {
+      color: var(--accent)
+    }
+
+    .nav-spacer {
+      flex: 1
+    }
+
+    .nav-stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: .8rem;
+      font-weight: 700;
+      white-space: nowrap
+    }
+
+    .nav-back {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s
+    }
+
+    .nav-back:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    /* ── SITE NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 60px;
+      z-index: 99;
+      background: rgba(3, 5, 9, .95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none
+    }
+
+    .site-nav::-webkit-scrollbar {
+      display: none
+    }
+
+    .snav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      color: var(--text);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: all .2s
+    }
+
+    .snav-link:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .snav-active {
+      background: rgba(52, 211, 153, .12) !important;
+      border-color: rgba(52, 211, 153, .3) !important;
+      color: var(--green) !important
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .main-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 36px 24px 80px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 22px;
+      align-items: start
+    }
+
+    @media(max-width:900px) {
+      .main-wrap {
+        grid-template-columns: 1fr;
+        padding: 24px 16px 60px
+      }
+    }
+
+    /* ── CARD BASE ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px
+    }
+
+    .card-sm {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px
+    }
+
+    /* ── PROFILE HERO CARD ── */
+    .profile-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      text-align: center;
+      padding: 28px 22px 22px
+    }
+
+    .avatar-outer {
+      position: relative;
+      margin-bottom: 14px
+    }
+
+    .avatar-ring {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform .3s
+    }
+
+    .avatar-ring:hover {
+      transform: scale(1.05)
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bg3), var(--bg4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-h);
+      font-size: 2rem;
+      font-weight: 900
+    }
+
+    .avatar-frame {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      pointer-events: none
+    }
+
+    .avatar-frame.fire {
+      border-color: #ef4444;
+      box-shadow: 0 0 18px rgba(239, 68, 68, .4)
+    }
+
+    .avatar-frame.ice {
+      border-color: #22d3ee;
+      box-shadow: 0 0 18px rgba(34, 211, 238, .4)
+    }
+
+    .avatar-frame.gold {
+      border-color: #f5c842;
+      box-shadow: 0 0 18px rgba(245, 200, 66, .4)
+    }
+
+    .avatar-frame.galaxy {
+      border-color: #818cf8;
+      box-shadow: 0 0 18px rgba(129, 140, 248, .4), 0 0 36px rgba(167, 139, 250, .2)
+    }
+
+    .avatar-frame.neon {
+      border-color: #4ade80;
+      box-shadow: 0 0 18px rgba(74, 222, 128, .4)
+    }
+
+    .avatar-frame.rainbow {
+      border: 2px solid transparent;
+      background: linear-gradient(var(--bg3), var(--bg3)) padding-box, linear-gradient(135deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #8b00ff) border-box;
+      box-shadow: 0 0 22px rgba(255, 100, 200, .3)
+    }
+
+    .avatar-frame.vip {
+      border-color: #f5c842;
+      box-shadow: 0 0 24px rgba(245, 200, 66, .6), 0 0 48px rgba(245, 200, 66, .2);
+      animation: vipPulse 2s infinite
+    }
+
+    .avatar-frame.dragon {
+      border-color: #dc2626;
+      box-shadow: 0 0 20px rgba(220, 38, 38, .5), 0 0 40px rgba(239, 68, 68, .2)
+    }
+
+    @keyframes vipPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 24px rgba(245, 200, 66, .6), 0 0 48px rgba(245, 200, 66, .2)
+      }
+
+      50% {
+        box-shadow: 0 0 32px rgba(245, 200, 66, .9), 0 0 60px rgba(245, 200, 66, .4)
+      }
+    }
+
+    .profile-name {
+      font-family: var(--font-h);
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin-bottom: 4px
+    }
+
+    .profile-email {
+      font-size: .75rem;
+      color: var(--text3);
+      margin-bottom: 10px
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+      margin-bottom: 14px
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: .7rem;
+      font-weight: 700;
+      background: rgba(91, 124, 250, .15);
+      color: var(--accent2);
+      border: 1px solid rgba(91, 124, 250, .25)
+    }
+
+    .badge-pill.gold {
+      background: rgba(245, 200, 66, .15);
+      color: var(--gold);
+      border-color: rgba(245, 200, 66, .3)
+    }
+
+    .badge-pill.green {
+      background: rgba(52, 211, 153, .12);
+      color: var(--green);
+      border-color: rgba(52, 211, 153, .25)
+    }
+
+    /* ── STATS GRID ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px
+    }
+
+    .stat-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      transition: border-color .2s
+    }
+
+    .stat-box:hover {
+      border-color: var(--border2)
+    }
+
+    .stat-n {
+      font-family: var(--font-h);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--accent)
+    }
+
+    .stat-n.gold {
+      color: var(--gold)
+    }
+
+    .stat-n.green {
+      color: var(--green)
+    }
+
+    .stat-n.cyan {
+      color: var(--cyan)
+    }
+
+    .stat-l {
+      font-size: .65rem;
+      color: var(--text3);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: 2px
+    }
+
+    /* ── XP PROGRESS ── */
+    .xp-bar-wrap {
+      margin-bottom: 16px;
+      padding: 14px;
+      background: var(--bg3);
+      border-radius: 12px;
+      border: 1px solid var(--border)
+    }
+
+    .xp-bar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      font-size: .72rem
+    }
+
+    .xp-bar-bg {
+      background: rgba(255, 255, 255, .06);
+      border-radius: 100px;
+      height: 7px;
+      overflow: hidden
+    }
+
+    .xp-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 100px;
+      transition: width 1s ease
+    }
+
+    /* ── QUICK LINKS ── */
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .85rem;
+      transition: background .2s;
+      cursor: pointer
+    }
+
+    .quick-link:hover {
+      background: var(--bg3)
+    }
+
+    .quick-link i {
+      width: 18px;
+      text-align: center;
+      font-size: .9rem
+    }
+
+    /* ── LOGOUT BTN ── */
+    .logout-btn {
+      width: 100%;
+      padding: 11px;
+      border-radius: 12px;
+      background: rgba(248, 113, 113, .08);
+      border: 1px solid rgba(248, 113, 113, .2);
+      color: var(--red);
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .85rem;
+      margin-top: 10px;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px
+    }
+
+    .logout-btn:hover {
+      background: rgba(248, 113, 113, .18);
+      border-color: rgba(248, 113, 113, .4)
+    }
+
+    /* ── SECTION CARDS ── */
+    .sec-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 16px;
+      transition: border-color .3s
+    }
+
+    .sec-card:hover {
+      border-color: var(--border2)
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px
+    }
+
+    .sec-head h3 {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 800;
+      flex: 1
+    }
+
+    .sec-head .count {
+      font-size: .72rem;
+      color: var(--text3);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 2px 10px;
+      font-weight: 600
+    }
+
+    /* ── SECTION: EDIT NAME ── */
+    .edit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    .edit-name-form {
+      display: none;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 12px
+    }
+
+    .edit-name-form.open {
+      display: flex
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 13px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .85rem;
+      outline: none;
+      transition: border .2s
+    }
+
+    .form-input:focus {
+      border-color: rgba(91, 124, 250, .5)
+    }
+
+    .form-input::placeholder {
+      color: var(--text3)
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px
+    }
+
+    .btn {
+      padding: 8px 18px;
+      border-radius: 9px;
+      font-family: var(--font-b);
+      font-size: .8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(91, 124, 250, .35)
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      color: var(--text2)
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    /* ── LANG PROGRESS ── */
+    .lang-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px
+    }
+
+    .lang-flag {
+      font-size: 1.3rem;
+      flex-shrink: 0
+    }
+
+    .lang-info {
+      flex: 1
+    }
+
+    .lang-name {
+      font-weight: 700;
+      font-size: .83rem;
+      margin-bottom: 4px
+    }
+
+    .lang-bar-bg {
+      background: rgba(255, 255, 255, .06);
+      border-radius: 100px;
+      height: 5px;
+      overflow: hidden
+    }
+
+    .lang-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width .8s ease
+    }
+
+    .lang-xp {
+      font-size: .7rem;
+      color: var(--text3);
+      flex-shrink: 0
+    }
+
+    /* ── PLAN INFO ── */
+    .plan-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px
+    }
+
+    .plan-name-big {
+      font-family: var(--font-h);
+      font-size: 1.5rem;
+      font-weight: 900
+    }
+
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px
+    }
+
+    .perk-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px
+    }
+
+    .perk-label {
+      font-size: .65rem;
+      color: var(--text3);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 3px
+    }
+
+    .perk-val {
+      font-weight: 700;
+      font-size: .88rem
+    }
+
+    /* ── ITEMS GRID (packs, frames, badges etc) ── */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px
+    }
+
+    .item-chip {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .item-chip::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, var(--chip-glow, rgba(91, 124, 250, .08)), transparent 70%);
+      pointer-events: none
+    }
+
+    .item-chip:hover {
+      border-color: var(--border2);
+      transform: translateY(-2px)
+    }
+
+    .item-chip.active {
+      border-color: var(--accent) !important;
+      background: rgba(91, 124, 250, .08)
+    }
+
+    .item-chip.owned {
+      border-color: rgba(167, 139, 250, .3)
+    }
+
+    .chip-active-tag {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--accent);
+      color: #fff;
+      font-size: .58rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 100px
+    }
+
+    .chip-icon {
+      font-size: 1.8rem;
+      margin-bottom: 6px
+    }
+
+    .chip-name {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text2)
+    }
+
+    .chip-sub {
+      font-size: .62rem;
+      color: var(--text3);
+      margin-top: 2px
+    }
+
+    .chip-btn {
+      margin-top: 8px;
+      width: 100%;
+      padding: 5px 8px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-b);
+      font-size: .68rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .chip-btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+      filter: brightness(1.1)
+    }
+
+    .chip-btn:disabled {
+      opacity: .4;
+      cursor: not-allowed
+    }
+
+    .cb-green {
+      background: rgba(52, 211, 153, .12);
+      border: 1px solid rgba(52, 211, 153, .3);
+      color: var(--green)
+    }
+
+    .cb-muted {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      color: var(--text3)
+    }
+
+    /* ── REQUESTS TABLE ── */
+    .req-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .8rem
+    }
+
+    .req-table th {
+      text-align: left;
+      padding: 9px 12px;
+      color: var(--text3);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .req-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .04)
+    }
+
+    .req-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 9px;
+      border-radius: 100px;
+      font-size: .68rem;
+      font-weight: 700
+    }
+
+    .req-status.pending {
+      background: rgba(245, 158, 11, .12);
+      color: #f59e0b;
+      border: 1px solid rgba(245, 158, 11, .25)
+    }
+
+    .req-status.approved {
+      background: rgba(52, 211, 153, .12);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, .25)
+    }
+
+    .req-status.rejected {
+      background: rgba(248, 113, 113, .1);
+      color: var(--red);
+      border: 1px solid rgba(248, 113, 113, .25)
+    }
+
+    /* ── ACCOUNT INFO ROWS ── */
+    .info-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .04)
+    }
+
+    .info-row:last-child {
+      border-bottom: none
+    }
+
+    .info-label {
+      font-weight: 600;
+      font-size: .83rem
+    }
+
+    .info-val {
+      font-size: .78rem;
+      color: var(--text3)
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty {
+      text-align: center;
+      padding: 28px 16px;
+      color: var(--text3);
+      font-size: .82rem
+    }
+
+    .empty i {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      opacity: .3;
+      display: block
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 17px;
+      font-size: .83rem;
+      font-weight: 500;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .35s;
+      max-width: 300px
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1
+    }
+
+    .toast.success {
+      border-color: rgba(52, 211, 153, .35);
+      color: var(--green)
+    }
+
+    .toast.error {
+      border-color: rgba(248, 113, 113, .35);
+      color: var(--red)
+    }
+
+    .toast.info {
+      border-color: rgba(91, 124, 250, .35);
+      color: var(--accent2)
+    }
+
+    /* ── ACTIVE BOOSTER BANNER ── */
+    .booster-banner {
+      background: linear-gradient(135deg, rgba(249, 115, 22, .15), rgba(251, 146, 60, .08));
+      border: 1px solid rgba(249, 115, 22, .3);
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px
+    }
+
+    .bb-icon {
+      font-size: 1.6rem
+    }
+
+    .bb-info {
+      flex: 1
+    }
+
+    .bb-title {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: .9rem;
+      color: var(--orange)
+    }
+
+    .bb-sub {
+      font-size: .72rem;
+      color: var(--text3);
+      margin-top: 2px
+    }
+
+    .bb-mult {
+      font-family: var(--font-h);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--orange)
+    }
+
+    /* ── VIP BANNER ── */
+    .vip-banner {
+      background: linear-gradient(135deg, rgba(245, 200, 66, .12), rgba(251, 146, 60, .06));
+      border: 1px solid rgba(245, 200, 66, .3);
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px
+    }
+
+    .vb-icon {
+      font-size: 2rem
+    }
+
+    .vb-info {
+      flex: 1
+    }
+
+    .vb-title {
+      font-family: var(--font-h);
+      font-weight: 900;
+      font-size: 1rem;
+      color: var(--gold)
+    }
+
+    .vb-sub {
+      font-size: .72rem;
+      color: var(--text3);
+      margin-top: 2px
+    }
+
+    /* ── RANK CHIP ── */
+    .rank-display {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      background: var(--bg3);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 12px
+    }
+
+    .rank-ring {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: 2px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0
+    }
+
+    .rank-info {
+      flex: 1
+    }
+
+    .rank-name {
+      font-family: var(--font-h);
+      font-weight: 800;
+      font-size: .95rem
+    }
+
+    .rank-perks {
+      font-size: .7rem;
+      color: var(--text3);
+      margin-top: 3px
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .08);
+      border-radius: 100px
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="bgCanvas"></canvas>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/index.html" class="nav-logo">Lingua<span>Verse</span></a>
+    <div class="nav-spacer"></div>
+    <div class="nav-stat" style="color:var(--gold)">🪙 <span id="navCoin">0</span></div>
+    <div class="nav-stat" style="color:var(--accent)">⭐ <span id="navXP">0</span></div>
+    <div class="nav-stat" style="color:var(--cyan)">🎫 <span id="navTok">0</span></div>
+    <a href="/index.html" class="nav-back">← Orqaga</a>
+  </nav>
+
+  <!-- SITE NAV -->
+  <div class="site-nav">
+    <a href="/index.html" class="snav-link">🏠 Bosh sahifa</a>
+    <a href="/select-language.html" class="snav-link">🌍 Tillar</a>
+    <a href="/languages-html/shop.html" class="snav-link"
+      style="color:var(--accent2);border-color:rgba(167,139,250,.3)">🛍️ Do'kon</a>
+    <span class="snav-link snav-active">👤 Profil</span>
+    <a href="/order.html" class="snav-link" style="color:var(--gold);border-color:rgba(245,200,66,.25)">⭐ Rejalar</a>
+  </div>
+
+  <div class="main-wrap">
+
+    <!-- ══ SIDEBAR ══ -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+
+      <!-- PROFILE CARD -->
+      <div class="card profile-hero">
+        <div class="avatar-outer">
+          <div class="avatar-ring" id="avatarRing">
+            <div class="avatar-inner" id="avatarInner">?</div>
+          </div>
+          <div class="avatar-frame" id="avatarFrame"></div>
+        </div>
+        <div class="profile-name" id="profileName">Yuklanmoqda...</div>
+        <div class="profile-email" id="profileEmail"></div>
+        <div class="badge-row" id="badgeRow"></div>
+
+        <!-- XP BAR -->
+        <div class="xp-bar-wrap" style="width:100%">
+          <div class="xp-bar-top">
+            <span style="font-weight:700;font-size:.78rem">Level <span id="userLevel">1</span></span>
+            <span style="color:var(--accent2)"><span id="levelXP">0</span> / 200 XP</span>
+          </div>
+          <div class="xp-bar-bg">
+            <div class="xp-bar-fill" id="xpFill" style="width:0%"></div>
+          </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-grid" style="width:100%">
+          <div class="stat-box">
+            <div class="stat-n gold" id="statCoins">0</div>
+            <div class="stat-l">🪙 Coin</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n" id="statXP">0</div>
+            <div class="stat-l">⭐ XP</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n cyan" id="statTok">0</div>
+            <div class="stat-l">🎫 Token</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n green" id="statStreak">0</div>
+            <div class="stat-l">🔥 Streak</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUICK LINKS -->
+      <div class="card-sm">
+        <a href="/languages-html/shop.html" class="quick-link"><i class="fa-solid fa-bag-shopping"
+            style="color:var(--accent2)"></i> Do'kon</a>
+        <a href="/index.html" class="quick-link"><i class="fa-solid fa-globe" style="color:var(--accent)"></i>
+          Tillar</a>
+        <a href="/languages-html/voice-room.html" class="quick-link"><i class="fa-solid fa-microphone"
+            style="color:var(--green)"></i> Voice Rooms</a>
+        <div id="adminLinkWrap" style="display:none">
+          <a href="/admin.html" class="quick-link"><i class="fa-solid fa-crown" style="color:var(--gold)"></i> Admin
+            Panel</a>
+        </div>
+        <button class="logout-btn" onclick="doLogout()"><i class="fa-solid fa-right-from-bracket"></i> Chiqish</button>
+      </div>
+
+      <!-- ACCOUNT INFO -->
+      <div class="card-sm">
+        <div style="font-family:var(--font-h);font-size:.82rem;font-weight:800;margin-bottom:10px;color:var(--text2)">⚙️
+          Hisob</div>
+        <div class="info-row"><span class="info-label">A'zo bo'lgan</span><span class="info-val"
+            id="memberSince">—</span></div>
+        <div class="info-row"><span class="info-label">Oxirgi faol</span><span class="info-val" id="lastSeen">—</span>
+        </div>
+        <div class="info-row"><span class="info-label">ID</span><span class="info-val" id="userIdShow">—</span></div>
+        <div class="info-row"><span class="info-label">Admin</span><span class="info-val" id="adminStatus"
+            style="color:var(--text3)">Yo'q</span></div>
+      </div>
+    </div>
+
+    <!-- ══ MAIN CONTENT ══ -->
+    <div>
+
+      <!-- EDIT PROFILE -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-user-pen" style="color:var(--accent)"></i> Profilni tahrirlash</h3>
+        </div>
+        <div class="edit-row">
+          <div>
+            <div style="font-weight:700;font-size:.9rem" id="dispNameLabel">—</div>
+            <div style="font-size:.75rem;color:var(--text3);margin-top:2px" id="emailLabel">—</div>
+          </div>
+          <button class="btn btn-ghost" onclick="toggleEdit()"><i class="fa-solid fa-pen"></i> Tahrirlash</button>
+        </div>
+        <div class="edit-name-form" id="editNameForm">
+          <input class="form-input" type="text" id="newNameInput" placeholder="Yangi ismingiz..." />
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="saveName()"><i class="fa-solid fa-check"></i> Saqlash</button>
+            <button class="btn btn-ghost" onclick="toggleEdit()">Bekor</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVE ITEMS SHOWCASE -->
+      <div class="sec-card" id="activeShowcase" style="display:none">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-bolt" style="color:var(--gold)"></i> Faol narsalar</h3>
+        </div>
+        <div id="activeItemsArea"></div>
+      </div>
+
+      <!-- LANGUAGE PROGRESS -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-earth-americas" style="color:var(--accent)"></i> Til progressi</h3>
+        </div>
+        <div id="langProgressArea">
+          <div class="empty"><i class="fa-solid fa-seedling"></i>Hali til o'rganilmagan. <a href="/index.html"
+              style="color:var(--accent2)">Boshlash!</a></div>
+        </div>
+      </div>
+
+      <!-- MY PLAN -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-gem" style="color:var(--accent2)"></i> Mening rejam</h3>
+        </div>
+        <div class="plan-box">
+          <div>
+            <div style="font-size:.75rem;color:var(--text3);margin-bottom:4px">Joriy reja</div>
+            <div class="plan-name-big" id="planNameBig">—</div>
+          </div>
+          <a href="/languages-html/shop.html" class="btn btn-primary"><i class="fa-solid fa-arrow-up"></i> Yangilash</a>
+        </div>
+        <div class="perks-grid" id="planPerksGrid"></div>
+      </div>
+
+      <!-- MY RANK -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-trophy" style="color:var(--gold)"></i> Mening rankim</h3>
+        </div>
+        <div id="rankArea">
+          <div class="empty"><i class="fa-solid fa-medal"></i>Rank yo'q</div>
+        </div>
+      </div>
+
+      <!-- OWNED PACKS -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-box-open" style="color:var(--accent)"></i> Ochilgan packlar</h3>
+          <span class="count" id="packsCount">0</span>
+        </div>
+        <div class="items-grid" id="packsGrid">
+          <div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-box"></i>Hali pack yo'q. <a
+              href="/languages-html/shop.html" style="color:var(--accent2)">Do'konga!</a></div>
+        </div>
+      </div>
+
+      <!-- OWNED KEYS -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-key" style="color:var(--gold)"></i> Kalit kolleksiyasi</h3>
+          <span class="count" id="keysCount">0</span>
+        </div>
+        <div class="items-grid" id="keysGrid">
+          <div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-key"></i>Hali kalit yo'q.</div>
+        </div>
+      </div>
+
+      <!-- FRAMES -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-image" style="color:var(--pink)"></i> Framlar</h3>
+          <span class="count" id="framesCount">0</span>
+        </div>
+        <div class="items-grid" id="framesGrid">
+          <div class="empty" style="grid-column:1/-1"><i class="fa-regular fa-image"></i>Frame yo'q.</div>
+        </div>
+      </div>
+
+      <!-- BOOSTERS -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-bolt" style="color:var(--orange)"></i> Boosterlar</h3>
+        </div>
+        <div id="boosterArea">
+          <div class="empty"><i class="fa-solid fa-rocket"></i>Faol booster yo'q.</div>
+        </div>
+      </div>
+
+      <!-- BADGES -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-medal" style="color:var(--gold)"></i> Badgelar</h3>
+          <span class="count" id="badgesCount">0</span>
+        </div>
+        <div class="items-grid" id="badgesGrid">
+          <div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-medal"></i>Badge yo'q.</div>
+        </div>
+      </div>
+
+      <!-- THEMES -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-palette" style="color:var(--accent2)"></i> Temalar</h3>
+          <span class="count" id="themesCount">0</span>
+        </div>
+        <div class="items-grid" id="themesGrid">
+          <div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-palette"></i>Tema yo'q.</div>
+        </div>
+      </div>
+
+      <!-- PURCHASE HISTORY -->
+      <div class="sec-card">
+        <div class="sec-head">
+          <h3><i class="fa-solid fa-receipt" style="color:var(--green)"></i> Xarid tarixi</h3>
+        </div>
+        <div id="purchaseHistory">
+          <div class="empty"><i class="fa-solid fa-bag-shopping"></i>Hali xarid yo'q.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc, updateDoc, collection, query, where, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const FB = {
+      apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
+      authDomain: "linguaverse-ebe09.firebaseapp.com",
+      projectId: "linguaverse-ebe09",
+      storageBucket: "linguaverse-ebe09.firebasestorage.app",
+      messagingSenderId: "130625454868",
+      appId: "1:130625454868:web:3f02871f64cb5f8af27801"
+    };
+    const app = getApps().length ? getApps()[0] : initializeApp(FB);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    /* ── STATIC DATA (same as shop) ── */
+    const PLANS_DATA = {
+      free: { name: 'Free', icon: '🆓', xpMult: 1, coinMult: 1, aiQuality: 'Standart', tokenBonus: 1000 },
+      pro: { name: 'Pro', icon: '⭐', xpMult: 1.5, coinMult: 1.3, aiQuality: 'Yaxshilangan', tokenBonus: 3000 },
+      premium: { name: 'Premium', icon: '💎', xpMult: 2, coinMult: 1.6, aiQuality: 'Ilgor', tokenBonus: 8000 },
+      ultimate: { name: 'Ultimate', icon: '🚀', xpMult: 3, coinMult: 2, aiQuality: 'Eng yaxshi', tokenBonus: 999999 },
+    };
+    const RANKS_DATA = [
+      { id: 'none', name: 'Oddiy', icon: '⬜', color: '#888', perks: ['Standart profil'] },
+      { id: 'silver', name: 'Silver', icon: '🥈', color: '#C0C0C0', perks: ['+200 token', '+30% XP'] },
+      { id: 'gold', name: 'Gold', icon: '🥇', color: '#FFD700', perks: ['+500 token', '+80% XP', 'Gold border'] },
+      { id: 'diamond', name: 'Diamond', icon: '💎', color: '#B9F2FF', perks: ['+1000 token', '+150% XP', 'Diamond glow'] },
+      { id: 'legend', name: 'Legend', icon: '🔱', color: '#f5c842', perks: ['+2000 token', '+250% XP', 'Legend aura'] },
+    ];
+    const FRAMES_DATA = [
+      { id: 'frame_fire', name: 'Fire Frame', icon: '🔥', color: '#ef4444' },
+      { id: 'frame_ice', name: 'Ice Frame', icon: '❄️', color: '#22d3ee' },
+      { id: 'frame_gold', name: 'Golden Frame', icon: '✨', color: '#f5c842' },
+      { id: 'frame_galaxy', name: 'Galaxy Frame', icon: '🌌', color: '#818cf8' },
+      { id: 'frame_neon', name: 'Neon Frame', icon: '💡', color: '#4ade80' },
+      { id: 'frame_rainbow', name: 'Rainbow Frame', icon: '🌈', color: '#f472b6' },
+      { id: 'frame_vip', name: 'VIP Frame', icon: '👑', color: '#f5c842' },
+      { id: 'frame_dragon', name: 'Dragon Frame', icon: '🐉', color: '#dc2626' },
+    ];
+    const BADGES_DATA = [
+      { id: 'badge_flame', name: 'Flame', icon: '🔥', color: '#fb923c' },
+      { id: 'badge_star', name: 'Star', icon: '⭐', color: '#f5c842' },
+      { id: 'badge_diamond', name: 'Diamond', icon: '💎', color: '#B9F2FF' },
+      { id: 'badge_crown', name: 'Crown', icon: '👑', color: '#f5c842' },
+      { id: 'badge_lightning', name: 'Lightning', icon: '⚡', color: '#facc15' },
+    ];
+    const THEMES_DATA = [
+      { id: 'theme_default', name: 'Default', icon: '🌙', color: '#4f6ef7' },
+      { id: 'theme_forest', name: 'Forest', icon: '🌲', color: '#34d399' },
+      { id: 'theme_ocean', name: 'Ocean', icon: '🌊', color: '#22d3ee' },
+      { id: 'theme_sunset', name: 'Sunset', icon: '🌅', color: '#fb923c' },
+      { id: 'theme_galaxy', name: 'Galaxy', icon: '🌌', color: '#a78bfa' },
+    ];
+    const LANG_FLAGS = { english: '🇺🇸', russian: '🇷🇺', arabic: '🇸🇦', german: '🇩🇪', spanish: '🇪🇸', turkish: '🇹🇷', japanese: '🇯🇵', chinese: '🇨🇳' };
+
+    /* ── THREE.JS BG ── */
+    (function () {
+      const cv = document.getElementById('bgCanvas');
+      const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+      r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight);
+      const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);
+      cam.position.z = 5;
+      const geo = new THREE.BufferGeometry(); const cnt = 1000, pos = new Float32Array(cnt * 3);
+      for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30;
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x5b7cfa, size: .055, transparent: true, opacity: .4 }));
+      sc.add(pts);
+      [0x5b7cfa, 0xa78bfa, 0xf5c842, 0x34d399].forEach((c, i) => {
+        const m = new THREE.Mesh(new THREE.TorusGeometry(2.5 + i * 1.8, .01, 8, 100), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .06 }));
+        m.rotation.x = Math.random() * Math.PI; m.rotation.y = Math.random() * Math.PI; sc.add(m);
+      });
+      let mx = 0, my = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+      window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight) });
+      let t = 0; (function loop() { requestAnimationFrame(loop); t += .003; pts.rotation.y = t * .15; pts.rotation.x = t * .08; cam.position.x += (mx * .8 - cam.position.x) * .03; cam.position.y += (-my * .8 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam) })();
+    })();
+
+    /* ── CURSOR ── */
+    const curEl = document.getElementById('cursor'), curRing = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      curEl.style.left = e.clientX - 5 + 'px'; curEl.style.top = e.clientY - 5 + 'px';
+      curRing.style.left = e.clientX - 17 + 'px'; curRing.style.top = e.clientY - 17 + 'px';
+    });
+
+    /* ── STATE ── */
+    let CU = null, UD = {};
+
+    /* ── AUTH ── */
+    onAuthStateChanged(auth, async user => {
+      if (!user) { window.location.href = '/login.html'; return; }
+      CU = user;
+      try {
+        const snap = await getDoc(doc(db, 'users', CU.uid));
+        if (snap.exists()) UD = snap.data();
+        else UD = {};
+      } catch (e) { console.error(e); }
+      render();
+      loadPurchaseHistory();
+    });
+
+    /* ── UTILS ── */
+    function fmt(n) { return (n || 0).toLocaleString(); }
+    function timeAgo(ts) {
+      if (!ts) return '—';
+      const d = ts.toDate ? ts.toDate() : new Date(ts);
+      const diff = (Date.now() - d) / 1000;
+      if (diff < 60) return 'Hozirgina';
+      if (diff < 3600) return Math.floor(diff / 60) + ' daqiqa oldin';
+      if (diff < 86400) return Math.floor(diff / 3600) + ' soat oldin';
+      return Math.floor(diff / 86400) + ' kun oldin';
+    }
+    function toast(msg, type = 'info') {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.className = 'toast ' + type + ' show';
+      clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    /* ── RENDER ── */
+    function render() {
+      updateNav();
+      renderAvatar();
+      renderBadges();
+      renderStats();
+      renderActiveItems();
+      renderLanguages();
+      renderPlan();
+      renderRank();
+      renderOwnedPacks();
+      renderOwnedKeys();
+      renderFrames();
+      renderBoosters();
+      renderBadgesSection();
+      renderThemes();
+      renderAccountInfo();
+    }
+
+    function updateNav() {
+      document.getElementById('navCoin').textContent = fmt(UD.coins);
+      document.getElementById('navXP').textContent = fmt(UD.xp);
+      document.getElementById('navTok').textContent = UD.plan === 'ultimate' ? '∞' : fmt(UD.tokens);
+      document.getElementById('dispNameLabel').textContent = UD.displayName || 'Ism kiritilmagan';
+      document.getElementById('emailLabel').textContent = CU.email || '';
+      document.getElementById('profileName').textContent = UD.displayName || 'Foydalanuvchi';
+      document.getElementById('profileEmail').textContent = CU.email || '';
+      document.getElementById('newNameInput').value = UD.displayName || '';
+      if (UD.isAdmin) document.getElementById('adminLinkWrap').style.display = 'block';
+    }
+
+    function renderAvatar() {
+      const name = UD.displayName || '?';
+      const initials = name.split(' ').map(w => w[0] || '').join('').toUpperCase().slice(0, 2) || name[0].toUpperCase();
+      document.getElementById('avatarInner').textContent = initials;
+
+      // XP Level
+      const xp = UD.xp || 0;
+      const level = Math.floor(xp / 200) + 1;
+      const prog = (xp % 200) / 200 * 100;
+      document.getElementById('userLevel').textContent = level;
+      document.getElementById('levelXP').textContent = xp % 200;
+      document.getElementById('xpFill').style.width = prog + '%';
+
+      // Frame
+      const frameEl = document.getElementById('avatarFrame');
+      const frameId = UD.activeFrame || '';
+      frameEl.className = 'avatar-frame';
+      if (frameId) {
+        const f = FRAMES_DATA.find(x => x.id === frameId);
+        if (f) {
+          const cls = frameId.replace('frame_', '');
+          frameEl.classList.add(cls);
+        }
+      }
+    }
+
+    function renderBadges() {
+      const plan = PLANS_DATA[UD.plan || 'free'];
+      const row = document.getElementById('badgeRow');
+      let h = `<span class="badge-pill">${plan.icon} ${plan.name}</span>`;
+      if (UD.isVIP) h += `<span class="badge-pill gold">👑 VIP</span>`;
+      if (UD.isAdmin) h += `<span class="badge-pill gold">⚙️ Admin</span>`;
+      const rank = RANKS_DATA.find(r => r.id === (UD.rank || 'none'));
+      if (rank && rank.id !== 'none') h += `<span class="badge-pill" style="background:${rank.color}18;color:${rank.color};border-color:${rank.color}44">${rank.icon} ${rank.name}</span>`;
+      if (UD.activeBadge) {
+        const b = BADGES_DATA.find(x => x.id === UD.activeBadge);
+        if (b) h += `<span class="badge-pill" style="color:${b.color}">${b.icon} ${b.name}</span>`;
+      }
+      row.innerHTML = h;
+    }
+
+    function renderStats() {
+      document.getElementById('statCoins').textContent = fmt(UD.coins);
+      document.getElementById('statXP').textContent = fmt(UD.totalXP || UD.xp);
+      document.getElementById('statTok').textContent = UD.plan === 'ultimate' ? '∞' : fmt(UD.tokens);
+      document.getElementById('statStreak').textContent = UD.streak || 0;
+    }
+
+    function renderActiveItems() {
+      const show = document.getElementById('activeShowcase');
+      const area = document.getElementById('activeItemsArea');
+      const hasActive = UD.isVIP || UD.activeFrame || (UD.activeBooster && Date.now() < (UD.boosterExpiry || 0)) || UD.activeBadge || UD.activeTheme;
+      if (!hasActive) { show.style.display = 'none'; return; }
+      show.style.display = 'block';
+      let h = '';
+      if (UD.isVIP) h += `<div class="vip-banner"><div class="vb-icon">👑</div><div class="vb-info"><div class="vb-title">VIP STATUS AKTIV</div><div class="vb-sub">Barcha premium imkoniyatlar ochiq</div></div></div>`;
+      if (UD.activeBooster && Date.now() < (UD.boosterExpiry || 0)) {
+        const timeLeft = Math.max(0, UD.boosterExpiry - Date.now());
+        const mins = Math.floor(timeLeft / 60000);
+        const hrs = Math.floor(mins / 60);
+        const timeStr = hrs > 0 ? `${hrs}s ${mins % 60}d` : `${mins}d`;
+        h += `<div class="booster-banner"><div class="bb-icon">🚀</div><div class="bb-info"><div class="bb-title">Booster Faol!</div><div class="bb-sub">Qolgan vaqt: ${timeStr}</div></div><div class="bb-mult">${UD.boosterMult || 2}x</div></div>`;
+      }
+      if (UD.activeFrame) {
+        const f = FRAMES_DATA.find(x => x.id === UD.activeFrame);
+        if (f) h += `<div style="display:inline-flex;align-items:center;gap:8px;background:${f.color}18;border:1px solid ${f.color}44;border-radius:10px;padding:8px 14px;margin-bottom:8px;margin-right:8px;font-size:.82rem;font-weight:700;color:${f.color}">${f.icon} ${f.name} <span style="font-size:.65rem;opacity:.7">faol frame</span></div>`;
+      }
+      if (UD.activeBadge) {
+        const b = BADGES_DATA.find(x => x.id === UD.activeBadge);
+        if (b) h += `<div style="display:inline-flex;align-items:center;gap:8px;background:${b.color}18;border:1px solid ${b.color}44;border-radius:10px;padding:8px 14px;margin-bottom:8px;font-size:.82rem;font-weight:700;color:${b.color}">${b.icon} ${b.name} <span style="font-size:.65rem;opacity:.7">faol badge</span></div>`;
+      }
+      area.innerHTML = h;
+    }
+
+    function renderLanguages() {
+      const langs = UD.languages || {};
+      const entries = Object.entries(langs).filter(([, v]) => v && v.xp > 0);
+      const el = document.getElementById('langProgressArea');
+      if (!entries.length) {
+        el.innerHTML = `<div class="empty"><i class="fa-solid fa-seedling"></i>Hali til o'rganilmagan. <a href="/index.html" style="color:var(--accent2)">Boshlash!</a></div>`;
+        return;
+      }
+      el.innerHTML = entries.map(([lang, lp]) => {
+        const xp = lp.xp || 0, level = Math.floor(xp / 200) + 1, prog = (xp % 200) / 200 * 100;
+        return `<div class="lang-row">
+      <span class="lang-flag">${LANG_FLAGS[lang] || '🌍'}</span>
+      <div class="lang-info">
+        <div class="lang-name">${lang.charAt(0).toUpperCase() + lang.slice(1)} · Level ${level}</div>
+        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width:${prog}%"></div></div>
+      </div>
+      <span class="lang-xp">⭐ ${fmt(xp)}</span>
+    </div>`;
+      }).join('');
+    }
+
+    function renderPlan() {
+      const plan = PLANS_DATA[UD.plan || 'free'];
+      document.getElementById('planNameBig').textContent = plan.icon + ' ' + plan.name;
+      document.getElementById('planPerksGrid').innerHTML = [
+        ['🪙', 'XP Multiplier', plan.xpMult + 'x'],
+        ['💰', 'Coin Multiplier', plan.coinMult + 'x'],
+        ['🤖', 'AI Sifati', plan.aiQuality],
+        ['⭐', 'Oylik tokenlar', UD.plan === 'ultimate' ? 'Cheksiz' : fmt(plan.tokenBonus)],
+      ].map(([, l, v]) => `<div class="perk-box"><div class="perk-label">${l}</div><div class="perk-val">${v}</div></div>`).join('');
+    }
+
+    function renderRank() {
+      const rank = RANKS_DATA.find(r => r.id === (UD.rank || 'none')) || RANKS_DATA[0];
+      const el = document.getElementById('rankArea');
+      if (rank.id === 'none') { el.innerHTML = `<div class="empty"><i class="fa-solid fa-medal"></i>Hali rank yo'q. <a href="/languages-html/shop.html" style="color:var(--accent2)">Do'konga!</a></div>`; return; }
+      el.innerHTML = `<div class="rank-display">
+    <div class="rank-ring" style="border-color:${rank.color};background:${rank.color}18"><span>${rank.icon}</span></div>
+    <div class="rank-info">
+      <div class="rank-name" style="color:${rank.color}">${rank.name} Rank</div>
+      <div class="rank-perks">${rank.perks.join(' · ')}</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    ${RANKS_DATA.filter(r => r.id !== 'none').map(r => `
+      <div style="display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:100px;font-size:.72rem;font-weight:700;background:${r.color}18;border:1px solid ${r.color}${UD.rank === r.id ? '88' : '22'};color:${UD.rank === r.id ? r.color : 'var(--text3)'}">${r.icon} ${r.name}</div>
+    `).join('')}
+  </div>`;
+    }
+
+    function renderOwnedPacks() {
+      const owned = UD.ownedPacks || [];
+      document.getElementById('packsCount').textContent = owned.length;
+      const el = document.getElementById('packsGrid');
+      if (!owned.length) { el.innerHTML = `<div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-box"></i>Hali pack yo'q. <a href="/languages-html/shop.html" style="color:var(--accent2)">Do'konga!</a></div>`; return; }
+      // Show as chips — we don't have full pack data here but we can show IDs nicely
+      el.innerHTML = owned.map(id => {
+        const name = id.replace('pack_', '').replace(/_/g, ' ');
+        const Name = name.charAt(0).toUpperCase() + name.slice(1);
+        return `<div class="item-chip" style="--chip-glow:rgba(91,124,250,.1)">
+      <div class="chip-icon">📦</div>
+      <div class="chip-name">${Name}</div>
+      <div class="chip-sub">Pack</div>
+    </div>`;
+      }).join('');
+    }
+
+    function renderOwnedKeys() {
+      const owned = UD.ownedKeys || [];
+      document.getElementById('keysCount').textContent = owned.length;
+      const el = document.getElementById('keysGrid');
+      if (!owned.length) { el.innerHTML = `<div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-key"></i>Hali kalit yo'q.</div>`; return; }
+      el.innerHTML = owned.map(id => {
+        const name = id.replace('key_', '').replace(/_/g, ' ');
+        const Name = name.charAt(0).toUpperCase() + name.slice(1);
+        return `<div class="item-chip" style="--chip-glow:rgba(245,200,66,.08);border-color:rgba(245,200,66,.2)">
+      <div class="chip-icon" style="color:var(--gold)">🗝️</div>
+      <div class="chip-name" style="color:var(--gold)">${Name}</div>
+      <div class="chip-sub">Kalit</div>
+    </div>`;
+      }).join('');
+    }
+
+    function renderFrames() {
+      const owned = UD.isVIP ? FRAMES_DATA.map(f => f.id) : (UD.ownedFrames || []);
+      document.getElementById('framesCount').textContent = owned.length;
+      const el = document.getElementById('framesGrid');
+      const myFrames = FRAMES_DATA.filter(f => owned.includes(f.id));
+      if (!myFrames.length) { el.innerHTML = `<div class="empty" style="grid-column:1/-1"><i class="fa-regular fa-image"></i>Frame yo'q. <a href="/languages-html/shop.html" style="color:var(--accent2)">Do'konga!</a></div>`; return; }
+      el.innerHTML = myFrames.map(f => {
+        const isActive = UD.activeFrame === f.id;
+        return `<div class="item-chip ${isActive ? 'active' : ''}" style="--chip-glow:${f.color}18;border-color:${f.color}${isActive ? '88' : '22'}">
+      ${isActive ? '<span class="chip-active-tag">Faol</span>' : ''}
+      <div class="chip-icon">${f.icon}</div>
+      <div class="chip-name" style="color:${f.color}">${f.name}</div>
+      ${isActive
+            ? '<button class="chip-btn cb-muted" disabled>✅ Faol</button>'
+            : `<button class="chip-btn cb-green" onclick="equipFrame('${f.id}')">⚡ Kiy</button>`}
+    </div>`;
+      }).join('');
+    }
+
+    function renderBoosters() {
+      const active = UD.activeBooster && Date.now() < (UD.boosterExpiry || 0);
+      const el = document.getElementById('boosterArea');
+      if (!active) { el.innerHTML = `<div class="empty"><i class="fa-solid fa-rocket"></i>Faol booster yo'q. <a href="/languages-html/shop.html" style="color:var(--accent2)">Do'konga!</a></div>`; return; }
+      const timeLeft = Math.max(0, (UD.boosterExpiry || 0) - Date.now());
+      const mins = Math.floor(timeLeft / 60000);
+      const hrs = Math.floor(mins / 60);
+      const timeStr = hrs > 0 ? `${hrs} soat ${mins % 60} daqiqa` : `${mins} daqiqa`;
+      el.innerHTML = `<div class="booster-banner">
+    <div class="bb-icon">🚀</div>
+    <div class="bb-info">
+      <div class="bb-title">${UD.boosterMult || 2}x XP Booster</div>
+      <div class="bb-sub">⏱ Qoldi: ${timeStr}</div>
+    </div>
+    <div class="bb-mult">${UD.boosterMult || 2}x</div>
+  </div>`;
+    }
+
+    function renderBadgesSection() {
+      const owned = UD.ownedBadges || [];
+      document.getElementById('badgesCount').textContent = owned.length;
+      const el = document.getElementById('badgesGrid');
+      const myBadges = BADGES_DATA.filter(b => owned.includes(b.id));
+      if (!myBadges.length) { el.innerHTML = `<div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-medal"></i>Badge yo'q.</div>`; return; }
+      el.innerHTML = myBadges.map(b => {
+        const isActive = UD.activeBadge === b.id;
+        return `<div class="item-chip ${isActive ? 'active' : ''}" style="--chip-glow:${b.color}18;border-color:${b.color}${isActive ? '88' : '22'}">
+      ${isActive ? '<span class="chip-active-tag">Faol</span>' : ''}
+      <div class="chip-icon">${b.icon}</div>
+      <div class="chip-name" style="color:${b.color}">${b.name}</div>
+      ${isActive
+            ? `<button class="chip-btn cb-muted" onclick="equipBadge('${b.id}')">Yech</button>`
+            : `<button class="chip-btn cb-green" onclick="equipBadge('${b.id}')">⚡ Kiy</button>`}
+    </div>`;
+      }).join('');
+    }
+
+    function renderThemes() {
+      const owned = UD.ownedThemes || ['theme_default'];
+      document.getElementById('themesCount').textContent = owned.length;
+      const el = document.getElementById('themesGrid');
+      const myThemes = THEMES_DATA.filter(t => owned.includes(t.id));
+      if (!myThemes.length) { el.innerHTML = `<div class="empty" style="grid-column:1/-1"><i class="fa-solid fa-palette"></i>Tema yo'q.</div>`; return; }
+      el.innerHTML = myThemes.map(t => {
+        const isActive = UD.activeTheme === t.id;
+        return `<div class="item-chip ${isActive ? 'active' : ''}" style="--chip-glow:${t.color}18;border-color:${t.color}${isActive ? '88' : '22'}">
+      ${isActive ? '<span class="chip-active-tag">Faol</span>' : ''}
+      <div class="chip-icon">${t.icon}</div>
+      <div class="chip-name" style="color:${t.color}">${t.name}</div>
+      ${isActive
+            ? '<button class="chip-btn cb-muted" disabled>✅ Faol</button>'
+            : `<button class="chip-btn cb-green" onclick="equipTheme('${t.id}')">⚡ Kiy</button>`}
+    </div>`;
+      }).join('');
+    }
+
+    function renderAccountInfo() {
+      document.getElementById('memberSince').textContent = timeAgo(UD.createdAt);
+      document.getElementById('lastSeen').textContent = timeAgo(UD.lastSeen || UD.lastActive);
+      document.getElementById('userIdShow').textContent = (CU.uid || '').slice(0, 16) + '...';
+      const adminEl = document.getElementById('adminStatus');
+      if (UD.isAdmin) { adminEl.textContent = 'Ha — Admin'; adminEl.style.color = 'var(--gold)'; }
+      else adminEl.textContent = 'Yo\'q';
+    }
+
+    async function loadPurchaseHistory() {
+      const el = document.getElementById('purchaseHistory');
+      try {
+        const q = query(collection(db, 'purchaseRequests'), where('uid', '==', CU.uid));
+        const snap = await getDocs(q);
+        const reqs = []; snap.forEach(d => reqs.push({ id: d.id, ...d.data() }));
+        reqs.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+        if (!reqs.length) { el.innerHTML = `<div class="empty"><i class="fa-solid fa-bag-shopping"></i>Hali xarid yo'q.</div>`; return; }
+        el.innerHTML = `<table class="req-table">
+      <thead><tr><th>Mahsulot</th><th>Narx</th><th>Status</th><th>Sana</th></tr></thead>
+      <tbody>${reqs.map(r => `<tr>
+        <td><div style="font-weight:700">${r.itemName || r.item || '—'}</div><div style="font-size:.68rem;color:var(--text3)">${r.itemType || r.lang || ''}</div></td>
+        <td style="color:var(--gold);font-weight:700">🪙 ${(r.price || r.price_uzs || 0).toLocaleString()}</td>
+        <td><span class="req-status ${r.status || 'pending'}">${r.status === 'approved' ? '✅' : r.status === 'rejected' ? '❌' : '⏳'} ${r.status || 'pending'}</span></td>
+        <td style="color:var(--text3)">${timeAgo(r.createdAt)}</td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+      } catch (e) { el.innerHTML = `<div class="empty"><i class="fa-solid fa-triangle-exclamation"></i>Xatolik yuz berdi.</div>`; }
+    }
+
+    /* ── ACTIONS ── */
+    window.toggleEdit = function () { document.getElementById('editNameForm').classList.toggle('open') };
+
+    window.saveName = async function () {
+      const name = document.getElementById('newNameInput').value.trim();
+      if (!name) { toast('Ism kiriting!', 'error'); return; }
+      try {
+        await updateProfile(CU, { displayName: name });
+        await updateDoc(doc(db, 'users', CU.uid), { displayName: name, lastSeen: serverTimestamp() });
+        UD.displayName = name; render();
+        window.toggleEdit(); toast('✅ Ism yangilandi!', 'success');
+      } catch (e) { toast('Xatolik: ' + e.message, 'error'); }
+    };
+
+    window.equipFrame = async function (id) {
+      try {
+        await updateDoc(doc(db, 'users', CU.uid), { activeFrame: id, lastSeen: serverTimestamp() });
+        UD.activeFrame = id; render(); toast('🖼 Frame kiyldi!', 'success');
+      } catch (e) { toast('Xatolik', 'error'); }
+    };
+
+    window.equipBadge = async function (id) {
+      const newB = UD.activeBadge === id ? null : id;
+      try {
+        await updateDoc(doc(db, 'users', CU.uid), { activeBadge: newB, lastSeen: serverTimestamp() });
+        UD.activeBadge = newB; render(); toast(newB ? '🏅 Badge kiyldi!' : 'Badge yechildi', 'success');
+      } catch (e) { toast('Xatolik', 'error'); }
+    };
+
+    window.equipTheme = async function (id) {
+      try {
+        await updateDoc(doc(db, 'users', CU.uid), { activeTheme: id, lastSeen: serverTimestamp() });
+        UD.activeTheme = id; render(); toast('🎨 Tema qo\'llandi!', 'success');
+      } catch (e) { toast('Xatolik', 'error'); }
+    };
+
+    window.doLogout = async function () {
+      try { await signOut(auth); window.location.href = '/index.html'; }
+      catch (e) { toast('Chiqishda xatolik', 'error'); }
+    };
+  </script>
+</body>
+
+</html>

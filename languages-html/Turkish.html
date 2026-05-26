@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaVerse — Turkish</title>
+    <link rel="stylesheet" href="./css/turkish.css">
+</head>
+
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <a href="home.html" class="logo">Lingua<span>Verse</span></a>
+        <div class="nav-center">
+            <a href="#units" class="nav-link">Units</a>
+            <a href="#words" class="nav-link">So'zlar</a>
+            <a href="#practice" class="nav-link">Mashqlar</a>
+            <a href="#grammar" class="nav-link">Grammatika</a>
+        </div>
+        <div class="nav-right">
+            <span class="lang-flag">🇹🇷</span>
+            <span class="nav-label">Turkish Course</span>
+        </div>
+    </nav>
+    <!-- SITE NAV BAR -->
+    <div style="position:sticky;top:64px;z-index:99;background:rgba(3,5,9,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 24px;display:flex;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none">
+        <a href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🏠 Bosh sahifa</a>
+        <a href="../select-language.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🌍 Tillar</a>
+        <a href="shop.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(91,124,250,0.1);border:1px solid rgba(91,124,250,0.25);color:#a78bfa;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🛍️ Do'kon</a>
+        <a href="profile.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">👤 Profil</a>
+        <a href="../order.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(244,199,74,0.1);border:1px solid rgba(244,199,74,0.25);color:#f5c842;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">⭐ Rejalar</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="lang-badge-big">🇹🇷</div>
+            <h1 class="hero-title">Turkish <span class="gradient-text">Course</span></h1>
+            <p class="hero-subtitle">A1 dan C1 gacha — 4 daraja, 60 unit, 500+ so'z, grammatika va mashqlar bilan</p>
+            <div class="hero-stats-row">
+                <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l">Daraja</span></div>
+                <div class="hstat"><span class="hstat-n">60</span><span class="hstat-l">Unit</span></div>
+                <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">So'z</span></div>
+                <div class="hstat"><span class="hstat-n">🤝</span><span class="hstat-l">O'xshash</span></div>
+            </div>
+            <div class="similar-box">
+                <div class="similar-title">O'zbek va Turk tillari o'xshashligi</div>
+                <div class="similar-pairs">
+                    <span>kitob → kitap</span>
+                    <span>uy → ev</span>
+                    <span>suv → su</span>
+                    <span>do'st → dost</span>
+                    <span>yaxshi → iyi</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-card">
+            <div class="hero-card-title">Bugungi maqsad</div>
+            <div class="hero-card-goal" id="dailyGoal">10 so'z o'rganish</div>
+            <div class="streak-row">
+                <span class="streak-icon">🔥</span>
+                <span class="streak-text" id="streakText">0 kun ketma-ket</span>
+            </div>
+            <div class="xp-row">
+                <span class="xp-label">XP:</span>
+                <span class="xp-val" id="xpDisplay">0</span>
+            </div>
+            <button class="start-btn"
+                onclick="document.getElementById('units').scrollIntoView({behavior:'smooth'})">Boshlash →</button>
+        </div>
+    </section>
+
+    <!-- LEVEL TABS -->
+    <section class="level-section" id="units">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">📚 Darslar</div>
+                <h2 class="section-title">Units va <span class="gradient-text">Darslar</span></h2>
+            </div>
+            <div class="level-tabs" id="levelTabs">
+                <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner',this)">
+                    🌱 Beginner <span class="level-tag">A1</span>
+                </button>
+                <button class="level-tab" data-level="elementary" onclick="switchLevel('elementary',this)">
+                    📗 Elementary <span class="level-tag">A2</span>
+                </button>
+                <button class="level-tab" data-level="intermediate" onclick="switchLevel('intermediate',this)">
+                    📘 Intermediate <span class="level-tag">B1</span>
+                </button>
+                <button class="level-tab" data-level="advanced" onclick="switchLevel('advanced',this)">
+                    🚀 Advanced <span class="level-tag">B2-C1</span>
+                </button>
+            </div>
+            <div class="units-grid" id="unitsGrid"></div>
+        </div>
+    </section>
+
+    <!-- WORDS SECTION -->
+    <section class="words-section" id="words">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">📖 Lug'at</div>
+                <h2 class="section-title">So'zlar <span class="gradient-text">Kutubxonasi</span></h2>
+                <p class="section-sub">500+ turk so'zi, o'zbek tarjimasi va misol jumlalar bilan</p>
+            </div>
+            <div class="words-controls">
+                <input type="text" class="word-search" id="wordSearch" placeholder="So'z qidirish..."
+                    oninput="filterWords()">
+                <div class="word-filter-tabs">
+                    <button class="wf-tab active" onclick="filterByLevel('all',this)">Hammasi</button>
+                    <button class="wf-tab" onclick="filterByLevel('beginner',this)">Beginner</button>
+                    <button class="wf-tab" onclick="filterByLevel('elementary',this)">Elementary</button>
+                    <button class="wf-tab" onclick="filterByLevel('intermediate',this)">Intermediate</button>
+                    <button class="wf-tab" onclick="filterByLevel('advanced',this)">Advanced</button>
+                </div>
+            </div>
+            <div class="words-grid" id="wordsGrid"></div>
+            <div class="load-more-wrap">
+                <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreWords()">Ko'proq ko'rish</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE SECTION -->
+    <section class="practice-section" id="practice">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">🎯 Mashqlar</div>
+                <h2 class="section-title">4 xil <span class="gradient-text">Mashq</span></h2>
+            </div>
+            <div class="practice-tabs">
+                <button class="ptab active" onclick="switchPractice('flashcard',this)">🃏 Flashcard</button>
+                <button class="ptab" onclick="switchPractice('quiz',this)">❓ Quiz</button>
+                <button class="ptab" onclick="switchPractice('match',this)">🔗 Juftlik</button>
+                <button class="ptab" onclick="switchPractice('typing',this)">⌨️ Yozish</button>
+                <button class="ptab" onclick="switchPractice('fill',this)">📝 Bo'shliq</button>
+            </div>
+
+            <!-- FLASHCARD -->
+            <div class="practice-panel active" id="panel-flashcard">
+                <div class="practice-card">
+                    <div class="flashcard-wrap">
+                        <div class="flashcard" id="flashcard" onclick="flipCard()">
+                            <div class="flashcard-front" id="flashFront">
+                                <div class="flash-turkish" id="flashTurkish">Merhaba</div>
+                                <div class="flash-hint">bosib o'giring ↻</div>
+                            </div>
+                            <div class="flashcard-back" id="flashBack">
+                                <div class="flash-uz" id="flashUz">Salom</div>
+                                <div class="flash-ex" id="flashEx"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flash-controls">
+                        <button class="flash-btn wrong" onclick="flashResult('wrong')">✗ Bilmadim</button>
+                        <button class="flash-btn skip" onclick="nextFlash()">→ Keyingi</button>
+                        <button class="flash-btn correct" onclick="flashResult('correct')">✓ Bildim</button>
+                    </div>
+                    <div class="flash-progress">
+                        <span id="flashProgress">1 / 20</span>
+                        <div class="flash-bar-wrap">
+                            <div class="flash-bar" id="flashBar" style="width:5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUIZ -->
+            <div class="practice-panel" id="panel-quiz">
+                <div class="practice-card">
+                    <div class="quiz-q" id="quizQ">Savol yuklanmoqda...</div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                    <div class="feedback-box" id="quizFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextQuiz()">Keyingi →</button>
+                    <div class="quiz-score">Ball: <span id="quizScore">0</span></div>
+                </div>
+            </div>
+
+            <!-- MATCH -->
+            <div class="practice-panel" id="panel-match">
+                <div class="practice-card">
+                    <h3 style="margin-bottom:20px">Juftlarni toping</h3>
+                    <div class="match-grid" id="matchGrid"></div>
+                    <div class="feedback-box" id="matchFeedback"></div>
+                    <button class="next-ex-btn" onclick="startMatch()">Yangi o'yin →</button>
+                </div>
+            </div>
+
+            <!-- TYPING -->
+            <div class="practice-panel" id="panel-typing">
+                <div class="practice-card">
+                    <div class="typing-prompt">Turkcha yozing:</div>
+                    <div class="typing-word" id="typingWord">Merhaba</div>
+                    <div class="typing-hint" id="typingHint">O'zbek: Salom</div>
+                    <input type="text" class="typing-input" id="typingInput" placeholder="Turkcha so'zni yozing..."
+                        oninput="checkTyping()">
+                    <div class="feedback-box" id="typingFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextTyping()">Keyingi →</button>
+                </div>
+            </div>
+
+            <!-- FILL IN THE BLANK -->
+            <div class="practice-panel" id="panel-fill">
+                <div class="practice-card">
+                    <div class="practice-icon">📝</div>
+                    <h3>Bo'shliqni to'ldiring</h3>
+                    <p class="practice-desc">Jumlani o'qing va to'g'ri so'zni kiriting</p>
+                    <div class="fill-sentence" id="fillSentence"></div>
+                    <div class="fill-hint" id="fillHint"></div>
+                    <input type="text" class="typing-input" id="fillInput" placeholder="Javobni yozing...">
+                    <button class="check-btn" onclick="checkFill()">Tekshirish ✓</button>
+                    <div class="feedback-box" id="fillFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextFill()">Keyingi →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRAMMAR SECTION -->
+    <section class="grammar-section" id="grammar">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">📝 Grammatika</div>
+                <h2 class="section-title">Turk <span class="gradient-text">Grammatikasi</span></h2>
+            </div>
+            <div class="grammar-tabs">
+                <button class="gtab active" onclick="switchGrammar(0,this)">Harflar</button>
+                <button class="gtab" onclick="switchGrammar(1,this)">Egalik</button>
+                <button class="gtab" onclick="switchGrammar(2,this)">Fe'llar</button>
+                <button class="gtab" onclick="switchGrammar(3,this)">Vaqt</button>
+                <button class="gtab" onclick="switchGrammar(4,this)">Raqamlar</button>
+                <button class="gtab" onclick="switchGrammar(5,this)">Unli uyg'unligi</button>
+            </div>
+            <div class="grammar-content" id="grammarContent"></div>
+        </div>
+    </section>
+
+    <!-- WORD MODAL -->
+    <div class="modal-overlay" id="wordModal" onclick="closeWordModal(event)">
+        <div class="modal-box" id="wordModalBox">
+            <button class="modal-close" onclick="closeWordModal()">✕</button>
+            <div id="wordModalContent"></div>
+        </div>
+    </div>
+
+    <!-- UNIT MODAL -->
+    <div class="modal-overlay" id="unitModal" onclick="closeUnitModal(event)">
+        <div class="modal-box" id="unitModalBox">
+            <button class="modal-close" onclick="closeUnitModal()">✕</button>
+            <div id="unitModalContent"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="./js/Turkish.js"></script>
+</body>
+
+</html>

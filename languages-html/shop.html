@@ -1,0 +1,2846 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>LinguaVerse — Xazina Do'koni</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Exo+2:wght@400;600;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #020408;
+      --bg2: #040810;
+      --bg3: #080d1a;
+      --bg4: #0c1224;
+      --accent: #5b7cfa;
+      --accent2: #a78bfa;
+      --gold: #f5c842;
+      --gold2: #e8a800;
+      --green: #34d399;
+      --red: #f87171;
+      --orange: #fb923c;
+      --pink: #f472b6;
+      --cyan: #22d3ee;
+      --text: #eef0ff;
+      --text2: #a8b0d0;
+      --text3: #5a6288;
+      --border: rgba(255, 255, 255, 0.06);
+      --font-display: 'Cinzel', serif;
+      --font-head: 'Exo 2', sans-serif;
+      --font-body: 'Rajdhani', sans-serif
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden
+    }
+
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      transition: opacity .6s
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none
+    }
+
+    .load-logo {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold), var(--orange), var(--gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: .08em
+    }
+
+    .load-bar {
+      width: 240px;
+      height: 2px;
+      background: rgba(255, 255, 255, .06);
+      border-radius: 100px;
+      overflow: hidden
+    }
+
+    .load-bar-inner {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--orange));
+      border-radius: 100px;
+      transition: width .3s;
+      box-shadow: 0 0 12px var(--gold)
+    }
+
+    .load-text {
+      font-size: .78rem;
+      color: var(--text3);
+      letter-spacing: .04em
+    }
+
+    .auth-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 8888;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px
+    }
+
+    .auth-screen.show {
+      display: flex
+    }
+
+    .auth-box {
+      background: var(--bg3);
+      border: 1px solid rgba(91, 124, 250, .3);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      margin: 16px
+    }
+
+    .auth-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .auth-sub {
+      font-size: .82rem;
+      color: var(--text3);
+      margin-bottom: 20px
+    }
+
+    .auth-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: .9rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: all .2s
+    }
+
+    .auth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(91, 124, 250, .4)
+    }
+
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .35
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(2, 4, 8, .96);
+      backdrop-filter: blur(28px);
+      border-bottom: 1px solid rgba(245, 200, 66, .08);
+      padding: 0 24px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: .06em
+    }
+
+    .nav-logo span {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .nav-spacer {
+      flex: 1
+    }
+
+    .nav-stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .nav-stat:hover {
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .nav-back {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s
+    }
+
+    .nav-back:hover {
+      background: rgba(255, 255, 255, .08)
+    }
+
+    .tabs-row {
+      position: sticky;
+      top: 62px;
+      z-index: 199;
+      background: rgba(2, 4, 8, .96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 24px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none
+    }
+
+    .tabs-row::-webkit-scrollbar {
+      display: none
+    }
+
+    .ftab {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 7px 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all .2s;
+      letter-spacing: .02em
+    }
+
+    .ftab.active {
+      background: rgba(245, 200, 66, .1);
+      border-color: rgba(245, 200, 66, .35);
+      color: var(--gold)
+    }
+
+    .ftab:hover:not(.active) {
+      background: rgba(255, 255, 255, .06);
+      color: var(--text)
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 44px 24px 24px
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 200, 66, .08);
+      border: 1px solid rgba(245, 200, 66, .25);
+      border-radius: 100px;
+      padding: 5px 18px;
+      font-family: var(--font-head);
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 16px
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      letter-spacing: .04em
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--gold), var(--orange), #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero-sub {
+      font-size: .9rem;
+      color: var(--text2);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.7
+    }
+
+    .wallet-bar {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 24px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center
+    }
+
+    .wallet-chip {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 14px;
+      padding: 9px 18px
+    }
+
+    .wc-val {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700
+    }
+
+    .wc-lbl {
+      font-size: .62rem;
+      color: var(--text3);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em
+    }
+
+    .main {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px 100px
+    }
+
+    .sec {
+      display: none
+    }
+
+    .sec.active {
+      display: block;
+      animation: fadeUp .35s ease
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .sec-header {
+      margin-bottom: 22px
+    }
+
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      letter-spacing: .04em
+    }
+
+    .sec-desc {
+      font-size: .82rem;
+      color: var(--text2)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 16px
+    }
+
+    .pc {
+      background: var(--bg3);
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      display: flex;
+      flex-direction: column
+    }
+
+    .pc::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, var(--pc-glow, rgba(91, 124, 250, .08)), transparent 65%);
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .pc:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, .7), 0 0 40px var(--pc-glow, rgba(91, 124, 250, .12))
+    }
+
+    .pc-stripe {
+      height: 3px;
+      width: 100%
+    }
+
+    .pc-visual {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pc-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--bg3) 100%);
+      pointer-events: none
+    }
+
+    .pack-shape {
+      width: 100px;
+      height: 128px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .15)
+    }
+
+    .pack-shape::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .08) 0%, transparent 60%);
+      pointer-events: none
+    }
+
+    .ps-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-family: var(--font-display);
+      font-size: .42rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      opacity: .85
+    }
+
+    .ps-fa {
+      font-size: 2.5rem;
+      filter: drop-shadow(0 0 14px currentColor);
+      position: relative;
+      z-index: 1
+    }
+
+    .ps-footer {
+      width: 100%;
+      text-align: center
+    }
+
+    .ps-name {
+      font-family: var(--font-display);
+      font-size: .52rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      opacity: .9
+    }
+
+    .ps-series {
+      font-size: .42rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      opacity: .65;
+      text-transform: uppercase
+    }
+
+    .pc[data-rarity="epic"] .pack-shape::after,
+    .pc[data-rarity="legendary"] .pack-shape::after,
+    .pc[data-rarity="mythic"] .pack-shape::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      width: 30px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .15), transparent);
+      transform: rotate(25deg);
+      animation: shineSlide 3.5s ease-in-out infinite
+    }
+
+    @keyframes shineSlide {
+
+      0%,
+      100% {
+        left: -50%
+      }
+
+      50% {
+        left: 180%
+      }
+    }
+
+    .pc-body {
+      padding: 12px 14px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+      z-index: 1
+    }
+
+    .pc-rarity {
+      font-family: var(--font-head);
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    .pc-name {
+      font-family: var(--font-display);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .02em
+    }
+
+    .pc-desc {
+      font-size: .72rem;
+      color: var(--text3);
+      flex: 1
+    }
+
+    .pc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin: 3px 0
+    }
+
+    .pc-tag {
+      border-radius: 100px;
+      padding: 2px 8px;
+      font-family: var(--font-head);
+      font-size: .58rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 3px
+    }
+
+    .pc-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 4px
+    }
+
+    .pc-btn {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .74rem;
+      font-weight: 700;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      letter-spacing: .02em
+    }
+
+    .pc-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.15)
+    }
+
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 4, 8, .88);
+      backdrop-filter: blur(20px);
+      z-index: 400;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px
+    }
+
+    .modal-bg.open {
+      display: flex;
+      animation: fadeUp .3s ease
+    }
+
+    .modal-box {
+      background: var(--bg3);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 480px;
+      max-height: 92vh;
+      overflow-y: auto
+    }
+
+    .modal-head {
+      padding: 20px 22px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text3);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color .2s;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%
+    }
+
+    .modal-close:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .modal-body {
+      padding: 18px 22px 22px
+    }
+
+    .ord-prev {
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px
+    }
+
+    .ord-fa {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0
+    }
+
+    .ord-name {
+      font-family: var(--font-display);
+      font-size: .92rem;
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .ord-desc {
+      font-size: .72rem;
+      opacity: .7;
+      margin-top: 2px
+    }
+
+    .buy-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .buy-opt {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .2s;
+      letter-spacing: .02em
+    }
+
+    .buy-opt:hover:not(:disabled) {
+      transform: translateY(-2px);
+      filter: brightness(1.1)
+    }
+
+    .buy-opt:disabled {
+      opacity: .35;
+      cursor: not-allowed
+    }
+
+    .bo-coins {
+      background: rgba(245, 200, 66, .12);
+      border: 1px solid rgba(245, 200, 66, .3);
+      color: var(--gold)
+    }
+
+    .bo-xp {
+      background: rgba(167, 139, 250, .12);
+      border: 1px solid rgba(167, 139, 250, .3);
+      color: var(--accent2)
+    }
+
+    .bo-tok {
+      background: rgba(34, 211, 238, .09);
+      border: 1px solid rgba(34, 211, 238, .25);
+      color: var(--cyan)
+    }
+
+    .bo-receipt {
+      background: rgba(52, 211, 153, .1);
+      border: 1px solid rgba(52, 211, 153, .3);
+      color: var(--green)
+    }
+
+    .receipt-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 4, 8, .92);
+      backdrop-filter: blur(20px);
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px
+    }
+
+    .receipt-modal.open {
+      display: flex;
+      animation: fadeUp .3s ease
+    }
+
+    .receipt-box {
+      background: var(--bg3);
+      border: 1px solid rgba(52, 211, 153, .2);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 460px;
+      overflow: hidden;
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column
+    }
+
+    .receipt-head {
+      padding: 20px 22px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0
+    }
+
+    .receipt-title {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: .04em
+    }
+
+    .receipt-body {
+      padding: 20px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      overflow-y: auto
+    }
+
+    .step-badge {
+      background: rgba(91, 124, 250, .12);
+      border: 1px solid rgba(91, 124, 250, .25);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: .8rem;
+      color: var(--text2);
+      line-height: 1.6
+    }
+
+    .step-badge strong {
+      color: var(--accent2)
+    }
+
+    .card-number-big {
+      text-align: center;
+      padding: 16px;
+      background: rgba(245, 200, 66, .06);
+      border: 1px solid rgba(245, 200, 66, .2);
+      border-radius: 12px
+    }
+
+    .card-num {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: .1em;
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .card-sub {
+      font-size: .72rem;
+      color: var(--text3);
+      font-family: var(--font-head)
+    }
+
+    .upload-area {
+      border: 2px dashed rgba(52, 211, 153, .3);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .upload-area:hover {
+      border-color: rgba(52, 211, 153, .6);
+      background: rgba(52, 211, 153, .04)
+    }
+
+    .upload-area.has-file {
+      border-color: rgba(52, 211, 153, .7);
+      background: rgba(52, 211, 153, .07)
+    }
+
+    .upload-area.uploading {
+      border-color: rgba(251, 146, 60, .6);
+      background: rgba(251, 146, 60, .05);
+      animation: uploadPulse 1s ease-in-out infinite
+    }
+
+    @keyframes uploadPulse {
+
+      0%,
+      100% {
+        border-color: rgba(251, 146, 60, .4)
+      }
+
+      50% {
+        border-color: rgba(251, 146, 60, .9)
+      }
+    }
+
+    .upload-area input[type=file] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%
+    }
+
+    .upload-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      color: var(--green);
+      opacity: .7
+    }
+
+    .upload-text {
+      font-size: .82rem;
+      color: var(--text2);
+      font-family: var(--font-head)
+    }
+
+    .upload-preview {
+      width: 100%;
+      max-height: 130px;
+      object-fit: contain;
+      border-radius: 8px;
+      display: none;
+      margin-top: 10px
+    }
+
+    .upload-status {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(52, 211, 153, .08);
+      border: 1px solid rgba(52, 211, 153, .3)
+    }
+
+    .upload-status.show {
+      display: block
+    }
+
+    .upload-status.error {
+      background: rgba(248, 113, 113, .08);
+      border-color: rgba(248, 113, 113, .3)
+    }
+
+    .us-label {
+      font-family: var(--font-head);
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .upload-status.error .us-label {
+      color: var(--red)
+    }
+
+    .comment-inp {
+      width: 100%;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--font-head);
+      font-size: .85rem;
+      outline: none;
+      transition: border .2s;
+      resize: vertical;
+      min-height: 60px
+    }
+
+    .comment-inp:focus {
+      border-color: rgba(52, 211, 153, .4)
+    }
+
+    .btn-send-order {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--green), #059669);
+      border: none;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      box-shadow: 0 8px 24px rgba(52, 211, 153, .25);
+      letter-spacing: .04em
+    }
+
+    .btn-send-order:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(52, 211, 153, .4)
+    }
+
+    .btn-send-order:disabled {
+      opacity: .5;
+      cursor: not-allowed
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 600;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden
+    }
+
+    .overlay.open {
+      display: flex
+    }
+
+    .ov-bg {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 4, 8, .9);
+      backdrop-filter: blur(10px);
+      z-index: 0
+    }
+
+    .ov-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px
+    }
+
+    .ov-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: .06em
+    }
+
+    .ov-hint {
+      font-size: .85rem;
+      color: var(--text3);
+      text-align: center;
+      min-height: 24px;
+      transition: all .3s;
+      font-family: var(--font-head)
+    }
+
+    .ov-pack-wrap {
+      cursor: pointer;
+      transition: transform .15s
+    }
+
+    .ov-pack-wrap:hover {
+      transform: scale(1.04)
+    }
+
+    .ov-pack-card {
+      width: 140px;
+      height: 180px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .8), inset 0 1px 0 rgba(255, 255, 255, .18)
+    }
+
+    .ov-pack-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .1) 0%, transparent 50%);
+      pointer-events: none
+    }
+
+    .ov-brand {
+      font-family: var(--font-display);
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .1em
+    }
+
+    .ov-pack-fa {
+      font-size: 3.5rem;
+      filter: drop-shadow(0 0 20px currentColor)
+    }
+
+    .ov-pack-name {
+      font-family: var(--font-display);
+      font-size: .68rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: .04em
+    }
+
+    .reel-outer {
+      width: 100%;
+      max-width: 540px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: rgba(4, 6, 12, .98);
+      display: none
+    }
+
+    .reel-border {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      border: 1.5px solid rgba(91, 124, 250, .25);
+      pointer-events: none;
+      z-index: 5
+    }
+
+    .reel-pointer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      z-index: 4;
+      pointer-events: none
+    }
+
+    .reel-pointer::before,
+    .reel-pointer::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid
+    }
+
+    .reel-pointer::before {
+      top: -1px;
+      border-width: 0 8px 12px 8px;
+      border-color: transparent transparent var(--gold) transparent
+    }
+
+    .reel-pointer::after {
+      bottom: -1px;
+      border-width: 12px 8px 0 8px;
+      border-color: var(--gold) transparent transparent transparent
+    }
+
+    .reel-fade-l {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 90px;
+      background: linear-gradient(to right, rgba(4, 6, 12, 1), transparent);
+      z-index: 3;
+      pointer-events: none
+    }
+
+    .reel-fade-r {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 90px;
+      background: linear-gradient(to left, rgba(4, 6, 12, 1), transparent);
+      z-index: 3;
+      pointer-events: none
+    }
+
+    .reel-track {
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      will-change: transform
+    }
+
+    .reel-item {
+      flex: 0 0 90px;
+      height: 90px;
+      border-radius: 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-size: 1.8rem;
+      border: 1.5px solid transparent;
+      background: rgba(255, 255, 255, .03);
+      flex-shrink: 0
+    }
+
+    .ri-c {
+      border-color: rgba(100, 100, 100, .3)
+    }
+
+    .ri-r {
+      border-color: rgba(123, 106, 245, .5);
+      background: rgba(123, 106, 245, .07)
+    }
+
+    .ri-e {
+      border-color: rgba(167, 139, 250, .6);
+      background: rgba(167, 139, 250, .09)
+    }
+
+    .ri-l {
+      border-color: rgba(245, 200, 66, .7);
+      background: rgba(245, 200, 66, .09);
+      box-shadow: 0 0 20px rgba(245, 200, 66, .1)
+    }
+
+    .ri-m {
+      border-color: rgba(192, 32, 224, .7);
+      background: rgba(192, 32, 224, .1);
+      box-shadow: 0 0 20px rgba(192, 32, 224, .15)
+    }
+
+    .ri-lbl {
+      font-size: .5rem;
+      font-weight: 700;
+      color: var(--text3);
+      font-family: var(--font-head);
+      letter-spacing: .04em
+    }
+
+    .win-screen {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+      max-width: 480px;
+      animation: fadeUp .4s ease
+    }
+
+    .win-screen.show {
+      display: flex
+    }
+
+    .win-banner {
+      width: 100%;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center
+    }
+
+    .win-banner-label {
+      font-family: var(--font-head);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px
+    }
+
+    .win-banner-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: .06em;
+      margin-bottom: 4px
+    }
+
+    .win-banner-sub {
+      font-size: .78rem;
+      opacity: .7;
+      font-family: var(--font-head)
+    }
+
+    .rew-item {
+      width: 100%;
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: rewPop .5s cubic-bezier(.34, 1.56, .64, 1) both
+    }
+
+    @keyframes rewPop {
+      from {
+        opacity: 0;
+        transform: scale(.7) translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0)
+      }
+    }
+
+    .rew-fa {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0
+    }
+
+    .rew-info {
+      flex: 1
+    }
+
+    .rew-name {
+      font-family: var(--font-display);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .rew-desc {
+      font-size: .68rem;
+      opacity: .6;
+      font-family: var(--font-head)
+    }
+
+    .rew-val {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 900
+    }
+
+    .ov-btn {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      border: none;
+      color: #000;
+      padding: 13px 38px;
+      border-radius: 14px;
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(245, 200, 66, .35);
+      transition: all .25s;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      letter-spacing: .04em
+    }
+
+    .ov-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(245, 200, 66, .5)
+    }
+
+    .ov-btn:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .btn-again {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      color: var(--text2);
+      padding: 10px 26px;
+      border-radius: 11px;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s;
+      letter-spacing: .03em
+    }
+
+    .btn-again:hover {
+      background: rgba(255, 255, 255, .1);
+      color: var(--text)
+    }
+
+    .flash {
+      position: fixed;
+      inset: 0;
+      background: rgba(245, 200, 66, .08);
+      z-index: 999;
+      pointer-events: none;
+      animation: flashOut .7s ease forwards
+    }
+
+    @keyframes flashOut {
+      0% {
+        opacity: 1
+      }
+
+      100% {
+        opacity: 0
+      }
+    }
+
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      pointer-events: none;
+      display: none
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-family: var(--font-head);
+      font-size: .84rem;
+      font-weight: 600;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .35s;
+      max-width: 320px;
+      display: flex;
+      align-items: center;
+      gap: 9px
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1
+    }
+
+    .toast.s {
+      border-color: rgba(52, 211, 153, .3);
+      color: var(--green)
+    }
+
+    .toast.e {
+      border-color: rgba(248, 113, 113, .3);
+      color: var(--red)
+    }
+
+    .key-card {
+      background: var(--bg3);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border)
+    }
+
+    .key-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, .6)
+    }
+
+    .key-visual {
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .key-icon-wrap {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      position: relative
+    }
+
+    .key-icon-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1.5px solid currentColor;
+      opacity: .3;
+      animation: keyPulse 2s ease-in-out infinite
+    }
+
+    .key-icon-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      opacity: .12;
+      animation: keyPulse 2s ease-in-out infinite .4s
+    }
+
+    @keyframes keyPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .3
+      }
+
+      50% {
+        transform: scale(1.06);
+        opacity: .5
+      }
+    }
+
+    .key-body {
+      padding: 12px 14px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px
+    }
+
+    .key-tier {
+      font-family: var(--font-head);
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      width: fit-content
+    }
+
+    .key-name {
+      font-family: var(--font-display);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .convert-card {
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 12px
+    }
+
+    .sub-title {
+      font-family: var(--font-display);
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text2);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: .03em
+    }
+
+    .convert-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px
+    }
+
+    .convert-input {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 13px;
+      color: var(--text);
+      font-family: var(--font-head);
+      font-size: .88rem;
+      outline: none;
+      width: 120px;
+      transition: border .2s
+    }
+
+    .convert-input:focus {
+      border-color: rgba(245, 200, 66, .4)
+    }
+
+    .convert-result {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold)
+    }
+
+    .btn-conv {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #000;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .8rem;
+      font-weight: 700;
+      transition: all .2s;
+      letter-spacing: .02em
+    }
+
+    .btn-conv:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.1)
+    }
+
+    .item-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all .25s;
+      cursor: pointer
+    }
+
+    .item-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245, 200, 66, .2)
+    }
+
+    .item-card.active-item {
+      border-color: rgba(52, 211, 153, .3);
+      background: rgba(52, 211, 153, .03)
+    }
+
+    .item-badge {
+      position: absolute;
+      top: 9px;
+      right: 9px;
+      font-size: .58rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-family: var(--font-head);
+      letter-spacing: .04em
+    }
+
+    .ib-active {
+      background: rgba(52, 211, 153, .15);
+      border: 1px solid rgba(52, 211, 153, .3);
+      color: var(--green)
+    }
+
+    .item-icon {
+      font-size: 2.2rem
+    }
+
+    .item-name {
+      font-family: var(--font-display);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .item-features {
+      list-style: none;
+      width: 100%;
+      text-align: left
+    }
+
+    .item-features li {
+      font-size: .72rem;
+      color: var(--text2);
+      padding: 2px 0;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      font-family: var(--font-head)
+    }
+
+    .item-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700
+    }
+
+    .btn-item {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .78rem;
+      font-weight: 700;
+      transition: all .2s;
+      margin-top: 4px;
+      letter-spacing: .03em
+    }
+
+    .btn-item:hover:not(:disabled) {
+      transform: translateY(-1px);
+      filter: brightness(1.1)
+    }
+
+    .btn-item:disabled {
+      opacity: .4;
+      cursor: not-allowed
+    }
+
+    .bi-coin {
+      background: rgba(245, 200, 66, .15);
+      border: 1px solid rgba(245, 200, 66, .3);
+      color: var(--gold)
+    }
+
+    .bi-green {
+      background: rgba(52, 211, 153, .12);
+      border: 1px solid rgba(52, 211, 153, .3);
+      color: var(--green)
+    }
+
+    .bi-red {
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .25);
+      color: var(--red)
+    }
+
+    .vip-card-big {
+      background: rgba(245, 200, 66, .05);
+      border: 1px solid rgba(245, 200, 66, .18);
+      border-radius: 22px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 18px
+    }
+
+    .vip-title-big {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: .06em;
+      margin-bottom: 6px
+    }
+
+    .vip-perks-list {
+      list-style: none;
+      margin: 12px 0;
+      text-align: left;
+      display: inline-block
+    }
+
+    .vip-perks-list li {
+      font-size: .8rem;
+      padding: 4px 0;
+      color: var(--text2);
+      font-family: var(--font-head)
+    }
+
+    .btn-vip-big {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #000;
+      padding: 13px 30px;
+      border: none;
+      border-radius: 14px;
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      box-shadow: 0 8px 24px rgba(245, 200, 66, .3);
+      letter-spacing: .04em
+    }
+
+    .btn-vip-big:hover {
+      transform: translateY(-2px)
+    }
+
+    .plan-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      transition: all .25s
+    }
+
+    .plan-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .5)
+    }
+
+    .plan-card.popular {
+      border-color: rgba(245, 200, 66, .4);
+      background: rgba(245, 200, 66, .04)
+    }
+
+    .plan-popular-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: #000;
+      font-family: var(--font-head);
+      font-size: .62rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: .06em
+    }
+
+    .plan-icon {
+      font-size: 2rem;
+      margin-bottom: 4px
+    }
+
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .04em
+    }
+
+    .plan-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 4px 0
+    }
+
+    .plan-price span {
+      font-size: .75rem;
+      color: var(--text3)
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 6px 0
+    }
+
+    .plan-features li {
+      font-size: .75rem;
+      color: var(--text2);
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-head)
+    }
+
+    .plan-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 800;
+      font-size: .7rem
+    }
+
+    .btn-plan {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s;
+      margin-top: 6px;
+      letter-spacing: .02em
+    }
+
+    .sell-item-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .sell-info {
+      flex: 1
+    }
+
+    .sell-name {
+      font-family: var(--font-display);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .02em
+    }
+
+    .sell-sub {
+      font-size: .7rem;
+      color: var(--text3);
+      font-family: var(--font-head)
+    }
+
+    .sell-price {
+      font-family: var(--font-display);
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--gold)
+    }
+
+    .btn-sell {
+      padding: 7px 16px;
+      border-radius: 10px;
+      background: rgba(248, 113, 113, .12);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: var(--red);
+      font-family: var(--font-head);
+      font-size: .75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap
+    }
+
+    .btn-sell:hover {
+      background: rgba(248, 113, 113, .22);
+      transform: translateY(-1px)
+    }
+
+    .currency-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all .2s
+    }
+
+    .currency-card:hover {
+      border-color: rgba(255, 255, 255, .12)
+    }
+
+    .curr-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px
+    }
+
+    .curr-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0
+    }
+
+    .curr-name {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .curr-bal {
+      font-size: .72rem;
+      color: var(--text3);
+      font-family: var(--font-head)
+    }
+
+    .curr-packages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px
+    }
+
+    .curr-pkg {
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .curr-pkg:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .curr-pkg-amount {
+      font-family: var(--font-display);
+      font-size: .95rem;
+      font-weight: 700
+    }
+
+    .curr-pkg-bonus {
+      font-size: .62rem;
+      color: var(--green);
+      font-weight: 700;
+      font-family: var(--font-head)
+    }
+
+    .curr-pkg-price {
+      font-size: .7rem;
+      color: var(--text3);
+      margin-top: 3px;
+      font-family: var(--font-head)
+    }
+
+    .curr-pkg-btn {
+      margin-top: 6px;
+      width: 100%;
+      padding: 6px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: .7rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .rank-card {
+      background: var(--bg3);
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border)
+    }
+
+    .rank-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, .6)
+    }
+
+    .rank-card.owned {
+      border-color: rgba(52, 211, 153, .3)
+    }
+
+    .rank-card.active-rank {
+      border-color: rgba(245, 200, 66, .5);
+      box-shadow: 0 0 20px rgba(245, 200, 66, .2)
+    }
+
+    .rank-visual {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .rank-ring {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2.5px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem
+    }
+
+    .rank-body {
+      padding: 12px 14px 14px
+    }
+
+    .rank-name {
+      font-family: var(--font-display);
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      margin-bottom: 4px
+    }
+
+    .rank-perks {
+      font-size: .7rem;
+      color: var(--text3);
+      font-family: var(--font-head);
+      margin-bottom: 8px
+    }
+
+    .rank-status {
+      font-size: .62rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-family: var(--font-head);
+      display: inline-block;
+      margin-bottom: 8px
+    }
+
+    .pc[data-rarity="common"] {
+      border: 1px solid rgba(91, 140, 196, .25);
+      --pc-glow: rgba(91, 140, 196, .1)
+    }
+
+    .pc[data-rarity="rare"] {
+      border: 1px solid rgba(123, 106, 245, .3);
+      --pc-glow: rgba(123, 106, 245, .15)
+    }
+
+    .pc[data-rarity="epic"] {
+      border: 1px solid rgba(212, 168, 32, .35);
+      --pc-glow: rgba(212, 168, 32, .15)
+    }
+
+    .pc[data-rarity="legendary"] {
+      border: 1px solid rgba(224, 90, 20, .4);
+      --pc-glow: rgba(224, 90, 20, .18);
+      animation: legendBorder 3s ease-in-out infinite
+    }
+
+    .pc[data-rarity="mythic"] {
+      border: 1px solid rgba(192, 32, 224, .45);
+      --pc-glow: rgba(192, 32, 224, .22);
+      animation: mythicBorder 2.5s ease-in-out infinite
+    }
+
+    @keyframes legendBorder {
+
+      0%,
+      100% {
+        box-shadow: 0 0 12px rgba(224, 90, 20, .2)
+      }
+
+      50% {
+        box-shadow: 0 0 28px rgba(224, 90, 20, .4)
+      }
+    }
+
+    @keyframes mythicBorder {
+
+      0%,
+      100% {
+        box-shadow: 0 0 16px rgba(192, 32, 224, .25)
+      }
+
+      50% {
+        box-shadow: 0 0 35px rgba(192, 32, 224, .5)
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .07);
+      border-radius: 100px
+    }
+
+    @media(max-width:600px) {
+      .hero h1 {
+        font-size: 2rem
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr))
+      }
+    }
+
+    .fa-spin {
+      animation: fa-spin 1s linear infinite
+    }
+
+    @keyframes fa-spin {
+      from {
+        transform: rotate(0deg)
+      }
+
+      to {
+        transform: rotate(360deg)
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="loading-screen" id="loadScreen">
+    <div class="load-logo">LINGUAVERSE</div>
+    <div class="load-text" id="loadMsg">Yuklanmoqda...</div>
+    <div class="load-bar">
+      <div class="load-bar-inner" id="loadBar"></div>
+    </div>
+  </div>
+
+  <div class="auth-screen" id="authScreen">
+    <div class="auth-box">
+      <div style="font-size:3rem;margin-bottom:12px">🔐</div>
+      <div class="auth-title">Kirish talab qilinadi</div>
+      <div class="auth-sub">Do'kondan foydalanish uchun avval tizimga kiring.</div>
+      <a href="../auth/login.html" class="auth-btn"><i class="fa-solid fa-right-to-bracket"></i> Kirish</a>
+    </div>
+  </div>
+
+  <canvas id="bgCanvas"></canvas>
+  <canvas id="confettiCanvas"></canvas>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-logo">Lingua<span>Verse</span></a>
+    <div class="nav-spacer"></div>
+    <div class="nav-stat" style="color:var(--gold)" onclick="showSec('currency',null)"><i class="fa-solid fa-coins"></i>
+      <span id="nCoin">0</span></div>
+    <div class="nav-stat" style="color:var(--accent2)" onclick="showSec('currency',null)"><i
+        class="fa-solid fa-star"></i> <span id="nXP">0</span></div>
+    <div class="nav-stat" style="color:var(--cyan)" onclick="showSec('currency',null)"><i
+        class="fa-solid fa-ticket"></i> <span id="nTok">0</span></div>
+    <a href="../index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Orqaga</a>
+  </nav>
+
+  <div class="tabs-row">
+    <button class="ftab active" onclick="filterPacks('all',this)"><i class="fa-solid fa-store"></i> Hammasi</button>
+    <button class="ftab" onclick="filterPacks('common',this)">Common</button>
+    <button class="ftab" onclick="filterPacks('rare',this)">Rare</button>
+    <button class="ftab" onclick="filterPacks('epic',this)">Epic</button>
+    <button class="ftab" onclick="filterPacks('legendary',this)">Legendary</button>
+    <button class="ftab" onclick="filterPacks('mythic',this)">Mythic</button>
+    <button class="ftab" onclick="showSec('keys',this)"><i class="fa-solid fa-key"></i> Kalitlar</button>
+    <button class="ftab" onclick="showSec('ranks',this)"><i class="fa-solid fa-trophy"></i> Ranklar</button>
+    <button class="ftab" onclick="showSec('plans',this)"><i class="fa-solid fa-gem"></i> Rejalar</button>
+    <button class="ftab" onclick="showSec('currency',this)"><i class="fa-solid fa-coins"></i> Valyuta</button>
+    <button class="ftab" onclick="showSec('sell',this)"><i class="fa-solid fa-tag"></i> Sotish</button>
+    <button class="ftab" onclick="showSec('vip',this)"><i class="fa-solid fa-crown"></i> VIP</button>
+    <button class="ftab" onclick="showSec('convert',this)"><i class="fa-solid fa-arrow-right-arrow-left"></i>
+      Ayirbosh</button>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge"><i class="fa-solid fa-gem"></i> LINGUAVERSE XAZINA DO'KONI</div>
+    <h1>Xazina <span>Qutilari</span></h1>
+    <p class="hero-sub">Premium pack, kalit, rank va valyutalar. Sotish, ayirboshlash — hammasi shu yerda!</p>
+  </div>
+
+  <div class="wallet-bar">
+    <div class="wallet-chip"><i class="fa-solid fa-coins" style="color:var(--gold)"></i>
+      <div>
+        <div class="wc-val" style="color:var(--gold)" id="wCoin">0</div>
+        <div class="wc-lbl">Coin</div>
+      </div>
+    </div>
+    <div class="wallet-chip"><i class="fa-solid fa-star" style="color:var(--accent2)"></i>
+      <div>
+        <div class="wc-val" style="color:var(--accent)" id="wXP">0</div>
+        <div class="wc-lbl">XP</div>
+      </div>
+    </div>
+    <div class="wallet-chip"><i class="fa-solid fa-ticket" style="color:var(--cyan)"></i>
+      <div>
+        <div class="wc-val" style="color:var(--cyan)" id="wTok">0</div>
+        <div class="wc-lbl">Token</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="sec active" id="sec-packs">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-boxes-stacked" style="color:var(--gold)"></i> Pack Xazinalar</div>
+        <div class="sec-desc">CS:GO uslubida reel spin animatsiya. VIP, Frame, Kalit, Booster va noyob sovgalar!</div>
+      </div>
+      <div class="grid" id="packsGrid"></div>
+    </div>
+    <div class="sec" id="sec-keys">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-key" style="color:var(--gold)"></i> Kalit Xazinalar</div>
+        <div class="sec-desc">Har bir kalit noyob sovgalar. Bronzadan Omegagacha!</div>
+      </div>
+      <div class="grid" id="keysGrid"></div>
+    </div>
+    <div class="sec" id="sec-ranks">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-trophy" style="color:var(--gold)"></i> Rank Tizimi</div>
+        <div class="sec-desc">Rank xarid qiling yoki coin bilan faollashtiring!</div>
+      </div>
+      <div class="grid" id="ranksGrid"></div>
+    </div>
+    <div class="sec" id="sec-plans">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-gem" style="color:var(--accent2)"></i> Obuna Rejalari</div>
+        <div class="sec-desc">Coin bilan premium rejalarni xarid qiling yoki to'lov cheki yuboring!</div>
+      </div>
+      <div class="grid" id="plansGrid"></div>
+    </div>
+    <div class="sec" id="sec-currency">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-coins" style="color:var(--gold)"></i> Valyuta Sotib Olish</div>
+        <div class="sec-desc">Coin, XP va Tokenlarni sotib oling yoki real pul bilan to'lang.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:680px">
+        <div class="currency-card" id="coinBuyCard">
+          <div class="curr-header">
+            <div class="curr-icon" style="background:rgba(245,200,66,.15)"><i class="fa-solid fa-coins"
+                style="color:var(--gold)"></i></div>
+            <div>
+              <div class="curr-name" style="color:var(--gold)">Coin</div>
+              <div class="curr-bal">Balans: <span id="coinBal">0</span></div>
+            </div>
+          </div>
+          <div class="curr-packages" id="coinPkgs"></div>
+        </div>
+        <div class="currency-card">
+          <div class="curr-header">
+            <div class="curr-icon" style="background:rgba(167,139,250,.15)"><i class="fa-solid fa-star"
+                style="color:var(--accent2)"></i></div>
+            <div>
+              <div class="curr-name" style="color:var(--accent2)">XP</div>
+              <div class="curr-bal">Balans: <span id="xpBal">0</span></div>
+            </div>
+          </div>
+          <div class="curr-packages" id="xpPkgs"></div>
+        </div>
+        <div class="currency-card">
+          <div class="curr-header">
+            <div class="curr-icon" style="background:rgba(34,211,238,.12)"><i class="fa-solid fa-ticket"
+                style="color:var(--cyan)"></i></div>
+            <div>
+              <div class="curr-name" style="color:var(--cyan)">Token</div>
+              <div class="curr-bal">Balans: <span id="tokBal">0</span></div>
+            </div>
+          </div>
+          <div class="curr-packages" id="tokPkgs"></div>
+        </div>
+      </div>
+    </div>
+    <div class="sec" id="sec-sell">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-tag" style="color:var(--red)"></i> Narsalarni Sotish</div>
+        <div class="sec-desc">Egalik qiladigan narsalaringizni coinga sotib yuboring!</div>
+      </div>
+      <div id="sellContent">
+        <div style="text-align:center;padding:40px;color:var(--text3)">Yuklanmoqda...</div>
+      </div>
+    </div>
+    <div class="sec" id="sec-vip">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-crown" style="color:var(--gold)"></i> VIP Status</div>
+        <div class="sec-desc">Maxsus imtiyozlar va eksklyuziv imkoniyatlar.</div>
+      </div>
+      <div id="vipContent"></div>
+    </div>
+    <div class="sec" id="sec-convert">
+      <div class="sec-header">
+        <div class="sec-title"><i class="fa-solid fa-arrow-right-arrow-left" style="color:var(--accent)"></i>
+          Ayirboshlash</div>
+        <div class="sec-desc">Coin, XP va Tokenlarni aylantiring.</div>
+      </div>
+      <div style="max-width:480px">
+        <div class="sub-title"><i class="fa-solid fa-coins" style="color:var(--gold)"></i> Coin → <i
+            class="fa-solid fa-ticket" style="color:var(--cyan)"></i> Token (2 Coin = 1 Token)</div>
+        <div class="convert-card">
+          <div class="convert-row"><input class="convert-input" type="number" id="c2tIn" placeholder="100" min="10"
+              oninput="updConv('c2t')" /><span style="color:var(--text3)">→</span><span class="convert-result"
+              id="c2tRes">50 token</span><button class="btn-conv" onclick="doConv('c2t')">Ayirbosh</button></div>
+        </div>
+        <div class="sub-title" style="margin-top:20px"><i class="fa-solid fa-star" style="color:var(--accent2)"></i> XP
+          → <i class="fa-solid fa-coins" style="color:var(--gold)"></i> Coin (100 XP = 1 Coin)</div>
+        <div class="convert-card">
+          <div class="convert-row"><input class="convert-input" type="number" id="x2cIn" placeholder="500" min="100"
+              oninput="updConv('x2c')" /><span style="color:var(--text3)">→</span><span class="convert-result"
+              id="x2cRes">5 coin</span><button class="btn-conv" onclick="doConv('x2c')">Ayirbosh</button></div>
+        </div>
+        <div class="sub-title" style="margin-top:20px"><i class="fa-solid fa-ticket" style="color:var(--cyan)"></i>
+          Token → <i class="fa-solid fa-coins" style="color:var(--gold)"></i> Coin (3 Token = 1 Coin)</div>
+        <div class="convert-card">
+          <div class="convert-row"><input class="convert-input" type="number" id="t2cIn" placeholder="300" min="30"
+              oninput="updConv('t2c')" /><span style="color:var(--text3)">→</span><span class="convert-result"
+              id="t2cRes">100 coin</span><button class="btn-conv" onclick="doConv('t2c')">Ayirbosh</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUY MODAL -->
+  <div class="modal-bg" id="buyModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div class="modal-title" id="buyTitle">Sotib olish</div>
+        <button class="modal-close" onclick="closeBuy()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="buyBody"></div>
+    </div>
+  </div>
+
+  <!-- RECEIPT UPLOAD MODAL -->
+  <div class="receipt-modal" id="receiptModal">
+    <div class="receipt-box">
+      <div class="receipt-head">
+        <div class="receipt-title"><i class="fa-solid fa-file-invoice"></i> To'lov Cheki Yuborish</div>
+        <button class="modal-close" onclick="closeReceiptModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="receipt-body">
+        <div class="step-badge">
+          <strong>1-qadam:</strong> Quyidagi karta raqamiga to'lov qiling<br>
+          <strong>2-qadam:</strong> To'lov cheki rasmini yuklang<br>
+          <strong>3-qadam:</strong> Izoh yozing va yuboring — Admin 24 soat ichida tasdiqlaydi
+        </div>
+        <div class="card-number-big">
+          <span class="card-num" id="rcCardNum">8600 1234 5678 9012</span>
+          <div class="card-sub" id="rcCardOwner">Abdullayev Abdulla · UZCARD</div>
+          <div class="card-sub" style="color:var(--gold);margin-top:4px" id="rcAmount">Miqdor: — so'm</div>
+        </div>
+
+        <!-- UPLOAD AREA -->
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="receiptFileInput" accept="image/*" onchange="onFileSelect(event)" />
+          <div id="uploadPlaceholder">
+            <div class="upload-icon"><i class="fa-solid fa-camera"></i></div>
+            <div class="upload-text">Chek rasmini tanlang yoki shu yerga tashlang</div>
+            <div style="font-size:.7rem;color:var(--text3);margin-top:4px;font-family:var(--font-head)">JPG, PNG, WEBP
+              qabul qilinadi</div>
+          </div>
+          <img id="uploadPreview" class="upload-preview" alt="preview" />
+        </div>
+
+        <!-- UPLOAD STATUS -->
+        <div class="upload-status" id="uploadStatusEl">
+          <div class="us-label" id="usLabel"><i class="fa-solid fa-check-circle"></i> <span id="usLabelTxt">Rasm
+              tayyor</span></div>
+        </div>
+
+        <textarea class="comment-inp" id="rcComment"
+          placeholder="Izoh (ixtiyoriy): bank nomi, to'lov vaqti..."></textarea>
+        <button class="btn-send-order" id="sendOrderBtn" onclick="sendOrder()">
+          <i class="fa-solid fa-paper-plane"></i> Buyurtma Yuborish
+        </button>
+        <div id="orderResult" style="text-align:center;font-size:.8rem;color:var(--text3);font-family:var(--font-head)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPENER OVERLAY -->
+  <div class="overlay" id="overlay">
+    <div class="ov-bg" id="ovBg"></div>
+    <div class="ov-content">
+      <div class="ov-title" id="ovTitle">Pack</div>
+      <div class="ov-hint" id="ovHint">Pack ustiga bosing!</div>
+      <div class="ov-pack-wrap" id="ovPackWrap" onclick="onPackClick()">
+        <div class="ov-pack-card" id="ovPackCard">
+          <div class="ov-brand" id="ovBrand">LINGUA</div>
+          <i class="fa-solid fa-gem ov-pack-fa" id="ovPackFa"></i>
+          <div>
+            <div class="ov-pack-name" id="ovName"></div>
+            <div style="font-size:.42rem;opacity:.55;font-family:var(--font-head);letter-spacing:.06em" id="ovSeries">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reel-outer" id="reelWrap">
+        <div class="reel-border"></div>
+        <div class="reel-pointer"></div>
+        <div class="reel-fade-l"></div>
+        <div class="reel-fade-r"></div>
+        <div class="reel-track" id="reelTrack"></div>
+      </div>
+      <div class="win-screen" id="winScreen"></div>
+      <button class="ov-btn" id="ovBtn" onclick="onOvBtn()"><i class="fa-solid fa-box-open" id="ovBtnIcon"></i><span
+          id="ovBtnTxt">Ochish!</span></button>
+      <button class="btn-again" id="btnAgain" style="display:none" onclick="onAgain()"><i
+          class="fa-solid fa-rotate-right"></i> Yana ochish</button>
+      <button class="btn-again" onclick="closeOverlay()" style="color:var(--text3)"><i class="fa-solid fa-xmark"></i>
+        Yopish</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><i class="fa-solid fa-check" id="toastIcon"></i><span id="toastMsg"></span></div>
+
+  <!-- FIREBASE -->
+  <script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const FB = { apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w", authDomain: "linguaverse-ebe09.firebaseapp.com", projectId: "linguaverse-ebe09", storageBucket: "linguaverse-ebe09.firebasestorage.app", messagingSenderId: "130625454868", appId: "1:130625454868:web:3f02871f64cb5f8af27801" };
+    const app = getApps().length ? getApps()[0] : initializeApp(FB);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    window._db = db; window._auth = auth; window._doc = doc; window._updateDoc = updateDoc;
+    window._setDoc = setDoc; window._addDoc = addDoc; window._collection = collection;
+    window._serverTimestamp = serverTimestamp; window._getDoc = getDoc;
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        document.getElementById('authScreen').classList.add('show');
+        document.getElementById('loadScreen').classList.add('hidden');
+        return;
+      }
+      window._uid = user.uid; window._userEmail = user.email;
+      window._userName = user.displayName || user.email || 'Foydalanuvchi';
+      try {
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        if (snap.exists()) {
+          const d = snap.data();
+          window.WALLET.coins = typeof d.coins === 'number' ? d.coins : 0;
+          window.WALLET.xp = typeof d.xp === 'number' ? d.xp : 0;
+          window.WALLET.tokens = typeof d.tokens === 'number' ? d.tokens : 0;
+          window.WALLET.ownedPacks = Array.isArray(d.ownedPacks) ? d.ownedPacks : [];
+          window.WALLET.ownedKeys = Array.isArray(d.ownedKeys) ? d.ownedKeys : [];
+          window.WALLET.ownedFrames = Array.isArray(d.ownedFrames) ? d.ownedFrames : [];
+          window.WALLET.ownedBadges = Array.isArray(d.ownedBadges) ? d.ownedBadges : [];
+          window.WALLET.ownedRanks = Array.isArray(d.ownedRanks) ? d.ownedRanks : [];
+          window.WALLET.rank = d.rank || 'none';
+          window.WALLET.plan = d.plan || 'free';
+          window.WALLET.isVIP = d.isVIP === true;
+        } else {
+          await setDoc(doc(db, 'users', user.uid), { coins: 0, xp: 0, tokens: 100, ownedPacks: [], ownedKeys: [], ownedFrames: [], ownedBadges: [], ownedRanks: [], rank: 'none', plan: 'free', isVIP: false, email: user.email, displayName: user.displayName || '', createdAt: serverTimestamp() });
+          window.WALLET.tokens = 100;
+        }
+      } catch (e) { console.error('Firestore read error:', e); }
+
+      updateWallet(); renderPacks(); renderVIP(); renderSell(); renderCurrencySection(); renderPlans(); renderRanks();
+      document.getElementById('loadBar').style.width = '100%';
+      setTimeout(() => document.getElementById('loadScreen').classList.add('hidden'), 300);
+    });
+
+    window._saveWallet = async function () {
+      if (!window._uid) return;
+      const data = { coins: window.WALLET.coins, xp: window.WALLET.xp, tokens: window.WALLET.tokens, ownedPacks: window.WALLET.ownedPacks, ownedKeys: window.WALLET.ownedKeys, ownedFrames: window.WALLET.ownedFrames, ownedBadges: window.WALLET.ownedBadges, ownedRanks: window.WALLET.ownedRanks, rank: window.WALLET.rank, plan: window.WALLET.plan, isVIP: window.WALLET.isVIP, lastSeen: serverTimestamp() };
+      try { await updateDoc(doc(db, 'users', window._uid), data); }
+      catch (e) { if (e.code === 'not-found') { try { await setDoc(doc(db, 'users', window._uid), { ...data, createdAt: serverTimestamp() }); } catch (e2) { console.error('setDoc error:', e2); } } else { console.error('saveWallet error:', e); } }
+    };
+
+    // ImgBB upload funksiyasi
+    async function uploadToImgBB(base64) {
+      // base64 dan data:image/...;base64, qismini olib tashlaymiz
+      const imgData = base64.includes(',') ? base64.split(',')[1] : base64;
+      const formData = new FormData();
+      formData.append('image', imgData);
+      const resp = await fetch('https://api.imgbb.com/1/upload?key=43f085fe34180c6d44fb66793df29f5a', {
+        method: 'POST',
+        body: formData
+      });
+      if (!resp.ok) throw new Error('ImgBB network error: ' + resp.status);
+      const data = await resp.json();
+      if (!data.success) throw new Error('ImgBB upload failed: ' + JSON.stringify(data.error));
+      return data.data.url;
+    }
+
+    // _sendOrder: Firestore ga yozadi
+    window._sendOrder = async function (orderData) {
+      if (!window._uid) return null;
+      try {
+        const ref = await addDoc(collection(db, 'orders'), {
+          ...orderData,
+          userId: window._uid,
+          userEmail: window._userEmail || '',
+          userName: window._userName || '',
+          status: 'pending',
+          createdAt: serverTimestamp()
+        });
+        return ref.id;
+      } catch (e) {
+        console.error('_sendOrder error:', e);
+        return null;
+      }
+    };
+
+    // sendOrder: ImgBB ga yuklaydi, keyin Firestore ga
+    window.sendOrder = async function () {
+      if (!_rcItem) { toast("Xato: mahsulot tanlanmagan", 'e', 'fa-circle-xmark'); return; }
+      if (!_rcBase64) { toast("Iltimos, to'lov cheki rasmini yuklang!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; }
+      if (!window._uid) { toast("Tizimga kiring!", 'e', 'fa-circle-xmark'); return; }
+
+      const btn = document.getElementById('sendOrderBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ImgBB ga yuklanmoqda...';
+
+      try {
+        // 1. ImgBB ga rasmni yuklash
+        const imageUrl = await uploadToImgBB(_rcBase64);
+
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Firestore ga yozilmoqda...';
+
+        // 2. Firestore ga URL bilan yozish
+        const comment = document.getElementById('rcComment').value.trim();
+        const orderId = await window._sendOrder({
+          itemId: _rcItem.itemId,
+          itemName: _rcItem.itemName,
+          itemType: _rcItem.itemType,
+          icon: _rcItem.icon || '📦',
+          price_uzs: _rcItem.price_uzs,
+          coinAmount: _rcItem.coinAmount || 0,
+          receiptImageUrl: imageUrl,
+          comment: comment
+        });
+
+        if (orderId) {
+          document.getElementById('orderResult').innerHTML = `<div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:10px;padding:12px;color:var(--green);margin-top:8px"><i class="fa-solid fa-check-circle"></i> Buyurtma yuborildi! Admin 24 soat ichida tasdiqlaydi.<br><small style="opacity:.7">Order ID: ${orderId}</small></div>`;
+          SFX.play('buy');
+          doFlash();
+          launchConfetti('#34d399');
+          toast("✅ Buyurtma yuborildi!", 's', 'fa-check');
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Yuborildi!';
+          setTimeout(() => window.closeReceiptModal(), 4000);
+        } else {
+          throw new Error('Firestore order failed');
+        }
+      } catch (e) {
+        console.error('sendOrder error:', e);
+        document.getElementById('orderResult').innerHTML = `<div style="color:var(--red);margin-top:8px"><i class="fa-solid fa-circle-xmark"></i> Xato: ${e.message || 'Internet aloqasini tekshiring.'}</div>`;
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Yana Urinish';
+      }
+    };
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // THREE.JS BG
+    (function () { const cv = document.getElementById('bgCanvas'); const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true }); r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight); const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000); cam.position.z = 5; const geo = new THREE.BufferGeometry(); const cnt = 1400, pos = new Float32Array(cnt * 3); for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30; geo.setAttribute('position', new THREE.BufferAttribute(pos, 3)); const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x4a6fa5, size: .05, transparent: true, opacity: .4 })); sc.add(pts); let mx = 0, my = 0; document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 }); window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight) }); let t = 0; (function loop() { requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .12; pts.rotation.x = t * .07; cam.position.x += (mx * .6 - cam.position.x) * .03; cam.position.y += (-my * .6 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam) })() })();
+
+    // SFX
+    const SFX = { ctx: null, init() { if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)() }, play(type) { try { this.init(); const ctx = this.ctx, o = ctx.createOscillator(), g = ctx.createGain(); o.connect(g); g.connect(ctx.destination); const now = ctx.currentTime; switch (type) { case 'click': o.type = 'sine'; o.frequency.setValueAtTime(660, now); o.frequency.exponentialRampToValueAtTime(440, now + .08); g.gain.setValueAtTime(.12, now); g.gain.exponentialRampToValueAtTime(.001, now + .12); o.start(now); o.stop(now + .12); break; case 'open': o.type = 'sine'; o.frequency.setValueAtTime(220, now); o.frequency.exponentialRampToValueAtTime(880, now + .3); g.gain.setValueAtTime(.18, now); g.gain.exponentialRampToValueAtTime(.001, now + .5); o.start(now); o.stop(now + .5); break; case 'spin': o.type = 'sawtooth'; o.frequency.setValueAtTime(80, now); o.frequency.linearRampToValueAtTime(400, now + .15); g.gain.setValueAtTime(.08, now); g.gain.exponentialRampToValueAtTime(.001, now + .2); o.start(now); o.stop(now + .2); break; case 'reel': o.type = 'square'; o.frequency.setValueAtTime(200 + Math.random() * 200, now); g.gain.setValueAtTime(.03, now); g.gain.exponentialRampToValueAtTime(.001, now + .04); o.start(now); o.stop(now + .04); break; case 'win': [523, 659, 784, 1047].forEach((f, i) => { const o2 = ctx.createOscillator(), g2 = ctx.createGain(); o2.connect(g2); g2.connect(ctx.destination); o2.type = 'sine'; o2.frequency.value = f; const t = now + i * .1; g2.gain.setValueAtTime(.15, t); g2.gain.exponentialRampToValueAtTime(.001, t + .4); o2.start(t); o2.stop(t + .4) }); break; case 'epic_win': [262, 330, 392, 523, 659, 784].forEach((f, i) => { const o2 = ctx.createOscillator(), g2 = ctx.createGain(); o2.connect(g2); g2.connect(ctx.destination); o2.type = 'sine'; o2.frequency.value = f; const t = now + i * .08; g2.gain.setValueAtTime(.18, t); g2.gain.exponentialRampToValueAtTime(.001, t + .5); o2.start(t); o2.stop(t + .5) }); break; case 'buy': [440, 554, 659].forEach((f, i) => { const o2 = ctx.createOscillator(), g2 = ctx.createGain(); o2.connect(g2); g2.connect(ctx.destination); o2.type = 'sine'; o2.frequency.value = f; const t = now + i * .06; g2.gain.setValueAtTime(.12, t); g2.gain.exponentialRampToValueAtTime(.001, t + .25); o2.start(t); o2.stop(t + .25) }); break; case 'error': o.type = 'sawtooth'; o.frequency.setValueAtTime(200, now); o.frequency.exponentialRampToValueAtTime(100, now + .2); g.gain.setValueAtTime(.1, now); g.gain.exponentialRampToValueAtTime(.001, now + .22); o.start(now); o.stop(now + .22); break; } } catch (e) { } } };
+
+    window.WALLET = { coins: 0, xp: 0, tokens: 0, ownedPacks: [], ownedKeys: [], ownedFrames: [], ownedBadges: [], ownedRanks: [], rank: 'none', plan: 'free', isVIP: false };
+
+    const PACKS = [{ id: 'starter', name: 'Starter Pack', fa: 'fa-box-open', rarity: 'common', style: { bg: 'linear-gradient(155deg,#1a2438 0%,#0f1726 100%)', stripe: '#4a6fa5', text: '#7fb3d3', rlbl: 'COMMON', rc: '#5b8cc4' }, series: 'Series 1', cost: { coins: 300 }, desc: 'Yangilar uchun ideal', rewards: [{ type: 'coins', min: 150, max: 450, w: 38 }, { type: 'tokens', min: 80, max: 220, w: 34 }, { type: 'xp', min: 200, max: 600, w: 23 }, { type: 'key', w: 5, ch: .05 }] }, { id: 'daily', name: 'Daily Pack', fa: 'fa-calendar-day', rarity: 'common', style: { bg: 'linear-gradient(155deg,#281c1c 0%,#180e0e 100%)', stripe: '#c45a5a', text: '#e87878', rlbl: 'COMMON', rc: '#c45a5a' }, series: 'Daily', cost: { coins: 100, xp: 1000 }, desc: 'Kunlik bonus', rewards: [{ type: 'tokens', min: 30, max: 100, w: 42 }, { type: 'xp', min: 100, max: 300, w: 40 }, { type: 'coins', min: 30, max: 80, w: 18 }] }, { id: 'grammar', name: 'Grammar Pack', fa: 'fa-pen-nib', rarity: 'common', style: { bg: 'linear-gradient(155deg,#181c30 0%,#0e1020 100%)', stripe: '#7b6af5', text: '#a39df7', rlbl: 'COMMON', rc: '#7b6af5' }, series: 'Language', cost: { coins: 250, xp: 2500 }, desc: 'Grammatika bonus', rewards: [{ type: 'tokens', min: 100, max: 220, w: 52 }, { type: 'xp', min: 300, max: 800, w: 43 }, { type: 'key', w: 5, ch: .03 }] }, { id: 'ocean', name: 'Ocean Pack', fa: 'fa-water', rarity: 'common', style: { bg: 'linear-gradient(155deg,#0c1c2e 0%,#081420 100%)', stripe: '#1ea0cc', text: '#4dbee8', rlbl: 'COMMON', rc: '#1ea0cc' }, series: 'Elements', cost: { coins: 280, xp: 2800 }, desc: 'Okean saxovati', rewards: [{ type: 'tokens', min: 100, max: 260, w: 52 }, { type: 'xp', min: 200, max: 600, w: 43 }, { type: 'key', w: 5, ch: .03 }] }, { id: 'fire', name: 'Fire Pack', fa: 'fa-fire-flame-curved', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#280a0a 0%,#180404 100%)', stripe: '#e83c3c', text: '#f07070', rlbl: 'RARE', rc: '#e83c3c' }, series: 'Elements', cost: { coins: 350, xp: 3500 }, desc: 'Olov kuchi', rewards: [{ type: 'coins', min: 150, max: 400, w: 38 }, { type: 'xp', min: 500, max: 1200, w: 45 }, { type: 'booster', w: 10, ch: .2 }, { type: 'key', w: 7, ch: .05 }] }, { id: 'thunder', name: 'Thunder Pack', fa: 'fa-bolt', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#22180a 0%,#140e04 100%)', stripe: '#d4a820', text: '#f0c840', rlbl: 'RARE', rc: '#d4a820' }, series: 'Elements', cost: { coins: 400, xp: 4000 }, desc: 'Chaqmoq kuchi', rewards: [{ type: 'tokens', min: 200, max: 600, w: 43 }, { type: 'coins', min: 100, max: 300, w: 40 }, { type: 'booster', w: 12, ch: .25 }, { type: 'key', w: 5, ch: .05 }] }, { id: 'premium', name: 'Premium Pack', fa: 'fa-gem', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#180e3c 0%,#0e0828 100%)', stripe: '#7b6af5', text: '#a78bfa', rlbl: 'RARE', rc: '#7b6af5' }, series: 'Premium', cost: { coins: 800, xp: 8000 }, desc: 'Premium sovgalar', rewards: [{ type: 'coins', min: 400, max: 900, w: 28 }, { type: 'tokens', min: 200, max: 500, w: 28 }, { type: 'xp', min: 500, max: 1500, w: 24 }, { type: 'booster', w: 12, ch: .5 }, { type: 'key', w: 8, ch: .08 }] }, { id: 'lucky', name: 'Lucky Pack', fa: 'fa-clover', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#0c1e16 0%,#081008 100%)', stripe: '#28c870', text: '#50e090', rlbl: 'RARE', rc: '#28c870' }, series: 'Special', cost: { coins: 450, xp: 4500 }, desc: 'Omad sinang!', rewards: [{ type: 'coins', min: 0, max: 2000, w: 23 }, { type: 'tokens', min: 0, max: 1000, w: 23 }, { type: 'xp', min: 0, max: 5000, w: 20 }, { type: 'booster', w: 15, ch: .35 }, { type: 'key', w: 12, ch: .12 }, { type: 'vip', w: 7, ch: .03 }] }, { id: 'vip_pack', name: 'VIP Pack', fa: 'fa-crown', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#261408 0%,#180c02 100%)', stripe: '#d4980c', text: '#f5c842', rlbl: 'EPIC', rc: '#d4980c' }, series: 'Elite', cost: { coins: 2000 }, desc: 'Eksklyuziv VIP', rewards: [{ type: 'coins', min: 1000, max: 2500, w: 22 }, { type: 'tokens', min: 500, max: 1500, w: 22 }, { type: 'xp', min: 1000, max: 3000, w: 18 }, { type: 'frame', w: 18, ch: .7 }, { type: 'booster', w: 12, ch: .6 }, { type: 'key', w: 5, ch: .15 }, { type: 'vip', w: 3, ch: .06 }] }, { id: 'dragon', name: 'Dragon Pack', fa: 'fa-dragon', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#260808 0%,#180402 100%)', stripe: '#c83030', text: '#e86060', rlbl: 'EPIC', rc: '#c83030' }, series: 'Beasts', cost: { coins: 1200, xp: 12000 }, desc: 'Ajdaho kuchi!', rewards: [{ type: 'coins', min: 600, max: 1500, w: 26 }, { type: 'tokens', min: 300, max: 800, w: 26 }, { type: 'frame', w: 22, ch: .6 }, { type: 'key', w: 18, ch: .14 }, { type: 'vip', w: 8, ch: .05 }] }, { id: 'galaxy', name: 'Galaxy Pack', fa: 'fa-meteor', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#0e0626 0%,#060414 100%)', stripe: '#5848d0', text: '#8878f0', rlbl: 'EPIC', rc: '#5848d0' }, series: 'Cosmos', cost: { coins: 1500, tokens: 150 }, desc: 'Galaktika sirlari!', rewards: [{ type: 'coins', min: 800, max: 2000, w: 23 }, { type: 'xp', min: 1500, max: 4000, w: 23 }, { type: 'booster', w: 22, ch: .7 }, { type: 'key', w: 20, ch: .16 }, { type: 'vip', w: 12, ch: .07 }] }, { id: 'mega', name: 'MEGA Pack', fa: 'fa-wand-magic-sparkles', rarity: 'legendary', style: { bg: 'linear-gradient(155deg,#1a1208 0%,#120c02 100%)', stripe: '#c89010', text: '#f0b830', rlbl: 'LEGENDARY', rc: '#c89010' }, series: 'Mega Series', cost: { coins: 3000 }, desc: 'Eng katta paket!', rewards: [{ type: 'coins', min: 2000, max: 5000, w: 18 }, { type: 'tokens', min: 1000, max: 3000, w: 18 }, { type: 'xp', min: 3000, max: 10000, w: 18 }, { type: 'frame', w: 16, ch: .85 }, { type: 'booster', w: 12, ch: .8 }, { type: 'key', w: 12, ch: .2 }, { type: 'vip', w: 6, ch: .1 }] }, { id: 'cosmos', name: 'Cosmos Pack', fa: 'fa-satellite', rarity: 'legendary', style: { bg: 'linear-gradient(155deg,#0a061e 0%,#060414 100%)', stripe: '#8060f0', text: '#b090f8', rlbl: 'LEGENDARY', rc: '#8060f0' }, series: 'Cosmos', cost: { coins: 2500, xp: 25000 }, desc: 'Koinot sirlari!', rewards: [{ type: 'coins', min: 1200, max: 3000, w: 20 }, { type: 'tokens', min: 600, max: 1500, w: 20 }, { type: 'xp', min: 2000, max: 6000, w: 18 }, { type: 'frame', w: 17, ch: .7 }, { type: 'key', w: 15, ch: .18 }, { type: 'vip', w: 10, ch: .08 }] }, { id: 'omega', name: 'OMEGA Pack', fa: 'fa-infinity', rarity: 'mythic', style: { bg: 'linear-gradient(155deg,#160620 0%,#0c0414 100%)', stripe: '#c020e0', text: '#e050f8', rlbl: 'MYTHIC', rc: '#c020e0' }, series: 'Omega Series', cost: { coins: 5000, xp: 50000 }, desc: 'OMEGA BOSS pack!', rewards: [{ type: 'coins', min: 2500, max: 6000, w: 16 }, { type: 'tokens', min: 1200, max: 3000, w: 16 }, { type: 'xp', min: 5000, max: 15000, w: 14 }, { type: 'frame', w: 16, ch: .95 }, { type: 'booster', w: 12, ch: .95 }, { type: 'key', w: 14, ch: .4 }, { type: 'vip', w: 12, ch: .2 }] }, { id: 'ultimate', name: 'ULTIMATE', fa: 'fa-khanda', rarity: 'mythic', style: { bg: 'linear-gradient(155deg,#160c02 0%,#0c0800 100%)', stripe: '#e0a000', text: '#f8c830', rlbl: 'MYTHIC', rc: '#e0a000' }, series: 'Ultimate', cost: { coins: 99000 }, desc: 'Hammasi ichida!', rewards: [{ type: 'coins', min: 5000, max: 10000, w: 18 }, { type: 'tokens', min: 3000, max: 7000, w: 18 }, { type: 'xp', min: 5000, max: 20000, w: 18 }, { type: 'frame', w: 15, ch: 1 }, { type: 'booster', w: 12, ch: 1 }, { type: 'key', w: 10, ch: .35 }, { type: 'vip', w: 9, ch: .15 }] }];
+    const KEYS = [{ id: 'key_bronze', name: 'Bronza Kalit', fa: 'fa-key', color: '#cd7f32', tier: 'BRONZA', price: { coins: 150 }, rewards: [{ type: 'coins', min: 80, max: 200, w: 52 }, { type: 'xp', min: 100, max: 300, w: 43 }, { type: 'key', w: 5, ch: .02 }] }, { id: 'key_silver', name: 'Kumush Kalit', fa: 'fa-key', color: '#C0C0C0', tier: 'KUMUSH', price: { coins: 300, xp: 3000 }, rewards: [{ type: 'coins', min: 150, max: 400, w: 37 }, { type: 'tokens', min: 30, max: 100, w: 37 }, { type: 'xp', min: 200, max: 600, w: 22 }, { type: 'key', w: 4, ch: .04 }] }, { id: 'key_gold', name: 'Oltin Kalit', fa: 'fa-star', color: '#FFD700', tier: 'OLTIN', price: { coins: 600, xp: 6000 }, rewards: [{ type: 'coins', min: 300, max: 800, w: 30 }, { type: 'tokens', min: 80, max: 250, w: 30 }, { type: 'xp', min: 400, max: 1200, w: 25 }, { type: 'key', w: 10, ch: .06 }, { type: 'booster', w: 5, ch: .15 }] }, { id: 'key_fire', name: 'Olov Kaliti', fa: 'fa-fire-flame-curved', color: '#ef4444', tier: 'OLOV', price: { coins: 400, xp: 4000 }, rewards: [{ type: 'xp', min: 500, max: 1500, w: 47 }, { type: 'coins', min: 150, max: 400, w: 42 }, { type: 'key', w: 8, ch: .04 }, { type: 'booster', w: 3, ch: .15 }] }, { id: 'key_ice', name: 'Muz Kaliti', fa: 'fa-snowflake', color: '#22d3ee', tier: 'MUZ', price: { coins: 400, tokens: 40 }, rewards: [{ type: 'tokens', min: 150, max: 400, w: 52 }, { type: 'xp', min: 300, max: 900, w: 42 }, { type: 'key', w: 6, ch: .04 }] }, { id: 'key_diamond', name: 'Brilliant Kalit', fa: 'fa-gem', color: '#B9F2FF', tier: 'BRILLIANT', price: { coins: 1200, tokens: 120 }, rewards: [{ type: 'coins', min: 600, max: 1500, w: 25 }, { type: 'tokens', min: 200, max: 600, w: 25 }, { type: 'xp', min: 800, max: 2500, w: 22 }, { type: 'booster', w: 15, ch: .4 }, { type: 'key', w: 10, ch: .1 }, { type: 'vip', w: 3, ch: .02 }] }, { id: 'key_dragon', name: 'Ajdaho Kaliti', fa: 'fa-dragon', color: '#dc2626', tier: 'AJDAHO', price: { coins: 1000, xp: 10000 }, rewards: [{ type: 'coins', min: 500, max: 1300, w: 28 }, { type: 'tokens', min: 200, max: 600, w: 28 }, { type: 'frame', w: 18, ch: .4 }, { type: 'key', w: 18, ch: .12 }, { type: 'vip', w: 8, ch: .04 }] }, { id: 'key_omega', name: 'Omega Kalit', fa: 'fa-infinity', color: '#a78bfa', tier: 'OMEGA', price: { coins: 5000, xp: 50000 }, rewards: [{ type: 'coins', min: 2500, max: 6000, w: 16 }, { type: 'tokens', min: 1200, max: 3000, w: 16 }, { type: 'xp', min: 5000, max: 15000, w: 13 }, { type: 'frame', w: 15, ch: .9 }, { type: 'booster', w: 12, ch: .9 }, { type: 'key', w: 18, ch: .35 }, { type: 'vip', w: 10, ch: .2 }] }];
+    const RANKS = [{ id: 'silver', name: 'Silver', icon: '🥈', color: '#C0C0C0', coinCost: 5000, perks: ['+200 token/kun', '+30% XP', 'Silver profil ring'], sellValue: 2000 }, { id: 'gold', name: 'Gold', icon: '🥇', color: '#FFD700', coinCost: 10000, perks: ['+500 token/kun', '+80% XP', 'Gold glow border'], sellValue: 5000 }, { id: 'diamond', name: 'Diamond', icon: '💎', color: '#B9F2FF', coinCost: 25000, perks: ['+1000 token/kun', '+150% XP', 'Diamond frame effect'], sellValue: 12000 }, { id: 'legend', name: 'Legend', icon: '🔱', color: '#f5c842', coinCost: 50000, perks: ['+2000 token/kun', '+250% XP', 'Legend aura efekti'], sellValue: 25000 }, { id: 'omega', name: 'Omega', icon: '♾️', color: '#a78bfa', coinCost: 100000, perks: ['+5000 token/kun', '+500% XP', 'Omega animatsiya'], sellValue: 50000 }];
+    const COIN_PLANS = [{ id: 'own', name: 'Own', icon: '⭐', coinCost: 10000, realPrice: 49000, features: ['3000 token/5soat', 'Yaxshilangan AI', '+50% XP', '+30% Coin'] }, { id: 'team', name: 'Team', icon: '💎', coinCost: 20000, realPrice: 99000, features: ['8000 token/5soat', 'Ilgor AI', 'Ovozli suhbat', '+100% XP'] }, { id: 'universal', name: 'Universal', icon: '🚀', coinCost: 50000, realPrice: 199000, features: ['Cheksiz tokenlar', 'Eng yaxshi AI', 'Barcha imkoniyatlar', '+200% XP'] }];
+    const PAYMENT_CARD = { number: '8600 1234 5678 9012', owner: 'Abdullayev Abdulla · UZCARD' };
+    const COIN_PKGS = [{ amount: 1000, bonus: '', price: "5 000 so'm", realPrice: 5000 }, { amount: 5000, bonus: '+500 bonus', price: "20 000 so'm", realPrice: 20000 }, { amount: 15000, bonus: '+2000 bonus', price: "50 000 so'm", realPrice: 50000 }, { amount: 50000, bonus: '+10000 bonus', price: "100 000 so'm", realPrice: 100000 }];
+    const XP_PKGS = [{ amount: 500, bonus: '', coinCost: 50 }, { amount: 2000, bonus: '+200 bonus', coinCost: 180 }, { amount: 10000, bonus: '+1000 bonus', coinCost: 800 }, { amount: 50000, bonus: '+5000 bonus', coinCost: 3500 }];
+    const TOK_PKGS = [{ amount: 500, bonus: '', coinCost: 100 }, { amount: 2000, bonus: '+200 bonus', coinCost: 350 }, { amount: 10000, bonus: '+1000 bonus', coinCost: 1500 }, { amount: 50000, bonus: '+5000 bonus', coinCost: 6000 }];
+    const GLOW = { common: 'rgba(90,140,200,0.12)', rare: 'rgba(100,90,245,0.18)', epic: 'rgba(200,150,20,0.18)', legendary: 'rgba(200,100,20,0.22)', mythic: 'rgba(200,20,240,0.26)' };
+    const REEL_POOL = [{ fa: 'fa-coins', lbl: 'Coin', cls: 'ri-c', col: '#888' }, { fa: 'fa-star', lbl: 'XP', cls: 'ri-c', col: '#888' }, { fa: 'fa-ticket', lbl: 'Token', cls: 'ri-c', col: '#888' }, { fa: 'fa-coins', lbl: 'Coin', cls: 'ri-c', col: '#888' }, { fa: 'fa-star', lbl: 'XP', cls: 'ri-r', col: '#7b6af5' }, { fa: 'fa-ticket', lbl: 'Token', cls: 'ri-r', col: '#7b6af5' }, { fa: 'fa-rocket', lbl: 'Boost', cls: 'ri-r', col: '#7b6af5' }, { fa: 'fa-key', lbl: 'Kalit', cls: 'ri-e', col: '#a78bfa' }, { fa: 'fa-star', lbl: 'MEGA XP', cls: 'ri-e', col: '#a78bfa' }, { fa: 'fa-image', lbl: 'Frame', cls: 'ri-l', col: '#f5c842' }, { fa: 'fa-crown', lbl: 'VIP!', cls: 'ri-m', col: '#e050f8' }, { fa: 'fa-gem', lbl: 'Diamond', cls: 'ri-l', col: '#f5c842' }];
+
+    let currentPack = null, openPhase = 0, currentFilter = 'all';
+    let _rcItem = null, _rcBase64 = null;
+
+    // ══════ FILE SELECT — siqishsiz, to'g'ridan-to'g'ri o'qish ══════
+    window.onFileSelect = function (e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/')) {
+        toast("Faqat rasm fayl yuklang!", 'e', 'fa-circle-xmark');
+        return;
+      }
+      if (file.size > 30 * 1024 * 1024) {
+        toast("Rasm 30MB dan kichik bo'lishi kerak", 'e', 'fa-circle-xmark');
+        return;
+      }
+
+      const areaEl = document.getElementById('uploadArea');
+      const previewEl = document.getElementById('uploadPreview');
+      const placeholderEl = document.getElementById('uploadPlaceholder');
+      const statusEl = document.getElementById('uploadStatusEl');
+      const labelEl = document.getElementById('usLabelTxt');
+
+      _rcBase64 = null;
+      areaEl.classList.add('uploading');
+      placeholderEl.style.display = 'none';
+      statusEl.className = 'upload-status';
+
+      const reader = new FileReader();
+      reader.onload = function (ev) {
+        _rcBase64 = ev.target.result;
+        previewEl.src = _rcBase64;
+        previewEl.style.display = 'block';
+        areaEl.classList.remove('uploading');
+        areaEl.classList.add('has-file');
+
+        const sizeKB = (file.size / 1024).toFixed(1);
+        const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+        const sizeStr = file.size >= 1024 * 1024 ? sizeMB + ' MB' : sizeKB + ' KB';
+
+        statusEl.className = 'upload-status show';
+        labelEl.textContent = `✅ Rasm tayyor · ${sizeStr}`;
+
+        toast(`✅ Rasm yuklandi: ${sizeStr}`, 's', 'fa-image');
+      };
+      reader.onerror = function () {
+        areaEl.classList.remove('uploading');
+        toast("Rasm o'qishda xato yuz berdi", 'e', 'fa-circle-xmark');
+      };
+      reader.readAsDataURL(file);
+    };
+
+    // ══════ RENDER PACKS ══════
+    function renderPacks() { const grid = document.getElementById('packsGrid'); const list = currentFilter === 'all' ? PACKS : PACKS.filter(p => p.rarity === currentFilter); grid.innerHTML = list.map(packCardHTML).join(''); }
+    function packCardHTML(p) { const s = p.style; return `<div class="pc" data-rarity="${p.rarity}" onclick="openBuyModal('${p.id}','pack')"><div class="pc-stripe" style="background:${s.stripe}"></div><div class="pc-visual" style="background:linear-gradient(180deg,${s.bg.split(',')[1] || '#111'} 0%,var(--bg3) 100%)"><div class="pack-shape" style="background:${s.bg};border:1px solid ${s.stripe}44"><div class="ps-header"><span style="color:${s.text}">LINGUA</span><span style="color:${s.text}">01</span></div><i class="fa-solid ${p.fa} ps-fa" style="color:${s.text};filter:drop-shadow(0 0 10px ${s.stripe}99)"></i><div class="ps-footer"><div class="ps-name" style="color:${s.text}">${p.name}</div><div class="ps-series" style="color:${s.rc}">${p.series}</div></div></div></div><div class="pc-body"><div class="pc-rarity" style="color:${s.rc}"><i class="fa-solid fa-circle" style="font-size:.4rem"></i> ${s.rlbl}</div><div class="pc-name">${p.name}</div><div class="pc-desc">${p.desc}</div><div class="pc-tags">${rewardTagsHTML(p)}</div><div class="pc-btns">${costBtnsHTML(p, 'pack')}</div></div></div>`; }
+    function rewardTagsHTML(p) { const MAP = { coins: ['#f5c842', 'fa-coins'], tokens: ['#22d3ee', 'fa-ticket'], xp: ['#a78bfa', 'fa-star'], booster: ['#fb923c', 'fa-rocket'], frame: ['#c060f0', 'fa-image'], key: ['#f5c842', 'fa-key'], vip: ['#f5c842', 'fa-crown'] }; return p.rewards.slice(0, 4).map(r => { const [c, fa] = MAP[r.type] || ['#888', 'fa-circle']; const val = r.max ? `+${r.max}` : '?'; return `<span class="pc-tag" style="background:${c}18;border:1px solid ${c}30;color:${c}"><i class="fa-solid ${fa}"></i>${val}</span>`; }).join(''); }
+    function costBtnsHTML(p, type) { const cost = p.cost || p.price || {}; let h = ''; if (cost.coins) h += `<button class="pc-btn" style="background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.28);color:#f5c842" onclick="event.stopPropagation();openBuyModal('${p.id}','${type}')"><i class="fa-solid fa-coins"></i> ${cost.coins.toLocaleString()}</button>`; if (cost.xp) h += `<button class="pc-btn" style="background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.28);color:#a78bfa" onclick="event.stopPropagation();openBuyModal('${p.id}','${type}')"><i class="fa-solid fa-star"></i> ${cost.xp.toLocaleString()} XP</button>`; if (cost.tokens) h += `<button class="pc-btn" style="background:rgba(34,211,238,.09);border:1px solid rgba(34,211,238,.24);color:#22d3ee" onclick="event.stopPropagation();openBuyModal('${p.id}','${type}')"><i class="fa-solid fa-ticket"></i> ${cost.tokens}</button>`; return h; }
+    function renderKeys() { document.getElementById('keysGrid').innerHTML = KEYS.map(keyCardHTML).join(''); }
+    function keyCardHTML(k) { return `<div class="key-card" style="border-color:${k.color}33" onclick="openBuyModal('${k.id}','key')"><div class="key-visual" style="background:radial-gradient(ellipse at 50% 50%,${k.color}15,var(--bg3) 70%)"><div class="key-icon-wrap" style="background:${k.color}18;color:${k.color}"><i class="fa-solid ${k.fa}" style="color:${k.color};filter:drop-shadow(0 0 12px ${k.color}aa)"></i></div></div><div class="key-body"><div class="key-tier" style="background:${k.color}20;border:1px solid ${k.color}40;color:${k.color}">${k.tier}</div><div class="key-name">${k.name}</div><div class="pc-tags" style="margin:4px 0">${rewardTagsHTML(k)}</div><div class="pc-btns">${costBtnsHTML(k, 'key')}</div></div></div>`; }
+    function renderRanks() { document.getElementById('ranksGrid').innerHTML = RANKS.map(rankCardHTML).join(''); }
+    function rankCardHTML(rk) { const owned = WALLET.ownedRanks.includes(rk.id); const isActive = WALLET.rank === rk.id; return `<div class="rank-card ${owned ? 'owned' : ''} ${isActive ? 'active-rank' : ''}" style="--pc-glow:${rk.color}22"><div class="rank-visual" style="background:radial-gradient(ellipse at 50% 50%,${rk.color}15,var(--bg3) 70%)"><div class="rank-ring" style="border-color:${rk.color};background:${rk.color}18;color:${rk.color}">${rk.icon}</div></div><div class="rank-body">${isActive ? `<span class="rank-status" style="background:${rk.color}20;color:${rk.color};border:1px solid ${rk.color}40">✅ Faol Rank</span>` : ''} ${owned && !isActive ? `<span class="rank-status" style="background:rgba(52,211,153,.15);color:var(--green);border:1px solid rgba(52,211,153,.3)">Egalik qilasiz</span>` : ''}<div class="rank-name" style="color:${rk.color}">${rk.icon} ${rk.name} Rank</div><div class="rank-perks">${rk.perks.join(' · ')}</div><div class="pc-btns" style="margin-top:8px">${!owned ? `<button class="pc-btn" style="background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.28);color:#f5c842" onclick="buyRank('${rk.id}')"><i class="fa-solid fa-coins"></i> ${rk.coinCost.toLocaleString()}</button>` : ''} ${owned && !isActive ? `<button class="pc-btn" style="background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:var(--green)" onclick="equipRank('${rk.id}')"><i class="fa-solid fa-check"></i> Faollashtirish</button>` : ''} ${owned ? `<button class="pc-btn" style="background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.25);color:var(--red)" onclick="sellRankItem('${rk.id}')"><i class="fa-solid fa-tag"></i> Sotish (${rk.sellValue.toLocaleString()} coin)</button>` : ''}</div></div></div>`; }
+    function renderPlans() { document.getElementById('plansGrid').innerHTML = COIN_PLANS.map((p, i) => `<div class="plan-card ${i === 1 ? 'popular' : ''}">${i === 1 ? '<div class="plan-popular-tag">MASHHUR</div>' : ''}<div class="plan-icon">${p.icon}</div><div class="plan-name">${p.name}</div><div class="plan-price"><i class="fa-solid fa-coins" style="color:var(--gold);margin-right:4px"></i>${p.coinCost.toLocaleString()} <span>coin</span></div><ul class="plan-features">${p.features.map(f => `<li>${f}</li>`).join('')}</ul><button class="btn-plan bi-coin" onclick="buyPlan('${p.id}','coin')"><i class="fa-solid fa-coins"></i> ${p.coinCost.toLocaleString()} Coin bilan</button><button class="btn-plan bi-green" style="margin-top:4px" onclick="openReceiptForPlan('${p.id}')"><i class="fa-solid fa-file-invoice"></i> ${p.realPrice.toLocaleString()} so'm — Chek yuborish</button></div>`).join(''); }
+
+    window.buyRank = function (id) { const rk = RANKS.find(r => r.id === id); if (!rk) return; if (WALLET.coins < rk.coinCost) { toast(`Yetarli coin yo'q! (${rk.coinCost.toLocaleString()} kerak)`, 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.ownedRanks.includes(id)) { toast('Bu rank allaqachon sizda bor!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } WALLET.coins -= rk.coinCost; WALLET.ownedRanks.push(id); WALLET.rank = id; updateWallet(); renderRanks(); if (window._saveWallet) window._saveWallet(); SFX.play('buy'); toast(`${rk.icon} ${rk.name} Rank olindi!`, 's', 'fa-trophy'); doFlash(); };
+    window.equipRank = function (id) { if (!WALLET.ownedRanks.includes(id)) { toast("Bu rank sizda yo'q!", 'e', 'fa-circle-xmark'); return; } WALLET.rank = id; renderRanks(); if (window._saveWallet) window._saveWallet(); const rk = RANKS.find(r => r.id === id); toast(`${rk?.icon || ''} ${id} rank faollashtirildi!`, 's', 'fa-check'); };
+    window.sellRankItem = function (id) { const rk = RANKS.find(r => r.id === id); if (!rk) return; if (!WALLET.ownedRanks.includes(id)) { toast("Bu rank sizda yo'q!", 'e', 'fa-circle-xmark'); return; } WALLET.ownedRanks = WALLET.ownedRanks.filter(r => r !== id); if (WALLET.rank === id) WALLET.rank = 'none'; WALLET.coins += rk.sellValue; updateWallet(); renderRanks(); renderSell(); if (window._saveWallet) window._saveWallet(); SFX.play('buy'); toast(`${rk.name} Rank sotildi! +${rk.sellValue.toLocaleString()} coin`, 's', 'fa-coins'); };
+    window.buyPlan = function (id, method) { const p = COIN_PLANS.find(x => x.id === id); if (!p) return; if (method === 'coin') { if (WALLET.coins < p.coinCost) { toast(`Yetarli coin yo'q! (${p.coinCost.toLocaleString()} kerak)`, 'e', 'fa-circle-xmark'); SFX.play('error'); return; } WALLET.coins -= p.coinCost; WALLET.plan = id; updateWallet(); if (window._saveWallet) window._saveWallet(); SFX.play('buy'); toast(`${p.icon} ${p.name} rejasi faollashtirildi!`, 's', 'fa-check'); doFlash(); } };
+    window.openReceiptForPlan = function (id) { const p = COIN_PLANS.find(x => x.id === id); if (!p) return; openReceiptModal({ itemId: id, itemName: `${p.icon} ${p.name} Rejasi`, itemType: 'plan', icon: p.icon, price_uzs: p.realPrice }); };
+    function renderCurrencySection() { document.getElementById('coinBal').textContent = WALLET.coins.toLocaleString(); document.getElementById('xpBal').textContent = WALLET.xp.toLocaleString(); document.getElementById('tokBal').textContent = WALLET.tokens.toLocaleString(); document.getElementById('coinPkgs').innerHTML = COIN_PKGS.map((p, i) => `<div class="curr-pkg"><div class="curr-pkg-amount" style="color:var(--gold)"><i class="fa-solid fa-coins"></i> ${p.amount.toLocaleString()}</div>${p.bonus ? `<div class="curr-pkg-bonus">${p.bonus}</div>` : ''}<div class="curr-pkg-price">${p.price}</div><button class="curr-pkg-btn bi-green" onclick="openReceiptForCoin(${i})">Chek yuborish</button></div>`).join(''); document.getElementById('xpPkgs').innerHTML = XP_PKGS.map(p => `<div class="curr-pkg"><div class="curr-pkg-amount" style="color:var(--accent2)"><i class="fa-solid fa-star"></i> ${p.amount.toLocaleString()}</div>${p.bonus ? `<div class="curr-pkg-bonus">${p.bonus}</div>` : ''}<div class="curr-pkg-price">${p.coinCost.toLocaleString()} coin</div><button class="curr-pkg-btn bi-coin" onclick="buyCurrencyWithCoin('xp',${p.amount},${p.coinCost})">Coin bilan</button></div>`).join(''); document.getElementById('tokPkgs').innerHTML = TOK_PKGS.map(p => `<div class="curr-pkg"><div class="curr-pkg-amount" style="color:var(--cyan)"><i class="fa-solid fa-ticket"></i> ${p.amount.toLocaleString()}</div>${p.bonus ? `<div class="curr-pkg-bonus">${p.bonus}</div>` : ''}<div class="curr-pkg-price">${p.coinCost.toLocaleString()} coin</div><button class="curr-pkg-btn bi-coin" onclick="buyCurrencyWithCoin('token',${p.amount},${p.coinCost})">Coin bilan</button></div>`).join(''); }
+    window.openReceiptForCoin = function (idx) { const p = COIN_PKGS[idx]; if (!p) return; openReceiptModal({ itemId: 'coin_pkg_' + p.amount, itemName: `🪙 ${p.amount.toLocaleString()} Coin paketi`, itemType: 'coin_package', icon: '🪙', price_uzs: p.realPrice, coinAmount: p.amount }); };
+    window.buyCurrencyWithCoin = function (type, amount, coinCost) { if (WALLET.coins < coinCost) { toast(`Yetarli coin yo'q! (${coinCost.toLocaleString()} kerak)`, 'e', 'fa-circle-xmark'); SFX.play('error'); return; } WALLET.coins -= coinCost; if (type === 'xp') WALLET.xp += amount; else if (type === 'token') WALLET.tokens += amount; updateWallet(); renderCurrencySection(); if (window._saveWallet) window._saveWallet(); SFX.play('buy'); const icon = type === 'xp' ? '⭐' : '🎫'; toast(`${icon} +${amount.toLocaleString()} ${type.toUpperCase()} qo'shildi!`, 's', 'fa-check'); };
+    function renderSell() { const el = document.getElementById('sellContent'); let html = ''; const FRAMES = [{ id: 'frame_fire', name: 'Fire Frame', color: '#ef4444', val: 200 }, { id: 'frame_ice', name: 'Ice Frame', color: '#22d3ee', val: 200 }, { id: 'frame_gold', name: 'Golden Frame', color: '#f5c842', val: 300 }, { id: 'frame_galaxy', name: 'Galaxy Frame', color: '#818cf8', val: 350 }, { id: 'frame_neon', name: 'Neon Frame', color: '#4ade80', val: 250 }, { id: 'frame_rainbow', name: 'Rainbow Frame', color: '#f472b6', val: 400 }, { id: 'frame_vip', name: 'VIP Frame', color: '#f5c842', val: 600 }, { id: 'frame_dragon', name: 'Dragon Frame', color: '#dc2626', val: 500 }]; if (WALLET.ownedPacks.length) { html += `<div class="sub-title" style="margin-bottom:12px">📦 Packlar (50 coin/ta)</div>`; WALLET.ownedPacks.forEach(pid => { const p = PACKS.find(x => x.id === pid) || { id: pid, name: pid, style: { stripe: '#888', text: '#aaa', rlbl: 'Pack' } }; html += `<div class="sell-item-row"><div style="font-size:1.2rem">${p.fa ? `<i class="fa-solid ${p.fa}" style="color:${p.style?.text || '#aaa'}"></i>` : '📦'}</div><div class="sell-info"><div class="sell-name">${p.name || pid}</div><div class="sell-sub">${p.style?.rlbl || 'Pack'}</div></div><div class="sell-price"><i class="fa-solid fa-coins"></i> 50</div><button class="btn-sell" onclick="sellItem('pack','${pid}',50)">Sotish</button></div>`; }); } if (WALLET.ownedKeys.length) { html += `<div class="sub-title" style="margin-bottom:12px;margin-top:16px">🗝️ Kalitlar</div>`; WALLET.ownedKeys.forEach(kid => { const k = KEYS.find(x => x.id === kid); const val = k ? Math.floor((k.price?.coins || 100) * 0.4) : 40; html += `<div class="sell-item-row"><div style="font-size:1.2rem"><i class="fa-solid ${k?.fa || 'fa-key'}" style="color:${k?.color || '#888'}"></i></div><div class="sell-info"><div class="sell-name">${k?.name || kid}</div><div class="sell-sub">${k?.tier || 'Kalit'}</div></div><div class="sell-price"><i class="fa-solid fa-coins"></i> ${val}</div><button class="btn-sell" onclick="sellItem('key','${kid}',${val})">Sotish</button></div>`; }); } if (WALLET.ownedFrames.length) { html += `<div class="sub-title" style="margin-bottom:12px;margin-top:16px">🖼 Framlar</div>`; WALLET.ownedFrames.forEach(fid => { const f = FRAMES.find(x => x.id === fid); const val = f?.val || 100; html += `<div class="sell-item-row"><div style="font-size:1.2rem">🖼</div><div class="sell-info"><div class="sell-name">${f?.name || fid}</div><div class="sell-sub">Frame</div></div><div class="sell-price" style="color:${f?.color || '#aaa'}"><i class="fa-solid fa-coins" style="color:var(--gold)"></i> ${val}</div><button class="btn-sell" onclick="sellItem('frame','${fid}',${val})">Sotish</button></div>`; }); } if (WALLET.ownedRanks.length) { html += `<div class="sub-title" style="margin-bottom:12px;margin-top:16px">🏆 Ranklar</div>`; WALLET.ownedRanks.forEach(rid => { const rk = RANKS.find(x => x.id === rid); if (!rk) return; html += `<div class="sell-item-row"><div style="font-size:1.5rem">${rk.icon}</div><div class="sell-info"><div class="sell-name">${rk.name} Rank</div><div class="sell-sub">${rk.perks[0]}</div></div><div class="sell-price"><i class="fa-solid fa-coins"></i> ${rk.sellValue.toLocaleString()}</div><button class="btn-sell" onclick="sellRankItem('${rid}')">Sotish</button></div>`; }); } if (!html) { html = `<div style="text-align:center;padding:40px;color:var(--text3)"><i class="fa-solid fa-box" style="font-size:2rem;display:block;margin-bottom:12px;opacity:.3"></i>Sotadigan narsangiz yo'q. <a href="#" onclick="filterPacks('all',null)" style="color:var(--accent2)">Do'kondan xarid qiling!</a></div>`; } el.innerHTML = html; }
+    window.sellItem = function (type, id, coinVal) { if (type === 'pack') { if (!WALLET.ownedPacks.includes(id)) { toast("Bu narsangizda yo'q!", 'e', 'fa-circle-xmark'); return; } WALLET.ownedPacks = WALLET.ownedPacks.filter(x => x !== id); } else if (type === 'key') { if (!WALLET.ownedKeys.includes(id)) { toast("Bu narsangizda yo'q!", 'e', 'fa-circle-xmark'); return; } WALLET.ownedKeys = WALLET.ownedKeys.filter(x => x !== id); } else if (type === 'frame') { if (!WALLET.ownedFrames.includes(id)) { toast("Bu narsangizda yo'q!", 'e', 'fa-circle-xmark'); return; } WALLET.ownedFrames = WALLET.ownedFrames.filter(x => x !== id); } WALLET.coins += coinVal; updateWallet(); renderSell(); if (window._saveWallet) window._saveWallet(); SFX.play('buy'); toast(`Sotildi! +${coinVal} coin`, 's', 'fa-coins'); };
+
+    function openBuyModal(id, type) { SFX.play('click'); let item = null; if (type === 'pack') item = PACKS.find(x => x.id === id); else if (type === 'key') { const k = KEYS.find(x => x.id === id); if (k) item = { ...k, isKey: true, style: { bg: `linear-gradient(155deg,${k.color}22,#020408)`, stripe: k.color, text: k.color, rlbl: k.tier, rc: k.color }, cost: k.price }; } if (!item) return; currentPack = item; const s = item.style; const cost = item.cost || {}; const hasCoin = cost.coins && WALLET.coins >= cost.coins; const hasXP = cost.xp && WALLET.xp >= cost.xp; const hasTok = cost.tokens && WALLET.tokens >= cost.tokens; let opts = ''; if (cost.coins) opts += `<button class="buy-opt bo-coins"${hasCoin ? '' : ' disabled'} onclick="doBuy('coins')"><span><i class="fa-solid fa-coins"></i> Coin bilan</span><span style="font-size:.78rem">${cost.coins.toLocaleString()}${!hasCoin ? ' — yetarli emas' : ''}</span></button>`; if (cost.xp) opts += `<button class="buy-opt bo-xp"${hasXP ? '' : ' disabled'} onclick="doBuy('xp')"><span><i class="fa-solid fa-star"></i> XP bilan</span><span style="font-size:.78rem">${cost.xp.toLocaleString()} XP${!hasXP ? ' — yetarli emas' : ''}</span></button>`; if (cost.tokens) opts += `<button class="buy-opt bo-tok"${hasTok ? '' : ' disabled'} onclick="doBuy('tokens')"><span><i class="fa-solid fa-ticket"></i> Token bilan</span><span style="font-size:.78rem">${cost.tokens}${!hasTok ? ' — yetarli emas' : ''}</span></button>`; document.getElementById('buyTitle').innerHTML = `<i class="fa-solid ${item.fa || 'fa-gem'}" style="color:${s.stripe}"></i> ${item.name}`; document.getElementById('buyBody').innerHTML = `<div class="ord-prev" style="background:${s.bg};border:1px solid ${s.stripe}40"><div class="ord-fa" style="background:${s.stripe}22"><i class="fa-solid ${item.fa || 'fa-gem'}" style="color:${s.text};font-size:1.6rem"></i></div><div><div class="ord-name" style="color:${s.text}">${item.name}</div><div class="ord-desc" style="color:${s.rc}">${s.rlbl} · ${item.desc || 'Xazina'}</div></div></div><div style="font-size:.75rem;color:var(--text3);margin-bottom:10px;text-align:center;font-family:var(--font-head)">To'lov usulini tanlang:</div><div class="buy-opts">${opts}</div>`; document.getElementById('buyModal').classList.add('open'); }
+    window.openBuyModal = openBuyModal;
+    function closeBuy() { document.getElementById('buyModal').classList.remove('open'); }
+    window.closeBuy = closeBuy;
+    function doBuy(currency) { const p = currentPack; if (!p) return; const cost = p.cost || {}; if (currency === 'coins') { if (WALLET.coins < cost.coins) { toast("Yetarli coin yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.coins -= cost.coins; } else if (currency === 'xp') { if (WALLET.xp < cost.xp) { toast("Yetarli XP yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.xp -= cost.xp; } else if (currency === 'tokens') { if (WALLET.tokens < cost.tokens) { toast("Yetarli token yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return } WALLET.tokens -= cost.tokens; } if (p.isKey) { if (!WALLET.ownedKeys.includes(p.id)) WALLET.ownedKeys.push(p.id); } else { if (!WALLET.ownedPacks.includes(p.id)) WALLET.ownedPacks.push(p.id); } SFX.play('buy'); updateWallet(); closeBuy(); if (window._saveWallet) window._saveWallet(); openOpener(p); }
+    window.doBuy = doBuy;
+
+    // ══════ RECEIPT MODAL ══════
+    function openReceiptModal(item) {
+      _rcItem = item; _rcBase64 = null;
+      document.getElementById('rcCardNum').textContent = PAYMENT_CARD.number;
+      document.getElementById('rcCardOwner').textContent = PAYMENT_CARD.owner;
+      document.getElementById('rcAmount').textContent = `Miqdor: ${item.price_uzs.toLocaleString()} so'm`;
+      document.getElementById('rcComment').value = '';
+      document.getElementById('orderResult').textContent = '';
+      document.getElementById('sendOrderBtn').disabled = false;
+      document.getElementById('sendOrderBtn').innerHTML = '<i class="fa-solid fa-paper-plane"></i> Buyurtma Yuborish';
+      const area = document.getElementById('uploadArea');
+      area.classList.remove('has-file', 'uploading');
+      document.getElementById('uploadPreview').style.display = 'none';
+      document.getElementById('uploadPreview').src = '';
+      document.getElementById('uploadPlaceholder').style.display = 'block';
+      document.getElementById('receiptFileInput').value = '';
+      document.getElementById('uploadStatusEl').className = 'upload-status';
+      document.getElementById('receiptModal').classList.add('open');
+      closeBuy();
+    }
+    window.openReceiptModal = openReceiptModal;
+    window.closeReceiptModal = function () { document.getElementById('receiptModal').classList.remove('open'); _rcItem = null; _rcBase64 = null; };
+
+    // ══════ OPENER ══════
+    function openOpener(p) { currentPack = p; openPhase = 0; const s = p.style; const card = document.getElementById('ovPackCard'); card.style.background = s.bg; card.style.border = `1px solid ${s.stripe}60`; card.style.boxShadow = `0 24px 70px rgba(0,0,0,.75),0 0 50px ${GLOW[p.rarity] || GLOW.common},inset 0 1px 0 rgba(255,255,255,.18)`; document.getElementById('ovBrand').style.color = s.text; const faEl = document.getElementById('ovPackFa'); faEl.className = `fa-solid ${p.fa || 'fa-gem'} ov-pack-fa`; faEl.style.color = s.text; faEl.style.filter = `drop-shadow(0 0 24px ${s.stripe}bb)`; document.getElementById('ovName').textContent = p.name; document.getElementById('ovName').style.color = s.text; document.getElementById('ovSeries').textContent = p.series || p.tier || ''; document.getElementById('ovSeries').style.color = s.rc; const ot = document.getElementById('ovTitle'); ot.textContent = p.name; ot.style.background = `linear-gradient(135deg,${s.stripe},${s.text})`; ot.style.webkitBackgroundClip = 'text'; ot.style.webkitTextFillColor = 'transparent'; document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-hand-pointer" style="color:${s.stripe}"></i> Pack ustiga bosing va oching!`; const btn = document.getElementById('ovBtn'); btn.style.background = `linear-gradient(135deg,${s.stripe},${s.text})`; btn.style.color = '#000'; btn.disabled = false; btn.style.display = 'flex'; document.getElementById('ovBtnIcon').className = 'fa-solid fa-box-open'; document.getElementById('ovBtnTxt').textContent = 'Ochish!'; document.getElementById('ovPackWrap').style.display = 'block'; document.getElementById('reelWrap').style.display = 'none'; document.getElementById('winScreen').className = 'win-screen'; document.getElementById('winScreen').innerHTML = ''; document.getElementById('btnAgain').style.display = 'none'; document.getElementById('ovBg').style.background = `radial-gradient(ellipse at 50% 30%,${GLOW[p.rarity] || GLOW.common} 0%,rgba(2,4,8,.97) 65%)`; document.getElementById('overlay').classList.add('open'); SFX.play('open'); }
+    window.onPackClick = function () { if (openPhase === 0) onOvBtn(); };
+    window.onOvBtn = function () { if (openPhase === 0) { openPhase = 1; SFX.play('spin'); const btn = document.getElementById('ovBtn'); btn.disabled = true; document.getElementById('ovBtnIcon').className = 'fa-solid fa-spinner fa-spin'; document.getElementById('ovBtnTxt').textContent = 'Ochilmoqda...'; document.getElementById('ovHint').innerHTML = '<i class="fa-solid fa-bolt" style="color:#f5c842"></i> Pack ochilmoqda...'; const wrap = document.getElementById('ovPackWrap'); let sh = 0, shIv = setInterval(() => { const x = (Math.random() - .5) * 14, y = (Math.random() - .5) * 8; wrap.style.transform = `translate(${x}px,${y}px) rotate(${x * .5}deg)`; sh++; if (sh > 14) { clearInterval(shIv); wrap.style.transform = ''; } }, 35); setTimeout(() => { doFlash(); document.getElementById('reelWrap').style.display = 'block'; document.getElementById('ovBtnIcon').className = 'fa-solid fa-dice'; document.getElementById('ovBtnTxt').textContent = 'SPIN!'; btn.disabled = false; document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-circle-arrow-right" style="color:${currentPack.style.stripe}"></i> SPIN tugmasini bosing!`; }, 680); } else if (openPhase === 1) { openPhase = 2; SFX.play('spin'); document.getElementById('ovBtn').disabled = true; document.getElementById('ovHint').innerHTML = '<i class="fa-solid fa-hourglass-half fa-spin"></i> Aylanyapti...'; runReel(); } };
+    function runReel() { const track = document.getElementById('reelTrack'); const ITEM_W = 90, GAP = 8, CELL = ITEM_W + GAP, PADDING = 10; const total = 72; const rewards = calcRewards(currentPack); const winIdx = Math.floor(total * 0.62) + Math.floor(Math.random() * 8); const winItem = getWinnerItem(rewards); const items = []; for (let i = 0; i < total; i++)items.push(i === winIdx ? winItem : REEL_POOL[Math.floor(Math.random() * REEL_POOL.length)]); track.innerHTML = items.map(it => `<div class="reel-item ${it.cls}"><i class="fa-solid ${it.fa}" style="color:${it.col}"></i><span class="ri-lbl">${it.lbl}</span></div>`).join(''); const reelWrap = document.getElementById('reelWrap'); const visibleW = reelWrap.offsetWidth || 540; const centerOffset = Math.floor(visibleW / 2); const winCenter = PADDING + winIdx * CELL + ITEM_W / 2; const targetX = centerOffset - winCenter; track.style.transform = 'translateX(0px)'; let done = false, lastSfx = 0; const ease = (t) => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; const totalDuration = 3200; const startTime = performance.now(); function af(now) { if (done) return; const elapsed = now - startTime; const progress = Math.min(elapsed / totalDuration, 1); const eased = ease(progress); const cur = targetX * eased; track.style.transform = `translateX(${cur}px)`; if (progress < 0.85 && now - lastSfx > 60) { SFX.play('reel'); lastSfx = now; } if (progress >= 1) { done = true; track.style.transform = `translateX(${targetX}px)`; const cells = track.querySelectorAll('.reel-item'); if (cells[winIdx]) { cells[winIdx].style.transform = 'scale(1.15)'; cells[winIdx].style.zIndex = '2'; } doFlash(); const isEpic = rewards.vip || rewards.frame || (rewards.xp > 3000) || (rewards.coins > 1000); setTimeout(() => { isEpic ? SFX.play('epic_win') : SFX.play('win'); }, 200); setTimeout(() => showRewards(rewards), 800); return; } requestAnimationFrame(af); } requestAnimationFrame(af); }
+    function getWinnerItem(r) { if (r.vip) return { fa: 'fa-crown', lbl: 'VIP!', cls: 'ri-m', col: '#e050f8' }; if (r.frame) return { fa: 'fa-image', lbl: 'Frame!', cls: 'ri-l', col: '#f5c842' }; if (r.key) return { fa: 'fa-key', lbl: 'Kalit!', cls: 'ri-e', col: '#a78bfa' }; if (r.booster) return { fa: 'fa-rocket', lbl: 'Boost!', cls: 'ri-r', col: '#7b6af5' }; if (r.xp > 3000) return { fa: 'fa-star', lbl: 'MEGA XP', cls: 'ri-l', col: '#f5c842' }; if (r.xp > 1000) return { fa: 'fa-star', lbl: 'XP', cls: 'ri-e', col: '#a78bfa' }; if (r.coins > 1000) return { fa: 'fa-coins', lbl: 'MEGA!', cls: 'ri-l', col: '#f5c842' }; if (r.tokens > 300) return { fa: 'fa-ticket', lbl: 'Token', cls: 'ri-e', col: '#a78bfa' }; return { fa: 'fa-coins', lbl: 'Coin', cls: 'ri-c', col: '#888' }; }
+    function calcRewards(pack) { const got = {}; const g = pack.rewards.filter(r => r.min !== undefined); const c = pack.rewards.filter(r => r.ch !== undefined && r.min === undefined); if (g.length) { const tw = g.reduce((s, r) => s + (r.w || 10), 0); let roll = Math.random() * tw; for (const r of g) { roll -= (r.w || 10); if (roll <= 0) { const a = Math.floor(r.min + Math.random() * (r.max - r.min + 1)); got[r.type] = a; break; } } } for (const r of c) if (Math.random() < (r.ch || .1)) got[r.type] = true; return got; }
+    function showRewards(r) { const p = currentPack, s = p.style; if (r.coins) WALLET.coins += r.coins; if (r.tokens) WALLET.tokens += r.tokens; if (r.xp) WALLET.xp += r.xp; if (r.frame) { const frames = ['frame_fire', 'frame_ice', 'frame_gold', 'frame_galaxy', 'frame_neon', 'frame_rainbow', 'frame_vip', 'frame_dragon']; const rf = frames[Math.floor(Math.random() * frames.length)]; if (!WALLET.ownedFrames.includes(rf)) WALLET.ownedFrames.push(rf); } if (r.vip) WALLET.isVIP = true; updateWallet(); if (window._saveWallet) window._saveWallet(); document.getElementById('ovPackWrap').style.display = 'none'; document.getElementById('reelWrap').style.display = 'none'; document.getElementById('ovBtn').style.display = 'none'; if (['epic', 'legendary', 'mythic'].includes(p.rarity) || r.vip || r.frame) launchConfetti(s.stripe); const box = document.getElementById('winScreen'); const rarityBig = { common: 'Common', rare: 'Rare', epic: 'EPIC', legendary: 'LEGENDARY', mythic: 'MYTHIC' }; let html = `<div class="win-banner" style="background:${s.bg};border:1px solid ${s.stripe}50;box-shadow:0 0 50px ${GLOW[p.rarity]}"><div class="win-banner-label" style="color:${s.rc}"><i class="fa-solid fa-trophy"></i> ${rarityBig[p.rarity] || ''} · ${p.name}</div><div class="win-banner-title" style="background:linear-gradient(135deg,${s.stripe},${s.text});-webkit-background-clip:text;-webkit-text-fill-color:transparent">Siz Yutdingiz!</div><div class="win-banner-sub" style="color:${s.text}">Quyidagi mukofotlar qo'shildi</div></div>`; let delay = .05; const rew = []; if (r.vip) rew.push({ fa: 'fa-crown', col: '#f5c842', name: 'VIP STATUS', desc: '30 kunlik VIP faollashdi', val: 'FAOL!' }); if (r.frame) rew.push({ fa: 'fa-image', col: '#c060f0', name: 'Profil Frame', desc: 'Yangi eksklyuziv frame', val: '+1' }); if (r.key) rew.push({ fa: 'fa-key', col: '#f5c842', name: 'Oltin Kalit', desc: 'Noyob kalit paket', val: '+1' }); if (r.booster) rew.push({ fa: 'fa-rocket', col: '#fb923c', name: '2× XP Booster', desc: '1 soatlik XP multiplier', val: '1 soat' }); if (r.coins) rew.push({ fa: 'fa-coins', col: '#f5c842', name: 'Coin', desc: "Hamyoningizga qo'shildi", val: `+${r.coins.toLocaleString()}` }); if (r.tokens) rew.push({ fa: 'fa-ticket', col: '#22d3ee', name: 'Token', desc: 'AI chat tokenlari', val: `+${r.tokens.toLocaleString()}` }); if (r.xp) rew.push({ fa: 'fa-star', col: '#a78bfa', name: 'XP', desc: 'Tajriba ballari', val: `+${r.xp.toLocaleString()}` }); rew.forEach((it, i) => { html += `<div class="rew-item" style="animation-delay:${delay + i * .1}s;background:${it.col}10;border:1px solid ${it.col}25"><div class="rew-fa" style="background:${it.col}22"><i class="fa-solid ${it.fa}" style="color:${it.col}"></i></div><div class="rew-info"><div class="rew-name" style="color:${it.col}">${it.name}</div><div class="rew-desc">${it.desc}</div></div><div class="rew-val" style="color:${it.col}">${it.val}</div></div>`; }); box.innerHTML = html; box.classList.add('show'); document.getElementById('btnAgain').style.display = 'flex'; document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-party-horn" style="color:${s.stripe}"></i> Tabriklaymiz!`; toast("Pack ochildi! Mukofotlar qo'shildi", 's', 'fa-party-horn'); }
+    window.onAgain = function () { closeOverlay(); if (currentPack) { if (currentPack.isKey) openBuyModal(currentPack.id, 'key'); else openBuyModal(currentPack.id, 'pack'); } };
+    window.closeOverlay = function () { document.getElementById('overlay').classList.remove('open'); openPhase = 0; stopConfetti(); };
+
+    function renderVIP() { document.getElementById('vipContent').innerHTML = `<div class="vip-card-big"><div style="font-size:3.5rem;margin-bottom:8px"><i class="fa-solid fa-crown" style="color:var(--gold);filter:drop-shadow(0 0 20px rgba(245,200,66,.5))"></i></div><div class="vip-title-big">VIP STATUS</div>${WALLET.isVIP ? `<div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:12px;padding:10px 18px;margin:10px auto;max-width:280px;color:var(--green);font-family:var(--font-head);font-weight:700"><i class="fa-solid fa-check-circle"></i> VIP Faol — Siz VIP foydalanuvchisiz!</div>` : ''}<ul class="vip-perks-list">${['👑 VIP badge va eksklyuziv rang', '🌟 Barcha profil fremlari', '🎨 Premium temalar', '🚀 Kunlik 3× XP bonus', '💎 Cheksiz AI suhbat', '🏆 Leaderboard yuqori o\'rni', '⚡ Har oy +5000 token'].map(x => `<li>${x}</li>`).join('')}</ul><div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--gold);margin:14px 0">99,000 <span style="font-size:1rem;color:var(--text3)">so'm/oy</span></div>${!WALLET.isVIP ? `<button class="btn-vip-big" onclick="buyVIPWithCoins()"><i class="fa-solid fa-coins"></i> 20,000 Coin bilan</button><div style="margin-top:10px"><button class="btn-vip-big" style="background:linear-gradient(135deg,var(--green),#059669)" onclick="openVIPReceiptModal()"><i class="fa-solid fa-file-invoice"></i> 99,000 so'm — Chek yuborish</button></div><div style="font-size:.7rem;color:var(--text3);margin-top:10px;font-family:var(--font-head)">Admin 24 soat ichida tasdiqlaydi · @linguaverse_uz</div>` : `<div style="font-size:.85rem;color:var(--text3);margin-top:8px;font-family:var(--font-head)">Keyingi oyga: <button class="btn-vip-big" style="padding:8px 18px;font-size:.8rem" onclick="openVIPReceiptModal()">Uzaytirish</button></div>`}</div>`; }
+    window.openVIPReceiptModal = function () { openReceiptModal({ itemId: 'vip_monthly', itemName: '👑 VIP Status (1 oy)', itemType: 'vip', icon: '👑', price_uzs: 99000 }); };
+    window.buyVIPWithCoins = function () { if (WALLET.coins < 20000) { toast("Yetarli coin yo'q! (20,000 kerak)", 'e', 'fa-circle-xmark'); SFX.play('error'); return; } WALLET.coins -= 20000; WALLET.isVIP = true; updateWallet(); renderVIP(); if (window._saveWallet) window._saveWallet(); SFX.play('buy'); toast('👑 VIP faollashtirildi!', 's', 'fa-crown'); doFlash(); };
+
+    function updConv(type) { if (type === 'c2t') { const v = parseInt(document.getElementById('c2tIn').value) || 0; document.getElementById('c2tRes').textContent = Math.floor(v / 2) + ' token'; } else if (type === 'x2c') { const v = parseInt(document.getElementById('x2cIn').value) || 0; document.getElementById('x2cRes').textContent = Math.floor(v / 100) + ' coin'; } else if (type === 't2c') { const v = parseInt(document.getElementById('t2cIn').value) || 0; document.getElementById('t2cRes').textContent = Math.floor(v / 3) + ' coin'; } }
+    window.updConv = updConv;
+    function doConv(type) { if (type === 'c2t') { const v = parseInt(document.getElementById('c2tIn').value) || 0; if (v < 10) { toast('Min 10 coin!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.coins < v) { toast("Yetarli coin yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const t = Math.floor(v / 2); WALLET.coins -= v; WALLET.tokens += t; toast(`${v} coin → ${t} token`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); } else if (type === 'x2c') { const v = parseInt(document.getElementById('x2cIn').value) || 0; if (v < 100) { toast('Min 100 XP!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.xp < v) { toast("Yetarli XP yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const c = Math.floor(v / 100); WALLET.xp -= v; WALLET.coins += c; toast(`${v} XP → ${c} coin`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); } else if (type === 't2c') { const v = parseInt(document.getElementById('t2cIn').value) || 0; if (v < 30) { toast('Min 30 token!', 'e', 'fa-circle-xmark'); SFX.play('error'); return; } if (WALLET.tokens < v) { toast("Yetarli token yo'q!", 'e', 'fa-circle-xmark'); SFX.play('error'); return; } const c = Math.floor(v / 3); WALLET.tokens -= v; WALLET.coins += c; toast(`${v} token → ${c} coin`, 's', 'fa-check'); SFX.play('buy'); updateWallet(); } if (window._saveWallet) window._saveWallet(); }
+    window.doConv = doConv;
+
+    let confettiAF = null, confettiParts = [];
+    function launchConfetti(col) { const cv = document.getElementById('confettiCanvas'); cv.width = innerWidth; cv.height = innerHeight; cv.style.display = 'block'; const ctx = cv.getContext('2d'); confettiParts = []; const colors = [col, '#f5c842', '#a78bfa', '#22d3ee', '#f87171', '#34d399', '#fb923c']; for (let i = 0; i < 140; i++) { confettiParts.push({ x: innerWidth / 2 + (Math.random() - .5) * 130, y: innerHeight / 2 + (Math.random() - .5) * 80, vx: (Math.random() - .5) * 14, vy: -(Math.random() * 14 + 6), rot: Math.random() * 360, rotV: (Math.random() - .5) * 12, w: 8 + Math.random() * 8, h: 4 + Math.random() * 4, col: colors[Math.floor(Math.random() * colors.length)], alpha: 1, life: 1 }); } let t = 0; function loop() { ctx.clearRect(0, 0, cv.width, cv.height); let alive = false; confettiParts.forEach(p => { p.x += p.vx; p.y += p.vy; p.vy += .38; p.rot += p.rotV; p.life -= .012; p.alpha = Math.max(0, p.life); if (p.life > 0) alive = true; ctx.save(); ctx.globalAlpha = p.alpha; ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180); ctx.fillStyle = p.col; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore(); }); t++; if (alive && t < 240) confettiAF = requestAnimationFrame(loop); else { cv.style.display = 'none'; ctx.clearRect(0, 0, cv.width, cv.height); } } if (confettiAF) cancelAnimationFrame(confettiAF); confettiAF = requestAnimationFrame(loop); }
+    function stopConfetti() { if (confettiAF) cancelAnimationFrame(confettiAF); const cv = document.getElementById('confettiCanvas'); cv.style.display = 'none'; cv.getContext('2d').clearRect(0, 0, cv.width, cv.height); }
+
+    function filterPacks(r, btn) { currentFilter = r; document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active')); if (btn) btn.classList.add('active'); document.querySelectorAll('.sec').forEach(s => s.classList.remove('active')); document.getElementById('sec-packs').classList.add('active'); renderPacks(); SFX.play('click'); }
+    window.filterPacks = filterPacks;
+    function showSec(id, btn) { document.querySelectorAll('.sec').forEach(s => s.classList.remove('active')); document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active')); const el = document.getElementById('sec-' + id); if (el) el.classList.add('active'); if (btn) btn.classList.add('active'); if (id === 'keys') renderKeys(); if (id === 'plans') renderPlans(); if (id === 'vip') renderVIP(); if (id === 'sell') renderSell(); if (id === 'ranks') renderRanks(); if (id === 'currency') renderCurrencySection(); SFX.play('click'); }
+    window.showSec = showSec;
+    function doFlash() { const f = document.createElement('div'); f.className = 'flash'; document.body.appendChild(f); setTimeout(() => f.remove(), 600); }
+    function updateWallet() { const f = n => n.toLocaleString(); document.getElementById('nCoin').textContent = f(WALLET.coins); document.getElementById('wCoin').textContent = f(WALLET.coins); document.getElementById('nXP').textContent = f(WALLET.xp); document.getElementById('wXP').textContent = f(WALLET.xp); document.getElementById('nTok').textContent = f(WALLET.tokens); document.getElementById('wTok').textContent = f(WALLET.tokens); if (document.getElementById('coinBal')) document.getElementById('coinBal').textContent = f(WALLET.coins); if (document.getElementById('xpBal')) document.getElementById('xpBal').textContent = f(WALLET.xp); if (document.getElementById('tokBal')) document.getElementById('tokBal').textContent = f(WALLET.tokens); }
+    window.updateWallet = updateWallet;
+    function toast(msg, type, fa) { const t = document.getElementById('toast'); document.getElementById('toastIcon').className = `fa-solid ${fa || 'fa-check'}`; document.getElementById('toastMsg').textContent = msg; t.className = 'toast ' + type + ' show'; clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3400); }
+    window.toast = toast;
+
+    let p = 0; const iv = setInterval(() => { p += 20; document.getElementById('loadBar').style.width = Math.min(p, 90) + '%'; if (p >= 90) clearInterval(iv); }, 100);
+    setTimeout(() => { if (!document.getElementById('loadScreen').classList.contains('hidden') && !document.getElementById('authScreen').classList.contains('show')) { document.getElementById('loadBar').style.width = '100%'; setTimeout(() => document.getElementById('loadScreen').classList.add('hidden'), 300); renderPacks(); renderVIP(); renderSell(); renderCurrencySection(); renderPlans(); renderRanks(); } }, 8000);
+  </script>
+</body>
+
+</html>

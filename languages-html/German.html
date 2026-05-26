@@ -1,0 +1,2622 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>LinguaVerse — Deutsch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;700&family=Exo+2:wght@400;600;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #080402;
+            --bg2: #100804;
+            --bg3: #1a0d06;
+            --bg4: #221208;
+            --accent: #e8420a;
+            --accent2: #f5a623;
+            --gold: #ffd600;
+            --gold2: #e8c200;
+            --green: #34d399;
+            --red: #e8420a;
+            --orange: #f5a623;
+            --pink: #ff6b35;
+            --cyan: #ffcc00;
+            --text: #fff8f0;
+            --text2: #d0b8a0;
+            --text3: #7a5a44;
+            --border: rgba(255, 200, 100, 0.07);
+            --font-display: 'Cinzel', serif;
+            --font-head: 'Exo 2', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .28;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(8, 4, 2, .97);
+            backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(232, 66, 10, .15);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: .06em;
+        }
+
+        .nav-logo span {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 4px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            color: var(--text2);
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            transition: all .2s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 200, 100, .06);
+            color: var(--text)
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .nav-stat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 5px 14px;
+            font-family: var(--font-head);
+            font-size: .8rem;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        /* ── HAMBURGER ── */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 200, 100, .06);
+            border: 1px solid rgba(255, 200, 100, .12);
+            cursor: pointer;
+            gap: 5px;
+            flex-shrink: 0;
+            transition: background .2s;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 200, 100, .12);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text2);
+            border-radius: 2px;
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1), opacity .25s ease;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ── MOBILE DRAWER ── */
+        .mobile-drawer {
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            pointer-events: none;
+        }
+
+        .drawer-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 4, 2, .85);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity .35s;
+        }
+
+        .drawer-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 280px;
+            max-width: 85vw;
+            background: #1a0d06;
+            border-left: 1px solid rgba(232, 66, 10, .18);
+            transform: translateX(100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mobile-drawer.open {
+            pointer-events: auto;
+        }
+
+        .mobile-drawer.open .drawer-backdrop {
+            opacity: 1;
+        }
+
+        .mobile-drawer.open .drawer-panel {
+            transform: translateX(0);
+        }
+
+        .drawer-head {
+            padding: 20px 20px 16px;
+            border-bottom: 1px solid rgba(255, 200, 100, .07);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .drawer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 900;
+            color: #fff8f0;
+            text-decoration: none;
+            letter-spacing: .06em;
+        }
+
+        .drawer-logo span {
+            background: linear-gradient(135deg, #e8420a, #f5a623);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .drawer-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 200, 100, .06);
+            border: 1px solid rgba(255, 200, 100, .1);
+            color: var(--text2);
+            cursor: pointer;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+
+        .drawer-close:hover {
+            background: rgba(255, 200, 100, .14);
+            color: var(--text);
+        }
+
+        .drawer-user {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 200, 100, .07);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .drawer-user-name {
+            font-family: 'Exo 2', sans-serif;
+            font-size: .88rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .drawer-stats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .drawer-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid rgba(255, 200, 100, .08);
+            font-family: 'Exo 2', sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            color: var(--text2);
+        }
+
+        .drawer-nav {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .drawer-nav-label {
+            font-family: 'Exo 2', sans-serif;
+            font-size: .6rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--text3);
+            padding: 8px 8px 4px;
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: .82rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text2);
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all .2s;
+            letter-spacing: .02em;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .drawer-link i {
+            width: 18px;
+            text-align: center;
+            font-size: .9rem;
+        }
+
+        .drawer-link:hover,
+        .drawer-link.active {
+            background: rgba(232, 66, 10, .12);
+            border-color: rgba(232, 66, 10, .25);
+            color: var(--text);
+        }
+
+        .drawer-link.gold:hover {
+            background: rgba(255, 214, 0, .1);
+            border-color: rgba(255, 214, 0, .2);
+            color: var(--gold);
+        }
+
+        .drawer-link.green:hover {
+            background: rgba(52, 211, 153, .1);
+            border-color: rgba(52, 211, 153, .2);
+            color: #34d399;
+        }
+
+        .drawer-link.red:hover {
+            background: rgba(232, 66, 10, .1);
+            border-color: rgba(232, 66, 10, .2);
+            color: var(--accent);
+        }
+
+        .drawer-upgrade {
+            margin: 12px;
+            padding: 16px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(232, 66, 10, .15), rgba(245, 166, 35, .15));
+            border: 1px solid rgba(232, 66, 10, .25);
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .drawer-upgrade-title {
+            font-family: 'Cinzel', serif;
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: .04em;
+            margin-bottom: 8px;
+        }
+
+        .drawer-upgrade-btn {
+            width: 100%;
+            padding: 9px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #e8420a, #f5a623);
+            border: none;
+            color: #fff;
+            font-family: 'Exo 2', sans-serif;
+            font-size: .78rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em;
+        }
+
+        /* ── SITE STRIP ── */
+        .site-strip {
+            position: sticky;
+            top: 64px;
+            z-index: 199;
+            background: rgba(8, 4, 2, .96);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 7px 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .site-strip::-webkit-scrollbar {
+            display: none
+        }
+
+        .strip-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .73rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            white-space: nowrap;
+            border: 1px solid var(--border);
+            background: rgba(255, 200, 100, .04);
+            color: var(--text2);
+            transition: all .2s;
+            letter-spacing: .02em;
+        }
+
+        .strip-btn:hover {
+            background: rgba(255, 200, 100, .09);
+            color: var(--text)
+        }
+
+        .strip-btn.accent {
+            background: rgba(232, 66, 10, .12);
+            border-color: rgba(232, 66, 10, .3);
+            color: var(--accent2)
+        }
+
+        .strip-btn.green {
+            background: rgba(52, 211, 153, .1);
+            border-color: rgba(52, 211, 153, .25);
+            color: #34d399
+        }
+
+        .strip-btn.gold {
+            background: rgba(255, 214, 0, .1);
+            border-color: rgba(255, 214, 0, .3);
+            color: var(--gold)
+        }
+
+        .strip-btn.red {
+            background: rgba(232, 66, 10, .1);
+            border-color: rgba(232, 66, 10, .25);
+            color: var(--accent)
+        }
+
+        /* ── LIMIT BAR ── */
+        .limit-bar {
+            position: sticky;
+            top: 106px;
+            z-index: 198;
+            background: rgba(8, 4, 2, .98);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(232, 66, 10, .12);
+            padding: 7px 24px;
+        }
+
+        .limit-bar-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 1280px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .lpill {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 200, 100, .1);
+            transition: all .3s
+        }
+
+        .lpill.ok {
+            background: rgba(232, 66, 10, .8)
+        }
+
+        .lpill.used {
+            background: rgba(100, 40, 20, .7)
+        }
+
+        #limitText {
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--text)
+        }
+
+        #limitReset {
+            font-size: .7rem;
+            color: var(--text3)
+        }
+
+        .upgrade-mini-btn {
+            margin-left: auto;
+            padding: 4px 14px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em;
+        }
+
+        /* ── HERO ── */
+        .ger-hero {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 52px 40px 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .ger-hero-content {
+            flex: 1;
+            min-width: 260px
+        }
+
+        .lang-badge-big {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(232, 66, 10, .1);
+            border: 1px solid rgba(232, 66, 10, .25);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .ger-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 14px;
+            letter-spacing: .04em;
+        }
+
+        .ger-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ger-subtitle {
+            font-size: .92rem;
+            color: var(--text2);
+            line-height: 1.7;
+            max-width: 440px;
+            margin-bottom: 24px;
+        }
+
+        .hero-stats-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .hstat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 20px;
+            border-radius: 14px;
+            background: rgba(255, 200, 100, .03);
+            border: 1px solid var(--border);
+            min-width: 70px;
+        }
+
+        .hstat-n {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent2)
+        }
+
+        .hstat-l {
+            font-family: var(--font-head);
+            font-size: .62rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-top: 2px
+        }
+
+        .skill-radar-wrap {
+            position: relative;
+            flex-shrink: 0
+        }
+
+        .radar-labels {
+            position: absolute;
+            inset: 0;
+            pointer-events: none
+        }
+
+        .rl {
+            position: absolute;
+            font-family: var(--font-head);
+            font-size: .62rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            white-space: nowrap
+        }
+
+        .rl-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .rl-right {
+            top: 28%;
+            right: -48px
+        }
+
+        .rl-bot-r {
+            bottom: 20%;
+            right: -52px
+        }
+
+        .rl-bot-l {
+            bottom: 20%;
+            left: -52px
+        }
+
+        .rl-left {
+            top: 28%;
+            left: -48px
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: 52px 0
+        }
+
+        .sec-header {
+            text-align: center;
+            margin-bottom: 36px
+        }
+
+        .sec-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-head);
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--accent2);
+            margin-bottom: 12px;
+        }
+
+        .sec-title {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: .04em;
+        }
+
+        .sec-sub {
+            font-size: .88rem;
+            color: var(--text2);
+            max-width: 540px;
+            margin: 0 auto
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ── LEVEL TABS ── */
+        .level-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 28px
+        }
+
+        .level-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 20px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 800;
+            border: 1px solid var(--border);
+            background: rgba(255, 200, 100, .03);
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .04em;
+        }
+
+        .level-tab.active,
+        .level-tab:hover {
+            background: rgba(232, 66, 10, .12);
+            border-color: rgba(232, 66, 10, .35);
+            color: var(--text)
+        }
+
+        .level-tag {
+            font-size: .58rem;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: rgba(245, 166, 35, .15);
+            border: 1px solid rgba(245, 166, 35, .25);
+            color: var(--accent2);
+            font-weight: 800;
+        }
+
+        /* ── UNITS GRID ── */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px
+        }
+
+        .unit-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .unit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 60px rgba(232, 66, 10, .2);
+            border-color: rgba(232, 66, 10, .3)
+        }
+
+        .unit-card.completed {
+            border-color: rgba(52, 211, 153, .25)
+        }
+
+        .unit-card-stripe {
+            height: 3px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent2))
+        }
+
+        .unit-card.completed .unit-card-stripe {
+            background: linear-gradient(90deg, #34d399, #22d3ee)
+        }
+
+        .unit-card-body {
+            padding: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        /* ── WORDS ── */
+        .words-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            align-items: center
+        }
+
+        .word-search {
+            flex: 1;
+            min-width: 180px;
+            padding: 10px 16px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .88rem;
+            outline: none;
+            transition: border .2s;
+        }
+
+        .word-search:focus {
+            border-color: rgba(232, 66, 10, .4)
+        }
+
+        .word-search::placeholder {
+            color: var(--text3)
+        }
+
+        .wf-tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+
+        .wf-tab {
+            padding: 6px 14px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            background: rgba(255, 200, 100, .03);
+            color: var(--text2);
+            transition: all .2s;
+            letter-spacing: .03em;
+        }
+
+        .wf-tab.active,
+        .wf-tab:hover {
+            background: rgba(232, 66, 10, .12);
+            border-color: rgba(232, 66, 10, .3);
+            color: var(--text)
+        }
+
+        .words-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px
+        }
+
+        .load-more-wrap {
+            text-align: center;
+            margin-top: 24px
+        }
+
+        .load-more-btn {
+            padding: 10px 32px;
+            border-radius: 100px;
+            background: rgba(232, 66, 10, .1);
+            border: 1px solid rgba(232, 66, 10, .25);
+            color: var(--accent2);
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em;
+            transition: all .2s;
+        }
+
+        .load-more-btn:hover {
+            background: rgba(232, 66, 10, .2)
+        }
+
+        /* ── PRACTICE ── */
+        .ptabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 24px
+        }
+
+        .ptab {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 20px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 800;
+            border: 1px solid var(--border);
+            background: rgba(255, 200, 100, .03);
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .04em;
+        }
+
+        .ptab.active {
+            background: rgba(232, 66, 10, .15);
+            border-color: rgba(232, 66, 10, .4);
+            color: var(--text)
+        }
+
+        .ptab:hover:not(.active) {
+            background: rgba(255, 200, 100, .06);
+            color: var(--text)
+        }
+
+        .practice-panel {
+            display: none
+        }
+
+        .practice-panel.active {
+            display: block;
+            animation: fadeUp .3s ease
+        }
+
+        .practice-card {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 30px;
+        }
+
+        /* ── FLASHCARD ── */
+        .flashcard-wrap {
+            perspective: 1000px;
+            margin-bottom: 24px
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform .6s cubic-bezier(.4, 0, .2, 1);
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg)
+        }
+
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, rgba(232, 66, 10, .15), rgba(245, 166, 35, .15));
+            border: 1px solid rgba(232, 66, 10, .25)
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, rgba(52, 211, 153, .1), rgba(255, 214, 0, .1));
+            border: 1px solid rgba(52, 211, 153, .25);
+            transform: rotateY(180deg)
+        }
+
+        .flash-word {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: .04em
+        }
+
+        .flash-hint {
+            font-family: var(--font-head);
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .flash-uz {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent2)
+        }
+
+        .flash-ex {
+            font-size: .82rem;
+            color: var(--text2);
+            font-style: italic;
+            text-align: center
+        }
+
+        .flash-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 16px
+        }
+
+        .flash-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .04em;
+        }
+
+        .flash-btn.wrong {
+            background: rgba(232, 66, 10, .15);
+            border: 1px solid rgba(232, 66, 10, .3);
+            color: var(--accent)
+        }
+
+        .flash-btn.skip {
+            background: rgba(255, 200, 100, .06);
+            border: 1px solid var(--border);
+            color: var(--text2)
+        }
+
+        .flash-btn.correct {
+            background: rgba(52, 211, 153, .15);
+            border: 1px solid rgba(52, 211, 153, .3);
+            color: #34d399
+        }
+
+        .flash-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15)
+        }
+
+        .flash-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        #flashProgress {
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--text3)
+        }
+
+        .flash-bar-wrap {
+            flex: 1;
+            height: 3px;
+            background: rgba(255, 200, 100, .06);
+            border-radius: 100px;
+            overflow: hidden
+        }
+
+        .flash-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            border-radius: 100px;
+            transition: width .4s
+        }
+
+        /* ── QUIZ ── */
+        .quiz-q {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+            letter-spacing: .02em;
+            line-height: 1.4;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .quiz-opt {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .9rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all .2s;
+        }
+
+        .quiz-opt:hover {
+            background: rgba(232, 66, 10, .1);
+            border-color: rgba(232, 66, 10, .3)
+        }
+
+        .quiz-score {
+            margin-top: 16px;
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--text3);
+            text-align: center;
+        }
+
+        .feedback-box {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: .84rem;
+            margin-top: 10px;
+            min-height: 16px;
+        }
+
+        .match-item {
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            font-size: .88rem;
+            color: var(--text);
+            transition: all .2s;
+            font-family: var(--font-body);
+        }
+
+        .match-item:hover {
+            background: rgba(232, 66, 10, .1)
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        .typing-prompt {
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .typing-word {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: .04em;
+            margin-bottom: 8px;
+        }
+
+        .typing-hint {
+            font-size: .85rem;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .typing-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(255, 200, 100, .05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .95rem;
+            outline: none;
+            transition: border .2s;
+            margin-bottom: 10px;
+        }
+
+        .typing-input:focus {
+            border-color: rgba(232, 66, 10, .4)
+        }
+
+        .grammar-q-box {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: .02em;
+            line-height: 1.5;
+        }
+
+        .grammar-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px
+        }
+
+        .grammar-options button {
+            padding: 9px 18px;
+            border-radius: 100px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .02em;
+        }
+
+        .grammar-options button:hover {
+            background: rgba(232, 66, 10, .1);
+            border-color: rgba(232, 66, 10, .3)
+        }
+
+        .next-ex-btn {
+            margin-top: 12px;
+            padding: 9px 22px;
+            border-radius: 100px;
+            background: rgba(232, 66, 10, .12);
+            border: 1px solid rgba(232, 66, 10, .3);
+            color: var(--accent2);
+            font-family: var(--font-head);
+            font-size: .8rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em;
+            transition: all .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .next-ex-btn:hover {
+            background: rgba(232, 66, 10, .22)
+        }
+
+        /* ── VIDEO ── */
+        .find-video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 26px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: .82rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: .04em;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 30px rgba(232, 66, 10, .3);
+            transition: all .25s;
+        }
+
+        .find-video-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(232, 66, 10, .45)
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px
+        }
+
+        .video-placeholder {
+            grid-column: 1/-1;
+            padding: 50px;
+            text-align: center;
+            background: rgba(255, 200, 100, .02);
+            border: 1px dashed rgba(255, 200, 100, .08);
+            border-radius: 16px;
+            color: var(--text3);
+            font-family: var(--font-head);
+            font-size: .85rem;
+        }
+
+        .video-placeholder p {
+            margin-top: 8px;
+            font-size: .78rem;
+            color: var(--text3)
+        }
+
+        /* ── LEADERBOARD ── */
+        .lb-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(255, 200, 100, .03);
+            border: 1px solid var(--border);
+            margin-bottom: 8px;
+            transition: all .2s;
+        }
+
+        .lb-row:hover {
+            background: rgba(255, 200, 100, .06);
+            transform: translateX(3px)
+        }
+
+        .lb-row.me {
+            background: rgba(232, 66, 10, .1);
+            border-color: rgba(232, 66, 10, .28)
+        }
+
+        .lb-rank {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent2);
+            width: 36px;
+            text-align: center
+        }
+
+        .lb-rank.gold {
+            color: var(--gold)
+        }
+
+        .lb-rank.silver {
+            color: #94a3b8
+        }
+
+        .lb-rank.bronze {
+            color: #cd7c4a
+        }
+
+        .lb-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .lb-name {
+            flex: 1;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: .88rem;
+            color: var(--text)
+        }
+
+        .lb-score {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--accent2)
+        }
+
+        .lb-plan {
+            font-size: .68rem;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: rgba(245, 166, 35, .1);
+            color: var(--accent2);
+            border: 1px solid transparent
+        }
+
+        /* ── AI CHAT ── */
+        .ai-chat-wrap {
+            display: flex;
+            gap: 16px;
+            max-width: 1000px;
+            margin: 0 auto
+        }
+
+        .ai-chat-sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .chat-mode-label {
+            font-family: var(--font-head);
+            font-size: .62rem;
+            font-weight: 800;
+            color: var(--text3);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .chat-mode-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            background: rgba(255, 200, 100, .03);
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .02em;
+            text-align: left;
+        }
+
+        .chat-mode-btn.active {
+            background: rgba(232, 66, 10, .12);
+            border-color: rgba(232, 66, 10, .3);
+            color: var(--text)
+        }
+
+        .chat-mode-btn:hover:not(.active) {
+            background: rgba(255, 200, 100, .06);
+            color: var(--text)
+        }
+
+        .ai-chat-main {
+            flex: 1;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            max-height: 440px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 200, 100, .08) transparent;
+        }
+
+        .chat-msg {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px
+        }
+
+        .chat-msg.user-msg {
+            flex-direction: row-reverse
+        }
+
+        .chat-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            background: rgba(245, 166, 35, .15);
+            color: var(--accent2);
+        }
+
+        .user-msg .chat-avatar {
+            background: rgba(232, 66, 10, .2);
+            color: var(--accent)
+        }
+
+        .chat-bubble {
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: .86rem;
+            line-height: 1.6;
+            max-width: 78%;
+            background: rgba(255, 200, 100, .05);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .user-msg .chat-bubble {
+            background: rgba(232, 66, 10, .13);
+            border-color: rgba(232, 66, 10, .25);
+            color: #ffd6c7
+        }
+
+        .chat-input-area {
+            border-top: 1px solid var(--border);
+            padding: 14px
+        }
+
+        .chat-actions-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px
+        }
+
+        .chat-action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid var(--border);
+            color: var(--text3);
+            cursor: pointer;
+            font-size: .82rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+
+        .chat-action-btn:hover {
+            background: rgba(232, 66, 10, .1);
+            color: var(--accent2)
+        }
+
+        .chat-input-row {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 200, 100, .05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .88rem;
+            outline: none;
+            resize: none;
+            transition: border .2s;
+        }
+
+        .chat-input:focus {
+            border-color: rgba(232, 66, 10, .4)
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+
+        .chat-send-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.1)
+        }
+
+        .ai-limit-info {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            font-size: .72rem;
+            color: var(--text3);
+        }
+
+        /* ── SHOP STRIP ── */
+        .shop-strip {
+            background: linear-gradient(135deg, rgba(232, 66, 10, .05), rgba(245, 166, 35, .05));
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            margin-top: 4px;
+        }
+
+        .shop-strip-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 24px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .shop-strip-inner::-webkit-scrollbar {
+            display: none
+        }
+
+        .rw-title {
+            font-family: var(--font-head);
+            font-size: .68rem;
+            font-weight: 800;
+            color: var(--accent2);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rw-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 14px;
+            border-radius: 100px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid var(--border);
+            font-family: var(--font-head);
+            font-size: .75rem;
+            font-weight: 700;
+            color: var(--text);
+            white-space: nowrap;
+            transition: all .2s;
+        }
+
+        .rw-card:hover {
+            background: rgba(255, 200, 100, .08);
+            transform: translateY(-1px)
+        }
+
+        .rw-card.vip {
+            border-color: rgba(255, 214, 0, .35);
+            background: rgba(255, 214, 0, .08);
+            color: var(--gold)
+        }
+
+        .rw-card.booster {
+            border-color: rgba(52, 211, 153, .35);
+            background: rgba(52, 211, 153, .08);
+            color: #34d399
+        }
+
+        .rw-card.coins {
+            border-color: rgba(245, 166, 35, .3);
+            background: rgba(245, 166, 35, .05);
+            color: var(--accent2)
+        }
+
+        .rw-card.xp {
+            border-color: rgba(232, 66, 10, .3);
+            background: rgba(232, 66, 10, .05);
+            color: var(--accent)
+        }
+
+        .rw-card.keys {
+            border-color: rgba(255, 214, 0, .3);
+            background: rgba(255, 214, 0, .05);
+            color: var(--gold)
+        }
+
+        /* ── MODALS ── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 400;
+            background: rgba(8, 4, 2, .88);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .modal-box {
+            background: var(--bg3);
+            border: 1px solid rgba(255, 200, 100, .1);
+            border-radius: 22px;
+            width: 100%;
+            max-width: 680px;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .word-modal-box {
+            max-width: 420px
+        }
+
+        .upgrade-modal-box {
+            max-width: 460px
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 200, 100, .06);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 200, 100, .12);
+            color: var(--text)
+        }
+
+        .upgrade-modal-content {
+            padding: 36px;
+            text-align: center
+        }
+
+        .upgrade-timer {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 12px 0;
+            letter-spacing: .04em;
+        }
+
+        .upgrade-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px
+        }
+
+        .upgrade-btn-primary {
+            padding: 12px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: .88rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: .04em;
+        }
+
+        .upgrade-btn-secondary {
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 200, 100, .04);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            font-family: var(--font-head);
+            font-size: .85rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* ── TOAST & XP ── */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px 18px;
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 700;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all .35s;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        .toast.success {
+            border-color: rgba(52, 211, 153, .3);
+            color: #34d399
+        }
+
+        .toast.error {
+            border-color: rgba(232, 66, 10, .3);
+            color: var(--accent)
+        }
+
+        .toast.info {
+            border-color: rgba(245, 166, 35, .3);
+            color: var(--accent2)
+        }
+
+        .xp-popup {
+            position: fixed;
+            top: 90px;
+            right: 28px;
+            z-index: 9998;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: .95rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 100px;
+            letter-spacing: .04em;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all .4s;
+        }
+
+        .xp-popup.show {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 200, 100, .07);
+            border-radius: 100px
+        }
+
+        /* ── GERMAN FLAG STRIPE ── */
+        .flag-stripe {
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #222 33.33%, #e8420a 33.33% 66.66%, #ffd600 66.66%);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:900px) {
+            .nav-center {
+                display: none !important;
+            }
+
+            .nav-stat {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        @media(max-width:768px) {
+            .ai-chat-wrap {
+                flex-direction: column;
+            }
+
+            .ai-chat-sidebar {
+                width: 100%;
+            }
+
+            .ger-hero {
+                padding: 28px 16px 24px;
+                gap: 24px;
+            }
+
+            .ger-title {
+                font-size: 2rem;
+            }
+
+            .ger-subtitle {
+                font-size: .84rem;
+            }
+
+            .hero-stats-row {
+                gap: 8px;
+            }
+
+            .hstat {
+                padding: 10px 14px;
+                min-width: 60px;
+            }
+
+            .hstat-n {
+                font-size: 1.1rem;
+            }
+
+            .skill-radar-wrap {
+                display: none;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .section {
+                padding: 36px 0;
+            }
+
+            .sec-title {
+                font-size: 1.5rem;
+            }
+
+            .units-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 10px;
+            }
+
+            .words-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 8px;
+            }
+
+            .practice-card {
+                padding: 20px;
+            }
+
+            .flash-word {
+                font-size: 1.5rem;
+            }
+
+            .typing-word {
+                font-size: 1.5rem;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                padding: 0 14px;
+                gap: 10px;
+            }
+
+            .nav-logo {
+                font-size: 1rem;
+            }
+
+            .site-strip {
+                padding: 6px 12px;
+            }
+
+            .limit-bar {
+                padding: 6px 14px;
+            }
+        }
+
+        @media(max-width:480px) {
+            .units-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .words-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+
+            .ptabs {
+                gap: 5px;
+            }
+
+            .ptab {
+                padding: 7px 10px;
+                font-size: .68rem;
+            }
+
+            .level-tabs {
+                gap: 5px;
+            }
+
+            .level-tab {
+                padding: 7px 10px;
+                font-size: .68rem;
+            }
+
+            .flash-controls {
+                gap: 6px;
+            }
+
+            .flash-btn {
+                padding: 8px 12px;
+                font-size: .73rem;
+            }
+
+            .grammar-options button {
+                padding: 7px 12px;
+                font-size: .76rem;
+            }
+
+            .ger-title {
+                font-size: 1.7rem;
+            }
+
+            .drawer-panel {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+        }
+
+        @supports(padding:max(0px)) {
+            .drawer-panel {
+                padding-bottom: max(0px, env(safe-area-inset-bottom));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- GERMAN FLAG STRIPE -->
+    <div class="flag-stripe"></div>
+
+    <!-- NAVBAR -->
+    <nav class="nav" id="navbar">
+        <a href="../home.html" class="nav-logo">Lingua<span>Verse</span></a>
+        <div class="nav-center">
+            <a href="#units" class="nav-link"><i class="fa-solid fa-layer-group"></i> Unitlar</a>
+            <a href="#words" class="nav-link"><i class="fa-solid fa-book"></i> So'zlar</a>
+            <a href="#practice" class="nav-link"><i class="fa-solid fa-bullseye"></i> Mashqlar</a>
+            <a href="#leaderboard-section" class="nav-link"><i class="fa-solid fa-trophy"></i> Reyting</a>
+            <a href="#ai-chat" class="nav-link"><i class="fa-solid fa-robot"></i> AI Chat</a>
+        </div>
+        <div class="nav-right" id="navRight">
+            <div class="nav-stat" style="color:var(--gold)"><i class="fa-solid fa-star"></i> <span id="navXP">0</span>
+            </div>
+            <div class="nav-stat" style="color:var(--accent2)"><i class="fa-solid fa-coins"></i> <span
+                    id="navCoin">0</span></div>
+            <div id="planBadgeNav"></div>
+            <div id="navUserInfo"></div>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menyu" aria-expanded="false" onclick="toggleDrawer()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- SITE STRIP -->
+    <div class="site-strip">
+        <a href="../index.html" class="strip-btn"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
+        <a href="../select-language.html" class="strip-btn"><i class="fa-solid fa-globe"></i> Tillar</a>
+        <a href="./voice-room.html" class="strip-btn"><i class="fa-solid fa-microphone"></i> Live Voice Chat</a>
+        <a href="shop.html" class="strip-btn accent"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
+        <a href="profile.html" class="strip-btn green"><i class="fa-solid fa-user"></i> Profil</a>
+        <button class="strip-btn gold"
+            onclick="document.getElementById('leaderboard-section').scrollIntoView({behavior:'smooth'})"><i
+                class="fa-solid fa-trophy"></i> Leaderboard</button>
+        <a href="../order.html" class="strip-btn red"><i class="fa-solid fa-crown"></i> Rejalar</a>
+    </div>
+
+    <!-- LIMIT BAR -->
+    <div class="limit-bar" id="limitBar">
+        <div class="limit-bar-inner">
+            <i class="fa-solid fa-ticket-simple" style="color:var(--accent2);font-size:.85rem"></i>
+            <span id="limitText">Limit yuklanmoqda...</span>
+            <div style="display:flex;gap:3px;align-items:center" id="limitPills"></div>
+            <span id="limitReset"></span>
+            <button class="upgrade-mini-btn" onclick="window.location.href='../order.html'">
+                <i class="fa-solid fa-arrow-up" style="margin-right:4px"></i>Upgrade
+            </button>
+        </div>
+    </div>
+
+    <!-- SHOP REWARDS STRIP -->
+    <div class="shop-strip">
+        <div class="shop-strip-inner" id="shopStripInner">
+            <div class="rw-title"><i class="fa-solid fa-gem"></i> Do'kondan yangiliklar</div>
+            <div class="rw-card vip"><i class="fa-solid fa-crown"></i> VIP 30 kun</div>
+            <div class="rw-card booster"><i class="fa-solid fa-rocket"></i> 2× XP Booster</div>
+            <div class="rw-card coins"><i class="fa-solid fa-coins"></i> +5000 Coin</div>
+            <div class="rw-card xp"><i class="fa-solid fa-star"></i> +10000 XP</div>
+            <div class="rw-card keys"><i class="fa-solid fa-key"></i> Omega Kalit</div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="ger-hero" style="position:relative;z-index:1">
+        <div class="ger-hero-content">
+            <div class="lang-badge-big">
+                <span style="font-size:1.3rem">🇩🇪</span> Deutsch Kursi — A1 dan C2 gacha
+            </div>
+            <h1 class="ger-title">Deutsch <span class="gradient-text">Kursi</span></h1>
+            <p class="ger-subtitle">A1 dan C2 gacha — 4 daraja, 60 unit, 500+ so'z, AI suhbat sherigi bilan to'liq nemis
+                tili kursi</p>
+            <div class="hero-stats-row">
+                <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l">Daraja</span></div>
+                <div class="hstat"><span class="hstat-n">60</span><span class="hstat-l">Unit</span></div>
+                <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">So'z</span></div>
+                <div class="hstat"><span class="hstat-n"><i class="fa-solid fa-robot"
+                            style="font-size:1.1rem;color:var(--accent2)"></i></span><span class="hstat-l">AI
+                        Chat</span></div>
+                <div class="hstat"><span class="hstat-n" id="xpDisplay" style="color:var(--gold)">0</span><span
+                        class="hstat-l">Mening XP</span></div>
+            </div>
+        </div>
+        <div class="skill-radar-wrap" id="skillRadar">
+            <canvas id="radarCanvas" width="220" height="220"></canvas>
+            <div class="radar-labels">
+                <span class="rl rl-top">Lesen</span>
+                <span class="rl rl-right">Schreiben</span>
+                <span class="rl rl-bot-r">Sprechen</span>
+                <span class="rl rl-bot-l">Hören</span>
+                <span class="rl rl-left">Grammatik</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNITS -->
+    <section class="section" id="units">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-layer-group"></i> Darslar</div>
+                <h2 class="sec-title">Unit <span class="gradient-text">Darslari</span></h2>
+                <p class="sec-sub">Har bir unit: Grammatika, Hören, Lesen va Sprechen darslarini o'z ichiga oladi</p>
+            </div>
+            <div class="level-tabs" id="levelTabs">
+                <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner',this)"><i
+                        class="fa-solid fa-seedling" style="color:#4ade80"></i> Anfänger <span
+                        class="level-tag">A1</span></button>
+                <button class="level-tab" data-level="elementary" onclick="switchLevel('elementary',this)"><i
+                        class="fa-solid fa-book" style="color:#f5a623"></i> Grundstufe <span
+                        class="level-tag">A2</span></button>
+                <button class="level-tab" data-level="pre-intermediate"
+                    onclick="switchLevel('pre-intermediate',this)"><i class="fa-solid fa-book-open"
+                        style="color:var(--accent2)"></i> Mittelstufe <span class="level-tag">B1</span></button>
+                <button class="level-tab" data-level="advanced" onclick="switchLevel('advanced',this)"><i
+                        class="fa-solid fa-rocket" style="color:var(--gold)"></i> Fortgeschrittene <span
+                        class="level-tag">B2-C2</span></button>
+            </div>
+            <div class="units-grid" id="unitsGrid">
+                <div style="text-align:center;padding:50px;color:var(--text3);grid-column:1/-1">
+                    <i class="fa-solid fa-spinner fa-spin"
+                        style="font-size:1.6rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
+                    <span style="font-family:var(--font-head);font-size:.82rem;letter-spacing:.04em">UNITLAR
+                        YUKLANMOQDA...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORDS -->
+    <section class="section"
+        style="background:rgba(255,200,100,.01);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"
+        id="words">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-book"></i> Lug'at</div>
+                <h2 class="sec-title">So'zlar <span class="gradient-text">Kutubxonasi</span></h2>
+                <p class="sec-sub">500+ nemischa so'z, o'zbek tarjimasi, audio talaffuz va misol jumlalar bilan</p>
+            </div>
+            <div class="words-controls">
+                <input type="text" class="word-search" id="wordSearch" placeholder="So'z qidirish..."
+                    oninput="filterWords()">
+                <div class="wf-tabs" id="wordFilterTabs">
+                    <button class="wf-tab active" onclick="filterByLevel('all',this)">Hammasi</button>
+                    <button class="wf-tab" onclick="filterByLevel('beginner',this)">Anfänger</button>
+                    <button class="wf-tab" onclick="filterByLevel('elementary',this)">Grundstufe</button>
+                    <button class="wf-tab" onclick="filterByLevel('pre-intermediate',this)">Mittelstufe</button>
+                    <button class="wf-tab" onclick="filterByLevel('advanced',this)">Fortgeschrittene</button>
+                </div>
+            </div>
+            <div class="words-grid" id="wordsGrid"></div>
+            <div class="load-more-wrap">
+                <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreWords()"><i
+                        class="fa-solid fa-chevron-down" style="margin-right:6px"></i>Ko'proq ko'rish</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="section" id="practice">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-bullseye"></i> Mashqlar</div>
+                <h2 class="sec-title">5 xil <span class="gradient-text">Mashq</span></h2>
+            </div>
+            <div class="ptabs practice-tabs">
+                <button class="ptab active" onclick="switchPractice('flashcard',this)"><i
+                        class="fa-solid fa-layer-group"></i> Flashcard</button>
+                <button class="ptab" onclick="switchPractice('quiz',this)"><i class="fa-solid fa-circle-question"></i>
+                    Quiz</button>
+                <button class="ptab" onclick="switchPractice('match',this)"><i class="fa-solid fa-link"></i>
+                    Juftlik</button>
+                <button class="ptab" onclick="switchPractice('typing',this)"><i class="fa-solid fa-keyboard"></i>
+                    Yozish</button>
+                <button class="ptab" onclick="switchPractice('grammar',this)"><i class="fa-solid fa-spell-check"></i>
+                    Grammatik</button>
+            </div>
+            <div class="practice-panel active" id="panel-flashcard">
+                <div class="practice-card">
+                    <div class="flashcard-wrap">
+                        <div class="flashcard" id="flashcard" onclick="flipCard()">
+                            <div class="flashcard-front">
+                                <div class="flash-word" id="flashWord">hallo</div>
+                                <div class="flash-hint"><i class="fa-solid fa-rotate"></i> bosib o'giring</div>
+                            </div>
+                            <div class="flashcard-back">
+                                <div class="flash-uz" id="flashUz">Salom</div>
+                                <div class="flash-ex" id="flashEx"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flash-controls">
+                        <button class="flash-btn wrong" onclick="flashResult('wrong')"><i class="fa-solid fa-xmark"></i>
+                            Bilmadim</button>
+                        <button class="flash-btn skip" onclick="nextFlash()"><i class="fa-solid fa-forward"></i>
+                            Keyingi</button>
+                        <button class="flash-btn correct" onclick="flashResult('correct')"><i
+                                class="fa-solid fa-check"></i> Bildim</button>
+                    </div>
+                    <div class="flash-progress">
+                        <span id="flashProgress">1 / 20</span>
+                        <div class="flash-bar-wrap">
+                            <div class="flash-bar" id="flashBar" style="width:5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-quiz">
+                <div class="practice-card">
+                    <div class="quiz-q" id="quizQ">Savol yuklanmoqda...</div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                    <div class="feedback-box" id="quizFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextQuiz()"><i class="fa-solid fa-forward"></i>
+                        Keyingi</button>
+                    <div class="quiz-score"><i class="fa-solid fa-star"
+                            style="color:var(--gold);margin-right:4px"></i>Ball: <span id="quizScore">0</span></div>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-match">
+                <div class="practice-card">
+                    <h3 style="margin-bottom:16px;font-family:var(--font-display);font-size:1rem;letter-spacing:.04em">
+                        <i class="fa-solid fa-link" style="margin-right:8px;color:var(--accent2)"></i>Juftlarni toping
+                    </h3>
+                    <div class="match-grid" id="matchGrid"></div>
+                    <div class="feedback-box" id="matchFeedback"></div>
+                    <button class="next-ex-btn" onclick="startMatch()"><i class="fa-solid fa-rotate"></i> Yangi
+                        o'yin</button>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-typing">
+                <div class="practice-card">
+                    <div class="typing-prompt"><i class="fa-solid fa-keyboard"
+                            style="margin-right:6px;color:var(--accent2)"></i>Nemischa yozing:</div>
+                    <div class="typing-word" id="typingWord">hallo</div>
+                    <div class="typing-hint" id="typingHint">O'zbek: Salom</div>
+                    <input type="text" class="typing-input" id="typingInput" placeholder="Nemischa so'zni yozing..."
+                        oninput="checkTyping()">
+                    <div class="feedback-box" id="typingFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextTyping()"><i class="fa-solid fa-forward"></i>
+                        Keyingi</button>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-grammar">
+                <div class="practice-card">
+                    <div style="font-size:2rem;color:var(--accent2);margin-bottom:14px"><i
+                            class="fa-solid fa-spell-check"></i></div>
+                    <h3 style="font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;margin-bottom:16px">
+                        Grammatik Mashqi</h3>
+                    <div class="grammar-q-box" id="grammarQBox"></div>
+                    <div class="grammar-options" id="grammarOptions"></div>
+                    <div class="feedback-box" id="grammarFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextGrammarEx()"><i class="fa-solid fa-forward"></i>
+                        Keyingi</button>
+                    <div class="quiz-score"><i class="fa-solid fa-star"
+                            style="color:var(--gold);margin-right:4px"></i>Ball: <span id="grammarScore">0</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section" style="background:rgba(255,200,100,.01);border-top:1px solid var(--border)"
+        id="videoSection">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-play"></i> Video Darslar</div>
+                <h2 class="sec-title">AI tanlagan <span class="gradient-text">Videolar</span></h2>
+                <p class="sec-sub" id="videoSubtitle">Sizning darajangiz va zaif tomonlaringizga mos nemischa videolar
+                </p>
+            </div>
+            <div style="text-align:center;margin-bottom:20px">
+                <button class="find-video-btn" onclick="findYoutubeVideos()"><i class="fa-solid fa-robot"></i>AI video
+                    topsin</button>
+            </div>
+            <div class="videos-grid" id="videosGrid">
+                <div class="video-placeholder">
+                    <i class="fa-solid fa-robot"
+                        style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
+                    AI sizga mos nemischa videolarni topib beradi<p>Yuqoridagi tugmani bosing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section class="section" id="leaderboard-section">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-trophy"></i> Reyting</div>
+                <h2 class="sec-title">Global <span class="gradient-text">Leaderboard</span></h2>
+                <p class="sec-sub">Eng yaxshi o'rganuvchilar — XP va coinlar bo'yicha reyting</p>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;justify-content:center">
+                <button class="ptab active" id="lb-xp-btn" onclick="loadLBSection('xp',this)"><i
+                        class="fa-solid fa-star"></i> XP bo'yicha</button>
+                <button class="ptab" id="lb-coin-btn" onclick="loadLBSection('coins',this)"><i
+                        class="fa-solid fa-coins"></i> Coin bo'yicha</button>
+                <button class="ptab" id="lb-units-btn" onclick="loadLBSection('unitsCompleted',this)"><i
+                        class="fa-solid fa-book"></i> Unitlar bo'yicha</button>
+            </div>
+            <div id="lbSectionContent" style="max-width:700px;margin:0 auto">
+                <div style="text-align:center;padding:40px;color:var(--text3)">
+                    <i class="fa-solid fa-trophy"
+                        style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
+                    <p style="font-family:var(--font-head);font-size:.82rem;margin-bottom:16px">Sahifa yuklanganidan
+                        keyin reyting ko'rinadi</p>
+                    <button class="next-ex-btn" onclick="loadLBSection('xp',document.getElementById('lb-xp-btn'))"><i
+                            class="fa-solid fa-arrow-right"></i>Reytingni ko'rish</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI CHAT -->
+    <section class="section" style="border-top:1px solid var(--border)" id="ai-chat">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-robot"></i> AI Suhbat Sherigi</div>
+                <h2 class="sec-title">AI <span class="gradient-text">Suhbat</span></h2>
+                <p class="sec-sub">Real suhbat, grammatika tuzatish, tarjima — hammasi bir joyda</p>
+            </div>
+            <div class="ai-chat-wrap">
+                <div class="ai-chat-sidebar">
+                    <div class="chat-mode-label">Suhbat rejimi</div>
+                    <button class="chat-mode-btn active" onclick="setChatMode('free',this)"><i
+                            class="fa-solid fa-comments"></i> Erkin suhbat</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('teacher',this)"><i
+                            class="fa-solid fa-chalkboard-user"></i> O'qituvchi</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('grammar',this)"><i
+                            class="fa-solid fa-spell-check"></i> Grammatik</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('translate',this)"><i
+                            class="fa-solid fa-language"></i> Tarjimon</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('goethe',this)"><i
+                            class="fa-solid fa-clipboard-list"></i> Goethe B2</button>
+                    <div class="ai-limit-info" id="aiLimitInfo"></div>
+                    <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
+                        <button onclick="clearChatHistory()"
+                            style="width:100%;padding:7px;border-radius:10px;background:rgba(232,66,10,.1);border:1px solid rgba(232,66,10,.2);color:var(--accent);font-family:var(--font-head);font-size:.75rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px"><i
+                                class="fa-solid fa-trash"></i>Tarixni tozalash</button>
+                    </div>
+                </div>
+                <div class="ai-chat-main">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-msg ai-msg">
+                            <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="chat-bubble">Guten Tag! Ich bin Ihr Deutsch-Lehrer. Womit kann ich Ihnen heute
+                                helfen?<br><br><small
+                                    style="color:var(--text3);font-family:var(--font-head);font-size:.72rem"><i
+                                        class="fa-solid fa-circle-info" style="margin-right:4px"></i>Rejim: Erkin
+                                    suhbat</small></div>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <div class="chat-actions-row">
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('Können Sie erklären ')"
+                                title="Tushuntir"><i class="fa-solid fa-lightbulb"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('Bitte korrigieren Sie: ')"
+                                title="Tuzat"><i class="fa-solid fa-pen"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('Übersetzen Sie: ')"
+                                title="Tarjima"><i class="fa-solid fa-language"></i></button>
+                            <button class="chat-action-btn"
+                                onclick="insertQuickPhrase('Geben Sie mir ein Beispiel für ')" title="Misol"><i
+                                    class="fa-solid fa-star"></i></button>
+                        </div>
+                        <div class="chat-input-row">
+                            <textarea class="chat-input" id="chatInput" placeholder="Nemischa yoki o'zbekcha yozing..."
+                                rows="2" onkeydown="handleChatKey(event)"></textarea>
+                            <button class="chat-send-btn" onclick="sendChatMessage()" id="chatSendBtn"><i
+                                    class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALS -->
+    <div class="modal-overlay" id="unitModal" onclick="closeUnitModal(event)">
+        <div class="modal-box" id="unitModalBox">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modalContent" style="padding:24px"></div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="wordModal" onclick="closeWordModal(event)">
+        <div class="modal-box word-modal-box">
+            <button class="modal-close" onclick="closeWordModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="wordModalContent"></div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="upgradeModal" onclick="closeUpgradeModal(event)">
+        <div class="modal-box upgrade-modal-box">
+            <button class="modal-close" onclick="closeUpgradeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="upgrade-modal-content">
+                <div style="margin-bottom:16px"><i class="fa-solid fa-rocket"
+                        style="font-size:2.8rem;color:var(--accent2)"></i></div>
+                <h2 style="font-family:var(--font-display);letter-spacing:.04em;margin-bottom:8px">Token tugadi!</h2>
+                <p id="upgradeModalText" style="color:var(--text2);font-size:.88rem;margin-bottom:12px">Tokenlaringiz
+                    tugadi. Yangilanish vaqtini kuting yoki planni yaxshilang.</p>
+                <div class="upgrade-timer" id="upgradeTimer"></div>
+                <div class="upgrade-btns">
+                    <button class="upgrade-btn-primary" onclick="window.location.href='../order.html'"><i
+                            class="fa-solid fa-arrow-up" style="margin-right:6px"></i>Rejani yaxshilash</button>
+                    <button class="upgrade-btn-secondary" onclick="closeUpgradeModal()"><i class="fa-solid fa-clock"
+                            style="margin-right:6px"></i>Kutaman</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <div class="xp-popup" id="xpPopup"></div>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+        <div class="drawer-panel">
+            <div class="drawer-head">
+                <a href="../home.html" class="drawer-logo">Lingua<span>Verse</span></a>
+                <button class="drawer-close" onclick="closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="drawer-user">
+                <div class="drawer-user-name" id="drawerUserName">Mehmon</div>
+                <div class="drawer-stats">
+                    <span class="drawer-stat" style="color:var(--gold)"><i class="fa-solid fa-star"></i> <span
+                            id="drawerXP">0</span> XP</span>
+                    <span class="drawer-stat" style="color:var(--accent2)"><i class="fa-solid fa-coins"></i> <span
+                            id="drawerCoin">0</span></span>
+                </div>
+            </div>
+            <nav class="drawer-nav">
+                <div class="drawer-nav-label">Kurs</div>
+                <a href="#units" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-layer-group"></i>
+                    Unitlar</a>
+                <a href="#words" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-book"></i>
+                    So'zlar</a>
+                <a href="#practice" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-bullseye"></i>
+                    Mashqlar</a>
+                <a href="#videoSection" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-play"></i>
+                    Video Darslar</a>
+                <a href="#ai-chat" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-robot"></i> AI
+                    Chat</a>
+                <div class="drawer-nav-label" style="margin-top:8px">Sayt</div>
+                <a href="../index.html" class="drawer-link"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
+                <a href="../select-language.html" class="drawer-link"><i class="fa-solid fa-globe"></i> Tillar</a>
+                <a href="shop.html" class="drawer-link"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
+                <a href="profile.html" class="drawer-link green"><i class="fa-solid fa-user"></i> Profil</a>
+                <a href="#leaderboard-section" class="drawer-link gold" onclick="closeDrawerNav()"><i
+                        class="fa-solid fa-trophy"></i> Leaderboard</a>
+                <a href="../order.html" class="drawer-link red"><i class="fa-solid fa-crown"></i> Rejalar</a>
+            </nav>
+            <div class="drawer-upgrade">
+                <div class="drawer-upgrade-title"><i class="fa-solid fa-rocket"
+                        style="margin-right:6px;color:var(--accent2)"></i>Premium Rejaga o'ting</div>
+                <p style="font-size:.75rem;color:var(--text2);margin-bottom:10px">Cheksiz AI chat, +2× XP va ko'proq!
+                </p>
+                <button class="drawer-upgrade-btn" onclick="window.location.href='../order.html'">Upgrade <i
+                        class="fa-solid fa-arrow-right" style="margin-left:4px"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        /* ── THREE.JS BG — qizil/sariq/qora nemis ranglarida ── */
+        (function () {
+            const cv = document.getElementById('bgCanvas');
+            const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+            r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight);
+            const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);
+            cam.position.z = 5;
+            const geo = new THREE.BufferGeometry();
+            const cnt = 1400, pos = new Float32Array(cnt * 3);
+            for (let i = 0; i < cnt * 3; i++) pos[i] = (Math.random() - .5) * 30;
+            geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xe8420a, size: .05, transparent: true, opacity: .3 }));
+            sc.add(pts);
+            [0x222222, 0xe8420a, 0xffd600, 0xcc3300, 0xf5a623].forEach((c, i) => {
+                const m = new THREE.Mesh(new THREE.TorusGeometry(2 + i * 1.8, .01, 8, 100), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .06 }));
+                m.rotation.x = Math.random() * Math.PI; m.rotation.y = Math.random() * Math.PI; sc.add(m);
+            });
+            let mx = 0, my = 0;
+            document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+            window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight) });
+            let t = 0; (function loop() { requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .12; pts.rotation.x = t * .07; cam.position.x += (mx * .6 - cam.position.x) * .03; cam.position.y += (-my * .6 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam); })();
+        })();
+
+        /* ── HAMBURGER / DRAWER ── */
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+
+        function toggleDrawer() { mobileDrawer.classList.contains('open') ? closeDrawer() : openDrawer(); }
+        function openDrawer() {
+            mobileDrawer.classList.add('open'); hamburgerBtn.classList.add('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; syncDrawerStats();
+        }
+        function closeDrawer() {
+            mobileDrawer.classList.remove('open'); hamburgerBtn.classList.remove('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+        }
+        function closeDrawerNav() { closeDrawer(); }
+
+        function syncDrawerStats() {
+            const xp = document.getElementById('navXP')?.textContent || '0';
+            const coin = document.getElementById('navCoin')?.textContent || '0';
+            const dXP = document.getElementById('drawerXP'); const dCoin = document.getElementById('drawerCoin');
+            if (dXP) dXP.textContent = xp; if (dCoin) dCoin.textContent = coin;
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+        (function () {
+            let startX = 0; const panel = document.querySelector('.drawer-panel'); if (!panel) return;
+            panel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+            panel.addEventListener('touchend', e => { if (e.changedTouches[0].clientX - startX > 60) closeDrawer(); }, { passive: true });
+        })();
+    </script>
+
+    <script type="module" src="./js/German.js"></script>
+    <script type="module" src="./js/adaptive-language.js"></script>
+
+</body>
+
+</html>

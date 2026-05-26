@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>LinguaVerse — Admin Panel</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Exo+2:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --bg: #020408;
+      --bg2: #040810;
+      --bg3: #080d1a;
+      --bg4: #0c1224;
+      --bg5: #101628;
+      --accent: #5b7cfa;
+      --accent2: #a78bfa;
+      --gold: #f5c842;
+      --gold2: #e8a800;
+      --green: #34d399;
+      --red: #f87171;
+      --orange: #fb923c;
+      --pink: #f472b6;
+      --cyan: #22d3ee;
+      --text: #eef0ff;
+      --text2: #a8b0d0;
+      --text3: #5a6288;
+      --border: rgba(255, 255, 255, 0.06);
+      --font-d: 'Cinzel', serif;
+      --font-h: 'Exo 2', sans-serif;
+      --font-b: 'Rajdhani', sans-serif;
+      --sidebar: 220px;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      min-height: 100vh;
+      overflow-x: hidden
+    }
+
+    /* ═══ BG CANVAS ═══ */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: .25
+    }
+
+    /* ═══ AUTH ═══ */
+    #authScreen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    .auth-card {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid rgba(91, 124, 250, .25);
+      border-radius: 28px;
+      padding: 44px 40px;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .8), 0 0 60px rgba(91, 124, 250, .08);
+      position: relative;
+      overflow: hidden
+    }
+
+    .auth-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 29px;
+      background: linear-gradient(135deg, rgba(91, 124, 250, .3), transparent, rgba(167, 139, 250, .2));
+      z-index: -1;
+      pointer-events: none
+    }
+
+    .auth-logo {
+      font-family: var(--font-d);
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      margin-bottom: 4px
+    }
+
+    .auth-logo span {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .auth-badge {
+      display: inline-block;
+      background: rgba(248, 113, 113, .15);
+      border: 1px solid rgba(248, 113, 113, .35);
+      color: var(--red);
+      font-family: var(--font-h);
+      font-size: .62rem;
+      font-weight: 800;
+      padding: 3px 12px;
+      border-radius: 100px;
+      letter-spacing: .1em;
+      margin-bottom: 20px
+    }
+
+    .auth-input {
+      width: 100%;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 14px;
+      padding: 13px 18px;
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: .95rem;
+      outline: none;
+      margin-bottom: 12px;
+      transition: all .2s
+    }
+
+    .auth-input:focus {
+      border-color: rgba(91, 124, 250, .5);
+      background: rgba(91, 124, 250, .04);
+      box-shadow: 0 0 0 3px rgba(91, 124, 250, .1)
+    }
+
+    .auth-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+      font-family: var(--font-d);
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .25s;
+      box-shadow: 0 8px 30px rgba(91, 124, 250, .35);
+      letter-spacing: .04em
+    }
+
+    .auth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(91, 124, 250, .5)
+    }
+
+    .auth-btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .auth-error {
+      color: var(--red);
+      font-size: .82rem;
+      margin-top: 10px;
+      display: none;
+      font-family: var(--font-h)
+    }
+
+    /* ═══ APP LAYOUT ═══ */
+    #app {
+      display: none;
+      min-height: 100vh
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(2, 4, 8, .96);
+      backdrop-filter: blur(28px);
+      border-bottom: 1px solid rgba(245, 200, 66, .07);
+      padding: 0 24px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .nav-logo {
+      font-family: var(--font-d);
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: .08em
+    }
+
+    .nav-logo span {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .nav-badge {
+      background: rgba(248, 113, 113, .15);
+      border: 1px solid rgba(248, 113, 113, .35);
+      color: var(--red);
+      font-size: .6rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: .08em;
+      font-family: var(--font-h)
+    }
+
+    .nav-spacer {
+      flex: 1
+    }
+
+    .nav-time {
+      font-size: .72rem;
+      color: var(--text3);
+      font-family: var(--font-h);
+      letter-spacing: .03em
+    }
+
+    .nav-user {
+      font-size: .78rem;
+      color: var(--text3);
+      font-family: var(--font-h)
+    }
+
+    .nav-logout {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--font-h);
+      font-size: .72rem;
+      font-weight: 700;
+      transition: all .2s;
+      letter-spacing: .03em
+    }
+
+    .nav-logout:hover {
+      background: rgba(248, 113, 113, .1);
+      border-color: rgba(248, 113, 113, .3);
+      color: var(--red)
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: 62px;
+      left: 0;
+      width: var(--sidebar);
+      height: calc(100vh - 62px);
+      background: rgba(4, 8, 16, .97);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 12px 0;
+      backdrop-filter: blur(20px)
+    }
+
+    .sidebar-section {
+      font-size: .58rem;
+      font-weight: 800;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding: 14px 20px 6px;
+      font-family: var(--font-h)
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text3);
+      transition: all .2s;
+      border-left: 2px solid transparent;
+      font-family: var(--font-h);
+      letter-spacing: .02em
+    }
+
+    .sidebar-item:hover {
+      background: rgba(255, 255, 255, .03);
+      color: var(--text2);
+      border-left-color: rgba(91, 124, 250, .3)
+    }
+
+    .sidebar-item.active {
+      background: rgba(245, 200, 66, .06);
+      border-left-color: var(--gold);
+      color: var(--gold)
+    }
+
+    .sidebar-item .icon {
+      font-size: .95rem;
+      width: 18px;
+      text-align: center;
+      flex-shrink: 0
+    }
+
+    .sidebar-badge {
+      margin-left: auto;
+      background: var(--red);
+      color: #fff;
+      font-size: .58rem;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 100px;
+      font-family: var(--font-h);
+      min-width: 18px;
+      text-align: center;
+      animation: pulseBadge 2s ease-in-out infinite
+    }
+
+    @keyframes pulseBadge {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(248, 113, 113, .4)
+      }
+
+      50% {
+        box-shadow: 0 0 0 5px rgba(248, 113, 113, 0)
+      }
+    }
+
+    /* CONTENT */
+    .content {
+      margin-left: var(--sidebar);
+      padding: 24px;
+      min-height: calc(100vh - 62px);
+      position: relative;
+      z-index: 1
+    }
+
+    /* ═══ STAT CARDS ═══ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px
+    }
+
+    .stat-card {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      transition: all .25s;
+      cursor: default
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, .1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .5)
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      opacity: .07;
+      filter: blur(20px)
+    }
+
+    .stat-card.s-orders::before {
+      background: var(--accent)
+    }
+
+    .stat-card.s-pending::before {
+      background: var(--gold)
+    }
+
+    .stat-card.s-approved::before {
+      background: var(--green)
+    }
+
+    .stat-card.s-rejected::before {
+      background: var(--red)
+    }
+
+    .stat-card.s-users::before {
+      background: var(--accent2)
+    }
+
+    .stat-card.s-revenue::before {
+      background: var(--orange)
+    }
+
+    .stat-icon {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      display: block
+    }
+
+    .stat-val {
+      font-family: var(--font-d);
+      font-size: 1.9rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: .02em
+    }
+
+    .stat-label {
+      font-size: .65rem;
+      color: var(--text3);
+      font-weight: 700;
+      margin-top: 5px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-family: var(--font-h)
+    }
+
+    .stat-change {
+      font-size: .72rem;
+      margin-top: 6px;
+      font-weight: 700;
+      font-family: var(--font-h)
+    }
+
+    .stat-change.up {
+      color: var(--green)
+    }
+
+    .stat-change.warn {
+      color: var(--gold)
+    }
+
+    /* ═══ PAGE HEADER ═══ */
+    .page-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      flex-wrap: wrap
+    }
+
+    .page-title {
+      font-family: var(--font-d);
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      background: linear-gradient(135deg, var(--text), var(--text2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .page-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    /* ═══ FILTERS ═══ */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      align-items: center
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 7px 16px;
+      border-radius: 100px;
+      cursor: pointer;
+      font-family: var(--font-h);
+      font-size: .72rem;
+      font-weight: 700;
+      transition: all .2s;
+      letter-spacing: .04em
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, .07);
+      color: var(--text)
+    }
+
+    .filter-btn.active,
+    .filter-btn.ab {
+      background: rgba(245, 200, 66, .1);
+      border-color: rgba(245, 200, 66, .35);
+      color: var(--gold)
+    }
+
+    .filter-btn.pending {
+      border-color: rgba(245, 200, 66, .3);
+      color: var(--gold);
+      background: rgba(245, 200, 66, .06)
+    }
+
+    .filter-btn.approved {
+      border-color: rgba(52, 211, 153, .3);
+      color: var(--green);
+      background: rgba(52, 211, 153, .06)
+    }
+
+    .filter-btn.rejected {
+      border-color: rgba(248, 113, 113, .3);
+      color: var(--red);
+      background: rgba(248, 113, 113, .06)
+    }
+
+    .search-input {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 16px;
+      color: var(--text);
+      font-family: var(--font-h);
+      font-size: .78rem;
+      outline: none;
+      margin-left: auto;
+      width: 220px;
+      transition: all .2s
+    }
+
+    .search-input:focus {
+      border-color: rgba(91, 124, 250, .4);
+      background: rgba(91, 124, 250, .04)
+    }
+
+    /* ═══ ORDER CARDS ═══ */
+    .orders-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+
+    .order-card {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all .2s;
+      position: relative
+    }
+
+    .order-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      border-radius: 2px 0 0 2px
+    }
+
+    .order-card.pending::before {
+      background: var(--gold)
+    }
+
+    .order-card.approved::before {
+      background: var(--green)
+    }
+
+    .order-card.rejected::before {
+      background: var(--red)
+    }
+
+    .order-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .5)
+    }
+
+    .order-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      cursor: pointer
+    }
+
+    .order-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border)
+    }
+
+    .order-info {
+      flex: 1;
+      min-width: 0
+    }
+
+    .order-name {
+      font-family: var(--font-d);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis
+    }
+
+    .order-meta {
+      font-size: .72rem;
+      color: var(--text3);
+      margin-top: 3px;
+      font-family: var(--font-h)
+    }
+
+    .order-price {
+      font-family: var(--font-d);
+      font-size: .95rem;
+      font-weight: 900;
+      color: var(--gold);
+      white-space: nowrap
+    }
+
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: .62rem;
+      font-weight: 800;
+      white-space: nowrap;
+      font-family: var(--font-h);
+      letter-spacing: .06em
+    }
+
+    .status-pending {
+      background: rgba(245, 200, 66, .12);
+      border: 1px solid rgba(245, 200, 66, .3);
+      color: var(--gold)
+    }
+
+    .status-approved {
+      background: rgba(52, 211, 153, .1);
+      border: 1px solid rgba(52, 211, 153, .28);
+      color: var(--green)
+    }
+
+    .status-rejected {
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .25);
+      color: var(--red)
+    }
+
+    .order-toggle {
+      color: var(--text3);
+      font-size: .85rem;
+      transition: transform .2s;
+      flex-shrink: 0
+    }
+
+    .order-toggle.open {
+      transform: rotate(180deg)
+    }
+
+    .order-body {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border)
+    }
+
+    .order-body.open {
+      display: block
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px
+    }
+
+    @media(max-width:700px) {
+      .order-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .order-field {
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px
+    }
+
+    .of-label {
+      font-size: .6rem;
+      font-weight: 800;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 4px;
+      font-family: var(--font-h)
+    }
+
+    .of-val {
+      font-size: .85rem;
+      font-weight: 600;
+      word-break: break-all;
+      font-family: var(--font-h)
+    }
+
+    .receipt-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-top: 14px;
+      cursor: pointer;
+      transition: all .2s
+    }
+
+    .receipt-img:hover {
+      border-color: rgba(245, 200, 66, .3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .5)
+    }
+
+    .receipt-placeholder {
+      background: rgba(255, 255, 255, .02);
+      border: 2px dashed rgba(255, 255, 255, .07);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      color: var(--text3);
+      font-size: .82rem;
+      margin-top: 14px;
+      font-family: var(--font-h)
+    }
+
+    .action-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+      align-items: flex-end
+    }
+
+    .note-input {
+      flex: 1;
+      min-width: 160px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 14px;
+      color: var(--text);
+      font-family: var(--font-h);
+      font-size: .8rem;
+      outline: none;
+      transition: all .2s
+    }
+
+    .note-input:focus {
+      border-color: rgba(91, 124, 250, .35);
+      background: rgba(91, 124, 250, .04)
+    }
+
+    .btn-approve {
+      background: rgba(52, 211, 153, .12);
+      border: 1px solid rgba(52, 211, 153, .35);
+      color: var(--green);
+      padding: 9px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-h);
+      font-size: .78rem;
+      font-weight: 800;
+      transition: all .2s;
+      letter-spacing: .03em
+    }
+
+    .btn-approve:hover {
+      background: rgba(52, 211, 153, .22);
+      transform: translateY(-1px)
+    }
+
+    .btn-approve:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .btn-reject {
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .28);
+      color: var(--red);
+      padding: 9px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-h);
+      font-size: .78rem;
+      font-weight: 800;
+      transition: all .2s;
+      letter-spacing: .03em
+    }
+
+    .btn-reject:hover {
+      background: rgba(248, 113, 113, .2);
+      transform: translateY(-1px)
+    }
+
+    .btn-reject:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    .btn-view-user {
+      background: rgba(91, 124, 250, .08);
+      border: 1px solid rgba(91, 124, 250, .25);
+      color: var(--accent);
+      padding: 9px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: var(--font-h);
+      font-size: .78rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .btn-view-user:hover {
+      background: rgba(91, 124, 250, .18)
+    }
+
+    .action-result {
+      font-size: .78rem;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: none;
+      font-family: var(--font-h);
+      font-weight: 600;
+      margin-top: 8px
+    }
+
+    .action-result.ok {
+      background: rgba(52, 211, 153, .08);
+      color: var(--green);
+      border: 1px solid rgba(52, 211, 153, .25);
+      display: block
+    }
+
+    .action-result.err {
+      background: rgba(248, 113, 113, .08);
+      color: var(--red);
+      border: 1px solid rgba(248, 113, 113, .22);
+      display: block
+    }
+
+    /* ═══ RECEIPT PREVIEW SECTION ═══ */
+    .receipt-preview-section {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid rgba(245, 200, 66, .15);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 12px
+    }
+
+    .receipt-preview-title {
+      font-size: .65rem;
+      font-weight: 800;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 10px;
+      font-family: var(--font-h);
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    /* ═══ USERS TABLE ═══ */
+    .users-table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    .users-table th {
+      text-align: left;
+      font-size: .62rem;
+      font-weight: 800;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-h)
+    }
+
+    .users-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .03);
+      font-size: .82rem;
+      vertical-align: middle;
+      font-family: var(--font-h)
+    }
+
+    .users-table tr:hover td {
+      background: rgba(255, 255, 255, .015)
+    }
+
+    .user-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: .78rem;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(91, 124, 250, .3)
+    }
+
+    .user-name-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .plan-chip {
+      padding: 3px 9px;
+      border-radius: 100px;
+      font-size: .6rem;
+      font-weight: 800;
+      font-family: var(--font-h);
+      letter-spacing: .04em
+    }
+
+    .plan-free {
+      background: rgba(107, 107, 128, .12);
+      color: var(--text3);
+      border: 1px solid rgba(107, 107, 128, .2)
+    }
+
+    .plan-pro {
+      background: rgba(91, 124, 250, .12);
+      color: var(--accent);
+      border: 1px solid rgba(91, 124, 250, .25)
+    }
+
+    .plan-premium {
+      background: rgba(167, 139, 250, .12);
+      color: var(--accent2);
+      border: 1px solid rgba(167, 139, 250, .25)
+    }
+
+    .plan-ultimate {
+      background: rgba(245, 200, 66, .12);
+      color: var(--gold);
+      border: 1px solid rgba(245, 200, 66, .25)
+    }
+
+    .vip-chip {
+      background: rgba(245, 200, 66, .12);
+      color: var(--gold);
+      padding: 3px 9px;
+      border-radius: 100px;
+      font-size: .6rem;
+      font-weight: 800;
+      border: 1px solid rgba(245, 200, 66, .3);
+      font-family: var(--font-h)
+    }
+
+    /* ═══ MODAL ═══ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 4, 8, .92);
+      z-index: 400;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(16px)
+    }
+
+    .modal-overlay.open {
+      display: flex;
+      animation: mfadeIn .25s ease
+    }
+
+    @keyframes mfadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .modal-box {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid rgba(91, 124, 250, .2);
+      border-radius: 24px;
+      padding: 28px;
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .8)
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px
+    }
+
+    .modal-title {
+      font-family: var(--font-d);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: .04em
+    }
+
+    .modal-close {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s
+    }
+
+    .modal-close:hover {
+      background: rgba(248, 113, 113, .1);
+      color: var(--red)
+    }
+
+    .ud-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .ud-field {
+      background: rgba(255, 255, 255, .025);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 15px
+    }
+
+    .ud-label {
+      font-size: .6rem;
+      color: var(--text3);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 4px;
+      font-family: var(--font-h)
+    }
+
+    .ud-val {
+      font-size: .88rem;
+      font-weight: 700;
+      font-family: var(--font-h)
+    }
+
+    .edit-label {
+      font-size: .68rem;
+      color: var(--text3);
+      font-weight: 700;
+      margin-bottom: 5px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-family: var(--font-h)
+    }
+
+    .edit-input {
+      width: 100%;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 13px;
+      color: var(--text);
+      font-family: var(--font-h);
+      font-size: .85rem;
+      outline: none;
+      transition: all .2s
+    }
+
+    .edit-input:focus {
+      border-color: rgba(91, 124, 250, .4);
+      background: rgba(91, 124, 250, .04)
+    }
+
+    .btn-save {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: var(--font-d);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s;
+      letter-spacing: .03em
+    }
+
+    .btn-save:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(91, 124, 250, .3)
+    }
+
+    .btn-danger {
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .28);
+      color: var(--red);
+      padding: 10px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: var(--font-h);
+      font-size: .82rem;
+      font-weight: 700;
+      transition: all .2s
+    }
+
+    .btn-danger:hover {
+      background: rgba(248, 113, 113, .2)
+    }
+
+    /* ═══ LIGHTBOX ═══ */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .95);
+      z-index: 600;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(12px)
+    }
+
+    #lightbox.open {
+      display: flex
+    }
+
+    #lightboxImg {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 16px;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, .8)
+    }
+
+    #lightboxClose {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, .1);
+      border: none;
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s
+    }
+
+    #lightboxClose:hover {
+      background: rgba(248, 113, 113, .3)
+    }
+
+    /* ═══ PACK CARDS in Admin ═══ */
+    .pack-admin-card {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all .25s;
+      position: relative
+    }
+
+    .pack-admin-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, .6)
+    }
+
+    .pack-admin-stripe {
+      height: 3px;
+      width: 100%
+    }
+
+    .pack-admin-visual {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden
+    }
+
+    .pack-admin-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--bg3) 100%);
+      pointer-events: none
+    }
+
+    .pack-shape-admin {
+      width: 100px;
+      height: 130px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .15)
+    }
+
+    .pack-shape-admin::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .1) 0%, transparent 60%);
+      pointer-events: none
+    }
+
+    .psa-header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      font-family: var(--font-d);
+      font-size: .42rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      opacity: .85
+    }
+
+    .psa-fa {
+      font-size: 2.6rem;
+      position: relative;
+      z-index: 1
+    }
+
+    .psa-footer {
+      width: 100%;
+      text-align: center
+    }
+
+    .psa-name {
+      font-family: var(--font-d);
+      font-size: .52rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      opacity: .9
+    }
+
+    .psa-series {
+      font-size: .42rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      opacity: .65;
+      text-transform: uppercase
+    }
+
+    .pack-admin-body {
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px
+    }
+
+    .pack-admin-rarity {
+      font-family: var(--font-h);
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      display: flex;
+      align-items: center;
+      gap: 4px
+    }
+
+    .pack-admin-name {
+      font-family: var(--font-d);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .pack-admin-meta {
+      font-size: .7rem;
+      color: var(--text3)
+    }
+
+    .pack-rarity-common {
+      --pc-glow: rgba(91, 140, 196, .12);
+      border-color: rgba(91, 140, 196, .2) !important
+    }
+
+    .pack-rarity-rare {
+      --pc-glow: rgba(123, 106, 245, .18);
+      border-color: rgba(123, 106, 245, .25) !important
+    }
+
+    .pack-rarity-epic {
+      --pc-glow: rgba(212, 168, 32, .18);
+      border-color: rgba(212, 168, 32, .28) !important
+    }
+
+    .pack-rarity-legendary {
+      --pc-glow: rgba(224, 90, 20, .2);
+      border-color: rgba(224, 90, 20, .3) !important;
+      animation: legendGlow 3s ease-in-out infinite
+    }
+
+    .pack-rarity-mythic {
+      --pc-glow: rgba(192, 32, 224, .24);
+      border-color: rgba(192, 32, 224, .35) !important;
+      animation: mythicGlow 2.5s ease-in-out infinite
+    }
+
+    @keyframes legendGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 12px rgba(224, 90, 20, .15)
+      }
+
+      50% {
+        box-shadow: 0 0 28px rgba(224, 90, 20, .35)
+      }
+    }
+
+    @keyframes mythicGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 16px rgba(192, 32, 224, .2)
+      }
+
+      50% {
+        box-shadow: 0 0 36px rgba(192, 32, 224, .45)
+      }
+    }
+
+    /* ═══ RECEIPT GRID in Orders ═══ */
+    .receipts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 16px
+    }
+
+    .receipt-thumb-card {
+      background: rgba(255, 255, 255, .025);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all .2s;
+      position: relative
+    }
+
+    .receipt-thumb-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245, 200, 66, .3);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .5)
+    }
+
+    .receipt-thumb-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover
+    }
+
+    .receipt-thumb-info {
+      padding: 10px 12px
+    }
+
+    .receipt-thumb-name {
+      font-family: var(--font-d);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .receipt-thumb-meta {
+      font-size: .65rem;
+      color: var(--text3);
+      margin-top: 2px;
+      font-family: var(--font-h)
+    }
+
+    /* ═══ EMPTY / LOADING ═══ */
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text3);
+      font-family: var(--font-h)
+    }
+
+    .empty span {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px
+    }
+
+    .loading-row {
+      text-align: center;
+      padding: 40px;
+      color: var(--text3);
+      font-size: .85rem;
+      font-family: var(--font-h)
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(245, 200, 66, .2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* ═══ TOAST ═══ */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 20px;
+      font-size: .84rem;
+      font-weight: 700;
+      z-index: 9999;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all .3s;
+      pointer-events: none;
+      max-width: 320px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-h)
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1
+    }
+
+    .toast.success {
+      border-color: rgba(52, 211, 153, .4);
+      color: var(--green)
+    }
+
+    .toast.error {
+      border-color: rgba(248, 113, 113, .4);
+      color: var(--red)
+    }
+
+    .toast.info {
+      border-color: rgba(91, 124, 250, .4);
+      color: var(--accent)
+    }
+
+    .toast.gold {
+      border-color: rgba(245, 200, 66, .4);
+      color: var(--gold)
+    }
+
+    /* ═══ PAGE SECTIONS ═══ */
+    .page-sec {
+      display: none
+    }
+
+    .page-sec.active {
+      display: block;
+      animation: fadeIn .3s ease
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ═══ PERM BANNER ═══ */
+    .perm-banner {
+      display: none;
+      background: rgba(248, 113, 113, .07);
+      border: 1px solid rgba(248, 113, 113, .3);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 20px
+    }
+
+    .perm-banner.show {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start
+    }
+
+    .perm-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0
+    }
+
+    .perm-title {
+      font-family: var(--font-d);
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 4px
+    }
+
+    .perm-desc {
+      font-size: .78rem;
+      color: var(--text2);
+      line-height: 1.6;
+      font-family: var(--font-h)
+    }
+
+    .perm-btn {
+      display: inline-block;
+      margin-top: 8px;
+      background: rgba(248, 113, 113, .15);
+      border: 1px solid rgba(248, 113, 113, .4);
+      color: var(--red);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .72rem;
+      font-weight: 700;
+      transition: all .2s;
+      text-decoration: none;
+      font-family: var(--font-h)
+    }
+
+    .perm-btn:hover {
+      background: rgba(248, 113, 113, .25)
+    }
+
+    /* ═══ CODE BLOCK ═══ */
+    .code-block {
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: .72rem;
+      color: #a5f3fc;
+      line-height: 1.8;
+      overflow-x: auto;
+      white-space: pre;
+      position: relative;
+      margin-top: 10px
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(91, 124, 250, .15);
+      border: 1px solid rgba(91, 124, 250, .35);
+      color: var(--accent);
+      padding: 5px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .68rem;
+      font-weight: 700;
+      transition: all .2s;
+      font-family: var(--font-h)
+    }
+
+    .copy-btn:hover {
+      background: rgba(91, 124, 250, .28)
+    }
+
+    .copy-btn.copied {
+      background: rgba(52, 211, 153, .15);
+      border-color: rgba(52, 211, 153, .35);
+      color: var(--green)
+    }
+
+    .info-box {
+      background: rgba(91, 124, 250, .06);
+      border: 1px solid rgba(91, 124, 250, .18);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: .8rem;
+      color: var(--text2);
+      margin-bottom: 16px;
+      line-height: 1.7;
+      font-family: var(--font-h)
+    }
+
+    /* ═══ ANNOUNCE ═══ */
+    .announce-form {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px
+    }
+
+    .announce-input {
+      width: 100%;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 16px;
+      color: var(--text);
+      font-family: var(--font-h);
+      font-size: .88rem;
+      outline: none;
+      margin-bottom: 12px;
+      transition: all .2s
+    }
+
+    .announce-input:focus {
+      border-color: rgba(91, 124, 250, .35);
+      background: rgba(91, 124, 250, .04)
+    }
+
+    textarea.announce-input {
+      min-height: 80px;
+      resize: vertical
+    }
+
+    select.announce-input {
+      cursor: pointer
+    }
+
+    /* ═══ DASHBOARD WELCOME ═══ */
+    .welcome-banner {
+      background: linear-gradient(135deg, rgba(245, 200, 66, .06), rgba(91, 124, 250, .04));
+      border: 1px solid rgba(245, 200, 66, .12);
+      border-radius: 20px;
+      padding: 22px 26px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .welcome-banner::before {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 200, 66, .08), transparent 70%);
+      pointer-events: none
+    }
+
+    .wb-icon {
+      font-size: 2.8rem;
+      flex-shrink: 0
+    }
+
+    .wb-title {
+      font-family: var(--font-d);
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .wb-sub {
+      font-size: .8rem;
+      color: var(--text3);
+      font-family: var(--font-h)
+    }
+
+    /* ═══ ACTIVITY FEED ═══ */
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      font-family: var(--font-h);
+      font-size: .8rem
+    }
+
+    .ai-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0
+    }
+
+    .ai-dot.pending {
+      background: var(--gold)
+    }
+
+    .ai-dot.approved {
+      background: var(--green)
+    }
+
+    .ai-dot.rejected {
+      background: var(--red)
+    }
+
+    .ai-text {
+      flex: 1;
+      color: var(--text2)
+    }
+
+    .ai-time {
+      color: var(--text3);
+      font-size: .7rem;
+      white-space: nowrap
+    }
+
+    /* ═══ CHART BARS ═══ */
+    .chart-wrap {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 20px
+    }
+
+    .chart-title {
+      font-family: var(--font-d);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-bottom: 16px;
+      color: var(--text2)
+    }
+
+    .mini-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 80px
+    }
+
+    .mc-bar {
+      flex: 1;
+      border-radius: 6px 6px 0 0;
+      min-height: 4px;
+      transition: height .5s ease;
+      cursor: default;
+      position: relative
+    }
+
+    .mc-bar:hover::after {
+      content: attr(data-val);
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .6rem;
+      color: var(--text2);
+      font-family: var(--font-h);
+      white-space: nowrap;
+      background: var(--bg4);
+      padding: 2px 6px;
+      border-radius: 4px
+    }
+
+    /* ═══ SEARCH ═══ */
+    .user-search-card {
+      background: linear-gradient(160deg, var(--bg3), var(--bg2));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 14px
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform .3s;
+        z-index: 90
+      }
+
+      .sidebar.open {
+        transform: translateX(0)
+      }
+
+      .content {
+        margin-left: 0
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    /* ═══ SCROLLBAR ═══ */
+    ::-webkit-scrollbar {
+      width: 4px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .06);
+      border-radius: 100px
+    }
+
+    /* ═══ SHINE ANIMATION for legendary/mythic packs ═══ */
+    .pack-rarity-legendary .pack-shape-admin::after,
+    .pack-rarity-mythic .pack-shape-admin::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      width: 30px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), transparent);
+      transform: rotate(25deg);
+      animation: shineSlide 3s ease-in-out infinite
+    }
+
+    @keyframes shineSlide {
+
+      0%,
+      100% {
+        left: -50%
+      }
+
+      50% {
+        left: 180%
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- AUTH SCREEN -->
+  <div id="authScreen">
+    <div class="auth-card">
+      <div class="auth-logo">Lingua<span>Verse</span></div>
+      <div class="auth-badge"><i class="fa-solid fa-shield-halved"></i> &nbsp;ADMIN ACCESS</div>
+      <input type="email" id="adminEmail" class="auth-input" placeholder="Admin email" />
+      <input type="password" id="adminPass" class="auth-input" placeholder="Parol" />
+      <button class="auth-btn" id="loginBtn" onclick="doAdminLogin()"><i class="fa-solid fa-right-to-bracket"></i>
+        &nbsp;Kirish</button>
+      <div class="auth-error" id="authErr"></div>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app">
+    <nav class="nav">
+      <button id="menuToggle"
+        style="background:none;border:none;color:var(--text2);font-size:1.2rem;cursor:pointer;display:none"
+        onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-logo">Lingua<span>Verse</span> <span class="nav-badge">ADMIN</span></div>
+      <div class="nav-spacer"></div>
+      <div class="nav-time" id="navTime"></div>
+      <div class="nav-user" id="navUserEmail"></div>
+      <button class="nav-logout" onclick="doLogout()"><i class="fa-solid fa-power-off"></i> Chiqish</button>
+    </nav>
+
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-section">Asosiy</div>
+      <div class="sidebar-item active" onclick="showPage('dashboard')" data-page="dashboard"><span class="icon"><i
+            class="fa-solid fa-chart-pie"></i></span> Dashboard</div>
+      <div class="sidebar-item" onclick="showPage('orders')" data-page="orders"><span class="icon"><i
+            class="fa-solid fa-clipboard-list"></i></span> Buyurtmalar <span class="sidebar-badge"
+          id="pendingBadge">0</span></div>
+      <div class="sidebar-item" onclick="showPage('receipts')" data-page="receipts"><span class="icon"><i
+            class="fa-solid fa-images"></i></span> Cheklar</div>
+      <div class="sidebar-section">Foydalanuvchilar</div>
+      <div class="sidebar-item" onclick="showPage('users')" data-page="users"><span class="icon"><i
+            class="fa-solid fa-users"></i></span> Barcha Users</div>
+      <div class="sidebar-item" onclick="showPage('search')" data-page="search"><span class="icon"><i
+            class="fa-solid fa-magnifying-glass"></i></span> User Qidirish</div>
+      <div class="sidebar-section">Do'kon</div>
+      <div class="sidebar-item" onclick="showPage('packs')" data-page="packs"><span class="icon"><i
+            class="fa-solid fa-boxes-stacked"></i></span> Pack Catalog</div>
+      <div class="sidebar-section">Tizim</div>
+      <div class="sidebar-item" onclick="showPage('announce')" data-page="announce"><span class="icon"><i
+            class="fa-solid fa-bullhorn"></i></span> E'lon Yuborish</div>
+      <div class="sidebar-item" onclick="showPage('settings')" data-page="settings"><span class="icon"><i
+            class="fa-solid fa-gear"></i></span> Sozlamalar</div>
+    </div>
+
+    <div class="content">
+      <div class="perm-banner" id="permBanner">
+        <div class="perm-icon"><i class="fa-solid fa-lock"></i></div>
+        <div>
+          <div class="perm-title">Firestore Permission Error</div>
+          <div class="perm-desc">Firebase Firestore ruxsat bermayapti. <strong>Firebase Console → Firestore Database →
+              Rules</strong> bo'limiga kiring.</div>
+          <a class="perm-btn" href="https://console.firebase.google.com/project/linguaverse-ebe09/firestore/rules"
+            target="_blank"><i class="fa-solid fa-external-link-alt"></i> Firebase Console</a>
+          <button class="perm-btn" onclick="showPage('settings')" style="margin-left:8px"><i
+              class="fa-solid fa-code"></i> Rules ko'rish</button>
+        </div>
+      </div>
+
+      <!-- DASHBOARD -->
+      <div class="page-sec active" id="page-dashboard">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-chart-pie" style="color:var(--gold);font-size:1rem"></i>
+            Dashboard</div>
+          <div class="page-actions"><button class="filter-btn ab" onclick="loadDashboard()"><i
+                class="fa-solid fa-rotate-right"></i> Yangilash</button></div>
+        </div>
+        <div class="welcome-banner" id="welcomeBanner">
+          <div class="wb-icon">👑</div>
+          <div>
+            <div class="wb-title">Xush Kelibsiz, Admin!</div>
+            <div class="wb-sub" id="wbSub">LinguaVerse Admin Paneli — barcha ma'lumotlar real-time</div>
+          </div>
+        </div>
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card s-orders"><span class="stat-icon"><i class="fa-solid fa-clipboard-list"
+                style="color:var(--accent)"></i></span>
+            <div class="stat-val" id="s-total-orders" style="color:var(--accent)">—</div>
+            <div class="stat-label">Jami Buyurtmalar</div>
+          </div>
+          <div class="stat-card s-pending"><span class="stat-icon"><i class="fa-solid fa-clock"
+                style="color:var(--gold)"></i></span>
+            <div class="stat-val" id="s-pending" style="color:var(--gold)">—</div>
+            <div class="stat-label">Kutilmoqda</div>
+            <div class="stat-change warn" id="s-pending-sub"></div>
+          </div>
+          <div class="stat-card s-approved"><span class="stat-icon"><i class="fa-solid fa-circle-check"
+                style="color:var(--green)"></i></span>
+            <div class="stat-val" id="s-approved" style="color:var(--green)">—</div>
+            <div class="stat-label">Tasdiqlangan</div>
+          </div>
+          <div class="stat-card s-rejected"><span class="stat-icon"><i class="fa-solid fa-circle-xmark"
+                style="color:var(--red)"></i></span>
+            <div class="stat-val" id="s-rejected" style="color:var(--red)">—</div>
+            <div class="stat-label">Rad Etilgan</div>
+          </div>
+          <div class="stat-card s-users"><span class="stat-icon"><i class="fa-solid fa-users"
+                style="color:var(--accent2)"></i></span>
+            <div class="stat-val" id="s-users" style="color:var(--accent2)">—</div>
+            <div class="stat-label">Foydalanuvchilar</div>
+          </div>
+          <div class="stat-card s-revenue"><span class="stat-icon"><i class="fa-solid fa-sack-dollar"
+                style="color:var(--orange)"></i></span>
+            <div class="stat-val" id="s-revenue" style="color:var(--orange)">—</div>
+            <div class="stat-label">Tushum (so'm)</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px" id="chartRow">
+          <div class="chart-wrap">
+            <div class="chart-title"><i class="fa-solid fa-chart-bar" style="color:var(--gold)"></i> Buyurtmalar
+              Statistikasi</div>
+            <div class="mini-chart" id="miniChart"></div>
+            <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap" id="chartLegend"></div>
+          </div>
+          <div class="chart-wrap">
+            <div class="chart-title"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i> So'nggi Faoliyat</div>
+            <div id="activityFeed"></div>
+          </div>
+        </div>
+        <div class="page-header" style="margin-top:4px">
+          <div style="font-family:var(--font-d);font-size:.95rem;font-weight:800;letter-spacing:.03em"><i
+              class="fa-solid fa-clock" style="color:var(--gold)"></i> Kutilayotgan Buyurtmalar</div>
+        </div>
+        <div id="recentOrders"></div>
+      </div>
+
+      <!-- ORDERS -->
+      <div class="page-sec" id="page-orders">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-clipboard-list" style="color:var(--gold);font-size:1rem"></i>
+            Buyurtmalar</div>
+          <div class="page-actions"><button class="filter-btn ab" onclick="loadOrders()"><i
+                class="fa-solid fa-rotate-right"></i> Yangilash</button></div>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterOrders('all',this)"><i class="fa-solid fa-layer-group"></i>
+            Hammasi</button>
+          <button class="filter-btn pending" onclick="filterOrders('pending',this)"><i class="fa-solid fa-clock"></i>
+            Kutilmoqda</button>
+          <button class="filter-btn approved" onclick="filterOrders('approved',this)"><i class="fa-solid fa-check"></i>
+            Tasdiqlangan</button>
+          <button class="filter-btn rejected" onclick="filterOrders('rejected',this)"><i class="fa-solid fa-xmark"></i>
+            Rad Etilgan</button>
+          <input type="text" class="search-input" id="orderSearch" placeholder="🔍 Qidirish..."
+            oninput="searchOrders()" />
+        </div>
+        <div class="orders-wrap" id="ordersWrap">
+          <div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>
+        </div>
+      </div>
+
+      <!-- RECEIPTS PAGE -->
+      <div class="page-sec" id="page-receipts">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-images" style="color:var(--gold);font-size:1rem"></i> Barcha
+            Cheklar</div>
+          <div class="page-actions"><button class="filter-btn ab" onclick="loadReceipts()"><i
+                class="fa-solid fa-rotate-right"></i> Yangilash</button></div>
+        </div>
+        <div class="info-box"><i class="fa-solid fa-circle-info"></i> Barcha to'lov cheklarini bir joyda ko'ring.
+          Kattalashtirish uchun bosing.</div>
+        <div id="receiptsGrid" class="receipts-grid">
+          <div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>
+        </div>
+      </div>
+
+      <!-- USERS -->
+      <div class="page-sec" id="page-users">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-users" style="color:var(--gold);font-size:1rem"></i>
+            Foydalanuvchilar</div>
+          <div class="page-actions"><button class="filter-btn ab" onclick="loadUsers()"><i
+                class="fa-solid fa-rotate-right"></i> Yangilash</button></div>
+        </div>
+        <div class="info-box"><i class="fa-solid fa-circle-info"></i> Foydalanuvchini bosib ma'lumotlarini ko'rish va
+          tahrirlash mumkin.</div>
+        <div
+          style="overflow-x:auto;background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:18px">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>Foydalanuvchi</th>
+                <th>Email</th>
+                <th>Reja</th>
+                <th>XP</th>
+                <th>Coins</th>
+                <th>Tokens</th>
+                <th>Sana</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="usersBody">
+              <tr>
+                <td colspan="8" class="loading-row"><span class="spinner"></span>Yuklanmoqda...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="page-sec" id="page-search">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-magnifying-glass" style="color:var(--gold);font-size:1rem"></i>
+            User Qidirish</div>
+        </div>
+        <div class="user-search-card">
+          <div style="display:flex;gap:10px;align-items:center">
+            <input type="text" id="userSearchQ" class="search-input" style="width:auto;flex:1;margin-left:0"
+              placeholder="Email yoki UID kiriting..." />
+            <button class="btn-approve" onclick="searchUser()" style="white-space:nowrap"><i
+                class="fa-solid fa-search"></i> Qidirish</button>
+          </div>
+        </div>
+        <div id="searchResult"></div>
+      </div>
+
+      <!-- PACKS -->
+      <div class="page-sec" id="page-packs">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-boxes-stacked" style="color:var(--gold);font-size:1rem"></i>
+            Pack Katalogi</div>
+        </div>
+        <div class="info-box"><i class="fa-solid fa-circle-info"></i> Do'kondagi barcha packlar — xuddi shop
+          ko'rinishida.</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px"
+          id="packsAdminGrid"></div>
+      </div>
+
+      <!-- ANNOUNCE -->
+      <div class="page-sec" id="page-announce">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-bullhorn" style="color:var(--gold);font-size:1rem"></i> E'lon
+            Yuborish</div>
+        </div>
+        <div class="info-box"><i class="fa-solid fa-circle-info"></i> E'lon barcha foydalanuvchilarning
+          <code>announcements</code> kollekciyasiga qo'shiladi.</div>
+        <div class="announce-form">
+          <label
+            style="font-size:.7rem;color:var(--text3);font-weight:800;display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-h)">E'lon
+            Turi</label>
+          <select class="announce-input" id="annType">
+            <option value="info">ℹ️ Ma'lumot</option>
+            <option value="update">🚀 Yangilanish</option>
+            <option value="promo">🎁 Aksiya</option>
+            <option value="maintenance">⚠️ Texnik Ishlar</option>
+          </select>
+          <label
+            style="font-size:.7rem;color:var(--text3);font-weight:800;display:block;margin-bottom:6px;margin-top:14px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-h)">Sarlavha</label>
+          <input type="text" class="announce-input" id="annTitle" placeholder="E'lon sarlavhasi..." />
+          <label
+            style="font-size:.7rem;color:var(--text3);font-weight:800;display:block;margin-bottom:6px;margin-top:14px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-h)">Matn</label>
+          <textarea class="announce-input" id="annBody" placeholder="E'lon matni..."></textarea>
+          <button class="btn-save" onclick="sendAnnouncement()" style="margin-top:4px"><i
+              class="fa-solid fa-paper-plane"></i> Yuborish</button>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="page-sec" id="page-settings">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-gear" style="color:var(--gold);font-size:1rem"></i> Sozlamalar
+          </div>
+        </div>
+        <div class="announce-form" style="margin-bottom:16px;border-color:rgba(248,113,113,.25)">
+          <div
+            style="font-family:var(--font-d);font-size:.95rem;font-weight:800;margin-bottom:8px;color:var(--red);letter-spacing:.04em">
+            <i class="fa-solid fa-shield-halved"></i> Firestore Security Rules</div>
+          <div class="info-box"
+            style="background:rgba(248,113,113,.05);border-color:rgba(248,113,113,.2);margin-bottom:12px">
+            <strong>"Missing or insufficient permissions"</strong> xatosi chiqsa — quyidagi rules ni Firebase Console ga
+            qo'ying:<br>
+            <strong>console.firebase.google.com → Firestore Database → Rules → Publish</strong>
+          </div>
+          <a href="https://console.firebase.google.com/project/linguaverse-ebe09/firestore/rules" target="_blank"
+            class="perm-btn" style="margin-bottom:12px;display:inline-block"><i
+              class="fa-solid fa-external-link-alt"></i> Firebase Console Rules</a>
+          <div style="position:relative">
+            <div class="code-block" id="rulesCode">rules_version = '2';
+              service cloud.firestore {
+              match /databases/{database}/documents {
+
+              function isAdmin() {
+              return request.auth != null && request.auth.token.email in [
+              'owner@gmail.uz',
+              'linguaverse.admin@gmail.com'
+              ];
+              }
+
+              function isOwner(uid) {
+              return request.auth != null && request.auth.uid == uid;
+              }
+
+              match /{document=**} {
+              allow read, write: if isAdmin();
+              }
+
+              match /users/{userId} {
+              allow read, write: if isOwner(userId);
+              }
+
+              match /orders/{orderId} {
+              allow create: if request.auth != null;
+              allow read, update: if request.auth != null && (
+              request.auth.uid == resource.data.uid ||
+              request.auth.uid == resource.data.userId
+              );
+              }
+
+              match /purchaseRequests/{docId} {
+              allow create: if request.auth != null;
+              }
+
+              match /announcements/{docId} {
+              allow read: if request.auth != null;
+              }
+              }
+              }</div>
+            <button class="copy-btn" id="copyRulesBtn" onclick="copyRules()"><i class="fa-solid fa-copy"></i>
+              Nusxa</button>
+          </div>
+        </div>
+        <div class="announce-form" style="margin-bottom:16px">
+          <div
+            style="font-family:var(--font-d);font-size:.95rem;font-weight:800;margin-bottom:16px;letter-spacing:.04em">
+            <i class="fa-solid fa-database" style="color:var(--accent)"></i> Firebase Ma'lumotlar</div>
+          <div class="ud-grid">
+            <div class="ud-field">
+              <div class="ud-label">Project ID</div>
+              <div class="ud-val" style="font-size:.78rem">linguaverse-ebe09</div>
+            </div>
+            <div class="ud-field">
+              <div class="ud-label">Auth Domain</div>
+              <div class="ud-val" style="font-size:.78rem">linguaverse-ebe09.firebaseapp.com</div>
+            </div>
+            <div class="ud-field">
+              <div class="ud-label">Orders Kolleksiya</div>
+              <div class="ud-val">orders</div>
+            </div>
+            <div class="ud-field">
+              <div class="ud-label">Users Kolleksiya</div>
+              <div class="ud-val">users</div>
+            </div>
+          </div>
+        </div>
+        <div class="announce-form">
+          <div
+            style="font-family:var(--font-d);font-size:.95rem;font-weight:800;margin-bottom:14px;letter-spacing:.04em">
+            <i class="fa-solid fa-crown" style="color:var(--gold)"></i> Admin Ro'yxati</div>
+          <div class="info-box" style="margin-bottom:12px">Ushbu emaillar admin paneliga kira oladi.</div>
+          <div id="adminList" style="display:flex;flex-direction:column;gap:7px"></div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /app -->
+
+  <!-- USER DETAIL MODAL -->
+  <div class="modal-overlay" id="userModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="userModalTitle"><i class="fa-solid fa-user"></i> Foydalanuvchi</div>
+        <button class="modal-close" onclick="closeUserModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="userModalBody"></div>
+    </div>
+  </div>
+
+  <!-- RECEIPT LIGHTBOX -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <button id="lightboxClose" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lightboxImg" src="" alt="Chek" />
+  </div>
+
+  <div class="toast" id="toast"><i id="toastIcon" class="fa-solid fa-check"></i><span id="toastMsg"></span></div>
+
+  <!-- THREE.JS BG -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    (function () {
+      const cv = document.getElementById('bgCanvas');
+      const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+      r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight);
+      const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);
+      cam.position.z = 5;
+      const geo = new THREE.BufferGeometry();
+      const cnt = 1200, pos = new Float32Array(cnt * 3);
+      for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30;
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x5b7cfa, size: .05, transparent: true, opacity: .35 }));
+      sc.add(pts);
+      let mx = 0, my = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+      window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight) });
+      let t = 0;
+      (function loop() {
+        requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .1; pts.rotation.x = t * .06;
+        cam.position.x += (mx * .5 - cam.position.x) * .03; cam.position.y += (-my * .5 - cam.position.y) * .03;
+        cam.lookAt(sc.position); r.render(sc, cam)
+      })();
+    })();
+
+    // CLOCK
+    setInterval(() => {
+      const n = new Date();
+      const el = document.getElementById('navTime');
+      if (el) el.textContent = n.toLocaleTimeString('uz', { hour: '2-digit', minute: '2-digit' });
+    }, 1000);
+  </script>
+
+  <!-- FIREBASE + ADMIN LOGIC -->
+  <script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, collection, getDocs, doc, getDoc, updateDoc, query, orderBy, where, limit, addDoc, serverTimestamp, increment } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const FB = { apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w", authDomain: "linguaverse-ebe09.firebaseapp.com", projectId: "linguaverse-ebe09", storageBucket: "linguaverse-ebe09.firebasestorage.app", messagingSenderId: "130625454868", appId: "1:130625454868:web:3f02871f64cb5f8af27801" };
+    const app = getApps().length ? getApps()[0] : initializeApp(FB);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const ADMIN_EMAILS = ['owner@gmail.uz', 'linguaverse.admin@gmail.com'];
+    let CURRENT_ADMIN = null, ALL_ORDERS = [], FILTER_STATUS = 'all';
+
+    // PACKS DATA (same as shop)
+    const PACKS = [
+      { id: 'starter', name: 'Starter Pack', fa: 'fa-box-open', rarity: 'common', style: { bg: 'linear-gradient(155deg,#1a2438 0%,#0f1726 100%)', stripe: '#4a6fa5', text: '#7fb3d3', rlbl: 'COMMON', rc: '#5b8cc4' }, series: 'Series 1', desc: 'Yangilar uchun ideal' },
+      { id: 'daily', name: 'Daily Pack', fa: 'fa-calendar-day', rarity: 'common', style: { bg: 'linear-gradient(155deg,#281c1c 0%,#180e0e 100%)', stripe: '#c45a5a', text: '#e87878', rlbl: 'COMMON', rc: '#c45a5a' }, series: 'Daily', desc: 'Kunlik bonus' },
+      { id: 'grammar', name: 'Grammar Pack', fa: 'fa-pen-nib', rarity: 'common', style: { bg: 'linear-gradient(155deg,#181c30 0%,#0e1020 100%)', stripe: '#7b6af5', text: '#a39df7', rlbl: 'COMMON', rc: '#7b6af5' }, series: 'Language', desc: 'Grammatika bonus' },
+      { id: 'ocean', name: 'Ocean Pack', fa: 'fa-water', rarity: 'common', style: { bg: 'linear-gradient(155deg,#0c1c2e 0%,#081420 100%)', stripe: '#1ea0cc', text: '#4dbee8', rlbl: 'COMMON', rc: '#1ea0cc' }, series: 'Elements', desc: 'Okean saxovati' },
+      { id: 'fire', name: 'Fire Pack', fa: 'fa-fire-flame-curved', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#280a0a 0%,#180404 100%)', stripe: '#e83c3c', text: '#f07070', rlbl: 'RARE', rc: '#e83c3c' }, series: 'Elements', desc: 'Olov kuchi' },
+      { id: 'thunder', name: 'Thunder Pack', fa: 'fa-bolt', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#22180a 0%,#140e04 100%)', stripe: '#d4a820', text: '#f0c840', rlbl: 'RARE', rc: '#d4a820' }, series: 'Elements', desc: 'Chaqmoq kuchi' },
+      { id: 'premium', name: 'Premium Pack', fa: 'fa-gem', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#180e3c 0%,#0e0828 100%)', stripe: '#7b6af5', text: '#a78bfa', rlbl: 'RARE', rc: '#7b6af5' }, series: 'Premium', desc: 'Premium sovgalar' },
+      { id: 'lucky', name: 'Lucky Pack', fa: 'fa-clover', rarity: 'rare', style: { bg: 'linear-gradient(155deg,#0c1e16 0%,#081008 100%)', stripe: '#28c870', text: '#50e090', rlbl: 'RARE', rc: '#28c870' }, series: 'Special', desc: 'Omad sinang!' },
+      { id: 'vip_pack', name: 'VIP Pack', fa: 'fa-crown', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#261408 0%,#180c02 100%)', stripe: '#d4980c', text: '#f5c842', rlbl: 'EPIC', rc: '#d4980c' }, series: 'Elite', desc: 'Eksklyuziv VIP' },
+      { id: 'dragon', name: 'Dragon Pack', fa: 'fa-dragon', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#260808 0%,#180402 100%)', stripe: '#c83030', text: '#e86060', rlbl: 'EPIC', rc: '#c83030' }, series: 'Beasts', desc: 'Ajdaho kuchi!' },
+      { id: 'galaxy', name: 'Galaxy Pack', fa: 'fa-meteor', rarity: 'epic', style: { bg: 'linear-gradient(155deg,#0e0626 0%,#060414 100%)', stripe: '#5848d0', text: '#8878f0', rlbl: 'EPIC', rc: '#5848d0' }, series: 'Cosmos', desc: 'Galaktika sirlari!' },
+      { id: 'mega', name: 'MEGA Pack', fa: 'fa-wand-magic-sparkles', rarity: 'legendary', style: { bg: 'linear-gradient(155deg,#1a1208 0%,#120c02 100%)', stripe: '#c89010', text: '#f0b830', rlbl: 'LEGENDARY', rc: '#c89010' }, series: 'Mega Series', desc: 'Eng katta paket!' },
+      { id: 'cosmos', name: 'Cosmos Pack', fa: 'fa-satellite', rarity: 'legendary', style: { bg: 'linear-gradient(155deg,#0a061e 0%,#060414 100%)', stripe: '#8060f0', text: '#b090f8', rlbl: 'LEGENDARY', rc: '#8060f0' }, series: 'Cosmos', desc: 'Koinot sirlari!' },
+      { id: 'omega', name: 'OMEGA Pack', fa: 'fa-infinity', rarity: 'mythic', style: { bg: 'linear-gradient(155deg,#160620 0%,#0c0414 100%)', stripe: '#c020e0', text: '#e050f8', rlbl: 'MYTHIC', rc: '#c020e0' }, series: 'Omega Series', desc: 'OMEGA BOSS pack!' },
+      { id: 'ultimate', name: 'ULTIMATE', fa: 'fa-khanda', rarity: 'mythic', style: { bg: 'linear-gradient(155deg,#160c02 0%,#0c0800 100%)', stripe: '#e0a000', text: '#f8c830', rlbl: 'MYTHIC', rc: '#e0a000' }, series: 'Ultimate', desc: 'Hammasi ichida!' }
+    ];
+
+    // ── AUTH ──────────────────────────────────────────
+    onAuthStateChanged(auth, async user => {
+      if (user) {
+        if (!ADMIN_EMAILS.includes(user.email)) { showAuthErr('Bu email admin emas!'); await signOut(auth); return; }
+        CURRENT_ADMIN = user;
+        document.getElementById('authScreen').style.display = 'none';
+        document.getElementById('app').style.display = 'block';
+        document.getElementById('navUserEmail').textContent = user.email;
+        document.getElementById('wbSub').textContent = `Kirgan: ${user.email} · Real-time monitoring`;
+        document.getElementById('adminList').innerHTML = ADMIN_EMAILS.map(e => `<div style="background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:10px;padding:9px 15px;font-size:.82rem;font-family:var(--font-h);display:flex;align-items:center;gap:10px"><i class="fa-solid fa-crown" style="color:${e === user.email ? 'var(--gold)' : 'var(--text3)'}"></i>${e}${e === user.email ? '<span class="nav-badge" style="margin-left:auto">SIZI</span>' : ''}</div>`).join('');
+        loadDashboard(); loadOrders(); renderPacksCatalog();
+      }
+    });
+
+    window.doAdminLogin = async function () {
+      const email = document.getElementById('adminEmail').value.trim();
+      const pass = document.getElementById('adminPass').value;
+      const btn = document.getElementById('loginBtn');
+      if (!email || !pass) { showAuthErr('Email va parol kiriting!'); return; }
+      if (!ADMIN_EMAILS.includes(email)) { showAuthErr('Bu email admin emas!'); return; }
+      btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Tekshirilmoqda...';
+      try { await signInWithEmailAndPassword(auth, email, pass); }
+      catch (e) {
+        const msgs = { 'auth/wrong-password': "Parol noto'g'ri", 'auth/user-not-found': 'Foydalanuvchi topilmadi', 'auth/invalid-credential': 'Email yoki parol xato' };
+        showAuthErr(msgs[e.code] || e.message);
+        btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> &nbsp;Kirish';
+      }
+    };
+
+    window.doLogout = async function () {
+      await signOut(auth);
+      document.getElementById('authScreen').style.display = 'flex';
+      document.getElementById('app').style.display = 'none';
+    };
+
+    function showAuthErr(msg) {
+      const el = document.getElementById('authErr');
+      el.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> ' + msg; el.style.display = 'block';
+      setTimeout(() => el.style.display = 'none', 4000);
+    }
+
+    // ── NAVIGATION ──────────────────────────────────────
+    window.showPage = function (page) {
+      document.querySelectorAll('.page-sec').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+      document.getElementById('page-' + page)?.classList.add('active');
+      document.querySelector(`[data-page="${page}"]`)?.classList.add('active');
+      if (page === 'users') loadUsers();
+      if (page === 'receipts') loadReceipts();
+    };
+
+    window.toggleSidebar = function () { document.getElementById('sidebar').classList.toggle('open'); };
+
+    function showPermError(e) {
+      if (e.code === 'permission-denied' || e.message?.includes('permissions') || e.message?.includes('permission')) {
+        document.getElementById('permBanner').classList.add('show');
+      }
+    }
+
+    // ── PACKS CATALOG ─────────────────────────────────
+    function renderPacksCatalog() {
+      const grid = document.getElementById('packsAdminGrid');
+      grid.innerHTML = PACKS.map(p => {
+        const s = p.style;
+        const rarityColors = { common: 'rgba(91,140,196,.12)', rare: 'rgba(123,106,245,.15)', epic: 'rgba(212,168,32,.15)', legendary: 'rgba(224,90,20,.18)', mythic: 'rgba(192,32,224,.2)' };
+        return `<div class="pack-admin-card pack-rarity-${p.rarity}" style="--pc-glow:${rarityColors[p.rarity] || 'rgba(91,124,250,.1)'}">
+<div class="pack-admin-stripe" style="background:${s.stripe}"></div>
+<div class="pack-admin-visual" style="background:linear-gradient(180deg,${s.bg.includes('0%,') ? s.bg.split('0%,')[0].split('(')[s.bg.split('0%,')[0].split('(').length - 1] || '#111' : '#111'} 0%,var(--bg3) 100%)">
+<div class="pack-shape-admin" style="background:${s.bg};border:1px solid ${s.stripe}44">
+<div class="psa-header" style="color:${s.text}"><span>LINGUA</span><span>★</span></div>
+<i class="fa-solid ${p.fa} psa-fa" style="color:${s.text};filter:drop-shadow(0 0 14px ${s.stripe}bb)"></i>
+<div class="psa-footer"><div class="psa-name" style="color:${s.text}">${p.name}</div><div class="psa-series" style="color:${s.rc}">${p.series}</div></div>
+</div></div>
+<div class="pack-admin-body">
+<div class="pack-admin-rarity" style="color:${s.rc}"><i class="fa-solid fa-circle" style="font-size:.3rem"></i>${s.rlbl}</div>
+<div class="pack-admin-name">${p.name}</div>
+<div class="pack-admin-meta">${p.desc}</div>
+</div></div>`;
+      }).join('');
+    }
+
+    // ── DASHBOARD ──────────────────────────────────────
+    window.loadDashboard = async function () {
+      document.getElementById('permBanner').classList.remove('show');
+      try {
+        const ordSnap = await getDocs(collection(db, 'orders'));
+        const orders = []; ordSnap.forEach(d => orders.push({ id: d.id, ...d.data() }));
+        const pending = orders.filter(o => o.status === 'pending');
+        const approved = orders.filter(o => o.status === 'approved');
+        const rejected = orders.filter(o => o.status === 'rejected');
+        const revenue = approved.reduce((s, o) => s + (o.price_uzs || 0), 0);
+
+        document.getElementById('s-total-orders').textContent = orders.length;
+        document.getElementById('s-pending').textContent = pending.length;
+        document.getElementById('s-pending-sub').textContent = pending.length > 0 ? `⚡ ${pending.length} ta kutilmoqda` : '';
+        document.getElementById('s-approved').textContent = approved.length;
+        document.getElementById('s-rejected').textContent = rejected.length;
+        document.getElementById('s-revenue').textContent = (revenue / 1000).toFixed(0) + 'K';
+        const usSnap = await getDocs(collection(db, 'users'));
+        document.getElementById('s-users').textContent = usSnap.size;
+        document.getElementById('pendingBadge').textContent = pending.length;
+
+        // Mini chart
+        renderMiniChart(pending.length, approved.length, rejected.length, orders.length);
+        // Activity feed
+        renderActivity(orders.slice(-8).reverse());
+        // Recent orders
+        const recent = pending.slice(0, 6);
+        const rEl = document.getElementById('recentOrders');
+        if (!recent.length) { rEl.innerHTML = '<div class="empty"><span>✅</span>Hech qanday kutilayotgan buyurtma yo\'q</div>'; return; }
+        rEl.innerHTML = '<div class="orders-wrap">' + recent.map(o => renderOrderCard(o, true)).join('') + '</div>';
+      } catch (e) { console.error(e); showPermError(e); toast('Xato: ' + e.message, 'error', 'fa-circle-xmark'); }
+    };
+
+    function renderMiniChart(pending, approved, rejected, total) {
+      const items = [
+        { val: approved, color: 'var(--green)', label: '✅ Tasdiqlangan' },
+        { val: pending, color: 'var(--gold)', label: '⏳ Kutilmoqda' },
+        { val: rejected, color: 'var(--red)', label: '❌ Rad etilgan' },
+      ];
+      const max = Math.max(approved, pending, rejected, 1);
+      const days = ['Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh', 'Ya'];
+      const fake = days.map(() => Math.floor(Math.random() * total / 7 + 1));
+      const fakeMax = Math.max(...fake, 1);
+      const chart = document.getElementById('miniChart');
+      chart.innerHTML = fake.map((v, i) => `<div class="mc-bar" data-val="${v}" style="height:${Math.max(8, (v / fakeMax) * 80)}px;background:linear-gradient(to top,var(--accent),var(--accent2));opacity:.7;flex:1" title="${days[i]}: ${v}"></div>`).join('');
+      const legend = document.getElementById('chartLegend');
+      legend.innerHTML = items.map(it => `<div style="display:flex;align-items:center;gap:5px;font-size:.65rem;color:var(--text3);font-family:var(--font-h)"><div style="width:8px;height:8px;border-radius:2px;background:${it.color}"></div>${it.label}: <strong style="color:${it.color}">${it.val}</strong></div>`).join('');
+    }
+
+    function renderActivity(orders) {
+      const feed = document.getElementById('activityFeed');
+      if (!orders.length) { feed.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text3);font-size:.8rem;font-family:var(--font-h)">Faoliyat yo\'q</div>'; return; }
+      feed.innerHTML = orders.slice(0, 6).map(o => {
+        const ts = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleTimeString('uz', { hour: '2-digit', minute: '2-digit' }) : '--:--';
+        return `<div class="activity-item">
+<div class="ai-dot ${o.status || 'pending'}"></div>
+<div class="ai-text"><strong style="color:var(--text)">${o.userName || 'Anonim'}</strong> — ${o.itemName || 'mahsulot'}</div>
+<div class="ai-time">${ts}</div></div>`;
+      }).join('');
+    }
+
+    // ── ORDERS ─────────────────────────────────────────
+    window.loadOrders = async function () {
+      document.getElementById('ordersWrap').innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      try {
+        const snap = await getDocs(query(collection(db, 'orders'), orderBy('createdAt', 'desc')));
+        ALL_ORDERS = [];
+        snap.forEach(d => ALL_ORDERS.push({ id: d.id, ...d.data() }));
+        document.getElementById('pendingBadge').textContent = ALL_ORDERS.filter(o => o.status === 'pending').length;
+        renderOrders();
+      } catch (e) {
+        showPermError(e);
+        document.getElementById('ordersWrap').innerHTML = `<div class="empty"><span>⚠️</span>${e.code === 'permission-denied' ? '🔒 Firestore ruxsat xatosi! Sozlamalar → Rules bo\'limiga kiring.' : e.message}</div>`;
+      }
+    };
+
+    window.filterOrders = function (status, btn) {
+      FILTER_STATUS = status;
+      document.querySelectorAll('.filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderOrders();
+    };
+
+    window.searchOrders = function () { renderOrders(); };
+
+    function renderOrders() {
+      const q = (document.getElementById('orderSearch')?.value || '').toLowerCase();
+      let orders = ALL_ORDERS;
+      if (FILTER_STATUS !== 'all') orders = orders.filter(o => o.status === FILTER_STATUS);
+      if (q) orders = orders.filter(o => (o.userName || '').toLowerCase().includes(q) || (o.userEmail || '').toLowerCase().includes(q) || (o.itemName || '').toLowerCase().includes(q));
+      const wrap = document.getElementById('ordersWrap');
+      if (!orders.length) { wrap.innerHTML = '<div class="empty"><span>📭</span>Buyurtma topilmadi</div>'; return; }
+      wrap.innerHTML = orders.map(o => renderOrderCard(o)).join('');
+    }
+
+    function renderOrderCard(o, mini = false) {
+      const ts = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString('uz') : '—';
+      // check receipt from shop: receiptImageUrl or receiptBase64 or receiptURL
+      const receiptSrc = o.receiptImageUrl || (o.receiptBase64 && o.receiptBase64.startsWith('data:') ? o.receiptBase64 : null) || (o.receiptURL && o.receiptURL !== 'base64_stored' && o.receiptURL.startsWith('http') ? o.receiptURL : null);
+      const hasReceipt = !!receiptSrc;
+      const statusLabel = o.status === 'pending' ? '⏳ Kutilmoqda' : o.status === 'approved' ? '✅ Tasdiqlangan' : '❌ Rad etildi';
+      return `<div class="order-card ${o.status || 'pending'}" id="card-${o.id}">
+<div class="order-header" onclick="toggleOrder('${o.id}')">
+<div class="order-icon">${o.icon || '📦'}</div>
+<div class="order-info">
+<div class="order-name">${o.itemName || '—'}</div>
+<div class="order-meta"><i class="fa-solid fa-user" style="opacity:.5"></i> ${o.userName || '—'} &nbsp;·&nbsp; ${o.userEmail || '—'} &nbsp;·&nbsp; <i class="fa-solid fa-clock" style="opacity:.5"></i> ${ts}</div>
+</div>
+<div class="order-price">${(o.price_uzs || 0).toLocaleString()} so'm</div>
+<span class="status-badge status-${o.status || 'pending'}">${statusLabel}</span>
+<span class="order-toggle" id="tog-${o.id}"><i class="fa-solid fa-chevron-down"></i></span>
+</div>
+<div class="order-body" id="body-${o.id}">
+<div class="order-grid">
+<div class="order-field"><div class="of-label">Mahsulot Turi</div><div class="of-val">${o.itemType || '—'}</div></div>
+<div class="order-field"><div class="of-label">User ID</div><div class="of-val" style="font-size:.7rem">${o.uid || o.userId || '—'}</div></div>
+<div class="order-field"><div class="of-label">Joriy Reja</div><div class="of-val">${o.currentUserData?.plan || 'free'}</div></div>
+<div class="order-field"><div class="of-label">Coins / Tokens</div><div class="of-val">🪙 ${o.currentUserData?.coins || 0} &nbsp;·&nbsp; 🎫 ${o.currentUserData?.tokens || 0}</div></div>
+${o.comment ? `<div class="order-field" style="grid-column:1/-1"><div class="of-label">Izoh</div><div class="of-val">${o.comment}</div></div>` : ''}
+${o.adminNote ? `<div class="order-field" style="grid-column:1/-1;border-color:rgba(248,113,113,.25)"><div class="of-label" style="color:var(--red)">Admin Izohi</div><div class="of-val">${o.adminNote}</div></div>` : ''}
+</div>
+${hasReceipt ? `
+<div class="receipt-preview-section">
+<div class="receipt-preview-title"><i class="fa-solid fa-file-invoice"></i> To'lov Cheki</div>
+<img class="receipt-img" src="${receiptSrc}" alt="Chek" onclick="openLightbox('${receiptSrc}')" title="Kattalashtirish uchun bosing"/>
+</div>
+`: '<div class="receipt-placeholder"><i class="fa-solid fa-camera" style="font-size:1.5rem;display:block;margin-bottom:8px;opacity:.3"></i>Chek rasmi yuklanmagan</div>'}
+${o.status === 'pending' ? `
+<div class="action-bar">
+<input class="note-input" id="note-${o.id}" placeholder="Admin izohi (ixtiyoriy)..."/>
+<button class="btn-view-user" onclick="viewUser('${o.uid || o.userId}')"><i class="fa-solid fa-user"></i> User</button>
+<button class="btn-reject" id="rbtn-${o.id}" onclick="rejectOrder('${o.id}')"><i class="fa-solid fa-xmark"></i> Rad etish</button>
+<button class="btn-approve" id="abtn-${o.id}" onclick="approveOrder('${o.id}','${o.itemType}','${o.itemId}',${o.price_uzs || 0},'${o.uid || o.userId}')"><i class="fa-solid fa-check"></i> Tasdiqlash</button>
+</div>
+<div class="action-result" id="res-${o.id}"></div>` : ''}
+</div>
+</div>`;
+    }
+
+    window.toggleOrder = function (id) {
+      const body = document.getElementById('body-' + id);
+      const tog = document.getElementById('tog-' + id);
+      if (body) { body.classList.toggle('open'); }
+      if (tog) { tog.classList.toggle('open'); }
+    };
+
+    // ── RECEIPTS PAGE ─────────────────────────────────
+    window.loadReceipts = async function () {
+      const grid = document.getElementById('receiptsGrid');
+      grid.innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      try {
+        const snap = await getDocs(query(collection(db, 'orders'), orderBy('createdAt', 'desc')));
+        const withReceipts = [];
+        snap.forEach(d => {
+          const o = { id: d.id, ...d.data() };
+          const src = o.receiptImageUrl || (o.receiptBase64 && o.receiptBase64.startsWith('data:') ? o.receiptBase64 : null) || (o.receiptURL && o.receiptURL !== 'base64_stored' && o.receiptURL.startsWith('http') ? o.receiptURL : null);
+          if (src) withReceipts.push({ ...o, _src: src });
+        });
+        if (!withReceipts.length) { grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><span>📸</span>Hech qanday chek rasmi yo\'q</div>'; return; }
+        grid.innerHTML = withReceipts.map(o => `<div class="receipt-thumb-card" onclick="openLightbox('${o._src}')">
+<img src="${o._src}" alt="Chek" loading="lazy" onerror="this.style.display='none'"/>
+<div class="receipt-thumb-info">
+<div class="receipt-thumb-name">${o.itemName || '—'}</div>
+<div class="receipt-thumb-meta">${o.userName || '—'} · <span class="status-badge status-${o.status || 'pending'}" style="font-size:.55rem;padding:2px 7px">${o.status || 'pending'}</span></div>
+<div class="receipt-thumb-meta" style="color:var(--gold)">${(o.price_uzs || 0).toLocaleString()} so'm</div>
+</div></div>`).join('');
+      } catch (e) { grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><span>⚠️</span>${e.message}</div>`; }
+    };
+
+    // ── APPROVE ORDER ─────────────────────────────────
+    window.approveOrder = async function (orderId, itemType, itemId, price, userId) {
+      const abtn = document.getElementById('abtn-' + orderId);
+      const rbtn = document.getElementById('rbtn-' + orderId);
+      const note = document.getElementById('note-' + orderId)?.value || '';
+      const res = document.getElementById('res-' + orderId);
+      if (!abtn) return;
+      abtn.disabled = true; if (rbtn) rbtn.disabled = true;
+      abtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Tasdiqlanmoqda...';
+      try {
+        await updateDoc(doc(db, 'orders', orderId), { status: 'approved', adminNote: note, approvedAt: serverTimestamp(), approvedBy: CURRENT_ADMIN.email });
+        const userRef = doc(db, 'users', userId);
+        const userSnap = await getDoc(userRef);
+        if (userSnap.exists()) {
+          const updates = {};
+          if (itemType === 'plan') { updates.plan = itemId; if (itemId === 'pro') updates.tokens = increment(3000); else if (itemId === 'premium') updates.tokens = increment(8000); }
+          else if (itemType === 'vip') { updates.isVIP = true; updates.vipExpiry = Date.now() + 30 * 24 * 3600000; updates.tokens = increment(5000); }
+          else if (itemType === 'token_package') { const tokMap = { 'tok_500': 500, 'tok_1200': 1400, 'tok_3000': 3500, 'tok_7000': 8000, 'tok_15000': 18000 }; updates.tokens = increment(tokMap[itemId] || 500); }
+          else if (itemType === 'coin_package') { const coinMap = { 'coin_pkg_200': 200, 'coin_pkg_1000': 1000, 'coin_pkg_5000': 5000, 'coin_pkg_15000': 15000, 'coin_pkg_50000': 50000 }; const amt = parseInt(itemId?.split('_').pop()) || 200; updates.coins = increment(amt); }
+          if (Object.keys(updates).length) await updateDoc(userRef, updates);
+        }
+        const card = document.getElementById('card-' + orderId);
+        if (card) { card.className = 'order-card approved'; }
+        if (res) { res.className = 'action-result ok'; res.innerHTML = '<i class="fa-solid fa-check-circle"></i> Tasdiqlandi! Foydalanuvchi ma\'lumotlari yangilandi.'; }
+        const pb = document.getElementById('pendingBadge');
+        pb.textContent = Math.max(0, (parseInt(pb.textContent) || 1) - 1);
+        toast('✅ Buyurtma tasdiqlandi!', 'success', 'fa-check-circle');
+      } catch (e) {
+        if (res) { res.className = 'action-result err'; res.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Xato: ' + e.message; }
+        if (abtn) { abtn.disabled = false; abtn.innerHTML = '<i class="fa-solid fa-check"></i> Tasdiqlash'; }
+        if (rbtn) rbtn.disabled = false;
+        toast('Xato: ' + e.message, 'error', 'fa-circle-xmark');
+      }
+    };
+
+    // ── REJECT ORDER ──────────────────────────────────
+    window.rejectOrder = async function (orderId) {
+      const abtn = document.getElementById('abtn-' + orderId);
+      const rbtn = document.getElementById('rbtn-' + orderId);
+      const note = document.getElementById('note-' + orderId)?.value || '';
+      const res = document.getElementById('res-' + orderId);
+      if (!rbtn) return;
+      rbtn.disabled = true; if (abtn) abtn.disabled = true;
+      rbtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>...';
+      try {
+        await updateDoc(doc(db, 'orders', orderId), { status: 'rejected', adminNote: note || 'Rad etildi', rejectedAt: serverTimestamp(), rejectedBy: CURRENT_ADMIN.email });
+        const card = document.getElementById('card-' + orderId);
+        if (card) card.className = 'order-card rejected';
+        if (res) { res.className = 'action-result err'; res.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Rad etildi.'; }
+        const pb = document.getElementById('pendingBadge');
+        pb.textContent = Math.max(0, (parseInt(pb.textContent) || 1) - 1);
+        toast('Buyurtma rad etildi.', 'info', 'fa-circle-info');
+      } catch (e) {
+        if (res) { res.className = 'action-result err'; res.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Xato: ' + e.message; }
+        if (rbtn) { rbtn.disabled = false; rbtn.innerHTML = '<i class="fa-solid fa-xmark"></i> Rad etish'; }
+        if (abtn) abtn.disabled = false;
+      }
+    };
+
+    // ── USERS ─────────────────────────────────────────
+    window.loadUsers = async function () {
+      const tbody = document.getElementById('usersBody');
+      tbody.innerHTML = '<tr><td colspan="8" class="loading-row"><span class="spinner"></span>Yuklanmoqda...</td></tr>';
+      try {
+        const snap = await getDocs(query(collection(db, 'users'), orderBy('createdAt', 'desc'), limit(200)));
+        const users = []; snap.forEach(d => users.push({ id: d.id, ...d.data() }));
+        if (!users.length) { tbody.innerHTML = '<tr><td colspan="8" class="loading-row">Foydalanuvchi yo\'q</td></tr>'; return; }
+        tbody.innerHTML = users.map(u => {
+          const initials = (u.displayName || u.email || '?').substring(0, 1).toUpperCase();
+          const planClass = { free: 'plan-free', pro: 'plan-pro', premium: 'plan-premium', ultimate: 'plan-ultimate' }[u.plan || 'free'] || 'plan-free';
+          const dateStr = u.createdAt?.toDate ? u.createdAt.toDate().toLocaleDateString('uz') : '—';
+          return `<tr>
+<td><div class="user-name-cell"><div class="user-avatar">${initials}</div><span style="font-weight:700">${u.displayName || '—'}</span>${u.isVIP ? '<span class="vip-chip"><i class="fa-solid fa-crown"></i></span>' : ''}</div></td>
+<td style="color:var(--text3);font-size:.76rem">${u.email || '—'}</td>
+<td><span class="plan-chip ${planClass}">${u.plan || 'free'}</span></td>
+<td style="color:var(--accent);font-weight:700">${(u.xp || 0).toLocaleString()}</td>
+<td style="color:var(--gold);font-weight:700">${(u.coins || 0).toLocaleString()}</td>
+<td style="color:var(--cyan);font-weight:700">${(u.tokens || 0).toLocaleString()}</td>
+<td style="color:var(--text3);font-size:.72rem">${dateStr}</td>
+<td><button class="btn-view-user" onclick="viewUser('${u.id}')" style="font-size:.72rem;padding:5px 12px"><i class="fa-solid fa-eye"></i> Ko'rish</button></td>
+</tr>`;
+        }).join('');
+      } catch (e) { tbody.innerHTML = `<tr><td colspan="8" class="loading-row" style="color:var(--red)"><i class="fa-solid fa-circle-xmark"></i> ${e.message}</td></tr>`; }
+    };
+
+    // ── USER DETAIL ────────────────────────────────────
+    window.viewUser = async function (uid) {
+      if (!uid) return;
+      const modal = document.getElementById('userModal');
+      const body = document.getElementById('userModalBody');
+      document.getElementById('userModalTitle').textContent = 'Foydalanuvchi';
+      body.innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      modal.classList.add('open');
+      try {
+        const snap = await getDoc(doc(db, 'users', uid));
+        if (!snap.exists()) { body.innerHTML = '<div style="color:var(--red);font-family:var(--font-h)"><i class="fa-solid fa-circle-xmark"></i> Foydalanuvchi topilmadi</div>'; return; }
+        const u = { id: snap.id, ...snap.data() };
+        document.getElementById('userModalTitle').textContent = u.displayName || u.email || uid;
+        const planClass = { free: 'plan-free', pro: 'plan-pro', premium: 'plan-premium', ultimate: 'plan-ultimate' }[u.plan || 'free'] || 'plan-free';
+        body.innerHTML = `
+<div class="ud-grid">
+<div class="ud-field"><div class="ud-label">Email</div><div class="ud-val" style="font-size:.78rem">${u.email || '—'}</div></div>
+<div class="ud-field"><div class="ud-label">UID</div><div class="ud-val" style="font-size:.68rem;word-break:break-all">${u.id}</div></div>
+<div class="ud-field"><div class="ud-label">Reja</div><div class="ud-val"><span class="plan-chip ${planClass}">${u.plan || 'free'}</span></div></div>
+<div class="ud-field"><div class="ud-label">VIP</div><div class="ud-val">${u.isVIP ? '<span class="vip-chip"><i class="fa-solid fa-crown"></i> VIP</span>' : "Yo'q"}</div></div>
+<div class="ud-field"><div class="ud-label">XP</div><div class="ud-val" style="color:var(--accent)">${(u.xp || 0).toLocaleString()}</div></div>
+<div class="ud-field"><div class="ud-label">Coins</div><div class="ud-val" style="color:var(--gold)">${(u.coins || 0).toLocaleString()}</div></div>
+<div class="ud-field"><div class="ud-label">Tokens</div><div class="ud-val" style="color:var(--cyan)">${(u.tokens || 0).toLocaleString()}</div></div>
+<div class="ud-field"><div class="ud-label">Rank</div><div class="ud-val">${u.rank || 'none'}</div></div>
+</div>
+<div style="font-family:var(--font-d);font-size:.88rem;font-weight:800;margin:20px 0 12px;letter-spacing:.04em"><i class="fa-solid fa-pen" style="color:var(--accent)"></i> Tahrirlash</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+<div><label class="edit-label">Reja</label><select class="edit-input" id="edit-plan-${u.id}" style="cursor:pointer">
+<option value="free" ${u.plan === 'free' ? 'selected' : ''}>Free</option>
+<option value="pro" ${u.plan === 'pro' ? 'selected' : ''}>Pro</option>
+<option value="premium" ${u.plan === 'premium' ? 'selected' : ''}>Premium</option>
+<option value="ultimate" ${u.plan === 'ultimate' ? 'selected' : ''}>Ultimate</option>
+</select></div>
+<div><label class="edit-label">VIP</label><select class="edit-input" id="edit-vip-${u.id}" style="cursor:pointer">
+<option value="false" ${!u.isVIP ? 'selected' : ''}>Yo'q</option>
+<option value="true" ${u.isVIP ? 'selected' : ''}>Ha (VIP)</option>
+</select></div>
+<div><label class="edit-label">Coins qo'shish</label><input class="edit-input" type="number" id="add-coins-${u.id}" placeholder="0" min="0"/></div>
+<div><label class="edit-label">Tokens qo'shish</label><input class="edit-input" type="number" id="add-tokens-${u.id}" placeholder="0" min="0"/></div>
+<div><label class="edit-label">XP qo'shish</label><input class="edit-input" type="number" id="add-xp-${u.id}" placeholder="0" min="0"/></div>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn-save" onclick="saveUser('${u.id}')"><i class="fa-solid fa-floppy-disk"></i> Saqlash</button>
+<button class="btn-danger" onclick="resetUserTokens('${u.id}')"><i class="fa-solid fa-rotate-right"></i> Tokenlarni Tiklash</button>
+</div>
+<div class="action-result" id="user-res-${u.id}" style="margin-top:12px"></div>`;
+      } catch (e) { body.innerHTML = `<div style="color:var(--red);font-family:var(--font-h)"><i class="fa-solid fa-circle-xmark"></i> ${e.message}</div>`; }
+    };
+
+    window.saveUser = async function (uid) {
+      const plan = document.getElementById(`edit-plan-${uid}`)?.value;
+      const isVIP = document.getElementById(`edit-vip-${uid}`)?.value === 'true';
+      const addCoins = parseInt(document.getElementById(`add-coins-${uid}`)?.value) || 0;
+      const addTokens = parseInt(document.getElementById(`add-tokens-${uid}`)?.value) || 0;
+      const addXP = parseInt(document.getElementById(`add-xp-${uid}`)?.value) || 0;
+      const res = document.getElementById(`user-res-${uid}`);
+      const updates = { plan, isVIP };
+      if (addCoins > 0) updates.coins = increment(addCoins);
+      if (addTokens > 0) updates.tokens = increment(addTokens);
+      if (addXP > 0) updates.xp = increment(addXP);
+      if (isVIP) updates.vipExpiry = Date.now() + 30 * 24 * 3600000;
+      try {
+        await updateDoc(doc(db, 'users', uid), updates);
+        if (res) { res.className = 'action-result ok'; res.innerHTML = '<i class="fa-solid fa-check-circle"></i> Saqlandi!'; }
+        toast('Foydalanuvchi yangilandi!', 'success', 'fa-check-circle');
+      } catch (e) { if (res) { res.className = 'action-result err'; res.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> ' + e.message; } }
+    };
+
+    window.resetUserTokens = async function (uid) {
+      try {
+        await updateDoc(doc(db, 'users', uid), { tokens: 1000 });
+        const res = document.getElementById(`user-res-${uid}`);
+        if (res) { res.className = 'action-result ok'; res.innerHTML = '<i class="fa-solid fa-rotate-right"></i> Tokenlar 1000 ga tiklandi!'; }
+        toast('Tokenlar tiklandi!', 'info', 'fa-circle-info');
+      } catch (e) { toast('Xato: ' + e.message, 'error', 'fa-circle-xmark'); }
+    };
+
+    window.closeUserModal = function () { document.getElementById('userModal').classList.remove('open'); };
+
+    // ── USER SEARCH ────────────────────────────────────
+    window.searchUser = async function () {
+      const q = document.getElementById('userSearchQ').value.trim();
+      const res = document.getElementById('searchResult');
+      if (!q) return;
+      res.innerHTML = '<div class="loading-row"><span class="spinner"></span>Qidirilmoqda...</div>';
+      try {
+        const byId = await getDoc(doc(db, 'users', q));
+        if (byId.exists()) { res.innerHTML = renderUserCard({ id: byId.id, ...byId.data() }); return; }
+        const byEmail = await getDocs(query(collection(db, 'users'), where('email', '==', q)));
+        if (!byEmail.empty) {
+          const results = []; byEmail.forEach(d => results.push({ id: d.id, ...d.data() }));
+          res.innerHTML = results.map(renderUserCard).join(''); return;
+        }
+        res.innerHTML = '<div class="empty"><span>🔍</span>Topilmadi. Email yoki to\'g\'ri UID kiriting.</div>';
+      } catch (e) { res.innerHTML = `<div style="color:var(--red);font-family:var(--font-h)"><i class="fa-solid fa-circle-xmark"></i> ${e.message}</div>`; }
+    };
+
+    function renderUserCard(u) {
+      const planClass = { free: 'plan-free', pro: 'plan-pro', premium: 'plan-premium', ultimate: 'plan-ultimate' }[u.plan || 'free'] || 'plan-free';
+      return `<div class="user-search-card">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+<div class="user-avatar" style="width:46px;height:46px;font-size:1.1rem">${(u.displayName || u.email || '?').substring(0, 1).toUpperCase()}</div>
+<div><div style="font-family:var(--font-d);font-weight:800;font-size:1rem;letter-spacing:.03em">${u.displayName || '—'}</div><div style="font-size:.76rem;color:var(--text3);font-family:var(--font-h)">${u.email || u.id}</div></div>
+${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid fa-crown"></i> VIP</span>' : ''}
+<span class="plan-chip ${planClass}" style="${!u.isVIP ? 'margin-left:auto' : ''}">${u.plan || 'free'}</span>
+</div>
+<div class="ud-grid" style="margin-bottom:14px">
+<div class="ud-field"><div class="ud-label">XP</div><div class="ud-val" style="color:var(--accent)">${(u.xp || 0).toLocaleString()}</div></div>
+<div class="ud-field"><div class="ud-label">Coins</div><div class="ud-val" style="color:var(--gold)">${(u.coins || 0).toLocaleString()}</div></div>
+<div class="ud-field"><div class="ud-label">Tokens</div><div class="ud-val" style="color:var(--cyan)">${(u.tokens || 0).toLocaleString()}</div></div>
+<div class="ud-field"><div class="ud-label">Rank</div><div class="ud-val">${u.rank || 'none'}</div></div>
+</div>
+<button class="btn-view-user" onclick="viewUser('${u.id}')"><i class="fa-solid fa-pen-to-square"></i> Tahrirlash</button>
+</div>`;
+    }
+
+    // ── ANNOUNCEMENTS ──────────────────────────────────
+    window.sendAnnouncement = async function () {
+      const type = document.getElementById('annType').value;
+      const title = document.getElementById('annTitle').value.trim();
+      const body = document.getElementById('annBody').value.trim();
+      if (!title || !body) { toast("Sarlavha va matn kiriting!", 'error', 'fa-circle-xmark'); return; }
+      try {
+        await addDoc(collection(db, 'announcements'), { type, title, body, createdAt: serverTimestamp(), createdBy: CURRENT_ADMIN.email, read: false });
+        document.getElementById('annTitle').value = '';
+        document.getElementById('annBody').value = '';
+        toast("✅ E'lon yuborildi!", 'success', 'fa-bullhorn');
+      } catch (e) { toast('Xato: ' + e.message, 'error', 'fa-circle-xmark'); }
+    };
+
+    // ── COPY RULES ─────────────────────────────────────
+    window.copyRules = function () {
+      const rules = document.getElementById('rulesCode').textContent;
+      navigator.clipboard.writeText(rules).then(() => {
+        const btn = document.getElementById('copyRulesBtn');
+        if (btn) { btn.innerHTML = '<i class="fa-solid fa-check"></i> Nusxalandi!'; btn.classList.add('copied'); setTimeout(() => { btn.innerHTML = '<i class="fa-solid fa-copy"></i> Nusxa'; btn.classList.remove('copied'); }, 2500); }
+        toast('✅ Rules nusxalandi! Firebase Console ga yapishtirib Publish qiling.', 'success', 'fa-check');
+      }).catch(() => toast("Nusxalash xato — qo'lda nusxalab oling", 'error', 'fa-circle-xmark'));
+    };
+
+    // ── LIGHTBOX ───────────────────────────────────────
+    window.openLightbox = function (src) {
+      if (!src) return;
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    };
+    window.closeLightbox = function () { document.getElementById('lightbox').classList.remove('open'); };
+
+    // ── TOAST ──────────────────────────────────────────
+    function toast(msg, type = 'info', fa = 'fa-circle-info') {
+      const t = document.getElementById('toast');
+      document.getElementById('toastIcon').className = 'fa-solid ' + fa;
+      document.getElementById('toastMsg').textContent = msg;
+      t.className = 'toast ' + type + ' show';
+      clearTimeout(t._tid); t._tid = setTimeout(() => t.classList.remove('show'), 3500);
+    }
+    window.toast = toast;
+
+    // ── ENTER KEY ──────────────────────────────────────
+    document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') window.doAdminLogin(); });
+
+    // ── MOBILE ─────────────────────────────────────────
+    if (window.innerWidth <= 768) document.getElementById('menuToggle').style.display = 'block';
+  </script>
+</body>
+
+</html>

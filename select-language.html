@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaVerse — Til Tanlash</title>
+   <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;700&family=Exo+2:wght@400;600;800;900&display=swap"
+        rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+     font-family: 'Cinzel', serif;
+
+    }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --card: #16161f;
+      --border: rgba(255, 255, 255, 0.07);
+      --accent: #4f6ef7;
+      --accent2: #a78bfa;
+      --text: #f0f0f5;
+      --muted: #6b6b80;
+      --gold: #f5c842;
+    }
+
+    html,
+    body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden
+    }
+
+    /* BG ORBS */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0
+    }
+
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: rgba(79, 110, 247, 0.12);
+      top: -100px;
+      left: -100px
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: rgba(167, 139, 250, 0.08);
+      bottom: -80px;
+      right: -80px
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: rgba(245, 200, 66, 0.05);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%)
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s
+    }
+
+    nav.scrolled {
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(20px);
+      border-color: var(--border)
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none
+    }
+
+    .logo span {
+      color: var(--accent)
+    }
+
+    .nav-user {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .nav-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem
+    }
+
+    .nav-username {
+      font-size: 0.85rem;
+      color: var(--muted)
+    }
+
+    .plan-badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      font-family: 'Syne', sans-serif
+    }
+
+    .plan-badge.free {
+      background: rgba(107, 107, 128, 0.15);
+      color: var(--muted);
+      border: 1px solid rgba(107, 107, 128, 0.2)
+    }
+
+    .plan-badge.universal {
+      background: rgba(245, 200, 66, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(245, 200, 66, 0.3)
+    }
+
+    .nav-logout {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.2s
+    }
+
+    .nav-logout:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text)
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 120px 20px 60px
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(79, 110, 247, 0.1);
+      border: 1px solid rgba(79, 110, 247, 0.2);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s ease both
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      animation: fadeUp 0.6s ease 0.1s both
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto;
+      animation: fadeUp 0.6s ease 0.2s both
+    }
+
+    /* SEARCH */
+    .search-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      margin: 32px auto 0;
+      animation: fadeUp 0.6s ease 0.3s both
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 20px 14px 48px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: all 0.3s
+    }
+
+    .search-input::placeholder {
+      color: var(--muted)
+    }
+
+    .search-input:focus {
+      border-color: rgba(79, 110, 247, 0.4);
+      box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.08)
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1.1rem
+    }
+
+    /* FILTER TABS */
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.6s ease 0.35s both
+    }
+
+    .ftab {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif
+    }
+
+    .ftab:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--text)
+    }
+
+    .ftab.active {
+      background: rgba(79, 110, 247, 0.15);
+      border-color: rgba(79, 110, 247, 0.4);
+      color: var(--accent)
+    }
+
+    /* LANGUAGES GRID */
+    .languages-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 80px
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 32px
+    }
+
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px
+    }
+
+    /* LANGUAGE CARD */
+    .lang-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.5s ease both
+    }
+
+    .lang-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--card-accent, rgba(79, 110, 247, 0.05)), transparent);
+      opacity: 0;
+      transition: opacity 0.3s
+    }
+
+    .lang-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3)
+    }
+
+    .lang-card:hover::before {
+      opacity: 1
+    }
+
+    .lang-card.coming-soon {
+      opacity: 0.5;
+      cursor: not-allowed
+    }
+
+    .lang-card.coming-soon:hover {
+      transform: none;
+      box-shadow: none
+    }
+
+    .lang-flag {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      display: block;
+      line-height: 1
+    }
+
+    .lang-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .lang-native {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 12px
+    }
+
+    .lang-stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px
+    }
+
+    .lang-stat {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 8px;
+      font-size: 0.7rem;
+      color: var(--muted)
+    }
+
+    .lang-progress-wrap {
+      margin-bottom: 12px
+    }
+
+    .lang-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 6px
+    }
+
+    .lang-progress-bar-bg {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 2px;
+      overflow: hidden
+    }
+
+    .lang-progress-bar {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 1s ease
+    }
+
+    .lang-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600
+    }
+
+    .lang-badge.available {
+      background: rgba(52, 211, 153, 0.1);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, 0.2)
+    }
+
+    .lang-badge.soon {
+      background: rgba(107, 107, 128, 0.1);
+      color: var(--muted);
+      border: 1px solid var(--border)
+    }
+
+    .lang-badge.new {
+      background: rgba(245, 200, 66, 0.1);
+      color: var(--gold);
+      border: 1px solid rgba(245, 200, 66, 0.2)
+    }
+
+    .lang-arrow {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1.2rem;
+      transition: all 0.3s;
+      opacity: 0
+    }
+
+    .lang-card:hover .lang-arrow {
+      opacity: 1;
+      right: 16px
+    }
+
+    /* POPULAR SECTION */
+    .popular-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(245, 200, 66, 0.15);
+      border: 1px solid rgba(245, 200, 66, 0.3);
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-family: 'Syne', sans-serif
+    }
+
+    /* STATS ROW */
+    .stats-row {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0 auto 48px;
+      max-width: 600px;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.6s ease 0.25s both
+    }
+
+    .stat-item {
+      text-align: center
+    }
+
+    .stat-n {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .stat-l {
+      font-size: 0.75rem;
+      color: var(--muted)
+    }
+
+    /* NO RESULTS */
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted)
+    }
+
+    .no-results span {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:600px) {
+      nav {
+        padding: 0 20px
+      }
+
+      .hero {
+        padding: 100px 20px 40px
+      }
+
+      .lang-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <nav id="navbar">
+    <div class="nav-user" id="navUser"></div>
+  </nav>
+  <!-- SITE NAV BAR -->
+  <div
+    style="position:sticky;top:64px;z-index:99;background:rgba(3,5,9,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 24px;display:flex;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none">
+    <span
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#e8ecff;font-size:0.78rem;font-weight:700;white-space:nowrap">🏠
+      Bosh sahifa</span>
+    <a href="select-language.html"
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🌍
+      Tillar</a>
+    <a href="languages-html/shop.html"
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(91,124,250,0.1);border:1px solid rgba(91,124,250,0.25);color:#a78bfa;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🛍️
+      Do'kon</a>
+    <a href="languages-html/profile.html"
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">👤
+      Profil</a>
+    <a href="order.html"
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(244,199,74,0.1);border:1px solid rgba(244,199,74,0.25);color:#f5c842;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">⭐
+      Rejalar</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero-badge">🌍 8 ta til mavjud</div>
+    <h1>Qaysi tilni <span>o'rganmoqchisiz?</span></h1>
+    <p>Dunyoning istalgan tiliga oid darslar, mashqlar va AI suhbat sherigi</p>
+  </section>
+
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-n">8</div>
+      <div class="stat-l">Til</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">500+</div>
+      <div class="stat-l">Dars</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">AI</div>
+      <div class="stat-l">Suhbat</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-n">60</div>
+      <div class="stat-l">Unit/Til</div>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-input" id="searchInput" placeholder="Til qidirish..." oninput="filterLangs()">
+  </div>
+
+  <div class="filter-tabs">
+    <button class="ftab active" onclick="setFilter('all',this)">Hammasi</button>
+    <button class="ftab" onclick="setFilter('available',this)">Mavjud</button>
+    <button class="ftab" onclick="setFilter('soon',this)">Tez kunda</button>
+    <button class="ftab" onclick="setFilter('popular',this)">Mashhur</button>
+  </div>
+
+  <section class="languages-section">
+    <div class="section-label">Tilni tanlang</div>
+    <div class="lang-grid" id="langGrid"></div>
+  </section>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
+      authDomain: "linguaverse-ebe09.firebaseapp.com",
+      projectId: "linguaverse-ebe09",
+      storageBucket: "linguaverse-ebe09.firebasestorage.app",
+      messagingSenderId: "130625454868",
+      appId: "1:130625454868:web:3f02871f64cb5f8af27801"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const LANGUAGES = [
+      {
+        id: 'english', flag: '🇬🇧', name: 'English', native: 'English',
+        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        status: 'available', popular: true, color: 'rgba(79,110,247,0.08)',
+        url: './languages-html/English.html', progress: 0,
+        desc: 'A1 dan C2 gacha to\'liq kurs'
+      },
+      {
+        id: 'russian', flag: '🇷🇺', name: 'Rus tili', native: 'Русский',
+        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        status: 'available', popular: true, color: 'rgba(220,50,50,0.08)',
+        url: './languages-html/Russia.html', progress: 0,
+        desc: 'Boshlang\'ichdan yuqori darajagacha'
+      },
+      {
+        id: 'arabic', flag: '🇸🇦', name: 'Arab tili', native: 'العربية',
+        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        status: 'available', popular: false, color: 'rgba(52,211,153,0.08)',
+        url: './languages-html/Arabic.html', progress: 0,
+        desc: 'Alifbodan suhbatgacha'
+      },
+      {
+        id: 'chinese', flag: '🇨🇳', name: 'Xitoy tili', native: '中文',
+        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        status: 'available', popular: true, color: 'rgba(245,200,66,0.08)',
+        url: './languages-html/Chinese.html', progress: 0,
+        desc: 'Mandarin tilini o\'rganing'
+      },
+      {
+        id: 'korean', flag: '🇰🇷', name: 'Koreys tili', native: '한국어',
+        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        status: 'available', popular: true, color: 'rgba(167,139,250,0.08)',
+        url: './languages-html/Korean.html', progress: 0,
+        desc: 'Hanguldan K-pop tilgacha'
+      },
+      {
+        id: 'turkish', flag: '🇹🇷', name: 'Turk tili', native: 'Türkçe',
+        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        status: 'available', popular: false, color: 'rgba(239,68,68,0.08)',
+        url: './languages-html/Turkish.html', progress: 0,
+        desc: 'Qardosh turkiy til'
+      },
+      {
+        id: 'spanish', flag: '🇪🇸', name: 'Ispan tili', native: 'Español',
+        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        status: 'available', popular: false, color: 'rgba(251,146,60,0.08)',
+        url: './languages-html/Spain.html', progress: 0,
+        desc: 'Dunyo tilini o\'rganing'
+      },
+      {
+        id: 'german', flag: '🇩🇪', name: 'Nemis tili', native: 'Deutsch',
+        stats: ['40 Unit', '300+ So\'z', 'AI Chat'],
+        status: 'available', popular: false, color: 'rgba(107,107,128,0.05)',
+        url: './languages-html/German.html', progress: 0,
+        desc: 'Tez kunda — 2025'
+      },
+      {
+        id: 'french', flag: '🇫🇷', name: 'Fransuz tili', native: 'Français',
+        stats: ['40 Unit', '300+ So\'z', 'AI Chat'],
+        status: 'soon', popular: false, color: 'rgba(107,107,128,0.05)',
+        url: null, progress: 0,
+        desc: 'Tez kunda — 2025'
+      },
+      {
+        id: 'japanese', flag: '🇯🇵', name: 'Yapon tili', native: '日本語',
+        stats: ['40 Unit', '300+ So\'z', 'AI Chat'],
+        status: 'soon', popular: false, color: 'rgba(107,107,128,0.05)',
+        url: null, progress: 0,
+        desc: 'Tez kunda — 2025'
+      },
+    ];
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let userProgress = {};
+    let userPlan = 'free';
+
+    window.setFilter = function (filter, el) {
+      currentFilter = filter;
+      document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      renderLangs();
+    };
+
+    window.filterLangs = function () {
+      searchQuery = document.getElementById('searchInput').value.toLowerCase();
+      renderLangs();
+    };
+
+    function renderLangs() {
+      const grid = document.getElementById('langGrid');
+      let langs = LANGUAGES.filter(l => {
+        const matchSearch = !searchQuery ||
+          l.name.toLowerCase().includes(searchQuery) ||
+          l.native.toLowerCase().includes(searchQuery);
+        const matchFilter = currentFilter === 'all' ||
+          (currentFilter === 'available' && l.status === 'available') ||
+          (currentFilter === 'soon' && l.status === 'soon') ||
+          (currentFilter === 'popular' && l.popular);
+        return matchSearch && matchFilter;
+      });
+
+      if (!langs.length) {
+        grid.innerHTML = `<div class="no-results" style="grid-column:1/-1"><span>🔍</span><p>Til topilmadi</p></div>`;
+        return;
+      }
+
+      grid.innerHTML = langs.map((l, i) => {
+        const prog = userProgress[l.id] || 0;
+        const isAvailable = l.status === 'available';
+        return `
+      <div class="lang-card${!isAvailable ? ' coming-soon' : ''}" 
+           style="--card-accent:${l.color};animation-delay:${i * 0.05}s"
+           onclick="${isAvailable ? `goToLang('${l.url}')` : 'showComingSoon()'}">
+        ${l.popular ? '<div class="popular-tag">🔥 Mashhur</div>' : ''}
+        <span class="lang-flag">${l.flag}</span>
+        <div class="lang-name">${l.name}</div>
+        <div class="lang-native">${l.native}</div>
+        <div class="lang-stats">
+          ${l.stats.map(s => `<span class="lang-stat">${s}</span>`).join('')}
+        </div>
+        ${prog > 0 ? `
+        <div class="lang-progress-wrap">
+          <div class="lang-progress-label"><span>Taraqqiyot</span><span>${prog}%</span></div>
+          <div class="lang-progress-bar-bg"><div class="lang-progress-bar" style="width:${prog}%"></div></div>
+        </div>` : ''}
+        <span class="lang-badge ${l.status === 'available' ? 'available' : l.status === 'soon' ? 'soon' : 'new'}">
+          ${l.status === 'available' ? '✓ Mavjud' : '⏳ Tez kunda'}
+        </span>
+        <div class="lang-arrow">→</div>
+      </div>
+    `;
+      }).join('');
+    }
+
+    window.goToLang = function (url) {
+      if (!url) return;
+      window.location.href = url;
+    };
+
+    window.showComingSoon = function () {
+      alert('Bu til tez kunda qo\'shiladi! 🚀');
+    };
+
+    onAuthStateChanged(auth, async (user) => {
+
+      const name = user.displayName || user.email.split('@')[0];
+      const initial = name.charAt(0).toUpperCase();
+
+      try {
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        if (snap.exists()) {
+          const data = snap.data();
+          userPlan = data.plan || 'free';
+          userProgress = data.langProgress || {};
+        }
+      } catch (e) { }
+
+      const planLabels = { free: 'Free 🌱', own: 'Own 💎', team: 'Team 👥', universal: 'Universal 🚀' };
+      document.getElementById('navUser').innerHTML = `
+    <span class="plan-badge ${userPlan}">${planLabels[userPlan] || 'Free'}</span>
+    <div class="nav-avatar">${initial}</div>
+    <span class="nav-username">${name}</span>
+    <button class="nav-logout" onclick="window.logout()">Chiqish</button>
+  `;
+
+      renderLangs();
+    });
+
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+  </script>
+</body>
+
+</html>

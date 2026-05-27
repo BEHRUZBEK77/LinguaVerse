@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="zh">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>LinguaVerse — Turkish</title>
+    <title>LinguaVerse — 汉语课程</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;700&family=Exo+2:wght@400;600;800;900&display=swap"
@@ -20,12 +20,12 @@
         }
 
         :root {
-            --bg: #02040a;
+            --bg: #020408;
             --bg2: #040810;
             --bg3: #080d1a;
             --bg4: #0c1224;
-            --accent: #e8534a;
-            --accent2: #f4845f;
+            --accent: #e63946;
+            --accent2: #ff6b6b;
             --gold: #f5c842;
             --gold2: #e8a800;
             --green: #34d399;
@@ -33,13 +33,13 @@
             --orange: #fb923c;
             --pink: #f472b6;
             --cyan: #22d3ee;
-            --text: #fff4f0;
-            --text2: #d4b8b0;
-            --text3: #6a5550;
-            --border: rgba(255, 255, 255, 0.06);
+            --text: #eef0ff;
+            --text2: #a8b0d0;
+            --text3: #5a6288;
+            --border: rgba(255, 255, 255, .06);
             --font-display: 'Cinzel', serif;
             --font-head: 'Exo 2', sans-serif;
-            --font-body: 'Rajdhani', sans-serif;
+            --font-body: 'Rajdhani', sans-serif
         }
 
         html {
@@ -70,9 +70,9 @@
             position: sticky;
             top: 0;
             z-index: 200;
-            background: rgba(2, 4, 10, .97);
+            background: rgba(2, 4, 8, .97);
             backdrop-filter: blur(28px);
-            border-bottom: 1px solid rgba(232, 83, 74, .12);
+            border-bottom: 1px solid rgba(230, 57, 70, .12);
             padding: 0 24px;
             height: 64px;
             display: flex;
@@ -198,7 +198,7 @@
         .drawer-backdrop {
             position: absolute;
             inset: 0;
-            background: rgba(2, 4, 10, .85);
+            background: rgba(2, 4, 8, .85);
             backdrop-filter: blur(8px);
             opacity: 0;
             transition: opacity .35s
@@ -212,7 +212,7 @@
             width: 280px;
             max-width: 85vw;
             background: #080d1a;
-            border-left: 1px solid rgba(232, 83, 74, .15);
+            border-left: 1px solid rgba(230, 57, 70, .15);
             transform: translateX(100%);
             transition: transform .35s cubic-bezier(.4, 0, .2, 1);
             display: flex;
@@ -247,13 +247,13 @@
             font-family: 'Cinzel', serif;
             font-size: 1rem;
             font-weight: 900;
-            color: #fff4f0;
+            color: #eef0ff;
             text-decoration: none;
             letter-spacing: .06em
         }
 
         .drawer-logo span {
-            background: linear-gradient(135deg, #e8534a, #f4845f);
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent
         }
@@ -264,7 +264,7 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, .06);
             border: 1px solid rgba(255, 255, 255, .08);
-            color: #d4b8b0;
+            color: #a8b0d0;
             cursor: pointer;
             font-size: .9rem;
             display: flex;
@@ -275,7 +275,7 @@
 
         .drawer-close:hover {
             background: rgba(255, 255, 255, .14);
-            color: #fff4f0
+            color: #eef0ff
         }
 
         .drawer-user {
@@ -290,7 +290,7 @@
             font-family: 'Exo 2', sans-serif;
             font-size: .88rem;
             font-weight: 700;
-            color: #fff4f0
+            color: #eef0ff
         }
 
         .drawer-stats {
@@ -310,7 +310,7 @@
             font-family: 'Exo 2', sans-serif;
             font-size: .72rem;
             font-weight: 700;
-            color: #d4b8b0
+            color: #a8b0d0
         }
 
         .drawer-nav {
@@ -327,7 +327,7 @@
             font-weight: 800;
             letter-spacing: .12em;
             text-transform: uppercase;
-            color: #6a5550;
+            color: #5a6288;
             padding: 8px 8px 4px
         }
 
@@ -341,7 +341,7 @@
             font-size: .82rem;
             font-weight: 700;
             text-decoration: none;
-            color: #d4b8b0;
+            color: #a8b0d0;
             cursor: pointer;
             border: 1px solid transparent;
             transition: all .2s;
@@ -357,9 +357,9 @@
 
         .drawer-link:hover,
         .drawer-link.active {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .2);
-            color: #fff4f0
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .2);
+            color: #eef0ff
         }
 
         .drawer-link.gold:hover,
@@ -387,8 +387,8 @@
             margin: 12px;
             padding: 16px;
             border-radius: 14px;
-            background: linear-gradient(135deg, rgba(232, 83, 74, .15), rgba(244, 132, 95, .15));
-            border: 1px solid rgba(232, 83, 74, .25);
+            background: linear-gradient(135deg, rgba(230, 57, 70, .15), rgba(255, 107, 107, .15));
+            border: 1px solid rgba(230, 57, 70, .25);
             text-align: center;
             flex-shrink: 0
         }
@@ -397,7 +397,7 @@
             font-family: 'Cinzel', serif;
             font-size: .82rem;
             font-weight: 700;
-            color: #fff4f0;
+            color: #eef0ff;
             letter-spacing: .04em;
             margin-bottom: 8px
         }
@@ -406,7 +406,7 @@
             width: 100%;
             padding: 9px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #e8534a, #f4845f);
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
             border: none;
             color: #fff;
             font-family: 'Exo 2', sans-serif;
@@ -421,7 +421,7 @@
             position: sticky;
             top: 64px;
             z-index: 199;
-            background: rgba(2, 4, 10, .96);
+            background: rgba(2, 4, 8, .96);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 7px 24px;
@@ -461,8 +461,8 @@
         }
 
         .strip-btn.accent {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .3);
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .3);
             color: var(--accent2)
         }
 
@@ -491,7 +491,7 @@
             z-index: 198;
             background: rgba(3, 5, 9, .98);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(232, 83, 74, .12);
+            border-bottom: 1px solid rgba(230, 57, 70, .12);
             padding: 7px 24px
         }
 
@@ -547,7 +547,7 @@
         }
 
         /* HERO */
-        .tr-hero {
+        .chi-hero {
             position: relative;
             z-index: 1;
             display: flex;
@@ -560,7 +560,7 @@
             flex-wrap: wrap
         }
 
-        .tr-hero-content {
+        .chi-hero-content {
             flex: 1;
             min-width: 260px
         }
@@ -569,8 +569,8 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(232, 83, 74, .1);
-            border: 1px solid rgba(232, 83, 74, .25);
+            background: rgba(230, 57, 70, .1);
+            border: 1px solid rgba(230, 57, 70, .25);
             border-radius: 100px;
             padding: 8px 20px;
             font-family: var(--font-head);
@@ -582,7 +582,7 @@
             margin-bottom: 18px
         }
 
-        .tr-title {
+        .chi-title {
             font-family: var(--font-display);
             font-size: 3rem;
             font-weight: 900;
@@ -591,13 +591,13 @@
             letter-spacing: .04em
         }
 
-        .tr-title .gradient-text {
-            background: linear-gradient(135deg, var(--accent), var(--accent2), #ffb347);
+        .chi-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), #ff9a9e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent
         }
 
-        .tr-subtitle {
+        .chi-subtitle {
             font-size: .92rem;
             color: var(--text2);
             line-height: 1.7;
@@ -761,8 +761,8 @@
 
         .level-tab.active,
         .level-tab:hover {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .35);
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .35);
             color: var(--text)
         }
 
@@ -770,8 +770,8 @@
             font-size: .58rem;
             padding: 2px 8px;
             border-radius: 100px;
-            background: rgba(244, 132, 95, .15);
-            border: 1px solid rgba(244, 132, 95, .25);
+            background: rgba(255, 107, 107, .15);
+            border: 1px solid rgba(255, 107, 107, .25);
             color: var(--accent2);
             font-weight: 800
         }
@@ -799,7 +799,7 @@
         .unit-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
-            border-color: rgba(232, 83, 74, .3)
+            border-color: rgba(230, 57, 70, .3)
         }
 
         .unit-card.completed {
@@ -830,7 +830,7 @@
         }
 
         .word-search:focus {
-            border-color: rgba(232, 83, 74, .4)
+            border-color: rgba(230, 57, 70, .4)
         }
 
         .word-search::placeholder {
@@ -859,8 +859,8 @@
 
         .wf-tab.active,
         .wf-tab:hover {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .3);
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .3);
             color: var(--text)
         }
 
@@ -868,6 +868,21 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 12px
+        }
+
+        .word-card {
+            padding: 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .word-card:hover {
+            background: rgba(255, 107, 107, .08);
+            border-color: rgba(255, 107, 107, .25);
+            transform: translateY(-2px)
         }
 
         .load-more-wrap {
@@ -878,8 +893,8 @@
         .load-more-btn {
             padding: 10px 32px;
             border-radius: 100px;
-            background: rgba(232, 83, 74, .1);
-            border: 1px solid rgba(232, 83, 74, .25);
+            background: rgba(230, 57, 70, .1);
+            border: 1px solid rgba(230, 57, 70, .25);
             color: var(--accent2);
             font-family: var(--font-head);
             font-size: .82rem;
@@ -890,7 +905,7 @@
         }
 
         .load-more-btn:hover {
-            background: rgba(232, 83, 74, .2)
+            background: rgba(230, 57, 70, .2)
         }
 
         /* PRACTICE */
@@ -920,8 +935,8 @@
         }
 
         .ptab.active {
-            background: rgba(232, 83, 74, .15);
-            border-color: rgba(232, 83, 74, .4);
+            background: rgba(230, 57, 70, .15);
+            border-color: rgba(230, 57, 70, .4);
             color: var(--text)
         }
 
@@ -982,8 +997,8 @@
         }
 
         .flashcard-front {
-            background: linear-gradient(135deg, rgba(232, 83, 74, .15), rgba(244, 132, 95, .15));
-            border: 1px solid rgba(232, 83, 74, .25)
+            background: linear-gradient(135deg, rgba(230, 57, 70, .15), rgba(255, 107, 107, .15));
+            border: 1px solid rgba(230, 57, 70, .25)
         }
 
         .flashcard-back {
@@ -1128,8 +1143,8 @@
         }
 
         .quiz-opt:hover {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .3)
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .3)
         }
 
         .quiz-score {
@@ -1168,7 +1183,7 @@
         }
 
         .match-item:hover {
-            background: rgba(232, 83, 74, .1)
+            background: rgba(230, 57, 70, .1)
         }
 
         .typing-prompt {
@@ -1211,7 +1226,7 @@
         }
 
         .typing-input:focus {
-            border-color: rgba(232, 83, 74, .4)
+            border-color: rgba(230, 57, 70, .4)
         }
 
         .grammar-q-box {
@@ -1246,16 +1261,16 @@
         }
 
         .grammar-options button:hover {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .3)
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .3)
         }
 
         .next-ex-btn {
             margin-top: 12px;
             padding: 9px 22px;
             border-radius: 100px;
-            background: rgba(232, 83, 74, .12);
-            border: 1px solid rgba(232, 83, 74, .3);
+            background: rgba(230, 57, 70, .12);
+            border: 1px solid rgba(230, 57, 70, .3);
             color: var(--accent2);
             font-family: var(--font-head);
             font-size: .8rem;
@@ -1269,7 +1284,7 @@
         }
 
         .next-ex-btn:hover {
-            background: rgba(232, 83, 74, .22)
+            background: rgba(230, 57, 70, .22)
         }
 
         /* VIDEO */
@@ -1288,13 +1303,13 @@
             cursor: pointer;
             letter-spacing: .04em;
             margin-bottom: 20px;
-            box-shadow: 0 8px 30px rgba(232, 83, 74, .3);
+            box-shadow: 0 8px 30px rgba(230, 57, 70, .3);
             transition: all .25s
         }
 
         .find-video-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 40px rgba(232, 83, 74, .45)
+            box-shadow: 0 14px 40px rgba(230, 57, 70, .45)
         }
 
         .videos-grid {
@@ -1334,8 +1349,8 @@
         }
 
         .lb-row.me {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .28)
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .28)
         }
 
         .lb-rank {
@@ -1344,8 +1359,7 @@
             font-weight: 800;
             color: var(--accent2);
             width: 36px;
-            text-align: center;
-            flex-shrink: 0
+            text-align: center
         }
 
         .lb-rank.gold {
@@ -1380,45 +1394,23 @@
             font-family: var(--font-head);
             font-weight: 700;
             font-size: .88rem;
-            color: var(--text);
-            min-width: 0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap
+            color: var(--text)
         }
 
-        /* FIX: lb-score max-width to prevent overflow on big numbers */
         .lb-score {
             font-family: var(--font-display);
             font-weight: 700;
             font-size: .95rem;
-            color: var(--accent2);
-            white-space: nowrap;
-            text-align: right;
-            min-width: 60px;
-            max-width: 120px;
-            overflow: hidden;
-            text-overflow: ellipsis
+            color: var(--accent2)
         }
 
         .lb-plan {
             font-size: .68rem;
             padding: 2px 8px;
             border-radius: 100px;
-            background: rgba(244, 132, 95, .1);
+            background: rgba(255, 107, 107, .1);
             color: var(--accent2);
-            border: 1px solid transparent;
-            white-space: nowrap
-        }
-
-        /* FIX: lb-row inner layout to handle long numbers */
-        .lb-info-col {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            min-width: 0;
-            flex: 1;
-            overflow: hidden
+            border: 1px solid transparent
         }
 
         /* AI CHAT */
@@ -1470,8 +1462,8 @@
         }
 
         .chat-mode-btn.active {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .3);
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .3);
             color: var(--text)
         }
 
@@ -1518,12 +1510,12 @@
             align-items: center;
             justify-content: center;
             font-size: .9rem;
-            background: rgba(244, 132, 95, .15);
+            background: rgba(255, 107, 107, .15);
             color: var(--accent2)
         }
 
         .user-msg .chat-avatar {
-            background: rgba(232, 83, 74, .2);
+            background: rgba(230, 57, 70, .2);
             color: var(--accent)
         }
 
@@ -1539,9 +1531,9 @@
         }
 
         .user-msg .chat-bubble {
-            background: rgba(232, 83, 74, .13);
-            border-color: rgba(232, 83, 74, .25);
-            color: #ffd5cc
+            background: rgba(230, 57, 70, .13);
+            border-color: rgba(230, 57, 70, .25);
+            color: #fecdd3
         }
 
         .chat-input-area {
@@ -1571,7 +1563,7 @@
         }
 
         .chat-action-btn:hover {
-            background: rgba(232, 83, 74, .1);
+            background: rgba(230, 57, 70, .1);
             color: var(--accent2)
         }
 
@@ -1596,7 +1588,7 @@
         }
 
         .chat-input:focus {
-            border-color: rgba(232, 83, 74, .4)
+            border-color: rgba(230, 57, 70, .4)
         }
 
         .chat-send-btn {
@@ -1630,7 +1622,7 @@
 
         /* SHOP STRIP */
         .shop-strip {
-            background: linear-gradient(135deg, rgba(232, 83, 74, .05), rgba(244, 132, 95, .05));
+            background: linear-gradient(135deg, rgba(230, 57, 70, .05), rgba(255, 107, 107, .05));
             border-bottom: 1px solid var(--border);
             padding: 14px 0;
             margin-top: 4px
@@ -1704,9 +1696,9 @@
         }
 
         .rw-card.xp {
-            border-color: rgba(96, 165, 250, .3);
-            background: rgba(96, 165, 250, .05);
-            color: #60a5fa
+            border-color: rgba(230, 57, 70, .3);
+            background: rgba(230, 57, 70, .05);
+            color: var(--accent2)
         }
 
         .rw-card.keys {
@@ -1720,7 +1712,7 @@
             position: fixed;
             inset: 0;
             z-index: 400;
-            background: rgba(2, 4, 10, .88);
+            background: rgba(2, 4, 8, .88);
             backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
@@ -1862,7 +1854,7 @@
         }
 
         .toast.info {
-            border-color: rgba(232, 83, 74, .3);
+            border-color: rgba(230, 57, 70, .3);
             color: var(--accent2)
         }
 
@@ -1914,7 +1906,6 @@
             border-radius: 100px
         }
 
-        /* RESPONSIVE */
         @media(max-width:900px) {
             .nav-center {
                 display: none !important
@@ -1938,30 +1929,13 @@
                 width: 100%
             }
 
-            .tr-hero {
+            .chi-hero {
                 padding: 28px 16px 24px;
                 gap: 24px
             }
 
-            .tr-title {
+            .chi-title {
                 font-size: 2rem
-            }
-
-            .tr-subtitle {
-                font-size: .84rem
-            }
-
-            .hero-stats-row {
-                gap: 8px
-            }
-
-            .hstat {
-                padding: 10px 14px;
-                min-width: 60px
-            }
-
-            .hstat-n {
-                font-size: 1.1rem
             }
 
             .skill-radar-wrap {
@@ -2000,10 +1974,6 @@
 
             .typing-word {
                 font-size: 1.5rem
-            }
-
-            .match-grid {
-                gap: 6px
             }
 
             .videos-grid {
@@ -2071,7 +2041,7 @@
                 font-size: .76rem
             }
 
-            .tr-title {
+            .chi-title {
                 font-size: 1.7rem
             }
 
@@ -2090,17 +2060,18 @@
 </head>
 
 <body>
+
     <canvas id="bgCanvas"></canvas>
 
     <!-- NAVBAR -->
     <nav class="nav" id="navbar">
         <a href="../home.html" class="nav-logo">Lingua<span>Verse</span></a>
         <div class="nav-center">
-            <a href="#units" class="nav-link"><i class="fa-solid fa-layer-group"></i> Units</a>
-            <a href="#words" class="nav-link"><i class="fa-solid fa-book"></i> So'zlar</a>
-            <a href="#practice" class="nav-link"><i class="fa-solid fa-bullseye"></i> Mashqlar</a>
-            <a href="#leaderboard-section" class="nav-link"><i class="fa-solid fa-trophy"></i> Reyting</a>
-            <a href="#ai-chat" class="nav-link"><i class="fa-solid fa-robot"></i> AI Chat</a>
+            <a href="#units" class="nav-link"><i class="fa-solid fa-layer-group"></i> 单元</a>
+            <a href="#words" class="nav-link"><i class="fa-solid fa-book"></i> 词汇</a>
+            <a href="#practice" class="nav-link"><i class="fa-solid fa-bullseye"></i> 练习</a>
+            <a href="#leaderboard-section" class="nav-link"><i class="fa-solid fa-trophy"></i> 排行榜</a>
+            <a href="#ai-chat" class="nav-link"><i class="fa-solid fa-robot"></i> AI对话</a>
         </div>
         <div class="nav-right" id="navRight">
             <div class="nav-stat" style="color:var(--gold)"><i class="fa-solid fa-star"></i> <span id="navXP">0</span>
@@ -2110,75 +2081,74 @@
             <div id="planBadgeNav"></div>
             <div id="navUserInfo"></div>
         </div>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Menyu" aria-expanded="false" onclick="toggleDrawer()">
+        <button class="hamburger" id="hamburgerBtn" aria-label="菜单" aria-expanded="false" onclick="toggleDrawer()">
             <span></span><span></span><span></span>
         </button>
     </nav>
 
     <!-- SITE STRIP -->
     <div class="site-strip">
-        <a href="../index.html" class="strip-btn"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
-        <a href="../select-language.html" class="strip-btn"><i class="fa-solid fa-globe"></i> Tillar</a>
-        <a href="./voice-room.html" class="strip-btn"><i class="fa-solid fa-microphone"></i> Live Voice Chat</a>
-        <a href="shop.html" class="strip-btn accent"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
-        <a href="profile.html" class="strip-btn green"><i class="fa-solid fa-user"></i> Profil</a>
+        <a href="../index.html" class="strip-btn"><i class="fa-solid fa-house"></i> 首页</a>
+        <a href="../select-language.html" class="strip-btn"><i class="fa-solid fa-globe"></i> 语言</a>
+        <a href="./voice-room.html" class="strip-btn"><i class="fa-solid fa-microphone"></i> 语音聊天</a>
+        <a href="shop.html" class="strip-btn accent"><i class="fa-solid fa-bag-shopping"></i> 商城</a>
+        <a href="profile.html" class="strip-btn green"><i class="fa-solid fa-user"></i> 个人资料</a>
         <button class="strip-btn gold"
             onclick="document.getElementById('leaderboard-section').scrollIntoView({behavior:'smooth'})"><i
-                class="fa-solid fa-trophy"></i> Leaderboard</button>
-        <a href="../order.html" class="strip-btn pink"><i class="fa-solid fa-crown"></i> Rejalar</a>
+                class="fa-solid fa-trophy"></i> 排行榜</button>
+        <a href="../order.html" class="strip-btn pink"><i class="fa-solid fa-crown"></i> 套餐</a>
     </div>
 
     <!-- LIMIT BAR -->
     <div class="limit-bar" id="limitBar">
         <div class="limit-bar-inner">
             <i class="fa-solid fa-ticket-simple" style="color:var(--accent2);font-size:.85rem"></i>
-            <span id="limitText">Limit yuklanmoqda...</span>
+            <span id="limitText">正在加载...</span>
             <div style="display:flex;gap:3px;align-items:center" id="limitPills"></div>
             <span id="limitReset"></span>
             <button class="upgrade-mini-btn" onclick="window.location.href='../order.html'">
-                <i class="fa-solid fa-arrow-up" style="margin-right:4px"></i>Upgrade
+                <i class="fa-solid fa-arrow-up" style="margin-right:4px"></i>升级
             </button>
         </div>
     </div>
 
-    <!-- SHOP REWARDS STRIP -->
+    <!-- SHOP STRIP -->
     <div class="shop-strip">
-        <div class="shop-strip-inner">
-            <div class="rw-title"><i class="fa-solid fa-gem"></i> Do'kondan yangiliklar</div>
-            <div class="rw-card vip"><i class="fa-solid fa-crown"></i> VIP 30 kun</div>
-            <div class="rw-card booster"><i class="fa-solid fa-rocket"></i> 2× XP Booster</div>
-            <div class="rw-card coins"><i class="fa-solid fa-coins"></i> +5000 Coin</div>
-            <div class="rw-card xp"><i class="fa-solid fa-star"></i> +10000 XP</div>
-            <div class="rw-card keys"><i class="fa-solid fa-key"></i> Omega Kalit</div>
+        <div class="shop-strip-inner" id="shopStripInner">
+            <div class="rw-title"><i class="fa-solid fa-gem"></i> 商城新品</div>
+            <div class="rw-card vip"><i class="fa-solid fa-crown"></i> VIP 30天</div>
+            <div class="rw-card booster"><i class="fa-solid fa-rocket"></i> 2× 经验加成</div>
+            <div class="rw-card coins"><i class="fa-solid fa-coins"></i> +5000 金币</div>
+            <div class="rw-card xp"><i class="fa-solid fa-star"></i> +10000 经验</div>
+            <div class="rw-card keys"><i class="fa-solid fa-key"></i> 欧米伽钥匙</div>
         </div>
     </div>
 
     <!-- HERO -->
-    <section class="tr-hero" style="position:relative;z-index:1">
-        <div class="tr-hero-content">
-            <div class="lang-badge-big">
-                <span style="font-size:1.3rem">🇹🇷</span> Türkçe Kursu — A1 dan C2 gacha
-            </div>
-            <h1 class="tr-title">Türkçe <span class="gradient-text">Kursu</span></h1>
-            <p class="tr-subtitle">A1 dan C2 gacha — 4 daraja, 60 unit, 500+ so'z, AI suhbat sherigi bilan to'liq kurs
-            </p>
+    <section class="chi-hero" style="position:relative;z-index:1">
+        <div class="chi-hero-content">
+            <div class="lang-badge-big"><span style="font-size:1.1rem">🇨🇳</span> 汉语课程 — HSK1 到 HSK6</div>
+            <h1 class="chi-title">汉语 <span class="gradient-text">课程</span></h1>
+            <p class="chi-subtitle">从HSK1到HSK6 — 4个级别，60个单元，500+词汇，配备AI对话伙伴的完整课程</p>
             <div class="hero-stats-row">
-                <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l">Daraja</span></div>
-                <div class="hstat"><span class="hstat-n">60</span><span class="hstat-l">Unit</span></div>
-                <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">So'z</span></div>
+                <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l">级别</span></div>
+                <div class="hstat"><span class="hstat-n">60</span><span class="hstat-l">单元</span></div>
+                <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">词汇</span></div>
                 <div class="hstat"><span class="hstat-n"><i class="fa-solid fa-robot"
-                            style="font-size:1.1rem;color:var(--accent2)"></i></span><span class="hstat-l">AI
-                        Chat</span></div>
+                            style="font-size:1.1rem;color:var(--accent2)"></i></span><span class="hstat-l">AI对话</span>
+                </div>
                 <div class="hstat"><span class="hstat-n" id="xpDisplay" style="color:var(--gold)">0</span><span
-                        class="hstat-l">Mening XP</span></div>
+                        class="hstat-l">我的经验</span></div>
             </div>
         </div>
         <div class="skill-radar-wrap" id="skillRadar">
             <canvas id="radarCanvas" width="220" height="220"></canvas>
             <div class="radar-labels">
-                <span class="rl rl-top">Okuma</span><span class="rl rl-right">Yazma</span>
-                <span class="rl rl-bot-r">Konuşma</span><span class="rl rl-bot-l">Dinleme</span>
-                <span class="rl rl-left">Gramer</span>
+                <span class="rl rl-top">阅读</span>
+                <span class="rl rl-right">写作</span>
+                <span class="rl rl-bot-r">口语</span>
+                <span class="rl rl-bot-l">听力</span>
+                <span class="rl rl-left">语法</span>
             </div>
         </div>
     </section>
@@ -2187,31 +2157,31 @@
     <section class="section" id="units">
         <div class="container">
             <div class="sec-header">
-                <div class="sec-label"><i class="fa-solid fa-layer-group"></i> Darslar</div>
-                <h2 class="sec-title">Unit <span class="gradient-text">Darslari</span></h2>
-                <p class="sec-sub">Har bir unit: Grammatika, Listening, Reading va Speaking darslarini o'z ichiga oladi
-                </p>
+                <div class="sec-label"><i class="fa-solid fa-layer-group"></i> 课程单元</div>
+                <h2 class="sec-title">单元 <span class="gradient-text">课程</span></h2>
+                <p class="sec-sub">每个单元包含：语法、听力、阅读和口语练习</p>
             </div>
             <div class="level-tabs" id="levelTabs">
-                <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner',this)"><i
-                        class="fa-solid fa-seedling" style="color:#4ade80"></i> Başlangıç <span
-                        class="level-tag">A1</span></button>
-                <button class="level-tab" data-level="elementary" onclick="switchLevel('elementary',this)"><i
-                        class="fa-solid fa-book" style="color:#60a5fa"></i> Temel <span
-                        class="level-tag">A2</span></button>
-                <button class="level-tab" data-level="pre-intermediate"
-                    onclick="switchLevel('pre-intermediate',this)"><i class="fa-solid fa-book-open"
-                        style="color:var(--accent2)"></i> Orta Düzey <span class="level-tag">B1</span></button>
-                <button class="level-tab" data-level="advanced" onclick="switchLevel('advanced',this)"><i
-                        class="fa-solid fa-rocket" style="color:var(--pink)"></i> İleri <span
-                        class="level-tag">B2-C2</span></button>
+                <button class="level-tab active" data-level="hsk1" onclick="switchLevel('hsk1',this)">
+                    <i class="fa-solid fa-seedling" style="color:#4ade80"></i> 入门 <span class="level-tag">HSK1</span>
+                </button>
+                <button class="level-tab" data-level="hsk2" onclick="switchLevel('hsk2',this)">
+                    <i class="fa-solid fa-book" style="color:#60a5fa"></i> 基础 <span class="level-tag">HSK2</span>
+                </button>
+                <button class="level-tab" data-level="hsk3" onclick="switchLevel('hsk3',this)">
+                    <i class="fa-solid fa-book-open" style="color:var(--accent2)"></i> 中级 <span
+                        class="level-tag">HSK3-4</span>
+                </button>
+                <button class="level-tab" data-level="hsk56" onclick="switchLevel('hsk56',this)">
+                    <i class="fa-solid fa-rocket" style="color:var(--pink)"></i> 高级 <span
+                        class="level-tag">HSK5-6</span>
+                </button>
             </div>
             <div class="units-grid" id="unitsGrid">
                 <div style="text-align:center;padding:50px;color:var(--text3);grid-column:1/-1">
                     <i class="fa-solid fa-spinner fa-spin"
                         style="font-size:1.6rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
-                    <span style="font-family:var(--font-head);font-size:.82rem;letter-spacing:.04em">UNITLAR
-                        YUKLANMOQDA...</span>
+                    <span style="font-family:var(--font-head);font-size:.82rem;letter-spacing:.04em">正在加载单元...</span>
                 </div>
             </div>
         </div>
@@ -2223,24 +2193,26 @@
         id="words">
         <div class="container">
             <div class="sec-header">
-                <div class="sec-label"><i class="fa-solid fa-book"></i> Lug'at</div>
-                <h2 class="sec-title">So'zlar <span class="gradient-text">Kutubxonasi</span></h2>
-                <p class="sec-sub">500+ Turkcha so'z, o'zbek tarjimasi, audio talaffuz va misol jumlalar bilan</p>
+                <div class="sec-label"><i class="fa-solid fa-book"></i> 词汇库</div>
+                <h2 class="sec-title">词汇 <span class="gradient-text">词库</span></h2>
+                <p class="sec-sub">500+词汇，含拼音、乌兹别克语翻译、音频发音和例句</p>
             </div>
             <div class="words-controls">
-                <input type="text" class="word-search" id="wordSearch" placeholder="So'z qidirish..."
-                    oninput="filterWords()">
+                <input type="text" class="word-search" id="wordSearch" placeholder="搜索词汇..." oninput="filterWords()">
                 <div class="wf-tabs" id="wordFilterTabs">
-                    <button class="wf-tab active" onclick="filterByLevel('all',this)">Hammasi</button>
-                    <button class="wf-tab" onclick="filterByLevel('beginner',this)">Başlangıç</button>
-                    <button class="wf-tab" onclick="filterByLevel('elementary',this)">Temel</button>
-                    <button class="wf-tab" onclick="filterByLevel('pre-intermediate',this)">Orta</button>
-                    <button class="wf-tab" onclick="filterByLevel('advanced',this)">İleri</button>
+                    <button class="wf-tab active" onclick="filterByLevel('all',this)">全部</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk1',this)">HSK1</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk2',this)">HSK2</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk3',this)">HSK3-4</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk56',this)">HSK5-6</button>
                 </div>
             </div>
             <div class="words-grid" id="wordsGrid"></div>
-            <div class="load-more-wrap"><button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreWords()"><i
-                        class="fa-solid fa-chevron-down" style="margin-right:6px"></i>Ko'proq ko'rish</button></div>
+            <div class="load-more-wrap">
+                <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreWords()">
+                    <i class="fa-solid fa-chevron-down" style="margin-right:6px"></i>查看更多
+                </button>
+            </div>
         </div>
     </section>
 
@@ -2248,28 +2220,27 @@
     <section class="section" id="practice">
         <div class="container">
             <div class="sec-header">
-                <div class="sec-label"><i class="fa-solid fa-bullseye"></i> Mashqlar</div>
-                <h2 class="sec-title">5 xil <span class="gradient-text">Mashq</span></h2>
+                <div class="sec-label"><i class="fa-solid fa-bullseye"></i> 练习</div>
+                <h2 class="sec-title">5种 <span class="gradient-text">练习</span></h2>
             </div>
             <div class="ptabs">
                 <button class="ptab active" onclick="switchPractice('flashcard',this)"><i
-                        class="fa-solid fa-layer-group"></i> Flashcard</button>
+                        class="fa-solid fa-layer-group"></i> 闪卡</button>
                 <button class="ptab" onclick="switchPractice('quiz',this)"><i class="fa-solid fa-circle-question"></i>
-                    Quiz</button>
-                <button class="ptab" onclick="switchPractice('match',this)"><i class="fa-solid fa-link"></i>
-                    Juftlik</button>
+                    测验</button>
+                <button class="ptab" onclick="switchPractice('match',this)"><i class="fa-solid fa-link"></i> 配对</button>
                 <button class="ptab" onclick="switchPractice('typing',this)"><i class="fa-solid fa-keyboard"></i>
-                    Yozish</button>
+                    书写</button>
                 <button class="ptab" onclick="switchPractice('grammar',this)"><i class="fa-solid fa-spell-check"></i>
-                    Grammatika</button>
+                    语法</button>
             </div>
             <div class="practice-panel active" id="panel-flashcard">
                 <div class="practice-card">
                     <div class="flashcard-wrap">
                         <div class="flashcard" id="flashcard" onclick="flipCard()">
                             <div class="flashcard-front">
-                                <div class="flash-word" id="flashWord">merhaba</div>
-                                <div class="flash-hint"><i class="fa-solid fa-rotate"></i> bosib o'giring</div>
+                                <div class="flash-word" id="flashWord">你好</div>
+                                <div class="flash-hint"><i class="fa-solid fa-rotate"></i> 点击翻转</div>
                             </div>
                             <div class="flashcard-back">
                                 <div class="flash-uz" id="flashUz">Salom</div>
@@ -2279,11 +2250,11 @@
                     </div>
                     <div class="flash-controls">
                         <button class="flash-btn wrong" onclick="flashResult('wrong')"><i class="fa-solid fa-xmark"></i>
-                            Bilmadim</button>
+                            不会</button>
                         <button class="flash-btn skip" onclick="nextFlash()"><i class="fa-solid fa-forward"></i>
-                            Keyingi</button>
+                            下一个</button>
                         <button class="flash-btn correct" onclick="flashResult('correct')"><i
-                                class="fa-solid fa-check"></i> Bildim</button>
+                                class="fa-solid fa-check"></i> 会了</button>
                     </div>
                     <div class="flash-progress">
                         <span id="flashProgress">1 / 20</span>
@@ -2295,37 +2266,34 @@
             </div>
             <div class="practice-panel" id="panel-quiz">
                 <div class="practice-card">
-                    <div class="quiz-q" id="quizQ">Savol yuklanmoqda...</div>
+                    <div class="quiz-q" id="quizQ">正在加载题目...</div>
                     <div class="quiz-options" id="quizOptions"></div>
                     <div class="feedback-box" id="quizFeedback"></div>
-                    <button class="next-ex-btn" onclick="nextQuiz()"><i class="fa-solid fa-forward"></i>
-                        Keyingi</button>
+                    <button class="next-ex-btn" onclick="nextQuiz()"><i class="fa-solid fa-forward"></i> 下一题</button>
                     <div class="quiz-score"><i class="fa-solid fa-star"
-                            style="color:var(--gold);margin-right:4px"></i>Ball: <span id="quizScore">0</span></div>
+                            style="color:var(--gold);margin-right:4px"></i>得分: <span id="quizScore">0</span></div>
                 </div>
             </div>
             <div class="practice-panel" id="panel-match">
                 <div class="practice-card">
                     <h3 style="margin-bottom:16px;font-family:var(--font-display);font-size:1rem;letter-spacing:.04em">
-                        <i class="fa-solid fa-link" style="margin-right:8px;color:var(--accent2)"></i>Juftlarni toping
+                        <i class="fa-solid fa-link" style="margin-right:8px;color:var(--accent2)"></i>找到配对
                     </h3>
                     <div class="match-grid" id="matchGrid"></div>
                     <div class="feedback-box" id="matchFeedback"></div>
-                    <button class="next-ex-btn" onclick="startMatch()"><i class="fa-solid fa-rotate"></i> Yangi
-                        o'yin</button>
+                    <button class="next-ex-btn" onclick="startMatch()"><i class="fa-solid fa-rotate"></i> 新游戏</button>
                 </div>
             </div>
             <div class="practice-panel" id="panel-typing">
                 <div class="practice-card">
                     <div class="typing-prompt"><i class="fa-solid fa-keyboard"
-                            style="margin-right:6px;color:var(--accent2)"></i>Turkcha yozing:</div>
-                    <div class="typing-word" id="typingWord">merhaba</div>
-                    <div class="typing-hint" id="typingHint">O'zbek: Salom</div>
-                    <input type="text" class="typing-input" id="typingInput" placeholder="Turkcha so'zni yozing..."
+                            style="margin-right:6px;color:var(--accent2)"></i>用拼音输入：</div>
+                    <div class="typing-word" id="typingWord">你好</div>
+                    <div class="typing-hint" id="typingHint">乌兹别克语: Salom</div>
+                    <input type="text" class="typing-input" id="typingInput" placeholder="输入拼音或汉字..."
                         oninput="checkTyping()">
                     <div class="feedback-box" id="typingFeedback"></div>
-                    <button class="next-ex-btn" onclick="nextTyping()"><i class="fa-solid fa-forward"></i>
-                        Keyingi</button>
+                    <button class="next-ex-btn" onclick="nextTyping()"><i class="fa-solid fa-forward"></i> 下一个</button>
                 </div>
             </div>
             <div class="practice-panel" id="panel-grammar">
@@ -2333,14 +2301,14 @@
                     <div style="font-size:2rem;color:var(--accent2);margin-bottom:14px"><i
                             class="fa-solid fa-spell-check"></i></div>
                     <h3 style="font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;margin-bottom:16px">
-                        Türkçe Dilbilgisi Mashqi</h3>
+                        语法练习</h3>
                     <div class="grammar-q-box" id="grammarQBox"></div>
                     <div class="grammar-options" id="grammarOptions"></div>
                     <div class="feedback-box" id="grammarFeedback"></div>
                     <button class="next-ex-btn" onclick="nextGrammarEx()"><i class="fa-solid fa-forward"></i>
-                        Keyingi</button>
+                        下一题</button>
                     <div class="quiz-score"><i class="fa-solid fa-star"
-                            style="color:var(--gold);margin-right:4px"></i>Ball: <span id="grammarScore">0</span></div>
+                            style="color:var(--gold);margin-right:4px"></i>得分: <span id="grammarScore">0</span></div>
                 </div>
             </div>
         </div>
@@ -2351,18 +2319,21 @@
         id="videoSection">
         <div class="container">
             <div class="sec-header">
-                <div class="sec-label"><i class="fa-solid fa-play"></i> Video Darslar</div>
-                <h2 class="sec-title">AI tanlagan <span class="gradient-text">Videolar</span></h2>
-                <p class="sec-sub">Sizning darajangiz va zaif tomonlaringizga mos Türkçe videolar</p>
+                <div class="sec-label"><i class="fa-solid fa-play"></i> 视频课程</div>
+                <h2 class="sec-title">AI精选 <span class="gradient-text">视频</span></h2>
+                <p class="sec-sub" id="videoSubtitle">根据您的水平和薄弱环节推荐的视频</p>
             </div>
             <div style="text-align:center;margin-bottom:20px">
-                <button class="find-video-btn" onclick="findYoutubeVideos()"><i class="fa-solid fa-robot"></i>AI video
-                    topsin</button>
+                <button class="find-video-btn" onclick="findYoutubeVideos()">
+                    <i class="fa-solid fa-robot"></i>AI推荐视频
+                </button>
             </div>
             <div class="videos-grid" id="videosGrid">
-                <div class="video-placeholder"><i class="fa-solid fa-robot"
-                        style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>AI sizga mos
-                    Türkçe videolarni topib beradi<p>Yuqoridagi tugmani bosing</p>
+                <div class="video-placeholder">
+                    <i class="fa-solid fa-robot"
+                        style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
+                    AI会为您推荐合适的视频
+                    <p>请点击上方按钮</p>
                 </div>
             </div>
         </div>
@@ -2372,26 +2343,29 @@
     <section class="section" id="leaderboard-section">
         <div class="container">
             <div class="sec-header">
-                <div class="sec-label"><i class="fa-solid fa-trophy"></i> Reyting</div>
-                <h2 class="sec-title">Global <span class="gradient-text">Leaderboard</span></h2>
-                <p class="sec-sub">Eng yaxshi o'rganuvchilar — XP va coinlar bo'yicha reyting</p>
+                <div class="sec-label"><i class="fa-solid fa-trophy"></i> 排行榜</div>
+                <h2 class="sec-title">全球 <span class="gradient-text">排行榜</span></h2>
+                <p class="sec-sub">最优秀的学习者 — 按经验值和金币排名</p>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;justify-content:center">
-                <button class="ptab active" id="lb-xp-btn" onclick="loadLBSection('xp',this)"><i
-                        class="fa-solid fa-star"></i> XP bo'yicha</button>
-                <button class="ptab" id="lb-coin-btn" onclick="loadLBSection('coins',this)"><i
-                        class="fa-solid fa-coins"></i> Coin bo'yicha</button>
-                <button class="ptab" id="lb-units-btn" onclick="loadLBSection('unitsCompleted',this)"><i
-                        class="fa-solid fa-book"></i> Unitlar bo'yicha</button>
+                <button class="ptab active" id="lb-xp-btn" onclick="loadLBSection('xp',this)">
+                    <i class="fa-solid fa-star"></i> 按经验值
+                </button>
+                <button class="ptab" id="lb-coin-btn" onclick="loadLBSection('coins',this)">
+                    <i class="fa-solid fa-coins"></i> 按金币
+                </button>
+                <button class="ptab" id="lb-units-btn" onclick="loadLBSection('unitsCompleted',this)">
+                    <i class="fa-solid fa-book"></i> 按单元数
+                </button>
             </div>
             <div id="lbSectionContent" style="max-width:700px;margin:0 auto">
                 <div style="text-align:center;padding:40px;color:var(--text3)">
                     <i class="fa-solid fa-trophy"
                         style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
-                    <p style="font-family:var(--font-head);font-size:.82rem;margin-bottom:16px">Sahifa yuklanganidan
-                        keyin reyting ko'rinadi</p>
-                    <button class="next-ex-btn" onclick="loadLBSection('xp',document.getElementById('lb-xp-btn'))"><i
-                            class="fa-solid fa-arrow-right"></i>Reytingni ko'rish</button>
+                    <p style="font-family:var(--font-head);font-size:.82rem;margin-bottom:16px">页面加载后将显示排行榜</p>
+                    <button class="next-ex-btn" onclick="loadLBSection('xp',document.getElementById('lb-xp-btn'))">
+                        <i class="fa-solid fa-arrow-right"></i>查看排行榜
+                    </button>
                 </div>
             </div>
         </div>
@@ -2401,57 +2375,60 @@
     <section class="section" style="border-top:1px solid var(--border)" id="ai-chat">
         <div class="container">
             <div class="sec-header">
-                <div class="sec-label"><i class="fa-solid fa-robot"></i> AI Suhbat Sherigi</div>
-                <h2 class="sec-title">AI <span class="gradient-text">Suhbat</span></h2>
-                <p class="sec-sub">Real suhbat, grammatika tuzatish, tarjima — hammasi bir joyda</p>
+                <div class="sec-label"><i class="fa-solid fa-robot"></i> AI对话伙伴</div>
+                <h2 class="sec-title">AI <span class="gradient-text">对话</span></h2>
+                <p class="sec-sub">真实对话、语法纠正、翻译 — 一切尽在其中</p>
             </div>
             <div class="ai-chat-wrap">
                 <div class="ai-chat-sidebar">
-                    <div class="chat-mode-label">Suhbat rejimi</div>
+                    <div class="chat-mode-label">对话模式</div>
                     <button class="chat-mode-btn active" onclick="setChatMode('free',this)"><i
-                            class="fa-solid fa-comments"></i> Erkin suhbat</button>
+                            class="fa-solid fa-comments"></i> 自由对话</button>
                     <button class="chat-mode-btn" onclick="setChatMode('teacher',this)"><i
-                            class="fa-solid fa-chalkboard-user"></i> O'qituvchi</button>
+                            class="fa-solid fa-chalkboard-user"></i> 老师模式</button>
                     <button class="chat-mode-btn" onclick="setChatMode('grammar',this)"><i
-                            class="fa-solid fa-spell-check"></i> Grammatika</button>
+                            class="fa-solid fa-spell-check"></i> 语法检查</button>
                     <button class="chat-mode-btn" onclick="setChatMode('translate',this)"><i
-                            class="fa-solid fa-language"></i> Tarjimon</button>
-                    <button class="chat-mode-btn" onclick="setChatMode('yoksdil',this)"><i
-                            class="fa-solid fa-clipboard-list"></i> YDS/YÖKDİL</button>
+                            class="fa-solid fa-language"></i> 翻译</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('hsk',this)"><i
+                            class="fa-solid fa-clipboard-list"></i> HSK备考</button>
                     <div class="ai-limit-info" id="aiLimitInfo"></div>
                     <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
                         <button onclick="clearChatHistory()"
-                            style="width:100%;padding:7px;border-radius:10px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:var(--red);font-family:var(--font-head);font-size:.75rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px"><i
-                                class="fa-solid fa-trash"></i>Tarixni tozalash</button>
+                            style="width:100%;padding:7px;border-radius:10px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:var(--red);font-family:var(--font-head);font-size:.75rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">
+                            <i class="fa-solid fa-trash"></i>清除历史记录
+                        </button>
                     </div>
                 </div>
                 <div class="ai-chat-main">
                     <div class="chat-messages" id="chatMessages">
                         <div class="chat-msg ai-msg">
                             <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
-                            <div class="chat-bubble">Merhaba! Ben sizin Türkçe öğretmeninizim. Ne hakkında
-                                konuşalım?<br><br><small
-                                    style="color:var(--text3);font-family:var(--font-head);font-size:.72rem"><i
-                                        class="fa-solid fa-circle-info" style="margin-right:4px"></i>Rejim: Erkin
-                                    suhbat</small></div>
+                            <div class="chat-bubble">
+                                你好！我是你的汉语老师。我们来聊什么？<br><br>
+                                <small style="color:var(--text3);font-family:var(--font-head);font-size:.72rem">
+                                    <i class="fa-solid fa-circle-info" style="margin-right:4px"></i>模式：自由对话
+                                </small>
+                            </div>
                         </div>
                     </div>
                     <div class="chat-input-area">
                         <div class="chat-actions-row">
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Bu kelimeyi açıklar mısın: ')"
-                                title="Tushuntir"><i class="fa-solid fa-lightbulb"></i></button>
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Lütfen düzelt: ')"
-                                title="Tuzat"><i class="fa-solid fa-pen"></i></button>
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Çevir: ')" title="Tarjima"><i
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('请解释一下 ')" title="解释"><i
+                                    class="fa-solid fa-lightbulb"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('请纠正：')" title="纠正"><i
+                                    class="fa-solid fa-pen"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('翻译：')" title="翻译"><i
                                     class="fa-solid fa-language"></i></button>
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Örnek cümle ver: ')"
-                                title="Misol"><i class="fa-solid fa-star"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('给我一个例句：')" title="例句"><i
+                                    class="fa-solid fa-star"></i></button>
                         </div>
                         <div class="chat-input-row">
-                            <textarea class="chat-input" id="chatInput" placeholder="Türkçe yoki o'zbekcha yozing..."
-                                rows="2" onkeydown="handleChatKey(event)"></textarea>
-                            <button class="chat-send-btn" onclick="sendChatMessage()" id="chatSendBtn"><i
-                                    class="fa-solid fa-paper-plane"></i></button>
+                            <textarea class="chat-input" id="chatInput" placeholder="用中文或乌兹别克语输入..." rows="2"
+                                onkeydown="handleChatKey(event)"></textarea>
+                            <button class="chat-send-btn" onclick="sendChatMessage()" id="chatSendBtn">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2476,17 +2453,17 @@
         <div class="modal-box upgrade-modal-box">
             <button class="modal-close" onclick="closeUpgradeModal()"><i class="fa-solid fa-xmark"></i></button>
             <div class="upgrade-modal-content">
-                <div><i class="fa-solid fa-rocket" style="font-size:2.8rem;color:var(--accent2)"></i></div>
-                <h2 style="font-family:var(--font-display);letter-spacing:.04em;margin-bottom:8px;margin-top:12px">Token
-                    tugadi!</h2>
-                <p id="upgradeModalText" style="color:var(--text2);font-size:.88rem;margin-bottom:12px">Tokenlaringiz
-                    tugadi.</p>
+                <div style="margin-bottom:16px"><i class="fa-solid fa-rocket"
+                        style="font-size:2.8rem;color:var(--accent2)"></i></div>
+                <h2 style="font-family:var(--font-display);letter-spacing:.04em;margin-bottom:8px">Token用完了！</h2>
+                <p id="upgradeModalText" style="color:var(--text2);font-size:.88rem;margin-bottom:12px">
+                    您的Token已用完。请等待刷新或升级套餐。</p>
                 <div class="upgrade-timer" id="upgradeTimer"></div>
                 <div class="upgrade-btns">
                     <button class="upgrade-btn-primary" onclick="window.location.href='../order.html'"><i
-                            class="fa-solid fa-arrow-up" style="margin-right:6px"></i>Rejani yaxshilash</button>
+                            class="fa-solid fa-arrow-up" style="margin-right:6px"></i>升级套餐</button>
                     <button class="upgrade-btn-secondary" onclick="closeUpgradeModal()"><i class="fa-solid fa-clock"
-                            style="margin-right:6px"></i>Kutaman</button>
+                            style="margin-right:6px"></i>等待刷新</button>
                 </div>
             </div>
         </div>
@@ -2501,45 +2478,44 @@
         <div class="drawer-panel">
             <div class="drawer-head">
                 <a href="../home.html" class="drawer-logo">Lingua<span>Verse</span></a>
-                <button class="drawer-close" onclick="closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+                <button class="drawer-close" onclick="closeDrawer()" aria-label="关闭"><i
+                        class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="drawer-user">
-                <div class="drawer-user-name" id="drawerUserName">Mehmon</div>
+                <div class="drawer-user-name" id="drawerUserName">访客</div>
                 <div class="drawer-stats">
                     <span class="drawer-stat" style="color:#f5c842"><i class="fa-solid fa-star"></i> <span
-                            id="drawerXP">0</span> XP</span>
+                            id="drawerXP">0</span> 经验</span>
                     <span class="drawer-stat" style="color:#f5c842"><i class="fa-solid fa-coins"></i> <span
                             id="drawerCoin">0</span></span>
                 </div>
             </div>
             <nav class="drawer-nav">
-                <div class="drawer-nav-label">Kurs</div>
+                <div class="drawer-nav-label">课程</div>
                 <a href="#units" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-layer-group"></i>
-                    Units</a>
-                <a href="#words" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-book"></i>
-                    So'zlar</a>
+                    单元</a>
+                <a href="#words" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-book"></i> 词汇</a>
                 <a href="#practice" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-bullseye"></i>
-                    Mashqlar</a>
+                    练习</a>
                 <a href="#videoSection" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-play"></i>
-                    Video Darslar</a>
-                <a href="#ai-chat" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-robot"></i> AI
-                    Chat</a>
-                <div class="drawer-nav-label" style="margin-top:8px">Sayt</div>
-                <a href="../index.html" class="drawer-link"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
-                <a href="../select-language.html" class="drawer-link"><i class="fa-solid fa-globe"></i> Tillar</a>
-                <a href="./voice-room.html" class="drawer-link"><i class="fa-solid fa-microphone"></i> Live Voice
-                    Chat</a>
-                <a href="shop.html" class="drawer-link"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
-                <a href="profile.html" class="drawer-link green"><i class="fa-solid fa-user"></i> Profil</a>
+                    视频课程</a>
+                <a href="#ai-chat" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-robot"></i>
+                    AI对话</a>
+                <div class="drawer-nav-label" style="margin-top:8px">网站</div>
+                <a href="../index.html" class="drawer-link"><i class="fa-solid fa-house"></i> 首页</a>
+                <a href="../select-language.html" class="drawer-link"><i class="fa-solid fa-globe"></i> 语言</a>
+                <a href="./voice-room.html" class="drawer-link"><i class="fa-solid fa-microphone"></i> 语音聊天</a>
+                <a href="shop.html" class="drawer-link"><i class="fa-solid fa-bag-shopping"></i> 商城</a>
+                <a href="profile.html" class="drawer-link green"><i class="fa-solid fa-user"></i> 个人资料</a>
                 <a href="#leaderboard-section" class="drawer-link gold" onclick="closeDrawerNav()"><i
-                        class="fa-solid fa-trophy"></i> Leaderboard</a>
-                <a href="../order.html" class="drawer-link pink"><i class="fa-solid fa-crown"></i> Rejalar</a>
+                        class="fa-solid fa-trophy"></i> 排行榜</a>
+                <a href="../order.html" class="drawer-link pink"><i class="fa-solid fa-crown"></i> 套餐</a>
             </nav>
             <div class="drawer-upgrade">
                 <div class="drawer-upgrade-title"><i class="fa-solid fa-rocket"
-                        style="margin-right:6px;color:#f4845f"></i>Premium Rejaga o'ting</div>
-                <p style="font-size:.75rem;color:#d4b8b0;margin-bottom:10px">Cheksiz AI chat, +2× XP va ko'proq!</p>
-                <button class="drawer-upgrade-btn" onclick="window.location.href='../order.html'">Upgrade <i
+                        style="margin-right:6px;color:#ff6b6b"></i>升级到高级套餐</div>
+                <p style="font-size:.75rem;color:#a8b0d0;margin-bottom:10px">无限AI对话、+2× 经验值等更多功能！</p>
+                <button class="drawer-upgrade-btn" onclick="window.location.href='../order.html'">升级 <i
                         class="fa-solid fa-arrow-right" style="margin-left:4px"></i></button>
             </div>
         </div>
@@ -2547,7 +2523,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        /* THREE.JS BG — turkish red/orange palette */
         (function () {
             const cv = document.getElementById('bgCanvas');
             const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
@@ -2558,9 +2533,9 @@
             const cnt = 1400, pos = new Float32Array(cnt * 3);
             for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30;
             geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xc0392b, size: .05, transparent: true, opacity: .35 }));
+            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xb52030, size: .05, transparent: true, opacity: .35 }));
             sc.add(pts);
-            [0xc0392b, 0xe67e22, 0xf39c12, 0xe74c3c, 0xd35400].forEach((c, i) => {
+            [0xb52030, 0xff4455, 0xd4a820, 0xe02060, 0xff6020].forEach((c, i) => {
                 const m = new THREE.Mesh(new THREE.TorusGeometry(2 + i * 1.8, .01, 8, 100), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .05 }));
                 m.rotation.x = Math.random() * Math.PI; m.rotation.y = Math.random() * Math.PI; sc.add(m);
             });
@@ -2570,7 +2545,6 @@
             let t = 0; (function loop() { requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .12; pts.rotation.x = t * .07; cam.position.x += (mx * .6 - cam.position.x) * .03; cam.position.y += (-my * .6 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam); })();
         })();
 
-        /* HAMBURGER/DRAWER */
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileDrawer = document.getElementById('mobileDrawer');
         function toggleDrawer() { mobileDrawer.classList.contains('open') ? closeDrawer() : openDrawer() }
@@ -2591,7 +2565,7 @@
         })();
     </script>
 
-    <script type="module" src="./js/Turkish.js"></script>
+    <script type="module" src="./js/Chinese.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaVerse — Interfeys Tili</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;700&family=Exo+2:wght@400;600;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #020408;
+            --bg2: #040810;
+            --bg3: #080d1a;
+            --accent: #5b7cfa;
+            --accent2: #a78bfa;
+            --gold: #f5c842;
+            --green: #34d399;
+            --red: #f87171;
+            --text: #eef0ff;
+            --text2: #a8b0d0;
+            --text3: #5a6288;
+            --border: rgba(255, 255, 255, 0.07);
+            --font-display: 'Cinzel', serif;
+            --font-head: 'Exo 2', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .22;
+        }
+
+        /* NAV */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(2, 4, 8, .97);
+            backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(91, 124, 250, .12);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: .06em;
+        }
+
+        .nav-logo span {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            transition: all .2s;
+        }
+
+        .nav-back:hover {
+            background: rgba(91, 124, 250, .12);
+            color: var(--text);
+        }
+
+        /* SITE STRIP */
+        .site-strip {
+            display: flex;
+            gap: 6px;
+            padding: 8px 20px;
+            background: rgba(4, 8, 16, .9);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-strip::-webkit-scrollbar {
+            display: none;
+        }
+
+        .strip-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        .strip-btn:hover {
+            background: rgba(91, 124, 250, .1);
+            color: var(--text);
+        }
+
+        .strip-btn.active {
+            background: rgba(91, 124, 250, .15);
+            border-color: rgba(91, 124, 250, .3);
+            color: var(--accent);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 56px 24px 32px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            border-radius: 100px;
+            background: rgba(91, 124, 250, .1);
+            border: 1px solid rgba(91, 124, 250, .25);
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 900;
+            letter-spacing: .03em;
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        .hero-title .grad {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: clamp(.85rem, 2vw, 1rem);
+            color: var(--text2);
+            max-width: 580px;
+            margin: 0 auto 28px;
+            line-height: 1.7;
+        }
+
+        /* CURRENT LANG */
+        .current-lang-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            border-radius: 14px;
+            background: rgba(91, 124, 250, .08);
+            border: 1px solid rgba(91, 124, 250, .2);
+            margin-bottom: 36px;
+        }
+
+        .current-lang-flag {
+            font-size: 1.6rem;
+        }
+
+        .current-lang-info {
+            text-align: left;
+        }
+
+        .current-lang-label {
+            font-size: .65rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text3);
+        }
+
+        .current-lang-name {
+            font-size: .95rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        /* SECTION */
+        .section {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+        }
+
+        .sec-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 900;
+            letter-spacing: .05em;
+            margin-bottom: 6px;
+        }
+
+        .sec-sub {
+            font-size: .78rem;
+            color: var(--text3);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        /* SEARCH */
+        .search-wrap {
+            position: relative;
+            margin-bottom: 24px;
+            max-width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 14px 10px 38px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-head);
+            font-size: .82rem;
+            outline: none;
+            transition: border .2s;
+        }
+
+        .search-input::placeholder {
+            color: var(--text3);
+        }
+
+        .search-input:focus {
+            border-color: rgba(91, 124, 250, .4);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text3);
+            font-size: .8rem;
+        }
+
+        /* LANG GRID */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        /* LANG CARD */
+        .lang-card {
+            position: relative;
+            padding: 20px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .025);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all .25s;
+            overflow: hidden;
+        }
+
+        .lang-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--card-grad, rgba(91, 124, 250, .06));
+            opacity: 0;
+            transition: opacity .25s;
+        }
+
+        .lang-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(91, 124, 250, .3);
+        }
+
+        .lang-card:hover::before {
+            opacity: 1;
+        }
+
+        .lang-card.selected {
+            border-color: var(--card-accent, var(--accent));
+            background: rgba(91, 124, 250, .06);
+        }
+
+        .lang-card.selected::before {
+            opacity: 1;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-flag {
+            font-size: 2.2rem;
+            line-height: 1;
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .card-name {
+            font-size: .95rem;
+            font-weight: 800;
+            color: var(--text);
+            letter-spacing: .02em;
+        }
+
+        .card-native {
+            font-size: .75rem;
+            color: var(--text3);
+            margin-top: 2px;
+        }
+
+        .card-check {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .65rem;
+            color: transparent;
+            transition: all .2s;
+            flex-shrink: 0;
+        }
+
+        .lang-card.selected .card-check {
+            background: var(--card-accent, var(--accent));
+            border-color: var(--card-accent, var(--accent));
+            color: #fff;
+        }
+
+        .card-desc {
+            font-size: .73rem;
+            color: var(--text3);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .card-tag {
+            padding: 2px 8px;
+            border-radius: 100px;
+            font-size: .62rem;
+            font-weight: 800;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--border);
+            color: var(--text3);
+        }
+
+        /* AI SCOPE BADGE */
+        .ai-scope {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-size: .6rem;
+            font-weight: 800;
+            background: rgba(167, 139, 250, .12);
+            border: 1px solid rgba(167, 139, 250, .25);
+            color: #a78bfa;
+            margin-top: 8px;
+        }
+
+        /* HOW */
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .how-card {
+            padding: 18px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid var(--border);
+        }
+
+        .how-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .78rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .how-title {
+            font-size: .85rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .how-desc {
+            font-size: .73rem;
+            color: var(--text3);
+            line-height: 1.6;
+        }
+
+        /* AI NOTE */
+        .ai-note {
+            padding: 16px 20px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(91, 124, 250, .08), rgba(167, 139, 250, .05));
+            border: 1px solid rgba(91, 124, 250, .18);
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .ai-note-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .ai-note-title {
+            font-size: .85rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .ai-note-desc {
+            font-size: .75rem;
+            color: var(--text3);
+            line-height: 1.65;
+        }
+
+        /* APPLY */
+        .apply-wrap {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+
+        .apply-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 40px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            font-family: var(--font-head);
+            font-size: .9rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em;
+            box-shadow: 0 8px 40px rgba(91, 124, 250, .45);
+            transition: all .25s;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 50px rgba(91, 124, 250, .6);
+        }
+
+        .apply-btn:disabled {
+            opacity: .4;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: #10b981;
+            color: #fff;
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 800;
+            box-shadow: 0 4px 30px rgba(16, 185, 129, .4);
+            transform: translateX(120%);
+            transition: transform .35s;
+            z-index: 9999;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* DIVIDER */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+
+        /* PAGES AFFECTED */
+        .affected-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .affected-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            border-radius: 100px;
+            background: rgba(52, 211, 153, .08);
+            border: 1px solid rgba(52, 211, 153, .2);
+            color: var(--green);
+            font-family: var(--font-head);
+            font-size: .7rem;
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:600px) {
+            .lang-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .lang-card {
+                padding: 14px 12px;
+            }
+
+            .card-flag {
+                width: 40px;
+                height: 40px;
+                font-size: 1.7rem;
+            }
+
+            .card-name {
+                font-size: .82rem;
+            }
+
+            .apply-btn {
+                padding: 12px 28px;
+                font-size: .82rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <nav class="nav">
+        <a href="../index.html" class="nav-logo">Lingua<span>Verse</span></a>
+        <div class="nav-right">
+            <a href="../index.html" class="nav-back"><i class="fa-solid fa-house"></i> <span data-i18n="home">Bosh
+                    sahifa</span></a>
+        </div>
+    </nav>
+
+    <div class="site-strip">
+        <a href="../index.html" class="strip-btn"><i class="fa-solid fa-house"></i> <span data-i18n="home">Bosh
+                sahifa</span></a>
+        <a href="../select-language.html" class="strip-btn"><i class="fa-solid fa-globe"></i> <span
+                data-i18n="learn_lang">O'rganish tillari</span></a>
+        <a href="shop.html" class="strip-btn"><i class="fa-solid fa-bag-shopping"></i> <span
+                data-i18n="shop">Do'kon</span></a>
+        <a href="profile.html" class="strip-btn"><i class="fa-solid fa-user"></i> <span
+                data-i18n="profile">Profil</span></a>
+        <a href="../order.html" class="strip-btn"><i class="fa-solid fa-crown"></i> <span
+                data-i18n="plans">Rejalar</span></a>
+        <a href="language.html" class="strip-btn active"><i class="fa-solid fa-language"></i> <span
+                data-i18n="interface_lang">Interfeys tili</span></a>
+    </div>
+
+    <div class="hero">
+        <div class="hero-badge">
+            <i class="fa-solid fa-language"></i>
+            <span data-i18n="page_badge">Interfeys tili sozlamalari</span>
+        </div>
+        <h1 class="hero-title">
+            <span data-i18n="hero_t1">Sayt</span>
+            <span class="grad"> <span data-i18n="hero_t2">Interfeys Tilini</span></span><br>
+            <span data-i18n="hero_t3">Tanlang</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero_sub">
+            Sayt interfeysi va AI o'qituvchisi tanlagan tilingizda ishlaydi. Masalan, ispan tilini tanlasangiz — AI
+            ispan tilida inglizcha dars beradi.
+        </p>
+        <div class="current-lang-box" id="currentLangBox">
+            <div class="current-lang-flag" id="currentFlag">🇺🇿</div>
+            <div class="current-lang-info">
+                <div class="current-lang-label" data-i18n="current_lang">Hozirgi til</div>
+                <div class="current-lang-name" id="currentLangName">O'zbek</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section">
+
+        <div class="ai-note">
+            <div class="ai-note-icon">🤖</div>
+            <div>
+                <div class="ai-note-title" data-i18n="ai_note_title">AI o'qituvchi ham shu tilda gaplashadi</div>
+                <div class="ai-note-desc" data-i18n="ai_note_desc">
+                    Interfeys tilini o'zgartirsangiz, AI suhbat sherigi va barcha darslar ham shu tilda ishlaydi.
+                    Barcha sahifalar: English, Spain, Russia, German va boshqalar — hammasida AI tanlagan tilingizda
+                    gaplashadi.
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-title" data-i18n="affected_title">Qaysi sahifalar ta'sirlanadi?</div>
+        <p class="sec-sub" data-i18n="affected_sub">Quyidagi barcha sahifalarda AI va UI tanlagan tilingizda ishlaydi
+        </p>
+        <div class="affected-grid">
+            <span class="affected-pill">✅ English.html</span>
+            <span class="affected-pill">✅ Spain.html</span>
+            <span class="affected-pill">✅ Russia.html</span>
+            <span class="affected-pill">✅ German.html</span>
+            <span class="affected-pill">✅ Arabic.html</span>
+            <span class="affected-pill">✅ Turkish.html</span>
+            <span class="affected-pill">✅ index.html</span>
+            <span class="affected-pill">✅ AI Chat</span>
+            <span class="affected-pill">✅ AI Darslar</span>
+            <span class="affected-pill">✅ AI Baholash</span>
+        </div>
+
+        <div class="how-grid">
+            <div class="how-card">
+                <div class="how-num">1</div>
+                <div class="how-title" data-i18n="how1_t">Tilni tanlang</div>
+                <div class="how-desc" data-i18n="how1_d">Quyidagi ro'yxatdan interfeys tilini tanlang</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">2</div>
+                <div class="how-title" data-i18n="how2_t">Saqlang</div>
+                <div class="how-desc" data-i18n="how2_d">Til brauzeringizda barcha qurilmalarda saqlanadi</div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">3</div>
+                <div class="how-title" data-i18n="how3_t">AI moslashadi</div>
+                <div class="how-desc" data-i18n="how3_d">Barcha sahifalar va AI o'qituvchi tanlagan tilingizda ishlaydi
+                </div>
+            </div>
+            <div class="how-card">
+                <div class="how-num">4</div>
+                <div class="how-title" data-i18n="how4_t">Istalgan vaqt o'zgartiring</div>
+                <div class="how-desc" data-i18n="how4_d">Bu sahifaga qaytib istalgan vaqt tilni almashtiring</div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="sec-title" data-i18n="pick_title">Interfeys tilini tanlang</div>
+        <p class="sec-sub" data-i18n="pick_sub">12 ta tildan birini tanlang — sayt va AI shu tilda ishlaydi</p>
+
+        <div class="search-wrap">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input class="search-input" id="searchInput" placeholder="Til qidirish..."
+                oninput="filterLangs(this.value)" />
+        </div>
+
+        <div class="lang-grid" id="langGrid"></div>
+
+    </section>
+
+    <div class="apply-wrap">
+        <button class="apply-btn" id="applyBtn" onclick="applyLanguage()">
+            <i class="fa-solid fa-check"></i>
+            <span id="applyBtnText">Tilni qo'llash</span>
+        </button>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // ═══════════════════════════════════════════════════════════
+        // INTERFACE LANGUAGE DATA
+        // Her bir tilning: UI tarjimasi + AI system promptlari
+        // ═══════════════════════════════════════════════════════════
+        const INTERFACE_LANGS = [
+            {
+                code: 'uz', flag: '🇺🇿', name: "O'zbek", native: "O'zbek tili",
+                desc: "Sayt va AI o'zbek tilida ishlaydi. Barcha darslar o'zbek tilida.",
+                tags: ["Asosiy", "To'liq"], accent: '#5b7cfa', grad: 'rgba(91,124,250,.08)',
+                // CHAT_MODES override — barcha sahifalar uchun
+                chatModes: {
+                    free: { uz: "Erkin suhbat", sys: "Siz LinguaVerse platformasining AI o'qituvchisisiz. O'zbek tilida gaplashing. Foydalanuvchi ingliz, rus, ispan, nemis tillarini o'rganmoqda. Barcha javoblaringiz O'ZBEK TILIDA bo'lsin. Samimiy va qiziqarli bo'ling." },
+                    teacher: { uz: "O'qituvchi", sys: "Siz LinguaVerse platformasining AI o'qituvchisisiz. Grammatika qoidalarini O'ZBEK TILIDA tushuntiring. Misollar keltiring. Sabr-toqatli va o'quvchiga qulay bo'ling. Barcha izohlar O'ZBEK TILIDA." },
+                    grammar: { uz: "Grammatika", sys: "Siz O'zbek tilidagi grammatika tekshiruvchisisiz. Xatolarni O'ZBEK TILIDA tushuntiring. Format: ❌ Xato → ✅ To'g'ri: ... 📚 Qoida (O'ZBEK tilida)..." },
+                    translate: { uz: "Tarjimon", sys: "Siz professional tarjimonisiz. Tarjimalarni va izohllarni O'ZBEK TILIDA bering. Har doim O'ZBEK TILIDA yozing." },
+                    exam: { uz: "Imtihon", sys: "Siz IELTS/DELE/Goethe imtihoni murabbisisiz. Barcha izoh va fikr-mulohazalaringiz O'ZBEK TILIDA bo'lsin." }
+                },
+                // callAI prompts uchun til prefiksi
+                aiLang: "O'ZBEK TILIDA",
+                aiLangInstruction: "Javobingizni FAQAT O'ZBEK TILIDA bering."
+            },
+            {
+                code: 'en', flag: '🇺🇸', name: "English", native: "English",
+                desc: "Site and AI work in English. All lessons explained in English.",
+                tags: ["Popular", "Full"], accent: '#3b82f6', grad: 'rgba(59,130,246,.08)',
+                chatModes: {
+                    free: { uz: "Free Chat", sys: "You are the AI teacher of LinguaVerse. Speak ONLY IN ENGLISH. Help the user practice languages. Be friendly, encouraging and natural. ALL responses must be IN ENGLISH." },
+                    teacher: { uz: "Teacher", sys: "You are an English teacher on LinguaVerse. Explain grammar rules ONLY IN ENGLISH with examples. Be patient and educational. ALL explanations IN ENGLISH." },
+                    grammar: { uz: "Grammar", sys: "You are an English grammar checker. Identify errors and explain them ONLY IN ENGLISH. Format: ❌ Wrong → ✅ Correct: ... 📚 Rule (IN ENGLISH)..." },
+                    translate: { uz: "Translator", sys: "You are a professional translator. Provide translations and explanations ONLY IN ENGLISH." },
+                    exam: { uz: "Exam Prep", sys: "You are an IELTS/exam preparation coach. Provide all feedback and explanations ONLY IN ENGLISH." }
+                },
+                aiLang: "IN ENGLISH",
+                aiLangInstruction: "Respond ONLY IN ENGLISH."
+            },
+            {
+                code: 'ru', flag: '🇷🇺', name: "Русский", native: "Русский язык",
+                desc: "Сайт и ИИ-учитель работают на русском языке. Все уроки объясняются по-русски.",
+                tags: ["Популярный", "Полный"], accent: '#ef4444', grad: 'rgba(239,68,68,.07)',
+                chatModes: {
+                    free: { uz: "Свободный", sys: "Вы AI-учитель платформы LinguaVerse. Говорите ТОЛЬКО ПО-РУССКИ. Помогайте пользователю изучать языки. Будьте дружелюбны. ВСЕ ответы ТОЛЬКО НА РУССКОМ." },
+                    teacher: { uz: "Учитель", sys: "Вы учитель LinguaVerse. Объясняйте грамматику ТОЛЬКО НА РУССКОМ. Приводите примеры. Будьте терпеливы. ВСЕ объяснения НА РУССКОМ." },
+                    grammar: { uz: "Грамматика", sys: "Вы корректор грамматики. Объясняйте ошибки ТОЛЬКО НА РУССКОМ. Формат: ❌ Ошибка → ✅ Верно: ... 📚 Правило (НА РУССКОМ)..." },
+                    translate: { uz: "Переводчик", sys: "Вы профессиональный переводчик. Переводы и объяснения ТОЛЬКО НА РУССКОМ." },
+                    exam: { uz: "Экзамен", sys: "Вы тренер по подготовке к экзаменам. Весь фидбек ТОЛЬКО НА РУССКОМ." }
+                },
+                aiLang: "НА РУССКОМ ЯЗЫКЕ",
+                aiLangInstruction: "Отвечайте ТОЛЬКО НА РУССКОМ ЯЗЫКЕ."
+            },
+            {
+                code: 'es', flag: '🇪🇸', name: "Español", native: "Español",
+                desc: "El sitio y el profesor de IA funcionan en español. Todas las lecciones en español.",
+                tags: ["Popular", "Completo"], accent: '#f59e0b', grad: 'rgba(245,158,11,.07)',
+                chatModes: {
+                    free: { uz: "Chat libre", sys: "Eres el profesor de IA de LinguaVerse. Habla SOLO EN ESPAÑOL. Ayuda al usuario a aprender idiomas. Sé amigable. TODAS las respuestas EN ESPAÑOL." },
+                    teacher: { uz: "Profesor", sys: "Eres profesor en LinguaVerse. Explica gramática SOLO EN ESPAÑOL con ejemplos. Sé paciente. TODAS las explicaciones EN ESPAÑOL." },
+                    grammar: { uz: "Gramática", sys: "Eres corrector gramatical. Explica errores SOLO EN ESPAÑOL. Formato: ❌ Error → ✅ Correcto: ... 📚 Regla (EN ESPAÑOL)..." },
+                    translate: { uz: "Traductor", sys: "Eres traductor profesional. Traducciones y explicaciones SOLO EN ESPAÑOL." },
+                    exam: { uz: "Examen", sys: "Eres preparador de exámenes DELE. Todo el feedback SOLO EN ESPAÑOL." }
+                },
+                aiLang: "EN ESPAÑOL",
+                aiLangInstruction: "Responde SOLO EN ESPAÑOL."
+            },
+            {
+                code: 'de', flag: '🇩🇪', name: "Deutsch", native: "Deutsch",
+                desc: "Die Website und der KI-Lehrer arbeiten auf Deutsch. Alle Lektionen auf Deutsch.",
+                tags: ["Beliebt", "Vollständig"], accent: '#f97316', grad: 'rgba(249,115,22,.07)',
+                chatModes: {
+                    free: { uz: "Freies Chat", sys: "Sie sind der KI-Lehrer von LinguaVerse. Sprechen Sie NUR AUF DEUTSCH. Helfen Sie beim Sprachenlernen. Seien Sie freundlich. ALLE Antworten AUF DEUTSCH." },
+                    teacher: { uz: "Lehrer", sys: "Sie sind Lehrer bei LinguaVerse. Erklären Sie Grammatik NUR AUF DEUTSCH mit Beispielen. ALLE Erklärungen AUF DEUTSCH." },
+                    grammar: { uz: "Grammatik", sys: "Sie sind Grammatikprüfer. Erklären Sie Fehler NUR AUF DEUTSCH. Format: ❌ Fehler → ✅ Richtig: ... 📚 Regel (AUF DEUTSCH)..." },
+                    translate: { uz: "Übersetzer", sys: "Sie sind professioneller Übersetzer. Übersetzungen und Erklärungen NUR AUF DEUTSCH." },
+                    exam: { uz: "Prüfung", sys: "Sie sind Prüfungstrainer (Goethe). Alles Feedback NUR AUF DEUTSCH." }
+                },
+                aiLang: "AUF DEUTSCH",
+                aiLangInstruction: "Antworten Sie NUR AUF DEUTSCH."
+            },
+            {
+                code: 'fr', flag: '🇫🇷', name: "Français", native: "Français",
+                desc: "Le site et l'enseignant IA fonctionnent en français. Toutes les leçons en français.",
+                tags: ["Populaire", "Complet"], accent: '#3b82f6', grad: 'rgba(59,130,246,.07)',
+                chatModes: {
+                    free: { uz: "Chat libre", sys: "Vous êtes le professeur IA de LinguaVerse. Parlez UNIQUEMENT EN FRANÇAIS. Aidez l'utilisateur à apprendre les langues. TOUTES les réponses EN FRANÇAIS." },
+                    teacher: { uz: "Professeur", sys: "Vous êtes professeur sur LinguaVerse. Expliquez la grammaire UNIQUEMENT EN FRANÇAIS. TOUTES les explications EN FRANÇAIS." },
+                    grammar: { uz: "Grammaire", sys: "Vous êtes correcteur de grammaire. Expliquez les erreurs EN FRANÇAIS. Format: ❌ Erreur → ✅ Correct: ... 📚 Règle (EN FRANÇAIS)..." },
+                    translate: { uz: "Traducteur", sys: "Vous êtes traducteur professionnel. Traductions et explications EN FRANÇAIS uniquement." },
+                    exam: { uz: "Examen", sys: "Vous êtes coach pour le DELF. Tout le feedback EN FRANÇAIS." }
+                },
+                aiLang: "EN FRANÇAIS",
+                aiLangInstruction: "Répondez UNIQUEMENT EN FRANÇAIS."
+            },
+            {
+                code: 'tr', flag: '🇹🇷', name: "Türkçe", native: "Türkçe",
+                desc: "Site ve yapay zeka öğretmeni Türkçe çalışır. Tüm dersler Türkçe.",
+                tags: ["Popüler", "Tam"], accent: '#ef4444', grad: 'rgba(239,68,68,.07)',
+                chatModes: {
+                    free: { uz: "Serbest sohbet", sys: "LinguaVerse'in yapay zeka öğretmenisiniz. YALNIZCA TÜRKÇE konuşun. Dil öğrenimine yardımcı olun. TÜM yanıtlar TÜRKÇE olsun." },
+                    teacher: { uz: "Öğretmen", sys: "LinguaVerse öğretmenisiniz. Grameri YALNIZCA TÜRKÇE açıklayın. TÜM açıklamalar TÜRKÇE." },
+                    grammar: { uz: "Gramer", sys: "Gramer denetçisisiniz. Hataları YALNIZCA TÜRKÇE açıklayın. Format: ❌ Hata → ✅ Doğru: ... 📚 Kural (TÜRKÇE)..." },
+                    translate: { uz: "Çevirmen", sys: "Profesyonel çevirmensiniz. Çeviri ve açıklamalar YALNIZCA TÜRKÇE." },
+                    exam: { uz: "Sınav", sys: "Sınav koçusunuz. Tüm geri bildirimler YALNIZCA TÜRKÇE." }
+                },
+                aiLang: "TÜRKÇE",
+                aiLangInstruction: "YALNIZCA TÜRKÇE yanıt verin."
+            },
+            {
+                code: 'ar', flag: '🇸🇦', name: "العربية", native: "العربية",
+                desc: "الموقع ومعلم الذكاء الاصطناعي يعملان باللغة العربية.",
+                tags: ["شائع", "كامل"], accent: '#10b981', grad: 'rgba(16,185,129,.07)',
+                chatModes: {
+                    free: { uz: "دردشة حرة", sys: "أنت معلم الذكاء الاصطناعي في LinguaVerse. تحدث باللغة العربية فقط. ساعد المستخدم على تعلم اللغات. جميع الردود بالعربية." },
+                    teacher: { uz: "معلم", sys: "أنت معلم في LinguaVerse. اشرح قواعد اللغة بالعربية فقط مع أمثلة." },
+                    grammar: { uz: "قواعد", sys: "أنت مصحح قواعد. اشرح الأخطاء بالعربية. التنسيق: ❌ خطأ → ✅ صحيح... 📚 القاعدة (بالعربية)..." },
+                    translate: { uz: "مترجم", sys: "أنت مترجم محترف. الترجمات والشرح بالعربية فقط." },
+                    exam: { uz: "امتحان", sys: "أنت مدرب اختبارات. جميع التغذية الراجعة بالعربية." }
+                },
+                aiLang: "باللغة العربية",
+                aiLangInstruction: "أجب باللغة العربية فقط."
+            },
+            {
+                code: 'zh', flag: '🇨🇳', name: "中文", native: "中文 (普通话)",
+                desc: "网站和AI老师使用中文工作。所有课程都用中文讲解。",
+                tags: ["热门", "完整"], accent: '#ef4444', grad: 'rgba(239,68,68,.07)',
+                chatModes: {
+                    free: { uz: "自由对话", sys: "您是LinguaVerse的AI老师。只用中文说话。帮助用户学习语言。所有回答必须用中文。" },
+                    teacher: { uz: "老师", sys: "您是LinguaVerse的老师。只用中文解释语法规则，并举例。所有解释用中文。" },
+                    grammar: { uz: "语法", sys: "您是语法检查员。只用中文解释错误。格式：❌ 错误 → ✅ 正确：... 📚 规则（中文）..." },
+                    translate: { uz: "翻译", sys: "您是专业翻译。翻译和解释只用中文。" },
+                    exam: { uz: "考试", sys: "您是考试教练（HSK）。所有反馈只用中文。" }
+                },
+                aiLang: "用中文",
+                aiLangInstruction: "只用中文回答。"
+            },
+            {
+                code: 'ja', flag: '🇯🇵', name: "日本語", native: "日本語",
+                desc: "サイトとAI先生は日本語で動作します。すべてのレッスンは日本語で。",
+                tags: ["人気", "完全"], accent: '#ef4444', grad: 'rgba(239,68,68,.06)',
+                chatModes: {
+                    free: { uz: "自由会話", sys: "あなたはLinguaVerseのAI先生です。日本語だけで話してください。言語学習を手伝ってください。すべての返答は日本語で。" },
+                    teacher: { uz: "先生", sys: "あなたはLinguaVerseの先生です。文法を日本語だけで説明してください。例を示してください。" },
+                    grammar: { uz: "文法", sys: "あなたは文法チェッカーです。エラーを日本語で説明。形式：❌ 間違い → ✅ 正しい：... 📚 ルール（日本語）..." },
+                    translate: { uz: "翻訳者", sys: "あなたはプロの翻訳者です。翻訳と説明は日本語だけで。" },
+                    exam: { uz: "試験", sys: "あなたはJLPT試験コーチです。すべてのフィードバックは日本語で。" }
+                },
+                aiLang: "日本語で",
+                aiLangInstruction: "日本語だけで返答してください。"
+            },
+            {
+                code: 'ko', flag: '🇰🇷', name: "한국어", native: "한국어",
+                desc: "사이트와 AI 선생님은 한국어로 작동합니다. 모든 수업이 한국어로.",
+                tags: ["인기", "완전"], accent: '#3b82f6', grad: 'rgba(59,130,246,.07)',
+                chatModes: {
+                    free: { uz: "자유 대화", sys: "당신은 LinguaVerse의 AI 선생님입니다. 한국어로만 말하세요. 언어 학습을 도와주세요. 모든 답변은 한국어로." },
+                    teacher: { uz: "선생님", sys: "당신은 LinguaVerse의 선생님입니다. 문법을 한국어로만 설명하세요. 모든 설명은 한국어로." },
+                    grammar: { uz: "문법", sys: "당신은 문법 검사자입니다. 한국어로 오류를 설명하세요. 형식: ❌ 틀림 → ✅ 맞음: ... 📚 규칙 (한국어)..." },
+                    translate: { uz: "번역가", sys: "당신은 전문 번역가입니다. 번역과 설명은 한국어로만." },
+                    exam: { uz: "시험", sys: "당신은 시험 코치입니다. 모든 피드백은 한국어로." }
+                },
+                aiLang: "한국어로",
+                aiLangInstruction: "한국어로만 답변하세요."
+            },
+            {
+                code: 'it', flag: '🇮🇹', name: "Italiano", native: "Italiano",
+                desc: "Il sito e l'insegnante IA lavorano in italiano. Tutte le lezioni in italiano.",
+                tags: ["Popolare", "Completo"], accent: '#10b981', grad: 'rgba(16,185,129,.07)',
+                chatModes: {
+                    free: { uz: "Chat libera", sys: "Sei l'insegnante IA di LinguaVerse. Parla SOLO IN ITALIANO. Aiuta l'utente ad imparare le lingue. TUTTE le risposte IN ITALIANO." },
+                    teacher: { uz: "Insegnante", sys: "Sei insegnante su LinguaVerse. Spiega la grammatica SOLO IN ITALIANO con esempi. TUTTE le spiegazioni IN ITALIANO." },
+                    grammar: { uz: "Grammatica", sys: "Sei correttore grammaticale. Spiega gli errori IN ITALIANO. Formato: ❌ Sbagliato → ✅ Corretto: ... 📚 Regola (IN ITALIANO)..." },
+                    translate: { uz: "Traduttore", sys: "Sei traduttore professionista. Traduzioni e spiegazioni SOLO IN ITALIANO." },
+                    exam: { uz: "Esame", sys: "Sei coach per gli esami. Tutto il feedback SOLO IN ITALIANO." }
+                },
+                aiLang: "IN ITALIANO",
+                aiLangInstruction: "Rispondi SOLO IN ITALIANO."
+            }
+        ];
+
+        // ═══════════════════════════════════════════════════════════
+        // UI TRANSLATIONS
+        // ═══════════════════════════════════════════════════════════
+        const T = {
+            uz: { home: "Bosh sahifa", learn_lang: "O'rganish tillari", shop: "Do'kon", profile: "Profil", plans: "Rejalar", interface_lang: "Interfeys tili", page_badge: "Interfeys tili sozlamalari", hero_t1: "Sayt", hero_t2: "Interfeys Tilini", hero_t3: "Tanlang", hero_sub: "Sayt interfeysi va AI o'qituvchisi tanlagan tilingizda ishlaydi.", current_lang: "Hozirgi til", ai_note_title: "AI o'qituvchi ham shu tilda gaplashadi", ai_note_desc: "Interfeys tilini o'zgartirsangiz, AI suhbat sherigi va barcha darslar ham shu tilda ishlaydi. Barcha sahifalar: English, Spain, Russia, German va boshqalar.", affected_title: "Qaysi sahifalar ta'sirlanadi?", affected_sub: "Quyidagi barcha sahifalarda AI va UI tanlagan tilingizda ishlaydi", how1_t: "Tilni tanlang", how1_d: "Quyidagi ro'yxatdan interfeys tilini tanlang", how2_t: "Saqlang", how2_d: "Til brauzeringizda barcha qurilmalarda saqlanadi", how3_t: "AI moslashadi", how3_d: "Barcha sahifalar va AI o'qituvchi tanlagan tilingizda ishlaydi", how4_t: "Istalgan vaqt o'zgartiring", how4_d: "Bu sahifaga qaytib istalgan vaqt tilni almashtiring", pick_title: "Interfeys tilini tanlang", pick_sub: "12 ta tildan birini tanlang — sayt va AI shu tilda ishlaydi", apply_btn: "Tilni qo'llash", search_placeholder: "Til qidirish...", toast_ok: "✅ Til o'zgartirildi! Barcha sahifalarda AI shu tilda ishlaydi." },
+            en: { home: "Home", learn_lang: "Languages", shop: "Shop", profile: "Profile", plans: "Plans", interface_lang: "Interface Language", page_badge: "Interface Language Settings", hero_t1: "Choose", hero_t2: "Interface Language", hero_t3: "for the Site", hero_sub: "The site interface and AI teacher will work in your chosen language.", current_lang: "Current language", ai_note_title: "The AI teacher also speaks in this language", ai_note_desc: "When you change the interface language, the AI and all lessons also work in that language. All pages: English, Spain, Russia, German and others.", affected_title: "Which pages are affected?", affected_sub: "All pages below will have AI and UI in your chosen language", how1_t: "Select a language", how1_d: "Choose a language from the list below", how2_t: "Save", how2_d: "The selected language is saved in your browser", how3_t: "AI adapts", how3_d: "All pages and AI teacher work in your chosen language", how4_t: "Change anytime", how4_d: "Come back to this page to switch languages anytime", pick_title: "Choose interface language", pick_sub: "Select one of 12 languages — site and AI will work in it", apply_btn: "Apply Language", search_placeholder: "Search languages...", toast_ok: "✅ Language changed! AI will speak this language on all pages." },
+            ru: { home: "Главная", learn_lang: "Языки", shop: "Магазин", profile: "Профиль", plans: "Планы", interface_lang: "Язык интерфейса", page_badge: "Настройки языка интерфейса", hero_t1: "Выберите", hero_t2: "Язык интерфейса", hero_t3: "сайта", hero_sub: "Интерфейс сайта и ИИ-учитель будут работать на выбранном языке.", current_lang: "Текущий язык", ai_note_title: "ИИ-учитель тоже говорит на этом языке", ai_note_desc: "При смене языка интерфейса ИИ-собеседник и все уроки тоже работают на этом языке. Все страницы: English, Spain, Russia, German и другие.", affected_title: "Какие страницы затронуты?", affected_sub: "На всех страницах ниже ИИ и интерфейс будут на выбранном языке", how1_t: "Выберите язык", how1_d: "Выберите язык из списка ниже", how2_t: "Сохраните", how2_d: "Язык сохраняется в браузере на всех устройствах", how3_t: "ИИ адаптируется", how3_d: "Все страницы и ИИ-учитель работают на выбранном языке", how4_t: "Меняйте в любое время", how4_d: "Вернитесь на эту страницу чтобы сменить язык", pick_title: "Выберите язык интерфейса", pick_sub: "Выберите один из 12 языков — сайт и ИИ будут работать на нём", apply_btn: "Применить язык", search_placeholder: "Поиск языков...", toast_ok: "✅ Язык изменён! ИИ будет говорить на этом языке на всех страницах." },
+            es: { home: "Inicio", learn_lang: "Idiomas", shop: "Tienda", profile: "Perfil", plans: "Planes", interface_lang: "Idioma de interfaz", page_badge: "Configuración del idioma", hero_t1: "Elige el", hero_t2: "Idioma de Interfaz", hero_t3: "del Sitio", hero_sub: "La interfaz del sitio y el profesor de IA trabajarán en el idioma elegido.", current_lang: "Idioma actual", ai_note_title: "El profesor de IA también habla en este idioma", ai_note_desc: "Al cambiar el idioma de la interfaz, el IA y todas las lecciones también trabajan en ese idioma.", affected_title: "¿Qué páginas se ven afectadas?", affected_sub: "Todas las páginas de abajo tendrán IA e interfaz en el idioma elegido", how1_t: "Selecciona un idioma", how1_d: "Elige un idioma de la lista de abajo", how2_t: "Guarda", how2_d: "El idioma se guarda en tu navegador", how3_t: "La IA se adapta", how3_d: "Todas las páginas y el profesor IA trabajan en tu idioma", how4_t: "Cambia en cualquier momento", how4_d: "Vuelve a esta página para cambiar el idioma", pick_title: "Elige el idioma de interfaz", pick_sub: "Selecciona uno de 12 idiomas — el sitio y la IA trabajarán en él", apply_btn: "Aplicar idioma", search_placeholder: "Buscar idiomas...", toast_ok: "✅ ¡Idioma cambiado! La IA hablará este idioma en todas las páginas." },
+            de: { home: "Startseite", learn_lang: "Sprachen", shop: "Shop", profile: "Profil", plans: "Pläne", interface_lang: "Schnittstellensprache", page_badge: "Spracheinstellungen", hero_t1: "Wählen Sie", hero_t2: "Schnittstellensprache", hero_t3: "der Website", hero_sub: "Die Website und der KI-Lehrer arbeiten in Ihrer gewählten Sprache.", current_lang: "Aktuelle Sprache", ai_note_title: "Der KI-Lehrer spricht auch in dieser Sprache", ai_note_desc: "Wenn Sie die Sprache ändern, arbeiten KI und alle Lektionen in dieser Sprache.", affected_title: "Welche Seiten sind betroffen?", affected_sub: "Alle folgenden Seiten haben KI und UI in der gewählten Sprache", how1_t: "Sprache wählen", how1_d: "Wählen Sie eine Sprache aus der Liste", how2_t: "Speichern", how2_d: "Die Sprache wird in Ihrem Browser gespeichert", how3_t: "KI passt sich an", how3_d: "Alle Seiten und KI-Lehrer arbeiten in Ihrer Sprache", how4_t: "Jederzeit ändern", how4_d: "Kehren Sie zu dieser Seite zurück um die Sprache zu ändern", pick_title: "Schnittstellensprache wählen", pick_sub: "Wählen Sie eine von 12 Sprachen — die Website und KI arbeiten in dieser", apply_btn: "Sprache anwenden", search_placeholder: "Sprachen suchen...", toast_ok: "✅ Sprache geändert! Der KI spricht diese Sprache auf allen Seiten." },
+            fr: { home: "Accueil", learn_lang: "Langues", shop: "Boutique", profile: "Profil", plans: "Plans", interface_lang: "Langue d'interface", page_badge: "Paramètres de langue", hero_t1: "Choisissez la", hero_t2: "Langue d'Interface", hero_t3: "du Site", hero_sub: "L'interface et le professeur IA fonctionneront dans la langue choisie.", current_lang: "Langue actuelle", ai_note_title: "Le professeur IA parle aussi dans cette langue", ai_note_desc: "En changeant la langue, l'IA et toutes les leçons fonctionnent également dans cette langue.", affected_title: "Quelles pages sont affectées?", affected_sub: "Toutes les pages ci-dessous auront l'IA et l'interface dans la langue choisie", how1_t: "Sélectionnez une langue", how1_d: "Choisissez une langue dans la liste", how2_t: "Enregistrer", how2_d: "La langue est sauvegardée dans votre navigateur", how3_t: "L'IA s'adapte", how3_d: "Toutes les pages et le professeur IA fonctionnent dans votre langue", how4_t: "Changer à tout moment", how4_d: "Revenez sur cette page pour changer de langue", pick_title: "Choisissez la langue d'interface", pick_sub: "Sélectionnez une des 12 langues — le site et l'IA travailleront en elle", apply_btn: "Appliquer la langue", search_placeholder: "Rechercher des langues...", toast_ok: "✅ Langue changée! L'IA parlera cette langue sur toutes les pages." },
+            tr: { home: "Ana Sayfa", learn_lang: "Diller", shop: "Mağaza", profile: "Profil", plans: "Planlar", interface_lang: "Arayüz Dili", page_badge: "Dil Ayarları", hero_t1: "Site", hero_t2: "Arayüz Dilini", hero_t3: "Seçin", hero_sub: "Site arayüzü ve yapay zeka öğretmeni seçtiğiniz dilde çalışır.", current_lang: "Mevcut dil", ai_note_title: "Yapay zeka öğretmeni de bu dilde konuşur", ai_note_desc: "Dil değiştirdiğinizde yapay zeka ve tüm dersler de bu dilde çalışır.", affected_title: "Hangi sayfalar etkilenir?", affected_sub: "Aşağıdaki tüm sayfalarda yapay zeka ve arayüz seçilen dilde olur", how1_t: "Dil seçin", how1_d: "Aşağıdaki listeden bir dil seçin", how2_t: "Kaydet", how2_d: "Dil tarayıcınızda kaydedilir", how3_t: "Yapay zeka uyum sağlar", how3_d: "Tüm sayfalar ve yapay zeka öğretmeni seçtiğiniz dilde çalışır", how4_t: "İstediğiniz zaman değiştirin", how4_d: "Dil değiştirmek için bu sayfaya geri dönün", pick_title: "Arayüz dilini seçin", pick_sub: "12 dilden birini seçin — site ve yapay zeka bu dilde çalışır", apply_btn: "Dili Uygula", search_placeholder: "Dil ara...", toast_ok: "✅ Dil değiştirildi! Yapay zeka tüm sayfalarda bu dilde konuşacak." },
+            ar: { home: "الرئيسية", learn_lang: "اللغات", shop: "المتجر", profile: "الملف", plans: "الخطط", interface_lang: "لغة الواجهة", page_badge: "إعدادات لغة الواجهة", hero_t1: "اختر", hero_t2: "لغة الواجهة", hero_t3: "للموقع", hero_sub: "واجهة الموقع ومعلم الذكاء الاصطناعي سيعملان باللغة التي تختارها.", current_lang: "اللغة الحالية", ai_note_title: "معلم الذكاء الاصطناعي يتحدث أيضاً بهذه اللغة", ai_note_desc: "عند تغيير اللغة، يعمل الذكاء الاصطناعي وجميع الدروس بتلك اللغة.", affected_title: "ما الصفحات المتأثرة؟", affected_sub: "جميع الصفحات أدناه ستحتوي على ذكاء اصطناعي وواجهة باللغة المختارة", how1_t: "اختر لغة", how1_d: "اختر لغة من القائمة أدناه", how2_t: "احفظ", how2_d: "اللغة محفوظة في متصفحك", how3_t: "الذكاء الاصطناعي يتكيف", how3_d: "جميع الصفحات ومعلم الذكاء الاصطناعي يعملان بلغتك", how4_t: "غيّر في أي وقت", how4_d: "عد إلى هذه الصفحة لتغيير اللغة", pick_title: "اختر لغة الواجهة", pick_sub: "اختر واحدة من 12 لغة — سيعمل الموقع والذكاء الاصطناعي بها", apply_btn: "تطبيق اللغة", search_placeholder: "البحث عن لغات...", toast_ok: "✅ تم تغيير اللغة! سيتحدث الذكاء الاصطناعي هذه اللغة في جميع الصفحات." },
+            zh: { home: "首页", learn_lang: "语言", shop: "商店", profile: "个人资料", plans: "计划", interface_lang: "界面语言", page_badge: "界面语言设置", hero_t1: "选择", hero_t2: "界面语言", hero_t3: "设置", hero_sub: "网站界面和AI老师将以您选择的语言工作。", current_lang: "当前语言", ai_note_title: "AI老师也用这种语言说话", ai_note_desc: "更改界面语言后，AI和所有课程也会使用该语言。", affected_title: "哪些页面受影响？", affected_sub: "以下所有页面的AI和界面将使用所选语言", how1_t: "选择语言", how1_d: "从下面的列表中选择语言", how2_t: "保存", how2_d: "所选语言保存在您的浏览器中", how3_t: "AI适应", how3_d: "所有页面和AI老师使用您选择的语言", how4_t: "随时更改", how4_d: "返回此页面随时切换语言", pick_title: "选择界面语言", pick_sub: "从12种语言中选择一种", apply_btn: "应用语言", search_placeholder: "搜索语言...", toast_ok: "✅ 语言已更改！AI将在所有页面使用此语言。" },
+            ja: { home: "ホーム", learn_lang: "言語", shop: "ショップ", profile: "プロフィール", plans: "プラン", interface_lang: "インターフェース言語", page_badge: "言語設定", hero_t1: "サイトの", hero_t2: "インターフェース言語", hero_t3: "を選択", hero_sub: "サイトとAI先生が選択した言語で動作します。", current_lang: "現在の言語", ai_note_title: "AI先生もこの言語で話します", ai_note_desc: "言語を変更すると、AIとすべてのレッスンもその言語で動作します。", affected_title: "影響を受けるページ", affected_sub: "以下のすべてのページでAIとUIが選択した言語になります", how1_t: "言語を選択", how1_d: "リストから言語を選択してください", how2_t: "保存", how2_d: "言語はブラウザに保存されます", how3_t: "AIが適応", how3_d: "すべてのページとAI先生が選択した言語で動作します", how4_t: "いつでも変更", how4_d: "このページに戻っていつでも変更できます", pick_title: "インターフェース言語を選択", pick_sub: "12の言語から1つ選択してください", apply_btn: "言語を適用", search_placeholder: "言語を検索...", toast_ok: "✅ 言語が変更されました！AIはすべてのページでこの言語を使用します。" },
+            ko: { home: "홈", learn_lang: "언어", shop: "상점", profile: "프로필", plans: "플랜", interface_lang: "인터페이스 언어", page_badge: "언어 설정", hero_t1: "사이트", hero_t2: "인터페이스 언어", hero_t3: "선택", hero_sub: "사이트 인터페이스와 AI 선생님이 선택한 언어로 작동합니다.", current_lang: "현재 언어", ai_note_title: "AI 선생님도 이 언어로 말합니다", ai_note_desc: "언어를 변경하면 AI와 모든 수업도 해당 언어로 작동합니다.", affected_title: "영향받는 페이지", affected_sub: "아래 모든 페이지에서 AI와 UI가 선택한 언어로 작동합니다", how1_t: "언어 선택", how1_d: "아래 목록에서 언어를 선택하세요", how2_t: "저장", how2_d: "선택한 언어가 브라우저에 저장됩니다", how3_t: "AI 적응", how3_d: "모든 페이지와 AI 선생님이 선택한 언어로 작동합니다", how4_t: "언제든지 변경", how4_d: "이 페이지로 돌아와 언제든지 언어를 변경하세요", pick_title: "인터페이스 언어 선택", pick_sub: "12개 언어 중 하나를 선택하세요", apply_btn: "언어 적용", search_placeholder: "언어 검색...", toast_ok: "✅ 언어가 변경되었습니다! AI가 모든 페이지에서 이 언어를 사용합니다." },
+            it: { home: "Home", learn_lang: "Lingue", shop: "Negozio", profile: "Profilo", plans: "Piani", interface_lang: "Lingua interfaccia", page_badge: "Impostazioni lingua", hero_t1: "Scegli la", hero_t2: "Lingua dell'Interfaccia", hero_t3: "del Sito", hero_sub: "L'interfaccia del sito e l'insegnante IA lavoreranno nella lingua scelta.", current_lang: "Lingua corrente", ai_note_title: "Anche l'insegnante IA parla in questa lingua", ai_note_desc: "Cambiando la lingua, l'IA e tutte le lezioni funzionano in quella lingua.", affected_title: "Quali pagine sono interessate?", affected_sub: "Tutte le pagine seguenti avranno IA e interfaccia nella lingua scelta", how1_t: "Seleziona una lingua", how1_d: "Scegli una lingua dall'elenco", how2_t: "Salva", how2_d: "La lingua viene salvata nel tuo browser", how3_t: "L'IA si adatta", how3_d: "Tutte le pagine e l'insegnante IA lavorano nella tua lingua", how4_t: "Cambia in qualsiasi momento", how4_d: "Torna su questa pagina per cambiare lingua", pick_title: "Scegli la lingua dell'interfaccia", pick_sub: "Seleziona una delle 12 lingue", apply_btn: "Applica lingua", search_placeholder: "Cerca lingue...", toast_ok: "✅ Lingua cambiata! L'IA parlerà questa lingua su tutte le pagine." }
+        };
+
+        // ═══════════════════════════════════════════════════════════
+        // STATE
+        // ═══════════════════════════════════════════════════════════
+        let selectedLang = localStorage.getItem('lv_interface_lang') || 'uz';
+
+        // ═══════════════════════════════════════════════════════════
+        // INIT
+        // ═══════════════════════════════════════════════════════════
+        function init() {
+            applyPageUI(selectedLang);
+            renderGrid(INTERFACE_LANGS);
+            updateBadge(selectedLang);
+            updateApplyBtn(selectedLang);
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        // RENDER CARDS
+        // ═══════════════════════════════════════════════════════════
+        function renderGrid(langs) {
+            const grid = document.getElementById('langGrid');
+            grid.innerHTML = langs.map(l => `
+            <div class="lang-card ${l.code === selectedLang ? 'selected' : ''}"
+                 style="--card-accent:${l.accent};--card-grad:${l.grad}"
+                 onclick="selectLang('${l.code}')" id="card-${l.code}">
+                <div class="card-top">
+                    <div class="card-flag">${l.flag}</div>
+                    <div class="card-info">
+                        <div class="card-name">${l.name}</div>
+                        <div class="card-native">${l.native}</div>
+                    </div>
+                    <div class="card-check"><i class="fa-solid fa-check"></i></div>
+                </div>
+                <div class="card-desc">${l.desc}</div>
+                <div class="card-tags">
+                    ${l.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+                </div>
+                <div class="ai-scope">🤖 AI: ${l.aiLang}</div>
+            </div>
+        `).join('');
+        }
+
+        function selectLang(code) {
+            selectedLang = code;
+            document.querySelectorAll('.lang-card').forEach(c => c.classList.remove('selected'));
+            const card = document.getElementById(`card-${code}`);
+            if (card) card.classList.add('selected');
+            updateApplyBtn(code);
+            updateBadge(code);
+        }
+
+        function updateBadge(code) {
+            const l = INTERFACE_LANGS.find(x => x.code === code);
+            if (!l) return;
+            document.getElementById('currentFlag').textContent = l.flag;
+            document.getElementById('currentLangName').textContent = l.name;
+        }
+
+        function updateApplyBtn(code) {
+            const l = INTERFACE_LANGS.find(x => x.code === code);
+            const t = T[code] || T.uz;
+            const btn = document.getElementById('applyBtnText');
+            if (btn) btn.textContent = `${l ? l.flag : ''} ${t.apply_btn}`;
+        }
+
+        function filterLangs(q) {
+            const ql = q.toLowerCase();
+            const filtered = INTERFACE_LANGS.filter(l =>
+                l.name.toLowerCase().includes(ql) ||
+                l.native.toLowerCase().includes(ql) ||
+                l.code.toLowerCase().includes(ql) ||
+                l.tags.some(t => t.toLowerCase().includes(ql))
+            );
+            renderGrid(filtered);
+            const card = document.getElementById(`card-${selectedLang}`);
+            if (card) card.classList.add('selected');
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        // APPLY PAGE UI TRANSLATIONS
+        // ═══════════════════════════════════════════════════════════
+        function applyPageUI(code) {
+            const t = T[code] || T.uz;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const k = el.getAttribute('data-i18n');
+                if (t[k] !== undefined) el.textContent = t[k];
+            });
+            const si = document.getElementById('searchInput');
+            if (si && t.search_placeholder) si.placeholder = t.search_placeholder;
+            document.documentElement.dir = (code === 'ar') ? 'rtl' : 'ltr';
+            document.documentElement.lang = code;
+            updateApplyBtn(code);
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        // APPLY LANGUAGE — barcha sahifalar uchun saqlash
+        // ═══════════════════════════════════════════════════════════
+        function applyLanguage() {
+            const lang = INTERFACE_LANGS.find(l => l.code === selectedLang);
+            if (!lang) return;
+
+            // 1. Asosiy kalit
+            localStorage.setItem('lv_interface_lang', selectedLang);
+            localStorage.setItem('lv_interface_lang_name', lang.name);
+            localStorage.setItem('lv_interface_lang_flag', lang.flag);
+
+            // 2. AI system prompt (asosiy — barcha sahifalar uchun)
+            // Bu kalit barcha .html sahifalaridagi AI ga yuboriladi
+            const freeSys = lang.chatModes.free.sys;
+            localStorage.setItem('lv_ai_system_prompt', freeSys);
+
+            // 3. CHAT_MODES override — barcha rejimlar uchun
+            // English.js, Spain.js va boshqalar bu kalitni o'qiydi
+            const chatModesOverride = {};
+            Object.entries(lang.chatModes).forEach(([key, val]) => {
+                chatModesOverride[key] = val.sys;
+            });
+            localStorage.setItem('lv_chat_modes_override', JSON.stringify(chatModesOverride));
+
+            // 4. callAI funksiyasi uchun til ko'rsatmasi
+            // Har bir callAI chaqiruviga qo'shiladi
+            localStorage.setItem('lv_ai_lang_instruction', lang.aiLangInstruction);
+            localStorage.setItem('lv_ai_lang_label', lang.aiLang);
+
+            // 5. RTL / LTR
+            localStorage.setItem('lv_rtl', lang.code === 'ar' ? 'true' : 'false');
+
+            // 6. Bu sahifaning UI ni ham yangilash
+            applyPageUI(selectedLang);
+
+            // 7. Toast
+            const t = T[selectedLang] || T.uz;
+            showToast(t.toast_ok || '✅ Language applied!');
+
+            // 8. 1.5s dan keyin qayta yuklash
+            setTimeout(() => { location.reload(); }, 1600);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        // THREE.JS BG
+        // ═══════════════════════════════════════════════════════════
+        (function () {
+            const cv = document.getElementById('bgCanvas');
+            const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+            r.setPixelRatio(Math.min(devicePixelRatio, 2));
+            r.setSize(innerWidth, innerHeight);
+            const sc = new THREE.Scene();
+            const cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);
+            cam.position.z = 5;
+            const geo = new THREE.BufferGeometry();
+            const cnt = 1200, pos = new Float32Array(cnt * 3);
+            for (let i = 0; i < cnt * 3; i++) pos[i] = (Math.random() - .5) * 30;
+            geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x4a6fa5, size: .06, transparent: true, opacity: .3 }));
+            sc.add(pts);
+            [0x4a6fa5, 0x7b6af5, 0xd4a820].forEach((c, i) => {
+                const m = new THREE.Mesh(
+                    new THREE.TorusGeometry(2 + i * 2, .01, 8, 100),
+                    new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .04 })
+                );
+                m.rotation.x = Math.random() * Math.PI;
+                sc.add(m);
+            });
+            let mx = 0, my = 0;
+            document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+            window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight); });
+            let t = 0;
+            (function loop() {
+                requestAnimationFrame(loop); t += .002;
+                pts.rotation.y = t * .1; pts.rotation.x = t * .06;
+                cam.position.x += (mx * .5 - cam.position.x) * .03;
+                cam.position.y += (-my * .5 - cam.position.y) * .03;
+                cam.lookAt(sc.position); r.render(sc, cam);
+            })();
+        })();
+
+        init();
+    </script>
+<script type="module" src="./js/language.js"></script>
+</body>
+
+</html>

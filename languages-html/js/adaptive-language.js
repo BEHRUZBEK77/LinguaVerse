@@ -83,8 +83,10 @@ const LANG = {
 // SKILL ANALYZER — 300+ data points
 // ══════════════════════════════════════════════════════════════
 const ANALYZER = {
-    run(ud) {
-        const sk = ud.skills || {};
+    run(ud, langKey) {
+        // ── PER-LANGUAGE skill field: skills_english, skills_russian, etc.
+        const langSkillKey = langKey ? `skills_${langKey.toLowerCase()}` : 'skills';
+        const sk = ud[langSkillKey] || ud.skills || {};
         const pr = ud.progress || {};
         const st = ud.stats || {};
 
@@ -659,25 +661,43 @@ const DB = {
         } catch (e) { return {}; }
     },
     async saveLesson(userId, lesson, type, langCode) {
+        // langCode e.g. 'English', 'Russian' — normalized to lowercase for skill keys
+        const langKey = (langCode || 'unknown').toLowerCase();
         try {
             const ref = await addDoc(collection(_db, `users/${userId}/ai_lessons`), {
-                ...lesson, type, lang: langCode,
+                ...lesson, type, lang: langCode, langKey,
                 createdAt: serverTimestamp(), completed: false, score: null
             });
             return ref.id;
         } catch (e) { return null; }
     },
-    async completeLesson(userId, lessonId, score, skill, xpEarned) {
+    async completeLesson(userId, lessonId, score, skill, xpEarned, langKey) {
+        // langKey e.g. 'english', 'russian', 'spanish'
+        const langSkillKey = langKey ? `skills_${langKey.toLowerCase()}` : 'skills';
+        const skillIncrement = Math.ceil(score / 10);
         try {
             await updateDoc(doc(_db, `users/${userId}/ai_lessons/${lessonId}`), {
-                completed: true, score, completedAt: serverTimestamp()
+                completed: true, score, completedAt: serverTimestamp(), lang: langKey || null
             });
             await updateDoc(doc(_db, 'users', userId), {
                 xp: increment(xpEarned),
                 totalXP: increment(xpEarned),
-                [`skills.${skill}`]: increment(Math.ceil(score / 10)),
+                // Per-language skill tracking (alohida har bir til uchun)
+                [`${langSkillKey}.${skill}`]: increment(skillIncrement),
+                // Also track per-lesson-type history
+                [`lessonHistory.${langKey || 'unknown'}.${skill}`]: increment(1),
                 'stats.totalSessions': increment(1),
                 lastActive: serverTimestamp()
+            });
+            // Save per-lesson skill snapshot for history/analytics
+            await addDoc(collection(_db, `users/${userId}/skill_history`), {
+                lang: langKey || 'unknown',
+                skill,
+                score,
+                xp: xpEarned,
+                skillGain: skillIncrement,
+                lessonId,
+                at: serverTimestamp()
             });
         } catch (e) { console.warn(e); }
     },
@@ -733,7 +753,7 @@ const ENGINE = {
         this.userPlan = (userData.plan || 'free').toLowerCase();
         this.userTokens = userData.tokens || 0;
         this.langCfg = langCfg;
-        this.analysis = ANALYZER.run(userData);
+        this.analysis = ANALYZER.run(userData, langCfg.name); // per-language skill analysis
         TTS.setLang(langCfg.tts);
         this.todayLessonCount = await TOKEN_MGR.getTodayCount(userId);
         this._injectCSS();
@@ -1149,6 +1169,8 @@ const ENGINE = {
             this._updateTokenBar();
 
             const ud = await DB.getUserData(this.userId);
+            // Re-run analysis with per-language skills for accurate adaptive difficulty
+            this.analysis = ANALYZER.run(ud, this.langCfg?.name);
             let lesson;
             if (lessonType === 'reading') lesson = await AI_GEN.generateReading(this.analysis, this.langCfg, ud);
             else if (lessonType === 'listening') lesson = await AI_GEN.generateListening(this.analysis, this.langCfg, ud);
@@ -2140,12 +2162,17 @@ const ENGINE = {
         const skill = this.currentLessonType || 'grammar';
 
         if (this.currentLessonId && this.userId) {
-            await DB.completeLesson(this.userId, this.currentLessonId, pct, skill, xp);
+            await DB.completeLesson(this.userId, this.currentLessonId, pct, skill, xp, this.langCfg?.name?.toLowerCase());
         }
 
-        // Update local skill score
+        // Update local skill score (per-language)
         if (this.analysis?.scores?.[skill] !== undefined) {
             this.analysis.scores[skill] = Math.min(100, this.analysis.scores[skill] + Math.ceil(pct / 10));
+        }
+        // Re-analyze with updated lang-specific skills for adaptive accuracy
+        const refreshedUd = await DB.getUserData(this.userId);
+        if (refreshedUd) {
+            this.analysis = ANALYZER.run(refreshedUd, this.langCfg?.name);
         }
 
         const c = this.langCfg.color;

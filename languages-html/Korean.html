@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>LinguaVerse — Turkish</title>
+    <title>LinguaVerse — Korean</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;700&family=Exo+2:wght@400;600;800;900&display=swap"
@@ -20,12 +20,12 @@
         }
 
         :root {
-            --bg: #02040a;
+            --bg: #020408;
             --bg2: #040810;
             --bg3: #080d1a;
             --bg4: #0c1224;
-            --accent: #e8534a;
-            --accent2: #f4845f;
+            --accent: #e8365d;
+            --accent2: #ff8fa3;
             --gold: #f5c842;
             --gold2: #e8a800;
             --green: #34d399;
@@ -33,9 +33,9 @@
             --orange: #fb923c;
             --pink: #f472b6;
             --cyan: #22d3ee;
-            --text: #fff4f0;
-            --text2: #d4b8b0;
-            --text3: #6a5550;
+            --text: #fff0f3;
+            --text2: #d0a8b0;
+            --text3: #5a4248;
             --border: rgba(255, 255, 255, 0.06);
             --font-display: 'Cinzel', serif;
             --font-head: 'Exo 2', sans-serif;
@@ -70,9 +70,9 @@
             position: sticky;
             top: 0;
             z-index: 200;
-            background: rgba(2, 4, 10, .97);
+            background: rgba(2, 4, 8, .97);
             backdrop-filter: blur(28px);
-            border-bottom: 1px solid rgba(232, 83, 74, .12);
+            border-bottom: 1px solid rgba(232, 54, 93, .12);
             padding: 0 24px;
             height: 64px;
             display: flex;
@@ -198,7 +198,7 @@
         .drawer-backdrop {
             position: absolute;
             inset: 0;
-            background: rgba(2, 4, 10, .85);
+            background: rgba(2, 4, 8, .85);
             backdrop-filter: blur(8px);
             opacity: 0;
             transition: opacity .35s
@@ -212,7 +212,7 @@
             width: 280px;
             max-width: 85vw;
             background: #080d1a;
-            border-left: 1px solid rgba(232, 83, 74, .15);
+            border-left: 1px solid rgba(232, 54, 93, .15);
             transform: translateX(100%);
             transition: transform .35s cubic-bezier(.4, 0, .2, 1);
             display: flex;
@@ -247,13 +247,13 @@
             font-family: 'Cinzel', serif;
             font-size: 1rem;
             font-weight: 900;
-            color: #fff4f0;
+            color: #fff0f3;
             text-decoration: none;
             letter-spacing: .06em
         }
 
         .drawer-logo span {
-            background: linear-gradient(135deg, #e8534a, #f4845f);
+            background: linear-gradient(135deg, #e8365d, #ff8fa3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent
         }
@@ -264,7 +264,7 @@
             border-radius: 8px;
             background: rgba(255, 255, 255, .06);
             border: 1px solid rgba(255, 255, 255, .08);
-            color: #d4b8b0;
+            color: #d0a8b0;
             cursor: pointer;
             font-size: .9rem;
             display: flex;
@@ -275,7 +275,7 @@
 
         .drawer-close:hover {
             background: rgba(255, 255, 255, .14);
-            color: #fff4f0
+            color: #fff0f3
         }
 
         .drawer-user {
@@ -290,7 +290,7 @@
             font-family: 'Exo 2', sans-serif;
             font-size: .88rem;
             font-weight: 700;
-            color: #fff4f0
+            color: #fff0f3
         }
 
         .drawer-stats {
@@ -310,7 +310,7 @@
             font-family: 'Exo 2', sans-serif;
             font-size: .72rem;
             font-weight: 700;
-            color: #d4b8b0
+            color: #d0a8b0
         }
 
         .drawer-nav {
@@ -327,7 +327,7 @@
             font-weight: 800;
             letter-spacing: .12em;
             text-transform: uppercase;
-            color: #6a5550;
+            color: #5a4248;
             padding: 8px 8px 4px
         }
 
@@ -341,7 +341,7 @@
             font-size: .82rem;
             font-weight: 700;
             text-decoration: none;
-            color: #d4b8b0;
+            color: #d0a8b0;
             cursor: pointer;
             border: 1px solid transparent;
             transition: all .2s;
@@ -357,9 +357,9 @@
 
         .drawer-link:hover,
         .drawer-link.active {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .2);
-            color: #fff4f0
+            background: rgba(232, 54, 93, .1);
+            border-color: rgba(232, 54, 93, .2);
+            color: #fff0f3
         }
 
         .drawer-link.gold:hover,
@@ -387,8 +387,8 @@
             margin: 12px;
             padding: 16px;
             border-radius: 14px;
-            background: linear-gradient(135deg, rgba(232, 83, 74, .15), rgba(244, 132, 95, .15));
-            border: 1px solid rgba(232, 83, 74, .25);
+            background: linear-gradient(135deg, rgba(232, 54, 93, .15), rgba(255, 143, 163, .15));
+            border: 1px solid rgba(232, 54, 93, .25);
             text-align: center;
             flex-shrink: 0
         }
@@ -397,7 +397,7 @@
             font-family: 'Cinzel', serif;
             font-size: .82rem;
             font-weight: 700;
-            color: #fff4f0;
+            color: #fff0f3;
             letter-spacing: .04em;
             margin-bottom: 8px
         }
@@ -406,7 +406,7 @@
             width: 100%;
             padding: 9px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #e8534a, #f4845f);
+            background: linear-gradient(135deg, #e8365d, #ff8fa3);
             border: none;
             color: #fff;
             font-family: 'Exo 2', sans-serif;
@@ -421,7 +421,7 @@
             position: sticky;
             top: 64px;
             z-index: 199;
-            background: rgba(2, 4, 10, .96);
+            background: rgba(2, 4, 8, .96);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             padding: 7px 24px;
@@ -461,8 +461,8 @@
         }
 
         .strip-btn.accent {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .3);
+            background: rgba(232, 54, 93, .12);
+            border-color: rgba(232, 54, 93, .3);
             color: var(--accent2)
         }
 
@@ -491,7 +491,7 @@
             z-index: 198;
             background: rgba(3, 5, 9, .98);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(232, 83, 74, .12);
+            border-bottom: 1px solid rgba(232, 54, 93, .12);
             padding: 7px 24px
         }
 
@@ -546,8 +546,96 @@
             letter-spacing: .04em
         }
 
+        /* SHOP STRIP */
+        .shop-strip {
+            background: linear-gradient(135deg, rgba(232, 54, 93, .05), rgba(255, 143, 163, .05));
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            margin-top: 4px
+        }
+
+        .shop-strip-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 24px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            max-width: 1280px;
+            margin: 0 auto
+        }
+
+        .shop-strip-inner::-webkit-scrollbar {
+            display: none
+        }
+
+        .rw-title {
+            font-family: var(--font-head);
+            font-size: .68rem;
+            font-weight: 800;
+            color: var(--accent2);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .rw-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 14px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            font-family: var(--font-head);
+            font-size: .75rem;
+            font-weight: 700;
+            color: var(--text);
+            white-space: nowrap;
+            transition: all .2s;
+            cursor: pointer
+        }
+
+        .rw-card:hover {
+            background: rgba(255, 255, 255, .08);
+            transform: translateY(-1px)
+        }
+
+        .rw-card.vip {
+            border-color: rgba(245, 200, 66, .35);
+            background: rgba(245, 200, 66, .08);
+            color: var(--gold)
+        }
+
+        .rw-card.booster {
+            border-color: rgba(52, 211, 153, .35);
+            background: rgba(52, 211, 153, .08);
+            color: var(--green)
+        }
+
+        .rw-card.coins {
+            border-color: rgba(251, 191, 36, .3);
+            background: rgba(251, 191, 36, .05);
+            color: var(--gold)
+        }
+
+        .rw-card.xp {
+            border-color: rgba(96, 165, 250, .3);
+            background: rgba(96, 165, 250, .05);
+            color: #60a5fa
+        }
+
+        .rw-card.keys {
+            border-color: rgba(244, 114, 182, .3);
+            background: rgba(244, 114, 182, .05);
+            color: var(--pink)
+        }
+
         /* HERO */
-        .tr-hero {
+        .kor-hero {
             position: relative;
             z-index: 1;
             display: flex;
@@ -560,7 +648,7 @@
             flex-wrap: wrap
         }
 
-        .tr-hero-content {
+        .kor-hero-content {
             flex: 1;
             min-width: 260px
         }
@@ -569,8 +657,8 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(232, 83, 74, .1);
-            border: 1px solid rgba(232, 83, 74, .25);
+            background: rgba(232, 54, 93, .1);
+            border: 1px solid rgba(232, 54, 93, .25);
             border-radius: 100px;
             padding: 8px 20px;
             font-family: var(--font-head);
@@ -582,7 +670,7 @@
             margin-bottom: 18px
         }
 
-        .tr-title {
+        .kor-title {
             font-family: var(--font-display);
             font-size: 3rem;
             font-weight: 900;
@@ -591,13 +679,13 @@
             letter-spacing: .04em
         }
 
-        .tr-title .gradient-text {
-            background: linear-gradient(135deg, var(--accent), var(--accent2), #ffb347);
+        .kor-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), #ff6b9d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent
         }
 
-        .tr-subtitle {
+        .kor-subtitle {
             font-size: .92rem;
             color: var(--text2);
             line-height: 1.7;
@@ -761,8 +849,8 @@
 
         .level-tab.active,
         .level-tab:hover {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .35);
+            background: rgba(232, 54, 93, .12);
+            border-color: rgba(232, 54, 93, .35);
             color: var(--text)
         }
 
@@ -770,8 +858,8 @@
             font-size: .58rem;
             padding: 2px 8px;
             border-radius: 100px;
-            background: rgba(244, 132, 95, .15);
-            border: 1px solid rgba(244, 132, 95, .25);
+            background: rgba(255, 143, 163, .15);
+            border: 1px solid rgba(255, 143, 163, .25);
             color: var(--accent2);
             font-weight: 800
         }
@@ -799,7 +887,7 @@
         .unit-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
-            border-color: rgba(232, 83, 74, .3)
+            border-color: rgba(232, 54, 93, .3)
         }
 
         .unit-card.completed {
@@ -830,7 +918,7 @@
         }
 
         .word-search:focus {
-            border-color: rgba(232, 83, 74, .4)
+            border-color: rgba(232, 54, 93, .4)
         }
 
         .word-search::placeholder {
@@ -859,8 +947,8 @@
 
         .wf-tab.active,
         .wf-tab:hover {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .3);
+            background: rgba(232, 54, 93, .12);
+            border-color: rgba(232, 54, 93, .3);
             color: var(--text)
         }
 
@@ -878,8 +966,8 @@
         .load-more-btn {
             padding: 10px 32px;
             border-radius: 100px;
-            background: rgba(232, 83, 74, .1);
-            border: 1px solid rgba(232, 83, 74, .25);
+            background: rgba(232, 54, 93, .1);
+            border: 1px solid rgba(232, 54, 93, .25);
             color: var(--accent2);
             font-family: var(--font-head);
             font-size: .82rem;
@@ -890,7 +978,7 @@
         }
 
         .load-more-btn:hover {
-            background: rgba(232, 83, 74, .2)
+            background: rgba(232, 54, 93, .2)
         }
 
         /* PRACTICE */
@@ -920,8 +1008,8 @@
         }
 
         .ptab.active {
-            background: rgba(232, 83, 74, .15);
-            border-color: rgba(232, 83, 74, .4);
+            background: rgba(232, 54, 93, .15);
+            border-color: rgba(232, 54, 93, .4);
             color: var(--text)
         }
 
@@ -982,8 +1070,8 @@
         }
 
         .flashcard-front {
-            background: linear-gradient(135deg, rgba(232, 83, 74, .15), rgba(244, 132, 95, .15));
-            border: 1px solid rgba(232, 83, 74, .25)
+            background: linear-gradient(135deg, rgba(232, 54, 93, .15), rgba(255, 143, 163, .15));
+            border: 1px solid rgba(232, 54, 93, .25)
         }
 
         .flashcard-back {
@@ -1128,8 +1216,8 @@
         }
 
         .quiz-opt:hover {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .3)
+            background: rgba(232, 54, 93, .1);
+            border-color: rgba(232, 54, 93, .3)
         }
 
         .quiz-score {
@@ -1168,7 +1256,7 @@
         }
 
         .match-item:hover {
-            background: rgba(232, 83, 74, .1)
+            background: rgba(232, 54, 93, .1)
         }
 
         .typing-prompt {
@@ -1211,7 +1299,7 @@
         }
 
         .typing-input:focus {
-            border-color: rgba(232, 83, 74, .4)
+            border-color: rgba(232, 54, 93, .4)
         }
 
         .grammar-q-box {
@@ -1246,16 +1334,16 @@
         }
 
         .grammar-options button:hover {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .3)
+            background: rgba(232, 54, 93, .1);
+            border-color: rgba(232, 54, 93, .3)
         }
 
         .next-ex-btn {
             margin-top: 12px;
             padding: 9px 22px;
             border-radius: 100px;
-            background: rgba(232, 83, 74, .12);
-            border: 1px solid rgba(232, 83, 74, .3);
+            background: rgba(232, 54, 93, .12);
+            border: 1px solid rgba(232, 54, 93, .3);
             color: var(--accent2);
             font-family: var(--font-head);
             font-size: .8rem;
@@ -1269,7 +1357,7 @@
         }
 
         .next-ex-btn:hover {
-            background: rgba(232, 83, 74, .22)
+            background: rgba(232, 54, 93, .22)
         }
 
         /* VIDEO */
@@ -1288,13 +1376,13 @@
             cursor: pointer;
             letter-spacing: .04em;
             margin-bottom: 20px;
-            box-shadow: 0 8px 30px rgba(232, 83, 74, .3);
+            box-shadow: 0 8px 30px rgba(232, 54, 93, .3);
             transition: all .25s
         }
 
         .find-video-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 14px 40px rgba(232, 83, 74, .45)
+            box-shadow: 0 14px 40px rgba(232, 54, 93, .45)
         }
 
         .videos-grid {
@@ -1315,7 +1403,7 @@
             font-size: .85rem
         }
 
-        /* LEADERBOARD */
+        /* LEADERBOARD - FIX: media queries for large numbers */
         .lb-row {
             display: flex;
             align-items: center;
@@ -1334,8 +1422,8 @@
         }
 
         .lb-row.me {
-            background: rgba(232, 83, 74, .1);
-            border-color: rgba(232, 83, 74, .28)
+            background: rgba(232, 54, 93, .1);
+            border-color: rgba(232, 54, 93, .28)
         }
 
         .lb-rank {
@@ -1387,38 +1475,42 @@
             white-space: nowrap
         }
 
-        /* FIX: lb-score max-width to prevent overflow on big numbers */
+        /* FIX: score column flex shrink 0, min-width 0, text fits */
         .lb-score {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: .95rem;
+            font-size: .88rem;
             color: var(--accent2);
-            white-space: nowrap;
             text-align: right;
-            min-width: 60px;
-            max-width: 120px;
-            overflow: hidden;
-            text-overflow: ellipsis
+            flex-shrink: 0;
+            white-space: nowrap
+        }
+
+        .lb-score-label {
+            font-size: .6rem;
+            color: var(--text3);
+            font-family: var(--font-head);
+            text-align: right
         }
 
         .lb-plan {
             font-size: .68rem;
             padding: 2px 8px;
             border-radius: 100px;
-            background: rgba(244, 132, 95, .1);
+            background: rgba(255, 143, 163, .1);
             color: var(--accent2);
             border: 1px solid transparent;
-            white-space: nowrap
+            display: inline-block;
+            margin-top: 2px
         }
 
-        /* FIX: lb-row inner layout to handle long numbers */
-        .lb-info-col {
+        /* FIX: lb-score-block wrapper for right-side numbers */
+        .lb-score-block {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            min-width: 0;
-            flex: 1;
-            overflow: hidden
+            align-items: flex-end;
+            flex-shrink: 0;
+            min-width: 70px
         }
 
         /* AI CHAT */
@@ -1470,8 +1562,8 @@
         }
 
         .chat-mode-btn.active {
-            background: rgba(232, 83, 74, .12);
-            border-color: rgba(232, 83, 74, .3);
+            background: rgba(232, 54, 93, .12);
+            border-color: rgba(232, 54, 93, .3);
             color: var(--text)
         }
 
@@ -1518,12 +1610,12 @@
             align-items: center;
             justify-content: center;
             font-size: .9rem;
-            background: rgba(244, 132, 95, .15);
+            background: rgba(255, 143, 163, .15);
             color: var(--accent2)
         }
 
         .user-msg .chat-avatar {
-            background: rgba(232, 83, 74, .2);
+            background: rgba(232, 54, 93, .2);
             color: var(--accent)
         }
 
@@ -1539,9 +1631,9 @@
         }
 
         .user-msg .chat-bubble {
-            background: rgba(232, 83, 74, .13);
-            border-color: rgba(232, 83, 74, .25);
-            color: #ffd5cc
+            background: rgba(232, 54, 93, .13);
+            border-color: rgba(232, 54, 93, .25);
+            color: #ffd0d8
         }
 
         .chat-input-area {
@@ -1571,7 +1663,7 @@
         }
 
         .chat-action-btn:hover {
-            background: rgba(232, 83, 74, .1);
+            background: rgba(232, 54, 93, .1);
             color: var(--accent2)
         }
 
@@ -1596,7 +1688,7 @@
         }
 
         .chat-input:focus {
-            border-color: rgba(232, 83, 74, .4)
+            border-color: rgba(232, 54, 93, .4)
         }
 
         .chat-send-btn {
@@ -1628,99 +1720,12 @@
             color: var(--text3)
         }
 
-        /* SHOP STRIP */
-        .shop-strip {
-            background: linear-gradient(135deg, rgba(232, 83, 74, .05), rgba(244, 132, 95, .05));
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0;
-            margin-top: 4px
-        }
-
-        .shop-strip-inner {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 0 24px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            max-width: 1280px;
-            margin: 0 auto
-        }
-
-        .shop-strip-inner::-webkit-scrollbar {
-            display: none
-        }
-
-        .rw-title {
-            font-family: var(--font-head);
-            font-size: .68rem;
-            font-weight: 800;
-            color: var(--accent2);
-            text-transform: uppercase;
-            letter-spacing: .1em;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 6px
-        }
-
-        .rw-card {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 7px 14px;
-            border-radius: 100px;
-            background: rgba(255, 255, 255, .04);
-            border: 1px solid var(--border);
-            font-family: var(--font-head);
-            font-size: .75rem;
-            font-weight: 700;
-            color: var(--text);
-            white-space: nowrap;
-            transition: all .2s
-        }
-
-        .rw-card:hover {
-            background: rgba(255, 255, 255, .08);
-            transform: translateY(-1px)
-        }
-
-        .rw-card.vip {
-            border-color: rgba(245, 200, 66, .35);
-            background: rgba(245, 200, 66, .08);
-            color: var(--gold)
-        }
-
-        .rw-card.booster {
-            border-color: rgba(52, 211, 153, .35);
-            background: rgba(52, 211, 153, .08);
-            color: var(--green)
-        }
-
-        .rw-card.coins {
-            border-color: rgba(251, 191, 36, .3);
-            background: rgba(251, 191, 36, .05);
-            color: var(--gold)
-        }
-
-        .rw-card.xp {
-            border-color: rgba(96, 165, 250, .3);
-            background: rgba(96, 165, 250, .05);
-            color: #60a5fa
-        }
-
-        .rw-card.keys {
-            border-color: rgba(244, 114, 182, .3);
-            background: rgba(244, 114, 182, .05);
-            color: var(--pink)
-        }
-
         /* MODALS */
         .modal-overlay {
             position: fixed;
             inset: 0;
             z-index: 400;
-            background: rgba(2, 4, 10, .88);
+            background: rgba(2, 4, 8, .88);
             backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
@@ -1783,15 +1788,6 @@
             text-align: center
         }
 
-        .upgrade-timer {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent2);
-            margin: 12px 0;
-            letter-spacing: .04em
-        }
-
         .upgrade-btns {
             display: flex;
             flex-direction: column;
@@ -1824,7 +1820,7 @@
             cursor: pointer
         }
 
-        /* TOAST & XP */
+        /* TOAST */
         .toast {
             position: fixed;
             bottom: 28px;
@@ -1862,7 +1858,7 @@
         }
 
         .toast.info {
-            border-color: rgba(232, 83, 74, .3);
+            border-color: rgba(232, 54, 93, .3);
             color: var(--accent2)
         }
 
@@ -1938,30 +1934,13 @@
                 width: 100%
             }
 
-            .tr-hero {
+            .kor-hero {
                 padding: 28px 16px 24px;
                 gap: 24px
             }
 
-            .tr-title {
+            .kor-title {
                 font-size: 2rem
-            }
-
-            .tr-subtitle {
-                font-size: .84rem
-            }
-
-            .hero-stats-row {
-                gap: 8px
-            }
-
-            .hstat {
-                padding: 10px 14px;
-                min-width: 60px
-            }
-
-            .hstat-n {
-                font-size: 1.1rem
             }
 
             .skill-radar-wrap {
@@ -2002,21 +1981,9 @@
                 font-size: 1.5rem
             }
 
-            .match-grid {
-                gap: 6px
-            }
-
-            .videos-grid {
-                grid-template-columns: 1fr
-            }
-
             .nav {
                 padding: 0 14px;
                 gap: 10px
-            }
-
-            .nav-logo {
-                font-size: 1rem
             }
 
             .site-strip {
@@ -2025,6 +1992,24 @@
 
             .limit-bar {
                 padding: 6px 14px
+            }
+
+            /* FIX: leaderboard responsive */
+            .lb-row {
+                gap: 8px;
+                padding: 10px 12px
+            }
+
+            .lb-name {
+                font-size: .78rem
+            }
+
+            .lb-score {
+                font-size: .78rem
+            }
+
+            .lb-score-block {
+                min-width: 60px
             }
         }
 
@@ -2071,13 +2056,33 @@
                 font-size: .76rem
             }
 
-            .tr-title {
+            .kor-title {
                 font-size: 1.7rem
             }
 
             .drawer-panel {
                 width: 100% !important;
                 max-width: 100% !important
+            }
+
+            /* FIX: very small screens lb fix */
+            .lb-avatar {
+                width: 30px;
+                height: 30px;
+                font-size: .8rem
+            }
+
+            .lb-rank {
+                width: 28px;
+                font-size: .9rem
+            }
+
+            .lb-score {
+                font-size: .75rem
+            }
+
+            .lb-score-block {
+                min-width: 50px
             }
         }
 
@@ -2090,6 +2095,7 @@
 </head>
 
 <body>
+
     <canvas id="bgCanvas"></canvas>
 
     <!-- NAVBAR -->
@@ -2154,21 +2160,19 @@
     </div>
 
     <!-- HERO -->
-    <section class="tr-hero" style="position:relative;z-index:1">
-        <div class="tr-hero-content">
+    <section class="kor-hero">
+        <div class="kor-hero-content">
             <div class="lang-badge-big">
-                <span style="font-size:1.3rem">🇹🇷</span> Türkçe Kursu — A1 dan C2 gacha
+                <span style="font-size:1.3rem">🇰🇷</span> Korean Course — A1 dan C1 gacha
             </div>
-            <h1 class="tr-title">Türkçe <span class="gradient-text">Kursu</span></h1>
-            <p class="tr-subtitle">A1 dan C2 gacha — 4 daraja, 60 unit, 500+ so'z, AI suhbat sherigi bilan to'liq kurs
-            </p>
+            <h1 class="kor-title">Korean <span class="gradient-text">Course</span></h1>
+            <p class="kor-subtitle">A1 dan C1 gacha — 4 daraja, 48 unit, 500+ so'z, Hangul alifbosi va AI suhbat sherigi
+                bilan to'liq kurs</p>
             <div class="hero-stats-row">
                 <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l">Daraja</span></div>
-                <div class="hstat"><span class="hstat-n">60</span><span class="hstat-l">Unit</span></div>
+                <div class="hstat"><span class="hstat-n">48</span><span class="hstat-l">Unit</span></div>
                 <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">So'z</span></div>
-                <div class="hstat"><span class="hstat-n"><i class="fa-solid fa-robot"
-                            style="font-size:1.1rem;color:var(--accent2)"></i></span><span class="hstat-l">AI
-                        Chat</span></div>
+                <div class="hstat"><span class="hstat-n">🤖</span><span class="hstat-l">AI Chat</span></div>
                 <div class="hstat"><span class="hstat-n" id="xpDisplay" style="color:var(--gold)">0</span><span
                         class="hstat-l">Mening XP</span></div>
             </div>
@@ -2176,9 +2180,11 @@
         <div class="skill-radar-wrap" id="skillRadar">
             <canvas id="radarCanvas" width="220" height="220"></canvas>
             <div class="radar-labels">
-                <span class="rl rl-top">Okuma</span><span class="rl rl-right">Yazma</span>
-                <span class="rl rl-bot-r">Konuşma</span><span class="rl rl-bot-l">Dinleme</span>
-                <span class="rl rl-left">Gramer</span>
+                <span class="rl rl-top">Hangul</span>
+                <span class="rl rl-right">Writing</span>
+                <span class="rl rl-bot-r">Speaking</span>
+                <span class="rl rl-bot-l">Listening</span>
+                <span class="rl rl-left">Grammar</span>
             </div>
         </div>
     </section>
@@ -2194,17 +2200,17 @@
             </div>
             <div class="level-tabs" id="levelTabs">
                 <button class="level-tab active" data-level="beginner" onclick="switchLevel('beginner',this)"><i
-                        class="fa-solid fa-seedling" style="color:#4ade80"></i> Başlangıç <span
+                        class="fa-solid fa-seedling" style="color:#4ade80"></i> Beginner <span
                         class="level-tag">A1</span></button>
                 <button class="level-tab" data-level="elementary" onclick="switchLevel('elementary',this)"><i
-                        class="fa-solid fa-book" style="color:#60a5fa"></i> Temel <span
+                        class="fa-solid fa-book" style="color:#60a5fa"></i> Elementary <span
                         class="level-tag">A2</span></button>
                 <button class="level-tab" data-level="pre-intermediate"
                     onclick="switchLevel('pre-intermediate',this)"><i class="fa-solid fa-book-open"
-                        style="color:var(--accent2)"></i> Orta Düzey <span class="level-tag">B1</span></button>
+                        style="color:var(--accent2)"></i> Pre-Intermediate <span class="level-tag">B1</span></button>
                 <button class="level-tab" data-level="advanced" onclick="switchLevel('advanced',this)"><i
-                        class="fa-solid fa-rocket" style="color:var(--pink)"></i> İleri <span
-                        class="level-tag">B2-C2</span></button>
+                        class="fa-solid fa-rocket" style="color:var(--pink)"></i> Advanced <span
+                        class="level-tag">B2-C1</span></button>
             </div>
             <div class="units-grid" id="unitsGrid">
                 <div style="text-align:center;padding:50px;color:var(--text3);grid-column:1/-1">
@@ -2225,17 +2231,17 @@
             <div class="sec-header">
                 <div class="sec-label"><i class="fa-solid fa-book"></i> Lug'at</div>
                 <h2 class="sec-title">So'zlar <span class="gradient-text">Kutubxonasi</span></h2>
-                <p class="sec-sub">500+ Turkcha so'z, o'zbek tarjimasi, audio talaffuz va misol jumlalar bilan</p>
+                <p class="sec-sub">500+ Koreyscha so'z, Hangul yozuvi, o'zbek tarjimasi va audio talaffuz bilan</p>
             </div>
             <div class="words-controls">
-                <input type="text" class="word-search" id="wordSearch" placeholder="So'z qidirish..."
-                    oninput="filterWords()">
+                <input type="text" class="word-search" id="wordSearch"
+                    placeholder="So'z qidirish (koreyscha yoki o'zbekcha)..." oninput="filterWords()">
                 <div class="wf-tabs" id="wordFilterTabs">
                     <button class="wf-tab active" onclick="filterByLevel('all',this)">Hammasi</button>
-                    <button class="wf-tab" onclick="filterByLevel('beginner',this)">Başlangıç</button>
-                    <button class="wf-tab" onclick="filterByLevel('elementary',this)">Temel</button>
-                    <button class="wf-tab" onclick="filterByLevel('pre-intermediate',this)">Orta</button>
-                    <button class="wf-tab" onclick="filterByLevel('advanced',this)">İleri</button>
+                    <button class="wf-tab" onclick="filterByLevel('beginner',this)">Beginner</button>
+                    <button class="wf-tab" onclick="filterByLevel('elementary',this)">Elementary</button>
+                    <button class="wf-tab" onclick="filterByLevel('pre-intermediate',this)">Pre-Int</button>
+                    <button class="wf-tab" onclick="filterByLevel('advanced',this)">Advanced</button>
                 </div>
             </div>
             <div class="words-grid" id="wordsGrid"></div>
@@ -2268,7 +2274,7 @@
                     <div class="flashcard-wrap">
                         <div class="flashcard" id="flashcard" onclick="flipCard()">
                             <div class="flashcard-front">
-                                <div class="flash-word" id="flashWord">merhaba</div>
+                                <div class="flash-word" id="flashWord">안녕하세요</div>
                                 <div class="flash-hint"><i class="fa-solid fa-rotate"></i> bosib o'giring</div>
                             </div>
                             <div class="flashcard-back">
@@ -2318,11 +2324,11 @@
             <div class="practice-panel" id="panel-typing">
                 <div class="practice-card">
                     <div class="typing-prompt"><i class="fa-solid fa-keyboard"
-                            style="margin-right:6px;color:var(--accent2)"></i>Turkcha yozing:</div>
-                    <div class="typing-word" id="typingWord">merhaba</div>
+                            style="margin-right:6px;color:var(--accent2)"></i>Koreyscha yozing (Romanizatsiya):</div>
+                    <div class="typing-word" id="typingWord">안녕하세요</div>
                     <div class="typing-hint" id="typingHint">O'zbek: Salom</div>
-                    <input type="text" class="typing-input" id="typingInput" placeholder="Turkcha so'zni yozing..."
-                        oninput="checkTyping()">
+                    <input type="text" class="typing-input" id="typingInput"
+                        placeholder="Romanizatsiya yozing (masalan: annyeonghaseyo)..." oninput="checkTyping()">
                     <div class="feedback-box" id="typingFeedback"></div>
                     <button class="next-ex-btn" onclick="nextTyping()"><i class="fa-solid fa-forward"></i>
                         Keyingi</button>
@@ -2333,7 +2339,7 @@
                     <div style="font-size:2rem;color:var(--accent2);margin-bottom:14px"><i
                             class="fa-solid fa-spell-check"></i></div>
                     <h3 style="font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;margin-bottom:16px">
-                        Türkçe Dilbilgisi Mashqi</h3>
+                        Koreyscha Grammatika Mashqi</h3>
                     <div class="grammar-q-box" id="grammarQBox"></div>
                     <div class="grammar-options" id="grammarOptions"></div>
                     <div class="feedback-box" id="grammarFeedback"></div>
@@ -2353,7 +2359,7 @@
             <div class="sec-header">
                 <div class="sec-label"><i class="fa-solid fa-play"></i> Video Darslar</div>
                 <h2 class="sec-title">AI tanlagan <span class="gradient-text">Videolar</span></h2>
-                <p class="sec-sub">Sizning darajangiz va zaif tomonlaringizga mos Türkçe videolar</p>
+                <p class="sec-sub">Koreyscha o'rganish uchun eng yaxshi YouTube videolar</p>
             </div>
             <div style="text-align:center;margin-bottom:20px">
                 <button class="find-video-btn" onclick="findYoutubeVideos()"><i class="fa-solid fa-robot"></i>AI video
@@ -2362,7 +2368,7 @@
             <div class="videos-grid" id="videosGrid">
                 <div class="video-placeholder"><i class="fa-solid fa-robot"
                         style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>AI sizga mos
-                    Türkçe videolarni topib beradi<p>Yuqoridagi tugmani bosing</p>
+                    videolarni topib beradi<p style="margin-top:8px;font-size:.78rem">Yuqoridagi tugmani bosing</p>
                 </div>
             </div>
         </div>
@@ -2403,7 +2409,7 @@
             <div class="sec-header">
                 <div class="sec-label"><i class="fa-solid fa-robot"></i> AI Suhbat Sherigi</div>
                 <h2 class="sec-title">AI <span class="gradient-text">Suhbat</span></h2>
-                <p class="sec-sub">Real suhbat, grammatika tuzatish, tarjima — hammasi bir joyda</p>
+                <p class="sec-sub">Koreyscha real suhbat, grammatika tuzatish, tarjima — hammasi bir joyda</p>
             </div>
             <div class="ai-chat-wrap">
                 <div class="ai-chat-sidebar">
@@ -2416,8 +2422,8 @@
                             class="fa-solid fa-spell-check"></i> Grammatika</button>
                     <button class="chat-mode-btn" onclick="setChatMode('translate',this)"><i
                             class="fa-solid fa-language"></i> Tarjimon</button>
-                    <button class="chat-mode-btn" onclick="setChatMode('yoksdil',this)"><i
-                            class="fa-solid fa-clipboard-list"></i> YDS/YÖKDİL</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('topik',this)"><i
+                            class="fa-solid fa-clipboard-list"></i> TOPIK</button>
                     <div class="ai-limit-info" id="aiLimitInfo"></div>
                     <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
                         <button onclick="clearChatHistory()"
@@ -2429,8 +2435,8 @@
                     <div class="chat-messages" id="chatMessages">
                         <div class="chat-msg ai-msg">
                             <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
-                            <div class="chat-bubble">Merhaba! Ben sizin Türkçe öğretmeninizim. Ne hakkında
-                                konuşalım?<br><br><small
+                            <div class="chat-bubble">안녕하세요! Men sizning Koreyscha o'qituvchingizman. Nima haqida
+                                suhbatlashamiz?<br><br><small
                                     style="color:var(--text3);font-family:var(--font-head);font-size:.72rem"><i
                                         class="fa-solid fa-circle-info" style="margin-right:4px"></i>Rejim: Erkin
                                     suhbat</small></div>
@@ -2438,17 +2444,17 @@
                     </div>
                     <div class="chat-input-area">
                         <div class="chat-actions-row">
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Bu kelimeyi açıklar mısın: ')"
-                                title="Tushuntir"><i class="fa-solid fa-lightbulb"></i></button>
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Lütfen düzelt: ')"
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('이게 무슨 뜻이에요? ')"
+                                title="Ma'nosi nima?"><i class="fa-solid fa-lightbulb"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('이 문장을 고쳐주세요: ')"
                                 title="Tuzat"><i class="fa-solid fa-pen"></i></button>
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Çevir: ')" title="Tarjima"><i
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('번역해주세요: ')" title="Tarjima"><i
                                     class="fa-solid fa-language"></i></button>
-                            <button class="chat-action-btn" onclick="insertQuickPhrase('Örnek cümle ver: ')"
-                                title="Misol"><i class="fa-solid fa-star"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('예문을 보여주세요: ')" title="Misol"><i
+                                    class="fa-solid fa-star"></i></button>
                         </div>
                         <div class="chat-input-row">
-                            <textarea class="chat-input" id="chatInput" placeholder="Türkçe yoki o'zbekcha yozing..."
+                            <textarea class="chat-input" id="chatInput" placeholder="Koreyscha yoki o'zbekcha yozing..."
                                 rows="2" onkeydown="handleChatKey(event)"></textarea>
                             <button class="chat-send-btn" onclick="sendChatMessage()" id="chatSendBtn"><i
                                     class="fa-solid fa-paper-plane"></i></button>
@@ -2476,12 +2482,14 @@
         <div class="modal-box upgrade-modal-box">
             <button class="modal-close" onclick="closeUpgradeModal()"><i class="fa-solid fa-xmark"></i></button>
             <div class="upgrade-modal-content">
-                <div><i class="fa-solid fa-rocket" style="font-size:2.8rem;color:var(--accent2)"></i></div>
-                <h2 style="font-family:var(--font-display);letter-spacing:.04em;margin-bottom:8px;margin-top:12px">Token
-                    tugadi!</h2>
+                <div style="margin-bottom:16px"><i class="fa-solid fa-rocket"
+                        style="font-size:2.8rem;color:var(--accent2)"></i></div>
+                <h2 style="font-family:var(--font-display);letter-spacing:.04em;margin-bottom:8px">Token tugadi!</h2>
                 <p id="upgradeModalText" style="color:var(--text2);font-size:.88rem;margin-bottom:12px">Tokenlaringiz
                     tugadi.</p>
-                <div class="upgrade-timer" id="upgradeTimer"></div>
+                <div class="upgrade-timer" id="upgradeTimer"
+                    style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;color:var(--accent2);margin:12px 0;letter-spacing:.04em">
+                </div>
                 <div class="upgrade-btns">
                     <button class="upgrade-btn-primary" onclick="window.location.href='../order.html'"><i
                             class="fa-solid fa-arrow-up" style="margin-right:6px"></i>Rejani yaxshilash</button>
@@ -2527,8 +2535,6 @@
                 <div class="drawer-nav-label" style="margin-top:8px">Sayt</div>
                 <a href="../index.html" class="drawer-link"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
                 <a href="../select-language.html" class="drawer-link"><i class="fa-solid fa-globe"></i> Tillar</a>
-                <a href="./voice-room.html" class="drawer-link"><i class="fa-solid fa-microphone"></i> Live Voice
-                    Chat</a>
                 <a href="shop.html" class="drawer-link"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
                 <a href="profile.html" class="drawer-link green"><i class="fa-solid fa-user"></i> Profil</a>
                 <a href="#leaderboard-section" class="drawer-link gold" onclick="closeDrawerNav()"><i
@@ -2537,8 +2543,9 @@
             </nav>
             <div class="drawer-upgrade">
                 <div class="drawer-upgrade-title"><i class="fa-solid fa-rocket"
-                        style="margin-right:6px;color:#f4845f"></i>Premium Rejaga o'ting</div>
-                <p style="font-size:.75rem;color:#d4b8b0;margin-bottom:10px">Cheksiz AI chat, +2× XP va ko'proq!</p>
+                        style="margin-right:6px;color:var(--accent2)"></i>Premium Rejaga o'ting</div>
+                <p style="font-size:.75rem;color:var(--text2);margin-bottom:10px">Cheksiz AI chat, +2× XP va ko'proq!
+                </p>
                 <button class="drawer-upgrade-btn" onclick="window.location.href='../order.html'">Upgrade <i
                         class="fa-solid fa-arrow-right" style="margin-left:4px"></i></button>
             </div>
@@ -2547,7 +2554,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
-        /* THREE.JS BG — turkish red/orange palette */
+        /* THREE.JS BG — Korean color palette */
         (function () {
             const cv = document.getElementById('bgCanvas');
             const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
@@ -2558,9 +2565,9 @@
             const cnt = 1400, pos = new Float32Array(cnt * 3);
             for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30;
             geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xc0392b, size: .05, transparent: true, opacity: .35 }));
+            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xe8365d, size: .05, transparent: true, opacity: .3 }));
             sc.add(pts);
-            [0xc0392b, 0xe67e22, 0xf39c12, 0xe74c3c, 0xd35400].forEach((c, i) => {
+            [0xe8365d, 0xff8fa3, 0xf5c842, 0xc02060, 0xff4080].forEach((c, i) => {
                 const m = new THREE.Mesh(new THREE.TorusGeometry(2 + i * 1.8, .01, 8, 100), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .05 }));
                 m.rotation.x = Math.random() * Math.PI; m.rotation.y = Math.random() * Math.PI; sc.add(m);
             });
@@ -2570,7 +2577,7 @@
             let t = 0; (function loop() { requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .12; pts.rotation.x = t * .07; cam.position.x += (mx * .6 - cam.position.x) * .03; cam.position.y += (-my * .6 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam); })();
         })();
 
-        /* HAMBURGER/DRAWER */
+        /* HAMBURGER / DRAWER */
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileDrawer = document.getElementById('mobileDrawer');
         function toggleDrawer() { mobileDrawer.classList.contains('open') ? closeDrawer() : openDrawer() }
@@ -2584,14 +2591,10 @@
             if (dXP) dXP.textContent = xp; if (dCoin) dCoin.textContent = coin;
         }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer() });
-        (function () {
-            let startX = 0; const panel = document.querySelector('.drawer-panel'); if (!panel) return;
-            panel.addEventListener('touchstart', e => { startX = e.touches[0].clientX }, { passive: true });
-            panel.addEventListener('touchend', e => { if (e.changedTouches[0].clientX - startX > 60) closeDrawer() }, { passive: true });
-        })();
+        (function () { let startX = 0; const panel = document.querySelector('.drawer-panel'); if (!panel) return; panel.addEventListener('touchstart', e => { startX = e.touches[0].clientX }, { passive: true }); panel.addEventListener('touchend', e => { if (e.changedTouches[0].clientX - startX > 60) closeDrawer() }, { passive: true }) })();
     </script>
 
-    <script type="module" src="./js/Turkish.js"></script>
+    <script type="module" src="./js/Korean.js"></script>
 </body>
 
 </html>

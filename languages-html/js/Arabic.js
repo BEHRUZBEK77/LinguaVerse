@@ -1,326 +1,1862 @@
+// =====================================================
+// Arabic.js — LinguaVerse (FULL Arabic Course)
+// =====================================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
-    increment, serverTimestamp, arrayUnion, collection,
-    addDoc, query, orderBy, limit, getDocs, deleteDoc
+    increment, serverTimestamp, collection,
+    query, orderBy, limit, getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const FB = { apiKey: "AIzaSyDgVpIEd4Ojm4PEQHOme5yWp87P_xSb6E8", authDomain: "linguaverse-ebe09.firebaseapp.com", projectId: "linguaverse-ebe09", storageBucket: "linguaverse-ebe09.firebasestorage.app", messagingSenderId: "130625454868", appId: "1:130625454868:web:3f02871f64cb5f8af27801" };
-const app = initializeApp(FB);
-const auth = getAuth(app);
-const db = getFirestore(app);
-const GEMINI = "https://gentle-hat-d9fa.akromovbehruz7.workers.dev";
-const LANG = 'ar-SA';
+const $id = id => document.getElementById(id);
 
-let CU = null, UP = 'free', UL = {}, UProg = {}, USk = { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
-let curLevel = 'beginner', chatMode = 'free', chatHist = [], wOff = 0, wFilt = 'all', wSrch = '';
-let recog = null, isRec = false, vcRec = false, upTimer = null;
-let curUnit = null, curLesson = null, lScore = 0, lTotal = 0, lexSel = {}, rSel = {}, woAns = [];
-let lessonMics = {};
-
-const PL = { free: { u: 2, ai: 5, rh: 4, xb: 1, cb: 1 }, own: { u: 8, ai: 50, rh: 4, xb: 1, cb: 1 }, team: { u: 20, ai: 200, rh: 4, xb: 2, cb: 1.5 }, universal: { u: Infinity, ai: Infinity, rh: 0, xb: 3, cb: 2 } };
-
-const WDB = [
-    { e: 'مرحبا', u: 'Salom', t: 'undov', l: 'beginner', ex: 'مرحبا، كيف حالك؟', eu: 'Salom, qandaysiz?' },
-    { e: 'شكراً', u: 'Rahmat', t: 'undov', l: 'beginner', ex: 'شكراً جزيلاً على مساعدتك.', eu: 'Yordam uchun katta rahmat.' },
-    { e: 'نعم', u: 'Ha', t: 'ravish', l: 'beginner', ex: 'نعم، أنا أفهم.', eu: 'Ha, tushundim.' },
-    { e: 'لا', u: "Yo'q", t: 'ravish', l: 'beginner', ex: 'لا، لا أعرف.', eu: "Yo'q, bilmayman." },
-    { e: 'مع السلامة', u: 'Xayr', t: 'ibora', l: 'beginner', ex: 'مع السلامة، إلى اللقاء!', eu: "Xayr, ko'rishguncha!" },
-    { e: 'من فضلك', u: 'Iltimos', t: 'ibora', l: 'beginner', ex: 'من فضلك، أعطني الكتاب.', eu: 'Iltimos, kitobni bering.' },
-    { e: 'اسمي', u: 'Mening ismim', t: 'ibora', l: 'beginner', ex: 'اسمي علي.', eu: 'Mening ismim Ali.' },
-    { e: 'كبير', u: 'Katta', t: 'sifat', l: 'beginner', ex: 'هذا بيت كبير.', eu: 'Bu katta uy.' },
-    { e: 'صغير', u: 'Kichik', t: 'sifat', l: 'beginner', ex: 'لديّ كتاب صغير.', eu: 'Menda kichik kitob bor.' },
-    { e: 'جميل', u: 'Chiroyli', t: 'sifat', l: 'beginner', ex: 'المدينة جميلة جداً.', eu: 'Shahar juda chiroyli.' },
-    { e: 'واحد', u: 'Bir', t: 'son', l: 'beginner', ex: 'عندي أخ واحد.', eu: 'Menda bitta aka bor.' },
-    { e: 'اثنان', u: 'Ikki', t: 'son', l: 'beginner', ex: 'لديّ قلمان اثنان.', eu: 'Menda ikkita qalam bor.' },
-    { e: 'ثلاثة', u: 'Uch', t: 'son', l: 'beginner', ex: 'في البيت ثلاثة أغرفة.', eu: "Uyda uch xona bor." },
-    { e: 'أم', u: 'Ona', t: 'ot', l: 'beginner', ex: 'أمي طبيبة.', eu: 'Onam shifokor.' },
-    { e: 'أب', u: 'Ota', t: 'ot', l: 'beginner', ex: 'أبي مهندس.', eu: 'Dadam muhandis.' },
-    { e: 'ماء', u: 'Suv', t: 'ot', l: 'beginner', ex: 'أريد ماء من فضلك.', eu: 'Iltimos suv istayman.' },
-    { e: 'خبز', u: 'Non', t: 'ot', l: 'beginner', ex: 'الخبز طازج.', eu: "Non yangi." },
-    { e: 'مدرسة', u: 'Maktab', t: 'ot', l: 'beginner', ex: 'أذهب إلى المدرسة.', eu: 'Maktabga boraman.' },
-    { e: 'كتاب', u: 'Kitob', t: 'ot', l: 'beginner', ex: 'هذا كتاب مثير للاهتمام.', eu: 'Bu qiziqarli kitob.' },
-    { e: 'ذهب', u: 'Bordi', t: "fe'l", l: 'beginner', ex: 'ذهب إلى المدرسة.', eu: 'Maktabga bordi.' },
-    { e: 'أكل', u: 'Yedi', t: "fe'l", l: 'beginner', ex: 'أكل التفاحة.', eu: 'Olmani yedi.' },
-    { e: 'شرب', u: 'Ichdi', t: "fe'l", l: 'beginner', ex: 'شرب الماء.', eu: 'Suv ichdi.' },
-    { e: 'قرأ', u: "O'qidi", t: "fe'l", l: 'beginner', ex: 'قرأ الكتاب.', eu: "Kitobni o'qidi." },
-    { e: 'كتب', u: 'Yozdi', t: "fe'l", l: 'beginner', ex: 'كتب رسالة.', eu: 'Xat yozdi.' },
-    { e: 'صباح', u: 'Ertalab', t: 'ot', l: 'beginner', ex: 'صباح الخير!', eu: 'Xayrli tong!' },
-    { e: 'طبيب', u: 'Shifokor', t: 'ot', l: 'elementary', ex: 'الطبيب في المستشفى.', eu: 'Shifokor kasalxonada.' },
-    { e: 'مهندس', u: 'Muhandis', t: 'ot', l: 'elementary', ex: 'أخي مهندس.', eu: 'Akam muhandis.' },
-    { e: 'سيارة', u: 'Mashina', t: 'ot', l: 'elementary', ex: 'هذه سيارة حديثة.', eu: 'Bu zamonaviy mashina.' },
-    { e: 'مطار', u: 'Aeroport', t: 'ot', l: 'elementary', ex: 'المطار بعيد.', eu: 'Aeroport uzoq.' },
-    { e: 'مستشفى', u: 'Kasalxona', t: 'ot', l: 'elementary', ex: 'المستشفى قريب.', eu: 'Kasalxona yaqin.' },
-    { e: 'جامعة', u: 'Universitet', t: 'ot', l: 'intermediate', ex: 'أدرس في الجامعة.', eu: 'Universitetda o\'qiyman.' },
-    { e: 'ثقافة', u: 'Madaniyat', t: 'ot', l: 'intermediate', ex: 'الثقافة العربية غنية.', eu: 'Arab madaniyati boy.' },
-    { e: 'تاريخ', u: 'Tarix', t: 'ot', l: 'intermediate', ex: 'التاريخ العربي عريق.', eu: 'Arab tarixi qadimiy.' },
-    { e: 'اقتصاد', u: 'Iqtisod', t: 'ot', l: 'advanced', ex: 'الاقتصاد ينمو.', eu: 'Iqtisod o\'smoqda.' },
-    { e: 'ديمقراطية', u: 'Demokratiya', t: 'ot', l: 'advanced', ex: 'الديمقراطية مهمة.', eu: 'Demokratiya muhim.' },
-];
-
-const UNITS_DATA = {
-    beginner: [
-        { id: 'ab1', icon: '👋', title: 'مرحبا - Salom', desc: "Arabcha salomlashish, tanishish", words: ['مرحبا', 'شكراً', 'نعم', 'لا', 'من فضلك'], grammar_rule: "Arabcha salomlashish: مرحبا (Marhabo) — norasmiy, السلام عليكم — rasmiy", grammar_example: "— مرحبا! — مرحبا، كيف حالك؟ — بخير، شكراً!", reading_text: "اسمي أحمد. أنا من أوزبكستان. أتعلم اللغة العربية. مرحبا هي أول كلمة تعلمتها. شكراً ومن فضلك كلمتان مهمتان جداً.", reading_qs: [{ q: "Kim haqida?", opts: ["Ahmad", "Ali", "Salim", "Omar"], c: 0 }], xp: 50, coin: 20 },
-        { id: 'ab2', icon: '🔤', title: 'الحروف - Harflar', desc: "Arab alifbosi 28 harf", words: ['الألف', 'الباء', 'التاء', 'الجيم', 'الحاء'], grammar_rule: "Arab alifbosida 28 harf, o'ngdan chapga yoziladi", grammar_example: "أ، ب، ت، ث، ج، ح، خ...", reading_text: "في اللغة العربية ثمانية وعشرون حرفاً. تُكتب من اليمين إلى اليسار. كل حرف له شكل مختلف في بداية الكلمة ووسطها ونهايتها.", reading_qs: [{ q: "Arab alifbosida nechta harf?", opts: ["26", "28", "30", "32"], c: 1 }], xp: 55, coin: 22 },
-        { id: 'ab3', icon: '🔢', title: 'الأرقام - Raqamlar', desc: "1 dan 10 gacha arabcha", words: ['واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة'], grammar_rule: "Arab raqamlari: واحد(1), اثنان(2), ثلاثة(3)...", grammar_example: "عندي ثلاثة كتب وقلمان اثنان.", reading_text: "الأرقام العربية مهمة جداً. واحد اثنان ثلاثة أربعة خمسة ستة سبعة ثمانية تسعة عشرة. هذه هي الأرقام من واحد إلى عشرة.", reading_qs: [{ q: "عشرة nechani anglatadi?", opts: ["5", "8", "10", "12"], c: 2 }], xp: 50, coin: 20 },
-        { id: 'ab4', icon: '👤', title: 'التعريف - Tanishish', desc: "O'zini tanishtirish arabcha", words: ['اسمي', 'عمري', 'أنا من', 'أسكن', 'أعمل'], grammar_rule: "Tanishish: اسمي... (Mening ismim), عمري... (Yoshim), أنا من... (Men ...dan)", grammar_example: "اسمي كمال. عمري عشرون سنة. أنا من أوزبكستان.", reading_text: "مرحبا! اسمي نيلوفار. عمري اثنتان وعشرون سنة. أنا من سمرقند ولكنني أسكن الآن في طشقند. أتعلم اللغة العربية لأنها لغة جميلة.", reading_qs: [{ q: "Nilufar qayerda yashaydi?", opts: ["Samarqand", "Buxoro", "Toshkent", "Namangan"], c: 2 }], xp: 60, coin: 24 },
-        { id: 'ab5', icon: '🏠', title: 'العائلة - Oila', desc: "Oila a'zolari arabcha", words: ['أم', 'أب', 'أخ', 'أخت', 'عائلة', 'جدة', 'جد', 'زوج', 'زوجة', 'أولاد'], grammar_rule: "Oila: أمي (onam), أبي (dadam), أخي (akam/ukam), أختي (opam/singlim)", grammar_example: "عائلتي كبيرة. عندي أم وأب وأخ وأخت.", reading_text: "عائلتي ليست كبيرة جداً. لديّ أم وأب وأخت صغيرة. جدتي وجدي يسكنان في القرية. نزورهم كثيراً. والداي طيبان جداً.", reading_qs: [{ q: "Oila qanchalik katta?", opts: ["Juda katta", "Katta emas", "O'rtacha", "Kichik"], c: 1 }], xp: 60, coin: 24 },
-        { id: 'ab6', icon: '🎨', title: 'الألوان - Ranglar', desc: "Asosiy ranglar arabcha", words: ['أحمر', 'أزرق', 'أخضر', 'أبيض', 'أسود', 'أصفر', 'برتقالي', 'وردي', 'بني', 'رمادي'], grammar_rule: "Ranglar sifat: البيت الأحمر (qizil uy), السيارة الزرقاء (ko'k mashina)", grammar_example: "لديّ سيارة حمراء ودراجة زرقاء.", reading_text: "علم المملكة العربية السعودية أخضر وأبيض. علم مصر أحمر وأبيض وأسود. أحب اللون الأزرق — إنه لون السماء والبحر.", reading_qs: [{ q: "Muallifning sevimli rangi?", opts: ["Yashil", "Ko'k", "Qizil", "Oq"], c: 1 }], xp: 55, coin: 22 },
-        { id: 'ab7', icon: '🍎', title: 'الطعام - Ovqat', desc: "Arabcha ovqat turlari", words: ['خبز', 'ماء', 'حليب', 'تفاحة', 'لحم', 'سمك', 'شوربة', 'سلطة', 'شاي', 'قهوة'], grammar_rule: "Ovqat: أريد + ovqat nomi. أكل (yedi), شرب (ichdi), طعام (ovqat)", grammar_example: "أريد خبزاً وشاياً من فضلك.", reading_text: "في الإفطار أكل عادةً البيض والخبز. أشرب الشاي أو القهوة. في الغداء آكل الشوربة واللحم مع الخضروات. في العشاء أفضل الأكل الخفيف.", reading_qs: [{ q: "Ertalabki nonushtada nima iste'mol qiladi?", opts: ["Go'sht va shurpa", "Tuxum va non", "Baliq va salat", "Faqat choy"], c: 1 }], xp: 65, coin: 26 },
-        { id: 'ab8', icon: '📅', title: 'أيام الأسبوع - Hafta kunlari', desc: "Arabcha hafta kunlari", words: ['الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت', 'الأحد'], grammar_rule: "Hafta kunlari: يوم الاثنين (Dushanba), يوم الجمعة (Juma — dam olish kuni)", grammar_example: "يوم الجمعة هو يوم عطلة في الدول العربية.", reading_text: "أسبوعي المدرسي يبدأ يوم الاثنين. في الثلاثاء والخميس عندي دروس كثيرة. يوم الجمعة هو يوم العطلة. السبت والأحد أستريح وأزور أصدقائي.", reading_qs: [{ q: "Arab mamlakatlarida qaysi kun dam olish?", opts: ["Shanba", "Yakshanba", "Juma", "Dushanba"], c: 2 }], xp: 70, coin: 28 },
-        { id: 'ab9', icon: '🌤️', title: 'الطقس - Ob-havo', desc: "Arabcha ob-havo", words: ['مشمس', 'مطر', 'بارد', 'حار', 'رياح', 'ثلج', 'دافئ', 'غائم', 'عاصفة', 'ضباب'], grammar_rule: "Ob-havo: الجو حار/بارد (havo issiq/sovuq). يمطر (yomg'ir yog'moqda)", grammar_example: "اليوم الجو حار ومشمس. غداً سيكون هناك مطر.", reading_text: "اليوم الطقس جميل. الجو مشمس ودافئ. درجة الحرارة حوالي خمسة وعشرين درجة. غداً يُتوقع المطر. أحب الطقس الجيد بدون رياح.", reading_qs: [{ q: "Ertangi ob-havo qanday?", opts: ["Quyoshli", "Qorli", "Yomg'irli", "Bulutli"], c: 2 }], xp: 65, coin: 26 },
-        { id: 'ab10', icon: '🏃', title: 'الأفعال - Fe\'llar', desc: "Arabcha asosiy fe'llar", words: ['ذهب', 'أكل', 'شرب', 'قرأ', 'كتب', 'عمل', 'تعلّم', 'لعب', 'سمع', 'نام'], grammar_rule: "Arabcha fe'llar uch harfli ildizdan: ذ-ه-ب → ذهب. Jins va son bo'yicha o'zgaradi", grammar_example: "هو ذهب. هي ذهبت. هم ذهبوا.", reading_text: "كل يوم أستيقظ في السابعة صباحاً. أتناول الإفطار وأذهب إلى العمل. في العمل أتكلم العربية. في المساء أقرأ الكتب أو أسمع الموسيقى.", reading_qs: [{ q: "Qachon kitob o'qiydi?", opts: ["Ertalab", "Tushdan keyin", "Kechqurun", "Tunda"], c: 2 }], xp: 75, coin: 30 },
-        { id: 'ab11', icon: '🕐', title: 'الوقت - Vaqt', desc: "Arabcha vaqt aytish", words: ['ساعة', 'دقيقة', 'صباح', 'ظهر', 'مساء', 'ليل', 'الآن', 'اليوم', 'غداً', 'أمس'], grammar_rule: "Vaqt: كم الساعة؟ (Soat nechada?). الساعة الثالثة (soat uch). في الصباح (ertalab)", grammar_example: "الساعة الآن خمسة مساءً. الدرس يبدأ في التاسعة صباحاً.", reading_text: "الآن الساعة الثامنة صباحاً. لديّ اجتماع مهم غداً في العاشرة. أمس نمت متأخراً جداً — في الساعة الواحدة ليلاً.", reading_qs: [{ q: "Muhim uchrashuv qachon?", opts: ["Kecha", "Bugun", "Ertaga", "Hozir"], c: 2 }], xp: 70, coin: 28 },
-        { id: 'ab12', icon: '🏙️', title: 'المدينة - Shahar', desc: "Yo'nalishlar va joylar arabcha", words: ['مدرسة', 'مستشفى', 'متجر', 'يسار', 'يمين', 'أمام', 'بنك', 'صيدلية', 'حديقة', 'سوق'], grammar_rule: "Yo'nalish: يسار (chap), يمين (o'ng), أمام (oldinda), خلف (orqada). Savol: أين؟ (Qayerda?)", grammar_example: "اذهب إلى الأمام ثم انعطف يميناً. البنك على اليسار.", reading_text: "عفواً، أين الصيدلية؟ — اذهب إلى الأمام ثم انعطف يميناً. الصيدلية بجانب البنك. إذا كنت تبحث عن السوق، فهو على اليسار من المدرسة.", reading_qs: [{ q: "Apteka qaerda?", opts: ["Chapda", "Bankning yonida", "Maktab yonida", "Bozor yonida"], c: 1 }], xp: 75, coin: 30 },
-        { id: 'ab13', icon: '👕', title: 'الملابس - Kiyimlar', desc: "Arabcha kiyim-kechak", words: ['قميص', 'بنطلون', 'معطف', 'فستان', 'قبعة', 'جاكيت', 'حذاء', 'جوارب', 'جينز', 'سترة'], grammar_rule: "Kiyim: ارتدى (kiydi), يرتدي (kiymoqda). Savol: ماذا ترتدي؟ (Nima kiyman?)", grammar_example: "اليوم بارد — ارتدِ المعطف والقبعة.", reading_text: "اليوم ارتديت جينز أزرق وقميصاً أبيض. الجو بارد لذا أخذت معطفاً دافئاً. أحب ارتداء الملابس المريحة. في العطل أرتدي الجينز والسترة.", reading_qs: [{ q: "Bugun nima kiydi?", opts: ["Ko'ylak va shim", "Ko'k jins va oq ko'ylak", "Palto va shapka", "Sviter va shim"], c: 1 }], xp: 65, coin: 26 },
-        { id: 'ab14', icon: '🐕', title: 'الحيوانات - Hayvonlar', desc: "Arabcha hayvonlar", words: ['كلب', 'قطة', 'طائر', 'سمكة', 'فيل', 'أسد', 'دب', 'ثعلب', 'ذئب', 'أرنب'], grammar_rule: "Hayvonlar: أنثى (urg'ochi), ذكر (erkak). مثل: أسد (erkak), لبؤة (urg'ochi)", grammar_example: "في الغابة يعيش الذئب والثعلب والأرنب.", reading_text: "رمز المملكة العربية السعودية هو النخلة والسيف. في الصحراء تعيش الجمال. أحب الحيوانات الأليفة — لديّ كلب وقطة.", reading_qs: [{ q: "Uy hayvonlari nima?", opts: ["Sher va ayiq", "It va mushuk", "Bo'ri va tulki", "Fil va qushlar"], c: 1 }], xp: 60, coin: 24 },
-        { id: 'ab15', icon: '📝', title: 'الجمل البسيطة - Oddiy jumlalar', desc: "Arabcha oddiy jumlalar", words: ['هذا', 'ذلك', 'يوجد', 'لا يوجد', 'و', 'لكن', 'أو', 'أيضاً', 'كذلك', 'لأن'], grammar_rule: "هذا (bu erkak), هذه (bu urg'ochi), ذلك (u erkak), تلك (u urg'ochi)", grammar_example: "هذا كتاب. هذه مدرسة. لديّ كلب لكن ليس لديّ قطة.", reading_text: "هذه غرفتي. على المكتب يوجد كتاب وقلم. لا يوجد هاتف لكن يوجد حاسوب. هذه غرفتي صغيرة لكن مريحة.", reading_qs: [{ q: "Xona qanday?", opts: ["Katta va chiroyli", "Kichik va qulay", "Eski va katta", "Yangi va katta"], c: 1 }], xp: 90, coin: 36 },
-        { id: 'ab16', icon: '🔵', title: 'الصفات - Sifatlar', desc: "Arabcha muhim sifatlar", words: ['كبير', 'صغير', 'جميل', 'قديم', 'جديد', 'جيد', 'سيء', 'شاب', 'ذكي', 'طيب'], grammar_rule: "Sifatlar arabchada ot jinsi bilan kelishadi: بيت كبير (katta uy), سيارة كبيرة (katta mashina)", grammar_example: "بيت جديد، سيارة جديدة، كتاب جديد، كتب جديدة", reading_text: "معلمي الجديد طيب وذكي جداً. لديه مكتب كبير وجميل. هو شاب لكن متخصص جداً. أنا سعيد لأن لديّ معلماً جيداً.", reading_qs: [{ q: "O'qituvchi qanday?", opts: ["Eski va qattiq", "Yaxshi va aqlli", "Yosh va yomon", "Katta va qo'pol"], c: 1 }], xp: 80, coin: 32 },
-        { id: 'ab17', icon: '❓', title: 'أسئلة - Savollar', desc: "Arabcha savol so'zlari", words: ['من', 'ماذا', 'أين', 'متى', 'لماذا', 'كيف', 'كم', 'أي', 'لمن', 'إلى أين'], grammar_rule: "Savol so'zlari: من؟(Kim?), ماذا؟(Nima?), أين؟(Qayerda?), متى؟(Qachon?), لماذا؟(Nima uchun?)", grammar_example: "— أين تسكن؟ — أسكن في طشقند. — كم عمرك؟ — عمري عشرون سنة.", reading_text: "متى يبدأ الدرس؟ — في التاسعة. أين المكتبة؟ — في الطابق الثالث. كم يكلف هذا الكتاب؟ — خمسون روبلاً. لماذا تتعلم العربية؟ — لأنها لغة القرآن والتاريخ!", reading_qs: [{ q: "Dars qachon boshlanadi?", opts: ["Soat sakkizda", "Soat to'qqizda", "Soat o'nda", "Soat o'n birda"], c: 1 }], xp: 85, coin: 34 },
-        { id: 'ab18', icon: '🌍', title: 'الدول - Mamlakatlar', desc: "Arab va dunyo mamlakatlari", words: ['السعودية', 'مصر', 'الإمارات', 'أوزبكستان', 'تركيا', 'فرنسا', 'أمريكا', 'الصين', 'الهند', 'ألمانيا'], grammar_rule: "Mamlakatlar: من + ot → أنا من السعودية (men Saudiya Arabistonidanman)", grammar_example: "— من أين أنت؟ — أنا من أوزبكستان. — وأنت؟ — أنا من مصر.", reading_text: "أنا من أوزبكستان. بلدي جميل وله تاريخ عريق. أتعلم العربية لأن السعودية ومصر والإمارات دول عظيمة ذات ثقافة غنية.", reading_qs: [{ q: "Muallif qaysi mamlakatdan?", opts: ["Saudiya Arabistoni", "Misr", "O'zbekiston", "BAA"], c: 2 }], xp: 70, coin: 28 },
-        { id: 'ab19', icon: '🕌', title: 'الدين والثقافة - Din va madaniyat', desc: "Arab madaniyati asoslari", words: ['إسلام', 'قرآن', 'مسجد', 'صلاة', 'رمضان', 'عيد', 'حج', 'زكاة', 'صيام', 'دعاء'], grammar_rule: "Din leksikasi: الصلاة (namoz), الصيام (ro'za), الحج (haj), الزكاة (zakot)", grammar_example: "يصلي المسلمون خمس مرات في اليوم.", reading_text: "الإسلام دين السلام والرحمة. القرآن الكريم هو الكتاب المقدس للمسلمين. يصوم المسلمون في شهر رمضان. العيد احتفال جميل بعد رمضان.", reading_qs: [{ q: "Musulmonlar kuniga necha marta namoz o'qishadi?", opts: ["Uch", "To'rt", "Besh", "Olti"], c: 2 }], xp: 70, coin: 28 },
-        { id: 'ab20', icon: '🔄', title: 'مراجعة - Takrorlash', desc: "Beginner darajasi yakuniy", words: ['مرحبا', 'شكراً', 'نعم', 'لا', 'واحد', 'أم', 'ماء', 'ذهب', 'قرأ', 'صباح'], grammar_rule: "Jami takrorlash: salomlashish, raqamlar, oila, ranglar, fe'llar, savollar", grammar_example: "مرحبا! اسمي أكمال. عمري ثمانية عشر سنة. أنا من طشقند. أتعلم العربية.", reading_text: "مذكرتي العزيزة! اليوم أنهيت المستوى الأول من اللغة العربية. أنا سعيد جداً! تعلمت أن أقول مرحبا وشكراً وأن أعد حتى عشرة وأن أتحدث عن عائلتي. شكراً!", reading_qs: [{ q: "Ular nima o'rganmoqda?", opts: ["Ingliz tili", "Arab tili", "Turk tili", "Fors tili"], c: 1 }], xp: 100, coin: 40 },
-    ],
-    elementary: [
-        { id: 'ae1', icon: '🏡', title: 'البيت - Uy', desc: "Uy qismlari arabcha", words: ['غرفة نوم', 'مطبخ', 'حمام', 'صالة', 'حديقة', 'طاولة', 'كرسي', 'خزانة', 'سرير', 'أريكة'], grammar_rule: "Uy: في غرفة النوم (yotoq xonada). في المطبخ (oshxonada). Predlogi في+", grammar_example: "في غرفة النوم يوجد سرير كبير. في المطبخ يوجد طاولة.", reading_text: "شقتنا صغيرة لكنها مريحة جداً. فيها ثلاث غرف: صالة وغرفة نوم وغرفة للأطفال. المطبخ مضيء ورحيب. في الصالة أريكة كبيرة وتلفزيون. أحب شقتنا!", reading_qs: [{ q: "Kvartira nechta xonadan iborat?", opts: ["Ikki", "Uch", "To'rt", "Besh"], c: 1 }], xp: 80, coin: 32 },
-        { id: 'ae2', icon: '💼', title: 'المهن - Kasblar', desc: "Arabcha kasblar", words: ['طبيب', 'معلم', 'مهندس', 'طباخ', 'سائق', 'بائع', 'شرطي', 'مبرمج', 'محامي', 'صحفي'], grammar_rule: "Kasb: يعمل + مهنة. ما مهنتك؟ (Kasbingiz nima?) أنا طبيب/مهندس", grammar_example: "أبي يعمل مهندساً. أمي معلمة.", reading_text: "في مدينتنا متخصصون كثيرون. أبي مهندس في مصنع. أمي تعمل طبيبة في المستشفى. أخي مبرمج في شركة تقنية. أريد أن أصبح صحفياً!", reading_qs: [{ q: "Kim programmachilik bilan shug'ullanadi?", opts: ["Ota", "Ona", "Aka", "Muallif"], c: 2 }], xp: 80, coin: 32 },
-        { id: 'ae3', icon: '🛒', title: 'التسوق - Xarid', desc: "Arabcha xarid", words: ['سعر', 'رخيص', 'غالي', 'اشترى', 'باع', 'صندوق', 'فاتورة', 'خصم', 'بضاعة', 'اختيار'], grammar_rule: "Do'konda: كم سعر هذا؟ (Narxi qancha?) أريد أن أشتري... (Sotib olmoqchiman)", grammar_example: "— كم سعر هذا الخبز؟ — خمسون ليرة. — حسناً، أعطني من فضلك!", reading_text: "ذهبت اليوم إلى السوبر ماركت. اشتريت خبزاً وحليباً وتفاحاً. الخبز بثلاثين ليرة والحليب بأربعين. التفاح كان رخيصاً — عشرون ليرة للكيلو. دفعت تسعين ليرة في الصندوق.", reading_qs: [{ q: "Jami qancha to'ladi?", opts: ["70", "80", "90", "100"], c: 2 }], xp: 90, coin: 36 },
-        { id: 'ae4', icon: '🚂', title: 'المواصلات - Transport', desc: "Arabcha transport", words: ['حافلة', 'قطار', 'طائرة', 'سيارة', 'مترو', 'تاكسي', 'دراجة', 'ترام', 'تذكرة', 'موقف'], grammar_rule: "Transport: يذهب بالحافلة (avtobusda boradi), يسافر بالطائرة (samolyotda sayohat qiladi)", grammar_example: "أذهب إلى العمل بالمترو. أحياناً بالحافلة أو الترام.", reading_text: "في القاهرة مترو ممتاز. سريع ومريح ورخيص. أذهب كل يوم بالمترو. أحياناً بالحافلة أو الترام. للمسافات الطويلة أفضل القطار أو الطائرة.", reading_qs: [{ q: "U har kuni qaysi transportdan foydalanadi?", opts: ["Avtobus", "Metro", "Tramvay", "Samolyot"], c: 1 }], xp: 90, coin: 36 },
-        { id: 'ae5', icon: '🏥', title: 'الصحة - Sog\'liq', desc: "Arabcha sog'liq, tana qismlari", words: ['رأس', 'يد', 'قدم', 'يؤلمني', 'دواء', 'طبيب', 'مستشفى', 'صيدلية', 'حرارة', 'سعال'], grammar_rule: "Og'riq: رأسي يؤلمني (boshim og'riyapti). ما الذي يؤلمك؟ (Nima og'riyapti?)", grammar_example: "رأسي يؤلمني وعندي حرارة. أحتاج إلى طبيب.", reading_text: "أمس لم أكن بخير. كان رأسي يؤلمني وعندي حرارة — ثمانية وثلاثون. استدعيت الطبيب إلى المنزل. فحصني ووصف لي الدواء. اليوم أحسن.", reading_qs: [{ q: "Shifokor nima qildi?", opts: ["Kasalxonaga yotqizdi", "Dori yozib berdi", "Operatsiya qildi", "Hech nima qilmadi"], c: 1 }], xp: 100, coin: 40 },
-        { id: 'ae6', icon: '📚', title: 'التعليم - Ta\'lim', desc: "Arabcha maktab va fanlar", words: ['رياضيات', 'تاريخ', 'علوم', 'مكتبة', 'امتحان', 'درس', 'واجب', 'علامة', 'صف', 'استراحة'], grammar_rule: "Ta'lim: أدرس + fan. ما مادتك المفضلة؟ (Sevimli faning nima?)", grammar_example: "أدرس الرياضيات والتاريخ. لدينا اليوم امتحان في العربية.", reading_text: "مادتي المفضلة هي الرياضيات. أحب حل المسائل. في التاريخ عندنا معلم ممتع. يحكي القصص كالبوليسي! غداً اختبار في الرياضيات. تحضرت طوال المساء.", reading_qs: [{ q: "Sevimli fani qaysi?", opts: ["Tarix", "Arab tili", "Matematika", "Biologiya"], c: 2 }], xp: 90, coin: 36 },
-        { id: 'ae7', icon: '🎵', title: 'الهوايات - Hobbi', desc: "Arabcha bo'sh vaqt", words: ['موسيقى', 'رسم', 'قراءة', 'طبخ', 'رياضة', 'سفر', 'تصوير', 'رقص', 'سينما', 'ألعاب'], grammar_rule: "Hobbi: أحب + fe'l infinitiv. هوايتي... (Hobbim...). في وقت الفراغ أحب...", grammar_example: "في وقت الفراغ أحب الاستماع للموسيقى وقراءة الكتب.", reading_text: "لديّ هوايات كثيرة. أحب الاستماع للموسيقى — خاصة الموسيقى الكلاسيكية. في عطل نهاية الأسبوع أذهب للسينما أو أقرأ. في الصيف أحب السفر. العام الماضي زرت دبي.", reading_qs: [{ q: "O'tgan yil qayerga borgan?", opts: ["Qohira", "Riyod", "Dubai", "Istanbul"], c: 2 }], xp: 90, coin: 36 },
-        { id: 'ae8', icon: '🍽️', title: 'المطعم - Restoran', desc: "Arabcha ovqat buyurtma", words: ['قائمة', 'طلب', 'نادل', 'حلوى', 'حساب', 'طبق', 'لذيذ', 'حصة', 'مشروب', 'بقشيش'], grammar_rule: "Restoran: أريد أن أطلب... (Buyurtma bermoqchiman). الحساب من فضلك! (Hisobni bering!)", grammar_example: "— ماذا تريد أن تطلب؟ — أريد شوربة وكباباً. — وماذا ستشرب؟", reading_text: "أمس ذهبنا مع الأصدقاء إلى المطعم. طلبنا الشوربة والكباب والسلطة. كان كل شيء لذيذاً! النادل كان مهذباً وسريعاً. في النهاية طلبنا الحلوى — آيس كريم. الحساب على الجميع كان ألف ليرة.", reading_qs: [{ q: "Desert nima edi?", opts: ["Tort", "Pishloq", "Muzqaymoq", "Meva"], c: 2 }], xp: 100, coin: 40 },
-        { id: 'ae9', icon: '⏰', title: 'الروتين - Kundalik tartib', desc: "Arabcha kundalik hayot", words: ['استيقظ', 'إفطار', 'عمل', 'غداء', 'نام', 'لبس', 'غسل', 'عشاء', 'استراح', 'اضطجع'], grammar_rule: "Kundalik: في + vaqt + fe'l. أستيقظ في السابعة. بعد ذلك... ثم... في النهاية...", grammar_example: "أستيقظ في السابعة، أتناول الإفطار في السابعة والنصف، أذهب للعمل في الثامنة.", reading_text: "يومي العادي يبدأ في السادسة صباحاً. أستيقظ وأغسل وجهي وأرتدي ملابسي. في السادسة والنصف آكل الإفطار. أكون في العمل من الثامنة إلى الخامسة. بعد العمل أذهب للصالة الرياضية أو أطبخ العشاء.", reading_qs: [{ q: "U qachon turadi?", opts: ["Soat beshda", "Soat oltida", "Soat yettida", "Soat sakkizda"], c: 1 }], xp: 95, coin: 38 },
-        { id: 'ae10', icon: '🌿', title: 'الطبيعة - Tabiat', desc: "Arabcha tabiat", words: ['جبل', 'نهر', 'غابة', 'بحر', 'طبيعة', 'زهرة', 'شجرة', 'عشب', 'سماء', 'أرض'], grammar_rule: "Tabiat: في الغابة تنمو الأشجار (o'rmonda daraxtlar o'sadi). على الجبل... في النهر...", grammar_example: "في الجزيرة العربية صحاري شاسعة وجبال عالية وشواطئ جميلة.", reading_text: "الجزيرة العربية لها طبيعة متنوعة. في الشمال جبال وصحاري. في الجنوب شواطئ جميلة على البحر الأحمر. الصحراء العربية مذهلة بغروب الشمس الرائع.", reading_qs: [{ q: "Arab yarim orolining janubida nima bor?", opts: ["Tog'lar", "Cho'llar", "Qizil dengiz sohillari", "O'rmonlar"], c: 2 }], xp: 95, coin: 38 },
-        { id: 'ae11', icon: '📱', title: 'التكنولوجيا - Texnologiya', desc: "Arabcha texnologiya", words: ['هاتف', 'حاسوب', 'إنترنت', 'تطبيق', 'رسالة', 'موقع', 'كلمة مرور', 'فيديو', 'صورة', 'شحن'], grammar_rule: "Texnologiya: تحميل (yuklamoq), إرسال (yubormoq), شحن (quvvatlantirmoq)", grammar_example: "حمّلت التطبيق وأرسلت رسالة لصديقي.", reading_text: "اليوم لا يمكن تصور الحياة بدون إنترنت. أستخدم هاتفي للتواصل والعمل والترفيه. في الصباح أتحقق من الرسائل. خلال النهار أعمل على الحاسوب. في المساء أشاهد فيديوهات أو أقرأ الأخبار.", reading_qs: [{ q: "Kechqurun nima qiladi?", opts: ["Ish qiladi", "Xabarlarni tekshiradi", "Video ko'radi yoki yangiliklar o'qiydi", "Qo'ng'iroq qiladi"], c: 2 }], xp: 100, coin: 40 },
-        { id: 'ae12', icon: '💌', title: 'الوصف - Tavsif', desc: "Odamlarni arabcha tasvirlash", words: ['طويل', 'طيب', 'ذكي', 'صبور', 'جميل', 'مرح', 'جاد', 'شجاع', 'صادق', 'مؤدب'], grammar_rule: "Tavsif: هو/هي + sifat. طبيعته/طبيعتها (tabiati). لديه/لديها (uning bor)", grammar_example: "صديقي طويل ورياضي. هي ذكية وطيبة.", reading_text: "أفضل صديقتي اسمها زارينا. هي طويلة وجميلة. شعرها طويل وداكن وعيناها بنيتان. زارينا طيبة وذكية جداً. هي دائماً تساعد الآخرين. الجميع يحبها لأنها صادقة ومرحة.", reading_qs: [{ q: "Zarina qanday inson?", opts: ["Qo'pol va g'amgin", "Yaxshi va aqlli", "Baland bo'yli va yomon", "Sokin va uyatchan"], c: 1 }], xp: 100, coin: 40 },
-        { id: 'ae13', icon: '🌍', title: 'العالم - Dunyo', desc: "Dunyo mamlakatlari arabcha", words: ['روسيا', 'ألمانيا', 'اليابان', 'الصين', 'أوزبكستان', 'فرنسا', 'أمريكا', 'تركيا', 'الهند', 'البرازيل'], grammar_rule: "Mamlakatlar: في + mamlakat (mamlakatda). من + mamlakat (mamlakatdan)", grammar_example: "أعيش في أوزبكستان. وُلدت في روسيا. جئت من ألمانيا.", reading_text: "على الأرض حوالي مئتي دولة. أكبرها روسيا. أكثرها سكاناً الصين. ألمانيا مشهورة بسياراتها، واليابان بتكنولوجيتها. أوزبكستان بلد تاريخه وثقافته عريقة.", reading_qs: [{ q: "Eng katta mamlakat qaysi?", opts: ["Xitoy", "Rossiya", "Amerika", "Braziliya"], c: 1 }], xp: 100, coin: 40 },
-        { id: 'ae14', icon: '🎭', title: 'الترفيه - Ko\'ngil ochar', desc: "Arabcha ko'ngil ochar", words: ['سينما', 'حفلة', 'ملعب', 'ممثل', 'بطل', 'مسرح', 'سيرك', 'متحف', 'معرض', 'عرض'], grammar_rule: "Ko'ngil ochar: أذهب إلى + joy: إلى السينما, إلى المسرح, إلى الملعب", grammar_example: "في الجمعة نذهب إلى السينما. في السبت — إلى حفلة موسيقية.", reading_text: "السبت الماضي ذهبت إلى المسرح. عرضوا مسرحية عن رواية دوستويفسكي. كان رائعاً! القاعة كانت ممتلئة. بعد العرض ذهبنا إلى مقهى وناقشنا المسرحية. أحب المسرح كثيراً!", reading_qs: [{ q: "Shanba kuni qayerga borgan?", opts: ["Kino", "Teatr", "Stadion", "Sirk"], c: 1 }], xp: 105, coin: 42 },
-        { id: 'ae15', icon: '📖', title: 'الماضي - O\'tgan zamon', desc: "Arabcha o'tgan zamon", words: ['ذهب', 'أكل', 'رأى', 'لعب', 'عمل', 'قرأ', 'تكلّم', 'اشترى', 'كتب', 'اتصل'], grammar_rule: "O'tgan zamon: فعل + ضمير. ذهبت (men bordim), ذهب (u bordi), ذهبنا (biz bordik)", grammar_example: "أمس قرأت كتاباً. كتبت رسالة. شاهدنا فيلماً.", reading_text: "أمس كان يوم مثيراً. صباحاً اتصلت بصديقي. اتفقنا وذهبنا إلى الحديقة. هناك لعبنا كرة القدم وتحدثنا كثيراً. بعدها أكلنا في مطعم. مساءً قرأت كتاباً ونمت في الحادية عشرة.", reading_qs: [{ q: "Kecha ertalab nima qildi?", opts: ["Televizor ko'rdi", "Do'stiga qo'ng'iroq qildi", "Uyda qoldi", "Kitob o'qidi"], c: 1 }], xp: 120, coin: 48 },
-        { id: 'ae16', icon: '🗣️', title: 'المحادثة - Suhbat', desc: "Arabcha muloqot iboralari", words: ['بالطبع', 'ربما', 'ممكن', 'بالمناسبة', 'مثلاً', 'إذن', 'عموماً', 'بصراحة', 'في رأيي', 'في الواقع'], grammar_rule: "Muloqot iboralari: في رأيي (menimcha), بصراحة (rost aytganda), بالمناسبة (aytgancha)", grammar_example: "في رأيي هذا صحيح. بالمناسبة، هل سمعت الخبر؟ بصراحة، لا أعرف.", reading_text: "— هل شاهدت الفيلم الجديد؟ — بالطبع! في رأيي هو أحسن فيلم في العام. — بصراحة، لم أشاهده بعد. — حقاً؟ يجب أن تشاهده! — بالمناسبة، هل الممثلون جيدون؟ — نعم، والموسيقى رائعة!", reading_qs: [{ q: "Birinchi odam filmni tomosha qildimi?", opts: ["Ha", "Yo'q", "Bilmaydi", "Hali emas"], c: 0 }], xp: 110, coin: 44 },
-        { id: 'ae17', icon: '📞', title: 'الهاتف - Telefon suhbati', desc: "Arabcha telefon gaplashish", words: ['ألو', 'اتصال', 'اتصل ثانية', 'اترك رسالة', 'مشغول', 'لا يرد', 'رقم', 'اتصال', 'سماع', 'قُطع'], grammar_rule: "Telefon: ألو، من معي؟ (Allo, kimman?) هل يمكنني التحدث مع...؟ سأتصل بك ثانية.", grammar_example: "— ألو! — مرحبا، هل يمكنني التكلم مع أحمد؟ — هو ليس هنا. — أخبره أن علياً اتصل.", reading_text: "— ألو، نيلوفار؟ — نعم، أنا. أنت عليشر؟ — مرحبا! كيف حالك؟ — بخير شكراً! أتصل بشأن اللقاء. هل أنت حرة السبت؟ — نعم بالطبع! في أي وقت؟ — الثالثة بعد الظهر. مناسب؟ — ممتاز، اتفقنا!", reading_qs: [{ q: "Uchrashuv qachon?", opts: ["Juma, soat 3da", "Shanba, soat 3da", "Yakshanba, soat 3da", "Dushanba, soat 3da"], c: 1 }], xp: 110, coin: 44 },
-        { id: 'ae18', icon: '💰', title: 'المال - Pul', desc: "Arabcha pul va narxlar", words: ['ريال', 'دينار', 'درهم', 'سعر', 'يكلف', 'دفع', 'فكة', 'غالي', 'رخيص', 'مجاني'], grammar_rule: "Narx: كم يكلف؟ (Narxi qancha?) بكم هذا؟ (Buni qancha?) إجمالاً... (Hammasi...)", grammar_example: "— كم يكلف الخبز؟ — ثلاثون ليرة. — تفضل خمسون. — إليك الفكة — عشرون.", reading_text: "في السعودية العملة هي الريال. في مصر الجنيه. في الإمارات الدرهم. اشتريت في السوبرماركت بضائع بخمسمئة ريال. قالت الكاشيرة: «معك خمسمئة وعشرون». أعطيت ستمئة وأخذت الفكة — ثمانين ريالاً.", reading_qs: [{ q: "Qaytim pul qancha?", opts: ["60", "70", "80", "100"], c: 2 }], xp: 100, coin: 40 },
-        { id: 'ae19', icon: '🏋️', title: 'الرياضة - Sport', desc: "Arabcha sport turlari", words: ['كرة القدم', 'كرة السلة', 'تنس', 'سباحة', 'جري', 'تدريب', 'صالة', 'فريق', 'فوز', 'بطولة'], grammar_rule: "Sport: يلعب + sport turi. يتدرب على... يشارك في البطولة.", grammar_example: "ألعب كرة القدم. يمارس السباحة. نشاهد البطولة.", reading_text: "أمارس الرياضة ثلاث مرات أسبوعياً. الاثنين والأربعاء أذهب إلى الصالة الرياضية. الجمعة أسبح في المسبح. في العطل ألعب كرة القدم مع الأصدقاء. الرياضة تجعلني صحياً وحيوياً!", reading_qs: [{ q: "Haftada necha marta sport qiladi?", opts: ["Ikki", "Uch", "To'rt", "Har kuni"], c: 1 }], xp: 100, coin: 40 },
-        { id: 'ae20', icon: '🔄', title: 'مراجعة المستوى - Takrorlash', desc: "Elementary darajasi yakuniy", words: ['عمل', 'تعلّم', 'عاش', 'أراد', 'استطاع', 'ذهب', 'تكلّم', 'فهم', 'عرف', 'أحب'], grammar_rule: "Jami: الماضي (o'tgan), الحاضر (hozirgi), الصفات (sifatlar), الأسئلة (savollar)", grammar_example: "أعمل مبرمجاً. أمس ذهبت إلى السوق. هو ذكي وطيب.", reading_text: "أنهيت المستوى الثاني من العربية — Elementary! تعلمت خلال هذا الوقت الكثير: الحديث عن المهن، والتسوق، ووصف الناس، والحديث عن الماضي. أنا فخور بتقدمي وأواصل التعلم!", reading_qs: [{ q: "U nimaga g'urur his qilmoqda?", opts: ["Yangi ishga", "Arab tilini o'rganishda erishgan natijasiga", "Sayohati uchun", "Sport natijalariga"], c: 1 }], xp: 130, coin: 52 },
-    ],
-    'pre-intermediate': [
-        { id: 'ap1', icon: '🔮', title: 'المستقبل - Kelajak', desc: "Arabcha kelajak zamon", words: ['سأذهب', 'سيعمل', 'سنتعلم', 'سوف', 'يخطط', 'ينوي', 'يحلم', 'يستعد', 'يأمل', 'مستقبل'], grammar_rule: "Kelajak: سـ + fe'l (yaqin kelajak), سوف + fe'l (uzoq kelajak). سأذهب (boraman)", grammar_example: "سأذهب إلى موسكو العام القادم. سوف أتعلم اللغة العربية جيداً.", reading_text: "في العام القادم أخطط للذهاب إلى القاهرة. أريد أن أرى الأهرامات وأبا الهول. أنوي أيضاً التسجيل في دورة اللغة العربية. في المستقبل أحلم بالعمل في شركة دولية.", reading_qs: [{ q: "U keyingi yil nima qilmoqchi?", opts: ["Riyadga bormoq", "Qohiraga bormoq", "Uyda qolmoq", "Chet elga ketmoq"], c: 1 }], xp: 130, coin: 52 },
-        { id: 'ap2', icon: '🎯', title: 'الأفعال المركبة - Fe\'l turlari', desc: "Arabcha fe'l shakllari", words: ['يفعل', 'فعل', 'يكون قد فعل', 'كان يفعل', 'فعل وانتهى', 'يفعل باستمرار', 'قد فعل', 'كان قد فعل', 'سيكون قد فعل', 'سيفعل'], grammar_rule: "Fe'l zamonlari: ماضٍ (o'tgan), مضارع (hozirgi), مستقبل (kelajak). Arabchada جملة فعلية (fe'lli gap) asosiy", grammar_example: "قرأت الكتاب (O'qidim). أقرأ الكتاب (O'qiyapman). سأقرأ الكتاب (O'qiyman).", reading_text: "أمس كنت أقرأ كتاباً ممتعاً طوال ثلاث ساعات. أخيراً انتهيت منه وخرجت للنزهة. كنت أقرأ روايات بوليسية طوال الأسبوع. في الجمعة قرأتها حتى النهاية.", reading_qs: [{ q: "U kitobni qachon tugatdi?", opts: ["Dushanba", "Chorshanba", "Juma", "Shanba"], c: 2 }], xp: 140, coin: 56 },
-        { id: 'ap3', icon: '💡', title: 'الجمل الشرطية - Shart gaplar', desc: "Arabcha shart jumlalar", words: ['إذا', 'لو', 'إن', 'عندما', 'بشرط', 'في حال', 'مع أن', 'رغم أن', 'فرضاً', 'افتراضاً'], grammar_rule: "Shart: إذا + مضارع → مضارع (real shart). لو + ماضٍ → لـ+ماضٍ (xayoliy shart)", grammar_example: "إذا تعلمت العربية جيداً، ستجد عملاً ممتازاً. لو كان لديّ وقت، لسافرت.", reading_text: "إذا تعلمت العربية جيداً، أستطيع العمل في الدول العربية. لو كان لديّ مال كثير، لسافرت حول العالم. لو وُلدت في القاهرة، لكنت أتحدث العربية كالناطق الأصلي.", reading_qs: [{ q: "U arabchani yaxshi o'rgansa nima qiloladi?", opts: ["Dunyoni aylanadi", "Arab mamlakatlarida ishlayoladi", "Ko'p pul topadi", "Qohiraga ko'chadi"], c: 1 }], xp: 150, coin: 60 },
-        { id: 'ap4', icon: '🗣️', title: 'إبداء الرأي - Fikr bildirish', desc: "Arabcha fikr ifodalash", words: ['أعتقد', 'أرى', 'في رأيي', 'من وجهة نظري', 'يبدو لي', 'متأكد', 'أشك', 'أتفق', 'لا أتفق', 'أعترض'], grammar_rule: "Fikr: في رأيي... (menimcha). أعتقد أن... (deb o'ylayman). أنا متأكد أن...", grammar_example: "في رأيي، تعلم اللغات مفيد جداً. أعتقد أن هذا صحيح.", reading_text: "في رأيي، تعلم اللغة العربية استثمار في المستقبل. من وجهة نظري، معرفة عدة لغات تفتح فرصاً كثيرة. أنا متأكد أنه بمعرفة العربية يمكن إيجاد عمل جيد. هل تتفق؟", reading_qs: [{ q: "Muallif arabchani o'rganishni nima deb hisoblaydi?", opts: ["Vaqt yo'qotish", "Kelajakka sarmoya", "Qiyin mashqlar", "Kerak emas"], c: 1 }], xp: 130, coin: 52 },
-        { id: 'ap5', icon: '📰', title: 'الأخبار - Yangiliklar', desc: "Arabcha media va yangiliklar", words: ['عنوان', 'صحفي', 'بث', 'مقالة', 'مقابلة', 'تقرير', 'تحرير', 'مصدر', 'حقيقة', 'رأي'], grammar_rule: "Media: وفقاً للمصادر... (manbalarga ko'ra). يُذكر أن... (eslatib o'tilganidek). أفاد أن...", grammar_example: "وفقاً للمصادر، جرى اليوم في المدينة مهرجان. أجرى الصحفي مقابلة مع العمدة.", reading_text: "كل صباح أقرأ الأخبار على الإنترنت. تعجبني المقالات عن العلوم والتكنولوجيا. المهم التمييز بين الحقائق والآراء. الصحفي الجيد يتحقق دائماً من المصادر قبل النشر.", reading_qs: [{ q: "U har kuni nima qiladi?", opts: ["Televizor ko'radi", "Gazeta sotib oladi", "Internetda yangiliklar o'qiydi", "Radio eshitadi"], c: 2 }], xp: 135, coin: 54 },
-        { id: 'ap6', icon: '🏢', title: 'الأعمال - Biznes', desc: "Arabcha professional lug'at", words: ['اجتماع', 'موعد نهائي', 'مشروع', 'زميل', 'ترقية', 'تفاوض', 'عقد', 'عميل', 'تقرير', 'عرض تقديمي'], grammar_rule: "Biznes: عقد اجتماعاً (uchrashuv o'tkazdi). وقّع العقد (shartnoma imzoladi).", grammar_example: "غداً عندنا مفاوضات مع العميل. يجب تحضير العرض التقديمي والتقرير.", reading_text: "اليوم يوم عمل مكثف. صباحاً — اجتماع مع الزملاء حول المشروع الجديد. بعد الظهر — مفاوضات مع عميل مهم. مساءً يجب تسليم التقرير للمدير. العمل متعب لكن أحبه.", reading_qs: [{ q: "Tushdan keyin nima bor?", opts: ["Hisobot topshirish", "Hamkasblar bilan uchrashuv", "Muhim mijoz bilan muzokaralar", "Prezentatsiya"], c: 2 }], xp: 140, coin: 56 },
-        { id: 'ap7', icon: '🧠', title: 'التعابير - Idiomalar', desc: "Arabcha keng ishlatiladigan idiomalar", words: ['الغائب حجته معه', 'الصبر مفتاح الفرج', 'العقل زينة', 'كل مجتهد له نصيب', 'الوقت من ذهب', 'لكل مقام مقال', 'أكبر منك بيوم أعقل منك بسنة', 'العلم نور', 'من جد وجد', 'الحكمة ضالة المؤمن'], grammar_rule: "Arabcha maqollar — hayot falsafasi va hikmat ifodalash uchun ishlatiladi.", grammar_example: "الوقت من ذهب — don't waste time! العلم نور — ilm — nur!", reading_text: "في العربية أمثال كثيرة جميلة. 'الوقت من ذهب' يعني أن الوقت ثمين. 'من جد وجد' يعني أن العمل الجاد يوصل للنجاح. 'العلم نور' يذكّرنا بأهمية التعلم.", reading_qs: [{ q: "'الوقت من ذهب' iborasi nima ma'noda?", opts: ["Vaqt arzon", "Vaqt qimmatli", "Vaqt yo'q", "Vaqt bemalol"], c: 1 }], xp: 155, coin: 62 },
-        { id: 'ap8', icon: '📜', title: 'الكتابة الرسمية - Rasmiy xat', desc: "Arabcha rasmiy maktub", words: ['حضرة', 'مع التحية', 'مرفق', 'بشأن', 'أرجو', 'أحيط علماً', 'أشكر', 'أتقدم', 'أرجو النظر', 'في انتظار'], grammar_rule: "Rasmiy xat: حضرة + unvon. Murojaat: أرجو... أحيط علماً... Xulosa: مع التحية والتقدير", grammar_example: "حضرة المدير! أرجو النظر في طلبي. مع التحية والتقدير، علي.", reading_text: "حضرة المدير! أتقدم بسيرتي الذاتية وأرجو النظر في قبولي لشغل منصب المدير. لديّ خبرة خمس سنوات في هذا المجال. أنا متأكد أنني سأكون مفيداً لشركتكم. مع التحية والتقدير، علي كريموف.", reading_qs: [{ q: "Xat qanday maqsadda yozilgan?", opts: ["Rahmat bildirish uchun", "Ish so'rash uchun", "Taklif qilish uchun", "Uzr so'rash uchun"], c: 1 }], xp: 140, coin: 56 },
-        { id: 'ap9', icon: '🧪', title: 'العلوم - Fan', desc: "Arabcha ilmiy lug'at", words: ['تجربة', 'فرضية', 'بحث', 'اكتشاف', 'دليل', 'نظرية', 'مختبر', 'عالم', 'نتيجة', 'تحليل'], grammar_rule: "Ilmiy uslub: أثبت العلماء أن... وفقاً للدراسات... نتيجة التجربة...", grammar_example: "أجرى العلماء تجربة وحصلوا على نتائج مثيرة للاهتمام.", reading_text: "قدّم العلماء العرب إسهامات ضخمة للعلوم العالمية. ابن سينا أسس الطب الحديث. الخوارزمي طوّر الجبر. البيروني درس الجغرافيا والفلك. العلم العربي أنار أوروبا في العصور الوسطى.", reading_qs: [{ q: "Kim algebrani rivojlantirdi?", opts: ["Ibn Sino", "Al-Xorazmiy", "Beruniy", "Ibn Rushd"], c: 1 }], xp: 145, coin: 58 },
-        { id: 'ap10', icon: '🗺️', title: 'السفر - Sayohat', desc: "Arabcha sayohat lug'ati", words: ['مسار', 'إقامة', 'معلم', 'عملة', 'تأشيرة', 'جواز', 'سفارة', 'تسجيل', 'حجز', 'نقل'], grammar_rule: "Sayohat: حجز الفندق (mehmonxona band qilish). استخراج التأشيرة (viza olish).", grammar_example: "حجزنا الفندق واستخرجنا التأشيرة. المسار جاهز بالفعل.", reading_text: "نخطط للسفر إلى إسطنبول. حجزت بالفعل الفندق واشتريت تذاكر الطيران. المسار مرسوم: آيا صوفيا، مسجد السلطان أحمد، البازار الكبير، بوسفور. الأهم — عدم نسيان جواز السفر!", reading_qs: [{ q: "Qaysi shaharga sayohat rejasi bor?", opts: ["Qohira", "Dubai", "Istanbul", "Riyod"], c: 2 }], xp: 135, coin: 54 },
-        { id: 'ap11', icon: '🎓', title: 'التعليم الجامعي - Universitet', desc: "Arabcha akademik lug'at", words: ['أطروحة', 'محاضرة', 'مهمة', 'فصل دراسي', 'درجة', 'اختبار', 'قسم', 'مشرف', 'منشور', 'مؤتمر'], grammar_rule: "Akademik: مناقشة الأطروحة (dissertatsiya himoyasi). اجتياز الاختبار (test topshirish).", grammar_example: "في هذا الفصل خمسة مقررات. يجب اجتياز ثلاثة اختبارات وامتحانين.", reading_text: "أدرس في السنة الثالثة من الجامعة. في هذا الفصل مواد مثيرة: التاريخ والاقتصاد واللغات الأجنبية. مشرفي يساعدني في ورقة البحث. في مايو يجب مناقشة المشروع.", reading_qs: [{ q: "Necha-chi kursda o'qiydi?", opts: ["Birinchi", "Ikkinchi", "Uchinchi", "To'rtinchi"], c: 2 }], xp: 155, coin: 62 },
-        { id: 'ap12', icon: '🔗', title: 'الجمل الوصفية - Sifatlovchi gaplar', desc: "Arabcha 'الذي/التي' bilan gaplar", words: ['الذي', 'التي', 'الذين', 'اللاتي', 'ما', 'من', 'حيث', 'عندما', 'كيفما', 'كلما'], grammar_rule: "Sifatlovchi: الذي (erkak), التي (urg'ochi), الذين (ko'plik erkak), اللاتي (ko'plik urg'ochi)", grammar_example: "الكتاب الذي قرأته رائع. المرأة التي قابلتها طيبة.", reading_text: "هذا الكتاب الذي كتبه دوستويفسكي. يروي عن أناس يعيشون في الفقر. البطل الرئيسي طالب ليس لديه مال لكن لديه أحلام كبيرة. هذه رواية أنصح الجميع بقراءتها.", reading_qs: [{ q: "Bu kitobni kim yozgan?", opts: ["Tolstoy", "Pushkin", "Dostoevskiy", "Turgenev"], c: 2 }], xp: 155, coin: 62 },
-        { id: 'ap13', icon: '📊', title: 'وصف البيانات - Ma\'lumot tavsifi', desc: "Arabcha statistika va raqamlar", words: ['زيادة', 'نقصان', 'نسبة', 'اتجاه', 'إحصاء', 'نمو', 'انخفاض', 'مؤشر', 'بيانات', 'في المتوسط'], grammar_rule: "Statistika: وفقاً للإحصاءات... النسبة تبلغ X٪. يُلاحظ نمو/انخفاض. في المتوسط...", grammar_example: "وفقاً للإحصاءات، 70٪ من العرب يستخدمون الإنترنت. يُلاحظ نمو التجارة الإلكترونية.", reading_text: "وفقاً للإحصاءات، حوالي سبعين بالمئة من العرب يستخدمون الإنترنت يومياً. يُلاحظ نمو مستمر في التجارة الإلكترونية. يقضي المواطن العربي في المتوسط أربع ساعات يومياً على الإنترنت.", reading_qs: [{ q: "Arab fuqarosi internetda kuniga o'rtacha qancha vaqt o'tkazadi?", opts: ["2 soat", "3 soat", "4 soat", "5 soat"], c: 2 }], xp: 145, coin: 58 },
-        { id: 'ap14', icon: '🌐', title: 'القضايا العالمية - Global muammolar', desc: "Arabcha dunyo muammolari", words: ['تغير المناخ', 'تلوث', 'فقر', 'لا مساواة', 'استدامة', 'بيئة', 'إعادة تدوير', 'متجدد', 'كربون', 'عالمي'], grammar_rule: "Global muammolar: يُهدد تغير المناخ... يجب حل مشكلة... المهم الحفاظ على...", grammar_example: "يُعدّ تغير المناخ مشكلة عالمية خطيرة. نحتاج إلى حماية الطبيعة.", reading_text: "يُعدّ تغير المناخ من أهم مشاكل عصرنا. يؤدي الاحترار العالمي إلى ذوبان الجليد وارتفاع مستوى البحر. يستطيع كل شخص المساعدة: توفير الكهرباء، تقليل البلاستيك، زرع الأشجار.", reading_qs: [{ q: "Global isish qanday oqibatlarga olib keladi?", opts: ["Ko'proq yomg'ir", "Muzliklarning erishi", "Havoning tozalanishi", "Daryolarning to'lishi"], c: 1 }], xp: 165, coin: 66 },
-        { id: 'ap15', icon: '🤝', title: 'التفاوض - Muzokaralar', desc: "Arabcha biznes muzokaralari", words: ['اقتراح', 'تسوية', 'صفقة', 'شروط', 'اتفاق', 'أطراف', 'اعتراض', 'قبول', 'رفض', 'مفاوض'], grammar_rule: "Muzokaralar: أقترح التالي... (quyidagini taklif qilaman). نوافق بشرط أن...", grammar_example: "أقترح الشروط التالية:... نحن مستعدون لإبرام الصفقة إذا وافقتم على...", reading_text: "استمرت المفاوضات ثلاث ساعات. اقترحت شركتنا تخفيضاً بعشرة بالمئة. اعترض الشركاء — أرادوا خمسة عشر. في النهاية توصلنا لتسوية — اثنا عشر بالمئة وتمديد العقد.", reading_qs: [{ q: "Natijada qancha chegirma kelishildi?", opts: ["10%", "12%", "15%", "20%"], c: 1 }], xp: 160, coin: 64 },
-        { id: 'ap16', icon: '🎭', title: 'الأدب العربي - Arab adabiyoti', desc: "Arab klassik adabiyoti", words: ['رواية', 'قصة', 'شعر', 'مؤلف', 'بطل', 'حبكة', 'فصل', 'صورة', 'موضوع', 'فكرة'], grammar_rule: "Adabiyot: في الرواية يُحكى عن... البطل الرئيسي... يريد المؤلف أن يقول أن...", grammar_example: "في رواية 'ألف ليلة وليلة' قصص من حضارات مختلفة.", reading_text: "الأدب العربي من أغنى الآداب العالمية. ألف ليلة وليلة، طه حسين، نجيب محفوظ — هذه أسماء عالمية. حصل نجيب محفوظ على جائزة نوبل عام 1988. قراءة الأدب العربي تعني معرفة الروح العربية.", reading_qs: [{ q: "Najib Mahfuz qaysi mukofotni olgan?", opts: ["Nobel", "Booker", "Pulitzer", "Man Booker"], c: 0 }], xp: 150, coin: 60 },
-        { id: 'ap17', icon: '🏛️', title: 'التاريخ العربي - Arab tarixi', desc: "Arab tarixi va madaniyati", words: ['تاريخ', 'تقليد', 'عيد', 'عادة', 'معمار', 'تراث', 'متحف', 'نصب تذكاري', 'عصر', 'حضارة'], grammar_rule: "Tarix: في القرن X... في عهد + tarixiy shaxs. في عصر الإسلام الذهبي...", grammar_example: "في القرن الثامن ازدهرت الحضارة العربية الإسلامية.", reading_text: "للعرب تاريخ عريق وحضارة عظيمة. في القرن السابع نشأ الإسلام. في القرن الثامن إلى الثالث عشر كان العصر الذهبي للحضارة الإسلامية. قدّم العلماء العرب إسهامات هائلة في العلوم والفلسفة والفنون.", reading_qs: [{ q: "Arab-islom madaniyatining oltin davri qachon bo'lgan?", opts: ["6-7 asrlar", "8-13 asrlar", "14-16 asrlar", "17-18 asrlar"], c: 1 }], xp: 155, coin: 62 },
-        { id: 'ap18', icon: '🍳', title: 'المطبخ العربي - Arab oshxonasi', desc: "Arab taomlar va retseptlar", words: ['منسف', 'كبسة', 'فلافل', 'حمص', 'تبولة', 'مجدرة', 'كنافة', 'بقلاوة', 'شاورما', 'مضبي'], grammar_rule: "Retsept: لتحضير... نحتاج... أولاً قطّع... ثم أضف... اطهُ X دقائق...", grammar_example: "لتحضير الحمص نحتاج: الحمص والطحينة والليمون والثوم والزيت.", reading_text: "الكبسة أشهر الأطباق السعودية. تُحضّر من الأرز واللحم والبهارات. أولاً يُطهى اللحم. ثم يُضاف الأرز. تُقدَّم مع الخضروات والصلصة. جرّبها — ألذّ ما يمكن!", reading_qs: [{ q: "Kabsa nima bilan tayyorlanadi?", opts: ["Makaron bilan", "Guruch va go'sht bilan", "Baliq bilan", "Tovuq bilan"], c: 1 }], xp: 140, coin: 56 },
-        { id: 'ap19', icon: '🔬', title: 'العلوم الطبيعية - Tabiiy fanlar', desc: "Arabcha ilmiy terminologiya", words: ['جزيء', 'ذرة', 'إلكترون', 'تفاعل', 'مادة', 'طاقة', 'قوة', 'كتلة', 'سرعة', 'درجة حرارة'], grammar_rule: "Ilmiy tavsif: الجزيء مؤلف من ذرات. السرعة تُقاس بـ... درجة الحرارة ترتفع عند...", grammar_example: "الماء مؤلف من ذرتين هيدروجين وذرة أكسجين. H₂O.", reading_text: "الفيزياء والكيمياء أسس العلوم الطبيعية. الذرة أصغر جسيم في المادة. الجزيئات مؤلفة من ذرات. الطاقة تتحول من شكل لآخر. هذه المعرفة تساعد على فهم بناء عالمنا.", reading_qs: [{ q: "Atom nima?", opts: ["Molekuladan kichik bo'lmagan", "Moddaning eng kichik zarrachasi", "Energiya turi", "Kimyoviy reaksiya"], c: 1 }], xp: 145, coin: 58 },
-        { id: 'ap20', icon: '🔄', title: 'مراجعة المستوى - Pre-Int Takrorlash', desc: "Pre-Intermediate darajasi yakuniy", words: ['إذا', 'الذي', 'لكي', 'رغم', 'بما أن', 'إذن', 'ومع ذلك', 'لذلك', 'في نتيجة', 'أولاً وقبل كل شيء'], grammar_rule: "Jami takrorlash: Shart gaplar, sifatlovchi gaplar, bog'lovchilar, ilmiy uslub, biznes leksika", grammar_example: "لو كنت أعرف ذلك، لاتخذت قراراً مختلفاً. الكتاب الذي قرأته غيّر حياتي.", reading_text: "أنهيت مستوى Pre-Intermediate! الآن أستطيع بناء جمل معقدة ومناقشة مواضيع تجارية وفهم المقالات وقراءة الأدب. تحسّنت لغتي العربية بشكل ملحوظ! أواصل التعلم!", reading_qs: [{ q: "U endi nimani uddalay oladi?", opts: ["Faqat oddiy gaplar", "Murakkab gaplar va biznes mavzulari", "Faqat salomlashish", "Faqat savol berish"], c: 1 }], xp: 180, coin: 72 },
-    ],
-    advanced: [
-        { id: 'aa1', icon: '🖊️', title: 'الكتابة الأكاديمية - Akademik yozish', desc: "Esse, hisobot, dissertatsiya", words: ['علاوة على ذلك', 'ومع ذلك', 'بالتالي', 'في الختام', 'وهكذا', 'من ناحية', 'من ناحية أخرى', 'فيما يخص', 'بوجه خاص', 'إلى جانب ذلك'], grammar_rule: "Akademik uslub: المبني للمجهول, التسمية, murakkab sintaktik tuzilmalar", grammar_example: "بالتالي، يمكن الاستنتاج أن... علاوة على ذلك، تؤكد البيانات...", reading_text: "تتطلب الكتابة الأكاديمية بنية منطقية واضحة. المقدمة تصيغ المشكلة. في الجزء الرئيسي تُعرض الحجج والأدلة. في الخاتمة تُستخلص النتائج. المهم استخدام المفردات الأكاديمية وتجنب التعابير العامية.", reading_qs: [{ q: "Akademik yozuvning qanday strukturasi bor?", opts: ["Kirish, mazmun, xulosa", "Faqat mazmun", "Savol-javob", "Erkin shakl"], c: 0 }], xp: 200, coin: 80 },
-        { id: 'aa2', icon: '🎤', title: 'فن الخطابة - Nutq san\'ati', desc: "Arabcha taqdimot va nutqlar", words: ['أقنع', 'وضّح', 'أكّد', 'شرح', 'استنتج', 'بلاغة', 'حجج', 'جمهور', 'أطروحة', 'خلاصة'], grammar_rule: "Nutq: أودّ الإشارة إلى... أسمح لي بلفت انتباهكم... وختاماً...", grammar_example: "أسمح لي بلفت انتباهكم إلى الحقيقة التالية: وفقاً لبياناتنا...", reading_text: "الإقناع مهارة أساسية في العالم المعاصر. الخطاب الجيد يجب أن يكون ذا بنية واضحة وأمثلة وحجج منطقية. المهم معرفة جمهورك والتحدث بلغة مفهومة. الممارسة والثقة مفتاح النجاح.", reading_qs: [{ q: "Yaxshi nutqning asosiy xususiyati?", opts: ["Uzoq davom etish", "Aniq tuzilma, yorqin misollar va mantiq", "Ko'p so'z ishlatish", "Faqat faktlar"], c: 1 }], xp: 200, coin: 80 },
-        { id: 'aa3', icon: '📚', title: 'تحليل الأدب - Adabiyot tahlili', desc: "Arab adabiyoti va stilistika", words: ['استعارة', 'كناية', 'سخرية', 'تشبيه', 'رمز', 'مجاز', 'مبالغة', 'نعت', 'تشبيه', 'تناقض'], grammar_rule: "Adabiy tahlil: استخدم المؤلف الاستعارة... رمز ... يرمز إلى... تتجلى السخرية في...", grammar_example: "في هذه القصيدة يستخدم جبران الاستعارة للتعبير عن الحرية.", reading_text: "'ألف ليلة وليلة' كنز من الأدب العالمي. شهرزاد تروي قصصاً كالشعلة المضيئة. بطلة رئيسية ذكاؤها ينقذها. عبر القصص الرمزية يعالج المؤلفون مواضيع الحب والعدالة والحرية.", reading_qs: [{ q: "Shahrازad kim?", opts: ["Saroy xizmatkorasi", "Qirolning qizi", "Aqlli hikoyachi qiz", "Savdogar"], c: 2 }], xp: 200, coin: 80 },
-        { id: 'aa4', icon: '⚖️', title: 'القانون والأخلاق - Huquq va etika', desc: "Arabcha yuridik va etik lug'at", words: ['تشريع', 'دستوري', 'سابقة', 'مسؤولية', 'تعديل', 'اختصاص', 'مدعٍ', 'مدعى عليه', 'حكم', 'استئناف'], grammar_rule: "Yuridik uslub: وفقاً للقانون... بموجب المادة X... يتحمل الشخص المسؤولية عن...", grammar_example: "وفقاً للمادة 35 من الدستور، لكل مواطن الحق في التملك الخاص.", reading_text: "الدستور هو القانون الأساسي للدولة. يكرّس الحقوق والحريات. وفقاً لمبدأ افتراض البراءة، يُعتبر الشخص بريئاً حتى تثبت إدانته. احترام القانون واجب كل مواطن.", reading_qs: [{ q: "Begunohlik prezumpsiyasi nima degani?", opts: ["Har kim aybdor", "Inson aybli deb topilmaguncha begunoh hisoblanadi", "Sud har doim to'g'ri", "Advokat kerak emas"], c: 1 }], xp: 210, coin: 84 },
-        { id: 'aa5', icon: '💹', title: 'الاقتصاد - Iqtisod', desc: "Arabcha iqtisodiy terminologiya", words: ['اقتصاد كلي', 'محفظة', 'مشتقات', 'تضخم', 'رأس مال', 'سيولة', 'عجز', 'فائض', 'نقدي', 'مالي'], grammar_rule: "Iqtisodiy uslub: بلغ التضخم X٪. نما الناتج المحلي الإجمالي بنسبة X٪.", grammar_example: "بلغ التضخم السنوي 4.5٪. نما الناتج المحلي الإجمالي بنسبة 3.2٪.", reading_text: "يُعدّ اقتصاد منطقة الخليج من أهم الاقتصادات في العالم. تشكّل الثروة النفطية أساسه، لكن الدول تطوّر بنشاط القطاعات الأخرى: التقنية والسياحة والمال. يتحكم البنك المركزي بالتضخم بالسياسة النقدية.", reading_qs: [{ q: "Xalij iqtisodining asosini nima tashkil etadi?", opts: ["Avtomobilsozlik", "Neft boyligi", "Elektronika", "To'qimachilik"], c: 1 }], xp: 220, coin: 88 },
-        { id: 'aa6', icon: '🏛️', title: 'السياسة - Siyosat', desc: "Arabcha siyosiy diskurs", words: ['سيادة', 'برلمان', 'استفتاء', 'أيديولوجية', 'حوكمة', 'ديمقراطية', 'مجتمع مدني', 'حكومة', 'معارضة', 'شرعية'], grammar_rule: "Siyosiy uslub: صوّت البرلمان على... أظهر الاستفتاء أن... أعلنت الحكومة...", grammar_example: "صوّت البرلمان على إقرار قانون تعليمي جديد. اعترضت المعارضة.", reading_text: "الديمقراطية نظام حكم تعود فيه السلطة للشعب. يسنّ البرلمان القوانين. تنفذها الحكومة. يكفل الجهاز القضائي العدالة. يراقب المجتمع المدني السلطة. هذه أسس دولة القانون.", reading_qs: [{ q: "Demokratiyada kim hokimiyatga ega?", opts: ["Parlament", "Hukumat", "Xalq", "Sud"], c: 2 }], xp: 220, coin: 88 },
-        { id: 'aa7', icon: '🔬', title: 'منهجية البحث - Tadqiqot metodologiyasi', desc: "Arabcha tadqiqot", words: ['ارتباط', 'منهجية', 'نوعي', 'كمي', 'نموذج', 'عينة', 'صلاحية', 'فرضية', 'متغير', 'استنتاج'], grammar_rule: "Tadqiqot: تتضمن منهجية البحث... بلغت العينة X شخصاً. تُظهر النتائج...", grammar_example: "أُجري البحث باستخدام الاستبيان بين 500 مشارك.", reading_text: "يتضمن البحث العلمي مراحل عدة: صياغة المشكلة، فرض الفرضية، جمع البيانات، التحليل والاستنتاجات. المهم التمييز بين الارتباط والعلاقة السببية. المناهج النوعية والكمية تكمل بعضها.", reading_qs: [{ q: "Tadqiqotning birinchi bosqichi qanday?", opts: ["Ma'lumot yig'ish", "Muammoni shakllantirish", "Tahlil", "Xulosa"], c: 1 }], xp: 220, coin: 88 },
-        { id: 'aa8', icon: '🧩', title: 'القواعد المتقدمة - Ilg\'or grammatika', desc: "Arabcha murakkab grammatik tuzilmalar", words: ['الجزم', 'النصب', 'الرفع', 'المبني للمجهول', 'الإعلال', 'الإبدال', 'الحال', 'التمييز', 'المفعول المطلق', 'الاشتغال'], grammar_rule: "Ilg'or grammatika: i'rob (harakat), مبني للمجهول (passiv), الحال (holat), التمييز (aniqlik)", grammar_example: "كُتب الكتاب (passiv). جاء الرجل راكباً (holat — otda). لديّ عشرون كتاباً (aniqlik).", reading_text: "Arabcha grammatika murakkab va boy. i'rob — harflarning holati. Passiv shakl rasmiy va ilmiy matnlarda ko'p ishlatiladi. Holat (حال) harakat yuz berganda sharoitni bildiradi. Bu tuzilmalarni bilish yuqori darajani anglatadi.", reading_qs: [{ q: "Passiv nishon qayerda ko'proq ishlatiladi?", opts: ["So'zlashuv tilida", "Rasmiy va ilmiy matnlarda", "Badiiy adabiyotda", "Xatlarda"], c: 1 }], xp: 240, coin: 96 },
-        { id: 'aa9', icon: '🌏', title: 'التواصل بين الثقافات - Madaniyatlararo', desc: "Madaniyatlararo muloqot arabcha", words: ['الحساسية الثقافية', 'صورة نمطية', 'تحيز', 'إدراج', 'تنوع', 'تكيف', 'اندماج', 'هوية', 'تسامح', 'تعددية ثقافية'], grammar_rule: "Madaniyatlararo: يُعتبر من المعتاد... في هذه الثقافة... المهم مراعاة السياق الثقافي...", grammar_example: "في العالم العربي يُقدَّم الضيف بالخبز والملح رمزاً للكرم.", reading_text: "الوطن العربي متعدد الأعراق. يسكنه العرب والأكراد والأمازيغ وشعوب أخرى كثيرة. لكل شعب ثقافته ولغته وتقاليده. الاحترام المتبادل والتسامح أساس المجتمع التعددي.", reading_qs: [{ q: "Arab olamida qanday xalqlar yashaydi?", opts: ["Faqat arablar", "Arablar, kurdlar, amazighlar va boshqalar", "Faqat musulmonlar", "Faqat yosh xalqlar"], c: 1 }], xp: 220, coin: 88 },
-        { id: 'aa10', icon: '🎯', title: 'امتحان اللغة العربية - Imtihon', desc: "Arab tili imtihon strategiyalari", words: ['إعادة الصياغة', 'تلخيص', 'تقييم', 'تحليل', 'مقارنة', 'تفسير', 'بشكل نقدي', 'احتجاج', 'تركيب', 'تبرير'], grammar_rule: "Imtihon strategiyasi: O'qish — asosiy fikrni tushunish. Yozish — aniq tuzilma. Gapirish — ravon", grammar_example: "في النص يُذكر... يؤكد الكاتب أن... في رأيي... وهكذا...", reading_text: "الدليل الدولي للغة العربية يختبر أربع مهارات: القراءة والكتابة والكلام والاستماع. تتطلب الاستعداد الجيد الممارسة المنتظمة. اقرأ النصوص العربية وشاهد الأفلام وتحدث مع الناطقين بالعربية!", reading_qs: [{ q: "Arab tili imtihoni qanday ko'nikmalarni tekshiradi?", opts: ["Faqat yozuv", "O'qish va yozuv", "To'rtta ko'nikma", "Faqat grammatika"], c: 2 }], xp: 300, coin: 120 },
-        { id: 'aa11', icon: '📡', title: 'التكنولوجيا والإعلام - Media va texnologiya', desc: "Arabcha raqamli dunyo", words: ['خوارزمية', 'أمن إلكتروني', 'بلوك تشين', 'ذكاء اصطناعي', 'أتمتة', 'تعلم الآلة', 'شبكة عصبية', 'رقمنة', 'منصة', 'نظام بيئي'], grammar_rule: "Texnologiya: يتيح الذكاء الاصطناعي... تعالج الخوارزمية... تؤدي الأتمتة إلى...", grammar_example: "يُطبَّق الذكاء الاصطناعي بالفعل في الطب والنقل والتعليم.", reading_text: "يغيّر الذكاء الاصطناعي كل القطاعات. في الطب يساعد الذكاء الاصطناعي على تشخيص الأمراض. في النقل — إدارة السيارات ذاتية القيادة. في التعليم — تخصيص التعلم. تطوّر دول الخليج هذه التقنيات بنشاط.", reading_qs: [{ q: "AI tibbiyotda qanday yordam beradi?", opts: ["Dori tayyorlash", "Kasalliklarni tashxislash", "Jarrohlik qilish", "Dori yetkazib berish"], c: 1 }], xp: 240, coin: 96 },
-        { id: 'aa12', icon: '🧬', title: 'العلوم الطبية - Tibbiyot ilmi', desc: "Arabcha ilmiy diskurs", words: ['جينوم', 'مرونة عصبية', 'وبائيات', 'ممرض', 'صيدلة', 'مناعة', 'استقلاب', 'علم الوراثة', 'فيروس', 'لقاح'], grammar_rule: "Tibbiy uslub: يُستخدم الدواء في حالات... تشمل الأعراض... يتمثل العلاج في...", grammar_example: "أظهرت التجارب السريرية فعالية اللقاح في 95٪ من الحالات.", reading_text: "حققت الطب الحديث إنجازات هائلة. بفضل اللقاحات أمكن التغلب على الجدري وشلل الأطفال. يتيح علم الوراثة التنبؤ بالأمراض الوراثية. يدرس علم الأعصاب الدماغ والوعي. يشارك العلماء العرب بنشاط في هذه الأبحاث.", reading_qs: [{ q: "Genetika nima imkonini beradi?", opts: ["Dori tayyorlash", "Irsiy kasalliklarni bashorat qilish", "Yuqumli kasalliklarni davolash", "Miya faoliyatini o'rganish"], c: 1 }], xp: 240, coin: 96 },
-        { id: 'aa13', icon: '🎨', title: 'الفن والنقد - San\'at va tanqid', desc: "Arabcha estetik lug'at", words: ['جماليات', 'طليعة', 'ما بعد الحداثة', 'سريالية', 'تكعيبية', 'تصورية', 'منشأة', 'أداء', 'معرض', 'قيّم'], grammar_rule: "San'at tahlili: يُعبّر الفنان عن... يعكس العمل... يتميز الأسلوب بـ...", grammar_example: "في هذه اللوحة يستخدم الفنان تضاد الضوء والظل لخلق جو من الغموض.", reading_text: "الفن العربي غني ومتنوع. الخط العربي فن رفيع في حد ذاته. المعماريون العرب أنشأوا أعاجيب مثل الحمراء وقصر العلي. الفن المعاصر العربي يشق طريقه في المعارض الدولية.", reading_qs: [{ q: "Arabcha xattotlik nima?", opts: ["Faqat yozuv uslubi", "O'zi-o'zicha san'at turi", "Rasm turi", "Arxitektura uslubi"], c: 1 }], xp: 220, coin: 88 },
-        { id: 'aa14', icon: '🔭', title: 'الفلسفة - Falsafa', desc: "Arabcha falsafiy fikrlash", words: ['نظرية المعرفة', 'الوجود', 'تجريبية', 'قياس منطقي', 'مغالطة', 'جدلية', 'فينومينولوجيا', 'وجودية', 'براغماتية', 'عقلانية'], grammar_rule: "Falsafiy uslub: من وجهة نظر... تجدر الإشارة إلى أن... تظل مسألة... موضع نقاش...", grammar_example: "من وجهة نظر الوجودية، الإنسان هو من يصنع معنى حياته.", reading_text: "الفلسفة 'محبة الحكمة'. الأسئلة الرئيسية: ما الوجود؟ ما المعرفة؟ كيف نعيش بصواب؟ لابن رشد وابن خلدون وابن طفيل إسهامات هائلة في الفلسفة الإنسانية.", reading_qs: [{ q: "Falsafaning asosiy savoli nima?", opts: ["Faqat tarix", "Borliq, bilim va to'g'ri yashash", "Faqat matematika", "Faqat din"], c: 1 }], xp: 260, coin: 104 },
-        { id: 'aa15', icon: '🏆', title: 'مستوى C2 - C2 darajasi', desc: "Ana tili darajasida arabcha", words: ['دقة', 'فصاحة', 'براغماتية', 'دلالة', 'خطاب', 'تناص', 'تعدد معنى', 'ترادف', 'اشتراك', 'تضاد'], grammar_rule: "C2 darajasi: Barcha grammatik va leksik tuzilmalar mukammal. Nutq ravon va boy.", grammar_example: "امتلاك اللغة بمستوى C2 يعني القدرة على التعبير عن أي فكرة بحرية ودقة.", reading_text: "تهانيّ! وصلت إلى مستوى C2 — أعلى مستوى في تعلم اللغة العربية. في هذا المستوى تفهم تقريباً كل ما تقرأ وتسمع. تستطيع التعبير عن أفكارك بحرية وعفوية ودقة. العربية أصبحت لغتك الثانية!", reading_qs: [{ q: "C2 darajasi nima degani?", opts: ["Boshlang'ich", "O'rta", "Yuqori", "Ona tilidagidek"], c: 3 }], xp: 400, coin: 160 },
-        { id: 'aa16', icon: '✍️', title: 'الصحافة - Publitsistika', desc: "Arabcha gazetaxonlik", words: ['افتتاحية', 'عمود', 'تحقيق', 'مراجعة', 'مقطوعة ساخرة', 'مقالة تحليلية', 'مقابلة', 'تعليق', 'استعراض', 'تحليل'], grammar_rule: "Publitsistik uslub: وفقاً للمصادر المتاحة... استناداً إلى الإحصاءات الرسمية...", grammar_example: "استناداً للبيانات المتاحة، تجاوز عدد مستخدمي الإنترنت في الدول العربية مئة مليون.", reading_text: "الأسلوب الصحفي يُستخدم في الصحف والمجلات والمنصات الرقمية. يجمع دقة الحقيقة وبلاغة اللغة. المقال الجيد يُعلم ويُقنع ويلهم القارئ. الصحافة تُشكّل الرأي العام.", reading_qs: [{ q: "Publitsistik uslub qayerda ishlatiladi?", opts: ["Ilmiy asarlarda", "Gazeta va jurnallarda", "Yuridik hujjatlarda", "Badiiy asarlarda"], c: 1 }], xp: 220, coin: 88 },
-        { id: 'aa17', icon: '🌐', title: 'لغة الدبلوماسية - Diplomatiya', desc: "Arabcha xalqaro muloqot", words: ['دبلوماسية', 'مفاوضات', 'بروتوكول', 'تصديق', 'إعلان', 'بيان مشترك', 'قمة', 'وفد', 'اتفاقية', 'مذكرة تفاهم'], grammar_rule: "Diplomatik uslub: اتفق الطرفان على... في سياق المفاوضات توصل الطرفان... وقّعت المذكرة...", grammar_example: "في سياق المفاوضات توصل الطرفان إلى اتفاق مبدئي حول القضايا الرئيسية.", reading_text: "تتميز اللغة الدبلوماسية بالدقة والحكمة في الصياغة. كل كلمة مهمة. تعكس البيانات المشتركة ومذكرات التفاهم المواقف الرسمية للدول. العربية لغة رسمية للأمم المتحدة.", reading_qs: [{ q: "Arab tili qanday xalqaro tashkilotning rasmiy tili?", opts: ["NATO", "Yevropa Ittifoqi", "BMT", "OECD"], c: 2 }], xp: 240, coin: 96 },
-        { id: 'aa18', icon: '🧘', title: 'علم النفس - Psixologiya', desc: "Arabcha psixologiya terminologiyasi", words: ['علم نفس', 'تحفيز', 'معرفي', 'سلوك', 'شخصية', 'إجهاد', 'قلق', 'اكتئاب', 'تقدير الذات', 'تكيف'], grammar_rule: "Psixologik uslub: أثبتت الدراسة أن... يتحدد السلوك بـ... تتشكل الشخصية تحت تأثير...", grammar_example: "تدرس علم النفس المعرفي عمليات الإدراك والذاكرة والتفكير.", reading_text: "علم النفس علم الروح والسلوك. يدرس علم النفس المعرفي التفكير والذاكرة. والاجتماعي — تأثير الناس على بعضهم. والإكلينيكي — يساعد ذوي الاضطرابات النفسية. معرفة علم النفس تساعد على فهم النفس والآخرين.", reading_qs: [{ q: "Klinik psixologiya nima bilan shug'ullanadi?", opts: ["Xotira o'rganish", "Ijtimoiy ta'sir", "Ruhiy buzilishlarga yordam", "Bolalar psixologiyasi"], c: 2 }], xp: 230, coin: 92 },
-        { id: 'aa19', icon: '🌱', title: 'البيئة - Ekologiya', desc: "Arabcha atrof-muhit", words: ['نظام بيئي', 'تنوع بيولوجي', 'انبعاث', 'امتصاص', 'متجدد', 'غير متجدد', 'بصمة كربونية', 'كربنة', 'استدامة', 'احتباس حراري'], grammar_rule: "Ekologiya: ارتفعت انبعاثات CO₂... للحد من ظاهرة الاحتباس الحراري يجب... يشمل النظام البيئي...", grammar_example: "تسبب الغازات الدفيئة في الاحترار العالمي. يستلزم مكافحتها رفع الكربنة عن الاقتصاد.", reading_text: "الدول العربية ذات موارد طبيعية هائلة، لكن تواجه تحديات بيئية. ندرة المياه مشكلة رئيسية. التصحر يزداد. لكن في السعودية والإمارات مشاريع طاقة شمسية ضخمة تعكس الالتزام بالاستدامة.", reading_qs: [{ q: "Arab mamlakatlarining asosiy ekologik muammosi nima?", opts: ["Havoning ifloslanishi", "Suvning kamyobligi", "O'rmonlarning kesilishi", "Ko'chkilar"], c: 1 }], xp: 240, coin: 96 },
-        { id: 'aa20', icon: '🔄', title: 'مراجعة المتقدم - Advanced Takrorlash', desc: "Advanced darajasi yakuniy", words: ['فصاحة', 'إتقان', 'كمال', 'إنجاز', 'تقدم', 'تطوير', 'نجاح', 'معرفة', 'حكمة', 'تجربة'], grammar_rule: "Jami: Barcha grammatik tuzilmalar, uslublar, leksika — C1-C2 darajasida erkin qo'llash", grammar_example: "تهانيّ! أنهيت الدورة الكاملة للغة العربية. معرفتك الآن على مستوى C2.", reading_text: "أنهيت الدورة الكاملة للغة العربية! إنجاز عظيم. قطعت رحلة من أولى كلمات التحية إلى أعقد النصوص الأكاديمية. تستطيع الآن التواصل بحرية، وقراءة الكلاسيكيات، وكتابة المراسلات التجارية، وفهم دقائق اللغة. العربية لغتك!", reading_qs: [{ q: "Kurs tugagandan so'ng siz nima qila olasiz?", opts: ["Faqat salomlasha olasiz", "Erkin muloqot qilasiz va klassikani o'qiysiz", "Faqat yozasiz", "Faqat eshitasiz"], c: 1 }], xp: 400, coin: 160 },
-    ],
+// ── FIREBASE ──
+const FB_CONFIG = {
+    apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
+    authDomain: "linguaverse-ebe09.firebaseapp.com",
+    projectId: "linguaverse-ebe09",
+    storageBucket: "linguaverse-ebe09.firebasestorage.app",
+    messagingSenderId: "130625454868",
+    appId: "1:130625454868:web:3f02871f64cb5f8af27801"
 };
 
-const plan = () => PL[UP] || PL.free;
-const canUnit = () => UP === 'universal' || ((UL.units_used_today || 0) < plan().u);
-const canAI = () => UP === 'universal' || ((UL.ai_used_today || 0) < plan().ai);
-const chkReset = () => { if (UP === 'universal') return; const rms = (plan().rh || 4) * 3600000; if (Date.now() - (UL.last_reset || 0) >= rms) { UL.units_used_today = 0; UL.ai_used_today = 0; UL.last_reset = Date.now(); saveLimits(); } };
-async function saveLimits() { if (!CU) return; try { await updateDoc(doc(db, 'users', CU.uid), { limits: UL }); } catch (e) { } }
-async function saveChatMessage(role, text, mode) { if (!CU) return; try { const ref = collection(db, 'users', CU.uid, 'chatHistory'); await addDoc(ref, { role, text, mode: mode || chatMode, timestamp: serverTimestamp(), createdAt: Date.now() }); } catch (e) { } }
-async function loadChatHistory(lim = 30) { if (!CU) return []; try { const ref = collection(db, 'users', CU.uid, 'chatHistory'); const q = query(ref, orderBy('createdAt', 'desc'), limit(lim)); const snap = await getDocs(q); const msgs = []; snap.forEach(d => msgs.unshift({ id: d.id, ...d.data() })); return msgs; } catch (e) { return []; } }
-async function savePracticeResult(type, score, total, details = {}) { if (!CU) return; try { const ref = collection(db, 'users', CU.uid, 'practiceHistory'); const pct = total > 0 ? Math.round((score / total) * 100) : 0; await addDoc(ref, { type, score, total, percentage: pct, details, timestamp: serverTimestamp(), createdAt: Date.now() }); const skillInc = Math.max(1, Math.round(pct / 20)); await updateDoc(doc(db, 'users', CU.uid), { [`skills.${type}`]: Math.min(100, (USk[type] || 0) + skillInc), [`practiceStats.${type}.count`]: increment(1), lastActive: serverTimestamp() }); USk[type] = Math.min(100, (USk[type] || 0) + skillInc); drawRadar(); } catch (e) { } }
-async function saveLessonCompletion(unitId, lessonKey, score, total, xpE, coinE) { if (!CU) return; const pct = total > 0 ? Math.round((score / total) * 100) : 0; try { const ref = collection(db, 'users', CU.uid, 'lessonHistory'); await addDoc(ref, { unitId, lessonKey, score, total, percentage: pct, xpEarned: xpE, coinEarned: coinE, timestamp: serverTimestamp(), createdAt: Date.now() }); await updateDoc(doc(db, 'users', CU.uid), { xp: increment(xpE), coins: increment(coinE), [`progress.${unitId}_${lessonKey}`]: 100, [`scores.${unitId}_${lessonKey}`]: pct, lastActive: serverTimestamp() }); UProg[`${unitId}_${lessonKey}`] = 100; UProg[`score_${unitId}_${lessonKey}`] = pct; showToast(`✅ Saqlandi! ${xpE} XP`, 'success'); } catch (e) { } }
+let _app, _auth, _db;
+try {
+    const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+    _app = getApp();
+} catch {
+    _app = initializeApp(FB_CONFIG);
+}
+_auth = getAuth(_app);
+_db = getFirestore(_app);
 
-async function callAI(prompt, maxTok = 1000) { try { const r = await fetch(GEMINI, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: prompt }] }], generationConfig: { temperature: 0.7, maxOutputTokens: maxTok } }) }); const d = await r.json(); return d.candidates?.[0]?.content?.parts?.[0]?.text || 'Javob olishda xatolik.'; } catch (e) { return '❗ AI bilan boglanishda xatolik.'; } }
-async function callAIChat(hist, sysP) { try { const msgs = [{ role: 'user', parts: [{ text: sysP }] }, ...hist.slice(1)]; const r = await fetch(GEMINI, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: msgs, generationConfig: { temperature: 0.8, maxOutputTokens: UP === 'universal' ? 1500 : 800 } }) }); const d = await r.json(); return d.candidates?.[0]?.content?.parts?.[0]?.text || 'Javob olishda xatolik.'; } catch (e) { return '❗ AI bilan boglanishda xatolik.'; } }
+// ── GROQ WORKER PROXY ──
+const AI_PROXY = "https://gentle-hat-d9fa.akromovbehruz7.workers.dev";
 
-async function loadUD() { try { const ref = doc(db, 'users', CU.uid); const snap = await getDoc(ref); if (snap.exists()) { const d = snap.data(); UP = d.plan || 'free'; UL = d.limits || {}; UProg = d.progress || {}; USk = d.skills || { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 }; if (!UL.units_used_today) UL.units_used_today = 0; if (!UL.ai_used_today) UL.ai_used_today = 0; if (!UL.last_reset) UL.last_reset = Date.now(); } else { UP = 'free'; UL = { units_used_today: 0, ai_used_today: 0, last_reset: Date.now() }; UProg = {}; USk = { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 }; await setDoc(ref, { email: CU.email, displayName: CU.displayName || CU.email.split('@')[0], plan: 'free', xp: 0, coins: 0, streak: 0, limits: UL, progress: {}, skills: USk, practiceStats: {}, createdAt: serverTimestamp() }); } chkReset(); } catch (e) { console.error(e); } }
+// ══════════════════════════════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════════════════════════════
+const TOKEN_CONFIG = {
+    default_tokens: 1000,
+    reset_hours: 5,
+    ai_cost: 1,
+    unit_cost: 2,
+};
 
-function renderNav() { const plabs = { free: 'Free 🌱', own: 'Own 💎', team: 'Team 👥', universal: 'Universal 🚀' }; const pn = document.getElementById('planBadgeNav'); if (pn) { pn.textContent = plabs[UP] || 'Free'; pn.className = `plan-badge-nav ${UP}`; } }
-function renderLimitBar() { const lt = document.getElementById('limitText'), lp = document.getElementById('limitPills'), lr = document.getElementById('limitReset'); if (!lt) return; if (UP === 'universal') { lt.textContent = '🚀 Universal — Cheksiz!'; if (lp) lp.innerHTML = '<span class="limit-pill ok">∞ Cheksiz</span>'; if (lr) lr.textContent = ''; return; } const p = plan(); const ul = Math.max(0, p.u - (UL.units_used_today || 0)); const al = Math.max(0, p.ai - (UL.ai_used_today || 0)); const rt = new Date((UL.last_reset || Date.now()) + (p.rh || 4) * 3600000); const diff = Math.max(0, rt.getTime() - Date.now()); const h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000); lt.textContent = `${UP.toUpperCase()} —`; if (lp) lp.innerHTML = `<span class="limit-pill ${ul > 0 ? 'ok' : 'out'}">📚 ${ul}/${p.u}</span><span class="limit-pill ${al > 2 ? 'ok' : al > 0 ? 'warn' : 'out'}">🤖 ${al}/${p.ai === Infinity ? '∞' : p.ai}</span>`; if (lr) lr.textContent = diff > 0 ? `⏱ ${h}s ${m}d ${s}s` : ''; }
-setInterval(renderLimitBar, 1000);
+const PLANS = {
+    free: { name: "Free", icon: "🆓", price_uzs: 0, token_bonus: 1000, token_reset_mult: 1, ai_quality: "standard", xp_mult: 1, coin_mult: 1 },
+    pro: { name: "Pro", icon: "⭐", price_uzs: 29000, token_bonus: 3000, token_reset_mult: 2, ai_quality: "enhanced", xp_mult: 1.5, coin_mult: 1.3 },
+    premium: { name: "Premium", icon: "💎", price_uzs: 59000, token_bonus: 8000, token_reset_mult: 3, ai_quality: "advanced", xp_mult: 2, coin_mult: 1.8 },
+    ultimate: { name: "Ultimate", icon: "🚀", price_uzs: 99000, token_bonus: 999999, token_reset_mult: 999, ai_quality: "ultimate", xp_mult: 3, coin_mult: 2.5 }
+};
 
-async function initAll() { initNavScroll(); switchLevel('beginner'); renderWords(); drawRadar(); initWritingCounter(); renderPractice(); await loadAndRenderChatHistory(); }
-function initNavScroll() { window.addEventListener('scroll', () => { document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 30); }); }
+const RANKS = {
+    none: { name: "Oddiy", icon: "⬜", color: "#888", token_bonus: 0, xp_mult: 1, coin_mult: 1 },
+    silver: { name: "Silver", icon: "🥈", color: "#C0C0C0", token_bonus: 200, xp_mult: 1.3, coin_mult: 1.2 },
+    gold: { name: "Gold", icon: "🥇", color: "#FFD700", token_bonus: 500, xp_mult: 1.8, coin_mult: 1.5 },
+    diamond: { name: "Diamond", icon: "💎", color: "#B9F2FF", token_bonus: 1000, xp_mult: 2.5, coin_mult: 2 }
+};
 
-window.switchLevel = function (level) { curLevel = level; document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', t.dataset.level === level)); renderUnits(); };
+const PLAN_COLORS = { free: "#94a3b8", basic: "#60a5fa", starter: "#60a5fa", premium: "#a78bfa", ultimate: "#f5c842", vip: "#f5c842" };
+const PLAN_LABELS = { free: "Bepul", basic: "Basic", starter: "Starter", premium: "Premium", ultimate: "Ultimate", vip: "VIP" };
 
-function renderUnits() { const grid = document.getElementById('unitsGrid'); const units = UNITS_DATA[curLevel] || []; if (!grid) return; grid.innerHTML = ''; units.forEach((unit, i) => { const done = ['A', 'B', 'C', 'D'].filter(l => UProg[`${unit.id}_${l}`] >= 100).length; const pct = Math.round((done / 4) * 100); const isComp = pct === 100; const card = document.createElement('div'); card.className = `unit-card${isComp ? ' completed' : ''}`; card.innerHTML = `<div class="unit-num">Unit ${i + 1}</div><div class="unit-emoji">${unit.icon}</div><div class="unit-title">${unit.title}</div><div class="unit-desc">${unit.desc}</div><div class="unit-lessons-mini">${['A', 'B', 'C', 'D'].map(l => `<div class="unit-lesson-dot ${UProg[unit.id + '_' + l] >= 100 ? 'done' : ''}">${l}</div>`).join('')}</div><div class="unit-progress-bar-wrap"><div class="unit-progress-bar" style="width:${pct}%"></div></div><div class="unit-xp">+${unit.xp} XP · +${unit.coin} 🪙</div>${isComp ? '<div class="unit-complete-badge">✅</div>' : ''}`; card.onclick = () => openUnit(unit); grid.appendChild(card); }); }
+// ══════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════
+let CU = null;
+let UP = 'free';
+let UTokens = 1000, UMaxTokens = 1000, ULastReset = 0;
+let UXP = 0, UCoin = 0, URank = 'none';
+let UProg = {};
+let USk = { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
+let UStats = { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 };
 
-window.openUnit = function (unit) { if (!canUnit()) { showUpgradeModal('Bugungi unit limitingiz tugadi!'); return; } curUnit = unit; const modal = document.getElementById('unitModal'); const content = document.getElementById('modalContent'); if (!modal || !content) return; const lnames = { A: "📖 Grammatika & Lug'at", B: "🎧 Listening", C: "📖 Reading", D: "🎤 Speaking & Writing" }; const lcolors = { A: '#4f6ef7', B: '#22d3ee', C: '#34d399', D: '#f472b6' }; content.innerHTML = `<div class="unit-modal-header"><div class="unit-modal-emoji">${unit.icon}</div><div class="unit-modal-title">${unit.title}</div><div class="unit-modal-desc">${unit.desc}</div><div class="unit-modal-meta"><span>⭐ +${unit.xp} XP</span><span>🪙 +${unit.coin} Coin</span><span>📚 ${unit.words.length} so'z</span></div></div><div class="unit-lessons-grid">${['A', 'B', 'C', 'D'].map(k => { const done = UProg[`${unit.id}_${k}`] >= 100; const sc = UProg[`score_${unit.id}_${k}`] || 0; return `<div class="lesson-card ${done ? 'done' : ''}" onclick="openLesson('${unit.id}','${k}')"><div class="lesson-badge" style="background:${lcolors[k]}22;border-color:${lcolors[k]}55;color:${lcolors[k]}">${k}</div><div class="lesson-card-title" style="color:${lcolors[k]}">${lnames[k]}</div>${done ? `<div class="lesson-score">${sc}%</div>` : ''}<div class="lesson-start">${done ? '🔄 Qayta' : '▶ Boshlash'}</div></div>`; }).join('')}</div><div class="unit-words-preview"><div class="uwp-title">📝 So'zlar (${unit.words.length} ta):</div><div class="uwp-words">${unit.words.map(w => `<span class="uwp-word" onclick="spk('${w.replace(/'/g, "\\'")}')">${w} 🔊</span>`).join('')}</div></div>`; modal.classList.add('open'); };
-
-window.openLesson = function (unitId, lessonKey) { let unit = null; for (const lvl of Object.values(UNITS_DATA)) { const f = lvl.find(u => u.id === unitId); if (f) { unit = f; break; } } if (!unit) return; curUnit = unit; curLesson = lessonKey; lScore = 0; lTotal = 0; lexSel = {}; rSel = {}; woAns = []; lessonMics = {}; UL.units_used_today = (UL.units_used_today || 0) + 1; saveLimits(); document.getElementById('unitModal')?.classList.remove('open'); showLessonModal(unit, lessonKey); };
-
-function showLessonModal(unit, lk) { const modal = document.getElementById('unitModal'); const content = document.getElementById('modalContent'); if (!modal || !content) return; const lnames = { A: "📖 Grammatika & Lug'at", B: "🎧 Listening", C: "📖 Reading", D: "🎤 Speaking & Writing" }; content.innerHTML = `<div class="lesson-modal-wrap"><div class="lesson-modal-header"><div class="lm-back" onclick="openUnit(window.__curUnit)">← Orqaga</div><div class="lm-title">${unit.icon} ${unit.title} — ${lnames[lk]}</div></div><div id="lessonBody">${getLessonHTML(unit, lk)}</div></div>`; window.__curUnit = unit; modal.classList.add('open'); if (lk === 'D') initWOChips(); }
-
-function getLessonHTML(unit, lk) { if (lk === 'A') return lessonA(unit); if (lk === 'B') return lessonB(unit); if (lk === 'C') return lessonC(unit); if (lk === 'D') return lessonD(unit); return ''; }
-
-function lessonA(unit) { const words = unit.words.slice(0, 12); const rule = unit.grammar_rule || ''; const ex = unit.grammar_example || ''; const fills = words.slice(0, 4).map((w, i) => { const wd = WDB.find(x => x.e === w) || { ex: `استخدم كلمة "${w}" في جملة.`, eu: '', u: '' }; const blank = wd.ex.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '_______'); return `<div class="gex-item"><div class="gex-q">${i + 1}. ${blank}</div><div class="gex-uz">${wd.eu}</div><input class="gex-input" id="gex${i}" data-ans="${w}" placeholder="Arabcha javobingiz..."><div class="gex-row"><button class="btn-sm btn-check" onclick="chkFill(${i})">✓ Tekshir</button><button class="btn-sm btn-ai" onclick="aiExWord('${w.replace(/'/g, "\\'")}')">🤖 AI</button><button class="btn-sm btn-sound" onclick="spk('${w.replace(/'/g, "\\'")}')">🔊</button></div><div class="gex-fb" id="gexfb${i}"></div></div>`; }).join(''); const matchW = words.slice(0, 6); const matchUZ = matchW.map(w => { const d = WDB.find(x => x.e === w); return d ? d.u : w; }); const shuffUZ = [...matchUZ].sort(() => Math.random() - 0.5); const matchHTML = `<div class="match-wrap"><div class="match-col">${matchW.map((w, i) => `<div class="match-item eng" data-i="${i}" onclick="selMatch(this,'e',${i})">${w} 🔊</div>`).join('')}</div><div class="match-col">${shuffUZ.map((u, i) => `<div class="match-item uz" data-u="${u}" onclick="selMatch(this,'u','${u.replace(/'/g, "\\'")}')">${u}</div>`).join('')}</div></div><div id="matchFB" class="gex-fb"></div>`; return `<div class="ls-section"><h3 class="ls-title">📚 Arabcha Lug'at (${unit.words.length} ta)</h3><div class="vocab-grid">${words.map(w => { const d = WDB.find(x => x.e === w) || { u: '', t: '', ex: '', eu: '' }; return `<div class="vocab-card"><div class="vocab-top"><span class="vocab-eng">${w}</span><button class="btn-sound-sm" onclick="spk('${w.replace(/'/g, "\\'")}')" >🔊</button></div><div class="vocab-uz">${d.u}</div><div class="vocab-type">${d.t}</div><div class="vocab-ex">"${d.ex}"</div><div class="vocab-exuz">${d.eu}</div></div>`; }).join('')}</div></div><div class="ls-section"><h3 class="ls-title">📝 Grammatika Qoidasi</h3><div class="grammar-rule-box"><div class="grb-rule">💡 ${rule}</div><div class="grb-example">✏️ ${ex}</div><button class="btn-ai-full" onclick="aiGrammarExplain('${unit.title.replace(/'/g, "\\'")}','${rule.replace(/'/g, "\\'")}')">🤖 AI batafsil tushuntirsin</button><div class="grb-fb" id="gramRuleFB"></div></div></div><div class="ls-section"><h3 class="ls-title">✏️ To'ldirish Mashqlari</h3>${fills}<div class="gex-fb" id="vocabAIFB"></div></div><div class="ls-section"><h3 class="ls-title">🧩 Juftlash Mashqi</h3><p class="ls-hint">Arabcha so'zni o'zbekcha tarjimasiga ulang:</p>${matchHTML}</div><button class="btn-complete" onclick="finLessonA('${unit.id}')">✅ Grammatika darsini yakunlash</button>`; }
-
-window.chkFill = function (i) { const inp = document.getElementById(`gex${i}`); const fb = document.getElementById(`gexfb${i}`); if (!inp || !fb) return; const ans = inp.dataset.ans.toLowerCase(); const usr = inp.value.trim().toLowerCase(); if (usr === ans) { fb.className = 'gex-fb correct'; fb.innerHTML = `✅ To'g'ri! "${inp.dataset.ans}" — ajoyib!`; inp.style.borderColor = '#34d399'; lScore++; awardXP(10, 'grammar'); } else { fb.className = 'gex-fb wrong'; fb.innerHTML = `❌ Noto'g'ri. To'g'ri javob: <strong>${inp.dataset.ans}</strong>`; inp.style.borderColor = '#f87171'; } lTotal++; };
-
+let chatHist = [];
+let chatMode = 'free';
+let curLevel = 'beginner';
+let curUnit = null;
+let lScore = 0, lTotal = 0;
+let lexSel = {}, rSel = {}, woAns = [], lessonMics = {};
 let mSel = { e: null, u: null, eEl: null, uEl: null };
-window.selMatch = function (el, type, val) { if (type === 'e') { document.querySelectorAll('.match-item.eng').forEach(x => x.classList.remove('selected')); el.classList.add('selected'); mSel.e = val; mSel.eEl = el; } else { document.querySelectorAll('.match-item.uz').forEach(x => x.classList.remove('selected')); el.classList.add('selected'); mSel.u = val; mSel.uEl = el; } if (mSel.e !== null && mSel.u !== null) { const unit = curUnit; const words = unit.words.slice(0, 6); const w = words[mSel.e]; const wd = WDB.find(x => x.e === w); if (wd && wd.u === mSel.u) { mSel.eEl?.classList.add('match-ok'); mSel.uEl?.classList.add('match-ok'); awardXP(5, 'grammar'); showToast(`✅ "${w}" = "${mSel.u}"!`, 'success'); } else { mSel.eEl?.classList.add('match-no'); mSel.uEl?.classList.add('match-no'); setTimeout(() => { mSel.eEl?.classList.remove('match-no', 'selected'); mSel.uEl?.classList.remove('match-no', 'selected'); }, 700); } mSel = { e: null, u: null, eEl: null, uEl: null }; } };
 
-window.aiGrammarExplain = async function (title, rule) { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const fb = document.getElementById('gramRuleFB'); if (fb) { fb.className = 'gex-fb info'; fb.innerHTML = '🤖 AI tahlil qilmoqda...'; } UL.ai_used_today++; saveLimits(); const r = await callAI(`"${title}" mavzusida arabcha grammatika qoidasini O'zbek tilida tushuntir: "${rule}". 3 ta arabcha misol keltir. Arabcha misollarga o'zbekcha tarjima ham qo'sh. Sodda va aniq bo'lsin.`, 800); if (fb) { fb.className = 'gex-fb info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); } };
-window.aiExWord = async function (word) { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const fb = document.getElementById('vocabAIFB'); if (fb) { fb.className = 'gex-fb info'; fb.innerHTML = `🤖 "${word}" arabcha so'zini tahlil qilmoqda...`; } UL.ai_used_today++; saveLimits(); const r = await callAI(`"${word}" arabcha so'zini O'zbek tilida tushuntir: 1) Ma'nosi 2) Uch xil arabcha misol jumla (o'zbekcha tarjima bilan) 3) Arab tilida qanday qo'llanadi 4) Esda qolish uchun maslahat`, 600); if (fb) { fb.className = 'gex-fb info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); } };
+let flashDeck = [], flashIdx = 0, flashCorrect = 0, flashWrong = 0;
+let quizScore = 0, curQuizWord = null, quizAnswered = false;
+let matchPairs = [], matchMatched = [], matchSel1 = null;
+let typingDeck = [], typingIdx = 0;
+let grammarScore2 = 0, grammarAnswered = false, curGrammarIdx = 0;
+
+let wOff = 0, wFilt = 'all', wSrch = '';
+let dictSent = '';
+
+// ══════════════════════════════════════════════════════════════
+// ARABIC WORDS DATABASE (500+ so'z)
+// ══════════════════════════════════════════════════════════════
+const WDB = [
+    // ═══ BEGINNER ═══
+    { a: 'مرحباً', u: 'Salom', t: 'gap', l: 'beginner', ex: 'مرحباً، كيف حالك؟', eu: "Salom, qandaysiz?" },
+    { a: 'وداعاً', u: 'Xayr', t: 'gap', l: 'beginner', ex: 'وداعاً، إلى اللقاء!', eu: "Xayr, ko'rishguncha!" },
+    { a: 'شكراً', u: 'Rahmat', t: 'gap', l: 'beginner', ex: 'شكراً جزيلاً.', eu: "Katta rahmat." },
+    { a: 'من فضلك', u: 'Iltimos', t: 'gap', l: 'beginner', ex: 'ساعدني من فضلك.', eu: "Iltimos, menga yordam ber." },
+    { a: 'عفواً', u: 'Kechirasiz', t: 'gap', l: 'beginner', ex: 'عفواً، أنا متأخر.', eu: "Kechirasiz, kech qoldim." },
+    { a: 'نعم', u: 'Ha', t: 'gap', l: 'beginner', ex: 'نعم، أنا أوافق.', eu: "Ha, men roziman." },
+    { a: 'لا', u: "Yo'q", t: 'gap', l: 'beginner', ex: 'لا، لا أريد ذلك.', eu: "Yo'q, men buni xohlamayman." },
+    { a: 'جيد', u: 'Yaxshi', t: 'sifat', l: 'beginner', ex: 'الجو جيد اليوم.', eu: "Bugun havo yaxshi." },
+    { a: 'سيئ', u: 'Yomon', t: 'sifat', l: 'beginner', ex: 'هذا أمر سيئ.', eu: "Bu yomon holat." },
+    { a: 'كبير', u: 'Katta', t: 'sifat', l: 'beginner', ex: 'هذا بيت كبير.', eu: "Bu katta uy." },
+    { a: 'صغير', u: 'Kichik', t: 'sifat', l: 'beginner', ex: 'لدي قطة صغيرة.', eu: "Menda kichik mushuk bor." },
+    { a: 'سعيد', u: 'Xursand', t: 'sifat', l: 'beginner', ex: 'أنا سعيد جداً اليوم.', eu: "Bugun juda xursandman." },
+    { a: 'حزين', u: "Qayg'li", t: 'sifat', l: 'beginner', ex: 'هو يبدو حزيناً.', eu: "U qayg'li ko'rinadi." },
+    { a: 'حار', u: 'Issiq', t: 'sifat', l: 'beginner', ex: 'الطقس حار جداً.', eu: "Havo juda issiq." },
+    { a: 'بارد', u: 'Sovuq', t: 'sifat', l: 'beginner', ex: 'الماء بارد.', eu: "Suv sovuq." },
+    { a: 'أحمر', u: 'Qizil', t: 'sifat', l: 'beginner', ex: 'التفاحة حمراء.', eu: "Olma qizil." },
+    { a: 'أزرق', u: "Ko'k", t: 'sifat', l: 'beginner', ex: 'السماء زرقاء.', eu: "Osmon ko'k." },
+    { a: 'أخضر', u: 'Yashil', t: 'sifat', l: 'beginner', ex: 'العشب أخضر.', eu: "O't yashil." },
+    { a: 'أصفر', u: 'Sariq', t: 'sifat', l: 'beginner', ex: 'الشمس صفراء.', eu: "Quyosh sariq." },
+    { a: 'أسود', u: 'Qora', t: 'sifat', l: 'beginner', ex: 'قطتي سوداء.', eu: "Mening mushugim qora." },
+    { a: 'أبيض', u: 'Oq', t: 'sifat', l: 'beginner', ex: 'الثلج أبيض.', eu: "Qor oq." },
+    { a: 'واحد', u: 'Bir', t: 'son', l: 'beginner', ex: 'لدي أخت واحدة.', eu: "Menda bir singil bor." },
+    { a: 'اثنان', u: 'Ikki', t: 'son', l: 'beginner', ex: 'لدي قطتان.', eu: "Menda ikki mushuk bor." },
+    { a: 'ثلاثة', u: 'Uch', t: 'son', l: 'beginner', ex: 'عندها ثلاثة كتب.', eu: "Uning uch kitobi bor." },
+    { a: 'أربعة', u: "To'rt", t: 'son', l: 'beginner', ex: 'هناك أربعة فصول.', eu: "To'rtta fasl bor." },
+    { a: 'خمسة', u: 'Besh', t: 'son', l: 'beginner', ex: 'لدي خمسة أصابع.', eu: "Menda besh barmoq bor." },
+    { a: 'ستة', u: 'Olti', t: 'son', l: 'beginner', ex: 'الساعة السادسة.', eu: "Soat olti." },
+    { a: 'سبعة', u: 'Yetti', t: 'son', l: 'beginner', ex: 'الأسبوع سبعة أيام.', eu: "Haftada yetti kun bor." },
+    { a: 'ثمانية', u: 'Sakkiz', t: 'son', l: 'beginner', ex: 'لدي ثمانية أقلام.', eu: "Menda sakkiz qalam bor." },
+    { a: 'تسعة', u: 'To\'qqiz', t: 'son', l: 'beginner', ex: 'الدرس في التاسعة.', eu: "Dars to'qqizda." },
+    { a: 'عشرة', u: "O'n", t: 'son', l: 'beginner', ex: 'لدي عشرة دقائق.', eu: "O'n daqiqam bor." },
+    { a: 'أم', u: 'Ona', t: 'ot', l: 'beginner', ex: 'أمي معلمة.', eu: "Onam o'qituvchi." },
+    { a: 'أب', u: 'Ota', t: 'ot', l: 'beginner', ex: 'أبي يعمل بجد.', eu: "Otam qattiq ishlaydi." },
+    { a: 'أخت', u: 'Singil/Opa', t: 'ot', l: 'beginner', ex: 'أختي عمرها عشر سنوات.', eu: "Singlim 10 yoshda." },
+    { a: 'أخ', u: 'Aka/Uka', t: 'ot', l: 'beginner', ex: 'أخي يحب كرة القدم.', eu: "Akam futbolni yaxshi ko'radi." },
+    { a: 'ماء', u: 'Suv', t: 'ot', l: 'beginner', ex: 'أعطني ماء من فضلك.', eu: "Iltimos, menga suv bering." },
+    { a: 'طعام', u: 'Ovqat', t: 'ot', l: 'beginner', ex: 'الطعام لذيذ.', eu: "Ovqat mazali." },
+    { a: 'تفاحة', u: 'Olma', t: 'ot', l: 'beginner', ex: 'آكل تفاحة كل يوم.', eu: "Men har kuni olma yeyman." },
+    { a: 'خبز', u: 'Non', t: 'ot', l: 'beginner', ex: 'تخبز خبزاً طازجاً.', eu: "U yangi non yopadi." },
+    { a: 'مدرسة', u: 'Maktab', t: 'ot', l: 'beginner', ex: 'أذهب إلى المدرسة كل يوم.', eu: "Men har kuni maktabga boraman." },
+    { a: 'كتاب', u: 'Kitob', t: 'ot', l: 'beginner', ex: 'هذا كتاب مثير للاهتمام.', eu: "Bu qiziqarli kitob." },
+    { a: 'كلب', u: 'It', t: 'ot', l: 'beginner', ex: 'لدي كلب ودود.', eu: "Menda mehribon it bor." },
+    { a: 'قطة', u: 'Mushuk', t: 'ot', l: 'beginner', ex: 'القطة نائمة.', eu: "Mushuk uxlayapti." },
+    { a: 'بيت', u: 'Uy', t: 'ot', l: 'beginner', ex: 'أسكن في بيت كبير.', eu: "Men katta uyda yashayman." },
+    { a: 'سيارة', u: 'Avtomobil', t: 'ot', l: 'beginner', ex: 'لأبي سيارة حمراء.', eu: "Otamning qizil mashinasi bor." },
+    { a: 'صديق', u: "Do'st", t: 'ot', l: 'beginner', ex: 'هو أفضل صديق لي.', eu: "U mening eng yaxshi do'stim." },
+    { a: 'معلم', u: "O'qituvchi", t: 'ot', l: 'beginner', ex: 'معلمي طيب.', eu: "Mening o'qituvchim mehribon." },
+    { a: 'طالب', u: "O'quvchi", t: 'ot', l: 'beginner', ex: 'هي طالبة جيدة.', eu: "U yaxshi o'quvchi." },
+    { a: 'شمس', u: 'Quyosh', t: 'ot', l: 'beginner', ex: 'الشمس مشرقة.', eu: "Quyosh chiqyapti." },
+    { a: 'قمر', u: 'Oy', t: 'ot', l: 'beginner', ex: 'القمر مضيء الليلة.', eu: "Bu kecha oy yorqin." },
+    { a: 'زهرة', u: 'Gul', t: 'ot', l: 'beginner', ex: 'عندها زهور جميلة.', eu: "Uning chiroyli gullari bor." },
+    { a: 'شجرة', u: 'Daraxt', t: 'ot', l: 'beginner', ex: 'الشجرة طويلة جداً.', eu: "Daraxt juda baland." },
+    { a: 'طير', u: 'Qush', t: 'ot', l: 'beginner', ex: 'الطير يغرد.', eu: "Qush sayrAyapti." },
+    { a: 'سمك', u: 'Baliq', t: 'ot', l: 'beginner', ex: 'أحب أكل السمك.', eu: "Men baliq yeyishni yaxshi ko'raman." },
+    { a: 'يوم', u: 'Kun', t: 'ot', l: 'beginner', ex: 'يوم رائع!', eu: "Ajoyib kun!" },
+    { a: 'ليل', u: 'Kecha', t: 'ot', l: 'beginner', ex: 'تصبح على خير.', eu: "Yaxshi kechalar." },
+    { a: 'صباح', u: 'Ertalab', t: 'ot', l: 'beginner', ex: 'أستيقظ كل صباح.', eu: "Men har ertalab uyg'onaman." },
+    { a: 'مساء', u: 'Kechqurun', t: 'ot', l: 'beginner', ex: 'نتمشى في المساء.', eu: "Kechqurun sayrga chiqamiz." },
+    { a: 'وقت', u: 'Vaqt', t: 'ot', l: 'beginner', ex: 'كم الساعة الآن؟', eu: "Soat necha bo'ldi?" },
+    { a: 'اسم', u: 'Ism', t: 'ot', l: 'beginner', ex: 'اسمي أحمد.', eu: "Mening ismim Ahmad." },
+    { a: 'مدينة', u: 'Shahar', t: 'ot', l: 'beginner', ex: 'طشقند مدينة كبيرة.', eu: "Toshkent katta shahar." },
+    { a: 'بلد', u: 'Mamlakat', t: 'ot', l: 'beginner', ex: 'أوزبكستان بلدي.', eu: "O'zbekiston mening mamlakatim." },
+    { a: 'جديد', u: 'Yangi', t: 'sifat', l: 'beginner', ex: 'لدي هاتف جديد.', eu: "Mening yangi telefonim bor." },
+    { a: 'قديم', u: 'Eski/Qari', t: 'sifat', l: 'beginner', ex: 'هذا مبنى قديم.', eu: "Bu eski bino." },
+    { a: 'طويل', u: 'Baland/Uzun', t: 'sifat', l: 'beginner', ex: 'هو طويل جداً.', eu: "U juda baland bo'yli." },
+    { a: 'قصير', u: 'Past/Qisqa', t: 'sifat', l: 'beginner', ex: 'الفتاة القصيرة ذكية.', eu: "Past bo'yli qiz aqlli." },
+    { a: 'سريع', u: 'Tez', t: 'sifat', l: 'beginner', ex: 'السيارة سريعة جداً.', eu: "Mashina juda tez." },
+    { a: 'بطيء', u: 'Sekin', t: 'sifat', l: 'beginner', ex: 'السلحفاة تتحرك ببطء.', eu: "Toshbaqa sekin yuradi." },
+    { a: 'يحب', u: 'Sevmoq', t: 'fe\'l', l: 'beginner', ex: 'أحب عائلتي.', eu: "Men oilamni sevaman." },
+    { a: 'يريد', u: 'Xohlamoq', t: 'fe\'l', l: 'beginner', ex: 'أريد الذهاب إلى البيت.', eu: "Men uyga ketmoqchiman." },
+    { a: 'يعرف', u: 'Bilmoq', t: 'fe\'l', l: 'beginner', ex: 'هل تعرفها؟', eu: "Uni bilasizmi?" },
+    { a: 'يأكل', u: 'Yemoq', t: 'fe\'l', l: 'beginner', ex: 'نأكل العشاء الساعة السابعة.', eu: "Biz soat 7 da kechki ovqat yeymiz." },
+    { a: 'يشرب', u: 'Ichmoq', t: 'fe\'l', l: 'beginner', ex: 'يشرب القهوة.', eu: "U qahva ichadi." },
+    { a: 'ينام', u: 'Uxlamoq', t: 'fe\'l', l: 'beginner', ex: 'الأطفال ينامون مبكراً.', eu: "Bolalar erta uxlashadi." },
+    { a: 'يقرأ', u: "O'qimoq", t: 'fe\'l', l: 'beginner', ex: 'أحب قراءة الكتب.', eu: "Kitob o'qishni yaxshi ko'raman." },
+    { a: 'يكتب', u: 'Yozmoq', t: 'fe\'l', l: 'beginner', ex: 'اكتب اسمك من فضلك.', eu: "Iltimos, ismingizni yozing." },
+    { a: 'يمشي', u: 'Yurmoq', t: 'fe\'l', l: 'beginner', ex: 'أمشي إلى المدرسة.', eu: "Men maktabga yayov boraman." },
+    { a: 'يتكلم', u: 'Gapirmoq', t: 'fe\'l', l: 'beginner', ex: 'تتكلم العربية بطلاقة.', eu: "U arabchani ravon gapiradi." },
+    { a: 'يستمع', u: 'Eshitmoq', t: 'fe\'l', l: 'beginner', ex: 'استمع بانتباه.', eu: "Diqqat bilan eshiting." },
+    { a: 'يلعب', u: "O'ynamoq", t: 'fe\'l', l: 'beginner', ex: 'يحب الأطفال اللعب.', eu: "Bolalar o'ynashni yaxshi ko'rishadi." },
+    { a: 'يركض', u: 'Yugurmaq', t: 'fe\'l', l: 'beginner', ex: 'تركض كل صباح.', eu: "U har ertalab yuguradi." },
+    { a: 'يذهب', u: 'Bormoq', t: 'fe\'l', l: 'beginner', ex: 'لنذهب إلى الحديقة.', eu: "Keling, parkka boramiz." },
+    { a: 'يأتي', u: 'Kelmoq', t: 'fe\'l', l: 'beginner', ex: 'تعال إلى هنا من فضلك.', eu: "Iltimos, bu yerga keling." },
+    { a: 'يعطي', u: 'Bermoq', t: 'fe\'l', l: 'beginner', ex: 'أعطني ذلك الكتاب.', eu: "Menga o'sha kitobni bering." },
+    { a: 'يأخذ', u: 'Olmoq', t: 'fe\'l', l: 'beginner', ex: 'خذ هذه المظلة.', eu: "Bu soyabonni oling." },
+    { a: 'يساعد', u: 'Yordam bermoq', t: 'fe\'l', l: 'beginner', ex: 'هل يمكنك مساعدتي؟', eu: "Menga yordam bera olasizmi?" },
+    { a: 'يعمل', u: 'Ishlash', t: 'fe\'l', l: 'beginner', ex: 'أعمل كل يوم.', eu: "Men har kuni ishlayman." },
+    { a: 'يدرس', u: "O'rganmoq", t: 'fe\'l', l: 'beginner', ex: 'أدرس العربية كل يوم.', eu: "Men har kuni arabcha o'rganaman." },
+    { a: 'يفكر', u: "O'ylamoq", t: 'fe\'l', l: 'beginner', ex: 'أعتقد أنك على حق.', eu: "Menimcha siz to'g'risiz." },
+    { a: 'حليب', u: 'Sut', t: 'ot', l: 'beginner', ex: 'الأطفال يشربون الحليب.', eu: "Bolalar sut ichadi." },
+    { a: 'بيضة', u: 'Tuxum', t: 'ot', l: 'beginner', ex: 'آكل بيضتين في الفطور.', eu: "Nonushta uchun ikki tuxum yeyman." },
+    { a: 'أرز', u: 'Guruch', t: 'ot', l: 'beginner', ex: 'الأرز طعامنا الرئيسي.', eu: "Guruch asosiy ovqatimiz." },
+    { a: 'لحم', u: "Go'sht", t: 'ot', l: 'beginner', ex: 'هذا اللحم لذيذ.', eu: "Bu go'sht juda mazali." },
+    { a: 'شاي', u: 'Choy', t: 'ot', l: 'beginner', ex: 'هيا نشرب الشاي.', eu: "Keling, choy ichamiz." },
+    { a: 'قهوة', u: 'Qahva', t: 'ot', l: 'beginner', ex: 'أشرب قهوة كل صباح.', eu: "Men har ertalab qahva ichaman." },
+    { a: 'برتقال', u: 'Apelsin', t: 'ot', l: 'beginner', ex: 'البرتقال حلو.', eu: "Apelsinlar shirin." },
+    { a: 'موز', u: 'Banan', t: 'ot', l: 'beginner', ex: 'آكل موزة كل يوم.', eu: "Men har kuni banan yeyman." },
+    { a: 'طاولة', u: 'Stol', t: 'ot', l: 'beginner', ex: 'الكتاب على الطاولة.', eu: "Kitob stolda." },
+    { a: 'كرسي', u: 'Stul', t: 'ot', l: 'beginner', ex: 'اجلس على الكرسي.', eu: "Stulga o'tiring." },
+    { a: 'قلم', u: 'Qalam/Ruchka', t: 'ot', l: 'beginner', ex: 'هل يمكنني استعارة قلمك؟', eu: "Qalamingizni olsam bo'ladimi?" },
+    { a: 'حقيبة', u: 'Sumka', t: 'ot', l: 'beginner', ex: 'حقيبتي ثقيلة.', eu: "Sumkam og'ir." },
+    { a: 'هاتف', u: 'Telefon', t: 'ot', l: 'beginner', ex: 'هاتفي جديد.', eu: "Telefonim yangi." },
+    { a: 'نافذة', u: 'Deraza', t: 'ot', l: 'beginner', ex: 'افتح النافذة من فضلك.', eu: "Iltimos, derazani oching." },
+    { a: 'باب', u: 'Eshik', t: 'ot', l: 'beginner', ex: 'أغلق الباب.', eu: "Eshikni yoping." },
+    { a: 'طريق', u: "Yo'l", t: 'ot', l: 'beginner', ex: 'الطريق طويل.', eu: "Yo'l uzun." },
+    { a: 'حديقة', u: 'Park/Bog\'', t: 'ot', l: 'beginner', ex: 'الأطفال يلعبون في الحديقة.', eu: "Bolalar parkda o'ynaydi." },
+    { a: 'دكان', u: "Do'kon", t: 'ot', l: 'beginner', ex: 'هيا نذهب إلى الدكان.', eu: "Keling, do'konga boramiz." },
+    { a: 'مال', u: 'Pul', t: 'ot', l: 'beginner', ex: 'هل معك مال؟', eu: "Pulingiz bormi?" },
+
+    // ═══ ELEMENTARY ═══
+    { a: 'غرفة نوم', u: 'Yotoqxona', t: 'ot', l: 'elementary', ex: 'غرفة نومي مريحة.', eu: "Yotoqxonam qulay." },
+    { a: 'مطبخ', u: 'Oshxona', t: 'ot', l: 'elementary', ex: 'تطبخ في المطبخ.', eu: "U oshxonada ovqat pishiradi." },
+    { a: 'حمام', u: 'Hammom', t: 'ot', l: 'elementary', ex: 'الحمام نظيف.', eu: "Hammom toza." },
+    { a: 'طبيب', u: 'Shifokor', t: 'ot', l: 'elementary', ex: 'الطبيب فحص المريض.', eu: "Shifokor bemorni tekshirdi." },
+    { a: 'مهندس', u: 'Muhandis', t: 'ot', l: 'elementary', ex: 'هو مهندس برمجيات.', eu: "U dasturiy ta'minot muhandisi." },
+    { a: 'غالي', u: 'Qimmat', t: 'sifat', l: 'elementary', ex: 'هذا الهاتف غالي جداً.', eu: "Bu telefon juda qimmat." },
+    { a: 'رخيص', u: 'Arzon', t: 'sifat', l: 'elementary', ex: 'هذه الأحذية رخيصة.', eu: "Bu poyabzallar arzon." },
+    { a: 'جميل', u: "Go'zal", t: 'sifat', l: 'elementary', ex: 'يا له من يوم جميل!', eu: "Qanday go'zal kun!" },
+    { a: 'مثير للاهتمام', u: 'Qiziqarli', t: 'sifat', l: 'elementary', ex: 'هذه قصة مثيرة للاهتمام.', eu: "Bu qiziqarli hikoya." },
+    { a: 'صعب', u: 'Qiyin', t: 'sifat', l: 'elementary', ex: 'هذا الامتحان صعب جداً.', eu: "Bu imtihon juda qiyin." },
+    { a: 'سهل', u: 'Oson', t: 'sifat', l: 'elementary', ex: 'هذا التمرين سهل.', eu: "Bu mashq oson." },
+    { a: 'سفر', u: 'Sayohat', t: 'ot', l: 'elementary', ex: 'أحب السفر إلى الخارج.', eu: "Xorijga sayohat qilishni yaxshi ko'raman." },
+    { a: 'موسيقى', u: 'Musiqa', t: 'ot', l: 'elementary', ex: 'أستمع إلى الموسيقى كل يوم.', eu: "Men har kuni musiqa eshitaman." },
+    { a: 'طقس', u: 'Ob-havo', t: 'ot', l: 'elementary', ex: 'الطقس جميل اليوم.', eu: "Bugun ob-havo yaxshi." },
+    { a: 'حاسوب', u: 'Kompyuter', t: 'ot', l: 'elementary', ex: 'أستخدم حاسوبي للعمل.', eu: "Men kompyuterni ish uchun ishlataman." },
+    { a: 'مستشفى', u: 'Kasalxona', t: 'ot', l: 'elementary', ex: 'نقلوه إلى المستشفى.', eu: "Uni kasalxonaga olib ketishdi." },
+    { a: 'مطعم', u: 'Restoran', t: 'ot', l: 'elementary', ex: 'نأكل في مطعم.', eu: "Biz restoranda ovqatlanamiz." },
+    { a: 'مطار', u: 'Aeroport', t: 'ot', l: 'elementary', ex: 'المطار مزدحم جداً.', eu: "Aeroport juda gavjum." },
+    { a: 'تذكرة', u: 'Chipta', t: 'ot', l: 'elementary', ex: 'اشتريت تذكرة قطار.', eu: "Men poyezd chiptasi sotib oldim." },
+    { a: 'فندق', u: 'Mehmonxona', t: 'ot', l: 'elementary', ex: 'بقينا في فندق جميل.', eu: "Biz chiroyli mehmonxonada qoldik." },
+    { a: 'قائمة طعام', u: 'Menyu', t: 'ot', l: 'elementary', ex: 'هل يمكنني رؤية القائمة؟', eu: "Menyuni ko'rsam bo'ladimi?" },
+    { a: 'خصم', u: 'Chegirma', t: 'ot', l: 'elementary', ex: 'هناك خصم 20% اليوم.', eu: "Bugun 20% chegirma bor." },
+    { a: 'موعد', u: 'Uchrashuv vaqti', t: 'ot', l: 'elementary', ex: 'لدي موعد مع الطبيب.', eu: "Shifokor bilan uchrashuv vaqtim bor." },
+    { a: 'مكتبة', u: 'Kutubxona', t: 'ot', l: 'elementary', ex: 'أذهب إلى المكتبة كثيراً.', eu: "Men tez-tez kutubxonaga boraman." },
+    { a: 'درس', u: 'Dars', t: 'ot', l: 'elementary', ex: 'يبدأ الدرس في التاسعة.', eu: "Dars soat 9 da boshlanadi." },
+    { a: 'واجب', u: 'Uy vazifasi', t: 'ot', l: 'elementary', ex: 'أنجز واجبي كل مساء.', eu: "Men har kechqurun uy vazifamni bajaraman." },
+    { a: 'صف', u: 'Sinf', t: 'ot', l: 'elementary', ex: 'صفنا فيه 25 طالباً.', eu: "Bizning sinfda 25 o'quvchi bor." },
+    { a: 'امتحان', u: 'Imtihon', t: 'ot', l: 'elementary', ex: 'لدي امتحان غداً.', eu: "Ertaga imtihonÄ±m bor." },
+    { a: 'علامة', u: 'Baho', t: 'ot', l: 'elementary', ex: 'حصلت على علامة جيدة.', eu: "U yaxshi baho oldi." },
+    { a: 'كوكب', u: 'Sayyora', t: 'ot', l: 'elementary', ex: 'الأرض كوكبنا.', eu: "Yer bizning sayyoramiz." },
+    { a: 'جبل', u: "Tog'", t: 'ot', l: 'elementary', ex: 'الجبل مرتفع جداً.', eu: "Tog' juda baland." },
+    { a: 'نهر', u: 'Daryo', t: 'ot', l: 'elementary', ex: 'النهر جميل.', eu: "Daryo go'zal." },
+    { a: 'بحر', u: 'Dengiz', t: 'ot', l: 'elementary', ex: 'أحب البحر.', eu: "Men dengizni yaxshi ko'raman." },
+    { a: 'غابة', u: "O'rmon", t: 'ot', l: 'elementary', ex: 'الغابة مظلمة وهادئة.', eu: "O'rmon qorong'i va sokin." },
+    { a: 'حيوان', u: 'Hayvon', t: 'ot', l: 'elementary', ex: 'حيواني المفضل هو الأسد.', eu: "Mening sevimli hayvon — sher." },
+    { a: 'رياضة', u: 'Sport', t: 'ot', l: 'elementary', ex: 'الرياضة تحافظ على صحتك.', eu: "Sport sizni sog'lom saqlaydi." },
+    { a: 'فريق', u: 'Jamoa', t: 'ot', l: 'elementary', ex: 'فريقنا فاز بالمباراة.', eu: "Bizning jamoamiz o'yinda g'olib keldi." },
+    { a: 'قصة', u: 'Hikoya', t: 'ot', l: 'elementary', ex: 'أخبرني بقصة.', eu: "Menga hikoya aytib ber." },
+    { a: 'حلم', u: 'Orzu/Tush', t: 'ot', l: 'elementary', ex: 'اتبع حلمك.', eu: "Orzuingiz ortidan yuring." },
+    { a: 'يضحك', u: 'Kulmoq', t: 'fe\'l', l: 'elementary', ex: 'هي دائماً تجعلني أضحك.', eu: "U har doim meni kuldiradi." },
+    { a: 'يبكي', u: "Yig'lamoq", t: 'fe\'l', l: 'elementary', ex: 'لا تبكِ، كل شيء على ما يرام.', eu: "Yig'lama, hammasi yaxshi bo'ladi." },
+    { a: 'يوضح', u: 'Tushuntirmoq', t: 'fe\'l', l: 'elementary', ex: 'أوضح لي ذلك من فضلك.', eu: "Iltimos, buni menga tushuntiring." },
+    { a: 'يوافق', u: 'Rozilik bildirmoq', t: 'fe\'l', l: 'elementary', ex: 'أوافق على فكرتك.', eu: "Men sizning g'oyangiz bilan roziman." },
+    { a: 'يتذكر', u: 'Eslamoq', t: 'fe\'l', l: 'elementary', ex: 'أتذكر اسمك.', eu: "Ismingizni eslayman." },
+    { a: 'ينسى', u: 'Unutmoq', t: 'fe\'l', l: 'elementary', ex: 'لا تنسَ مفاتيحك!', eu: "Kalitlaringizni unutmang!" },
+    { a: 'يحسّن', u: 'Yaxshilamoq', t: 'fe\'l', l: 'elementary', ex: 'أريد تحسين عربيتي.', eu: "Arabiy tilimni yaxshilashni xohlayman." },
+    { a: 'يستعد', u: 'Tayyorlamoq', t: 'fe\'l', l: 'elementary', ex: 'أستعد للامتحان.', eu: "Imtihonga tayyorlanayapman." },
+    { a: 'يستمتع', u: 'Zavqlanmoq', t: 'fe\'l', l: 'elementary', ex: 'أستمتع بمشاهدة الأفلام.', eu: "Film ko'rishdan zavqlanaman." },
+    { a: 'ينتهي', u: 'Tugatmoq', t: 'fe\'l', l: 'elementary', ex: 'هل انتهيت من عملك؟', eu: "Ishingizni tugatdingizmi?" },
+    { a: 'يبدأ', u: 'Boshlash', t: 'fe\'l', l: 'elementary', ex: 'لنبدأ الدرس.', eu: "Keling, darsni boshlaylik." },
+    { a: 'عادةً', u: 'Odatda', t: 'ravish', l: 'elementary', ex: 'أستيقظ عادةً في السابعة.', eu: "Men odatda soat 7 da uyg'onaman." },
+    { a: 'أحياناً', u: "Ba'zan", t: 'ravish', l: 'elementary', ex: 'أحياناً تشاهد أفلاماً.', eu: "U ba'zan film ko'radi." },
+    { a: 'أبداً', u: 'Hech qachon', t: 'ravish', l: 'elementary', ex: 'لا آكل الوجبات السريعة أبداً.', eu: "Men hech qachon tez ovqat yemayman." },
+    { a: 'دائماً', u: 'Har doim', t: 'ravish', l: 'elementary', ex: 'هو دائماً في الوقت المحدد.', eu: "U har doim o'z vaqtida keladi." },
+    { a: 'كثيراً', u: 'Tez-tez', t: 'ravish', l: 'elementary', ex: 'نتمشى كثيراً.', eu: "Biz tez-tez sayrga chiqamiz." },
+    { a: 'فجأة', u: "To'satdan", t: 'ravish', l: 'elementary', ex: 'بدأ المطر فجأة.', eu: "To'satdan yomg'ir yog'a boshladi." },
+    { a: 'أخيراً', u: 'Nihoyat', t: 'ravish', l: 'elementary', ex: 'وصلنا أخيراً.', eu: "Nihoyat kelIb yetdik." },
+
+    // ═══ PRE-INTERMEDIATE ═══
+    { a: 'ومع ذلك', u: 'Biroq, ammo', t: 'bog\'l.', l: 'pre-intermediate', ex: 'كان الجو بارداً، ومع ذلك خرجنا.', eu: "Havo sovuq edi, biroq biz chiqdik." },
+    { a: 'بالرغم من', u: "Garchi...bo'lsa ham", t: 'bog\'l.', l: 'pre-intermediate', ex: 'بالرغم من المطر، لعبنا.', eu: "Garchi yomg'ir yog'sa ham, biz o'yndik." },
+    { a: 'لذلك', u: 'Shuning uchun', t: 'ravish', l: 'pre-intermediate', ex: 'لذلك قررنا الذهاب.', eu: "Shuning uchun biz borishga qaror qildik." },
+    { a: 'علاوةً على ذلك', u: 'Bundan tashqari', t: 'ravish', l: 'pre-intermediate', ex: 'علاوةً على ذلك، هي موهوبة.', eu: "Bundan tashqari, u iste'dodli." },
+    { a: 'فرصة', u: 'Imkoniyat', t: 'ot', l: 'pre-intermediate', ex: 'هذه فرصة رائعة.', eu: "Bu ajoyib imkoniyat." },
+    { a: 'بحث', u: 'Tadqiqot', t: 'ot', l: 'pre-intermediate', ex: 'يجري العلماء أبحاثاً.', eu: "Olimlar tadqiqot o'tkazadilar." },
+    { a: 'موعد نهائي', u: 'Muddati', t: 'ot', l: 'pre-intermediate', ex: 'الموعد النهائي غداً.', eu: "Muddati ertaga." },
+    { a: 'إنجاز', u: 'Yutuq', t: 'ot', l: 'pre-intermediate', ex: 'هذا إنجاز عظيم.', eu: "Bu katta yutuq." },
+    { a: 'تحدٍّ', u: 'Muammo/Sinov', t: 'ot', l: 'pre-intermediate', ex: 'كل تحدٍّ يجعلك أقوى.', eu: "Har bir muammo sizni kuchliroq qiladi." },
+    { a: 'واثق', u: 'Ishonchli', t: 'sifat', l: 'pre-intermediate', ex: 'كن واثقاً من نفسك.', eu: "O'zingizga ishoning." },
+    { a: 'ناجح', u: 'Muvaffaqiyatli', t: 'sifat', l: 'pre-intermediate', ex: 'هي رجلة أعمال ناجحة.', eu: "U muvaffaqiyatli ish ayoli." },
+    { a: 'مسؤول', u: "Mas'ul", t: 'sifat', l: 'pre-intermediate', ex: 'كن مسؤولاً عن أفعالك.', eu: "Harakatlaringiz uchun mas'ul bo'ling." },
+    { a: 'بيئة', u: 'Atrof-muhit', t: 'ot', l: 'pre-intermediate', ex: 'يجب علينا حماية البيئة.', eu: "Biz atrof-muhitni himoya qilishimiz kerak." },
+    { a: 'تكنولوجيا', u: 'Texnologiya', t: 'ot', l: 'pre-intermediate', ex: 'التكنولوجيا تغيّر حياتنا.', eu: "Texnologiya hayotimizni o'zgartiradi." },
+    { a: 'مجتمع', u: 'Jamiyat', t: 'ot', l: 'pre-intermediate', ex: 'المجتمع يتغير بسرعة.', eu: "Jamiyat tez o'zgarmoqda." },
+    { a: 'تعليم', u: "Ta'lim", t: 'ot', l: 'pre-intermediate', ex: 'التعليم مفتاح النجاح.', eu: "Ta'lim — muvaffaqiyat kaliti." },
+    { a: 'مسيرة', u: 'Karyera', t: 'ot', l: 'pre-intermediate', ex: 'أريد مسيرة مهنية جيدة.', eu: "Men yaxshi karyera istayman." },
+    { a: 'راتب', u: 'Maosh', t: 'ot', l: 'pre-intermediate', ex: 'راتبه مرتفع جداً.', eu: "Uning maoshi juda baland." },
+    { a: 'زميل', u: 'Hamkasb', t: 'ot', l: 'pre-intermediate', ex: 'زميلي مفيد.', eu: "Hamkasabim yordamsevar." },
+    { a: 'مقابلة', u: 'Suhbat/Intervyu', t: 'ot', l: 'pre-intermediate', ex: 'لدي مقابلة عمل غداً.', eu: "Ertaga ish uchun suhbatim bor." },
+    { a: 'خبرة', u: 'Tajriba', t: 'ot', l: 'pre-intermediate', ex: 'الخبرة في العمل مهمة.', eu: "Ish tajribasi muhim." },
+    { a: 'مهارات', u: "Ko'nikmalar", t: 'ot', l: 'pre-intermediate', ex: 'تحتاج مهارات تواصل جيدة.', eu: "Yaxshi muloqot ko'nikmalariga ega bo'lish kerak." },
+    { a: 'يُدير', u: 'Boshqarmoq', t: 'fe\'l', l: 'pre-intermediate', ex: 'تدير فريقاً كبيراً.', eu: "U katta jamoani boshqaradi." },
+    { a: 'يحلّ', u: 'Yechmoq', t: 'fe\'l', l: 'pre-intermediate', ex: 'علينا حلّ هذه المشكلة.', eu: "Biz bu muammoni yechishimiz kerak." },
+    { a: 'يحقق', u: 'Erishmoq', t: 'fe\'l', l: 'pre-intermediate', ex: 'يمكنك تحقيق أهدافك.', eu: "Maqsadlaringizga erisha olasiz." },
+    { a: 'يطور', u: 'Rivojlantirmoq', t: 'fe\'l', l: 'pre-intermediate', ex: 'نحتاج تطوير أفكار جديدة.', eu: "Biz yangi g'oyalarni rivojlantirishimiz kerak." },
+    { a: 'يقترح', u: 'Taklif qilmoq', t: 'fe\'l', l: 'pre-intermediate', ex: 'أقترح أن نذهب الآن.', eu: "Endi ketishimizni taklif qilaman." },
+    { a: 'يقارن', u: 'Solishtirmoq', t: 'fe\'l', l: 'pre-intermediate', ex: 'قارن بين هذين المنتجين.', eu: "Bu ikki mahsulotni solishtiring." },
+    { a: 'تقرير', u: 'Hisobot', t: 'ot', l: 'pre-intermediate', ex: 'اكتب تقريراً عن ذلك.', eu: "Bu haqida hisobot yozing." },
+    { a: 'مشروع', u: 'Loyiha', t: 'ot', l: 'pre-intermediate', ex: 'مشروعنا يُسلَّم يوم الجمعة.', eu: "Loyihamiz juma kuni topshirilishi kerak." },
+    { a: 'ميزانية', u: 'Byudjet', t: 'ot', l: 'pre-intermediate', ex: 'ميزانيتنا محدودة.', eu: "Bizning cheklangan byudjetimiz bor." },
+    { a: 'ربح', u: 'Foyda', t: 'ot', l: 'pre-intermediate', ex: 'حققت الشركة ربحاً.', eu: "Kompaniya foyda ko'rdi." },
+    { a: 'عميل', u: 'Mijoz', t: 'ot', l: 'pre-intermediate', ex: 'العميل راضٍ.', eu: "Mijoz mamnun." },
+    { a: 'عقد', u: 'Shartnoma', t: 'ot', l: 'pre-intermediate', ex: 'وقّع العقد.', eu: "Shartnomani imzolang." },
+    { a: 'رغم', u: 'Qaramasdan', t: 'old ko\'.', l: 'pre-intermediate', ex: 'رغم المطر، لعبنا.', eu: "Yomg'irga qaramasdan, o'yndik." },
+    { a: 'إلا إذا', u: "Agar...bo'lmasa", t: 'bog\'l.', l: 'pre-intermediate', ex: 'لن تنجح إلا إذا درست.', eu: "Agar o'qimasangiz, o'taolmaysiz." },
+
+    // ═══ ADVANCED ═══
+    { a: 'فروق دقيقة', u: 'Noziklik', t: 'ot', l: 'advanced', ex: 'الفروق الدقيقة في كلامها مهمة.', eu: "Uning so'zlarining nozikligi muhim edi." },
+    { a: 'سيادة', u: 'Suverenitet', t: 'ot', l: 'advanced', ex: 'السيادة الوطنية أمر حيوي.', eu: "Milliy suverenitet muhimdir." },
+    { a: 'فصاحة', u: 'Notiqlik', t: 'ot', l: 'advanced', ex: 'فصاحتها أذهلت الجميع.', eu: "Uning notiqligi hammani hayratda qoldirdi." },
+    { a: 'نموذج', u: 'Paradigma', t: 'ot', l: 'advanced', ex: 'نموذج جديد يظهر.', eu: "Yangi paradigma paydo bo'lmoqda." },
+    { a: 'ارتباط', u: 'Korrelyatsiya', t: 'ot', l: 'advanced', ex: 'الارتباط لا يعني السببية.', eu: "Korrelyatsiya sababiyatni anglatmaydi." },
+    { a: 'تشريع', u: 'Qonunchilik', t: 'ot', l: 'advanced', ex: 'صدر تشريع جديد.', eu: "Yangi qonun qabul qilindi." },
+    { a: 'يُخفّف', u: 'Yumshatmoq', t: 'fe\'l', l: 'advanced', ex: 'علينا تخفيف المخاطر.', eu: "Biz xavflarni yumshatishimiz kerak." },
+    { a: 'غير مسبوق', u: "Misli ko'rilmagan", t: 'sifat', l: 'advanced', ex: 'هذا وضع غير مسبوق.', eu: "Bu misli ko'rilmagan holat." },
+    { a: 'دقيق', u: 'Puxta', t: 'sifat', l: 'advanced', ex: 'هي دقيقة في عملها.', eu: "U ishida puxta." },
+    { a: 'غامض', u: "Noaniq", t: 'sifat', l: 'advanced', ex: 'كان بيانه غامضاً.', eu: "Uning bayonoti noaniq edi." },
+    { a: 'متسق', u: 'Izchil', t: 'sifat', l: 'advanced', ex: 'اكتب حجةً متسقة.', eu: "Izchil argument yozing." },
+    { a: 'جوهري', u: 'Muhim, sezilarli', t: 'sifat', l: 'advanced', ex: 'هناك أدلة جوهرية.', eu: "Jiddiy dalillar mavjud." },
+    { a: 'متأصّل', u: "O'ziga xos", t: 'sifat', l: 'advanced', ex: 'هناك مخاطر متأصّلة.', eu: "O'ziga xos xavflar mavjud." },
+    { a: 'مثير للجدل', u: 'Bahsli', t: 'sifat', l: 'advanced', ex: 'هذا موضوع مثير للجدل.', eu: "Bu munozarali mavzu." },
+    { a: 'براغماتي', u: 'Amaliy', t: 'sifat', l: 'advanced', ex: 'تعامل معه بطريقة براغماتية.', eu: "Bunga amaliy yondashing." },
+    { a: 'محفّز', u: 'Katalizator', t: 'ot', l: 'advanced', ex: 'الاختراع كان محفّزاً للتغيير.', eu: "Ixtiro o'zgarish uchun katalizator bo'ldi." },
+    { a: 'ديموغرافي', u: 'Demografik', t: 'sifat', l: 'advanced', ex: 'التغييرات الديموغرافية مهمة.', eu: "Demografik o'zgarishlar muhim." },
+    { a: 'بنية تحتية', u: 'Infratuzilma', t: 'ot', l: 'advanced', ex: 'يجب الاستثمار في البنية التحتية.', eu: "Infratuzilmaga investitsiya qilishimiz kerak." },
+    { a: 'فرضية', u: 'Faraz', t: 'ot', l: 'advanced', ex: 'اختبر فرضيتك.', eu: "Farazingizni sinab ko'ring." },
+    { a: 'منهجية', u: 'Metodologiya', t: 'ot', l: 'advanced', ex: 'اشرح منهجيتك.', eu: "Metodologiyangizni tushuntiring." },
+    { a: 'ظاهرة', u: 'Hodisa', t: 'ot', l: 'advanced', ex: 'هذه ظاهرة عالمية.', eu: "Bu global hodisa." },
+    { a: 'انعكاسات', u: 'Oqibatlar', t: 'ot', l: 'advanced', ex: 'فكّر في الانعكاسات.', eu: "Oqibatlarni ko'rib chiqing." },
+    { a: 'منظور', u: 'Nuqtai nazar', t: 'ot', l: 'advanced', ex: 'انظر من منظور مختلف.', eu: "Boshqa nuqtai nazarni ko'rib chiqing." },
+    { a: 'إطار', u: 'Tizim/Struktura', t: 'ot', l: 'advanced', ex: 'نحتاج إطاراً واضحاً.', eu: "Bizga aniq tizim kerak." },
+    { a: 'خطاب', u: 'Nutq/Ritorika', t: 'ot', l: 'advanced', ex: 'كان خطابه قوياً.', eu: "Uning nutqi kuchli edi." },
+    { a: 'إجماع', u: 'Kelishuv', t: 'ot', l: 'advanced', ex: 'توصّلنا إلى إجماع.', eu: "Biz kelishuvga erishdik." },
+    { a: 'يدعو إلى', u: 'Himoya qilmoq', t: 'fe\'l', l: 'advanced', ex: 'تدعو إلى حقوق الإنسان.', eu: "U inson huquqlarini himoya qiladi." },
+    { a: 'يُيسّر', u: 'Osonlashtirmoq', t: 'fe\'l', l: 'advanced', ex: 'التكنولوجيا تيسّر التعلّم.', eu: "Texnologiya o'rganishni osonlashtiradi." },
+    { a: 'يُعرب عن', u: 'Bayon etmoq', t: 'fe\'l', l: 'advanced', ex: 'هل يمكنك التعبير عن ذلك بالتفصيل؟', eu: "Bu haqida batafsil ayta olasizmi?" },
+    { a: 'يعترف', u: 'Tan olmoq', t: 'fe\'l', l: 'advanced', ex: 'أعترف بخطئي.', eu: "Xatoimni tan olaman." },
+    { a: 'يستمر', u: 'Davom ettirmoq', t: 'fe\'l', l: 'advanced', ex: 'يجب أن نستمر في جهودنا.', eu: "Biz kuchlarimizni davom ettirishimiz kerak." },
+];
+
+// ══════════════════════════════════════════════════════════════
+// ARABIC UNITS DATA
+// ══════════════════════════════════════════════════════════════
+const UD_DATA = {
+    beginner: [
+        {
+            id: 'ab0', emoji: '🔤', title: 'الحروف الهجائية', desc: "Arab alifbosini o'rganish (28 harf)",
+            level: 'beginner',
+            words: ['مرحباً', 'وداعاً', 'شكراً', 'من فضلك', 'عفواً', 'نعم', 'لا', 'جيد', 'سيئ', 'كبير'],
+            xp: 40, coin: 15,
+            grammar_rule: "Arab alifbosida 28 harf bor. Harflar o'ngdan chapga yoziladi. Harflar so'z boshida, o'rtasida va oxirida turli shaklga ega.",
+            grammar_example: "أ - ب - ت - ث - ج - ح - خ - د - ذ - ر - ز - س - ش - ص - ض - ط - ظ - ع - غ - ف - ق - ك - ل - م - ن - ه - و - ي",
+            reading_text: "اللغة العربية لغة جميلة. الأبجدية العربية تحتوي على 28 حرفاً. تُكتب العربية من اليمين إلى اليسار. هذه اللغة يتحدثها أكثر من 400 مليون شخص في العالم.",
+            reading_qs: [
+                { q: "Arabcha qancha harf bor?", opts: ["24", "26", "28", "30"], c: 2 },
+                { q: "Arabcha qaysi tomonga yoziladi?", opts: ["Chapdan o'nga", "O'ngdan chapga", "Tepadan pastga", "Pastdan tepaga"], c: 1 },
+                { q: "Nechta odam arabcha gapiradi?", opts: ["100 million", "200 million", "300 million", "400 million"], c: 3 }
+            ]
+        },
+        {
+            id: 'ab1', emoji: '👋', title: 'التحيات', desc: "Salomlashish va xayrlashish",
+            level: 'beginner',
+            words: ['مرحباً', 'وداعاً', 'شكراً', 'من فضلك', 'عفواً', 'نعم', 'لا', 'جيد', 'سعيد', 'حزين'],
+            xp: 50, coin: 20,
+            grammar_rule: "أنا = Men. أنت = Sen (erkak). أنتِ = Sen (ayol). هو = U (erkak). هي = U (ayol).",
+            grammar_example: "أنا طالب. أنت معلم. هو طبيب. هي مهندسة.",
+            reading_text: "اسمي سارة. أنا من أوزبكستان. كل صباح أقول 'مرحباً' لجيراني. حين أغادر أقول 'وداعاً'. دائماً أقول 'من فضلك' و'شكراً'. الناس يقولون إنني مهذبة جداً.",
+            reading_qs: [
+                { q: "Suting ismi nima?", opts: ["Layla", "Sarah", "Maryam", "Fatima"], c: 1 },
+                { q: "U ketayotganda nima deydi?", opts: ["مرحباً", "شكراً", "وداعاً", "من فضلك"], c: 2 },
+                { q: "U qanday odam?", opts: ["Kamtarin", "Xushmuomala", "Shoshqaloq", "Kamgap"], c: 1 }
+            ]
+        },
+        {
+            id: 'ab2', emoji: '🔢', title: 'الأرقام', desc: "Raqamlar 1-100",
+            level: 'beginner',
+            words: ['واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة', 'عشرة'],
+            xp: 50, coin: 20,
+            grammar_rule: "Arabcha raqamlar: واحد (1), اثنان (2), ثلاثة (3)... عشرة (10), عشرون (20), مائة (100).",
+            grammar_example: "عندي ثلاثة كتب. الساعة الخامسة. في الفصل خمسة وعشرون طالباً.",
+            reading_text: "لدى توم ثلاث قطط وكلبان. يطعمهم كل يوم أربع مرات. يقضي عشر دقائق مع كل حيوان. اشترى اثني عشر لعبة لقططه.",
+            reading_qs: [
+                { q: "Qancha mushuk bor?", opts: ["Ikki", "Uch", "To'rt", "Besh"], c: 1 },
+                { q: "Kuniga necha marta ovqatlantiradi?", opts: ["Ikki", "Uch", "To'rt", "Besh"], c: 2 },
+                { q: "Qancha o'yinchoq sotib oldi?", opts: ["O'n", "O'n ikki", "O'n besh", "Yigirma"], c: 1 }
+            ]
+        },
+        {
+            id: 'ab3', emoji: '🎨', title: 'الألوان', desc: "Arabcha ranglar",
+            level: 'beginner',
+            words: ['أحمر', 'أزرق', 'أخضر', 'أصفر', 'أسود', 'أبيض', 'كبير', 'صغير', 'جيد', 'جميل'],
+            xp: 60, coin: 25,
+            grammar_rule: "Arabchada sifatlar otdan keyin keladi: كتاب كبير (katta kitob), سيارة حمراء (qizil mashina).",
+            grammar_example: "قلم أحمر · سيارة زرقاء · شجرة خضراء · شمس صفراء",
+            reading_text: "قوس قزح يحتوي على سبعة ألوان: الأحمر والبرتقالي والأصفر والأخضر والأزرق والنيلي والبنفسجي. الأحمر لون النار. الأزرق لون السماء. الأخضر لون الأشجار.",
+            reading_qs: [
+                { q: "Kamalakda qancha rang bor?", opts: ["Besh", "Olti", "Yetti", "Sakkiz"], c: 2 },
+                { q: "Osmonning rangi?", opts: ["Qizil", "Sariq", "Ko'k", "Yashil"], c: 2 },
+                { q: "O't rangi?", opts: ["Ko'k", "Qizil", "Yashil", "Sariq"], c: 2 }
+            ]
+        },
+        {
+            id: 'ab4', emoji: '👨‍👩‍👧', title: 'العائلة', desc: "Oila a'zolari",
+            level: 'beginner',
+            words: ['أم', 'أب', 'أخت', 'أخ', 'ماء', 'طعام', 'بيت', 'سيارة', 'كلب', 'قطة'],
+            xp: 60, coin: 25,
+            grammar_rule: "Arabchada egalik qo'shimchalari: ي = mening, ك = sening, ه = uning (erkak), ها = uning (ayol).",
+            grammar_example: "أمي معلمة. أبوك طبيب. كتابه جميل. بيتها كبير.",
+            reading_text: "عائلتي تتكون من خمسة أفراد. أبي طبيب وأمي معلمة. لدي أخ واحد وأخت واحدة. يسكن أجدادي قريباً. نزورهم كل يوم أحد.",
+            reading_qs: [
+                { q: "Oilada nechta kishi bor?", opts: ["Uch", "To'rt", "Besh", "Olti"], c: 2 },
+                { q: "Otasining kasbi?", opts: ["O'qituvchi", "Shifokor", "Muhandis", "Haydovchi"], c: 1 },
+                { q: "Bobonikiga qachon borishadi?", opts: ["Shanba", "Yakshanba", "Dushanba", "Juma"], c: 1 }
+            ]
+        },
+        {
+            id: 'ab5', emoji: '🍎', title: 'الطعام والشراب', desc: "Ovqat va ichimliklar",
+            level: 'beginner',
+            words: ['ماء', 'طعام', 'تفاحة', 'خبز', 'حليب', 'بيضة', 'أرز', 'لحم', 'شاي', 'قهوة'],
+            xp: 70, coin: 30,
+            grammar_rule: "Arabchada sanab bo'ladigan otlar: تفاحة (bir olma), تفاحتان (ikki olma), ثلاث تفاحات (uch olma).",
+            grammar_example: "أريد تفاحة وبعض الماء. تشرب الحليب كل صباح.",
+            reading_text: "الفطور الصحي مهم. كثير من الناس يأكلون البيض والخبز في الصباح. الشاي والقهوة من المشروبات الشعبية. الحليب مفيد للأطفال. اشرب كمية كافية من الماء يومياً.",
+            reading_qs: [
+                { q: "Ertalabki ovqat haqida nima aytildi?", opts: ["U muhim emas", "U juda muhim", "U ixtiyoriy", "U zararli"], c: 1 },
+                { q: "Bolalarga nima foydali?", opts: ["Qahva", "Choy", "Sut", "Sharbat"], c: 2 },
+                { q: "Qaysi ovqat eslatildi?", opts: ["Guruch", "Sho'rva", "Tuxum va non", "Pizza"], c: 2 }
+            ]
+        },
+    ],
+
+    elementary: [
+        {
+            id: 'ae1', emoji: '🏡', title: 'المنزل والغرف', desc: "Uy va xonalar",
+            level: 'elementary',
+            words: ['غرفة نوم', 'مطبخ', 'حمام', 'طبيب', 'مهندس', 'غالي', 'رخيص', 'جميل', 'صعب', 'سهل'],
+            xp: 80, coin: 35,
+            grammar_rule: "يوجد / توجد = bor, mavjud. لا يوجد = yo'q. هناك = u yerda bor.",
+            grammar_example: "يوجد صالون كبير. توجد ثلاث غرف نوم. هناك حديقة جميلة.",
+            reading_text: "بيتي يتكون من ثلاثة طوابق. في الطابق الأرضي يوجد صالون كبير ومطبخ عصري. في الطابق الأول توجد ثلاث غرف نوم وحمامان. غرفتي لها نافذة كبيرة تطل على الحديقة.",
+            reading_qs: [
+                { q: "Nechta qavat bor?", opts: ["Ikki", "Uch", "To'rt", "Besh"], c: 1 },
+                { q: "Yotoqxonalar qayerda?", opts: ["Birinchi qavatda", "Ikkinchi qavatda", "Bog'da", "Yer ostida"], c: 0 },
+                { q: "Xonada nima bor?", opts: ["Televizor", "Katta deraza", "Hovuz", "Kamin"], c: 1 }
+            ]
+        },
+        {
+            id: 'ae2', emoji: '💼', title: 'المهن', desc: "Kasblar",
+            level: 'elementary',
+            words: ['طبيب', 'مهندس', 'معلم', 'طيار', 'محامٍ', 'ممرض', 'مدير', 'طاهٍ', 'شرطي', 'صحفي'],
+            xp: 80, coin: 35,
+            grammar_rule: "ماذا تعمل؟ = Nima ish qilasiz? أنا + ism kasb = Men + kasb.",
+            grammar_example: "ماذا تعمل؟ أنا طبيب. هو يعمل مهندساً. هي معلمة.",
+            reading_text: "هناك مهن كثيرة مختلفة. يعمل الأطباء والممرضون في المستشفيات. يُعلّم المعلمون الجيل القادم. يبني المهندسون الجسور. يطير الطيارون الطائرات. كل مهنة مهمة للمجتمع.",
+            reading_qs: [
+                { q: "Shiforkorlar qayerda ishlaydi?", opts: ["Maktabda", "Fabrikada", "Kasalxonada", "Ofisda"], c: 2 },
+                { q: "Muhandislar nima quradi?", opts: ["Kitoblar", "Qo'shiqlar", "Ko'priklar", "Ovqat"], c: 2 },
+                { q: "O'qituvchilar nima qiladi?", opts: ["Uchadi", "Ko'prik quradi", "Odamlarni o'qitadi", "Ovqat pishiradi"], c: 2 }
+            ]
+        },
+        {
+            id: 'ae3', emoji: '🛒', title: 'التسوق', desc: "Xarid qilish",
+            level: 'elementary',
+            words: ['غالي', 'رخيص', 'خصم', 'تذكرة', 'مطعم', 'فندق', 'قائمة طعام', 'موعد', 'تسوق', 'مبلغ'],
+            xp: 90, coin: 40,
+            grammar_rule: "بكم هذا؟ = Bu qancha turadi? يكلّف / يساوي = Turadi. هل يمكنني الدفع ببطاقة؟ = Karta bilan to'lasam bo'ladimi?",
+            grammar_example: "بكم هذا القميص؟ يكلّف خمسة وعشرين ألف سوم. هل يمكنني الدفع ببطاقة؟ نعم، بالطبع.",
+            reading_text: "التسوق نشاط يومي. السوبرماركت يبيع الطعام والمواد المنزلية. في متاجر التجزئة توجد الملابس والإلكترونيات. قبل الشراء تحقق دائماً من السعر. ابحث عن الخصومات لتوفير المال. احتفظ بوصل الشراء!",
+            reading_qs: [
+                { q: "Kiyim qayerda sotiladi?", opts: ["Supermarketda", "Do'konda", "Aptekada", "Non do'konida"], c: 1 },
+                { q: "Nimani saqlash kerak?", opts: ["Sumkani", "Kviitansiyani", "Yorliqni", "Qutini"], c: 1 },
+                { q: "Pul tejash uchun nima qilish kerak?", opts: ["Tez sotib olish", "Naqd to'lash", "Chegirmalarni izlash", "Ko'p borish"], c: 2 }
+            ]
+        },
+    ],
+
+    'pre-intermediate': [
+        {
+            id: 'ap1', emoji: '🔮', title: 'خطط المستقبل', desc: "Kelajak va rejalar",
+            level: 'pre-intermediate',
+            words: ['ومع ذلك', 'لذلك', 'فرصة', 'بحث', 'إنجاز', 'تحدٍّ', 'واثق', 'ناجح', 'مسؤول', 'بيئة'],
+            xp: 130, coin: 60,
+            grammar_rule: "المضارع + سوف/سـ = Kelajak zamon. سأذهب = Men boraman (kelajakda). سوف تدرس = U o'qiydi (kelajakda).",
+            grammar_example: "سأتصل بك غداً. سوف تدرس الطب. سنسافر الصيف القادم.",
+            reading_text: "التخطيط للمستقبل أمر ضروري. وضع أهداف واضحة يساعدك على تحقيق النجاح. الأهداف قصيرة المدى تستغرق أسابيع قليلة. الأهداف طويلة المدى تستغرق سنوات. المرونة مهمة بقدر التصميم.",
+            reading_qs: [
+                { q: "Qisqa muddatli maqsadlar qancha vaqt oladi?", opts: ["Yillar", "O'n yillar", "Bir necha hafta", "Umr bo'yi"], c: 2 },
+                { q: "Qat'iyat bilan nima teng muhim?", opts: ["Pul", "Moslashuvchanlik", "Ta'lim", "Kuch"], c: 1 },
+                { q: "Rejalashtirish nimaga yordam beradi?", opts: ["Do'st topish", "Shuhrat", "Muvaffaqiyat", "Sayohat"], c: 2 }
+            ]
+        },
+        {
+            id: 'ap2', emoji: '🎯', title: 'الفعل الماضي', desc: "O'tgan zamon",
+            level: 'pre-intermediate',
+            words: ['ومع ذلك', 'بالرغم من', 'لذلك', 'علاوةً على ذلك', 'فرصة', 'إنجاز', 'تحدٍّ', 'واثق', 'ناجح', 'مسؤول'],
+            xp: 140, coin: 65,
+            grammar_rule: "O'tgan zamon: ذهبَ (bordi), كتبَ (yozdi), قرأَ (o'qidi). Ko'plik: ذهبوا (borishdi), كتبوا (yozishdi).",
+            grammar_example: "ذهبتُ إلى المدرسة. كتبتُ رسالةً. قرأنا كتاباً مثيراً. ذهبوا إلى السوق.",
+            reading_text: "الفعل الماضي في اللغة العربية يدل على حدث وقع في الماضي. صيغة المفرد: فعَلَ. صيغة الجمع: فعَلوا. كلمات دالة على الماضي: أمس، قبل، في الماضي، منذ.",
+            reading_qs: [
+                { q: "O'tgan zamonda ko'plik qo'shimchasi qanday?", opts: ["-تُ", "-وا", "-نَ", "-تَ"], c: 1 },
+                { q: "O'tgan zamonni ko'rsatuvchi so'z qaysi?", opts: ["غداً", "الآن", "أمس", "قريباً"], c: 2 },
+                { q: "ذهبَ nimani anglatadi?", opts: ["Bormoqchi", "Bordi", "Borayapti", "Boradi"], c: 1 }
+            ]
+        },
+    ],
+
+    advanced: [
+        {
+            id: 'aa1', emoji: '🖊️', title: 'الكتابة الأكاديمية', desc: "Akademik yozuv",
+            level: 'advanced',
+            words: ['ومع ذلك', 'لذلك', 'علاوةً على ذلك', 'بالإضافة إلى ذلك', 'فروق دقيقة', 'فصاحة', 'غير مسبوق', 'جوهري', 'متسق', 'منهجية'],
+            xp: 200, coin: 90,
+            grammar_rule: "Ulanish vositalari: علاوةً على ذلك (bundan tashqari), ومع ذلك (biroq), لذلك (shuning uchun), بينما (holbuki).",
+            grammar_example: "البيانات تدعم الفرضية. علاوةً على ذلك، الأبحاث السابقة تؤكد هذه النتائج.",
+            reading_text: "الكتابة الأكاديمية تتطلب الدقة والتماسك المنطقي. كل حجة يجب أن تُدعم بأدلة. أدوات التماسك تربط الأفكار: 'علاوةً على ذلك' تضيف معلومات، 'ومع ذلك' تقدم تناقضاً. هيكل الفقرة يتبع: النقطة، الدليل، التفسير، الرابط.",
+            reading_qs: [
+                { q: "'علاوةً على ذلك' nimani bildiradi?", opts: ["Ziddiyat", "Natija", "Qo'shimcha ma'lumot", "Shart"], c: 2 },
+                { q: "Har bir argument nimaga ega bo'lishi kerak?", opts: ["Hikoya", "Dalil", "Fikr", "Hazil"], c: 1 },
+                { q: "'ومع ذلك' nimani bildiradi?", opts: ["Bundan tashqari", "Biroq", "Shuning uchun", "Chunki"], c: 1 }
+            ]
+        },
+        {
+            id: 'aa2', emoji: '📋', title: 'العربية التجارية', desc: "Biznes arabchasi",
+            level: 'advanced',
+            words: ['ميزانية', 'ربح', 'عميل', 'عقد', 'مشروع', 'تقرير', 'منظور', 'إطار', 'إجماع', 'يدعو إلى'],
+            xp: 250, coin: 110,
+            grammar_rule: "Formal uslub: يُرجى (Iltimos), نودّ إعلامكم (Sizni xabardor qilmoqchimiz), يُشار إلى أن (Shuni ta'kidlash kerakki).",
+            grammar_example: "يُرجى مراجعة العقد. نودّ إعلامكم بأن الميزانية قد تم اعتمادها. يُشار إلى أن الأرباح ارتفعت.",
+            reading_text: "اللغة العربية التجارية تختلف عن اللغة اليومية. تستخدم الرسائل الرسمية ألفاظاً محددة: 'نظراً لـ' (chunki), 'وفقاً لـ' (ga ko'ra). يجب أن تكون الرسائل التجارية مختصرة وواضحة ومحترمة.",
+            reading_qs: [
+                { q: "'نظراً لـ' nimani anglatadi?", opts: ["Ko'ra", "Bilan", "Chunki", "Va"], c: 2 },
+                { q: "Biznes xati qanday bo'lishi kerak?", opts: ["Uzun va batafsil", "Qisqa, aniq va hurmat bilan", "Norasmiy", "Hazilomuz"], c: 1 },
+                { q: "'وفقاً لـ' nimani anglatadi?", opts: ["Biroq", "Shuning uchun", "...ga ko'ra", "Va ham"], c: 2 }
+            ]
+        },
+    ]
+};
+
+// ══════════════════════════════════════════════════════════════
+// GRAMMAR QUESTIONS (Arabic specific)
+// ══════════════════════════════════════════════════════════════
+const GRAMMAR_QS = [
+    { q: "أنا ___ طالب.", opts: ["هو", "هي", "أنا", "أنتَ"], ans: "أنا", exp: "1-shaxs: أنا = Men" },
+    { q: "هو ___ في المدرسة.", opts: ["أنا", "يدرس", "أدرس", "تدرس"], ans: "يدرس", exp: "Erkak 3-shaxs: هو يدرس" },
+    { q: "هي ___ عربية بطلاقة.", opts: ["يتكلم", "تتكلم", "أتكلم", "نتكلم"], ans: "تتكلم", exp: "Ayol 3-shaxs: هي تتكلم" },
+    { q: "الكتاب ___ جديد.", opts: ["هو", "هي", "أنا", "نحن"], ans: "هو", exp: "Kitob (الكتاب) — erkak jins: هو جديد" },
+    { q: "___ ذهبتَ أمس؟", opts: ["أين", "كيف", "متى", "لماذا"], ans: "أين", exp: "أين = Qayerga? Joy so'rash uchun" },
+    { q: "لدي ___ كتب.", opts: ["ثلاثة", "ثلاث", "ثلاثٌ", "ثلاثي"], ans: "ثلاثة", exp: "Kitob (كتاب) erkak jins, son esa ayol shaklida: ثلاثة كتب" },
+    { q: "الولد ___ سريعاً.", opts: ["يركض", "تركض", "أركض", "نركض"], ans: "يركض", exp: "Erkak 3-shaxs hozirgi zamon: يركض" },
+    { q: "هذا البيت ___ جميلٌ.", opts: ["هي", "هو", "أنتَ", "أنا"], ans: "هو", exp: "Uy (البيت) erkak jins — الإسناد للمذكر" },
+    { q: "نحن ___ العربية.", opts: ["يتعلم", "تتعلم", "نتعلم", "أتعلم"], ans: "نتعلم", exp: "Ko'plik 1-shaxs: نحن نتعلم" },
+    { q: "هل ___ إلى المدرسة؟ — نعم.", opts: ["ذهبتَ", "ذهبتُ", "ذهبوا", "ذهبتِ"], ans: "ذهبتَ", exp: "2-shaxs erkak o'tgan zamon: أنتَ ذهبتَ" },
+    { q: "أكبر مدينة في أوزبكستان هي ___.", opts: ["سمرقند", "طشقند", "بخارى", "أنديجان"], ans: "طشقند", exp: "O'zbekistonning poytaxti — Toshkent (طشقند)" },
+    { q: "المفرد من 'كتب' هو ___.", opts: ["كتاب", "كتبٌ", "كتبة", "كاتب"], ans: "كتاب", exp: "كتاب (kitob) — ko'plik: كتب" },
+    { q: "الجمع من 'طالب' هو ___.", opts: ["طالبة", "طلاب", "طالبان", "مطالب"], ans: "طلاب", exp: "طالب (o'quvchi) — ko'plik: طلاب" },
+    { q: "كم + ___ يذهب عمر إلى المكتبة؟", opts: ["مرةً", "يوماً", "وقتاً", "مكاناً"], ans: "مرةً", exp: "كم مرة = Necha marta? — تكرار" },
+    { q: "الجملة الصحيحة هي:", opts: ["أنا سعيدٌ كثيراً", "أنا كثيراً سعيد", "سعيدٌ أنا كثيراً", "كثيراً أنا سعيد"], ans: "أنا سعيدٌ كثيراً", exp: "Arabcha tartibi: Ega + kesim + hol" },
+];
+
+// ══════════════════════════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════════════════════════
+function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
+window.speakWord = function (word, e) {
+    if (e) e.stopPropagation();
+    const u = new SpeechSynthesisUtterance(word);
+    u.lang = 'ar-SA'; u.rate = 0.82;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+};
+window.spk = window.speakWord;
+
+window.showToast = function (msg, type = 'info') {
+    const t = $id('toast'); if (!t) return;
+    t.innerHTML = msg; t.className = `toast ${type} show`;
+    setTimeout(() => t.classList.remove('show'), 3500);
+};
+function showToast(msg, type = 'info') { window.showToast(msg, type); }
+function showXPPop(txt) {
+    const e = $id('xpPopup'); if (!e) return;
+    e.textContent = txt; e.classList.add('show');
+    setTimeout(() => e.classList.remove('show'), 2500);
+}
+
+// ══════════════════════════════════════════════════════════════
+// TOKEN HELPERS
+// ══════════════════════════════════════════════════════════════
+function getPlan() { return PLANS[UP] || PLANS.free; }
+function getRank() { return RANKS[URank] || RANKS.none; }
+function calcMaxTokens() { return getPlan().token_bonus + getRank().token_bonus; }
+
+function checkTokenReset() {
+    const resetMs = TOKEN_CONFIG.reset_hours * 3600000;
+    const now = Date.now();
+    if (now - ULastReset >= resetMs) {
+        const newMax = calcMaxTokens();
+        UTokens = newMax; UMaxTokens = newMax; ULastReset = now;
+        saveTokenState(); renderTokenBar();
+        showToast('⚡ Tokenlar yangilandi!', 'success');
+    }
+}
+
+async function spendTokens(amount, reason) {
+    if (UP === 'ultimate') return true;
+    checkTokenReset();
+    if (UTokens < amount) { showTokenEmptyModal(reason); return false; }
+    UTokens -= amount;
+    await saveTokenState(); renderTokenBar(); return true;
+}
+
+async function saveTokenState() {
+    if (!CU) return;
+    try {
+        await updateDoc(doc(_db, 'users', CU.uid), {
+            tokens: UTokens, maxTokens: UMaxTokens,
+            lastTokenReset: ULastReset, lastActive: serverTimestamp()
+        });
+    } catch (e) { console.warn(e); }
+}
+
+function getTokenTimeLeft() {
+    const resetMs = TOKEN_CONFIG.reset_hours * 3600000;
+    const diff = Math.max(0, (ULastReset + resetMs) - Date.now());
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    return `${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function renderTokenBar() {
+    const el = $id('aiLimitInfo'); if (!el) return;
+    const pct = UP === 'ultimate' ? 100 : Math.round((UTokens / Math.max(1, UMaxTokens)) * 100);
+    const color = pct > 50 ? '#34d399' : pct > 20 ? '#f4c74a' : '#f87171';
+    const plan = getPlan(); const rank = getRank();
+    el.innerHTML = `
+        <div style="margin-bottom:8px;font-size:0.76rem;font-weight:700;color:#aaa">${rank.icon} ${rank.name} · ${plan.icon} ${plan.name}</div>
+        <div style="font-size:0.72rem;color:#888;margin-bottom:4px">🎫 Token: <strong style="color:${color}">${UP === 'ultimate' ? '∞' : UTokens}</strong>/${UP === 'ultimate' ? '∞' : UMaxTokens}</div>
+        <div style="height:4px;background:rgba(255,255,255,0.07);border-radius:100px;overflow:hidden;margin-bottom:6px">
+            <div style="height:100%;width:${pct}%;background:${color};border-radius:100px;transition:width 0.4s ease"></div>
+        </div>
+        ${UP !== 'ultimate' ? `<div style="font-size:0.68rem;color:#888;margin-bottom:6px">⏱ Yangilanish: <strong>${getTokenTimeLeft()}</strong></div>` : ''}`;
+
+    const limitText = $id('limitText');
+    const limitPills = $id('limitPills');
+    const limitReset = $id('limitReset');
+    if (UP === 'ultimate') {
+        if (limitText) limitText.innerHTML = `<i class="fa-solid fa-infinity" style="margin-right:4px;color:#f5c842"></i>Cheksiz AI xabar`;
+        if (limitPills) limitPills.innerHTML = '';
+        if (limitReset) limitReset.textContent = '';
+    } else {
+        if (limitText) limitText.innerHTML = `AI xabar: <b style="color:${UTokens > 5 ? '#34d399' : '#ef4444'}">${UTokens}</b> / ${UMaxTokens} qoldi`;
+        const pillCount = Math.min(UMaxTokens, 10);
+        const usedCount = Math.round(((UMaxTokens - UTokens) / UMaxTokens) * pillCount);
+        let pills = '';
+        for (let i = 0; i < pillCount; i++) pills += `<div class="lpill ${i < usedCount ? 'used' : 'ok'}"></div>`;
+        if (limitPills) limitPills.innerHTML = pills;
+        if (limitReset) limitReset.textContent = `${getTokenTimeLeft()} da yangilanadi`;
+    }
+}
+
+setInterval(() => { checkTokenReset(); renderTokenBar(); }, 10000);
+
+// ══════════════════════════════════════════════════════════════
+// TOKEN EMPTY MODAL
+// ══════════════════════════════════════════════════════════════
+function showTokenEmptyModal(reason) {
+    const modal = $id('upgradeModal'); if (!modal) return;
+    const textEl = $id('upgradeModalText');
+    const timerEl = $id('upgradeTimer');
+    if (textEl) textEl.innerHTML = `🎫 Tokenlar tugadi!<br><span style="font-size:0.8rem;color:#666">${reason || 'Davom etish uchun token kerak'}</span>`;
+    if (timerEl) {
+        const upd = () => { timerEl.textContent = `⏱ Yangilanish: ${getTokenTimeLeft()}`; };
+        upd();
+        const timer = setInterval(() => { upd(); if (UTokens > 0) clearInterval(timer); }, 1000);
+    }
+    modal.classList.add('active');
+}
+window.closeUpgradeModal = function (e) {
+    if (e && e.target !== $id('upgradeModal')) return;
+    $id('upgradeModal')?.classList.remove('active');
+};
+
+// ══════════════════════════════════════════════════════════════
+// FIREBASE LOAD / SAVE
+// ══════════════════════════════════════════════════════════════
+async function loadUserData() {
+    if (!CU) return;
+    try {
+        const snap = await getDoc(doc(_db, 'users', CU.uid));
+        if (snap.exists()) {
+            const d = snap.data();
+            UP = d.plan || 'free';
+            UTokens = d.tokens !== undefined ? d.tokens : calcMaxTokens();
+            UMaxTokens = d.maxTokens || calcMaxTokens();
+            ULastReset = d.lastTokenReset || Date.now();
+            UXP = d.xp || 0;
+            UCoin = d.coins || 0;
+            URank = d.rank || 'none';
+            UProg = d.progress || {};
+            USk = d.skills || { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
+            UStats = d.stats || { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 };
+        } else {
+            const newData = {
+                email: CU.email, displayName: CU.displayName || CU.email.split('@')[0],
+                plan: 'free', tokens: TOKEN_CONFIG.default_tokens, maxTokens: TOKEN_CONFIG.default_tokens,
+                lastTokenReset: Date.now(), xp: 0, totalXP: 0, coins: 0, totalCoins: 0,
+                rank: 'none', activeTags: [], ownedRanks: ['none'], ownedTags: [],
+                progress: {}, skills: { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 },
+                stats: { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 },
+                createdAt: serverTimestamp()
+            };
+            await setDoc(doc(_db, 'users', CU.uid), newData);
+            UTokens = TOKEN_CONFIG.default_tokens;
+            UMaxTokens = TOKEN_CONFIG.default_tokens;
+            ULastReset = Date.now();
+        }
+        checkTokenReset();
+    } catch (e) { console.error('loadUserData error:', e); }
+}
+
+async function updateUserField(fields) {
+    if (!CU) return;
+    try { await updateDoc(doc(_db, 'users', CU.uid), { ...fields, lastActive: serverTimestamp() }); }
+    catch (e) { console.warn(e); }
+}
+
+// ══════════════════════════════════════════════════════════════
+// XP & COIN
+// ══════════════════════════════════════════════════════════════
+async function awardXP(base, skill) {
+    const plan = getPlan(); const rank = getRank();
+    const total = Math.round(base * plan.xp_mult * rank.xp_mult);
+    UXP += total;
+    USk[skill] = Math.min(100, (USk[skill] || 0) + 2);
+    const coinFromXP = Math.floor(UXP / 100) - Math.floor((UXP - total) / 100);
+    if (coinFromXP > 0) { UCoin += coinFromXP; showToast(`🪙 +${coinFromXP} coin (XP bonus)`, 'info'); }
+    const updates = { xp: increment(total), totalXP: increment(total), [`skills.${skill}`]: USk[skill] };
+    if (coinFromXP > 0) { updates.coins = increment(coinFromXP); updates.totalCoins = increment(coinFromXP); }
+    await updateUserField(updates);
+    updateDisplays(); showXPPop(`+${total} XP`);
+}
+
+function updateDisplays() {
+    const xpEl = $id('xpDisplay');
+    if (xpEl) xpEl.textContent = UXP.toLocaleString();
+    renderTokenBar(); drawRadar();
+
+    const navUInfo = $id('navUserInfo');
+    const planBadge = $id('planBadgeNav');
+    const plan = (UP || 'free').toLowerCase();
+    const color = PLAN_COLORS[plan] || '#94a3b8';
+    if (planBadge) planBadge.innerHTML = `<span style="padding:3px 10px;border-radius:12px;background:${color}22;border:1px solid ${color}55;color:${color};font-size:0.72rem;font-weight:700">${(PLAN_LABELS[plan] || plan).toUpperCase()}</span>`;
+    if (navUInfo) navUInfo.innerHTML = `<div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:0.8rem;color:#e8ecff;font-weight:600">${CU?.displayName || CU?.email || 'User'}</span>
+        <span style="font-size:0.78rem;color:#f5c842">⭐ ${UXP.toLocaleString()}</span>
+        <span style="font-size:0.78rem;color:#fbbf24">🪙 ${UCoin.toLocaleString()}</span>
+    </div>`;
+
+    const navXP = $id('navXP');
+    const navCoin = $id('navCoin');
+    if (navXP) navXP.textContent = UXP.toLocaleString();
+    if (navCoin) navCoin.textContent = UCoin.toLocaleString();
+}
+
+// ══════════════════════════════════════════════════════════════
+// LEADERBOARD — FIX: toLocaleString() for large numbers
+// ══════════════════════════════════════════════════════════════
+window.loadLBSection = async function (field, btn) {
+    if (btn) {
+        document.querySelectorAll('#leaderboard-section .ptab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+    const container = $id('lbSectionContent'); if (!container) return;
+    container.innerHTML = `<div style="text-align:center;padding:30px;color:#666"><i class="fa-solid fa-spinner fa-spin" style="font-size:1.5rem;color:#a78bfa"></i><br>Yuklanmoqda...</div>`;
+    try {
+        const q = query(collection(_db, 'users'), orderBy(field, 'desc'), limit(20));
+        const snap = await getDocs(q);
+        const users = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        if (!users.length) { container.innerHTML = '<p style="text-align:center;color:#666">Hali hech kim yo\'q</p>'; return; }
+        const labels = { xp: 'XP', coins: 'Coin', unitsCompleted: 'Unit' };
+        const icons = { xp: 'fa-star', coins: 'fa-coins', unitsCompleted: 'fa-book' };
+        let html = `<div style="margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+            <span style="color:#666;font-size:0.8rem"><i class="fa-solid ${icons[field] || 'fa-trophy'}" style="margin-right:4px;color:#a78bfa"></i>${labels[field] || field} reytingi</span>
+            <span style="color:#666;font-size:0.78rem">${users.length} foydalanuvchi</span></div>`;
+        users.forEach((u, i) => {
+            const rank = i + 1;
+            const isMe = u.id === CU?.uid;
+            const rankClass = rank === 1 ? 'gold' : rank === 2 ? 'silver' : rank === 3 ? 'bronze' : '';
+            const rankIcon = rank === 1
+                ? '<i class="fa-solid fa-trophy" style="color:#f5c842"></i>'
+                : rank === 2 ? '<i class="fa-solid fa-medal" style="color:#94a3b8"></i>'
+                    : rank === 3 ? '<i class="fa-solid fa-medal" style="color:#cd7c4a"></i>'
+                        : `<span style="font-size:0.85rem">${rank}</span>`;
+            // FIX: toLocaleString() prevents overflow for large numbers
+            const rawVal = u[field] || 0;
+            const val = typeof rawVal === 'number' ? rawVal.toLocaleString('uz-UZ') : rawVal;
+            const planKey = (u.plan || 'free').toLowerCase();
+            const pc = PLAN_COLORS[planKey] || '#94a3b8';
+            const planLabel = PLAN_LABELS[planKey] || planKey.toUpperCase();
+            const initial = (u.displayName || u.email || 'U').charAt(0).toUpperCase();
+            html += `<div class="lb-row${isMe ? ' me' : ''}" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:14px;background:${isMe ? 'rgba(91,124,250,0.1)' : 'rgba(255,255,255,0.03)'};border:1px solid ${isMe ? 'rgba(91,124,250,0.28)' : 'rgba(255,255,255,0.06)'};margin-bottom:8px;transition:all 0.2s">
+                <div style="width:32px;text-align:center;font-weight:800;color:${rank === 1 ? '#f5c842' : rank === 2 ? '#94a3b8' : rank === 3 ? '#cd7c4a' : '#a78bfa'}">${rankIcon}</div>
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#5b7cfa,#a78bfa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;flex-shrink:0">${initial}</div>
+                <div style="flex:1;min-width:0">
+                    <div style="font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.86rem;color:#e8ecff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${u.displayName || u.email || 'Foydalanuvchi'}${isMe ? ' <span style="color:#a78bfa;font-size:0.7rem">(siz)</span>' : ''}</div>
+                    ${planKey !== 'free' ? `<span style="font-size:0.66rem;padding:1px 7px;border-radius:100px;background:${pc}22;border:1px solid ${pc}44;color:${pc}">${planLabel}</span>` : ''}
+                </div>
+                <div style="text-align:right;flex-shrink:0">
+                    <div style="font-family:'Cinzel',serif;font-weight:700;font-size:0.88rem;color:#a78bfa;white-space:nowrap"><i class="fa-solid ${icons[field] || 'fa-star'}" style="margin-right:4px;color:#a78bfa"></i>${val}</div>
+                    <div style="font-size:0.68rem;color:#555">${labels[field] || field}</div>
+                </div>
+            </div>`;
+        });
+        container.innerHTML = html;
+    } catch (e) {
+        container.innerHTML = `<div style="text-align:center;padding:30px;color:#ef4444"><i class="fa-solid fa-triangle-exclamation"></i> Xatolik: ${e.message}<br><button onclick="window.loadLBSection('${field}',null)" style="margin-top:12px;padding:8px 16px;border-radius:8px;background:#a78bfa22;border:1px solid #a78bfa44;color:#a78bfa;cursor:pointer">Qayta</button></div>`;
+    }
+};
+
+// ══════════════════════════════════════════════════════════════
+// AI — GROQ WORKER
+// ══════════════════════════════════════════════════════════════
+async function callAI(prompt, maxTok = 1000) {
+    try {
+        const r = await fetch(AI_PROXY, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                generationConfig: { temperature: 0.7, maxOutputTokens: maxTok }
+            })
+        });
+        if (!r.ok) return `❗ AI xatolik: ${r.status}.`;
+        const d = await r.json();
+        return d.candidates?.[0]?.content?.parts?.[0]?.text || 'Javob olishda xatolik.';
+    } catch (e) { return '❗ AI bilan bog\'lanishda xatolik.'; }
+}
+
+// ══════════════════════════════════════════════════════════════
+// RADAR CHART
+// ══════════════════════════════════════════════════════════════
+function drawRadar() {
+    const canvas = $id('radarCanvas'); if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const cx = 110, cy = 110, r = 80;
+    const skills = [USk.reading / 100, USk.writing / 100, USk.speaking / 100, USk.listening / 100, USk.grammar / 100].map(v => Math.max(0.05, v));
+    const angles = Array.from({ length: 5 }, (_, i) => -Math.PI / 2 + i * Math.PI * 2 / 5);
+    ctx.clearRect(0, 0, 220, 220);
+    for (let i = 1; i <= 4; i++) {
+        ctx.beginPath();
+        angles.forEach((a, j) => {
+            const x = cx + r * (i / 4) * Math.cos(a), y = cy + r * (i / 4) * Math.sin(a);
+            j ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+        });
+        ctx.closePath(); ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.stroke();
+    }
+    angles.forEach(a => {
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+        ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
+    });
+    ctx.beginPath();
+    angles.forEach((a, i) => {
+        const x = cx + r * skills[i] * Math.cos(a), y = cy + r * skills[i] * Math.sin(a);
+        i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    });
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(232,180,56,0.18)'; ctx.fill();
+    ctx.strokeStyle = 'rgba(232,180,56,0.8)'; ctx.lineWidth = 2; ctx.stroke();
+    angles.forEach((a, i) => {
+        ctx.beginPath();
+        ctx.arc(cx + r * skills[i] * Math.cos(a), cy + r * skills[i] * Math.sin(a), 4, 0, Math.PI * 2);
+        ctx.fillStyle = '#e8b438'; ctx.fill();
+    });
+}
+
+// ══════════════════════════════════════════════════════════════
+// UNITS
+// ══════════════════════════════════════════════════════════════
+window.switchLevel = function (level, el) {
+    curLevel = level;
+    document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', el ? t === el : t.dataset.level === level));
+    renderUnits();
+};
+
+function renderUnits() {
+    const grid = $id('unitsGrid'); if (!grid) return;
+    const units = UD_DATA[curLevel] || [];
+    grid.innerHTML = '';
+    units.forEach((unit, i) => {
+        const done = ['A', 'B', 'C', 'D'].filter(l => UProg[`${unit.id}_${l}`] >= 100).length;
+        const pct = Math.round((done / 4) * 100);
+        const isComp = pct === 100;
+        const card = document.createElement('div');
+        card.className = `unit-card${isComp ? ' completed' : ''}`;
+        card.innerHTML = `
+          <div style="font-size:0.75rem;color:#e8b438;margin-bottom:4px">Unit ${i + 1}</div>
+          <div style="font-size:1.8rem;margin-bottom:8px">${unit.emoji}</div>
+          <div style="font-weight:700;font-size:1rem;color:#e8ecff;margin-bottom:6px;font-family:'Cinzel',serif">${unit.title}</div>
+          <div style="font-size:0.8rem;color:#666;margin-bottom:12px">${unit.desc}</div>
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            ${['A', 'B', 'C', 'D'].map(l => `<div style="width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;background:${UProg[unit.id + '_' + l] >= 100 ? 'rgba(232,180,56,0.2)' : 'rgba(255,255,255,0.05)'};border:1px solid ${UProg[unit.id + '_' + l] >= 100 ? '#e8b438' : 'rgba(255,255,255,0.1)'};color:${UProg[unit.id + '_' + l] >= 100 ? '#e8b438' : '#666'}">${l}</div>`).join('')}
+          </div>
+          <div style="height:3px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;margin-bottom:8px">
+            <div style="height:100%;width:${pct}%;background:linear-gradient(90deg,#e8b438,#f5c842);border-radius:100px;transition:width 0.4s"></div>
+          </div>
+          <div style="font-size:0.76rem;display:flex;gap:10px">
+            <span style="color:#f5c842">+${unit.xp} XP</span>
+            <span style="color:#fbbf24">+${unit.coin} 🪙</span>
+            ${isComp ? '<span style="color:#34d399">✅</span>' : ''}
+          </div>`;
+        card.onmouseover = () => { card.style.background = 'rgba(232,180,56,0.06)'; card.style.borderColor = 'rgba(232,180,56,0.3)'; };
+        card.onmouseout = () => { card.style.background = ''; card.style.borderColor = ''; };
+        card.onclick = () => openUnit(unit);
+        grid.appendChild(card);
+    });
+}
+
+window.openUnit = function (unit) {
+    curUnit = unit;
+    const modal = $id('unitModal');
+    const content = $id('modalContent');
+    if (!modal || !content) return;
+    const lnames = { A: "📖 Grammatika & Lug'at", B: "🎧 Listening", C: "📖 Reading", D: "🎤 Speaking & Writing" };
+    const lcolors = { A: '#e8b438', B: '#22d3ee', C: '#34d399', D: '#f472b6' };
+    content.innerHTML = `
+      <div style="text-align:center;padding-bottom:20px">
+        <div style="font-size:3rem;margin-bottom:10px">${unit.emoji}</div>
+        <h2 style="margin-bottom:8px;font-family:'Cinzel',serif">${unit.title}</h2>
+        <p style="color:#666">${unit.desc}</p>
+        <div style="display:flex;gap:16px;justify-content:center;margin:16px 0;flex-wrap:wrap">
+          <span style="color:#f5c842">⭐ +${unit.xp} XP</span>
+          <span style="color:#fbbf24">🪙 +${unit.coin} Coin</span>
+          <span style="color:#60a5fa">📚 ${unit.words.length} so'z</span>
+          <span style="color:#a78bfa">🎫 2 token/dars</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+        ${['A', 'B', 'C', 'D'].map(k => {
+        const done = UProg[`${unit.id}_${k}`] >= 100;
+        const sc = UProg[`score_${unit.id}_${k}`] || 0;
+        return `<div onclick="window.openLesson('${unit.id}','${k}')" style="padding:16px;border-radius:12px;background:${done ? 'rgba(232,180,56,0.08)' : 'rgba(255,255,255,0.03)'};border:1px solid ${done ? 'rgba(232,180,56,0.3)' : 'rgba(255,255,255,0.08)'};cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderColor='${lcolors[k]}55'" onmouseout="this.style.borderColor='${done ? 'rgba(232,180,56,0.3)' : 'rgba(255,255,255,0.08)'}'">
+                <div style="font-size:1.2rem;font-weight:800;color:${lcolors[k]};margin-bottom:4px">${k}</div>
+                <div style="font-size:0.8rem;color:#e8ecff">${lnames[k]}</div>
+                ${done ? `<div style="font-size:0.72rem;color:#34d399;margin-top:4px">✅ ${sc}%</div>` : '<div style="font-size:0.72rem;color:#666;margin-top:4px">▶ Boshlash</div>'}
+            </div>`;
+    }).join('')}
+      </div>
+      <div>
+        <div style="font-size:0.78rem;color:#666;margin-bottom:8px">📝 So'zlar:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          ${unit.words.map(w => `<span onclick="window.spk('${w.replace(/'/g, "\\'")}',event)" style="background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.25);color:#e8b438;padding:4px 10px;border-radius:20px;font-size:0.76rem;cursor:pointer;direction:rtl">${w} 🔊</span>`).join('')}
+        </div>
+      </div>`;
+    modal.classList.add('active');
+    window.__curUnit = unit;
+};
+
+window.openLesson = async function (unitId, lessonKey) {
+    let unit = null;
+    for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === unitId); if (f) { unit = f; break; } }
+    if (!unit) return;
+    const alreadyDone = UProg[`${unitId}_${lessonKey}`] >= 100;
+    if (!alreadyDone) { const ok = await spendTokens(TOKEN_CONFIG.unit_cost, `${unit.title} darsi`); if (!ok) return; }
+    curUnit = unit; lScore = 0; lTotal = 0;
+    lexSel = {}; rSel = {}; woAns = []; lessonMics = {};
+    showLessonModal(unit, lessonKey);
+};
+
+function showLessonModal(unit, lk) {
+    const modal = $id('unitModal');
+    const content = $id('modalContent');
+    if (!modal || !content) return;
+    const lnames = { A: "📖 Grammatika & Lug'at", B: "🎧 Listening", C: "📖 Reading", D: "🎤 Speaking & Writing" };
+    content.innerHTML = `<div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08)">
+        <button onclick="window.openUnit(window.__curUnit)" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#e8ecff;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:0.8rem;font-family:inherit">← Orqaga</button>
+        <div style="font-weight:700">${unit.emoji} ${unit.title} — ${lnames[lk]}</div>
+        <span style="margin-left:auto;font-size:0.72rem;color:#e8b438;background:rgba(232,180,56,0.1);padding:3px 10px;border-radius:20px">${unit.level}</span>
+      </div>
+      <div id="lessonBody">${getLessonHTML(unit, lk)}</div>
+    </div>`;
+    modal.classList.add('active');
+    if (lk === 'D') woAns = [];
+}
+
+function getLessonHTML(unit, lk) {
+    if (lk === 'A') return lessonA(unit);
+    if (lk === 'B') return lessonB(unit);
+    if (lk === 'C') return lessonC(unit);
+    if (lk === 'D') return lessonD(unit);
+    return '';
+}
+
+// ─── LESSON A ───
+function lessonA(unit) {
+    const words = unit.words.slice(0, 12);
+    const fills = words.slice(0, 4).map((w, i) => {
+        const wd = WDB.find(x => x.a === w) || { ex: `استخدم الكلمة "${w}".`, eu: '', u: '' };
+        const blank = wd.ex.replace(w, '_______');
+        return `<div style="margin-bottom:14px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px">
+          <div style="font-size:0.9rem;margin-bottom:4px;direction:rtl">${i + 1}. ${blank}</div>
+          <div style="font-size:0.75rem;color:#666;margin-bottom:8px;font-style:italic">${wd.eu}</div>
+          <input id="gex${i}" data-ans="${w}" placeholder="Javobingiz (arabcha)..." dir="rtl" style="width:100%;padding:8px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;margin-bottom:8px;box-sizing:border-box;font-size:1rem">
+          <div style="display:flex;gap:6px">
+            <button onclick="window.chkFill(${i})" style="padding:6px 14px;border-radius:8px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);color:#34d399;cursor:pointer;font-size:0.78rem;font-family:inherit">✓ Tekshir</button>
+            <button onclick="window.aiExWord('${w.replace(/'/g, "\\'")}',event)" style="padding:6px 14px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.25);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🤖 AI</button>
+            <button onclick="window.spk('${w.replace(/'/g, "\\'")}',event)" style="padding:6px 14px;border-radius:8px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);color:#60a5fa;cursor:pointer;font-size:0.78rem;font-family:inherit">🔊</button>
+          </div>
+          <div id="gexfb${i}" style="margin-top:6px;font-size:0.8rem"></div>
+        </div>`;
+    }).join('');
+
+    const matchW = words.slice(0, 6);
+    const shuffUZ = shuffle(matchW.map(w => { const d = WDB.find(x => x.a === w); return d ? d.u : w; }));
+
+    return `
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">📚 So'zlar lug'ati</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">
+        ${words.map(w => {
+        const d = WDB.find(x => x.a === w) || { u: '', t: '', ex: '', eu: '' };
+        return `<div style="padding:14px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+                <button onclick="window.spk('${w.replace(/'/g, "\\'")}',event)" style="background:none;border:none;cursor:pointer;font-size:1rem">🔊</button>
+                <span style="font-weight:700;font-size:1.1rem;color:#e8ecff;direction:rtl">${w}</span>
+              </div>
+              <div style="color:#e8b438;font-size:0.82rem;margin-bottom:3px;text-align:center">${d.u}</div>
+              <div style="color:#666;font-size:0.72rem;font-style:italic;direction:rtl;text-align:right">"${d.ex}"</div>
+            </div>`;
+    }).join('')}
+      </div>
+    </div>
+    <div style="margin-bottom:20px;padding:16px;background:rgba(232,180,56,0.06);border:1px solid rgba(232,180,56,0.15);border-radius:12px">
+      <h3 style="margin-bottom:10px;color:#e8ecff">📝 Grammatika Qoidasi</h3>
+      <div style="font-size:0.9rem;color:#e8b438;margin-bottom:8px">💡 ${unit.grammar_rule || ''}</div>
+      <div style="font-size:0.85rem;color:#fbbf24;font-style:italic;direction:rtl">${unit.grammar_example || ''}</div>
+      <button onclick="window.aiGrammarExplain('${unit.title}','${(unit.grammar_rule || '').replace(/'/g, "\\'")}')" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.25);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🤖 AI batafsil tushuntirsin (1 token)</button>
+      <div id="gramRuleFB" style="margin-top:8px;font-size:0.8rem"></div>
+    </div>
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">✏️ To'ldirish Mashqlari</h3>
+      ${fills}
+      <div id="vocabAIFB" style="font-size:0.8rem"></div>
+    </div>
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">🧩 Juftlash Mashqi</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div>${matchW.map((w, i) => `<div class="match-item eng" data-i="${i}" onclick="window.selMatch(this,'e',${i})" style="padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);cursor:pointer;margin-bottom:6px;font-size:1rem;color:#e8ecff;transition:all 0.2s;direction:rtl;text-align:right">${w}</div>`).join('')}</div>
+        <div>${shuffUZ.map(u => `<div class="match-item uz" data-u="${u}" onclick="window.selMatch(this,'u','${u.replace(/'/g, "\\'")}')" style="padding:10px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);cursor:pointer;margin-bottom:6px;font-size:0.88rem;color:#e8b438;transition:all 0.2s">${u}</div>`).join('')}</div>
+      </div>
+      <div id="matchFB" style="margin-top:8px;font-size:0.8rem"></div>
+    </div>
+    <button onclick="window.finLessonA('${unit.id}')" style="width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#e8b438,#f5c842);border:none;color:#000;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit">✅ Grammatika darsini yakunlash</button>`;
+}
+
+window.chkFill = function (i) {
+    const inp = $id(`gex${i}`); const fb = $id(`gexfb${i}`);
+    if (!inp || !fb) return;
+    if (inp.value.trim() === inp.dataset.ans) {
+        fb.innerHTML = `<span style="color:#34d399">✅ To'g'ri! "${inp.dataset.ans}"</span>`;
+        inp.style.borderColor = '#34d399'; lScore++; awardXP(10, 'grammar');
+    } else {
+        fb.innerHTML = `<span style="color:#ef4444">❌ To'g'ri javob: <strong dir="rtl">${inp.dataset.ans}</strong></span>`;
+        inp.style.borderColor = '#ef4444';
+    }
+    lTotal++;
+};
+
+window.selMatch = function (el, type, val) {
+    if (type === 'e') {
+        document.querySelectorAll('.match-item.eng').forEach(x => { x.style.borderColor = 'rgba(255,255,255,0.1)'; x.style.background = 'rgba(255,255,255,0.04)'; });
+        el.style.background = 'rgba(232,180,56,0.2)'; el.style.borderColor = '#e8b438';
+        mSel.e = val; mSel.eEl = el;
+    } else {
+        document.querySelectorAll('.match-item.uz').forEach(x => { x.style.borderColor = 'rgba(255,255,255,0.1)'; x.style.background = 'rgba(255,255,255,0.04)'; });
+        el.style.background = 'rgba(232,180,56,0.15)'; el.style.borderColor = '#f5c842';
+        mSel.u = val; mSel.uEl = el;
+    }
+    if (mSel.e !== null && mSel.u !== null) {
+        const w = (curUnit?.words || [])[mSel.e];
+        const wd = WDB.find(x => x.a === w);
+        if (wd && wd.u === mSel.u) {
+            mSel.eEl.style.background = 'rgba(52,211,153,0.15)'; mSel.eEl.style.borderColor = '#34d399';
+            mSel.uEl.style.background = 'rgba(52,211,153,0.15)'; mSel.uEl.style.borderColor = '#34d399';
+            awardXP(5, 'grammar'); showToast(`✅ "${w}" = "${mSel.u}"!`, 'success');
+        } else {
+            mSel.eEl.style.background = 'rgba(239,68,68,0.15)'; mSel.eEl.style.borderColor = '#ef4444';
+            mSel.uEl.style.background = 'rgba(239,68,68,0.15)'; mSel.uEl.style.borderColor = '#ef4444';
+            setTimeout(() => {
+                if (mSel.eEl) { mSel.eEl.style.background = 'rgba(255,255,255,0.04)'; mSel.eEl.style.borderColor = 'rgba(255,255,255,0.1)'; }
+                if (mSel.uEl) { mSel.uEl.style.background = 'rgba(255,255,255,0.04)'; mSel.uEl.style.borderColor = 'rgba(255,255,255,0.1)'; }
+            }, 700);
+        }
+        mSel = { e: null, u: null, eEl: null, uEl: null };
+    }
+};
+
+window.aiGrammarExplain = async function (title, rule) {
+    const ok = await spendTokens(TOKEN_CONFIG.ai_cost, 'AI grammatika izoh'); if (!ok) return;
+    const fb = $id('gramRuleFB'); if (fb) fb.innerHTML = '🤖 AI tahlil qilmoqda...';
+    const r = await callAI(`"${title}" mavzusida "${rule}" arab tili grammatika qoidasini O'zbek tilida tushuntir. 3 ta arab tilidagi misol keltir.`, 800);
+    if (fb) fb.innerHTML = r.replace(/\n/g, '<br>');
+};
+
+window.aiExWord = async function (word, e) {
+    if (e) e.stopPropagation();
+    const ok = await spendTokens(TOKEN_CONFIG.ai_cost, `"${word}" AI izoh`); if (!ok) return;
+    const fb = $id('vocabAIFB') || $id('wordAIFB');
+    if (fb) fb.innerHTML = `🤖 "${word}" tahlil qilmoqda...`;
+    const r = await callAI(`"${word}" arabcha so'zini O'zbek tilida: 1) Ma'nosi 2) 3 misol 3) Eslatma`, 600);
+    if (fb) fb.innerHTML = r.replace(/\n/g, '<br>');
+};
+
 window.finLessonA = async function (uid) { await finLesson(uid, 'A', 'grammar', lScore, lTotal || 4); };
 
-function lessonB(unit) { const exs = genListenExs(unit); window.__listenExs = exs; return `<div class="ls-section"><h3 class="ls-title">🎧 Arabcha Listening Mashqi</h3><p class="ls-hint">Audio tugmani bosing, arabcha diqqat bilan eshiting va savolga javob bering</p><div id="lexCont">${renderLex(exs, 0)}</div></div><div class="ls-section"><h3 class="ls-title">✍️ Arabcha Diktant</h3><p class="ls-hint">Arabcha gapni eshiting va to'liq yozing:</p><div class="dict-controls"><button class="btn-play" onclick="playDict('${unit.id}','normal')">▶ Arabcha Eshitish</button><button class="btn-play btn-slow" onclick="playDict('${unit.id}','slow')">🐌 Sekin</button></div><div class="dict-wave" id="dwave"><span></span><span></span><span></span><span></span><span></span></div><textarea class="dict-input" id="dictIn" placeholder="Eshitgan arabcha gapingizni yozing..."></textarea><div class="dict-actions"><button class="btn-sm btn-check" onclick="chkDict()">✓ Tekshir</button><button class="btn-sm btn-ai" onclick="aiChkDict()">🤖 AI tahlil</button></div><div class="gex-fb" id="dictFB"></div></div><button class="btn-complete" onclick="finLessonB('${unit.id}')">✅ Listening yakunlash</button>`; }
+// ─── LESSON B ───
+function lessonB(unit) {
+    const exs = genListenExs(unit);
+    window.__listenExs = exs;
+    return `
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">🎧 Listening Mashqi</h3>
+      <div id="lexCont">${renderLex(exs, 0)}</div>
+    </div>
+    <div style="margin-bottom:20px;padding:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">✍️ Diktant</h3>
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <button onclick="window.playDict('${unit.id}','normal')" style="padding:8px 16px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2);color:#e8b438;cursor:pointer;font-size:0.82rem;font-family:inherit">▶ Eshitish</button>
+        <button onclick="window.playDict('${unit.id}','slow')" style="padding:8px 16px;border-radius:8px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);color:#60a5fa;cursor:pointer;font-size:0.82rem;font-family:inherit">🐌 Sekin</button>
+      </div>
+      <textarea id="dictIn" placeholder="Eshitgangizni arabcha yozing..." dir="rtl" style="width:100%;height:80px;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;resize:none;box-sizing:border-box;font-size:1rem"></textarea>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <button onclick="window.chkDict()" style="padding:7px 14px;border-radius:8px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);color:#34d399;cursor:pointer;font-size:0.78rem;font-family:inherit">✓ Tekshir</button>
+        <button onclick="window.aiChkDict()" style="padding:7px 14px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.25);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🤖 AI tahlil (1 token)</button>
+      </div>
+      <div id="dictFB" style="margin-top:8px;font-size:0.8rem"></div>
+    </div>
+    <button onclick="window.finLessonB('${unit.id}')" style="width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#22d3ee,#e8b438);border:none;color:#000;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit">✅ Listening yakunlash</button>`;
+}
 
-function genListenExs(unit) { const w = unit.words; return [{ text: `اليوم نتحدث عن موضوع "${unit.title}". كلمة "${w[0]}" مهمة جداً في اللغة العربية. تُستخدم هذه الكلمة كثيراً في الحياة اليومية. كذلك كلمة "${w[1] || w[0]}" مرتبطة بموضوع "${unit.desc}".`, q: `عمَّ يتحدث النص؟`, opts: [unit.title, 'رياضة', 'طبيعة', 'تاريخ'], c: 0, tip: `"اليوم نتحدث عن موضوع..."` }, { text: `مرحبا! اسمي أحمد. سأحدثكم اليوم عن كلمات "${w[0]}" و"${w[1] || w[0]}" و"${w[2] || w[0]}". هذه الكلمات تتعلق بـ"${unit.title}". أولاً نتناول كلمة "${w[0]}". ثم سنتدرب بأمثلة. هل أنتم جاهزون؟`, q: `ما الكلمة التي سيتناولها أحمد أولاً؟`, opts: [`${w[2] || w[0]}`, `${w[0]}`, `${w[1] || w[0]}`, 'كل الكلمات معاً'], c: 1, tip: `"أولاً نتناول كلمة..."` }, { text: `${unit.title} موضوع شيق. إذا أردت تحسين عربيتك، عليك معرفة كلمة "${w[0]}" و"${w[1] || w[0]}". كثير من الطلاب يجدون "${w[2] || w[0]}" صعبة في البداية، لكن مع التدريب يصبح كل شيء أسهل.`, q: `ما الذي يصبح أسهل مع التدريب؟`, opts: [`${w[0]}`, `${w[1] || w[0]}`, `${w[2] || w[0]}`, `${w[3] || w[0]}`], c: 2, tip: `"...مع التدريب يصبح كل شيء أسهل"` }]; }
+function genListenExs(unit) {
+    const w = unit.words;
+    return [
+        { text: `اليوم نتحدث عن ${unit.title}. كلمة "${w[0]}" مهمة جداً في اللغة العربية.`, q: `Bu matn asosan nima haqida?`, opts: [unit.title, 'Sport', 'Ovqat', 'Sayohat'], c: 0, tip: `"اليوم نتحدث عن..."` },
+        { text: `مرحباً! اسمي فاطمة. اليوم سأعلمكم عن ${w[0]}. أولاً، لنتحدث عن "${w[0]}". هل أنتم مستعدون؟`, q: `Fatima birinchi nima haqida o'rgatadi?`, opts: [`${w[2] || w[0]}`, `${w[0]}`, `${w[1] || w[0]}`, 'Hamma narsa'], c: 1, tip: `"أولاً، لنتحدث عن..."` },
+        { text: `${unit.title} موضوع رائع. إذا أردت تحسين عربيتك، تدرّب كل يوم. مع الممارسة يصبح الأمر سهلاً.`, q: `Mashq bilan nima osonlashadi?`, opts: [`${w[0]}`, `${w[1] || w[0]}`, 'Arabcha', 'Hech narsa'], c: 2, tip: `"...مع الممارسة يصبح الأمر سهلاً"` }
+    ];
+}
 
-function renderLex(exs, idx) { const ex = exs[idx]; if (!ex) return '<div class="lex-done">🎉 Barcha listening mashqlari tugadi!</div>'; return `<div class="lex-card"><div class="lex-num">Savol ${idx + 1}/${exs.length}</div><div class="lex-controls"><button class="btn-play" onclick="playLex(${idx},'normal')">▶ Arabcha Tinglash</button><button class="btn-play btn-slow" onclick="playLex(${idx},'slow')">🐌 Sekin</button></div><div class="lex-wave" id="lwave${idx}"><span></span><span></span><span></span><span></span><span></span></div><div class="lex-transcript" id="ltxt${idx}" style="display:none">${ex.text}</div><div class="lex-q">${ex.q}</div><div class="lex-opts">${ex.opts.map((o, oi) => `<div class="lex-opt" data-qi="${idx}" data-oi="${oi}" onclick="selLex(this,${idx},${oi})">${String.fromCharCode(65 + oi)}. ${o}</div>`).join('')}</div><div class="lex-tip">💡 Maslahat: ${ex.tip}</div><div class="lex-actions"><button class="btn-sm btn-check" onclick="chkLex(${idx},${ex.c})">✓ Tekshir</button>${idx + 1 < exs.length ? `<button class="btn-sm btn-next" onclick="nextLex(${idx + 1})" id="lexnxt${idx}" style="display:none">→ Keyingi</button>` : ''}</div><div class="gex-fb" id="lexfb${idx}"></div></div>`; }
+function renderLex(exs, idx) {
+    const ex = exs[idx];
+    if (!ex) return '<div style="text-align:center;padding:20px;color:#34d399">🎉 Barcha listening mashqlari tugadi!</div>';
+    return `<div style="padding:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px">
+      <div style="font-size:0.75rem;color:#e8b438;margin-bottom:8px">Savol ${idx + 1}/${exs.length}</div>
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <button onclick="window.playLex(${idx},'normal')" style="padding:8px 16px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2);color:#e8b438;cursor:pointer;font-size:0.82rem;font-family:inherit">▶ Tinglash</button>
+        <button onclick="window.playLex(${idx},'slow')" style="padding:8px 16px;border-radius:8px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);color:#60a5fa;cursor:pointer;font-size:0.82rem;font-family:inherit">🐌 Sekin</button>
+      </div>
+      <div id="ltxt${idx}" style="display:none;padding:10px;background:rgba(255,255,255,0.04);border-radius:8px;font-size:1rem;color:#e8ecff;margin-bottom:10px;font-style:italic;direction:rtl;text-align:right">${ex.text}</div>
+      <div style="font-weight:600;margin-bottom:10px">${ex.q}</div>
+      <div>${ex.opts.map((o, oi) => `<div class="lex-opt" data-qi="${idx}" data-oi="${oi}" onclick="window.selLex(this,${idx},${oi})" style="padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);cursor:pointer;margin-bottom:6px;font-size:0.88rem;transition:all 0.2s">${String.fromCharCode(65 + oi)}. ${o}</div>`).join('')}</div>
+      <div style="font-size:0.75rem;color:#666;margin-bottom:10px">💡 ${ex.tip}</div>
+      <div style="display:flex;gap:6px">
+        <button onclick="window.chkLex(${idx},${ex.c})" style="padding:7px 14px;border-radius:8px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);color:#34d399;cursor:pointer;font-size:0.78rem;font-family:inherit">✓ Tekshir</button>
+        ${idx + 1 < exs.length ? `<button onclick="window.nextLex(${idx + 1})" id="lexnxt${idx}" style="display:none;padding:7px 14px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">→ Keyingi</button>` : ''}
+      </div>
+      <div id="lexfb${idx}" style="margin-top:8px;font-size:0.8rem"></div>
+    </div>`;
+}
 
-window.playLex = function (idx, speed) { const exs = window.__listenExs || []; if (!exs[idx]) return; const wv = document.getElementById(`lwave${idx}`); if (wv) wv.classList.remove('paused'); const u = new SpeechSynthesisUtterance(exs[idx].text); u.lang = LANG; u.rate = speed === 'slow' ? 0.55 : 0.82; u.onend = () => { if (wv) wv.classList.add('paused'); }; speechSynthesis.cancel(); speechSynthesis.speak(u); };
-window.selLex = function (el, qi, oi) { document.querySelectorAll(`.lex-opt[data-qi="${qi}"]`).forEach(o => o.classList.remove('selected')); el.classList.add('selected'); lexSel[qi] = oi; };
-window.chkLex = function (idx, correct) { const fb = document.getElementById(`lexfb${idx}`); const sel = lexSel[idx]; if (sel === undefined) { if (fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = '⚠️ Javob tanlang!'; } return; } document.querySelectorAll(`.lex-opt[data-qi="${idx}"]`).forEach((o, i) => { if (i === correct) o.classList.add('lex-correct'); else if (i === sel && sel !== correct) o.classList.add('lex-wrong'); }); const txEl = document.getElementById(`ltxt${idx}`); if (txEl) txEl.style.display = 'block'; if (sel === correct) { if (fb) { fb.className = 'gex-fb correct'; fb.innerHTML = "✅ To'g'ri! Ajoyib tinglovchisiz!"; } lScore++; awardXP(15, 'listening'); } else { if (fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = `❌ Noto'g'ri. To'g'ri: <strong>${String.fromCharCode(65 + correct)}</strong>`; } } lTotal++; const nxt = document.getElementById(`lexnxt${idx}`); if (nxt) nxt.style.display = 'inline-flex'; };
-window.nextLex = function (idx) { const exs = window.__listenExs || []; const cont = document.getElementById('lexCont'); if (cont) cont.innerHTML = renderLex(exs, idx); };
-
-let dictSent = '';
-window.playDict = function (uid, speed) { let unit = null; for (const lvl of Object.values(UNITS_DATA)) { const f = lvl.find(u => u.id === uid); if (f) { unit = f; break; } } if (!unit) return; const w = unit.words[0]; const wd = WDB.find(x => x.e === w); dictSent = wd ? wd.ex : `كلمة "${w}" مهمة جداً في اللغة العربية.`; const wv = document.getElementById('dwave'); if (wv) wv.classList.remove('paused'); const u = new SpeechSynthesisUtterance(dictSent); u.lang = LANG; u.rate = speed === 'slow' ? 0.5 : 0.82; u.onend = () => { if (wv) wv.classList.add('paused'); }; speechSynthesis.cancel(); speechSynthesis.speak(u); };
-window.chkDict = function () { const inp = document.getElementById('dictIn'); const fb = document.getElementById('dictFB'); if (!inp || !fb) return; if (!dictSent) { fb.className = 'gex-fb wrong'; fb.innerHTML = '⚠️ Avval arabcha audio tinglang!'; return; } const usr = inp.value.trim(); if (!usr) { fb.className = 'gex-fb wrong'; fb.innerHTML = '⚠️ Avval yozing!'; return; } const cw = dictSent.replace(/[.,!?]/g, '').split(' '); const uw = usr.replace(/[.,!?]/g, '').split(' '); let mc = 0; const hl = cw.map(w => { if (uw.includes(w)) { mc++; return `<span class="dc">${w}</span>`; } return `<span class="dw">${w}</span>`; }).join(' '); const pct = Math.round((mc / cw.length) * 100); fb.className = 'gex-fb info show'; fb.innerHTML = `<div><strong>To'g'ri arabcha jumla:</strong> ${hl}</div><div style="margin-top:6px"><strong>Sizniki:</strong> ${usr}</div><div class="dict-score">To'g'rilik: ${pct}%</div>`; if (pct >= 70) { lScore++; awardXP(20, 'listening'); } lTotal++; };
-window.aiChkDict = async function () { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const inp = document.getElementById('dictIn'); const fb = document.getElementById('dictFB'); if (!inp?.value.trim()) { if (fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = 'Avval yozing!'; } return; } fb.className = 'gex-fb info'; fb.innerHTML = '🤖 AI tahlil qilmoqda...'; UL.ai_used_today++; saveLimits(); const r = await callAI(`Arabcha diktant natijasini O'zbek tilida tahlil qil:\nAsl arabcha matn: "${dictSent}"\nO'quvchi yozdi: "${inp.value.trim()}"\n1) Imlo xatolari\n2) Tushirib qoldirilgan so'zlar\n3) Ball: /10\n4) Arabcha yozishni yaxshilash bo'yicha maslahat`, 700); fb.className = 'gex-fb info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); };
+window.playLex = function (idx, speed) {
+    const exs = window.__listenExs || []; if (!exs[idx]) return;
+    const u = new SpeechSynthesisUtterance(exs[idx].text);
+    u.lang = 'ar-SA'; u.rate = speed === 'slow' ? 0.55 : 0.8;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+};
+window.selLex = function (el, qi, oi) {
+    document.querySelectorAll(`.lex-opt[data-qi="${qi}"]`).forEach(o => { o.style.background = 'rgba(255,255,255,0.04)'; o.style.borderColor = 'rgba(255,255,255,0.08)'; });
+    el.style.background = 'rgba(232,180,56,0.15)'; el.style.borderColor = '#e8b438';
+    lexSel[qi] = oi;
+};
+window.chkLex = function (idx, correct) {
+    const fb = $id(`lexfb${idx}`);
+    const sel = lexSel[idx];
+    if (sel === undefined) { if (fb) fb.innerHTML = '<span style="color:#f5c842">⚠️ Javob tanlang!</span>'; return; }
+    document.querySelectorAll(`.lex-opt[data-qi="${idx}"]`).forEach((o, i) => {
+        if (i === correct) { o.style.background = 'rgba(52,211,153,0.2)'; o.style.borderColor = '#34d399'; }
+        else if (i === sel && sel !== correct) { o.style.background = 'rgba(239,68,68,0.2)'; o.style.borderColor = '#ef4444'; }
+    });
+    const txEl = $id(`ltxt${idx}`); if (txEl) txEl.style.display = 'block';
+    if (sel === correct) { if (fb) fb.innerHTML = '<span style="color:#34d399">✅ To\'g\'ri!</span>'; lScore++; awardXP(15, 'listening'); }
+    else { if (fb) fb.innerHTML = `<span style="color:#ef4444">❌ To'g'ri: <strong>${String.fromCharCode(65 + correct)}</strong></span>`; }
+    lTotal++;
+    const nxt = $id(`lexnxt${idx}`); if (nxt) nxt.style.display = 'inline-flex';
+};
+window.nextLex = function (idx) {
+    const exs = window.__listenExs || [];
+    const cont = $id('lexCont'); if (cont) cont.innerHTML = renderLex(exs, idx);
+};
+window.playDict = function (uid, speed) {
+    let unit = null;
+    for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === uid); if (f) { unit = f; break; } }
+    if (!unit) return;
+    const wd = WDB.find(x => x.a === unit.words[0]);
+    dictSent = wd ? wd.ex : `${unit.words[0]} مهم جداً.`;
+    const u2 = new SpeechSynthesisUtterance(dictSent);
+    u2.lang = 'ar-SA'; u2.rate = speed === 'slow' ? 0.5 : 0.8;
+    speechSynthesis.cancel(); speechSynthesis.speak(u2);
+};
+window.chkDict = function () {
+    const inp = $id('dictIn'); const fb = $id('dictFB');
+    if (!inp || !fb || !dictSent) { if (fb) fb.innerHTML = '<span style="color:#f5c842">⚠️ Avval audio tinglang!</span>'; return; }
+    const userTrimmed = inp.value.trim();
+    const correct = dictSent.trim();
+    const pct = userTrimmed === correct ? 100 : Math.round((userTrimmed.length / correct.length) * 80);
+    fb.innerHTML = `<div><strong>To'g'ri:</strong> <span dir="rtl">${correct}</span></div><div style="margin-top:6px"><strong>Siz:</strong> <span dir="rtl">${userTrimmed}</span></div><div style="font-size:0.9rem;font-weight:700;margin-top:6px;color:${pct >= 70 ? '#34d399' : '#ef4444'}">${pct}%</div>`;
+    if (pct >= 70) { lScore++; awardXP(20, 'listening'); }
+    lTotal++;
+};
+window.aiChkDict = async function () {
+    const ok = await spendTokens(TOKEN_CONFIG.ai_cost, 'AI diktant tahlil'); if (!ok) return;
+    const inp = $id('dictIn'); const fb = $id('dictFB');
+    if (!inp?.value.trim()) { if (fb) fb.innerHTML = '<span style="color:#f5c842">Avval yozing!</span>'; return; }
+    fb.innerHTML = '🤖 AI tahlil qilmoqda...';
+    const r = await callAI(`Arabcha diktant tahlili O'zbek tilida:\nAsl: "${dictSent}"\nO'quvchi: "${inp.value.trim()}"\n1) Xatolari 2) Ball: /10 3) Maslahat`, 600);
+    fb.innerHTML = r.replace(/\n/g, '<br>');
+};
 window.finLessonB = async function (uid) { await finLesson(uid, 'B', 'listening', lScore, lTotal || 3); };
 
-function lessonC(unit) { const rt = unit.reading_text || `${unit.title} — arab tilining muhim mavzusi.`; const qs = unit.reading_qs || [{ q: 'Matn nima haqida?', opts: [unit.title, 'Sport', 'Taom', 'Ob-havo'], c: 0 }]; const wh = unit.words.slice(0, 5); return `<div class="ls-section"><h3 class="ls-title">📖 Arabcha Matn O'qish</h3><div class="reading-card"><div class="reading-title">${unit.title}</div><div class="reading-body" id="rdbody">${rt}</div><div class="reading-actions"><button class="btn-sm btn-play" onclick="rdAloud()">🔊 Arabcha Tinglash</button><button class="btn-sm btn-check" onclick="hlVocab('${unit.id}')">🖊 So'zlarni ajratish</button></div></div></div><div class="ls-section"><h3 class="ls-title">❓ Tushunish Savollari</h3>${qs.map((q, qi) => `<div class="rq-card"><div class="rq-q">${qi + 1}. ${q.q}</div><div class="rq-opts">${q.opts.map((o, oi) => `<div class="rq-opt" data-qi="${qi}" data-oi="${oi}" onclick="selRQ(this,${qi},${oi})">${String.fromCharCode(65 + oi)}. ${o}</div>`).join('')}</div><div class="gex-fb" id="rqfb${qi}"></div></div>`).join('')}<div class="rd-actions"><button class="btn-sm btn-check" onclick="chkAllRQ(${JSON.stringify(qs.map(q => q.c))})">✓ Hammasini tekshir</button><button class="btn-sm btn-ai" onclick="aiRdHelp('${unit.title.replace(/'/g, "\\'")}')" >🤖 AI tushuntirsin</button></div><div class="gex-fb" id="rdTotFB"></div></div><div class="ls-section"><h3 class="ls-title">🔤 Arabcha So'z Yozish</h3>${wh.map((w, i) => { const d = WDB.find(x => x.e === w) || { u: w }; return `<div class="wh-row"><span class="wh-uz">${d.u} →</span><input class="wh-inp" id="whi${i}" data-ans="${w}" placeholder="arabcha..."><button class="wh-btn" onclick="chkWH(${i})">✓</button><button class="wh-btn" onclick="spk('${w.replace(/'/g, "\\'")}')" >🔊</button><span class="wh-fb" id="whfb${i}"></span></div>`; }).join('')}</div><button class="btn-complete" onclick="finLessonC('${unit.id}')">✅ Reading yakunlash</button>`; }
+// ─── LESSON C ───
+function lessonC(unit) {
+    const qs = unit.reading_qs || [];
+    const wh = unit.words.slice(0, 5);
+    return `
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">📖 Matn o'qish</h3>
+      <div style="padding:16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px">
+        <div style="font-weight:700;font-size:1rem;margin-bottom:10px;color:#e8ecff;direction:rtl;text-align:right">${unit.title}</div>
+        <div id="rdbody" style="font-size:0.95rem;line-height:2;color:#c7d2fe;direction:rtl;text-align:right">${unit.reading_text || ''}</div>
+        <div style="display:flex;gap:6px;margin-top:12px">
+          <button onclick="window.rdAloud()" style="padding:7px 14px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🔊 Tinglash</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">❓ Savolar</h3>
+      ${qs.map((q, qi) => `<div style="margin-bottom:14px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px">
+        <div style="font-weight:600;margin-bottom:10px">${qi + 1}. ${q.q}</div>
+        <div>${q.opts.map((o, oi) => `<div class="rq-opt" data-qi="${qi}" data-oi="${oi}" onclick="window.selRQ(this,${qi},${oi})" style="padding:10px 14px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);cursor:pointer;margin-bottom:6px;font-size:0.88rem;transition:all 0.2s">${String.fromCharCode(65 + oi)}. ${o}</div>`).join('')}</div>
+        <div id="rqfb${qi}" style="margin-top:6px;font-size:0.8rem"></div>
+      </div>`).join('')}
+      <button onclick="window.chkAllRQ(${JSON.stringify(qs.map(q => q.c))})" style="padding:8px 16px;border-radius:8px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);color:#34d399;cursor:pointer;font-size:0.82rem;font-family:inherit;margin-top:8px">✓ Hammasini tekshir</button>
+      <div id="rdTotFB" style="margin-top:8px;font-size:0.8rem"></div>
+    </div>
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">🔤 So'z yozish</h3>
+      ${wh.map((w, i) => {
+        const d = WDB.find(x => x.a === w) || { u: w };
+        return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <span style="color:#e8b438;font-size:0.85rem;min-width:100px">${d.u}</span>
+          <input id="whi${i}" data-ans="${w}" placeholder="arabcha..." dir="rtl" style="flex:1;padding:8px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;font-size:1rem">
+          <button onclick="window.chkWH(${i})" style="padding:7px 12px;border-radius:8px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);color:#34d399;cursor:pointer;font-size:0.78rem;font-family:inherit">✓</button>
+          <button onclick="window.spk('${w.replace(/'/g, "\\'")}',event)" style="padding:7px 12px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🔊</button>
+          <span id="whfb${i}" style="font-size:0.8rem;min-width:30px"></span>
+        </div>`;
+    }).join('')}
+    </div>
+    <button onclick="window.finLessonC('${unit.id}')" style="width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#34d399,#22d3ee);border:none;color:#000;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit">✅ Reading yakunlash</button>`;
+}
 
-window.rdAloud = function () { const b = document.getElementById('rdbody'); if (!b) return; const u = new SpeechSynthesisUtterance(b.textContent); u.lang = LANG; u.rate = 0.82; speechSynthesis.cancel(); speechSynthesis.speak(u); };
-window.hlVocab = function (uid) { let unit = null; for (const lvl of Object.values(UNITS_DATA)) { const f = lvl.find(u => u.id === uid); if (f) { unit = f; break; } } if (!unit) return; const b = document.getElementById('rdbody'); if (!b) return; let html = b.innerHTML; unit.words.forEach(w => { const re = new RegExp(`(${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'); html = html.replace(re, `<mark class="vocab-hl">$1</mark>`); }); b.innerHTML = html; };
-window.selRQ = function (el, qi, oi) { document.querySelectorAll(`.rq-opt[data-qi="${qi}"]`).forEach(o => o.classList.remove('selected')); el.classList.add('selected'); rSel[qi] = oi; };
-window.chkAllRQ = function (corrects) { let ok = 0; corrects.forEach((ca, qi) => { const fb = document.getElementById(`rqfb${qi}`); const sel = rSel[qi]; document.querySelectorAll(`.rq-opt[data-qi="${qi}"]`).forEach((o, i) => { if (i === ca) o.classList.add('rq-correct'); else if (sel !== undefined && i === sel && i !== ca) o.classList.add('rq-wrong'); }); if (sel === ca) { ok++; if (fb) { fb.className = 'gex-fb correct'; fb.innerHTML = "✅ To'g'ri!"; } } else if (sel !== undefined && fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = `❌ To'g'ri: <strong>${String.fromCharCode(65 + ca)}</strong>`; } }); lScore += ok; lTotal += corrects.length; const pct = Math.round((ok / corrects.length) * 100); const tf = document.getElementById('rdTotFB'); if (tf) { tf.className = `gex-fb ${pct >= 60 ? 'correct' : 'wrong'} show`; tf.innerHTML = `${pct >= 60 ? '🏆' : '💪'} ${ok}/${corrects.length} — ${pct}%`; } if (pct >= 60) awardXP(25, 'reading'); };
-window.aiRdHelp = async function (title) { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const fb = document.getElementById('rdTotFB'); if (fb) { fb.className = 'gex-fb info'; fb.innerHTML = '🤖 AI tahlil qilmoqda...'; } UL.ai_used_today++; saveLimits(); const r = await callAI(`Arabcha "${title}" mavzusidagi o'qish matni bo'yicha O'zbek tilida yordam ber: 1) Asosiy fikrlar 2) Muhim arabcha so'zlar va ularning ma'nosi 3) Matnni tushunish bo'yicha maslahat`, 600); if (fb) { fb.className = 'gex-fb info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); } };
-window.chkWH = function (i) { const inp = document.getElementById(`whi${i}`); const fb = document.getElementById(`whfb${i}`); if (!inp || !fb) return; if (inp.value.trim() === inp.dataset.ans) { fb.className = 'whfb ok'; fb.innerHTML = '✅'; inp.style.borderColor = '#34d399'; awardXP(5, 'reading'); } else { fb.className = 'whfb no'; fb.innerHTML = `❌ ${inp.dataset.ans}`; inp.style.borderColor = '#f87171'; } };
-window.finLessonC = async function (uid) { await finLesson(uid, 'C', 'reading', lScore, lTotal || 3); };
+window.rdAloud = function () {
+    const b = $id('rdbody'); if (!b) return;
+    const u = new SpeechSynthesisUtterance(b.textContent);
+    u.lang = 'ar-SA'; u.rate = 0.8;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+};
+window.selRQ = function (el, qi, oi) {
+    document.querySelectorAll(`.rq-opt[data-qi="${qi}"]`).forEach(o => { o.style.background = 'rgba(255,255,255,0.04)'; o.style.borderColor = 'rgba(255,255,255,0.08)'; });
+    el.style.background = 'rgba(232,180,56,0.15)'; el.style.borderColor = '#e8b438';
+    rSel[qi] = oi;
+};
+window.chkAllRQ = function (answers) {
+    let score = 0;
+    answers.forEach((correct, qi) => {
+        const sel = rSel[qi]; const fb = $id(`rqfb${qi}`);
+        if (sel === undefined) { if (fb) fb.innerHTML = '<span style="color:#f5c842">⚠️ Javob tanlang!</span>'; return; }
+        document.querySelectorAll(`.rq-opt[data-qi="${qi}"]`).forEach((o, i) => {
+            if (i === correct) { o.style.background = 'rgba(52,211,153,0.2)'; o.style.borderColor = '#34d399'; }
+            else if (i === sel && sel !== correct) { o.style.background = 'rgba(239,68,68,0.2)'; o.style.borderColor = '#ef4444'; }
+        });
+        if (sel === correct) { score++; if (fb) fb.innerHTML = '<span style="color:#34d399">✅ To\'g\'ri!</span>'; }
+        else { if (fb) fb.innerHTML = `<span style="color:#ef4444">❌ To'g'ri: ${String.fromCharCode(65 + correct)}</span>`; }
+    });
+    lScore += score; lTotal += answers.length;
+    awardXP(score * 15, 'reading');
+    const fb = $id('rdTotFB');
+    if (fb) fb.innerHTML = `<span style="color:${score === answers.length ? '#34d399' : '#f5c842'}">Jami: ${score}/${answers.length}</span>`;
+};
+window.chkWH = function (i) {
+    const inp = $id(`whi${i}`); const fb = $id(`whfb${i}`); if (!inp || !fb) return;
+    if (inp.value.trim() === inp.dataset.ans) {
+        fb.innerHTML = '✅'; inp.style.borderColor = '#34d399'; awardXP(8, 'writing');
+    } else { fb.innerHTML = '❌'; inp.style.borderColor = '#ef4444'; }
+};
+window.finLessonC = async function (uid) { await finLesson(uid, 'C', 'reading', lScore, lTotal || 6); };
 
-function lessonD(unit) { const topics = [`${unit.title} haqida arabcha 3-4 jumla gapiring`, `"${unit.words[0]}" arabcha so'zini ishlatib jumla ayting`, `${unit.desc} ni o'z so'zlaringiz bilan arabcha tushuntiring`]; const wp = `"${unit.title}" mavzusida 40-60 so'zlik arabcha paragraf yozing. Quyidagi so'zlardan kamida 3 tasini ishlating: ${unit.words.slice(0, 5).join(', ')}`; const wd = WDB.find(x => x.e === unit.words[0]); const woSent = wd ? wd.ex : `كلمة "${unit.words[0]}" مهمة جداً.`; const woWords = woSent.split(' '); const woShuf = [...woWords].sort(() => Math.random() - 0.5); window.__woCorrect = woSent; return `<div class="ls-section"><h3 class="ls-title">🎤 Arabcha Speaking Mashqlari</h3>${topics.map((t, i) => `<div class="stc" id="stc${i}"><div class="stc-header"><div class="stc-num">${i + 1}</div><div class="stc-topic">${t}</div></div><div class="stc-hint">💡 Misol so'z: "${unit.words[i] || unit.words[0]}"</div><div class="stc-mic"><button class="btn-mic" id="mbtn${i}" onclick="togMic(${i})">🎤 Arabcha Gapirish</button><div class="stc-status" id="mst${i}">Mikrofon tayyor</div></div><div class="stc-transcript" id="mtr${i}"></div><div class="stc-actions"><button class="btn-sm btn-ai" onclick="aiSpk(${i},'${t.replace(/'/g, "\\'")}')">🤖 AI baholash</button><button class="btn-sm btn-check" onclick="markDone(${i})">✅ Bajarildim</button></div><div class="gex-fb" id="sfb${i}"></div></div>`).join('')}</div><div class="ls-section"><h3 class="ls-title">✍️ Arabcha Writing Mashqi</h3><div class="wp-card">${wp}</div><div class="wstats"><span id="dwc">0 so'z</span><span id="dcc">0 belgi</span><span id="dst" class="wst-warn">Min 40 so'z</span></div><textarea class="writing-ta" id="dta" placeholder="Bu yerda arabcha yozing..." oninput="updWC()"></textarea><div class="wa-row"><button class="btn-sm btn-ai" onclick="aiWrit('${unit.title.replace(/'/g, "\\'")}','${unit.words.slice(0, 5).join(',')}')">🤖 AI tekshirsin</button><button class="btn-sm btn-check" onclick="selfChk(40)">📊 So'z soni</button></div><div class="gex-fb" id="wfb"></div></div><div class="ls-section"><h3 class="ls-title">🔀 Arabcha So'z Tartibi</h3><p class="ls-hint">Arabcha so'zlarni bosib to'g'ri jumla tuzing:</p><div class="wo-chips" id="woChips">${woShuf.map(w => `<div class="wo-chip" data-w="${w}" onclick="selChip(this)">${w}</div>`).join('')}</div><div class="wo-ans" id="woAnsDiv"><span class="wo-ph">Bu yerga bosing...</span></div><div class="wa-row"><button class="btn-sm btn-check" onclick="chkWO()">✓ Tekshir</button><button class="btn-sm" onclick="rstWO()">🔄 Qayta</button><button class="btn-sm btn-sound" onclick="spk('${woSent.replace(/'/g, "\\'")}')" >🔊 Arabcha Eshit</button></div><div class="gex-fb" id="wofb"></div></div><button class="btn-complete" onclick="finLessonD('${unit.id}')">✅ Speaking & Writing yakunlash</button>`; }
+// ─── LESSON D ───
+function lessonD(unit) {
+    const topics = unit.words.slice(0, 3);
+    const woSent = (WDB.find(x => x.a === unit.words[0])?.ex) || `أستخدم ${unit.words[0]} كل يوم.`;
+    window.__woCorrect = woSent;
+    return `
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">🎤 Speaking Mashqi</h3>
+      ${topics.map((w, i) => {
+        const d = WDB.find(x => x.a === w) || { u: '', ex: '' };
+        return `<div style="margin-bottom:14px;padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px">
+          <div style="font-weight:600;margin-bottom:4px">${i + 1}. "<span dir="rtl">${w}</span>" so'zini ishlatib gaping:</div>
+          <div style="font-size:0.78rem;color:#666;margin-bottom:10px">O'zbek: ${d.u} · Misol: <span dir="rtl">${d.ex}</span></div>
+          <div style="display:flex;gap:6px;margin-bottom:8px">
+            <button id="mbtn${i}" onclick="window.togMic(${i})" style="padding:8px 16px;border-radius:8px;background:rgba(244,114,182,0.1);border:1px solid rgba(244,114,182,0.25);color:#f472b6;cursor:pointer;font-size:0.82rem;font-family:inherit">🎤 Gapirish</button>
+            <button onclick="window.spk('${w.replace(/'/g, "\\'")}',event)" style="padding:8px 12px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2);color:#e8b438;cursor:pointer;font-size:0.82rem;font-family:inherit">🔊</button>
+          </div>
+          <div id="mst${i}" style="font-size:0.75rem;color:#666"></div>
+          <div id="mtr${i}" style="padding:8px;font-size:0.88rem;color:#e8b438;min-height:24px;border-radius:6px;direction:rtl;text-align:right"></div>
+          <div style="display:flex;gap:6px;margin-top:8px">
+            <button onclick="window.aiSpk(${i},'${w.replace(/'/g, "\\'")}')" style="padding:6px 14px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.25);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🤖 AI baholash (1 token)</button>
+            <button onclick="window.markDone(${i})" style="padding:6px 14px;border-radius:8px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);color:#34d399;cursor:pointer;font-size:0.78rem;font-family:inherit">✅ Bajarildi</button>
+          </div>
+          <div id="sfb${i}" style="margin-top:8px;font-size:0.82rem"></div>
+        </div>`;
+    }).join('')}
+    </div>
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">✍️ Writing Mashqi</h3>
+      <div style="padding:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px">
+        <div style="font-size:0.85rem;color:#aaa;margin-bottom:8px">Mavzu: "<span dir="rtl">${unit.title}</span>" haqida 30+ so'zli arabcha matn yozing.</div>
+        <textarea id="dta" placeholder="Bu yerda arabcha yozing..." dir="rtl" oninput="window.updWC()" style="width:100%;height:100px;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;resize:none;box-sizing:border-box;font-size:1rem"></textarea>
+        <div style="display:flex;gap:10px;font-size:0.75rem;color:#666;margin:6px 0"><span id="dwc">0 so'z</span><span id="dst" style="color:#f87171">Min 30 so'z</span></div>
+        <div style="display:flex;gap:6px">
+          <button onclick="window.aiWrit('${unit.title.replace(/'/g, "\\'")}','${unit.words.slice(0, 5).join(",")}')" style="padding:7px 14px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.25);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🤖 AI (1 token)</button>
+          <button onclick="window.selfChk(30)" style="padding:7px 14px;border-radius:8px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);color:#60a5fa;cursor:pointer;font-size:0.78rem;font-family:inherit">📊 So'z soni</button>
+        </div>
+        <div id="wfb" style="margin-top:8px;font-size:0.8rem"></div>
+      </div>
+    </div>
+    <div style="margin-bottom:20px">
+      <h3 style="margin-bottom:12px;color:#e8ecff">🔀 So'z Tartibi</h3>
+      <div id="woChips" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
+        ${shuffle(woSent.split(' ')).map(w => `<div class="wo-chip" data-w="${w}" onclick="window.selChip(this)" style="background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.25);color:#e8b438;padding:6px 12px;border-radius:20px;cursor:pointer;font-size:0.95rem;direction:rtl">${w}</div>`).join('')}
+      </div>
+      <div id="woAnsDiv" style="min-height:40px;padding:10px;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.1);border-radius:8px;display:flex;flex-wrap:wrap;gap:6px;font-size:0.88rem;color:#666;margin-bottom:8px;direction:rtl"><span>Bu yerga bosing...</span></div>
+      <div style="display:flex;gap:6px">
+        <button onclick="window.chkWO()" style="padding:7px 14px;border-radius:8px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.3);color:#34d399;cursor:pointer;font-size:0.78rem;font-family:inherit">✓ Tekshir</button>
+        <button onclick="window.rstWO()" style="padding:7px 14px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;cursor:pointer;font-size:0.78rem;font-family:inherit">🔄 Qayta</button>
+        <button onclick="window.spk('${woSent.replace(/'/g, "\\'")}',event)" style="padding:7px 14px;border-radius:8px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2);color:#e8b438;cursor:pointer;font-size:0.78rem;font-family:inherit">🔊</button>
+      </div>
+      <div id="wofb" style="margin-top:8px;font-size:0.8rem"></div>
+    </div>
+    <button onclick="window.finLessonD('${unit.id}')" style="width:100%;padding:14px;border-radius:12px;background:linear-gradient(135deg,#f472b6,#e8b438);border:none;color:#000;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:inherit">✅ Speaking & Writing yakunlash</button>`;
+}
 
-window.initWOChips = function () { woAns = []; };
-window.selChip = function (el) { if (el.classList.contains('used')) return; el.classList.add('used'); woAns.push(el.dataset.w); const d = document.getElementById('woAnsDiv'); if (d) d.innerHTML = woAns.map((w, i) => `<span class="wo-aw" onclick="rmChip(${i})">${w}</span>`).join(' '); };
-window.rmChip = function (idx) { const w = woAns[idx]; woAns.splice(idx, 1); document.querySelectorAll('.wo-chip').forEach(c => { if (c.dataset.w === w && c.classList.contains('used')) { c.classList.remove('used'); } }); const d = document.getElementById('woAnsDiv'); if (d) { if (!woAns.length) { d.innerHTML = '<span class="wo-ph">Bu yerga bosing...</span>'; } else { d.innerHTML = woAns.map((w, i) => `<span class="wo-aw" onclick="rmChip(${i})">${w}</span>`).join(' '); } } };
-window.rstWO = function () { woAns = []; document.querySelectorAll('.wo-chip').forEach(c => c.classList.remove('used')); const d = document.getElementById('woAnsDiv'); if (d) d.innerHTML = '<span class="wo-ph">Bu yerga bosing...</span>'; };
-window.chkWO = function () { const fb = document.getElementById('wofb'); const correct = window.__woCorrect || ''; if (!woAns.length) { if (fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = "⚠️ Avval so'zlarni tartibga qo'ying!"; } return; } const usr = woAns.join(' '); if (usr === correct) { if (fb) { fb.className = 'gex-fb correct'; fb.innerHTML = "🏆 Mukammal! To'g'ri arabcha jumla!"; } awardXP(15, 'writing'); lScore++; } else { if (fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = `❌ Noto'g'ri. To'g'ri arabcha: <em>${correct}</em>`; } } lTotal++; };
-window.togMic = function (idx) { const btn = document.getElementById(`mbtn${idx}`); const st = document.getElementById(`mst${idx}`); const tr = document.getElementById(`mtr${idx}`); const SR = window.SpeechRecognition || window.webkitSpeechRecognition; if (!SR) { if (tr) tr.innerHTML = `<textarea class="man-inp" id="man${idx}" placeholder="Mikrofon yo'q — arabcha bu yerga yozing..."></textarea>`; if (st) st.textContent = '⌨️ Yozma kiritish'; return; } if (lessonMics[idx]) { try { lessonMics[idx].stop(); } catch (e) { } lessonMics[idx] = null; if (btn) { btn.classList.remove('rec'); btn.innerHTML = '🎤 Arabcha Gapirish'; } return; } const rec = new SR(); rec.lang = LANG; rec.continuous = true; rec.interimResults = true; rec.onresult = e => { let t = ''; for (let i = e.resultIndex; i < e.results.length; i++)t += e.results[i][0].transcript; if (tr && tr.tagName !== 'TEXTAREA') tr.textContent = t; }; rec.onerror = e => { if (e.error === 'not-allowed') { if (st) st.innerHTML = "🚫 Mikrofon ruxsat yo'q"; if (tr) tr.innerHTML = `<textarea class="man-inp" id="man${idx}" placeholder="Bu yerga arabcha yozing..."></textarea>`; } else { if (st) st.textContent = 'Xatolik — qayta urining'; } if (btn) { btn.classList.remove('rec'); btn.innerHTML = '🎤 Arabcha Gapirish'; } lessonMics[idx] = null; }; rec.onend = () => { if (btn) { btn.classList.remove('rec'); btn.innerHTML = '🎤 Arabcha Gapirish'; } if (st) st.innerHTML = '✅ Yozib olindi'; lessonMics[idx] = null; }; try { rec.start(); lessonMics[idx] = rec; if (btn) { btn.classList.add('rec'); btn.innerHTML = "⏹ To'xtatish"; } if (st) st.innerHTML = '🔴 Arabcha yozmoqda...'; } catch (e) { if (st) st.textContent = 'Mikrofon xatolik'; if (tr) tr.innerHTML = `<textarea class="man-inp" id="man${idx}" placeholder="Bu yerga arabcha yozing..."></textarea>`; } };
-window.aiSpk = async function (idx, topic) { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const tr = document.getElementById(`mtr${idx}`); const man = document.getElementById(`man${idx}`); const fb = document.getElementById(`sfb${idx}`); let text = ''; if (tr) { text = tr.tagName === 'TEXTAREA' ? tr.value.trim() : tr.textContent.trim(); } if (!text && man) text = man.value.trim(); if (!text) { if (fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = '⚠️ Avval arabcha gapiring yoki yozing!'; } return; } if (fb) { fb.className = 'gex-fb info'; fb.innerHTML = '🤖 AI baholayapti...'; } UL.ai_used_today++; saveLimits(); const r = await callAI(`Arabcha speaking baholash. Mavzu: "${topic}". O'quvchi arabcha gapirdi: "${text}". O'zbek tilida:\n1. ✅ Yaxshi tomonlari\n2. ❌ Grammatika xatoliklari\n3. 💡 Yaxshilash tavsiyalari\n4. 🗣️ Tuzatilgan arabcha variant\n5. ⭐ Ball: /10`, 700); if (fb) { fb.className = 'gex-fb info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); } lScore++; lTotal++; awardXP(20, 'speaking'); };
-window.markDone = function (idx) { const c = document.getElementById(`stc${idx}`); if (c) c.classList.add('done'); lScore++; lTotal++; awardXP(10, 'speaking'); showToast('✅ Bajarildi!', 'success'); };
-window.updWC = function () { const ta = document.getElementById('dta'); if (!ta) return; const t = ta.value.trim(); const w = t ? t.split(/\s+/).length : 0; const wc = document.getElementById('dwc'); const cc = document.getElementById('dcc'); const st = document.getElementById('dst'); if (wc) wc.textContent = w + " so'z"; if (cc) cc.textContent = t.length + ' belgi'; if (st) { if (w >= 40) { st.textContent = '✅ Yetarli'; st.className = 'wst-ok'; } else { st.textContent = `Min 40 so'z (${w}/40)`; st.className = 'wst-warn'; } } };
-window.selfChk = function (min) { const ta = document.getElementById('dta'); const fb = document.getElementById('wfb'); if (!ta || !fb) return; const w = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0; if (w >= min) { fb.className = 'gex-fb correct'; fb.innerHTML = `✅ ${w} arabcha so'z yozdingiz!`; lScore++; awardXP(15, 'writing'); } else { fb.className = 'gex-fb wrong'; fb.innerHTML = `⚠️ Hali ${min - w} so'z kam. Davom eting!`; } lTotal++; };
-window.aiWrit = async function (title, words) { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const ta = document.getElementById('dta'); const fb = document.getElementById('wfb'); if (!ta?.value.trim()) { if (fb) { fb.className = 'gex-fb wrong'; fb.innerHTML = 'Avval arabcha yozing!'; } return; } fb.className = 'gex-fb info'; fb.innerHTML = '🤖 AI tekshirmoqda...'; UL.ai_used_today++; saveLimits(); const r = await callAI(`Arabcha yozuvni tekshir. Mavzu: "${title}" (kerakli arabcha so'zlar: ${words}).\nMatn: "${ta.value.trim()}"\nO'zbek tilida:\n1. ✅ Grammatika xatoliklari\n2. 📝 Uslub va tuzilish\n3. 🔄 Tuzatilgan arabcha variant\n4. ⭐ Arabcha yozuv bali: /10`, 800); fb.className = 'gex-fb info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); awardXP(20, 'writing'); };
+window.selChip = function (el) {
+    if (el.classList.contains('used')) return;
+    el.classList.add('used'); el.style.opacity = '0.3';
+    woAns.push(el.dataset.w);
+    const d = $id('woAnsDiv');
+    if (d) d.innerHTML = woAns.map((w, i) => `<span onclick="window.rmChip(${i})" style="background:rgba(232,180,56,0.15);border:1px solid rgba(232,180,56,0.3);border-radius:20px;padding:6px 12px;cursor:pointer;font-size:0.9rem;direction:rtl">${w}</span>`).join('') || '<span style="color:#666">Bu yerga bosing...</span>';
+};
+window.rmChip = function (idx) {
+    const w = woAns[idx]; woAns.splice(idx, 1);
+    document.querySelectorAll('.wo-chip').forEach(c => { if (c.dataset.w === w && c.classList.contains('used')) { c.classList.remove('used'); c.style.opacity = '1'; return; } });
+    const d = $id('woAnsDiv');
+    if (d) d.innerHTML = woAns.map((w, i) => `<span onclick="window.rmChip(${i})" style="background:rgba(232,180,56,0.15);border:1px solid rgba(232,180,56,0.3);border-radius:20px;padding:6px 12px;cursor:pointer;font-size:0.9rem;direction:rtl">${w}</span>`).join('') || '<span style="color:#666">Bu yerga bosing...</span>';
+};
+window.rstWO = function () {
+    woAns = [];
+    document.querySelectorAll('.wo-chip').forEach(c => { c.classList.remove('used'); c.style.opacity = '1'; });
+    const d = $id('woAnsDiv'); if (d) d.innerHTML = '<span style="color:#666">Bu yerga bosing...</span>';
+};
+window.chkWO = function () {
+    const fb = $id('wofb');
+    if (!woAns.length) { if (fb) fb.innerHTML = '<span style="color:#f5c842">⚠️ So\'zlarni tartibga qo\'ying!</span>'; return; }
+    if (woAns.join(' ') === (window.__woCorrect || '')) {
+        if (fb) fb.innerHTML = '<span style="color:#34d399">🏆 Mukammal!</span>';
+        awardXP(15, 'writing'); lScore++;
+    } else { if (fb) fb.innerHTML = `<span style="color:#ef4444">❌ To'g'ri: <em dir="rtl">${window.__woCorrect}</em></span>`; }
+    lTotal++;
+};
+window.togMic = function (idx) {
+    const btn = $id(`mbtn${idx}`); const st = $id(`mst${idx}`); const tr = $id(`mtr${idx}`);
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) {
+        if (tr) tr.innerHTML = `<textarea dir="rtl" style="width:100%;padding:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;font-size:1rem" id="man${idx}" placeholder="Arabcha yozing..."></textarea>`;
+        if (st) st.textContent = '⌨️ Yozma kiritish'; return;
+    }
+    if (lessonMics[idx]) { try { lessonMics[idx].stop(); } catch (e) { } lessonMics[idx] = null; if (btn) btn.innerHTML = '🎤 Gapirish'; return; }
+    const rec = new SR(); rec.lang = 'ar-SA'; rec.continuous = true; rec.interimResults = true;
+    rec.onresult = e => { let t = ''; for (let i = e.resultIndex; i < e.results.length; i++) t += e.results[i][0].transcript; if (tr && tr.tagName !== 'TEXTAREA') tr.textContent = t; };
+    rec.onerror = e => { if (btn) btn.innerHTML = '🎤 Gapirish'; lessonMics[idx] = null; };
+    rec.onend = () => { if (btn) btn.innerHTML = '🎤 Gapirish'; if (st) st.innerHTML = '✅ Yozib olindi'; lessonMics[idx] = null; };
+    try {
+        rec.start(); lessonMics[idx] = rec;
+        if (btn) btn.innerHTML = '⏹ To\'xtatish';
+        if (st) st.innerHTML = '🔴 Yozmoqda...';
+    } catch (e) {
+        if (tr) tr.innerHTML = `<textarea dir="rtl" style="width:100%;padding:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;font-size:1rem" id="man${idx}" placeholder="Arabcha yozing..."></textarea>`;
+    }
+};
+window.aiSpk = async function (idx, topic) {
+    const ok = await spendTokens(TOKEN_CONFIG.ai_cost, 'AI speaking baholash'); if (!ok) return;
+    const tr = $id(`mtr${idx}`); const man = $id(`man${idx}`); const fb = $id(`sfb${idx}`);
+    let text = '';
+    if (tr) text = tr.tagName === 'TEXTAREA' ? tr.value.trim() : tr.textContent.trim();
+    if (!text && man) text = man.value.trim();
+    if (!text) { if (fb) fb.innerHTML = '<span style="color:#f5c842">⚠️ Avval gapiring!</span>'; return; }
+    if (fb) fb.innerHTML = '🤖 Baholayapti...';
+    const r = await callAI(`Arabcha speaking baholash. Mavzu: "${topic}". O'quvchi: "${text}".\nO'zbek tilida: 1) ✅ Yaxshi tomonlar 2) ❌ Xatoliklar 3) 🔄 Tuzatilgan variant 4) ⭐ /10`, 700);
+    if (fb) fb.innerHTML = r.replace(/\n/g, '<br>');
+    lScore++; lTotal++; awardXP(20, 'speaking');
+};
+window.markDone = function (idx) { lScore++; lTotal++; awardXP(10, 'speaking'); showToast('✅ Bajarildi!', 'success'); };
+window.updWC = function () {
+    const ta = $id('dta'); if (!ta) return;
+    const w = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    const wc = $id('dwc'); const st = $id('dst');
+    if (wc) wc.textContent = w + " so'z";
+    if (st) { st.textContent = w >= 30 ? '✅ Yetarli' : `Min 30 (${w}/30)`; st.style.color = w >= 30 ? '#34d399' : '#f87171'; }
+};
+window.selfChk = function (min) {
+    const ta = $id('dta'); const fb = $id('wfb'); if (!ta || !fb) return;
+    const w = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    if (w >= min) { fb.innerHTML = `<span style="color:#34d399">✅ ${w} so'z!</span>`; lScore++; awardXP(15, 'writing'); }
+    else { fb.innerHTML = `<span style="color:#f87171">⚠️ ${min - w} so'z kam!</span>`; }
+    lTotal++;
+};
+window.aiWrit = async function (title, words) {
+    const ok = await spendTokens(TOKEN_CONFIG.ai_cost, 'AI writing'); if (!ok) return;
+    const ta = $id('dta'); const fb = $id('wfb');
+    if (!ta?.value.trim()) { if (fb) fb.innerHTML = '<span style="color:#f5c842">Avval yozing!</span>'; return; }
+    fb.innerHTML = '🤖 Tekshirmoqda...';
+    const r = await callAI(`Arabcha writing tekshirish. Mavzu: "${title}" (so'zlar: ${words}).\nMatn: "${ta.value.trim()}"\nO'zbek tilida: 1) Grammatika 2) Uslub 3) Tuzatilgan variant 4) Baho: /10`, 800);
+    fb.innerHTML = r.replace(/\n/g, '<br>'); awardXP(20, 'writing');
+};
 window.finLessonD = async function (uid) { await finLesson(uid, 'D', 'speaking', lScore, lTotal || 3); };
 
-async function finLesson(uid, lk, skill, sc, tot) { if (!CU) return; const pct = tot > 0 ? Math.round((sc / tot) * 100) : 70; let unit = null; for (const lvl of Object.values(UNITS_DATA)) { const f = lvl.find(u => u.id === uid); if (f) { unit = f; break; } } if (!unit) return; const xpB = plan().xb || 1, coinB = plan().cb || 1; const xpE = Math.round((unit.xp / 4) * xpB * (pct / 100)); const coinE = Math.round((unit.coin / 4) * coinB * (pct / 100)); await saveLessonCompletion(uid, lk, sc, tot, xpE, coinE); await savePracticeResult(skill, sc, tot, { unitId: uid, lessonKey: lk, unitTitle: unit.title }); USk[skill] = Math.min(100, (USk[skill] || 0) + Math.round(pct / 15)); drawRadar(); renderUnits(); showResult(lk, pct, xpE, coinE, unit, uid); }
+// ─── FINISH LESSON ───
+async function finLesson(uid, lk, skill, sc, tot) {
+    if (!CU) return;
+    const pct = tot > 0 ? Math.round((sc / tot) * 100) : 70;
+    let unit = null;
+    for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === uid); if (f) { unit = f; break; } }
+    if (!unit) return;
+    const plan = getPlan(); const rank = getRank();
+    const xpE = Math.round((unit.xp / 4) * plan.xp_mult * rank.xp_mult * (pct / 100));
+    const coinE = Math.round((unit.coin / 4) * plan.coin_mult * rank.coin_mult * (pct / 100));
+    await saveLessonCompletion(uid, lk, sc, tot, xpE, coinE);
+    renderUnits();
+    showResult(lk, pct, xpE, coinE, unit, uid);
+}
 
-function showResult(lk, pct, xp, coin, unit, uid) { const lnames = { A: "Grammatika & Lug'at", B: 'Listening', C: 'Reading', D: 'Speaking & Writing' }; const nxt = { A: 'B', B: 'C', C: 'D', D: null }; const content = document.getElementById('modalContent'); if (!content) return; content.innerHTML = `<div class="result-wrap"><div class="result-circle ${pct >= 80 ? 'great' : pct >= 60 ? 'good' : 'ok'}"><div class="rc-pct">${pct}%</div><div class="rc-lbl">${lnames[lk]}</div></div><div class="result-rewards"><div class="rr-item">⭐ +${xp} XP</div><div class="rr-item">🪙 +${coin} Coin</div></div><div class="result-msg">${pct >= 80 ? '🏆 Mukammal!' : pct >= 60 ? '✅ Yaxshi! Davom eting!' : "💪 Harakat qilib ko'ring!"}</div><div class="result-actions">${nxt[lk] ? `<button class="btn-complete" onclick="openLesson('${uid}','${nxt[lk]}')">→ Keyingi: ${lnames[nxt[lk]]}</button>` : `<div class="unit-done-msg">🎉 Unit to'liq bajarildi!</div>`}<button class="btn-back" onclick="document.getElementById('unitModal').classList.remove('open');renderUnits()">🏠 Unitlarga qaytish</button></div></div>`; showXPPop(`+${xp} XP +${coin} 🪙`); }
+async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, coinEarned) {
+    const pct = total > 0 ? Math.round((score / total) * 100) : 70;
+    UProg[`${unitId}_${lessonKey}`] = 100;
+    const allDone = ['A', 'B', 'C', 'D'].every(l => UProg[`${unitId}_${l}`] >= 100);
+    if (!CU) {
+        UXP += xpEarned; UCoin += coinEarned;
+        updateDisplays(); renderUnits();
+        showToast(`✅ +${xpEarned} XP +${coinEarned} 🪙`, 'success');
+        return;
+    }
+    try {
+        const updates = {
+            xp: increment(xpEarned), coins: increment(coinEarned),
+            totalXP: increment(xpEarned), totalCoins: increment(coinEarned),
+            [`progress.${unitId}_${lessonKey}`]: 100,
+            [`scores.${unitId}_${lessonKey}`]: pct,
+            'stats.totalSessions': increment(1)
+        };
+        if (allDone) {
+            updates['stats.unitsCompleted'] = increment(1);
+            updates.xp = increment(xpEarned + 50);
+            updates.coins = increment(coinEarned + 10);
+            updates.totalXP = increment(xpEarned + 50);
+            updates.totalCoins = increment(coinEarned + 10);
+            UStats.unitsCompleted = (UStats.unitsCompleted || 0) + 1;
+            showToast(`🎉 Unit to'liq! +50 XP +10 🪙 bonus!`, 'success');
+        }
+        await updateUserField(updates);
+        UXP += xpEarned + (allDone ? 50 : 0);
+        UCoin += coinEarned + (allDone ? 10 : 0);
+        updateDisplays();
+        showToast(`✅ +${xpEarned} XP +${coinEarned} 🪙 saqlandi!`, 'success');
+    } catch (e) { console.error(e); }
+}
 
-function renderWords(reset = true) { if (reset) wOff = 0; const grid = document.getElementById('wordsGrid'); if (!grid) return; const filt = getFiltered(); const slice = filt.slice(0, wOff + 30); if (reset) grid.innerHTML = ''; slice.slice(wOff).forEach(w => { const card = document.createElement('div'); card.className = 'word-card'; card.innerHTML = `<div class="wc-top"><div class="wc-eng">${w.e}</div><button onclick="spk('${w.e.replace(/'/g, "\\'")}',event)" class="wc-snd">🔊</button></div><div class="wc-uz">${w.u}</div><div class="wc-meta"><span>${w.t}</span><span>${w.l}</span></div>`; card.onclick = e => { if (e.target.closest('.wc-snd')) return; openWModal(w); }; grid.appendChild(card); }); wOff = slice.length; const btn = document.getElementById('loadMoreBtn'); if (btn) btn.style.display = wOff >= filt.length ? 'none' : 'block'; }
-function getFiltered() { return WDB.filter(w => { const ms = !wSrch || w.e.toLowerCase().includes(wSrch) || w.u.toLowerCase().includes(wSrch); const ml = wFilt === 'all' || w.l === wFilt; return ms && ml; }); }
-window.filterWords = function () { wSrch = document.getElementById('wordSearch')?.value.toLowerCase() || ''; renderWords(true); };
-window.filterByLevel = function (level, el) { wFilt = level; document.querySelectorAll('.wf-tab').forEach(t => t.classList.remove('active')); el.classList.add('active'); renderWords(true); };
+function showResult(lk, pct, xp, coin, unit, uid) {
+    const lnames = { A: "Grammatika", B: 'Listening', C: 'Reading', D: 'Speaking' };
+    const nxt = { A: 'B', B: 'C', C: 'D', D: null };
+    const content = $id('modalContent'); if (!content) return;
+    const circleColor = pct >= 80 ? '#34d399' : pct >= 60 ? '#f5c842' : '#ef4444';
+    content.innerHTML = `<div style="text-align:center;padding:20px">
+      <div style="width:120px;height:120px;border-radius:50%;background:${circleColor}22;border:3px solid ${circleColor};display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px">
+        <div style="font-size:1.8rem;font-weight:800;color:${circleColor}">${pct}%</div>
+        <div style="font-size:0.72rem;color:${circleColor}">${lnames[lk]}</div>
+      </div>
+      <div style="display:flex;gap:16px;justify-content:center;margin:16px 0">
+        <div style="padding:12px 20px;border-radius:12px;background:rgba(232,180,56,0.1);border:1px solid rgba(232,180,56,0.2)"><div style="font-size:0.7rem;color:#666">XP</div><div style="font-weight:700;color:#e8b438">+${xp}</div></div>
+        <div style="padding:12px 20px;border-radius:12px;background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.2)"><div style="font-size:0.7rem;color:#666">Coin</div><div style="font-weight:700;color:#f5c842">+${coin}</div></div>
+      </div>
+      <div style="font-size:1.2rem;margin-bottom:20px">${pct >= 80 ? '🏆 Mukammal!' : pct >= 60 ? '✅ Yaxshi!' : '💪 Qayta urining!'}</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${nxt[lk] ? `<button onclick="window.openLesson('${uid}','${nxt[lk]}')" style="padding:12px;border-radius:12px;background:linear-gradient(135deg,#e8b438,#f5c842);border:none;color:#000;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit">→ Keyingi: ${lnames[nxt[lk]]}</button>` : `<div style="padding:14px;border-radius:12px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;font-weight:700">🎉 Unit to'liq bajarildi!</div>`}
+        <button onclick="document.getElementById('unitModal').classList.remove('active');renderUnits()" style="padding:12px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;cursor:pointer;font-size:0.9rem;font-family:inherit">🏠 Unitlarga qaytish</button>
+      </div>
+    </div>`;
+    showXPPop(`+${xp} XP`);
+    const modal = $id('unitModal'); if (modal) modal.classList.add('active');
+}
+
+// ══════════════════════════════════════════════════════════════
+// WORDS
+// ══════════════════════════════════════════════════════════════
+function renderWords(reset = true) {
+    if (reset) wOff = 0;
+    const grid = $id('wordsGrid'); if (!grid) return;
+    const filt = WDB.filter(w => {
+        const ms = !wSrch || w.a.includes(wSrch) || w.u.toLowerCase().includes(wSrch.toLowerCase());
+        const ml = wFilt === 'all' || w.l === wFilt;
+        return ms && ml;
+    });
+    const slice = filt.slice(0, wOff + 30);
+    if (reset) grid.innerHTML = '';
+    slice.slice(wOff).forEach(w => {
+        const card = document.createElement('div');
+        card.style.cssText = 'padding:16px;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);cursor:pointer;transition:all 0.2s';
+        card.innerHTML = `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+          <button onclick="window.spk('${w.a.replace(/'/g, "\\'")}',event)" style="background:none;border:none;cursor:pointer;font-size:1rem">🔊</button>
+          <div style="font-weight:700;font-size:1.15rem;color:#e8ecff;direction:rtl">${w.a}</div>
+        </div>
+        <div style="font-size:0.82rem;color:#e8b438;margin-bottom:6px;text-align:center">${w.u}</div>
+        <div style="display:flex;gap:6px;font-size:0.68rem;justify-content:center">
+          <span style="background:rgba(255,255,255,0.05);padding:2px 8px;border-radius:8px;color:#666">${w.t}</span>
+          <span style="background:rgba(255,255,255,0.05);padding:2px 8px;border-radius:8px;color:#666">${w.l}</span>
+        </div>`;
+        card.onmouseover = () => { card.style.background = 'rgba(232,180,56,0.08)'; card.style.borderColor = 'rgba(232,180,56,0.25)'; };
+        card.onmouseout = () => { card.style.background = 'rgba(255,255,255,0.03)'; card.style.borderColor = 'rgba(255,255,255,0.08)'; };
+        card.onclick = e => { if (e.target.closest('button')) return; openWModal(w); };
+        grid.appendChild(card);
+    });
+    wOff = slice.length;
+    const btn = $id('loadMoreBtn'); if (btn) btn.style.display = wOff >= filt.length ? 'none' : 'block';
+}
+
+window.filterWords = function () { wSrch = ($id('wordSearch')?.value || ''); renderWords(true); };
+window.filterByLevel = function (level, el) { wFilt = level; document.querySelectorAll('.wf-tab').forEach(t => t.classList.remove('active')); if (el) el.classList.add('active'); renderWords(true); };
 window.loadMoreWords = function () { renderWords(false); };
-window.openWModal = function (w) { const m = document.getElementById('wordModal'); const c = document.getElementById('wordModalContent'); if (!m || !c) return; c.innerHTML = `<div class="wm-eng">${w.e}</div><div class="wm-uz">${w.u}</div><div class="wm-meta">${w.t} · ${w.l}</div><div class="wm-ex"><div>"${w.ex}"</div><div class="wm-exuz">${w.eu}</div></div><div class="wm-actions"><button class="btn-sm btn-play" onclick="spk('${w.e.replace(/'/g, "\\'")}')">🔊 Arabcha Talaffuz</button><button class="btn-sm btn-ai" onclick="aiExWord('${w.e.replace(/'/g, "\\'")}')">🤖 AI tushuntir</button></div><div class="gex-fb" id="wordAIFB"></div>`; m.classList.add('open'); };
-window.closeWordModal = function (e) { if (!e || e.target === document.getElementById('wordModal')) document.getElementById('wordModal')?.classList.remove('open'); };
 
-function renderPractice() { initPracticeListening(); }
-const PLEx = [
-    { text: "صباح الخير! طقس اليوم في القاهرة مشمس ودافئ. درجة الحرارة حوالي خمسة وعشرين درجة. يُنصح بارتداء الملابس الخفيفة. نتمنى لكم يوماً سعيداً!", q: "كيف طقس اليوم في القاهرة؟", opts: ["بارد وممطر", "مشمس ودافئ", "غائم وعاصف", "ثلجي"], c: 1 },
-    { text: "مرحباً! يتحدث إليكم مكتبة القاهرة المركزية. نعمل من الاثنين إلى الجمعة من التاسعة إلى الثامنة عشرة، والسبت من العاشرة إلى السادسة عشرة. يوم الأحد نكون مغلقين. أهلاً وسهلاً بكم!", q: "متى تكون المكتبة مغلقة؟", opts: ["الاثنين", "السبت", "الأحد", "الجمعة"], c: 2 },
-    { text: "انتباه أيها الركاب! القطار المتجه إلى الإسكندرية ينطلق من الرصيف الثالث في الساعة الخامسة عشرة والنصف. يُرجى إعداد التذاكر. شكراً لاهتمامكم.", q: "من أي رصيف ينطلق القطار؟", opts: ["الأول", "الثاني", "الثالث", "الرابع"], c: 2 },
-    { text: "ألو! أتصل بشأن الوظيفة الشاغرة. لديّ خبرة خمس سنوات في مجال تقنية المعلومات. أتقن ثلاث لغات: العربية والأوزبكية والإنجليزية. أودّ مناقشة هذا المنصب بالتفصيل.", q: "كم عدد سنوات الخبرة لدى المتصل؟", opts: ["ثلاث", "أربع", "خمس", "ست"], c: 2 },
-    { text: "مرحباً بكم في عيادتنا! للاستفسارات العاجلة اضغط واحد. للحجز مع الطبيب اضغط اثنين. لاستلام نتائج الفحوصات اضغط ثلاثة. للتواصل مع الطبيب ابقَ على الخط.", q: "ما الذي يجب الضغط عليه للحجز مع الطبيب؟", opts: ["1", "2", "3", "البقاء على الخط"], c: 1 }
-];
-let plIdx = 0;
-function initPracticeListening() { const ex = PLEx[plIdx % PLEx.length]; const listeningQ = document.getElementById('listeningQ'); if (listeningQ) { listeningQ.innerHTML = `<div class="lex-q">${ex.q}</div><div class="lex-opts">${ex.opts.map((o, i) => `<div class="lex-opt plex" data-i="${i}" onclick="selPLex(this,${i})">${String.fromCharCode(65 + i)}. ${o}</div>`).join('')}</div>`; } const as = document.getElementById('audioSentence'); if (as) as.textContent = ex.text; window.__plCurrent = ex; window.__plSelected = -1; }
-window.toggleAudio = function () { const ex = window.__plCurrent; if (!ex) return; const wave = document.getElementById('audioWave'); const btn = document.getElementById('playBtn'); if (wave) wave.classList.remove('paused'); if (btn) btn.textContent = "⏸ To'xtatish"; const u = new SpeechSynthesisUtterance(ex.text); u.lang = LANG; u.rate = 0.82; u.onend = () => { if (wave) wave.classList.add('paused'); if (btn) btn.textContent = '▶ Arabcha Tinglash'; }; speechSynthesis.cancel(); speechSynthesis.speak(u); };
-window.selPLex = function (el, i) { document.querySelectorAll('.plex').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); window.__plSelected = i; };
-window.checkListening = async function () { const fb = document.getElementById('listeningFeedback'); const ex = window.__plCurrent; if (!ex || !fb) return; const sel = window.__plSelected; if (sel < 0) { fb.className = 'feedback-box error show'; fb.innerHTML = '⚠️ Javob tanlang!'; return; } document.querySelectorAll('.plex').forEach((o, i) => { if (i === ex.c) o.classList.add('lex-correct'); else if (i === sel && sel !== ex.c) o.classList.add('lex-wrong'); }); const correct = sel === ex.c; if (correct) { fb.className = 'feedback-box success show'; fb.innerHTML = "✅ To'g'ri! Ajoyib!"; awardXP(10, 'listening'); await savePracticeResult('listening', 1, 1, { question: ex.q, correct: true, type: 'practice_panel' }); } else { fb.className = 'feedback-box error show'; fb.innerHTML = `❌ To'g'ri: <strong>${String.fromCharCode(65 + ex.c)}</strong>`; await savePracticeResult('listening', 0, 1, { question: ex.q, correct: false, type: 'practice_panel' }); } const as = document.getElementById('audioTextHidden'); if (as) as.style.display = 'block'; };
-window.nextListening = function () { plIdx++; initPracticeListening(); const fb = document.getElementById('listeningFeedback'); if (fb) { fb.className = 'feedback-box'; fb.innerHTML = ''; } };
+function openWModal(w) {
+    const m = $id('wordModal'); const c = $id('wordModalContent'); if (!m || !c) return;
+    c.innerHTML = `<div style="text-align:center;padding:20px">
+      <div style="font-size:2.5rem;font-weight:800;color:#e8ecff;margin-bottom:8px;direction:rtl">${w.a}</div>
+      <div style="font-size:1.1rem;color:#e8b438;margin-bottom:12px">${w.u}</div>
+      <div style="font-size:0.82rem;color:#666;margin:0 0 4px">${w.t} · ${w.l}</div>
+      <div style="padding:12px;background:rgba(255,255,255,0.04);border-radius:10px;margin-bottom:8px;font-size:0.95rem;color:#c7d2fe;direction:rtl;text-align:right">"${w.ex}"</div>
+      <div style="color:#666;font-size:0.82rem;margin-bottom:16px;font-style:italic">${w.eu}</div>
+      <div style="display:flex;gap:8px;justify-content:center">
+        <button onclick="window.spk('${w.a.replace(/'/g, "\\'")}',event)" style="padding:8px 20px;border-radius:10px;background:rgba(232,180,56,0.15);border:1px solid rgba(232,180,56,0.3);color:#e8b438;cursor:pointer;font-family:inherit">🔊 Talaffuz</button>
+        <button onclick="window.aiExWord('${w.a.replace(/'/g, "\\'")}',event)" style="padding:8px 20px;border-radius:10px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#a78bfa;cursor:pointer;font-family:inherit">🤖 AI (1 token)</button>
+      </div>
+      <div id="wordAIFB" style="margin-top:12px;font-size:0.82rem"></div>
+    </div>`;
+    m.classList.add('active');
+}
+window.closeWordModal = function (e) { if (!e || e.target === $id('wordModal')) $id('wordModal')?.classList.remove('active'); };
 
-const PSTopics = [{ topic: "Kundalik hayotingizni arabcha tasvirlab bering", ex: "كل صباح أستيقظ في السابعة وأتناول الإفطار..." }, { topic: "Sevimli arabcha taomingiz haqida gapiring", ex: "أحب الكبسة كثيراً لأنها..." }, { topic: "O'z shahringizni arabcha tasvirlab bering", ex: "أنا من طشقند. إنها مدينة كبيرة وجميلة..." }, { topic: "Hobbiingiz haqida arabcha gapiring", ex: "في وقت الفراغ أحب قراءة الكتب والاستماع للموسيقى..." }, { topic: "Oilingizni arabcha tasvirlab bering", ex: "عائلتي صغيرة. لديّ أم وأب وأخت..." }];
-let psIdx = 0;
-window.switchPractice = function (type) { document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active')); document.querySelectorAll('.practice-panel').forEach(p => p.classList.remove('active')); document.querySelector(`.ptab[onclick*="${type}"]`)?.classList.add('active'); const panel = document.getElementById(`panel-${type}`); if (panel) { panel.classList.add('active'); } if (type === 'speaking') initPracticeSpeaking(); if (type === 'grammar') initPracticeGrammar(); if (type === 'reading') initPracticeReading(); if (type === 'writing') initPracticeWriting(); if (type === 'postcard') initPracticePostcard(); };
-function initPracticeSpeaking() { const t = PSTopics[psIdx % PSTopics.length]; const st = document.getElementById('speakTopic'); const se = document.getElementById('speakExample'); if (st) st.innerHTML = `<strong>📌 Arabcha Mavzu:</strong> ${t.topic}`; if (se) se.innerHTML = `<em>💡 Misol bosh (arabcha): "${t.ex}"</em>`; const ms = document.getElementById('micStatus'); if (ms) ms.textContent = 'Mikrofon tayyor'; const tr = document.getElementById('transcriptBox'); if (tr) tr.innerHTML = ''; window.__psTopic = t; }
-window.toggleMic = function () { const btn = document.getElementById('micBtn'); const st = document.getElementById('micStatus'); const tr = document.getElementById('transcriptBox'); const SR = window.SpeechRecognition || window.webkitSpeechRecognition; if (!SR) { if (st) st.innerHTML = "⌨️ Mikrofon yo'q — quyida arabcha yozing"; if (tr) tr.innerHTML = '<textarea class="man-inp" id="psManIn" placeholder="Bu yerga arabcha yozing..."></textarea>'; return; } if (isRec && recog) { try { recog.stop(); } catch (e) { } recog = null; isRec = false; if (btn) { btn.querySelector('.mic-icon').textContent = '🎤'; document.getElementById('micBtnText').textContent = 'Arabcha Gapirish boshlash'; } return; } const rec = new SR(); rec.lang = LANG; rec.continuous = true; rec.interimResults = true; rec.onresult = e => { let t = ''; for (let i = e.resultIndex; i < e.results.length; i++)t += e.results[i][0].transcript; if (tr) tr.textContent = t; }; rec.onerror = e => { isRec = false; recog = null; if (st) st.textContent = e.error === 'not-allowed' ? '🚫 Ruxsat berilmagan' : 'Xatolik'; if (btn) { btn.querySelector('.mic-icon').textContent = '🎤'; document.getElementById('micBtnText').textContent = 'Arabcha Gapirish boshlash'; } }; rec.onend = () => { isRec = false; recog = null; if (st) st.innerHTML = '✅ Yozib olindi'; if (btn) { btn.querySelector('.mic-icon').textContent = '🎤'; document.getElementById('micBtnText').textContent = 'Arabcha Gapirish boshlash'; } }; try { rec.start(); recog = rec; isRec = true; if (btn) { btn.querySelector('.mic-icon').textContent = '⏹'; document.getElementById('micBtnText').textContent = "To'xtatish"; } if (st) st.innerHTML = '🔴 Arabcha yozmoqda...'; } catch (e) { if (st) st.textContent = 'Mikrofon xatolik'; if (tr) tr.innerHTML = '<textarea class="man-inp" id="psManIn" placeholder="Bu yerga arabcha yozing..."></textarea>'; } };
-window.analyzeSpeaking = async function () { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const tr = document.getElementById('transcriptBox'); const man = document.getElementById('psManIn'); const fb = document.getElementById('speakingFeedback'); let text = ''; if (tr) text = tr.tagName === 'TEXTAREA' ? tr.value.trim() : tr.textContent.trim(); if (!text && man) text = man.value.trim(); if (!text) { if (fb) { fb.className = 'feedback-box error show'; fb.innerHTML = '⚠️ Avval arabcha gapiring yoki yozing!'; } return; } if (fb) { fb.className = 'feedback-box info show'; fb.innerHTML = '🤖 AI baholayapti...'; } UL.ai_used_today++; saveLimits(); const t = window.__psTopic || { topic: 'Umumiy mavzu' }; const r = await callAI(`Arabcha speaking baholash. Mavzu: "${t.topic}". O'quvchi arabcha gapirdi: "${text}".\nO'zbek tilida arab tili mezonlari bo'yicha:\n1. 🗣️ Ravonlik (/10)\n2. 📚 Leksik boylik (/10)\n3. 📝 Grammatik to'g'rilik (/10)\n4. 🎵 Talaffuz (/10)\n5. 💬 Umumiy ball: /10\n6. 🔄 Tuzatilgan arabcha variant`, 900); if (fb) { fb.className = 'feedback-box info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); } awardXP(20, 'speaking'); await savePracticeResult('speaking', 1, 1, { topic: t.topic, text, type: 'practice_panel', aiResponse: r.substring(0, 200) }); };
-window.nextSpeaking = function () { psIdx++; initPracticeSpeaking(); const fb = document.getElementById('speakingFeedback'); if (fb) { fb.className = 'feedback-box'; fb.innerHTML = ''; } };
+// ══════════════════════════════════════════════════════════════
+// PRACTICE
+// ══════════════════════════════════════════════════════════════
+window.switchPractice = function (panel, el) {
+    document.querySelectorAll('.practice-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+    const p = $id('panel-' + panel); if (p) p.classList.add('active');
+    if (el) el.classList.add('active');
+};
 
-const PRTexts = [{ title: "اللغة العربية في العالم", text: "اللغة العربية إحدى اللغات الرسمية الست في الأمم المتحدة. يتحدث بها حوالي ثلاثمئة مليون شخص حول العالم. العربية إحدى أكثر اللغات انتشاراً في الإنترنت. وهي ضمن العشر اللغات الأكثر تعلماً في العالم. تتيح معرفة العربية فرصاً للعمل والتعليم والسفر في دول الشرق الأوسط وشمال أفريقيا.", qs: [{ q: "كم عدد المتحدثين بالعربية؟", opts: ["100 مليون", "200 مليون", "300 مليون", "400 مليون"], c: 2 }, { q: "ما المنظمة الدولية التي تُعتبر العربية لغة رسمية فيها؟", opts: ["حلف الناتو", "الاتحاد الأوروبي", "الأمم المتحدة", "منظمة التعاون الاقتصادي"], c: 2 }, { q: "ما الفرص التي تتيحها معرفة العربية؟", opts: ["السياحة فحسب", "العمل والتعليم والسفر", "الإنترنت فحسب", "الرياضة فحسب"], c: 1 }] }, { title: "الحضارة العربية الإسلامية", text: "أسهم العلماء العرب بإسهامات عظيمة في العلوم العالمية. وضع ابن سينا أسس الطب الحديث. طوّر الخوارزمي علم الجبر. درس البيروني الجغرافيا والفلك. بين القرن الثامن والثالث عشر ازدهرت الحضارة العربية الإسلامية، فأضاءت أوروبا في عصور الظلام.", qs: [{ q: "من الذي طوّر علم الجبر؟", opts: ["ابن سينا", "الخوارزمي", "البيروني", "ابن رشد"], c: 1 }, { q: "متى ازدهرت الحضارة العربية الإسلامية؟", opts: ["القرن 6-7", "القرن 8-13", "القرن 14-16", "القرن 17-18"], c: 1 }, { q: "ماذا درس البيروني؟", opts: ["الطب", "الجبر", "الجغرافيا والفلك", "الفلسفة"], c: 2 }] }, { title: "الرياضة في الدول العربية", text: "تحتضن الدول العربية فعاليات رياضية كبرى. احتضنت قطر كأس العالم 2022 بنجاح. المملكة العربية السعودية والإمارات تستثمران كثيراً في الرياضة. كرة القدم الرياضة الأشهر، وتُقام بطولات كثيرة في دوريات عربية. يتابع الملايين الفعاليات الرياضية بشغف.", qs: [{ q: "من احتضن كأس العالم 2022؟", opts: ["السعودية", "الإمارات", "قطر", "مصر"], c: 2 }, { q: "ما الرياضة الأشهر في العالم العربي؟", opts: ["كرة السلة", "التنس", "كرة القدم", "السباحة"], c: 2 }, { q: "ما الدول العربية التي تستثمر في الرياضة؟", opts: ["مصر والأردن", "السعودية والإمارات", "قطر والكويت", "تونس والمغرب"], c: 1 }] }];
-let prIdx = 0;
-function initPracticeReading() { const rd = PRTexts[prIdx % PRTexts.length]; const tb = document.getElementById('readingTextBox'); const rq = document.getElementById('readingQuestions'); if (!tb || !rq) return; tb.innerHTML = `<h3>${rd.title}</h3><p>${rd.text}</p>`; rq.innerHTML = rd.qs.map((q, qi) => `<div class="rq-card"><div class="rq-q">${qi + 1}. ${q.q}</div><div class="rq-opts">${q.opts.map((o, oi) => `<div class="rq-opt" data-qi="${qi}" data-oi="${oi}" onclick="selPRQ(this,${qi},${oi})">${String.fromCharCode(65 + oi)}. ${o}</div>`).join('')}</div><div class="gex-fb" id="prqfb${qi}"></div></div>`).join(''); window.__prCurrent = rd; window.__prSel = {}; }
-window.selPRQ = function (el, qi, oi) { document.querySelectorAll(`.rq-opt[data-qi="${qi}"]`).forEach(o => o.classList.remove('selected')); el.classList.add('selected'); if (!window.__prSel) window.__prSel = {}; window.__prSel[qi] = oi; };
-window.checkReading = async function () { const rd = window.__prCurrent; if (!rd) return; const fb = document.getElementById('readingFeedback'); let ok = 0; rd.qs.forEach((q, qi) => { const qfb = document.getElementById(`prqfb${qi}`); const sel = window.__prSel?.[qi]; document.querySelectorAll(`.rq-opt[data-qi="${qi}"]`).forEach((o, i) => { if (i === q.c) o.classList.add('rq-correct'); else if (sel !== undefined && i === sel && i !== q.c) o.classList.add('rq-wrong'); }); if (sel === q.c) { ok++; if (qfb) { qfb.className = 'gex-fb correct'; qfb.innerHTML = "✅ To'g'ri!"; } } else if (sel !== undefined && qfb) { qfb.className = 'gex-fb wrong'; qfb.innerHTML = `❌ To'g'ri: <strong>${String.fromCharCode(65 + q.c)}</strong>`; } }); if (fb) { const pct = Math.round((ok / rd.qs.length) * 100); fb.className = `feedback-box ${pct >= 60 ? 'success' : 'error'} show`; fb.innerHTML = `${pct >= 60 ? '🏆' : '💪'} ${ok}/${rd.qs.length} — ${pct}%`; } if (ok >= 2) awardXP(20, 'reading'); await savePracticeResult('reading', ok, rd.qs.length, { title: rd.title, type: 'practice_panel' }); };
-window.nextReading = function () { prIdx++; initPracticeReading(); const fb = document.getElementById('readingFeedback'); if (fb) { fb.className = 'feedback-box'; fb.innerHTML = ''; } };
+// ── Flashcard ──
+function initFlashcards() { flashDeck = shuffle([...WDB]).slice(0, 20); flashIdx = 0; flashCorrect = 0; flashWrong = 0; showFlash(); }
+function showFlash() {
+    if (flashIdx >= flashDeck.length) {
+        const fw = $id('flashWord'); const fu = $id('flashUz');
+        if (fw) fw.textContent = '🎉 Tugadi!';
+        if (fu) fu.textContent = `To'g'ri: ${flashCorrect}, Noto'g'ri: ${flashWrong}`; return;
+    }
+    const w = flashDeck[flashIdx];
+    const fc = $id('flashcard'); if (fc) fc.classList.remove('flipped');
+    const fw = $id('flashWord'); if (fw) { fw.textContent = w.a; fw.style.direction = 'rtl'; }
+    const fu = $id('flashUz'); if (fu) fu.textContent = w.u;
+    const fe = $id('flashEx'); if (fe) { fe.textContent = w.ex || ''; fe.style.direction = 'rtl'; }
+    const fp = $id('flashProgress'); if (fp) fp.textContent = (flashIdx + 1) + ' / ' + flashDeck.length;
+    const fb = $id('flashBar'); if (fb) fb.style.width = Math.round((flashIdx / flashDeck.length) * 100) + '%';
+}
+window.flipCard = function () { const fc = $id('flashcard'); if (fc) fc.classList.toggle('flipped'); if (flashIdx < flashDeck.length) window.speakWord(flashDeck[flashIdx].a); };
+window.flashResult = function (result) { if (result === 'correct') { flashCorrect++; awardXP(5, 'grammar'); } else flashWrong++; flashIdx++; showFlash(); };
+window.nextFlash = function () { flashIdx++; showFlash(); };
 
-const PWPrompts = ["Sevimli shahringizni arabcha tasvirlab bering. U qanday? Qanday joylari bor?", "Sizningcha, ijtimoiy tarmoqlar jamiyatga ijobiy yoki salbiy ta'sir ko'rsatadimi? Arabcha yozing.", "Yodda qolgan bir sayohatingizni arabcha tasvirlab bering.", "Ba'zilar bolalar ko'proq o'qishi kerak deb hisoblaydi. Siz qanday fikrdasiz? Arabcha yozing.", "Tarixdagi eng muhim kashfiyotni arabcha tushuntiring."];
-let pwIdx = 0;
-function initPracticeWriting() { const wp = document.getElementById('writingPrompt'); if (!wp) return; wp.innerHTML = `<strong>📌 Arabcha Yozuv Mavzusi:</strong> ${PWPrompts[pwIdx % PWPrompts.length]}`; window.__pwPrompt = PWPrompts[pwIdx % PWPrompts.length]; }
-window.analyzeWriting = async function () { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const ta = document.getElementById('writingTextarea'); const fb = document.getElementById('writingFeedback'); if (!ta?.value.trim()) { if (fb) { fb.className = 'feedback-box error show'; fb.innerHTML = 'Avval arabcha yozing!'; } return; } fb.className = 'feedback-box info show'; fb.innerHTML = '🤖 AI tekshirmoqda...'; UL.ai_used_today++; saveLimits(); const r = await callAI(`Arabcha yozuvni tekshir. Mavzu: "${window.__pwPrompt || 'Umumiy'}"\nMatn: "${ta.value.trim()}"\nO'zbek tilida:\n1. ✅ Grammatika xatoliklari\n2. 📝 Tuzilish\n3. 📚 Leksik resurs\n4. 🔄 Tuzatilgan arabcha variant\n5. ⭐ Arabcha yozuv bali: /10`, 900); fb.className = 'feedback-box info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); awardXP(25, 'writing'); const wc = ta.value.trim().split(/\s+/).length; await savePracticeResult('writing', wc >= 60 ? 1 : 0, 1, { prompt: window.__pwPrompt, wordCount: wc, type: 'practice_panel' }); };
-window.nextWriting = function () { pwIdx++; initPracticeWriting(); const ta = document.getElementById('writingTextarea'); if (ta) ta.value = ''; const fb = document.getElementById('writingFeedback'); if (fb) { fb.className = 'feedback-box'; fb.innerHTML = ''; } const wc = document.getElementById('wordCount'); if (wc) wc.textContent = "0 so'z"; };
+// ── Quiz ──
+function initQuiz() { quizScore = 0; const el = $id('quizScore'); if (el) el.textContent = 0; showQuizWord(); }
+function showQuizWord() {
+    quizAnswered = false;
+    const pool = shuffle([...WDB]); curQuizWord = pool[0];
+    const opts = shuffle([curQuizWord, ...pool.slice(1, 4)]);
+    const type = Math.random() > 0.5 ? 'ar2uz' : 'uz2ar';
+    const qEl = $id('quizQ');
+    if (qEl) qEl.innerHTML = type === 'ar2uz'
+        ? `<span dir="rtl">"${curQuizWord.a}"</span> = ?`
+        : `"${curQuizWord.u}" = ?`;
+    const optsEl = $id('quizOptions');
+    if (optsEl) optsEl.innerHTML = opts.map(o => `<button class="quiz-opt" onclick="window.checkQuizOpt(this,'${o.a.replace(/'/g, "\\'")}','${type}')" style="width:100%;margin-bottom:8px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:#e8ecff;cursor:pointer;text-align:${type === 'ar2uz' ? 'center' : 'right'};font-family:inherit;font-size:0.9rem;transition:all 0.2s;direction:${type === 'ar2uz' ? 'ltr' : 'rtl'}">${type === 'ar2uz' ? o.u : o.a}</button>`).join('');
+    const fb = $id('quizFeedback'); if (fb) fb.innerHTML = '';
+}
+window.checkQuizOpt = function (btn, chosen, type) {
+    if (quizAnswered) return; quizAnswered = true;
+    document.querySelectorAll('.quiz-opt').forEach(b => {
+        const bVal = b.textContent.trim();
+        if (type === 'ar2uz' ? bVal === curQuizWord.u : bVal === curQuizWord.a) { b.style.background = 'rgba(52,211,153,0.2)'; b.style.borderColor = '#34d399'; }
+        else if (b === btn) { b.style.background = 'rgba(239,68,68,0.2)'; b.style.borderColor = '#ef4444'; }
+    });
+    const fb = $id('quizFeedback');
+    if (chosen === curQuizWord.a) { quizScore++; const el = $id('quizScore'); if (el) el.textContent = quizScore; awardXP(10, 'grammar'); if (fb) fb.innerHTML = '<span style="color:#34d399">✅ To\'g\'ri!</span>'; }
+    else { if (fb) fb.innerHTML = `<span style="color:#ef4444">❌ To'g'ri: <span dir="rtl">${curQuizWord.a}</span> = ${curQuizWord.u}</span>`; }
+    window.speakWord(curQuizWord.a);
+};
+window.nextQuiz = function () { showQuizWord(); };
 
-const PGEx = [{ q: "هي ___ إلى المدرسة كل يوم.", opts: ["يذهب", "تذهب", "نذهب", "أذهب"], c: 1, exp: "هي → مؤنث → تذهب (ismi zamon urg'ochi uchun)" }, { q: "أنا ___ في طشقند منذ خمس سنوات.", opts: ["يعيش", "تعيش", "أعيش", "نعيش"], c: 2, exp: "أنا → 1-shaxs birlik → أعيش" }, { q: "أمس هو ___ كتاباً شيقاً.", opts: ["يقرأ", "قرأ", "سيقرأ", "اقرأ"], c: 1, exp: "أمس = o'tgan zamon → قرأ (maضي)" }, { q: "لو كان لديّ وقت، ___ إليك.", opts: ["سأجيء", "جئت", "لجئت", "أجيء"], c: 2, exp: "لو + ماضٍ → لـ + ماضٍ (xayoliy shart)" }, { q: "الكتاب ___ أقرأه رائع.", opts: ["التي", "الذين", "الذي", "اللاتي"], c: 2, exp: "الكتاب (erkak jins) → الذي (erkak sifatlovchi olmoshi)" }, { q: "يسعدني ___ الموسيقى.", opts: ["يستمع", "أستمع", "الاستماع إلى", "سمع"], c: 2, exp: "يسعدني + masdar: الاستماع" }, { q: "غداً نحن ___ إلى السينما.", opts: ["نذهب", "ذهبنا", "نذهب سوف", "سنذهب"], c: 3, exp: "غداً = kelajak → سـ + نذهب = سنذهب" }, { q: "البيت ___ بناؤه العام الماضي.", opts: ["بنى", "يبني", "تمّ", "يُبنى"], c: 2, exp: "Passiv ma'no: تمّ بناء البيت" }, { q: "يتحدث هو ___ عربية جيداً.", opts: ["في", "على", "باللغة", "بـ"], c: 3, exp: "يتحدث بـ: يتحدث بالعربية (arabchada gapiradi)" }, { q: "لديّ ___ سيارة جديدة.", opts: ["كانت", "كان", "يكون", "ليس"], c: 0, exp: "لديّ كانت (edi) — o'tgan zamonda egalik ifodalash" }];
-let pgIdx = 0;
-function initPracticeGrammar() { const ex = PGEx[pgIdx % PGEx.length]; const qbox = document.getElementById('grammarQBox'); const opts = document.getElementById('grammarOptions'); const expl = document.getElementById('grammarExplanation'); if (!qbox || !opts) return; qbox.innerHTML = `<div class="gq-q">${ex.q}</div>`; opts.innerHTML = ex.opts.map((o, i) => `<div class="gq-opt" data-i="${i}" onclick="selGQ(this,${i})">${String.fromCharCode(65 + i)}. ${o}</div>`).join(''); if (expl) { expl.className = 'grammar-explanation'; expl.innerHTML = ''; } window.__pgCurrent = ex; window.__pgSel = -1; }
-window.selGQ = function (el, i) { document.querySelectorAll('.gq-opt').forEach(o => o.classList.remove('selected')); el.classList.add('selected'); window.__pgSel = i; };
-window.checkGrammar = async function () { const ex = window.__pgCurrent; if (!ex) return; const fb = document.getElementById('grammarFeedback'); const expl = document.getElementById('grammarExplanation'); const sel = window.__pgSel; if (sel < 0) { if (fb) { fb.className = 'feedback-box error show'; fb.innerHTML = '⚠️ Javob tanlang!'; } return; } document.querySelectorAll('.gq-opt').forEach((o, i) => { if (i === ex.c) o.classList.add('gq-correct'); else if (i === sel && sel !== ex.c) o.classList.add('gq-wrong'); }); const correct = sel === ex.c; if (correct) { if (fb) { fb.className = 'feedback-box success show'; fb.innerHTML = "✅ To'g'ri! Arabcha grammatika ustasiz!"; } if (expl) { expl.className = 'grammar-explanation show'; expl.innerHTML = `💡 Izoh: ${ex.exp}`; } awardXP(15, 'grammar'); } else { if (fb) { fb.className = 'feedback-box error show'; fb.innerHTML = `❌ Noto'g'ri. To'g'ri: <strong>${String.fromCharCode(65 + ex.c)}</strong>`; } if (expl) { expl.className = 'grammar-explanation show'; expl.innerHTML = `💡 Izoh: ${ex.exp}`; } } await savePracticeResult('grammar', correct ? 1 : 0, 1, { question: ex.q, correct, type: 'practice_panel' }); };
-window.nextGrammar = function () { pgIdx++; initPracticeGrammar(); const fb = document.getElementById('grammarFeedback'); if (fb) { fb.className = 'feedback-box'; fb.innerHTML = ''; } };
+// ── Match ──
+function initMatch() {
+    const pool = shuffle([...WDB]).slice(0, 5);
+    matchPairs = pool; matchMatched = []; matchSel1 = null;
+    const items = shuffle([...pool.map(w => ({ id: w.a, text: w.a, type: 'ar', dir: 'rtl' })), ...pool.map(w => ({ id: w.a, text: w.u, type: 'uz', dir: 'ltr' }))]);
+    const grid = $id('matchGrid');
+    if (grid) grid.innerHTML = items.map(item => `<div class="match-item" data-id="${item.id}" data-type="${item.type}" onclick="window.selectMatch2(this)" style="padding:12px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:#e8ecff;cursor:pointer;font-family:inherit;transition:all 0.2s;font-size:${item.type === 'ar' ? '1rem' : '0.85rem'};direction:${item.dir};text-align:${item.dir === 'rtl' ? 'right' : 'left'}">${item.text}</div>`).join('');
+    const fb = $id('matchFeedback'); if (fb) fb.innerHTML = '';
+}
+window.startMatch = initMatch;
+window.selectMatch2 = function (el) {
+    if (el.classList.contains('matched')) return;
+    if (!matchSel1) {
+        matchSel1 = el; el.style.background = 'rgba(232,180,56,0.2)'; el.style.borderColor = '#e8b438';
+    } else {
+        if (matchSel1 === el) { el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(255,255,255,0.1)'; matchSel1 = null; return; }
+        if (matchSel1.dataset.type === el.dataset.type) {
+            matchSel1.style.background = 'rgba(255,255,255,0.04)'; matchSel1.style.borderColor = 'rgba(255,255,255,0.1)';
+            matchSel1 = el; el.style.background = 'rgba(232,180,56,0.2)'; el.style.borderColor = '#e8b438'; return;
+        }
+        if (matchSel1.dataset.id === el.dataset.id) {
+            matchSel1.style.background = 'rgba(52,211,153,0.15)'; matchSel1.style.borderColor = '#34d399'; matchSel1.classList.add('matched');
+            el.style.background = 'rgba(52,211,153,0.15)'; el.style.borderColor = '#34d399'; el.classList.add('matched');
+            matchMatched.push(el.dataset.id); matchSel1 = null; awardXP(15, 'grammar');
+            if (matchMatched.length === matchPairs.length) { const fb = $id('matchFeedback'); if (fb) fb.innerHTML = '<span style="color:#34d399">🎉 Barcha juftliklar!</span>'; }
+        } else {
+            const s = matchSel1; matchSel1 = null;
+            s.style.background = 'rgba(239,68,68,0.15)'; s.style.borderColor = '#ef4444';
+            el.style.background = 'rgba(239,68,68,0.15)'; el.style.borderColor = '#ef4444';
+            setTimeout(() => {
+                s.style.background = 'rgba(255,255,255,0.04)'; s.style.borderColor = 'rgba(255,255,255,0.1)';
+                el.style.background = 'rgba(255,255,255,0.04)'; el.style.borderColor = 'rgba(255,255,255,0.1)';
+            }, 800);
+        }
+    }
+};
 
-let pcTopic = 'travel';
-function initPracticePostcard() { const el = document.getElementById('postcardImageArea'); if (el) el.innerHTML = '<span>📸 Rasm joyi</span>'; }
-window.selectPostcardTopic = function (t) { pcTopic = t; document.querySelectorAll('.ptopic-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); const ta = document.getElementById('postcardText'); if (ta) ta.value = ''; };
-window.aiWritePostcard = async function () { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const fb = document.getElementById('postcardFeedback'); if (fb) { fb.className = 'feedback-box info show'; fb.innerHTML = '🤖 AI arabcha yozmoqda...'; } UL.ai_used_today++; saveLimits(); const topics = { travel: "سفر", holiday: "عطلة", birthday: "عيد ميلاد", friendship: "صداقة" }; const r = await callAI(`اكتب بطاقة بريدية بالعربية. الموضوع: "${topics[pcTopic] || pcTopic}". 80-100 كلمة. أسلوب صادق وإبداعي وصحيح نحوياً. وقّع في الآخر. اكتب بالعربية فقط!`, 400); const ta = document.getElementById('postcardText'); if (ta) ta.value = r; if (fb) { fb.className = 'feedback-box success show'; fb.innerHTML = '✅ AI arabcha bittorqа yozdi! Tahrirlashingiz mumkin.'; } };
-window.aiCheckPostcard = async function () { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const ta = document.getElementById('postcardText'); const fb = document.getElementById('postcardFeedback'); if (!ta?.value.trim()) { if (fb) { fb.className = 'feedback-box error show'; fb.innerHTML = 'Avval arabcha postcard yozing!'; } return; } fb.className = 'feedback-box info show'; fb.innerHTML = '🤖 AI arabcha tekshirmoqda...'; UL.ai_used_today++; saveLimits(); const r = await callAI(`افحص نص البطاقة البريدية العربية: "${ta.value.trim()}". بالأوزبكية: 1) أخطاء نحوية 2) الأسلوب 3) النسخة المصحَّحة بالعربية 4) التقييم /10`, 600); fb.className = 'feedback-box info show'; fb.innerHTML = r.replace(/\n/g, '<br>'); await savePracticeResult('writing', 1, 1, { type: 'postcard', topic: pcTopic }); };
+// ── Typing ──
+function initTyping() { typingDeck = shuffle([...WDB]); typingIdx = 0; showTypingWord(); }
+function showTypingWord() {
+    const w = typingDeck[typingIdx % typingDeck.length];
+    const tw = $id('typingWord'); if (tw) { tw.textContent = w.a; tw.style.direction = 'rtl'; }
+    const th = $id('typingHint'); if (th) th.textContent = "O'zbek: " + w.u;
+    const ti = $id('typingInput'); if (ti) { ti.value = ''; ti.style.borderColor = ''; ti.setAttribute('dir', 'rtl'); ti.placeholder = 'Arabcha yozing...'; }
+    const tf = $id('typingFeedback'); if (tf) tf.innerHTML = '';
+}
+window.checkTyping = function () {
+    const w = typingDeck[typingIdx % typingDeck.length];
+    const val = $id('typingInput')?.value.trim() || '';
+    const fb = $id('typingFeedback'); const inp = $id('typingInput');
+    if (val === w.a) {
+        if (fb) fb.innerHTML = '<span style="color:#34d399">✅ To\'g\'ri!</span>';
+        if (inp) inp.style.borderColor = '#34d399';
+        awardXP(8, 'grammar'); setTimeout(() => { typingIdx++; showTypingWord(); }, 800);
+    } else if (val.length >= w.a.length) {
+        if (fb) fb.innerHTML = `<span style="color:#ef4444">❌ To'g'ri: <span dir="rtl">${w.a}</span></span>`;
+        if (inp) inp.style.borderColor = '#ef4444';
+    }
+};
+window.nextTyping = function () { typingIdx++; showTypingWord(); };
 
-window.findYoutubeVideos = async function () { if (!canAI()) { showUpgradeModal('AI limit tugadi!'); return; } const grid = document.getElementById('videosGrid'); if (grid) grid.innerHTML = '<div class="video-placeholder"><p>🤖 Arabcha videolar qidirilmoqda...</p></div>'; UL.ai_used_today++; saveLimits(); const weakSk = Object.entries(USk).sort((a, b) => a[1] - b[1])[0][0]; const cnt = UP === 'universal' ? 9 : UP === 'team' ? 6 : 4; const r = await callAI(`Suggest ${cnt} YouTube Arabic language learning videos for level: ${curLevel}, weak skill: ${weakSk}. Respond ONLY as JSON array: [{"title":"Video Title","channel":"Channel Name","skill":"skill","query":"youtube search query","emoji":"🎯","description":"2 sentence Uzbek description"}]. Use channels: ArabicPod101, Learn Arabic with Maha, Arabic with Sam, Madinah Arabic.`, 800); try { const clean = r.replace(/```json|```/g, '').trim(); const vids = JSON.parse(clean); if (grid) grid.innerHTML = vids.map(v => `<div class="video-card" onclick="window.open('https://www.youtube.com/results?search_query=${encodeURIComponent(v.query)}','_blank')"><div class="video-thumb">${v.emoji}</div><div class="video-info"><div class="video-title">${v.title}</div><div class="video-channel">▶ ${v.channel}</div><div class="video-desc">${v.description}</div><div class="video-tags"><span>${v.skill}</span><span>${curLevel}</span></div></div></div>`).join(''); } catch (e) { if (grid) grid.innerHTML = '<div class="video-placeholder"><p>❌ Videolar topilmadi. Qayta urining.</p></div>'; } };
+// ── Grammar Practice ──
+function initGrammar() { curGrammarIdx = 0; showGrammarQ(); }
+function showGrammarQ() {
+    grammarAnswered = false;
+    const q = GRAMMAR_QS[curGrammarIdx % GRAMMAR_QS.length];
+    const qBox = $id('grammarQBox'); if (qBox) { qBox.innerHTML = `<span dir="rtl">${q.q}</span>`; }
+    const optsEl = $id('grammarOptions');
+    if (optsEl) optsEl.innerHTML = q.opts.map(o => `<button onclick="window.checkGrammar('${o.replace(/'/g, "\\'")}','${q.ans.replace(/'/g, "\\'")}','${q.exp.replace(/'/g, "\\'")}')" style="margin:4px;padding:10px 18px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:#e8ecff;cursor:pointer;font-family:inherit;transition:all 0.2s;direction:rtl;font-size:0.95rem">${o}</button>`).join('');
+    const fb = $id('grammarFeedback'); if (fb) fb.innerHTML = '';
+}
+window.checkGrammar = function (chosen, ans, exp) {
+    if (grammarAnswered) return; grammarAnswered = true;
+    const fb = $id('grammarFeedback');
+    document.querySelectorAll('#grammarOptions button').forEach(b => {
+        if (b.textContent.trim() === ans) { b.style.background = 'rgba(52,211,153,0.2)'; b.style.borderColor = '#34d399'; }
+        else if (b.textContent.trim() === chosen && chosen !== ans) { b.style.background = 'rgba(239,68,68,0.2)'; b.style.borderColor = '#ef4444'; }
+    });
+    if (chosen === ans) {
+        if (fb) fb.innerHTML = `<div style="color:#34d399;padding:10px;border-radius:10px;background:rgba(52,211,153,0.1)">✅ To'g'ri! ${exp}</div>`;
+        grammarScore2++; const el = $id('grammarScore'); if (el) el.textContent = grammarScore2; awardXP(12, 'grammar');
+    } else {
+        if (fb) fb.innerHTML = `<div style="color:#ef4444;padding:10px;border-radius:10px;background:rgba(239,68,68,0.1)">❌ To'g'ri javob: <span dir="rtl"><b>${ans}</b></span>. ${exp}</div>`;
+    }
+};
+window.nextGrammarEx = function () { curGrammarIdx++; showGrammarQ(); };
 
-async function loadAndRenderChatHistory() { const msgs = document.getElementById('chatMessages'); if (!msgs) return; msgs.innerHTML = '<div class="chat-msg ai-msg"><div class="chat-avatar">🤖</div><div class="chat-bubble typing"><span></span><span></span><span></span></div></div>'; try { const history = await loadChatHistory(20); msgs.innerHTML = ''; if (history.length === 0) { addChatMsg('ai', "Salom! Men sizning <strong>arab tili</strong> o'qituvchingizman 🎓\nArabcha yozish, grammatika, tarjima yoki erkin suhbat — hammasi mumkin! 😊"); } else { history.forEach(m => { addChatMsgRaw(m.role, m.text); }); chatHist = history.slice(-10).map(m => ({ role: m.role === 'ai' ? 'model' : 'user', parts: [{ text: m.text }] })); addChatMsg('ai', `✅ Oldingi suhbatingiz yuklandi (${history.length} xabar). Davom etamizmi?`); } } catch (e) { msgs.innerHTML = ''; addChatMsg('ai', "Salom! Men sizning arab tili o'qituvchingizman 🎓\nNima haqida suhbatlashamiz? 😊"); } }
-window._setChatMode = function (mode, el) { chatMode = mode; document.querySelectorAll('.chat-mode-btn').forEach(b => b.classList.remove('active')); el.classList.add('active'); const msgs = { free: "Salom! Erkin suhbat rejimi. Arabcha yoki o'zbekcha yozing! 😊", teacher: "Salom! Men sizning arab tili o'qituvchingizman. Nima o'rganmoqchisiz? 👨‍🏫", grammar: "Arabcha grammatika rejimi! Arabcha jumla yozing — xatoliklarni tuzataman. ✏️", translate: "Tarjimon rejimi. O'zbekcha ↔ Arabcha. 🌐", ielts: "Arab tili imtihon tayyorlik rejimi! 📋" }; const text = msgs[mode] || 'Salom!'; addChatMsg('ai', text); saveChatMessage('ai', text, mode); };
-window._handleChatKey = function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); window._sendChatMessage(); } };
-window._sendChatMessage = async function () { if (!canAI()) { showUpgradeModal('AI chat limiti tugadi!'); return; } const inp = document.getElementById('chatInput'); const text = inp?.value.trim(); if (!text) return; inp.value = ''; addChatMsg('user', text); await saveChatMessage('user', text, chatMode); const tid = addTyping(); UL.ai_used_today++; saveLimits(); renderLimitBar(); chatHist.push({ role: 'user', parts: [{ text }] }); const sysPs = { free: `Siz O'zbek tilida so'zlashadigan o'quvchilar uchun do'stona arab tili o'qituvchisisiz. Tushuntirishlarda o'zbek tilidan foydalaning, misollarda arabcha. Joriy daraja: ${curLevel}.`, teacher: `Siz O'zbek talabalari uchun mutaxassis arab tili o'qituvchisisiz. Misollar, qoidalar va mashqlar bilan tizimli o'rgating. Daraja: ${curLevel}.`, grammar: `Siz arabcha grammatika mutaxassisisiz. Arabcha matn berilganda BARCHA xatoliklarni toping, har birini o'zbek tilida tushuntiring.`, translate: `Siz tarjimonsiz. O'zbek tili va arab tili o'rtasida tarjima qiling.`, ielts: `Siz arab tili imtihoni bo'yicha mutaxassississiz. To'rtta ko'nikma bo'yicha yordam bering.` }; try { const res = await callAIChat(chatHist, (sysPs[chatMode] || sysPs.free) + '\nFoydalanuvchi xabari: ' + text); rmTyping(tid); addChatMsg('ai', res); await saveChatMessage('ai', res, chatMode); chatHist.push({ role: 'model', parts: [{ text: res }] }); if (chatHist.length > 20) chatHist = chatHist.slice(-20); } catch (e) { rmTyping(tid); addChatMsg('ai', '❗ Xatolik yuz berdi. Qayta urining.'); } };
-window._insertQuickPhrase = function (p) { const i = document.getElementById('chatInput'); if (i) { i.value = p; i.focus(); } };
-window._startVoiceChat = function () { const btn = document.getElementById('voiceChatBtn'); if (UP === 'free' || UP === 'own') { showToast('🎤 Ovozli chat Team va Universal rejasida!', 'error'); return; } const SR = window.SpeechRecognition || window.webkitSpeechRecognition; if (!SR) { showToast('Mikrofon bu brauzerda ishlamaydi', 'error'); return; } if (!vcRec) { const rec = new SR(); rec.lang = LANG; rec.interimResults = false; rec.onresult = e => { const t = e.results[0][0].transcript; const i = document.getElementById('chatInput'); if (i) i.value = t; window._sendChatMessage(); }; rec.onerror = () => { vcRec = false; btn?.classList.remove('active'); }; rec.onend = () => { vcRec = false; btn?.classList.remove('active'); }; try { rec.start(); vcRec = true; btn?.classList.add('active'); showToast('🎤 Arabcha gapiring...', 'info'); } catch (e) { showToast('Mikrofon ishlamadi', 'error'); } } else { vcRec = false; btn?.classList.remove('active'); } };
-window.clearChatHistory = async function () { if (!CU) return; if (!confirm("Suhbat tarixini o'chirmoqchimisiz?")) return; try { const chatRef = collection(db, 'users', CU.uid, 'chatHistory'); const q = query(chatRef, orderBy('createdAt')); const snap = await getDocs(q); const deletions = snap.docs.map(d => deleteDoc(doc(db, 'users', CU.uid, 'chatHistory', d.id))); await Promise.all(deletions); chatHist = []; const msgs = document.getElementById('chatMessages'); if (msgs) msgs.innerHTML = ''; addChatMsg('ai', "Suhbat tarixi tozalandi! Yangi arab tili darsini boshlaylik 😊"); showToast("✅ Suhbat tarixi o'chirildi", 'success'); } catch (e) { showToast('❌ Xatolik yuz berdi', 'error'); } };
-function addChatMsg(role, text) { const msgs = document.getElementById('chatMessages'); if (!msgs) return; const div = document.createElement('div'); div.className = `chat-msg ${role}-msg`; const init = (CU?.displayName || CU?.email || 'U').charAt(0).toUpperCase(); div.innerHTML = `<div class="chat-avatar">${role === 'ai' ? '🤖' : init}</div><div class="chat-bubble">${text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div>`; msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight; }
-function addChatMsgRaw(role, text) { const msgs = document.getElementById('chatMessages'); if (!msgs) return; const div = document.createElement('div'); div.className = `chat-msg ${role}-msg`; const init = (CU?.displayName || CU?.email || 'U').charAt(0).toUpperCase(); div.innerHTML = `<div class="chat-avatar">${role === 'ai' ? '🤖' : init}</div><div class="chat-bubble">${text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div>`; msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight; }
-function addTyping() { const msgs = document.getElementById('chatMessages'); if (!msgs) return ''; const id = 'typ' + Date.now(); const div = document.createElement('div'); div.className = 'chat-msg ai-msg'; div.id = id; div.innerHTML = '<div class="chat-avatar">🤖</div><div class="chat-bubble typing"><span></span><span></span><span></span></div>'; msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight; return id; }
-function rmTyping(id) { document.getElementById(id)?.remove(); }
-function drawRadar() { const canvas = document.getElementById('radarCanvas'); if (!canvas) return; const ctx = canvas.getContext('2d'); const cx = 110, cy = 110, r = 85; const skills = ['reading', 'writing', 'speaking', 'listening', 'grammar']; const vals = skills.map(s => (USk[s] || 0) / 100); const angs = skills.map((_, i) => (i * 2 * Math.PI / 5) - Math.PI / 2); ctx.clearRect(0, 0, 220, 220);[.2, .4, .6, .8, 1].forEach(p => { ctx.beginPath(); angs.forEach((a, i) => { const x = cx + r * p * Math.cos(a), y = cy + r * p * Math.sin(a); i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }); ctx.closePath(); ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.lineWidth = 1; ctx.stroke(); }); angs.forEach(a => { ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a)); ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.stroke(); }); ctx.beginPath(); angs.forEach((a, i) => { const x = cx + r * vals[i] * Math.cos(a), y = cy + r * vals[i] * Math.sin(a); i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }); ctx.closePath(); ctx.fillStyle = 'rgba(79,110,247,0.25)'; ctx.fill(); ctx.strokeStyle = '#4f6ef7'; ctx.lineWidth = 2; ctx.stroke(); angs.forEach((a, i) => { const x = cx + r * vals[i] * Math.cos(a), y = cy + r * vals[i] * Math.sin(a); ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2); ctx.fillStyle = '#4f6ef7'; ctx.fill(); }); }
-async function awardXP(amt, skill) { const b = plan().xb || 1; const tot = Math.round(amt * b); if (!CU) return; try { USk[skill] = Math.min(100, (USk[skill] || 0) + 2); await updateDoc(doc(db, 'users', CU.uid), { xp: increment(tot), [`skills.${skill}`]: USk[skill], lastActive: serverTimestamp() }); drawRadar(); showXPPop(`+${tot} XP`); } catch (e) { } }
-window.spk = function (word, e) { if (e) e.stopPropagation(); const u = new SpeechSynthesisUtterance(word); u.lang = LANG; u.rate = 0.85; speechSynthesis.speak(u); };
-window.speakWord = window.spk;
-window.showToast = function (msg, type = 'info') { const t = document.getElementById('toast'); if (!t) return; t.innerHTML = msg; t.className = `toast ${type} show`; setTimeout(() => t.classList.remove('show'), 3000); };
-function showXPPop(txt) { const e = document.getElementById('xpPopup'); if (!e) return; e.textContent = txt; e.classList.add('show'); setTimeout(() => e.classList.remove('show'), 2500); }
-window.showUpgradeModal = function (txt) { const el = document.getElementById('upgradeModalText'); if (el) el.textContent = txt; const rt = UP !== 'universal' ? new Date((UL.last_reset || Date.now()) + (plan().rh || 4) * 3600000) : null; const te = document.getElementById('upgradeTimer'); if (rt && te) { if (upTimer) clearInterval(upTimer); upTimer = setInterval(() => { const d = Math.max(0, rt.getTime() - Date.now()); const h = Math.floor(d / 3600000), m = Math.floor((d % 3600000) / 60000), s = Math.floor((d % 60000) / 1000); te.textContent = `⏱ ${h}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`; if (d === 0) clearInterval(upTimer); }, 1000); } document.getElementById('upgradeModal')?.classList.add('open'); };
-window.closeUpgradeModal = function (e) { if (e && e.target !== document.getElementById('upgradeModal')) return; if (upTimer) clearInterval(upTimer); document.getElementById('upgradeModal')?.classList.remove('open'); };
-window.closeModal = function () { document.getElementById('unitModal')?.classList.remove('open'); };
-window.closeUnitModal = function (e) { if (e.target.id === 'unitModal') closeModal(); };
-function initWritingCounter() { const ta = document.getElementById('writingTextarea'); if (!ta) return; ta.addEventListener('input', () => { const t = ta.value.trim(); const w = t ? t.split(/\s+/).length : 0; const wc = document.getElementById('wordCount'); const cc = document.getElementById('charCount'); if (wc) wc.textContent = w + " so'z"; if (cc) cc.textContent = ta.value.length + ' belgi'; }); }
+// ══════════════════════════════════════════════════════════════
+// AI CHAT
+// ══════════════════════════════════════════════════════════════
+const CHAT_MODES = {
+    free: { label: 'Erkin suhbat', sys: 'You are a friendly Arabic language learning assistant for Uzbek speakers. Chat naturally in Arabic and Uzbek, helping the user practice Arabic. Keep responses concise (2-4 sentences). If the user writes in Uzbek, respond in both Uzbek and Arabic. Always add Arabic script with Uzbek translation.' },
+    teacher: { label: "O'qituvchi", sys: "You are an Arabic teacher for Uzbek-speaking students. Explain Arabic grammar rules clearly in simple Uzbek, give examples in both Arabic and Latin transliteration, and encourage the student. Focus on Modern Standard Arabic (MSA)." },
+    grammar: { label: 'Grammatika', sys: "You are an Arabic grammar checker for Uzbek learners. When the user sends Arabic text, identify all grammar errors, explain each in simple Uzbek, show the corrected version. Format: '❌ Xato → ✅ To'g'ri: ... 📚 Qoida: ...'" },
+    translate: { label: 'Tarjimon', sys: 'You are a professional Arabic-Uzbek translator. Translate accurately. Also explain any expressions. Show both Arabic (with diacritics if possible) and Uzbek.' },
+    quran: { label: "Qur'on arabchasi", sys: "You are a Quran Arabic teacher for Uzbek students. Help them understand Classical/Quranic Arabic. Explain root words (جذر), patterns (وزن), and meanings. Always provide Uzbek translations." }
+};
 
-onAuthStateChanged(auth, async (user) => { CU = user; if (user) { await loadUD(); renderNav(); renderLimitBar(); await initAll(); } else { renderNav(); renderLimitBar(); await initAll(); } });
+let curChatMode = CHAT_MODES.free;
+
+window.setChatMode = function (mode, el) {
+    document.querySelectorAll('.chat-mode-btn').forEach(b => b.classList.remove('active'));
+    if (el) el.classList.add('active');
+    chatMode = mode;
+    curChatMode = CHAT_MODES[mode] || CHAT_MODES.free;
+    appendChat('assistant', `Rejim: <b>${curChatMode.label}</b>. ${mode === 'free' ? 'مرحباً! Erkin suhbatlashaylik!' :
+            mode === 'teacher' ? "Nima o'rganmoqchisiz?" :
+                mode === 'grammar' ? 'Arabcha matn yuboring — grammatikani tekshiraman!' :
+                    mode === 'translate' ? 'Nima tarjima qilaylik?' :
+                        "Qur'on arabchasini o'rganamiz!"
+        }`, false);
+};
+
+window.insertQuickPhrase = function (p) { const inp = $id('chatInput'); if (inp) { inp.value = p; inp.focus(); } };
+window.handleChatKey = function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); window.sendChatMessage(); } };
+
+window.sendChatMessage = async function () {
+    const inp = $id('chatInput'); if (!inp) return;
+    const text = inp.value.trim(); if (!text) return;
+    if (UTokens <= 0 && UP !== 'ultimate') { showTokenEmptyModal('AI chat uchun token kerak'); return; }
+    inp.value = '';
+    appendChat('user', text, true);
+    chatHist.push({ role: 'user', parts: [{ text }] });
+    const typingId = 'typing_' + Date.now();
+    appendChat('assistant', '<span>Yozmoqda...</span>', false, typingId);
+    const sendBtn = $id('chatSendBtn'); if (sendBtn) sendBtn.disabled = true;
+    try {
+        const resp = await fetch(AI_PROXY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [
+                    { role: 'user', parts: [{ text: curChatMode.sys }] },
+                    ...chatHist.slice(-10)
+                ],
+                generationConfig: { temperature: 0.8, maxOutputTokens: UP === 'ultimate' ? 2000 : 1000 }
+            })
+        });
+        const tb = $id(typingId); if (tb) tb.remove();
+        if (!resp.ok) { appendChat('assistant', `❗ AI xatolik: ${resp.status}`, false); return; }
+        const d = await resp.json();
+        const reply = d.candidates?.[0]?.content?.parts?.[0]?.text || 'Uzr, javob berishda xatolik yuz berdi.';
+        appendChat('assistant', reply, true);
+        chatHist.push({ role: 'model', parts: [{ text: reply }] });
+        if (UTokens > 0 && UP !== 'ultimate') { UTokens--; await saveTokenState(); renderTokenBar(); }
+        awardXP(5, 'speaking');
+    } catch (e) {
+        const tb = $id(typingId); if (tb) tb.remove();
+        appendChat('assistant', `❗ Xatolik: ${e.message || 'tarmoq muammosi'}`, false);
+    } finally {
+        if (sendBtn) sendBtn.disabled = false;
+    }
+};
+
+function appendChat(role, html, save = false, id = null) {
+    const c = $id('chatMessages'); if (!c) return;
+    const isAI = role === 'assistant';
+    const div = document.createElement('div');
+    div.className = `chat-msg ${isAI ? 'ai-msg' : 'user-msg'}`;
+    if (id) div.id = id;
+    div.innerHTML = `
+      <div class="chat-avatar">${isAI ? '<i class="fa-solid fa-robot"></i>' : '<i class="fa-solid fa-user"></i>'}</div>
+      <div class="chat-bubble" style="direction:${isAI ? 'ltr' : 'ltr'}">${html}</div>`;
+    c.appendChild(div);
+    c.scrollTop = c.scrollHeight;
+}
+
+window.clearChatHistory = async function () {
+    if (!confirm('Chat tarixini tozalashni istaysizmi?')) return;
+    chatHist = [];
+    const c = $id('chatMessages');
+    if (c) c.innerHTML = `<div class="chat-msg ai-msg"><div class="chat-avatar"><i class="fa-solid fa-robot"></i></div><div class="chat-bubble">مرحباً! Chat tarixi tozalandi. Yangi suhbatni boshlaylik! 😊</div></div>`;
+    showToast('Chat tarixi tozalandi', 'success');
+};
+
+// ══════════════════════════════════════════════════════════════
+// VIDEO
+// ══════════════════════════════════════════════════════════════
+window.findYoutubeVideos = function () {
+    const grid = $id('videosGrid'); if (!grid) return;
+    const videos = [
+        { title: "Arabic for Beginners — Full Course", channel: 'ArabicPod101', id: 'UzJFi4Hxgcg' },
+        { title: "Learn Arabic in 30 Minutes", channel: 'Madinah Arabic', id: 'HB0MJmGqrIU' },
+        { title: "Arabic Alphabet for Beginners", channel: 'Arabic Dude', id: 'g25ANtM9Mhk' },
+        { title: "500 Arabic Words & Phrases", channel: 'LanguageTransfer', id: 'sTANio_2E0Q' },
+    ];
+    grid.innerHTML = videos.map(v => `<div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
+        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" style="display:block">
+          <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width:100%;height:160px;object-fit:cover" alt="${v.title}">
+          <div style="padding:12px">
+            <div style="font-weight:600;font-size:0.85rem;color:#e8ecff;margin-bottom:4px">${v.title}</div>
+            <div style="font-size:0.75rem;color:#666"><i class="fa-brands fa-youtube" style="color:#ef4444;margin-right:4px"></i>${v.channel}</div>
+          </div>
+        </a>
+    </div>`).join('');
+};
+
+// ══════════════════════════════════════════════════════════════
+// MODAL CLOSE
+// ══════════════════════════════════════════════════════════════
+window.closeModal = function () { $id('unitModal')?.classList.remove('active'); };
+window.closeUnitModal = function (e) { if (e.target === $id('unitModal')) window.closeModal(); };
+
+// ══════════════════════════════════════════════════════════════
+// AUTH & INIT
+// ══════════════════════════════════════════════════════════════
+onAuthStateChanged(_auth, async (user) => {
+    if (!user) { window.location.href = '../auth/login.html'; return; }
+    CU = user;
+    await loadUserData();
+    updateDisplays();
+    renderTokenBar();
+    renderUnits();
+    renderWords();
+    initFlashcards();
+    initQuiz();
+    initMatch();
+    initTyping();
+    initGrammar();
+    drawRadar();
+    setTimeout(() => window.loadLBSection('xp', $id('lb-xp-btn')), 800);
+});

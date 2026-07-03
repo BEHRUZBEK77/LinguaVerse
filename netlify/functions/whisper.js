@@ -13,6 +13,11 @@ exports.handler = async function (event) {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers: CORS, body: '' };
   if (event.httpMethod !== 'POST') return { statusCode: 405, headers: CORS, body: 'Method Not Allowed' };
 
+  if (!process.env.GROQ_API_KEY) {
+    console.error('GROQ_API_KEY is not set');
+    return { statusCode: 502, headers: CORS, body: JSON.stringify({ error: 'STT unavailable', detail: 'missing_api_key' }) };
+  }
+
   try {
     const { audio, language } = JSON.parse(event.body || '{}');
     if (!audio) return { statusCode: 400, headers: CORS, body: JSON.stringify({ error: 'No audio' }) };

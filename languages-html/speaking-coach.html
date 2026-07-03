@@ -401,20 +401,45 @@ CORE RULES (never break these):
       setTimeout(() => t.remove(), 3800);
     }
 
-    // ── TOKENS ──
+    // ── TOKENS (5 soatlik reset bilan, boshqa sahifalar bilan bir xil tizim) ──
+    const TOKEN_RESET_HOURS = 5, TOKEN_DEFAULT = 1000;
+    let maxTokens = TOKEN_DEFAULT, lastReset = 0;
     async function loadUser() {
       try {
         const s = await getDoc(doc(db, 'users', CU.uid));
-        if (s.exists()) { const d = s.data(); tokens = d.tokens ?? 1000; plan = d.plan || 'free'; }
+        if (s.exists()) {
+          const d = s.data();
+          tokens = d.tokens ?? TOKEN_DEFAULT;
+          maxTokens = d.maxTokens ?? TOKEN_DEFAULT;
+          lastReset = d.lastTokenReset ?? 0;
+          plan = d.plan || 'free';
+          // 5 soat o'tgan bo'lsa tokenlar to'la tiklanadi
+          if (plan !== 'ultimate' && Date.now() - lastReset >= TOKEN_RESET_HOURS * 3600000) {
+            tokens = Math.max(tokens, maxTokens);
+            lastReset = Date.now();
+            await setDoc(doc(db, 'users', CU.uid), { tokens, lastTokenReset: lastReset }, { merge: true });
+            toast('Tokenlar yangilandi!', 'fa-bolt', '#f5c842');
+          }
+        } else {
+          // Yangi user — hujjat yaratamiz
+          tokens = TOKEN_DEFAULT; lastReset = Date.now();
+          await setDoc(doc(db, 'users', CU.uid), {
+            tokens, maxTokens: TOKEN_DEFAULT, lastTokenReset: lastReset,
+            plan: 'free', xp: 0, coins: 0,
+            displayName: CU.displayName || CU.email?.split('@')[0] || 'User',
+            email: CU.email || ''
+          }, { merge: true });
+        }
       } catch (e) { console.warn(e); }
       $('tokDisplay').textContent = plan === 'ultimate' ? '∞' : tokens.toLocaleString();
     }
     async function spend(amount) {
       if (plan === 'ultimate') return true;
       if (tokens < amount) return false;
-      tokens -= amount;
+      tokens = Math.max(0, tokens - amount);
       $('tokDisplay').textContent = tokens.toLocaleString();
-      try { await updateDoc(doc(db, 'users', CU.uid), { tokens: increment(-amount), lastActive: serverTimestamp() }); } catch (e) { }
+      // Absolut qiymat yozamiz — increment manfiyga tushirib yuborishi mumkin edi
+      try { await setDoc(doc(db, 'users', CU.uid), { tokens, lastActive: serverTimestamp() }, { merge: true }); } catch (e) { }
       return true;
     }
 

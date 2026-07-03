@@ -1,8 +1,8 @@
-# 🌍 SpeakVerse – AI Yordamida Til O‘rganish Platformasi
+# 🌍 LinguaVerse – AI Yordamida Til O‘rganish Platformasi
 
 ## 📖 Loyiha haqida
 
-SpeakVerse — bu sun’iy intellekt (AI) yordamida ishlovchi zamonaviy til o‘rganish platformasi. Platforma foydalanuvchilarga yangi tillarni interaktiv darslar, AI bilan suhbat, testlar va shaxsiylashtirilgan o‘quv dasturi orqali samarali o‘rganish imkonini beradi.
+LinguaVerse — bu sun’iy intellekt (AI) yordamida ishlovchi zamonaviy til o‘rganish platformasi. Platforma foydalanuvchilarga yangi tillarni interaktiv darslar, AI bilan suhbat, testlar va shaxsiylashtirilgan o‘quv dasturi orqali samarali o‘rganish imkonini beradi.
 
 ## 🌐 Platforma havolasi
 
@@ -46,7 +46,7 @@ Sun’iy intellekt quyidagi vazifalarni bajaradi:
 
 ## 🎯 Maqsad
 
-SpeakVerse foydalanuvchilarga chet tillarini tez, qulay va zamonaviy usulda o‘rganish imkoniyatini yaratish uchun ishlab chiqilgan. Platforma nazariy bilimlarni amaliy mashg‘ulotlar bilan birlashtirib, haqiqiy muloqot ko‘nikmalarini rivojlantirishga yordam beradi.
+LinguaVerse foydalanuvchilarga chet tillarini tez, qulay va zamonaviy usulda o‘rganish imkoniyatini yaratish uchun ishlab chiqilgan. Platforma nazariy bilimlarni amaliy mashg‘ulotlar bilan birlashtirib, haqiqiy muloqot ko‘nikmalarini rivojlantirishga yordam beradi.
 
 ## 🛠 Foydalanilgan texnologiyalar
 
@@ -70,4 +70,4 @@ Ushbu loyiha ta'limiy maqsadlarda ishlab chiqilgan.
 
 ---
 
-### 🚀 SpeakVerse – Tillarni AI bilan o‘rganing!
+### 🚀 LinguaVerse – Tillarni AI bilan o‘rganing!

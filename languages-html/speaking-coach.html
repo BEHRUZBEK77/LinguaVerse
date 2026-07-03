@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SpeakVerse — AI Speaking Coach</title>
+  <title>LinguaVerse — AI Speaking Coach</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
@@ -140,6 +140,23 @@
       .mic-btn { width: 52px; height: 52px; }
     }
   
+    /* ── OVOZLI REJIM: dumaloq orb (AI yozmaydi, faqat gapiradi) ── */
+    .voice-stage { display: none; flex-direction: column; align-items: center; justify-content: center; padding: 40px 16px 30px; gap: 20px; min-height: 46vh; }
+    .session.voice .voice-stage { display: flex; }
+    .session.voice .chat-scroll { display: none; }
+    .session.voice .input-bar { display: none; }
+    .session.voice .interim { text-align: center; }
+    .vorb { width: 200px; height: 200px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #fff; user-select: none; transition: background .4s, transform .2s;
+      background: radial-gradient(circle at 35% 30%, #6d82f8, #4f6ef7 45%, #141a38 100%);
+      box-shadow: 0 0 70px rgba(79,110,247,.45), inset 0 0 50px rgba(255,255,255,.1); }
+    .vorb:active { transform: scale(.96); }
+    .vorb.listening { background: radial-gradient(circle at 35% 30%, #f87171, #ef4444 45%, #3a1414 100%); box-shadow: 0 0 80px rgba(239,68,68,.5); animation: orbPulse 1.3s infinite; }
+    .vorb.thinking { background: radial-gradient(circle at 35% 30%, #f5c842, #e8a422 45%, #33270a 100%); box-shadow: 0 0 80px rgba(245,200,66,.4); animation: orbBreath 1s ease-in-out infinite; }
+    .vorb.speaking { background: radial-gradient(circle at 35% 30%, #34d399, #10b981 45%, #0a2e22 100%); box-shadow: 0 0 80px rgba(52,211,153,.45); animation: orbBreath .75s ease-in-out infinite; }
+    @keyframes orbPulse { 0% { box-shadow: 0 0 0 0 rgba(239,68,68,.4), 0 0 80px rgba(239,68,68,.5); } 70% { box-shadow: 0 0 0 40px rgba(239,68,68,0), 0 0 80px rgba(239,68,68,.5); } 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0), 0 0 80px rgba(239,68,68,.5); } }
+    @keyframes orbBreath { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+    .vstatus { font-size: .88rem; color: var(--muted); font-weight: 600; min-height: 22px; text-align: center; }
+  
     /* ── FONT AWESOME FIX: universal reset ::before shriftini buzmasligi uchun ── */
     .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
     .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before {
@@ -158,7 +175,7 @@
   <div class="orb orb2"></div>
 
   <nav>
-    <a href="../index.html" class="logo">Speak<span>Verse</span></a>
+    <a href="../index.html" class="logo">Lingua<span>Verse</span></a>
     <div class="nav-links">
       <a href="../select-language.html"><i class="fa-solid fa-globe"></i> <span data-i18n="nav_langs">Tillar</span></a>
       <a href="shop.html"><i class="fa-solid fa-bag-shopping"></i> <span data-i18n="nav_shop">Do'kon</span></a>
@@ -229,9 +246,16 @@
           <span class="sess-tag sess-timer"><i class="fa-solid fa-stopwatch"></i> <span id="sessTime">00:00</span></span>
           <span class="sess-tag" style="color:#22d3ee"><i class="fa-solid fa-ticket"></i> <span id="sessSpent">-0</span></span>
         </div>
-        <button class="btn-end" onclick="endSession(false)"><i class="fa-solid fa-stop"></i> <span data-i18n="endbtn">Tugatish</span></button>
+        <div style="display:flex;gap:8px">
+          <button class="btn-end" style="color:var(--accent2);border-color:rgba(167,139,250,.3);background:rgba(167,139,250,.08)" onclick="toggleVoiceMode()" title="Ovoz/Matn rejimi"><i class="fa-solid fa-keyboard" id="vmIcon"></i></button>
+          <button class="btn-end" onclick="endSession(false)"><i class="fa-solid fa-stop"></i> <span data-i18n="endbtn">Tugatish</span></button>
+        </div>
       </div>
       <div class="chat-box">
+        <div class="voice-stage" id="voiceStage">
+          <div class="vorb" id="vorb" onclick="toggleMic()"><i class="fa-solid fa-microphone" id="vorbIcon"></i></div>
+          <div class="vstatus" id="vstatus">Gapirish uchun bosing</div>
+        </div>
         <div class="chat-scroll" id="chatScroll"></div>
         <div class="interim" id="interimTxt"></div>
         <div class="input-bar">
@@ -330,7 +354,7 @@
 - Recurring mistakes to drill until fixed: ${(mem.corrections || []).slice(-10).join(' | ') || 'none recorded'}.
 Recycle these mistakes naturally into today's conversation and check if they are fixed. Praise visible progress on previously weak points.`
         : `\nThis is the student's FIRST speaking session — do a light level check with your first questions.`;
-      const base = `You are a world-class ${T} speaking coach and certified IELTS-level examiner on the SpeakVerse platform.
+      const base = `You are a world-class ${T} speaking coach and certified IELTS-level examiner on the LinguaVerse platform.
 THE STUDENT: native language is ${N}, current level: ${level}.${memBlock}
 EXAM QUALITY: run the conversation like professional exam speaking practice (IELTS-style part 1/2/3 progression when level is IELTS/Exam): fluency, lexical resource, grammatical range, pronunciation.
 CORE RULES (never break these):
@@ -366,6 +390,20 @@ SCOLDING RULES:
     let sel = { target: TARGETS[0], native: NATIVES[0], mode: 'normal', level: 'A1-A2' };
     let sess = { on: false, hist: [], startTs: 0, charged: 0, msgs: 0, timerIv: null, xp: 0 };
     let recog = null, recording = false, mediaRec = null, mediaChunks = [];
+    let voiceMode = true; // standart: faqat ovoz — AI yozmaydi, gapiradi
+    function setOrb(state, statusText) {
+      const o = $('vorb'); if (!o) return;
+      o.className = 'vorb' + (state ? ' ' + state : '');
+      const ic = { listening: 'fa-stop', thinking: 'fa-ellipsis', speaking: 'fa-volume-high' }[state] || 'fa-microphone';
+      $('vorbIcon').className = 'fa-solid ' + ic;
+      if (statusText !== undefined) $('vstatus').textContent = statusText;
+    }
+    window.toggleVoiceMode = function () {
+      voiceMode = !voiceMode;
+      $('sessionPanel').classList.toggle('voice', voiceMode);
+      $('vmIcon').className = 'fa-solid ' + (voiceMode ? 'fa-keyboard' : 'fa-circle');
+      if (!voiceMode) { const c = $('chatScroll'); c.scrollTop = c.scrollHeight; }
+    };
     let curAudio = null;
     const $ = id => document.getElementById(id);
     let L = I18N.uz;
@@ -390,7 +428,7 @@ SCOLDING RULES:
     }
     window.pickLang = function (type, v) {
       if (type === 'target') sel.target = TARGETS.find(l => l.id === v);
-      else { sel.native = NATIVES.find(l => l.code === v); applyI18n(sel.native.code); localStorage.setItem('lv_lang', sel.native.code); }
+      else { sel.native = NATIVES.find(l => l.code === v); applyI18n(sel.native.code); localStorage.setItem('coach_native', sel.native.code); }
       renderChips();
     };
     window.pickMode = function (m, el) {
@@ -475,6 +513,10 @@ SCOLDING RULES:
       $('sessMode').innerHTML = `<i class="fa-solid ${mIcons[sel.mode]}"></i> ${mNames[sel.mode]}`;
       $('sessSpent').textContent = '-' + sess.charged;
       $('chatScroll').innerHTML = '';
+      voiceMode = true;
+      $('sessionPanel').classList.add('voice');
+      $('vmIcon').className = 'fa-solid fa-keyboard';
+      setOrb('', 'Gapirish uchun bosing');
       sess.timerIv = setInterval(tickTimer, 1000);
       // AI birinchi bo'lib salomlashadi
       await askAI('__START__');
@@ -542,12 +584,16 @@ SCOLDING RULES:
     // ── AI CALL ──
     async function askAI(userText) {
       const typingEl = addMsg('ai', `<div class="bubble"><span class="typing-dots"><i></i><i></i><i></i></span></div>`);
+      setOrb('thinking', "Ustoz o'ylayapti...");
       const sys = buildSystemPrompt(sel.mode, sel.target, sel.native, sel.level);
       const isStart = userText === '__START__';
       if (!isStart) sess.hist.push({ role: 'user', content: userText });
+      const personaNames = { normal: 'NORMAL (professional, no scolding)', kind: 'KIND (only warm praise, scolding strictly forbidden)', strict: 'STRICT (roast every mistake with fresh comedic insults in ' + sel.native.full + ', informal register)' };
+      const reminder = { role: 'system', content: `CRITICAL REMINDER: "reply" must be in ${FULLNAME[sel.target.id]}. "correction" and "tip" must be ONLY in ${sel.native.full} — never any other language. Your persona is ${personaNames[sel.mode]}. Respond ONLY with the JSON object.` };
       const messages = [
         { role: 'system', content: sys },
-        ...(isStart ? [{ role: 'user', content: `Greet me briefly in ${FULLNAME[sel.target.id]} (level ${sel.level}), introduce yourself as my speaking coach in your persona style, and ask me an easy first question. JSON format as instructed.` }] : sess.hist.slice(-14))
+        ...(isStart ? [{ role: 'user', content: `Greet me briefly in ${FULLNAME[sel.target.id]} (level ${sel.level}), introduce yourself as my speaking coach in your persona style, and ask me an easy first question. JSON format as instructed.` }] : sess.hist.slice(-14)),
+        reminder
       ];
       try {
         const r = await fetch(AI_URL, {
@@ -731,10 +777,12 @@ SCOLDING RULES:
     async function speakSeq(items) {
       stopAudio();
       const id = speakChainId;
+      setOrb('speaking', 'Ustoz gapiryapti...');
       for (const it of items) {
         if (id !== speakChainId || !it.text) continue;
         await speakOne(it.text, it.tts, it.sr, it.slow || false);
       }
+      if (id === speakChainId) setOrb('', 'Gapirish uchun bosing');
     }
     window.speakText = function (text, slow) {
       if (!text) return;
@@ -775,6 +823,7 @@ SCOLDING RULES:
       $('micBtn').classList.toggle('rec', on);
       $('micIcon').className = `fa-solid ${on ? 'fa-stop' : 'fa-microphone'}`;
       $('interimTxt').textContent = on ? (hint || L.listening) : '';
+      setOrb(on ? 'listening' : '', on ? (hint || L.listening) : 'Gapirish uchun bosing');
     }
     function startSR() {
       recog = new SR();
@@ -856,8 +905,9 @@ SCOLDING RULES:
     }
 
     // ── INIT ──
-    const savedLang = localStorage.getItem('lv_lang');
-    if (savedLang && NATIVES.find(n => n.code === savedLang)) sel.native = NATIVES.find(n => n.code === savedLang);
+    // Faqat coach'ning o'z tanlovi ishlatiladi (sayt tili aralashmaydi). Standart: o'zbekcha
+    const savedLang = localStorage.getItem('coach_native') || 'uz';
+    if (NATIVES.find(n => n.code === savedLang)) sel.native = NATIVES.find(n => n.code === savedLang);
     applyI18n(sel.native.code);
     renderChips();
     onAuthStateChanged(auth, async (user) => {

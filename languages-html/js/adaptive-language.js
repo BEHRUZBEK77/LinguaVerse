@@ -1,4 +1,4 @@
-// =====================================================// ai-adaptive-engine.js — SpeakVerse AI Adaptive Engine v3
+// =====================================================// ai-adaptive-engine.js — LinguaVerse AI Adaptive Engine v3
 // Reading | Speaking | Writing | Listening — FULL AUTO LESSONS
 // Token system: -400 lesson (own: 200, team: 100, universal: 50)
 // Firebase realtime + Groq AI + TTS audio + 300+ functions
@@ -24,7 +24,7 @@ const FB_CONFIG = {
 };
 // Xavfsiz: AI so'rovlar endi ochiq worker emas, server funksiyasi orqali (kalit serverda)
 const AI_PROXY = "/.netlify/functions/groq";
-const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
+const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('coach_native') || localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
 const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.\nQUALITY BAR: teach at professional exam-preparation level (IELTS/Goethe/DELE/TOPIK/HSK-equivalent): authentic natural language, precise corrections referencing grammar rules, exam-style feedback on fluency, vocabulary range and accuracy. Push the student slightly above their current level.`;
 
 
@@ -642,7 +642,7 @@ Respond ONLY with valid JSON:
   "xpReward": 60,
   "memoryTrick": "clever memory trick in ${NATIVE_LANG}"
 }`;
-        return await this._call(prompt, 2000);
+        return await this._call(prompt, 3200);
     },
 
     // ── GRAMMAR LESSON ──
@@ -688,7 +688,7 @@ Respond ONLY with valid JSON:
   "xpReward": 70,
   "quickTip": "memory trick in ${NATIVE_LANG}"
 }`;
-        return await this._call(prompt, 2000);
+        return await this._call(prompt, 3200);
     },
 
     // launchLesson har safar shu kontekstni yangilaydi
@@ -713,7 +713,7 @@ Personalize the lesson: recycle the student's recurring mistakes into exercises,
 ═══════════════════════════════════════════\n\n`;
     },
 
-    async _call(prompt, maxTokens = 2000) {
+    async _call(prompt, maxTokens = 3200) {
         const resp = await fetch(AI_PROXY, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

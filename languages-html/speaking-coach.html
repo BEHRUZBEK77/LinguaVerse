@@ -342,18 +342,23 @@ CORE RULES (never break these):
 6. Respond ONLY with valid JSON, no markdown fences:
 {"reply":"your conversational reply in ${T}","correction":"if the student made mistakes: wrong → correct with a short ${N} explanation, else null","tip":"one short useful tip in ${N}, or null","score":0-10}`;
       const personas = {
-        normal: `PERSONA: Professional, calm, precise teacher. Neutral tone. Correct every real mistake clearly, praise briefly when deserved.`,
-        kind: `PERSONA: The warmest, most encouraging teacher ever. Always find something to praise first. Correct mistakes very gently ("Ajoyib urinish! Faqat bitta kichik narsa..."-style, but in ${N}). Use positive energy, motivate constantly.`,
-        strict: `PERSONA: The most brutal, theatrical, drill-sergeant language teacher alive. Your scolding is legendary.
+        normal: `ACTIVE PERSONA = NORMAL TEACHER (this overrides everything else about tone).
+Professional, calm, precise teacher. Neutral respectful tone. Correct every real mistake clearly, praise briefly when deserved.
+FORBIDDEN in this persona: insults, scolding, sarcasm, drill-sergeant behavior of any kind.`,
+        kind: `ACTIVE PERSONA = KIND TEACHER (this overrides everything else about tone).
+The warmest, most encouraging teacher ever. Always find something to praise FIRST. Correct mistakes very gently ("Ajoyib urinish! Faqat bitta kichik narsa..."-style, but in ${N}). Use positive energy, motivate constantly, celebrate every small win.
+ABSOLUTELY FORBIDDEN in this persona: scolding, insults, sarcasm, harsh words, mockery, impatience — NEVER, not even once, not even jokingly. If the student makes many mistakes, stay even warmer and more patient.`,
+        strict: `ACTIVE PERSONA = STRICT TEACHER (this overrides everything else about tone).
+You are the student's brutally honest close FRIEND who roasts and demeans them for every mistake — informal, personal, mocking, like friends trash-talking each other. In Uzbek always use informal "sen" (never "siz"); in other languages use the informal register too.
 SCOLDING RULES:
-- Scold EVERY mistake loudly and dramatically in ${N} inside the "correction" field, AND open your "reply" with a short scolding jab too (in the target language or mixed).
-- Use a HUGE rotating arsenal of comedic-harsh insults in ${N} — NEVER repeat the same insult twice in a row, invent endless variations. Style examples (adapt/translate to ${N}): "Ey ahmoq!", "Eshakmisan nima balo?!", "Jinnimisan?!", "Voy mol-ey!", "Miyang ishlayaptimi o'zi?!", "Toshbaqa ham sendan tez o'rganadi!", "Shu bilan IELTS olmoqchimisan?! Kulgim keldi!", "Qulog'ing bormi o'zi?!", "Yana o'sha xato?! Devorga gapirsam ham tushunardi!", "Bunaqada choyxonaga ham ishga olishmaydi!", "Bobom ham sendan yaxshi gapiradi, u umuman o'qimagan!", "Xato ustiga xato — kolleksiya yig'yapsanmi?!", "Sen gapirganda lug'at yig'layapti!", "Google Translate ham sendan uyalyapti!" — and hundreds more in this spirit.
-- ESCALATE: if the SAME mistake repeats, get twice as angry and more theatrical each time.
-- Even when the answer is CORRECT, stay grumpy and hard to please: "Hmm. Bir marta to'g'ri qilding — mo''jiza! Lekin xursand bo'lma, bu boshlanishi!", "Nihoyat! Toshbaqa ham marraga yetdi!"
-- HARD LIMITS (never break): no real profanity or vulgar swearing, no sexual content, no slurs or insults about ethnicity, religion, gender, family members' honor, or disability, no threats. Only comedic teacher-style insults like the examples — harsh but funny, the student chose this mode on purpose.
-- After EVERY scolding, immediately give the exact correct version and DEMAND the student repeat it: "Qani, qaytar! To'g'ri ayt!"`
+- Roast EVERY mistake loudly in ${N} inside the "correction" field, AND open your "reply" with a short jab too.
+- Talk DOWN to them like a friend who can't believe how bad they are: "Sen shuniyam bilmaysanmi?!", "Oy bo'ldi o'rganayotganingga, hali ham shu ahvolsan?!", "Do'stim, sen bilan IELTSga borsam uyalib o'laman!", "Ey ahmoq, buni bolalar ham biladi!", "Eshakmisan?! Uch marta aytdim-ku!", "Jinnimisan, qanaqa qilib shunday deysan?!", "Voy mol-ey, lug'atni ochib ko'rganmisan umuman?!", "Sendan ko'ra devor tezroq o'rganadi!", "Miya bormi o'zi senda?!", "Kulgili ahvolsan, rostdan!" — NEVER repeat the same insult twice in a row, invent endless fresh variations in this friend-roast style.
+- ESCALATE: same mistake again = twice as savage and more personal about their laziness ("Yana?! Sen umuman eshitmaysanmi meni?!").
+- Even when CORRECT, stay unimpressed and mocking: "Voy-bo', bir marta to'g'ri dedi! Bayram qilamizmi endi?!", "Nihoyat! Toshbaqa ham marraga yetdi!"
+- HARD LIMITS (never break): no vulgar profanity, no sexual content, no slurs about ethnicity, religion, gender or disability, no insulting family members, no threats. The roast targets their MISTAKES and LAZINESS only — the student chose this mode on purpose.
+- After EVERY roast, give the exact correct version and DEMAND repetition: "Qani, qaytar! To'g'ri ayt, eshitaman!"`
       };
-      return base + '\n' + personas[mode];
+      return base + '\n\n' + personas[mode] + `\nSTAY IN THIS EXACT PERSONA FOR THE WHOLE SESSION. Do not drift into another tone.`;
     }
 
     // ── STATE ──
@@ -628,26 +633,46 @@ SCOLDING RULES:
         .replace(/J/g, 'C').replace(/j/g, 'c')
         .replace(/[''ʻʼ`‘’]/g, '');
     }
+    // Zaxira: rus ovozi uchun o'zbekchani kirillga o'giramiz
+    // (o'zbek foydalanuvchilar rus talaffuziga o'rgangan — tushunarli chiqadi)
+    function uzToRuCyr(t) {
+      let s = t.toLowerCase();
+      const pairs = [
+        ["o'", 'у'], ["g'", 'г'], ['sh', 'ш'], ['ch', 'ч'], ['ng', 'нг'],
+        ['yo', 'ё'], ['yu', 'ю'], ['ya', 'я'], ['ye', 'е'], ['ts', 'ц'],
+        ['a', 'а'], ['b', 'б'], ['d', 'д'], ['e', 'е'], ['f', 'ф'], ['g', 'г'],
+        ['h', 'х'], ['i', 'и'], ['j', 'ж'], ['k', 'к'], ['l', 'л'], ['m', 'м'],
+        ['n', 'н'], ['o', 'о'], ['p', 'п'], ['q', 'к'], ['r', 'р'], ['s', 'с'],
+        ['t', 'т'], ['u', 'у'], ['v', 'в'], ['x', 'х'], ['y', 'й'], ['z', 'з']
+      ];
+      // apostrof variantlarini normallashtirib olamiz
+      s = s.replace(/[ʻʼ`‘’]/g, "'");
+      for (const [a, b] of pairs) s = s.split(a).join(b);
+      return s.replace(/'/g, '');
+    }
+    function findVoice(prefix) {
+      try { return speechSynthesis.getVoices().find(v => (v.lang || '').toLowerCase().startsWith(prefix)); } catch { return null; }
+    }
+    function speakWithVoice(text, voice, lang, rate, resolve) {
+      const u = new SpeechSynthesisUtterance(text);
+      if (voice) u.voice = voice;
+      u.lang = lang; u.rate = rate;
+      u.onend = () => resolve(); u.onerror = () => resolve();
+      speechSynthesis.speak(u);
+      setTimeout(resolve, Math.min(30000, 2500 + text.length * 90));
+    }
     // Brauzer ovozlar ro'yxatini oldindan uyg'otib qo'yamiz
     try { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); } catch { }
 
     function speakOne(text, ttsCode, srCode, slow) {
       return new Promise(async (resolve) => {
         let uzViaTr = false;
+        const origText = text;
         if (ttsCode === 'uz-UZ') {
-          // Qurilmada haqiqiy o'zbek ovozi bo'lsa — o'shani ishlatamiz
-          let uzVoice = null;
-          try { uzVoice = speechSynthesis.getVoices().find(v => (v.lang || '').toLowerCase().startsWith('uz')); } catch { }
-          if (uzVoice) {
-            const u = new SpeechSynthesisUtterance(text);
-            u.voice = uzVoice; u.lang = uzVoice.lang;
-            u.rate = slow ? 0.6 : 0.9;
-            u.onend = () => resolve(); u.onerror = () => resolve();
-            speechSynthesis.speak(u);
-            setTimeout(resolve, Math.min(30000, 2500 + text.length * 90));
-            return;
-          }
-          // Yo'q bo'lsa — turkcha transliteratsiya + turk ovozi
+          // 1) Qurilmada haqiqiy o'zbek ovozi bo'lsa — o'shani ishlatamiz
+          const uzVoice = findVoice('uz');
+          if (uzVoice) { speakWithVoice(text, uzVoice, uzVoice.lang, slow ? 0.6 : 0.9, resolve); return; }
+          // 2) Yo'q bo'lsa — turkcha transliteratsiya + turk ovozi (Google TTS)
           text = uzToTr(text);
           ttsCode = 'tr-TR'; srCode = 'tr-TR'; uzViaTr = true;
         }
@@ -671,15 +696,16 @@ SCOLDING RULES:
           }
           throw new Error('no audio');
         } catch {
-          // Brauzer TTS fallback
-          const u = new SpeechSynthesisUtterance(text);
-          u.lang = srCode;
-          u.rate = slow ? 0.6 : (uzViaTr ? 0.85 : 0.9);
-          u.onend = () => resolve();
-          u.onerror = () => resolve();
-          speechSynthesis.speak(u);
-          // ba'zi brauzerlarda onend kelmaydi — himoya taymeri
-          setTimeout(resolve, Math.min(30000, 2500 + text.length * 90));
+          // Brauzer TTS fallback — mavjud ovozga qarab tanlaymiz
+          const rate = slow ? 0.6 : (uzViaTr ? 0.85 : 0.9);
+          if (uzViaTr) {
+            // o'zbekcha: turk ovozi bormi? bo'lmasa rus ovozi + kirill
+            const trVoice = findVoice('tr');
+            if (trVoice) { speakWithVoice(text, trVoice, trVoice.lang, rate, resolve); return; }
+            const ruVoice = findVoice('ru');
+            if (ruVoice) { speakWithVoice(uzToRuCyr(origText), ruVoice, ruVoice.lang, rate, resolve); return; }
+          }
+          speakWithVoice(text, null, srCode, rate, resolve);
         }
       });
     }

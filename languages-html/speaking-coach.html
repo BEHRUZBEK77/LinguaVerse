@@ -139,7 +139,18 @@
       .chat-scroll { height: 52vh; }
       .mic-btn { width: 52px; height: 52px; }
     }
-  </style>
+  
+    /* ── FONT AWESOME FIX: universal reset ::before shriftini buzmasligi uchun ── */
+    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
+    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before {
+      font-family: "Font Awesome 6 Free" !important;
+    }
+    .fa-brands, .fab, .fa-brands::before, .fab::before {
+      font-family: "Font Awesome 6 Brands" !important;
+    }
+    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
+  
+</style>
 </head>
 
 <body>

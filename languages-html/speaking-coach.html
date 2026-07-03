@@ -669,10 +669,29 @@ SCOLDING RULES:
         let uzViaTr = false;
         const origText = text;
         if (ttsCode === 'uz-UZ') {
-          // 1) Qurilmada haqiqiy o'zbek ovozi bo'lsa — o'shani ishlatamiz
+          // 1) Server — Azure Speech (haqiqiy o'zbek Sardor ovozi, AZURE_SPEECH_KEY bo'lsa)
+          try {
+            const r = await fetch(TTS_URL, {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                input: { text },
+                voice: { languageCode: 'uz-UZ' },
+                audioConfig: { audioEncoding: 'MP3', speakingRate: slow ? 0.7 : 0.95 }
+              })
+            });
+            const d = await r.json();
+            if (d.audioContent) {
+              curAudio = new Audio('data:audio/mp3;base64,' + d.audioContent);
+              curAudio.onended = () => resolve();
+              curAudio.onerror = () => resolve();
+              curAudio.play().catch(() => resolve());
+              return;
+            }
+          } catch { }
+          // 2) Qurilmada haqiqiy o'zbek ovozi bo'lsa — o'shani ishlatamiz
           const uzVoice = findVoice('uz');
           if (uzVoice) { speakWithVoice(text, uzVoice, uzVoice.lang, slow ? 0.6 : 0.9, resolve); return; }
-          // 2) Yo'q bo'lsa — turkcha transliteratsiya + turk ovozi (Google TTS)
+          // 3) Yo'q bo'lsa — turkcha transliteratsiya + turk ovozi (Google TTS)
           text = uzToTr(text);
           ttsCode = 'tr-TR'; srCode = 'tr-TR'; uzViaTr = true;
         }

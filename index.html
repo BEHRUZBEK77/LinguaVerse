@@ -1387,6 +1387,36 @@
             }
         }
     
+        /* ── NAV PROFILE (real ma'lumot) ── */
+        .nav-profile { display:flex; align-items:center; gap:8px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:5px 10px 5px 6px; cursor:pointer; transition:all .2s; text-decoration:none; }
+        .nav-profile:hover { border-color:var(--accent); }
+        .np-av { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:800; color:#fff; }
+        .np-info { display:flex; flex-direction:column; line-height:1.2; }
+        .np-name { font-size:.78rem; font-weight:700; color:var(--text); max-width:110px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+        .np-plan { font-size:.6rem; font-weight:800; color:var(--gold); letter-spacing:.04em; }
+        .np-pill { display:inline-flex; align-items:center; gap:4px; font-size:.68rem; font-weight:700; padding:4px 9px; border-radius:100px; background:var(--surface); border:1px solid var(--border); white-space:nowrap; }
+        @media(max-width:900px){ .np-pill{display:none} }
+
+        /* ── SPEAKING COACH SHOWCASE ── */
+        .coach-section { position:relative; z-index:1; padding:80px 40px; }
+        .coach-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:44px; }
+        .coach-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:26px; transition:all .3s; position:relative; }
+        .coach-card:hover { transform:translateY(-4px); border-color:var(--cc); box-shadow:0 16px 50px rgba(0,0,0,.35); }
+        .coach-ic { width:52px; height:52px; border-radius:15px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:16px; background:color-mix(in srgb,var(--cc) 14%,transparent); color:var(--cc); }
+        .coach-nm { font-family:'Syne',sans-serif; font-weight:800; font-size:1.05rem; margin-bottom:8px; }
+        .coach-ds { font-size:.82rem; color:var(--muted); line-height:1.65; }
+        .coach-cta-row { display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:36px; }
+        .coach-price { display:inline-flex; align-items:center; gap:8px; font-size:.8rem; color:#22d3ee; background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.25); padding:9px 16px; border-radius:100px; font-weight:700; }
+
+        /* ── HOW IT WORKS ── */
+        .how-section { position:relative; z-index:1; padding:80px 40px; }
+        .how-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:44px; }
+        .how-step { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:24px; position:relative; transition:all .3s; }
+        .how-step:hover { transform:translateY(-3px); border-color:rgba(79,110,247,.3); }
+        .how-num { font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:10px; }
+        .how-nm { font-weight:700; margin-bottom:6px; }
+        .how-ds { font-size:.8rem; color:var(--muted); line-height:1.6; }
+
     /* ── FONT AWESOME FIX: universal reset ::before shriftini buzmasligi uchun ── */
     .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
     .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before {
@@ -1451,7 +1481,7 @@
     </nav>
 
     <!-- SITE BAR -->
-    <div class="site-bar">
+    <div class="site-bar" id="siteBar" style="display:none">
         <span class="site-bar-active"><i class="fa-solid fa-house"></i> <span data-i18n="bar_home">Bosh sahifa</span></span>
         <a href="select-language.html" class="site-bar-langs"><i class="fa-solid fa-globe"></i> <span data-i18n="bar_langs">Tillar</span></a>
         <a href="languages-html/speaking-coach.html" class="site-bar-langs" style="color:#22d3ee;border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.08)"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="bar_speak">Speaking Coach</span></a>
@@ -1488,15 +1518,15 @@
                 <div class="stat-label" data-i18n="stat_langs">Tillar</div>
             </div>
             <div class="stat">
-                <div class="stat-num">100<span>+</span></div>
+                <div class="stat-num">480<span>+</span></div>
                 <div class="stat-label" data-i18n="stat_lessons">Darslar</div>
             </div>
             <div class="stat">
-                <div class="stat-num">50<span>k+</span></div>
+                <div class="stat-num" id="statUsers">—</div>
                 <div class="stat-label" data-i18n="stat_students">O'quvchilar</div>
             </div>
             <div class="stat">
-                <div class="stat-num">4.9<span>★</span></div>
+                <div class="stat-num">24/7</div>
                 <div class="stat-label" data-i18n="stat_rating">Reyting</div>
             </div>
         </div>
@@ -1518,7 +1548,7 @@
                     <div class="lang-card-native" data-i18n="lang_english">Ingliz tili</div>
                     <div class="lang-card-meta"><span class="lang-tag hot"><i class="fa-solid fa-fire"></i> <span data-i18n="tag_popular">Eng
                                 mashhur</span></span><span class="lang-tag">A1–C2</span></div>
-                    <div class="lang-learners" data-i18n="learners_en">O'quvchilar: <strong>24,800+</strong></div>
+                    <div class="lang-learners" data-i18n="learners_en">60 Unit · 500+ so'z · AI Coach</div>
                 </div>
                 <div class="lang-card reveal">
                     <div class="lang-card-flag">🇷🇺</div>
@@ -1526,7 +1556,7 @@
                     <div class="lang-card-native" data-i18n="lang_russian">Rus tili</div>
                     <div class="lang-card-meta"><span class="lang-tag hot"><i class="fa-solid fa-fire"></i> <span
                                 data-i18n="tag_popular2">Mashhur</span></span><span class="lang-tag">A1–C1</span></div>
-                    <div class="lang-learners" data-i18n="learners_ru">O'quvchilar: <strong>12,400+</strong></div>
+                    <div class="lang-learners" data-i18n="learners_ru">60 Unit · 500+ so'z · AI Coach</div>
                 </div>
                 <div class="lang-card reveal">
                     <div class="lang-card-flag">🇰🇷</div>
@@ -1534,28 +1564,28 @@
                     <div class="lang-card-native" data-i18n="lang_korean">Koreys tili</div>
                     <div class="lang-card-meta"><span class="lang-tag new"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
                                 data-i18n="tag_new">Yangi</span></span><span class="lang-tag">A1–B2</span></div>
-                    <div class="lang-learners" data-i18n="learners_ko">O'quvchilar: <strong>8,200+</strong></div>
+                    <div class="lang-learners" data-i18n="learners_ko">60 Unit · 500+ so'z · AI Coach</div>
                 </div>
                 <div class="lang-card reveal">
                     <div class="lang-card-flag">🇨🇳</div>
                     <div class="lang-card-name">中文</div>
                     <div class="lang-card-native" data-i18n="lang_chinese">Xitoy tili</div>
                     <div class="lang-card-meta"><span class="lang-tag">A1–B2</span></div>
-                    <div class="lang-learners" data-i18n="learners_zh">O'quvchilar: <strong>5,600+</strong></div>
+                    <div class="lang-learners" data-i18n="learners_zh">60 Unit · 500+ so'z · AI Coach</div>
                 </div>
                 <div class="lang-card reveal">
                     <div class="lang-card-flag">🇸🇦</div>
                     <div class="lang-card-name">العربية</div>
                     <div class="lang-card-native" data-i18n="lang_arabic">Arab tili</div>
                     <div class="lang-card-meta"><span class="lang-tag">A1–B1</span></div>
-                    <div class="lang-learners" data-i18n="learners_ar">O'quvchilar: <strong>4,100+</strong></div>
+                    <div class="lang-learners" data-i18n="learners_ar">60 Unit · 500+ so'z · AI Coach</div>
                 </div>
                 <div class="lang-card reveal">
                     <div class="lang-card-flag">🇪🇸</div>
                     <div class="lang-card-name">Español</div>
                     <div class="lang-card-native" data-i18n="lang_spanish">Ispan tili</div>
                     <div class="lang-card-meta"><span class="lang-tag">A1–C1</span></div>
-                    <div class="lang-learners" data-i18n="learners_es">O'quvchilar: <strong>6,900+</strong></div>
+                    <div class="lang-learners" data-i18n="learners_es">60 Unit · 500+ so'z · AI Coach</div>
                 </div>
                 <div class="lang-card reveal">
                     <div class="lang-card-flag">🇹🇷</div>
@@ -1563,7 +1593,7 @@
                     <div class="lang-card-native" data-i18n="lang_turkish">Turk tili</div>
                     <div class="lang-card-meta"><span class="lang-tag new"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
                                 data-i18n="tag_new2">Yangi</span></span><span class="lang-tag">A1–B2</span></div>
-                    <div class="lang-learners" data-i18n="learners_tr">O'quvchilar: <strong>3,400+</strong></div>
+                    <div class="lang-learners" data-i18n="learners_tr">60 Unit · 500+ so'z · AI Coach</div>
                 </div>
             </div>
         </div>
@@ -1629,6 +1659,58 @@
                     <div class="feature-desc" data-i18n="feat8_desc">Universal planda darslarni offline rejimda ham
                         davom ettiring.</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SPEAKING COACH SHOWCASE -->
+    <section class="coach-section" id="coach">
+        <div class="container">
+            <div class="reveal" style="text-align:center">
+                <div class="section-label" data-i18n="coach_label">AI Speaking Coach</div>
+                <h2 class="section-title" data-i18n="coach_title">3 xil ustoz. Bitta maqsad:<br>sizni gapirtiirish.</h2>
+                <p class="section-sub" style="margin:0 auto" data-i18n="coach_sub">Jonli ovozli suhbat, har bir xatoga aniq tuzatish va IELTS darajasidagi baholash — 8 tilda.</p>
+            </div>
+            <div class="coach-grid reveal">
+                <div class="coach-card" style="--cc:#4f6ef7">
+                    <div class="coach-ic"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <div class="coach-nm" data-i18n="coach_m1n">Oddiy ustoz</div>
+                    <div class="coach-ds" data-i18n="coach_m1d">Professional va aniq. Har xatoni tushuntirib tuzatadi, ortiqcha gap yo'q.</div>
+                </div>
+                <div class="coach-card" style="--cc:#34d399">
+                    <div class="coach-ic"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <div class="coach-nm" data-i18n="coach_m2n">Xushmuomala ustoz</div>
+                    <div class="coach-ds" data-i18n="coach_m2d">Doim qo'llab-quvvatlaydi va maqtaydi. Yangi boshlovchilar uchun ideal.</div>
+                </div>
+                <div class="coach-card" style="--cc:#f87171">
+                    <div class="coach-ic"><i class="fa-solid fa-person-military-pointing"></i></div>
+                    <div class="coach-nm" data-i18n="coach_m3n">Qattiqqo'l ustoz</div>
+                    <div class="coach-ds" data-i18n="coach_m3d">Eng kichik xatoga ham so'kadi: "Shu bilan IELTS olmoqchimisan?!" Natija kerak bo'lsa — shu.</div>
+                </div>
+            </div>
+            <div class="coach-cta-row reveal">
+                <a href="languages-html/speaking-coach.html" class="btn-hero btn-hero-primary"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="coach_cta">Hozir gapirib ko'rish</span></a>
+                <span class="coach-price"><i class="fa-solid fa-ticket"></i> <span data-i18n="coach_price">100 token / 1 daqiqa</span></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label" data-i18n="how_label">Qanday ishlaydi</div>
+                <h2 class="section-title" data-i18n="how_title">4 qadamda natija</h2>
+            </div>
+            <div class="how-grid reveal">
+                <div class="how-step"><div class="how-num">01</div><div class="how-nm" data-i18n="how_s1n">Ro'yxatdan o'ting</div><div class="how-ds" data-i18n="how_s1d">Bepul hisob oching — 1000 token sovg'a, karta shart emas.</div></div>
+                <div class="how-step"><div class="how-num">02</div><div class="how-nm" data-i18n="how_s2n">Til va ustoz tanlang</div><div class="how-ds" data-i18n="how_s2d">8 ta til, 3 xil ustoz xarakteri va o'z darajangiz.</div></div>
+                <div class="how-step"><div class="how-num">03</div><div class="how-nm" data-i18n="how_s3n">AI bilan mashq qiling</div><div class="how-ds" data-i18n="how_s3d">Reading, Listening, Writing, Speaking — har dars sizning xatolaringizga moslashadi.</div></div>
+                <div class="how-step"><div class="how-num">04</div><div class="how-nm" data-i18n="how_s4n">Imtihonga chiqing</div><div class="how-ds" data-i18n="how_s4d">Shaxsiy bazangiz asosida IELTS/Goethe/TOPIK darajasiga yetguncha AI sizni qo'yib yubormaydi.</div></div>
             </div>
         </div>
     </section>
@@ -1821,19 +1903,19 @@
                 hero_h1_line1: "Har qanday tilni", hero_h1_line2: " Tez o'rganing.",
                 hero_p: "8 ta til, 100+ dars, AI suhbat sherigi va real-time leaderboard bilan til o'rganishni boshqa darajaga olib chiqing.",
                 hero_btn1: "Bepul boshlash →", hero_btn2: "Tillarni ko'rish", hero_btn3: "AI Speaking Coach",
-                stat_langs: "Tillar", stat_lessons: "Darslar", stat_students: "O'quvchilar", stat_rating: "Reyting",
+                stat_langs: "Tillar", stat_lessons: "Darslar", stat_students: "O'quvchilar", stat_rating: "AI Ustoz",
                 sec_langs_label: "Tillar", sec_langs_title: "8 ta jahon tili,<br>bir platformada",
                 sec_langs_sub: "Har bir til uchun maxsus ishlab chiqilgan darslar, AI suhbat sherigi va grammatika testlari.",
                 lang_english: "Ingliz tili", lang_russian: "Rus tili", lang_korean: "Koreys tili",
                 lang_chinese: "Xitoy tili", lang_arabic: "Arab tili", lang_spanish: "Ispan tili", lang_turkish: "Turk tili",
                 tag_popular: "Eng mashhur", tag_popular2: "Mashhur", tag_new: "Yangi", tag_new2: "Yangi",
-                learners_en: "O'quvchilar: <strong>24,800+</strong>",
-                learners_ru: "O'quvchilar: <strong>12,400+</strong>",
-                learners_ko: "O'quvchilar: <strong>8,200+</strong>",
-                learners_zh: "O'quvchilar: <strong>5,600+</strong>",
-                learners_ar: "O'quvchilar: <strong>4,100+</strong>",
-                learners_es: "O'quvchilar: <strong>6,900+</strong>",
-                learners_tr: "O'quvchilar: <strong>3,400+</strong>",
+                learners_en: "60 Unit · 500+ so'z · AI Coach",
+                learners_ru: "60 Unit · 500+ so'z · AI Coach",
+                learners_ko: "60 Unit · 500+ so'z · AI Coach",
+                learners_zh: "60 Unit · 500+ so'z · AI Coach",
+                learners_ar: "60 Unit · 500+ so'z · AI Coach",
+                learners_es: "60 Unit · 500+ so'z · AI Coach",
+                learners_tr: "60 Unit · 500+ so'z · AI Coach",
                 sec_feat_label: "Imkoniyatlar", sec_feat_title: "Hamma narsa<br>bir joyda",
                 sec_feat_sub: "O'rganishni qiziqarli va samarali qiladigan zamonaviy tizim.",
                 feat1_title: "AI Suhbat Sherigi", feat1_desc: "AI bilan istalgan vaqt amaliyot qiling. Real suhbat, tezkor javob.",
@@ -1849,12 +1931,12 @@
                 billing_monthly: "Oylik", billing_yearly: "Yillik", billing_discount: "40% chegirma",
                 plan_free_name: "Bepul", plan_free_desc: "Boshlash uchun mukammal. Asosiy imkoniyatlar bilan tanishing.",
                 plan_free_period: "Abadiy bepul",
-                plan_free_f1: "Kuniga <strong>2 ta</strong> unit tugatish",
-                plan_free_f2: "AI bilan <strong>5 ta</strong> savol/kun",
-                plan_free_f3: "Asosiy leaderboard",
-                plan_free_f4: "Limitlar <strong>4 soatda</strong> reset",
+                plan_free_f1: "Kuniga <strong>2 ta</strong> AI dars",
+                plan_free_f2: "<strong>1000 token</strong> / 5 soatda reset",
+                plan_free_f3: "AI chat: 1 token / savol",
+                plan_free_f4: "Speaking Coach: <strong>100 token</strong>/daqiqa",
                 plan_free_f5: "Coin va XP tizimi",
-                free_limits: "Cheklovlar: 2 unit/kun · 5 AI savol/kun · 4 soatda reset · Reklama bor",
+                free_limits: "Cheklovlar: 2 AI dars/kun · 1000 token / 5 soat · AI dars yaratish 400 token · Speaking Coach 100 token/daqiqa",
                 plan_free_btn: "Bepul boshlash",
                 plan_own_badge: "Eng mashhur",
                 plan_own_desc: "Bir foydalanuvchi uchun to'liq imkoniyat.",
@@ -1880,6 +1962,7 @@
                 cta_sub: "Hech qanday kredit karta shart emas. Bir daqiqada ro'yxatdan o'ting va birinchi darsni boshlang.",
                 cta_btn1: "Bepul ro'yxatdan o'tish →", cta_btn2: "Rejalarni solishtirish",
                 footer_about: "Haqida", footer_terms: "Shartlar", footer_privacy: "Maxfiylik",
+                coach_label: "AI Speaking Coach", coach_title: "3 xil ustoz. Bitta maqsad:<br>sizni gapirtirish.", coach_sub: "Jonli ovozli suhbat, har bir xatoga aniq tuzatish va IELTS darajasidagi baholash — 8 tilda.", coach_m1n: "Oddiy ustoz", coach_m1d: "Professional va aniq. Har xatoni tushuntirib tuzatadi, ortiqcha gap yo'q.", coach_m2n: "Xushmuomala ustoz", coach_m2d: "Doim qo'llab-quvvatlaydi va maqtaydi. Yangi boshlovchilar uchun ideal.", coach_m3n: "Qattiqqo'l ustoz", coach_m3d: "Eng kichik xatoga ham so'kadi: 'Shu bilan IELTS olmoqchimisan?!' Natija kerak bo'lsa — shu.", coach_cta: "Hozir gapirib ko'rish", coach_price: "100 token / 1 daqiqa", how_label: "Qanday ishlaydi", how_title: "4 qadamda natija", how_s1n: "Ro'yxatdan o'ting", how_s1d: "Bepul hisob oching — 1000 token sovg'a, karta shart emas.", how_s2n: "Til va ustoz tanlang", how_s2d: "8 ta til, 3 xil ustoz xarakteri va o'z darajangiz.", how_s3n: "AI bilan mashq qiling", how_s3d: "Reading, Listening, Writing, Speaking — har dars xatolaringizga moslashadi.", how_s4n: "Imtihonga chiqing", how_s4d: "Shaxsiy bazangiz asosida IELTS darajasiga yetguncha AI sizni qo'yib yubormaydi.",
                 footer_copy: "© 2025 SpeakVerse. Barcha huquqlar himoyalangan."
             },
 
@@ -1890,21 +1973,21 @@
                 bar_profile: "Профиль", bar_plans: "Планы", bar_speak: "Speaking Coach",
                 hero_badge: "Платформа для изучения языков с AI",
                 hero_h1_line1: "Любой язык", hero_h1_line2: " Учи быстро.",
-                hero_p: "8 языков, 100+ уроков, AI-собеседник и рейтинг в реальном времени — выведи изучение языков на новый уровень.",
+                hero_p: "8 языков, 480+ уроков, AI-собеседник и рейтинг в реальном времени — выведи изучение языков на новый уровень.",
                 hero_btn1: "Начать бесплатно →", hero_btn2: "Посмотреть языки", hero_btn3: "AI Speaking Coach",
-                stat_langs: "Языки", stat_lessons: "Уроки", stat_students: "Учеников", stat_rating: "Рейтинг",
+                stat_langs: "Языки", stat_lessons: "Уроки", stat_students: "Учеников", stat_rating: "AI наставник",
                 sec_langs_label: "Языки", sec_langs_title: "8 мировых языков,<br>одна платформа",
                 sec_langs_sub: "Специально разработанные уроки, AI-собеседник и тесты по грамматике для каждого языка.",
                 lang_english: "Английский", lang_russian: "Русский", lang_korean: "Корейский",
                 lang_chinese: "Китайский", lang_arabic: "Арабский", lang_spanish: "Испанский", lang_turkish: "Турецкий",
                 tag_popular: "Самый популярный", tag_popular2: "Популярный", tag_new: "Новый", tag_new2: "Новый",
-                learners_en: "Учеников: <strong>24,800+</strong>",
-                learners_ru: "Учеников: <strong>12,400+</strong>",
-                learners_ko: "Учеников: <strong>8,200+</strong>",
-                learners_zh: "Учеников: <strong>5,600+</strong>",
-                learners_ar: "Учеников: <strong>4,100+</strong>",
-                learners_es: "Учеников: <strong>6,900+</strong>",
-                learners_tr: "Учеников: <strong>3,400+</strong>",
+                learners_en: "60 юнитов · 500+ слов · AI Coach",
+                learners_ru: "60 юнитов · 500+ слов · AI Coach",
+                learners_ko: "60 юнитов · 500+ слов · AI Coach",
+                learners_zh: "60 юнитов · 500+ слов · AI Coach",
+                learners_ar: "60 юнитов · 500+ слов · AI Coach",
+                learners_es: "60 юнитов · 500+ слов · AI Coach",
+                learners_tr: "60 юнитов · 500+ слов · AI Coach",
                 sec_feat_label: "Возможности", sec_feat_title: "Всё необходимое<br>в одном месте",
                 sec_feat_sub: "Современная система, делающая обучение интересным и эффективным.",
                 feat1_title: "AI-собеседник", feat1_desc: "Практикуйтесь с AI в любое время. Настоящий диалог, мгновенный ответ.",
@@ -1920,12 +2003,12 @@
                 billing_monthly: "Ежемесячно", billing_yearly: "Ежегодно", billing_discount: "Скидка 40%",
                 plan_free_name: "Бесплатно", plan_free_desc: "Идеально для начала. Познакомьтесь с основными функциями.",
                 plan_free_period: "Бесплатно навсегда",
-                plan_free_f1: "<strong>2</strong> юнита в день",
-                plan_free_f2: "<strong>5</strong> вопросов к AI в день",
-                plan_free_f3: "Базовая таблица лидеров",
-                plan_free_f4: "Сброс лимитов каждые <strong>4 часа</strong>",
+                plan_free_f1: "<strong>2</strong> AI-урока в день",
+                plan_free_f2: "<strong>1000 токенов</strong> / сброс каждые 5 ч",
+                plan_free_f3: "AI-чат: 1 токен / вопрос",
+                plan_free_f4: "Speaking Coach: <strong>100 токенов</strong>/мин",
                 plan_free_f5: "Система монет и XP",
-                free_limits: "Ограничения: 2 юнита/день · 5 AI-вопросов/день · Сброс через 4 ч · Есть реклама",
+                free_limits: "Лимиты: 2 AI-урока/день · 1000 токенов/5 ч · Создание урока 400 токенов · Speaking Coach 100 токенов/мин",
                 plan_free_btn: "Начать бесплатно",
                 plan_own_badge: "Самый популярный",
                 plan_own_desc: "Полный функционал для одного пользователя.",
@@ -1951,6 +2034,7 @@
                 cta_sub: "Кредитная карта не нужна. Зарегистрируйтесь за минуту и начните первый урок.",
                 cta_btn1: "Зарегистрироваться бесплатно →", cta_btn2: "Сравнить планы",
                 footer_about: "О нас", footer_terms: "Условия", footer_privacy: "Конфиденциальность",
+                coach_label: "AI Speaking Coach", coach_title: "3 типа учителя. Одна цель:<br>заставить вас говорить.", coach_sub: "Живой голосовой диалог, точное исправление каждой ошибки и оценка уровня IELTS — на 8 языках.", coach_m1n: "Обычный учитель", coach_m1d: "Профессионально и точно. Исправляет каждую ошибку с объяснением.", coach_m2n: "Добрый учитель", coach_m2d: "Всегда поддерживает и хвалит. Идеален для новичков.", coach_m3n: "Строгий учитель", coach_m3d: "Ругает даже за мелочи. Выбирай, если нужен результат.", coach_cta: "Попробовать сейчас", coach_price: "100 токенов / минута", how_label: "Как это работает", how_title: "Результат за 4 шага", how_s1n: "Зарегистрируйтесь", how_s1d: "Бесплатный аккаунт — 1000 токенов в подарок, карта не нужна.", how_s2n: "Выберите язык и учителя", how_s2d: "8 языков, 3 характера учителя и ваш уровень.", how_s3n: "Практикуйтесь с AI", how_s3d: "Reading, Listening, Writing, Speaking — каждый урок подстраивается под ваши ошибки.", how_s4n: "Выходите на экзамен", how_s4d: "AI не отпустит вас, пока не доведёт до уровня IELTS.",
                 footer_copy: "© 2025 SpeakVerse. Все права защищены."
             },
 
@@ -1961,21 +2045,21 @@
                 bar_profile: "Perfil", bar_plans: "Planes", bar_speak: "Speaking Coach",
                 hero_badge: "Plataforma de idiomas potenciada por IA",
                 hero_h1_line1: "Cualquier idioma", hero_h1_line2: " Aprende rápido.",
-                hero_p: "8 idiomas, 100+ lecciones, compañero de IA y clasificación en tiempo real — lleva tu aprendizaje al siguiente nivel.",
+                hero_p: "8 idiomas, 480+ lecciones, compañero de IA y clasificación en tiempo real — lleva tu aprendizaje al siguiente nivel.",
                 hero_btn1: "Empezar gratis →", hero_btn2: "Ver idiomas", hero_btn3: "AI Speaking Coach",
-                stat_langs: "Idiomas", stat_lessons: "Lecciones", stat_students: "Estudiantes", stat_rating: "Valoración",
+                stat_langs: "Idiomas", stat_lessons: "Lecciones", stat_students: "Estudiantes", stat_rating: "Tutor AI",
                 sec_langs_label: "Idiomas", sec_langs_title: "8 idiomas del mundo,<br>una plataforma",
                 sec_langs_sub: "Lecciones diseñadas especialmente para cada idioma, compañero de IA y tests de gramática.",
                 lang_english: "Inglés", lang_russian: "Ruso", lang_korean: "Coreano",
                 lang_chinese: "Chino", lang_arabic: "Árabe", lang_spanish: "Español", lang_turkish: "Turco",
                 tag_popular: "El más popular", tag_popular2: "Popular", tag_new: "Nuevo", tag_new2: "Nuevo",
-                learners_en: "Estudiantes: <strong>24.800+</strong>",
-                learners_ru: "Estudiantes: <strong>12.400+</strong>",
-                learners_ko: "Estudiantes: <strong>8.200+</strong>",
-                learners_zh: "Estudiantes: <strong>5.600+</strong>",
-                learners_ar: "Estudiantes: <strong>4.100+</strong>",
-                learners_es: "Estudiantes: <strong>6.900+</strong>",
-                learners_tr: "Estudiantes: <strong>3.400+</strong>",
+                learners_en: "60 unidades · 500+ palabras · AI Coach",
+                learners_ru: "60 unidades · 500+ palabras · AI Coach",
+                learners_ko: "60 unidades · 500+ palabras · AI Coach",
+                learners_zh: "60 unidades · 500+ palabras · AI Coach",
+                learners_ar: "60 unidades · 500+ palabras · AI Coach",
+                learners_es: "60 unidades · 500+ palabras · AI Coach",
+                learners_tr: "60 unidades · 500+ palabras · AI Coach",
                 sec_feat_label: "Funciones", sec_feat_title: "Todo lo que necesitas<br>en un solo lugar",
                 sec_feat_sub: "Un sistema moderno que hace el aprendizaje divertido y efectivo.",
                 feat1_title: "Compañero de IA", feat1_desc: "Practica con AI en cualquier momento. Conversación real, respuesta rápida.",
@@ -1991,12 +2075,12 @@
                 billing_monthly: "Mensual", billing_yearly: "Anual", billing_discount: "40% descuento",
                 plan_free_name: "Gratis", plan_free_desc: "Perfecto para empezar. Conoce las funciones básicas.",
                 plan_free_period: "Gratis para siempre",
-                plan_free_f1: "<strong>2</strong> unidades al día",
-                plan_free_f2: "<strong>5</strong> preguntas a la IA al día",
-                plan_free_f3: "Clasificación básica",
-                plan_free_f4: "Límites se reinician cada <strong>4 horas</strong>",
+                plan_free_f1: "<strong>2</strong> lecciones AI al día",
+                plan_free_f2: "<strong>1000 tokens</strong> / reinicio cada 5 h",
+                plan_free_f3: "Chat AI: 1 token / pregunta",
+                plan_free_f4: "Speaking Coach: <strong>100 tokens</strong>/min",
                 plan_free_f5: "Sistema de monedas y XP",
-                free_limits: "Límites: 2 unidades/día · 5 preguntas IA/día · Reinicio cada 4 h · Con anuncios",
+                free_limits: "Límites: 2 lecciones AI/día · 1000 tokens/5 h · Crear lección 400 tokens · Speaking Coach 100 tokens/min",
                 plan_free_btn: "Empezar gratis",
                 plan_own_badge: "El más popular",
                 plan_own_desc: "Funcionalidad completa para un usuario.",
@@ -2022,6 +2106,7 @@
                 cta_sub: "No necesitas tarjeta de crédito. Regístrate en un minuto y comienza tu primera lección.",
                 cta_btn1: "Registrarse gratis →", cta_btn2: "Comparar planes",
                 footer_about: "Sobre nosotros", footer_terms: "Términos", footer_privacy: "Privacidad",
+                coach_label: "AI Speaking Coach", coach_title: "3 profesores. Un objetivo:<br>hacerte hablar.", coach_sub: "Conversación de voz en vivo, corrección precisa y evaluación nivel IELTS — en 8 idiomas.", coach_m1n: "Profesor normal", coach_m1d: "Profesional y preciso. Corrige cada error con explicación.", coach_m2n: "Profesor amable", coach_m2d: "Siempre te apoya y elogia. Ideal para principiantes.", coach_m3n: "Profesor estricto", coach_m3d: "Regaña hasta por errores mínimos. Elígelo si quieres resultados.", coach_cta: "Probar ahora", coach_price: "100 tokens / minuto", how_label: "Cómo funciona", how_title: "Resultados en 4 pasos", how_s1n: "Regístrate", how_s1d: "Cuenta gratis — 1000 tokens de regalo, sin tarjeta.", how_s2n: "Elige idioma y profesor", how_s2d: "8 idiomas, 3 personalidades y tu nivel.", how_s3n: "Practica con AI", how_s3d: "Reading, Listening, Writing, Speaking — cada lección se adapta a tus errores.", how_s4n: "Llega al examen", how_s4d: "La AI no te suelta hasta llevarte al nivel IELTS.",
                 footer_copy: "© 2025 SpeakVerse. Todos los derechos reservados."
             },
 
@@ -2032,21 +2117,21 @@
                 bar_profile: "Profil", bar_plans: "Planlar", bar_speak: "Speaking Coach",
                 hero_badge: "Yapay zeka destekli dil öğrenme platformu",
                 hero_h1_line1: "Her dili", hero_h1_line2: " Hızlı öğren.",
-                hero_p: "8 dil, 100+ ders, AI konuşma ortağı ve gerçek zamanlı sıralama ile dil öğrenimini üst seviyeye taşı.",
+                hero_p: "8 dil, 480+ ders, AI konuşma ortağı ve gerçek zamanlı sıralama ile dil öğrenimini üst seviyeye taşı.",
                 hero_btn1: "Ücretsiz başla →", hero_btn2: "Dilleri gör", hero_btn3: "AI Speaking Coach",
-                stat_langs: "Diller", stat_lessons: "Dersler", stat_students: "Öğrenciler", stat_rating: "Puan",
+                stat_langs: "Diller", stat_lessons: "Dersler", stat_students: "Öğrenciler", stat_rating: "AI Öğretmen",
                 sec_langs_label: "Diller", sec_langs_title: "8 dünya dili,<br>tek platformda",
                 sec_langs_sub: "Her dil için özel hazırlanmış dersler, AI konuşma ortağı ve gramer testleri.",
                 lang_english: "İngilizce", lang_russian: "Rusça", lang_korean: "Korece",
                 lang_chinese: "Çince", lang_arabic: "Arapça", lang_spanish: "İspanyolca", lang_turkish: "Türkçe",
                 tag_popular: "En popüler", tag_popular2: "Popüler", tag_new: "Yeni", tag_new2: "Yeni",
-                learners_en: "Öğrenciler: <strong>24.800+</strong>",
-                learners_ru: "Öğrenciler: <strong>12.400+</strong>",
-                learners_ko: "Öğrenciler: <strong>8.200+</strong>",
-                learners_zh: "Öğrenciler: <strong>5.600+</strong>",
-                learners_ar: "Öğrenciler: <strong>4.100+</strong>",
-                learners_es: "Öğrenciler: <strong>6.900+</strong>",
-                learners_tr: "Öğrenciler: <strong>3.400+</strong>",
+                learners_en: "60 ünite · 500+ kelime · AI Coach",
+                learners_ru: "60 ünite · 500+ kelime · AI Coach",
+                learners_ko: "60 ünite · 500+ kelime · AI Coach",
+                learners_zh: "60 ünite · 500+ kelime · AI Coach",
+                learners_ar: "60 ünite · 500+ kelime · AI Coach",
+                learners_es: "60 ünite · 500+ kelime · AI Coach",
+                learners_tr: "60 ünite · 500+ kelime · AI Coach",
                 sec_feat_label: "Özellikler", sec_feat_title: "Her şey<br>tek yerde",
                 sec_feat_sub: "Öğrenmeyi eğlenceli ve verimli kılan modern sistem.",
                 feat1_title: "AI Konuşma Ortağı", feat1_desc: "AI ile istediğin zaman pratik yap. Gerçek sohbet, hızlı yanıt.",
@@ -2062,12 +2147,12 @@
                 billing_monthly: "Aylık", billing_yearly: "Yıllık", billing_discount: "%40 indirim",
                 plan_free_name: "Ücretsiz", plan_free_desc: "Başlamak için mükemmel. Temel özelliklerle tanış.",
                 plan_free_period: "Sonsuza kadar ücretsiz",
-                plan_free_f1: "Günde <strong>2</strong> ünite tamamlama",
-                plan_free_f2: "AI ile günde <strong>5</strong> soru",
-                plan_free_f3: "Temel sıralama tablosu",
-                plan_free_f4: "Limitler <strong>4 saatte</strong> sıfırlanır",
+                plan_free_f1: "Günde <strong>2</strong> AI dersi",
+                plan_free_f2: "<strong>1000 jeton</strong> / 5 saatte sıfırlanır",
+                plan_free_f3: "AI sohbet: 1 jeton / soru",
+                plan_free_f4: "Speaking Coach: <strong>100 jeton</strong>/dk",
                 plan_free_f5: "Coin ve XP sistemi",
-                free_limits: "Kısıtlamalar: 2 ünite/gün · 5 AI sorusu/gün · 4 saatte sıfırlama · Reklam var",
+                free_limits: "Limitler: 2 AI ders/gün · 1000 jeton/5 saat · Ders oluşturma 400 jeton · Speaking Coach 100 jeton/dk",
                 plan_free_btn: "Ücretsiz başla",
                 plan_own_badge: "En popüler",
                 plan_own_desc: "Tek kullanıcı için tam özellik.",
@@ -2093,6 +2178,7 @@
                 cta_sub: "Kredi kartı gerekmez. Bir dakikada kayıt ol ve ilk derse başla.",
                 cta_btn1: "Ücretsiz kayıt ol →", cta_btn2: "Planları karşılaştır",
                 footer_about: "Hakkında", footer_terms: "Koşullar", footer_privacy: "Gizlilik",
+                coach_label: "AI Speaking Coach", coach_title: "3 öğretmen tipi. Tek hedef:<br>seni konuşturmak.", coach_sub: "Canlı sesli sohbet, her hataya net düzeltme ve IELTS seviyesinde değerlendirme — 8 dilde.", coach_m1n: "Normal öğretmen", coach_m1d: "Profesyonel ve net. Her hatayı açıklayarak düzeltir.", coach_m2n: "Nazik öğretmen", coach_m2d: "Her zaman destekler ve över. Yeni başlayanlar için ideal.", coach_m3n: "Sert öğretmen", coach_m3d: "En küçük hataya bile kızar. Sonuç istiyorsan bunu seç.", coach_cta: "Şimdi dene", coach_price: "100 jeton / dakika", how_label: "Nasıl çalışır", how_title: "4 adımda sonuç", how_s1n: "Kayıt ol", how_s1d: "Ücretsiz hesap — 1000 jeton hediye, kart gerekmez.", how_s2n: "Dil ve öğretmen seç", how_s2d: "8 dil, 3 öğretmen karakteri ve seviyeniz.", how_s3n: "AI ile pratik yap", how_s3d: "Reading, Listening, Writing, Speaking — her ders hatalarına uyum sağlar.", how_s4n: "Sınava gir", how_s4d: "AI seni IELTS seviyesine getirene kadar bırakmaz.",
                 footer_copy: "© 2025 SpeakVerse. Tüm hakları saklıdır."
             },
 
@@ -2105,19 +2191,19 @@
                 hero_h1_line1: "تعلّم أي لغة", hero_h1_line2: " بسرعة.",
                 hero_p: "٧ لغات، ١٠٠+ درس، رفيق محادثة بالذكاء الاصطناعي وترتيب فوري — ارتقِ بتعلّم اللغات إلى مستوى آخر.",
                 hero_btn1: "ابدأ مجاناً ←", hero_btn2: "اكتشف اللغات", hero_btn3: "AI Speaking Coach",
-                stat_langs: "لغات", stat_lessons: "دروس", stat_students: "طلاب", stat_rating: "التقييم",
+                stat_langs: "لغات", stat_lessons: "دروس", stat_students: "طلاب", stat_rating: "معلم AI",
                 sec_langs_label: "اللغات", sec_langs_title: "٧ لغات عالمية،<br>منصة واحدة",
                 sec_langs_sub: "دروس مصمّمة خصيصاً لكل لغة، ورفيق محادثة بالذكاء الاصطناعي، واختبارات نحوية.",
                 lang_english: "الإنجليزية", lang_russian: "الروسية", lang_korean: "الكورية",
                 lang_chinese: "الصينية", lang_arabic: "العربية", lang_spanish: "الإسبانية", lang_turkish: "التركية",
                 tag_popular: "الأكثر شعبية", tag_popular2: "شائع", tag_new: "جديد", tag_new2: "جديد",
-                learners_en: "الطلاب: <strong>٢٤,٨٠٠+</strong>",
-                learners_ru: "الطلاب: <strong>١٢,٤٠٠+</strong>",
-                learners_ko: "الطلاب: <strong>٨,٢٠٠+</strong>",
-                learners_zh: "الطلاب: <strong>٥,٦٠٠+</strong>",
-                learners_ar: "الطلاب: <strong>٤,١٠٠+</strong>",
-                learners_es: "الطلاب: <strong>٦,٩٠٠+</strong>",
-                learners_tr: "الطلاب: <strong>٣,٤٠٠+</strong>",
+                learners_en: "60 وحدة · +500 كلمة · AI Coach",
+                learners_ru: "60 وحدة · +500 كلمة · AI Coach",
+                learners_ko: "60 وحدة · +500 كلمة · AI Coach",
+                learners_zh: "60 وحدة · +500 كلمة · AI Coach",
+                learners_ar: "60 وحدة · +500 كلمة · AI Coach",
+                learners_es: "60 وحدة · +500 كلمة · AI Coach",
+                learners_tr: "60 وحدة · +500 كلمة · AI Coach",
                 sec_feat_label: "المميزات", sec_feat_title: "كل ما تحتاجه<br>في مكان واحد",
                 sec_feat_sub: "نظام حديث يجعل التعلّم ممتعاً وفعّالاً.",
                 feat1_title: "رفيق المحادثة بالذكاء الاصطناعي", feat1_desc: "تدرّب مع AI في أي وقت. محادثة حقيقية، ردّ فوري.",
@@ -2133,12 +2219,12 @@
                 billing_monthly: "شهري", billing_yearly: "سنوي", billing_discount: "خصم ٤٠٪",
                 plan_free_name: "مجاني", plan_free_desc: "مثالي للبدء. تعرّف على المميزات الأساسية.",
                 plan_free_period: "مجاني للأبد",
-                plan_free_f1: "<strong>وحدتان</strong> يومياً",
-                plan_free_f2: "<strong>٥</strong> أسئلة للذكاء الاصطناعي يومياً",
-                plan_free_f3: "لوحة المتصدرين الأساسية",
-                plan_free_f4: "تجديد الحدود كل <strong>٤ ساعات</strong>",
+                plan_free_f1: "<strong>درسان AI</strong> يوميًا",
+                plan_free_f2: "<strong>1000 رمز</strong> / إعادة كل 5 ساعات",
+                plan_free_f3: "محادثة AI: رمز واحد / سؤال",
+                plan_free_f4: "مدرب المحادثة: <strong>100 رمز</strong>/دقيقة",
                 plan_free_f5: "نظام العملات وXP",
-                free_limits: "القيود: وحدتان/يوم · ٥ أسئلة ذكاء/يوم · تجديد كل ٤ س · توجد إعلانات",
+                free_limits: "الحدود: درسان AI/يوم · 1000 رمز/5 ساعات · إنشاء درس 400 رمز · مدرب المحادثة 100 رمز/دقيقة",
                 plan_free_btn: "ابدأ مجاناً",
                 plan_own_badge: "الأكثر شعبية",
                 plan_own_desc: "كامل المميزات لمستخدم واحد.",
@@ -2164,6 +2250,7 @@
                 cta_sub: "لا تحتاج بطاقة ائتمانية. سجّل في دقيقة وابدأ أول درس.",
                 cta_btn1: "سجّل مجاناً ←", cta_btn2: "قارن الخطط",
                 footer_about: "عن المنصة", footer_terms: "الشروط", footer_privacy: "الخصوصية",
+                coach_label: "مدرب المحادثة AI", coach_title: "3 أنواع معلمين. هدف واحد:<br>جعلك تتحدث.", coach_sub: "محادثة صوتية حية وتصحيح دقيق لكل خطأ وتقييم بمستوى IELTS — بثماني لغات.", coach_m1n: "معلم عادي", coach_m1d: "محترف ودقيق. يصحح كل خطأ مع الشرح.", coach_m2n: "معلم لطيف", coach_m2d: "يدعمك ويمدحك دائماً. مثالي للمبتدئين.", coach_m3n: "معلم صارم", coach_m3d: "يوبخ على أصغر خطأ. اختره إذا أردت النتيجة.", coach_cta: "جرّب الآن", coach_price: "100 رمز / دقيقة", how_label: "كيف يعمل", how_title: "النتيجة في 4 خطوات", how_s1n: "سجّل", how_s1d: "حساب مجاني — 1000 رمز هدية، بدون بطاقة.", how_s2n: "اختر اللغة والمعلم", how_s2d: "8 لغات و3 شخصيات للمعلم ومستواك.", how_s3n: "تدرّب مع AI", how_s3d: "قراءة واستماع وكتابة ومحادثة — كل درس يتكيف مع أخطائك.", how_s4n: "ادخل الامتحان", how_s4d: "لن يتركك الذكاء الاصطناعي حتى تصل لمستوى IELTS.",
                 footer_copy: "© 2025 SpeakVerse. جميع الحقوق محفوظة."
             },
 
@@ -2174,21 +2261,21 @@
                 bar_profile: "Profil", bar_plans: "Pläne", bar_speak: "Speaking Coach",
                 hero_badge: "KI-gestützte Sprachlernplattform",
                 hero_h1_line1: "Jede Sprache", hero_h1_line2: " Schnell lernen.",
-                hero_p: "8 Sprachen, 100+ Lektionen, KI-Gesprächspartner und Echtzeit-Rangliste — bring dein Sprachlernen auf die nächste Stufe.",
+                hero_p: "8 Sprachen, 480+ Lektionen, KI-Gesprächspartner und Echtzeit-Rangliste — bring dein Sprachlernen auf die nächste Stufe.",
                 hero_btn1: "Kostenlos starten →", hero_btn2: "Sprachen entdecken", hero_btn3: "AI Speaking Coach",
-                stat_langs: "Sprachen", stat_lessons: "Lektionen", stat_students: "Lernende", stat_rating: "Bewertung",
+                stat_langs: "Sprachen", stat_lessons: "Lektionen", stat_students: "Lernende", stat_rating: "AI Tutor",
                 sec_langs_label: "Sprachen", sec_langs_title: "8 Weltsprachen,<br>eine Plattform",
                 sec_langs_sub: "Speziell entwickelte Lektionen, KI-Gesprächspartner und Grammatiktests für jede Sprache.",
                 lang_english: "Englisch", lang_russian: "Russisch", lang_korean: "Koreanisch",
                 lang_chinese: "Chinesisch", lang_arabic: "Arabisch", lang_spanish: "Spanisch", lang_turkish: "Türkisch",
                 tag_popular: "Am beliebtesten", tag_popular2: "Beliebt", tag_new: "Neu", tag_new2: "Neu",
-                learners_en: "Lernende: <strong>24.800+</strong>",
-                learners_ru: "Lernende: <strong>12.400+</strong>",
-                learners_ko: "Lernende: <strong>8.200+</strong>",
-                learners_zh: "Lernende: <strong>5.600+</strong>",
-                learners_ar: "Lernende: <strong>4.100+</strong>",
-                learners_es: "Lernende: <strong>6.900+</strong>",
-                learners_tr: "Lernende: <strong>3.400+</strong>",
+                learners_en: "60 Units · 500+ Wörter · AI Coach",
+                learners_ru: "60 Units · 500+ Wörter · AI Coach",
+                learners_ko: "60 Units · 500+ Wörter · AI Coach",
+                learners_zh: "60 Units · 500+ Wörter · AI Coach",
+                learners_ar: "60 Units · 500+ Wörter · AI Coach",
+                learners_es: "60 Units · 500+ Wörter · AI Coach",
+                learners_tr: "60 Units · 500+ Wörter · AI Coach",
                 sec_feat_label: "Funktionen", sec_feat_title: "Alles was du brauchst<br>an einem Ort",
                 sec_feat_sub: "Ein modernes System, das Lernen spannend und effektiv macht.",
                 feat1_title: "KI-Gesprächspartner", feat1_desc: "Übe jederzeit mit AI. Echtes Gespräch, schnelle Antwort.",
@@ -2204,12 +2291,12 @@
                 billing_monthly: "Monatlich", billing_yearly: "Jährlich", billing_discount: "40% Rabatt",
                 plan_free_name: "Kostenlos", plan_free_desc: "Perfekt zum Einstieg. Lerne die Grundfunktionen kennen.",
                 plan_free_period: "Für immer kostenlos",
-                plan_free_f1: "<strong>2</strong> Einheiten pro Tag",
-                plan_free_f2: "<strong>5</strong> KI-Fragen pro Tag",
-                plan_free_f3: "Basis-Rangliste",
-                plan_free_f4: "Limits werden alle <strong>4 Stunden</strong> zurückgesetzt",
-                plan_free_f5: "Münz- und XP-System",
-                free_limits: "Einschränkungen: 2 Einheiten/Tag · 5 KI-Fragen/Tag · Reset alle 4 Std · Werbung vorhanden",
+                plan_free_f1: "<strong>2</strong> AI-Lektionen pro Tag",
+                plan_free_f2: "<strong>1000 Token</strong> / Reset alle 5 Std",
+                plan_free_f3: "AI-Chat: 1 Token / Frage",
+                plan_free_f4: "Speaking Coach: <strong>100 Token</strong>/Min",
+                plan_free_f5: "Coin- und XP-System",
+                free_limits: "Limits: 2 AI-Lektionen/Tag · 1000 Token/5 Std · Lektion erstellen 400 Token · Speaking Coach 100 Token/Min",
                 plan_free_btn: "Kostenlos starten",
                 plan_own_badge: "Am beliebtesten",
                 plan_own_desc: "Vollständiger Funktionsumfang für einen Nutzer.",
@@ -2235,6 +2322,7 @@
                 cta_sub: "Keine Kreditkarte nötig. Registriere dich in einer Minute und starte deine erste Lektion.",
                 cta_btn1: "Kostenlos registrieren →", cta_btn2: "Pläne vergleichen",
                 footer_about: "Über uns", footer_terms: "Bedingungen", footer_privacy: "Datenschutz",
+                coach_label: "AI Speaking Coach", coach_title: "3 Lehrertypen. Ein Ziel:<br>dich zum Sprechen bringen.", coach_sub: "Live-Sprachgespräch, präzise Korrektur jedes Fehlers und Bewertung auf IELTS-Niveau — in 8 Sprachen.", coach_m1n: "Normaler Lehrer", coach_m1d: "Professionell und präzise. Korrigiert jeden Fehler mit Erklärung.", coach_m2n: "Freundlicher Lehrer", coach_m2d: "Unterstützt und lobt immer. Ideal für Anfänger.", coach_m3n: "Strenger Lehrer", coach_m3d: "Schimpft bei jedem kleinen Fehler. Wähle ihn für Ergebnisse.", coach_cta: "Jetzt ausprobieren", coach_price: "100 Token / Minute", how_label: "So funktioniert es", how_title: "Ergebnis in 4 Schritten", how_s1n: "Registrieren", how_s1d: "Kostenloses Konto — 1000 Token geschenkt, keine Karte nötig.", how_s2n: "Sprache & Lehrer wählen", how_s2d: "8 Sprachen, 3 Lehrertypen und dein Niveau.", how_s3n: "Mit AI üben", how_s3d: "Reading, Listening, Writing, Speaking — jede Lektion passt sich deinen Fehlern an.", how_s4n: "Zur Prüfung antreten", how_s4d: "Die AI lässt dich nicht los, bis du IELTS-Niveau erreichst.",
                 footer_copy: "© 2025 SpeakVerse. Alle Rechte vorbehalten."
             }
         };
@@ -2383,34 +2471,51 @@
         applyTranslations(currentLang);
     </script>
 
-    <!-- Supabase + Firebase -->
+    <!-- Firebase: auth + real ma'lumotlar -->
     <script type="module">
-        import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+        import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getFirestore, collection, query, orderBy, limit, getDocs, doc, getDoc, getCountFromServer } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-        const supabase = createClient(
-            "https://gxkpellesghldllzrkik.supabase.co",
-            "sb_publishable_S6EqXk3JljDBKoVEFb0CWA_aNmZk0Oc"
-        );
-
-        const app = initializeApp({
-            apiKey: "AIzaSyDgVpIEd4Ojm4PEQHOme5yWp87P_xSb6E8",
+        const app = getApps().length ? getApp() : initializeApp({
+            apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
             authDomain: "linguaverse-ebe09.firebaseapp.com",
             projectId: "linguaverse-ebe09",
             storageBucket: "linguaverse-ebe09.firebasestorage.app",
             messagingSenderId: "130625454868",
             appId: "1:130625454868:web:3f02871f64cb5f8af27801"
         });
+        const auth = getAuth(app);
         const db = getFirestore(app);
 
-        supabase.auth.onAuthStateChange((event, session) => {
-            const user = session?.user;
+        const PLAN_LBL = { free: 'FREE', pro: 'PRO', premium: 'PREMIUM', ultimate: 'ULTIMATE', own: 'OWN', team: 'TEAM', universal: 'UNIVERSAL', vip: 'VIP' };
+
+        // ── AUTH: login qilganlarga to'liq real profil + site-bar ──
+        onAuthStateChanged(auth, async (user) => {
             const navRight = document.getElementById('navRight');
-            if (user) {
-                const displayName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'User';
-                const initials = displayName.charAt(0).toUpperCase();
-                navRight.innerHTML = `
+            const siteBar = document.getElementById('siteBar');
+            if (!user) {
+                window._currentUser = null;
+                if (siteBar) siteBar.style.display = 'none';
+                return; // mehmon: standart Kirish/Boshlash tugmalari qoladi
+            }
+            window._currentUser = user;
+            if (siteBar) siteBar.style.display = 'flex';
+
+            // Firestore'dan REAL ma'lumot: token, coin, XP, plan
+            let d = {};
+            try {
+                const snap = await getDoc(doc(db, 'users', user.uid));
+                if (snap.exists()) d = snap.data();
+            } catch (e) { console.warn(e); }
+
+            const name = d.displayName || user.displayName || user.email?.split('@')[0] || 'User';
+            const plan = PLAN_LBL[(d.plan || 'free').toLowerCase()] || 'FREE';
+            const tokens = (d.plan === 'ultimate') ? '∞' : (d.tokens ?? 0).toLocaleString();
+            const coins = (d.coins ?? 0).toLocaleString();
+            const xp = (d.xp ?? 0).toLocaleString();
+
+            navRight.innerHTML = `
       <button class="theme-btn" id="themeToggle" title="Toggle theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
       <div class="lang-switcher">
         <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">
@@ -2427,37 +2532,52 @@
           <div class="lang-option" data-lang="de" onclick="setLang('de')"><span class="flag">🇩🇪</span> Deutsch</div>
         </div>
       </div>
-      <div class="nav-user">
-        <div class="nav-avatar">${initials}</div>
-        <span class="nav-username">${displayName}</span>
-        <button class="btn-logout" id="logoutBtn">Chiqish</button>
-      </div>`;
-                document.getElementById('logoutBtn').addEventListener('click', () => {
-                    supabase.auth.signOut().then(() => window.location.reload());
-                });
-                // re-apply theme + lang to newly injected buttons
-                applyTheme(localStorage.getItem('lv_theme') || 'dark');
-                applyTranslations(localStorage.getItem('lv_lang') || 'uz');
-                window._currentUser = user;
-            } else {
-                window._currentUser = null;
-            }
+      <span class="np-pill" style="color:#22d3ee;border-color:rgba(34,211,238,.3)" title="Tokenlar"><i class="fa-solid fa-ticket"></i> ${tokens}</span>
+      <span class="np-pill" style="color:var(--gold);border-color:rgba(245,200,66,.3)" title="Coinlar"><i class="fa-solid fa-coins"></i> ${coins}</span>
+      <span class="np-pill" style="color:var(--accent2);border-color:rgba(167,139,250,.3)" title="XP"><i class="fa-solid fa-star"></i> ${xp}</span>
+      <a class="nav-profile" href="languages-html/profile.html" title="Profil">
+        <div class="np-av">${name.charAt(0).toUpperCase()}</div>
+        <div class="np-info">
+          <div class="np-name">${name}</div>
+          <div class="np-plan"><i class="fa-solid fa-crown" style="font-size:.55rem"></i> ${plan}</div>
+        </div>
+      </a>
+      <button class="btn-logout" id="logoutBtn">Chiqish</button>`;
+
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                signOut(auth).then(() => window.location.reload());
+            });
+            applyTheme(localStorage.getItem('lv_theme') || 'dark');
+            applyTranslations(localStorage.getItem('lv_lang') || 'uz');
         });
 
+        // ── REAL foydalanuvchilar soni ──
+        async function loadUserCount() {
+            const el = document.getElementById('statUsers');
+            if (!el) return;
+            try {
+                const c = await getCountFromServer(collection(db, 'users'));
+                const n = c.data().count;
+                el.innerHTML = n.toLocaleString() + '<span>+</span>';
+            } catch (e) { el.textContent = '1000+'; }
+        }
+        loadUserCount();
+
+        // ── REAL leaderboard (Firestore'dan) ──
         async function loadLeaderboard() {
             const lbBody = document.getElementById('lbBody');
             try {
                 const q = query(collection(db, 'users'), orderBy('xp', 'desc'), limit(10));
                 const snapshot = await getDocs(q);
                 if (snapshot.empty) {
-                    lbBody.innerHTML = `<div class="lb-loading">Hali hech kim yo'q. Birinchi bo'l! 🚀</div>`;
+                    lbBody.innerHTML = `<div class="lb-loading">Hali hech kim yo'q. Birinchi bo'l!</div>`;
                     return;
                 }
                 const rankClasses = ['gold', 'silver', 'bronze'];
                 const grads = ['linear-gradient(135deg,#4f6ef7,#a78bfa)', 'linear-gradient(135deg,#a78bfa,#6d82f8)', 'linear-gradient(135deg,#f5c842,#e8a422)', 'linear-gradient(135deg,#34d399,#059669)', 'linear-gradient(135deg,#f87171,#dc2626)', 'linear-gradient(135deg,#38bdf8,#0284c7)', 'linear-gradient(135deg,#fb923c,#ea580c)', 'linear-gradient(135deg,#a3e635,#65a30d)', 'linear-gradient(135deg,#e879f9,#a21caf)', 'linear-gradient(135deg,#94a3b8,#475569)'];
                 let html = '';
-                snapshot.docs.forEach((doc, i) => {
-                    const d = doc.data();
+                snapshot.docs.forEach((docSnap, i) => {
+                    const d = docSnap.data();
                     const name = d.displayName || d.email?.split('@')[0] || 'User';
                     const xp = (d.xp || 0).toLocaleString();
                     html += `<div class="lb-row"><div class="lb-rank ${rankClasses[i] || ''}">${i + 1}</div><div class="lb-avatar" style="background:${grads[i]}">${name.charAt(0).toUpperCase()}</div><div class="lb-name">${name}</div><div class="lb-xp">${xp} XP</div></div>`;
@@ -2468,7 +2588,6 @@
                 lbBody.innerHTML = `<div class="lb-loading">Ma'lumotlarni yuklashda xato.</div>`;
             }
         }
-
         loadLeaderboard();
     </script>
 

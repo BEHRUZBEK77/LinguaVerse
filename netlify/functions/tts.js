@@ -21,32 +21,42 @@ function xmlEscape(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 }
 
+let lastAzureError = null;
 async function azureTTS(text, lang, rate) {
   const key = process.env.AZURE_SPEECH_KEY;
-  const region = process.env.AZURE_SPEECH_REGION || 'eastus';
+  const region = (process.env.AZURE_SPEECH_REGION || 'eastus').trim().toLowerCase().replace(/\s+/g, '');
   const voice = AZURE_VOICES[lang];
-  if (!key || !voice) return null;
+  if (!key) { lastAzureError = 'AZURE_SPEECH_KEY not set'; return null; }
+  if (!voice) { lastAzureError = 'no azure voice for ' + lang; return null; }
 
   // speakingRate (0.65..1) → prosody foizi (-35%..0%)
   const pct = Math.round((rate - 1) * 100);
   const ssml = `<speak version='1.0' xml:lang='${lang}'><voice name='${voice}'><prosody rate='${pct}%'>${xmlEscape(text)}</prosody></voice></speak>`;
 
-  const resp = await fetch(`https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`, {
-    method: 'POST',
-    headers: {
-      'Ocp-Apim-Subscription-Key': key,
-      'Content-Type': 'application/ssml+xml',
-      'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3'
-    },
-    body: ssml
-  });
-  if (!resp.ok) {
-    console.error('Azure TTS failed:', resp.status, await resp.text().catch(() => ''));
+  try {
+    const resp = await fetch(`https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`, {
+      method: 'POST',
+      headers: {
+        'Ocp-Apim-Subscription-Key': key.trim(),
+        'Content-Type': 'application/ssml+xml',
+        'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3'
+      },
+      body: ssml
+    });
+    if (!resp.ok) {
+      lastAzureError = `HTTP ${resp.status}: ${(await resp.text().catch(() => '')).slice(0, 200)}`;
+      console.error('Azure TTS failed:', lastAzureError);
+      return null;
+    }
+    const buf = Buffer.from(await resp.arrayBuffer());
+    if (!buf.length) { lastAzureError = 'empty audio'; return null; }
+    lastAzureError = null;
+    return buf.toString('base64');
+  } catch (e) {
+    lastAzureError = e.message;
+    console.error('Azure TTS error:', e.message);
     return null;
   }
-  const buf = Buffer.from(await resp.arrayBuffer());
-  if (!buf.length) return null;
-  return buf.toString('base64');
 }
 
 async function googleTTS(body) {
@@ -69,6 +79,29 @@ async function googleTTS(body) {
 
 exports.handler = async function (event) {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers: CORS, body: '' };
+
+  // Diagnostika: brauzerda ochib tekshirish mumkin
+  //   /.netlify/functions/tts            → sozlamalar holati
+  //   /.netlify/functions/tts?test=uz    → Azure'ga jonli test so'rov
+  if (event.httpMethod === 'GET') {
+    const region = (process.env.AZURE_SPEECH_REGION || '(not set)');
+    const status = {
+      ok: true,
+      azure: { keySet: !!process.env.AZURE_SPEECH_KEY, region },
+      google: { keySet: !!process.env.GOOGLE_TTS_KEYS }
+    };
+    if (event.queryStringParameters?.test === 'uz') {
+      const audio = await azureTTS("Salom! Men Sardor. O'zbekcha ovoz ishlayapti!", 'uz-UZ', 0.95);
+      status.azureTest = audio ? 'SUCCESS ✅ (' + Math.round(audio.length * 0.75 / 1024) + ' KB audio)' : 'FAILED ❌';
+      if (!audio) status.azureError = lastAzureError;
+    }
+    return {
+      statusCode: 200,
+      headers: { ...CORS, 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+      body: JSON.stringify(status, null, 2)
+    };
+  }
+
   if (event.httpMethod !== 'POST') return { statusCode: 405, headers: CORS, body: 'Method Not Allowed' };
 
   try {

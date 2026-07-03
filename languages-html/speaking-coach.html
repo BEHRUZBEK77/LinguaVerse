@@ -448,6 +448,7 @@ CORE RULES (never break these):
       if (!CU) { window.location.href = '../auth/login.html'; return; }
       if (plan !== 'ultimate' && tokens < COST_PER_MIN) { toast(L.notok, 'fa-circle-xmark', '#f87171'); return; }
       await spend(COST_PER_MIN); // birinchi daqiqa oldindan
+      probeWhisper(); // har seans boshida STT tayyorligini yangidan tekshiramiz
       // Shaxsiy bazani yuklash — ustoz oldingi seanslardagi xatolarni eslaydi
       try {
         const ms = await getDoc(doc(db, `users/${CU.uid}/learner_profiles/speaking_${sel.target.id}`));
@@ -625,7 +626,16 @@ CORE RULES (never break these):
     // yo'q bo'lsa brauzerning Web Speech API'si. Har bosqichda foydalanuvchiga xabar.
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     let whisperReady = false;
-    fetch(STT_URL).then(r => r.json()).then(d => { whisperReady = !!d.hasKey; }).catch(() => { whisperReady = false; });
+    async function probeWhisper() {
+      try {
+        // cache-bust — brauzer eski javobni ushlab qolmasin
+        const r = await fetch(STT_URL + '?t=' + Date.now(), { cache: 'no-store' });
+        const d = await r.json();
+        whisperReady = !!d.hasKey;
+      } catch { whisperReady = false; }
+      return whisperReady;
+    }
+    probeWhisper();
 
     window.toggleMic = async function () {
       if (!sess.on) return;

@@ -15,7 +15,7 @@ exports.handler = async function (event) {
   if (event.httpMethod === 'GET') {
     return {
       statusCode: 200,
-      headers: { ...CORS, 'Content-Type': 'application/json' },
+      headers: { ...CORS, 'Content-Type': 'application/json', 'Cache-Control': 'no-store, max-age=0' },
       body: JSON.stringify({ ok: true, hasKey: !!process.env.GROQ_API_KEY })
     };
   }

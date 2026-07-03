@@ -620,27 +620,37 @@ CORE RULES (never break these):
       }
     };
 
-    // ── STT: Web Speech API, fallback → MediaRecorder + Whisper ──
+    // ── STT ──
+    // Ustuvorlik: GROQ_API_KEY bor bo'lsa Whisper (hamma qurilma/brauzerda ishlaydi),
+    // yo'q bo'lsa brauzerning Web Speech API'si. Har bosqichda foydalanuvchiga xabar.
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let whisperReady = false;
+    fetch(STT_URL).then(r => r.json()).then(d => { whisperReady = !!d.hasKey; }).catch(() => { whisperReady = false; });
+
     window.toggleMic = async function () {
       if (!sess.on) return;
       if (recording) { stopMic(); return; }
       stopAudio();
-      if (SR) startSR(); else await startRecorder();
+      if (whisperReady && navigator.mediaDevices && window.MediaRecorder) await startRecorder();
+      else if (SR) startSR();
+      else if (navigator.mediaDevices && window.MediaRecorder) await startRecorder();
+      else toast('Brauzeringiz ovoz yozishni qo\'llamaydi — pastdagi yozish maydonidan foydalaning', 'fa-keyboard', '#f5c842');
     };
-    function setMicUI(on) {
+    function setMicUI(on, hint) {
       recording = on;
       $('micBtn').classList.toggle('rec', on);
       $('micIcon').className = `fa-solid ${on ? 'fa-stop' : 'fa-microphone'}`;
-      $('interimTxt').textContent = on ? L.listening : '';
+      $('interimTxt').textContent = on ? (hint || L.listening) : '';
     }
     function startSR() {
       recog = new SR();
       recog.lang = sel.target.sr;
       recog.interimResults = true;
       recog.continuous = false;
-      let finalTxt = '';
+      recog.maxAlternatives = 1;
+      let finalTxt = '', gotAny = false;
       recog.onresult = (e) => {
+        gotAny = true;
         let interim = '';
         for (let i = e.resultIndex; i < e.results.length; i++) {
           if (e.results[i].isFinal) finalTxt += e.results[i][0].transcript;
@@ -648,37 +658,60 @@ CORE RULES (never break these):
         }
         $('interimTxt').textContent = interim || finalTxt || L.listening;
       };
-      recog.onend = () => { setMicUI(false); if (finalTxt.trim()) sendUser(finalTxt); };
-      recog.onerror = (e) => {
+      recog.onend = () => {
         setMicUI(false);
-        if (e.error === 'not-allowed') toast(L.micerr, 'fa-microphone-slash', '#f87171');
-        else if (e.error !== 'aborted' && e.error !== 'no-speech') startRecorder(); // whisper fallback
+        if (finalTxt.trim()) sendUser(finalTxt);
+        else if (!gotAny) toast("Ovoz aniqlanmadi. Yana urinib ko'ring yoki yozib yuboring", 'fa-ear-deaf', '#f5c842');
       };
-      recog.start();
-      setMicUI(true);
+      recog.onerror = async (e) => {
+        setMicUI(false);
+        if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+          toast(L.micerr, 'fa-microphone-slash', '#f87171');
+        } else if (e.error === 'no-speech') {
+          toast("Ovoz eshitilmadi — mikrofonga yaqinroq gapiring", 'fa-ear-deaf', '#f5c842');
+        } else if (e.error !== 'aborted') {
+          // network va boshqa xatolar — Whisper zaxira (kalit bo'lsa)
+          if (whisperReady) await startRecorder();
+          else toast('Ovoz tanish xizmati ishlamadi (' + e.error + "). Yozish maydonidan foydalaning yoki adminga ayting: Netlify'da GROQ_API_KEY kerak", 'fa-triangle-exclamation', '#f87171');
+        }
+      };
+      try { recog.start(); setMicUI(true); }
+      catch (e) { toast(L.micerr, 'fa-microphone-slash', '#f87171'); }
     }
     async function startRecorder() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         mediaChunks = [];
-        mediaRec = new MediaRecorder(stream);
-        mediaRec.ondataavailable = e => mediaChunks.push(e.data);
+        const mime = MediaRecorder.isTypeSupported('audio/webm') ? 'audio/webm'
+          : MediaRecorder.isTypeSupported('audio/mp4') ? 'audio/mp4' : '';
+        mediaRec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream);
+        mediaRec.ondataavailable = e => { if (e.data.size) mediaChunks.push(e.data); };
         mediaRec.onstop = async () => {
           stream.getTracks().forEach(t => t.stop());
           setMicUI(false);
           const blob = new Blob(mediaChunks, { type: mediaRec.mimeType || 'audio/webm' });
-          if (blob.size < 1200) return;
-          $('interimTxt').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+          if (blob.size < 1200) { toast("Juda qisqa yozildi — bosib turib gapiring, keyin STOP bosing", 'fa-circle-info', '#f5c842'); return; }
+          $('interimTxt').innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ...';
           const b64 = await new Promise(res => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(blob); });
           try {
             const r = await fetch(STT_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ audio: b64, language: sel.target.code }) });
             const d = await r.json();
             $('interimTxt').textContent = '';
+            if (!r.ok) {
+              toast(d.detail === 'missing_api_key'
+                ? "Ovozni matnga o'girish uchun admin Netlify'da GROQ_API_KEY o'rnatishi kerak"
+                : "Ovozni o'girishda xato — qayta urinib ko'ring", 'fa-triangle-exclamation', '#f87171');
+              return;
+            }
             if (d.text?.trim()) sendUser(d.text);
-          } catch { $('interimTxt').textContent = ''; }
+            else toast("Ovoz aniqlanmadi — aniqroq gapirib ko'ring", 'fa-ear-deaf', '#f5c842');
+          } catch {
+            $('interimTxt').textContent = '';
+            toast('Tarmoq xatosi — internetni tekshiring', 'fa-wifi', '#f87171');
+          }
         };
         mediaRec.start();
-        setMicUI(true);
+        setMicUI(true, L.listening + ' (tugatgach STOP bosing)');
         setTimeout(() => { if (mediaRec?.state === 'recording') mediaRec.stop(); }, 30000);
       } catch { toast(L.micerr, 'fa-microphone-slash', '#f87171'); }
     }

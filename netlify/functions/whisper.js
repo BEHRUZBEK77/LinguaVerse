@@ -11,6 +11,14 @@ const CORS = {
 
 exports.handler = async function (event) {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers: CORS, body: '' };
+  // Health check — klient STT tayyorligini shu orqali biladi
+  if (event.httpMethod === 'GET') {
+    return {
+      statusCode: 200,
+      headers: { ...CORS, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ok: true, hasKey: !!process.env.GROQ_API_KEY })
+    };
+  }
   if (event.httpMethod !== 'POST') return { statusCode: 405, headers: CORS, body: 'Method Not Allowed' };
 
   if (!process.env.GROQ_API_KEY) {

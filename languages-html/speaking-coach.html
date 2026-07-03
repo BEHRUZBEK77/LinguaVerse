@@ -253,7 +253,7 @@
   <script type="module">
     import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, doc, getDoc, updateDoc, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
     const FB_CONFIG = {
       apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
@@ -312,8 +312,16 @@
     // ── TEACHER PERSONAS ──
     function buildSystemPrompt(mode, target, native, level) {
       const T = FULLNAME[target.id], N = native.full;
-      const base = `You are a world-class ${T} speaking coach on the SpeakVerse platform.
-THE STUDENT: native language is ${N}, current level: ${level}.
+      const mem = coachMemory;
+      const memBlock = mem && mem.sessions
+        ? `\nSTUDENT'S PERSONAL BASE (from previous sessions — use it!):
+- Sessions so far: ${mem.sessions}, total sentences spoken: ${mem.totalMsgs || 0}.
+- Recurring mistakes to drill until fixed: ${(mem.corrections || []).slice(-10).join(' | ') || 'none recorded'}.
+Recycle these mistakes naturally into today's conversation and check if they are fixed. Praise visible progress on previously weak points.`
+        : `\nThis is the student's FIRST speaking session — do a light level check with your first questions.`;
+      const base = `You are a world-class ${T} speaking coach and certified IELTS-level examiner on the SpeakVerse platform.
+THE STUDENT: native language is ${N}, current level: ${level}.${memBlock}
+EXAM QUALITY: run the conversation like professional exam speaking practice (IELTS-style part 1/2/3 progression when level is IELTS/Exam): fluency, lexical resource, grammatical range, pronunciation.
 CORE RULES (never break these):
 1. Speak MAINLY in ${T} — this is a ${T} speaking lesson. Never switch the lesson language to ${N} except inside "correction" and "tip" fields.
 2. All corrections and explanations must be written in ${N} so the student fully understands.
@@ -331,7 +339,7 @@ CORE RULES (never break these):
     }
 
     // ── STATE ──
-    let CU = null, tokens = 0, plan = 'free';
+    let CU = null, tokens = 0, plan = 'free', coachMemory = null;
     let sel = { target: TARGETS[0], native: NATIVES[0], mode: 'normal', level: 'A1-A2' };
     let sess = { on: false, hist: [], startTs: 0, charged: 0, msgs: 0, timerIv: null, xp: 0 };
     let recog = null, recording = false, mediaRec = null, mediaChunks = [];
@@ -404,7 +412,12 @@ CORE RULES (never break these):
       if (!CU) { window.location.href = '../auth/login.html'; return; }
       if (plan !== 'ultimate' && tokens < COST_PER_MIN) { toast(L.notok, 'fa-circle-xmark', '#f87171'); return; }
       await spend(COST_PER_MIN); // birinchi daqiqa oldindan
-      sess = { on: true, hist: [], startTs: Date.now(), charged: COST_PER_MIN, msgs: 0, timerIv: null, xp: 0 };
+      // Shaxsiy bazani yuklash — ustoz oldingi seanslardagi xatolarni eslaydi
+      try {
+        const ms = await getDoc(doc(db, `users/${CU.uid}/learner_profiles/speaking_${sel.target.id}`));
+        coachMemory = ms.exists() ? ms.data() : null;
+      } catch { coachMemory = null; }
+      sess = { on: true, hist: [], startTs: Date.now(), charged: COST_PER_MIN, msgs: 0, timerIv: null, xp: 0, corrections: [] };
       $('setupPanel').style.display = 'none';
       $('sessionPanel').classList.add('on');
       $('sessLang').innerHTML = `<i class="fa-solid fa-globe" style="color:${sel.target.col}"></i> ${sel.target.name}`;
@@ -441,7 +454,19 @@ CORE RULES (never break these):
       stopMic(); stopAudio();
       const mins = Math.max(1, Math.ceil((Date.now() - sess.startTs) / 60000));
       const xp = sess.msgs * 8;
-      try { await updateDoc(doc(db, 'users', CU.uid), { xp: increment(xp), totalXP: increment(xp), 'skills.speaking': increment(Math.min(5, sess.msgs)), lastActive: serverTimestamp() }); } catch (e) { }
+      try { await updateDoc(doc(db, 'users', CU.uid), { xp: increment(xp), totalXP: increment(xp), [`skills_${sel.target.id}.speaking`]: increment(Math.min(5, sess.msgs)), lastActive: serverTimestamp() }); } catch (e) { }
+      // Shaxsiy bazaga yozish — keyingi seansda ustoz shularni eslaydi
+      try {
+        const prev = coachMemory || {};
+        await setDoc(doc(db, `users/${CU.uid}/learner_profiles/speaking_${sel.target.id}`), {
+          sessions: (prev.sessions || 0) + 1,
+          totalMsgs: (prev.totalMsgs || 0) + sess.msgs,
+          totalMinutes: (prev.totalMinutes || 0) + mins,
+          corrections: [...(prev.corrections || []), ...(sess.corrections || [])].slice(-20),
+          level: sel.level, mode: sel.mode,
+          lastSessionAt: serverTimestamp()
+        }, { merge: true });
+      } catch (e) { }
       $('sumMin').textContent = mins;
       $('sumTok').textContent = sess.charged;
       $('sumMsg').textContent = sess.msgs;
@@ -490,7 +515,10 @@ CORE RULES (never break these):
         sess.hist.push({ role: 'assistant', content: JSON.stringify(out) });
 
         let html = `<div class="bubble">${esc(out.reply)}</div>`;
-        if (out.correction) html += `<div class="fix-box"><div class="fx-h"><i class="fa-solid fa-wrench"></i> ${L.correction}</div>${esc(out.correction)}</div>`;
+        if (out.correction) {
+          html += `<div class="fix-box"><div class="fx-h"><i class="fa-solid fa-wrench"></i> ${L.correction}</div>${esc(out.correction)}</div>`;
+          if (sess.corrections) sess.corrections.push(String(out.correction).slice(0, 120));
+        }
         if (out.tip) html += `<div class="tip-box"><div class="tp-h"><i class="fa-solid fa-lightbulb"></i> ${L.tip}</div>${esc(out.tip)}</div>`;
         if (out.score !== null && out.score !== undefined && !isStart) html += `<span class="score-chip"><i class="fa-solid fa-star"></i> ${out.score}/10</span>`;
         const safeTxt = encodeURIComponent(out.reply || '');

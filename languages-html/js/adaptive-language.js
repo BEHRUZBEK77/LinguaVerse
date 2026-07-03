@@ -25,7 +25,7 @@ const FB_CONFIG = {
 // Xavfsiz: AI so'rovlar endi ochiq worker emas, server funksiyasi orqali (kalit serverda)
 const AI_PROXY = "/.netlify/functions/groq";
 const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
-const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.`;
+const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.\nQUALITY BAR: teach at professional exam-preparation level (IELTS/Goethe/DELE/TOPIK/HSK-equivalent): authentic natural language, precise corrections referencing grammar rules, exam-style feedback on fluency, vocabulary range and accuracy. Push the student slightly above their current level.`;
 
 
 let _app, _auth, _db;
@@ -200,6 +200,54 @@ const TOKEN_MGR = {
             const snap = await getDoc(doc(_db, `users/${userId}/lesson_counts/${today}`));
             return snap.exists() ? (snap.data().count || 0) : 0;
         } catch (e) { return 0; }
+    }
+};
+
+// ══════════════════════════════════════════════════════════════
+// LEARNER PROFILE — har bir user uchun alohida shaxsiy baza
+// (til bo'yicha xatolar, zaif joylar, o'tilgan mavzular Firestore'da)
+// ══════════════════════════════════════════════════════════════
+const PROFILE = {
+    data: null,
+    langKey: null,
+    _empty() {
+        return { lessonsDone: 0, avgScore: 0, weakAreas: [], recentMistakes: [], coveredTopics: [], strongAreas: [], lastLessonAt: null };
+    },
+    async load(userId, langKey) {
+        this.langKey = langKey;
+        try {
+            const s = await getDoc(doc(_db, `users/${userId}/learner_profiles/${langKey}`));
+            this.data = s.exists() ? { ...this._empty(), ...s.data() } : this._empty();
+        } catch (e) { this.data = this._empty(); }
+        return this.data;
+    },
+    // AI promptga qo'shiladigan qisqa shaxsiy kontekst
+    summary() {
+        const d = this.data;
+        if (!d || !d.lessonsDone) return 'This is a NEW student — first lessons. Start with a diagnostic-friendly, confidence-building lesson.';
+        const parts = [`Lessons completed: ${d.lessonsDone}, average score: ${d.avgScore}%.`];
+        if (d.weakAreas?.length) parts.push(`WEAK AREAS (train these hard): ${d.weakAreas.slice(-6).join(', ')}.`);
+        if (d.strongAreas?.length) parts.push(`Strong areas: ${d.strongAreas.slice(-4).join(', ')}.`);
+        if (d.recentMistakes?.length) parts.push(`Recent recurring mistakes (recycle these until fixed): ${d.recentMistakes.slice(-8).join(' | ')}.`);
+        if (d.coveredTopics?.length) parts.push(`Topics ALREADY covered (do NOT repeat, pick fresh topics): ${d.coveredTopics.slice(-12).join(', ')}.`);
+        return parts.join(' ');
+    },
+    async record(userId, langKey, { skill, score, topic, mistakes = [] }) {
+        if (!userId || !langKey) return;
+        const d = this.data || this._empty();
+        d.lessonsDone = (d.lessonsDone || 0) + 1;
+        d.avgScore = Math.round(((d.avgScore || 0) * (d.lessonsDone - 1) + score) / d.lessonsDone);
+        if (topic) d.coveredTopics = [...(d.coveredTopics || []), topic].slice(-30);
+        const area = `${skill} (${score}%)`;
+        if (score < 60) d.weakAreas = [...(d.weakAreas || []).filter(x => !x.startsWith(skill)), area].slice(-10);
+        else if (score >= 80) {
+            d.strongAreas = [...(d.strongAreas || []).filter(x => !x.startsWith(skill)), area].slice(-10);
+            d.weakAreas = (d.weakAreas || []).filter(x => !x.startsWith(skill));
+        }
+        if (mistakes.length) d.recentMistakes = [...(d.recentMistakes || []), ...mistakes].slice(-20);
+        d.lastLessonAt = Date.now();
+        this.data = d;
+        try { await setDoc(doc(_db, `users/${userId}/learner_profiles/${langKey}`), d, { merge: true }); } catch (e) { console.warn('profile save:', e); }
     }
 };
 
@@ -637,12 +685,34 @@ Respond ONLY with valid JSON:
         return await this._call(prompt, 2000);
     },
 
+    // launchLesson har safar shu kontekstni yangilaydi
+    ctx: { langCfg: null },
+
+    // Har bir dars generatsiyasiga qo'shiladigan PRO sifat qoidalari + shaxsiy baza
+    _qualityHeader() {
+        const cfg = this.ctx.langCfg || {};
+        const lang = cfg.name || 'the target language';
+        const exam = cfg.exam || 'IELTS';
+        return `═══ PROFESSIONAL TEACHING STANDARDS (mandatory) ═══
+You are a senior ${lang} examiner and curriculum designer for the official ${exam} exam.
+1. ALL learning content (passages, dialogues, scripts, example sentences, tasks, model answers) must be written in AUTHENTIC, natural ${lang} — exactly the register used in real ${exam} exam materials. NEVER write learning content in ${NATIVE_LANG}.
+2. Instructions, explanations, hints and feedback fields must be in ${NATIVE_LANG} so the student understands them.
+3. Question formats must mirror real ${exam} task types (e.g. multiple choice with plausible distractors, True/False/Not Given-style logic, gap fills, matching) — professional exam quality, not toy questions.
+4. Where feedback/scoring appears, reference ${exam} band/criteria style: task achievement, coherence, lexical resource, grammatical range & accuracy.
+5. Difficulty must be calibrated to the student's exact level and push slightly above it (+1 notch) — that is how exam scores grow.
+
+═══ THIS STUDENT'S PERSONAL LEARNING BASE (use it!) ═══
+${PROFILE.summary()}
+Personalize the lesson: recycle the student's recurring mistakes into exercises, target the weak areas, avoid already-covered topics.
+═══════════════════════════════════════════\n\n`;
+    },
+
     async _call(prompt, maxTokens = 2000) {
         const resp = await fetch(AI_PROXY, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                contents: [{ role: 'user', parts: [{ text: this._qualityHeader() + prompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTokens }
             })
         });
@@ -1175,6 +1245,9 @@ const ENGINE = {
             const ud = await DB.getUserData(this.userId);
             // Re-run analysis with per-language skills for accurate adaptive difficulty
             this.analysis = ANALYZER.run(ud, this.langCfg?.name);
+            // Shaxsiy o'rganish bazasini yuklash — dars shu userga moslashadi
+            AI_GEN.ctx.langCfg = this.langCfg;
+            await PROFILE.load(this.userId, this.langCfg?.name?.toLowerCase() || 'english');
             let lesson;
             if (lessonType === 'reading') lesson = await AI_GEN.generateReading(this.analysis, this.langCfg, ud);
             else if (lessonType === 'listening') lesson = await AI_GEN.generateListening(this.analysis, this.langCfg, ud);
@@ -1372,6 +1445,12 @@ const ENGINE = {
             fb.className = `ae-feedback ${ok ? 'ok' : 'fail'}`;
             fb.innerHTML = ok ? `✅ To'g'ri! ${exp}` : `❌ Noto'g'ri. To'g'ri javob: <b>${String.fromCharCode(65 + correct)}</b>. ${exp}`;
             if (ok) { this.score++; TTS.speak(btn.textContent.trim()); }
+            else {
+                // Xatoni shaxsiy bazaga yig'amiz — keyingi darslarda qayta mashq qilinadi
+                const qEl = document.querySelector('.ae-ex-q');
+                if (!this.sessionMistakes) this.sessionMistakes = [];
+                this.sessionMistakes.push((qEl?.textContent || 'question').slice(0, 90));
+            }
             this.total++;
         }
         const nxt = document.getElementById('ae-nxt');
@@ -2168,6 +2247,15 @@ const ENGINE = {
         if (this.currentLessonId && this.userId) {
             await DB.completeLesson(this.userId, this.currentLessonId, pct, skill, xp, this.langCfg?.name?.toLowerCase());
         }
+
+        // Shaxsiy bazaga yozish — keyingi darslar shu natijaga qarab moslashadi
+        await PROFILE.record(this.userId, this.langCfg?.name?.toLowerCase() || 'english', {
+            skill,
+            score: pct,
+            topic: this.currentLesson?.topic || this.currentLesson?.title || null,
+            mistakes: (this.sessionMistakes || []).slice(-8)
+        });
+        this.sessionMistakes = [];
 
         // Update local skill score (per-language)
         if (this.analysis?.scores?.[skill] !== undefined) {

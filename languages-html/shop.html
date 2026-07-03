@@ -3419,15 +3419,38 @@ Sotadigan narsangiz yo'q. <a href="#" onclick="filterPacks('all',null)" style="c
       return { fa: 'fa-coins', lbl: 'Coin', cls: 'ri-c', col: '#888' };
     }
 
+    // ══════ YAXSHILANGAN MUKOFOTLAR ══════
+    // Noyob pack/key = ko'proq mukofot + qiymat ko'paytirgichi.
+    // Endi ochish har doim arziydi: epic 2 ta, legendary/mythic 3 ta kafolatlangan mukofot.
+    function rewardRolls(pack) {
+      if (pack.isKey) { const c = pack.cost?.coins || 0; return c >= 5000 ? 3 : c >= 600 ? 2 : 1; }
+      return { common: 1, rare: 1, epic: 2, legendary: 3, mythic: 3 }[pack.rarity] || 1;
+    }
+    function rewardMult(pack) {
+      if (pack.isKey) { const c = pack.cost?.coins || 0; return c >= 5000 ? 1.8 : c >= 1000 ? 1.45 : 1.15; }
+      return { common: 1, rare: 1.15, epic: 1.35, legendary: 1.6, mythic: 2 }[pack.rarity] || 1;
+    }
     function calcRewards(pack) {
       const got = {};
-      const g = pack.rewards.filter(r => r.min !== undefined);
-      const c = pack.rewards.filter(r => r.ch !== undefined && r.min === undefined);
-      if (g.length) {
+      const g = (pack.rewards || []).filter(r => r.min !== undefined);
+      const c = (pack.rewards || []).filter(r => r.ch !== undefined && r.min === undefined);
+      const rolls = rewardRolls(pack), mult = rewardMult(pack);
+      for (let i = 0; i < rolls && g.length; i++) {
         const tw = g.reduce((s, r) => s + (r.w || 10), 0); let roll = Math.random() * tw;
-        for (const r of g) { roll -= (r.w || 10); if (roll <= 0) { const a = Math.floor(r.min + Math.random() * (r.max - r.min + 1)); got[r.type] = a; break; } }
+        for (const r of g) {
+          roll -= (r.w || 10);
+          if (roll <= 0) {
+            const a = Math.floor((r.min + Math.random() * (r.max - r.min + 1)) * mult);
+            got[r.type] = (got[r.type] || 0) + a; // bir xil tur — qo'shiladi
+            break;
+          }
+        }
       }
-      for (const r of c) if (Math.random() < (r.ch || .1)) got[r.type] = true;
+      // Shans mukofotlari — noyob packlarda shans ham oshadi
+      const chBoost = pack.isKey ? 1.2 : { common: 1, rare: 1.1, epic: 1.3, legendary: 1.5, mythic: 1.8 }[pack.rarity] || 1;
+      for (const r of c) if (Math.random() < Math.min(.95, (r.ch || .1) * chBoost)) got[r.type] = true;
+      // Kafolat: hech narsa tushmasa (nazariy holat) — minimal token bonus
+      if (!Object.keys(got).length) got.tokens = Math.floor(50 * mult);
       return got;
     }
 

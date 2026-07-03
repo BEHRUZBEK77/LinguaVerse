@@ -806,7 +806,9 @@
         showMsg('🎉 Google bilan muvaffaqiyatli ro\'yxatdan o\'tdingiz!', 'success');
         setTimeout(redirectAfterLogin, 800);
       } catch (err) {
-        if (err.code !== 'auth/popup-closed-by-user') {
+        if (err.code === 'auth/unauthorized-domain') {
+          showMsg("Bu domen Firebase'da ruxsat etilmagan. Admin: Firebase Console → Authentication → Settings → Authorized domains ga sayt domenini qo'shishi kerak.");
+        } else if (err.code !== 'auth/popup-closed-by-user') {
           showMsg('Google bilan ro\'yxatdan o\'tishda xato: ' + err.message);
         }
         btn.disabled = false;

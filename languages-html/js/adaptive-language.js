@@ -158,9 +158,14 @@ const TOKEN_MGR = {
         const month = today.slice(0, 7);
 
         try {
-            // Deduct from user's own tokens
+            // Avval joriy balansni o'qiymiz — manfiyga tushishning oldini olamiz
+            const snap = await getDoc(doc(_db, 'users', userId));
+            const cur = snap.exists() ? (snap.data().tokens || 0) : 0;
+            const plan = snap.exists() ? (snap.data().plan || 'free') : 'free';
+            if (plan !== 'ultimate' && cur < D.own) return false;
+
             await updateDoc(doc(_db, 'users', userId), {
-                tokens: increment(-D.own),
+                tokens: Math.max(0, cur - D.own),
                 lastActive: serverTimestamp()
             });
 
@@ -184,7 +189,8 @@ const TOKEN_MGR = {
                 total: D.total,
                 at: serverTimestamp()
             });
-        } catch (e) { console.warn('Token deduction error:', e); }
+            return true;
+        } catch (e) { console.warn('Token deduction error:', e); return false; }
     },
 
     async getUserTokens(userId) {
@@ -1236,8 +1242,13 @@ const ENGINE = {
         body.innerHTML = `<div class="ae-loading"><div class="ae-spinner"></div><div class="ae-loading-msg">AI ${lessonType} darsi yaratyapti...<br><small style="color:#444">Bu 5-10 soniya oladi</small></div></div>`;
 
         try {
-            // Deduct tokens BEFORE generation
-            await TOKEN_MGR.deductTokens(this.userId, null);
+            // Deduct tokens BEFORE generation — balans yetmasa dars ochilmaydi
+            const paid = await TOKEN_MGR.deductTokens(this.userId, null);
+            if (!paid && this.userPlan !== 'ultimate' && this.userPlan !== 'vip') {
+                body.innerHTML = `<div class="ae-limit-warn"><span><i class="fa-solid fa-ticket"></i></span><div style="font-size:.78rem;color:#ef4444">Token yetarli emas! Dars uchun <b>${D.own}</b> token kerak.</div></div>
+                <button class="ae-btn outline" onclick="window.location.href='../order.html'">Tokenlarni to'ldirish</button>`;
+                return;
+            }
             this.userTokens = Math.max(0, this.userTokens - D.own);
             this.todayLessonCount++;
             this._updateTokenBar();

@@ -1,4 +1,4 @@
-// =====================================================// Russian.js — LinguaVerse (Русский язык — полная версия)
+// =====================================================// Russian.js — SpeakVerse (Русский язык — полная версия)
 // Firebase + Token система (1 токен за каждый символ в чате)
 // =====================================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -32,7 +32,11 @@ _auth = getAuth(_app);
 _db = getFirestore(_app);
 
 // ── AI PROXY ──
-const AI_PROXY = "https://gentle-hat-d9fa.akromovbehruz7.workers.dev";
+// Xavfsiz: AI so'rovlar endi ochiq worker emas, server funksiyasi orqali (kalit serverda)
+const AI_PROXY = "/.netlify/functions/groq";
+const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
+const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.\nQUALITY BAR: teach at professional exam-preparation level (IELTS/Goethe/DELE/TOPIK/HSK-equivalent): authentic natural language, precise corrections referencing grammar rules, exam-style feedback on fluency, vocabulary range and accuracy. Push the student slightly above their current level.`;
+
 
 // ══════════════════════════════════════════════════════════════
 // КОНФИГ ТОКЕНОВ
@@ -1747,7 +1751,7 @@ window.sendChatMessage = async function () {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 contents: [
-                    { role: 'user', parts: [{ text: curChatMode.sys }] },
+                    { role: 'user', parts: [{ text: curChatMode.sys + LANG_RULES }] },
                     ...chatHist.slice(-10)
                 ],
                 generationConfig: {

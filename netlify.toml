@@ -1,6 +1,12 @@
 [build]
   functions = "netlify/functions"
 
+# Admin panel — bosh sahifadan link olib tashlandi, faqat to'g'ridan-to'g'ri URL orqali
+[[redirects]]
+  from = "/admin"
+  to = "/admin/admin.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

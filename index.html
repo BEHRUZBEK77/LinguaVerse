@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LinguaVerse — Tillar Dunyosi</title>
-   
+    <title>SpeakVerse — Tillar Dunyosi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *,
         *::before,
@@ -1397,25 +1397,24 @@
 
     <!-- NAV -->
     <nav id="navbar">
-        <a href="#" class="logo">Lingua<span>Verse</span></a>
+        <a href="#" class="logo">Speak<span>Verse</span></a>
         <div class="nav-center">
             <a href="#languages" data-i18n="nav_langs">Tillar</a>
             <a href="#features" data-i18n="nav_features">Imkoniyatlar</a>
             <a href="#plans" data-i18n="nav_plans">Rejalar</a>
             <a href="#leaderboard" data-i18n="nav_leaderboard">Reyting</a>
-            <a href="/admin" data-i18n="nav_admin">Admin</a>
         </div>
         <div class="nav-right" id="navRight">
 
             <!-- THEME TOGGLE -->
-            <button class="theme-btn" id="themeToggle" title="Toggle theme" onclick="toggleTheme()">🌙</button>
+            <button class="theme-btn" id="themeToggle" title="Toggle theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
 
             <!-- LANG SWITCHER -->
             <div class="lang-switcher">
                 <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">
                     <span id="currentFlag">🇺🇿</span>
                     <span id="currentLangName">UZ</span>
-                    <span class="arrow">▼</span>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
                 </button>
                 <div class="lang-dropdown" id="langDropdown">
                     <div class="lang-option active" data-lang="uz" onclick="setLang('uz')"><span
@@ -1442,11 +1441,12 @@
 
     <!-- SITE BAR -->
     <div class="site-bar">
-        <span class="site-bar-active" data-i18n="bar_home">🏠 Bosh sahifa</span>
-        <a href="select-language.html" class="site-bar-langs" data-i18n="bar_langs">🌍 Tillar</a>
-        <a href="languages-html/shop.html" class="site-bar-shop" data-i18n="bar_shop">🛍️ Do'kon</a>
-        <a href="languages-html/profile.html" class="site-bar-profile" data-i18n="bar_profile">👤 Profil</a>
-        <a href="order.html" class="site-bar-plans" data-i18n="bar_plans">⭐ Rejalar</a>
+        <span class="site-bar-active"><i class="fa-solid fa-house"></i> <span data-i18n="bar_home">Bosh sahifa</span></span>
+        <a href="select-language.html" class="site-bar-langs"><i class="fa-solid fa-globe"></i> <span data-i18n="bar_langs">Tillar</span></a>
+        <a href="languages-html/speaking-coach.html" class="site-bar-langs" style="color:#22d3ee;border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.08)"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="bar_speak">Speaking Coach</span></a>
+        <a href="languages-html/shop.html" class="site-bar-shop"><i class="fa-solid fa-bag-shopping"></i> <span data-i18n="bar_shop">Do'kon</span></a>
+        <a href="languages-html/profile.html" class="site-bar-profile"><i class="fa-solid fa-user"></i> <span data-i18n="bar_profile">Profil</span></a>
+        <a href="order.html" class="site-bar-plans"><i class="fa-solid fa-crown"></i> <span data-i18n="bar_plans">Rejalar</span></a>
     </div>
 
     <!-- HERO -->
@@ -1464,15 +1464,16 @@
             <span class="line1" data-i18n="hero_h1_line1">Har qanday tilni</span>
             <span class="gradient-text" data-i18n="hero_h1_line2"> Tez o'rganing.</span>
         </h1>
-        <p data-i18n="hero_p">7 ta til, 100+ dars, AI suhbat sherigi va real-time leaderboard bilan til o'rganishni
+        <p data-i18n="hero_p">8 ta til, 100+ dars, AI suhbat sherigi va real-time leaderboard bilan til o'rganishni
             boshqa darajaga olib chiqing.</p>
         <div class="hero-actions">
-            <a href="order.html" class="btn-hero btn-hero-primary" data-i18n="hero_btn1">Bepul boshlash →</a>
-            <a href="#languages" class="btn-hero btn-hero-secondary" data-i18n="hero_btn2">Tillarni ko'rish</a>
+            <a href="select-language.html" class="btn-hero btn-hero-primary"><i class="fa-solid fa-rocket"></i> <span data-i18n="hero_btn1">Bepul boshlash</span></a>
+            <a href="languages-html/speaking-coach.html" class="btn-hero btn-hero-secondary" style="border-color:rgba(34,211,238,0.4);color:#22d3ee"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="hero_btn3">AI Speaking Coach</span></a>
+            <a href="#languages" class="btn-hero btn-hero-secondary"><i class="fa-solid fa-globe"></i> <span data-i18n="hero_btn2">Tillarni ko'rish</span></a>
         </div>
         <div class="hero-stats">
             <div class="stat">
-                <div class="stat-num">7<span>+</span></div>
+                <div class="stat-num">8<span>+</span></div>
                 <div class="stat-label" data-i18n="stat_langs">Tillar</div>
             </div>
             <div class="stat">
@@ -1495,7 +1496,7 @@
         <div class="container">
             <div class="reveal">
                 <div class="section-label" data-i18n="sec_langs_label">Tillar</div>
-                <h2 class="section-title" data-i18n="sec_langs_title">7 ta jahon tili,<br>bir platformada</h2>
+                <h2 class="section-title" data-i18n="sec_langs_title">8 ta jahon tili,<br>bir platformada</h2>
                 <p class="section-sub" data-i18n="sec_langs_sub">Har bir til uchun maxsus ishlab chiqilgan darslar, AI
                     suhbat sherigi va grammatika testlari.</p>
             </div>
@@ -1504,7 +1505,7 @@
                     <div class="lang-card-flag">🇬🇧</div>
                     <div class="lang-card-name">English</div>
                     <div class="lang-card-native" data-i18n="lang_english">Ingliz tili</div>
-                    <div class="lang-card-meta"><span class="lang-tag hot">🔥 <span data-i18n="tag_popular">Eng
+                    <div class="lang-card-meta"><span class="lang-tag hot"><i class="fa-solid fa-fire"></i> <span data-i18n="tag_popular">Eng
                                 mashhur</span></span><span class="lang-tag">A1–C2</span></div>
                     <div class="lang-learners" data-i18n="learners_en">O'quvchilar: <strong>24,800+</strong></div>
                 </div>
@@ -1512,7 +1513,7 @@
                     <div class="lang-card-flag">🇷🇺</div>
                     <div class="lang-card-name">Русский</div>
                     <div class="lang-card-native" data-i18n="lang_russian">Rus tili</div>
-                    <div class="lang-card-meta"><span class="lang-tag hot">🔥 <span
+                    <div class="lang-card-meta"><span class="lang-tag hot"><i class="fa-solid fa-fire"></i> <span
                                 data-i18n="tag_popular2">Mashhur</span></span><span class="lang-tag">A1–C1</span></div>
                     <div class="lang-learners" data-i18n="learners_ru">O'quvchilar: <strong>12,400+</strong></div>
                 </div>
@@ -1520,7 +1521,7 @@
                     <div class="lang-card-flag">🇰🇷</div>
                     <div class="lang-card-name">한국어</div>
                     <div class="lang-card-native" data-i18n="lang_korean">Koreys tili</div>
-                    <div class="lang-card-meta"><span class="lang-tag new">✨ <span
+                    <div class="lang-card-meta"><span class="lang-tag new"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
                                 data-i18n="tag_new">Yangi</span></span><span class="lang-tag">A1–B2</span></div>
                     <div class="lang-learners" data-i18n="learners_ko">O'quvchilar: <strong>8,200+</strong></div>
                 </div>
@@ -1549,7 +1550,7 @@
                     <div class="lang-card-flag">🇹🇷</div>
                     <div class="lang-card-name">Türkçe</div>
                     <div class="lang-card-native" data-i18n="lang_turkish">Turk tili</div>
-                    <div class="lang-card-meta"><span class="lang-tag new">✨ <span
+                    <div class="lang-card-meta"><span class="lang-tag new"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
                                 data-i18n="tag_new2">Yangi</span></span><span class="lang-tag">A1–B2</span></div>
                     <div class="lang-learners" data-i18n="learners_tr">O'quvchilar: <strong>3,400+</strong></div>
                 </div>
@@ -1570,49 +1571,49 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card reveal">
-                    <div class="feature-icon">🤖</div>
+                    <div class="feature-icon"><i class="fa-solid fa-microphone-lines" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat1_title">AI Suhbat Sherigi</div>
-                    <div class="feature-desc" data-i18n="feat1_desc">Gemini AI bilan istalgan vaqt amaliyot qiling. Real
+                    <div class="feature-desc" data-i18n="feat1_desc">AI bilan istalgan vaqt amaliyot qiling. Real
                         suhbat, tezkor javob.</div>
                 </div>
                 <div class="feature-card reveal">
-                    <div class="feature-icon">🏆</div>
+                    <div class="feature-icon"><i class="fa-solid fa-trophy" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat2_title">Leaderboard</div>
                     <div class="feature-desc" data-i18n="feat2_desc">Global va do'stlar reytingida raqobat qiling. XP
                         to'plab yuqoriga chiqing.</div>
                 </div>
                 <div class="feature-card reveal">
-                    <div class="feature-icon">🪙</div>
+                    <div class="feature-icon"><i class="fa-solid fa-coins" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat3_title">Coin Tizimi</div>
                     <div class="feature-desc" data-i18n="feat3_desc">Darslarni tugatib coin yig'ing. Ularni qo'shimcha
                         imkoniyatlarga sarflang.</div>
                 </div>
                 <div class="feature-card reveal">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat4_title">Daily Reward</div>
                     <div class="feature-desc" data-i18n="feat4_desc">Har kuni kiring va maxsus mukofotlar qozonib
                         boring. Streak saqlang!</div>
                 </div>
                 <div class="feature-card reveal">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat5_title">Progress Tracking</div>
                     <div class="feature-desc" data-i18n="feat5_desc">O'z rivojlanishingizni kuzating. Statistika, grafik
                         va tahlil.</div>
                 </div>
                 <div class="feature-card reveal">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon"><i class="fa-solid fa-bullseye" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat6_title">Unit Tizimi</div>
                     <div class="feature-desc" data-i18n="feat6_desc">Strukturali darslar orqali bosqichma-bosqich
                         o'rganing. A1 dan C2 gacha.</div>
                 </div>
                 <div class="feature-card reveal">
-                    <div class="feature-icon">👥</div>
+                    <div class="feature-icon"><i class="fa-solid fa-users" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat7_title">Jamoa Rejimi</div>
                     <div class="feature-desc" data-i18n="feat7_desc">Team planida do'stlaringiz bilan birga o'rganing va
                         raqobatlashing.</div>
                 </div>
                 <div class="feature-card reveal">
-                    <div class="feature-icon">🌙</div>
+                    <div class="feature-icon"><i class="fa-solid fa-wifi" style="color:var(--accent)"></i></div>
                     <div class="feature-name" data-i18n="feat8_title">Offline Darslar</div>
                     <div class="feature-desc" data-i18n="feat8_desc">Universal planda darslarni offline rejimda ham
                         davom ettiring.</div>
@@ -1643,7 +1644,7 @@
             <div class="plans-grid reveal">
                 <!-- FREE -->
                 <div class="plan-card">
-                    <div class="plan-icon">🌱</div>
+                    <div class="plan-icon"><i class="fa-solid fa-seedling" style="color:var(--accent2)"></i></div>
                     <div class="plan-name" data-i18n="plan_free_name">Bepul</div>
                     <div class="plan-desc" data-i18n="plan_free_desc">Boshlash uchun mukammal. Asosiy imkoniyatlar bilan
                         tanishing.</div>
@@ -1660,15 +1661,15 @@
                                     soatda</strong> reset</span></li>
                         <li><span class="check">✓</span><span data-i18n="plan_free_f5">Coin va XP tizimi</span></li>
                     </ul>
-                    <div class="free-limits"><span data-i18n="free_limits">⏱ Cheklovlar: 2 unit/kun · 5 AI savol/kun · 4
+                    <div class="free-limits"><span data-i18n="free_limits">Cheklovlar: 2 unit/kun · 5 AI savol/kun · 4
                             soatda reset · Reklama bor</span></div>
                     <button class="btn-plan btn-plan-outline" style="margin-top:16px" onclick="handleFreePlan()"
                         data-i18n="plan_free_btn">Bepul boshlash</button>
                 </div>
                 <!-- OWN -->
                 <div class="plan-card featured">
-                    <div class="plan-badge" data-i18n="plan_own_badge">⭐ Eng mashhur</div>
-                    <div class="plan-icon">💎</div>
+                    <div class="plan-badge" data-i18n="plan_own_badge">Eng mashhur</div>
+                    <div class="plan-icon"><i class="fa-solid fa-gem" style="color:var(--accent2)"></i></div>
                     <div class="plan-name">Own</div>
                     <div class="plan-desc" data-i18n="plan_own_desc">Bir foydalanuvchi uchun to'liq imkoniyat.</div>
                     <div class="plan-price"><span class="currency">$</span><span class="amount" id="own-price">9</span>
@@ -1691,7 +1692,7 @@
                 </div>
                 <!-- TEAM -->
                 <div class="plan-card">
-                    <div class="plan-icon">👥</div>
+                    <div class="plan-icon"><i class="fa-solid fa-users" style="color:var(--accent2)"></i></div>
                     <div class="plan-name">Team</div>
                     <div class="plan-desc" data-i18n="plan_team_desc">Jamoa uchun. Link ulashib do'stlaringizni
                         qo'shing.</div>
@@ -1714,7 +1715,7 @@
                 </div>
                 <!-- UNIVERSAL -->
                 <div class="plan-card">
-                    <div class="plan-icon">🚀</div>
+                    <div class="plan-icon"><i class="fa-solid fa-rocket" style="color:var(--accent2)"></i></div>
                     <div class="plan-name">Universal</div>
                     <div class="plan-desc" data-i18n="plan_uni_desc">Hamma narsa. Cheksiz. Eng zo'r tajriba uchun.</div>
                     <div class="plan-price"><span class="currency">$</span><span class="amount" id="uni-price">39</span>
@@ -1738,7 +1739,7 @@
                 </div>
             </div>
             <div class="reveal" style="text-align:center;margin-top:32px;color:var(--muted);font-size:0.82rem;"
-                data-i18n="plans_note">💳 To'lov uchun: Bank kartasi rasmi + izoh → Admin tekshiradi va planingizni
+                data-i18n="plans_note">To'lov uchun: Bank kartasi rasmi + izoh → Admin tekshiradi va planingizni
                 faollashtiradi</div>
         </div>
     </section>
@@ -1756,7 +1757,7 @@
             </div>
             <div class="lb-card reveal">
                 <div class="lb-header">
-                    <span class="lb-title" data-i18n="lb_this_week">🏆 Bu hafta reytingi</span>
+                    <span class="lb-title"><i class="fa-solid fa-trophy" style="color:var(--gold)"></i> <span data-i18n="lb_this_week">Bu hafta reytingi</span></span>
                     <span style="font-size:0.78rem;color:var(--muted)" data-i18n="lb_xp_based">XP asosida</span>
                 </div>
                 <div id="lbBody">
@@ -1783,14 +1784,13 @@
     </section>
 
     <footer>
-        <div class="footer-logo">LinguaVerse</div>
+        <div class="footer-logo">SpeakVerse</div>
         <div class="footer-links">
             <a href="#" data-i18n="footer_about">Haqida</a>
             <a href="#" data-i18n="footer_terms">Shartlar</a>
             <a href="#" data-i18n="footer_privacy">Maxfiylik</a>
-            <a href="/admin">Admin</a>
         </div>
-        <div class="footer-copy" data-i18n="footer_copy">© 2025 LinguaVerse. Barcha huquqlar himoyalangan.</div>
+        <div class="footer-copy" data-i18n="footer_copy">© 2025 SpeakVerse. Barcha huquqlar himoyalangan.</div>
     </footer>
 
     <!-- ═══════════════════════════════════════════
@@ -1804,14 +1804,14 @@
             uz: {
                 nav_langs: "Tillar", nav_features: "Imkoniyatlar", nav_plans: "Rejalar",
                 nav_leaderboard: "Reyting", nav_admin: "Admin", nav_login: "Kirish", nav_start: "Boshlash →",
-                bar_home: "🏠 Bosh sahifa", bar_langs: "🌍 Tillar", bar_shop: "🛍️ Do'kon",
-                bar_profile: "👤 Profil", bar_plans: "⭐ Rejalar",
+                bar_home: "Bosh sahifa", bar_langs: "Tillar", bar_shop: "Do'kon",
+                bar_profile: "Profil", bar_plans: "Rejalar", bar_speak: "Speaking Coach",
                 hero_badge: "AI bilan kuchaytirilgan til platformasi",
                 hero_h1_line1: "Har qanday tilni", hero_h1_line2: " Tez o'rganing.",
-                hero_p: "7 ta til, 100+ dars, AI suhbat sherigi va real-time leaderboard bilan til o'rganishni boshqa darajaga olib chiqing.",
-                hero_btn1: "Bepul boshlash →", hero_btn2: "Tillarni ko'rish",
+                hero_p: "8 ta til, 100+ dars, AI suhbat sherigi va real-time leaderboard bilan til o'rganishni boshqa darajaga olib chiqing.",
+                hero_btn1: "Bepul boshlash →", hero_btn2: "Tillarni ko'rish", hero_btn3: "AI Speaking Coach",
                 stat_langs: "Tillar", stat_lessons: "Darslar", stat_students: "O'quvchilar", stat_rating: "Reyting",
-                sec_langs_label: "Tillar", sec_langs_title: "7 ta jahon tili,<br>bir platformada",
+                sec_langs_label: "Tillar", sec_langs_title: "8 ta jahon tili,<br>bir platformada",
                 sec_langs_sub: "Har bir til uchun maxsus ishlab chiqilgan darslar, AI suhbat sherigi va grammatika testlari.",
                 lang_english: "Ingliz tili", lang_russian: "Rus tili", lang_korean: "Koreys tili",
                 lang_chinese: "Xitoy tili", lang_arabic: "Arab tili", lang_spanish: "Ispan tili", lang_turkish: "Turk tili",
@@ -1825,7 +1825,7 @@
                 learners_tr: "O'quvchilar: <strong>3,400+</strong>",
                 sec_feat_label: "Imkoniyatlar", sec_feat_title: "Hamma narsa<br>bir joyda",
                 sec_feat_sub: "O'rganishni qiziqarli va samarali qiladigan zamonaviy tizim.",
-                feat1_title: "AI Suhbat Sherigi", feat1_desc: "Gemini AI bilan istalgan vaqt amaliyot qiling. Real suhbat, tezkor javob.",
+                feat1_title: "AI Suhbat Sherigi", feat1_desc: "AI bilan istalgan vaqt amaliyot qiling. Real suhbat, tezkor javob.",
                 feat2_title: "Leaderboard", feat2_desc: "Global va do'stlar reytingida raqobat qiling. XP to'plab yuqoriga chiqing.",
                 feat3_title: "Coin Tizimi", feat3_desc: "Darslarni tugatib coin yig'ing. Ularni qo'shimcha imkoniyatlarga sarflang.",
                 feat4_title: "Daily Reward", feat4_desc: "Har kuni kiring va maxsus mukofotlar qozonib boring. Streak saqlang!",
@@ -1843,9 +1843,9 @@
                 plan_free_f3: "Asosiy leaderboard",
                 plan_free_f4: "Limitlar <strong>4 soatda</strong> reset",
                 plan_free_f5: "Coin va XP tizimi",
-                free_limits: "⏱ Cheklovlar: 2 unit/kun · 5 AI savol/kun · 4 soatda reset · Reklama bor",
+                free_limits: "Cheklovlar: 2 unit/kun · 5 AI savol/kun · 4 soatda reset · Reklama bor",
                 plan_free_btn: "Bepul boshlash",
-                plan_own_badge: "⭐ Eng mashhur",
+                plan_own_badge: "Eng mashhur",
                 plan_own_desc: "Bir foydalanuvchi uchun to'liq imkoniyat.",
                 plan_own_f1: "<strong>20+ funksiya</strong> cheksiz", plan_own_f2: "AI bilan cheksiz suhbat",
                 plan_own_f3: "Barcha tillar to'liq ochiq", plan_own_f4: "Reklama yo'q",
@@ -1860,29 +1860,29 @@
                 plan_uni_f3: "XP Boost x3", plan_uni_f4: "Exclusive coin shop",
                 plan_uni_f5: "AI voice suhbat", plan_uni_f6: "Barcha Team imkoniyatlari",
                 per_month: "/ oyiga", per_month2: "/ oyiga", per_month3: "/ oyiga",
-                plans_note: "💳 To'lov uchun: Bank kartasi rasmi + izoh → Admin tekshiradi va planingizni faollashtiradi",
+                plans_note: "To'lov uchun: Bank kartasi rasmi + izoh → Admin tekshiradi va planingizni faollashtiradi",
                 sec_lb_label: "Reyting", sec_lb_title: "Global Leaderboard",
                 sec_lb_sub: "Eng ko'p XP to'plab yuqoriga chiqing. Haftalik sovrinlar!",
-                lb_this_week: "🏆 Bu hafta reytingi", lb_xp_based: "XP asosida",
+                lb_this_week: "Bu hafta reytingi", lb_xp_based: "XP asosida",
                 loading: "Yuklanmoqda...",
                 cta_title: "Bugun boshlang.<br><span class=\"gradient-text\">Bepul.</span>",
                 cta_sub: "Hech qanday kredit karta shart emas. Bir daqiqada ro'yxatdan o'ting va birinchi darsni boshlang.",
                 cta_btn1: "Bepul ro'yxatdan o'tish →", cta_btn2: "Rejalarni solishtirish",
                 footer_about: "Haqida", footer_terms: "Shartlar", footer_privacy: "Maxfiylik",
-                footer_copy: "© 2025 LinguaVerse. Barcha huquqlar himoyalangan."
+                footer_copy: "© 2025 SpeakVerse. Barcha huquqlar himoyalangan."
             },
 
             ru: {
                 nav_langs: "Языки", nav_features: "Возможности", nav_plans: "Планы",
                 nav_leaderboard: "Рейтинг", nav_admin: "Админ", nav_login: "Войти", nav_start: "Начать →",
-                bar_home: "🏠 Главная", bar_langs: "🌍 Языки", bar_shop: "🛍️ Магазин",
-                bar_profile: "👤 Профиль", bar_plans: "⭐ Планы",
+                bar_home: "Главная", bar_langs: "Языки", bar_shop: "Магазин",
+                bar_profile: "Профиль", bar_plans: "Планы", bar_speak: "Speaking Coach",
                 hero_badge: "Платформа для изучения языков с AI",
                 hero_h1_line1: "Любой язык", hero_h1_line2: " Учи быстро.",
-                hero_p: "7 языков, 100+ уроков, AI-собеседник и рейтинг в реальном времени — выведи изучение языков на новый уровень.",
-                hero_btn1: "Начать бесплатно →", hero_btn2: "Посмотреть языки",
+                hero_p: "8 языков, 100+ уроков, AI-собеседник и рейтинг в реальном времени — выведи изучение языков на новый уровень.",
+                hero_btn1: "Начать бесплатно →", hero_btn2: "Посмотреть языки", hero_btn3: "AI Speaking Coach",
                 stat_langs: "Языки", stat_lessons: "Уроки", stat_students: "Учеников", stat_rating: "Рейтинг",
-                sec_langs_label: "Языки", sec_langs_title: "7 мировых языков,<br>одна платформа",
+                sec_langs_label: "Языки", sec_langs_title: "8 мировых языков,<br>одна платформа",
                 sec_langs_sub: "Специально разработанные уроки, AI-собеседник и тесты по грамматике для каждого языка.",
                 lang_english: "Английский", lang_russian: "Русский", lang_korean: "Корейский",
                 lang_chinese: "Китайский", lang_arabic: "Арабский", lang_spanish: "Испанский", lang_turkish: "Турецкий",
@@ -1896,7 +1896,7 @@
                 learners_tr: "Учеников: <strong>3,400+</strong>",
                 sec_feat_label: "Возможности", sec_feat_title: "Всё необходимое<br>в одном месте",
                 sec_feat_sub: "Современная система, делающая обучение интересным и эффективным.",
-                feat1_title: "AI-собеседник", feat1_desc: "Практикуйтесь с Gemini AI в любое время. Настоящий диалог, мгновенный ответ.",
+                feat1_title: "AI-собеседник", feat1_desc: "Практикуйтесь с AI в любое время. Настоящий диалог, мгновенный ответ.",
                 feat2_title: "Таблица лидеров", feat2_desc: "Соревнуйтесь в глобальном рейтинге и среди друзей. Набирайте XP.",
                 feat3_title: "Система монет", feat3_desc: "Зарабатывайте монеты за уроки. Тратьте на дополнительные возможности.",
                 feat4_title: "Ежедневная награда", feat4_desc: "Заходите каждый день и получайте бонусы. Сохраняйте серию!",
@@ -1914,9 +1914,9 @@
                 plan_free_f3: "Базовая таблица лидеров",
                 plan_free_f4: "Сброс лимитов каждые <strong>4 часа</strong>",
                 plan_free_f5: "Система монет и XP",
-                free_limits: "⏱ Ограничения: 2 юнита/день · 5 AI-вопросов/день · Сброс через 4 ч · Есть реклама",
+                free_limits: "Ограничения: 2 юнита/день · 5 AI-вопросов/день · Сброс через 4 ч · Есть реклама",
                 plan_free_btn: "Начать бесплатно",
-                plan_own_badge: "⭐ Самый популярный",
+                plan_own_badge: "Самый популярный",
                 plan_own_desc: "Полный функционал для одного пользователя.",
                 plan_own_f1: "<strong>20+ функций</strong> без ограничений", plan_own_f2: "Безлимитный чат с AI",
                 plan_own_f3: "Все языки полностью открыты", plan_own_f4: "Без рекламы",
@@ -1931,29 +1931,29 @@
                 plan_uni_f3: "XP Boost x3", plan_uni_f4: "Эксклюзивный магазин монет",
                 plan_uni_f5: "AI голосовой чат", plan_uni_f6: "Все функции Team",
                 per_month: "/ мес", per_month2: "/ мес", per_month3: "/ мес",
-                plans_note: "💳 Оплата: фото банковской карты + комментарий → Админ проверяет и активирует план",
+                plans_note: "Оплата: фото банковской карты + комментарий → Админ проверяет и активирует план",
                 sec_lb_label: "Рейтинг", sec_lb_title: "Глобальная таблица лидеров",
                 sec_lb_sub: "Набирайте больше XP и поднимайтесь вверх. Еженедельные призы!",
-                lb_this_week: "🏆 Рейтинг этой недели", lb_xp_based: "По XP",
+                lb_this_week: "Рейтинг этой недели", lb_xp_based: "По XP",
                 loading: "Загрузка...",
                 cta_title: "Начните сегодня.<br><span class=\"gradient-text\">Бесплатно.</span>",
                 cta_sub: "Кредитная карта не нужна. Зарегистрируйтесь за минуту и начните первый урок.",
                 cta_btn1: "Зарегистрироваться бесплатно →", cta_btn2: "Сравнить планы",
                 footer_about: "О нас", footer_terms: "Условия", footer_privacy: "Конфиденциальность",
-                footer_copy: "© 2025 LinguaVerse. Все права защищены."
+                footer_copy: "© 2025 SpeakVerse. Все права защищены."
             },
 
             es: {
                 nav_langs: "Idiomas", nav_features: "Funciones", nav_plans: "Planes",
                 nav_leaderboard: "Ranking", nav_admin: "Admin", nav_login: "Entrar", nav_start: "Empezar →",
-                bar_home: "🏠 Inicio", bar_langs: "🌍 Idiomas", bar_shop: "🛍️ Tienda",
-                bar_profile: "👤 Perfil", bar_plans: "⭐ Planes",
+                bar_home: "Inicio", bar_langs: "Idiomas", bar_shop: "Tienda",
+                bar_profile: "Perfil", bar_plans: "Planes", bar_speak: "Speaking Coach",
                 hero_badge: "Plataforma de idiomas potenciada por IA",
                 hero_h1_line1: "Cualquier idioma", hero_h1_line2: " Aprende rápido.",
-                hero_p: "7 idiomas, 100+ lecciones, compañero de IA y clasificación en tiempo real — lleva tu aprendizaje al siguiente nivel.",
-                hero_btn1: "Empezar gratis →", hero_btn2: "Ver idiomas",
+                hero_p: "8 idiomas, 100+ lecciones, compañero de IA y clasificación en tiempo real — lleva tu aprendizaje al siguiente nivel.",
+                hero_btn1: "Empezar gratis →", hero_btn2: "Ver idiomas", hero_btn3: "AI Speaking Coach",
                 stat_langs: "Idiomas", stat_lessons: "Lecciones", stat_students: "Estudiantes", stat_rating: "Valoración",
-                sec_langs_label: "Idiomas", sec_langs_title: "7 idiomas del mundo,<br>una plataforma",
+                sec_langs_label: "Idiomas", sec_langs_title: "8 idiomas del mundo,<br>una plataforma",
                 sec_langs_sub: "Lecciones diseñadas especialmente para cada idioma, compañero de IA y tests de gramática.",
                 lang_english: "Inglés", lang_russian: "Ruso", lang_korean: "Coreano",
                 lang_chinese: "Chino", lang_arabic: "Árabe", lang_spanish: "Español", lang_turkish: "Turco",
@@ -1967,7 +1967,7 @@
                 learners_tr: "Estudiantes: <strong>3.400+</strong>",
                 sec_feat_label: "Funciones", sec_feat_title: "Todo lo que necesitas<br>en un solo lugar",
                 sec_feat_sub: "Un sistema moderno que hace el aprendizaje divertido y efectivo.",
-                feat1_title: "Compañero de IA", feat1_desc: "Practica con Gemini AI en cualquier momento. Conversación real, respuesta rápida.",
+                feat1_title: "Compañero de IA", feat1_desc: "Practica con AI en cualquier momento. Conversación real, respuesta rápida.",
                 feat2_title: "Tabla de clasificación", feat2_desc: "Compite en el ranking global y con amigos. Acumula XP.",
                 feat3_title: "Sistema de monedas", feat3_desc: "Gana monedas completando lecciones. Canjéalas por ventajas extra.",
                 feat4_title: "Recompensa diaria", feat4_desc: "Inicia sesión cada día y gana recompensas especiales. ¡Mantén tu racha!",
@@ -1985,9 +1985,9 @@
                 plan_free_f3: "Clasificación básica",
                 plan_free_f4: "Límites se reinician cada <strong>4 horas</strong>",
                 plan_free_f5: "Sistema de monedas y XP",
-                free_limits: "⏱ Límites: 2 unidades/día · 5 preguntas IA/día · Reinicio cada 4 h · Con anuncios",
+                free_limits: "Límites: 2 unidades/día · 5 preguntas IA/día · Reinicio cada 4 h · Con anuncios",
                 plan_free_btn: "Empezar gratis",
-                plan_own_badge: "⭐ El más popular",
+                plan_own_badge: "El más popular",
                 plan_own_desc: "Funcionalidad completa para un usuario.",
                 plan_own_f1: "<strong>20+ funciones</strong> ilimitadas", plan_own_f2: "Chat ilimitado con IA",
                 plan_own_f3: "Todos los idiomas completamente abiertos", plan_own_f4: "Sin anuncios",
@@ -2002,29 +2002,29 @@
                 plan_uni_f3: "XP Boost x3", plan_uni_f4: "Tienda exclusiva de monedas",
                 plan_uni_f5: "Chat de voz con IA", plan_uni_f6: "Todas las funciones Team",
                 per_month: "/ mes", per_month2: "/ mes", per_month3: "/ mes",
-                plans_note: "💳 Pago: foto de tarjeta bancaria + nota → El admin verifica y activa tu plan",
+                plans_note: "Pago: foto de tarjeta bancaria + nota → El admin verifica y activa tu plan",
                 sec_lb_label: "Ranking", sec_lb_title: "Clasificación Global",
                 sec_lb_sub: "Acumula más XP y sube posiciones. ¡Premios semanales!",
-                lb_this_week: "🏆 Ranking de esta semana", lb_xp_based: "Por XP",
+                lb_this_week: "Ranking de esta semana", lb_xp_based: "Por XP",
                 loading: "Cargando...",
                 cta_title: "Empieza hoy.<br><span class=\"gradient-text\">Gratis.</span>",
                 cta_sub: "No necesitas tarjeta de crédito. Regístrate en un minuto y comienza tu primera lección.",
                 cta_btn1: "Registrarse gratis →", cta_btn2: "Comparar planes",
                 footer_about: "Sobre nosotros", footer_terms: "Términos", footer_privacy: "Privacidad",
-                footer_copy: "© 2025 LinguaVerse. Todos los derechos reservados."
+                footer_copy: "© 2025 SpeakVerse. Todos los derechos reservados."
             },
 
             tr: {
                 nav_langs: "Diller", nav_features: "Özellikler", nav_plans: "Planlar",
                 nav_leaderboard: "Sıralama", nav_admin: "Admin", nav_login: "Giriş", nav_start: "Başla →",
-                bar_home: "🏠 Ana Sayfa", bar_langs: "🌍 Diller", bar_shop: "🛍️ Mağaza",
-                bar_profile: "👤 Profil", bar_plans: "⭐ Planlar",
+                bar_home: "Ana Sayfa", bar_langs: "Diller", bar_shop: "Mağaza",
+                bar_profile: "Profil", bar_plans: "Planlar", bar_speak: "Speaking Coach",
                 hero_badge: "Yapay zeka destekli dil öğrenme platformu",
                 hero_h1_line1: "Her dili", hero_h1_line2: " Hızlı öğren.",
-                hero_p: "7 dil, 100+ ders, AI konuşma ortağı ve gerçek zamanlı sıralama ile dil öğrenimini üst seviyeye taşı.",
-                hero_btn1: "Ücretsiz başla →", hero_btn2: "Dilleri gör",
+                hero_p: "8 dil, 100+ ders, AI konuşma ortağı ve gerçek zamanlı sıralama ile dil öğrenimini üst seviyeye taşı.",
+                hero_btn1: "Ücretsiz başla →", hero_btn2: "Dilleri gör", hero_btn3: "AI Speaking Coach",
                 stat_langs: "Diller", stat_lessons: "Dersler", stat_students: "Öğrenciler", stat_rating: "Puan",
-                sec_langs_label: "Diller", sec_langs_title: "7 dünya dili,<br>tek platformda",
+                sec_langs_label: "Diller", sec_langs_title: "8 dünya dili,<br>tek platformda",
                 sec_langs_sub: "Her dil için özel hazırlanmış dersler, AI konuşma ortağı ve gramer testleri.",
                 lang_english: "İngilizce", lang_russian: "Rusça", lang_korean: "Korece",
                 lang_chinese: "Çince", lang_arabic: "Arapça", lang_spanish: "İspanyolca", lang_turkish: "Türkçe",
@@ -2038,7 +2038,7 @@
                 learners_tr: "Öğrenciler: <strong>3.400+</strong>",
                 sec_feat_label: "Özellikler", sec_feat_title: "Her şey<br>tek yerde",
                 sec_feat_sub: "Öğrenmeyi eğlenceli ve verimli kılan modern sistem.",
-                feat1_title: "AI Konuşma Ortağı", feat1_desc: "Gemini AI ile istediğin zaman pratik yap. Gerçek sohbet, hızlı yanıt.",
+                feat1_title: "AI Konuşma Ortağı", feat1_desc: "AI ile istediğin zaman pratik yap. Gerçek sohbet, hızlı yanıt.",
                 feat2_title: "Sıralama Tablosu", feat2_desc: "Global ve arkadaş sıralamalarında rekabet et. XP kazan.",
                 feat3_title: "Coin Sistemi", feat3_desc: "Dersleri tamamlayıp coin kazan. Ekstra özellikler için harca.",
                 feat4_title: "Günlük Ödül", feat4_desc: "Her gün gir ve özel ödüller kazan. Seriyi koru!",
@@ -2056,9 +2056,9 @@
                 plan_free_f3: "Temel sıralama tablosu",
                 plan_free_f4: "Limitler <strong>4 saatte</strong> sıfırlanır",
                 plan_free_f5: "Coin ve XP sistemi",
-                free_limits: "⏱ Kısıtlamalar: 2 ünite/gün · 5 AI sorusu/gün · 4 saatte sıfırlama · Reklam var",
+                free_limits: "Kısıtlamalar: 2 ünite/gün · 5 AI sorusu/gün · 4 saatte sıfırlama · Reklam var",
                 plan_free_btn: "Ücretsiz başla",
-                plan_own_badge: "⭐ En popüler",
+                plan_own_badge: "En popüler",
                 plan_own_desc: "Tek kullanıcı için tam özellik.",
                 plan_own_f1: "<strong>20+ özellik</strong> sınırsız", plan_own_f2: "AI ile sınırsız sohbet",
                 plan_own_f3: "Tüm diller tam açık", plan_own_f4: "Reklamsız",
@@ -2073,27 +2073,27 @@
                 plan_uni_f3: "XP Boost x3", plan_uni_f4: "Özel coin mağazası",
                 plan_uni_f5: "AI sesli sohbet", plan_uni_f6: "Tüm Team özellikleri",
                 per_month: "/ ay", per_month2: "/ ay", per_month3: "/ ay",
-                plans_note: "💳 Ödeme: Banka kartı fotoğrafı + not → Admin onaylar ve planını etkinleştirir",
+                plans_note: "Ödeme: Banka kartı fotoğrafı + not → Admin onaylar ve planını etkinleştirir",
                 sec_lb_label: "Sıralama", sec_lb_title: "Global Sıralama Tablosu",
                 sec_lb_sub: "Daha fazla XP kazan ve yukarı çık. Haftalık ödüller!",
-                lb_this_week: "🏆 Bu haftanın sıralaması", lb_xp_based: "XP'ye göre",
+                lb_this_week: "Bu haftanın sıralaması", lb_xp_based: "XP'ye göre",
                 loading: "Yükleniyor...",
                 cta_title: "Bugün başla.<br><span class=\"gradient-text\">Ücretsiz.</span>",
                 cta_sub: "Kredi kartı gerekmez. Bir dakikada kayıt ol ve ilk derse başla.",
                 cta_btn1: "Ücretsiz kayıt ol →", cta_btn2: "Planları karşılaştır",
                 footer_about: "Hakkında", footer_terms: "Koşullar", footer_privacy: "Gizlilik",
-                footer_copy: "© 2025 LinguaVerse. Tüm hakları saklıdır."
+                footer_copy: "© 2025 SpeakVerse. Tüm hakları saklıdır."
             },
 
             ar: {
                 nav_langs: "اللغات", nav_features: "المميزات", nav_plans: "الخطط",
                 nav_leaderboard: "الترتيب", nav_admin: "المشرف", nav_login: "دخول", nav_start: "ابدأ ←",
-                bar_home: "🏠 الرئيسية", bar_langs: "🌍 اللغات", bar_shop: "🛍️ المتجر",
-                bar_profile: "👤 الملف الشخصي", bar_plans: "⭐ الخطط",
+                bar_home: "الرئيسية", bar_langs: "اللغات", bar_shop: "المتجر",
+                bar_profile: "الملف الشخصي", bar_plans: "الخطط", bar_speak: "Speaking Coach",
                 hero_badge: "منصة تعلّم اللغات بالذكاء الاصطناعي",
                 hero_h1_line1: "تعلّم أي لغة", hero_h1_line2: " بسرعة.",
                 hero_p: "٧ لغات، ١٠٠+ درس، رفيق محادثة بالذكاء الاصطناعي وترتيب فوري — ارتقِ بتعلّم اللغات إلى مستوى آخر.",
-                hero_btn1: "ابدأ مجاناً ←", hero_btn2: "اكتشف اللغات",
+                hero_btn1: "ابدأ مجاناً ←", hero_btn2: "اكتشف اللغات", hero_btn3: "AI Speaking Coach",
                 stat_langs: "لغات", stat_lessons: "دروس", stat_students: "طلاب", stat_rating: "التقييم",
                 sec_langs_label: "اللغات", sec_langs_title: "٧ لغات عالمية،<br>منصة واحدة",
                 sec_langs_sub: "دروس مصمّمة خصيصاً لكل لغة، ورفيق محادثة بالذكاء الاصطناعي، واختبارات نحوية.",
@@ -2109,7 +2109,7 @@
                 learners_tr: "الطلاب: <strong>٣,٤٠٠+</strong>",
                 sec_feat_label: "المميزات", sec_feat_title: "كل ما تحتاجه<br>في مكان واحد",
                 sec_feat_sub: "نظام حديث يجعل التعلّم ممتعاً وفعّالاً.",
-                feat1_title: "رفيق المحادثة بالذكاء الاصطناعي", feat1_desc: "تدرّب مع Gemini AI في أي وقت. محادثة حقيقية، ردّ فوري.",
+                feat1_title: "رفيق المحادثة بالذكاء الاصطناعي", feat1_desc: "تدرّب مع AI في أي وقت. محادثة حقيقية، ردّ فوري.",
                 feat2_title: "لوحة المتصدرين", feat2_desc: "تنافس في الترتيب العالمي ومع الأصدقاء. اجمع XP.",
                 feat3_title: "نظام العملات", feat3_desc: "اكسب عملات بإتمام الدروس. أنفقها على مزايا إضافية.",
                 feat4_title: "المكافأة اليومية", feat4_desc: "سجّل دخولك كل يوم واكسب مكافآت خاصة. حافظ على سلسلتك!",
@@ -2127,9 +2127,9 @@
                 plan_free_f3: "لوحة المتصدرين الأساسية",
                 plan_free_f4: "تجديد الحدود كل <strong>٤ ساعات</strong>",
                 plan_free_f5: "نظام العملات وXP",
-                free_limits: "⏱ القيود: وحدتان/يوم · ٥ أسئلة ذكاء/يوم · تجديد كل ٤ س · توجد إعلانات",
+                free_limits: "القيود: وحدتان/يوم · ٥ أسئلة ذكاء/يوم · تجديد كل ٤ س · توجد إعلانات",
                 plan_free_btn: "ابدأ مجاناً",
-                plan_own_badge: "⭐ الأكثر شعبية",
+                plan_own_badge: "الأكثر شعبية",
                 plan_own_desc: "كامل المميزات لمستخدم واحد.",
                 plan_own_f1: "<strong>٢٠+ ميزة</strong> بلا حدود", plan_own_f2: "محادثة غير محدودة مع الذكاء الاصطناعي",
                 plan_own_f3: "جميع اللغات مفتوحة بالكامل", plan_own_f4: "بلا إعلانات",
@@ -2144,29 +2144,29 @@
                 plan_uni_f3: "XP Boost x3", plan_uni_f4: "متجر عملات حصري",
                 plan_uni_f5: "محادثة صوتية بالذكاء الاصطناعي", plan_uni_f6: "جميع مميزات Team",
                 per_month: "/ شهرياً", per_month2: "/ شهرياً", per_month3: "/ شهرياً",
-                plans_note: "💳 للدفع: صورة بطاقة بنكية + ملاحظة → يراجع المشرف ويفعّل خطتك",
+                plans_note: "للدفع: صورة بطاقة بنكية + ملاحظة → يراجع المشرف ويفعّل خطتك",
                 sec_lb_label: "الترتيب", sec_lb_title: "لوحة المتصدرين العالمية",
                 sec_lb_sub: "اجمع أكبر قدر من XP وتصعّد. جوائز أسبوعية!",
-                lb_this_week: "🏆 ترتيب هذا الأسبوع", lb_xp_based: "حسب XP",
+                lb_this_week: "ترتيب هذا الأسبوع", lb_xp_based: "حسب XP",
                 loading: "جارٍ التحميل...",
                 cta_title: "ابدأ اليوم.<br><span class=\"gradient-text\">مجاناً.</span>",
                 cta_sub: "لا تحتاج بطاقة ائتمانية. سجّل في دقيقة وابدأ أول درس.",
                 cta_btn1: "سجّل مجاناً ←", cta_btn2: "قارن الخطط",
                 footer_about: "عن المنصة", footer_terms: "الشروط", footer_privacy: "الخصوصية",
-                footer_copy: "© 2025 LinguaVerse. جميع الحقوق محفوظة."
+                footer_copy: "© 2025 SpeakVerse. جميع الحقوق محفوظة."
             },
 
             de: {
                 nav_langs: "Sprachen", nav_features: "Funktionen", nav_plans: "Pläne",
                 nav_leaderboard: "Rangliste", nav_admin: "Admin", nav_login: "Anmelden", nav_start: "Loslegen →",
-                bar_home: "🏠 Startseite", bar_langs: "🌍 Sprachen", bar_shop: "🛍️ Shop",
-                bar_profile: "👤 Profil", bar_plans: "⭐ Pläne",
+                bar_home: "Startseite", bar_langs: "Sprachen", bar_shop: "Shop",
+                bar_profile: "Profil", bar_plans: "Pläne", bar_speak: "Speaking Coach",
                 hero_badge: "KI-gestützte Sprachlernplattform",
                 hero_h1_line1: "Jede Sprache", hero_h1_line2: " Schnell lernen.",
-                hero_p: "7 Sprachen, 100+ Lektionen, KI-Gesprächspartner und Echtzeit-Rangliste — bring dein Sprachlernen auf die nächste Stufe.",
-                hero_btn1: "Kostenlos starten →", hero_btn2: "Sprachen entdecken",
+                hero_p: "8 Sprachen, 100+ Lektionen, KI-Gesprächspartner und Echtzeit-Rangliste — bring dein Sprachlernen auf die nächste Stufe.",
+                hero_btn1: "Kostenlos starten →", hero_btn2: "Sprachen entdecken", hero_btn3: "AI Speaking Coach",
                 stat_langs: "Sprachen", stat_lessons: "Lektionen", stat_students: "Lernende", stat_rating: "Bewertung",
-                sec_langs_label: "Sprachen", sec_langs_title: "7 Weltsprachen,<br>eine Plattform",
+                sec_langs_label: "Sprachen", sec_langs_title: "8 Weltsprachen,<br>eine Plattform",
                 sec_langs_sub: "Speziell entwickelte Lektionen, KI-Gesprächspartner und Grammatiktests für jede Sprache.",
                 lang_english: "Englisch", lang_russian: "Russisch", lang_korean: "Koreanisch",
                 lang_chinese: "Chinesisch", lang_arabic: "Arabisch", lang_spanish: "Spanisch", lang_turkish: "Türkisch",
@@ -2180,7 +2180,7 @@
                 learners_tr: "Lernende: <strong>3.400+</strong>",
                 sec_feat_label: "Funktionen", sec_feat_title: "Alles was du brauchst<br>an einem Ort",
                 sec_feat_sub: "Ein modernes System, das Lernen spannend und effektiv macht.",
-                feat1_title: "KI-Gesprächspartner", feat1_desc: "Übe jederzeit mit Gemini AI. Echtes Gespräch, schnelle Antwort.",
+                feat1_title: "KI-Gesprächspartner", feat1_desc: "Übe jederzeit mit AI. Echtes Gespräch, schnelle Antwort.",
                 feat2_title: "Rangliste", feat2_desc: "Konkurriere in der globalen und Freundesrangliste. Sammle XP.",
                 feat3_title: "Münzsystem", feat3_desc: "Verdiene Münzen durch abgeschlossene Lektionen. Tausche sie gegen Extras.",
                 feat4_title: "Tägliche Belohnung", feat4_desc: "Melde dich täglich an und verdiene besondere Belohnungen. Halte deine Serie!",
@@ -2198,9 +2198,9 @@
                 plan_free_f3: "Basis-Rangliste",
                 plan_free_f4: "Limits werden alle <strong>4 Stunden</strong> zurückgesetzt",
                 plan_free_f5: "Münz- und XP-System",
-                free_limits: "⏱ Einschränkungen: 2 Einheiten/Tag · 5 KI-Fragen/Tag · Reset alle 4 Std · Werbung vorhanden",
+                free_limits: "Einschränkungen: 2 Einheiten/Tag · 5 KI-Fragen/Tag · Reset alle 4 Std · Werbung vorhanden",
                 plan_free_btn: "Kostenlos starten",
-                plan_own_badge: "⭐ Am beliebtesten",
+                plan_own_badge: "Am beliebtesten",
                 plan_own_desc: "Vollständiger Funktionsumfang für einen Nutzer.",
                 plan_own_f1: "<strong>20+ Funktionen</strong> unbegrenzt", plan_own_f2: "Unbegrenzte KI-Gespräche",
                 plan_own_f3: "Alle Sprachen vollständig freigeschaltet", plan_own_f4: "Werbefrei",
@@ -2215,16 +2215,16 @@
                 plan_uni_f3: "XP Boost x3", plan_uni_f4: "Exklusiver Münzshop",
                 plan_uni_f5: "KI-Sprachchat", plan_uni_f6: "Alle Team-Funktionen",
                 per_month: "/ Monat", per_month2: "/ Monat", per_month3: "/ Monat",
-                plans_note: "💳 Zahlung: Foto der Bankkarte + Notiz → Admin prüft und aktiviert deinen Plan",
+                plans_note: "Zahlung: Foto der Bankkarte + Notiz → Admin prüft und aktiviert deinen Plan",
                 sec_lb_label: "Rangliste", sec_lb_title: "Globale Rangliste",
                 sec_lb_sub: "Sammle mehr XP und steige auf. Wöchentliche Preise!",
-                lb_this_week: "🏆 Rangliste dieser Woche", lb_xp_based: "Nach XP",
+                lb_this_week: "Rangliste dieser Woche", lb_xp_based: "Nach XP",
                 loading: "Wird geladen...",
                 cta_title: "Starte heute.<br><span class=\"gradient-text\">Kostenlos.</span>",
                 cta_sub: "Keine Kreditkarte nötig. Registriere dich in einer Minute und starte deine erste Lektion.",
                 cta_btn1: "Kostenlos registrieren →", cta_btn2: "Pläne vergleichen",
                 footer_about: "Über uns", footer_terms: "Bedingungen", footer_privacy: "Datenschutz",
-                footer_copy: "© 2025 LinguaVerse. Alle Rechte vorbehalten."
+                footer_copy: "© 2025 SpeakVerse. Alle Rechte vorbehalten."
             }
         };
 
@@ -2300,7 +2300,7 @@
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             const btn = document.getElementById('themeToggle');
-            if (btn) btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+            if (btn) btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
             localStorage.setItem('lv_theme', theme);
         }
 
@@ -2361,7 +2361,7 @@
             if (!window._currentUser) {
                 window.location.href = 'auth/register.html';
             } else {
-                window.location.href = 'languages-html/English.html';
+                window.location.href = 'select-language.html';
             }
         };
 
@@ -2400,12 +2400,12 @@
                 const displayName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'User';
                 const initials = displayName.charAt(0).toUpperCase();
                 navRight.innerHTML = `
-      <button class="theme-btn" id="themeToggle" title="Toggle theme" onclick="toggleTheme()">🌙</button>
+      <button class="theme-btn" id="themeToggle" title="Toggle theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
       <div class="lang-switcher">
         <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">
           <span id="currentFlag">🇺🇿</span>
           <span id="currentLangName">UZ</span>
-          <span class="arrow">▼</span>
+          <i class="fa-solid fa-chevron-down arrow"></i>
         </button>
         <div class="lang-dropdown" id="langDropdown">
           <div class="lang-option" data-lang="uz" onclick="setLang('uz')"><span class="flag">🇺🇿</span> O'zbek</div>

@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LinguaVerse — Til Tanlash</title>
+  <title>SpeakVerse — Til Tanlash</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
    <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;700&family=Exo+2:wght@400;600;800;900&display=swap"
         rel="stylesheet" />
@@ -560,24 +561,21 @@
   <div
     style="position:sticky;top:64px;z-index:99;background:rgba(3,5,9,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 24px;display:flex;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none">
     <span
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#e8ecff;font-size:0.78rem;font-weight:700;white-space:nowrap">🏠
-      Bosh sahifa</span>
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#e8ecff;font-size:0.78rem;font-weight:700;white-space:nowrap"><i class="fa-solid fa-house"></i> Bosh sahifa</span>
     <a href="select-language.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🌍
-      Tillar</a>
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-globe"></i> Tillar</a>
+    <a href="languages-html/speaking-coach.html"
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.3);color:#22d3ee;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-microphone-lines"></i> Speaking Coach</a>
     <a href="languages-html/shop.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(91,124,250,0.1);border:1px solid rgba(91,124,250,0.25);color:#a78bfa;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">🛍️
-      Do'kon</a>
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(91,124,250,0.1);border:1px solid rgba(91,124,250,0.25);color:#a78bfa;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
     <a href="languages-html/profile.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">👤
-      Profil</a>
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-user"></i> Profil</a>
     <a href="order.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(244,199,74,0.1);border:1px solid rgba(244,199,74,0.25);color:#f5c842;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap">⭐
-      Rejalar</a>
+      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(244,199,74,0.1);border:1px solid rgba(244,199,74,0.25);color:#f5c842;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-crown"></i> Rejalar</a>
   </div>
 
   <section class="hero">
-    <div class="hero-badge">🌍 8 ta til mavjud</div>
+    <div class="hero-badge"><i class="fa-solid fa-globe"></i> 8 ta til mavjud</div>
     <h1>Qaysi tilni <span>o'rganmoqchisiz?</span></h1>
     <p>Dunyoning istalgan tiliga oid darslar, mashqlar va AI suhbat sherigi</p>
   </section>
@@ -602,7 +600,7 @@
   </div>
 
   <div class="search-wrap">
-    <span class="search-icon">🔍</span>
+    <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
     <input type="text" class="search-input" id="searchInput" placeholder="Til qidirish..." oninput="filterLangs()">
   </div>
 
@@ -740,7 +738,7 @@
       });
 
       if (!langs.length) {
-        grid.innerHTML = `<div class="no-results" style="grid-column:1/-1"><span>🔍</span><p>Til topilmadi</p></div>`;
+        grid.innerHTML = `<div class="no-results" style="grid-column:1/-1"><span><i class="fa-solid fa-magnifying-glass"></i></span><p>Til topilmadi</p></div>`;
         return;
       }
 

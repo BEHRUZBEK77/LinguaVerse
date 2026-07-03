@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>LinguaVerse — Xazina Do'koni</title>
+  <title>SpeakVerse — Xazina Do'koni</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&family=Exo+2:wght@400;600;800;900&display=swap"
@@ -2217,6 +2217,38 @@
         transform: rotate(360deg)
       }
     }
+
+    /* ══════ HAQIQIY PACK OCHILISH EFFEKTLARI ══════ */
+    @keyframes packChargeUp {
+      0% { transform: scale(1) rotate(0deg); filter: brightness(1); }
+      25% { transform: scale(1.03) rotate(-2deg); filter: brightness(1.15); }
+      50% { transform: scale(1.06) rotate(2deg); filter: brightness(1.35); }
+      75% { transform: scale(1.1) rotate(-3deg); filter: brightness(1.6); }
+      100% { transform: scale(1.14) rotate(0deg); filter: brightness(2); }
+    }
+    .ov-pack-wrap.charging { animation: packChargeUp .68s ease-in forwards; }
+    @keyframes packBurst {
+      0% { transform: scale(1.14); opacity: 1; filter: brightness(2); }
+      100% { transform: scale(2.4); opacity: 0; filter: brightness(3.5) blur(4px); }
+    }
+    .ov-pack-wrap.burst { animation: packBurst .42s ease-out forwards; pointer-events: none; }
+    @keyframes screenShake {
+      0%,100% { transform: translate(0,0); }
+      20% { transform: translate(-7px,4px); } 40% { transform: translate(6px,-5px); }
+      60% { transform: translate(-5px,-4px); } 80% { transform: translate(4px,5px); }
+    }
+    .ov-shake { animation: screenShake .4s ease; }
+    .burst-particle {
+      position: fixed; width: 8px; height: 8px; border-radius: 50%;
+      pointer-events: none; z-index: 250;
+      animation: partFly .8s ease-out forwards;
+    }
+    @keyframes partFly {
+      0% { transform: translate(0,0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--px), var(--py)) scale(0); opacity: 0; }
+    }
+    @keyframes rewPop { 0% { transform: scale(.6); opacity: 0; } 70% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+    .rew-val.counting { animation: rewPop .4s ease both; }
   </style>
 </head>
 
@@ -2243,7 +2275,7 @@
   <canvas id="confettiCanvas"></canvas>
 
   <nav class="nav">
-    <a href="../index.html" class="nav-logo">Lingua<span>Verse</span></a>
+    <a href="../index.html" class="nav-logo">Speak<span>Verse</span></a>
     <div class="nav-spacer"></div>
     <div class="nav-stat" style="color:var(--gold)" onclick="showSec('currency',null)">
       <i class="fa-solid fa-coins"></i> <span id="nCoin">0</span>
@@ -3270,6 +3302,23 @@ Sotadigan narsangiz yo'q. <a href="#" onclick="filterPacks('all',null)" style="c
     }
 
     window.onPackClick = function () { if (openPhase === 0) onOvBtn(); };
+
+    // Portlash zarrachalari — pack yorilganda har tomonga uchadi
+    function burstParticles(el, color) {
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const colors = [color, '#f5c842', '#fff', color];
+      for (let i = 0; i < 26; i++) {
+        const p = document.createElement('div');
+        p.className = 'burst-particle';
+        const ang = (Math.PI * 2 * i) / 26 + Math.random() * .4;
+        const dist = 90 + Math.random() * 130;
+        p.style.cssText = `left:${cx}px;top:${cy}px;background:${colors[i % colors.length]};--px:${Math.cos(ang) * dist}px;--py:${Math.sin(ang) * dist}px;box-shadow:0 0 8px ${color}`;
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 850);
+      }
+    }
+
     window.onOvBtn = function () {
       if (openPhase === 0) {
         openPhase = 1; SFX.play('spin');
@@ -3278,19 +3327,34 @@ Sotadigan narsangiz yo'q. <a href="#" onclick="filterPacks('all',null)" style="c
         document.getElementById('ovBtnTxt').textContent = 'Ochilmoqda...';
         document.getElementById('ovHint').innerHTML = '<i class="fa-solid fa-bolt" style="color:#f5c842"></i> Pack ochilmoqda...';
         const wrap = document.getElementById('ovPackWrap');
-        let sh = 0, shIv = setInterval(() => {
-          const x = (Math.random() - .5) * 14, y = (Math.random() - .5) * 8;
-          wrap.style.transform = `translate(${x}px,${y}px) rotate(${x * .5}deg)`;
-          sh++; if (sh > 14) { clearInterval(shIv); wrap.style.transform = ''; }
-        }, 35);
+        // Noyob packlar uzoqroq "zaryadlanadi" — kutish hissi
+        const rare = ['epic', 'legendary', 'mythic'].includes(currentPack.rarity);
+        const chargeMs = rare ? 1100 : 680;
+        wrap.style.animationDuration = chargeMs + 'ms';
+        wrap.classList.add('charging');
+        if (navigator.vibrate) navigator.vibrate([40, 60, 40, 60, 80]);
+        // Kuchayib boruvchi titroq tovushi
+        let tick = 0, tickIv = setInterval(() => { SFX.play('reel'); if (++tick > chargeMs / 90) clearInterval(tickIv); }, 90);
         setTimeout(() => {
+          clearInterval(tickIv);
+          wrap.classList.remove('charging');
+          wrap.classList.add('burst');
+          burstParticles(wrap, currentPack.style.stripe);
+          document.getElementById('ovBg').classList.add('ov-shake');
+          if (navigator.vibrate) navigator.vibrate(120);
           doFlash();
-          document.getElementById('reelWrap').style.display = 'block';
-          document.getElementById('ovBtnIcon').className = 'fa-solid fa-dice';
-          document.getElementById('ovBtnTxt').textContent = 'SPIN!';
-          btn.disabled = false;
-          document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-circle-arrow-right" style="color:${currentPack.style.stripe}"></i> SPIN tugmasini bosing!`;
-        }, 680);
+          SFX.play('open');
+          setTimeout(() => {
+            wrap.style.display = 'none';
+            wrap.classList.remove('burst');
+            document.getElementById('ovBg').classList.remove('ov-shake');
+            document.getElementById('reelWrap').style.display = 'block';
+            document.getElementById('ovBtnIcon').className = 'fa-solid fa-dice';
+            document.getElementById('ovBtnTxt').textContent = 'SPIN!';
+            btn.disabled = false;
+            document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-circle-arrow-right" style="color:${currentPack.style.stripe}"></i> SPIN tugmasini bosing!`;
+          }, 420);
+        }, chargeMs);
       } else if (openPhase === 1) {
         openPhase = 2; SFX.play('spin');
         document.getElementById('ovBtn').disabled = true;
@@ -3369,6 +3433,10 @@ Sotadigan narsangiz yo'q. <a href="#" onclick="filterPacks('all',null)" style="c
 
     function showRewards(r) {
       const p = currentPack, s = p.style;
+      // ✅ FIX: ochilgan pack/kalit sarflanadi — inventarda qolib ketmaydi
+      if (p.isKey) WALLET.ownedKeys = WALLET.ownedKeys.filter(x => x !== p.id);
+      else WALLET.ownedPacks = WALLET.ownedPacks.filter(x => x !== p.id);
+      if (navigator.vibrate) navigator.vibrate([60, 40, 60, 40, 140]);
       if (r.coins) WALLET.coins += r.coins;
       if (r.tokens) WALLET.tokens += r.tokens;
       if (r.xp) WALLET.xp += r.xp;
@@ -3413,9 +3481,22 @@ Sotadigan narsangiz yo'q. <a href="#" onclick="filterPacks('all',null)" style="c
       });
 
       box.innerHTML = html; box.classList.add('show');
+      // Raqamlar 0 dan yutuqqacha sanab chiqadi — haqiqiy yutuq hissi
+      box.querySelectorAll('.rew-val').forEach((el, i) => {
+        const m = el.textContent.match(/^\+([\d,]+)$/);
+        if (!m) return;
+        const target = parseInt(m[1].replace(/,/g, ''));
+        el.classList.add('counting');
+        const t0 = performance.now(), dur = 900 + i * 150;
+        (function cnt(now) {
+          const pr = Math.min((now - t0) / dur, 1);
+          el.textContent = '+' + Math.floor(target * (1 - Math.pow(1 - pr, 3))).toLocaleString();
+          if (pr < 1) requestAnimationFrame(cnt);
+        })(t0);
+      });
       document.getElementById('btnAgain').style.display = 'flex';
-      document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-party-horn" style="color:${s.stripe}"></i> Tabriklaymiz!`;
-      toast("Pack ochildi! Mukofotlar qo'shildi", 's', 'fa-party-horn');
+      document.getElementById('ovHint').innerHTML = `<i class="fa-solid fa-champagne-glasses" style="color:${s.stripe}"></i> Tabriklaymiz!`;
+      toast("Pack ochildi! Mukofotlar qo'shildi", 's', 'fa-champagne-glasses');
     }
 
     window.onAgain = function () { closeOverlay(); if (currentPack) { if (currentPack.isKey) openBuyModal(currentPack.id, 'key'); else openBuyModal(currentPack.id, 'pack'); } };

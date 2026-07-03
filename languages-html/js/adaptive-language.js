@@ -1,4 +1,4 @@
-// =====================================================// ai-adaptive-engine.js — LinguaVerse AI Adaptive Engine v3
+// =====================================================// ai-adaptive-engine.js — SpeakVerse AI Adaptive Engine v3
 // Reading | Speaking | Writing | Listening — FULL AUTO LESSONS
 // Token system: -400 lesson (own: 200, team: 100, universal: 50)
 // Firebase realtime + Groq AI + TTS audio + 300+ functions
@@ -22,7 +22,11 @@ const FB_CONFIG = {
     messagingSenderId: "130625454868",
     appId: "1:130625454868:web:3f02871f64cb5f8af27801"
 };
-const AI_PROXY = "https://gentle-hat-d9fa.akromovbehruz7.workers.dev";
+// Xavfsiz: AI so'rovlar endi ochiq worker emas, server funksiyasi orqali (kalit serverda)
+const AI_PROXY = "/.netlify/functions/groq";
+const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
+const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.\nQUALITY BAR: teach at professional exam-preparation level (IELTS/Goethe/DELE/TOPIK/HSK-equivalent): authentic natural language, precise corrections referencing grammar rules, exam-style feedback on fluency, vocabulary range and accuracy. Push the student slightly above their current level.`;
+
 
 let _app, _auth, _db;
 try { const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"); _app = getApp(); }
@@ -200,6 +204,54 @@ const TOKEN_MGR = {
 };
 
 // ══════════════════════════════════════════════════════════════
+// LEARNER PROFILE — har bir user uchun alohida shaxsiy baza
+// (til bo'yicha xatolar, zaif joylar, o'tilgan mavzular Firestore'da)
+// ══════════════════════════════════════════════════════════════
+const PROFILE = {
+    data: null,
+    langKey: null,
+    _empty() {
+        return { lessonsDone: 0, avgScore: 0, weakAreas: [], recentMistakes: [], coveredTopics: [], strongAreas: [], lastLessonAt: null };
+    },
+    async load(userId, langKey) {
+        this.langKey = langKey;
+        try {
+            const s = await getDoc(doc(_db, `users/${userId}/learner_profiles/${langKey}`));
+            this.data = s.exists() ? { ...this._empty(), ...s.data() } : this._empty();
+        } catch (e) { this.data = this._empty(); }
+        return this.data;
+    },
+    // AI promptga qo'shiladigan qisqa shaxsiy kontekst
+    summary() {
+        const d = this.data;
+        if (!d || !d.lessonsDone) return 'This is a NEW student — first lessons. Start with a diagnostic-friendly, confidence-building lesson.';
+        const parts = [`Lessons completed: ${d.lessonsDone}, average score: ${d.avgScore}%.`];
+        if (d.weakAreas?.length) parts.push(`WEAK AREAS (train these hard): ${d.weakAreas.slice(-6).join(', ')}.`);
+        if (d.strongAreas?.length) parts.push(`Strong areas: ${d.strongAreas.slice(-4).join(', ')}.`);
+        if (d.recentMistakes?.length) parts.push(`Recent recurring mistakes (recycle these until fixed): ${d.recentMistakes.slice(-8).join(' | ')}.`);
+        if (d.coveredTopics?.length) parts.push(`Topics ALREADY covered (do NOT repeat, pick fresh topics): ${d.coveredTopics.slice(-12).join(', ')}.`);
+        return parts.join(' ');
+    },
+    async record(userId, langKey, { skill, score, topic, mistakes = [] }) {
+        if (!userId || !langKey) return;
+        const d = this.data || this._empty();
+        d.lessonsDone = (d.lessonsDone || 0) + 1;
+        d.avgScore = Math.round(((d.avgScore || 0) * (d.lessonsDone - 1) + score) / d.lessonsDone);
+        if (topic) d.coveredTopics = [...(d.coveredTopics || []), topic].slice(-30);
+        const area = `${skill} (${score}%)`;
+        if (score < 60) d.weakAreas = [...(d.weakAreas || []).filter(x => !x.startsWith(skill)), area].slice(-10);
+        else if (score >= 80) {
+            d.strongAreas = [...(d.strongAreas || []).filter(x => !x.startsWith(skill)), area].slice(-10);
+            d.weakAreas = (d.weakAreas || []).filter(x => !x.startsWith(skill));
+        }
+        if (mistakes.length) d.recentMistakes = [...(d.recentMistakes || []), ...mistakes].slice(-20);
+        d.lastLessonAt = Date.now();
+        this.data = d;
+        try { await setDoc(doc(_db, `users/${userId}/learner_profiles/${langKey}`), d, { merge: true }); } catch (e) { console.warn('profile save:', e); }
+    }
+};
+
+// ══════════════════════════════════════════════════════════════
 // TTS ENGINE — Web Speech API with fallback
 // ══════════════════════════════════════════════════════════════
 const TTS = {
@@ -237,7 +289,7 @@ const AI_GEN = {
     async generateReading(analysis, langCfg, userData) {
         const { userLevel, adaptLevel } = analysis;
         const lang = langCfg.name;
-        const prompt = `You are an expert ${lang} language teacher. Create a COMPLETE reading lesson for an Uzbek student.
+        const prompt = `You are an expert ${lang} language teacher. Create a COMPLETE reading lesson for a student whose native language is ${NATIVE_LANG}.
 Level: ${userLevel} (${adaptLevel} difficulty)
 Language being learned: ${lang}
 
@@ -255,7 +307,7 @@ Respond ONLY with valid JSON, no markdown, no extra text:
     {"word": "${lang} word", "uzbek": "meaning", "ipa": "pronunciation", "example": "example sentence"}
   ],
   "comprehension": [
-    {"q": "question about passage", "opts": ["A","B","C","D"], "ans": 0, "exp": "explanation in Uzbek"},
+    {"q": "question about passage", "opts": ["A","B","C","D"], "ans": 0, "exp": "explanation in ${NATIVE_LANG}"},
     {"q": "inference question", "opts": ["A","B","C","D"], "ans": 1, "exp": "explanation"},
     {"q": "vocabulary in context question", "opts": ["A","B","C","D"], "ans": 2, "exp": "explanation"},
     {"q": "main idea question", "opts": ["A","B","C","D"], "ans": 0, "exp": "explanation"},
@@ -265,17 +317,17 @@ Respond ONLY with valid JSON, no markdown, no extra text:
   "grammarSpotlight": {
     "rule": "grammar rule found in the passage",
     "examples": ["example1 in ${lang}", "example2 in ${lang}"],
-    "uzbek_explanation": "explanation in Uzbek"
+    "uzbek_explanation": "explanation in ${NATIVE_LANG}"
   },
   "summaryTask": {
-    "instruction": "Write a 3-sentence summary of the passage (in Uzbek instruction)",
+    "instruction": "Write a 3-sentence summary of the passage (in ${NATIVE_LANG} instruction)",
     "keyPoints": ["key point 1", "key point 2", "key point 3"]
   },
   "criticalThinking": [
-    {"question": "open-ended question in Uzbek about the topic", "hint": "thinking hint in Uzbek"}
+    {"question": "open-ended question in ${NATIVE_LANG} about the topic", "hint": "thinking hint in ${NATIVE_LANG}"}
   ],
   "xpReward": 80,
-  "tip": "reading tip in Uzbek"
+  "tip": "reading tip in ${NATIVE_LANG}"
 }`;
         return await this._call(prompt, 2500);
     },
@@ -284,7 +336,7 @@ Respond ONLY with valid JSON, no markdown, no extra text:
     async generateListening(analysis, langCfg, userData) {
         const { userLevel, adaptLevel } = analysis;
         const lang = langCfg.name;
-        const prompt = `Create a complete listening lesson in ${lang} for an Uzbek student.
+        const prompt = `Create a complete listening lesson in ${lang} for a student whose native language is ${NATIVE_LANG}.
 Level: ${userLevel} (${adaptLevel})
 
 Respond ONLY with valid JSON:
@@ -300,7 +352,7 @@ Respond ONLY with valid JSON:
       "text": "A natural ${lang} monologue (100-150 words). Natural speech patterns, contractions, fillers like 'well', 'you know', 'actually'. Make it feel real.",
       "speed": "normal",
       "questions": [
-        {"q": "listening question", "opts": ["A","B","C","D"], "ans": 0, "exp": "explanation in Uzbek"},
+        {"q": "listening question", "opts": ["A","B","C","D"], "ans": 0, "exp": "explanation in ${NATIVE_LANG}"},
         {"q": "detail question", "opts": ["A","B","C","D"], "ans": 2, "exp": "explanation"},
         {"q": "inference question", "opts": ["A","B","C","D"], "ans": 1, "exp": "explanation"}
       ]
@@ -320,13 +372,13 @@ Respond ONLY with valid JSON:
   ],
   "dictation": {
     "sentence": "A medium-length sentence in ${lang} for dictation practice (15-20 words)",
-    "uzbekTranslation": "Uzbek translation"
+    "uzbekTranslation": "${NATIVE_LANG} translation"
   },
   "phonetics": [
-    {"sound": "difficult sound in ${lang}", "examples": ["word1","word2","word3"], "tip": "pronunciation tip in Uzbek"}
+    {"sound": "difficult sound in ${lang}", "examples": ["word1","word2","word3"], "tip": "pronunciation tip in ${NATIVE_LANG}"}
   ],
   "xpReward": 85,
-  "tip": "listening strategy tip in Uzbek"
+  "tip": "listening strategy tip in ${NATIVE_LANG}"
 }`;
         return await this._call(prompt, 2500);
     },
@@ -335,7 +387,7 @@ Respond ONLY with valid JSON:
     async generateSpeaking(analysis, langCfg, userData) {
         const { userLevel, adaptLevel, weak } = analysis;
         const lang = langCfg.name;
-        const prompt = `Create a complete speaking lesson in ${lang} for an Uzbek student.
+        const prompt = `Create a complete speaking lesson in ${lang} for a student whose native language is ${NATIVE_LANG}.
 Level: ${userLevel} (${adaptLevel})
 
 Respond ONLY with valid JSON:
@@ -344,10 +396,10 @@ Respond ONLY with valid JSON:
   "emoji": "emoji",
   "topic": "conversation topic",
   "warmup": {
-    "instruction": "Warmup instruction in Uzbek",
+    "instruction": "Warmup instruction in ${NATIVE_LANG}",
     "question": "simple question to answer aloud in ${lang}",
     "modelAnswer": "model answer in ${lang}",
-    "uzbekHint": "hint in Uzbek"
+    "uzbekHint": "hint in ${NATIVE_LANG}"
   },
   "phrases": [
     {"phrase": "${lang} useful phrase", "uzbek": "meaning", "usage": "when to use it"},
@@ -359,21 +411,21 @@ Respond ONLY with valid JSON:
   "tasks": [
     {
       "type": "repeat",
-      "instruction": "Repeat after the audio — instruction in Uzbek",
+      "instruction": "Repeat after the audio — instruction in ${NATIVE_LANG}",
       "sentence": "${lang} sentence to repeat",
-      "uzbek": "Uzbek translation",
+      "uzbek": "${NATIVE_LANG} translation",
       "tip": "pronunciation tip"
     },
     {
       "type": "describe",
-      "instruction": "Describe this in ${lang} — instruction in Uzbek",
+      "instruction": "Describe this in ${lang} — instruction in ${NATIVE_LANG}",
       "prompt": "describe: [a person / your room / your day / a picture of a city]",
       "keyWords": ["word1","word2","word3"],
       "modelAnswer": "model description in ${lang}"
     },
     {
       "type": "roleplay",
-      "instruction": "Role-play instruction in Uzbek",
+      "instruction": "Role-play instruction in ${NATIVE_LANG}",
       "scenario": "realistic scenario (e.g. at a cafe, job interview, asking directions)",
       "yourRole": "student's role",
       "partnerRole": "AI partner's role",
@@ -382,7 +434,7 @@ Respond ONLY with valid JSON:
     },
     {
       "type": "opinion",
-      "instruction": "Give your opinion — instruction in Uzbek",
+      "instruction": "Give your opinion — instruction in ${NATIVE_LANG}",
       "question": "opinion question in ${lang}",
       "agreePhrases": ["I think...", "In my opinion...", "I believe..."],
       "disagreePhrases": ["However...", "On the other hand...", "I disagree because..."],
@@ -390,17 +442,17 @@ Respond ONLY with valid JSON:
     },
     {
       "type": "storytelling",
-      "instruction": "Tell a short story — instruction in Uzbek",
+      "instruction": "Tell a short story — instruction in ${NATIVE_LANG}",
       "prompt": "story prompt in ${lang}",
       "timeConnectors": ["First", "Then", "After that", "Finally", "In the end"],
       "modelStory": "model short story in ${lang} (5-7 sentences)"
     }
   ],
   "pronunciation": [
-    {"word": "difficult word", "ipa": "/pronunciation/", "common_mistake": "common error Uzbeks make", "fix": "how to fix it in Uzbek"}
+    {"word": "difficult word", "ipa": "/pronunciation/", "common_mistake": "common error ${NATIVE_LANG} speakers make", "fix": "how to fix it in ${NATIVE_LANG}"}
   ],
   "xpReward": 90,
-  "tip": "speaking confidence tip in Uzbek"
+  "tip": "speaking confidence tip in ${NATIVE_LANG}"
 }`;
         return await this._call(prompt, 2500);
     },
@@ -409,7 +461,7 @@ Respond ONLY with valid JSON:
     async generateWriting(analysis, langCfg, userData) {
         const { userLevel, adaptLevel } = analysis;
         const lang = langCfg.name;
-        const prompt = `Create a complete writing lesson in ${lang} for an Uzbek student.
+        const prompt = `Create a complete writing lesson in ${lang} for a student whose native language is ${NATIVE_LANG}.
 Level: ${userLevel} (${adaptLevel})
 
 Respond ONLY with valid JSON:
@@ -418,9 +470,9 @@ Respond ONLY with valid JSON:
   "emoji": "emoji",
   "topic": "writing topic",
   "warmup": {
-    "instruction": "Warmup — complete these sentences in Uzbek instruction",
+    "instruction": "Warmup — complete these sentences in ${NATIVE_LANG} instruction",
     "sentences": [
-      {"starter": "${lang} sentence starter...", "hint": "hint in Uzbek"},
+      {"starter": "${lang} sentence starter...", "hint": "hint in ${NATIVE_LANG}"},
       {"starter": "Another starter...", "hint": "hint 2"},
       {"starter": "Third starter...", "hint": "hint 3"}
     ]
@@ -429,7 +481,7 @@ Respond ONLY with valid JSON:
     {
       "type": "sentence_building",
       "title": "Sentence Building",
-      "instruction": "instruction in Uzbek",
+      "instruction": "instruction in ${NATIVE_LANG}",
       "words": ["word1","word2","word3","word4","word5"],
       "correctSentence": "correct ${lang} sentence",
       "uzbekTranslation": "translation"
@@ -437,7 +489,7 @@ Respond ONLY with valid JSON:
     {
       "type": "paragraph",
       "title": "Paragraph Writing",
-      "instruction": "Write a paragraph in Uzbek instruction",
+      "instruction": "Write a paragraph in ${NATIVE_LANG} instruction",
       "topic": "specific writing topic",
       "minWords": 50,
       "structure": {"topic_sentence": "guidance", "supporting": "guidance", "conclusion": "guidance"},
@@ -448,7 +500,7 @@ Respond ONLY with valid JSON:
     {
       "type": "email",
       "title": "Email / Letter Writing",
-      "instruction": "Write an email — Uzbek instruction",
+      "instruction": "Write an email — ${NATIVE_LANG} instruction",
       "scenario": "realistic email scenario",
       "recipient": "who to write to",
       "purpose": "why you are writing",
@@ -459,12 +511,12 @@ Respond ONLY with valid JSON:
     {
       "type": "essay",
       "title": "Short Essay",
-      "instruction": "Write a short essay — Uzbek instruction",
+      "instruction": "Write a short essay — ${NATIVE_LANG} instruction",
       "question": "essay question/prompt in ${lang}",
       "type_of_essay": "agree/disagree | advantages/disadvantages | discuss both views",
       "minWords": 80,
       "structure": {
-        "intro": "How to write intro — Uzbek",
+        "intro": "How to write intro — ${NATIVE_LANG}",
         "body1": "First body paragraph guidance",
         "body2": "Second body paragraph guidance",
         "conclusion": "Conclusion guidance"
@@ -475,9 +527,9 @@ Respond ONLY with valid JSON:
     {
       "type": "correction",
       "title": "Error Correction",
-      "instruction": "Find and correct mistakes — Uzbek instruction",
+      "instruction": "Find and correct mistakes — ${NATIVE_LANG} instruction",
       "sentences": [
-        {"wrong": "sentence with error in ${lang}", "correct": "corrected version", "error_type": "grammar/spelling/word choice", "uzbek_exp": "Uzbek explanation"},
+        {"wrong": "sentence with error in ${lang}", "correct": "corrected version", "error_type": "grammar/spelling/word choice", "uzbek_exp": "${NATIVE_LANG} explanation"},
         {"wrong": "another wrong sentence", "correct": "corrected", "error_type": "type", "uzbek_exp": "explanation"},
         {"wrong": "third wrong sentence", "correct": "corrected", "error_type": "type", "uzbek_exp": "explanation"}
       ]
@@ -487,10 +539,10 @@ Respond ONLY with valid JSON:
     "rule": "key grammar rule for writing",
     "examples": ["correct example 1", "correct example 2"],
     "common_errors": ["common mistake 1", "common mistake 2"],
-    "uzbek_explanation": "detailed explanation in Uzbek"
+    "uzbek_explanation": "detailed explanation in ${NATIVE_LANG}"
   },
   "xpReward": 95,
-  "tip": "writing improvement tip in Uzbek"
+  "tip": "writing improvement tip in ${NATIVE_LANG}"
 }`;
         return await this._call(prompt, 2800);
     },
@@ -502,23 +554,23 @@ Respond ONLY with valid JSON:
         const streak = userData.stats?.streak || 0;
         const lang = langCfg.name;
 
-        const prompt = `Create a personalized daily ${lang} learning plan for an Uzbek student.
+        const prompt = `Create a personalized daily ${lang} learning plan for a student whose native language is ${NATIVE_LANG}.
 Level: ${userLevel} | Weak: ${topWeak} | Streak: ${streak} days | Adapt: ${adaptLevel}
 
 Respond ONLY with valid JSON:
 {
-  "greeting": "Motivational morning greeting in Uzbek (mention streak if > 0)",
+  "greeting": "Motivational morning greeting in ${NATIVE_LANG} (mention streak if > 0)",
   "totalMinutes": 30,
   "tasks": [
-    {"order":1,"type":"reading","title":"task title","desc":"short desc in Uzbek","min":8,"icon":"📖","xp":50,"priority":"high","skill":"reading"},
+    {"order":1,"type":"reading","title":"task title","desc":"short desc in ${NATIVE_LANG}","min":8,"icon":"📖","xp":50,"priority":"high","skill":"reading"},
     {"order":2,"type":"listening","title":"task title","desc":"desc","min":7,"icon":"🎧","xp":55,"priority":"high","skill":"listening"},
     {"order":3,"type":"speaking","title":"task title","desc":"desc","min":8,"icon":"🎤","xp":60,"priority":"medium","skill":"speaking"},
     {"order":4,"type":"writing","title":"task title","desc":"desc","min":5,"icon":"✍️","xp":65,"priority":"medium","skill":"writing"},
     {"order":5,"type":"vocabulary","title":"task title","desc":"desc","min":2,"icon":"📚","xp":30,"priority":"low","skill":"vocabulary"}
   ],
-  "motivationTip": "personalized tip based on ${topWeak} weakness in Uzbek",
-  "weeklyGoal": "This week's specific goal in Uzbek",
-  "funChallenge": "A fun daily challenge in Uzbek (e.g. use 5 new words today)"
+  "motivationTip": "personalized tip based on ${topWeak} weakness in ${NATIVE_LANG}",
+  "weeklyGoal": "This week's specific goal in ${NATIVE_LANG}",
+  "funChallenge": "A fun daily challenge in ${NATIVE_LANG} (e.g. use 5 new words today)"
 }`;
         return await this._call(prompt, 1200);
     },
@@ -535,16 +587,16 @@ Respond ONLY with valid JSON:
   "currentLevel": "${userLevel}",
   "targetLevel": "next level",
   "estimatedWeeks": 4,
-  "overview": "1-sentence roadmap summary in Uzbek",
+  "overview": "1-sentence roadmap summary in ${NATIVE_LANG}",
   "weeks": [
-    {"week":1,"emoji":"🌱","focus":"Week 1 focus in Uzbek","topics":["topic1","topic2","topic3"],"milestone":"achievement in Uzbek","xpTarget":400,"lessonsPerDay":2},
+    {"week":1,"emoji":"🌱","focus":"Week 1 focus in ${NATIVE_LANG}","topics":["topic1","topic2","topic3"],"milestone":"achievement in ${NATIVE_LANG}","xpTarget":400,"lessonsPerDay":2},
     {"week":2,"emoji":"📈","focus":"Week 2 focus","topics":["t1","t2","t3"],"milestone":"achievement","xpTarget":800,"lessonsPerDay":2},
     {"week":3,"emoji":"💪","focus":"Week 3 focus","topics":["t1","t2","t3"],"milestone":"achievement","xpTarget":1200,"lessonsPerDay":3},
     {"week":4,"emoji":"🏆","focus":"Week 4 focus","topics":["t1","t2","t3"],"milestone":"achievement","xpTarget":1600,"lessonsPerDay":3}
   ],
-  "schedule": {"daysPerWeek":5,"minutesPerDay":30,"bestTime":"recommendation in Uzbek"},
-  "longTermGoal": "6-month goal in Uzbek",
-  "examTip": "${langCfg.exam} exam preparation tip in Uzbek"
+  "schedule": {"daysPerWeek":5,"minutesPerDay":30,"bestTime":"recommendation in ${NATIVE_LANG}"},
+  "longTermGoal": "6-month goal in ${NATIVE_LANG}",
+  "examTip": "${langCfg.exam} exam preparation tip in ${NATIVE_LANG}"
 }`;
         return await this._call(prompt, 1200);
     },
@@ -574,15 +626,15 @@ Respond ONLY with valid JSON:
     {"word":"word8","uzbek":"m8","pos":"pos","ipa":"/p/","example":"ex","collocations":["c1","c2"]}
   ],
   "exercises": [
-    {"type":"match","instruction":"Match ${lang} words with Uzbek meanings — instruction","pairs":[{"${lang}":"w1","uzbek":"m1"},{"${lang}":"w2","uzbek":"m2"},{"${lang}":"w3","uzbek":"m3"}]},
+    {"type":"match","instruction":"Match ${lang} words with ${NATIVE_LANG} meanings — instruction","pairs":[{"${lang}":"w1","uzbek":"m1"},{"${lang}":"w2","uzbek":"m2"},{"${lang}":"w3","uzbek":"m3"}]},
     {"type":"fill","instruction":"Fill in the blank","sentences":[{"text":"sentence with ___ blank","answer":"correct word","hint":"hint"},{"text":"sentence2 ___","answer":"answer2","hint":"hint2"}]},
-    {"type":"usage","instruction":"Use these words in sentences — Uzbek instruction","words":["word1","word2","word3"]}
+    {"type":"usage","instruction":"Use these words in sentences — ${NATIVE_LANG} instruction","words":["word1","word2","word3"]}
   ],
   "idioms": [
-    {"expression":"${lang} idiom","meaning":"Uzbek meaning","example":"example sentence"}
+    {"expression":"${lang} idiom","meaning":"${NATIVE_LANG} meaning","example":"example sentence"}
   ],
   "xpReward": 60,
-  "memoryTrick": "clever memory trick in Uzbek"
+  "memoryTrick": "clever memory trick in ${NATIVE_LANG}"
 }`;
         return await this._call(prompt, 2000);
     },
@@ -608,17 +660,17 @@ Respond ONLY with valid JSON:
 {
   "title": "${topic} in ${lang}",
   "emoji": "grammar emoji",
-  "rule": "clear grammar rule in Uzbek",
+  "rule": "clear grammar rule in ${NATIVE_LANG}",
   "structure": "STRUCTURE: Subject + verb + ... (show the pattern)",
   "examples": [
-    {"${lang}": "${lang} example", "uzbek": "translation", "notes": "usage note in Uzbek"},
+    {"${lang}": "${lang} example", "uzbek": "translation", "notes": "usage note in ${NATIVE_LANG}"},
     {"${lang}": "example2", "uzbek": "trans2", "notes": "note2"},
     {"${lang}": "example3", "uzbek": "trans3", "notes": "note3"},
     {"${lang}": "negative form", "uzbek": "trans", "notes": "negative"},
     {"${lang}": "question form", "uzbek": "trans", "notes": "question"}
   ],
   "commonErrors": [
-    {"wrong": "common wrong usage", "correct": "correct usage", "uzbek_exp": "why it's wrong in Uzbek"},
+    {"wrong": "common wrong usage", "correct": "correct usage", "uzbek_exp": "why it's wrong in ${NATIVE_LANG}"},
     {"wrong": "error2", "correct": "correct2", "uzbek_exp": "explanation2"}
   ],
   "exercises": [
@@ -628,9 +680,31 @@ Respond ONLY with valid JSON:
   ],
   "contextualUse": "Paragraph showing this grammar in context (5-6 sentences in ${lang})",
   "xpReward": 70,
-  "quickTip": "memory trick in Uzbek"
+  "quickTip": "memory trick in ${NATIVE_LANG}"
 }`;
         return await this._call(prompt, 2000);
+    },
+
+    // launchLesson har safar shu kontekstni yangilaydi
+    ctx: { langCfg: null },
+
+    // Har bir dars generatsiyasiga qo'shiladigan PRO sifat qoidalari + shaxsiy baza
+    _qualityHeader() {
+        const cfg = this.ctx.langCfg || {};
+        const lang = cfg.name || 'the target language';
+        const exam = cfg.exam || 'IELTS';
+        return `═══ PROFESSIONAL TEACHING STANDARDS (mandatory) ═══
+You are a senior ${lang} examiner and curriculum designer for the official ${exam} exam.
+1. ALL learning content (passages, dialogues, scripts, example sentences, tasks, model answers) must be written in AUTHENTIC, natural ${lang} — exactly the register used in real ${exam} exam materials. NEVER write learning content in ${NATIVE_LANG}.
+2. Instructions, explanations, hints and feedback fields must be in ${NATIVE_LANG} so the student understands them.
+3. Question formats must mirror real ${exam} task types (e.g. multiple choice with plausible distractors, True/False/Not Given-style logic, gap fills, matching) — professional exam quality, not toy questions.
+4. Where feedback/scoring appears, reference ${exam} band/criteria style: task achievement, coherence, lexical resource, grammatical range & accuracy.
+5. Difficulty must be calibrated to the student's exact level and push slightly above it (+1 notch) — that is how exam scores grow.
+
+═══ THIS STUDENT'S PERSONAL LEARNING BASE (use it!) ═══
+${PROFILE.summary()}
+Personalize the lesson: recycle the student's recurring mistakes into exercises, target the weak areas, avoid already-covered topics.
+═══════════════════════════════════════════\n\n`;
     },
 
     async _call(prompt, maxTokens = 2000) {
@@ -638,7 +712,7 @@ Respond ONLY with valid JSON:
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                contents: [{ role: 'user', parts: [{ text: this._qualityHeader() + prompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTokens }
             })
         });
@@ -948,7 +1022,7 @@ const ENGINE = {
         <div class="ae-token-bar">
             <span class="ae-token-pill">🎫 ${this.userTokens}</span>
             <div class="ae-token-track"><div class="ae-token-fill" style="width:${Math.min(100, this.userTokens / 10)}%"></div></div>
-            <span class="ae-lesson-cnt" id="ae-lesson-cnt">📚 ${this.todayLessonCount}/${lim.daily}</span>
+            <span class="ae-lesson-cnt" id="ae-lesson-cnt"><i class="fa-solid fa-book"></i> ${this.todayLessonCount}/${lim.daily}</span>
         </div>
         <div class="ae-tabs">
             <div class="ae-tab on"  data-tab="plan"    onclick="window.__AE.nav('plan',this)">📅<br>Plan</div>
@@ -1093,7 +1167,7 @@ const ENGINE = {
         <div class="ae-sec"><span>🎓</span> Dars boshlash</div>
         ${['reading', 'listening', 'speaking', 'writing', 'vocabulary', 'grammar'].map(t => `
         <button class="ae-btn ghost" style="margin-bottom:7px" onclick="window.__AE.launchLesson('${t}')">
-            ${{ reading: '📖', listening: '🎧', speaking: '🎤', writing: '✍️', vocabulary: '📚', grammar: '📝' }[t]} ${t.charAt(0).toUpperCase() + t.slice(1)} darsi
+            ${{ reading: '<i class="fa-solid fa-book-open"></i>', listening: '<i class="fa-solid fa-headphones"></i>', speaking: '<i class="fa-solid fa-microphone"></i>', writing: '<i class="fa-solid fa-pen-nib"></i>', vocabulary: '<i class="fa-solid fa-book"></i>', grammar: '<i class="fa-solid fa-spell-check"></i>' }[t]} ${t.charAt(0).toUpperCase() + t.slice(1)} darsi
         </button>`).join('')}
         `;
     },
@@ -1114,7 +1188,7 @@ const ENGINE = {
             <div class="ae-sec"><span>🎯</span> Ko'nikma tanlang</div>
             ${['reading', 'listening', 'speaking', 'writing', 'vocabulary', 'grammar'].map(t => `
             <button class="ae-btn ghost" style="margin-bottom:7px" onclick="window.__AE.launchLesson('${t}')">
-                ${{ reading: '📖', listening: '🎧', speaking: '🎤', writing: '✍️', vocabulary: '📚', grammar: '📝' }[t]} ${t.charAt(0).toUpperCase() + t.slice(1)}
+                ${{ reading: '<i class="fa-solid fa-book-open"></i>', listening: '<i class="fa-solid fa-headphones"></i>', speaking: '<i class="fa-solid fa-microphone"></i>', writing: '<i class="fa-solid fa-pen-nib"></i>', vocabulary: '<i class="fa-solid fa-book"></i>', grammar: '<i class="fa-solid fa-spell-check"></i>' }[t]} ${t.charAt(0).toUpperCase() + t.slice(1)}
             </button>`).join('')}
             `;
             return;
@@ -1171,6 +1245,9 @@ const ENGINE = {
             const ud = await DB.getUserData(this.userId);
             // Re-run analysis with per-language skills for accurate adaptive difficulty
             this.analysis = ANALYZER.run(ud, this.langCfg?.name);
+            // Shaxsiy o'rganish bazasini yuklash — dars shu userga moslashadi
+            AI_GEN.ctx.langCfg = this.langCfg;
+            await PROFILE.load(this.userId, this.langCfg?.name?.toLowerCase() || 'english');
             let lesson;
             if (lessonType === 'reading') lesson = await AI_GEN.generateReading(this.analysis, this.langCfg, ud);
             else if (lessonType === 'listening') lesson = await AI_GEN.generateListening(this.analysis, this.langCfg, ud);
@@ -1210,19 +1287,19 @@ const ENGINE = {
         const cnt = document.getElementById('ae-lesson-cnt');
         if (pill) pill.textContent = `🎫 ${this.userTokens}`;
         if (fill) fill.style.width = `${Math.min(100, this.userTokens / 10)}%`;
-        if (cnt) cnt.textContent = `📚 ${this.todayLessonCount}/${lim.daily}`;
+        if (cnt) cnt.textContent = `${this.todayLessonCount}/${lim.daily}`;
     },
 
     // ── LESSON HEADER (reusable) ──
     _lessonHeader(lesson, type) {
-        const icons = { reading: '📖', listening: '🎧', speaking: '🎤', writing: '✍️', vocabulary: '📚', grammar: '📝' };
+        const icons = { reading: '<i class="fa-solid fa-book-open"></i>', listening: '<i class="fa-solid fa-headphones"></i>', speaking: '<i class="fa-solid fa-microphone"></i>', writing: '<i class="fa-solid fa-pen-nib"></i>', vocabulary: '<i class="fa-solid fa-book"></i>', grammar: '<i class="fa-solid fa-spell-check"></i>' };
         const pct = this.total > 0 ? Math.round(this.score / this.total * 100) : 0;
         const exTotal = this._getExerciseTotal();
         const prog = exTotal > 0 ? Math.round(this.exerciseIdx / exTotal * 100) : 0;
         return `
         <div class="ae-card accent" style="padding:13px">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                <span style="font-size:1.4rem">${lesson.emoji || icons[type]}</span>
+                <span style="font-size:1.4rem">${icons[type]}</span>
                 <div>
                     <div style="font-size:.88rem;font-weight:800;color:#fff">${lesson.title || type + ' lesson'}</div>
                     <div style="display:flex;gap:5px;margin-top:3px">
@@ -1273,7 +1350,7 @@ const ENGINE = {
 
         <!-- Passage -->
         ${this.exerciseIdx === 0 ? `
-        <div class="ae-sec"><span>📖</span> Matn o'qing</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-book-open"></i></span> Matn o'qing</div>
         <div class="ae-card accent" style="padding:12px">
             <div style="font-size:.85rem;font-weight:700;color:#e8ecff;margin-bottom:8px">${l.passage?.title || ''}</div>
             <div style="display:flex;gap:7px;margin-bottom:10px">
@@ -1287,7 +1364,7 @@ const ENGINE = {
 
         <!-- Grammar spotlight -->
         ${l.grammarSpotlight ? `
-        <div class="ae-sec"><span>📝</span> Grammar spotlight</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-spell-check"></i></span> Grammar spotlight</div>
         <div class="ae-card" style="padding:12px">
             <div style="font-size:.78rem;font-weight:700;color:${this.langCfg.color};margin-bottom:6px">${l.grammarSpotlight.rule}</div>
             <div style="font-size:.74rem;color:#aaa;margin-bottom:8px">${l.grammarSpotlight.uzbek_explanation}</div>
@@ -1296,7 +1373,7 @@ const ENGINE = {
 
         <!-- Vocabulary -->
         ${(l.vocabulary || []).length ? `
-        <div class="ae-sec"><span>📚</span> Vocabulary</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-book"></i></span> Vocabulary</div>
         ${l.vocabulary.map(v => `<div class="ae-vocab">
             <div>
                 <div class="ae-vocab-w">${v.word}</div>
@@ -1324,7 +1401,7 @@ const ENGINE = {
         ` : `
         <!-- Summary task -->
         ${l.summaryTask ? `
-        <div class="ae-sec"><span>✍️</span> Xulosa yozing</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-pen-nib"></i></span> Xulosa yozing</div>
         <div class="ae-card" style="padding:12px;margin-bottom:8px">
             <div style="font-size:.78rem;color:#aaa;margin-bottom:6px">${l.summaryTask.instruction}</div>
             ${(l.summaryTask.keyPoints || []).map(p => `<div style="font-size:.74rem;color:#e8ecff;margin-bottom:4px">• ${p}</div>`).join('')}
@@ -1368,6 +1445,12 @@ const ENGINE = {
             fb.className = `ae-feedback ${ok ? 'ok' : 'fail'}`;
             fb.innerHTML = ok ? `✅ To'g'ri! ${exp}` : `❌ Noto'g'ri. To'g'ri javob: <b>${String.fromCharCode(65 + correct)}</b>. ${exp}`;
             if (ok) { this.score++; TTS.speak(btn.textContent.trim()); }
+            else {
+                // Xatoni shaxsiy bazaga yig'amiz — keyingi darslarda qayta mashq qilinadi
+                const qEl = document.querySelector('.ae-ex-q');
+                if (!this.sessionMistakes) this.sessionMistakes = [];
+                this.sessionMistakes.push((qEl?.textContent || 'question').slice(0, 90));
+            }
             this.total++;
         }
         const nxt = document.getElementById('ae-nxt');
@@ -1445,7 +1528,7 @@ const ENGINE = {
         <button class="ae-btn" id="ae-nxt" style="display:none" onclick="window.__AE.nextListenQ(${allQs.length})">Keyingi →</button>
         ` : isDictation ? `
         <!-- Dictation exercise -->
-        <div class="ae-sec"><span>✍️</span> Diktant</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-pen-nib"></i></span> Diktant</div>
         <div class="ae-audio-box">
             <div class="ae-audio-title">📝 Eshitib yozing</div>
             <div style="font-size:.74rem;color:#888;margin-bottom:8px">"${l.dictation?.uzbekTranslation || ''}"</div>
@@ -1576,7 +1659,7 @@ const ENGINE = {
         const tasks = this.currentLesson?.tasks || [];
         const c = this.langCfg.color;
 
-        const header = `<div class="ae-sec"><span>${{ repeat: '🔄', describe: '📝', roleplay: '🎭', opinion: '💭', storytelling: '📖' }[task.type] || '🎤'}</span> 
+        const header = `<div class="ae-sec"><span>${{ repeat: '<i class="fa-solid fa-repeat"></i>', describe: '<i class="fa-solid fa-pen"></i>', roleplay: '<i class="fa-solid fa-masks-theater"></i>', opinion: '<i class="fa-solid fa-comment-dots"></i>', storytelling: '<i class="fa-solid fa-book-open"></i>' }[task.type] || '<i class="fa-solid fa-microphone"></i>'}</span> 
             Vazifa ${idx + 1}/${tasks.length}: ${task.type}
             <button class="ae-btn sm ghost" style="margin-left:auto" onclick="window.__AE.nextSpeakTask()">O'tkazib yuborish →</button>
         </div>`;
@@ -1740,7 +1823,7 @@ const ENGINE = {
 
         <!-- Grammar focus -->
         ${l.grammarFocus ? `
-        <div class="ae-sec"><span>📝</span> Grammar Focus</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-spell-check"></i></span> Grammar Focus</div>
         <div class="ae-card">
             <div style="font-size:.78rem;font-weight:700;color:${c};margin-bottom:5px">${l.grammarFocus.rule}</div>
             <div style="font-size:.74rem;color:#aaa;margin-bottom:7px">${l.grammarFocus.uzbek_explanation}</div>
@@ -1759,7 +1842,7 @@ const ENGINE = {
         const idx = this.writeTaskIdx;
         const tasks = this.currentLesson?.tasks || [];
 
-        const header = `<div class="ae-sec"><span>✍️</span> Vazifa ${idx + 1}/${tasks.length}: ${task.title}
+        const header = `<div class="ae-sec"><span><i class="fa-solid fa-pen-nib"></i></span> Vazifa ${idx + 1}/${tasks.length}: ${task.title}
             <button class="ae-btn sm ghost" style="margin-left:auto" onclick="window.__AE.nextWriteTask()">O'tkazish →</button>
         </div>`;
 
@@ -1913,7 +1996,7 @@ const ENGINE = {
         ${this._lessonHeader(l, 'vocabulary')}
 
         <!-- Words (always show) -->
-        <div class="ae-sec"><span>📚</span> So'zlar (${(l.words || []).length})</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-book"></i></span> So'zlar (${(l.words || []).length})</div>
         ${(l.words || []).slice(0, 8).map(v => `
         <div class="ae-vocab">
             <div style="min-width:90px">
@@ -2081,7 +2164,7 @@ const ENGINE = {
         ${cur ? this._renderGrammarItem(cur) : `
         <!-- Contextual use -->
         ${l.contextualUse ? `
-        <div class="ae-sec"><span>📖</span> Kontekstda ishlatish</div>
+        <div class="ae-sec"><span><i class="fa-solid fa-book-open"></i></span> Kontekstda ishlatish</div>
         <div class="ae-passage" style="margin-bottom:12px">${l.contextualUse}</div>
         <button class="ae-audio-btn play" onclick="TTS.speak('${(l.contextualUse || '').replace(/'/g, "\\'")}')">▶ Eshitish</button>` : ''}
         ${l.quickTip ? `<div class="ae-card gold" style="padding:10px;margin-top:10px"><div style="font-size:.65rem;font-weight:800;color:#f5c842;margin-bottom:3px">💡 MASLAHAT</div><div style="font-size:.76rem;color:#aaa">${l.quickTip}</div></div>` : ''}
@@ -2164,6 +2247,15 @@ const ENGINE = {
         if (this.currentLessonId && this.userId) {
             await DB.completeLesson(this.userId, this.currentLessonId, pct, skill, xp, this.langCfg?.name?.toLowerCase());
         }
+
+        // Shaxsiy bazaga yozish — keyingi darslar shu natijaga qarab moslashadi
+        await PROFILE.record(this.userId, this.langCfg?.name?.toLowerCase() || 'english', {
+            skill,
+            score: pct,
+            topic: this.currentLesson?.topic || this.currentLesson?.title || null,
+            mistakes: (this.sessionMistakes || []).slice(-8)
+        });
+        this.sessionMistakes = [];
 
         // Update local skill score (per-language)
         if (this.analysis?.scores?.[skill] !== undefined) {

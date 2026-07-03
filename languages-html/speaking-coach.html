@@ -295,15 +295,15 @@
       { id: 'chinese', code: 'zh', name: '中文', sr: 'zh-CN', tts: 'cmn-CN', col: '#e8b438' }
     ];
     const NATIVES = [
-      { code: 'uz', name: "O'zbek", full: 'Uzbek', tts: 'uz-UZ', col: '#38bdf8' },
-      { code: 'en', name: 'English', full: 'English', tts: 'en-US', col: '#4f6ef7' },
-      { code: 'ru', name: 'Русский', full: 'Russian', tts: 'ru-RU', col: '#e05252' },
-      { code: 'es', name: 'Español', full: 'Spanish', tts: 'es-ES', col: '#f0a832' },
-      { code: 'de', name: 'Deutsch', full: 'German', tts: 'de-DE', col: '#d4a020' },
-      { code: 'tr', name: 'Türkçe', full: 'Turkish', tts: 'tr-TR', col: '#e84040' },
-      { code: 'ar', name: 'العربية', full: 'Arabic', tts: 'ar-XA', col: '#27ae60' },
-      { code: 'ko', name: '한국어', full: 'Korean', tts: 'ko-KR', col: '#a78bfa' },
-      { code: 'zh', name: '中文', full: 'Chinese', tts: 'cmn-CN', col: '#e8b438' }
+      { code: 'uz', name: "O'zbek", full: 'Uzbek', tts: 'uz-UZ', sr: 'uz-UZ', col: '#38bdf8' },
+      { code: 'en', name: 'English', full: 'English', tts: 'en-US', sr: 'en-US', col: '#4f6ef7' },
+      { code: 'ru', name: 'Русский', full: 'Russian', tts: 'ru-RU', sr: 'ru-RU', col: '#e05252' },
+      { code: 'es', name: 'Español', full: 'Spanish', tts: 'es-ES', sr: 'es-ES', col: '#f0a832' },
+      { code: 'de', name: 'Deutsch', full: 'German', tts: 'de-DE', sr: 'de-DE', col: '#d4a020' },
+      { code: 'tr', name: 'Türkçe', full: 'Turkish', tts: 'tr-TR', sr: 'tr-TR', col: '#e84040' },
+      { code: 'ar', name: 'العربية', full: 'Arabic', tts: 'ar-XA', sr: 'ar-SA', col: '#27ae60' },
+      { code: 'ko', name: '한국어', full: 'Korean', tts: 'ko-KR', sr: 'ko-KR', col: '#a78bfa' },
+      { code: 'zh', name: '中文', full: 'Chinese', tts: 'cmn-CN', sr: 'zh-CN', col: '#e8b438' }
     ];
     const FULLNAME = { english: 'English', russian: 'Russian', spanish: 'Spanish', german: 'German', turkish: 'Turkish', arabic: 'Arabic', korean: 'Korean', chinese: 'Chinese' };
 
@@ -344,7 +344,14 @@ CORE RULES (never break these):
       const personas = {
         normal: `PERSONA: Professional, calm, precise teacher. Neutral tone. Correct every real mistake clearly, praise briefly when deserved.`,
         kind: `PERSONA: The warmest, most encouraging teacher ever. Always find something to praise first. Correct mistakes very gently ("Ajoyib urinish! Faqat bitta kichik narsa..."-style, but in ${N}). Use positive energy, motivate constantly.`,
-        strict: `PERSONA: Extremely strict, dramatic drill-sergeant teacher. You scold the student for EVERY mistake, even tiny ones, in ${N} inside the correction field — theatrical phrases like "Shu bilan IELTS olmoqchimisan?! O'ylab gapir!", "Yana shu xato?! Necha marta aytaman?!" (adapt to ${N}). Be harsh and demanding but NEVER use real profanity, slurs or personal insults about identity — only exaggerated teacher-style scolding about the mistakes. After scolding, ALWAYS give the exact correct version and DEMAND they repeat it. If the student speaks well, grudgingly admit it ("Hmm. Yomon emas. Lekin bu yetarli emas!").`
+        strict: `PERSONA: The most brutal, theatrical, drill-sergeant language teacher alive. Your scolding is legendary.
+SCOLDING RULES:
+- Scold EVERY mistake loudly and dramatically in ${N} inside the "correction" field, AND open your "reply" with a short scolding jab too (in the target language or mixed).
+- Use a HUGE rotating arsenal of comedic-harsh insults in ${N} — NEVER repeat the same insult twice in a row, invent endless variations. Style examples (adapt/translate to ${N}): "Ey ahmoq!", "Eshakmisan nima balo?!", "Jinnimisan?!", "Voy mol-ey!", "Miyang ishlayaptimi o'zi?!", "Toshbaqa ham sendan tez o'rganadi!", "Shu bilan IELTS olmoqchimisan?! Kulgim keldi!", "Qulog'ing bormi o'zi?!", "Yana o'sha xato?! Devorga gapirsam ham tushunardi!", "Bunaqada choyxonaga ham ishga olishmaydi!", "Bobom ham sendan yaxshi gapiradi, u umuman o'qimagan!", "Xato ustiga xato — kolleksiya yig'yapsanmi?!", "Sen gapirganda lug'at yig'layapti!", "Google Translate ham sendan uyalyapti!" — and hundreds more in this spirit.
+- ESCALATE: if the SAME mistake repeats, get twice as angry and more theatrical each time.
+- Even when the answer is CORRECT, stay grumpy and hard to please: "Hmm. Bir marta to'g'ri qilding — mo''jiza! Lekin xursand bo'lma, bu boshlanishi!", "Nihoyat! Toshbaqa ham marraga yetdi!"
+- HARD LIMITS (never break): no real profanity or vulgar swearing, no sexual content, no slurs or insults about ethnicity, religion, gender, family members' honor, or disability, no threats. Only comedic teacher-style insults like the examples — harsh but funny, the student chose this mode on purpose.
+- After EVERY scolding, immediately give the exact correct version and DEMAND the student repeat it: "Qani, qaytar! To'g'ri ayt!"`
       };
       return base + '\n' + personas[mode];
     }
@@ -559,12 +566,14 @@ CORE RULES (never break these):
         catch { out = { reply: raw, correction: null, tip: null, score: null }; }
         sess.hist.push({ role: 'assistant', content: JSON.stringify(out) });
 
+        const fixTxt = out.correction ? String(out.correction) : '';
+        const tipTxt = out.tip ? String(out.tip) : '';
         let html = `<div class="bubble">${esc(out.reply)}</div>`;
-        if (out.correction) {
-          html += `<div class="fix-box"><div class="fx-h"><i class="fa-solid fa-wrench"></i> ${L.correction}</div>${esc(out.correction)}</div>`;
-          if (sess.corrections) sess.corrections.push(String(out.correction).slice(0, 120));
+        if (fixTxt) {
+          html += `<div class="fix-box"><div class="fx-h"><i class="fa-solid fa-wrench"></i> ${L.correction} <button class="tool-btn" data-say-fix style="margin-left:auto;float:right"><i class="fa-solid fa-volume-high"></i></button></div>${esc(fixTxt)}</div>`;
+          if (sess.corrections) sess.corrections.push(fixTxt.slice(0, 120));
         }
-        if (out.tip) html += `<div class="tip-box"><div class="tp-h"><i class="fa-solid fa-lightbulb"></i> ${L.tip}</div>${esc(out.tip)}</div>`;
+        if (tipTxt) html += `<div class="tip-box"><div class="tp-h"><i class="fa-solid fa-lightbulb"></i> ${L.tip} <button class="tool-btn" data-say-tip style="margin-left:auto;float:right"><i class="fa-solid fa-volume-high"></i></button></div>${esc(tipTxt)}</div>`;
         if (out.score !== null && out.score !== undefined && !isStart) html += `<span class="score-chip"><i class="fa-solid fa-star"></i> ${out.score}/10</span>`;
         // Matnni onclick ichiga emas, xotiraga saqlaymiz — apostroflar kodni buzmasin
         html += `<div class="bubble-tools">
@@ -576,7 +585,13 @@ CORE RULES (never break these):
         msgEl.querySelectorAll('[data-say]').forEach(btn => {
           btn.addEventListener('click', () => speakText(replyTxt, btn.dataset.say === 'slow'));
         });
-        speakText(replyTxt, false);
+        msgEl.querySelector('[data-say-fix]')?.addEventListener('click', () => speakNative(fixTxt, false));
+        msgEl.querySelector('[data-say-tip]')?.addEventListener('click', () => speakNative(tipTxt, false));
+        // Hammasini ketma-ket o'qib beradi: javob (target ovoz) → tuzatish → maslahat (ona tili ovozi)
+        const seq = [{ text: replyTxt, tts: sel.target.tts, sr: sel.target.sr }];
+        if (fixTxt) seq.push({ text: fixTxt, tts: sel.native.tts, sr: sel.native.sr });
+        if (tipTxt) seq.push({ text: tipTxt, tts: sel.native.tts, sr: sel.native.sr });
+        speakSeq(seq);
       } catch (e) {
         typingEl.remove();
         addMsg('ai', `<div class="bubble" style="color:var(--red)"><i class="fa-solid fa-wifi"></i> ${esc(e.message)}</div>`);
@@ -591,35 +606,63 @@ CORE RULES (never break these):
     }
     window.sendText = function () { const v = $('txtIn').value; $('txtIn').value = ''; sendUser(v); };
 
-    // ── TTS ──
-    function stopAudio() { if (curAudio) { curAudio.pause(); curAudio = null; } speechSynthesis.cancel(); }
-    window.speakText = async function (text, slow) {
-      if (!text) return;
-      stopAudio();
-      try {
-        const r = await fetch(TTS_URL, {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            input: { text },
-            voice: { languageCode: sel.target.tts },
-            audioConfig: { audioEncoding: 'MP3', speakingRate: slow ? 0.65 : 0.95 }
-          })
-        });
-        const d = await r.json();
-        if (d.audioContent) {
-          curAudio = new Audio('data:audio/mp3;base64,' + d.audioContent);
-          curAudio.play();
-          return;
+    // ── TTS (navbat bilan): javob — o'rganilayotgan til ovozida,
+    //    tuzatish/maslahat — ona tili ovozida ketma-ket o'qiladi ──
+    let speakChainId = 0;
+    function stopAudio() {
+      speakChainId++; // davom etayotgan navbatni bekor qiladi
+      if (curAudio) { curAudio.pause(); curAudio = null; }
+      speechSynthesis.cancel();
+    }
+    function speakOne(text, ttsCode, srCode, slow) {
+      return new Promise(async (resolve) => {
+        try {
+          const r = await fetch(TTS_URL, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              input: { text },
+              voice: { languageCode: ttsCode },
+              audioConfig: { audioEncoding: 'MP3', speakingRate: slow ? 0.65 : 0.95 }
+            })
+          });
+          const d = await r.json();
+          if (d.audioContent) {
+            curAudio = new Audio('data:audio/mp3;base64,' + d.audioContent);
+            curAudio.onended = () => resolve();
+            curAudio.onerror = () => resolve();
+            curAudio.play().catch(() => resolve());
+            return;
+          }
+          throw new Error('no audio');
+        } catch {
+          // Brauzer TTS fallback
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = srCode;
+          u.rate = slow ? 0.6 : 0.9;
+          u.onend = () => resolve();
+          u.onerror = () => resolve();
+          speechSynthesis.speak(u);
+          // ba'zi brauzerlarda onend kelmaydi — himoya taymeri
+          setTimeout(resolve, Math.min(30000, 2500 + text.length * 90));
         }
-        throw new Error('no audio');
-      } catch {
-        // Brauzer TTS fallback
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = sel.target.sr;
-        u.rate = slow ? 0.6 : 0.9;
-        speechSynthesis.speak(u);
+      });
+    }
+    async function speakSeq(items) {
+      stopAudio();
+      const id = speakChainId;
+      for (const it of items) {
+        if (id !== speakChainId || !it.text) continue;
+        await speakOne(it.text, it.tts, it.sr, it.slow || false);
       }
+    }
+    window.speakText = function (text, slow) {
+      if (!text) return;
+      speakSeq([{ text, tts: sel.target.tts, sr: sel.target.sr, slow }]);
     };
+    function speakNative(text, slow) {
+      if (!text) return;
+      speakSeq([{ text, tts: sel.native.tts, sr: sel.native.sr, slow }]);
+    }
 
     // ── STT ──
     // Ustuvorlik: GROQ_API_KEY bor bo'lsa Whisper (hamma qurilma/brauzerda ishlaydi),

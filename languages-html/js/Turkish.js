@@ -1,5 +1,5 @@
 // =====================================================
-// Turkish.js — LinguaVerse (100% FIXED VERSION)
+// Turkish.js — SpeakVerse (100% FIXED VERSION)
 // =====================================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -32,7 +32,11 @@ _auth = getAuth(_app);
 _db = getFirestore(_app);
 
 // ── GROQ WORKER PROXY ──
-const AI_PROXY = "https://gentle-hat-d9fa.akromovbehruz7.workers.dev";
+// Xavfsiz: AI so'rovlar endi ochiq worker emas, server funksiyasi orqali (kalit serverda)
+const AI_PROXY = "/.netlify/functions/groq";
+const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
+const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.`;
+
 
 // ══════════════════════════════════════════════════════════════
 // CONFIG
@@ -1087,7 +1091,7 @@ window.selMatch = function (el, type, val) {
 window.aiGrammarExplain = async function (title, rule) {
     const ok = await spendTokens(TOKEN_CONFIG.ai_cost, 'AI grammatika izoh'); if (!ok) return;
     const fb = $id('gramRuleFB'); if (fb) fb.innerHTML = '🤖 AI tahlil qilmoqda...';
-    const r = await callAI(`"${title}" mavzusida "${rule}" Turk grammatika qoidasini O'zbek tilida tushuntir. 3 ta misol keltir.`, 800);
+    const r = await callAI(`"${title}" mavzusida "${rule}" Turk grammatika qoidasini ${NATIVE_LANG} tilida (javob shu tilda bo'lsin) tushuntir. 3 ta misol keltir.`, 800);
     if (fb) fb.innerHTML = r.replace(/\n/g, '<br>');
 };
 
@@ -1096,7 +1100,7 @@ window.aiExWord = async function (word, e) {
     const ok = await spendTokens(TOKEN_CONFIG.ai_cost, `"${word}" AI izoh`); if (!ok) return;
     const fb = $id('vocabAIFB') || $id('wordAIFB');
     if (fb) fb.innerHTML = `🤖 "${word}" tahlil qilmoqda...`;
-    const r = await callAI(`"${word}" Turkcha so'zini O'zbek tilida: 1) Ma'nosi 2) 3 misol 3) Grammatika eslatma`, 600);
+    const r = await callAI(`"${word}" Turkcha so'zini ${NATIVE_LANG} tilida (javob shu tilda bo'lsin): 1) Ma'nosi 2) 3 misol 3) Grammatika eslatma`, 600);
     if (fb) fb.innerHTML = r.replace(/\n/g, '<br>');
 };
 
@@ -1209,7 +1213,7 @@ window.aiChkDict = async function () {
     const inp = $id('dictIn'); const fb = $id('dictFB');
     if (!inp?.value.trim()) { if(fb) fb.innerHTML='<span style="color:#f5c842">Avval yozing!</span>'; return; }
     fb.innerHTML='🤖 AI tahlil qilmoqda...';
-    const r = await callAI(`Diktant tahlili O'zbek tilida:\nAsl: "${dictSent}"\nO'quvchi: "${inp.value.trim()}"\n1) Xatolari 2) Ball: /10 3) Maslahat`,600);
+    const r = await callAI(`Diktant tahlili ${NATIVE_LANG} tilida (javob shu tilda bo'lsin):\nAsl: "${dictSent}"\nO'quvchi: "${inp.value.trim()}"\n1) Xatolari 2) Ball: /10 3) Maslahat`,600);
     fb.innerHTML = r.replace(/\n/g,'<br>');
 };
 window.finLessonB = async function (uid) { await finLesson(uid,'B','listening',lScore,lTotal||3); };
@@ -1390,7 +1394,7 @@ window.aiSpk = async function (idx, topic) {
     if(!text&&man)text=man.value.trim();
     if(!text){if(fb)fb.innerHTML='<span style="color:#f5c842">⚠️ Avval gapiring!</span>';return;}
     if(fb)fb.innerHTML='🤖 Baholayapti...';
-    const r=await callAI(`Speaking baholash. Mavzu: "${topic}" (Turkcha). O'quvchi: "${text}".\nO'zbek tilida: 1) ✅ Yaxshi 2) ❌ Xatolar 3) 🔄 Tuzatilgan 4) ⭐ /10`,700);
+    const r=await callAI(`Speaking baholash. Mavzu: "${topic}" (Turkcha). O'quvchi: "${text}".\n${NATIVE_LANG} tilida (javob shu tilda bo'lsin): 1) ✅ Yaxshi 2) ❌ Xatolar 3) 🔄 Tuzatilgan 4) ⭐ /10`,700);
     if(fb)fb.innerHTML=r.replace(/\n/g,'<br>');
     lScore++;lTotal++;awardXP(20,'speaking');
 };
@@ -1415,7 +1419,7 @@ window.aiWrit = async function (title, words) {
     const ta=$id('dta');const fb=$id('wfb');
     if(!ta?.value.trim()){if(fb)fb.innerHTML='<span style="color:#f5c842">Avval yozing!</span>';return;}
     fb.innerHTML='🤖 Tekshirmoqda...';
-    const r=await callAI(`Turkcha writing tekshirish. Mavzu: "${title}" (so'zlar: ${words}).\nMatn: "${ta.value.trim()}"\nO'zbek tilida: 1) Grammatika 2) Uslub 3) Tuzatilgan variant`,800);
+    const r=await callAI(`Turkcha writing tekshirish. Mavzu: "${title}" (so'zlar: ${words}).\nMatn: "${ta.value.trim()}"\n${NATIVE_LANG} tilida (javob shu tilda bo'lsin): 1) Grammatika 2) Uslub 3) Tuzatilgan variant`,800);
     fb.innerHTML=r.replace(/\n/g,'<br>');awardXP(20,'writing');
 };
 window.finLessonD = async function (uid) { await finLesson(uid,'D','speaking',lScore,lTotal||3); };
@@ -1709,7 +1713,7 @@ window.sendChatMessage = async function () {
     const sendBtn=$id('chatSendBtn'); if(sendBtn)sendBtn.disabled=true;
     try {
         const resp=await fetch(AI_PROXY,{method:'POST',headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({contents:[{role:'user',parts:[{text:curChatMode.sys}]},...chatHist.slice(-10)],generationConfig:{temperature:0.8,maxOutputTokens:1000}})});
+            body:JSON.stringify({contents:[{role:'user',parts:[{text:curChatMode.sys+LANG_RULES}]},...chatHist.slice(-10)],generationConfig:{temperature:0.8,maxOutputTokens:1000}})});
         const tb=$id(typingId); if(tb)tb.remove();
         if(!resp.ok){appendChat('assistant',`❗ AI xatolik: ${resp.status}`,false);return;}
         const d=await resp.json();

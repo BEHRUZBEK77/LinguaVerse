@@ -1,4 +1,4 @@
-// =====================================================// German.js — LinguaVerse Deutsch (FIXED VERSION)
+// =====================================================// German.js — SpeakVerse Deutsch (FIXED VERSION)
 // =====================================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -30,7 +30,11 @@ try {
 _auth = getAuth(_app);
 _db = getFirestore(_app);
 
-const AI_PROXY = "https://gentle-hat-d9fa.akromovbehruz7.workers.dev";
+// Xavfsiz: AI so'rovlar endi ochiq worker emas, server funksiyasi orqali (kalit serverda)
+const AI_PROXY = "/.netlify/functions/groq";
+const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
+const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.`;
+
 
 // ══════════════════════════════════════════════════════════════
 // TOKEN CONFIG
@@ -1862,7 +1866,7 @@ window.sendChat = async function () {
             : 'Du bist ein freundlicher Deutschlehrer. Hilf dem Benutzer, Deutsch zu lernen. Antworte auf Usbekisch und Deutsch.';
 
     const histForAI = chatHist.slice(-10).map(m => `${m.role === 'user' ? 'Benutzer' : 'Assistent'}: ${m.content}`).join('\n');
-    const fullPrompt = `${sysPrompt}\n\n${histForAI}`;
+    const fullPrompt = `${sysPrompt}${LANG_RULES}\n\n${histForAI}`;
 
     const reply = await callAI(fullPrompt);
     chatHist.push({ role: 'assistant', content: reply });

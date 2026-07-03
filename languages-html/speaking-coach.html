@@ -614,15 +614,51 @@ SCOLDING RULES:
       if (curAudio) { curAudio.pause(); curAudio = null; }
       speechSynthesis.cancel();
     }
+    // O'zbekcha ovoz na Google TTS'da, na aksariyat brauzerlarda bor.
+    // Yechim: matnni turkcha imloga o'girib (sh→ş, ch→ç, q→k, x→h, j→c, o'→o, g'→ğ)
+    // sifatli TURK ovozi bilan o'qitamiz — o'zbekchaga fonetik eng yaqin til.
+    function uzToTr(t) {
+      return t
+        .replace(/O[''ʻʼ`‘’]/g, 'O').replace(/o[''ʻʼ`‘’]/g, 'o')
+        .replace(/G[''ʻʼ`‘’]/g, 'Ğ').replace(/g[''ʻʼ`‘’]/g, 'ğ')
+        .replace(/SH|Sh/g, 'Ş').replace(/sh/g, 'ş')
+        .replace(/CH|Ch/g, 'Ç').replace(/ch/g, 'ç')
+        .replace(/X/g, 'H').replace(/x/g, 'h')
+        .replace(/Q/g, 'K').replace(/q/g, 'k')
+        .replace(/J/g, 'C').replace(/j/g, 'c')
+        .replace(/[''ʻʼ`‘’]/g, '');
+    }
+    // Brauzer ovozlar ro'yxatini oldindan uyg'otib qo'yamiz
+    try { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); } catch { }
+
     function speakOne(text, ttsCode, srCode, slow) {
       return new Promise(async (resolve) => {
+        let uzViaTr = false;
+        if (ttsCode === 'uz-UZ') {
+          // Qurilmada haqiqiy o'zbek ovozi bo'lsa — o'shani ishlatamiz
+          let uzVoice = null;
+          try { uzVoice = speechSynthesis.getVoices().find(v => (v.lang || '').toLowerCase().startsWith('uz')); } catch { }
+          if (uzVoice) {
+            const u = new SpeechSynthesisUtterance(text);
+            u.voice = uzVoice; u.lang = uzVoice.lang;
+            u.rate = slow ? 0.6 : 0.9;
+            u.onend = () => resolve(); u.onerror = () => resolve();
+            speechSynthesis.speak(u);
+            setTimeout(resolve, Math.min(30000, 2500 + text.length * 90));
+            return;
+          }
+          // Yo'q bo'lsa — turkcha transliteratsiya + turk ovozi
+          text = uzToTr(text);
+          ttsCode = 'tr-TR'; srCode = 'tr-TR'; uzViaTr = true;
+        }
         try {
           const r = await fetch(TTS_URL, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               input: { text },
               voice: { languageCode: ttsCode },
-              audioConfig: { audioEncoding: 'MP3', speakingRate: slow ? 0.65 : 0.95 }
+              // o'zbekcha matn turk ovozida biroz sekinroq aniqroq eshitiladi
+              audioConfig: { audioEncoding: 'MP3', speakingRate: slow ? 0.65 : (uzViaTr ? 0.88 : 0.95) }
             })
           });
           const d = await r.json();
@@ -638,7 +674,7 @@ SCOLDING RULES:
           // Brauzer TTS fallback
           const u = new SpeechSynthesisUtterance(text);
           u.lang = srCode;
-          u.rate = slow ? 0.6 : 0.9;
+          u.rate = slow ? 0.6 : (uzViaTr ? 0.85 : 0.9);
           u.onend = () => resolve();
           u.onerror = () => resolve();
           speechSynthesis.speak(u);

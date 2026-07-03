@@ -63,7 +63,18 @@
     .result { margin-top: 14px; font-size: 0.83rem; line-height: 1.6; }
     .toast-wrap { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 400; }
     .toast { display: flex; align-items: center; gap: 9px; background: var(--surface); border: 1px solid var(--border); border-radius: 13px; padding: 11px 18px; font-size: 0.82rem; font-weight: 600; box-shadow: 0 14px 40px rgba(0,0,0,0.5); margin-top: 8px; }
-  </style>
+  
+    /* ── FONT AWESOME FIX: universal reset ::before shriftini buzmasligi uchun ── */
+    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
+    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before {
+      font-family: "Font Awesome 6 Free" !important;
+    }
+    .fa-brands, .fab, .fa-brands::before, .fab::before {
+      font-family: "Font Awesome 6 Brands" !important;
+    }
+    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
+  
+</style>
 </head>
 
 <body>

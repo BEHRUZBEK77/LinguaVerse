@@ -565,13 +565,17 @@ CORE RULES (never break these):
         }
         if (out.tip) html += `<div class="tip-box"><div class="tp-h"><i class="fa-solid fa-lightbulb"></i> ${L.tip}</div>${esc(out.tip)}</div>`;
         if (out.score !== null && out.score !== undefined && !isStart) html += `<span class="score-chip"><i class="fa-solid fa-star"></i> ${out.score}/10</span>`;
-        const safeTxt = encodeURIComponent(out.reply || '');
+        // Matnni onclick ichiga emas, xotiraga saqlaymiz — apostroflar kodni buzmasin
         html += `<div class="bubble-tools">
-          <button class="tool-btn" onclick="speakText(decodeURIComponent('${safeTxt}'),false)"><i class="fa-solid fa-volume-high"></i> ${L.replay}</button>
-          <button class="tool-btn" onclick="speakText(decodeURIComponent('${safeTxt}'),true)"><i class="fa-solid fa-gauge-simple"></i> ${L.slow}</button>
+          <button class="tool-btn" data-say="normal"><i class="fa-solid fa-volume-high"></i> ${L.replay}</button>
+          <button class="tool-btn" data-say="slow"><i class="fa-solid fa-gauge-simple"></i> ${L.slow}</button>
         </div>`;
-        addMsg('ai', html);
-        speakText(out.reply, false);
+        const msgEl = addMsg('ai', html);
+        const replyTxt = out.reply || '';
+        msgEl.querySelectorAll('[data-say]').forEach(btn => {
+          btn.addEventListener('click', () => speakText(replyTxt, btn.dataset.say === 'slow'));
+        });
+        speakText(replyTxt, false);
       } catch (e) {
         typingEl.remove();
         addMsg('ai', `<div class="bubble" style="color:var(--red)"><i class="fa-solid fa-wifi"></i> ${esc(e.message)}</div>`);

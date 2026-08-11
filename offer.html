@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaVerse — Ommaviy oferta shartlari</title>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/lv-theme.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+    :root {
+      --bg: #04060f; --surface: #0b0f1e; --surface2: #111629;
+      --border: rgba(255,255,255,0.07); --accent: #4f6ef7; --accent2: #a78bfa;
+      --gold: #f5c842; --green: #34d399; --red: #f87171;
+      --text: #e8ecff; --muted: #7580a8;
+    }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(79,110,247,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79,110,247,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; height: 62px; background: rgba(4,6,15,0.8); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.2rem; font-weight: 800; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 600; padding: 7px 13px; border-radius: 10px; transition: all .2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--text); background: var(--surface); }
+
+    .wrap { position: relative; max-width: 860px; margin: 0 auto; padding: 40px 18px 100px; }
+    .head { text-align: center; margin-bottom: 30px; }
+    .head h1 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); font-weight: 800; margin-bottom: 8px; }
+    .head h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .head p { color: var(--muted); font-size: 0.85rem; }
+
+    .updated { text-align: center; font-size: 0.75rem; color: var(--muted); margin-bottom: 30px; }
+    .updated b { color: var(--text); }
+
+    .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; margin-bottom: 30px; }
+    .toc-title { font-size: 0.8rem; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
+    .toc ol { padding-left: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px 16px; }
+    .toc a { color: var(--text); text-decoration: none; font-size: 0.82rem; }
+    .toc a:hover { color: var(--accent); }
+
+    .sec { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 24px 26px; margin-bottom: 16px; scroll-margin-top: 80px; }
+    .sec h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .sec h2 .num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 8px; background: rgba(79,110,247,0.15); color: var(--accent); font-size: 0.78rem; flex-shrink: 0; }
+    .sec p, .sec li { font-size: 0.87rem; line-height: 1.7; color: #c3c9e8; margin-bottom: 8px; }
+    .sec ul, .sec ol { padding-left: 20px; margin-bottom: 8px; }
+    .sec b { color: var(--text); }
+    .sec .note { background: rgba(79,110,247,0.08); border: 1px solid rgba(79,110,247,0.2); border-radius: 10px; padding: 10px 14px; font-size: 0.8rem; color: var(--muted); margin-top: 10px; }
+    .sec .warn { background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.25); border-radius: 10px; padding: 10px 14px; font-size: 0.8rem; color: #fca5a5; margin-top: 10px; }
+    .fillme { color: var(--gold); font-weight: 700; }
+
+    .req-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin-top: 10px; }
+    .req-row { display: flex; justify-content: space-between; gap: 14px; padding: 7px 0; border-bottom: 1px dashed var(--border); font-size: 0.82rem; }
+    .req-row:last-child { border-bottom: none; }
+    .req-row span:first-child { color: var(--muted); }
+    .req-row span:last-child { color: var(--text); font-weight: 600; text-align: right; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 12px; }
+    .contact-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 10px; }
+    .contact-card i { color: var(--accent); font-size: 1.1rem; }
+    .contact-card a { color: var(--text); text-decoration: none; font-size: 0.83rem; font-weight: 600; }
+    .contact-card small { display: block; color: var(--muted); font-size: 0.7rem; }
+
+    .back-top { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--accent); text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,.4); z-index: 90; }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" class="logo">Lingua<span>Verse</span></a>
+    <div class="nav-links">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
+      <a href="order.html"><i class="fa-solid fa-credit-card"></i> Rejalar</a>
+      <a href="languages-html/profile.html"><i class="fa-solid fa-user"></i> Profil</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="head">
+      <h1>Ommaviy <span>oferta</span> shartlari</h1>
+      <p>LinguaVerse xizmatlaridan foydalanish va to'lov shartlari</p>
+    </div>
+    <div class="updated">Kuchga kirgan sana: <b id="effDate">—</b> · Oxirgi yangilanish: <b id="updDate">—</b></div>
+
+    <div class="toc">
+      <div class="toc-title"><i class="fa-solid fa-list"></i> Mundarija</div>
+      <ol>
+        <li><a href="#s1">Umumiy qoidalar</a></li>
+        <li><a href="#s2">Atamalar</a></li>
+        <li><a href="#s3">Oferta predmeti</a></li>
+        <li><a href="#s4">Ro'yxatdan o'tish va akkaunt</a></li>
+        <li><a href="#s5">Tariflar va narxlar</a></li>
+        <li><a href="#s6">To'lov tartibi</a></li>
+        <li><a href="#s7">Avto-to'lov (obuna)</a></li>
+        <li><a href="#s8">Pul qaytarish siyosati</a></li>
+        <li><a href="#s9">Tomonlarning huquq va majburiyatlari</a></li>
+        <li><a href="#s10">Foydalanishni cheklash</a></li>
+        <li><a href="#s11">Intellektual mulk</a></li>
+        <li><a href="#s12">Maxfiylik va shaxsiy ma'lumotlar</a></li>
+        <li><a href="#s13">Javobgarlikni cheklash</a></li>
+        <li><a href="#s14">Nizolarni hal qilish</a></li>
+        <li><a href="#s15">Oferta muddati va o'zgartirish</a></li>
+        <li><a href="#s16">Aloqa</a></li>
+      </ol>
+    </div>
+
+    <div class="sec" id="s1">
+      <h2><span class="num">1</span> Umumiy qoidalar</h2>
+      <p>Ushbu hujjat O'zbekiston Respublikasi Fuqarolik kodeksining 369-moddasiga muvofiq ommaviy oferta (taklif) hisoblanadi va <b>LinguaVerse</b> (keyingi o'rinlarda — <b>"Xizmat ko'rsatuvchi"</b> yoki <b>"LinguaVerse"</b>) tomonidan cheklanmagan doiradagi shaxslarga, LinguaVerse platformasi (linguaverse.uz, keyingi o'rinlarda — <b>"Platforma"</b>) orqali xizmatlardan foydalanish shartlarini belgilash maqsadida taqdim etiladi.</p>
+      <p>Platformadan ro'yxatdan o'tish, pullik tarifga o'tish yoki to'lov amalga oshirish orqali Foydalanuvchi ushbu Oferta shartlarini to'liq va so'zsiz qabul qiladi (aksept qiladi). Bu O'zbekiston Respublikasi Fuqarolik kodeksining 372-moddasiga muvofiq yozma shartnoma tuzilgan hisoblanadi.</p>
+      <div class="note"><i class="fa-solid fa-circle-info"></i> Agar Foydalanuvchi ushbu shartlarning biror bandiga rozi bo'lmasa, u Platformadan foydalanmasligi va pullik xizmatlarga buyurtma bermasligi lozim.</div>
+    </div>
+
+    <div class="sec" id="s2">
+      <h2><span class="num">2</span> Atamalar</h2>
+      <ul>
+        <li><b>Platforma</b> — LinguaVerse veb-sayti, mobil interfeysi va unga tegishli barcha dasturiy vositalar (AI-yordamchi, Speaking Coach, 3D dunyo, do'kon va h.k.).</li>
+        <li><b>Foydalanuvchi</b> — Platformada ro'yxatdan o'tgan yoki undan foydalanayotgan jismoniy shaxs.</li>
+        <li><b>Xizmatlar</b> — til o'rganish uchun taqdim etiladigan barcha funksiyalar: AI suhbat, talaffuz bahosi, video/audio darslar, coin va XP tizimi, do'kon mahsulotlari.</li>
+        <li><b>Tarif (Reja)</b> — Bepul, NOVA, MEGA yoki PREMIUM darajalaridan biri, har birining o'z limit va imkoniyatlari bilan.</li>
+        <li><b>Obuna davri</b> — Foydalanuvchi tanlagan to'lov muddati: kunlik, oylik, 3 oylik, 6 oylik yoki yillik.</li>
+        <li><b>To'lov tizimi</b> — inPAY.uz va unga bog'liq to'lov usullari (Payme, Click, UzCard/Humo va boshqalar).</li>
+      </ul>
+    </div>
+
+    <div class="sec" id="s3">
+      <h2><span class="num">3</span> Oferta predmeti</h2>
+      <p>Xizmat ko'rsatuvchi Foydalanuvchiga Platforma orqali chet tillarini o'rganish bo'yicha raqamli xizmatlarni (sun'iy intellekt yordamida suhbat, talaffuz mashqlari, interaktiv darslar, o'yin elementlari) taqdim etadi. Xizmatlar bepul (cheklangan funksiyalar bilan) yoki pullik tarif (kengaytirilgan funksiyalar bilan) asosida ko'rsatiladi.</p>
+      <p>Xizmatlar faqat raqamli shaklda, internet orqali taqdim etiladi. Jismoniy mahsulot yetkazib berilmaydi.</p>
+    </div>
+
+    <div class="sec" id="s4">
+      <h2><span class="num">4</span> Ro'yxatdan o'tish va akkaunt</h2>
+      <ul>
+        <li>Platformadan to'liq foydalanish uchun Foydalanuvchi elektron pochta orqali ro'yxatdan o'tishi shart.</li>
+        <li>Foydalanuvchi ro'yxatdan o'tishda ko'rsatgan ma'lumotlarning to'g'riligi uchun mustaqil javobgardir.</li>
+        <li>Akkaunt login va parolining maxfiyligini saqlash Foydalanuvchi zimmasida. Akkaunt orqali amalga oshirilgan barcha harakatlar Foydalanuvchining o'zi tomonidan amalga oshirilgan deb hisoblanadi.</li>
+        <li>18 yoshga to'lmagan shaxslar Platformadan ota-ona yoki qonuniy vakilning roziligi bilan foydalanishi tavsiya etiladi.</li>
+        <li>Bir shaxs faqat bitta akkaunt yaratishi mumkin. Ko'plab akkauntlar orqali bonus yoki chegirmalarni suiiste'mol qilish aniqlansa, akkaunt bloklanishi mumkin.</li>
+      </ul>
+    </div>
+
+    <div class="sec" id="s5">
+      <h2><span class="num">5</span> Tariflar va narxlar</h2>
+      <p>Platformada quyidagi tariflar mavjud: <b>Bepul</b>, <b>NOVA</b>, <b>MEGA</b>, <b>PREMIUM</b>. Har bir tarifning kunlik/oylik limitlari, narxlari va imkoniyatlari <a href="order.html" style="color:var(--accent)">Rejalar sahifasida</a> ko'rsatilgan bo'lib, ular Oferta ajralmas qismi hisoblanadi.</p>
+      <p>Har bir tarif quyidagi obuna davrlarida sotib olinishi mumkin:</p>
+      <ul>
+        <li><b>Kunlik</b> — 1 kun amal qiladi;</li>
+        <li><b>Oylik</b> — 30 kun amal qiladi (bazaviy narx);</li>
+        <li><b>3 oylik</b> — 90 kun amal qiladi, 5% chegirma bilan;</li>
+        <li><b>6 oylik</b> — 180 kun amal qiladi, 10% chegirma bilan;</li>
+        <li><b>Yillik</b> — 365 kun amal qiladi, 20% chegirma bilan.</li>
+      </ul>
+      <p>Narxlar so'mda (UZS) ko'rsatiladi va QQS (agar tegishli bo'lsa) narxga kiritilgan. Xizmat ko'rsatuvchi narxlarni istalgan vaqtda o'zgartirish huquqiga ega, biroq allaqachon to'langan va faol obuna narxi obuna muddati tugagunga qadar o'zgarmaydi.</p>
+      <div class="note"><i class="fa-solid fa-clock"></i> Obuna muddati to'lov amalga oshirilgan aniq sana va soatdan boshlab hisoblanadi (masalan, kunlik tarif to'lovdan 24 soat o'tgach tugaydi). Amaldagi muddat "Profil" sahifasida sana va soatigacha ko'rsatiladi.</div>
+    </div>
+
+    <div class="sec" id="s6">
+      <h2><span class="num">6</span> To'lov tartibi</h2>
+      <ol>
+        <li>Foydalanuvchi tarif va obuna davrini tanlaydi, so'ng to'lov usulini tanlaydi: <b>karta orqali darhol to'lash</b> (inPAY.uz orqali) yoki <b>chek yuklab, qo'lda tasdiqlash</b>.</li>
+        <li>Karta orqali to'lovda mablag' inPAY.uz to'lov tizimi orqali yechiladi, Xizmat ko'rsatuvchi karta ma'lumotlarini (raqam, CVV va h.k.) saqlamaydi va ularga kirish huquqiga ega emas.</li>
+        <li>To'lov muvaffaqiyatli amalga oshgach, tanlangan tarif avtomatik va darhol faollashtiriladi.</li>
+        <li>Chek yuklab to'lash usulida — Foydalanuvchi bank chekini yuklaydi, Xizmat ko'rsatuvchi vakili 24 soat ichida to'lovni tekshirib, tarifni qo'lda faollashtiradi.</li>
+        <li>Barcha to'lovlar O'zbekiston Respublikasi so'mida (UZS) amalga oshiriladi.</li>
+      </ol>
+      <div class="warn"><i class="fa-solid fa-triangle-exclamation"></i> Noto'g'ri yoki soxta chek yuklash, shuningdek to'lov summasini o'zgartirishga urinish — akkauntni doimiy bloklashga sabab bo'lishi mumkin.</div>
+    </div>
+
+    <div class="sec" id="s7">
+      <h2><span class="num">7</span> Avto-to'lov (obuna)</h2>
+      <ul>
+        <li>Foydalanuvchi to'lov paytida "Avto-to'lovni yoqish" funksiyasini alohida yoqishi mumkin — bu majburiy emas va faqat aniq roziligi bilan faollashadi.</li>
+        <li>Avto-to'lov yoqilgan bo'lsa, tanlangan obuna davri tugashi bilan karta orqali avtomatik ravishda xuddi shu summa yechiladi va tarif avtomatik uzaytiriladi.</li>
+        <li>Foydalanuvchi avto-to'lovni istalgan vaqtda, hech qanday sabab ko'rsatmasdan, Profil sahifasidan bir bosishda o'chirishi mumkin.</li>
+        <li>Ketma-ket 2 marta pul yechib bo'lmasa, avto-to'lov avtomatik o'chiriladi va Foydalanuvchiga xabar beriladi.</li>
+        <li>Karta raqami saqlanmaydi — faqat to'lov tizimi tomonidan berilgan token va kartaning oxirgi 4 raqami saqlanadi.</li>
+      </ul>
+    </div>
+
+    <div class="sec" id="s8">
+      <h2><span class="num">8</span> Pul qaytarish siyosati</h2>
+      <ul>
+        <li>Xizmat raqamli mahsulot bo'lgani va foydalanish boshlangandan so'ng qaytarib bo'lmasligi sababli, <b>tarif faollashtirilgandan keyin</b> to'langan mablag' odatiy holatda qaytarilmaydi.</li>
+        <li>Agar to'lov texnik xatolik natijasida ikki marta yechilgan bo'lsa yoki tarif to'lovdan keyin <b>24 soat ichida faollashtirilmagan</b> bo'lsa, Foydalanuvchi to'liq pul qaytarishni so'rash huquqiga ega.</li>
+        <li>Pul qaytarish so'rovlari <a href="https://t.me/Akromov141" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">@Akromov141</a> Telegram orqali yuboriladi va 5 ish kuni ichida ko'rib chiqiladi.</li>
+        <li>Qaytarish faqat to'lov qilingan xuddi shu usul (karta/hamyon) orqali amalga oshiriladi.</li>
+      </ul>
+    </div>
+
+    <div class="sec" id="s9">
+      <h2><span class="num">9</span> Tomonlarning huquq va majburiyatlari</h2>
+      <p><b>Xizmat ko'rsatuvchi majburiyatlari:</b></p>
+      <ul>
+        <li>Tanlangan tarifga mos xizmatlarni sifatli va uzluksiz taqdim etish;</li>
+        <li>Foydalanuvchi shaxsiy ma'lumotlarining maxfiyligini ta'minlash;</li>
+        <li>Texnik nosozliklarni imkon qadar tezroq bartaraf etish.</li>
+      </ul>
+      <p><b>Foydalanuvchi majburiyatlari:</b></p>
+      <ul>
+        <li>Ro'yxatdan o'tishda haqiqiy ma'lumot berish;</li>
+        <li>Platformadan qonuniy maqsadlarda foydalanish;</li>
+        <li>Akkauntining xavfsizligini ta'minlash;</li>
+        <li>Boshqa foydalanuvchilar yoki Xizmat ko'rsatuvchiga zarar yetkazadigan harakatlardan tiyilish.</li>
+      </ul>
+    </div>
+
+    <div class="sec" id="s10">
+      <h2><span class="num">10</span> Foydalanishni cheklash</h2>
+      <p>Xizmat ko'rsatuvchi quyidagi hollarda Foydalanuvchi akkauntini vaqtincha yoki butunlay bloklash huquqini o'zida saqlab qoladi:</p>
+      <ul>
+        <li>Platforma tizimlariga ruxsatsiz kirish yoki ularni buzishga urinish;</li>
+        <li>Soxta to'lov cheklarini yuklash;</li>
+        <li>AI xizmatlaridan qonunga zid yoki zararli kontent yaratish uchun foydalanish;</li>
+        <li>Bir nechta akkaunt orqali bonus tizimini suiiste'mol qilish;</li>
+        <li>Ushbu Oferta shartlarini boshqa tarzda buzish.</li>
+      </ul>
+      <p>Bloklash sabab ko'rsatilmagan pullik obuna balansini avtomatik qaytarishga majburiyat yaratmaydi, agar ushbu bandda ko'rsatilgan buzilish sabab bo'lsa.</p>
+    </div>
+
+    <div class="sec" id="s11">
+      <h2><span class="num">11</span> Intellektual mulk</h2>
+      <p>Platformaning barcha dizayni, kodi, matnlari, AI-modellari konfiguratsiyasi va boshqa kontenti Xizmat ko'rsatuvchiga yoki uning litsenziyaga ega ta'minotchilariga tegishli. Foydalanuvchi Platforma kontentini Xizmat ko'rsatuvchining yozma roziligisiz nusxalash, tarqatish yoki tijorat maqsadida ishlatishga haqli emas.</p>
+    </div>
+
+    <div class="sec" id="s12">
+      <h2><span class="num">12</span> Maxfiylik va shaxsiy ma'lumotlar</h2>
+      <p>Foydalanuvchining shaxsiy ma'lumotlari (ism, elektron pochta, to'lov tarixi) "Shaxsiy ma'lumotlar to'g'risida"gi O'zbekiston Respublikasi qonunchiligiga muvofiq qayta ishlanadi va uchinchi shaxslarga, qonunda belgilangan holatlar bundan mustasno, oshkor qilinmaydi.</p>
+      <p>Karta ma'lumotlari (to'liq raqam, CVV) Xizmat ko'rsatuvchi tizimida umuman saqlanmaydi — bu ma'lumotlar faqat litsenziyalangan to'lov tizimi (inPAY.uz) tomonidan qayta ishlanadi.</p>
+    </div>
+
+    <div class="sec" id="s13">
+      <h2><span class="num">13</span> Javobgarlikni cheklash</h2>
+      <ul>
+        <li>Xizmat ko'rsatuvchi Foydalanuvchi internet aloqasi, uskunasi yoki uchinchi tomon xizmatlari (to'lov tizimlari, Firebase, va h.k.) ishidagi uzilishlar natijasida yuzaga kelgan noqulayliklar uchun javobgar emas.</li>
+        <li>AI tomonidan berilgan javoblar ta'lim maqsadida yordamchi vosita hisoblanadi va 100% xatosiz bo'lishi kafolatlanmaydi.</li>
+        <li>Xizmat ko'rsatuvchining umumiy javobgarligi har qanday holatda ham Foydalanuvchi so'nggi 3 oy ichida to'lagan summadan oshmaydi.</li>
+      </ul>
+    </div>
+
+    <div class="sec" id="s14">
+      <h2><span class="num">14</span> Nizolarni hal qilish</h2>
+      <p>Tomonlar o'rtasida kelib chiqadigan barcha nizolar avval muzokaralar yo'li bilan hal etilishga harakat qilinadi. Kelishuvga erishilmagan taqdirda, nizo O'zbekiston Respublikasining amaldagi qonunchiligiga muvofiq sud tartibida hal qilinadi.</p>
+    </div>
+
+    <div class="sec" id="s15">
+      <h2><span class="num">15</span> Oferta muddati va o'zgartirish</h2>
+      <p>Ushbu Oferta cheksiz muddatga amal qiladi. Xizmat ko'rsatuvchi Oferta shartlarini bir tomonlama tartibda o'zgartirish huquqiga ega — o'zgarishlar Platformada e'lon qilingan kundan boshlab kuchga kiradi. Foydalanuvchining Platformadan o'zgarishlardan keyin foydalanishni davom ettirishi yangi shartlarni qabul qilgani hisoblanadi.</p>
+    </div>
+
+    <div class="sec" id="s16">
+      <h2><span class="num">16</span> Aloqa</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fa-brands fa-telegram"></i>
+          <div><a href="https://t.me/Akromov141" target="_blank" rel="noopener noreferrer">@Akromov141</a><small>Telegram — qo'llab-quvvatlash</small></div>
+        </div>
+        <div class="contact-card">
+          <i class="fa-solid fa-globe"></i>
+          <div><a href="https://linguaverse.uz">linguaverse.uz</a><small>Veb-sayt</small></div>
+        </div>
+      </div>
+      <p style="margin-top:14px">Barcha savol, shikoyat va pul qaytarish so'rovlari yuqoridagi Telegram orqali yuboriladi va imkon qadar tezroq ko'rib chiqiladi. Shuningdek, Platforma ichidagi <a href="../order.html#support" style="color:var(--accent)">Support bo'limi</a> orqali ham murojaat qoldirishingiz mumkin.</p>
+    </div>
+
+  </div>
+
+  <a href="#" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Sanani avtomatik ko'rsatish — bu yerni birinchi joylashtirilgan sanaga qattiq yozib qo'yish tavsiya etiladi
+    document.getElementById('effDate').textContent = '09.08.2026';
+    document.getElementById('updDate').textContent = new Date().toLocaleDateString('uz-UZ', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  </script>
+</body>
+</html>

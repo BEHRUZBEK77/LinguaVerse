@@ -1,0 +1,2587 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>LinguaVerse â€” æ±‰è¯­è¯¾ç¨‹</title>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #020408;
+            --bg2: #040810;
+            --bg3: #080d1a;
+            --bg4: #0c1224;
+            --accent: #e63946;
+            --accent2: #ff6b6b;
+            --gold: #f5c842;
+            --gold2: #e8a800;
+            --green: #34d399;
+            --red: #f87171;
+            --orange: #fb923c;
+            --pink: #f472b6;
+            --cyan: #22d3ee;
+            --text: #eef0ff;
+            --text2: #a8b0d0;
+            --text3: #5a6288;
+            --border: rgba(255, 255, 255, .06);
+            --font-display: 'Cinzel', serif;
+            --font-head: 'Exo 2', sans-serif;
+            --font-body: 'Rajdhani', sans-serif
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            overflow-x: hidden
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .28
+        }
+
+        /* NAV */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(2, 4, 8, .97);
+            backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(230, 57, 70, .12);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: .06em
+        }
+
+        .nav-logo span {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 4px;
+            flex: 1;
+            justify-content: center
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            color: var(--text2);
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            transition: all .2s
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, .06);
+            color: var(--text)
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .nav-stat {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 5px 14px;
+            font-family: var(--font-head);
+            font-size: .8rem;
+            font-weight: 800;
+            white-space: nowrap
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            cursor: pointer;
+            gap: 5px;
+            flex-shrink: 0;
+            transition: background .2s;
+            -webkit-tap-highlight-color: transparent;
+            padding: 0
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, .12)
+        }
+
+        .hamburger span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: var(--text2);
+            border-radius: 2px;
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1), opacity .25s ease
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg)
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0)
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg)
+        }
+
+        /* MOBILE DRAWER */
+        .mobile-drawer {
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            pointer-events: none
+        }
+
+        .drawer-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(2, 4, 8, .85);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity .35s
+        }
+
+        .drawer-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 280px;
+            max-width: 85vw;
+            background: #080d1a;
+            border-left: 1px solid rgba(230, 57, 70, .15);
+            transform: translateX(100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .mobile-drawer.open {
+            pointer-events: auto
+        }
+
+        .mobile-drawer.open .drawer-backdrop {
+            opacity: 1
+        }
+
+        .mobile-drawer.open .drawer-panel {
+            transform: translateX(0)
+        }
+
+        .drawer-head {
+            padding: 20px 20px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0
+        }
+
+        .drawer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 900;
+            color: #eef0ff;
+            text-decoration: none;
+            letter-spacing: .06em
+        }
+
+        .drawer-logo span {
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .drawer-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .08);
+            color: #a8b0d0;
+            cursor: pointer;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s
+        }
+
+        .drawer-close:hover {
+            background: rgba(255, 255, 255, .14);
+            color: #eef0ff
+        }
+
+        .drawer-user {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .drawer-user-name {
+            font-family: 'Exo 2', sans-serif;
+            font-size: .88rem;
+            font-weight: 700;
+            color: #eef0ff
+        }
+
+        .drawer-stats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .drawer-stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .06);
+            font-family: 'Exo 2', sans-serif;
+            font-size: .72rem;
+            font-weight: 700;
+            color: #a8b0d0
+        }
+
+        .drawer-nav {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1
+        }
+
+        .drawer-nav-label {
+            font-family: 'Exo 2', sans-serif;
+            font-size: .6rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #5a6288;
+            padding: 8px 8px 4px
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            font-family: 'Exo 2', sans-serif;
+            font-size: .82rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #a8b0d0;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all .2s;
+            letter-spacing: .02em;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .drawer-link i {
+            width: 18px;
+            text-align: center;
+            font-size: .9rem
+        }
+
+        .drawer-link:hover,
+        .drawer-link.active {
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .2);
+            color: #eef0ff
+        }
+
+        .drawer-link.gold:hover,
+        .drawer-link.gold.active {
+            background: rgba(245, 200, 66, .1);
+            border-color: rgba(245, 200, 66, .2);
+            color: #f5c842
+        }
+
+        .drawer-link.green:hover,
+        .drawer-link.green.active {
+            background: rgba(52, 211, 153, .1);
+            border-color: rgba(52, 211, 153, .2);
+            color: #34d399
+        }
+
+        .drawer-link.pink:hover,
+        .drawer-link.pink.active {
+            background: rgba(244, 114, 182, .1);
+            border-color: rgba(244, 114, 182, .2);
+            color: #f472b6
+        }
+
+        .drawer-upgrade {
+            margin: 12px;
+            padding: 16px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(230, 57, 70, .15), rgba(255, 107, 107, .15));
+            border: 1px solid rgba(230, 57, 70, .25);
+            text-align: center;
+            flex-shrink: 0
+        }
+
+        .drawer-upgrade-title {
+            font-family: 'Cinzel', serif;
+            font-size: .82rem;
+            font-weight: 700;
+            color: #eef0ff;
+            letter-spacing: .04em;
+            margin-bottom: 8px
+        }
+
+        .drawer-upgrade-btn {
+            width: 100%;
+            padding: 9px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #e63946, #ff6b6b);
+            border: none;
+            color: #fff;
+            font-family: 'Exo 2', sans-serif;
+            font-size: .78rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em
+        }
+
+        /* SITE STRIP */
+        .site-strip {
+            position: sticky;
+            top: 64px;
+            z-index: 199;
+            background: rgba(2, 4, 8, .96);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 7px 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none
+        }
+
+        .site-strip::-webkit-scrollbar {
+            display: none
+        }
+
+        .strip-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .73rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            white-space: nowrap;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .04);
+            color: var(--text2);
+            transition: all .2s;
+            letter-spacing: .02em
+        }
+
+        .strip-btn:hover {
+            background: rgba(255, 255, 255, .09);
+            color: var(--text)
+        }
+
+        .strip-btn.accent {
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .3);
+            color: var(--accent2)
+        }
+
+        .strip-btn.green {
+            background: rgba(52, 211, 153, .1);
+            border-color: rgba(52, 211, 153, .25);
+            color: var(--green)
+        }
+
+        .strip-btn.gold {
+            background: rgba(245, 200, 66, .1);
+            border-color: rgba(245, 200, 66, .3);
+            color: var(--gold)
+        }
+
+        .strip-btn.pink {
+            background: rgba(244, 114, 182, .1);
+            border-color: rgba(244, 114, 182, .25);
+            color: var(--pink)
+        }
+
+        /* LIMIT BAR */
+        .limit-bar {
+            position: sticky;
+            top: 106px;
+            z-index: 198;
+            background: rgba(3, 5, 9, .98);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(230, 57, 70, .12);
+            padding: 7px 24px
+        }
+
+        .limit-bar-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 1280px;
+            margin: 0 auto;
+            flex-wrap: wrap
+        }
+
+        .lpill {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .1);
+            transition: all .3s
+        }
+
+        .lpill.ok {
+            background: rgba(52, 211, 153, .8)
+        }
+
+        .lpill.used {
+            background: rgba(239, 68, 68, .7)
+        }
+
+        #limitText {
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--text)
+        }
+
+        #limitReset {
+            font-size: .7rem;
+            color: var(--text3)
+        }
+
+        .upgrade-mini-btn {
+            margin-left: auto;
+            padding: 4px 14px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em
+        }
+
+        /* HERO */
+        .chi-hero {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 52px 40px 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+            gap: 40px;
+            flex-wrap: wrap
+        }
+
+        .chi-hero-content {
+            flex: 1;
+            min-width: 260px
+        }
+
+        .lang-badge-big {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(230, 57, 70, .1);
+            border: 1px solid rgba(230, 57, 70, .25);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 800;
+            color: var(--accent2);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 18px
+        }
+
+        .chi-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 14px;
+            letter-spacing: .04em
+        }
+
+        .chi-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent), var(--accent2), #ff9a9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .chi-subtitle {
+            font-size: .92rem;
+            color: var(--text2);
+            line-height: 1.7;
+            max-width: 440px;
+            margin-bottom: 24px
+        }
+
+        .hero-stats-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .hstat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 20px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            min-width: 70px
+        }
+
+        .hstat-n {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent2)
+        }
+
+        .hstat-l {
+            font-family: var(--font-head);
+            font-size: .62rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-top: 2px
+        }
+
+        .skill-radar-wrap {
+            position: relative;
+            flex-shrink: 0
+        }
+
+        .radar-labels {
+            position: absolute;
+            inset: 0;
+            pointer-events: none
+        }
+
+        .rl {
+            position: absolute;
+            font-family: var(--font-head);
+            font-size: .62rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            white-space: nowrap
+        }
+
+        .rl-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        .rl-right {
+            top: 28%;
+            right: -48px
+        }
+
+        .rl-bot-r {
+            bottom: 20%;
+            right: -52px
+        }
+
+        .rl-bot-l {
+            bottom: 20%;
+            left: -52px
+        }
+
+        .rl-left {
+            top: 28%;
+            left: -48px
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: 52px 0
+        }
+
+        .sec-header {
+            text-align: center;
+            margin-bottom: 36px
+        }
+
+        .sec-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-head);
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--accent2);
+            margin-bottom: 12px
+        }
+
+        .sec-title {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: .04em
+        }
+
+        .sec-sub {
+            font-size: .88rem;
+            color: var(--text2);
+            max-width: 540px;
+            margin: 0 auto
+        }
+
+        /* LEVEL TABS */
+        .level-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 28px
+        }
+
+        .level-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 20px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 800;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .03);
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .04em
+        }
+
+        .level-tab.active,
+        .level-tab:hover {
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .35);
+            color: var(--text)
+        }
+
+        .level-tag {
+            font-size: .58rem;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: rgba(255, 107, 107, .15);
+            border: 1px solid rgba(255, 107, 107, .25);
+            color: var(--accent2);
+            font-weight: 800
+        }
+
+        /* UNITS GRID */
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px
+        }
+
+        .unit-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: transform .3s, box-shadow .3s, border-color .3s;
+            display: flex;
+            flex-direction: column;
+            padding: 20px
+        }
+
+        .unit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
+            border-color: rgba(230, 57, 70, .3)
+        }
+
+        .unit-card.completed {
+            border-color: rgba(52, 211, 153, .25)
+        }
+
+        /* WORDS */
+        .words-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            align-items: center
+        }
+
+        .word-search {
+            flex: 1;
+            min-width: 180px;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .88rem;
+            outline: none;
+            transition: border .2s
+        }
+
+        .word-search:focus {
+            border-color: rgba(230, 57, 70, .4)
+        }
+
+        .word-search::placeholder {
+            color: var(--text3)
+        }
+
+        .wf-tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+
+        .wf-tab {
+            padding: 6px 14px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: var(--font-head);
+            font-size: .72rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .03);
+            color: var(--text2);
+            transition: all .2s;
+            letter-spacing: .03em
+        }
+
+        .wf-tab.active,
+        .wf-tab:hover {
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .3);
+            color: var(--text)
+        }
+
+        .words-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px
+        }
+
+        .word-card {
+            padding: 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .word-card:hover {
+            background: rgba(255, 107, 107, .08);
+            border-color: rgba(255, 107, 107, .25);
+            transform: translateY(-2px)
+        }
+
+        .load-more-wrap {
+            text-align: center;
+            margin-top: 24px
+        }
+
+        .load-more-btn {
+            padding: 10px 32px;
+            border-radius: 100px;
+            background: rgba(230, 57, 70, .1);
+            border: 1px solid rgba(230, 57, 70, .25);
+            color: var(--accent2);
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em;
+            transition: all .2s
+        }
+
+        .load-more-btn:hover {
+            background: rgba(230, 57, 70, .2)
+        }
+
+        /* PRACTICE */
+        .ptabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 24px
+        }
+
+        .ptab {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 20px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 800;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .03);
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .04em
+        }
+
+        .ptab.active {
+            background: rgba(230, 57, 70, .15);
+            border-color: rgba(230, 57, 70, .4);
+            color: var(--text)
+        }
+
+        .ptab:hover:not(.active) {
+            background: rgba(255, 255, 255, .06);
+            color: var(--text)
+        }
+
+        .practice-panel {
+            display: none
+        }
+
+        .practice-panel.active {
+            display: block;
+            animation: fadeUp .3s ease
+        }
+
+        .practice-card {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 30px
+        }
+
+        /* FLASHCARD */
+        .flashcard-wrap {
+            perspective: 1000px;
+            margin-bottom: 24px
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform .6s cubic-bezier(.4, 0, .2, 1);
+            cursor: pointer
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg)
+        }
+
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, rgba(230, 57, 70, .15), rgba(255, 107, 107, .15));
+            border: 1px solid rgba(230, 57, 70, .25)
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, rgba(52, 211, 153, .1), rgba(34, 211, 238, .1));
+            border: 1px solid rgba(52, 211, 153, .25);
+            transform: rotateY(180deg)
+        }
+
+        .flash-word {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: .04em
+        }
+
+        .flash-hint {
+            font-family: var(--font-head);
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .flash-uz {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--green)
+        }
+
+        .flash-ex {
+            font-size: .82rem;
+            color: var(--text2);
+            font-style: italic;
+            text-align: center
+        }
+
+        .flash-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 16px
+        }
+
+        .flash-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 100px;
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .04em
+        }
+
+        .flash-btn.wrong {
+            background: rgba(248, 113, 113, .15);
+            border: 1px solid rgba(248, 113, 113, .3);
+            color: var(--red)
+        }
+
+        .flash-btn.skip {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid var(--border);
+            color: var(--text2)
+        }
+
+        .flash-btn.correct {
+            background: rgba(52, 211, 153, .15);
+            border: 1px solid rgba(52, 211, 153, .3);
+            color: var(--green)
+        }
+
+        .flash-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15)
+        }
+
+        .flash-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        #flashProgress {
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--text3)
+        }
+
+        .flash-bar-wrap {
+            flex: 1;
+            height: 3px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 100px;
+            overflow: hidden
+        }
+
+        .flash-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            border-radius: 100px;
+            transition: width .4s
+        }
+
+        /* QUIZ */
+        .quiz-q {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+            letter-spacing: .02em;
+            line-height: 1.4
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .quiz-opt {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .9rem;
+            cursor: pointer;
+            text-align: left;
+            transition: all .2s
+        }
+
+        .quiz-opt:hover {
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .3)
+        }
+
+        .quiz-score {
+            margin-top: 16px;
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--text3);
+            text-align: center
+        }
+
+        .feedback-box {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: .84rem;
+            margin-top: 10px;
+            min-height: 16px
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        .match-item {
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            font-size: .88rem;
+            color: var(--text);
+            transition: all .2s;
+            font-family: var(--font-body)
+        }
+
+        .match-item:hover {
+            background: rgba(230, 57, 70, .1)
+        }
+
+        .typing-prompt {
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            color: var(--text3);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 10px
+        }
+
+        .typing-word {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: .04em;
+            margin-bottom: 8px
+        }
+
+        .typing-hint {
+            font-size: .85rem;
+            color: var(--accent2);
+            margin-bottom: 16px
+        }
+
+        .typing-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .95rem;
+            outline: none;
+            transition: border .2s;
+            margin-bottom: 10px
+        }
+
+        .typing-input:focus {
+            border-color: rgba(230, 57, 70, .4)
+        }
+
+        .grammar-q-box {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: .02em;
+            line-height: 1.5
+        }
+
+        .grammar-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px
+        }
+
+        .grammar-options button {
+            padding: 9px 18px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .02em
+        }
+
+        .grammar-options button:hover {
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .3)
+        }
+
+        .next-ex-btn {
+            margin-top: 12px;
+            padding: 9px 22px;
+            border-radius: 100px;
+            background: rgba(230, 57, 70, .12);
+            border: 1px solid rgba(230, 57, 70, .3);
+            color: var(--accent2);
+            font-family: var(--font-head);
+            font-size: .8rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: .04em;
+            transition: all .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px
+        }
+
+        .next-ex-btn:hover {
+            background: rgba(230, 57, 70, .22)
+        }
+
+        /* VIDEO */
+        .find-video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 26px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: .82rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: .04em;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 30px rgba(230, 57, 70, .3);
+            transition: all .25s
+        }
+
+        .find-video-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(230, 57, 70, .45)
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px
+        }
+
+        .video-placeholder {
+            grid-column: 1/-1;
+            padding: 50px;
+            text-align: center;
+            background: rgba(255, 255, 255, .02);
+            border: 1px dashed rgba(255, 255, 255, .08);
+            border-radius: 16px;
+            color: var(--text3);
+            font-family: var(--font-head);
+            font-size: .85rem
+        }
+
+        /* LEADERBOARD */
+        .lb-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid var(--border);
+            margin-bottom: 8px;
+            transition: all .2s
+        }
+
+        .lb-row:hover {
+            background: rgba(255, 255, 255, .06);
+            transform: translateX(3px)
+        }
+
+        .lb-row.me {
+            background: rgba(230, 57, 70, .1);
+            border-color: rgba(230, 57, 70, .28)
+        }
+
+        .lb-rank {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent2);
+            width: 36px;
+            text-align: center
+        }
+
+        .lb-rank.gold {
+            color: var(--gold)
+        }
+
+        .lb-rank.silver {
+            color: #94a3b8
+        }
+
+        .lb-rank.bronze {
+            color: #cd7c4a
+        }
+
+        .lb-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0
+        }
+
+        .lb-name {
+            flex: 1;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: .88rem;
+            color: var(--text)
+        }
+
+        .lb-score {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--accent2)
+        }
+
+        .lb-plan {
+            font-size: .68rem;
+            padding: 2px 8px;
+            border-radius: 100px;
+            background: rgba(255, 107, 107, .1);
+            color: var(--accent2);
+            border: 1px solid transparent
+        }
+
+        /* AI CHAT */
+        .ai-chat-wrap {
+            display: flex;
+            gap: 16px;
+            max-width: 1000px;
+            margin: 0 auto
+        }
+
+        .ai-chat-sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .chat-mode-label {
+            font-family: var(--font-head);
+            font-size: .62rem;
+            font-weight: 800;
+            color: var(--text3);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 4px
+        }
+
+        .chat-mode-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-family: var(--font-head);
+            font-size: .78rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .03);
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .02em;
+            text-align: left
+        }
+
+        .chat-mode-btn.active {
+            background: rgba(230, 57, 70, .12);
+            border-color: rgba(230, 57, 70, .3);
+            color: var(--text)
+        }
+
+        .chat-mode-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, .06);
+            color: var(--text)
+        }
+
+        .ai-chat-main {
+            flex: 1;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            max-height: 440px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, .08) transparent
+        }
+
+        .chat-msg {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px
+        }
+
+        .chat-msg.user-msg {
+            flex-direction: row-reverse
+        }
+
+        .chat-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            background: rgba(255, 107, 107, .15);
+            color: var(--accent2)
+        }
+
+        .user-msg .chat-avatar {
+            background: rgba(230, 57, 70, .2);
+            color: var(--accent)
+        }
+
+        .chat-bubble {
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: .86rem;
+            line-height: 1.6;
+            max-width: 78%;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--border);
+            color: var(--text)
+        }
+
+        .user-msg .chat-bubble {
+            background: rgba(230, 57, 70, .13);
+            border-color: rgba(230, 57, 70, .25);
+            color: #fecdd3
+        }
+
+        .chat-input-area {
+            border-top: 1px solid var(--border);
+            padding: 14px
+        }
+
+        .chat-actions-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px
+        }
+
+        .chat-action-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            color: var(--text3);
+            cursor: pointer;
+            font-size: .82rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s
+        }
+
+        .chat-action-btn:hover {
+            background: rgba(230, 57, 70, .1);
+            color: var(--accent2)
+        }
+
+        .chat-input-row {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: .88rem;
+            outline: none;
+            resize: none;
+            transition: border .2s
+        }
+
+        .chat-input:focus {
+            border-color: rgba(230, 57, 70, .4)
+        }
+
+        .chat-send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s
+        }
+
+        .chat-send-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.1)
+        }
+
+        .ai-limit-info {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+            font-size: .72rem;
+            color: var(--text3)
+        }
+
+        /* SHOP STRIP */
+        .shop-strip {
+            background: linear-gradient(135deg, rgba(230, 57, 70, .05), rgba(255, 107, 107, .05));
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            margin-top: 4px
+        }
+
+        .shop-strip-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 24px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            max-width: 1280px;
+            margin: 0 auto
+        }
+
+        .shop-strip-inner::-webkit-scrollbar {
+            display: none
+        }
+
+        .rw-title {
+            font-family: var(--font-head);
+            font-size: .68rem;
+            font-weight: 800;
+            color: var(--accent2);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .rw-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 14px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            font-family: var(--font-head);
+            font-size: .75rem;
+            font-weight: 700;
+            color: var(--text);
+            white-space: nowrap;
+            transition: all .2s
+        }
+
+        .rw-card:hover {
+            background: rgba(255, 255, 255, .08);
+            transform: translateY(-1px)
+        }
+
+        .rw-card.vip {
+            border-color: rgba(245, 200, 66, .35);
+            background: rgba(245, 200, 66, .08);
+            color: var(--gold)
+        }
+
+        .rw-card.booster {
+            border-color: rgba(52, 211, 153, .35);
+            background: rgba(52, 211, 153, .08);
+            color: var(--green)
+        }
+
+        .rw-card.coins {
+            border-color: rgba(251, 191, 36, .3);
+            background: rgba(251, 191, 36, .05);
+            color: var(--gold)
+        }
+
+        .rw-card.xp {
+            border-color: rgba(230, 57, 70, .3);
+            background: rgba(230, 57, 70, .05);
+            color: var(--accent2)
+        }
+
+        .rw-card.keys {
+            border-color: rgba(244, 114, 182, .3);
+            background: rgba(244, 114, 182, .05);
+            color: var(--pink)
+        }
+
+        /* MODALS */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 400;
+            background: rgba(2, 4, 8, .88);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .modal-box {
+            background: var(--bg3);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 22px;
+            width: 100%;
+            max-width: 680px;
+            max-height: 92vh;
+            overflow-y: auto;
+            position: relative
+        }
+
+        .word-modal-box {
+            max-width: 420px
+        }
+
+        .upgrade-modal-box {
+            max-width: 460px
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, .12);
+            color: var(--text)
+        }
+
+        .upgrade-modal-content {
+            padding: 36px;
+            text-align: center
+        }
+
+        .upgrade-timer {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent2);
+            margin: 12px 0;
+            letter-spacing: .04em
+        }
+
+        .upgrade-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px
+        }
+
+        .upgrade-btn-primary {
+            padding: 12px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border: none;
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: .88rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: .04em
+        }
+
+        .upgrade-btn-secondary {
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--border);
+            color: var(--text2);
+            font-family: var(--font-head);
+            font-size: .85rem;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        /* TOAST & XP */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px 18px;
+            font-family: var(--font-head);
+            font-size: .82rem;
+            font-weight: 700;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all .35s;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        .toast.success {
+            border-color: rgba(52, 211, 153, .3);
+            color: var(--green)
+        }
+
+        .toast.error {
+            border-color: rgba(248, 113, 113, .3);
+            color: var(--red)
+        }
+
+        .toast.info {
+            border-color: rgba(230, 57, 70, .3);
+            color: var(--accent2)
+        }
+
+        .xp-popup {
+            position: fixed;
+            top: 90px;
+            right: 28px;
+            z-index: 9998;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            font-family: var(--font-display);
+            font-size: .95rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 100px;
+            letter-spacing: .04em;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all .4s
+        }
+
+        .xp-popup.show {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .07);
+            border-radius: 100px
+        }
+
+        @media(max-width:900px) {
+            .nav-center {
+                display: none !important
+            }
+
+            .nav-stat {
+                display: none !important
+            }
+
+            .hamburger {
+                display: flex !important
+            }
+        }
+
+        @media(max-width:768px) {
+            .ai-chat-wrap {
+                flex-direction: column
+            }
+
+            .ai-chat-sidebar {
+                width: 100%
+            }
+
+            .chi-hero {
+                padding: 28px 16px 24px;
+                gap: 24px
+            }
+
+            .chi-title {
+                font-size: 2rem
+            }
+
+            .skill-radar-wrap {
+                display: none
+            }
+
+            .container {
+                padding: 0 16px
+            }
+
+            .section {
+                padding: 36px 0
+            }
+
+            .sec-title {
+                font-size: 1.5rem
+            }
+
+            .units-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 10px
+            }
+
+            .words-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 8px
+            }
+
+            .practice-card {
+                padding: 20px
+            }
+
+            .flash-word {
+                font-size: 1.5rem
+            }
+
+            .typing-word {
+                font-size: 1.5rem
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr
+            }
+
+            .nav {
+                padding: 0 14px;
+                gap: 10px
+            }
+
+            .nav-logo {
+                font-size: 1rem
+            }
+
+            .site-strip {
+                padding: 6px 12px
+            }
+
+            .limit-bar {
+                padding: 6px 14px
+            }
+        }
+
+        @media(max-width:480px) {
+            .units-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px
+            }
+
+            .words-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px
+            }
+
+            .ptabs {
+                gap: 5px
+            }
+
+            .ptab {
+                padding: 7px 10px;
+                font-size: .68rem
+            }
+
+            .level-tabs {
+                gap: 5px
+            }
+
+            .level-tab {
+                padding: 7px 10px;
+                font-size: .68rem
+            }
+
+            .flash-controls {
+                gap: 6px
+            }
+
+            .flash-btn {
+                padding: 8px 12px;
+                font-size: .73rem
+            }
+
+            .grammar-options button {
+                padding: 7px 12px;
+                font-size: .76rem
+            }
+
+            .chi-title {
+                font-size: 1.7rem
+            }
+
+            .drawer-panel {
+                width: 100% !important;
+                max-width: 100% !important
+            }
+        }
+
+        @supports(padding:max(0px)) {
+            .drawer-panel {
+                padding-bottom: max(0px, env(safe-area-inset-bottom))
+            }
+        }
+    </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
+  <!-- Yagona tema â€” sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
+  <link rel="stylesheet" href="../css/lv-theme.css">
+</head>
+
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- NAVBAR -->
+    <nav class="nav" id="navbar">
+        <a href="../index.html" class="nav-logo">Lingua<span>Verse</span></a>
+        <div class="nav-center">
+            <a href="#units" class="nav-link"><i class="fa-solid fa-layer-group"></i> å•å…ƒ</a>
+            <a href="#words" class="nav-link"><i class="fa-solid fa-book"></i> è¯æ±‡</a>
+            <a href="#practice" class="nav-link"><i class="fa-solid fa-bullseye"></i> ç»ƒä¹ </a>
+            <a href="#leaderboard-section" class="nav-link"><i class="fa-solid fa-trophy"></i> æŽ’è¡Œæ¦œ</a>
+            <a href="#ai-chat" class="nav-link"><i class="fa-solid fa-robot"></i> AIå¯¹è¯</a>
+        </div>
+        <div class="nav-right" id="navRight">
+            <div class="nav-stat" style="color:var(--gold)"><i class="fa-solid fa-star"></i> <span id="navXP">0</span>
+            </div>
+            <div class="nav-stat" style="color:var(--gold)"><i class="fa-solid fa-coins"></i> <span
+                    id="navCoin">0</span></div>
+            <div id="planBadgeNav"></div>
+            <div id="navUserInfo"></div>
+        </div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="èœå•" aria-expanded="false" onclick="toggleDrawer()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- SITE STRIP -->
+    <div class="site-strip">
+        <a href="../index.html" class="strip-btn"><i class="fa-solid fa-house"></i> é¦–é¡µ</a>
+        <a href="../select-language.html" class="strip-btn"><i class="fa-solid fa-globe"></i> è¯­è¨€</a>
+        <a href="./voice-room.html" class="strip-btn"><i class="fa-solid fa-microphone"></i> è¯­éŸ³èŠå¤©</a>
+        <a href="./ai-coach.html" class="strip-btn" style="color:#a78bfa;border-color:rgba(167,139,250,0.35)"><i class="fa-solid fa-user-astronaut"></i> AI æ•™ç»ƒ</a>
+        <a href="./earn.html" class="strip-btn" style="color:#f5c842;border-color:rgba(245,200,66,0.35)"><i class="fa-solid fa-sack-dollar"></i> èµšé’±</a>
+        <a href="./speaking-coach.html" class="strip-btn" style="color:#22d3ee;border-color:rgba(34,211,238,0.35)"><i class="fa-solid fa-microphone-lines"></i> å£è¯­æ•™ç»ƒ</a>
+        <a href="./writing-coach.html" class="strip-btn" style="color:#34d399;border-color:rgba(52,211,153,0.35)"><i class="fa-solid fa-pen-nib"></i> å†™ä½œæ•™ç»ƒ</a>
+        <a href="shop.html" class="strip-btn accent"><i class="fa-solid fa-bag-shopping"></i> å•†åŸŽ</a>
+        <a href="profile.html" class="strip-btn green"><i class="fa-solid fa-user"></i> ä¸ªäººèµ„æ–™</a>
+        <button class="strip-btn gold"
+            onclick="document.getElementById('leaderboard-section').scrollIntoView({behavior:'smooth'})"><i
+                class="fa-solid fa-trophy"></i> æŽ’è¡Œæ¦œ</button>
+        <a href="../order.html" class="strip-btn pink"><i class="fa-solid fa-crown"></i> å¥—é¤</a>
+    </div>
+
+    <!-- LIMIT BAR -->
+    <div class="limit-bar" id="limitBar">
+        <div class="limit-bar-inner">
+            <i class="fa-solid fa-ticket-simple" style="color:var(--accent2);font-size:.85rem"></i>
+            <span id="limitText">æ­£åœ¨åŠ è½½...</span>
+            <div style="display:flex;gap:3px;align-items:center" id="limitPills"></div>
+            <span id="limitReset"></span>
+            <button class="upgrade-mini-btn" onclick="window.location.href='../order.html'">
+                <i class="fa-solid fa-arrow-up" style="margin-right:4px"></i>å‡çº§
+            </button>
+        </div>
+    </div>
+
+    <!-- SHOP STRIP -->
+    <div class="shop-strip">
+        <div class="shop-strip-inner" id="shopStripInner">
+            <div class="rw-title"><i class="fa-solid fa-gem"></i> å•†åŸŽæ–°å“</div>
+            <div class="rw-card vip"><i class="fa-solid fa-crown"></i> VIP 30å¤©</div>
+            <div class="rw-card booster"><i class="fa-solid fa-rocket"></i> 2Ã— ç»éªŒåŠ æˆ</div>
+            <div class="rw-card coins"><i class="fa-solid fa-coins"></i> +5000 é‡‘å¸</div>
+            <div class="rw-card xp"><i class="fa-solid fa-star"></i> +10000 ç»éªŒ</div>
+            <div class="rw-card keys"><i class="fa-solid fa-key"></i> æ¬§ç±³ä¼½é’¥åŒ™</div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="chi-hero" style="position:relative;z-index:1">
+        <div class="chi-hero-content">
+            <div class="lang-badge-big"><span style="font-size:1.1rem">ðŸ‡¨ðŸ‡³</span> æ±‰è¯­è¯¾ç¨‹ â€” HSK1 åˆ° HSK6</div>
+            <h1 class="chi-title">æ±‰è¯­ <span class="gradient-text">è¯¾ç¨‹</span></h1>
+            <p class="chi-subtitle">ä»ŽHSK1åˆ°HSK6 â€” 4ä¸ªçº§åˆ«ï¼Œ60ä¸ªå•å…ƒï¼Œ500+è¯æ±‡ï¼Œé…å¤‡AIå¯¹è¯ä¼™ä¼´çš„å®Œæ•´è¯¾ç¨‹</p>
+            <div class="hero-stats-row">
+                <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l">çº§åˆ«</span></div>
+                <div class="hstat"><span class="hstat-n">60</span><span class="hstat-l">å•å…ƒ</span></div>
+                <div class="hstat"><span class="hstat-n">500+</span><span class="hstat-l">è¯æ±‡</span></div>
+                <div class="hstat"><span class="hstat-n"><i class="fa-solid fa-robot"
+                            style="font-size:1.1rem;color:var(--accent2)"></i></span><span class="hstat-l">AIå¯¹è¯</span>
+                </div>
+                <div class="hstat"><span class="hstat-n" id="xpDisplay" style="color:var(--gold)">0</span><span
+                        class="hstat-l">æˆ‘çš„ç»éªŒ</span></div>
+            </div>
+        </div>
+        <div class="skill-radar-wrap" id="skillRadar">
+            <canvas id="radarCanvas" width="220" height="220"></canvas>
+            <div class="radar-labels">
+                <span class="rl rl-top">é˜…è¯»</span>
+                <span class="rl rl-right">å†™ä½œ</span>
+                <span class="rl rl-bot-r">å£è¯­</span>
+                <span class="rl rl-bot-l">å¬åŠ›</span>
+                <span class="rl rl-left">è¯­æ³•</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNITS -->
+    <section class="section" id="units">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-layer-group"></i> è¯¾ç¨‹å•å…ƒ</div>
+                <h2 class="sec-title">å•å…ƒ <span class="gradient-text">è¯¾ç¨‹</span></h2>
+                <p class="sec-sub">æ¯ä¸ªå•å…ƒåŒ…å«ï¼šè¯­æ³•ã€å¬åŠ›ã€é˜…è¯»å’Œå£è¯­ç»ƒä¹ </p>
+            </div>
+            <div class="level-tabs" id="levelTabs">
+                <button class="level-tab active" data-level="hsk1" onclick="switchLevel('hsk1',this)">
+                    <i class="fa-solid fa-seedling" style="color:#4ade80"></i> å…¥é—¨ <span class="level-tag">HSK1</span>
+                </button>
+                <button class="level-tab" data-level="hsk2" onclick="switchLevel('hsk2',this)">
+                    <i class="fa-solid fa-book" style="color:#60a5fa"></i> åŸºç¡€ <span class="level-tag">HSK2</span>
+                </button>
+                <button class="level-tab" data-level="hsk3" onclick="switchLevel('hsk3',this)">
+                    <i class="fa-solid fa-book-open" style="color:var(--accent2)"></i> ä¸­çº§ <span
+                        class="level-tag">HSK3-4</span>
+                </button>
+                <button class="level-tab" data-level="hsk56" onclick="switchLevel('hsk56',this)">
+                    <i class="fa-solid fa-rocket" style="color:var(--pink)"></i> é«˜çº§ <span
+                        class="level-tag">HSK5-6</span>
+                </button>
+            </div>
+            <div class="units-grid" id="unitsGrid">
+                <div style="text-align:center;padding:50px;color:var(--text3);grid-column:1/-1">
+                    <i class="fa-solid fa-spinner fa-spin"
+                        style="font-size:1.6rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
+                    <span style="font-family:var(--font-head);font-size:.82rem;letter-spacing:.04em">æ­£åœ¨åŠ è½½å•å…ƒ...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORDS -->
+    <section class="section"
+        style="background:rgba(255,255,255,.01);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"
+        id="words">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-book"></i> è¯æ±‡åº“</div>
+                <h2 class="sec-title">è¯æ±‡ <span class="gradient-text">è¯åº“</span></h2>
+                <p class="sec-sub">500+è¯æ±‡ï¼Œå«æ‹¼éŸ³ã€ä¹Œå…¹åˆ«å…‹è¯­ç¿»è¯‘ã€éŸ³é¢‘å‘éŸ³å’Œä¾‹å¥</p>
+            </div>
+            <!-- â•â•â• AI LUG'AT XONASI â€” js/lv-vocab-room.js chizadi â•â•â• -->
+            <div id="lvVocabRoom"></div>
+
+            <div class="words-controls">
+                <input type="text" class="word-search" id="wordSearch" placeholder="æœç´¢è¯æ±‡..." oninput="filterWords()">
+                <div class="wf-tabs" id="wordFilterTabs">
+                    <button class="wf-tab active" onclick="filterByLevel('all',this)">å…¨éƒ¨</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk1',this)">HSK1</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk2',this)">HSK2</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk3',this)">HSK3-4</button>
+                    <button class="wf-tab" onclick="filterByLevel('hsk56',this)">HSK5-6</button>
+                </div>
+            </div>
+            <div class="words-grid" id="wordsGrid"></div>
+            <div class="load-more-wrap">
+                <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreWords()">
+                    <i class="fa-solid fa-chevron-down" style="margin-right:6px"></i>æŸ¥çœ‹æ›´å¤š
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="section" id="practice">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-bullseye"></i> ç»ƒä¹ </div>
+                <h2 class="sec-title">5ç§ <span class="gradient-text">ç»ƒä¹ </span></h2>
+            </div>
+            <div class="ptabs">
+                <button class="ptab active" onclick="switchPractice('flashcard',this)"><i
+                        class="fa-solid fa-layer-group"></i> é—ªå¡</button>
+                <button class="ptab" onclick="switchPractice('quiz',this)"><i class="fa-solid fa-circle-question"></i>
+                    æµ‹éªŒ</button>
+                <button class="ptab" onclick="switchPractice('match',this)"><i class="fa-solid fa-link"></i> é…å¯¹</button>
+                <button class="ptab" onclick="switchPractice('typing',this)"><i class="fa-solid fa-keyboard"></i>
+                    ä¹¦å†™</button>
+                <button class="ptab" onclick="switchPractice('grammar',this)"><i class="fa-solid fa-spell-check"></i>
+                    è¯­æ³•</button>
+            </div>
+            <div class="practice-panel active" id="panel-flashcard">
+                <div class="practice-card">
+                    <div class="flashcard-wrap">
+                        <div class="flashcard" id="flashcard" onclick="flipCard()">
+                            <div class="flashcard-front">
+                                <div class="flash-word" id="flashWord">ä½ å¥½</div>
+                                <div class="flash-hint"><i class="fa-solid fa-rotate"></i> ç‚¹å‡»ç¿»è½¬</div>
+                            </div>
+                            <div class="flashcard-back">
+                                <div class="flash-uz" id="flashUz">Salom</div>
+                                <div class="flash-ex" id="flashEx"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flash-controls">
+                        <button class="flash-btn wrong" onclick="flashResult('wrong')"><i class="fa-solid fa-xmark"></i>
+                            ä¸ä¼š</button>
+                        <button class="flash-btn skip" onclick="nextFlash()"><i class="fa-solid fa-forward"></i>
+                            ä¸‹ä¸€ä¸ª</button>
+                        <button class="flash-btn correct" onclick="flashResult('correct')"><i
+                                class="fa-solid fa-check"></i> ä¼šäº†</button>
+                    </div>
+                    <div class="flash-progress">
+                        <span id="flashProgress">1 / 20</span>
+                        <div class="flash-bar-wrap">
+                            <div class="flash-bar" id="flashBar" style="width:5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-quiz">
+                <div class="practice-card">
+                    <div class="quiz-q" id="quizQ">æ­£åœ¨åŠ è½½é¢˜ç›®...</div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                    <div class="feedback-box" id="quizFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextQuiz()"><i class="fa-solid fa-forward"></i> ä¸‹ä¸€é¢˜</button>
+                    <div class="quiz-score"><i class="fa-solid fa-star"
+                            style="color:var(--gold);margin-right:4px"></i>å¾—åˆ†: <span id="quizScore">0</span></div>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-match">
+                <div class="practice-card">
+                    <h3 style="margin-bottom:16px;font-family:var(--font-display);font-size:1rem;letter-spacing:.04em">
+                        <i class="fa-solid fa-link" style="margin-right:8px;color:var(--accent2)"></i>æ‰¾åˆ°é…å¯¹
+                    </h3>
+                    <div class="match-grid" id="matchGrid"></div>
+                    <div class="feedback-box" id="matchFeedback"></div>
+                    <button class="next-ex-btn" onclick="startMatch()"><i class="fa-solid fa-rotate"></i> æ–°æ¸¸æˆ</button>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-typing">
+                <div class="practice-card">
+                    <div class="typing-prompt"><i class="fa-solid fa-keyboard"
+                            style="margin-right:6px;color:var(--accent2)"></i>ç”¨æ‹¼éŸ³è¾“å…¥ï¼š</div>
+                    <div class="typing-word" id="typingWord">ä½ å¥½</div>
+                    <div class="typing-hint" id="typingHint">ä¹Œå…¹åˆ«å…‹è¯­: Salom</div>
+                    <input type="text" class="typing-input" id="typingInput" placeholder="è¾“å…¥æ‹¼éŸ³æˆ–æ±‰å­—..."
+                        oninput="checkTyping()">
+                    <div class="feedback-box" id="typingFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextTyping()"><i class="fa-solid fa-forward"></i> ä¸‹ä¸€ä¸ª</button>
+                </div>
+            </div>
+            <div class="practice-panel" id="panel-grammar">
+                <div class="practice-card">
+                    <div style="font-size:2rem;color:var(--accent2);margin-bottom:14px"><i
+                            class="fa-solid fa-spell-check"></i></div>
+                    <h3 style="font-family:var(--font-display);font-size:1rem;letter-spacing:.04em;margin-bottom:16px">
+                        è¯­æ³•ç»ƒä¹ </h3>
+                    <div class="grammar-q-box" id="grammarQBox"></div>
+                    <div class="grammar-options" id="grammarOptions"></div>
+                    <div class="feedback-box" id="grammarFeedback"></div>
+                    <button class="next-ex-btn" onclick="nextGrammarEx()"><i class="fa-solid fa-forward"></i>
+                        ä¸‹ä¸€é¢˜</button>
+                    <div class="quiz-score"><i class="fa-solid fa-star"
+                            style="color:var(--gold);margin-right:4px"></i>å¾—åˆ†: <span id="grammarScore">0</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="section" style="background:rgba(255,255,255,.01);border-top:1px solid var(--border)"
+        id="videoSection">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-play"></i> è§†é¢‘è¯¾ç¨‹</div>
+                <h2 class="sec-title">AIç²¾é€‰ <span class="gradient-text">è§†é¢‘</span></h2>
+                <p class="sec-sub" id="videoSubtitle">æ ¹æ®æ‚¨çš„æ°´å¹³å’Œè–„å¼±çŽ¯èŠ‚æŽ¨èçš„è§†é¢‘</p>
+            </div>
+            <div style="text-align:center;margin-bottom:20px">
+                <button class="find-video-btn" onclick="findYoutubeVideos()">
+                    <i class="fa-solid fa-robot"></i>AIæŽ¨èè§†é¢‘
+                </button>
+            </div>
+            <div class="videos-grid" id="videosGrid">
+                <div class="video-placeholder">
+                    <i class="fa-solid fa-robot"
+                        style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
+                    AIä¼šä¸ºæ‚¨æŽ¨èåˆé€‚çš„è§†é¢‘
+                    <p>è¯·ç‚¹å‡»ä¸Šæ–¹æŒ‰é’®</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section class="section" id="leaderboard-section">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-trophy"></i> æŽ’è¡Œæ¦œ</div>
+                <h2 class="sec-title">å…¨çƒ <span class="gradient-text">æŽ’è¡Œæ¦œ</span></h2>
+                <p class="sec-sub">æœ€ä¼˜ç§€çš„å­¦ä¹ è€… â€” æŒ‰ç»éªŒå€¼å’Œé‡‘å¸æŽ’å</p>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;justify-content:center">
+                <button class="ptab active" id="lb-xp-btn" onclick="loadLBSection('xp',this)">
+                    <i class="fa-solid fa-star"></i> æŒ‰ç»éªŒå€¼
+                </button>
+                <button class="ptab" id="lb-coin-btn" onclick="loadLBSection('coins',this)">
+                    <i class="fa-solid fa-coins"></i> æŒ‰é‡‘å¸
+                </button>
+                <button class="ptab" id="lb-units-btn" onclick="loadLBSection('unitsCompleted',this)">
+                    <i class="fa-solid fa-book"></i> æŒ‰å•å…ƒæ•°
+                </button>
+            </div>
+            <div id="lbSectionContent" style="max-width:700px;margin:0 auto">
+                <div style="text-align:center;padding:40px;color:var(--text3)">
+                    <i class="fa-solid fa-trophy"
+                        style="font-size:2rem;color:var(--accent2);display:block;margin-bottom:12px"></i>
+                    <p style="font-family:var(--font-head);font-size:.82rem;margin-bottom:16px">é¡µé¢åŠ è½½åŽå°†æ˜¾ç¤ºæŽ’è¡Œæ¦œ</p>
+                    <button class="next-ex-btn" onclick="loadLBSection('xp',document.getElementById('lb-xp-btn'))">
+                        <i class="fa-solid fa-arrow-right"></i>æŸ¥çœ‹æŽ’è¡Œæ¦œ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI CHAT -->
+    <section class="section" style="border-top:1px solid var(--border)" id="ai-chat">
+        <div class="container">
+            <div class="sec-header">
+                <div class="sec-label"><i class="fa-solid fa-robot"></i> AIå¯¹è¯ä¼™ä¼´</div>
+                <h2 class="sec-title">AI <span class="gradient-text">å¯¹è¯</span></h2>
+                <p class="sec-sub">çœŸå®žå¯¹è¯ã€è¯­æ³•çº æ­£ã€ç¿»è¯‘ â€” ä¸€åˆ‡å°½åœ¨å…¶ä¸­</p>
+            </div>
+            <div class="ai-chat-wrap">
+                <div class="ai-chat-sidebar">
+                    <div class="chat-mode-label">å¯¹è¯æ¨¡å¼</div>
+                    <button class="chat-mode-btn active" onclick="setChatMode('free',this)"><i
+                            class="fa-solid fa-comments"></i> è‡ªç”±å¯¹è¯</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('teacher',this)"><i
+                            class="fa-solid fa-chalkboard-user"></i> è€å¸ˆæ¨¡å¼</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('grammar',this)"><i
+                            class="fa-solid fa-spell-check"></i> è¯­æ³•æ£€æŸ¥</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('translate',this)"><i
+                            class="fa-solid fa-language"></i> ç¿»è¯‘</button>
+                    <button class="chat-mode-btn" onclick="setChatMode('hsk',this)"><i
+                            class="fa-solid fa-clipboard-list"></i> HSKå¤‡è€ƒ</button>
+                    <div class="ai-limit-info" id="aiLimitInfo"></div>
+                    <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
+                        <button onclick="clearChatHistory()"
+                            style="width:100%;padding:7px;border-radius:10px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:var(--red);font-family:var(--font-head);font-size:.75rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">
+                            <i class="fa-solid fa-trash"></i>æ¸…é™¤åŽ†å²è®°å½•
+                        </button>
+                    </div>
+                </div>
+                <div class="ai-chat-main">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="chat-msg ai-msg">
+                            <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+                            <div class="chat-bubble">
+                                ä½ å¥½ï¼æˆ‘æ˜¯ä½ çš„æ±‰è¯­è€å¸ˆã€‚æˆ‘ä»¬æ¥èŠä»€ä¹ˆï¼Ÿ<br><br>
+                                <small style="color:var(--text3);font-family:var(--font-head);font-size:.72rem">
+                                    <i class="fa-solid fa-circle-info" style="margin-right:4px"></i>æ¨¡å¼ï¼šè‡ªç”±å¯¹è¯
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <div class="chat-actions-row">
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('è¯·è§£é‡Šä¸€ä¸‹ ')" title="è§£é‡Š"><i
+                                    class="fa-solid fa-lightbulb"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('è¯·çº æ­£ï¼š')" title="çº æ­£"><i
+                                    class="fa-solid fa-pen"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('ç¿»è¯‘ï¼š')" title="ç¿»è¯‘"><i
+                                    class="fa-solid fa-language"></i></button>
+                            <button class="chat-action-btn" onclick="insertQuickPhrase('ç»™æˆ‘ä¸€ä¸ªä¾‹å¥ï¼š')" title="ä¾‹å¥"><i
+                                    class="fa-solid fa-star"></i></button>
+                        </div>
+                        <div class="chat-input-row">
+                            <textarea class="chat-input" id="chatInput" placeholder="ç”¨ä¸­æ–‡æˆ–ä¹Œå…¹åˆ«å…‹è¯­è¾“å…¥..." rows="2"
+                                onkeydown="handleChatKey(event)"></textarea>
+                            <button class="chat-send-btn" onclick="sendChatMessage()" id="chatSendBtn">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODALS -->
+    <div class="modal-overlay" id="unitModal" onclick="closeUnitModal(event)">
+        <div class="modal-box" id="unitModalBox">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modalContent" style="padding:24px"></div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="wordModal" onclick="closeWordModal(event)">
+        <div class="modal-box word-modal-box">
+            <button class="modal-close" onclick="closeWordModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div id="wordModalContent"></div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="upgradeModal" onclick="closeUpgradeModal(event)">
+        <div class="modal-box upgrade-modal-box">
+            <button class="modal-close" onclick="closeUpgradeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="upgrade-modal-content">
+                <div style="margin-bottom:16px"><i class="fa-solid fa-rocket"
+                        style="font-size:2.8rem;color:var(--accent2)"></i></div>
+                <h2 style="font-family:var(--font-display);letter-spacing:.04em;margin-bottom:8px">Tokenç”¨å®Œäº†ï¼</h2>
+                <p id="upgradeModalText" style="color:var(--text2);font-size:.88rem;margin-bottom:12px">
+                    æ‚¨çš„Tokenå·²ç”¨å®Œã€‚è¯·ç­‰å¾…åˆ·æ–°æˆ–å‡çº§å¥—é¤ã€‚</p>
+                <div class="upgrade-timer" id="upgradeTimer"></div>
+                <div class="upgrade-btns">
+                    <button class="upgrade-btn-primary" onclick="window.location.href='../order.html'"><i
+                            class="fa-solid fa-arrow-up" style="margin-right:6px"></i>å‡çº§å¥—é¤</button>
+                    <button class="upgrade-btn-secondary" onclick="closeUpgradeModal()"><i class="fa-solid fa-clock"
+                            style="margin-right:6px"></i>ç­‰å¾…åˆ·æ–°</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <div class="xp-popup" id="xpPopup"></div>
+
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-backdrop" onclick="closeDrawer()"></div>
+        <div class="drawer-panel">
+            <div class="drawer-head">
+                <a href="../index.html" class="drawer-logo">Lingua<span>Verse</span></a>
+                <button class="drawer-close" onclick="closeDrawer()" aria-label="å…³é—­"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="drawer-user">
+                <div class="drawer-user-name" id="drawerUserName">è®¿å®¢</div>
+                <div class="drawer-stats">
+                    <span class="drawer-stat" style="color:#f5c842"><i class="fa-solid fa-star"></i> <span
+                            id="drawerXP">0</span> ç»éªŒ</span>
+                    <span class="drawer-stat" style="color:#f5c842"><i class="fa-solid fa-coins"></i> <span
+                            id="drawerCoin">0</span></span>
+                </div>
+            </div>
+            <nav class="drawer-nav">
+                <div class="drawer-nav-label">è¯¾ç¨‹</div>
+                <a href="#units" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-layer-group"></i>
+                    å•å…ƒ</a>
+                <a href="#words" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-book"></i> è¯æ±‡</a>
+                <a href="#practice" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-bullseye"></i>
+                    ç»ƒä¹ </a>
+                <a href="#videoSection" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-play"></i>
+                    è§†é¢‘è¯¾ç¨‹</a>
+                <a href="#ai-chat" class="drawer-link" onclick="closeDrawerNav()"><i class="fa-solid fa-robot"></i>
+                    AIå¯¹è¯</a>
+                <div class="drawer-nav-label" style="margin-top:8px">ç½‘ç«™</div>
+                <a href="../index.html" class="drawer-link"><i class="fa-solid fa-house"></i> é¦–é¡µ</a>
+                <a href="../select-language.html" class="drawer-link"><i class="fa-solid fa-globe"></i> è¯­è¨€</a>
+                <a href="./voice-room.html" class="drawer-link"><i class="fa-solid fa-microphone"></i> è¯­éŸ³èŠå¤©</a>
+                <a href="shop.html" class="drawer-link"><i class="fa-solid fa-bag-shopping"></i> å•†åŸŽ</a>
+                <a href="profile.html" class="drawer-link green"><i class="fa-solid fa-user"></i> ä¸ªäººèµ„æ–™</a>
+                <a href="#leaderboard-section" class="drawer-link gold" onclick="closeDrawerNav()"><i
+                        class="fa-solid fa-trophy"></i> æŽ’è¡Œæ¦œ</a>
+                <a href="../order.html" class="drawer-link pink"><i class="fa-solid fa-crown"></i> å¥—é¤</a>
+            </nav>
+            <div class="drawer-upgrade">
+                <div class="drawer-upgrade-title"><i class="fa-solid fa-rocket"
+                        style="margin-right:6px;color:#ff6b6b"></i>å‡çº§åˆ°é«˜çº§å¥—é¤</div>
+                <p style="font-size:.75rem;color:#a8b0d0;margin-bottom:10px">æ— é™AIå¯¹è¯ã€+2Ã— ç»éªŒå€¼ç­‰æ›´å¤šåŠŸèƒ½ï¼</p>
+                <button class="drawer-upgrade-btn" onclick="window.location.href='../order.html'">å‡çº§ <i
+                        class="fa-solid fa-arrow-right" style="margin-left:4px"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        (function () {
+            const cv = document.getElementById('bgCanvas');
+            const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+            r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight);
+            const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);
+            cam.position.z = 5;
+            const geo = new THREE.BufferGeometry();
+            const cnt = 1400, pos = new Float32Array(cnt * 3);
+            for (let i = 0; i < cnt * 3; i++)pos[i] = (Math.random() - .5) * 30;
+            geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xb52030, size: .05, transparent: true, opacity: .35 }));
+            sc.add(pts);
+            [0xb52030, 0xff4455, 0xd4a820, 0xe02060, 0xff6020].forEach((c, i) => {
+                const m = new THREE.Mesh(new THREE.TorusGeometry(2 + i * 1.8, .01, 8, 100), new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .05 }));
+                m.rotation.x = Math.random() * Math.PI; m.rotation.y = Math.random() * Math.PI; sc.add(m);
+            });
+            let mx = 0, my = 0;
+            document.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5 });
+            window.addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); r.setSize(innerWidth, innerHeight) });
+            let t = 0; (function loop() { requestAnimationFrame(loop); t += .002; pts.rotation.y = t * .12; pts.rotation.x = t * .07; cam.position.x += (mx * .6 - cam.position.x) * .03; cam.position.y += (-my * .6 - cam.position.y) * .03; cam.lookAt(sc.position); r.render(sc, cam); })();
+        })();
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        function toggleDrawer() { mobileDrawer.classList.contains('open') ? closeDrawer() : openDrawer() }
+        function openDrawer() { mobileDrawer.classList.add('open'); hamburgerBtn.classList.add('open'); hamburgerBtn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; syncDrawerStats() }
+        function closeDrawer() { mobileDrawer.classList.remove('open'); hamburgerBtn.classList.remove('open'); hamburgerBtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '' }
+        function closeDrawerNav() { closeDrawer() }
+        function syncDrawerStats() {
+            const xp = document.getElementById('navXP')?.textContent || '0';
+            const coin = document.getElementById('navCoin')?.textContent || '0';
+            const dXP = document.getElementById('drawerXP'); const dCoin = document.getElementById('drawerCoin');
+            if (dXP) dXP.textContent = xp; if (dCoin) dCoin.textContent = coin;
+        }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer() });
+        (function () {
+            let startX = 0; const panel = document.querySelector('.drawer-panel'); if (!panel) return;
+            panel.addEventListener('touchstart', e => { startX = e.touches[0].clientX }, { passive: true });
+            panel.addEventListener('touchend', e => { if (e.changedTouches[0].clientX - startX > 60) closeDrawer() }, { passive: true });
+        })();
+    </script>
+
+    <script type="module" src="../js/lv-ai-bridge.js"></script>
+    <script>window.LV_TARGET_LANG='chinese';</script>
+    <script type="module" src="./js/language.js"></script>
+    <script type="module" src="../js/lv-status-bar.js"></script>
+    <script type="module" src="../js/lv-vocab-room.js"></script>
+    <script type="module" src="./js/Chinese.js"></script>
+    <script type="module" src="./js/adaptive-language.js"></script>
+
+</body>
+
+</html>

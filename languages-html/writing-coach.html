@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaVerse — AI Writing Coach</title>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <style>
+    * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; }
+    html { overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 20px; height: 60px; background: var(--nav-bg); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { display: inline-flex; align-items: center; gap: 6px; color: var(--text3); text-decoration: none; font-size: .78rem; font-weight: 600; padding: 7px 12px; border-radius: 10px; border: 1px solid transparent; transition: .18s; }
+    .nav-links a:hover { color: var(--text); border-color: var(--border); background: var(--surface); }
+    .nav-links a.on { color: var(--accent); border-color: var(--border-hi); background: var(--card-accent); }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 26px 18px 70px; }
+    .head { margin-bottom: 22px; }
+    .head h1 { font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; margin-bottom: 6px; }
+    .head p { color: var(--text2); font-size: .88rem; max-width: 640px; line-height: 1.6; }
+
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+    .card + .card { margin-top: 16px; }
+    .card h2 { font-family: var(--font-head); font-size: .95rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+
+    /* ── TANLOVLAR ── */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 9px 14px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); color: var(--text2); font-size: .8rem; font-weight: 600; cursor: pointer; transition: .18s; display: inline-flex; align-items: center; gap: 7px; }
+    .chip:hover { border-color: var(--border2); color: var(--text); }
+    .chip.on { background: var(--card-accent); border-color: var(--border-hi); color: var(--text); }
+    .lbl { font-size: .72rem; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; font-weight: 700; }
+
+    /* ── TOPSHIRIQ ── */
+    .task-box { background: var(--bg3); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 14px 16px; margin-top: 14px; }
+    .task-box .t { font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+    .task-box .d { color: var(--text2); font-size: .84rem; line-height: 1.6; }
+    .task-meta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; font-size: .74rem; color: var(--text3); }
+
+    /* ── YOZUV MAYDONI ── */
+    textarea#essay { width: 100%; min-height: 300px; padding: 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: .95rem; line-height: 1.75; resize: vertical; }
+    textarea#essay:focus { outline: none; border-color: var(--border-hi); }
+    .bar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: .78rem; color: var(--text3); }
+    .bar b { color: var(--text); }
+    .bar .warn { color: var(--gold); }
+    .bar .ok { color: var(--green); }
+
+    .btn { padding: 11px 20px; border-radius: 11px; border: 1px solid var(--border2); background: var(--surface2); color: var(--text); font-size: .85rem; font-weight: 700; font-family: var(--font-body); display: inline-flex; align-items: center; gap: 8px; transition: .18s; }
+    .btn:hover:not(:disabled) { border-color: var(--border-hi); background: var(--card-accent); }
+    .btn-main { background: linear-gradient(135deg, var(--accent), var(--accent2)); border: none; color: #fff; }
+    .btn-main:hover:not(:disabled) { filter: brightness(1.1); }
+    .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+
+    /* ── BAHO ── */
+    #result { display: none; }
+    .scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+    .sc { background: var(--bg3); border: 1px solid var(--border); border-radius: 11px; padding: 13px; text-align: center; }
+    .sc .n { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; line-height: 1; }
+    .sc .l { font-size: .7rem; color: var(--text3); margin-top: 6px; text-transform: uppercase; letter-spacing: .05em; }
+    .band { text-align: center; padding: 18px; background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; }
+    .band .n { font-family: var(--font-head); font-size: 2.6rem; font-weight: 700; line-height: 1; }
+    .band .l { font-size: .78rem; color: var(--text3); margin-top: 6px; }
+    .fb { background: var(--bg2); border: 1px solid var(--border); border-radius: 11px; padding: 16px; font-size: .88rem; line-height: 1.75; }
+    .fb h3 { font-family: var(--font-head); font-size: .88rem; margin: 14px 0 7px; color: var(--accent2); }
+    .fb h3:first-child { margin-top: 0; }
+    .fb ul { margin: 0 0 0 18px; }
+    .fb li { margin-bottom: 5px; }
+    .fb del { color: var(--red); text-decoration: line-through; }
+    .fb ins { color: var(--green); text-decoration: none; font-weight: 600; }
+    .fb code { background: var(--surface2); padding: 2px 6px; border-radius: 5px; font-size: .85em; }
+
+    .spin { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.2); border-top-color: var(--accent); border-radius: 50%; display: inline-block; animation: sp .7s linear infinite; }
+    @keyframes sp { to { transform: rotate(360deg) } }
+
+    .note { padding: 12px 14px; border-radius: 10px; font-size: .82rem; line-height: 1.6; margin-top: 12px; display: none; }
+    .note.err { background: rgba(248,113,113,.09); border: 1px solid rgba(248,113,113,.25); color: var(--red); }
+    .note.info { background: rgba(79,110,247,.09); border: 1px solid var(--border-hi); color: var(--text2); }
+
+    /* ── TARIX ── */
+    .hist-row { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: .82rem; }
+    .hist-row:last-child { border-bottom: none; }
+    .hist-row .b { font-family: var(--font-head); font-weight: 700; min-width: 40px; }
+    .hist-row .t { flex: 1; color: var(--text2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hist-row .d { color: var(--text3); font-size: .74rem; }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 18px 12px 60px; }
+      nav { height: auto; padding: 10px 14px; flex-direction: column; align-items: flex-start; }
+      .head h1 { font-size: 1.35rem; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
+  <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
+  <link rel="stylesheet" href="../css/lv-theme.css">
+</head>
+
+<body>
+  <nav>
+    <a href="../index.html" class="logo">Lingua<span>Verse</span></a>
+    <div class="nav-links">
+      <a href="./language.html"><i class="fa-solid fa-graduation-cap"></i> Darslar</a>
+      <a href="./ai-coach.html"><i class="fa-solid fa-user-astronaut"></i> AI Coach</a>
+      <a href="./speaking-coach.html"><i class="fa-solid fa-microphone-lines"></i> Speaking</a>
+      <a href="./writing-coach.html" class="on"><i class="fa-solid fa-pen-nib"></i> Writing</a>
+      <a href="./profile.html"><i class="fa-solid fa-user"></i> Profil</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="head">
+      <h1><i class="fa-solid fa-pen-nib" style="color:var(--green)"></i> AI Writing Coach</h1>
+      <p>Insho, xat yoki erkin matn yozing — AI uni IELTS mezonlari bo'yicha baholaydi,
+         har bir xatoni ko'rsatadi va keyingi safar nimani yaxshilash kerakligini aytadi.</p>
+    </div>
+
+    <!-- ── 1. TOPSHIRIQ TANLASH ── -->
+    <div class="card">
+      <h2><i class="fa-solid fa-list-check" style="color:var(--accent)"></i> Topshiriq turi</h2>
+      <div class="lbl">Tur</div>
+      <div class="chips" id="typeChips"></div>
+
+      <div class="lbl" style="margin-top:16px">Daraja</div>
+      <div class="chips" id="lvlChips"></div>
+
+      <div class="task-box" id="taskBox">
+        <div class="t" id="taskTitle">Topshiriq tanlang</div>
+        <div class="d" id="taskDesc">Yuqoridan tur va daraja tanlang — topshiriq shu yerda chiqadi.</div>
+        <div class="task-meta" id="taskMeta"></div>
+      </div>
+
+      <div class="btns">
+        <button class="btn" id="newTaskBtn" onclick="newTask()">
+          <i class="fa-solid fa-shuffle"></i> Boshqa mavzu
+        </button>
+        <button class="btn" id="aiTaskBtn" onclick="aiTask()">
+          <i class="fa-solid fa-robot"></i> AI mavzu o'ylab topsin
+        </button>
+      </div>
+    </div>
+
+    <!-- ── 2. YOZISH ── -->
+    <div class="card">
+      <h2><i class="fa-solid fa-keyboard" style="color:var(--accent2)"></i> Matningiz</h2>
+      <textarea id="essay" placeholder="Shu yerga yozing…" oninput="onType()"></textarea>
+      <div class="bar">
+        <span><b id="wc">0</b> so'z</span>
+        <span><b id="cc">0</b> belgi</span>
+        <span><b id="sc">0</b> gap</span>
+        <span id="minMsg" class="warn"></span>
+        <span style="margin-left:auto"><i class="fa-solid fa-clock"></i> <b id="timer">0:00</b></span>
+      </div>
+      <div class="btns">
+        <button class="btn btn-main" id="checkBtn" onclick="checkEssay()">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> AI tekshirsin
+        </button>
+        <button class="btn" onclick="clearEssay()"><i class="fa-solid fa-eraser"></i> Tozalash</button>
+        <button class="btn" onclick="saveDraft()"><i class="fa-solid fa-floppy-disk"></i> Qoralama saqlash</button>
+      </div>
+      <div class="note" id="note"></div>
+    </div>
+
+    <!-- ── 3. NATIJA ── -->
+    <div class="card" id="result">
+      <h2><i class="fa-solid fa-chart-simple" style="color:var(--gold)"></i> Baho</h2>
+      <div class="band">
+        <div class="n" id="bandNum">—</div>
+        <div class="l" id="bandLbl">Umumiy ball</div>
+      </div>
+      <div class="scores" id="scores"></div>
+      <div class="fb" id="feedback"></div>
+    </div>
+
+    <!-- ── 4. TARIX ── -->
+    <div class="card">
+      <h2><i class="fa-solid fa-clock-rotate-left" style="color:var(--text3)"></i> Oxirgi ishlaringiz</h2>
+      <div id="hist"><div style="color:var(--text3);font-size:.82rem">Hali ish yo'q.</div></div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/lv-status-bar.js"></script>
+  <script type="module">
+    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, collection, addDoc, getDocs, query, orderBy, limit, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { LV, FB_CONFIG } from '../js/lv-core.js';
+
+    const app = getApps().length ? getApp() : initializeApp(FB_CONFIG);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    let USER = null;
+
+    // ═══════════════════════════════════════════════════════════════
+    //  TOPSHIRIQ BAZASI
+    //  Har turi uchun bir nechta mavzu — "Boshqa mavzu" tugmasi
+    //  ro'yxat ichida aylanadi, AI limitini sarflamaydi.
+    // ═══════════════════════════════════════════════════════════════
+    const TYPES = {
+      ielts2: {
+        name: 'IELTS Task 2', fa: 'fa-graduation-cap', minWords: 250, minutes: 40,
+        hint: "Fikringizni bildiring, 2-3 ta dalil keltiring, xulosa yozing.",
+        topics: [
+          "Some people think university education should be free for everyone. Others believe students should pay. Discuss both views and give your own opinion.",
+          "Many people work from home today. Do the advantages outweigh the disadvantages?",
+          "Social media has changed how young people communicate. Is this a positive or negative development?",
+          "Governments should spend more money on public transport than on roads. To what extent do you agree or disagree?",
+          "Some believe learning a foreign language at primary school is better than at secondary school. Discuss both views."
+        ]
+      },
+      ielts1: {
+        name: 'IELTS Task 1', fa: 'fa-chart-line', minWords: 150, minutes: 20,
+        hint: "Asosiy tendensiyani ayting, raqamlar bilan taqqoslang, xulosa qiling.",
+        topics: [
+          "The chart below shows the percentage of households with internet access in four countries between 2000 and 2020. Summarise the information.",
+          "The table shows the average monthly spending on food, housing and transport in three cities. Summarise the main features.",
+          "The diagram shows how paper is recycled. Describe the process.",
+          "The graph shows the number of international students at a university over ten years. Summarise the information."
+        ]
+      },
+      essay: {
+        name: 'Insho', fa: 'fa-file-lines', minWords: 180, minutes: 30,
+        hint: "Kirish - asosiy qism - xulosa tuzilmasiga rioya qiling.",
+        topics: [
+          "Hayotingizda eng ko'p ta'sir qilgan kitob yoki film haqida yozing.",
+          "Texnologiya ta'limni yaxshilaydimi yoki yomonlashtiradimi?",
+          "O'z shahringizni sayyohga qanday tanishtirasiz?",
+          "Muvaffaqiyat nima degani? O'z ta'rifingizni bering.",
+          "Agar bir kunga hukumat rahbari bo'lsangiz, nimani o'zgartirasiz?"
+        ]
+      },
+      email: {
+        name: 'Xat / Email', fa: 'fa-envelope', minWords: 120, minutes: 20,
+        hint: "Murojaat, sabab, so'rov, xayrlashuv — to'rt qismi ham bo'lsin.",
+        topics: [
+          "Write an email to your manager requesting two weeks of leave. Explain the reason and suggest how your work will be covered.",
+          "Write a letter to a hotel complaining about a problem during your stay and asking for compensation.",
+          "Write an email to a friend inviting them to visit your city. Suggest what you can do together.",
+          "Write a formal letter applying for a part-time job at a bookstore."
+        ]
+      },
+      story: {
+        name: 'Hikoya', fa: 'fa-book-open', minWords: 150, minutes: 25,
+        hint: "Boshlanish, voqea, yechim bo'lsin. O'tgan zamon fe'llaridan foydalaning.",
+        topics: [
+          "Kutilmagan uchrashuv haqida hikoya yozing.",
+          "\"Eshikni ochganimda, hech kim kutmagan narsani ko'rdim…\" — davom ettiring.",
+          "Bolaligingizdagi eng esda qolarli kun haqida yozing.",
+          "Bir kunlik sayohat sizni butunlay o'zgartirdi. Nima bo'ldi?"
+        ]
+      },
+      free: {
+        name: 'Erkin yozuv', fa: 'fa-feather', minWords: 80, minutes: 15,
+        hint: "Mavzu sizniki. AI baribir grammatika va uslubni tekshiradi.",
+        topics: ["Xohlagan mavzuda yozing — AI tekshiradi."]
+      }
+    };
+
+    const LEVELS = {
+      A1: { name: 'A1 — Boshlang\'ich', mult: .5 },
+      A2: { name: 'A2 — Elementar', mult: .7 },
+      B1: { name: 'B1 — O\'rta', mult: 1 },
+      B2: { name: 'B2 — O\'rtadan yuqori', mult: 1.2 },
+      C1: { name: 'C1 — Ilg\'or', mult: 1.5 }
+    };
+
+    let curType = 'ielts2';
+    let curLevel = 'B1';
+    let topicIdx = 0;
+    let curTask = '';
+    let startedAt = 0;
+    let timerId = null;
+
+    // ── Chiplarni chizish ──
+    function renderChips() {
+      document.getElementById('typeChips').innerHTML = Object.entries(TYPES).map(([k, v]) =>
+        `<button class="chip ${k === curType ? 'on' : ''}" onclick="pickType('${k}')">
+           <i class="fa-solid ${v.fa}"></i> ${v.name}</button>`).join('');
+      document.getElementById('lvlChips').innerHTML = Object.entries(LEVELS).map(([k, v]) =>
+        `<button class="chip ${k === curLevel ? 'on' : ''}" onclick="pickLevel('${k}')">${v.name}</button>`).join('');
+    }
+
+    window.pickType = (k) => { curType = k; topicIdx = 0; renderChips(); showTask(); };
+    window.pickLevel = (k) => { curLevel = k; renderChips(); showTask(); };
+
+    function minWords() {
+      return Math.round(TYPES[curType].minWords * LEVELS[curLevel].mult);
+    }
+
+    function showTask(custom) {
+      const t = TYPES[curType];
+      curTask = custom || t.topics[topicIdx % t.topics.length];
+      document.getElementById('taskTitle').textContent = t.name + ' · ' + curLevel;
+      document.getElementById('taskDesc').textContent = curTask;
+      document.getElementById('taskMeta').innerHTML =
+        `<span><i class="fa-solid fa-align-left"></i> kamida ${minWords()} so'z</span>` +
+        `<span><i class="fa-solid fa-clock"></i> ~${t.minutes} daqiqa</span>` +
+        `<span><i class="fa-solid fa-lightbulb"></i> ${t.hint}</span>`;
+      onType();
+    }
+
+    window.newTask = () => { topicIdx++; showTask(); };
+
+    // ── AI dan yangi mavzu ──
+    window.aiTask = async () => {
+      const btn = document.getElementById('aiTaskBtn');
+      const old = btn.innerHTML;
+      btn.disabled = true; btn.innerHTML = '<span class="spin"></span> O\'ylayapti…';
+      try {
+        const r = await LV.ai(LV.bestModel(false), [{
+          role: 'user',
+          content: `Give me ONE ${TYPES[curType].name} writing task for a ${curLevel} level English learner. ` +
+                   `Output only the task prompt itself, one paragraph, no title, no extra commentary.`
+        }], { task: 'writing' });
+        if (!r.ok) { showNote('err', gateMsg(r)); return; }
+        showTask(r.text.trim());
+      } finally { btn.disabled = false; btn.innerHTML = old; }
+    };
+
+    // ── Yozuv hisoblagichi ──
+    window.onType = () => {
+      const v = document.getElementById('essay').value;
+      const words = v.trim() ? v.trim().split(/\s+/).length : 0;
+      const sents = v.trim() ? (v.match(/[.!?]+/g) || []).length : 0;
+      document.getElementById('wc').textContent = words;
+      document.getElementById('cc').textContent = v.length;
+      document.getElementById('sc').textContent = sents;
+      const need = minWords();
+      const m = document.getElementById('minMsg');
+      if (words === 0) { m.textContent = ''; }
+      else if (words < need) { m.className = 'warn'; m.textContent = `yana ${need - words} so'z kerak`; }
+      else { m.className = 'ok'; m.innerHTML = '<i class="fa-solid fa-circle-check"></i> yetarli'; }
+
+      if (words > 0 && !timerId) startTimer();
+    };
+
+    function startTimer() {
+      startedAt = Date.now();
+      timerId = setInterval(() => {
+        const s = Math.floor((Date.now() - startedAt) / 1000);
+        document.getElementById('timer').textContent =
+          Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+      }, 1000);
+    }
+
+    window.clearEssay = () => {
+      if (!confirm("Matn o'chirilsinmi?")) return;
+      document.getElementById('essay').value = '';
+      clearInterval(timerId); timerId = null;
+      document.getElementById('timer').textContent = '0:00';
+      document.getElementById('result').style.display = 'none';
+      onType();
+    };
+
+    // Qoralama brauzerda qoladi — internet uzilsa ham yo'qolmaydi
+    window.saveDraft = () => {
+      localStorage.setItem('lv_writing_draft', JSON.stringify({
+        text: document.getElementById('essay').value, type: curType, level: curLevel, task: curTask
+      }));
+      showNote('info', 'Qoralama saqlandi. Sahifani yopsangiz ham qaytib keladi.');
+    };
+
+    function loadDraft() {
+      try {
+        const d = JSON.parse(localStorage.getItem('lv_writing_draft') || 'null');
+        if (!d || !d.text) return;
+        document.getElementById('essay').value = d.text;
+        if (TYPES[d.type]) curType = d.type;
+        if (LEVELS[d.level]) curLevel = d.level;
+        renderChips(); showTask(d.task);
+      } catch (e) { /* buzuq qoralama — e'tibor bermaymiz */ }
+    }
+
+    function showNote(kind, msg) {
+      const n = document.getElementById('note');
+      n.className = 'note ' + kind;
+      n.innerHTML = msg;
+      n.style.display = 'block';
+    }
+    function hideNote() { document.getElementById('note').style.display = 'none'; }
+
+    // Limit rad javobini odam tiliga o'giradi
+    function gateMsg(r) {
+      if (r.reason === 'limit')
+        return `<b>Limit tugadi.</b> ${r.message || ''} <a href="./shop.html" style="color:var(--accent)">Rejani oshirish</a>`;
+      if (r.reason === 'auth')
+        return `Avval <a href="../auth/login.html" style="color:var(--accent)">tizimga kiring</a>.`;
+      if (r.reason === 'plan')
+        return `Bu model rejangizda yo'q. <a href="./shop.html" style="color:var(--accent)">Rejalarni ko'rish</a>`;
+      return r.message || 'Xatolik yuz berdi. Qayta urinib ko\'ring.';
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  ASOSIY — AI TEKSHIRUVI
+    // ═══════════════════════════════════════════════════════════════
+    window.checkEssay = async () => {
+      hideNote();
+      const text = document.getElementById('essay').value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+
+      if (words < 20) { showNote('err', "Kamida 20 so'z yozing — AI shundan kam matnni baholay olmaydi."); return; }
+      if (words < minWords()) {
+        if (!confirm(`Matn qisqa (${words}/${minWords()} so'z). Baribir tekshirilsinmi?\nQisqa matn ballni pasaytiradi.`)) return;
+      }
+
+      const btn = document.getElementById('checkBtn');
+      const old = btn.innerHTML;
+      btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Tekshirilmoqda…';
+
+      // Writing limitini oldin band qilamiz — AI xato bersa qaytariladi
+      const gate = await LV.consume('writing', 1);
+      if (!gate.ok) {
+        btn.disabled = false; btn.innerHTML = old;
+        showNote('err', gateMsg(gate));
+        return;
+      }
+
+      const t = TYPES[curType];
+      const prompt =
+`You are an experienced IELTS writing examiner and language teacher.
+
+TASK TYPE: ${t.name}
+STUDENT LEVEL: ${curLevel}
+TASK PROMPT: ${curTask}
+REQUIRED LENGTH: ${minWords()} words (student wrote ${words})
+
+STUDENT'S WRITING:
+"""
+${text}
+"""
+
+Return your assessment as valid JSON ONLY, no markdown fence, in this exact shape:
+{
+  "band": 6.5,
+  "scores": { "task": 6, "coherence": 7, "vocabulary": 6, "grammar": 6 },
+  "summary": "2-3 sentence overall impression, written in Uzbek",
+  "strengths": ["point in Uzbek", "point in Uzbek"],
+  "corrections": [
+    { "wrong": "exact phrase from the text", "right": "corrected phrase", "why": "short reason in Uzbek" }
+  ],
+  "improve": ["one concrete action in Uzbek", "another one"],
+  "rewritten": "An improved version of ONE weak paragraph from the student's text"
+}
+
+Rules:
+- "band" is 0-9 with .5 steps. Each score in "scores" is 0-9 integer.
+- Include 4-10 items in "corrections", taken verbatim from the student's text.
+- All explanations in Uzbek; corrected English stays English.
+- Be honest: do not inflate the band.`;
+
+      try {
+        const r = await LV.ai(LV.bestModel(true), [{ role: 'user', content: prompt }], {
+          task: 'writing', maxTokens: 2200, temperature: .3
+        });
+
+        if (!r.ok) {
+          await LV.refund('writing', 1);
+          showNote('err', gateMsg(r));
+          return;
+        }
+
+        const data = parseJson(r.text);
+        if (!data) {
+          // AI JSON bermadi — xom javobni ko'rsatamiz, limit qaytmaydi
+          // chunki AI ish qildi, faqat format buzildi
+          renderRaw(r.text, r.modelName);
+          return;
+        }
+        renderResult(data, r.modelName, words);
+        await saveHistory(data, words);
+
+      } catch (e) {
+        await LV.refund('writing', 1);
+        showNote('err', "Aloqa uzildi. Matningiz joyida — qayta urinib ko'ring.");
+        console.error('[writing]', e);
+      } finally {
+        btn.disabled = false; btn.innerHTML = old;
+      }
+    };
+
+    // AI ba'zan JSON ni ``` bloki ichiga o'raydi yoki oldiga matn qo'shadi
+    function parseJson(s) {
+      if (!s) return null;
+      let t = s.trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '');
+      const a = t.indexOf('{'), b = t.lastIndexOf('}');
+      if (a < 0 || b <= a) return null;
+      try {
+        const d = JSON.parse(t.slice(a, b + 1));
+        return (typeof d.band === 'number' || typeof d.band === 'string') ? d : null;
+      } catch (e) { return null; }
+    }
+
+    const bandColor = b =>
+      b >= 7.5 ? 'var(--green)' : b >= 6 ? 'var(--accent)' :
+      b >= 5 ? 'var(--gold)' : 'var(--red)';
+
+    const esc = s => String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    function renderResult(d, modelName, words) {
+      const band = Number(d.band) || 0;
+      document.getElementById('bandNum').textContent = band.toFixed(1);
+      document.getElementById('bandNum').style.color = bandColor(band);
+      document.getElementById('bandLbl').textContent =
+        `Umumiy ball · ${modelName} · ${words} so'z`;
+
+      const SL = { task: 'Topshiriq', coherence: 'Bog\'lanish', vocabulary: 'Lug\'at', grammar: 'Grammatika' };
+      document.getElementById('scores').innerHTML = Object.entries(SL).map(([k, l]) => {
+        const v = Number(d.scores?.[k]) || 0;
+        return `<div class="sc"><div class="n" style="color:${bandColor(v)}">${v}</div><div class="l">${l}</div></div>`;
+      }).join('');
+
+      let h = '';
+      if (d.summary) h += `<h3><i class="fa-solid fa-comment-dots"></i> Umumiy fikr</h3><p>${esc(d.summary)}</p>`;
+      if (d.strengths?.length)
+        h += `<h3><i class="fa-solid fa-thumbs-up"></i> Kuchli tomonlar</h3><ul>` +
+             d.strengths.map(x => `<li>${esc(x)}</li>`).join('') + `</ul>`;
+      if (d.corrections?.length)
+        h += `<h3><i class="fa-solid fa-pen"></i> Tuzatishlar (${d.corrections.length})</h3><ul>` +
+             d.corrections.map(c =>
+               `<li><del>${esc(c.wrong)}</del> → <ins>${esc(c.right)}</ins>` +
+               (c.why ? `<br><span style="color:var(--text3);font-size:.9em">${esc(c.why)}</span>` : '') + `</li>`
+             ).join('') + `</ul>`;
+      if (d.improve?.length)
+        h += `<h3><i class="fa-solid fa-arrow-trend-up"></i> Keyingi safar</h3><ul>` +
+             d.improve.map(x => `<li>${esc(x)}</li>`).join('') + `</ul>`;
+      if (d.rewritten)
+        h += `<h3><i class="fa-solid fa-wand-magic-sparkles"></i> Yaxshilangan variant</h3>` +
+             `<p style="background:var(--surface2);padding:12px;border-radius:9px">${esc(d.rewritten)}</p>`;
+
+      document.getElementById('feedback').innerHTML = h;
+      const box = document.getElementById('result');
+      box.style.display = 'block';
+      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderRaw(text, modelName) {
+      document.getElementById('bandNum').textContent = '—';
+      document.getElementById('bandLbl').textContent = modelName + ' · erkin javob';
+      document.getElementById('scores').innerHTML = '';
+      document.getElementById('feedback').innerHTML =
+        `<p style="white-space:pre-wrap">${esc(text)}</p>`;
+      const box = document.getElementById('result');
+      box.style.display = 'block';
+      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ── Tarix ──
+    async function saveHistory(d, words) {
+      if (!USER) return;
+      try {
+        await addDoc(collection(db, 'users', USER.uid, 'writing'), {
+          band: Number(d.band) || 0,
+          scores: d.scores || {},
+          type: curType, level: curLevel, task: curTask,
+          words,
+          seconds: startedAt ? Math.floor((Date.now() - startedAt) / 1000) : 0,
+          createdAt: serverTimestamp()
+        });
+        loadHistory();
+      } catch (e) { console.error('[writing] tarix saqlanmadi:', e.code || e.message); }
+    }
+
+    async function loadHistory() {
+      if (!USER) return;
+      try {
+        const snap = await getDocs(query(
+          collection(db, 'users', USER.uid, 'writing'),
+          orderBy('createdAt', 'desc'), limit(8)));
+        if (snap.empty) return;
+        document.getElementById('hist').innerHTML = snap.docs.map(x => {
+          const v = x.data();
+          const dt = v.createdAt?.toDate ? v.createdAt.toDate().toLocaleDateString('uz') : '';
+          return `<div class="hist-row">
+            <span class="b" style="color:${bandColor(v.band)}">${(v.band || 0).toFixed(1)}</span>
+            <span class="t">${esc(TYPES[v.type]?.name || v.type)} · ${esc(v.level || '')} · ${v.words || 0} so'z</span>
+            <span class="d">${dt}</span></div>`;
+        }).join('');
+      } catch (e) { console.error('[writing] tarix o\'qilmadi:', e.code || e.message); }
+    }
+
+    onAuthStateChanged(auth, async (u) => {
+      USER = u;
+      if (!u) { showNote('info', `Baholash uchun <a href="../auth/login.html" style="color:var(--accent)">tizimga kiring</a>.`); return; }
+      await LV.ready();
+      loadHistory();
+    });
+
+    renderChips();
+    showTask();
+    loadDraft();
+  </script>
+</body>
+
+</html>

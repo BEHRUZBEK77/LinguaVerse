@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaVerse — To'lov natijasi</title>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+    :root {
+      --bg: #04060f; --surface: #0b0f1e; --surface2: #111629;
+      --border: rgba(255,255,255,0.07); --accent: #4f6ef7; --accent2: #a78bfa;
+      --gold: #f5c842; --green: #34d399; --red: #f87171;
+      --text: #e8ecff; --muted: #7580a8;
+    }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(79,110,247,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79,110,247,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 22px; height: 62px; background: rgba(4,6,15,0.8); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+    .logo { font-size: 1.2rem; font-weight: 800; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 600; padding: 7px 13px; border-radius: 10px; transition: all .2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--text); background: var(--surface); }
+    .wrap { position: relative; max-width: 560px; margin: 0 auto; padding: 60px 18px 90px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 40px 28px; text-align: center; }
+    .ic-big { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2.1rem; }
+    .st-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+    .st-sub { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 22px; }
+    .order-id { font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; }
+    .order-id b { color: var(--text); font-family: monospace; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 14px; border: none; font-size: 0.92rem; font-weight: 700; cursor: pointer; text-decoration: none; color: #fff; transition: all .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #6d82f8); box-shadow: 0 8px 28px rgba(79,110,247,0.35); }
+    .btn-ghost { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); margin-top: 10px; }
+    .btn-ghost:hover { color: var(--text); border-color: var(--accent); }
+    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
+    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before { font-family: "Font Awesome 6 Free" !important; }
+    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
+  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="css/lv-theme.css">
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" class="logo">Lingua<span>Verse</span></a>
+    <div class="nav-links">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
+      <a href="select-language.html"><i class="fa-solid fa-globe"></i> Tillar</a>
+      <a href="languages-html/shop.html"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
+      <a href="languages-html/profile.html"><i class="fa-solid fa-user"></i> Profil</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="card" id="card">
+      <div class="ic-big" id="icBig" style="background:rgba(79,110,247,.12);color:var(--accent)">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+      </div>
+      <div class="st-title" id="stTitle">Tekshirilmoqda...</div>
+      <div class="st-sub" id="stSub">To'lov holati aniqlanmoqda.</div>
+      <div class="order-id">Buyurtma: <b id="orderId">—</b></div>
+      <div id="actions"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const FB_CONFIG = {
+      apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
+      authDomain: "linguaverse-81b52.firebaseapp.com",
+      projectId: "linguaverse-81b52",
+      storageBucket: "linguaverse-81b52.firebasestorage.app",
+      messagingSenderId: "1037869292716",
+      appId: "1:1037869292716:web:567bf2c9f9ed0862941309",
+      measurementId: "G-H8WH5FTTEY"
+    };
+    const app = getApps().length ? getApp() : initializeApp(FB_CONFIG);
+    const auth = getAuth(app);
+
+    const PLAN_NAMES = { free: 'Bepul', nova: 'NOVA', mega: 'MEGA', premium: 'PREMIUM' };
+
+    const params = new URLSearchParams(location.search);
+    const orderId = params.get('order');
+    document.getElementById('orderId').textContent = orderId || '—';
+
+    const $ = id => document.getElementById(id);
+
+    function setState(kind, icon, title, sub) {
+      const cfg = {
+        ok:      { col: '#34d399', bg: 'rgba(52,211,153,.12)',  btn: { label: 'O\'rganishni davom ettirish', href: 'select-language.html', cls: 'btn-primary', ic: 'fa-arrow-right' } },
+        pending: { col: '#f5c842', bg: 'rgba(245,200,66,.12)',  btn: { label: 'Qayta tekshirish', href: null, cls: 'btn-ghost', ic: 'fa-rotate-right' } },
+        err:     { col: '#f87171', bg: 'rgba(248,113,113,.12)', btn: { label: 'Qayta urinish', href: 'order.html', cls: 'btn-ghost', ic: 'fa-rotate-right' } },
+        lock:    { col: '#94a3b8', bg: 'rgba(148,163,184,.12)', btn: { label: 'Tizimga kirish', href: null, cls: 'btn-primary', ic: 'fa-right-to-bracket' } }
+      }[kind];
+      $('icBig').style.background = cfg.bg;
+      $('icBig').style.color = cfg.col;
+      $('icBig').innerHTML = `<i class="fa-solid ${icon}"></i>`;
+      $('stTitle').textContent = title;
+      $('stSub').innerHTML = sub;
+      $('actions').innerHTML = `<a class="btn ${cfg.btn.cls}" href="${cfg.btn.href || '#'}" ${cfg.btn.href ? '' : `onclick="recheck()"`}><i class="fa-solid ${cfg.btn.ic}"></i> ${cfg.btn.label}</a>`;
+    }
+
+    window.recheck = async function () {
+      // Holatni qayta so'raymiz
+      location.reload();
+    };
+
+    window.login = function () {
+      sessionStorage.setItem('intendedWorld', location.href);
+      window.location.href = 'auth/login.html';
+    };
+
+    async function check(user) {
+      if (!user) {
+        setState('lock', 'fa-user-lock', 'Tizimga kirish kerak',
+          "To'lov holatini ko'rish uchun avval tizimga kiring. Kirganingizdan keyin shu sahifaga qaytasiz.");
+        $('actions').innerHTML = `<a class="btn btn-primary" href="#" onclick="login()"><i class="fa-solid fa-right-to-bracket"></i> Tizimga kirish</a>`;
+        return;
+      }
+      if (!orderId) {
+        setState('err', 'fa-circle-xmark', 'Buyurtma topilmadi', 'URL\'da buyurtma raqami yo\'q. Iltimos, to\'lov sahifasidan qaytadan urinib ko\'ring.');
+        return;
+      }
+
+      try {
+        const idToken = await user.getIdToken();
+        const resp = await fetch('/.netlify/functions/payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'status', idToken, orderId })
+        });
+        const data = await resp.json();
+
+        if (!resp.ok || data.error) {
+          throw new Error(data.error || "Holat olinmadi");
+        }
+
+        const planName = PLAN_NAMES[data.plan] || data.plan;
+
+        if (data.status === 'paid') {
+          setState('ok', 'fa-circle-check',
+            `Tabriklaymiz, ${planName} reja yoqildi!`,
+            `To'lov muvaffaqiyatli o'tdi va ${planName} rejangiz faollashtirildi. Endi barcha imkoniyatlardan foydalanishingiz mumkin.`);
+        } else if (data.status === 'pending') {
+          setState('pending', 'fa-clock',
+            'To\'lov tasdiqlanmoqda...',
+            `Buyurtma qabul qilindi, lekin hali tasdiqlanmadi. Odatda bir necha soniyada yoqiladi. Sahifani yangilab turib kuting.`);
+          // Webhook biroz kechikishi mumkin — 5 soniyada bir marta qayta so'raymiz
+          setTimeout(() => { if (user) check(user); }, 5000);
+        } else if (data.status === 'failed' || data.status === 'rejected') {
+          setState('err', 'fa-circle-xmark',
+            'To\'lov amalga oshmadi',
+            `Buyurtma holati: ${data.status}. To'lovni qaytadan urinib ko'ring yoki chek yuklash usulidan foydalaning.`);
+        } else {
+          setState('pending', 'fa-clock', 'Kutilmoqda...', 'Buyurtma hali ko\'rib chiqilmoqda.');
+        }
+      } catch (e) {
+        console.error('[payment-result]', e);
+        setState('err', 'fa-circle-xmark', 'Xatolik yuz berdi',
+          e.message + ' Iltimos, bir ozdan keyin qayta urinib ko\'ring.');
+        $('actions').innerHTML = `<a class="btn btn-ghost" href="order.html"><i class="fa-solid fa-rotate-right"></i> Qayta urinish</a>`;
+      }
+    }
+
+    onAuthStateChanged(auth, u => check(u));
+  </script>
+</body>
+</html>

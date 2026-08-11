@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Til Shahri — LinguaVerse 3D Dunyo</title>
+  <link rel="icon" href="data:,">
+  <meta name="description" content="3D immersive til o'rganish shahri: zonalar, NPC suhbatlar, lug'at, questlar.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="css/world.css">
+
+  <!-- Three.js importmap — CDN'dan yuklanadi -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ══════════ YUKLASH EKRANI ══════════ -->
+  <div id="loading">
+    <div class="load-card">
+      <div class="load-logo">Lingua<span>Verse</span></div>
+      <h1>Til Shahri</h1>
+      <p class="load-sub">3D immersive til o'rganish dunyosi</p>
+      <div class="load-bar"><div id="loadFill"></div></div>
+      <div class="load-info"><span id="loadText">Dunyoni yuklash...</span><span id="loadPct">0%</span></div>
+      <div class="load-tip" id="loadTip">WASD — yurish · E — suhbat · Bosing — o'rganish</div>
+    </div>
+  </div>
+
+  <!-- ══════════ TIL + SHAHAR TANLASH ══════════ -->
+  <div id="city-select" aria-hidden="true">
+    <div class="city-select-inner">
+      <div class="setup-progress">
+        <span class="setup-dot" data-step="lang">1 · Til</span>
+        <span class="setup-dot" data-step="city">2 · Shahar</span>
+      </div>
+
+      <!-- QADAM 1: Til -->
+      <div class="setup-step" id="setup-step-lang">
+        <h2 class="city-select-title">Qaysi tilda suhbatlashamiz? <span>🗣️</span></h2>
+        <p class="city-select-sub">NPClar bilan shu tilda gaplashib, yangi so'zlarni o'rganasiz</p>
+        <div class="lang-grid">
+          <div class="lang-card" data-lang="en-US" tabindex="0">
+            <div class="city-flag">🇬🇧</div>
+            <div class="city-name">English</div>
+            <div class="city-name-en">Ingliz tili</div>
+          </div>
+          <div class="lang-card" data-lang="ru-RU" tabindex="0">
+            <div class="city-flag">🇷🇺</div>
+            <div class="city-name">Русский</div>
+            <div class="city-name-en">Rus tili</div>
+          </div>
+          <div class="lang-card" data-lang="es-ES" tabindex="0">
+            <div class="city-flag">🇪🇸</div>
+            <div class="city-name">Español</div>
+            <div class="city-name-en">Ispan tili</div>
+          </div>
+          <div class="lang-card" data-lang="de-DE" tabindex="0">
+            <div class="city-flag">🇩🇪</div>
+            <div class="city-name">Deutsch</div>
+            <div class="city-name-en">Nemis tili</div>
+          </div>
+          <div class="lang-card" data-lang="tr-TR" tabindex="0">
+            <div class="city-flag">🇹🇷</div>
+            <div class="city-name">Türkçe</div>
+            <div class="city-name-en">Turk tili</div>
+          </div>
+        </div>
+        <div class="city-select-note">Istagan payt o'yin ichidagi Sozlamalardan o'zgartirishingiz mumkin</div>
+      </div>
+
+      <!-- QADAM 2: Shahar -->
+      <div class="setup-step" id="setup-step-city" hidden>
+        <h2 class="city-select-title">Qaysi shaharga boramiz? <span>🌍</span></h2>
+        <p class="city-select-sub">Har bir shahar o'ziga xos rang va muhitga ega</p>
+        <div class="city-grid">
+          <div class="city-card" data-id="toshkent" tabindex="0">
+            <div class="city-flag">🇺🇿</div>
+            <div class="city-name">Toshkent</div>
+            <div class="city-name-en">Tashkent</div>
+            <div class="city-desc">Yashil bog'lar, choyxonalar va quyoshli maydonlar</div>
+          </div>
+          <div class="city-card" data-id="berlin" tabindex="0">
+            <div class="city-flag">🇩🇪</div>
+            <div class="city-name">Berlin</div>
+            <div class="city-name-en">Berlin</div>
+            <div class="city-desc">Zamonaviy metropol — aniq chiziqlar, kulrang-ko'k maydonlar</div>
+          </div>
+          <div class="city-card" data-id="seul" tabindex="0">
+            <div class="city-flag">🇰🇷</div>
+            <div class="city-name">Seul</div>
+            <div class="city-name-en">Seoul</div>
+            <div class="city-desc">Yorqin neonli, futuristik — kechki osmon</div>
+          </div>
+          <div class="city-card" data-id="london" tabindex="0">
+            <div class="city-flag">🇬🇧</div>
+            <div class="city-name">London</div>
+            <div class="city-name-en">London</div>
+            <div class="city-desc">Klassik metropol — g'ishtli binolar, an'anaviy ko'chalar</div>
+          </div>
+          <div class="city-card" data-id="tokyo" tabindex="0">
+            <div class="city-flag">🇯🇵</div>
+            <div class="city-name">Tokio</div>
+            <div class="city-name-en">Tokyo</div>
+            <div class="city-desc">Neon va sakura — o'ng va tungi osmon</div>
+          </div>
+          <div class="city-card" data-id="paris" tabindex="0">
+            <div class="city-flag">🇫🇷</div>
+            <div class="city-name">Parij</div>
+            <div class="city-name-en">Paris</div>
+            <div class="city-desc">Elegant osmon, qaymoq rangli binolar, romantik maydonlar</div>
+          </div>
+        </div>
+        <div class="setup-nav">
+          <button type="button" id="btn-setup-back" class="setup-btn ghost">← Orqaga</button>
+          <button type="button" id="btn-setup-enter" class="setup-btn primary" disabled>Dunyoga kirish 🚀</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ 3D SAHNA ══════════ -->
+  <div id="game-canvas"></div>
+
+  <!-- ══════════ HUD ══════════ -->
+  <div id="hud">
+
+    <!-- Yuqori panel -->
+    <header class="hud-top">
+      <button class="hud-btn" id="btn-home" title="Bosh sahifa" aria-label="Bosh sahifa">‹</button>
+      <div class="hud-title">
+        <span class="hud-title-main">Til Shahri</span>
+        <span class="zone-badge" id="zone-badge"><i class="loc"></i><span id="zone-name">Shahar</span></span>
+      </div>
+      <div class="hud-top-right">
+        <span class="streak-badge" id="streak-badge" title="Kunlik streak">🔥 <b id="streak-num">1</b></span>
+        <button class="hud-btn" id="btn-quests" title="Vazifalar" aria-label="Vazifalar">🗺</button>
+        <button class="hud-btn" id="btn-settings" title="Sozlamalar" aria-label="Sozlamalar">⚙</button>
+      </div>
+    </header>
+
+    <!-- Minimal xarita -->
+    <div class="minimap-wrap">
+      <canvas id="minimap" width="150" height="100"></canvas>
+    </div>
+
+    <!-- XP / daraja -->
+    <div class="xp-wrap">
+      <div class="xp-line">
+        <span class="level-badge" id="level-badge">1</span>
+        <div class="xp-bar"><div class="xp-fill" id="xp-fill"></div></div>
+        <span class="coins-badge" id="coins-badge">🪙 0</span>
+      </div>
+      <div class="xp-text" id="xp-text">0 / 120 XP</div>
+    </div>
+
+    <!-- Joriy vazifa -->
+    <div class="quest-mini" id="quest-mini">
+      <span class="quest-mini-ic">🎯</span>
+      <span id="quest-mini-text">Yuklanmoqda...</span>
+    </div>
+
+    <!-- Kontekst yordam -->
+    <div class="context-hint" id="context-hint"></div>
+
+    <!-- Pastki panel (kompyuter uchun) -->
+    <div class="hud-bottom">
+      <div class="key-hint"><b>W A S D</b> yurish</div>
+      <div class="key-hint"><b>Shift</b> yugurish</div>
+      <div class="key-hint"><b>E</b> suhbat</div>
+      <div class="key-hint">Bosib bosing — o'rganish</div>
+      <div class="key-hint">Sichqoncha torting — kamera</div>
+    </div>
+
+    <!-- Mobil boshqaruv -->
+    <div class="mobile-controls" id="mobile-controls">
+      <div class="joy-zone" id="joy-zone">
+        <div class="joy-base"><div class="joy-knob" id="joy-knob"></div></div>
+      </div>
+      <button class="interact-btn" id="btn-interact" aria-label="Interact">✋</button>
+    </div>
+  </div>
+
+  <!-- ══════════ SUHBAT DIALOGI ══════════ -->
+  <div class="dialog" id="dialog" hidden>
+    <div class="dialog-head">
+      <div class="npc-avatar" id="dialog-avatar">👤</div>
+      <div class="dialog-npc-info">
+        <b id="dialog-npc-name">NPC</b>
+        <span id="dialog-npc-role"></span>
+      </div>
+      <div class="dialog-head-right">
+        <button class="icon-btn" id="btn-dialog-tts" title="Ovoz" aria-label="Ovoz">🔊</button>
+        <button class="icon-btn" id="btn-dialog-close" title="Yopish" aria-label="Yopish">✕</button>
+      </div>
+    </div>
+    <div class="dialog-body" id="dialog-messages"></div>
+    <div class="dialog-typing" id="dialog-typing" hidden>NPC yozmoqda<span></span></div>
+    <div class="dialog-chips" id="dialog-chips"></div>
+    <div class="dialog-input-row">
+      <input type="text" id="dialog-input" placeholder="Javobingizni yozing..." autocomplete="off">
+      <button class="mic-btn" id="btn-dialog-mic" title="Mikrofon" aria-label="Mikrofon">🎤</button>
+      <button class="send-btn" id="btn-dialog-send" aria-label="Yuborish">➤</button>
+    </div>
+    <div class="dialog-mic-hint" id="dialog-mic-hint" hidden>Gapiryapsiz... matn paydo bo'lishini kuting</div>
+  </div>
+
+  <!-- ══════════ SO'Z KARTASI ══════════ -->
+  <div class="vocab-card" id="vocab-card" hidden>
+    <button class="icon-btn vocab-close" id="btn-vocab-close" aria-label="Yopish">✕</button>
+    <div class="vocab-word" id="vocab-word">coffee</div>
+    <div class="vocab-meta"><span id="vocab-type"></span> · <span id="vocab-level"></span></div>
+    <div class="vocab-translation" id="vocab-translation"></div>
+    <div class="vocab-example">
+      <div class="vocab-example-en" id="vocab-example"></div>
+      <div class="vocab-example-tr" id="vocab-example-tr"></div>
+    </div>
+    <div class="vocab-btns">
+      <button class="vbtn audio" id="btn-vocab-audio">🔊 Eshitish</button>
+      <button class="vbtn mic" id="btn-vocab-mic">🎤 Talaffuz</button>
+    </div>
+    <div class="vocab-score" id="vocab-score" hidden></div>
+    <button class="vbtn primary" id="btn-vocab-known">✅ O'rgandim (+10 XP)</button>
+  </div>
+
+  <!-- ══════════ VAZIFALAR PANELI ══════════ -->
+  <div class="panel" id="quest-panel" hidden>
+    <div class="panel-head">
+      <b>Vazifalar</b>
+      <button class="icon-btn" id="btn-quest-close" aria-label="Yopish">✕</button>
+    </div>
+    <div class="panel-body">
+      <div class="panel-stats" id="quest-stats"></div>
+      <div class="quest-list" id="quest-list"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ SOZLAMALAR ══════════ -->
+  <div class="panel" id="settings-panel" hidden>
+    <div class="panel-head">
+      <b>Sozlamalar</b>
+      <button class="icon-btn" id="btn-settings-close" aria-label="Yopish">✕</button>
+    </div>
+    <div class="panel-body">
+      <label class="set-row">
+        <span>Til darajasi (CEFR)</span>
+        <select id="set-cefr">
+          <option value="A1">A1 — Boshlang'ich</option>
+          <option value="A2">A2 — Elementar</option>
+          <option value="B1">B1 — O'rtacha</option>
+          <option value="B2">B2 — Yuqori o'rtacha</option>
+          <option value="C1">C1 — Ilg'or</option>
+        </select>
+      </label>
+      <label class="set-row">
+        <span>O'rganiladigan til</span>
+        <select id="set-lang">
+          <option value="en-US">🇬🇧 English</option>
+          <option value="ru-RU">🇷🇺 Русский</option>
+          <option value="es-ES">🇪🇸 Español</option>
+          <option value="de-DE">🇩🇪 Deutsch</option>
+          <option value="tr-TR">🇹🇷 Türkçe</option>
+        </select>
+      </label>
+      <label class="set-row">
+        <span>Subtitrlar</span>
+        <button class="toggle" id="set-subtitles" aria-pressed="true">ON</button>
+      </label>
+      <label class="set-row">
+        <span>Ovoz balandligi</span>
+        <input type="range" id="set-sound" min="0" max="100" value="60">
+      </label>
+      <label class="set-row">
+        <span>Grafika sifati</span>
+        <select id="set-quality">
+          <option value="high">Yuqori</option>
+          <option value="medium">O'rtacha</option>
+          <option value="low">Past (tez)</option>
+        </select>
+      </label>
+      <label class="set-row">
+        <span>NPC ovozi</span>
+        <select id="set-voice">
+          <option value="female">Ayol ovozi</option>
+          <option value="male">Erkak ovozi</option>
+        </select>
+      </label>
+      <div class="set-note">Sozlamalar avtomatik saqlanadi.</div>
+    </div>
+  </div>
+
+  <!-- ══════════ LEVEL UP ══════════ -->
+  <div class="levelup-modal" id="levelup-modal" hidden>
+    <div class="levelup-card">
+      <div class="levelup-ic">🎉</div>
+      <h2>Yangi daraja!</h2>
+      <div class="levelup-num" id="levelup-num">2</div>
+      <button class="vbtn primary" id="btn-levelup-close">Ajoyib!</button>
+    </div>
+  </div>
+
+  <!-- ══════════ XABARLAR ══════════ -->
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

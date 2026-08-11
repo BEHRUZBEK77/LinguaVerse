@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanishuv — LinguaVerse</title>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <style>
+    :root {
+      --bg: #04060f;
+      --surface: #0b0f1e;
+      --surface2: #111629;
+      --border: rgba(255, 255, 255, .08);
+      --border-hi: rgba(255, 255, 255, .18);
+      --accent: #4f6ef7;
+      --accent2: #a78bfa;
+      --text: #e8ecff;
+      --muted: #7580a8;
+      --radius: 14px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Yuqori qism: jarayon ko'rsatkichi ── */
+    .top {
+      position: sticky;
+      top: 0;
+      background: rgba(4, 6, 15, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px 0;
+      z-index: 10;
+    }
+
+    .top-row {
+      max-width: 620px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand { font-weight: 700; font-size: 17px; letter-spacing: -.3px; }
+    .brand span { color: var(--accent); }
+    .step-count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+    .bar {
+      max-width: 620px;
+      margin: 0 auto;
+      height: 3px;
+      background: var(--surface2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 3px;
+      transition: width .35s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    /* ── O'rta qism: savol ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px 140px;
+    }
+
+    .card { width: 100%; max-width: 620px; }
+
+    .q-num { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
+
+    .q-title {
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -.5px;
+      margin-bottom: 8px;
+    }
+
+    .q-hint { font-size: 15px; color: var(--muted); line-height: 1.5; margin-bottom: 26px; }
+
+    /* ── Javob tugmalari: sodda, katta, bosishga qulay ── */
+    .opts { display: flex; flex-direction: column; gap: 10px; }
+
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .15s, background .15s, transform .1s;
+    }
+
+    .opt:hover { border-color: var(--border-hi); background: var(--surface2); }
+    .opt:active { transform: scale(.99); }
+    .opt.on { border-color: var(--accent); background: rgba(79, 110, 247, .1); }
+
+    .opt-ic { font-size: 20px; width: 30px; text-align: center; flex-shrink: 0; color: var(--accent2); }
+    .opt-body { flex: 1; min-width: 0; }
+    .opt-label { display: block; }
+
+    .opt-sub {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .opt-check {
+      width: 21px;
+      height: 21px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-hi);
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      transition: all .15s;
+    }
+
+    .opt.on .opt-check { border-color: var(--accent); background: var(--accent); }
+
+    .opt-check::after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg) scale(0);
+      margin-top: -2px;
+      transition: transform .15s;
+    }
+
+    .opt.on .opt-check::after { transform: rotate(-45deg) scale(1); }
+
+    /* Panjara ko'rinishi — til va qiziqish tanlash uchun */
+    .opts.grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .opts.grid .opt { flex-direction: column; align-items: flex-start; gap: 8px; padding: 15px; }
+    .opts.grid .opt-check { display: none; }
+
+    /* Raqam kiritish */
+    .num-wrap { display: flex; align-items: center; gap: 12px; }
+
+    .num-in {
+      flex: 1;
+      padding: 18px 20px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      transition: border-color .15s;
+      -moz-appearance: textfield;
+    }
+
+    .num-in::-webkit-outer-spin-button,
+    .num-in::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .num-in:focus { border-color: var(--accent); }
+
+    .num-btn {
+      width: 54px;
+      height: 54px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: border-color .15s, background .15s;
+    }
+
+    .num-btn:hover { border-color: var(--border-hi); background: var(--surface2); }
+
+    .multi-note { font-size: 13px; color: var(--muted); margin-top: 14px; text-align: center; }
+
+    /* ── Pastki qism: harakat tugmalari ── */
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, transparent, var(--bg) 32%);
+      padding: 30px 20px 22px;
+      z-index: 10;
+    }
+
+    .bottom-row { max-width: 620px; margin: 0 auto; display: flex; gap: 10px; }
+
+    .btn {
+      padding: 16px 26px;
+      border-radius: var(--radius);
+      border: 1.5px solid transparent;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity .15s, transform .1s, background .15s;
+    }
+
+    .btn:active { transform: scale(.99); }
+    .btn-next { flex: 1; background: var(--accent); color: #fff; }
+    .btn-next:hover:not(:disabled) { background: #5f7bff; }
+    .btn-next:disabled { background: var(--surface2); color: var(--muted); cursor: not-allowed; }
+
+    .btn-back {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+      padding: 16px 20px;
+    }
+
+    .btn-back:hover { border-color: var(--border-hi); color: var(--text); }
+
+    /* ── Yakuniy ekran ── */
+    .done { text-align: center; padding-top: 20px; }
+
+    .done-ic {
+      font-size: 52px;
+      margin-bottom: 18px;
+      color: var(--accent);
+      animation: pop .5s cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .plan-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .plan-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+
+    .plan-row:last-child { border-bottom: none; }
+    .plan-k { color: var(--muted); font-size: 14px; flex-shrink: 0; }
+    .plan-v { font-weight: 700; text-align: right; }
+
+    .level-badge {
+      display: inline-block;
+      padding: 5px 14px;
+      background: rgba(79, 110, 247, .15);
+      border: 1px solid rgba(79, 110, 247, .35);
+      color: #93a9ff;
+      border-radius: 20px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .err {
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: #fca5a5;
+      padding: 13px 16px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      margin-bottom: 18px;
+      display: none;
+      line-height: 1.5;
+    }
+
+    .err.show { display: block; }
+
+    .spin {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 2px solid rgba(255, 255, 255, .3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: -2px;
+      margin-right: 8px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .fade { animation: fade .28s ease; }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 560px) {
+      .q-title { font-size: 23px; }
+      main { padding: 28px 16px 130px; }
+      .opts.grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
+  <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
+  <link rel="stylesheet" href="../css/lv-theme.css">
+</head>
+
+<body>
+  <div class="top">
+    <div class="top-row">
+      <div class="brand">Lingua<span>Verse</span></div>
+      <div class="step-count" id="stepCount">1 / 12</div>
+    </div>
+    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+  </div>
+
+  <main>
+    <div class="card" id="card"></div>
+  </main>
+
+  <div class="bottom">
+    <div class="bottom-row" id="bottomRow">
+      <button class="btn btn-back" id="backBtn" style="display:none">Orqaga</button>
+      <button class="btn btn-next" id="nextBtn" disabled>Davom etish</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const FB_CONFIG = {
+      apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
+      authDomain: "linguaverse-81b52.firebaseapp.com",
+      projectId: "linguaverse-81b52",
+      storageBucket: "linguaverse-81b52.firebasestorage.app",
+      messagingSenderId: "1037869292716",
+      appId: "1:1037869292716:web:567bf2c9f9ed0862941309",
+      measurementId: "G-H8WH5FTTEY"
+    };
+
+    const app = getApps().length ? getApp() : initializeApp(FB_CONFIG);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // ═══════════════════════════════════════════════════════════════════
+    // SAVOLLAR — 12 ta. Javoblar AI promptini shaxsiylashtirish uchun
+    // ishlatiladi (js/lv-core.js → buildSystemPrompt).
+    // ═══════════════════════════════════════════════════════════════════
+    const QUESTIONS = [
+      {
+        key: 'age', type: 'number',
+        title: 'Yoshingiz nechida?',
+        hint: 'AI sizga mos mavzular va misollarni tanlashi uchun kerak.',
+        min: 6, max: 99, default: 18,
+        validate: v => v >= 6 && v <= 99
+      },
+      {
+        key: 'targetLang', type: 'single', layout: 'grid',
+        title: "Qaysi tilni o'rganmoqchisiz?",
+        hint: "Keyinchalik boshqa tillarni ham qo'shishingiz mumkin.",
+        options: [
+          { v: 'english', ic: '🇬🇧', label: 'Ingliz tili' },
+          { v: 'russian', ic: '🇷🇺', label: 'Rus tili' },
+          { v: 'german', ic: '🇩🇪', label: 'Nemis tili' },
+          { v: 'spanish', ic: '🇪🇸', label: 'Ispan tili' },
+          { v: 'turkish', ic: '🇹🇷', label: 'Turk tili' },
+          { v: 'arabic', ic: '🇸🇦', label: 'Arab tili' },
+          { v: 'korean', ic: '🇰🇷', label: 'Koreys tili' },
+          { v: 'chinese', ic: '🇨🇳', label: 'Xitoy tili' }
+        ]
+      },
+      {
+        key: 'nativeLang', type: 'single', layout: 'grid',
+        title: 'Ona tilingiz qaysi?',
+        hint: 'AI xatolarni shu tilda tushuntiradi.',
+        options: [
+          { v: 'uz', ic: '🇺🇿', label: "O'zbek" },
+          { v: 'ru', ic: '🇷🇺', label: 'Rus' },
+          { v: 'en', ic: '🇬🇧', label: 'Ingliz' },
+          { v: 'tr', ic: '🇹🇷', label: 'Turk' },
+          { v: 'ar', ic: '🇸🇦', label: 'Arab' },
+          { v: 'ko', ic: '🇰🇷', label: 'Koreys' }
+        ]
+      },
+      {
+        key: 'level', type: 'single',
+        title: 'Hozirgi darajangiz qanday?',
+        hint: "Aniq bilmasangiz, taxminan tanlang — AI birinchi darsda tekshiradi.",
+        options: [
+          { v: 'A1', fa: 'fa-seedling', label: "Mutlaqo boshlang'ich", sub: 'Deyarli hech narsa bilmayman' },
+          { v: 'A2', fa: 'fa-book', label: "Boshlang'ich", sub: "Oddiy so'z va gaplarni tushunaman" },
+          { v: 'B1', fa: 'fa-book-open', label: "O'rta", sub: 'Kundalik mavzularda gaplasha olaman' },
+          { v: 'B2', fa: 'fa-book-open-reader', label: "O'rtadan yuqori", sub: 'Erkin gaplashaman, xatolarim bor' },
+          { v: 'C1', fa: 'fa-graduation-cap', label: 'Yuqori', sub: 'Murakkab matnlarni tushunaman' },
+          { v: 'unknown', fa: 'fa-circle-question', label: 'Bilmayman', sub: "AI o'zi aniqlab bersin" }
+        ]
+      },
+      {
+        key: 'goal', type: 'single',
+        title: "Nima uchun o'rganyapsiz?",
+        hint: 'Maqsadga qarab dars mazmuni butunlay o\'zgaradi.',
+        options: [
+          { v: 'exam', fa: 'fa-file-pen', label: 'Imtihon uchun', sub: 'IELTS, TOPIK, Goethe va boshqalar' },
+          { v: 'work', fa: 'fa-briefcase', label: 'Ish uchun', sub: 'Kasbiy muloqot va yozishmalar' },
+          { v: 'study', fa: 'fa-graduation-cap', label: "O'qish uchun", sub: 'Chet elda ta\'lim olish' },
+          { v: 'travel', fa: 'fa-plane', label: 'Sayohat uchun', sub: 'Kundalik muloqot yetarli' },
+          { v: 'migration', fa: 'fa-house', label: "Ko'chib o'tish uchun", sub: 'Boshqa mamlakatda yashash' },
+          { v: 'hobby', fa: 'fa-film', label: "O'zim uchun", sub: 'Film, kitob, qiziqish' }
+        ]
+      },
+      {
+        key: 'deadline', type: 'single',
+        title: 'Qancha vaqtingiz bor?',
+        hint: "Shoshilinch bo'lsa, AI darslarni zichroq qiladi.",
+        options: [
+          { v: '1month', fa: 'fa-fire', label: '1 oy', sub: 'Juda shoshilinch' },
+          { v: '3months', fa: 'fa-stopwatch', label: '3 oy', sub: 'Jadal sur\'at' },
+          { v: '6months', fa: 'fa-calendar', label: '6 oy', sub: 'Barqaror sur\'at' },
+          { v: '1year', fa: 'fa-calendar-days', label: "1 yil yoki ko'proq", sub: 'Shoshilmayman' },
+          { v: 'none', fa: 'fa-infinity', label: "Muddat yo'q", sub: "O'z tezligimda" }
+        ]
+      },
+      {
+        key: 'dailyTime', type: 'single',
+        title: 'Kuniga qancha vaqt ajrata olasiz?',
+        hint: "Rost javob bering — bajarib bo'lmaydigan reja foyda bermaydi.",
+        options: [
+          { v: 10, fa: 'fa-mug-hot', label: '10 daqiqa', sub: 'Kuniga bittadan qisqa mashq' },
+          { v: 20, fa: 'fa-book-open', label: '20 daqiqa', sub: 'Eng ko\'p tanlanadigan' },
+          { v: 40, fa: 'fa-dumbbell', label: '40 daqiqa', sub: 'Jiddiy sur\'at' },
+          { v: 60, fa: 'fa-rocket', label: '1 soat va undan ko\'p', sub: 'Tez natija' }
+        ]
+      },
+      {
+        key: 'weakAreas', type: 'multi', min: 1,
+        title: "Qaysi ko'nikma sizga eng qiyin?",
+        hint: "Bir nechtasini tanlashingiz mumkin. AI shularga ko'proq e'tibor beradi.",
+        options: [
+          { v: 'speaking', fa: 'fa-comments', label: 'Gapirish', sub: "Og'zaki nutq, talaffuz" },
+          { v: 'listening', fa: 'fa-headphones', label: 'Tinglab tushunish' },
+          { v: 'grammar', fa: 'fa-ruler-combined', label: 'Grammatika' },
+          { v: 'vocabulary', fa: 'fa-book-bookmark', label: "So'z boyligi" },
+          { v: 'writing', fa: 'fa-pen', label: 'Yozish' },
+          { v: 'reading', fa: 'fa-book-open-reader', label: "O'qish" }
+        ]
+      },
+      {
+        key: 'interests', type: 'multi', min: 2, layout: 'grid',
+        title: 'Nimalar bilan qiziqasiz?',
+        hint: 'Kamida 2 ta. AI suhbat mavzularini shulardan tanlaydi.',
+        options: [
+          { v: 'technology', fa: 'fa-laptop-code', label: 'Texnologiya' },
+          { v: 'business', fa: 'fa-chart-line', label: 'Biznes' },
+          { v: 'sports', fa: 'fa-futbol', label: 'Sport' },
+          { v: 'music', fa: 'fa-music', label: 'Musiqa' },
+          { v: 'movies', fa: 'fa-film', label: 'Kino' },
+          { v: 'travel', fa: 'fa-earth-americas', label: 'Sayohat' },
+          { v: 'food', fa: 'fa-utensils', label: 'Ovqat' },
+          { v: 'science', fa: 'fa-flask', label: 'Fan' },
+          { v: 'history', fa: 'fa-landmark', label: 'Tarix' },
+          { v: 'art', fa: 'fa-palette', label: "San'at" },
+          { v: 'games', fa: 'fa-gamepad', label: "O'yinlar" },
+          { v: 'health', fa: 'fa-heart-pulse', label: 'Salomatlik' }
+        ]
+      },
+      {
+        key: 'style', type: 'single',
+        title: "Qanday o'rganishni yoqtirasiz?",
+        hint: 'AI shu uslubda tushuntiradi.',
+        options: [
+          { v: 'practice', fa: 'fa-comments', label: 'Amaliyot orqali', sub: "Ko'p gapirib, xato qilib o'rganaman" },
+          { v: 'rules', fa: 'fa-ruler-combined', label: 'Qoidalar orqali', sub: "Avval qoidani tushunay, keyin qo'llay" },
+          { v: 'visual', fa: 'fa-image', label: "Ko'rgazmali", sub: 'Rasm, jadval, sxemalar bilan' },
+          { v: 'audio', fa: 'fa-headphones', label: 'Eshitish orqali', sub: "Tinglab, takrorlab o'rganaman" }
+        ]
+      },
+      {
+        key: 'experience', type: 'single',
+        title: "Ilgari bu tilni o'rgangansizmi?",
+        hint: null,
+        options: [
+          { v: 'never', fa: 'fa-circle-plus', label: "Yo'q, birinchi marta" },
+          { v: 'school', fa: 'fa-school', label: "Maktabda o'qiganman", sub: "Ko'pini unutganman" },
+          { v: 'course', fa: 'fa-clipboard-list', label: 'Kursga borganman' },
+          { v: 'self', fa: 'fa-mobile-screen', label: "O'zim o'rganganman", sub: 'Ilova, video, kitoblar' },
+          { v: 'long', fa: 'fa-star', label: "Uzoq vaqt o'rganganman" }
+        ]
+      },
+      {
+        key: 'reminders', type: 'single',
+        title: 'Har kuni eslatib turaylikmi?',
+        hint: "Muntazamlik — tilni o'rganishdagi eng muhim omil.",
+        options: [
+          { v: 'morning', fa: 'fa-sun', label: 'Ha, ertalab' },
+          { v: 'afternoon', fa: 'fa-cloud-sun', label: 'Ha, kunduzi' },
+          { v: 'evening', fa: 'fa-moon', label: 'Ha, kechqurun' },
+          { v: 'no', fa: 'fa-bell-slash', label: 'Kerak emas' }
+        ]
+      }
+    ];
+
+    // ═══════════════════════════════════════════════════════════════════
+    // HOLAT
+    // ═══════════════════════════════════════════════════════════════════
+    const answers = {};
+    let step = 0;
+    let user = null;
+    let saving = false;
+
+    const $ = id => document.getElementById(id);
+    const card = $('card'), nextBtn = $('nextBtn'), backBtn = $('backBtn');
+
+    // Yarim yo'lda tashlab ketilsa — javoblar saqlanib qoladi
+    const DRAFT = 'lv_onboarding_draft';
+    try {
+      const saved = JSON.parse(localStorage.getItem(DRAFT) || '{}');
+      if (saved.answers) {
+        Object.assign(answers, saved.answers);
+        step = Math.min(saved.step || 0, QUESTIONS.length - 1);
+      }
+    } catch { /* buzuq qoralama — e'tiborsiz qoldiramiz */ }
+
+    function saveDraft() {
+      try { localStorage.setItem(DRAFT, JSON.stringify({ answers, step })); } catch {}
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // CHIZISH
+    // ═══════════════════════════════════════════════════════════════════
+    function optIcon(o) {
+      return o.fa ? `<i class="fa-solid ${o.fa}"></i>` : (o.ic || '');
+    }
+
+    function render() {
+      const q = QUESTIONS[step];
+
+      $('stepCount').textContent = `${step + 1} / ${QUESTIONS.length}`;
+      $('barFill').style.width = (step / QUESTIONS.length * 100) + '%';
+      backBtn.style.display = step === 0 ? 'none' : 'block';
+
+      let html = `
+        <div class="fade">
+          <div class="q-num">Savol ${step + 1}</div>
+          <div class="q-title">${q.title}</div>
+          ${q.hint ? `<div class="q-hint">${q.hint}</div>` : '<div style="height:18px"></div>'}
+          <div class="err" id="err"></div>
+      `;
+
+      if (q.type === 'number') {
+        const val = answers[q.key] ?? q.default;
+        html += `
+          <div class="num-wrap">
+            <button class="num-btn" id="minusBtn" aria-label="Kamaytirish"><i class="fa-solid fa-minus"></i></button>
+            <input class="num-in" id="numIn" type="number" inputmode="numeric" aria-label="${q.title}"
+                   value="${val}" min="${q.min}" max="${q.max}">
+            <button class="num-btn" id="plusBtn" aria-label="Oshirish"><i class="fa-solid fa-plus"></i></button>
+          </div>`;
+      } else {
+        const cls = q.layout === 'grid' ? 'opts grid' : 'opts';
+        html += `<div class="${cls}">`;
+        for (const o of q.options) {
+          const cur = answers[q.key];
+          const on = q.type === 'multi'
+            ? Array.isArray(cur) && cur.includes(o.v)
+            : cur === o.v;
+          html += `
+            <button class="opt ${on ? 'on' : ''}" data-v="${o.v}">
+              <span class="opt-ic">${optIcon(o)}</span>
+              <span class="opt-body">
+                <span class="opt-label">${o.label}</span>
+                ${o.sub ? `<span class="opt-sub">${o.sub}</span>` : ''}
+              </span>
+              ${q.type === 'multi' ? '<span class="opt-check"></span>' : ''}
+            </button>`;
+        }
+        html += `</div>`;
+        if (q.type === 'multi') html += `<div class="multi-note" id="multiNote"></div>`;
+      }
+
+      html += `</div>`;
+      card.innerHTML = html;
+
+      wire(q);
+      updateNext(q);
+    }
+
+    function wire(q) {
+      if (q.type === 'number') {
+        const input = $('numIn');
+        const clamp = () => {
+          let v = parseInt(input.value, 10);
+          if (isNaN(v)) v = q.default;
+          v = Math.max(q.min, Math.min(q.max, v));
+          input.value = v;
+          answers[q.key] = v;
+          updateNext(q);
+          saveDraft();
+        };
+        input.addEventListener('input', () => {
+          const v = parseInt(input.value, 10);
+          answers[q.key] = isNaN(v) ? null : v;
+          updateNext(q);
+        });
+        input.addEventListener('blur', clamp);
+        $('minusBtn').onclick = () => { input.value = Math.max(q.min, (parseInt(input.value, 10) || q.default) - 1); clamp(); };
+        $('plusBtn').onclick = () => { input.value = Math.min(q.max, (parseInt(input.value, 10) || q.default) + 1); clamp(); };
+        answers[q.key] = answers[q.key] ?? q.default;
+        return;
+      }
+
+      card.querySelectorAll('.opt').forEach(btn => {
+        btn.onclick = () => {
+          const v = parseVal(btn.dataset.v);
+
+          if (q.type === 'multi') {
+            const arr = Array.isArray(answers[q.key]) ? [...answers[q.key]] : [];
+            const i = arr.findIndex(x => String(x) === String(v));
+            if (i >= 0) arr.splice(i, 1); else arr.push(v);
+            answers[q.key] = arr;
+            btn.classList.toggle('on');
+            updateNext(q);
+            saveDraft();
+          } else {
+            answers[q.key] = v;
+            card.querySelectorAll('.opt').forEach(b => b.classList.remove('on'));
+            btn.classList.add('on');
+            updateNext(q);
+            saveDraft();
+
+            // Bitta javobli savolda avtomatik oldinga — bosishlar soni kamayadi.
+            // stepAtClick tekshiruvi shart: bir xil variant ikki marta bosilsa
+            // ikkita taymer ishga tushadi va savol o'tkazib yuborilardi.
+            const stepAtClick = step;
+            setTimeout(() => {
+              if (step === stepAtClick && answers[q.key] === v) advance();
+            }, 220);
+          }
+        };
+      });
+    }
+
+    // "10" kabi raqamli qiymatlarni sonlar sifatida saqlaymiz
+    function parseVal(s) {
+      return /^-?\d+$/.test(s) ? parseInt(s, 10) : s;
+    }
+
+    function isAnswered(q) {
+      const v = answers[q.key];
+      if (q.type === 'number') return typeof v === 'number' && q.validate(v);
+      if (q.type === 'multi') return Array.isArray(v) && v.length >= (q.min || 1);
+      return v !== undefined && v !== null;
+    }
+
+    function updateNext(q) {
+      nextBtn.disabled = !isAnswered(q);
+      nextBtn.textContent = step === QUESTIONS.length - 1 ? 'Yakunlash' : 'Davom etish';
+
+      const note = $('multiNote');
+      if (note && q.type === 'multi') {
+        const n = Array.isArray(answers[q.key]) ? answers[q.key].length : 0;
+        const need = q.min || 1;
+        note.textContent = n >= need ? `${n} ta tanlandi` : `Kamida ${need} ta tanlang (${n}/${need})`;
+      }
+    }
+
+    function advance() {
+      const q = QUESTIONS[step];
+      if (!isAnswered(q)) return;
+
+      if (step === QUESTIONS.length - 1) { finish(); return; }
+      step++;
+      saveDraft();
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    nextBtn.onclick = advance;
+    backBtn.onclick = () => {
+      if (step === 0) return;
+      step--;
+      saveDraft();
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !nextBtn.disabled && !saving) advance();
+    });
+
+    // ═══════════════════════════════════════════════════════════════════
+    // NATIJANI HISOBLASH
+    // ═══════════════════════════════════════════════════════════════════
+
+    /** "Bilmayman" tanlansa, boshqa javoblardan daraja taxmin qilamiz. */
+    function estimateLevel(a) {
+      if (a.level && a.level !== 'unknown') return a.level;
+      const byExp = { never: 'A1', school: 'A2', course: 'A2', self: 'B1', long: 'B1' };
+      let lvl = byExp[a.experience] || 'A1';
+      // Ko'p ko'nikma qiyin bo'lsa — pastroq
+      if ((a.weakAreas || []).length >= 5 && lvl === 'B1') lvl = 'A2';
+      return lvl;
+    }
+
+    /** Kunlik vaqt va muddatdan haftalik reja quramiz. */
+    function buildStudyPlan(a) {
+      const mins = a.dailyTime || 20;
+      const urgent = a.deadline === '1month' || a.deadline === '3months';
+
+      const lessons = mins >= 60 ? 4 : mins >= 40 ? 3 : mins >= 20 ? 2 : 1;
+      const speakMin = Math.max(5, Math.round(mins * (a.weakAreas?.includes('speaking') ? 0.5 : 0.3)));
+      const newWords = mins >= 60 ? 15 : mins >= 40 ? 10 : mins >= 20 ? 7 : 5;
+
+      return {
+        dailyLessons: lessons,
+        dailySpeakingMinutes: speakMin,
+        dailyNewWords: newWords,
+        weeklyGoalMinutes: mins * (urgent ? 7 : 5),
+        focusSkills: (a.weakAreas || []).slice(0, 3),
+        intensity: urgent ? 'jadal' : mins >= 40 ? 'faol' : 'barqaror'
+      };
+    }
+
+    const GOAL_LABEL = {
+      exam: 'Imtihonga tayyorgarlik', work: 'Ish uchun', study: "O'qish uchun",
+      travel: 'Sayohat uchun', migration: "Ko'chib o'tish uchun", hobby: "O'zim uchun"
+    };
+    const LANG_LABEL = {
+      english: 'Ingliz tili', russian: 'Rus tili', german: 'Nemis tili', spanish: 'Ispan tili',
+      turkish: 'Turk tili', arabic: 'Arab tili', korean: 'Koreys tili', chinese: 'Xitoy tili'
+    };
+    const SKILL_LABEL = {
+      speaking: 'Gapirish', listening: 'Tinglash', grammar: 'Grammatika',
+      vocabulary: "So'z boyligi", writing: 'Yozish', reading: "O'qish"
+    };
+
+    // ═══════════════════════════════════════════════════════════════════
+    // SAQLASH
+    // ═══════════════════════════════════════════════════════════════════
+    async function finish() {
+      if (saving) return;
+      saving = true;
+
+      nextBtn.disabled = true;
+      nextBtn.innerHTML = '<span class="spin"></span>Saqlanmoqda...';
+
+      const level = estimateLevel(answers);
+      const plan = buildStudyPlan(answers);
+
+      const payload = {
+        onboarding: { ...answers, estimatedLevel: level, completedAt: new Date().toISOString() },
+        studyPlan: plan,
+        targetLang: answers.targetLang,
+        nativeLang: answers.nativeLang,
+        level,
+        onboarded: true,
+        updatedAt: serverTimestamp()
+      };
+
+      try {
+        if (!user) throw new Error('auth');
+
+        // Foydalanuvchi hujjati bor-yo'qligini kafolatlaymiz.
+        // Google orqali kirganda yoki hisob boshqa qurilmada yaratilganda
+        // hujjat bo'lmasligi mumkin. firestore.rules yaratishda plan:'free'
+        // bo'lishini talab qiladi — shuning uchun uni shu yerda beramiz.
+        const uref = doc(db, 'users', user.uid);
+        const usnap = await getDoc(uref);
+        if (!usnap.exists()) {
+          await setDoc(uref, {
+            uid: user.uid,
+            email: user.email || '',
+            displayName: user.displayName || (user.email || '').split('@')[0] || "O'quvchi",
+            plan: 'free',
+            xp: 0,
+            coins: 0,
+            streak: 0,
+            onboarded: false,
+            createdAt: serverTimestamp()
+          });
+        }
+
+        // 1) Asosiy profil — AI shu yerdan o'qiydi
+        await setDoc(uref, payload, { merge: true });
+
+        // 2) To'liq nusxa alohida hujjatda — keyinchalik tahlil uchun
+        await setDoc(doc(db, 'users', user.uid, 'onboarding', 'v1'), {
+          answers,
+          estimatedLevel: level,
+          studyPlan: plan,
+          completedAt: serverTimestamp()
+        });
+
+        localStorage.removeItem(DRAFT);
+        // Boshqa sahifalar darhol ishlatishi uchun
+        localStorage.setItem('lv_target', answers.targetLang);
+        localStorage.setItem('coach_native', answers.nativeLang);
+        localStorage.setItem('lv_level', level);
+
+        showDone(level, plan);
+
+      } catch (e) {
+        console.error('[onboarding] saqlash xatosi:', e.code || '', e.message, e);
+        saving = false;
+        nextBtn.disabled = false;
+        nextBtn.textContent = 'Qayta urinish';
+
+        // Sababni ANIQ aytamiz. "Internetni tekshiring" deb umumiy xabar
+        // berish noto'g'ri — muammo ko'pincha internetda emas.
+        let text;
+        if (e.message === 'auth') {
+          text = 'Sessiya tugagan. Iltimos, qaytadan kiring.';
+        } else if (e.code === 'permission-denied') {
+          text = "Bazaga yozishga ruxsat yo'q. Bu Firestore xavfsizlik qoidalari sozlanmaganini bildiradi "
+               + '(loyiha egasiga: firestore.rules faylini Firebase Console <i class="fa-solid fa-arrow-right"></i> Firestore <i class="fa-solid fa-arrow-right"></i> Rules ga joylang). '
+               + 'Javoblaringiz saqlanib turibdi.';
+        } else if (e.code === 'unavailable' || e.code === 'failed-precondition') {
+          text = 'Baza hozir javob bermayapti. Bir ozdan keyin "Qayta urinish" ni bosing. '
+               + "Javoblaringiz yo'qolmadi.";
+        } else if (e.code === 'unauthenticated') {
+          text = 'Kirish muddati tugagan. Yangi oynada qaytadan kiring va shu sahifaga qayting.';
+        } else {
+          text = 'Saqlanmadi (' + (e.code || e.name || 'xato') + "). Javoblaringiz yo'qolmadi — "
+               + '"Qayta urinish" ni bosing. Takrorlansa, brauzerda F12 <i class="fa-solid fa-arrow-right"></i> Console dagi xabarni yuboring.';
+        }
+
+        const err = $('err');
+        if (err) {
+          err.textContent = text;
+          err.classList.add('show');
+          err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+
+    function showDone(level, plan) {
+      $('barFill').style.width = '100%';
+      $('stepCount').textContent = 'Tayyor';
+      $('bottomRow').innerHTML = `<button class="btn btn-next" id="goBtn">O'rganishni boshlash</button>`;
+
+      const focus = plan.focusSkills.map(s => SKILL_LABEL[s] || s).join(', ') || 'Umumiy';
+
+      card.innerHTML = `
+        <div class="done fade">
+          <div class="done-ic"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="q-title">Reja tayyor!</div>
+          <div class="q-hint">Javoblaringizga qarab shaxsiy o'quv rejangizni tuzdik.</div>
+
+          <div class="plan-box">
+            <div class="plan-row">
+              <span class="plan-k">Til</span>
+              <span class="plan-v">${LANG_LABEL[answers.targetLang] || answers.targetLang}</span>
+            </div>
+            <div class="plan-row">
+              <span class="plan-k">Boshlang'ich daraja</span>
+              <span class="plan-v"><span class="level-badge">${level}</span></span>
+            </div>
+            <div class="plan-row">
+              <span class="plan-k">Maqsad</span>
+              <span class="plan-v">${GOAL_LABEL[answers.goal] || '—'}</span>
+            </div>
+            <div class="plan-row">
+              <span class="plan-k">Kunlik darslar</span>
+              <span class="plan-v">${plan.dailyLessons} ta</span>
+            </div>
+            <div class="plan-row">
+              <span class="plan-k">Kunlik speaking</span>
+              <span class="plan-v">${plan.dailySpeakingMinutes} daqiqa</span>
+            </div>
+            <div class="plan-row">
+              <span class="plan-k">Kuniga yangi so'z</span>
+              <span class="plan-v">${plan.dailyNewWords} ta</span>
+            </div>
+            <div class="plan-row">
+              <span class="plan-k">Asosiy e'tibor</span>
+              <span class="plan-v">${focus}</span>
+            </div>
+            <div class="plan-row">
+              <span class="plan-k">Sur'at</span>
+              <span class="plan-v" style="text-transform:capitalize">${plan.intensity}</span>
+            </div>
+          </div>
+
+          <div class="q-hint" style="margin:0">
+            Bepul rejada boshlaysiz — kuniga 40 ta AI savoli va 15 daqiqa speaking.
+            Rejani istalgan vaqtda profilingizdan o'zgartirasiz.
+          </div>
+        </div>`;
+
+      $('goBtn').onclick = () => {
+        const target = answers.targetLang || 'english';
+        const file = target.charAt(0).toUpperCase() + target.slice(1);
+        window.location.href = `../languages-html/${file}.html`;
+      };
+    }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // BOSHLANISH
+    // ═══════════════════════════════════════════════════════════════════
+    onAuthStateChanged(auth, async u => {
+      if (!u) {
+        window.location.href = 'login.html?redirect=onboarding';
+        return;
+      }
+      user = u;
+
+      // Allaqachon to'ldirgan bo'lsa — qayta so'ramaymiz
+      try {
+        const snap = await getDoc(doc(db, 'users', u.uid));
+        if (snap.exists() && snap.data().onboarded) {
+          window.location.href = '../select-language.html';
+          return;
+        }
+      } catch { /* o'qib bo'lmasa anketani ko'rsatamiz */ }
+
+      render();
+    });
+  </script>
+</body>
+
+</html>

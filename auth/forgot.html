@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parolni tiklash — LinguaVerse</title>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #04060f;
+      --surface: #0b0f1e;
+      --border: rgba(255, 255, 255, .08);
+      --accent: #4f6ef7;
+      --accent2: #a78bfa;
+      --text: #e8ecff;
+      --muted: #7580a8;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(79, 110, 247, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79, 110, 247, .03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      width: 520px;
+      height: 520px;
+      background: rgba(79, 110, 247, .12);
+      top: -140px;
+      left: -140px;
+    }
+
+    .card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 430px;
+      background: rgba(11, 15, 30, .85);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 38px 32px;
+      backdrop-filter: blur(24px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .5);
+    }
+
+    .logo {
+      display: block;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 26px;
+    }
+
+    .logo span { color: var(--accent); }
+
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .sub {
+      font-size: .87rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 26px;
+    }
+
+    label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: .92rem;
+      outline: none;
+      transition: border-color .2s, background .2s;
+    }
+
+    input::placeholder { color: rgba(117, 128, 168, .6); }
+
+    input:focus {
+      border-color: rgba(79, 110, 247, .5);
+      background: rgba(79, 110, 247, .05);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      margin-top: 18px;
+      border: none;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, opacity .2s;
+    }
+
+    .btn:hover:not(:disabled) { background: #5f7bff; }
+    .btn:disabled { opacity: .6; cursor: not-allowed; }
+
+    .msg {
+      margin-top: 16px;
+      padding: 13px 15px;
+      border-radius: 12px;
+      font-size: .85rem;
+      line-height: 1.55;
+      display: none;
+    }
+
+    .msg.show { display: block; }
+
+    .msg.ok {
+      background: rgba(52, 211, 153, .1);
+      border: 1px solid rgba(52, 211, 153, .3);
+      color: #6ee7b7;
+    }
+
+    .msg.err {
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .3);
+      color: #fca5a5;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 22px;
+      font-size: .85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .back:hover { color: var(--text); }
+    .back b { color: var(--accent); font-weight: 600; }
+
+    .spin {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255, 255, 255, .3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      vertical-align: -2px;
+      margin-right: 7px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
+  <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
+  <link rel="stylesheet" href="../css/lv-theme.css">
+</head>
+
+<body>
+  <div class="orb"></div>
+
+  <div class="card">
+    <a href="../index.html" class="logo">Lingua<span>Verse</span></a>
+
+    <h1>Parolni tiklash</h1>
+    <p class="sub">
+      Ro'yxatdan o'tgan email manzilingizni kiriting — parolni tiklash havolasini yuboramiz.
+    </p>
+
+    <label for="email">Email manzil</label>
+    <input type="email" id="email" placeholder="siz@example.com" autocomplete="email" autofocus>
+
+    <button class="btn" id="sendBtn">Havola yuborish</button>
+
+    <div class="msg" id="msg"></div>
+
+    <a href="login.html" class="back">Parolni esladingizmi? <b>Kirish</b></a>
+  </div>
+
+  <script type="module">
+    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const FB_CONFIG = {
+      apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
+      authDomain: "linguaverse-81b52.firebaseapp.com",
+      projectId: "linguaverse-81b52",
+      storageBucket: "linguaverse-81b52.firebasestorage.app",
+      messagingSenderId: "1037869292716",
+      appId: "1:1037869292716:web:567bf2c9f9ed0862941309",
+      measurementId: "G-H8WH5FTTEY"
+    };
+
+    const app = getApps().length ? getApp() : initializeApp(FB_CONFIG);
+    const auth = getAuth(app);
+
+    const $ = id => document.getElementById(id);
+    const btn = $('sendBtn'), msgBox = $('msg'), emailIn = $('email');
+
+    function show(text, type) {
+      msgBox.textContent = text;
+      msgBox.className = 'msg show ' + type;
+    }
+
+    async function send() {
+      const email = emailIn.value.trim();
+
+      if (!email) { show('Email manzilni kiriting.', 'err'); emailIn.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        show("Email manzil noto'g'ri ko'rinishda.", 'err'); emailIn.focus(); return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spin"></span>Yuborilmoqda...';
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+
+        // Xavfsizlik: hisob bor-yo'qligini oshkor qilmaymiz — bir xil javob
+        show(
+          `Agar ${email} manzili ro'yxatdan o'tgan bo'lsa, tiklash havolasi yuborildi. ` +
+          `Pochtangizni (shu jumladan "Spam" papkasini) tekshiring.`,
+          'ok'
+        );
+        btn.textContent = 'Yuborildi';
+        emailIn.disabled = true;
+
+      } catch (e) {
+        console.error('[forgot]', e.code, e.message);
+
+        const map = {
+          'auth/invalid-email': "Email manzil noto'g'ri ko'rinishda.",
+          'auth/too-many-requests': "Juda ko'p urinish. Bir necha daqiqadan keyin qayta urinib ko'ring.",
+          'auth/network-request-failed': "Internet aloqasi yo'q. Ulanishni tekshiring."
+        };
+
+        // user-not-found ni ham muvaffaqiyat sifatida ko'rsatamiz — aks holda
+        // qaysi emaillar ro'yxatda borligini bilib olish mumkin bo'lardi
+        if (e.code === 'auth/user-not-found') {
+          show(`Agar ${email} manzili ro'yxatdan o'tgan bo'lsa, tiklash havolasi yuborildi.`, 'ok');
+          btn.textContent = 'Yuborildi';
+          emailIn.disabled = true;
+          return;
+        }
+
+        show(map[e.code] || "Xatolik yuz berdi. Qayta urinib ko'ring.", 'err');
+        btn.disabled = false;
+        btn.textContent = 'Qayta urinish';
+      }
+    }
+
+    btn.addEventListener('click', send);
+    emailIn.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+  </script>
+</body>
+
+</html>

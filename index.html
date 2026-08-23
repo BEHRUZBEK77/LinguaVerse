@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaVerse — AI bilan til o'rganish</title>
+  <meta name="description"
+    content="8 ta tilni AI ustoz bilan o'rganing. Jonli speaking mashqlari, talaffuz bahosi va shaxsiy o'quv rejasi.">
+
+<!-- Yuklanishni tezlashtirish: modullar va shriftlar tarmoqqa erta ulansin -->
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Font Awesome: render-blocking bo'lmasin — fon rejimida yuklanadi -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- JS bor-yo'qligini belgilaymiz: animatsiyalar faqat shunda yashiriladi -->
+  <script>document.documentElement.className = 'js';</script>
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       DIZAYN TIZIMI — sodda, kam rang, katta bo'shliq.
+       Tugmalar ataylab ikki xil: to'ldirilgan (.btn-fill) yoki
+       chegarali (.btn-line). Uchinchi variant yo'q.
+       ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --bg: #04060f;
+      --surface: #0b0f1e;
+      --surface2: #111629;
+      --border: rgba(255, 255, 255, .08);
+      --border-hi: rgba(255, 255, 255, .18);
+      --text: #e8ecff;
+      --muted: #7580a8;
+      --accent: #4f6ef7;
+      --accent2: #a78bfa;
+      --green: #34d399;
+      --radius: 14px;
+      --maxw: 1120px;
+    }
+
+    :root[data-theme="light"] {
+      --bg: #ffffff;
+      --surface: #f7f8fc;
+      --surface2: #eef0f7;
+      --border: rgba(10, 15, 40, .09);
+      --border-hi: rgba(10, 15, 40, .22);
+      --text: #0d1220;
+      --muted: #5b6484;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* overflow-x FAQAT html da bo'lishi kerak.
+       body ga qo'yilsa, body skroll konteyneriga aylanadi va shu sababli
+       window skroll qilmay qo'yadi — natijada IntersectionObserver ishlamaydi
+       va sticky nav buziladi. */
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Font Awesome — universal reset ::before shriftini buzmasligi uchun */
+    .fa, .fas, .fa-solid, .fa-regular,
+    .fa::before, .fas::before, .fa-solid::before, .fa-regular::before {
+      font-family: "Font Awesome 6 Free" !important;
+    }
+    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Tugmalar ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 11px;
+      border: 1.5px solid transparent;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s, border-color .15s, transform .1s;
+      white-space: nowrap;
+    }
+
+    .btn:active { transform: scale(.985); }
+    .btn-fill { background: var(--accent); color: #fff; }
+    .btn-fill:hover { background: #5f7bff; }
+    .btn-line { background: transparent; border-color: var(--border-hi); color: var(--text); }
+    .btn-line:hover { border-color: var(--text); }
+    .btn-sm { padding: 9px 16px; font-size: 14px; }
+    .btn-wide { width: 100%; }
+
+    /* ── NAVIGATSIYA ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-in {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 13px 22px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo { font-size: 19px; font-weight: 700; letter-spacing: -.4px; }
+    .logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 26px; margin-left: 18px; flex: 1; }
+
+    .nav-links a {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 500;
+      transition: color .15s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 9px; }
+
+    .icon-btn {
+      min-width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      background: transparent;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 16px;
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+
+    .icon-btn:hover { border-color: var(--border-hi); color: var(--text); }
+
+    .lang-wrap { position: relative; }
+
+    .lang-menu {
+      position: absolute;
+      top: 46px;
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 6px;
+      min-width: 152px;
+      display: none;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .4);
+      z-index: 20;
+    }
+
+    .lang-menu.open { display: block; }
+
+    .lang-menu button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 9px 11px;
+      background: none;
+      border: none;
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .lang-menu button:hover { background: var(--surface2); }
+
+    .burger { display: none; }
+
+    /* ── HERO ── */
+    .hero { padding: 84px 0 70px; text-align: center; position: relative; }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -140px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 680px;
+      height: 420px;
+      max-width: 100vw;
+      background: radial-gradient(ellipse, rgba(79, 110, 247, .16), transparent 68%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 15px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .badge b { color: var(--accent2); font-weight: 500; }
+
+    h1 {
+      font-size: clamp(38px, 6.4vw, 66px);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -1.6px;
+      margin-bottom: 20px;
+    }
+
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 570px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 11px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 12px;
+    }
+
+    .stat-n {
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -.6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-l { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    /* ── BO'LIMLAR ── */
+    section { padding: 76px 0; }
+
+    .sec-head { text-align: center; margin-bottom: 44px; }
+
+    .sec-label {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .sec-title {
+      font-size: clamp(27px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .sec-sub { color: var(--muted); font-size: 16.5px; max-width: 560px; margin: 0 auto; }
+
+    /* ── TILLAR ── */
+    .langs {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+      gap: 13px;
+    }
+
+    .lang-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: border-color .15s, transform .15s;
+      display: block;
+    }
+
+    .lang-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .lang-flag { font-size: 32px; margin-bottom: 11px; display: block; }
+    .lang-name { font-size: 16.5px; font-weight: 700; margin-bottom: 3px; }
+    .lang-meta { font-size: 13px; color: var(--muted); }
+
+    /* ── AI MODELLAR ── */
+    .models { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 13px; }
+
+    .model {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .model::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2.5px;
+      background: var(--mc);
+    }
+
+    .model-top { display: flex; align-items: center; gap: 11px; margin-bottom: 12px; }
+    .model-ic { font-size: 25px; color: var(--mc); }
+    .model-name { font-size: 19px; font-weight: 700; letter-spacing: -.3px; }
+
+    .model-tag {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 20px;
+      background: color-mix(in srgb, var(--mc) 16%, transparent);
+      color: var(--mc);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .model-desc { font-size: 14.5px; color: var(--muted); margin-bottom: 14px; min-height: 44px; }
+
+    .model-plan {
+      font-size: 13px;
+      color: var(--muted);
+      padding-top: 13px;
+      border-top: 1px solid var(--border);
+    }
+
+    .model-plan b { color: var(--text); }
+
+    /* ── IMKONIYATLAR ── */
+    .feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 13px; }
+
+    .feat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .feat-ic { font-size: 27px; margin-bottom: 13px; color: var(--accent); }
+    .feat-t { font-size: 17px; font-weight: 700; margin-bottom: 7px; }
+    .feat-d { font-size: 14.5px; color: var(--muted); }
+
+    /* ── REJALAR ── */
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 15px;
+      align-items: stretch;
+    }
+
+    .plan {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 17px;
+      padding: 26px 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plan.hot { border-color: var(--accent); }
+
+    .plan-badge {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .plan-ic { font-size: 27px; margin-bottom: 10px; }
+    .plan-name { font-size: 20px; font-weight: 700; letter-spacing: -.3px; }
+    .plan-tag { font-size: 13.5px; color: var(--muted); margin-bottom: 17px; min-height: 40px; }
+
+    .plan-price {
+      font-size: 33px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .plan-price small { font-size: 14px; color: var(--muted); font-weight: 400; letter-spacing: 0; }
+    .plan-period { font-size: 13px; color: var(--muted); margin-bottom: 19px; }
+
+    .plan ul { list-style: none; margin-bottom: 22px; flex: 1; }
+
+    .plan li {
+      display: flex;
+      gap: 9px;
+      font-size: 14.5px;
+      padding: 6px 0;
+      align-items: flex-start;
+    }
+
+    .plan li::before {
+      content: '\2713';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── LIMIT JADVALI ── */
+    .limits-note {
+      margin-top: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .limits-note b { color: var(--text); }
+    .limit-table-wrap { margin-top: 18px; overflow-x: auto; }
+
+    /* Kunlik / haftalik / oylik almashtirgichi */
+    .per-tabs { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
+    .per-tab { padding: 8px 16px; border-radius: 9px; border: 1px solid var(--border); background: transparent; color: var(--text3); font-size: 13px; font-weight: 700; font-family: inherit; transition: .18s; }
+    .per-tab:hover { color: var(--text); border-color: var(--border2); }
+    .per-tab.on { background: rgba(79, 110, 247, .12); border-color: rgba(79, 110, 247, .35); color: var(--accent); }
+
+    /* To'lov shartlari kartochkalari */
+    .bill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 16px; }
+    .bill-item { display: flex; gap: 11px; align-items: flex-start; }
+    .bill-item > i { color: var(--accent); font-size: 15px; margin-top: 3px; flex-shrink: 0; }
+    .bill-item b { display: block; font-size: 13.5px; margin-bottom: 3px; }
+    .bill-item span { font-size: 13px; line-height: 1.6; color: var(--text2); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      min-width: 520px;
+    }
+
+    th, td { padding: 10px 12px; text-align: center; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 500; font-size: 12.5px; }
+    td:first-child, th:first-child { text-align: left; }
+    td { font-variant-numeric: tabular-nums; }
+    tbody tr:last-child td { border-bottom: none; }
+    .dash { opacity: .4; }
+
+    /* ── QADAMLAR ── */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 26px; }
+    .step { text-align: center; }
+
+    .step-n {
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      background: var(--surface2);
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .step-t { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .step-d { font-size: 14.5px; color: var(--muted); }
+
+    /* ── CTA ── */
+    .cta {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 52px 30px;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 40px 0 34px; }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 26px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .foot-links a { font-size: 14.5px; color: var(--muted); transition: color .15s; }
+    .foot-links a:hover { color: var(--text); }
+    .foot-copy { font-size: 13.5px; color: var(--muted); }
+
+    /* ── MOBIL ── */
+    @media (max-width: 860px) {
+      .nav-links {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 65px;
+        flex-direction: column;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 22px 22px;
+        gap: 2px;
+        display: none;
+        margin: 0;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 11px 0; font-size: 16px; }
+      .burger { display: grid; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding: 54px 0 50px; }
+      section { padding: 56px 0; }
+      .hero-btns .btn { flex: 1; min-width: 145px; }
+    }
+
+    [dir="rtl"] .nav-links { margin-left: 0; margin-right: 18px; }
+    [dir="rtl"] .lang-menu { right: auto; left: 0; }
+    [dir="rtl"] td:first-child, [dir="rtl"] th:first-child { text-align: right; }
+
+    /* ── Skrolldagi animatsiya ──
+       MUHIM: element sukut bo'yicha KO'RINADI. Yashirish uchun JS ataylab
+       .pre klassini qo'shadi va observer uni olib tashlaydi.
+       Nega teskari emas: agar sukut bo'yicha yashirsak, JS yiqilsa yoki
+       observer ishlamasa, butun sahifa bo'sh ko'rinadi. */
+    .fade-up { transition: opacity .5s, transform .5s; }
+    .fade-up.pre { opacity: 0; transform: translateY(18px); }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .fade-up.pre { opacity: 1; transform: none; }
+    }
+
+    /* Skript yuklanmasa ko'rinadigan ogohlantirish */
+    #loadWarn {
+      display: none;
+      max-width: 720px;
+      margin: 20px auto;
+      background: rgba(248, 113, 113, .1);
+      border: 1px solid rgba(248, 113, 113, .35);
+      color: #fca5a5;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    #loadWarn code {
+      background: rgba(0, 0, 0, .3);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+  </style>
+  <!-- Google Fonts: render-blocking bo'lmasin — fon rejimida yuklanadi -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
+  <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
+  <link rel="stylesheet" href="css/lv-theme.css">
+</head>
+
+<body>
+
+  <!-- ══════════ NAVIGATSIYA ══════════ -->
+  <nav>
+    <div class="nav-in">
+      <a href="index.html" class="logo">Lingua<span>Verse</span></a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#languages" data-i18n="nav_langs">Tillar</a>
+        <a href="#models" data-i18n="nav_ai">AI</a>
+        <a href="#plans" data-i18n="nav_plans">Narxlar</a>
+        <a href="languages-html/ai-coach.html" data-i18n="nav_coach">AI Coach</a>
+        <a href="languages-html/speaking-coach.html" data-i18n="nav_speak">Speaking</a>
+        <a href="languages-html/writing-coach.html" data-i18n="nav_write">Writing</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="icon-btn" id="themeBtn" title="Mavzu" aria-label="Mavzuni almashtirish"><i class="fa-solid fa-moon"></i></button>
+
+        <div class="lang-wrap">
+          <button class="icon-btn" id="langBtn" style="padding:0 12px" aria-label="Til">
+            <span id="curFlag">🇺🇿</span>
+          </button>
+          <div class="lang-menu" id="langMenu"></div>
+        </div>
+
+        <!-- Kirgan/kirmagan holatga qarab almashadi -->
+        <span id="authArea">
+          <a href="auth/login.html" class="btn btn-line btn-sm" data-i18n="nav_login">Kirish</a>
+          <a href="auth/register.html" class="btn btn-fill btn-sm" data-i18n="nav_start">Boshlash</a>
+        </span>
+
+        <button class="icon-btn burger" id="burger" aria-label="Menyu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero">
+    <div class="wrap">
+      <div id="loadWarn"></div>
+      <div class="badge"><i class="fa-solid fa-wand-magic-sparkles" style="color:#a78bfa"></i>
+        <b data-i18n="hero_badge">AI ustoz · Talaffuz bahosi · 8 til</b></div>
+
+      <h1>
+        <span data-i18n="hero_h1a">Tilni</span>
+        <em data-i18n="hero_h1b">gapirib</em>
+        <span data-i18n="hero_h1c">o'rganing.</span>
+      </h1>
+
+      <p class="hero-p" data-i18n="hero_p">
+        AI ustoz sizni tinglaydi, har bir tovushga ball qo'yadi va xatoni sababi bilan
+        tushuntiradi. Anketadan keyin shaxsiy o'quv rejangiz tayyor bo'ladi.
+      </p>
+
+      <div class="hero-btns">
+        <a href="auth/register.html" class="btn btn-fill" id="ctaMain" data-i18n="hero_btn1">Bepul boshlash</a>
+        <a href="#plans" class="btn btn-line" data-i18n="hero_btn2">Narxlarni ko'rish</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">8</div>
+          <div class="stat-l" data-i18n="stat_langs">Til</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">6</div>
+          <div class="stat-l" data-i18n="stat_models">AI model</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n" id="statUsers">—</div>
+          <div class="stat-l" data-i18n="stat_users">O'quvchi</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">24/7</div>
+          <div class="stat-l" data-i18n="stat_always">Ochiq</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════ TILLAR ══════════ -->
+  <section id="languages">
+    <div class="wrap">
+      <div class="sec-head fade-up">
+        <div class="sec-label" data-i18n="sec_langs_l">Tillar</div>
+        <h2 class="sec-title" data-i18n="sec_langs_t">8 ta til, bitta platforma</h2>
+        <p class="sec-sub" data-i18n="sec_langs_s">
+          Har bir til uchun alohida darslar, AI suhbatdosh va talaffuz mashqlari.
+        </p>
+      </div>
+      <div class="langs fade-up" id="langsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ AI MODELLAR ══════════ -->
+  <section id="models" style="background:var(--surface2)">
+    <div class="wrap">
+      <div class="sec-head fade-up">
+        <div class="sec-label" data-i18n="sec_ai_l">AI modellar</div>
+        <h2 class="sec-title" data-i18n="sec_ai_t">Oltita AI ustoz</h2>
+        <p class="sec-sub" data-i18n="sec_ai_s">
+          Oddiy savolga tez javob kerakmi yoki chuqur tahlilmi — har biriga alohida model.
+        </p>
+      </div>
+      <div class="models fade-up" id="modelsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══════════ TO'RT KO'NIKMA ══════════
+       Sayt faqat "gapirish" haqida degan taassurot qolmasin: har bir unit
+       ichida to'rttala ko'nikma ham alohida dars sifatida bor. -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head fade-up">
+        <div class="sec-label" data-i18n="sec_sk_l">Ko'nikmalar</div>
+        <h2 class="sec-title" data-i18n="sec_sk_t">To'rttala ko'nikma — har bir darsda</h2>
+        <p class="sec-sub" data-i18n="sec_sk_s">
+          Har bir unit ichida to'rtta alohida dars bor. Birini tugatmasdan
+          keyingisiga o'tish shart emas — o'zingizga qulay tartibda ishlaysiz.
+        </p>
+      </div>
+
+      <div class="feats fade-up">
+        <div class="feat">
+          <div class="feat-ic" style="color:#a78bfa"><i class="fa-solid fa-book-open"></i></div>
+          <div class="feat-t" data-i18n="sk1t">A · Grammatika va lug'at</div>
+          <div class="feat-d" data-i18n="sk1d">
+            Qoida, misol, so'zlar ro'yxati va test. AI xato javobingiz sababini tushuntiradi.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic" style="color:#22d3ee"><i class="fa-solid fa-headphones"></i></div>
+          <div class="feat-t" data-i18n="sk2t">B · Listening</div>
+          <div class="feat-d" data-i18n="sk2d">
+            Azure neural ovoz matnni o'qiydi, siz eshitib yozasiz. Tezlikni sekinlashtira olasiz.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic" style="color:#34d399"><i class="fa-solid fa-book-open-reader"></i></div>
+          <div class="feat-t" data-i18n="sk3t">C · Reading</div>
+          <div class="feat-d" data-i18n="sk3d">
+            Darajangizga mos matn va tushunish savollari. Notanish so'zni bosib tarjimasini olasiz.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic" style="color:#f87171"><i class="fa-solid fa-microphone-lines"></i></div>
+          <div class="feat-t" data-i18n="sk4t">D · Speaking</div>
+          <div class="feat-d" data-i18n="sk4d">
+            Mikrofonga gapirasiz — Azure har bir tovushga ball qo'yadi va qaysi harfda adashganingizni ko'rsatadi.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic" style="color:#34d399"><i class="fa-solid fa-pen-nib"></i></div>
+          <div class="feat-t" data-i18n="sk5t">Writing Coach</div>
+          <div class="feat-d" data-i18n="sk5d">
+            Insho, IELTS Task 1/2, xat yoki hikoya yozasiz — AI IELTS mezonlari bo'yicha ball qo'yadi
+            va har bir xatoni tuzatib ko'rsatadi.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic" style="color:#f5c842"><i class="fa-solid fa-repeat"></i></div>
+          <div class="feat-t" data-i18n="sk6t">Takrorlash tizimi</div>
+          <div class="feat-d" data-i18n="sk6d">
+            Adashgan so'zlaringiz alohida to'planadi va oradan bir necha kun o'tib
+            yana savol bo'lib qaytadi.
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:26px" class="fade-up">
+        <a class="btn btn-line" href="languages-html/writing-coach.html">
+          <i class="fa-solid fa-pen-nib"></i> <span data-i18n="sk_try_w">Writing Coach'ni sinash</span>
+        </a>
+        <a class="btn btn-line" href="languages-html/speaking-coach.html">
+          <i class="fa-solid fa-microphone-lines"></i> <span data-i18n="sk_try_s">Speaking Coach'ni sinash</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ IMKONIYATLAR ══════════ -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head fade-up">
+        <div class="sec-label" data-i18n="sec_feat_l">Imkoniyatlar</div>
+        <h2 class="sec-title" data-i18n="sec_feat_t">Hamma narsa bir joyda</h2>
+      </div>
+
+      <div class="feats fade-up">
+        <div class="feat">
+          <div class="feat-ic"><i class="fa-solid fa-microphone-lines"></i></div>
+          <div class="feat-t" data-i18n="f1t">Talaffuz bahosi</div>
+          <div class="feat-d" data-i18n="f1d">
+            Azure Speech har bir so'z va tovushga 100 ballik shkalada ball qo'yadi.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic"><i class="fa-solid fa-brain"></i></div>
+          <div class="feat-t" data-i18n="f2t">O'ylash rejimi</div>
+          <div class="feat-d" data-i18n="f2d">
+            PRO, PRO+ va MEGA+ javobdan oldin xatolaringizni tahlil qiladi.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic"><i class="fa-solid fa-clipboard-list"></i></div>
+          <div class="feat-t" data-i18n="f3t">Shaxsiy o'quv rejasi</div>
+          <div class="feat-d" data-i18n="f3d">
+            12 ta savoldan iborat anketa asosida kunlik yuklama belgilanadi.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic"><i class="fa-solid fa-gauge-high"></i></div>
+          <div class="feat-t" data-i18n="f4t">Aniq limitlar</div>
+          <div class="feat-d" data-i18n="f4d">
+            Har bir model uchun kunlik, haftalik va oylik limit.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic"><i class="fa-solid fa-comments"></i></div>
+          <div class="feat-t" data-i18n="f5t">Speaking xonasi</div>
+          <div class="feat-d" data-i18n="f5d">
+            AI bilan jonli suhbat yoki boshqa o'quvchilar bilan ovozli xona.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ic"><i class="fa-solid fa-book-bookmark"></i></div>
+          <div class="feat-t" data-i18n="f6t">AI lug'at</div>
+          <div class="feat-d" data-i18n="f6d">
+            "Sayohat mavzusida 20 ta so'z qo'sh" deysiz — AI unit yaratib beradi.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ REJALAR ══════════ -->
+  <section id="plans" style="background:var(--surface2)">
+    <div class="wrap">
+      <div class="sec-head fade-up">
+        <div class="sec-label" data-i18n="sec_plans_l">Narxlar</div>
+        <h2 class="sec-title" data-i18n="sec_plans_t">O'zingizga mos rejani tanlang</h2>
+        <p class="sec-sub" data-i18n="sec_plans_s">
+          Bepul reja ham jiddiy — kuniga 40 ta AI savoli va 15 daqiqa speaking.
+        </p>
+      </div>
+
+      <div class="plans fade-up" id="plansGrid"></div>
+
+      <!-- To'lov davri tanlash -->
+      <div style="margin:0 auto 28px;max-width:560px" class="fade-up">
+        <div class="per-tabs" id="billTabs" style="justify-content:center"></div>
+      </div>
+
+      <!-- To'lov shartlari — obuna qanday uzayadi, qanday to'xtaydi -->
+      <div class="limits-note fade-up" style="margin-bottom:18px">
+        <b data-i18n="bill_title">To'lov shartlari</b>
+        <div class="bill-grid">
+          <div class="bill-item">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div><b data-i18n="bill_1t" id="billMuddat">Muddat — {days} kun</b>
+              <span data-i18n="bill_1d">To'lov tasdiqlangan kundan boshlab. Muddat tugashiga 3 kun qolganda ogohlantiramiz.</span></div>
+          </div>
+          <div class="bill-item">
+            <i class="fa-solid fa-repeat"></i>
+            <div><b data-i18n="bill_2t">Avto-to'lov — ixtiyoriy</b>
+              <span data-i18n="bill_2d">Yoqsangiz, obuna har oy o'zi uzayadi. Bir bosishda o'chirasiz — keyingi oy pul yechilmaydi.</span></div>
+          </div>
+          <div class="bill-item">
+            <i class="fa-solid fa-layer-group"></i>
+            <div><b data-i18n="bill_3t">Muddat ustiga qo'shiladi</b>
+              <span data-i18n="bill_3d">Amaldagi reja tugamasdan yana to'lasangiz, kunlar yo'qolmaydi — ustiga qo'shiladi.</span></div>
+          </div>
+          <div class="bill-item">
+            <i class="fa-solid fa-arrow-down-short-wide"></i>
+            <div><b data-i18n="bill_4t">Muddat tugasa</b>
+              <span data-i18n="bill_4d">Hisobingiz o'chmaydi — Bepul rejaga tushadi. So'zlar, natijalar va tarix joyida qoladi.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="limits-note fade-up">
+        <b data-i18n="limits_title">Limitlar — har bir model uchun alohida</b>
+
+        <!-- Kunlik / haftalik / oylik almashtirgichi -->
+        <div class="per-tabs" id="perTabs">
+          <button class="per-tab on" data-per="0" data-i18n="per_day">Kunlik</button>
+          <button class="per-tab" data-per="1" data-i18n="per_week">Haftalik</button>
+          <button class="per-tab" data-per="2" data-i18n="per_month_l">Oylik</button>
+        </div>
+
+        <div class="limit-table-wrap">
+          <table id="limitTable"></table>
+        </div>
+        <div style="margin-top:14px;font-size:13px" data-i18n="limits_foot">
+          Uchala davr ham mustaqil hisoblanadi: kunlik limit tugasa ertaga yangilanadi,
+          haftalik dushanbada, oylik esa yangi oy boshida. "—" belgisi bu reja
+          o'sha modelni bermasligini bildiradi.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ QADAMLAR ══════════ -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head fade-up">
+        <div class="sec-label" data-i18n="sec_how_l">Qanday ishlaydi</div>
+        <h2 class="sec-title" data-i18n="sec_how_t">Uch qadamda boshlaysiz</h2>
+      </div>
+
+      <div class="steps fade-up">
+        <div class="step">
+          <div class="step-n">1</div>
+          <div class="step-t" data-i18n="s1t">Anketani to'ldiring</div>
+          <div class="step-d" data-i18n="s1d">
+            Yosh, daraja, maqsad va qiziqishlaringiz — 12 ta savol, 2 daqiqa.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <div class="step-t" data-i18n="s2t">Rejangizni oling</div>
+          <div class="step-d" data-i18n="s2d">
+            AI javoblaringizga qarab kunlik dars, speaking va so'z sonini belgilaydi.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <div class="step-t" data-i18n="s3t">Gapirishni boshlang</div>
+          <div class="step-d" data-i18n="s3d">
+            Birinchi kundanoq AI bilan gaplashasiz va talaffuz bahosini olasiz.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CTA ══════════ -->
+  <section>
+    <div class="wrap">
+      <div class="cta fade-up">
+        <h2 class="sec-title" data-i18n="cta_t">Bugun boshlang</h2>
+        <p class="sec-sub" style="margin-bottom:26px" data-i18n="cta_s">
+          Karta kerak emas. Bepul rejada to'liq imkoniyatlarni sinab ko'ring.
+        </p>
+        <a href="auth/register.html" class="btn btn-fill" id="ctaBottom" data-i18n="cta_btn">
+          Bepul ro'yxatdan o'tish
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <div class="logo" style="margin-bottom:5px">Lingua<span>Verse</span></div>
+        <div class="foot-copy">© 2026 LinguaVerse</div>
+      </div>
+      <div class="foot-links">
+        <a href="#languages" data-i18n="nav_langs">Tillar</a>
+        <a href="#plans" data-i18n="nav_plans">Narxlar</a>
+        <a href="languages-html/ai-coach.html" data-i18n="nav_coach">AI Coach</a>
+        <a href="languages-html/speaking-coach.html" data-i18n="nav_speak">Speaking</a>
+        <a href="languages-html/writing-coach.html" data-i18n="nav_write">Writing</a>
+        <a href="languages-html/shop.html" data-i18n="nav_shop">Do'kon</a>
+        <a href="languages-html/profile.html" data-i18n="nav_profile">Profil</a>
+        <a href="offer.html">Ommaviy oferta</a>
+        <a href="https://t.me/Akromov141" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i> Support</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       Rejalar, modellar va limitlar lv-core.js DAN olinadi.
+       Bu faylda birorta narx yoki limit raqami YOZILMAGAN.
+       ═══════════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { PLANS, LIMITS, PLAN_ORDER, RESOURCES, LV, db, DURATIONS, DURATION_ORDER, planPrice } from './js/lv-core.js';
+    import { planText, resourceText, allModels } from './js/lv-i18n.js';
+
+    // Modul ishga tushdi — demak lv-core yuklandi. Ogohlantirish skripti
+    // faqat modul umuman yuklanmaganda ko'rinishi kerak.
+    window.__lvReady = true;
+
+    const $ = id => document.getElementById(id);
+
+    // ════════════════════════════════════════════════════════════════
+    // TILLAR (interfeys)
+    // ════════════════════════════════════════════════════════════════
+    const LANGS = {
+      uz: { flag: '🇺🇿', name: "O'zbek", dir: 'ltr' },
+      ru: { flag: '🇷🇺', name: 'Русский', dir: 'ltr' },
+      en: { flag: '🇬🇧', name: 'English', dir: 'ltr' },
+      tr: { flag: '🇹🇷', name: 'Türkçe', dir: 'ltr' },
+      de: { flag: '🇩🇪', name: 'Deutsch', dir: 'ltr' },
+      ar: { flag: '🇸🇦', name: 'العربية', dir: 'rtl' }
+    };
+
+    const T = {
+      uz: {
+        nav_langs: 'Tillar', nav_ai: 'AI', nav_plans: 'Narxlar', nav_speak: 'Speaking', nav_coach: 'AI Coach',
+        nav_shop: "Do'kon", nav_profile: 'Profil', nav_login: 'Kirish', nav_start: 'Boshlash',
+        hero_badge: 'AI ustoz · Talaffuz bahosi · 8 til',
+        hero_h1a: 'Tilni', hero_h1b: 'gapirib', hero_h1c: "o'rganing.",
+        hero_p: "AI ustoz sizni tinglaydi, har bir tovushga ball qo'yadi va xatoni sababi bilan tushuntiradi. Anketadan keyin shaxsiy o'quv rejangiz tayyor bo'ladi.",
+        hero_btn1: 'Bepul boshlash', hero_btn2: "Narxlarni ko'rish",
+        stat_langs: 'Til', stat_models: 'AI model', stat_users: "O'quvchi", stat_always: 'Ochiq',
+        sec_langs_l: 'Tillar', sec_langs_t: '8 ta til, bitta platforma',
+        sec_langs_s: "Har bir til uchun alohida darslar, AI suhbatdosh va talaffuz mashqlari.",
+        sec_ai_l: 'AI modellar', sec_ai_t: 'Oltita AI ustoz',
+        sec_ai_s: "Oddiy savolga tez javob kerakmi yoki chuqur tahlilmi — har biriga alohida model.",
+        sec_feat_l: 'Imkoniyatlar', sec_feat_t: 'Hamma narsa bir joyda',
+        f1t: 'Talaffuz bahosi', f1d: "Azure Speech har bir so'z va tovushga 100 ballik shkalada ball qo'yadi.",
+        f2t: "O'ylash rejimi", f2d: "PRO, PRO+ va MEGA+ javobdan oldin xatolaringizni tahlil qiladi.",
+        f3t: "Shaxsiy o'quv rejasi", f3d: "12 ta savoldan iborat anketa asosida kunlik yuklama belgilanadi.",
+        f4t: 'Aniq limitlar', f4d: "Har bir model uchun kunlik, haftalik va oylik limit.",
+        f5t: 'Speaking xonasi', f5d: "AI bilan jonli suhbat yoki boshqa o'quvchilar bilan ovozli xona.",
+        f6t: "AI lug'at", f6d: "\"Sayohat mavzusida 20 ta so'z qo'sh\" deysiz — AI unit yaratib beradi.",
+        sec_plans_l: 'Narxlar', sec_plans_t: "O'zingizga mos rejani tanlang",
+        sec_plans_s: "Bepul reja ham jiddiy — kuniga 40 ta AI savoli va 15 daqiqa speaking.",
+        limits_title: 'Kunlik limitlar (har bir model uchun alohida)',
+        limits_foot: "Har bir resurs uchun kunlik, haftalik va oylik limit mavjud. Jadvalda kunlik ko'rsatkichlar berilgan.",
+        sec_how_l: 'Qanday ishlaydi', sec_how_t: 'Uch qadamda boshlaysiz',
+        s1t: "Anketani to'ldiring", s1d: "Yosh, daraja, maqsad va qiziqishlaringiz — 12 ta savol, 2 daqiqa.",
+        s2t: 'Rejangizni oling', s2d: "AI javoblaringizga qarab kunlik dars, speaking va so'z sonini belgilaydi.",
+        s3t: 'Gapirishni boshlang', s3d: "Birinchi kundanoq AI bilan gaplashasiz va talaffuz bahosini olasiz.",
+        cta_t: 'Bugun boshlang', cta_s: "Karta kerak emas. Bepul rejada to'liq imkoniyatlarni sinab ko'ring.",
+        cta_btn: "Bepul ro'yxatdan o'tish",
+        per_month: '/ oyiga', free_forever: 'Abadiy bepul', choose: 'Tanlash', current: 'Joriy rejangiz',
+        dashboard: 'Kabinet', model_thinking: "O'ylaydi", model_fast: 'Tez',
+        from_plan: 'rejasidan', resource: 'Resurs', som: "so'm",
+
+        // ── ko'nikmalar, to'lov shartlari, davr tugmalari ──
+        nav_write: "Writing",
+        sec_sk_l: "Ko'nikmalar",
+        sec_sk_t: "To'rttala ko'nikma — har bir darsda",
+        sec_sk_s: "Har bir unit ichida to'rtta alohida dars bor. Birini tugatmasdan keyingisiga o'tish shart emas — o'zingizga qulay tartibda ishlaysiz.",
+        sk1t: "A · Grammatika va lug'at",
+        sk1d: "Qoida, misol, so'zlar ro'yxati va test. AI xato javobingiz sababini tushuntiradi.",
+        sk2t: "B · Listening",
+        sk2d: "Azure neural ovoz matnni o'qiydi, siz eshitib yozasiz. Tezlikni sekinlashtira olasiz.",
+        sk3t: "C · Reading",
+        sk3d: "Darajangizga mos matn va tushunish savollari. Notanish so'zni bosib tarjimasini olasiz.",
+        sk4t: "D · Speaking",
+        sk4d: "Mikrofonga gapirasiz — Azure har bir tovushga ball qo'yadi va qaysi harfda adashganingizni ko'rsatadi.",
+        sk5t: "Writing Coach",
+        sk5d: "Insho, IELTS Task 1/2, xat yoki hikoya yozasiz — AI IELTS mezonlari bo'yicha ball qo'yadi va har bir xatoni tuzatib ko'rsatadi.",
+        sk6t: "Takrorlash tizimi",
+        sk6d: "Adashgan so'zlaringiz alohida to'planadi va oradan bir necha kun o'tib yana savol bo'lib qaytadi.",
+        sk_try_w: "Writing Coach'ni sinash",
+        sk_try_s: "Speaking Coach'ni sinash",
+        bill_title: "To'lov shartlari",
+        bill_1t: "Muddat — {days} kun",
+        bill_1d: "To'lov tasdiqlangan kundan boshlab. Muddat tugashiga 3 kun qolganda ogohlantiramiz.",
+        bill_2t: "Avto-to'lov — ixtiyoriy",
+        bill_2d: "Yoqsangiz, obuna tanlangan davr bo'yicha o'zi uzayadi. Bir bosishda o'chirasiz — keyingi davr pul yechilmaydi.",
+        bill_3t: "Muddat ustiga qo'shiladi",
+        bill_3d: "Amaldagi reja tugamasdan yana to'lasangiz, kunlar yo'qolmaydi — ustiga qo'shiladi.",
+        bill_4t: "Muddat tugasa",
+        bill_4d: "Hisobingiz o'chmaydi — Bepul rejaga tushadi. So'zlar, natijalar va tarix joyida qoladi.",
+        per_day: "Kunlik",
+        per_week: "Haftalik",
+        per_month_l: "Oylik",
+        limits_title: "Limitlar — har bir model uchun alohida",
+        limits_foot: "Uchala davr ham mustaqil hisoblanadi: kunlik limit tugasa ertaga yangilanadi, haftalik dushanbada, oylik esa yangi oy boshida. Chiziqcha bu reja o'sha modelni bermasligini bildiradi.",
+        dur_daily: "Kunlik",
+        dur_monthly: "Oylik",
+        dur_q3: "3 oylik",
+        dur_q6: "6 oylik",
+        dur_yearly: "1 yillik"
+      },
+
+      ru: {
+        nav_langs: 'Языки', nav_ai: 'ИИ', nav_plans: 'Цены', nav_speak: 'Speaking', nav_coach: 'AI Coach',
+        nav_shop: 'Магазин', nav_profile: 'Профиль', nav_login: 'Вход', nav_start: 'Начать',
+        hero_badge: 'ИИ-наставник · Оценка произношения · 8 языков',
+        hero_h1a: 'Учите язык,', hero_h1b: 'говоря', hero_h1c: 'на нём.',
+        hero_p: 'ИИ слушает вас, оценивает каждый звук и объясняет ошибку с причиной. После анкеты вы получите персональный учебный план.',
+        hero_btn1: 'Начать бесплатно', hero_btn2: 'Смотреть цены',
+        stat_langs: 'Языков', stat_models: 'ИИ-моделей', stat_users: 'Учеников', stat_always: 'Открыто',
+        sec_langs_l: 'Языки', sec_langs_t: '8 языков, одна платформа',
+        sec_langs_s: 'Отдельные уроки, ИИ-собеседник и упражнения на произношение для каждого языка.',
+        sec_ai_l: 'ИИ-модели', sec_ai_t: 'Шесть ИИ-наставников',
+        sec_ai_s: 'Нужен быстрый ответ или глубокий разбор — для каждого своя модель.',
+        sec_feat_l: 'Возможности', sec_feat_t: 'Всё в одном месте',
+        f1t: 'Оценка произношения', f1d: 'Azure Speech оценивает каждое слово и звук по 100-балльной шкале.',
+        f2t: 'Режим размышления', f2d: 'PRO, PRO+ и MEGA+ анализируют ваши ошибки перед ответом.',
+        f3t: 'Персональный план', f3d: 'Анкета из 12 вопросов определяет дневную нагрузку.',
+        f4t: 'Чёткие лимиты', f4d: 'Дневной, недельный и месячный лимит для каждой модели.',
+        f5t: 'Speaking-комната', f5d: 'Живой разговор с ИИ или голосовая комната с другими учениками.',
+        f6t: 'ИИ-словарь', f6d: '«Добавь 20 слов о путешествиях» — ИИ создаст юнит.',
+        sec_plans_l: 'Цены', sec_plans_t: 'Выберите подходящий тариф',
+        sec_plans_s: 'Бесплатный тариф серьёзный — 40 вопросов ИИ и 15 минут речи в день.',
+        limits_title: 'Дневные лимиты (отдельно для каждой модели)',
+        limits_foot: 'Для каждого ресурса есть дневной, недельный и месячный лимит. В таблице показаны дневные.',
+        sec_how_l: 'Как это работает', sec_how_t: 'Три шага до старта',
+        s1t: 'Заполните анкету', s1d: 'Возраст, уровень, цель и интересы — 12 вопросов, 2 минуты.',
+        s2t: 'Получите план', s2d: 'ИИ определит дневную норму уроков, речи и слов.',
+        s3t: 'Начните говорить', s3d: 'С первого дня вы говорите с ИИ и получаете оценку произношения.',
+        cta_t: 'Начните сегодня', cta_s: 'Карта не нужна. Попробуйте всё на бесплатном тарифе.',
+        cta_btn: 'Зарегистрироваться бесплатно',
+        per_month: '/ месяц', free_forever: 'Навсегда бесплатно', choose: 'Выбрать', current: 'Ваш тариф',
+        dashboard: 'Кабинет', model_thinking: 'Размышляет', model_fast: 'Быстро',
+        from_plan: 'с тарифа', resource: 'Ресурс', som: 'сум',
+
+        // ── ko'nikmalar, to'lov shartlari, davr tugmalari ──
+        nav_write: "Writing",
+        sec_sk_l: "Навыки",
+        sec_sk_t: "Все четыре навыка — в каждом уроке",
+        sec_sk_s: "В каждом юните четыре отдельных урока. Проходить их подряд необязательно — работайте в удобном порядке.",
+        sk1t: "A · Грамматика и словарь",
+        sk1d: "Правило, пример, список слов и тест. ИИ объясняет причину каждой ошибки.",
+        sk2t: "B · Аудирование",
+        sk2d: "Нейроголос Azure читает текст, вы записываете услышанное. Скорость можно замедлить.",
+        sk3t: "C · Чтение",
+        sk3d: "Текст по вашему уровню и вопросы на понимание. Нажмите на слово — получите перевод.",
+        sk4t: "D · Говорение",
+        sk4d: "Вы говорите в микрофон — Azure оценивает каждый звук и показывает, где вы ошиблись.",
+        sk5t: "Writing Coach",
+        sk5d: "Эссе, IELTS Task 1/2, письмо или рассказ — ИИ ставит балл по критериям IELTS и исправляет каждую ошибку.",
+        sk6t: "Система повторения",
+        sk6d: "Слова, в которых вы ошиблись, собираются отдельно и через несколько дней возвращаются в виде вопроса.",
+        sk_try_w: "Попробовать Writing Coach",
+        sk_try_s: "Попробовать Speaking Coach",
+        bill_title: "Условия оплаты",
+        bill_1t: "Срок — {days} дн.",
+        bill_1d: "С момента подтверждения оплаты. За 3 дня до окончания мы предупредим.",
+        bill_2t: "Автоплатёж — по желанию",
+        bill_2d: "Включите — подписка продлевается автоматически на выбранный период. Выключается одним нажатием, дальше деньги не спишутся.",
+        bill_3t: "Срок суммируется",
+        bill_3d: "Если оплатите до окончания текущего тарифа, дни не сгорают — они прибавляются.",
+        bill_4t: "Когда срок истёк",
+        bill_4d: "Аккаунт не удаляется — вы переходите на бесплатный тариф. Слова, результаты и история остаются.",
+        per_day: "Дневные",
+        per_week: "Недельные",
+        per_month_l: "Месячные",
+        limits_title: "Лимиты — отдельно для каждой модели",
+        limits_foot: "Все три периода считаются независимо: дневной лимит обновляется завтра, недельный в понедельник, месячный в начале месяца. Прочерк означает, что тариф не даёт эту модель.",
+        dur_daily: "День",
+        dur_monthly: "Месяц",
+        dur_q3: "3 мес.",
+        dur_q6: "6 мес.",
+        dur_yearly: "1 год"
+      },
+
+      en: {
+        nav_langs: 'Languages', nav_ai: 'AI', nav_plans: 'Pricing', nav_speak: 'Speaking', nav_coach: 'AI Coach',
+        nav_shop: 'Shop', nav_profile: 'Profile', nav_login: 'Log in', nav_start: 'Get started',
+        hero_badge: 'AI tutor · Pronunciation scoring · 8 languages',
+        hero_h1a: 'Learn a language', hero_h1b: 'by speaking', hero_h1c: 'it.',
+        hero_p: 'The AI listens to you, scores every sound and explains mistakes with the reason behind them. After a short questionnaire your personal study plan is ready.',
+        hero_btn1: 'Start free', hero_btn2: 'See pricing',
+        stat_langs: 'Languages', stat_models: 'AI models', stat_users: 'Learners', stat_always: 'Open',
+        sec_langs_l: 'Languages', sec_langs_t: '8 languages, one platform',
+        sec_langs_s: 'Dedicated lessons, an AI conversation partner and pronunciation drills for every language.',
+        sec_ai_l: 'AI models', sec_ai_t: 'Six AI tutors',
+        sec_ai_s: 'Need a quick answer or a deep analysis — there is a model for each.',
+        sec_feat_l: 'Features', sec_feat_t: 'Everything in one place',
+        f1t: 'Pronunciation scoring', f1d: 'Azure Speech scores every word and phoneme on a 100-point scale.',
+        f2t: 'Thinking mode', f2d: 'PRO, PRO+ and MEGA+ analyse your errors before answering.',
+        f3t: 'Personal study plan', f3d: 'A 12-question survey sets your daily workload.',
+        f4t: 'Clear limits', f4d: 'Daily, weekly and monthly limits for every model.',
+        f5t: 'Speaking room', f5d: 'Live conversation with the AI or a voice room with other learners.',
+        f6t: 'AI dictionary', f6d: '"Add 20 travel words" — the AI builds a unit for you.',
+        sec_plans_l: 'Pricing', sec_plans_t: 'Pick the plan that fits',
+        sec_plans_s: 'The free plan is serious too — 40 AI questions and 15 speaking minutes a day.',
+        limits_title: 'Daily limits (separate for each model)',
+        limits_foot: 'Every resource has a daily, weekly and monthly limit. The table shows daily figures.',
+        sec_how_l: 'How it works', sec_how_t: 'Three steps to start',
+        s1t: 'Fill the survey', s1d: 'Age, level, goal and interests — 12 questions, 2 minutes.',
+        s2t: 'Get your plan', s2d: 'The AI sets your daily lessons, speaking time and word count.',
+        s3t: 'Start speaking', s3d: 'From day one you talk to the AI and get pronunciation scores.',
+        cta_t: 'Start today', cta_s: 'No card required. Try the full experience on the free plan.',
+        cta_btn: 'Sign up free',
+        per_month: '/ month', free_forever: 'Free forever', choose: 'Choose', current: 'Your plan',
+        dashboard: 'Dashboard', model_thinking: 'Thinks', model_fast: 'Fast',
+        from_plan: 'from', resource: 'Resource', som: 'UZS',
+
+        // ── ko'nikmalar, to'lov shartlari, davr tugmalari ──
+        nav_write: "Writing",
+        sec_sk_l: "Skills",
+        sec_sk_t: "All four skills — in every lesson",
+        sec_sk_s: "Each unit contains four separate lessons. You do not have to finish one before starting another — work in whatever order suits you.",
+        sk1t: "A · Grammar & vocabulary",
+        sk1d: "Rule, example, word list and a quiz. The AI explains why each wrong answer was wrong.",
+        sk2t: "B · Listening",
+        sk2d: "An Azure neural voice reads the text and you write what you hear. You can slow the speed down.",
+        sk3t: "C · Reading",
+        sk3d: "A text at your level plus comprehension questions. Tap any unfamiliar word for a translation.",
+        sk4t: "D · Speaking",
+        sk4d: "You speak into the mic — Azure scores every phoneme and shows exactly which sound went wrong.",
+        sk5t: "Writing Coach",
+        sk5d: "Write an essay, IELTS Task 1/2, a letter or a story — the AI scores it against IELTS criteria and corrects every mistake.",
+        sk6t: "Spaced repetition",
+        sk6d: "Words you got wrong are collected separately and come back as a question a few days later.",
+        sk_try_w: "Try Writing Coach",
+        sk_try_s: "Try Speaking Coach",
+        bill_title: "Billing terms",
+        bill_1t: "Term — {days} days",
+        bill_1d: "Starting from the day payment is confirmed. We warn you 3 days before it ends.",
+        bill_2t: "Auto-renew — optional",
+        bill_2d: "Turn it on and the plan renews automatically for the chosen period. One tap turns it off — nothing is charged after that.",
+        bill_3t: "Days stack up",
+        bill_3d: "Pay again before your current plan ends and the remaining days are not lost — they are added on top.",
+        bill_4t: "When the term ends",
+        bill_4d: "Your account is not deleted — it drops to the Free plan. Words, results and history all stay.",
+        per_day: "Daily",
+        per_week: "Weekly",
+        per_month_l: "Monthly",
+        limits_title: "Limits — separate for every model",
+        limits_foot: "All three periods count independently: the daily limit resets tomorrow, the weekly one on Monday and the monthly one at the start of the month. A dash means the plan does not include that model.",
+        dur_daily: "Day",
+        dur_monthly: "Month",
+        dur_q3: "3 mo",
+        dur_q6: "6 mo",
+        dur_yearly: "1 yr"
+      },
+
+      tr: {
+        nav_langs: 'Diller', nav_ai: 'AI', nav_plans: 'Fiyatlar', nav_speak: 'Speaking', nav_coach: 'AI Coach',
+        nav_shop: 'Mağaza', nav_profile: 'Profil', nav_login: 'Giriş', nav_start: 'Başla',
+        hero_badge: 'AI öğretmen · Telaffuz puanı · 8 dil',
+        hero_h1a: 'Dili', hero_h1b: 'konuşarak', hero_h1c: 'öğren.',
+        hero_p: 'AI sizi dinler, her sesi puanlar ve hatayı nedeniyle birlikte açıklar. Anketten sonra kişisel çalışma planınız hazır olur.',
+        hero_btn1: 'Ücretsiz başla', hero_btn2: 'Fiyatları gör',
+        stat_langs: 'Dil', stat_models: 'AI model', stat_users: 'Öğrenci', stat_always: 'Açık',
+        sec_langs_l: 'Diller', sec_langs_t: '8 dil, tek platform',
+        sec_langs_s: 'Her dil için ayrı dersler, AI sohbet arkadaşı ve telaffuz alıştırmaları.',
+        sec_ai_l: 'AI modeller', sec_ai_t: 'Altı AI öğretmen',
+        sec_ai_s: 'Hızlı cevap mı yoksa derin analiz mi — her biri için ayrı model.',
+        sec_feat_l: 'Özellikler', sec_feat_t: 'Her şey tek yerde',
+        f1t: 'Telaffuz puanı', f1d: 'Azure Speech her kelimeyi ve sesi 100 puanlık ölçekte puanlar.',
+        f2t: 'Düşünme modu', f2d: 'PRO, PRO+ ve MEGA+ cevaptan önce hatalarınızı analiz eder.',
+        f3t: 'Kişisel çalışma planı', f3d: '12 soruluk anket günlük yükünüzü belirler.',
+        f4t: 'Net limitler', f4d: 'Her model için günlük, haftalık ve aylık limit.',
+        f5t: 'Speaking odası', f5d: 'AI ile canlı sohbet veya diğer öğrencilerle sesli oda.',
+        f6t: 'AI sözlük', f6d: '"Seyahat konusunda 20 kelime ekle" — AI ünite oluşturur.',
+        sec_plans_l: 'Fiyatlar', sec_plans_t: 'Size uygun planı seçin',
+        sec_plans_s: 'Ücretsiz plan da ciddi — günde 40 AI sorusu ve 15 dakika konuşma.',
+        limits_title: 'Günlük limitler (her model için ayrı)',
+        limits_foot: 'Her kaynak için günlük, haftalık ve aylık limit vardır. Tabloda günlük değerler gösterilmiştir.',
+        sec_how_l: 'Nasıl çalışır', sec_how_t: 'Üç adımda başlayın',
+        s1t: 'Anketi doldurun', s1d: 'Yaş, seviye, hedef ve ilgi alanları — 12 soru, 2 dakika.',
+        s2t: 'Planınızı alın', s2d: 'AI günlük ders, konuşma ve kelime sayınızı belirler.',
+        s3t: 'Konuşmaya başlayın', s3d: 'İlk günden AI ile konuşur ve telaffuz puanı alırsınız.',
+        cta_t: 'Bugün başlayın', cta_s: 'Kart gerekmez. Tüm özellikleri ücretsiz planda deneyin.',
+        cta_btn: 'Ücretsiz kayıt ol',
+        per_month: '/ ay', free_forever: 'Sonsuza dek ücretsiz', choose: 'Seç', current: 'Mevcut planınız',
+        dashboard: 'Panel', model_thinking: 'Düşünür', model_fast: 'Hızlı',
+        from_plan: 'planından', resource: 'Kaynak', som: 'UZS',
+
+        // ── ko'nikmalar, to'lov shartlari, davr tugmalari ──
+        nav_write: "Writing",
+        sec_sk_l: "Beceriler",
+        sec_sk_t: "Dört beceri de — her derste",
+        sec_sk_s: "Her ünitede dört ayrı ders var. Birini bitirmeden diğerine geçebilirsiniz — sıra size kalmış.",
+        sk1t: "A · Dilbilgisi ve kelime",
+        sk1d: "Kural, örnek, kelime listesi ve test. Yapay zekâ her yanlışın sebebini açıklar.",
+        sk2t: "B · Dinleme",
+        sk2d: "Azure sinir ağı sesi metni okur, siz duyduğunuzu yazarsınız. Hızı yavaşlatabilirsiniz.",
+        sk3t: "C · Okuma",
+        sk3d: "Seviyenize uygun metin ve anlama soruları. Bilmediğiniz kelimeye dokunun, çevirisi gelsin.",
+        sk4t: "D · Konuşma",
+        sk4d: "Mikrofona konuşursunuz — Azure her sesi puanlar ve tam olarak nerede hata yaptığınızı gösterir.",
+        sk5t: "Writing Coach",
+        sk5d: "Kompozisyon, IELTS Task 1/2, mektup veya hikâye yazın — yapay zekâ IELTS ölçütlerine göre puan verir ve her hatayı düzeltir.",
+        sk6t: "Tekrar sistemi",
+        sk6d: "Yanlış yaptığınız kelimeler ayrı toplanır ve birkaç gün sonra soru olarak geri gelir.",
+        sk_try_w: "Writing Coach'u dene",
+        sk_try_s: "Speaking Coach'u dene",
+        bill_title: "Ödeme koşulları",
+        bill_1t: "Süre — {days} gün",
+        bill_1d: "Ödeme onaylandığı günden itibaren. Bitmesine 3 gün kala haber veririz.",
+        bill_2t: "Otomatik ödeme — isteğe bağlı",
+        bill_2d: "Açarsanız abonelik seçilen süre boyunca otomatik yenilenir. Tek dokunuşla kapatırsınız, sonraki dönemde para çekilmez.",
+        bill_3t: "Süre üstüne eklenir",
+        bill_3d: "Mevcut planınız bitmeden tekrar öderseniz kalan günler kaybolmaz — üstüne eklenir.",
+        bill_4t: "Süre bitince",
+        bill_4d: "Hesabınız silinmez — Ücretsiz plana düşer. Kelimeler, sonuçlar ve geçmiş yerinde kalır.",
+        per_day: "Günlük",
+        per_week: "Haftalık",
+        per_month_l: "Aylık",
+        limits_title: "Limitler — her model için ayrı",
+        limits_foot: "Üç dönem de bağımsız sayılır: günlük limit yarın, haftalık pazartesi, aylık ise ay başında yenilenir. Tire işareti planın o modeli vermediğini gösterir.",
+        dur_daily: "Günlük",
+        dur_monthly: "Aylık",
+        dur_q3: "3 ay",
+        dur_q6: "6 ay",
+        dur_yearly: "1 yıl"
+      },
+
+      de: {
+        nav_langs: 'Sprachen', nav_ai: 'KI', nav_plans: 'Preise', nav_speak: 'Speaking', nav_coach: 'AI Coach',
+        nav_shop: 'Shop', nav_profile: 'Profil', nav_login: 'Anmelden', nav_start: 'Loslegen',
+        hero_badge: 'KI-Tutor · Aussprachebewertung · 8 Sprachen',
+        hero_h1a: 'Sprachen lernen,', hero_h1b: 'indem du sie', hero_h1c: 'sprichst.',
+        hero_p: 'Die KI hört dir zu, bewertet jeden Laut und erklärt Fehler mit ihrer Ursache. Nach dem Fragebogen ist dein persönlicher Lernplan fertig.',
+        hero_btn1: 'Kostenlos starten', hero_btn2: 'Preise ansehen',
+        stat_langs: 'Sprachen', stat_models: 'KI-Modelle', stat_users: 'Lernende', stat_always: 'Offen',
+        sec_langs_l: 'Sprachen', sec_langs_t: '8 Sprachen, eine Plattform',
+        sec_langs_s: 'Eigene Lektionen, ein KI-Gesprächspartner und Ausspracheübungen für jede Sprache.',
+        sec_ai_l: 'KI-Modelle', sec_ai_t: 'Sechs KI-Tutoren',
+        sec_ai_s: 'Schnelle Antwort oder tiefe Analyse — für jedes gibt es ein Modell.',
+        sec_feat_l: 'Funktionen', sec_feat_t: 'Alles an einem Ort',
+        f1t: 'Aussprachebewertung', f1d: 'Azure Speech bewertet jedes Wort und jeden Laut auf einer 100-Punkte-Skala.',
+        f2t: 'Denkmodus', f2d: 'PRO, PRO+ und MEGA+ analysieren deine Fehler vor der Antwort.',
+        f3t: 'Persönlicher Lernplan', f3d: 'Ein Fragebogen mit 12 Fragen legt dein Tagespensum fest.',
+        f4t: 'Klare Limits', f4d: 'Tages-, Wochen- und Monatslimit für jedes Modell.',
+        f5t: 'Speaking-Raum', f5d: 'Live-Gespräch mit der KI oder ein Sprachraum mit anderen Lernenden.',
+        f6t: 'KI-Wörterbuch', f6d: '„Füge 20 Reisewörter hinzu" — die KI erstellt eine Einheit.',
+        sec_plans_l: 'Preise', sec_plans_t: 'Wähle den passenden Tarif',
+        sec_plans_s: 'Auch der kostenlose Tarif ist ernst gemeint — 40 KI-Fragen und 15 Sprechminuten pro Tag.',
+        limits_title: 'Tageslimits (separat für jedes Modell)',
+        limits_foot: 'Jede Ressource hat ein Tages-, Wochen- und Monatslimit. Die Tabelle zeigt Tageswerte.',
+        sec_how_l: 'So funktioniert es', sec_how_t: 'In drei Schritten starten',
+        s1t: 'Fragebogen ausfüllen', s1d: 'Alter, Niveau, Ziel und Interessen — 12 Fragen, 2 Minuten.',
+        s2t: 'Plan erhalten', s2d: 'Die KI legt Lektionen, Sprechzeit und Wortzahl fest.',
+        s3t: 'Sprechen anfangen', s3d: 'Ab dem ersten Tag sprichst du mit der KI und bekommst Bewertungen.',
+        cta_t: 'Heute starten', cta_s: 'Keine Karte nötig. Teste alles im kostenlosen Tarif.',
+        cta_btn: 'Kostenlos registrieren',
+        per_month: '/ Monat', free_forever: 'Für immer kostenlos', choose: 'Wählen', current: 'Dein Tarif',
+        dashboard: 'Konto', model_thinking: 'Denkt', model_fast: 'Schnell',
+        from_plan: 'ab Tarif', resource: 'Ressource', som: 'UZS',
+
+        // ── ko'nikmalar, to'lov shartlari, davr tugmalari ──
+        nav_write: "Writing",
+        sec_sk_l: "Fertigkeiten",
+        sec_sk_t: "Alle vier Fertigkeiten — in jeder Lektion",
+        sec_sk_s: "Jede Einheit enthält vier eigene Lektionen. Sie müssen keine abschließen, bevor Sie die nächste beginnen — arbeiten Sie in Ihrer Reihenfolge.",
+        sk1t: "A · Grammatik & Wortschatz",
+        sk1d: "Regel, Beispiel, Wortliste und Test. Die KI erklärt, warum eine Antwort falsch war.",
+        sk2t: "B · Hören",
+        sk2d: "Eine Azure-Neural-Stimme liest den Text vor, Sie schreiben mit. Das Tempo lässt sich verlangsamen.",
+        sk3t: "C · Lesen",
+        sk3d: "Ein Text auf Ihrem Niveau plus Verständnisfragen. Auf ein unbekanntes Wort tippen — Übersetzung erscheint.",
+        sk4t: "D · Sprechen",
+        sk4d: "Sie sprechen ins Mikrofon — Azure bewertet jeden Laut und zeigt genau, wo es schiefging.",
+        sk5t: "Writing Coach",
+        sk5d: "Schreiben Sie einen Aufsatz, IELTS Task 1/2, einen Brief oder eine Geschichte — die KI bewertet nach IELTS-Kriterien und korrigiert jeden Fehler.",
+        sk6t: "Wiederholungssystem",
+        sk6d: "Falsch beantwortete Wörter werden gesammelt und kommen nach ein paar Tagen als Frage zurück.",
+        sk_try_w: "Writing Coach testen",
+        sk_try_s: "Speaking Coach testen",
+        bill_title: "Zahlungsbedingungen",
+        bill_1t: "Laufzeit — {days} Tage",
+        bill_1d: "Ab dem Tag der Zahlungsbestätigung. Drei Tage vor Ablauf warnen wir Sie.",
+        bill_2t: "Auto-Verlängerung — optional",
+        bill_2d: "Einschalten und das Abo verlängert sich automatisch für den gewählten Zeitraum. Ein Tipp genügt zum Abschalten — danach wird nichts abgebucht.",
+        bill_3t: "Tage werden addiert",
+        bill_3d: "Zahlen Sie vor Ablauf erneut, verfallen die Resttage nicht — sie werden addiert.",
+        bill_4t: "Nach Ablauf",
+        bill_4d: "Ihr Konto wird nicht gelöscht — es fällt auf den Gratis-Tarif zurück. Wörter, Ergebnisse und Verlauf bleiben.",
+        per_day: "Täglich",
+        per_week: "Wöchentlich",
+        per_month_l: "Monatlich",
+        limits_title: "Limits — für jedes Modell einzeln",
+        limits_foot: "Alle drei Zeiträume zählen unabhängig: das Tageslimit erneuert sich morgen, das Wochenlimit montags, das Monatslimit zum Monatsanfang. Ein Strich heißt, der Tarif enthält dieses Modell nicht.",
+        dur_daily: "Täglich",
+        dur_monthly: "Monatlich",
+        dur_q3: "3 Monate",
+        dur_q6: "6 Monate",
+        dur_yearly: "1 Jahr"
+      },
+
+      ar: {
+        nav_langs: 'اللغات', nav_ai: 'الذكاء', nav_plans: 'الأسعار', nav_speak: 'المحادثة', nav_coach: 'مدرب AI',
+        nav_shop: 'المتجر', nav_profile: 'الملف', nav_login: 'دخول', nav_start: 'ابدأ',
+        hero_badge: 'مدرّس ذكي · تقييم النطق · 8 لغات',
+        hero_h1a: 'تعلّم اللغة', hero_h1b: 'بالتحدّث', hero_h1c: 'بها.',
+        hero_p: 'الذكاء الاصطناعي يستمع إليك، يقيّم كل صوت ويشرح الخطأ مع سببه. بعد الاستبيان تكون خطتك الدراسية جاهزة.',
+        hero_btn1: 'ابدأ مجانًا', hero_btn2: 'شاهد الأسعار',
+        stat_langs: 'لغات', stat_models: 'نماذج', stat_users: 'متعلّم', stat_always: 'مفتوح',
+        sec_langs_l: 'اللغات', sec_langs_t: '8 لغات، منصة واحدة',
+        sec_langs_s: 'دروس مخصصة، شريك محادثة ذكي وتمارين نطق لكل لغة.',
+        sec_ai_l: 'النماذج', sec_ai_t: 'ستة مدرّسين أذكياء',
+        sec_ai_s: 'تحتاج إجابة سريعة أم تحليلًا عميقًا — لكل حالة نموذج.',
+        sec_feat_l: 'المزايا', sec_feat_t: 'كل شيء في مكان واحد',
+        f1t: 'تقييم النطق', f1d: 'Azure Speech يقيّم كل كلمة وصوت على مقياس 100 نقطة.',
+        f2t: 'وضع التفكير', f2d: 'نماذج PRO و PRO+ و MEGA+ تحلل أخطاءك قبل الرد.',
+        f3t: 'خطة دراسية شخصية', f3d: 'استبيان من 12 سؤالًا يحدد حِملك اليومي.',
+        f4t: 'حدود واضحة', f4d: 'حد يومي وأسبوعي وشهري لكل نموذج.',
+        f5t: 'غرفة المحادثة', f5d: 'محادثة مباشرة مع الذكاء أو غرفة صوتية مع متعلمين آخرين.',
+        f6t: 'قاموس ذكي', f6d: '«أضف 20 كلمة عن السفر» — يبني الذكاء وحدة لك.',
+        sec_plans_l: 'الأسعار', sec_plans_t: 'اختر الخطة المناسبة',
+        sec_plans_s: 'الخطة المجانية جادة أيضًا — 40 سؤالًا و15 دقيقة محادثة يوميًا.',
+        limits_title: 'الحدود اليومية (منفصلة لكل نموذج)',
+        limits_foot: 'لكل مورد حد يومي وأسبوعي وشهري. يعرض الجدول القيم اليومية.',
+        sec_how_l: 'كيف يعمل', sec_how_t: 'ثلاث خطوات للبدء',
+        s1t: 'املأ الاستبيان', s1d: 'العمر والمستوى والهدف والاهتمامات — 12 سؤالًا، دقيقتان.',
+        s2t: 'احصل على خطتك', s2d: 'يحدد الذكاء دروسك ووقت المحادثة وعدد الكلمات.',
+        s3t: 'ابدأ التحدث', s3d: 'من اليوم الأول تتحدث مع الذكاء وتحصل على تقييم النطق.',
+        cta_t: 'ابدأ اليوم', cta_s: 'لا حاجة لبطاقة. جرّب كل المزايا في الخطة المجانية.',
+        cta_btn: 'سجّل مجانًا',
+        per_month: '/ شهريًا', free_forever: 'مجاني للأبد', choose: 'اختر', current: 'خطتك الحالية',
+        dashboard: 'لوحتي', model_thinking: 'يفكّر', model_fast: 'سريع',
+        from_plan: 'من خطة', resource: 'المورد', som: 'UZS',
+
+        // ── ko'nikmalar, to'lov shartlari, davr tugmalari ──
+        nav_write: "Writing",
+        sec_sk_l: "المهارات",
+        sec_sk_t: "المهارات الأربع — في كل درس",
+        sec_sk_s: "كل وحدة تحتوي على أربعة دروس منفصلة. لست مضطرًا لإنهاء أحدها قبل بدء الآخر — اعمل بالترتيب الذي يناسبك.",
+        sk1t: "أ · القواعد والمفردات",
+        sk1d: "قاعدة ومثال وقائمة كلمات واختبار. الذكاء الاصطناعي يشرح سبب كل إجابة خاطئة.",
+        sk2t: "ب · الاستماع",
+        sk2d: "صوت Azure العصبي يقرأ النص وأنت تكتب ما تسمع. يمكنك إبطاء السرعة.",
+        sk3t: "ج · القراءة",
+        sk3d: "نص بمستواك مع أسئلة فهم. اضغط على أي كلمة غير مألوفة للحصول على ترجمتها.",
+        sk4t: "د · التحدث",
+        sk4d: "تتحدث في الميكروفون — Azure يقيّم كل صوت ويوضح أين أخطأت بالضبط.",
+        sk5t: "Writing Coach",
+        sk5d: "اكتب مقالًا أو IELTS Task 1/2 أو رسالة أو قصة — الذكاء الاصطناعي يقيّمها وفق معايير IELTS ويصحح كل خطأ.",
+        sk6t: "نظام المراجعة",
+        sk6d: "الكلمات التي أخطأت فيها تُجمع على حدة وتعود كسؤال بعد بضعة أيام.",
+        sk_try_w: "جرّب Writing Coach",
+        sk_try_s: "جرّب Speaking Coach",
+        bill_title: "شروط الدفع",
+        bill_1t: "المدة — {days} يومًا",
+        bill_1d: "من يوم تأكيد الدفع. ننبّهك قبل الانتهاء بثلاثة أيام.",
+        bill_2t: "التجديد التلقائي — اختياري",
+        bill_2d: "فعّله ليتجدد الاشتراك تلقائيًا للمدة المختارة. تُوقفه بضغطة واحدة ولن يُخصم شيء بعد ذلك.",
+        bill_3t: "الأيام تُضاف",
+        bill_3d: "إذا دفعت قبل انتهاء خطتك الحالية فلن تضيع الأيام المتبقية — تُضاف فوقها.",
+        bill_4t: "عند انتهاء المدة",
+        bill_4d: "لا يُحذف حسابك — ينتقل إلى الخطة المجانية. الكلمات والنتائج والسجل تبقى كما هي.",
+        per_day: "يومي",
+        per_week: "أسبوعي",
+        per_month_l: "شهري",
+        limits_title: "الحدود — لكل نموذج على حدة",
+        limits_foot: "الفترات الثلاث تُحسب بشكل مستقل: الحد اليومي يتجدد غدًا، والأسبوعي يوم الاثنين، والشهري في بداية الشهر. الشرطة تعني أن الخطة لا تشمل هذا النموذج.",
+        dur_daily: "يومي",
+        dur_monthly: "شهري",
+        dur_q3: "3 أشهر",
+        dur_q6: "6 أشهر",
+        dur_yearly: "سنة"
+      }
+    };
+
+    let lang = localStorage.getItem('lv_lang') || 'uz';
+    if (!T[lang]) lang = 'uz';
+    const tr = k => T[lang][k] ?? T.uz[k] ?? k;
+
+    // ════════════════════════════════════════════════════════════════
+    // O'RGANILADIGAN TILLAR
+    // ════════════════════════════════════════════════════════════════
+    const LEARN = [
+      { id: 'English', flag: '🇬🇧', uz: 'Ingliz tili', ru: 'Английский', en: 'English', tr: 'İngilizce', de: 'Englisch', ar: 'الإنجليزية' },
+      { id: 'Russia', flag: '🇷🇺', uz: 'Rus tili', ru: 'Русский', en: 'Russian', tr: 'Rusça', de: 'Russisch', ar: 'الروسية' },
+      { id: 'German', flag: '🇩🇪', uz: 'Nemis tili', ru: 'Немецкий', en: 'German', tr: 'Almanca', de: 'Deutsch', ar: 'الألمانية' },
+      { id: 'Spain', flag: '🇪🇸', uz: 'Ispan tili', ru: 'Испанский', en: 'Spanish', tr: 'İspanyolca', de: 'Spanisch', ar: 'الإسبانية' },
+      { id: 'Turkish', flag: '🇹🇷', uz: 'Turk tili', ru: 'Турецкий', en: 'Turkish', tr: 'Türkçe', de: 'Türkisch', ar: 'التركية' },
+      { id: 'Arabic', flag: '🇸🇦', uz: 'Arab tili', ru: 'Арабский', en: 'Arabic', tr: 'Arapça', de: 'Arabisch', ar: 'العربية' },
+      { id: 'Korean', flag: '🇰🇷', uz: 'Koreys tili', ru: 'Корейский', en: 'Korean', tr: 'Korece', de: 'Koreanisch', ar: 'الكورية' },
+      { id: 'Chinese', flag: '🇨🇳', uz: 'Xitoy tili', ru: 'Китайский', en: 'Chinese', tr: 'Çince', de: 'Chinesisch', ar: 'الصينية' }
+    ];
+
+    const nf = n => n.toLocaleString('ru-RU').replace(/ /g, ' ');
+
+    // ════════════════════════════════════════════════════════════════
+    // CHIZISH
+    // ════════════════════════════════════════════════════════════════
+    function renderLangs() {
+      $('langsGrid').innerHTML = LEARN.map(l => `
+        <a class="lang-card" href="languages-html/${l.id}.html">
+          <span class="lang-flag">${l.flag}</span>
+          <div class="lang-name">${l[lang] || l.uz}</div>
+          <div class="lang-meta">A1 <i class="fa-solid fa-arrow-right"></i> C1</div>
+        </a>`).join('');
+    }
+
+    function renderModels() {
+      $('modelsGrid').innerHTML = allModels(lang).map(m => {
+        const req = planText(m.minPlan, lang);
+        return `
+        <div class="model" style="--mc:${m.color}">
+          <div class="model-top">
+            <span class="model-ic"><i class="fa-solid ${m.fa}"></i></span>
+            <span class="model-name">${m.name}</span>
+            <span class="model-tag">${m.thinking ? tr('model_thinking') : tr('model_fast')}</span>
+          </div>
+          <div class="model-desc">${m.desc}</div>
+          <div class="model-plan">
+            <i class="fa-solid ${req.fa}"></i> <b>${req.name}</b> ${tr('from_plan')}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function renderPlans(currentPlan) {
+      const durDays = (DURATIONS[billDur] || DURATIONS.monthly).days;
+      const durLabel = tr('dur_' + billDur);
+
+      $('plansGrid').innerHTML = PLAN_ORDER.map(id => {
+        const p = planText(id, lang);
+        const isCurrent = currentPlan === id;
+
+        const price = p.price === 0
+          ? `<div class="plan-price">0<small> ${tr('som')}</small></div>
+             <div class="plan-period">${tr('free_forever')}</div>`
+          : `<div class="plan-price">${nf(planPrice(id, billDur))}<small> ${tr('som')}</small></div>
+             <div class="plan-period">/ ${durLabel}</div>`;
+
+        const action = isCurrent
+          ? `<button class="btn btn-line btn-wide" disabled
+                     style="opacity:.55;cursor:default">${tr('current')}</button>`
+          : `<a class="btn ${p.badge ? 'btn-fill' : 'btn-line'} btn-wide"
+                href="${id === 'free' ? 'auth/register.html' : 'order.html?plan=' + id + '&duration=' + billDur}">${tr('choose')}</a>`;
+
+        return `
+          <div class="plan ${p.badge ? 'hot' : ''}">
+            ${p.badge ? `<div class="plan-badge">${p.badge}</div>` : ''}
+            <div class="plan-ic" style="color:${p.color}"><i class="fa-solid ${p.fa}"></i></div>
+            <div class="plan-name">${p.name}</div>
+            <div class="plan-tag">${p.tagline}</div>
+            ${price}
+            <ul>${p.perks.map(f => `<li><span>${f}</span></li>`).join('')}</ul>
+            ${action}
+          </div>`;
+      }).join('');
+
+      // To'lov shartlari kartasidagi muddat — tanlangan davrga mos
+      const billEl = $('billMuddat');
+      if (billEl) billEl.textContent = tr('bill_1t').replace('{days}', durDays);
+    }
+
+    // ── To'lov davri tugmalari ──
+    let billDur = 'monthly';
+
+    function renderBillTabs() {
+      $('billTabs').innerHTML = DURATION_ORDER.map(k => {
+        const days = DURATIONS[k].days;
+        return `<button class="per-tab ${billDur === k ? 'on' : ''}" data-dur="${k}"
+                title="${days} ${tr('per_day').toLowerCase()}">${tr('dur_' + k)}</button>`;
+      }).join('');
+    }
+
+    $('billTabs').addEventListener('click', e => {
+      const b = e.target.closest('.per-tab');
+      if (!b) return;
+      billDur = b.dataset.dur;
+      renderBillTabs();
+      renderPlans(currentPlan);
+    });
+
+    /** Limit jadvali — to'g'ridan-to'g'ri LIMITS dan quriladi.
+     *  period: 0 = kunlik, 1 = haftalik, 2 = oylik (LIMITS massividagi indeks). */
+    let limitPeriod = 0;
+
+    function renderLimitTable() {
+      let html = `<thead><tr><th>${tr('resource')}</th>`;
+      html += PLAN_ORDER.map(p => {
+        const pt = planText(p, lang);
+        return `<th><i class="fa-solid ${pt.fa}"></i> ${pt.name}</th>`;
+      }).join('');
+      html += `</tr></thead><tbody>`;
+
+      for (const r of Object.keys(RESOURCES)) {
+        const res = resourceText(r, lang);
+        html += `<tr><td><i class="fa-solid ${res.fa}"></i> ${res.label}` +
+                `<span style="color:var(--text3);font-weight:400"> · ${res.unit}</span></td>`;
+        html += PLAN_ORDER.map(p => {
+          const lim = LIMITS[p][r];
+          return lim ? `<td>${nf(lim[limitPeriod])}</td>` : `<td class="dash">—</td>`;
+        }).join('');
+        html += `</tr>`;
+      }
+
+      $('limitTable').innerHTML = html + `</tbody>`;
+    }
+
+    // Davr tugmalari
+    $('perTabs').addEventListener('click', e => {
+      const b = e.target.closest('.per-tab');
+      if (!b) return;
+      limitPeriod = Number(b.dataset.per);
+      $('perTabs').querySelectorAll('.per-tab').forEach(x => x.classList.toggle('on', x === b));
+      renderLimitTable();
+    });
+
+    function applyI18n() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = T[lang][el.dataset.i18n];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.documentElement.lang = lang;
+      document.documentElement.dir = LANGS[lang].dir;
+      $('curFlag').textContent = LANGS[lang].flag;
+    }
+
+    function renderAll(plan) {
+      applyI18n();
+      renderLangs();
+      renderModels();
+      renderPlans(plan);
+      renderBillTabs();
+      renderLimitTable();
+    }
+
+    // ════════════════════════════════════════════════════════════════
+    // TIL MENYUSI
+    // ════════════════════════════════════════════════════════════════
+    $('langMenu').innerHTML = Object.entries(LANGS).map(([k, v]) =>
+      `<button data-lang="${k}"><span>${v.flag}</span><span>${v.name}</span></button>`).join('');
+
+    $('langBtn').onclick = e => {
+      e.stopPropagation();
+      $('langMenu').classList.toggle('open');
+    };
+
+    $('langMenu').onclick = e => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      lang = b.dataset.lang;
+      localStorage.setItem('lv_lang', lang);
+      $('langMenu').classList.remove('open');
+      renderAll(currentPlan);
+      applyAuthArea();
+    };
+
+    document.addEventListener('click', () => $('langMenu').classList.remove('open'));
+
+    // ════════════════════════════════════════════════════════════════
+    // MAVZU
+    // ════════════════════════════════════════════════════════════════
+    const savedTheme = localStorage.getItem('lv_theme') || 'dark';
+    document.documentElement.dataset.theme = savedTheme;
+    $('themeBtn').innerHTML = savedTheme === 'dark'
+      ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+
+    $('themeBtn').onclick = () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('lv_theme', next);
+      $('themeBtn').innerHTML = next === 'dark'
+        ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+    };
+
+    // ════════════════════════════════════════════════════════════════
+    // MOBIL MENYU
+    // ════════════════════════════════════════════════════════════════
+    $('burger').onclick = e => {
+      e.stopPropagation();
+      $('navLinks').classList.toggle('open');
+    };
+    $('navLinks').onclick = () => $('navLinks').classList.remove('open');
+
+    // ════════════════════════════════════════════════════════════════
+    // FOYDALANUVCHI HOLATI
+    // ════════════════════════════════════════════════════════════════
+    let currentPlan = null;
+    let session = null;
+
+    /** Kirgan bo'lsa tugmalarni kabinetga o'zgartiradi. */
+    function applyAuthArea() {
+      if (!session?.signedIn) return;
+      // Anketani to'ldirmagan bo'lsa avval o'sha yerga yuboramiz
+      const href = session.onboarded ? 'select-language.html' : 'auth/onboarding.html';
+      const label = session.onboarded ? tr('dashboard') : tr('nav_start');
+
+      $('authArea').innerHTML = `<a href="${href}" class="btn btn-fill btn-sm">${label}</a>`;
+      for (const id of ['ctaMain', 'ctaBottom']) {
+        $(id).textContent = label;
+        $(id).href = href;
+        $(id).removeAttribute('data-i18n');   // applyI18n uni qayta yozmasin
+      }
+    }
+
+    renderAll(null);
+
+    LV.ready().then(s => {
+      session = s;
+      currentPlan = s.signedIn ? s.plan : null;
+      applyAuthArea();
+      renderPlans(currentPlan);
+    }).catch(e => console.warn('[index] LV yuklanmadi:', e));
+
+    // ════════════════════════════════════════════════════════════════
+    // O'QUVCHILAR SONI
+    // ════════════════════════════════════════════════════════════════
+    (async () => {
+      const show = n => {
+        $('statUsers').textContent = n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+      };
+
+      const fs = await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+
+      // 1) Ommaviy statistika hujjati — firestore.rules da hamma o'qiy oladi.
+      try {
+        const snap = await fs.getDoc(fs.doc(db, 'content', 'stats'));
+        if (snap.exists() && typeof snap.data().userCount === 'number') {
+          show(snap.data().userCount);
+          return;
+        }
+      } catch { /* keyingi usulga o'tamiz */ }
+
+      // 2) To'g'ridan-to'g'ri sanash — faqat qoidalar ruxsat bersa ishlaydi
+      try {
+        const c = await fs.getCountFromServer(fs.collection(db, 'users'));
+        show(c.data().count);
+      } catch {
+        $('statUsers').textContent = '—';
+      }
+    })();
+
+    // ════════════════════════════════════════════════════════════════
+    // SKROLLDA PAYDO BO'LISH
+    // ════════════════════════════════════════════════════════════════
+    const fadeEls = [...document.querySelectorAll('.fade-up')];
+    const show = el => el.classList.remove('pre');
+
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Faqat ekrandan PASTDAGI elementlarni yashiramiz — ekranda
+      // turganlari darhol ko'rinadi, hech qanday miltillash bo'lmaydi.
+      const fold = window.innerHeight;
+      const hidden = fadeEls.filter(el => el.getBoundingClientRect().top > fold * 0.9);
+      hidden.forEach(el => el.classList.add('pre'));
+
+      const io = new IntersectionObserver(es => {
+        es.forEach(e => {
+          if (e.isIntersecting) { show(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: .05, rootMargin: '0px 0px -30px 0px' });
+
+      hidden.forEach(el => io.observe(el));
+
+      // Qo'shimcha himoya: observer ishlamay qolsa 3 soniyadan keyin
+      // har qanday yopiq qolgan elementni ochamiz (to'liq bo'lmasa ham).
+      setTimeout(() => {
+        const stuck = hidden.filter(el => el.classList.contains('pre'));
+        if (stuck.length) {
+          console.warn('[index] IntersectionObserver ishlamadi — yopiq elementlar ochildi');
+          stuck.forEach(show);
+        }
+      }, 3000);
+    }
+
+    // Nazoratchiga "yetib keldim" deb bildiramiz
+    window.__lvReady = true;
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAZORATCHI — modul yuklanmasa foydalanuvchi bo'sh ekran o'rniga
+       nima qilish kerakligini o'qiydi. Oddiy skript: modul yiqilsa ham
+       bu ishlaydi.
+       ═══════════════════════════════════════════════════════════════ -->
+  <script>
+    setTimeout(function () {
+      if (window.__lvReady) return;
+
+      var w = document.getElementById('loadWarn');
+      if (!w) return;
+
+      var root = location.pathname.replace(/[^/]*$/, '');
+      w.style.display = 'block';
+      w.innerHTML =
+        '<b>Skript yuklanmadi — sahifa to\'liq ishlamayapti.</b><br><br>' +
+        'Eng ko\'p uchraydigan sabab: server noto\'g\'ri papkadan ishga tushirilgan. ' +
+        '<code>js/lv-core.js</code> fayli <code>index.html</code> bilan bir papkada bo\'lishi kerak.<br><br>' +
+        'Tekshirish: <a href="' + root + 'js/lv-core.js" target="_blank" rel="noopener noreferrer" ' +
+        'style="color:#93a9ff;text-decoration:underline">' + root + 'js/lv-core.js</a> ' +
+        'havolasini oching. Agar 404 chiqsa — serverni <code>index.html</code> turgan papkadan qayta ishga tushiring.<br><br>' +
+        'Batafsil xato: brauzerda F12 <i class="fa-solid fa-arrow-right"></i> Console.';
+    }, 6000);
+  </script>
+</body>
+
+</html>

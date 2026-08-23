@@ -1,0 +1,271 @@
+rules_version = '2';
+
+// ═══════════════════════════════════════════════════════════════════════════
+// LinguaVerse — Firestore xavfsizlik qoidalari
+//
+// ENG MUHIM QOIDA: foydalanuvchi O'ZIGA reja (plan) yoza olmaydi.
+// Busiz istalgan odam brauzer konsolidan plan:'premium' yozib, 59 999 so'mlik
+// tarifni bepul olardi. Reja faqat admin yoki to'lov serveri orqali beriladi.
+//
+// O'rnatish:
+//   Firebase Console → Firestore Database → Rules → shu faylni joylashtiring
+//   yoki:  firebase deploy --only firestore:rules
+// ═══════════════════════════════════════════════════════════════════════════
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Yordamchilar ────────────────────────────────────────────────────
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function changed() {
+      return request.resource.data.diff(resource.data).affectedKeys();
+    }
+
+    // Klient HECH QACHON o'zgartira olmaydigan maydonlar.
+    //
+    // DIQQAT: 'coins' bu ro'yxatda YO'Q — coin o'yin valyutasi (do'kon,
+    // mukofotlar) va sahifalar uni to'g'ridan-to'g'ri yozadi. Haqiqiy pul
+    // ('balance', 'payoutTotal') esa himoyada qoladi — faqat server yozadi.
+    function protectedFields() {
+      return ['plan', 'planExpiry', 'role', 'balance',
+              'payoutTotal', 'referralEarnings', 'verified', 'banned'].toSet();
+    }
+
+    // ── ADMINLAR ────────────────────────────────────────────────────────
+    // Faqat Firebase Console orqali qo'lda qo'shiladi. Klient yoza olmaydi.
+    match /admins/{uid} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // ── FOYDALANUVCHILAR ────────────────────────────────────────────────
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+
+      // Yangi hisob: reja doim 'free'.
+      // Xush kelibsiz bonusi (50 coin) ruxsat etilgan — hujjat har uid uchun
+      // faqat BIR MARTA yaratiladi, shuning uchun takrorlab olib bo'lmaydi.
+      allow create: if isOwner(uid)
+        && request.resource.data.plan == 'free'
+        && request.resource.data.get('coins', 0) <= 50
+        && request.resource.data.get('balance', 0) == 0
+        && request.resource.data.get('xp', 0) == 0
+        && !('role' in request.resource.data);
+
+      // Yangilash: himoyalangan maydonlarga tegmasa ruxsat
+      allow update: if isAdmin()
+        || (isOwner(uid) && changed().intersection(protectedFields()).size() == 0);
+
+      allow delete: if isAdmin();
+
+      // ── Foydalanish hisoblagichlari (limitlar) ───────────────────────
+      // Egasi yozadi, lekin qaysi rejada ekanini yolg'on ko'rsata olmaydi.
+      match /usage/{periodKey} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow write: if isOwner(uid)
+          && request.resource.data.plan == get(/databases/$(database)/documents/users/$(uid)).data.plan;
+      }
+
+      // ── Onboarding javoblari ─────────────────────────────────────────
+      match /onboarding/{docId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow write: if isOwner(uid);
+      }
+
+      // ── Progress, lug'at, darslar — egasiniki ────────────────────────
+      match /progress/{docId}   { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /vocabulary/{docId} { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /flashcards/{docId} { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /lessons/{docId}    { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /sessions/{docId}   { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /coachSessions/{docId} { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /writing/{docId}    { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /inventory/{docId}  { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /learner_profiles/{docId} { allow read, write: if isOwner(uid) || isAdmin(); }
+
+      // ── AI adaptiv o'quv rejasi (adaptive-language.js) — egasiniki ──
+      match /ai_lessons/{docId}   { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /daily_plans/{docId}  { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /roadmaps/{docId}     { allow read, write: if isOwner(uid) || isAdmin(); }
+      match /skill_history/{docId}{ allow read, write: if isOwner(uid) || isAdmin(); }
+      match /lesson_counts/{docId}{ allow read, write: if isOwner(uid) || isAdmin(); }
+
+      // ── 3D DUNYO TARAQQIYOTI (world) — egasiniki ─────────────────────
+      match /world/{docId}      { allow read, write: if isOwner(uid) || isAdmin(); }
+
+      // ── Jurnal: yozish mumkin, o'chirish/tahrirlash mumkin emas ──────
+      match /events/{docId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if isOwner(uid);
+        allow update, delete: if false;
+      }
+      match /token_logs/{docId} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow create: if isOwner(uid);
+        allow update, delete: if false;
+      }
+    }
+
+    // ── BUYURTMALAR (to'lov cheklari) ───────────────────────────────────
+    // Foydalanuvchi yuboradi, lekin holatini o'zgartira olmaydi.
+    // Aks holda o'z buyurtmasini 'approved' qilib qo'yardi.
+    match /orders/{orderId} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid);
+
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'pending';
+
+      allow update, delete: if isAdmin();
+    }
+
+    // ── PUL YECHISH SO'ROVLARI ──────────────────────────────────────────
+    match /payouts/{payoutId} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid);
+
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.status == 'pending'
+        && request.resource.data.amount is number
+        && request.resource.data.amount > 0;
+
+      allow update, delete: if isAdmin();
+    }
+
+    // ── REFERALLAR ──────────────────────────────────────────────────────
+    match /referrals/{refId} {
+      allow read: if isAdmin()
+        || (signedIn() && (resource.data.inviterUid == request.auth.uid
+                        || resource.data.invitedUid == request.auth.uid));
+      // Mukofot serverda/admin tomonidan beriladi — klient o'ziga yoza olmaydi
+      allow create: if signedIn()
+        && request.resource.data.invitedUid == request.auth.uid
+        && request.resource.data.rewarded == false;
+      allow update, delete: if isAdmin();
+    }
+
+    // ── XARID SO'ROVLARI (purchaseRequests) ─────────────────────────────
+    // profile.html o'z so'rovlarini o'qiydi (uid bo'yicha filtr) — buni
+    // ruxsat qilmasa aynan shu yerdan "permission-denied" chiqadi.
+    match /purchaseRequests/{docId} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid);
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // ── E'LONLAR (admin panel) ──────────────────────────────────────────
+    match /announcements/{docId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // ── SPEAKING XONALARI ───────────────────────────────────────────────
+    match /rooms/{roomId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.hostUid == request.auth.uid;
+      allow update: if signedIn();   // qatnashuvchilar ro'yxati yangilanadi
+      allow delete: if isAdmin()
+        || (signedIn() && resource.data.hostUid == request.auth.uid);
+
+      match /messages/{msgId} {
+        allow read: if signedIn();
+        allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+        allow update: if false;
+        allow delete: if isAdmin()
+          || (signedIn() && resource.data.uid == request.auth.uid);
+      }
+    }
+
+    // ── OVOZLI XONALAR (voice-room.html) ────────────────────────────────
+    // Bu sahifa email/parol talab qilmaydi (mehmon rejimi), LEKIN endi
+    // sahifaga kirganda ko'rinmas holda Firebase Anonymous Auth ishga
+    // tushadi (voice-room.html'dagi ensureAuth()), shuning uchun
+    // request.auth ENDI har doim mavjud — "signedIn()" talab qilish
+    // xavfsiz. Bu ochiq yozishni to'xtatadi: endi faqat haqiqiy Firebase
+    // auth-tokeni bo'lgan brauzer/SDK yoza oladi, oddiy curl/fetch bilan
+    // hujjatlarni o'chirish yoki spam qilish endi ishlamaydi.
+    //
+    // Qo'shimcha himoya: xona yaratilgandan keyin uning "yadro" maydonlari
+    // (host, til, daraja, yaratilgan vaqt) o'zgartirib bo'lmaydi — faqat
+    // qatnashuvchilar ro'yxati va mavzu (topic) yangilanishi mumkin.
+    // Hajm chegaralari spam/DoS'ning oldini oladi.
+    function voiceRoomCoreUnchanged() {
+      return request.resource.data.hostPeerId == resource.data.hostPeerId
+          && request.resource.data.hostName   == resource.data.hostName
+          && request.resource.data.lang       == resource.data.lang
+          && request.resource.data.level      == resource.data.level
+          && request.resource.data.createdAt  == resource.data.createdAt;
+    }
+    match /voiceRooms/{roomId} {
+      allow read: if true;   // xonalar ro'yxati mehmonlarga ham ko'rinadi
+
+      allow create: if signedIn()
+        && request.resource.data.name is string && request.resource.data.name.size() <= 60
+        && request.resource.data.hostPeerId is string && request.resource.data.hostPeerId.size() <= 100
+        && request.resource.data.hostName is string && request.resource.data.hostName.size() <= 40
+        && request.resource.data.peers is list && request.resource.data.peers.size() <= 1;
+
+      allow update: if signedIn()
+        && voiceRoomCoreUnchanged()
+        && request.resource.data.peers is list && request.resource.data.peers.size() <= 30
+        && (!('topic' in request.resource.data) || (request.resource.data.topic is string && request.resource.data.topic.size() <= 300))
+        && (!('topicHint' in request.resource.data) || (request.resource.data.topicHint is string && request.resource.data.topicHint.size() <= 300))
+        && (!('topicHistory' in request.resource.data) || (request.resource.data.topicHistory is list && request.resource.data.topicHistory.size() <= 12));
+
+      allow delete: if signedIn();
+    }
+
+    // ── REYTING (leaderboard) ───────────────────────────────────────────
+    // Hamma o'qiydi, lekin faqat server/admin yozadi — soxta ball bo'lmasin.
+    match /leaderboard/{docId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // ── UMUMIY KONTENT (statistika, darslar) ────────────────────────────
+    match /content/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ── GLOBAL LUG'AT / UNIT / FLASHCARD MAKONI ─────────────────────────
+    // Hamma o'qiydi (hatto tizimga kirmagan mehmon ham ko'ra oladi), lekin
+    // faqat server (netlify/functions/community.js, admin xizmat hisobi
+    // orqali) yozadi — chunki bu yerda: (1) Firebase ID-token tasdiqlanadi,
+    // (2) dublikat so'z/unit/flashcard tekshiriladi, (3) kunlik spam limiti
+    // qo'llanadi. Klient to'g'ridan-to'g'ri yozsa, bularning hech biri
+    // bajarilmaydi — shuning uchun taqiqlangan.
+    match /community_vocab/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /community_units/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /community_flashcards/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ── Boshqa hamma narsa taqiqlangan ──────────────────────────────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

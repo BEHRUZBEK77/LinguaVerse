@@ -1,0 +1,2596 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinguaVerse — Tillar Dunyosi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        /* ── LIGHT THEME ── */
+        [data-theme="light"] {
+            --bg: #f4f6ff;
+            --surface: #ffffff;
+            --surface2: #eef0fb;
+            --border: rgba(0, 0, 0, 0.09);
+            --accent: #4f6ef7;
+            --accent2: #7c5bf5;
+            --gold: #d4a008;
+            --text: #0e1024;
+            --muted: #5a6080;
+            --glow: rgba(79, 110, 247, 0.2);
+            --nav-bg: rgba(244, 246, 255, 0.85);
+            --card-hover: rgba(79, 110, 247, 0.06);
+        }
+
+        /* ── DARK THEME ── */
+        [data-theme="dark"] {
+            --bg: #04060f;
+            --surface: #0b0f1e;
+            --surface2: #111629;
+            --border: rgba(255, 255, 255, 0.07);
+            --accent: #4f6ef7;
+            --accent2: #a78bfa;
+            --gold: #f5c842;
+            --text: #e8ecff;
+            --muted: #7580a8;
+            --glow: rgba(79, 110, 247, 0.35);
+            --nav-bg: rgba(4, 6, 15, 0.7);
+            --card-hover: rgba(79, 110, 247, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            transition: background 0.4s, color 0.4s;
+            font-family: 'DM Sans', sans-serif
+        }
+
+        /* grid bg */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(79, 110, 247, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79, 110, 247, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0
+        }
+
+        /* orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(79, 110, 247, 0.12);
+            top: -100px;
+            left: -100px;
+            animation: drift1 20s ease-in-out infinite
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(167, 139, 250, 0.09);
+            bottom: 0;
+            right: -80px;
+            animation: drift2 25s ease-in-out infinite
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: rgba(245, 200, 66, 0.06);
+            top: 50%;
+            left: 50%;
+            animation: drift3 18s ease-in-out infinite
+        }
+
+        @keyframes drift1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(60px, 40px)
+            }
+        }
+
+        @keyframes drift2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-40px, -60px)
+            }
+        }
+
+        @keyframes drift3 {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%)
+            }
+
+            50% {
+                transform: translate(-45%, -55%)
+            }
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            height: 70px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3)
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text) 30%, var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none
+        }
+
+        .logo span {
+            color: var(--accent);
+            -webkit-text-fill-color: var(--accent)
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 6px
+        }
+
+        .nav-center a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: all 0.2s
+        }
+
+        .nav-center a:hover {
+            color: var(--text);
+            background: var(--border)
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        /* ── THEME TOGGLE ── */
+        .theme-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0
+        }
+
+        .theme-btn:hover {
+            color: var(--text);
+            border-color: var(--accent)
+        }
+
+        /* ── LANG SWITCHER ── */
+        .lang-switcher {
+            position: relative
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 7px 12px;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent)
+        }
+
+        .lang-btn .arrow {
+            font-size: 0.6rem;
+            color: var(--muted);
+            transition: transform 0.2s
+        }
+
+        .lang-btn.open .arrow {
+            transform: rotate(180deg)
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            min-width: 160px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            display: none
+        }
+
+        .lang-dropdown.open {
+            display: block;
+            animation: dropIn 0.18s ease
+        }
+
+        @keyframes dropIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.15s;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .lang-option:last-child {
+            border-bottom: none
+        }
+
+        .lang-option:hover {
+            background: var(--card-hover)
+        }
+
+        .lang-option.active {
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        .lang-option .flag {
+            font-size: 1.1rem
+        }
+
+        .btn-ghost {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 20px;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent)
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 0 20px rgba(79, 110, 247, 0.3)
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 32px rgba(79, 110, 247, 0.55);
+            background: #5f7cf8
+        }
+
+        /* nav user */
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .nav-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 2px solid rgba(79, 110, 247, 0.4)
+        }
+
+        .nav-username {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text)
+        }
+
+        .btn-logout {
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--muted);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s
+        }
+
+        .btn-logout:hover {
+            border-color: #f87171;
+            color: #f87171
+        }
+
+        /* ── SITE NAV BAR ── */
+        .site-bar {
+            position: sticky;
+            top: 70px;
+            z-index: 99;
+            background: var(--nav-bg);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            transition: background 0.4s
+        }
+
+        .site-bar a,
+        .site-bar span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            text-decoration: none;
+            transition: all 0.2s
+        }
+
+        .site-bar-active {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text)
+        }
+
+        .site-bar-langs {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text)
+        }
+
+        .site-bar-shop {
+            background: rgba(91, 124, 250, 0.1);
+            border: 1px solid rgba(91, 124, 250, 0.25);
+            color: var(--accent2)
+        }
+
+        .site-bar-profile {
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.25);
+            color: #34d399
+        }
+
+        .site-bar-plans {
+            background: rgba(244, 199, 74, 0.1);
+            border: 1px solid rgba(244, 199, 74, 0.25);
+            color: var(--gold)
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            z-index: 1
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(79, 110, 247, 0.1);
+            border: 1px solid rgba(79, 110, 247, 0.25);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent2);
+            margin-bottom: 32px;
+            animation: fadeUp 0.6s ease both
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.4)
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            animation: fadeUp 0.7s 0.1s ease both
+        }
+
+        .hero h1 .line1 {
+            display: block
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shimmer 4s linear infinite
+        }
+
+        @keyframes shimmer {
+            to {
+                background-position: 200% center
+            }
+        }
+
+        .hero p {
+            max-width: 560px;
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            animation: fadeUp 0.7s 0.2s ease both
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 0.7s 0.3s ease both
+        }
+
+        .btn-hero {
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .btn-hero-primary {
+            background: linear-gradient(135deg, var(--accent), #6d82f8);
+            color: #fff;
+            border: none;
+            box-shadow: 0 8px 32px rgba(79, 110, 247, 0.4)
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(79, 110, 247, 0.6)
+        }
+
+        .btn-hero-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border)
+        }
+
+        .btn-hero-secondary:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px)
+        }
+
+        .lang-float {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px)
+        }
+
+        .lang-float .flag {
+            font-size: 1.2rem
+        }
+
+        .lf-1 {
+            top: 18%;
+            left: 6%;
+            animation: floatA 6s ease-in-out infinite
+        }
+
+        .lf-2 {
+            top: 22%;
+            right: 6%;
+            animation: floatB 7s ease-in-out infinite
+        }
+
+        .lf-3 {
+            bottom: 28%;
+            left: 5%;
+            animation: floatA 8s 1s ease-in-out infinite
+        }
+
+        .lf-4 {
+            bottom: 28%;
+            right: 5%;
+            animation: floatB 5s 0.5s ease-in-out infinite
+        }
+
+        .lf-5 {
+            top: 50%;
+            left: 2%;
+            animation: floatA 9s 2s ease-in-out infinite
+        }
+
+        .lf-6 {
+            top: 50%;
+            right: 2%;
+            animation: floatB 6.5s 1.5s ease-in-out infinite
+        }
+
+        @keyframes floatA {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-12px)
+            }
+        }
+
+        @keyframes floatB {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(10px)
+            }
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 64px;
+            animation: fadeUp 0.7s 0.4s ease both
+        }
+
+        .stat {
+            text-align: center
+        }
+
+        .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text)
+        }
+
+        .stat-num span {
+            color: var(--accent)
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 2px
+        }
+
+        /* ── SECTIONS ── */
+        .section,
+        .plans-section,
+        .features-section,
+        .lb-section,
+        .cta-section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 40px
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px
+        }
+
+        .section-sub {
+            color: var(--muted);
+            max-width: 500px;
+            line-height: 1.7
+        }
+
+        /* ── LANG CARDS ── */
+        .langs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 48px
+        }
+
+        .lang-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer
+        }
+
+        .lang-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(79, 110, 247, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4)
+        }
+
+        .lang-card-flag {
+            font-size: 2.5rem;
+            margin-bottom: 12px
+        }
+
+        .lang-card-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .lang-card-native {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 16px
+        }
+
+        .lang-card-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .lang-tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--muted)
+        }
+
+        .lang-tag.hot {
+            background: rgba(245, 200, 66, 0.12);
+            color: var(--gold)
+        }
+
+        .lang-tag.new {
+            background: rgba(79, 110, 247, 0.15);
+            color: var(--accent2)
+        }
+
+        .lang-learners {
+            margin-top: 16px;
+            font-size: 0.78rem;
+            color: var(--muted)
+        }
+
+        .lang-learners strong {
+            color: var(--text)
+        }
+
+        /* ── PLANS ── */
+        .toggle-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            margin: 32px 0
+        }
+
+        .toggle-label {
+            font-size: 0.9rem;
+            color: var(--muted)
+        }
+
+        .toggle-label.active {
+            color: var(--text);
+            font-weight: 600
+        }
+
+        .toggle {
+            width: 52px;
+            height: 28px;
+            background: var(--surface2);
+            border-radius: 100px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid var(--border)
+        }
+
+        .toggle.yearly {
+            background: var(--accent)
+        }
+
+        .toggle-knob {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s
+        }
+
+        .toggle.yearly .toggle-knob {
+            transform: translateX(24px)
+        }
+
+        .discount-badge {
+            background: rgba(245, 200, 66, 0.15);
+            border: 1px solid rgba(245, 200, 66, 0.3);
+            color: var(--gold);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 100px
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .plan-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s
+        }
+
+        .plan-card:hover {
+            transform: translateY(-4px)
+        }
+
+        .plan-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent), 0 20px 60px rgba(79, 110, 247, 0.2);
+            background: linear-gradient(160deg, rgba(79, 110, 247, 0.08), var(--surface))
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 100px;
+            white-space: nowrap
+        }
+
+        .plan-icon {
+            font-size: 2rem;
+            margin-bottom: 16px
+        }
+
+        .plan-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 6px
+        }
+
+        .plan-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-bottom: 24px;
+            line-height: 1.6
+        }
+
+        .plan-price {
+            margin-bottom: 28px
+        }
+
+        .plan-price .amount {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1
+        }
+
+        .plan-price .currency {
+            font-size: 1.2rem;
+            vertical-align: top;
+            margin-top: 6px;
+            display: inline-block
+        }
+
+        .plan-price .period {
+            font-size: 0.82rem;
+            color: var(--muted)
+        }
+
+        .plan-price .original {
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-decoration: line-through
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .plan-features li {
+            font-size: 0.85rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--muted)
+        }
+
+        .plan-features li .check {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-top: 1px;
+            flex-shrink: 0
+        }
+
+        .plan-features li .check.gold {
+            color: var(--gold)
+        }
+
+        .plan-features li span {
+            line-height: 1.5
+        }
+
+        .btn-plan {
+            width: 100%;
+            padding: 13px;
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            border: none
+        }
+
+        .btn-plan-outline {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text)
+        }
+
+        .btn-plan-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent)
+        }
+
+        .btn-plan-filled {
+            background: linear-gradient(135deg, var(--accent), #6d82f8);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(79, 110, 247, 0.35)
+        }
+
+        .btn-plan-filled:hover {
+            box-shadow: 0 12px 32px rgba(79, 110, 247, 0.55);
+            transform: translateY(-1px)
+        }
+
+        .btn-plan-gold {
+            background: linear-gradient(135deg, #f5c842, #e8a422);
+            color: #0a0700;
+            box-shadow: 0 8px 24px rgba(245, 200, 66, 0.3)
+        }
+
+        .btn-plan-gold:hover {
+            box-shadow: 0 12px 32px rgba(245, 200, 66, 0.5);
+            transform: translateY(-1px)
+        }
+
+        .free-limits {
+            margin-top: 14px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        .free-limits strong {
+            color: var(--text)
+        }
+
+        /* ── FEATURES ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 48px
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+            transition: all 0.3s
+        }
+
+        .feature-card:hover {
+            border-color: rgba(79, 110, 247, 0.25);
+            transform: translateY(-3px)
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(79, 110, 247, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 14px
+        }
+
+        .feature-name {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            margin-bottom: 6px
+        }
+
+        .feature-desc {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        /* ── LEADERBOARD ── */
+        .lb-card {
+            max-width: 480px;
+            margin: 48px auto 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden
+        }
+
+        .lb-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .lb-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700
+        }
+
+        .lb-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s
+        }
+
+        .lb-row:hover {
+            background: rgba(255, 255, 255, 0.02)
+        }
+
+        .lb-row:last-child {
+            border-bottom: none
+        }
+
+        .lb-rank {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            width: 28px;
+            text-align: center
+        }
+
+        .lb-rank.gold {
+            color: #f5c842
+        }
+
+        .lb-rank.silver {
+            color: #c0c0c0
+        }
+
+        .lb-rank.bronze {
+            color: #cd7f32
+        }
+
+        .lb-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            flex-shrink: 0
+        }
+
+        .lb-name {
+            flex: 1;
+            font-size: 0.88rem;
+            font-weight: 500
+        }
+
+        .lb-xp {
+            font-size: 0.78rem;
+            color: var(--accent2);
+            font-weight: 600
+        }
+
+        .lb-loading {
+            padding: 32px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem
+        }
+
+        .lb-spinner {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 12px
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 100px 40px;
+            text-align: center
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(79, 110, 247, 0.12), rgba(167, 139, 250, 0.08));
+            border: 1px solid rgba(79, 110, 247, 0.2);
+            border-radius: 32px;
+            padding: 64px 48px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .cta-inner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(79, 110, 247, 0.06), transparent 60%)
+        }
+
+        .cta-inner h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px
+        }
+
+        .cta-inner p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 32px
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: color 0.2s
+        }
+
+        .footer-links a:hover {
+            color: var(--text)
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: var(--muted)
+        }
+
+        .divider {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 1px;
+            background: var(--border)
+        }
+
+        /* ── UTILS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shimmer 4s linear infinite
+        }
+
+        /* ── RTL for Arabic ── */
+        [dir="rtl"] .nav-center {
+            flex-direction: row-reverse
+        }
+
+        [dir="rtl"] .hero-actions {
+            flex-direction: row-reverse
+        }
+
+        [dir="rtl"] .lang-dropdown {
+            right: auto;
+            left: 0
+        }
+
+        @media(max-width:768px) {
+            nav {
+                padding: 0 16px
+            }
+
+            .nav-center {
+                display: none
+            }
+
+            .section,
+            .plans-section,
+            .features-section,
+            .lb-section,
+            .cta-section {
+                padding: 60px 20px
+            }
+
+            .hero {
+                padding: 100px 20px 60px
+            }
+
+            .hero-stats {
+                gap: 24px
+            }
+
+            .lf-1,
+            .lf-2,
+            .lf-3,
+            .lf-4,
+            .lf-5,
+            .lf-6 {
+                display: none
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center
+            }
+        }
+    
+        /* ── NAV PROFILE (real ma'lumot) ── */
+        .nav-profile { display:flex; align-items:center; gap:8px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:5px 10px 5px 6px; cursor:pointer; transition:all .2s; text-decoration:none; }
+        .nav-profile:hover { border-color:var(--accent); }
+        .np-av { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:800; color:#fff; }
+        .np-info { display:flex; flex-direction:column; line-height:1.2; }
+        .np-name { font-size:.78rem; font-weight:700; color:var(--text); max-width:110px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+        .np-plan { font-size:.6rem; font-weight:800; color:var(--gold); letter-spacing:.04em; }
+        .np-pill { display:inline-flex; align-items:center; gap:4px; font-size:.68rem; font-weight:700; padding:4px 9px; border-radius:100px; background:var(--surface); border:1px solid var(--border); white-space:nowrap; }
+        @media(max-width:900px){ .np-pill{display:none} }
+
+        /* ── SPEAKING COACH SHOWCASE ── */
+        .coach-section { position:relative; z-index:1; padding:80px 40px; }
+        .coach-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:44px; }
+        .coach-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:26px; transition:all .3s; position:relative; }
+        .coach-card:hover { transform:translateY(-4px); border-color:var(--cc); box-shadow:0 16px 50px rgba(0,0,0,.35); }
+        .coach-ic { width:52px; height:52px; border-radius:15px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:16px; background:color-mix(in srgb,var(--cc) 14%,transparent); color:var(--cc); }
+        .coach-nm { font-family:'Syne',sans-serif; font-weight:800; font-size:1.05rem; margin-bottom:8px; }
+        .coach-ds { font-size:.82rem; color:var(--muted); line-height:1.65; }
+        .coach-cta-row { display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:36px; }
+        .coach-price { display:inline-flex; align-items:center; gap:8px; font-size:.8rem; color:#22d3ee; background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.25); padding:9px 16px; border-radius:100px; font-weight:700; }
+
+        /* ── HOW IT WORKS ── */
+        .how-section { position:relative; z-index:1; padding:80px 40px; }
+        .how-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:44px; }
+        .how-step { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:24px; position:relative; transition:all .3s; }
+        .how-step:hover { transform:translateY(-3px); border-color:rgba(79,110,247,.3); }
+        .how-num { font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:10px; }
+        .how-nm { font-weight:700; margin-bottom:6px; }
+        .how-ds { font-size:.8rem; color:var(--muted); line-height:1.6; }
+
+    /* ── FONT AWESOME FIX: universal reset ::before shriftini buzmasligi uchun ── */
+    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
+    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before {
+      font-family: "Font Awesome 6 Free" !important;
+    }
+    .fa-brands, .fab, .fa-brands::before, .fab::before {
+      font-family: "Font Awesome 6 Brands" !important;
+    }
+    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
+  
+</style>
+</head>
+
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <a href="#" class="logo">Lingua<span>Verse</span></a>
+        <div class="nav-center">
+            <a href="#languages" data-i18n="nav_langs">Tillar</a>
+            <a href="#features" data-i18n="nav_features">Imkoniyatlar</a>
+            <a href="#plans" data-i18n="nav_plans">Rejalar</a>
+            <a href="#leaderboard" data-i18n="nav_leaderboard">Reyting</a>
+        </div>
+        <div class="nav-right" id="navRight">
+
+            <!-- THEME TOGGLE -->
+            <button class="theme-btn" id="themeToggle" title="Toggle theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+
+            <!-- LANG SWITCHER -->
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">
+                    <span id="currentFlag">🇺🇿</span>
+                    <span id="currentLangName">UZ</span>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <div class="lang-option active" data-lang="uz" onclick="setLang('uz')"><span
+                            class="flag">🇺🇿</span> O'zbek</div>
+                    <div class="lang-option" data-lang="ru" onclick="setLang('ru')"><span class="flag">🇷🇺</span>
+                        Русский</div>
+                    <div class="lang-option" data-lang="es" onclick="setLang('es')"><span class="flag">🇪🇸</span>
+                        Español</div>
+                    <div class="lang-option" data-lang="tr" onclick="setLang('tr')"><span class="flag">🇹🇷</span>
+                        Türkçe</div>
+                    <div class="lang-option" data-lang="ar" onclick="setLang('ar')"><span class="flag">🇸🇦</span>
+                        العربية</div>
+                    <div class="lang-option" data-lang="de" onclick="setLang('de')"><span class="flag">🇩🇪</span>
+                        Deutsch</div>
+                </div>
+            </div>
+
+            <button class="btn-ghost" onclick="window.location.href='auth/login.html'"
+                data-i18n="nav_login">Kirish</button>
+            <button class="btn-primary" onclick="window.location.href='#plans'" data-i18n="nav_start">Boshlash
+                →</button>
+        </div>
+    </nav>
+
+    <!-- SITE BAR -->
+    <div class="site-bar" id="siteBar" style="display:none">
+        <span class="site-bar-active"><i class="fa-solid fa-house"></i> <span data-i18n="bar_home">Bosh sahifa</span></span>
+        <a href="select-language.html" class="site-bar-langs"><i class="fa-solid fa-globe"></i> <span data-i18n="bar_langs">Tillar</span></a>
+        <a href="languages-html/speaking-coach.html" class="site-bar-langs" style="color:#22d3ee;border-color:rgba(34,211,238,0.3);background:rgba(34,211,238,0.08)"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="bar_speak">Speaking Coach</span></a>
+        <a href="languages-html/shop.html" class="site-bar-shop"><i class="fa-solid fa-bag-shopping"></i> <span data-i18n="bar_shop">Do'kon</span></a>
+        <a href="languages-html/profile.html" class="site-bar-profile"><i class="fa-solid fa-user"></i> <span data-i18n="bar_profile">Profil</span></a>
+        <a href="order.html" class="site-bar-plans"><i class="fa-solid fa-crown"></i> <span data-i18n="bar_plans">Rejalar</span></a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="lang-float lf-1"><span class="flag">🇬🇧</span> English</div>
+        <div class="lang-float lf-2"><span class="flag">🇯🇵</span> 日本語</div>
+        <div class="lang-float lf-3"><span class="flag">🇰🇷</span> 한국어</div>
+        <div class="lang-float lf-4"><span class="flag">🇪🇸</span> Español</div>
+        <div class="lang-float lf-5"><span class="flag">🇷🇺</span> Русский</div>
+        <div class="lang-float lf-6"><span class="flag">🇨🇳</span> 中文</div>
+
+        <div class="hero-badge"><span class="dot"></span><span data-i18n="hero_badge">AI bilan kuchaytirilgan til
+                platformasi</span></div>
+        <h1>
+            <span class="line1" data-i18n="hero_h1_line1">Har qanday tilni</span>
+            <span class="gradient-text" data-i18n="hero_h1_line2"> Tez o'rganing.</span>
+        </h1>
+        <p data-i18n="hero_p">8 ta til, 100+ dars, AI suhbat sherigi va real-time leaderboard bilan til o'rganishni
+            boshqa darajaga olib chiqing.</p>
+        <div class="hero-actions">
+            <a href="select-language.html" class="btn-hero btn-hero-primary"><i class="fa-solid fa-rocket"></i> <span data-i18n="hero_btn1">Bepul boshlash</span></a>
+            <a href="languages-html/speaking-coach.html" class="btn-hero btn-hero-secondary" style="border-color:rgba(34,211,238,0.4);color:#22d3ee"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="hero_btn3">AI Speaking Coach</span></a>
+            <a href="#languages" class="btn-hero btn-hero-secondary"><i class="fa-solid fa-globe"></i> <span data-i18n="hero_btn2">Tillarni ko'rish</span></a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-num">8<span>+</span></div>
+                <div class="stat-label" data-i18n="stat_langs">Tillar</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">480<span>+</span></div>
+                <div class="stat-label" data-i18n="stat_lessons">Darslar</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num" id="statUsers">—</div>
+                <div class="stat-label" data-i18n="stat_students">O'quvchilar</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">24/7</div>
+                <div class="stat-label" data-i18n="stat_rating">Reyting</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section class="section" id="languages">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label" data-i18n="sec_langs_label">Tillar</div>
+                <h2 class="section-title" data-i18n="sec_langs_title">8 ta jahon tili,<br>bir platformada</h2>
+                <p class="section-sub" data-i18n="sec_langs_sub">Har bir til uchun maxsus ishlab chiqilgan darslar, AI
+                    suhbat sherigi va grammatika testlari.</p>
+            </div>
+            <div class="langs-grid">
+                <div class="lang-card reveal">
+                    <div class="lang-card-flag">🇬🇧</div>
+                    <div class="lang-card-name">English</div>
+                    <div class="lang-card-native" data-i18n="lang_english">Ingliz tili</div>
+                    <div class="lang-card-meta"><span class="lang-tag hot"><i class="fa-solid fa-fire"></i> <span data-i18n="tag_popular">Eng
+                                mashhur</span></span><span class="lang-tag">A1–C2</span></div>
+                    <div class="lang-learners" data-i18n="learners_en">60 Unit · 500+ so'z · AI Coach</div>
+                </div>
+                <div class="lang-card reveal">
+                    <div class="lang-card-flag">🇷🇺</div>
+                    <div class="lang-card-name">Русский</div>
+                    <div class="lang-card-native" data-i18n="lang_russian">Rus tili</div>
+                    <div class="lang-card-meta"><span class="lang-tag hot"><i class="fa-solid fa-fire"></i> <span
+                                data-i18n="tag_popular2">Mashhur</span></span><span class="lang-tag">A1–C1</span></div>
+                    <div class="lang-learners" data-i18n="learners_ru">60 Unit · 500+ so'z · AI Coach</div>
+                </div>
+                <div class="lang-card reveal">
+                    <div class="lang-card-flag">🇰🇷</div>
+                    <div class="lang-card-name">한국어</div>
+                    <div class="lang-card-native" data-i18n="lang_korean">Koreys tili</div>
+                    <div class="lang-card-meta"><span class="lang-tag new"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
+                                data-i18n="tag_new">Yangi</span></span><span class="lang-tag">A1–B2</span></div>
+                    <div class="lang-learners" data-i18n="learners_ko">60 Unit · 500+ so'z · AI Coach</div>
+                </div>
+                <div class="lang-card reveal">
+                    <div class="lang-card-flag">🇨🇳</div>
+                    <div class="lang-card-name">中文</div>
+                    <div class="lang-card-native" data-i18n="lang_chinese">Xitoy tili</div>
+                    <div class="lang-card-meta"><span class="lang-tag">A1–B2</span></div>
+                    <div class="lang-learners" data-i18n="learners_zh">60 Unit · 500+ so'z · AI Coach</div>
+                </div>
+                <div class="lang-card reveal">
+                    <div class="lang-card-flag">🇸🇦</div>
+                    <div class="lang-card-name">العربية</div>
+                    <div class="lang-card-native" data-i18n="lang_arabic">Arab tili</div>
+                    <div class="lang-card-meta"><span class="lang-tag">A1–B1</span></div>
+                    <div class="lang-learners" data-i18n="learners_ar">60 Unit · 500+ so'z · AI Coach</div>
+                </div>
+                <div class="lang-card reveal">
+                    <div class="lang-card-flag">🇪🇸</div>
+                    <div class="lang-card-name">Español</div>
+                    <div class="lang-card-native" data-i18n="lang_spanish">Ispan tili</div>
+                    <div class="lang-card-meta"><span class="lang-tag">A1–C1</span></div>
+                    <div class="lang-learners" data-i18n="learners_es">60 Unit · 500+ so'z · AI Coach</div>
+                </div>
+                <div class="lang-card reveal">
+                    <div class="lang-card-flag">🇹🇷</div>
+                    <div class="lang-card-name">Türkçe</div>
+                    <div class="lang-card-native" data-i18n="lang_turkish">Turk tili</div>
+                    <div class="lang-card-meta"><span class="lang-tag new"><i class="fa-solid fa-wand-magic-sparkles"></i> <span
+                                data-i18n="tag_new2">Yangi</span></span><span class="lang-tag">A1–B2</span></div>
+                    <div class="lang-learners" data-i18n="learners_tr">60 Unit · 500+ so'z · AI Coach</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label" data-i18n="sec_feat_label">Imkoniyatlar</div>
+                <h2 class="section-title" data-i18n="sec_feat_title">Hamma narsa<br>bir joyda</h2>
+                <p class="section-sub" data-i18n="sec_feat_sub">O'rganishni qiziqarli va samarali qiladigan zamonaviy
+                    tizim.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-microphone-lines" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat1_title">AI Suhbat Sherigi</div>
+                    <div class="feature-desc" data-i18n="feat1_desc">AI bilan istalgan vaqt amaliyot qiling. Real
+                        suhbat, tezkor javob.</div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-trophy" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat2_title">Leaderboard</div>
+                    <div class="feature-desc" data-i18n="feat2_desc">Global va do'stlar reytingida raqobat qiling. XP
+                        to'plab yuqoriga chiqing.</div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-coins" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat3_title">Coin Tizimi</div>
+                    <div class="feature-desc" data-i18n="feat3_desc">Darslarni tugatib coin yig'ing. Ularni qo'shimcha
+                        imkoniyatlarga sarflang.</div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat4_title">Daily Reward</div>
+                    <div class="feature-desc" data-i18n="feat4_desc">Har kuni kiring va maxsus mukofotlar qozonib
+                        boring. Streak saqlang!</div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat5_title">Progress Tracking</div>
+                    <div class="feature-desc" data-i18n="feat5_desc">O'z rivojlanishingizni kuzating. Statistika, grafik
+                        va tahlil.</div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-bullseye" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat6_title">Unit Tizimi</div>
+                    <div class="feature-desc" data-i18n="feat6_desc">Strukturali darslar orqali bosqichma-bosqich
+                        o'rganing. A1 dan C2 gacha.</div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-users" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat7_title">Jamoa Rejimi</div>
+                    <div class="feature-desc" data-i18n="feat7_desc">Team planida do'stlaringiz bilan birga o'rganing va
+                        raqobatlashing.</div>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-wifi" style="color:var(--accent)"></i></div>
+                    <div class="feature-name" data-i18n="feat8_title">Offline Darslar</div>
+                    <div class="feature-desc" data-i18n="feat8_desc">Universal planda darslarni offline rejimda ham
+                        davom ettiring.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SPEAKING COACH SHOWCASE -->
+    <section class="coach-section" id="coach">
+        <div class="container">
+            <div class="reveal" style="text-align:center">
+                <div class="section-label" data-i18n="coach_label">AI Speaking Coach</div>
+                <h2 class="section-title" data-i18n="coach_title">3 xil ustoz. Bitta maqsad:<br>sizni gapirtiirish.</h2>
+                <p class="section-sub" style="margin:0 auto" data-i18n="coach_sub">Jonli ovozli suhbat, har bir xatoga aniq tuzatish va IELTS darajasidagi baholash — 8 tilda.</p>
+            </div>
+            <div class="coach-grid reveal">
+                <div class="coach-card" style="--cc:#4f6ef7">
+                    <div class="coach-ic"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <div class="coach-nm" data-i18n="coach_m1n">Oddiy ustoz</div>
+                    <div class="coach-ds" data-i18n="coach_m1d">Professional va aniq. Har xatoni tushuntirib tuzatadi, ortiqcha gap yo'q.</div>
+                </div>
+                <div class="coach-card" style="--cc:#34d399">
+                    <div class="coach-ic"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <div class="coach-nm" data-i18n="coach_m2n">Xushmuomala ustoz</div>
+                    <div class="coach-ds" data-i18n="coach_m2d">Doim qo'llab-quvvatlaydi va maqtaydi. Yangi boshlovchilar uchun ideal.</div>
+                </div>
+                <div class="coach-card" style="--cc:#f87171">
+                    <div class="coach-ic"><i class="fa-solid fa-person-military-pointing"></i></div>
+                    <div class="coach-nm" data-i18n="coach_m3n">Qattiqqo'l ustoz</div>
+                    <div class="coach-ds" data-i18n="coach_m3d">Eng kichik xatoga ham so'kadi: "Shu bilan IELTS olmoqchimisan?!" Natija kerak bo'lsa — shu.</div>
+                </div>
+            </div>
+            <div class="coach-cta-row reveal">
+                <a href="languages-html/speaking-coach.html" class="btn-hero btn-hero-primary"><i class="fa-solid fa-microphone-lines"></i> <span data-i18n="coach_cta">Hozir gapirib ko'rish</span></a>
+                <span class="coach-price"><i class="fa-solid fa-ticket"></i> <span data-i18n="coach_price">100 token / 1 daqiqa</span></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how">
+        <div class="container">
+            <div class="reveal">
+                <div class="section-label" data-i18n="how_label">Qanday ishlaydi</div>
+                <h2 class="section-title" data-i18n="how_title">4 qadamda natija</h2>
+            </div>
+            <div class="how-grid reveal">
+                <div class="how-step"><div class="how-num">01</div><div class="how-nm" data-i18n="how_s1n">Ro'yxatdan o'ting</div><div class="how-ds" data-i18n="how_s1d">Bepul hisob oching — 1000 token sovg'a, karta shart emas.</div></div>
+                <div class="how-step"><div class="how-num">02</div><div class="how-nm" data-i18n="how_s2n">Til va ustoz tanlang</div><div class="how-ds" data-i18n="how_s2d">8 ta til, 3 xil ustoz xarakteri va o'z darajangiz.</div></div>
+                <div class="how-step"><div class="how-num">03</div><div class="how-nm" data-i18n="how_s3n">AI bilan mashq qiling</div><div class="how-ds" data-i18n="how_s3d">Reading, Listening, Writing, Speaking — har dars sizning xatolaringizga moslashadi.</div></div>
+                <div class="how-step"><div class="how-num">04</div><div class="how-nm" data-i18n="how_s4n">Imtihonga chiqing</div><div class="how-ds" data-i18n="how_s4d">Shaxsiy bazangiz asosida IELTS/Goethe/TOPIK darajasiga yetguncha AI sizni qo'yib yubormaydi.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PLANS -->
+    <section class="plans-section" id="plans">
+        <div class="container">
+            <div class="reveal" style="text-align:center">
+                <div class="section-label" style="text-align:center" data-i18n="sec_plans_label">Narxlar</div>
+                <h2 class="section-title" data-i18n="sec_plans_title">O'zingizga mos rejani tanlang</h2>
+                <p class="section-sub" style="margin:0 auto" data-i18n="sec_plans_sub">Bepuldan professional darajagacha
+                    — har kimga mos variant bor.</p>
+            </div>
+            <div class="toggle-wrap reveal">
+                <span class="toggle-label active" id="lbl-monthly" data-i18n="billing_monthly">Oylik</span>
+                <div class="toggle" id="priceToggle" onclick="togglePricing()">
+                    <div class="toggle-knob"></div>
+                </div>
+                <span class="toggle-label" id="lbl-yearly" data-i18n="billing_yearly">Yillik</span>
+                <span class="discount-badge" data-i18n="billing_discount">40% chegirma</span>
+            </div>
+            <div class="plans-grid reveal">
+                <!-- FREE -->
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="fa-solid fa-seedling" style="color:var(--accent2)"></i></div>
+                    <div class="plan-name" data-i18n="plan_free_name">Bepul</div>
+                    <div class="plan-desc" data-i18n="plan_free_desc">Boshlash uchun mukammal. Asosiy imkoniyatlar bilan
+                        tanishing.</div>
+                    <div class="plan-price"><span class="currency">$</span><span class="amount">0</span>
+                        <div class="period" data-i18n="plan_free_period">Abadiy bepul</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span><span data-i18n="plan_free_f1">Kuniga <strong>2 ta</strong> unit
+                                tugatish</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_free_f2">AI bilan <strong>5 ta</strong>
+                                savol/kun</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_free_f3">Asosiy leaderboard</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_free_f4">Limitlar <strong>4
+                                    soatda</strong> reset</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_free_f5">Coin va XP tizimi</span></li>
+                    </ul>
+                    <div class="free-limits"><span data-i18n="free_limits">Cheklovlar: 2 unit/kun · 5 AI savol/kun · 4
+                            soatda reset · Reklama bor</span></div>
+                    <button class="btn-plan btn-plan-outline" style="margin-top:16px" onclick="handleFreePlan()"
+                        data-i18n="plan_free_btn">Bepul boshlash</button>
+                </div>
+                <!-- OWN -->
+                <div class="plan-card featured">
+                    <div class="plan-badge" data-i18n="plan_own_badge">Eng mashhur</div>
+                    <div class="plan-icon"><i class="fa-solid fa-gem" style="color:var(--accent2)"></i></div>
+                    <div class="plan-name">Own</div>
+                    <div class="plan-desc" data-i18n="plan_own_desc">Bir foydalanuvchi uchun to'liq imkoniyat.</div>
+                    <div class="plan-price"><span class="currency">$</span><span class="amount" id="own-price">9</span>
+                        <div class="period" id="own-period" data-i18n="per_month">/ oyiga</div>
+                        <div class="original" id="own-original" style="display:none">$9/oy</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span><span data-i18n="plan_own_f1"><strong>20+ funksiya</strong>
+                                cheksiz</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_own_f2">AI bilan cheksiz suhbat</span>
+                        </li>
+                        <li><span class="check">✓</span><span data-i18n="plan_own_f3">Barcha tillar to'liq ochiq</span>
+                        </li>
+                        <li><span class="check">✓</span><span data-i18n="plan_own_f4">Reklama yo'q</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_own_f5">Priority support</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_own_f6">Offline darslar</span></li>
+                    </ul>
+                    <button class="btn-plan btn-plan-filled" onclick="handlePlanPurchase('own')"
+                        data-i18n="plan_buy_btn">Sotib olish →</button>
+                </div>
+                <!-- TEAM -->
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="fa-solid fa-users" style="color:var(--accent2)"></i></div>
+                    <div class="plan-name">Team</div>
+                    <div class="plan-desc" data-i18n="plan_team_desc">Jamoa uchun. Link ulashib do'stlaringizni
+                        qo'shing.</div>
+                    <div class="plan-price"><span class="currency">$</span><span class="amount"
+                            id="team-price">19</span>
+                        <div class="period" id="team-period" data-i18n="per_month2">/ oyiga</div>
+                        <div class="original" id="team-original" style="display:none">$19/oy</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span><span data-i18n="plan_team_f1"><strong>50+
+                                    funksiya</strong></span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_team_f2">Jamoa leaderboard</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_team_f3">Link ulashish imkoni</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_team_f4">Guruh statistikasi</span></li>
+                        <li><span class="check">✓</span><span data-i18n="plan_team_f5">Barcha Own imkoniyatlari</span>
+                        </li>
+                    </ul>
+                    <button class="btn-plan btn-plan-outline" onclick="handlePlanPurchase('team')"
+                        data-i18n="plan_buy_btn2">Sotib olish →</button>
+                </div>
+                <!-- UNIVERSAL -->
+                <div class="plan-card">
+                    <div class="plan-icon"><i class="fa-solid fa-rocket" style="color:var(--accent2)"></i></div>
+                    <div class="plan-name">Universal</div>
+                    <div class="plan-desc" data-i18n="plan_uni_desc">Hamma narsa. Cheksiz. Eng zo'r tajriba uchun.</div>
+                    <div class="plan-price"><span class="currency">$</span><span class="amount" id="uni-price">39</span>
+                        <div class="period" id="uni-period" data-i18n="per_month3">/ oyiga</div>
+                        <div class="original" id="uni-original" style="display:none">$39/oy</div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><span class="check gold">★</span><span data-i18n="plan_uni_f1"><strong>100+
+                                    funksiya</strong> hammasi</span></li>
+                        <li><span class="check gold">★</span><span data-i18n="plan_uni_f2">Daily reward bonuslari
+                                (2x)</span></li>
+                        <li><span class="check gold">★</span><span data-i18n="plan_uni_f3">XP Boost x3</span></li>
+                        <li><span class="check gold">★</span><span data-i18n="plan_uni_f4">Exclusive coin shop</span>
+                        </li>
+                        <li><span class="check gold">★</span><span data-i18n="plan_uni_f5">AI voice suhbat</span></li>
+                        <li><span class="check gold">★</span><span data-i18n="plan_uni_f6">Barcha Team
+                                imkoniyatlari</span></li>
+                    </ul>
+                    <button class="btn-plan btn-plan-gold" onclick="handlePlanPurchase('universal')"
+                        data-i18n="plan_buy_btn3">Sotib olish →</button>
+                </div>
+            </div>
+            <div class="reveal" style="text-align:center;margin-top:32px;color:var(--muted);font-size:0.82rem;"
+                data-i18n="plans_note">To'lov uchun: Bank kartasi rasmi + izoh → Admin tekshiradi va planingizni
+                faollashtiradi</div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- LEADERBOARD -->
+    <section class="lb-section" id="leaderboard">
+        <div class="container" style="text-align:center">
+            <div class="reveal">
+                <div class="section-label" data-i18n="sec_lb_label">Reyting</div>
+                <h2 class="section-title" data-i18n="sec_lb_title">Global Leaderboard</h2>
+                <p class="section-sub" style="margin:0 auto" data-i18n="sec_lb_sub">Eng ko'p XP to'plab yuqoriga
+                    chiqing. Haftalik sovrinlar!</p>
+            </div>
+            <div class="lb-card reveal">
+                <div class="lb-header">
+                    <span class="lb-title"><i class="fa-solid fa-trophy" style="color:var(--gold)"></i> <span data-i18n="lb_this_week">Bu hafta reytingi</span></span>
+                    <span style="font-size:0.78rem;color:var(--muted)" data-i18n="lb_xp_based">XP asosida</span>
+                </div>
+                <div id="lbBody">
+                    <div class="lb-loading">
+                        <div class="lb-spinner"></div><span data-i18n="loading">Yuklanmoqda...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner reveal">
+            <h2 data-i18n="cta_title">Bugun boshlang.<br><span class="gradient-text">Bepul.</span></h2>
+            <p data-i18n="cta_sub">Hech qanday kredit karta shart emas. Bir daqiqada ro'yxatdan o'ting va birinchi
+                darsni boshlang.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+                <a href="auth/register.html" class="btn-hero btn-hero-primary" data-i18n="cta_btn1">Bepul ro'yxatdan
+                    o'tish →</a>
+                <a href="#plans" class="btn-hero btn-hero-secondary" data-i18n="cta_btn2">Rejalarni solishtirish</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">LinguaVerse</div>
+        <div class="footer-links">
+            <a href="#" data-i18n="footer_about">Haqida</a>
+            <a href="#" data-i18n="footer_terms">Shartlar</a>
+            <a href="#" data-i18n="footer_privacy">Maxfiylik</a>
+        </div>
+        <div class="footer-copy" data-i18n="footer_copy">© 2025 LinguaVerse. Barcha huquqlar himoyalangan.</div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════
+     TRANSLATIONS + DARK/LIGHT + LANG SWITCHER
+═══════════════════════════════════════════ -->
+    <script>
+        /* ────────────────────────────────────────────
+           TRANSLATIONS
+        ──────────────────────────────────────────── */
+        const TRANSLATIONS = {
+            uz: {
+                nav_langs: "Tillar", nav_features: "Imkoniyatlar", nav_plans: "Rejalar",
+                nav_leaderboard: "Reyting", nav_admin: "Admin", nav_login: "Kirish", nav_start: "Boshlash →",
+                bar_home: "Bosh sahifa", bar_langs: "Tillar", bar_shop: "Do'kon",
+                bar_profile: "Profil", bar_plans: "Rejalar", bar_speak: "Speaking Coach",
+                hero_badge: "AI bilan kuchaytirilgan til platformasi",
+                hero_h1_line1: "Har qanday tilni", hero_h1_line2: " Tez o'rganing.",
+                hero_p: "8 ta til, 100+ dars, AI suhbat sherigi va real-time leaderboard bilan til o'rganishni boshqa darajaga olib chiqing.",
+                hero_btn1: "Bepul boshlash →", hero_btn2: "Tillarni ko'rish", hero_btn3: "AI Speaking Coach",
+                stat_langs: "Tillar", stat_lessons: "Darslar", stat_students: "O'quvchilar", stat_rating: "AI Ustoz",
+                sec_langs_label: "Tillar", sec_langs_title: "8 ta jahon tili,<br>bir platformada",
+                sec_langs_sub: "Har bir til uchun maxsus ishlab chiqilgan darslar, AI suhbat sherigi va grammatika testlari.",
+                lang_english: "Ingliz tili", lang_russian: "Rus tili", lang_korean: "Koreys tili",
+                lang_chinese: "Xitoy tili", lang_arabic: "Arab tili", lang_spanish: "Ispan tili", lang_turkish: "Turk tili",
+                tag_popular: "Eng mashhur", tag_popular2: "Mashhur", tag_new: "Yangi", tag_new2: "Yangi",
+                learners_en: "60 Unit · 500+ so'z · AI Coach",
+                learners_ru: "60 Unit · 500+ so'z · AI Coach",
+                learners_ko: "60 Unit · 500+ so'z · AI Coach",
+                learners_zh: "60 Unit · 500+ so'z · AI Coach",
+                learners_ar: "60 Unit · 500+ so'z · AI Coach",
+                learners_es: "60 Unit · 500+ so'z · AI Coach",
+                learners_tr: "60 Unit · 500+ so'z · AI Coach",
+                sec_feat_label: "Imkoniyatlar", sec_feat_title: "Hamma narsa<br>bir joyda",
+                sec_feat_sub: "O'rganishni qiziqarli va samarali qiladigan zamonaviy tizim.",
+                feat1_title: "AI Suhbat Sherigi", feat1_desc: "AI bilan istalgan vaqt amaliyot qiling. Real suhbat, tezkor javob.",
+                feat2_title: "Leaderboard", feat2_desc: "Global va do'stlar reytingida raqobat qiling. XP to'plab yuqoriga chiqing.",
+                feat3_title: "Coin Tizimi", feat3_desc: "Darslarni tugatib coin yig'ing. Ularni qo'shimcha imkoniyatlarga sarflang.",
+                feat4_title: "Daily Reward", feat4_desc: "Har kuni kiring va maxsus mukofotlar qozonib boring. Streak saqlang!",
+                feat5_title: "Progress Tracking", feat5_desc: "O'z rivojlanishingizni kuzating. Statistika, grafik va tahlil.",
+                feat6_title: "Unit Tizimi", feat6_desc: "Strukturali darslar orqali bosqichma-bosqich o'rganing. A1 dan C2 gacha.",
+                feat7_title: "Jamoa Rejimi", feat7_desc: "Team planida do'stlaringiz bilan birga o'rganing va raqobatlashing.",
+                feat8_title: "Offline Darslar", feat8_desc: "Universal planda darslarni offline rejimda ham davom ettiring.",
+                sec_plans_label: "Narxlar", sec_plans_title: "O'zingizga mos rejani tanlang",
+                sec_plans_sub: "Bepuldan professional darajagacha — har kimga mos variant bor.",
+                billing_monthly: "Oylik", billing_yearly: "Yillik", billing_discount: "40% chegirma",
+                plan_free_name: "Bepul", plan_free_desc: "Boshlash uchun mukammal. Asosiy imkoniyatlar bilan tanishing.",
+                plan_free_period: "Abadiy bepul",
+                plan_free_f1: "Kuniga <strong>2 ta</strong> AI dars",
+                plan_free_f2: "<strong>1000 token</strong> / 5 soatda reset",
+                plan_free_f3: "AI chat: 1 token / savol",
+                plan_free_f4: "Speaking Coach: <strong>100 token</strong>/daqiqa",
+                plan_free_f5: "Coin va XP tizimi",
+                free_limits: "Cheklovlar: 2 AI dars/kun · 1000 token / 5 soat · AI dars yaratish 400 token · Speaking Coach 100 token/daqiqa",
+                plan_free_btn: "Bepul boshlash",
+                plan_own_badge: "Eng mashhur",
+                plan_own_desc: "Bir foydalanuvchi uchun to'liq imkoniyat.",
+                plan_own_f1: "<strong>20+ funksiya</strong> cheksiz", plan_own_f2: "AI bilan cheksiz suhbat",
+                plan_own_f3: "Barcha tillar to'liq ochiq", plan_own_f4: "Reklama yo'q",
+                plan_own_f5: "Priority support", plan_own_f6: "Offline darslar",
+                plan_buy_btn: "Sotib olish →", plan_buy_btn2: "Sotib olish →", plan_buy_btn3: "Sotib olish →",
+                plan_team_desc: "Jamoa uchun. Link ulashib do'stlaringizni qo'shing.",
+                plan_team_f1: "<strong>50+ funksiya</strong>", plan_team_f2: "Jamoa leaderboard",
+                plan_team_f3: "Link ulashish imkoni", plan_team_f4: "Guruh statistikasi",
+                plan_team_f5: "Barcha Own imkoniyatlari",
+                plan_uni_desc: "Hamma narsa. Cheksiz. Eng zo'r tajriba uchun.",
+                plan_uni_f1: "<strong>100+ funksiya</strong> hammasi", plan_uni_f2: "Daily reward bonuslari (2x)",
+                plan_uni_f3: "XP Boost x3", plan_uni_f4: "Exclusive coin shop",
+                plan_uni_f5: "AI voice suhbat", plan_uni_f6: "Barcha Team imkoniyatlari",
+                per_month: "/ oyiga", per_month2: "/ oyiga", per_month3: "/ oyiga",
+                plans_note: "To'lov uchun: Bank kartasi rasmi + izoh → Admin tekshiradi va planingizni faollashtiradi",
+                sec_lb_label: "Reyting", sec_lb_title: "Global Leaderboard",
+                sec_lb_sub: "Eng ko'p XP to'plab yuqoriga chiqing. Haftalik sovrinlar!",
+                lb_this_week: "Bu hafta reytingi", lb_xp_based: "XP asosida",
+                loading: "Yuklanmoqda...",
+                cta_title: "Bugun boshlang.<br><span class=\"gradient-text\">Bepul.</span>",
+                cta_sub: "Hech qanday kredit karta shart emas. Bir daqiqada ro'yxatdan o'ting va birinchi darsni boshlang.",
+                cta_btn1: "Bepul ro'yxatdan o'tish →", cta_btn2: "Rejalarni solishtirish",
+                footer_about: "Haqida", footer_terms: "Shartlar", footer_privacy: "Maxfiylik",
+                coach_label: "AI Speaking Coach", coach_title: "3 xil ustoz. Bitta maqsad:<br>sizni gapirtirish.", coach_sub: "Jonli ovozli suhbat, har bir xatoga aniq tuzatish va IELTS darajasidagi baholash — 8 tilda.", coach_m1n: "Oddiy ustoz", coach_m1d: "Professional va aniq. Har xatoni tushuntirib tuzatadi, ortiqcha gap yo'q.", coach_m2n: "Xushmuomala ustoz", coach_m2d: "Doim qo'llab-quvvatlaydi va maqtaydi. Yangi boshlovchilar uchun ideal.", coach_m3n: "Qattiqqo'l ustoz", coach_m3d: "Eng kichik xatoga ham so'kadi: 'Shu bilan IELTS olmoqchimisan?!' Natija kerak bo'lsa — shu.", coach_cta: "Hozir gapirib ko'rish", coach_price: "100 token / 1 daqiqa", how_label: "Qanday ishlaydi", how_title: "4 qadamda natija", how_s1n: "Ro'yxatdan o'ting", how_s1d: "Bepul hisob oching — 1000 token sovg'a, karta shart emas.", how_s2n: "Til va ustoz tanlang", how_s2d: "8 ta til, 3 xil ustoz xarakteri va o'z darajangiz.", how_s3n: "AI bilan mashq qiling", how_s3d: "Reading, Listening, Writing, Speaking — har dars xatolaringizga moslashadi.", how_s4n: "Imtihonga chiqing", how_s4d: "Shaxsiy bazangiz asosida IELTS darajasiga yetguncha AI sizni qo'yib yubormaydi.",
+                footer_copy: "© 2025 LinguaVerse. Barcha huquqlar himoyalangan."
+            },
+
+            ru: {
+                nav_langs: "Языки", nav_features: "Возможности", nav_plans: "Планы",
+                nav_leaderboard: "Рейтинг", nav_admin: "Админ", nav_login: "Войти", nav_start: "Начать →",
+                bar_home: "Главная", bar_langs: "Языки", bar_shop: "Магазин",
+                bar_profile: "Профиль", bar_plans: "Планы", bar_speak: "Speaking Coach",
+                hero_badge: "Платформа для изучения языков с AI",
+                hero_h1_line1: "Любой язык", hero_h1_line2: " Учи быстро.",
+                hero_p: "8 языков, 480+ уроков, AI-собеседник и рейтинг в реальном времени — выведи изучение языков на новый уровень.",
+                hero_btn1: "Начать бесплатно →", hero_btn2: "Посмотреть языки", hero_btn3: "AI Speaking Coach",
+                stat_langs: "Языки", stat_lessons: "Уроки", stat_students: "Учеников", stat_rating: "AI наставник",
+                sec_langs_label: "Языки", sec_langs_title: "8 мировых языков,<br>одна платформа",
+                sec_langs_sub: "Специально разработанные уроки, AI-собеседник и тесты по грамматике для каждого языка.",
+                lang_english: "Английский", lang_russian: "Русский", lang_korean: "Корейский",
+                lang_chinese: "Китайский", lang_arabic: "Арабский", lang_spanish: "Испанский", lang_turkish: "Турецкий",
+                tag_popular: "Самый популярный", tag_popular2: "Популярный", tag_new: "Новый", tag_new2: "Новый",
+                learners_en: "60 юнитов · 500+ слов · AI Coach",
+                learners_ru: "60 юнитов · 500+ слов · AI Coach",
+                learners_ko: "60 юнитов · 500+ слов · AI Coach",
+                learners_zh: "60 юнитов · 500+ слов · AI Coach",
+                learners_ar: "60 юнитов · 500+ слов · AI Coach",
+                learners_es: "60 юнитов · 500+ слов · AI Coach",
+                learners_tr: "60 юнитов · 500+ слов · AI Coach",
+                sec_feat_label: "Возможности", sec_feat_title: "Всё необходимое<br>в одном месте",
+                sec_feat_sub: "Современная система, делающая обучение интересным и эффективным.",
+                feat1_title: "AI-собеседник", feat1_desc: "Практикуйтесь с AI в любое время. Настоящий диалог, мгновенный ответ.",
+                feat2_title: "Таблица лидеров", feat2_desc: "Соревнуйтесь в глобальном рейтинге и среди друзей. Набирайте XP.",
+                feat3_title: "Система монет", feat3_desc: "Зарабатывайте монеты за уроки. Тратьте на дополнительные возможности.",
+                feat4_title: "Ежедневная награда", feat4_desc: "Заходите каждый день и получайте бонусы. Сохраняйте серию!",
+                feat5_title: "Отслеживание прогресса", feat5_desc: "Следите за своим развитием. Статистика, графики и аналитика.",
+                feat6_title: "Система юнитов", feat6_desc: "Учитесь поэтапно через структурированные уроки. От A1 до C2.",
+                feat7_title: "Командный режим", feat7_desc: "Учитесь и соревнуйтесь с друзьями в тарифе Team.",
+                feat8_title: "Офлайн-уроки", feat8_desc: "Продолжайте уроки в офлайн-режиме в тарифе Universal.",
+                sec_plans_label: "Цены", sec_plans_title: "Выберите подходящий план",
+                sec_plans_sub: "От бесплатного до профессионального — вариант для каждого.",
+                billing_monthly: "Ежемесячно", billing_yearly: "Ежегодно", billing_discount: "Скидка 40%",
+                plan_free_name: "Бесплатно", plan_free_desc: "Идеально для начала. Познакомьтесь с основными функциями.",
+                plan_free_period: "Бесплатно навсегда",
+                plan_free_f1: "<strong>2</strong> AI-урока в день",
+                plan_free_f2: "<strong>1000 токенов</strong> / сброс каждые 5 ч",
+                plan_free_f3: "AI-чат: 1 токен / вопрос",
+                plan_free_f4: "Speaking Coach: <strong>100 токенов</strong>/мин",
+                plan_free_f5: "Система монет и XP",
+                free_limits: "Лимиты: 2 AI-урока/день · 1000 токенов/5 ч · Создание урока 400 токенов · Speaking Coach 100 токенов/мин",
+                plan_free_btn: "Начать бесплатно",
+                plan_own_badge: "Самый популярный",
+                plan_own_desc: "Полный функционал для одного пользователя.",
+                plan_own_f1: "<strong>20+ функций</strong> без ограничений", plan_own_f2: "Безлимитный чат с AI",
+                plan_own_f3: "Все языки полностью открыты", plan_own_f4: "Без рекламы",
+                plan_own_f5: "Приоритетная поддержка", plan_own_f6: "Офлайн-уроки",
+                plan_buy_btn: "Купить →", plan_buy_btn2: "Купить →", plan_buy_btn3: "Купить →",
+                plan_team_desc: "Для команды. Добавляйте друзей по ссылке.",
+                plan_team_f1: "<strong>50+ функций</strong>", plan_team_f2: "Командная таблица лидеров",
+                plan_team_f3: "Возможность делиться ссылкой", plan_team_f4: "Групповая статистика",
+                plan_team_f5: "Все функции Own",
+                plan_uni_desc: "Всё. Без ограничений. Лучший опыт.",
+                plan_uni_f1: "<strong>100+ функций</strong> без исключений", plan_uni_f2: "Ежедневные бонусы x2",
+                plan_uni_f3: "XP Boost x3", plan_uni_f4: "Эксклюзивный магазин монет",
+                plan_uni_f5: "AI голосовой чат", plan_uni_f6: "Все функции Team",
+                per_month: "/ мес", per_month2: "/ мес", per_month3: "/ мес",
+                plans_note: "Оплата: фото банковской карты + комментарий → Админ проверяет и активирует план",
+                sec_lb_label: "Рейтинг", sec_lb_title: "Глобальная таблица лидеров",
+                sec_lb_sub: "Набирайте больше XP и поднимайтесь вверх. Еженедельные призы!",
+                lb_this_week: "Рейтинг этой недели", lb_xp_based: "По XP",
+                loading: "Загрузка...",
+                cta_title: "Начните сегодня.<br><span class=\"gradient-text\">Бесплатно.</span>",
+                cta_sub: "Кредитная карта не нужна. Зарегистрируйтесь за минуту и начните первый урок.",
+                cta_btn1: "Зарегистрироваться бесплатно →", cta_btn2: "Сравнить планы",
+                footer_about: "О нас", footer_terms: "Условия", footer_privacy: "Конфиденциальность",
+                coach_label: "AI Speaking Coach", coach_title: "3 типа учителя. Одна цель:<br>заставить вас говорить.", coach_sub: "Живой голосовой диалог, точное исправление каждой ошибки и оценка уровня IELTS — на 8 языках.", coach_m1n: "Обычный учитель", coach_m1d: "Профессионально и точно. Исправляет каждую ошибку с объяснением.", coach_m2n: "Добрый учитель", coach_m2d: "Всегда поддерживает и хвалит. Идеален для новичков.", coach_m3n: "Строгий учитель", coach_m3d: "Ругает даже за мелочи. Выбирай, если нужен результат.", coach_cta: "Попробовать сейчас", coach_price: "100 токенов / минута", how_label: "Как это работает", how_title: "Результат за 4 шага", how_s1n: "Зарегистрируйтесь", how_s1d: "Бесплатный аккаунт — 1000 токенов в подарок, карта не нужна.", how_s2n: "Выберите язык и учителя", how_s2d: "8 языков, 3 характера учителя и ваш уровень.", how_s3n: "Практикуйтесь с AI", how_s3d: "Reading, Listening, Writing, Speaking — каждый урок подстраивается под ваши ошибки.", how_s4n: "Выходите на экзамен", how_s4d: "AI не отпустит вас, пока не доведёт до уровня IELTS.",
+                footer_copy: "© 2025 LinguaVerse. Все права защищены."
+            },
+
+            es: {
+                nav_langs: "Idiomas", nav_features: "Funciones", nav_plans: "Planes",
+                nav_leaderboard: "Ranking", nav_admin: "Admin", nav_login: "Entrar", nav_start: "Empezar →",
+                bar_home: "Inicio", bar_langs: "Idiomas", bar_shop: "Tienda",
+                bar_profile: "Perfil", bar_plans: "Planes", bar_speak: "Speaking Coach",
+                hero_badge: "Plataforma de idiomas potenciada por IA",
+                hero_h1_line1: "Cualquier idioma", hero_h1_line2: " Aprende rápido.",
+                hero_p: "8 idiomas, 480+ lecciones, compañero de IA y clasificación en tiempo real — lleva tu aprendizaje al siguiente nivel.",
+                hero_btn1: "Empezar gratis →", hero_btn2: "Ver idiomas", hero_btn3: "AI Speaking Coach",
+                stat_langs: "Idiomas", stat_lessons: "Lecciones", stat_students: "Estudiantes", stat_rating: "Tutor AI",
+                sec_langs_label: "Idiomas", sec_langs_title: "8 idiomas del mundo,<br>una plataforma",
+                sec_langs_sub: "Lecciones diseñadas especialmente para cada idioma, compañero de IA y tests de gramática.",
+                lang_english: "Inglés", lang_russian: "Ruso", lang_korean: "Coreano",
+                lang_chinese: "Chino", lang_arabic: "Árabe", lang_spanish: "Español", lang_turkish: "Turco",
+                tag_popular: "El más popular", tag_popular2: "Popular", tag_new: "Nuevo", tag_new2: "Nuevo",
+                learners_en: "60 unidades · 500+ palabras · AI Coach",
+                learners_ru: "60 unidades · 500+ palabras · AI Coach",
+                learners_ko: "60 unidades · 500+ palabras · AI Coach",
+                learners_zh: "60 unidades · 500+ palabras · AI Coach",
+                learners_ar: "60 unidades · 500+ palabras · AI Coach",
+                learners_es: "60 unidades · 500+ palabras · AI Coach",
+                learners_tr: "60 unidades · 500+ palabras · AI Coach",
+                sec_feat_label: "Funciones", sec_feat_title: "Todo lo que necesitas<br>en un solo lugar",
+                sec_feat_sub: "Un sistema moderno que hace el aprendizaje divertido y efectivo.",
+                feat1_title: "Compañero de IA", feat1_desc: "Practica con AI en cualquier momento. Conversación real, respuesta rápida.",
+                feat2_title: "Tabla de clasificación", feat2_desc: "Compite en el ranking global y con amigos. Acumula XP.",
+                feat3_title: "Sistema de monedas", feat3_desc: "Gana monedas completando lecciones. Canjéalas por ventajas extra.",
+                feat4_title: "Recompensa diaria", feat4_desc: "Inicia sesión cada día y gana recompensas especiales. ¡Mantén tu racha!",
+                feat5_title: "Seguimiento del progreso", feat5_desc: "Monitorea tu desarrollo. Estadísticas, gráficos y análisis.",
+                feat6_title: "Sistema de unidades", feat6_desc: "Aprende paso a paso con lecciones estructuradas. De A1 a C2.",
+                feat7_title: "Modo equipo", feat7_desc: "Aprende y compite con amigos en el plan Team.",
+                feat8_title: "Lecciones sin conexión", feat8_desc: "Continúa las lecciones en modo offline con el plan Universal.",
+                sec_plans_label: "Precios", sec_plans_title: "Elige el plan adecuado para ti",
+                sec_plans_sub: "Desde gratis hasta profesional — hay una opción para todos.",
+                billing_monthly: "Mensual", billing_yearly: "Anual", billing_discount: "40% descuento",
+                plan_free_name: "Gratis", plan_free_desc: "Perfecto para empezar. Conoce las funciones básicas.",
+                plan_free_period: "Gratis para siempre",
+                plan_free_f1: "<strong>2</strong> lecciones AI al día",
+                plan_free_f2: "<strong>1000 tokens</strong> / reinicio cada 5 h",
+                plan_free_f3: "Chat AI: 1 token / pregunta",
+                plan_free_f4: "Speaking Coach: <strong>100 tokens</strong>/min",
+                plan_free_f5: "Sistema de monedas y XP",
+                free_limits: "Límites: 2 lecciones AI/día · 1000 tokens/5 h · Crear lección 400 tokens · Speaking Coach 100 tokens/min",
+                plan_free_btn: "Empezar gratis",
+                plan_own_badge: "El más popular",
+                plan_own_desc: "Funcionalidad completa para un usuario.",
+                plan_own_f1: "<strong>20+ funciones</strong> ilimitadas", plan_own_f2: "Chat ilimitado con IA",
+                plan_own_f3: "Todos los idiomas completamente abiertos", plan_own_f4: "Sin anuncios",
+                plan_own_f5: "Soporte prioritario", plan_own_f6: "Lecciones offline",
+                plan_buy_btn: "Comprar →", plan_buy_btn2: "Comprar →", plan_buy_btn3: "Comprar →",
+                plan_team_desc: "Para equipos. Añade amigos compartiendo un enlace.",
+                plan_team_f1: "<strong>50+ funciones</strong>", plan_team_f2: "Clasificación de equipo",
+                plan_team_f3: "Opción de compartir enlace", plan_team_f4: "Estadísticas de grupo",
+                plan_team_f5: "Todas las funciones Own",
+                plan_uni_desc: "Todo. Sin límites. La mejor experiencia.",
+                plan_uni_f1: "<strong>100+ funciones</strong> completas", plan_uni_f2: "Bonos de recompensa diaria x2",
+                plan_uni_f3: "XP Boost x3", plan_uni_f4: "Tienda exclusiva de monedas",
+                plan_uni_f5: "Chat de voz con IA", plan_uni_f6: "Todas las funciones Team",
+                per_month: "/ mes", per_month2: "/ mes", per_month3: "/ mes",
+                plans_note: "Pago: foto de tarjeta bancaria + nota → El admin verifica y activa tu plan",
+                sec_lb_label: "Ranking", sec_lb_title: "Clasificación Global",
+                sec_lb_sub: "Acumula más XP y sube posiciones. ¡Premios semanales!",
+                lb_this_week: "Ranking de esta semana", lb_xp_based: "Por XP",
+                loading: "Cargando...",
+                cta_title: "Empieza hoy.<br><span class=\"gradient-text\">Gratis.</span>",
+                cta_sub: "No necesitas tarjeta de crédito. Regístrate en un minuto y comienza tu primera lección.",
+                cta_btn1: "Registrarse gratis →", cta_btn2: "Comparar planes",
+                footer_about: "Sobre nosotros", footer_terms: "Términos", footer_privacy: "Privacidad",
+                coach_label: "AI Speaking Coach", coach_title: "3 profesores. Un objetivo:<br>hacerte hablar.", coach_sub: "Conversación de voz en vivo, corrección precisa y evaluación nivel IELTS — en 8 idiomas.", coach_m1n: "Profesor normal", coach_m1d: "Profesional y preciso. Corrige cada error con explicación.", coach_m2n: "Profesor amable", coach_m2d: "Siempre te apoya y elogia. Ideal para principiantes.", coach_m3n: "Profesor estricto", coach_m3d: "Regaña hasta por errores mínimos. Elígelo si quieres resultados.", coach_cta: "Probar ahora", coach_price: "100 tokens / minuto", how_label: "Cómo funciona", how_title: "Resultados en 4 pasos", how_s1n: "Regístrate", how_s1d: "Cuenta gratis — 1000 tokens de regalo, sin tarjeta.", how_s2n: "Elige idioma y profesor", how_s2d: "8 idiomas, 3 personalidades y tu nivel.", how_s3n: "Practica con AI", how_s3d: "Reading, Listening, Writing, Speaking — cada lección se adapta a tus errores.", how_s4n: "Llega al examen", how_s4d: "La AI no te suelta hasta llevarte al nivel IELTS.",
+                footer_copy: "© 2025 LinguaVerse. Todos los derechos reservados."
+            },
+
+            tr: {
+                nav_langs: "Diller", nav_features: "Özellikler", nav_plans: "Planlar",
+                nav_leaderboard: "Sıralama", nav_admin: "Admin", nav_login: "Giriş", nav_start: "Başla →",
+                bar_home: "Ana Sayfa", bar_langs: "Diller", bar_shop: "Mağaza",
+                bar_profile: "Profil", bar_plans: "Planlar", bar_speak: "Speaking Coach",
+                hero_badge: "Yapay zeka destekli dil öğrenme platformu",
+                hero_h1_line1: "Her dili", hero_h1_line2: " Hızlı öğren.",
+                hero_p: "8 dil, 480+ ders, AI konuşma ortağı ve gerçek zamanlı sıralama ile dil öğrenimini üst seviyeye taşı.",
+                hero_btn1: "Ücretsiz başla →", hero_btn2: "Dilleri gör", hero_btn3: "AI Speaking Coach",
+                stat_langs: "Diller", stat_lessons: "Dersler", stat_students: "Öğrenciler", stat_rating: "AI Öğretmen",
+                sec_langs_label: "Diller", sec_langs_title: "8 dünya dili,<br>tek platformda",
+                sec_langs_sub: "Her dil için özel hazırlanmış dersler, AI konuşma ortağı ve gramer testleri.",
+                lang_english: "İngilizce", lang_russian: "Rusça", lang_korean: "Korece",
+                lang_chinese: "Çince", lang_arabic: "Arapça", lang_spanish: "İspanyolca", lang_turkish: "Türkçe",
+                tag_popular: "En popüler", tag_popular2: "Popüler", tag_new: "Yeni", tag_new2: "Yeni",
+                learners_en: "60 ünite · 500+ kelime · AI Coach",
+                learners_ru: "60 ünite · 500+ kelime · AI Coach",
+                learners_ko: "60 ünite · 500+ kelime · AI Coach",
+                learners_zh: "60 ünite · 500+ kelime · AI Coach",
+                learners_ar: "60 ünite · 500+ kelime · AI Coach",
+                learners_es: "60 ünite · 500+ kelime · AI Coach",
+                learners_tr: "60 ünite · 500+ kelime · AI Coach",
+                sec_feat_label: "Özellikler", sec_feat_title: "Her şey<br>tek yerde",
+                sec_feat_sub: "Öğrenmeyi eğlenceli ve verimli kılan modern sistem.",
+                feat1_title: "AI Konuşma Ortağı", feat1_desc: "AI ile istediğin zaman pratik yap. Gerçek sohbet, hızlı yanıt.",
+                feat2_title: "Sıralama Tablosu", feat2_desc: "Global ve arkadaş sıralamalarında rekabet et. XP kazan.",
+                feat3_title: "Coin Sistemi", feat3_desc: "Dersleri tamamlayıp coin kazan. Ekstra özellikler için harca.",
+                feat4_title: "Günlük Ödül", feat4_desc: "Her gün gir ve özel ödüller kazan. Seriyi koru!",
+                feat5_title: "İlerleme Takibi", feat5_desc: "Gelişimini izle. İstatistik, grafik ve analiz.",
+                feat6_title: "Ünite Sistemi", feat6_desc: "Yapılandırılmış derslerle adım adım öğren. A1'den C2'ye.",
+                feat7_title: "Takım Modu", feat7_desc: "Team planında arkadaşlarınla birlikte öğren ve rekabet et.",
+                feat8_title: "Çevrimdışı Dersler", feat8_desc: "Universal planda dersleri çevrimdışı modda da sürdür.",
+                sec_plans_label: "Fiyatlar", sec_plans_title: "Sana uygun planı seç",
+                sec_plans_sub: "Ücretsizden profesyonele — herkes için bir seçenek var.",
+                billing_monthly: "Aylık", billing_yearly: "Yıllık", billing_discount: "%40 indirim",
+                plan_free_name: "Ücretsiz", plan_free_desc: "Başlamak için mükemmel. Temel özelliklerle tanış.",
+                plan_free_period: "Sonsuza kadar ücretsiz",
+                plan_free_f1: "Günde <strong>2</strong> AI dersi",
+                plan_free_f2: "<strong>1000 jeton</strong> / 5 saatte sıfırlanır",
+                plan_free_f3: "AI sohbet: 1 jeton / soru",
+                plan_free_f4: "Speaking Coach: <strong>100 jeton</strong>/dk",
+                plan_free_f5: "Coin ve XP sistemi",
+                free_limits: "Limitler: 2 AI ders/gün · 1000 jeton/5 saat · Ders oluşturma 400 jeton · Speaking Coach 100 jeton/dk",
+                plan_free_btn: "Ücretsiz başla",
+                plan_own_badge: "En popüler",
+                plan_own_desc: "Tek kullanıcı için tam özellik.",
+                plan_own_f1: "<strong>20+ özellik</strong> sınırsız", plan_own_f2: "AI ile sınırsız sohbet",
+                plan_own_f3: "Tüm diller tam açık", plan_own_f4: "Reklamsız",
+                plan_own_f5: "Öncelikli destek", plan_own_f6: "Çevrimdışı dersler",
+                plan_buy_btn: "Satın al →", plan_buy_btn2: "Satın al →", plan_buy_btn3: "Satın al →",
+                plan_team_desc: "Takım için. Bağlantı paylaşarak arkadaşlarını ekle.",
+                plan_team_f1: "<strong>50+ özellik</strong>", plan_team_f2: "Takım sıralama tablosu",
+                plan_team_f3: "Bağlantı paylaşma imkânı", plan_team_f4: "Grup istatistikleri",
+                plan_team_f5: "Tüm Own özellikleri",
+                plan_uni_desc: "Her şey. Sınırsız. En iyi deneyim için.",
+                plan_uni_f1: "<strong>100+ özellik</strong> tamamı", plan_uni_f2: "Günlük ödül bonusları x2",
+                plan_uni_f3: "XP Boost x3", plan_uni_f4: "Özel coin mağazası",
+                plan_uni_f5: "AI sesli sohbet", plan_uni_f6: "Tüm Team özellikleri",
+                per_month: "/ ay", per_month2: "/ ay", per_month3: "/ ay",
+                plans_note: "Ödeme: Banka kartı fotoğrafı + not → Admin onaylar ve planını etkinleştirir",
+                sec_lb_label: "Sıralama", sec_lb_title: "Global Sıralama Tablosu",
+                sec_lb_sub: "Daha fazla XP kazan ve yukarı çık. Haftalık ödüller!",
+                lb_this_week: "Bu haftanın sıralaması", lb_xp_based: "XP'ye göre",
+                loading: "Yükleniyor...",
+                cta_title: "Bugün başla.<br><span class=\"gradient-text\">Ücretsiz.</span>",
+                cta_sub: "Kredi kartı gerekmez. Bir dakikada kayıt ol ve ilk derse başla.",
+                cta_btn1: "Ücretsiz kayıt ol →", cta_btn2: "Planları karşılaştır",
+                footer_about: "Hakkında", footer_terms: "Koşullar", footer_privacy: "Gizlilik",
+                coach_label: "AI Speaking Coach", coach_title: "3 öğretmen tipi. Tek hedef:<br>seni konuşturmak.", coach_sub: "Canlı sesli sohbet, her hataya net düzeltme ve IELTS seviyesinde değerlendirme — 8 dilde.", coach_m1n: "Normal öğretmen", coach_m1d: "Profesyonel ve net. Her hatayı açıklayarak düzeltir.", coach_m2n: "Nazik öğretmen", coach_m2d: "Her zaman destekler ve över. Yeni başlayanlar için ideal.", coach_m3n: "Sert öğretmen", coach_m3d: "En küçük hataya bile kızar. Sonuç istiyorsan bunu seç.", coach_cta: "Şimdi dene", coach_price: "100 jeton / dakika", how_label: "Nasıl çalışır", how_title: "4 adımda sonuç", how_s1n: "Kayıt ol", how_s1d: "Ücretsiz hesap — 1000 jeton hediye, kart gerekmez.", how_s2n: "Dil ve öğretmen seç", how_s2d: "8 dil, 3 öğretmen karakteri ve seviyeniz.", how_s3n: "AI ile pratik yap", how_s3d: "Reading, Listening, Writing, Speaking — her ders hatalarına uyum sağlar.", how_s4n: "Sınava gir", how_s4d: "AI seni IELTS seviyesine getirene kadar bırakmaz.",
+                footer_copy: "© 2025 LinguaVerse. Tüm hakları saklıdır."
+            },
+
+            ar: {
+                nav_langs: "اللغات", nav_features: "المميزات", nav_plans: "الخطط",
+                nav_leaderboard: "الترتيب", nav_admin: "المشرف", nav_login: "دخول", nav_start: "ابدأ ←",
+                bar_home: "الرئيسية", bar_langs: "اللغات", bar_shop: "المتجر",
+                bar_profile: "الملف الشخصي", bar_plans: "الخطط", bar_speak: "Speaking Coach",
+                hero_badge: "منصة تعلّم اللغات بالذكاء الاصطناعي",
+                hero_h1_line1: "تعلّم أي لغة", hero_h1_line2: " بسرعة.",
+                hero_p: "٧ لغات، ١٠٠+ درس، رفيق محادثة بالذكاء الاصطناعي وترتيب فوري — ارتقِ بتعلّم اللغات إلى مستوى آخر.",
+                hero_btn1: "ابدأ مجاناً ←", hero_btn2: "اكتشف اللغات", hero_btn3: "AI Speaking Coach",
+                stat_langs: "لغات", stat_lessons: "دروس", stat_students: "طلاب", stat_rating: "معلم AI",
+                sec_langs_label: "اللغات", sec_langs_title: "٧ لغات عالمية،<br>منصة واحدة",
+                sec_langs_sub: "دروس مصمّمة خصيصاً لكل لغة، ورفيق محادثة بالذكاء الاصطناعي، واختبارات نحوية.",
+                lang_english: "الإنجليزية", lang_russian: "الروسية", lang_korean: "الكورية",
+                lang_chinese: "الصينية", lang_arabic: "العربية", lang_spanish: "الإسبانية", lang_turkish: "التركية",
+                tag_popular: "الأكثر شعبية", tag_popular2: "شائع", tag_new: "جديد", tag_new2: "جديد",
+                learners_en: "60 وحدة · +500 كلمة · AI Coach",
+                learners_ru: "60 وحدة · +500 كلمة · AI Coach",
+                learners_ko: "60 وحدة · +500 كلمة · AI Coach",
+                learners_zh: "60 وحدة · +500 كلمة · AI Coach",
+                learners_ar: "60 وحدة · +500 كلمة · AI Coach",
+                learners_es: "60 وحدة · +500 كلمة · AI Coach",
+                learners_tr: "60 وحدة · +500 كلمة · AI Coach",
+                sec_feat_label: "المميزات", sec_feat_title: "كل ما تحتاجه<br>في مكان واحد",
+                sec_feat_sub: "نظام حديث يجعل التعلّم ممتعاً وفعّالاً.",
+                feat1_title: "رفيق المحادثة بالذكاء الاصطناعي", feat1_desc: "تدرّب مع AI في أي وقت. محادثة حقيقية، ردّ فوري.",
+                feat2_title: "لوحة المتصدرين", feat2_desc: "تنافس في الترتيب العالمي ومع الأصدقاء. اجمع XP.",
+                feat3_title: "نظام العملات", feat3_desc: "اكسب عملات بإتمام الدروس. أنفقها على مزايا إضافية.",
+                feat4_title: "المكافأة اليومية", feat4_desc: "سجّل دخولك كل يوم واكسب مكافآت خاصة. حافظ على سلسلتك!",
+                feat5_title: "تتبّع التقدّم", feat5_desc: "راقب تطوّرك. إحصائيات، رسوم بيانية وتحليلات.",
+                feat6_title: "نظام الوحدات", feat6_desc: "تعلّم خطوة بخطوة عبر دروس منظّمة. من A1 إلى C2.",
+                feat7_title: "وضع الفريق", feat7_desc: "تعلّم وتنافس مع أصدقائك في خطة الفريق.",
+                feat8_title: "دروس بلا إنترنت", feat8_desc: "واصل دروسك في وضع عدم الاتصال مع خطة Universal.",
+                sec_plans_label: "الأسعار", sec_plans_title: "اختر الخطة المناسبة لك",
+                sec_plans_sub: "من المجاني إلى الاحترافي — هناك خيار للجميع.",
+                billing_monthly: "شهري", billing_yearly: "سنوي", billing_discount: "خصم ٤٠٪",
+                plan_free_name: "مجاني", plan_free_desc: "مثالي للبدء. تعرّف على المميزات الأساسية.",
+                plan_free_period: "مجاني للأبد",
+                plan_free_f1: "<strong>درسان AI</strong> يوميًا",
+                plan_free_f2: "<strong>1000 رمز</strong> / إعادة كل 5 ساعات",
+                plan_free_f3: "محادثة AI: رمز واحد / سؤال",
+                plan_free_f4: "مدرب المحادثة: <strong>100 رمز</strong>/دقيقة",
+                plan_free_f5: "نظام العملات وXP",
+                free_limits: "الحدود: درسان AI/يوم · 1000 رمز/5 ساعات · إنشاء درس 400 رمز · مدرب المحادثة 100 رمز/دقيقة",
+                plan_free_btn: "ابدأ مجاناً",
+                plan_own_badge: "الأكثر شعبية",
+                plan_own_desc: "كامل المميزات لمستخدم واحد.",
+                plan_own_f1: "<strong>٢٠+ ميزة</strong> بلا حدود", plan_own_f2: "محادثة غير محدودة مع الذكاء الاصطناعي",
+                plan_own_f3: "جميع اللغات مفتوحة بالكامل", plan_own_f4: "بلا إعلانات",
+                plan_own_f5: "دعم ذو أولوية", plan_own_f6: "دروس بلا إنترنت",
+                plan_buy_btn: "شراء ←", plan_buy_btn2: "شراء ←", plan_buy_btn3: "شراء ←",
+                plan_team_desc: "للفرق. أضف أصدقاءك بمشاركة رابط.",
+                plan_team_f1: "<strong>٥٠+ ميزة</strong>", plan_team_f2: "لوحة متصدرين الفريق",
+                plan_team_f3: "إمكانية مشاركة الرابط", plan_team_f4: "إحصائيات المجموعة",
+                plan_team_f5: "جميع مميزات Own",
+                plan_uni_desc: "كل شيء. بلا حدود. لأفضل تجربة.",
+                plan_uni_f1: "<strong>١٠٠+ ميزة</strong> كاملة", plan_uni_f2: "مكافآت يومية مضاعفة x2",
+                plan_uni_f3: "XP Boost x3", plan_uni_f4: "متجر عملات حصري",
+                plan_uni_f5: "محادثة صوتية بالذكاء الاصطناعي", plan_uni_f6: "جميع مميزات Team",
+                per_month: "/ شهرياً", per_month2: "/ شهرياً", per_month3: "/ شهرياً",
+                plans_note: "للدفع: صورة بطاقة بنكية + ملاحظة → يراجع المشرف ويفعّل خطتك",
+                sec_lb_label: "الترتيب", sec_lb_title: "لوحة المتصدرين العالمية",
+                sec_lb_sub: "اجمع أكبر قدر من XP وتصعّد. جوائز أسبوعية!",
+                lb_this_week: "ترتيب هذا الأسبوع", lb_xp_based: "حسب XP",
+                loading: "جارٍ التحميل...",
+                cta_title: "ابدأ اليوم.<br><span class=\"gradient-text\">مجاناً.</span>",
+                cta_sub: "لا تحتاج بطاقة ائتمانية. سجّل في دقيقة وابدأ أول درس.",
+                cta_btn1: "سجّل مجاناً ←", cta_btn2: "قارن الخطط",
+                footer_about: "عن المنصة", footer_terms: "الشروط", footer_privacy: "الخصوصية",
+                coach_label: "مدرب المحادثة AI", coach_title: "3 أنواع معلمين. هدف واحد:<br>جعلك تتحدث.", coach_sub: "محادثة صوتية حية وتصحيح دقيق لكل خطأ وتقييم بمستوى IELTS — بثماني لغات.", coach_m1n: "معلم عادي", coach_m1d: "محترف ودقيق. يصحح كل خطأ مع الشرح.", coach_m2n: "معلم لطيف", coach_m2d: "يدعمك ويمدحك دائماً. مثالي للمبتدئين.", coach_m3n: "معلم صارم", coach_m3d: "يوبخ على أصغر خطأ. اختره إذا أردت النتيجة.", coach_cta: "جرّب الآن", coach_price: "100 رمز / دقيقة", how_label: "كيف يعمل", how_title: "النتيجة في 4 خطوات", how_s1n: "سجّل", how_s1d: "حساب مجاني — 1000 رمز هدية، بدون بطاقة.", how_s2n: "اختر اللغة والمعلم", how_s2d: "8 لغات و3 شخصيات للمعلم ومستواك.", how_s3n: "تدرّب مع AI", how_s3d: "قراءة واستماع وكتابة ومحادثة — كل درس يتكيف مع أخطائك.", how_s4n: "ادخل الامتحان", how_s4d: "لن يتركك الذكاء الاصطناعي حتى تصل لمستوى IELTS.",
+                footer_copy: "© 2025 LinguaVerse. جميع الحقوق محفوظة."
+            },
+
+            de: {
+                nav_langs: "Sprachen", nav_features: "Funktionen", nav_plans: "Pläne",
+                nav_leaderboard: "Rangliste", nav_admin: "Admin", nav_login: "Anmelden", nav_start: "Loslegen →",
+                bar_home: "Startseite", bar_langs: "Sprachen", bar_shop: "Shop",
+                bar_profile: "Profil", bar_plans: "Pläne", bar_speak: "Speaking Coach",
+                hero_badge: "KI-gestützte Sprachlernplattform",
+                hero_h1_line1: "Jede Sprache", hero_h1_line2: " Schnell lernen.",
+                hero_p: "8 Sprachen, 480+ Lektionen, KI-Gesprächspartner und Echtzeit-Rangliste — bring dein Sprachlernen auf die nächste Stufe.",
+                hero_btn1: "Kostenlos starten →", hero_btn2: "Sprachen entdecken", hero_btn3: "AI Speaking Coach",
+                stat_langs: "Sprachen", stat_lessons: "Lektionen", stat_students: "Lernende", stat_rating: "AI Tutor",
+                sec_langs_label: "Sprachen", sec_langs_title: "8 Weltsprachen,<br>eine Plattform",
+                sec_langs_sub: "Speziell entwickelte Lektionen, KI-Gesprächspartner und Grammatiktests für jede Sprache.",
+                lang_english: "Englisch", lang_russian: "Russisch", lang_korean: "Koreanisch",
+                lang_chinese: "Chinesisch", lang_arabic: "Arabisch", lang_spanish: "Spanisch", lang_turkish: "Türkisch",
+                tag_popular: "Am beliebtesten", tag_popular2: "Beliebt", tag_new: "Neu", tag_new2: "Neu",
+                learners_en: "60 Units · 500+ Wörter · AI Coach",
+                learners_ru: "60 Units · 500+ Wörter · AI Coach",
+                learners_ko: "60 Units · 500+ Wörter · AI Coach",
+                learners_zh: "60 Units · 500+ Wörter · AI Coach",
+                learners_ar: "60 Units · 500+ Wörter · AI Coach",
+                learners_es: "60 Units · 500+ Wörter · AI Coach",
+                learners_tr: "60 Units · 500+ Wörter · AI Coach",
+                sec_feat_label: "Funktionen", sec_feat_title: "Alles was du brauchst<br>an einem Ort",
+                sec_feat_sub: "Ein modernes System, das Lernen spannend und effektiv macht.",
+                feat1_title: "KI-Gesprächspartner", feat1_desc: "Übe jederzeit mit AI. Echtes Gespräch, schnelle Antwort.",
+                feat2_title: "Rangliste", feat2_desc: "Konkurriere in der globalen und Freundesrangliste. Sammle XP.",
+                feat3_title: "Münzsystem", feat3_desc: "Verdiene Münzen durch abgeschlossene Lektionen. Tausche sie gegen Extras.",
+                feat4_title: "Tägliche Belohnung", feat4_desc: "Melde dich täglich an und verdiene besondere Belohnungen. Halte deine Serie!",
+                feat5_title: "Fortschrittsverfolgung", feat5_desc: "Beobachte deine Entwicklung. Statistiken, Grafiken und Analysen.",
+                feat6_title: "Einheitensystem", feat6_desc: "Lerne Schritt für Schritt durch strukturierte Lektionen. Von A1 bis C2.",
+                feat7_title: "Team-Modus", feat7_desc: "Lerne und konkurriere mit Freunden im Team-Plan.",
+                feat8_title: "Offline-Lektionen", feat8_desc: "Setze Lektionen im Universal-Plan auch im Offline-Modus fort.",
+                sec_plans_label: "Preise", sec_plans_title: "Wähle den richtigen Plan für dich",
+                sec_plans_sub: "Von kostenlos bis professionell — für jeden ist etwas dabei.",
+                billing_monthly: "Monatlich", billing_yearly: "Jährlich", billing_discount: "40% Rabatt",
+                plan_free_name: "Kostenlos", plan_free_desc: "Perfekt zum Einstieg. Lerne die Grundfunktionen kennen.",
+                plan_free_period: "Für immer kostenlos",
+                plan_free_f1: "<strong>2</strong> AI-Lektionen pro Tag",
+                plan_free_f2: "<strong>1000 Token</strong> / Reset alle 5 Std",
+                plan_free_f3: "AI-Chat: 1 Token / Frage",
+                plan_free_f4: "Speaking Coach: <strong>100 Token</strong>/Min",
+                plan_free_f5: "Coin- und XP-System",
+                free_limits: "Limits: 2 AI-Lektionen/Tag · 1000 Token/5 Std · Lektion erstellen 400 Token · Speaking Coach 100 Token/Min",
+                plan_free_btn: "Kostenlos starten",
+                plan_own_badge: "Am beliebtesten",
+                plan_own_desc: "Vollständiger Funktionsumfang für einen Nutzer.",
+                plan_own_f1: "<strong>20+ Funktionen</strong> unbegrenzt", plan_own_f2: "Unbegrenzte KI-Gespräche",
+                plan_own_f3: "Alle Sprachen vollständig freigeschaltet", plan_own_f4: "Werbefrei",
+                plan_own_f5: "Prioritätssupport", plan_own_f6: "Offline-Lektionen",
+                plan_buy_btn: "Kaufen →", plan_buy_btn2: "Kaufen →", plan_buy_btn3: "Kaufen →",
+                plan_team_desc: "Für Teams. Füge Freunde über einen Link hinzu.",
+                plan_team_f1: "<strong>50+ Funktionen</strong>", plan_team_f2: "Team-Rangliste",
+                plan_team_f3: "Link-Sharing-Option", plan_team_f4: "Gruppenstatistiken",
+                plan_team_f5: "Alle Own-Funktionen",
+                plan_uni_desc: "Alles. Unbegrenzt. Für das beste Erlebnis.",
+                plan_uni_f1: "<strong>100+ Funktionen</strong> vollständig", plan_uni_f2: "Tägliche Belohnungsboni x2",
+                plan_uni_f3: "XP Boost x3", plan_uni_f4: "Exklusiver Münzshop",
+                plan_uni_f5: "KI-Sprachchat", plan_uni_f6: "Alle Team-Funktionen",
+                per_month: "/ Monat", per_month2: "/ Monat", per_month3: "/ Monat",
+                plans_note: "Zahlung: Foto der Bankkarte + Notiz → Admin prüft und aktiviert deinen Plan",
+                sec_lb_label: "Rangliste", sec_lb_title: "Globale Rangliste",
+                sec_lb_sub: "Sammle mehr XP und steige auf. Wöchentliche Preise!",
+                lb_this_week: "Rangliste dieser Woche", lb_xp_based: "Nach XP",
+                loading: "Wird geladen...",
+                cta_title: "Starte heute.<br><span class=\"gradient-text\">Kostenlos.</span>",
+                cta_sub: "Keine Kreditkarte nötig. Registriere dich in einer Minute und starte deine erste Lektion.",
+                cta_btn1: "Kostenlos registrieren →", cta_btn2: "Pläne vergleichen",
+                footer_about: "Über uns", footer_terms: "Bedingungen", footer_privacy: "Datenschutz",
+                coach_label: "AI Speaking Coach", coach_title: "3 Lehrertypen. Ein Ziel:<br>dich zum Sprechen bringen.", coach_sub: "Live-Sprachgespräch, präzise Korrektur jedes Fehlers und Bewertung auf IELTS-Niveau — in 8 Sprachen.", coach_m1n: "Normaler Lehrer", coach_m1d: "Professionell und präzise. Korrigiert jeden Fehler mit Erklärung.", coach_m2n: "Freundlicher Lehrer", coach_m2d: "Unterstützt und lobt immer. Ideal für Anfänger.", coach_m3n: "Strenger Lehrer", coach_m3d: "Schimpft bei jedem kleinen Fehler. Wähle ihn für Ergebnisse.", coach_cta: "Jetzt ausprobieren", coach_price: "100 Token / Minute", how_label: "So funktioniert es", how_title: "Ergebnis in 4 Schritten", how_s1n: "Registrieren", how_s1d: "Kostenloses Konto — 1000 Token geschenkt, keine Karte nötig.", how_s2n: "Sprache & Lehrer wählen", how_s2d: "8 Sprachen, 3 Lehrertypen und dein Niveau.", how_s3n: "Mit AI üben", how_s3d: "Reading, Listening, Writing, Speaking — jede Lektion passt sich deinen Fehlern an.", how_s4n: "Zur Prüfung antreten", how_s4d: "Die AI lässt dich nicht los, bis du IELTS-Niveau erreichst.",
+                footer_copy: "© 2025 LinguaVerse. Alle Rechte vorbehalten."
+            }
+        };
+
+        const LANG_META = {
+            uz: { flag: "🇺🇿", name: "UZ", dir: "ltr", htmlLang: "uz" },
+            ru: { flag: "🇷🇺", name: "RU", dir: "ltr", htmlLang: "ru" },
+            es: { flag: "🇪🇸", name: "ES", dir: "ltr", htmlLang: "es" },
+            tr: { flag: "🇹🇷", name: "TR", dir: "ltr", htmlLang: "tr" },
+            ar: { flag: "🇸🇦", name: "AR", dir: "rtl", htmlLang: "ar" },
+            de: { flag: "🇩🇪", name: "DE", dir: "ltr", htmlLang: "de" }
+        };
+
+        /* ────────────────────────────────────────────
+           APPLY TRANSLATIONS
+        ──────────────────────────────────────────── */
+        let currentLang = localStorage.getItem('lv_lang') || 'uz';
+
+        function applyTranslations(lang) {
+            const t = TRANSLATIONS[lang];
+            if (!t) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            const meta = LANG_META[lang];
+            document.documentElement.lang = meta.htmlLang;
+            document.documentElement.dir = meta.dir;
+
+            document.getElementById('currentFlag').textContent = meta.flag;
+            document.getElementById('currentLangName').textContent = meta.name;
+
+            // mark active option
+            document.querySelectorAll('.lang-option').forEach(opt => {
+                opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+            });
+        }
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('lv_lang', lang);
+            applyTranslations(lang);
+            closeLangMenu();
+        }
+
+        /* ────────────────────────────────────────────
+           LANG DROPDOWN TOGGLE
+        ──────────────────────────────────────────── */
+        function toggleLangMenu() {
+            const btn = document.getElementById('langBtn');
+            const dd = document.getElementById('langDropdown');
+            const open = dd.classList.toggle('open');
+            btn.classList.toggle('open', open);
+        }
+
+        function closeLangMenu() {
+            document.getElementById('langDropdown').classList.remove('open');
+            document.getElementById('langBtn').classList.remove('open');
+        }
+
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.lang-switcher')) closeLangMenu();
+        });
+
+        /* ────────────────────────────────────────────
+           DARK / LIGHT TOGGLE
+        ──────────────────────────────────────────── */
+        let currentTheme = localStorage.getItem('lv_theme') || 'dark';
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const btn = document.getElementById('themeToggle');
+            if (btn) btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+            localStorage.setItem('lv_theme', theme);
+        }
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(currentTheme);
+        }
+
+        /* ────────────────────────────────────────────
+           PRICING TOGGLE
+        ──────────────────────────────────────────── */
+        let isYearly = false;
+        function togglePricing() {
+            isYearly = !isYearly;
+            document.getElementById('priceToggle').classList.toggle('yearly', isYearly);
+            document.getElementById('lbl-monthly').classList.toggle('active', !isYearly);
+            document.getElementById('lbl-yearly').classList.toggle('active', isYearly);
+            [['own', 9], ['team', 19], ['uni', 39]].forEach(([k, monthly]) => {
+                const yearly = Math.round(monthly * 0.6);
+                document.getElementById(k + '-price').textContent = isYearly ? yearly : monthly;
+                document.getElementById(k + '-period').textContent = isYearly
+                    ? (TRANSLATIONS[currentLang]?.per_month?.replace('/', '/ (yillik)') || '/ oyiga (yillik)')
+                    : (TRANSLATIONS[currentLang]?.per_month || '/ oyiga');
+                const orig = document.getElementById(k + '-original');
+                orig.textContent = '$' + monthly + '/oy';
+                orig.style.display = isYearly ? 'block' : 'none';
+            });
+        }
+
+        /* ────────────────────────────────────────────
+           NAVBAR SCROLL
+        ──────────────────────────────────────────── */
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        /* ────────────────────────────────────────────
+           REVEAL ON SCROLL
+        ──────────────────────────────────────────── */
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+
+        /* ────────────────────────────────────────────
+           PLAN HANDLERS (stubs — wire to auth later)
+        ──────────────────────────────────────────── */
+        window.handlePlanPurchase = function (planName) {
+            if (!window._currentUser) {
+                sessionStorage.setItem('intendedPlan', planName);
+                window.location.href = 'auth/register.html?redirect=order&plan=' + planName;
+            } else {
+                window.location.href = 'order.html?plan=' + planName;
+            }
+        };
+
+        window.handleFreePlan = function () {
+            if (!window._currentUser) {
+                window.location.href = 'auth/register.html';
+            } else {
+                window.location.href = 'select-language.html';
+            }
+        };
+
+        /* ────────────────────────────────────────────
+           INIT
+        ──────────────────────────────────────────── */
+        applyTheme(currentTheme);
+        applyTranslations(currentLang);
+    </script>
+
+    <!-- Firebase: auth + real ma'lumotlar -->
+    <script type="module">
+        import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getFirestore, collection, query, orderBy, limit, getDocs, doc, getDoc, getCountFromServer } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const app = getApps().length ? getApp() : initializeApp({
+            apiKey: "AIzaSyArSlWIz3Z9NsUZowCiFj-snKccQfDnm5w",
+            authDomain: "linguaverse-ebe09.firebaseapp.com",
+            projectId: "linguaverse-ebe09",
+            storageBucket: "linguaverse-ebe09.firebasestorage.app",
+            messagingSenderId: "130625454868",
+            appId: "1:130625454868:web:3f02871f64cb5f8af27801"
+        });
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const PLAN_LBL = { free: 'FREE', pro: 'PRO', premium: 'PREMIUM', ultimate: 'ULTIMATE', own: 'OWN', team: 'TEAM', universal: 'UNIVERSAL', vip: 'VIP' };
+
+        // ── AUTH: login qilganlarga to'liq real profil + site-bar ──
+        onAuthStateChanged(auth, async (user) => {
+            const navRight = document.getElementById('navRight');
+            const siteBar = document.getElementById('siteBar');
+            if (!user) {
+                window._currentUser = null;
+                if (siteBar) siteBar.style.display = 'none';
+                return; // mehmon: standart Kirish/Boshlash tugmalari qoladi
+            }
+            window._currentUser = user;
+            if (siteBar) siteBar.style.display = 'flex';
+
+            // Firestore'dan REAL ma'lumot: token, coin, XP, plan
+            let d = {};
+            try {
+                const snap = await getDoc(doc(db, 'users', user.uid));
+                if (snap.exists()) d = snap.data();
+            } catch (e) { console.warn(e); }
+
+            const name = d.displayName || user.displayName || user.email?.split('@')[0] || 'User';
+            const plan = PLAN_LBL[(d.plan || 'free').toLowerCase()] || 'FREE';
+            const tokens = (d.plan === 'ultimate') ? '∞' : (d.tokens ?? 0).toLocaleString();
+            const coins = (d.coins ?? 0).toLocaleString();
+            const xp = (d.xp ?? 0).toLocaleString();
+
+            navRight.innerHTML = `
+      <button class="theme-btn" id="themeToggle" title="Toggle theme" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">
+          <span id="currentFlag">🇺🇿</span>
+          <span id="currentLangName">UZ</span>
+          <i class="fa-solid fa-chevron-down arrow"></i>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <div class="lang-option" data-lang="uz" onclick="setLang('uz')"><span class="flag">🇺🇿</span> O'zbek</div>
+          <div class="lang-option" data-lang="ru" onclick="setLang('ru')"><span class="flag">🇷🇺</span> Русский</div>
+          <div class="lang-option" data-lang="es" onclick="setLang('es')"><span class="flag">🇪🇸</span> Español</div>
+          <div class="lang-option" data-lang="tr" onclick="setLang('tr')"><span class="flag">🇹🇷</span> Türkçe</div>
+          <div class="lang-option" data-lang="ar" onclick="setLang('ar')"><span class="flag">🇸🇦</span> العربية</div>
+          <div class="lang-option" data-lang="de" onclick="setLang('de')"><span class="flag">🇩🇪</span> Deutsch</div>
+        </div>
+      </div>
+      <span class="np-pill" style="color:#22d3ee;border-color:rgba(34,211,238,.3)" title="Tokenlar"><i class="fa-solid fa-ticket"></i> ${tokens}</span>
+      <span class="np-pill" style="color:var(--gold);border-color:rgba(245,200,66,.3)" title="Coinlar"><i class="fa-solid fa-coins"></i> ${coins}</span>
+      <span class="np-pill" style="color:var(--accent2);border-color:rgba(167,139,250,.3)" title="XP"><i class="fa-solid fa-star"></i> ${xp}</span>
+      <a class="nav-profile" href="languages-html/profile.html" title="Profil">
+        <div class="np-av">${name.charAt(0).toUpperCase()}</div>
+        <div class="np-info">
+          <div class="np-name">${name}</div>
+          <div class="np-plan"><i class="fa-solid fa-crown" style="font-size:.55rem"></i> ${plan}</div>
+        </div>
+      </a>
+      <button class="btn-logout" id="logoutBtn">Chiqish</button>`;
+
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                signOut(auth).then(() => window.location.reload());
+            });
+            applyTheme(localStorage.getItem('lv_theme') || 'dark');
+            applyTranslations(localStorage.getItem('lv_lang') || 'uz');
+        });
+
+        // ── REAL foydalanuvchilar soni ──
+        async function loadUserCount() {
+            const el = document.getElementById('statUsers');
+            if (!el) return;
+            try {
+                const c = await getCountFromServer(collection(db, 'users'));
+                const n = c.data().count;
+                el.innerHTML = n.toLocaleString() + '<span>+</span>';
+            } catch (e) { el.textContent = '1000+'; }
+        }
+        loadUserCount();
+
+        // ── REAL leaderboard (Firestore'dan) ──
+        async function loadLeaderboard() {
+            const lbBody = document.getElementById('lbBody');
+            try {
+                const q = query(collection(db, 'users'), orderBy('xp', 'desc'), limit(10));
+                const snapshot = await getDocs(q);
+                if (snapshot.empty) {
+                    lbBody.innerHTML = `<div class="lb-loading">Hali hech kim yo'q. Birinchi bo'l!</div>`;
+                    return;
+                }
+                const rankClasses = ['gold', 'silver', 'bronze'];
+                const grads = ['linear-gradient(135deg,#4f6ef7,#a78bfa)', 'linear-gradient(135deg,#a78bfa,#6d82f8)', 'linear-gradient(135deg,#f5c842,#e8a422)', 'linear-gradient(135deg,#34d399,#059669)', 'linear-gradient(135deg,#f87171,#dc2626)', 'linear-gradient(135deg,#38bdf8,#0284c7)', 'linear-gradient(135deg,#fb923c,#ea580c)', 'linear-gradient(135deg,#a3e635,#65a30d)', 'linear-gradient(135deg,#e879f9,#a21caf)', 'linear-gradient(135deg,#94a3b8,#475569)'];
+                let html = '';
+                snapshot.docs.forEach((docSnap, i) => {
+                    const d = docSnap.data();
+                    const name = d.displayName || d.email?.split('@')[0] || 'User';
+                    const xp = (d.xp || 0).toLocaleString();
+                    html += `<div class="lb-row"><div class="lb-rank ${rankClasses[i] || ''}">${i + 1}</div><div class="lb-avatar" style="background:${grads[i]}">${name.charAt(0).toUpperCase()}</div><div class="lb-name">${name}</div><div class="lb-xp">${xp} XP</div></div>`;
+                });
+                lbBody.innerHTML = html;
+            } catch (err) {
+                console.error(err);
+                lbBody.innerHTML = `<div class="lb-loading">Ma'lumotlarni yuklashda xato.</div>`;
+            }
+        }
+        loadLeaderboard();
+    </script>
+
+</body>
+
+</html>

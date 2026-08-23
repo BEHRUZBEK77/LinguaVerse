@@ -1,0 +1,147 @@
+/* ═══════════════════════════════════════════════════════════════════
+   LinguaVerse — YAGONA TEMA
+   Butun saytda bitta shrift, bitta rang palitrasi, bitta kursor qoidasi.
+
+   Har bir sahifaning o'z <style> bloki bor va ular bir-biriga zid edi:
+   6 xil shrift, 4 xil fon rangi, o'zgaruvchi nomlari ham har xil
+   (--font-b / --font-body / --font-h ...). Shu fayl hammasini bitta
+   qiymatga keltiradi.
+
+   MUHIM: bu fayl <head> ning ENG OXIRIDA ulanishi shart — CSS da bir xil
+   aniqlikdagi qoidalardan keyingisi yutadi. Sahifaning o'z <style> bloki
+   yuqorida turadi, shuning uchun bu fayl uni bosib o'tadi.
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── SHRIFTLAR ──
+     Sahifalar turli nom ishlatgani uchun barcha taxalluslar bir joyga */
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-head: 'Space Grotesk', var(--font-body);
+  --font-display: var(--font-head);
+  --font-b: var(--font-body);
+  --font-h: var(--font-head);
+  --font-d: var(--font-head);
+
+  /* ── FON ── quyudan yorug'ga */
+  --bg: #04060f;
+  --bg2: #080b16;
+  --bg3: #0d111e;
+  --bg4: #131829;
+  --surface: rgba(255, 255, 255, .035);
+  --surface2: rgba(255, 255, 255, .06);
+  --surface3: rgba(255, 255, 255, .09);
+  --nav-bg: rgba(4, 6, 15, .85);
+  --sidebar: #080b16;
+
+  /* ── MATN ── */
+  --text: #e8ecff;
+  --text2: #9aa3c4;
+  --text3: #6b7495;
+  --muted: #6b7495;
+
+  /* ── CHEGARA ── */
+  --border: rgba(255, 255, 255, .08);
+  --border2: rgba(255, 255, 255, .12);
+  --border-hi: rgba(79, 110, 247, .35);
+  --radius: 14px;
+
+  /* ── RANGLAR ── */
+  --accent: #4f6ef7;
+  --accent2: #a78bfa;
+  --purple: #a78bfa;
+  --cyan: #22d3ee;
+  --green: #34d399;
+  --success: #34d399;
+  --gold: #f5c842;
+  --gold2: #e0a800;
+  --yellow: #f5c842;
+  --orange: #fb923c;
+  --red: #f87171;
+  --pink: #f472b6;
+
+  /* ── YOG'DU ── */
+  --glow: 0 0 24px rgba(79, 110, 247, .28);
+  --pc-glow: 0 0 24px rgba(79, 110, 247, .28);
+  --chip-glow: 0 0 12px rgba(79, 110, 247, .2);
+  --red-glow: 0 0 20px rgba(248, 113, 113, .3);
+  --card-hover: rgba(255, 255, 255, .05);
+  --card-accent: rgba(79, 110, 247, .12);
+}
+
+/* ── SHRIFTNI MAJBURAN QO'LLASH ──
+   Ba'zi sahifada `* { font-family: 'Cinzel' }` bor edi — u yuklanmagan
+   shrift, brauzer serif ga tushib ketardi. Universal qoidani universal
+   qoida bilan bosamiz. */
+*,
+*::before,
+*::after {
+  font-family: inherit;
+}
+
+html,
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6,
+.hero-title, .page-title, .section-title,
+.card-title, .modal-title, .stat-value {
+  font-family: var(--font-head);
+  letter-spacing: -.01em;
+}
+
+/* Font Awesome ikonkalari — universal qoida ularni buzmasin */
+.fa, .fas, .far, .fab, .fal, .fad,
+.fa-solid, .fa-regular, .fa-brands, .fa-light,
+[class^="fa-"], [class*=" fa-"],
+[class^="fa-"]::before, [class*=" fa-"]::before {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+.fa-brands, .fab { font-weight: 400 !important; }
+.fa-solid, .fas { font-weight: 900 !important; }
+.fa-regular, .far { font-weight: 400 !important; }
+
+/* ── KURSORLAR ── bosiladigan hamma narsa bir xil ishorat bersin */
+button,
+[role="button"],
+.btn,
+a[href],
+label[for],
+select,
+summary,
+[onclick] {
+  cursor: pointer;
+}
+
+button:disabled,
+.btn:disabled,
+[disabled] {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+input[type="text"], input[type="email"], input[type="password"],
+input[type="number"], input[type="search"], textarea {
+  cursor: text;
+  font-family: var(--font-body);
+}
+
+/* ── ARAB YOZUVI ──
+   Inter arab harflarini chizmaydi; faqat shu belgilar uchun zaxira shrift.
+   Sahifa dizayni o'zgarmaydi, harflar to'g'ri chiqadi. */
+:lang(ar),
+[dir="rtl"],
+.arabic-text {
+  font-family: 'Noto Sans Arabic', var(--font-body);
+}
+
+/* ── FOKUS ── klaviatura bilan yurganlar uchun ko'rinadigan halqa */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

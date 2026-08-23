@@ -1,0 +1,86 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+# Avto-to'lov: muddati kelgan obunalarni har kuni yechadi.
+# 05:00 UTC = Toshkentda 10:00 — kunduzi, ya'ni karta rad etsa
+# foydalanuvchi o'sha kuni xabar ko'radi va tuzata oladi.
+[functions."renew-subscriptions"]
+  schedule = "0 5 * * *"
+
+# Reyting (leaderboard): `users` kolleksiyasini klient to'g'ridan-to'g'ri
+# o'qiy olmaydi (maxfiylik), shuning uchun server har 15 daqiqada top
+# o'yinchilarni alohida `leaderboard` kolleksiyasiga ko'chiradi.
+[functions."update-leaderboard"]
+  schedule = "*/15 * * * *"
+
+# Admin panel — faqat to'g'ridan-to'g'ri URL orqali, bosh sahifada havola yo'q
+[[redirects]]
+  from = "/admin"
+  to = "/admin/admin.html"
+  status = 200
+
+# ═══════════════════════════════════════════════════════════════════
+# XAVFSIZLIK
+# ═══════════════════════════════════════════════════════════════════
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()"
+
+# Modullar keshlanmasin — yangilanish darhol yetib borsin.
+# charset=utf-8 aniq ko'rsatilmasa, ba'zi brauzerlar (ayniqsa
+# nosniff yoqilganda) kirillcha matnlarni noto'g'ri kodlashda
+# (masalan windows-1251) ko'rsatib, "Ð®Ð½Ð¸Ñ‚Ñ‹" kabi chalkash
+# belgilar chiqarib yuborishi mumkin. Loyihada bir nechta js/
+# papkasi bor (js/, world/js/, languages-html/js/, netlify/js/),
+# shu sabab har biri alohida qamrab olinadi.
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Type = "text/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/languages-html/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Type = "text/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/world/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Type = "text/javascript; charset=utf-8"
+
+[[headers]]
+  for = "/netlify/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Type = "text/javascript; charset=utf-8"
+
+# CSS fayllar uchun ham xuddi shu sabab bilan charset aniqlashtiriladi
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+
+[[headers]]
+  for = "/**/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+
+# HTML sahifalarda ham <meta charset> bor, lekin server header'i
+# ustunlik qilishi mumkin bo'lgan holatlar uchun ehtiyot chorasi
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+
+[[headers]]
+  for = "/**/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"

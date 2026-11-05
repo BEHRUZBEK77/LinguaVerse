@@ -40,10 +40,10 @@ on:
         required: false
         default: "4"
       voice:
-        description: "Ovoz: azure (bepul limit ichida) yoki auto (ElevenLabs, bo'lmasa Azure)"
+        description: "Ovoz: auto (ElevenLabs, bo'lmasa Azure) yoki azure"
         type: choice
-        options: [azure, auto]
-        default: azure
+        options: [auto, azure]
+        default: auto
       lesson:
         description: "Bitta dars (sayt o'zi yuboradi): til:kurs:raqam, masalan english:b2:0"
         required: false
@@ -134,7 +134,7 @@ jobs:
           NATIVE_LANG: ${{ matrix.native }}
           TARGET_LANG: ${{ matrix.lang }}
           VIDEO_BATCH: ${{ github.event.inputs.batch || '4' }}
-          VIDEO_VOICE: ${{ github.event.inputs.voice || 'azure' }}
+          VIDEO_VOICE: ${{ github.event.inputs.voice || 'auto' }}
           VIDEO_MODE: ${{ github.event.inputs.mode || 'demand' }}
           ONE_LESSON: ${{ github.event.inputs.lesson }}
           TTS_MONTHLY_CHARS: ${{ vars.TTS_MONTHLY_CHARS }}

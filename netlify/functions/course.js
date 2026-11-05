@@ -376,7 +376,7 @@ async function sceneAudio(uid, body) {
   const budget = await require('./_ttsBudget.js').reserve(text.length).catch(() => ({ ok: true }));
   if (!budget.ok) throw httpErr(429, "Bu oy uchun bepul ovoz limiti tugadi — brauzer ovozi ishlatiladi");
   const speech = require('./azure-speech.js');
-  const r = await speech.synthesizeConfigured({ text, lang: locale, emotion: scene.emotion, rate: CEFR_RATE[a.lesson.cefr] || 1 }, process.env.LESSON_VOICE === 'elevenlabs' ? {} : { elevenLabsKey: '' });
+  const r = await speech.synthesizeConfigured({ text, lang: locale, emotion: scene.emotion, rate: CEFR_RATE[a.lesson.cefr] || 1 }, process.env.LESSON_VOICE === 'azure' ? { elevenLabsKey: '' } : {});
   // Firestore hujjati 1MB gacha — katta audio keshlanmaydi, lekin baribir qaytariladi
   if (r.audio && r.audio.length < 900_000) {
     await fsdb.setDoc(cachePath, { audio: r.audio, mime: r.mime, provider: r.provider || 'azure', createdAt: new Date() })

@@ -192,3 +192,15 @@ test('opening a lesson starts that one MP4 once, respects the lock and the free 
     paths.forEach((p, i) => { if (saved[i]) require.cache[p] = saved[i]; else delete require.cache[p]; });
   }
 });
+
+test('Uzbek speech automatically uses ElevenLabs v3, other languages keep the configured model', async () => {
+  const speech = require('../netlify/functions/azure-speech.js');
+  const bodies = [];
+  const fetchImpl = async (url, o) => { bodies.push(JSON.parse(o.body)); return { ok: true, arrayBuffer: async () => new Uint8Array([1, 2, 3]).buffer }; };
+  await speech.synthesizeElevenLabs({ text: 'Salom, bugun yangi mavzu.', lang: 'uz-UZ', emotion: 'happy' }, { apiKey: 'k', fetchImpl, modelId: 'eleven_multilingual_v2', uzbekVoiceId: 'voiceUZ123' });
+  await speech.synthesizeElevenLabs({ text: 'Hello there.', lang: 'en-GB' }, { apiKey: 'k', fetchImpl, modelId: 'eleven_multilingual_v2' });
+  assert.equal(bodies[0].model_id, 'eleven_v3');
+  assert.match(bodies[0].text, /^\[happy\] /);
+  assert.ok([0, 0.5, 1].includes(bodies[0].voice_settings.stability));
+  assert.equal(bodies[1].model_id, 'eleven_multilingual_v2');
+});

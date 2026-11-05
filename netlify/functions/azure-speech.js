@@ -72,6 +72,9 @@ const EMOTIONS = {
   surprised:    { stability: 0.30, style: 0.70, speed: 1.05, v3: '[surprised]',    azure: 'excited' }
 };
 
+// Faqat Eleven v3 modeli gapira oladigan tillar
+const V3_ONLY_LOCALES = new Set(['uz-UZ']);
+
 function emotionProfile(emotion) {
   return EMOTIONS[String(emotion || '').toLowerCase()] || EMOTIONS.neutral;
 }
@@ -241,7 +244,10 @@ async function synthesizeElevenLabs({ text, lang, rate, emotion }, dependencies 
   if (!/^[A-Za-z0-9_-]{6,80}$/.test(voiceId)) throw new Error('ElevenLabs Voice ID formati noto‘g‘ri');
 
   const emo = emotionProfile(emotion);
-  const modelId = String(dependencies.modelId ?? keys.get('ELEVENLABS_MODEL') ?? '').trim() || 'eleven_multilingual_v2';
+  let modelId = String(dependencies.modelId ?? keys.get('ELEVENLABS_MODEL') ?? '').trim() || 'eleven_multilingual_v2';
+  // O'zbek tilini faqat Eleven v3 qo'llaydi (multilingual_v2 / flash da yo'q) —
+  // o'zbekcha matn uchun avtomatik v3 ga o'tamiz, aks holda talaffuz buziladi.
+  if (V3_ONLY_LOCALES.has(locale) && !/^eleven_v3/.test(modelId)) modelId = 'eleven_v3';
   const isV3 = /^eleven_v3/.test(modelId);
   // v3 hissiyotni matn ichidagi audio teglar orqali beradi
   if (isV3 && emo.v3 && !value.startsWith('[')) value = `${emo.v3} ${value}`;

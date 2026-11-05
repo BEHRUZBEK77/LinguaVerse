@@ -59,6 +59,8 @@ const PLAN_LESSON_LIMITS = {
     pro: { daily: 10, monthly: 150 },
     premium: { daily: 20, monthly: 400 },
     ultimate: { daily: 999, monthly: 9999 },
+    ielts: { daily: 90, monthly: 1350 },
+    ultra: { daily: 999999, monthly: 9999999 },
     vip: { daily: 999, monthly: 9999 }
 };
 

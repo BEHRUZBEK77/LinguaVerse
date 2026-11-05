@@ -123,6 +123,7 @@ function renderLimits(snap) {
     }
 
     const rem = LV.remaining(res);
+    if (rem.unlimited) return `<div class="pp-lim"><div class="pp-lt"><span><i class="fa-solid ${r.fa}"></i> ${r.label}</span><span class="pp-lv" style="color:var(--accent)">∞ Cheksiz</span></div></div>`;
     const col = barColor(rem.daily.left, rem.daily.cap);
     const usedPct = Math.min(100, Math.round(rem.daily.used / rem.daily.cap * 100));
 

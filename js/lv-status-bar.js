@@ -87,6 +87,7 @@ function render() {
     const rem = LV.remaining(res);
     if (!rem) return '';
     const r = resourceText(res, lang);
+    if (rem.unlimited) return `<span class="lvb-chip" title="${r.label}: cheksiz"><i class="fa-solid ${r.fa}"></i> <b>∞</b></span>`;
     const left = rem.min;
     const cap = rem.daily.cap;
     const cls = left === 0 ? 'out' : (left / cap < .2 ? 'low' : '');
@@ -104,7 +105,7 @@ function render() {
       <span class="lvb-chip"><i class="fa-solid fa-star" style="color:#a78bfa"></i> <b>${(snap.profile?.xp || 0).toLocaleString()}</b></span>
     </div>
     <button class="lvb-more" id="lvbToggle">Limitlar</button>
-    ${!['premium', 'ielts'].includes(snap.plan) ? `<a class="lvb-up" href="../order.html">Rejani oshirish</a>` : ''}`;
+    ${!['premium', 'ielts', 'ultra'].includes(snap.plan) ? `<a class="lvb-up" href="../order.html">Rejani oshirish</a>` : ''}`;
 
   document.getElementById('lvbToggle').onclick = () => {
     panel.classList.toggle('open');
@@ -135,6 +136,7 @@ function renderPanel(panel) {
     }
 
     const rem = LV.remaining(res);
+    if (rem.unlimited) return `<div class="lvp-row"><div class="lvp-top"><span class="lvp-nm"><i class="fa-solid ${r.fa}"></i> ${r.label}</span><span class="lvp-val" style="color:var(--accent)">∞ Cheksiz</span></div></div>`;
     const col = barColor(rem.daily.left, rem.daily.cap);
 
     return `<div class="lvp-row">

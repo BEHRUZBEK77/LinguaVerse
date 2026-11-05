@@ -221,10 +221,36 @@ export const PLANS = {
       'Speaking 300 daqiqa/kun',
       'Writing Task 1/2 band baholash'
     ]
+  },
+  ultra: {
+    id: 'ultra',
+    name: 'ULTRA',
+    tagline: "Hammasi cheksiz — maksimal natija uchun",
+    icon: '<i class="fa-solid fa-infinity" style="color:#3cc3b0"></i>',
+    fa: 'fa-infinity',
+    color: '#0f766e',
+    accent: '#3cc3b0',
+    price: 159999,
+    priceLabel: "159 999 so'm",
+    order: 5,
+    badge: 'Hammasi cheksiz',
+    models: ['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus', 'ultra'],
+    perks: [
+      'ULTRA AI — platformadagi eng kuchli model, cheksiz',
+      "Barcha AI modellar va barcha limitlar — cheksiz",
+      'Barcha video kurslar ochiq: 8 til, A1 → C2 (B2 + C2)',
+      'Speaking ustoz va IELTS imtihonchi — vaqt chegarasisiz',
+      'Writing tekshiruvi va AI darslar — cheksiz',
+      "Sertifikat imtihonlari va ustuvor qo'llab-quvvatlash"
+    ]
   }
 };
 
-export const PLAN_ORDER = ['free', 'nova', 'mega', 'premium', 'ielts'];
+export const PLAN_ORDER = ['free', 'nova', 'mega', 'premium', 'ielts', 'ultra'];
+
+// ULTRA rejasi uchun "cheksiz" limit (amalda hech qachon tugamaydi)
+export const UNLIMITED = 1e9;
+export const isUnlimited = cap => Number(cap) >= UNLIMITED;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DAVOMIYLIKLAR — rejalar kunlik / oylik / 3 oylik / 6 oylik / 1 yillik sotiladi.
@@ -289,10 +315,15 @@ export const MODELS = {
     id: 'megaplus', name: 'MEGA+', icon: '<i class="fa-solid fa-gem" style="color:#00D4FF"></i>', fa: 'fa-star', color: '#f43f5e',
     thinking: true, minPlan: 'premium', speed: 'Eng chuqur',
     desc: "Platformadagi eng zo'ri. To'liq tahlil, o'quv rejasi, imtihonga tayyorlov."
+  },
+  ultra: {
+    id: 'ultra', name: 'ULTRA AI', icon: '<i class="fa-solid fa-infinity" style="color:#3cc3b0"></i>', fa: 'fa-infinity', color: '#0f766e',
+    thinking: true, minPlan: 'ultra', speed: 'Eng kuchli',
+    desc: "Eng kuchli modellar zanjiri va eng chuqur o'ylash. Professional ustoz, imtihonchi va tahlilchi — cheksiz."
   }
 };
 
-export const MODEL_IDS = ['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus'];
+export const MODEL_IDS = ['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus', 'ultra'];
 
 // ═══════════════════════════════════════════════════════════════════════════
 // 3) LIMITLAR — [kunlik, haftalik, oylik].  null = reja bu resursni bermaydi.
@@ -305,6 +336,7 @@ export const RESOURCES = {
   proplus:   { label: 'PRO+ savollari',      unit: 'ta',     icon: '<i class="fa-solid fa-gem" style="color:#60a5fa"></i>',  fa: 'fa-gem' },
   premium:   { label: 'PREMIUM savollari',   unit: 'ta',     icon: '<i class="fa-solid fa-crown" style="color:#f5c842"></i>',  fa: 'fa-crown' },
   megaplus:  { label: 'MEGA+ savollari',     unit: 'ta',     icon: '<i class="fa-solid fa-gem" style="color:#00D4FF"></i>',  fa: 'fa-star' },
+  ultra:     { label: 'ULTRA AI savollari',  unit: 'ta',     icon: '<i class="fa-solid fa-infinity" style="color:#3cc3b0"></i>',  fa: 'fa-infinity' },
   speak_min: { label: 'Speaking',            unit: 'daqiqa', icon: '<i class="fa-solid fa-microphone-lines" style="color:#f87171"></i>', fa: 'fa-microphone-lines' },
   writing:   { label: 'Writing tekshiruvi',  unit: 'ta',     icon: '<i class="fa-solid fa-pen-nib" style="color:#34d399"></i>', fa: 'fa-pen-nib' },
   lesson:    { label: 'AI darslar',          unit: 'ta',     icon: '<i class="fa-solid fa-book" style="color:#60a5fa"></i>',  fa: 'fa-book-open' },
@@ -392,7 +424,11 @@ export const LIMITS = {
     coach:     [70, 350, 1000],
     vocab_ai:  [180, 900, 2700],
     translate: [3000, 15000, 45000]
-  }
+  },
+
+  // ── ULTRA — 159 999 so'm. Hamma narsa cheksiz (UNLIMITED).
+  ultra: Object.fromEntries(['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus', 'ultra', 'speak_min', 'writing', 'lesson', 'coach', 'vocab_ai', 'translate']
+    .map(r => [r, [1e9, 1e9, 1e9]]))
 };
 
 const PERIODS = ['daily', 'weekly', 'monthly'];
@@ -654,9 +690,10 @@ export const LV = {
     const out = {};
     PERIODS.forEach((p, i) => {
       const used = state.usage[p]?.[resource] || 0;
-      out[p] = { used, cap: limit[i], left: Math.max(0, limit[i] - used) };
+      out[p] = { used, cap: limit[i], left: Math.max(0, limit[i] - used), unlimited: limit[i] >= 1e9 };
     });
     out.min = Math.min(out.daily.left, out.weekly.left, out.monthly.left);
+    out.unlimited = !!out.daily.unlimited;
     return out;
   },
 
@@ -1035,7 +1072,7 @@ export function buildSystemPrompt(o = {}) {
   const ob = profile.onboarding || {};
 
   // Daraja: prompt sifati rejaga qarab tanlanadi
-  const tier = (plan === 'premium' || plan === 'ielts') ? 'expert'
+  const tier = (plan === 'premium' || plan === 'ielts' || plan === 'ultra') ? 'expert'
              : (plan === 'mega') ? 'standard'
              : 'basic';
 

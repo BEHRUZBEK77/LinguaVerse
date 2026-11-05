@@ -122,6 +122,25 @@ const REGISTRY = {
       { provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' },
       { provider: 'groq',      model: 'moonshotai/kimi-k2-instruct-0905' }
     ]
+  },
+
+  // ── ULTRA AI — ULTRA rejasi (159 999 so'm): eng kuchli modellar, eng chuqur
+  // o'ylash, eng uzun javob. Birinchisi ishlamasa keyingisi — javobsiz qolmaydi.
+  ultra: {
+    label: 'ULTRA AI',
+    temperature: 0.45,
+    maxTokens: 12000,
+    thinking: 'max',
+    chain: [
+      { provider: 'openrouter', model: 'anthropic/claude-sonnet-5.5' },
+      { provider: 'openrouter', model: 'openai/gpt-6.1-sol' },
+      { provider: 'openrouter', model: 'google/gemini-4-argon' },
+      { provider: 'gemini',    model: 'gemini-2.5-pro', thinkingBudget: 24576 },
+      { provider: 'openrouter', model: 'deepseek/deepseek-v4.1-flash-1017' },
+      { provider: 'deepseek',  model: 'deepseek-reasoner' },
+      { provider: 'groq',      model: 'openai/gpt-oss-120b', reasoning: 'high' },
+      { provider: 'groq',      model: 'moonshotai/kimi-k2-instruct-0905' }
+    ]
   }
 };
 

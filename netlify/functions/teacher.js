@@ -48,7 +48,7 @@ const TEACHERS = {
 
 const EMOTIONS = ['neutral', 'happy', 'proud', 'impressed', 'encouraging', 'thinking', 'stern', 'disappointed', 'angry', 'laughing', 'surprised'];
 
-const PREMIUM_PLANS = new Set(['ielts', 'premium']);
+const PREMIUM_PLANS = new Set(['ielts', 'premium', 'ultra']);
 
 // ───────────────────────────────────────────────────────────────────────────
 // PROMPTLAR

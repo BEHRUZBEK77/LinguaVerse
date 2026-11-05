@@ -244,3 +244,32 @@ test('60 core lessons per language get MP4; the other 90 use AI-picked YouTube l
     paths.forEach((p, i) => { if (saved[i]) require.cache[p] = saved[i]; else delete require.cache[p]; });
   }
 });
+
+test('ULTRA plan: 159 999 so\'m, every video course unlocked while active, all limits unlimited', async () => {
+  const plans = require('../netlify/functions/_plans.js');
+  assert.equal(plans.PLANS.ultra.price, 159999);
+  assert.equal(plans.paidPlan('ultra', 'monthly').price, 159999);
+  const future = new Date(Date.now() + 86400000), past = new Date(Date.now() - 86400000);
+  assert.equal(plans.ultraActive({ plan: 'ultra', planExpiry: future }), true);
+  assert.equal(plans.ultraActive({ plan: 'ultra', planExpiry: past }), false);
+  assert.equal(plans.ultraActive({ plan: 'ielts', planExpiry: future }), false);
+
+  const store = new Map([['users/U', { plan: 'ultra', planExpiry: future }]]);
+  const fake = { getDoc: async p => store.get(p) || null, setDoc: async () => {}, transact: async () => {} };
+  const paths = ['../netlify/functions/course.js', '../netlify/functions/_firestore.js'].map(p => require.resolve(p));
+  const saved = paths.map(p => require.cache[p]);
+  require.cache[paths[1]] = { id: paths[1], filename: paths[1], loaded: true, exports: fake };
+  delete require.cache[paths[0]];
+  try {
+    const c = require('../netlify/functions/course.js');
+    const lessons = await c.youtubeLessons('U', { lang: 'korean', level: 'c2', n: 30, nativeLang: 'uz' }).catch(e => e);
+    assert.notEqual(lessons?.statusCode, 402, 'ULTRA opens paid C2 lessons without buying the course');
+    store.set('users/U', { plan: 'ultra', planExpiry: past });
+    await assert.rejects(c.youtubeLessons('U', { lang: 'korean', level: 'c2', n: 30, nativeLang: 'uz' }), e => e.statusCode === 402);
+  } finally {
+    paths.forEach((p, i) => { if (saved[i]) require.cache[p] = saved[i]; else delete require.cache[p]; });
+  }
+  const src = require('node:fs').readFileSync(require('node:path').join(__dirname, '../js/lv-core.js'), 'utf8');
+  assert.match(src, /PLAN_ORDER = \['free', 'nova', 'mega', 'premium', 'ielts', 'ultra'\]/);
+  assert.match(require('node:fs').readFileSync(require('node:path').join(__dirname, '../netlify/functions/teacher.js'), 'utf8'), /PREMIUM_PLANS = new Set\(\['ielts', 'premium', 'ultra'\]\)/);
+});

@@ -3104,7 +3104,7 @@
     };
     var DURATION_ORDER = ['daily', 'monthly', 'q3', 'q6', 'yearly'];
     function planPrice(planId, duration) {
-      var base = { nova: 39999, mega: 49999, premium: 79999, ielts: 200000 }[planId] || 0;
+      var base = { nova: 39999, mega: 49999, premium: 79999, ielts: 200000, ultra: 159999 }[planId] || 0;
       if (!base) return 0;
       if (!duration || duration === 'monthly') return base;
       var p = base;

@@ -766,8 +766,8 @@
         S.plan = (u.plan && u.plan !== 'free' && (!exp || exp > Date.now())) ? u.plan : 'free';
         const best = u.ieltsBand?.[S.lang];
         if (u.onboarding?.level || u.level) { S.level = u.onboarding?.level || u.level; renderChips(); }
-        const pro = S.plan === 'ielts' || S.plan === 'premium';
-        $('planPill').textContent = pro ? (S.plan === 'ielts' ? 'IELTS PRO' : 'PREMIUM') : 'Bepul';
+        const pro = S.plan === 'ielts' || S.plan === 'premium' || S.plan === 'ultra';
+        $('planPill').textContent = pro ? ({ ielts: 'IELTS PRO', ultra: 'ULTRA' }[S.plan] || 'PREMIUM') : 'Bepul';
         $('planPill').classList.toggle('pro', pro);
         $('planNotice').innerHTML = pro
           ? `<i class="fa-solid fa-circle-check" style="color:var(--green)"></i> Cheksiz imtihon va ustoz ochiq.${best ? ` Eng yaxshi natijangiz: <b>band ${best}</b>.` : ''}`

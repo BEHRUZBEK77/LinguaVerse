@@ -16,8 +16,18 @@ const PLANS = {
   premium: { id: 'premium', name: 'PREMIUM', price: 79999, days: 30 },
   // IELTS PRO — onlayn darslar + IELTS Speaking imtihonchi + barcha
   // PREMIUM imkoniyatlari. Oylik obuna, avto-to'lov bilan uzaytiriladi.
-  ielts:   { id: 'ielts',   name: 'IELTS PRO', price: 200000, days: 30 }
+  ielts:   { id: 'ielts',   name: 'IELTS PRO', price: 200000, days: 30 },
+  // ULTRA — hamma narsa cheksiz: barcha AI (ULTRA AI ham), barcha video
+  // kurslar (8 til, B2 + C2), speaking/IELTS imtihonchi vaqt chegarasisiz.
+  ultra:   { id: 'ultra',   name: 'ULTRA',     price: 159999, days: 30 }
 };
+
+/** ULTRA rejasi hozir faolmi (muddati o'tmagan). */
+function ultraActive(user) {
+  if (!user || user.plan !== 'ultra') return false;
+  const exp = user.planExpiry instanceof Date ? user.planExpiry.getTime() : (user.planExpiry ? Date.parse(user.planExpiry.$t || user.planExpiry) : 0);
+  return !exp || exp > Date.now();
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 // VIDEO KURSLAR — bir martalik xarid, umrbod ochiq.
@@ -101,5 +111,5 @@ function referralReward(planPrice) {
 
 module.exports = {
   PLANS, DURATIONS, DURATION_ORDER, planPrice, paidPlan, REFERRAL_PERCENT, referralReward,
-  COURSE_LEVELS, COURSE_LANGS, courseProduct, courseUnlocks
+  COURSE_LEVELS, COURSE_LANGS, courseProduct, courseUnlocks, ultraActive
 };

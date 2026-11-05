@@ -1673,7 +1673,7 @@
                 `<span style="color:var(--text3);font-weight:400"> · ${res.unit}</span></td>`;
         html += PLAN_ORDER.map(p => {
           const lim = LIMITS[p][r];
-          return lim ? `<td>${nf(lim[limitPeriod])}</td>` : `<td class="dash">—</td>`;
+          return lim ? (lim[limitPeriod] >= 1e9 ? `<td>∞</td>` : `<td>${nf(lim[limitPeriod])}</td>`) : `<td class="dash">—</td>`;
         }).join('');
         html += `</tr>`;
       }

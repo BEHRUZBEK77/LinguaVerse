@@ -26,7 +26,7 @@ const fsdb = require('./_firestore.js');
 const keys = require('./_keys.js');
 const { think, extractJson } = require('./_brain.js');
 const { verifyIdToken } = require('./_auth.js');
-const { courseProduct } = require('./_plans.js');
+const { courseProduct, ultraActive, COURSE_LANGS } = require('./_plans.js');
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -80,7 +80,8 @@ async function access(uid, lang, level, n) {
 
   const user = await fsdb.getDoc(`users/${uid}`);
   const owned = user?.courses || {};
-  const has = !!owned[product.key] || (level === 'b2' && !!owned[`${lang}_c2`]);
+  // ULTRA rejasida hamma video kurslar ochiq (8 til, B2 + C2)
+  const has = !!owned[product.key] || (level === 'b2' && !!owned[`${lang}_c2`]) || ultraActive(user);
   const isAdmin = !has && !!(await fsdb.getDoc(`admins/${uid}`).catch(() => null));
   if (!has && !isAdmin && idx >= cat.FREE_PREVIEW_LESSONS) {
     throw httpErr(402, `Bu dars ${product.name} kursida. Kursni sotib oling — birinchi dars bepul.`, { buy: { lang, level, price: product.price } });
@@ -578,7 +579,8 @@ async function factoryRun(uid, body) {
 
 async function mine(uid) {
   const user = await fsdb.getDoc(`users/${uid}`);
-  const owned = user?.courses || {};
+  const owned = { ...(user?.courses || {}) };
+  if (ultraActive(user)) for (const l of Object.keys(COURSE_LANGS)) { owned[`${l}_b2`] = true; owned[`${l}_c2`] = true; }
   const keysOwned = Object.keys(owned);
   const progress = {};
   for (const k of new Set([...keysOwned, ...keysOwned.filter(k => k.endsWith('_c2')).map(k => k.replace('_c2', '_b2'))])) {

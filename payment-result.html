@@ -85,7 +85,7 @@
     const app = getApps().length ? getApp() : initializeApp(FB_CONFIG);
     const auth = getAuth(app);
 
-    const PLAN_NAMES = { free: 'Bepul', nova: 'NOVA', mega: 'MEGA', premium: 'PREMIUM', ielts: 'IELTS PRO' };
+    const PLAN_NAMES = { free: 'Bepul', nova: 'NOVA', mega: 'MEGA', premium: 'PREMIUM', ielts: 'IELTS PRO', ultra: 'ULTRA' };
 
     const params = new URLSearchParams(location.search);
     const orderId = params.get('order');

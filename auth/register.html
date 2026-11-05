@@ -918,6 +918,14 @@
   </script>
 
 
+
+    <!-- Google bilan kirish faqat Supabase'da yoqilgan bo'lsa ko'rinadi -->
+    <style>#googleBtn, #googleBtn + .divider-line { display: none !important; } body.lv-google-on #googleBtn { display: flex !important; } body.lv-google-on #googleBtn + .divider-line { display: flex !important; }</style>
+    <script type="module">
+      import { SUPABASE_URL, SUPABASE_KEY } from '/js/fb/client.js';
+      fetch(`${SUPABASE_URL}/auth/v1/settings`, { headers: { apikey: SUPABASE_KEY } })
+        .then(r => r.json()).then(s => { if (s?.external?.google) document.body.classList.add('lv-google-on'); }).catch(() => {});
+    </script>
 </body>
 
 </html>

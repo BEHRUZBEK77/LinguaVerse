@@ -506,6 +506,8 @@
             </button>
 
             <div class="divider-line"><span>yoki email bilan</span></div>
+            <p class="lv-google-note" style="font-size:.82rem;line-height:1.5;color:var(--text3,#9aa4b2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;margin:0 0 14px">Oldin <b>Google</b> orqali kirgan bo'lsangiz: pastdagi <b>"Parolni unutdingizmi?"</b> ni bosing va emailingizga kelgan havola orqali parol o'rnating.</p>
+            <style>body.lv-google-on .lv-google-note{display:none}</style>
 
             <!-- Email/Password form -->
             <div class="form-group">
@@ -730,6 +732,14 @@
     </script>
 
 
+
+    <!-- Google bilan kirish faqat Supabase'da yoqilgan bo'lsa ko'rinadi -->
+    <style>#googleBtn, #googleBtn + .divider-line { display: none !important; } body.lv-google-on #googleBtn { display: flex !important; } body.lv-google-on #googleBtn + .divider-line { display: flex !important; }</style>
+    <script type="module">
+      import { SUPABASE_URL, SUPABASE_KEY } from '/js/fb/client.js';
+      fetch(`${SUPABASE_URL}/auth/v1/settings`, { headers: { apikey: SUPABASE_KEY } })
+        .then(r => r.json()).then(s => { if (s?.external?.google) document.body.classList.add('lv-google-on'); }).catch(() => {});
+    </script>
 </body>
 
 </html>

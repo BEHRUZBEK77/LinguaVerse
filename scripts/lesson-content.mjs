@@ -52,7 +52,7 @@ export function validate(L, file) {
 export function loadAll() {
   const out = [];
   if (!fs.existsSync(CONTENT)) return out;
-  for (const native of fs.readdirSync(CONTENT)) {
+  for (const native of fs.readdirSync(CONTENT).filter(d => fs.statSync(path.join(CONTENT, d)).isDirectory())) {
     for (const lang of fs.readdirSync(path.join(CONTENT, native))) {
       for (const f of fs.readdirSync(path.join(CONTENT, native, lang)).filter(f => f.endsWith('.json')).sort()) {
         const id = f.replace(/\.json$/, '');

@@ -10,11 +10,6 @@
 name: Ssenariy fabrika
 
 on:
-  push:
-    branches: [main]
-    paths: [".github/workflows/lesson-scripts.yml", "scripts/generate-scripts.mjs"]
-  schedule:
-    - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
       langs:

@@ -1,0 +1,75 @@
+# ════════════════════════════════════════════════════════════════════════════
+# SSENARIY FABRIKA — 8 til × 150 dars diktor matni (ona tili: o'zbek)
+#
+# Har bir til alohida runnerda: AI ustoz darsni yozadi (Supabase'ga saqlanadi),
+# keyin ssenariylar/uz/<til>/A1-01.md fayllari repoga qo'shiladi.
+# To'xtasa, keyingi ishga tushishda tayyor qismlardan davom etadi.
+# Hammasi tayyor bo'lgach har ishga tushish ~1 daqiqada tugaydi.
+# To'xtatish: GitHub → Actions → "Ssenariy fabrika" → Disable workflow.
+# ════════════════════════════════════════════════════════════════════════════
+name: Ssenariy fabrika
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/lesson-scripts.yml", "scripts/generate-scripts.mjs"]
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      langs:
+        description: "all yoki english,russian,..."
+        default: all
+
+concurrency:
+  group: lesson-scripts
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        lang: [english, russian, spanish, german, turkish, arabic, korean, chinese]
+    steps:
+      - uses: actions/checkout@v4
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.langs == 'all' || contains(github.event.inputs.langs, matrix.lang)
+      - uses: actions/setup-node@v4
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.langs == 'all' || contains(github.event.inputs.langs, matrix.lang)
+        with: { node-version: 20 }
+      - name: Darslarni yozish
+        if: github.event_name != 'workflow_dispatch' || github.event.inputs.langs == 'all' || contains(github.event.inputs.langs, matrix.lang)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          node scripts/generate-scripts.mjs --langs ${{ matrix.lang }} --minutes 320 --out /tmp/out
+
+  publish:
+    needs: generate
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Fayllarni repoga yozish
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          node scripts/generate-scripts.mjs --export-only
+          git config user.name "ssenariy-fabrika"
+          git config user.email "actions@users.noreply.github.com"
+          git add ssenariylar
+          if git diff --cached --quiet; then echo "Yangi ssenariy yo'q"; exit 0; fi
+          git commit -m "Ssenariylar: $(find ssenariylar -name '??-??.md' | wc -l) ta dars [skip ci]"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 5; done

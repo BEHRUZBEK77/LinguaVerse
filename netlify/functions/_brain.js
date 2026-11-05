@@ -27,6 +27,14 @@ const CHAINS = {
     { provider: 'openrouter', model: 'deepseek/deepseek-chat-v3-0324' },
     { provider: 'groq', model: 'openai/gpt-oss-120b', reasoning: 'low' }
   ],
+  // Diktor ssenariysi (150 dars × 8 til, oflayn): o'zbekchasi eng toza model birinchi
+  script: [
+    { provider: 'openrouter', model: 'google/gemini-2.5-flash' },
+    { provider: 'gemini', model: 'gemini-2.5-flash', thinkingBudget: 2048 },
+    { provider: 'openrouter', model: 'deepseek/deepseek-chat-v3-0324' },
+    { provider: 'deepseek', model: 'deepseek-chat' },
+    { provider: 'groq', model: 'openai/gpt-oss-120b', reasoning: 'medium' }
+  ],
   // Baholash (Netlify funksiya taymauti 10s bo'lsa): tez, lekin kuchli
   examA: [
     { provider: 'gemini', model: 'gemini-2.5-flash', thinkingBudget: 2048 },

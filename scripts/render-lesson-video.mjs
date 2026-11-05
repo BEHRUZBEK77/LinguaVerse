@@ -33,6 +33,7 @@ import os from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { videoMetadata, captionsVtt } from '../js/video-captions.mjs';
 import { copy } from '../js/learning-copy.mjs';
+import { cutPoints, lessonId } from './lesson-script-export.mjs';
 
 const require = createRequire(import.meta.url);
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -73,6 +74,61 @@ function sh(cmd, argv, opts = {}) {
   return r.stdout;
 }
 const ffprobeDur = f => Number(sh(FFPROBE, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).trim());
+
+// ── DIKTOR YOZUVI (o'zbekcha qismlar sizning ovozingizda) ──
+// ovozlar/<native>/<lang>/A1-02.m4a  — bitta fayl, bloklar orasida ~2 s jimlik
+// ovozlar/<native>/<lang>/A1-02/01.m4a, 02.m4a … — har blok alohida
+// Mahalliy papkada bo'lmasa va R2 sozlangan bo'lsa — R2 dagi ovozlar/ dan olinadi.
+const AUDIO_EXT = ['m4a', 'mp3', 'wav', 'ogg', 'opus', 'webm', 'aac', 'flac'];
+const VOICE_DIR = path.resolve(args['ovoz-dir'] || process.env.OVOZ_DIR || path.join(ROOT, 'ovozlar'));
+
+function silencesOf(file) {
+  const r = spawnSync(FFMPEG, ['-hide_banner', '-i', file, '-af', 'silencedetect=noise=-35dB:d=1.2', '-f', 'null', '-'], { encoding: 'utf8', maxBuffer: 1 << 26 });
+  const list = [];
+  let start = null;
+  for (const line of (r.stderr || '').split('\n')) {
+    const a = /silence_start: ([\d.]+)/.exec(line);
+    const b = /silence_end: ([\d.]+)/.exec(line);
+    if (a) start = Number(a[1]);
+    if (b && start != null) { list.push({ start, end: Number(b[1]) }); start = null; }
+  }
+  return list;
+}
+
+async function fetchRemoteRecording(rel, work) {
+  const storage = require(path.join(ROOT, 'netlify/functions/_storage.js'));
+  if (storage.provider() !== 'r2') return null;
+  for (const ext of AUDIO_EXT) {
+    const r = await fetch(storage.signedUrl(`r2:ovozlar/${rel}.${ext}`, 600)).catch(() => null);
+    if (r?.ok) {
+      const f = path.join(work, `rec.${ext}`);
+      fs.writeFileSync(f, Buffer.from(await r.arrayBuffer()));
+      return f;
+    }
+  }
+  return null;
+}
+
+/** count ta WAV bo'lak yoki null (yozuv yo'q) */
+async function loadRecording(rel, count, work) {
+  const dir = path.join(VOICE_DIR, rel);
+  if (fs.existsSync(dir) && fs.statSync(dir).isDirectory()) {
+    const files = fs.readdirSync(dir).filter(f => AUDIO_EXT.includes(f.split('.').pop().toLowerCase())).sort();
+    if (files.length !== count) throw new Error(`${rel}/ papkada ${files.length} ta fayl, kerak: ${count}`);
+    return files.map(f => path.join(dir, f));
+  }
+  let file = AUDIO_EXT.map(e => `${dir}.${e}`).find(f => fs.existsSync(f)) || await fetchRemoteRecording(rel, work);
+  if (!file) return null;
+  const total = ffprobeDur(file);
+  const cuts = cutPoints(silencesOf(file), count);
+  if (!cuts) throw new Error(`${rel}: yozuvda ${count} ta blok topilmadi — bloklar orasida 2 soniya jim turing`);
+  const edges = [0, ...cuts, total];
+  return edges.slice(0, -1).map((s, i) => {
+    const f = path.join(work, `rec${i}.wav`);
+    sh(FFMPEG, ['-v', 'error', '-y', '-i', file, '-ss', String(s), '-to', String(edges[i + 1]), '-af', 'silenceremove=start_periods=1:start_threshold=-40dB:stop_periods=-1:stop_threshold=-40dB:stop_duration=1', '-ac', '1', '-ar', '44100', '-c:a', 'pcm_s16le', f]);
+    return f;
+  });
+}
 
 // ── 1) SSENARIY ──
 async function loadLesson(n) {
@@ -154,15 +210,20 @@ async function renderOne(n, browser, baseUrl) {
     { ...scene, lessonScene, nativeSpeech: false }
   ]);
   RATE = CEFR_RATE[L.meta.cefr] || 1;
+  const work = fs.mkdtempSync(path.join(os.tmpdir(), `lv-${LANG}-${LEVEL}-${n}-`));
+  // Diktor yozuvi bo'lsa — o'zbekcha qismlar sizning ovozingizda
+  const nativeCount = renderScenes.filter(sc => sc.nativeSpeech).length;
+  const recRel = `${NATIVE}/${LANG}/${lessonId(L.meta.cefr, n % 25)}`;
+  const recording = args['no-recording'] ? null : await loadRecording(recRel, nativeCount, work);
+  if (recording) console.log(`  🎙 diktor yozuvi: ${recRel} (${recording.length} blok)`);
   // Oylik bepul ovoz limiti: butun dars ovozini oldindan band qilamiz
   // (yarmida to'xtab qolmasin). Yetmasa — keyingi oyga qoladi.
   if (TTS === 'server' && args.upload) {
-    const chars = renderScenes.reduce((a, sc) => a + (sc.say || '').length, 0);
+    const chars = renderScenes.reduce((a, sc) => a + (recording && sc.nativeSpeech ? 0 : (sc.say || '').length), 0);
     const b = await require(path.join(ROOT, 'netlify/functions/_ttsBudget.js')).reserve(chars);
     if (!b.ok) throw Object.assign(new Error(`Bu oyning bepul ovoz limiti tugadi (${b.used}/${b.limit} belgi, dars ${chars} belgi)`), { budget: true });
     console.log(`  ovoz limiti: ${b.unlimited ? 'cheklovsiz' : `${b.used}/${b.limit} belgi`}`);
   }
-  const work = fs.mkdtempSync(path.join(os.tmpdir(), `lv-${LANG}-${LEVEL}-${n}-`));
   console.log(`\n▶ ${LANG} ${LEVEL.toUpperCase()} #${n + 1}: ${L.meta.t} (${core.scenes.length} sahna)`);
 
   // Ovoz bo'laklari → bir xil formatdagi WAV, orasida jimlik
@@ -177,7 +238,8 @@ async function renderOne(n, browser, baseUrl) {
   const scenes = [];
   for (let i = 0; i < renderScenes.length; i++) {
     const sc = renderScenes[i];
-    const rawFile = await synth(sc.say, sc.nativeSpeech ? learning.languages[NATIVE].locale : langInfo.locale, sc.emotion, path.join(work, `s${i}.${TTS === 'piper' || TTS === 'windows' ? 'wav' : 'mp3'}`));
+    const recFile = recording && sc.nativeSpeech ? recording[renderScenes.slice(0, i).filter(x => x.nativeSpeech).length] : null;
+    const rawFile = recFile || await synth(sc.say, sc.nativeSpeech ? learning.languages[NATIVE].locale : langInfo.locale, sc.emotion, path.join(work, `s${i}.${TTS === 'piper' || TTS === 'windows' ? 'wav' : 'mp3'}`));
     const wav = path.join(work, `s${i}n.wav`);
     sh(FFMPEG, ['-v', 'error', '-y', '-i', rawFile, '-ac', '1', '-ar', '44100', '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-c:a', 'pcm_s16le', wav]);
     const d = ffprobeDur(wav);

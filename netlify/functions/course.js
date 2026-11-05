@@ -146,6 +146,8 @@ function partPrompt(L, level, meta, idx, total, nativeLang, k, count, previous) 
     `THIS IS PART ${k + 1} OF A ${LESSON_MINUTES}-MINUTE VIDEO LESSON. This part must contain about ${PART_MINUTES} minutes of narration: 6–8 scenes, each with a say_native explanation of 300–450 characters and a say of 150–320 characters (about 40–45 seconds of speech per scene); include at least 2 practice scenes with practice_seconds.`,
     `PART FOCUS: ${partFocus(k, count, material)}`,
     previous.length ? `Already covered in previous parts (do NOT repeat, continue naturally): ${previous.join(' | ')}` : '',
+    k > 0 ? 'This part CONTINUES the same lesson: do not greet, do not welcome the learner again, do not restate the lesson goal and do not re-introduce material listed above.' : '',
+    'ACCURACY: double-check every grammar, stress, phonetic and spelling claim before writing it (e.g. stress positions, IPA, irregular forms). If you are not certain a claim is true, leave it out. A native-speaker teacher will read say_native aloud on camera, so it must be natural, error-free spoken ' + nativeName + '.',
     k === 0
       ? 'Output STRICT JSON only: {"title":"","goal_uz":"","vocab":[],"scenes":[],"homework_uz":""}  (vocab: 10–14 items)'
       : 'Output STRICT JSON only: {"scenes":[],"homework_uz":""}  (homework_uz only in the FINAL part, otherwise "")'
@@ -258,7 +260,7 @@ async function ensureLessonStep(lang, level, idx, meta, total, opts = {}) {
   if (!doc?.core || done < count + extra || short) {
     const k = short ? count + extra : done;
     const previous = (cur?.scenes || []).map(sc => sc.title).filter(Boolean).slice(-40);
-    const r = await think('write', [
+    const r = await think(opts.tier || 'write', [
       { role: 'system', content: partPrompt(L, level, meta, idx, total, nativeLang, k, count, previous) },
       { role: 'user', content: `Create part ${k + 1} now.` }
     ], { temperature: 0.6, maxTokens: 7600, deadlineMs });
@@ -277,7 +279,7 @@ async function ensureLessonStep(lang, level, idx, meta, total, opts = {}) {
   if (!doc.quiz) {
     const core = JSON.parse(doc.core);
     try {
-      const r = await think('write', [
+      const r = await think(opts.tier || 'write', [
         { role: 'system', content: quizPrompt(L, level, meta, core, isFinal, nativeLang) },
         { role: 'user', content: 'Create the test now.' }
       ], { temperature: 0.4, maxTokens: isFinal ? 4200 : 3000, deadlineMs });
@@ -296,14 +298,14 @@ async function ensureLessonStep(lang, level, idx, meta, total, opts = {}) {
 }
 
 /** Render skripti uchun: sahnalar va test to'liq tayyor bo'lguncha. */
-async function ensureLesson(lang, level, idx, nativeLang = 'uz') {
+async function ensureLesson(lang, level, idx, nativeLang = 'uz', opts = {}) {
   if (!LANG_INFO[lang] || !['b2', 'c2'].includes(level)) throw httpErr(400, 'Invalid course');
   const cat = await catalog();
   const lessons = cat.COURSE_LEVELS[level].lessons;
   if (!Number.isInteger(idx) || !lessons[idx]) throw httpErr(400, 'Invalid lesson');
   let res;
   for (let i = 0; i < lessonParts() + MAX_EXTRA_PARTS + 3; i++) {
-    res = await ensureLessonStep(lang, level, idx, lessons[idx], lessons.length, { deadlineMs: 60000, nativeLang });
+    res = await ensureLessonStep(lang, level, idx, lessons[idx], lessons.length, { deadlineMs: 60000, nativeLang, tier: opts.tier });
     if (res.step === 'ready') break;
   }
   return { core: JSON.parse(res.doc.core), doc: res.doc, meta: lessons[idx], total: lessons.length, locale: LANG_INFO[lang].locale };

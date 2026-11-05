@@ -289,6 +289,14 @@ function bandToCefr(b) {
 // Bepul: 5 daqiqa gaplashish, keyin 5 kunga yopiladi (chargeSpeaking).
 // IELTS PRO / PREMIUM: amalda cheksiz (suiiste'molga qarshi yuqori chegara).
 // ───────────────────────────────────────────────────────────────────────────
+/** Bepul 6 oylik muddat tugaganmi (users/{uid}.freeUntil, serverda qo'yiladi). */
+async function freeTrialEnded(uid) {
+  const u = await fsdb.getDoc(`users/${uid}`).catch(() => null);
+  const f = u?.freeUntil;
+  const ms = f instanceof Date ? f.getTime() : (f ? Date.parse(f.$t || f) : 0);
+  return !!ms && ms < Date.now();
+}
+
 async function userPlan(uid) {
   const u = await fsdb.getDoc(`users/${uid}`).catch(() => null);
   if (!u) return 'free';
@@ -440,6 +448,11 @@ exports.handler = async function (event) {
   try {
     const plan = await userPlan(auth.uid);
     const unlimited = PREMIUM_PLANS.has(plan);
+
+    // Bepul tarif 6 oy: muddat tugagan bepul foydalanuvchi — faqat tarif bilan
+    if (plan === 'free' && await freeTrialEnded(auth.uid)) {
+      return json(402, { error: "Bepul 6 oylik muddatingiz tugadi. Ustoz bilan davom etish uchun tarif tanlang.", upgrade: true, locked: true, trialEnded: true, plan });
+    }
 
     // Bepul (va IELTS PRO bo'lmagan) foydalanuvchi — 5 daqiqa / 5 kun
     let quota = null;

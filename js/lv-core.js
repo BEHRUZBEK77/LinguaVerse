@@ -625,7 +625,25 @@ export const LV = {
     return m ? PLANS[m.minPlan] : null;
   },
 
+  // ── BEPUL TARIF — 6 OY ─────────────────────────────────────────────────
+  // users/{uid}.freeUntil serverda qo'yiladi (ro'yxatdan o'tgandan 6 oy).
+  // Muddat tugasa bepul imkoniyatlar yopiladi — davom etish uchun tarif kerak.
+  freeUntil(profile = state.profile) {
+    const f = profile?.freeUntil;
+    const ms = f?.toMillis?.() ?? (f ? new Date(f.$t || f).getTime() : 0);
+    return ms || null;
+  },
+  freeDaysLeft(profile = state.profile) {
+    const ms = LV.freeUntil(profile);
+    return ms === null ? null : Math.ceil((ms - Date.now()) / 86400000);
+  },
+  freeEnded(profile = state.profile) {
+    const ms = LV.freeUntil(profile);
+    return state.plan === 'free' && ms !== null && ms < Date.now();
+  },
+
   limitFor(resource, planId = state.plan) {
+    if (planId === 'free' && state.plan === 'free' && LV.freeEnded()) return null;   // bepul 6 oy tugagan
     const table = LIMITS[planId] || LIMITS.free;
     return table[resource] ?? null;
   },
@@ -643,6 +661,15 @@ export const LV = {
         ok: false, reason: 'auth',
         message: 'Davom etish uchun tizimga kiring.',
         action: { label: 'Kirish', href: url('auth/login.html') }
+      };
+    }
+
+    if (LV.freeEnded()) {
+      return {
+        ok: false, reason: 'trial',
+        message: "Bepul 6 oylik muddatingiz tugadi. O'qishni davom ettirish uchun tarif tanlang.",
+        upgrade: PLANS.nova,
+        action: { label: 'Tarif tanlash', href: url('order.html') }
       };
     }
 

@@ -85,7 +85,7 @@ function renderPlan(snap) {
   const daysLeft = expMs ? Math.ceil((expMs - Date.now()) / 86400000) : null;
 
   const exp = snap.plan === 'free'
-    ? `<span class="pp-exp" style="color:#7580a8">Abadiy bepul</span>`
+    ? (() => { const left = LV.freeDaysLeft(d); return left === null ? `<span class="pp-exp" style="color:#7580a8">6 oy bepul</span>` : left > 0 ? `<span class="pp-exp" style="color:${left <= 14 ? '#f87171' : '#7580a8'}">Bepul: ${left} kun qoldi</span>` : `<span class="pp-exp" style="color:#f87171">Bepul muddat tugadi</span>`; })()
     : daysLeft === null
       ? `<span class="pp-exp" style="color:#f87171">Muddat belgilanmagan</span>`
       : daysLeft < 0

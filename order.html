@@ -259,7 +259,7 @@
           ${p.badge ? `<div class="plan-badge"><i class="fa-solid fa-star"></i> ${p.badge}</div>` : ''}
           <div class="plan-ic" style="background:${p.col}18;color:${p.col}"><i class="fa-solid ${p.ic}"></i></div>
           <div class="plan-nm">${p.name}</div>
-          <div class="plan-pr">${p.uzs ? fmt(p.uzs) : 'Bepul'}<small>${p.uzs ? ' so\'m / oyiga' : ' — abadiy'}</small></div>
+          <div class="plan-pr">${p.uzs ? fmt(p.uzs) : 'Bepul'}<small>${p.uzs ? ' so\'m / oyiga' : ' — 6 oy'}</small></div>
           <div class="plan-uzs">${p.uzs ? '≈ $' + (p.uzs / 12500).toFixed(1) + ' USD' : 'Boshlash uchun yetarli'}</div>
           <ul>${p.feats.map(f => `<li><i class="fa-solid fa-check"></i><span>${f}</span></li>`).join('')}</ul>
         </div>`).join('');

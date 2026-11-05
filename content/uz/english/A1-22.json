@@ -187,7 +187,7 @@
    "examples": [
     {
      "t": "The dog is behind the sofa.",
-     "uz": "It divan orqasida."
+     "uz": "Kuchuk divan orqasida."
     },
     {
      "t": "The car is in front of the house.",
@@ -386,6 +386,30 @@
   },
   {
    "kind": "explain",
+   "title": "Here va there",
+   "emotion": "happy",
+   "board": [
+    "Here it is! (Mana u!)",
+    "There they are! (Anavi ular!)",
+    "over there (u yoqda)"
+   ],
+   "examples": [
+    {
+     "t": "Where's my pen? Here it is!",
+     "uz": "Ruchkam qani? Mana u!"
+    },
+    {
+     "t": "Where are the keys? There they are!",
+     "uz": "Kalitlar qani? Anavi ular!"
+    }
+   ],
+   "say_native": "Narsani topganda ikkita foydali ibora bor. “Here” — mana bu yerda, yaqinda. “There” — anavi yerda, uzoqroqda. “Here it is!” — mana u! “There they are!” — anavi ular! Bu iboralarda olmosh fe’ldan oldin turadi, ya’ni “Here is it” emas. Uzoqdagi joyni ko‘rsatish uchun “over there” ham aytamiz. Bu qisqa iboralar kundalik suhbatda juda ko‘p ishlatiladi.",
+   "say": "Where's my pen? Here it is! Where are the keys? There they are! The bank is over there.",
+   "say_uz": "Ruchkam qani? Mana u! Kalitlar qani? Anavi ular! Bank anavi yoqda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
    "title": "At home, at school, at work",
    "emotion": "neutral",
    "board": [
@@ -417,11 +441,10 @@
     "✗ I am in home.",
     "✓ I am at home.",
     "✗ She is in work.",
-    "✓ She is at work.",
-    "✗ He is in school."
+    "✓ She is at work."
    ],
    "examples": [],
-   "say_native": "Mana juda keng tarqalgan xato: “in home”. “Uyda” degan so‘zni so‘zma-so‘z o‘girsak, “in home” chiqadi. Lekin inglizlar “at home” deydi. Xuddi shunday “at work” va “at school”. “In school” desangiz ham tushunishadi, lekin odatiy emas va Britaniya ingliz tilida g‘alati eshitiladi. Qoida: odam odatdagi joyda bo‘lsa, at home, at work, at school. Binoning ichidagi xona uchun esa “in the kitchen”, “in the bedroom”.",
+   "say_native": "Mana juda keng tarqalgan xato: “in home”. “Uyda” degan so‘zni so‘zma-so‘z o‘girsak, “in home” chiqadi. Lekin inglizlar “at home” deydi. Xuddi shunday “at work” va “at school”. Maktab uchun ham odatiy shakl “at school”. Qoida: odam odatdagi joyda bo‘lsa, at home, at work, at school. Binoning ichidagi xona uchun esa “in the kitchen”, “in the bedroom”.",
    "say": "I am at home. She is at work. The children are at school. I am in the kitchen.",
    "say_uz": "Men uydaman. U ishda. Bolalar maktabda. Men oshxonadaman.",
    "practice_seconds": 0
@@ -449,6 +472,22 @@
    "say_native": "Rasmni tasvirlashda yana to‘rtta ibora kerak. “On the left” — chapda, “on the right” — o‘ngda. “In the middle” — o‘rtada. “In the corner” — burchakda. Rasmning tepasi “at the top”, pasti “at the bottom”. Diqqat qiling: chap va o‘ng uchun “on”, o‘rta va burchak uchun “in”. Bu kichik farqni yodlab oling, chunki rasm tasviri deyarli har doim shu so‘zlardan boshlanadi.",
    "say": "The lamp is on the left. The sofa is in the middle. The plant is in the corner. The picture is at the top.",
    "say_uz": "Chiroq chapda. Divan o‘rtada. Gul burchakda. Rasm tepada.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "On the left, in the left emas",
+   "emotion": "stern",
+   "board": [
+    "✗ in the left / in the right",
+    "✓ on the left / on the right",
+    "✗ in the picture's left",
+    "✓ In the picture, on the left, there is ..."
+   ],
+   "examples": [],
+   "say_native": "Chap va o‘ng haqida ham xato bo‘ladi. O‘zbekcha “chapda”, “o‘ngda” deganda “-da” bor, shu sababli ko‘pchilik “in the left” deydi. Ingliz tilida esa “on the left”, “on the right”. “In the middle” va “in the corner” da esa “in” qoladi. Rasm haqida gapirsangiz, “in the picture” deymiz, devordagi rasmni esa “on the wall” deymiz. Bu uchta farqni eslab qoling.",
+   "say": "On the left. On the right. In the middle. In the corner. In the picture.",
+   "say_uz": "Chapda. O‘ngda. O‘rtada. Burchakda. Rasmda.",
    "practice_seconds": 0
   },
   {
@@ -511,6 +550,60 @@
   },
   {
    "kind": "explain",
+   "title": "Predlog + olmosh",
+   "emotion": "impressed",
+   "board": [
+    "next to him, behind her",
+    "in front of us, with them",
+    "near it, under it"
+   ],
+   "examples": [
+    {
+     "t": "The dog is behind him.",
+     "uz": "Kuchuk uning orqasida."
+    },
+    {
+     "t": "Sit next to me.",
+     "uz": "Yonimga o‘tiring."
+    }
+   ],
+   "say_native": "Oldingi darsdagi olmoshlarni bugungi predloglar bilan birlashtiramiz. Predlogdan keyin tushum olmoshi keladi: next to him, behind her, in front of us, with them, under it. Masalan, “Sit next to me” — yonimga o‘tiring. “Next to I” yoki “behind he” deyish xato. Predlogdan keyin faqat me, you, him, her, it, us, them.",
+   "say": "Sit next to me. The dog is behind him. The children are in front of us. Come with them.",
+   "say_uz": "Yonimga o‘tiring. Kuchuk uning orqasida. Bolalar bizning oldimizda. Ular bilan keling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Olmosh bilan ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) next to (I)",
+    "2) behind (she)",
+    "3) in front of (they)"
+   ],
+   "examples": [],
+   "say_native": "Uchta ibora bor. Predlogdan keyin qavs ichidagi olmoshning to‘g‘ri shaklini qo‘ying. Birinchi: next to, men. Ikkinchi: behind, u ayol. Uchinchi: in front of, ular. Har birini baland ovozda ayting va gap ichida ishlating, masalan, “The cat is next to…”.",
+   "say": "Say it with a pronoun. Next to, I. Behind, she. In front of, they.",
+   "say_uz": "Olmosh bilan ayting. Yonida, men. Orqasida, u. Oldida, ular.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "next to me",
+    "behind her",
+    "in front of them"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Next to me, chunki predlogdan keyin “I” emas, “me”. Behind her, ayolga nisbatan “her”. In front of them, ular uchun “them”. Agar to‘g‘ri aytgan bo‘lsangiz, oldingi darsdagi tushum olmoshlarini yaxshi o‘zlashtirgansiz. Shuni yodda tuting: har safar predlogdan keyin “I”, “he”, “she”, “we”, “they” kelmaydi.",
+   "say": "Next to me. Behind her. In front of them.",
+   "say_uz": "Mening yonimda. Uning orqasida. Ularning oldida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
    "title": "Talaffuz: predloglar kuchsiz aytiladi",
    "emotion": "thinking",
    "board": [
@@ -551,22 +644,6 @@
    "practice_seconds": 16
   },
   {
-   "kind": "explain",
-   "title": "O‘zingizni tekshiring",
-   "emotion": "proud",
-   "board": [
-    "in front of → 'əv' yengil",
-    "next to → 'neks tə'",
-    "be-TWEEN, be-HIND",
-    "UN-der, OP-o-zit"
-   ],
-   "examples": [],
-   "say_native": "Tekshiring: “in front of” da “of” yengil aytildimi? “Next to” da “t” tushib qoldimi, “neks tə”? “Between” da ikkinchi bo‘g‘inga, “behind” da ham ikkinchi bo‘g‘inga urg‘u berdingizmi? Agar ha bo‘lsa, ajoyib. Yana shuni ham aytay: gap o‘rtasida “the” ham yengil, “ðə” aytiladi. Predlog, “the”, ot ketma-ketligi bir bo‘g‘indek ravon eshitilishi kerak: “on the table”.",
-   "say": "On the table. In the bag. Under the chair. Behind the door.",
-   "say_uz": "Stol ustida. Sumkada. Stul tagida. Eshik orqasida.",
-   "practice_seconds": 0
-  },
-  {
    "kind": "example",
    "title": "Tinglang: kalitlar qani?",
    "emotion": "happy",
@@ -574,12 +651,12 @@
     "A: Mum, where are my keys?",
     "B: They're on the table, next to the lamp.",
     "A: No, they aren't there.",
-    "B: Look in your bag. A: Oh, here they are! They're under my book."
+    "B: Look in your bag. A: Oh, here they are! They're in my bag, under my book."
    ],
    "examples": [],
-   "say_native": "Birinchi dialogni tinglang. O‘g‘il onasidan kalitlari qayerdaligini so‘raydi. Ona avval stol ustida, chiroq yonida deydi, lekin kalitlar u yerda emas. Keyin ona sumkaga qarashni maslahat beradi. Diqqat qiling: on, next to, in, under. Savollar: ona avval kalitlar qayerda deb o‘ylaydi? Ular aslida qayerda? Qaysi narsa ularning ustida turibdi?",
-   "say": "Mum, where are my keys? They're on the table, next to the lamp. No, they aren't there. Look in your bag. Oh, here they are! They're under my book.",
-   "say_uz": "Ona, kalitlarim qani? Ular stol ustida, chiroq yonida. Yo‘q, ular u yerda emas. Sumkangizga qarang. Mana, ular! Ular kitobim tagida.",
+   "say_native": "Birinchi dialogni tinglang. O‘g‘il onasidan kalitlari qayerdaligini so‘raydi. Ona avval stol ustida, chiroq yonida deydi, lekin kalitlar u yerda emas. Keyin ona sumkaga qarashni maslahat beradi. Diqqat qiling: on, next to, in, under. Savollar: ona avval kalitlar qayerda deb o‘ylaydi? Ular aslida qayerda va nima tagida?",
+   "say": "Mum, where are my keys? They're on the table, next to the lamp. No, they aren't there. Look in your bag. Oh, here they are! They're in my bag, under my book.",
+   "say_uz": "Ona, kalitlarim qani? Ular stol ustida, chiroq yonida. Yo‘q, ular u yerda emas. Sumkangizga qarang. Mana, ular! Ular sumkamda, kitobim tagida.",
    "practice_seconds": 0
   },
   {
@@ -592,7 +669,7 @@
     "3) Where are the keys really?"
    ],
    "examples": [],
-   "say_native": "Dialog bo‘yicha uchta savol. Birinchi: ona avval kalitlar qayerda deb o‘ylaydi? Ikkinchi: u qayerga qarashni aytadi? Uchinchi: kalitlar aslida qayerda, ya’ni qaysi narsa tagida? Predloglardan foydalanib, to‘liq gap bilan javob bering. Masalan, “They’re …”.",
+   "say_native": "Dialog bo‘yicha uchta savol. Birinchi: ona avval kalitlar qayerda deb o‘ylaydi? Ikkinchi: u qayerga qarashni aytadi? Uchinchi: kalitlar aslida qayerda va nima tagida? Predloglardan foydalanib, to‘liq gap bilan javob bering. Masalan, “They’re …”.",
    "say": "Where does Mum think the keys are? Where does she say to look? Where are the keys really?",
    "say_uz": "Ona kalitlar qayerda deb o‘ylaydi? U qayerga qarashni aytadi? Kalitlar aslida qayerda?",
    "practice_seconds": 14
@@ -604,10 +681,10 @@
    "board": [
     "1) On the table, next to the lamp.",
     "2) In his bag.",
-    "3) Under his book (in his bag)."
+    "3) In his bag, under his book."
    ],
    "examples": [],
-   "say_native": "Javoblar. Ona kalitlar stol ustida, chiroq yonida deb o‘ylaydi: “on the table, next to the lamp”. U sumkaga qarashni aytadi: “in your bag”. Kalitlar kitob tagida: “under my book”, va bu kitob sumkada deb tushunish mumkin. Bu yerda ayniqsa “your bag” va “my book” ga e’tibor bering: ular egalik sifatlari, o‘tgan darsda o‘rganilgan. Mana, bugungi va kechagi mavzu birlashdi.",
+   "say_native": "Javoblar. Ona kalitlar stol ustida, chiroq yonida deb o‘ylaydi: “on the table, next to the lamp”. U sumkaga qarashni aytadi: “in your bag”. Kalitlar sumkada va kitob tagida: “in my bag, under my book”. Bu yerda ayniqsa “your bag” va “my book” ga e’tibor bering: ular egalik sifatlari, o‘tgan darsda o‘rganilgan. Mana, bugungi va kechagi mavzu birlashdi.",
    "say": "On the table, next to the lamp. In your bag. Under my book.",
    "say_uz": "Stol ustida, chiroq yonida. Sumkangizda. Kitobim tagida.",
    "practice_seconds": 0

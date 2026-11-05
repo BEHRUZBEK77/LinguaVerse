@@ -10,15 +10,23 @@ function esc(s) {
 // =====================================================
 // Korean.js — LinguaVerse (Korean Course)
 // =====================================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { buildCourseCurriculum } from './unit-curriculum.mjs';
+import { mountAIUnitBuilder } from './ai-unit-builder.mjs';
+import { encodeInlineHandlerArg } from './ai-unit-data.mjs';
+import { findSkillVideos } from './youtube-recommendations.mjs';
+import { formatAIResponse, getAIThinkingMode, initializeAIChatUI } from './ai-chat-ui.mjs';
+import { initializeApp } from "/js/fb/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
     increment, serverTimestamp, collection,
     query, orderBy, limit, getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
+import { courseProgressKey, isCourseLevelUnlocked, isCourseUnitUnlocked, migrateCourseProgress, recordCourseLessonAttempt, renderCourseJourney } from './course-journey.mjs';
 
+const COURSE_ID = 'korean';
 const $id = id => document.getElementById(id);
+initializeAIChatUI();
 
 // ── FIREBASE ──
 const FB_CONFIG = {
@@ -32,7 +40,7 @@ const FB_CONFIG = {
 
 let _app, _auth, _db;
 try {
-    const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+    const { getApp } = await import("/js/fb/firebase-app.js");
     _app = getApp();
 } catch {
     _app = initializeApp(FB_CONFIG);
@@ -230,6 +238,7 @@ const WDB = [
     { e: '비판적', r: 'bipanjeok', u: 'Tanqidiy', t: 'adjective', l: 'advanced', ex: '비판적으로 생각해야 해요.', eu: 'Tanqidiy fikrlash kerak.' },
     { e: '합의', r: 'habi', u: 'Kelishuv/Konsensus', t: 'noun', l: 'advanced', ex: '합의에 도달했어요.', eu: 'Kelishuvga erishdik.' },
     { e: '옹호하다', r: 'onghohada', u: 'Himoya qilmoq', t: 'verb', l: 'advanced', ex: '인권을 옹호해요.', eu: 'Inson huquqlarini himoya qilaman.' },
+    { e: '옷', r: 'ot', u: 'Kiyim', t: 'noun', l: 'elementary', ex: '새 옷을 샀어요.', eu: 'Yangi kiyim sotib oldim.' },
 ];
 
 // ══════════════════════════════════════════════════════════════
@@ -417,6 +426,7 @@ const UD_DATA = {
         },
     ]
 };
+buildCourseCurriculum(UD_DATA, WDB, 'ko-KR', 'e');
 
 // ══════════════════════════════════════════════════════════════
 // GRAMMAR QUESTIONS (Korean)
@@ -588,7 +598,14 @@ async function loadUserData() {
             UXP = d.xp || 0;
             UCoin = d.coins || 0;
             URank = d.rank || 'none';
-            UProg = d.korProgress || {};
+            const courseMigration = migrateCourseProgress(d.korProgress || {}, COURSE_ID, UD_DATA, 'korProgress');
+            UProg = courseMigration.progress;
+            if (Object.keys(courseMigration.updates).length) await updateUserField(courseMigration.updates);
+            if (courseMigration.unresolvedLegacyIds.length &&
+                !localStorage.getItem('lv-course-progress-migration-v2')) {
+                localStorage.setItem('lv-course-progress-migration-v2', 'shown');
+                showToast('Eski progressdagi bir xil IDli unitlar tillarga aralashmasligi uchun avtomatik ko‘chmadi.', 'warning');
+            }
             USk = d.korSkills || { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
             UStats = d.stats || { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 };
         } else {
@@ -723,6 +740,7 @@ async function callAI(prompt, maxTok = 1000) {
         const r = await fetch(AI_PROXY, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [{ role: 'user', parts: [{ text: prompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTok }
             })
@@ -761,15 +779,35 @@ function drawRadar() {
 // UNITS
 // ══════════════════════════════════════════════════════════════
 window.switchLevel = function (level, el) {
+    if (!isCourseLevelUnlocked(UD_DATA, UProg, COURSE_ID, level)) {
+        showToast('Avval joriy bosqichdagi barcha unitlarni yakunlang.', 'warning');
+        return;
+    }
     curLevel = level;
-    document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', el ? t === el : t.dataset.level === level));
     renderUnits();
 };
 
 function renderUnits() {
+    curLevel = renderCourseJourney({
+        courseId: COURSE_ID,
+        levels: UD_DATA,
+        progress: UProg,
+        activeLevel: curLevel,
+        onSelect: window.switchLevel,
+    });
     const grid = $id('unitsGrid'); if (!grid) return;
     const units = UD_DATA[curLevel] || [];
     grid.innerHTML = '';
+    mountAIUnitBuilder({
+        container: grid, courseId: COURSE_ID, level: curLevel, locale: 'ko-KR', wordField: 'e',
+        dictionary: WDB, units: () => UD_DATA[curLevel] || [],
+        onUnitsLoaded: (level, added) => {
+            const levelUnits = UD_DATA[level] || (UD_DATA[level] = []);
+            const ids = new Set(levelUnits.map(unit => unit.id));
+            added.forEach(unit => { if (!ids.has(unit.id)) levelUnits.push(unit); });
+            if (level === curLevel) renderUnits();
+        }
+    });
     units.forEach((unit, i) => {
         const done = ['A', 'B', 'C', 'D'].filter(l => UProg[`${unit.id}_${l}`] >= 100).length;
         const pct = Math.round((done / 4) * 100);
@@ -797,7 +835,13 @@ function renderUnits() {
     });
 }
 
+window.renderUnits = renderUnits;
+
 window.openUnit = function (unit) {
+    if (!unit || !isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unit.id)) {
+        showToast('Bu unit hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     curUnit = unit;
     const modal = $id('unitModal');
     const content = $id('modalContent');
@@ -837,6 +881,10 @@ window.openUnit = function (unit) {
 };
 
 window.openLesson = async function (unitId, lessonKey) {
+    if (!isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unitId)) {
+        showToast('Bu dars hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     let unit = null;
     for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === unitId); if (f) { unit = f; break; } }
     if (!unit) return;
@@ -913,7 +961,7 @@ function lessonA(unit) {
       <h3 style="margin-bottom:10px;color:#e8ecff"><i class="fa-solid fa-pen-to-square" style="color:#60a5fa"></i> Grammatika Qoidasi</h3>
       <div style="font-size:0.9rem;color:#ffb3b3;margin-bottom:8px"><i class="fa-solid fa-lightbulb" style="color:#f5c842"></i> ${unit.grammar_rule || ''}</div>
       <div style="font-size:0.85rem;color:#e74c3c;font-style:italic"><i class="fa-solid fa-pencil" style="color:#60a5fa"></i> ${unit.grammar_example || ''}</div>
-      <button onclick="window.aiGrammarExplain('${unit.title}','${(unit.grammar_rule || '').replace(/'/g, "\\'")}')" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.25);color:#e74c3c;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil (1 token)</button>
+      <button onclick="window.aiGrammarExplain(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.grammar_rule || '')}'))" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.25);color:#e74c3c;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil (1 token)</button>
       <div id="gramRuleFB" style="margin-top:8px;font-size:0.8rem"></div>
     </div>
     <div style="margin-bottom:20px">
@@ -1216,7 +1264,7 @@ function lessonD(unit) {
         <textarea id="dta" placeholder="여기에 한국어로 쓰세요..." oninput="window.updWC()" style="width:100%;height:100px;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;resize:none;box-sizing:border-box"></textarea>
         <div style="display:flex;gap:10px;font-size:0.75rem;color:#666;margin:6px 0"><span id="dwc">0 so'z</span><span id="dcc">0 belgi</span><span id="dst" style="color:#f87171">Min 30 so'z</span></div>
         <div style="display:flex;gap:6px">
-          <button onclick="window.aiWrit('${unit.title}')" style="padding:7px 14px;border-radius:8px;background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.25);color:#e74c3c;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI tekshir (1 token)</button>
+          <button onclick="window.aiWrit(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'))" style="padding:7px 14px;border-radius:8px;background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.25);color:#e74c3c;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI tekshir (1 token)</button>
           <button onclick="window.selfChk(30)" style="padding:7px 14px;border-radius:8px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);color:#60a5fa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-chart-pie" style="color:#60a5fa"></i> So'z soni</button>
         </div>
         <div id="wfb" style="margin-top:8px;font-size:0.8rem"></div>
@@ -1335,25 +1383,33 @@ async function finLesson(uid, lk, skill, sc, tot) {
 
 async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, coinEarned) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 70;
-    UProg[`${unitId}_${lessonKey}`] = 100;
-    const allDone = ['A', 'B', 'C', 'D'].every(l => UProg[`${unitId}_${l}`] >= 100);
-    if (!CU) { UXP += xpEarned; UCoin += coinEarned; updateDisplays(); renderUnits(); showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`, 'success'); return; }
+    const attempt = recordCourseLessonAttempt(UProg, unitId, lessonKey, pct);
+    if (!CU) {
+        UXP += xpEarned; UCoin += coinEarned; updateDisplays(); renderUnits();
+        showToast(
+            attempt.passed
+                ? `<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`
+                : 'Darsdan o‘tish uchun kamida 60% kerak. Qayta urinib ko‘ring.',
+            attempt.passed ? 'success' : 'warning'
+        );
+        return;
+    }
     try {
         const updates = {
             xp: increment(xpEarned), coins: increment(coinEarned),
             totalXP: increment(xpEarned), totalCoins: increment(coinEarned),
-            [`korProgress.${unitId}_${lessonKey}`]: 100,
+            [`korProgress.${courseProgressKey(COURSE_ID, `${unitId}_${lessonKey}`)}`]: attempt.progressValue,
             'stats.totalSessions': increment(1)
         };
-        if (allDone) {
+        if (attempt.completedNow) {
             updates['stats.unitsCompleted'] = increment(1);
             updates.xp = increment(xpEarned + 50);
             updates.coins = increment(coinEarned + 10);
             showToast(`<i class="fa-solid fa-champagne-glasses" style="color:#f5c842"></i> Unit to'liq! +50 XP +10 <i class="fa-solid fa-coins" style="color:#f5c842"></i> bonus!`, 'success');
         }
         await updateUserField(updates);
-        UXP += xpEarned + (allDone ? 50 : 0);
-        UCoin += coinEarned + (allDone ? 10 : 0);
+        UXP += xpEarned + (attempt.completedNow ? 50 : 0);
+        UCoin += coinEarned + (attempt.completedNow ? 10 : 0);
         updateDisplays();
         showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i> saqlandi!`, 'success');
     } catch (e) { console.error(e); }
@@ -1363,6 +1419,16 @@ function showResult(lk, pct, xp, coin, unit, uid) {
     const lnames = { A: 'Grammatika', B: 'Listening', C: 'Reading', D: 'Speaking' };
     const nxt = { A: 'B', B: 'C', C: 'D', D: null };
     const content = $id('modalContent'); if (!content) return;
+    const unitComplete = ['A', 'B', 'C', 'D'].every(lesson => UProg[`${uid}_${lesson}`] >= 100);
+    if (pct < 60 || (!nxt[lk] && !unitComplete)) {
+        content.innerHTML = `<div style="text-align:center;padding:24px">
+          <h3>${pct < 60 ? 'O‘tish uchun kamida 60% kerak.' : 'Unitdagi qolgan darslarni ham yakunlang.'}</h3>
+          ${pct < 60 ? `<button class="course-result-action" onclick="window.openLesson('${uid}','${lk}')">Qayta urinib ko‘rish</button>` : ''}
+          <button class="course-result-action secondary" onclick="document.getElementById('unitModal').classList.remove('active');renderUnits()">Unitlarga qaytish</button>
+        </div>`;
+        const modal = $id('unitModal'); if (modal) modal.classList.add('active');
+        return;
+    }
     const circleColor = pct >= 80 ? '#34d399' : pct >= 60 ? '#f5c842' : '#ef4444';
     content.innerHTML = `<div style="text-align:center;padding:20px">
       <div style="width:120px;height:120px;border-radius:50%;background:${circleColor}22;border:3px solid ${circleColor};display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px">
@@ -1613,6 +1679,7 @@ window.sendChatMessage = async function () {
         const resp = await fetch(AI_PROXY, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [{ role: 'user', parts: [{ text: curChatMode.sys + LANG_RULES }] }, ...chatHist.slice(-10)],
                 generationConfig: { temperature: 0.8, maxOutputTokens: UP === 'ultimate' ? 2000 : 1000 }
             })
@@ -1637,7 +1704,8 @@ function appendChat(role, html, save = false, id = null) {
     const div = document.createElement('div');
     div.className = `chat-msg ${isAI ? 'ai-msg' : 'user-msg'}`;
     if (id) div.id = id;
-    div.innerHTML = `<div class="chat-avatar">${isAI ? '<i class="fa-solid fa-robot"></i>' : '<i class="fa-solid fa-user"></i>'}</div><div class="chat-bubble">${html}</div>`;
+    const content = isAI && save ? formatAIResponse(html) : isAI ? html : esc(html).replace(/\n/g, '<br>');
+    div.innerHTML = `<div class="chat-avatar">${isAI ? '<i class="fa-solid fa-robot"></i>' : '<i class="fa-solid fa-user"></i>'}</div><div class="chat-bubble">${content}</div>`;
     c.appendChild(div); c.scrollTop = c.scrollHeight;
 }
 
@@ -1653,22 +1721,10 @@ window.clearChatHistory = async function () {
 // VIDEO
 // ══════════════════════════════════════════════════════════════
 window.findYoutubeVideos = function () {
-    const grid = $id('videosGrid'); if (!grid) return;
-    const videos = [
-        { title: 'Korean for Beginners — FULL Course', channel: 'Learn Korean with Go! Billy Korean', id: 'yeRVoNE_dUw' },
-        { title: 'Learn Korean in 30 Minutes', channel: 'KoreanClass101', id: 'nWKUBNVxApo' },
-        { title: 'TOPIK Writing — Band 6 Tips', channel: 'Korean Unnie', id: 'gB12FGV3xk4' },
-        { title: '500 Korean Words for Beginners', channel: 'TalkToMeInKorean', id: 'MZ7PGN1C7KE' },
-    ];
-    grid.innerHTML = videos.map(v => `<div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
-        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" style="display:block">
-          <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width:100%;height:160px;object-fit:cover" alt="${v.title}">
-          <div style="padding:12px">
-            <div style="font-weight:600;font-size:0.85rem;color:#e8ecff;margin-bottom:4px">${v.title}</div>
-            <div style="font-size:0.75rem;color:#666"><i class="fa-brands fa-youtube" style="color:#ef4444;margin-right:4px"></i>${v.channel}</div>
-          </div>
-        </a>
-    </div>`).join('');
+    return findSkillVideos({
+        language: '한국어', languageId: 'korean', exam: 'TOPIK', skills: USk, level: curLevel,
+        skillLabels: { reading: '읽기 독해', writing: '쓰기', speaking: '말하기와 발음', listening: '듣기 이해', grammar: '문법' }
+    });
 };
 
 // ══════════════════════════════════════════════════════════════

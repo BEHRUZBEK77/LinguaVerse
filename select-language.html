@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LinguaVerse — Til Tanlash</title>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 <style>
     * {
       margin: 0;
@@ -72,25 +70,25 @@
     }
 
     /* NAVBAR */
-    nav {
-      position: fixed;
+    nav#navbar {
+      position: sticky;
       top: 0;
       left: 0;
       right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       padding: 0 40px;
       height: 64px;
-      border-bottom: 1px solid transparent;
-      transition: all 0.3s
+      border-bottom: 1px solid var(--border);
+      background: rgba(15, 21, 28, .96);
+      backdrop-filter: blur(18px);
+      transition: background .2s, border-color .2s
     }
 
     nav.scrolled {
-      background: rgba(10, 10, 15, 0.95);
-      backdrop-filter: blur(20px);
-      border-color: var(--border)
+      background: rgba(15, 21, 28, .98);
+      border-color: var(--border2)
     }
 
     .logo {
@@ -108,7 +106,10 @@
     .nav-user {
       display: flex;
       align-items: center;
-      gap: 12px
+      gap: 10px;
+      width: min(1200px, 100%);
+      min-width: 0;
+      margin: 0 auto
     }
 
     .nav-avatar {
@@ -125,7 +126,11 @@
 
     .nav-username {
       font-size: 0.85rem;
-      color: var(--muted)
+      color: var(--muted);
+      max-width: min(26vw, 220px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
     }
 
     .plan-badge {
@@ -164,10 +169,11 @@
       background: none;
       border: 1px solid var(--border);
       color: var(--muted);
-      padding: 6px 14px;
+      padding: 6px 11px;
       border-radius: 8px;
       cursor: pointer;
       font-size: 0.8rem;
+      white-space: nowrap;
       transition: all 0.2s
     }
 
@@ -312,6 +318,17 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-bottom: 32px
+    }
+
+    .profile-status {
+      margin: 0 0 20px;
+      padding: 12px 16px;
+      border: 1px solid rgba(245, 200, 66, 0.25);
+      border-radius: 12px;
+      background: rgba(245, 200, 66, 0.08);
+      color: var(--gold);
+      text-align: center;
+      font-size: 0.9rem
     }
 
     .lang-grid {
@@ -496,6 +513,58 @@
       animation: fadeUp 0.6s ease 0.25s both
     }
 
+    .catalog-nav {
+      position: sticky;
+      top: 64px;
+      z-index: 99;
+      border-bottom: 1px solid var(--border);
+      background: rgba(16, 21, 27, .92);
+      backdrop-filter: blur(16px);
+    }
+
+    .catalog-nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: min(1200px, 100%);
+      min-height: 48px;
+      margin: auto;
+      padding: 6px 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .catalog-nav-inner::-webkit-scrollbar { display: none; }
+
+    .catalog-nav a {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 6px 12px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--text2);
+      font-size: .79rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: color .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .catalog-nav a:hover,
+    .catalog-nav a[aria-current="page"] {
+      border-color: var(--border2);
+      background: var(--surface2);
+      color: var(--text);
+    }
+
+    .catalog-nav a[aria-current="page"] {
+      border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+      background: color-mix(in srgb, var(--accent) 11%, transparent);
+      color: var(--accent);
+    }
+
     .stat-item {
       text-align: center
     }
@@ -542,17 +611,26 @@
 
     /* RESPONSIVE */
     @media(max-width:600px) {
-      nav {
-        padding: 0 20px
+      nav#navbar {
+        padding: 0 14px
       }
 
       .hero {
-        padding: 100px 20px 40px
+        padding: 34px 20px 28px
       }
 
       .lang-grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 12px
+      }
+
+      @media (max-width: 420px) {
+        nav#navbar { padding: 0 10px; }
+        .nav-user { gap: 7px; }
+        .nav-username { max-width: 74px; }
+        .nav-logout { padding: 6px 8px; font-size: .72rem; }
+        .plan-badge { padding: 4px 7px !important; font-size: .65rem !important; }
+        .catalog-nav-inner { padding-right: 12px; padding-left: 12px; }
       }
     }
   </style>
@@ -561,6 +639,9 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="css/lv-theme.css">
+  <script src="js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
@@ -572,70 +653,66 @@
   <nav id="navbar">
     <div class="nav-user" id="navUser"></div>
   </nav>
-  <!-- SITE NAV BAR -->
-  <div
-    style="position:sticky;top:64px;z-index:99;background:rgba(3,5,9,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 24px;display:flex;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none">
-    <span
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#e8ecff;font-size:0.78rem;font-weight:700;white-space:nowrap"><i class="fa-solid fa-house"></i> Bosh sahifa</span>
-    <a href="select-language.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#e8ecff;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-globe"></i> Tillar</a>
-    <a href="languages-html/speaking-coach.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.3);color:#22d3ee;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-microphone-lines"></i> Speaking Coach</a>
-    <a href="languages-html/shop.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(91,124,250,0.1);border:1px solid rgba(91,124,250,0.25);color:#a78bfa;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
-    <a href="languages-html/profile.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);color:#34d399;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-user"></i> Profil</a>
-    <a href="order.html"
-      style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:rgba(244,199,74,0.1);border:1px solid rgba(244,199,74,0.25);color:#f5c842;text-decoration:none;font-size:0.78rem;font-weight:600;white-space:nowrap"><i class="fa-solid fa-crown"></i> Rejalar</a>
-  </div>
+  <nav class="catalog-nav" aria-label="Asosiy bo'limlar">
+    <div class="catalog-nav-inner">
+      <a href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Bosh sahifa</a>
+      <a href="select-language.html" aria-current="page"><i class="fa-solid fa-globe" aria-hidden="true"></i> Tillar</a>
+      <a href="world/index.html"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i> 3D dunyo</a>
+      <a href="languages-html/speaking-coach.html"><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i> Speaking Coach</a>
+      <a href="languages-html/shop.html"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Do'kon</a>
+      <a href="languages-html/profile.html"><i class="fa-solid fa-user" aria-hidden="true"></i> Profil</a>
+      <a href="order.html"><i class="fa-solid fa-crown" aria-hidden="true"></i> Rejalar</a>
+    </div>
+  </nav>
 
+  <main class="catalog-layout">
   <section class="hero">
     <div class="hero-badge"><i class="fa-solid fa-globe"></i> 8 ta til mavjud</div>
     <h1>Qaysi tilni <span>o'rganmoqchisiz?</span></h1>
-    <p>Dunyoning istalgan tiliga oid darslar, mashqlar va AI suhbat sherigi</p>
+    <p>8 ta tilda darslar, mashqlar va AI suhbat sherigi</p>
   </section>
 
+  <aside class="catalog-controls" aria-label="Til kurslarini qidirish va filtrlash">
   <div class="stats-row">
     <div class="stat-item">
       <div class="stat-n">8</div>
       <div class="stat-l">Til</div>
     </div>
     <div class="stat-item">
-      <div class="stat-n">500+</div>
-      <div class="stat-l">Dars</div>
+      <div class="stat-n">15</div>
+      <div class="stat-l">Unit/daraja</div>
     </div>
     <div class="stat-item">
       <div class="stat-n">AI</div>
       <div class="stat-l">Suhbat</div>
     </div>
     <div class="stat-item">
-      <div class="stat-n">60</div>
-      <div class="stat-l">Unit/Til</div>
+      <div class="stat-n">2</div>
+      <div class="stat-l">Tez kunda</div>
     </div>
   </div>
 
   <div class="search-wrap">
     <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-    <input type="text" class="search-input" id="searchInput" placeholder="Til qidirish..." oninput="filterLangs()">
+    <input type="search" class="search-input" id="searchInput" aria-label="Til kurslarini qidirish" placeholder="Til qidirish..." oninput="filterLangs()">
   </div>
 
   <div class="filter-tabs">
-    <button class="ftab active" onclick="setFilter('all',this)">Hammasi</button>
-    <button class="ftab" onclick="setFilter('available',this)">Mavjud</button>
-    <button class="ftab" onclick="setFilter('soon',this)">Tez kunda</button>
-    <button class="ftab" onclick="setFilter('popular',this)">Mashhur</button>
+    <button class="ftab active" aria-pressed="true" onclick="setFilter('all',this)">Hammasi</button>
+    <button class="ftab" aria-pressed="false" onclick="setFilter('available',this)">Mavjud</button>
+    <button class="ftab" aria-pressed="false" onclick="setFilter('soon',this)">Tez kunda</button>
+    <button class="ftab" aria-pressed="false" onclick="setFilter('popular',this)">Mashhur</button>
   </div>
+  </aside>
 
   <section class="languages-section">
-    <div class="section-label">Tilni tanlang</div>
+    <div class="section-label">Barcha kurslar <span id="courseCount">8 ta</span></div>
+    <p class="profile-status" id="profileLoadStatus" role="status" aria-live="polite" hidden></p>
     <div class="lang-grid" id="langGrid"></div>
   </section>
+  </main>
 
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
     const firebaseConfig = {
       apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
       authDomain: "linguaverse-81b52.firebaseapp.com",
@@ -646,80 +723,76 @@
       measurementId: "G-H8WH5FTTEY"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-
     const LANGUAGES = [
       {
         id: 'english', flag: '🇬🇧', name: 'English', native: 'English',
-        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: true, color: 'rgba(79,110,247,0.08)',
         url: './languages-html/English.html', progress: 0,
-        desc: 'A1 dan C2 gacha to\'liq kurs'
+        desc: 'Boshlang‘ichdan yuqori darajagacha'
       },
       {
         id: 'russian', flag: '🇷🇺', name: 'Rus tili', native: 'Русский',
-        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: true, color: 'rgba(220,50,50,0.08)',
         url: './languages-html/Russia.html', progress: 0,
         desc: 'Boshlang\'ichdan yuqori darajagacha'
       },
       {
         id: 'arabic', flag: '🇸🇦', name: 'Arab tili', native: 'العربية',
-        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: false, color: 'rgba(52,211,153,0.08)',
         url: './languages-html/Arabic.html', progress: 0,
         desc: 'Alifbodan suhbatgacha'
       },
       {
         id: 'chinese', flag: '🇨🇳', name: 'Xitoy tili', native: '中文',
-        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: true, color: 'rgba(245,200,66,0.08)',
         url: './languages-html/Chinese.html', progress: 0,
         desc: 'Mandarin tilini o\'rganing'
       },
       {
         id: 'korean', flag: '🇰🇷', name: 'Koreys tili', native: '한국어',
-        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: true, color: 'rgba(167,139,250,0.08)',
         url: './languages-html/Korean.html', progress: 0,
         desc: 'Hanguldan K-pop tilgacha'
       },
       {
         id: 'turkish', flag: '🇹🇷', name: 'Turk tili', native: 'Türkçe',
-        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: false, color: 'rgba(239,68,68,0.08)',
         url: './languages-html/Turkish.html', progress: 0,
         desc: 'Qardosh turkiy til'
       },
       {
         id: 'spanish', flag: '🇪🇸', name: 'Ispan tili', native: 'Español',
-        stats: ['60 Unit', '500+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: false, color: 'rgba(251,146,60,0.08)',
         url: './languages-html/Spain.html', progress: 0,
         desc: 'Dunyo tilini o\'rganing'
       },
       {
         id: 'german', flag: '🇩🇪', name: 'Nemis tili', native: 'Deutsch',
-        stats: ['40 Unit', '300+ So\'z', 'AI Chat'],
+        stats: ['15 Unit/daraja', 'Mashqlar', 'AI Chat'],
         status: 'available', popular: false, color: 'rgba(107,107,128,0.05)',
         url: './languages-html/German.html', progress: 0,
-        desc: 'Tez kunda — 2025'
+        desc: 'Boshlang‘ichdan yuqori darajagacha'
       },
       {
         id: 'french', flag: '🇫🇷', name: 'Fransuz tili', native: 'Français',
-        stats: ['40 Unit', '300+ So\'z', 'AI Chat'],
+        stats: [],
         status: 'soon', popular: false, color: 'rgba(107,107,128,0.05)',
         url: null, progress: 0,
-        desc: 'Tez kunda — 2025'
+        desc: 'Yangi kurs tayyorlanmoqda'
       },
       {
         id: 'japanese', flag: '🇯🇵', name: 'Yapon tili', native: '日本語',
-        stats: ['40 Unit', '300+ So\'z', 'AI Chat'],
+        stats: [],
         status: 'soon', popular: false, color: 'rgba(107,107,128,0.05)',
         url: null, progress: 0,
-        desc: 'Tez kunda — 2025'
+        desc: 'Yangi kurs tayyorlanmoqda'
       },
     ];
 
@@ -730,8 +803,12 @@
 
     window.setFilter = function (filter, el) {
       currentFilter = filter;
-      document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.ftab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-pressed', 'false');
+      });
       el.classList.add('active');
+      el.setAttribute('aria-pressed', 'true');
       renderLangs();
     };
 
@@ -754,24 +831,31 @@
       });
 
       if (!langs.length) {
+        document.getElementById('courseCount').textContent = '0 ta';
         grid.innerHTML = `<div class="no-results" style="grid-column:1/-1"><span><i class="fa-solid fa-magnifying-glass"></i></span><p>Til topilmadi</p></div>`;
         return;
       }
 
+      document.getElementById('courseCount').textContent = `${langs.length} ta`;
       grid.innerHTML = langs.map((l, i) => {
         const prog = userProgress[l.id] || 0;
         const isAvailable = l.status === 'available';
+        const tag = isAvailable ? 'a' : 'div';
+        const openAttrs = isAvailable
+          ? `href="${l.url}" aria-label="${l.name} kursini ochish"`
+          : `role="button" tabindex="0" aria-label="${l.name} kursi tez kunda ochiladi" onclick="showComingSoon()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showComingSoon()}"`;
         return `
-      <div class="lang-card${!isAvailable ? ' coming-soon' : ''}" 
-           style="--card-accent:${l.color};animation-delay:${i * 0.05}s"
-           onclick="${isAvailable ? `goToLang('${l.url}')` : 'showComingSoon()'}">
+      <${tag} class="lang-card${!isAvailable ? ' coming-soon' : ''}"
+           ${openAttrs}
+           style="--card-accent:${l.color};animation-delay:${i * 0.05}s">
         ${l.popular ? '<div class="popular-tag"><i class="fa-solid fa-fire" style="color:#fb923c"></i> Mashhur</div>' : ''}
         <span class="lang-flag">${l.flag}</span>
         <div class="lang-name">${l.name}</div>
         <div class="lang-native">${l.native}</div>
-        <div class="lang-stats">
+        <p class="lang-description">${l.desc}</p>
+        ${l.stats.length ? `<div class="lang-stats">
           ${l.stats.map(s => `<span class="lang-stat">${s}</span>`).join('')}
-        </div>
+        </div>` : ''}
         ${prog > 0 ? `
         <div class="lang-progress-wrap">
           <div class="lang-progress-label"><span>Taraqqiyot</span><span>${prog}%</span></div>
@@ -781,7 +865,7 @@
           ${l.status === 'available' ? '<i class="fa-solid fa-check" style="color:#34d399"></i> Mavjud' : '⏳ Tez kunda'}
         </span>
         <div class="lang-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-      </div>
+      </${tag}>
     `;
       }).join('');
     }
@@ -795,29 +879,91 @@
       alert('Bu til tez kunda qo\'shiladi! 🚀');
     };
 
-    onAuthStateChanged(auth, async (user) => {
+    renderLangs();
 
-      const name = user.displayName || user.email.split('@')[0];
-      const initial = name.charAt(0).toUpperCase();
+    async function initializeFirebase() {
+      const [appModule, authModule, firestoreModule] = await Promise.all([
+        import("/js/fb/firebase-app.js"),
+        import("/js/fb/firebase-auth.js"),
+        import("/js/fb/firebase-firestore.js")
+      ]);
+      const app = appModule.initializeApp(firebaseConfig);
+      const auth = authModule.getAuth(app);
+      const db = firestoreModule.getFirestore(app);
+      let isSigningOut = false;
 
-      try {
-        const snap = await getDoc(doc(db, 'users', user.uid));
-        if (snap.exists()) {
-          const data = snap.data();
-          userPlan = data.plan || 'free';
-          userProgress = data.langProgress || {};
+      window.logout = async function () {
+        const button = document.querySelector('#navUser .nav-logout');
+        if (button) button.disabled = true;
+        isSigningOut = true;
+        try {
+          await authModule.signOut(auth);
+          window.location.replace('auth/login.html');
+        } catch (error) {
+          isSigningOut = false;
+          if (button) button.disabled = false;
+          console.error('Hisobdan chiqishda xatolik:', error);
+          const status = document.getElementById('profileLoadStatus');
+          status.textContent = 'Hisobdan chiqib bo‘lmadi. Iltimos, qayta urinib ko‘ring.';
+          status.hidden = false;
         }
-      } catch (e) { }
+      };
 
-      const planLabels = { free: 'Free <i class="fa-solid fa-seedling" style="color:#34d399"></i>', nova: 'NOVA <i class="fa-solid fa-bolt" style="color:#3b82f6"></i>', mega: 'MEGA <i class="fa-solid fa-rocket" style="color:#8b5cf6"></i>', premium: 'PREMIUM <i class="fa-solid fa-crown" style="color:#f59e0b"></i>' };
-      document.getElementById('navUser').innerHTML = `
-    <span class="plan-badge ${userPlan}">${planLabels[userPlan] || 'Free'}</span>
-    <div class="nav-avatar">${initial}</div>
-    <span class="nav-username">${name}</span>
-    <button class="nav-logout" onclick="window.logout()">Chiqish</button>
-  `;
+      authModule.onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+          const redirect = isSigningOut ? '' : '?redirect=select-language';
+          window.location.replace(`auth/login.html${redirect}`);
+          return;
+        }
 
-      renderLangs();
+        const name = user.displayName?.trim() || user.email?.split('@')[0] || 'O‘quvchi';
+        const initial = name.charAt(0).toUpperCase();
+        const status = document.getElementById('profileLoadStatus');
+        status.hidden = true;
+        status.textContent = '';
+
+        try {
+          const snap = await firestoreModule.getDoc(firestoreModule.doc(db, 'users', user.uid));
+          if (snap.exists()) {
+            const data = snap.data();
+            userPlan = data.plan || 'free';
+            userProgress = data.langProgress || {};
+          }
+        } catch (error) {
+          console.error('Profil ma’lumotlarini yuklashda xatolik:', error);
+          status.textContent = 'Taraqqiyot ma’lumotlarini yuklab bo‘lmadi. Kurslarni tanlashda davom etishingiz mumkin.';
+          status.hidden = false;
+        }
+
+        const planLabels = { free: 'Free <i class="fa-solid fa-seedling" style="color:#34d399"></i>', nova: 'NOVA <i class="fa-solid fa-bolt" style="color:#3b82f6"></i>', mega: 'MEGA <i class="fa-solid fa-rocket" style="color:#8b5cf6"></i>', premium: 'PREMIUM <i class="fa-solid fa-crown" style="color:#f59e0b"></i>' };
+        const planBadge = document.createElement('span');
+        planBadge.className = `plan-badge ${userPlan}`;
+        planBadge.innerHTML = planLabels[userPlan] || 'Free';
+
+        const avatar = document.createElement('div');
+        avatar.className = 'nav-avatar';
+        avatar.textContent = initial;
+
+        const username = document.createElement('span');
+        username.className = 'nav-username';
+        username.textContent = name;
+
+        const logoutButton = document.createElement('button');
+        logoutButton.className = 'nav-logout';
+        logoutButton.type = 'button';
+        logoutButton.textContent = 'Chiqish';
+        logoutButton.addEventListener('click', window.logout);
+
+        document.getElementById('navUser').replaceChildren(planBadge, avatar, username, logoutButton);
+        renderLangs();
+      });
+    }
+
+    initializeFirebase().catch((error) => {
+      console.error('Firebase ishga tushmadi:', error);
+      const status = document.getElementById('profileLoadStatus');
+      status.textContent = 'Profil ma’lumotlari hozircha yuklanmadi. Til kurslarini ko‘rish va qidirish mumkin.';
+      status.hidden = false;
     });
 
 

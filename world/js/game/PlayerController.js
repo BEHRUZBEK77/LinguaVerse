@@ -113,8 +113,12 @@ export class PlayerController {
 
     parts.legL.pivot.rotation.x = swing * legAmp;
     parts.legR.pivot.rotation.x = swing2 * legAmp;
+    parts.legL.knee.rotation.x = this.moving ? Math.max(0, swing) * 0.28 : 0;
+    parts.legR.knee.rotation.x = this.moving ? Math.max(0, swing2) * 0.28 : 0;
     parts.armL.pivot.rotation.x = swing2 * armAmp;
     parts.armR.pivot.rotation.x = swing * armAmp;
+    parts.armL.elbow.rotation.x = this.moving ? 0.18 + Math.max(0, swing2) * 0.12 : 0.04;
+    parts.armR.elbow.rotation.x = this.moving ? 0.18 + Math.max(0, swing) * 0.12 : 0.04;
 
     // Tik turish (idle) — nafas olish
     const breath = Math.sin(this._animTime * 2) * 0.012;

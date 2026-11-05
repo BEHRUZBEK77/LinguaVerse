@@ -1,378 +1,216 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// _firestore.js — SERVER TOMONIDAN Firestore'ga kirish
+// _firestore.js — SERVER TOMONIDAN bazaga kirish (endi SUPABASE)
 //
-// Nega kerak: firestore.rules foydalanuvchiga o'ziga `plan` yozishni
-// TAQIQLAYDI (aks holda hamma bepul PREMIUM olardi). Demak tarifni faqat
-// ishonchli server faollashtira oladi — to'lov tasdiqlangandan keyin.
+// Nomi tarixiy: avval Firebase Firestore edi. Ko'chishdan keyin barcha
+// funksiyalar (to'lov, AI ustoz, kurslar, reyting...) xuddi shu API bilan
+// Supabase'dagi `docs` jadvaliga yozadi — hujjat yo'llari o'zgarmagan:
+// users/{uid}, orders/{id}, users/{uid}/billing/subscription ...
 //
-// Kutubxonasiz: Google service-account JWT'sini Node'ning o'z crypto moduli
-// bilan imzolab, Firestore REST API'ga murojaat qilamiz. npm install kerak emas.
+// Server service_role kaliti bilan ishlaydi (Firebase Admin SDK kabi —
+// xavfsizlik qoidalarini chetlab o'tadi). Kalit faqat Netlify env'da.
 //
 // SOZLASH — Netlify Environment Variables:
-//   FIREBASE_PROJECT_ID     = linguaverse-81b52
-//   FIREBASE_CLIENT_EMAIL   = firebase-adminsdk-xxx@...iam.gserviceaccount.com
-//   FIREBASE_PRIVATE_KEY    = -----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n
+//   SUPABASE_URL               = https://gdifhnsffhscuetpyqwx.supabase.co
+//   SUPABASE_SERVICE_ROLE_KEY  = (Supabase → Project Settings → API → service_role)
 //
-// Qayerdan olish: Firebase Console → Project settings → Service accounts
-//   → "Generate new private key" → yuklangan JSON ichidan.
-// DIQQAT: private key butun bazaga to'liq huquq beradi. Faqat env'da saqlang.
+// Vaqt qiymatlari bazada {"$t":"ISO"} ko'rinishida saqlanadi va bu yerda
+// avtomatik Date ga aylanadi (Firestore Timestamp kabi).
 // ═══════════════════════════════════════════════════════════════════════════
 
 const crypto = require('crypto');
+const legacy = require('./_firebase-legacy.js');
 
-const PROJECT = () => process.env.FIREBASE_PROJECT_ID || 'linguaverse-81b52';
-const BASE = () => `https://firestore.googleapis.com/v1/projects/${PROJECT()}/databases/(default)/documents`;
+const URL_ = () => (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
+const KEY = () => process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
-// ───────────────────────────────────────────────────────────────────────────
-// TOKEN — bir soatlik, keshlanadi
-// ───────────────────────────────────────────────────────────────────────────
-let cachedToken = null;
-let cachedUntil = 0;
-
-function b64url(input) {
-  return Buffer.from(input).toString('base64')
-    .replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+function configured() {
+  return !!(URL_() && KEY());
 }
 
-async function accessToken() {
-  if (cachedToken && Date.now() < cachedUntil - 60_000) return cachedToken;
-
-  const email = process.env.FIREBASE_CLIENT_EMAIL;
-  let key = process.env.FIREBASE_PRIVATE_KEY;
-
-  if (!email || !key) {
-    throw new Error('FIREBASE_CLIENT_EMAIL yoki FIREBASE_PRIVATE_KEY sozlanmagan');
-  }
-
-  // Netlify env'da yangi qator "\n" matn sifatida saqlanadi — tiklaymiz
-  key = key.replace(/\\n/g, '\n');
-
-  const now = Math.floor(Date.now() / 1000);
-  const header = b64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }));
-  const claims = b64url(JSON.stringify({
-    iss: email,
-    scope: 'https://www.googleapis.com/auth/datastore',
-    aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600
-  }));
-
-  const signer = crypto.createSign('RSA-SHA256');
-  signer.update(`${header}.${claims}`);
-  const signature = signer.sign(key, 'base64')
-    .replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
-
-  const jwt = `${header}.${claims}.${signature}`;
-
-  const resp = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
-      assertion: jwt
-    })
-  });
-
-  const data = await resp.json();
-  if (!resp.ok) throw new Error('Token olinmadi: ' + (data.error_description || data.error));
-
-  cachedToken = data.access_token;
-  cachedUntil = Date.now() + data.expires_in * 1000;
-  return cachedToken;
+function headers(extra = {}) {
+  return { apikey: KEY(), Authorization: `Bearer ${KEY()}`, 'Content-Type': 'application/json', ...extra };
 }
 
-// ───────────────────────────────────────────────────────────────────────────
-// TIP O'GIRISH — Firestore REST tiplangan qiymatlar ishlatadi
-// ───────────────────────────────────────────────────────────────────────────
-function toValue(v) {
-  if (v === null || v === undefined) return { nullValue: null };
-  if (typeof v === 'boolean') return { booleanValue: v };
-  if (typeof v === 'number') {
-    return Number.isInteger(v) ? { integerValue: String(v) } : { doubleValue: v };
-  }
-  if (typeof v === 'string') return { stringValue: v };
-  if (v instanceof Date) return { timestampValue: v.toISOString() };
-  if (Array.isArray(v)) return { arrayValue: { values: v.map(toValue) } };
+// ── Qiymatlarni kodlash: Date ↔ {"$t":"ISO"} ──
+function enc(v) {
+  if (v === undefined) return undefined;
+  if (v === null) return null;
+  if (v instanceof Date) return { $t: v.toISOString() };
+  if (Array.isArray(v)) return v.map(x => (x === undefined ? null : enc(x)));
   if (typeof v === 'object') {
-    const fields = {};
-    for (const [k, val] of Object.entries(v)) fields[k] = toValue(val);
-    return { mapValue: { fields } };
+    const o = {};
+    for (const [k, x] of Object.entries(v)) if (x !== undefined) o[k] = enc(x);
+    return o;
   }
-  return { stringValue: String(v) };
+  return v;
+}
+function dec(v) {
+  if (v === null || v === undefined) return v ?? null;
+  if (Array.isArray(v)) return v.map(dec);
+  if (typeof v === 'object') {
+    if (typeof v.$t === 'string' && Object.keys(v).length === 1) return new Date(v.$t);
+    const o = {};
+    for (const [k, x] of Object.entries(v)) o[k] = dec(x);
+    return o;
+  }
+  return v;
 }
 
-function fromValue(v) {
-  if (!v) return null;
-  if ('nullValue' in v) return null;
-  if ('booleanValue' in v) return v.booleanValue;
-  if ('integerValue' in v) return parseInt(v.integerValue, 10);
-  if ('doubleValue' in v) return v.doubleValue;
-  if ('stringValue' in v) return v.stringValue;
-  if ('timestampValue' in v) return new Date(v.timestampValue);
-  if ('arrayValue' in v) return (v.arrayValue.values || []).map(fromValue);
-  if ('mapValue' in v) return fromFields(v.mapValue.fields || {});
-  return null;
+function split(path) {
+  const s = String(path).split('/');
+  if (s.length % 2 !== 0 || s.some(x => !x)) throw new Error("Noto'g'ri hujjat yo'li: " + path);
+  return { col: s[s.length - 2], parent: s.slice(0, -2).join('/'), id: s[s.length - 1] };
 }
 
-function toFields(obj) {
-  const fields = {};
-  for (const [k, v] of Object.entries(obj)) fields[k] = toValue(v);
-  return fields;
+async function rest(method, query, body, extraHeaders) {
+  if (!configured()) throw new Error('SUPABASE_URL yoki SUPABASE_SERVICE_ROLE_KEY sozlanmagan');
+  const r = await fetch(`${URL_()}/rest/v1/${query}`, {
+    method, headers: headers(extraHeaders), body: body === undefined ? undefined : JSON.stringify(body)
+  });
+  const text = await r.text();
+  const data = text ? JSON.parse(text) : null;
+  if (!r.ok) {
+    const err = new Error(`supabase ${method} ${query.split('?')[0]}: ${data?.message || r.status}`);
+    err.status = r.status; err.code = data?.code;
+    throw err;
+  }
+  return data;
 }
 
-function fromFields(fields) {
-  const out = {};
-  for (const [k, v] of Object.entries(fields || {})) out[k] = fromValue(v);
-  return out;
+async function readRow(path) {
+  const rows = await rest('GET', `docs?path=eq.${encodeURIComponent(path)}&select=data,version`);
+  return rows && rows[0] ? rows[0] : null;
 }
-
-// ───────────────────────────────────────────────────────────────────────────
-// AMALLAR
-// ───────────────────────────────────────────────────────────────────────────
 
 /** Hujjatni o'qiydi. Topilmasa null. */
 async function getDoc(docPath) {
-  const token = await accessToken();
-  const resp = await fetch(`${BASE()}/${docPath}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-
-  if (resp.status === 404) return null;
-  const data = await resp.json();
-  if (!resp.ok) throw new Error('getDoc: ' + (data.error?.message || resp.status));
-
-  return { id: data.name.split('/').pop(), ...fromFields(data.fields) };
+  const row = await readRow(docPath);
+  if (!row) return null;
+  return { id: split(docPath).id, ...dec(row.data) };
 }
 
 /**
- * Hujjatni yangilaydi (merge). updateMask tufayli faqat berilgan
- * maydonlar o'zgaradi — qolgani tegilmaydi.
+ * Atomik "o'qi → o'zgartir → yoz" (versiya bilan). Boshqa jarayon orada
+ * yozib ulgursa — qayta urinadi. mutate(data|null) → patch | null.
+ * Patch yuqori darajadagi maydonlarni almashtiradi (Firestore updateMask kabi).
  */
-async function setDoc(docPath, data) {
-  const token = await accessToken();
-  const mask = Object.keys(data).map(k => `updateMask.fieldPaths=${encodeURIComponent(k)}`).join('&');
-
-  const resp = await fetch(`${BASE()}/${docPath}?${mask}`, {
-    method: 'PATCH',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ fields: toFields(data) })
-  });
-
-  const out = await resp.json();
-  if (!resp.ok) throw new Error('setDoc: ' + (out.error?.message || resp.status));
-  return { id: out.name.split('/').pop(), ...fromFields(out.fields) };
-}
-
-/**
- * Kolleksiya-guruh bo'yicha so'rov (collection group query).
- *
- * Avto-to'lov uchun kerak: obunalar `users/{uid}/billing/subscription`
- * ichida yotadi, ya'ni har bir foydalanuvchida alohida. Ularni bitta
- * so'rov bilan topish uchun butun bazadagi `billing` kolleksiyalarini
- * birga qidiramiz.
- *
- * @param {string} collectionId  masalan 'billing'
- * @param {Array}  filters       [{ field, op, value }] — op: EQUAL,
- *                               LESS_THAN_OR_EQUAL, GREATER_THAN ...
- * @param {number} pageSize      nechta hujjat qaytsin
- * @returns {Promise<Array>}     har biri { id, path, ...maydonlar }
- */
-async function queryGroup(collectionId, filters = [], pageSize = 200) {
-  const token = await accessToken();
-
-  const where = filters.length === 1
-    ? { fieldFilter: mkFilter(filters[0]) }
-    : { compositeFilter: { op: 'AND', filters: filters.map(f => ({ fieldFilter: mkFilter(f) })) } };
-
-  const body = {
-    structuredQuery: {
-      from: [{ collectionId, allDescendants: true }],
-      limit: pageSize,
-      ...(filters.length ? { where } : {})
-    }
-  };
-
-  const resp = await fetch(`${BASE()}:runQuery`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
-
-  const out = await resp.json();
-  if (!resp.ok) throw new Error('queryGroup: ' + (out.error?.message || resp.status));
-
-  // Javob massiv bo'lib keladi; bo'sh natijada `document` maydoni yo'q
-  return (Array.isArray(out) ? out : [])
-    .filter(x => x.document)
-    .map(x => {
-      const full = x.document.name;                   // .../documents/users/UID/billing/subscription
-      const path = full.split('/documents/')[1] || '';
-      return { id: path.split('/').pop(), path, ...fromFields(x.document.fields) };
-    });
-}
-
-function mkFilter({ field, op, value }) {
-  return { field: { fieldPath: field }, op, value: toValue(value) };
-}
-
-/**
- * Bitta kolleksiyani (masalan 'users') bitta maydon bo'yicha kamayish
- * tartibida saralab, TOP N hujjatni qaytaradi. Reyting (leaderboard)
- * uchun kerak: `users` to'g'ridan-to'g'ri klientdan o'qib bo'lmaydi
- * (firestore.rules — har kim faqat o'zinikini o'qiy oladi), shuning
- * uchun server (admin huquq bilan) top N ni o'qib, ochiq maydonlarni
- * alohida `leaderboard` kolleksiyasiga yozadi.
- *
- * @param {string} collectionId  masalan 'users'
- * @param {string} orderField    masalan 'xp'
- * @param {number} limitN        nechta hujjat
- * @returns {Promise<Array>}     har biri { id, ...maydonlar }
- */
-async function queryTop(collectionId, orderField, limitN = 20) {
-  const token = await accessToken();
-
-  const body = {
-    structuredQuery: {
-      from: [{ collectionId }],
-      orderBy: [{ field: { fieldPath: orderField }, direction: 'DESCENDING' }],
-      limit: limitN
-    }
-  };
-
-  const resp = await fetch(`${BASE()}:runQuery`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
-
-  const out = await resp.json();
-  if (!resp.ok) throw new Error('queryTop: ' + (out.error?.message || resp.status));
-
-  return (Array.isArray(out) ? out : [])
-    .filter(x => x.document)
-    .map(x => ({ id: x.document.name.split('/').pop(), ...fromFields(x.document.fields) }));
-}
-
-/**
- * Bitta kolleksiyani (ixtiyoriy) filtrlar bilan qidirib, (ixtiyoriy)
- * maydon bo'yicha saralaydi. queryGroup (faqat filtr) va queryTop (faqat
- * saralash) o'rtasidagi bo'shliqni to'ldiradi — masalan "target='english'
- * bo'yicha filtrlab, createdAt bo'yicha kamayish tartibida ber" kabi
- * so'rovlar uchun (community lug'at/unit/flashcard ro'yxati).
- *
- * @param {string} collectionId
- * @param {Array<{field,op,value}>} filters
- * @param {string|null} orderField
- * @param {number} limitN
- */
-async function queryList(collectionId, filters = [], orderField = null, limitN = 30) {
-  const token = await accessToken();
-
-  const where = filters.length === 0 ? null
-    : filters.length === 1 ? { fieldFilter: mkFilter(filters[0]) }
-    : { compositeFilter: { op: 'AND', filters: filters.map(f => ({ fieldFilter: mkFilter(f) })) } };
-
-  const body = {
-    structuredQuery: {
-      from: [{ collectionId }],
-      limit: limitN,
-      ...(where ? { where } : {}),
-      ...(orderField ? { orderBy: [{ field: { fieldPath: orderField }, direction: 'DESCENDING' }] } : {})
-    }
-  };
-
-  const resp = await fetch(`${BASE()}:runQuery`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
-
-  const out = await resp.json();
-  if (!resp.ok) throw new Error('queryList: ' + (out.error?.message || resp.status));
-
-  return (Array.isArray(out) ? out : [])
-    .filter(x => x.document)
-    .map(x => ({ id: x.document.name.split('/').pop(), ...fromFields(x.document.fields) }));
-}
-
-/** Yangi hujjat qo'shadi. docId berilmasa Firestore o'zi ID beradi. */
-async function addDoc(collectionPath, data, docId = null) {
-  const token = await accessToken();
-  const q = docId ? `?documentId=${encodeURIComponent(docId)}` : '';
-
-  const resp = await fetch(`${BASE()}/${collectionPath}${q}`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ fields: toFields(data) })
-  });
-
-  const out = await resp.json();
-  if (!resp.ok) throw new Error('addDoc: ' + (out.error?.message || resp.status));
-  return { id: out.name.split('/').pop(), ...fromFields(out.fields) };
-}
-
-/**
- * ATOMIK yangilash: hujjatni o'qiydi, mutate() ni qo'llaydi, yozadi.
- * Faqat hujjat o'qilgandan beri o'zgarmagan bo'lsa yozadi (currentDocument
- * sharti orqali). Bir vaqtda ikkita webhook kelsa ham ikki marta
- * hisoblanmaydi.
- */
-async function transact(docPath, mutate, retries = 3) {
+async function transact(docPath, mutate, retries = 5) {
+  const { col, parent } = split(docPath);
   for (let i = 0; i < retries; i++) {
-    const token = await accessToken();
+    const row = await readRow(docPath);
+    const current = row ? dec(row.data) : null;
+    const patch = await mutate(current ? { ...current } : null);
+    if (patch === null || patch === undefined) return current;
 
-    const readResp = await fetch(`${BASE()}/${docPath}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    const exists = readResp.status !== 404;
-    const current = exists ? await readResp.json() : null;
-    const data = exists ? fromFields(current.fields) : null;
-
-    const patch = await mutate(data);
-    if (patch === null) return data;   // mutate "hech narsa qilma" dedi
-
-    const mask = Object.keys(patch).map(k => `updateMask.fieldPaths=${encodeURIComponent(k)}`).join('&');
-    const precond = exists
-      ? `currentDocument.updateTime=${encodeURIComponent(current.updateTime)}`
-      : 'currentDocument.exists=false';
-
-    const writeResp = await fetch(`${BASE()}/${docPath}?${mask}&${precond}`, {
-      method: 'PATCH',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fields: toFields(patch) })
-    });
-
-    if (writeResp.ok) {
-      const out = await writeResp.json();
-      return { id: out.name.split('/').pop(), ...fromFields(out.fields) };
+    const next = enc({ ...(current || {}), ...patch });
+    if (row) {
+      const upd = await rest('PATCH',
+        `docs?path=eq.${encodeURIComponent(docPath)}&version=eq.${row.version}`,
+        { data: next, version: row.version + 1, updated_at: new Date().toISOString() },
+        { Prefer: 'return=representation' });
+      if (Array.isArray(upd) && upd.length) return { id: split(docPath).id, ...dec(upd[0].data) };
+    } else {
+      try {
+        const ins = await rest('POST', 'docs', { path: docPath, col, parent, data: next }, { Prefer: 'return=representation' });
+        if (Array.isArray(ins) && ins.length) return { id: split(docPath).id, ...dec(ins[0].data) };
+      } catch (e) {
+        if (e.code !== '23505') throw e;            // parallel yaratildi — qayta urinamiz
+      }
     }
-
-    // 409/412 — boshqa jarayon o'zgartirib ulgurdi, qaytadan urinamiz
-    if (writeResp.status === 409 || writeResp.status === 412) continue;
-
-    const err = await writeResp.json().catch(() => ({}));
-    throw new Error('transact: ' + (err.error?.message || writeResp.status));
+    await new Promise(r => setTimeout(r, 30 + Math.random() * 120));
   }
   throw new Error('transact: ' + retries + ' urinishdan keyin ham bajarilmadi');
 }
 
-/** Sozlamalar to'liqmi? */
+/** Maydonlarni yangilaydi (merge) — qolganlari tegilmaydi. Hujjat bo'lmasa yaratadi. */
+async function setDoc(docPath, data) {
+  return transact(docPath, () => ({ ...data }));
+}
+
+/** Tanlangan maydonlarni o'chiradi. */
+async function deleteFields(docPath, fields) {
+  if (!Array.isArray(fields) || fields.length === 0 || fields.some(f => typeof f !== 'string' || !f)) {
+    throw new Error('deleteFields: maydonlar ro‘yxati noto‘g‘ri');
+  }
+  const { col, parent } = split(docPath);
+  for (let i = 0; i < 5; i++) {
+    const row = await readRow(docPath);
+    if (!row) return null;
+    const next = { ...row.data };
+    for (const f of fields) delete next[f];
+    const upd = await rest('PATCH', `docs?path=eq.${encodeURIComponent(docPath)}&version=eq.${row.version}`,
+      { data: next, version: row.version + 1, updated_at: new Date().toISOString() }, { Prefer: 'return=representation' });
+    if (Array.isArray(upd) && upd.length) return { id: split(docPath).id, ...dec(upd[0].data) };
+    void col; void parent;
+  }
+  throw new Error('deleteFields: bajarilmadi');
+}
+
 /** Hujjatni butunlay o'chiradi. */
 async function deleteDoc(docPath) {
-  const token = await accessToken();
-  const resp = await fetch(`${BASE()}/${docPath}`, {
-    method: 'DELETE',
-    headers: { Authorization: `Bearer ${token}` }
-  });
-  if (!resp.ok && resp.status !== 404) {
-    const out = await resp.json().catch(() => ({}));
-    throw new Error('deleteDoc: ' + (out.error?.message || resp.status));
-  }
+  await rest('DELETE', `docs?path=eq.${encodeURIComponent(docPath)}`);
   return true;
 }
 
-function configured() {
-  return !!(process.env.FIREBASE_CLIENT_EMAIL && process.env.FIREBASE_PRIVATE_KEY);
+/** Yangi hujjat qo'shadi. docId berilmasa tasodifiy ID (Firestore uslubida, 20 belgi). */
+function autoId() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const b = crypto.randomBytes(20);
+  let s = '';
+  for (let i = 0; i < 20; i++) s += chars[b[i] % chars.length];
+  return s;
+}
+async function addDoc(collectionPath, data, docId = null) {
+  const id = docId || autoId();
+  const path = `${collectionPath}/${id}`;
+  const { col, parent } = split(path);
+  const ins = await rest('POST', 'docs', { path, col, parent, data: enc(data) }, { Prefer: 'return=representation' });
+  return { id, ...dec(ins[0].data) };
 }
 
-module.exports = { getDoc, setDoc, deleteDoc, addDoc, transact, queryGroup, queryTop, queryList, accessToken, configured, toValue, fromValue };
+// ── So'rovlar (Firestore REST operator nomlari saqlangan) ──
+const OPS = {
+  EQUAL: '==', NOT_EQUAL: '!=', LESS_THAN: '<', LESS_THAN_OR_EQUAL: '<=',
+  GREATER_THAN: '>', GREATER_THAN_OR_EQUAL: '>=', ARRAY_CONTAINS: 'array-contains',
+  IN: 'in', NOT_IN: 'not-in', ARRAY_CONTAINS_ANY: 'array-contains-any'
+};
+const mapFilters = filters => (filters || []).map(f => ({ f: f.field, op: OPS[f.op] || f.op, v: enc(f.value) }));
+
+async function rpcQuery(col, parent, filters, orders, limit) {
+  const rows = await rest('POST', 'rpc/lv_query', { c: col, par: parent, filters, orders, lim: limit });
+  return (rows || []).map(r => ({ id: r.path.split('/').pop(), path: r.path, ...dec(r.data) }));
+}
+
+/** Collection group: shu nomdagi barcha kolleksiyalar (ichma-ich ham). */
+async function queryGroup(collectionId, filters = [], pageSize = 200) {
+  return rpcQuery(collectionId, null, mapFilters(filters), [], pageSize);
+}
+
+/** Bitta (ildiz) kolleksiyadan maydon bo'yicha kamayish tartibida TOP N. */
+async function queryTop(collectionId, orderField, limitN = 20) {
+  return rpcQuery(collectionId, '', [], [{ f: orderField, dir: 'desc' }], limitN);
+}
+
+/** Ildiz kolleksiyani filtrlab, (ixtiyoriy) maydon bo'yicha kamayish tartibida. */
+async function queryList(collectionId, filters = [], orderField = null, limitN = 30) {
+  return rpcQuery(collectionId, '', mapFilters(filters), orderField ? [{ f: orderField, dir: 'desc' }] : [], limitN);
+}
+
+/** Aniq hujjatlar soni. */
+async function countCollection(collectionId) {
+  const n = await rest('POST', 'rpc/lv_count', { c: collectionId, par: '', filters: [] });
+  return Number(n) || 0;
+}
+
+/** Eski API bilan moslik: endi token kerak emas (service_role kaliti). */
+async function accessToken() {
+  return KEY();
+}
+
+module.exports = {
+  getDoc, setDoc, deleteFields, deleteDoc, addDoc, transact, queryGroup, queryTop,
+  countCollection, queryList, accessToken, configured,
+  // Firestore REST format o'giruvchilari (ko'chirish skripti va eski testlar uchun)
+  toValue: legacy.toValue, fromValue: legacy.fromValue,
+  enc, dec, split, autoId
+};

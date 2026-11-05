@@ -82,6 +82,7 @@ async function googleTTS(body) {
 
 exports.handler = async function (event) {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers: CORS, body: '' };
+  await keys.refreshFromFirestore();
 
   // Diagnostika: brauzerda ochib tekshirish mumkin
   //   /.netlify/functions/tts            → sozlamalar holati
@@ -112,7 +113,7 @@ exports.handler = async function (event) {
   // chekloviga olindi.
   const rl = await ratelimit.checkRateLimit(`tts:${ratelimit.clientIp(event)}`, { windowMs: 60_000, max: 25 });
   if (!rl.ok) {
-    return { statusCode: 429, headers: CORS, body: JSON.stringify({ error: "Juda ko'p so'rov. Biroz kuting." }) };
+    return { statusCode: rl.unavailable ? 503 : 429, headers: CORS, body: JSON.stringify({ error: rl.unavailable ? 'Xizmat vaqtincha mavjud emas.' : "Juda ko'p so'rov. Biroz kuting." }) };
   }
 
   try {

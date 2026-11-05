@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LinguaVerse IELTS Speaking imtihonchi: Part 1, 2, 3 to'liq mock test, qattiq AI ustoz, emotsiyali jonli ovoz va band ball (0–9).">
+  <title>IELTS Speaking imtihonchi — LinguaVerse</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <script src="../js/lv-icons.js" defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); min-height: 100vh; }
+    nav { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px max(16px, calc((100% - 1180px)/2)); background: var(--nav-bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+    nav a { color: var(--text2); text-decoration: none; font-weight: 600; font-size: .85rem; }
+    nav .logo { color: var(--text); font-size: 1.1rem; font-family: var(--font-head); font-weight: 700; }
+    nav .logo span { color: var(--accent); }
+    .links { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .plan-pill { font-size: .72rem; padding: 4px 10px; border-radius: 99px; border: 1px solid var(--border2); color: var(--text2); }
+    .plan-pill.pro { border-color: #e11d48; color: #fb7185; }
+    main { max-width: 1180px; margin: auto; padding: 22px 16px 80px; }
+    h1, h2, h3, p { margin-top: 0; }
+    .muted { color: var(--text3); line-height: 1.6; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 12px; background: var(--accent); color: #0b1216; font: inherit; font-weight: 750; padding: 12px 18px; cursor: pointer; text-decoration: none; transition: transform .15s, opacity .15s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .btn.ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .btn.red { background: #e11d48; color: #fff; }
+    .btn.big { padding: 15px 26px; font-size: 1.02rem; }
+
+    /* ── SAHNA ── */
+    .stage { display: grid; grid-template-columns: minmax(280px, 400px) 1fr; gap: 18px; align-items: start; }
+    .stage > * { min-width: 0; }
+    .teacher-card { position: sticky; top: 74px; background: linear-gradient(180deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: 22px; padding: 18px; overflow: hidden; }
+    .teacher-card::after { content: ''; position: absolute; inset: auto -40% -60% -40%; height: 70%; background: radial-gradient(closest-side, var(--tv-glow, #4f6ef7), transparent); opacity: .12; pointer-events: none; }
+    #avatar { width: 100%; aspect-ratio: 1 / 1.05; max-width: 330px; margin: 0 auto; }
+    .t-name { text-align: center; font-family: var(--font-head); font-weight: 700; font-size: 1.12rem; margin-top: 6px; }
+    .t-role { text-align: center; color: var(--text3); font-size: .8rem; }
+    .emo-chip { display: flex; align-items: center; justify-content: center; gap: 7px; margin: 12px auto 0; width: max-content; max-width: 100%; padding: 6px 13px; border-radius: 99px; font-size: .8rem; font-weight: 700; background: color-mix(in srgb, var(--emo, #94a3b8) 16%, transparent); color: var(--emo, #94a3b8); border: 1px solid color-mix(in srgb, var(--emo, #94a3b8) 35%, transparent); transition: all .3s; }
+    .subtitle { margin-top: 14px; min-height: 64px; padding: 12px 14px; border-radius: 14px; background: rgba(0,0,0,.28); font-size: .98rem; line-height: 1.55; text-align: center; }
+    .subtitle.off { display: none; }
+    .t-tools { display: flex; justify-content: center; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .t-tools button { background: var(--surface2); border: 1px solid var(--border); color: var(--text2); border-radius: 10px; padding: 7px 11px; font: inherit; font-size: .76rem; cursor: pointer; }
+    .t-tools button.on { color: var(--accent); border-color: var(--border-hi); }
+
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 20px; }
+    .panel + .panel { margin-top: 14px; }
+    .hidden { display: none !important; }
+
+    /* ── SOZLASH ── */
+    .hero h1 { font-family: var(--font-head); font-size: clamp(1.6rem, 4vw, 2.3rem); margin-bottom: 8px; }
+    .hero h1 em { font-style: normal; color: #fb7185; }
+    .lbl { font-size: .78rem; font-weight: 750; color: var(--text2); margin: 18px 0 8px; text-transform: uppercase; letter-spacing: .05em; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 9px 13px; border-radius: 12px; background: var(--surface2); border: 1px solid var(--border); color: var(--text); cursor: pointer; font: inherit; font-size: .88rem; display: flex; gap: 6px; align-items: center; }
+    .chip.sel { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+    .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .mode { text-align: left; padding: 14px; border-radius: 14px; background: var(--surface2); border: 1px solid var(--border); color: var(--text); cursor: pointer; font: inherit; }
+    .mode b { display: block; margin-bottom: 4px; font-size: .95rem; }
+    .mode span { color: var(--text3); font-size: .8rem; line-height: 1.5; }
+    .mode.sel { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+    .notice { margin-top: 16px; padding: 12px 14px; border-radius: 12px; font-size: .84rem; line-height: 1.6; background: rgba(237,196,119,.08); border: 1px solid rgba(237,196,119,.25); color: var(--text2); }
+    .notice a { color: var(--gold); font-weight: 700; }
+    .start-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; align-items: center; }
+
+    /* ── IMTIHON ── */
+    .steps { display: flex; gap: 6px; margin-bottom: 14px; }
+    .step { flex: 1; text-align: center; font-size: .74rem; font-weight: 700; padding: 8px 4px; border-radius: 10px; background: var(--surface2); color: var(--text3); border: 1px solid var(--border); }
+    .step.on { color: #0b1216; background: var(--accent); border-color: var(--accent); }
+    .step.done { color: var(--accent); }
+    .q-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .q-tag { font-size: .74rem; font-weight: 800; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+    .timer { font-variant-numeric: tabular-nums; font-weight: 800; color: var(--gold); font-size: 1rem; }
+    .timer.warn { color: #f87171; }
+    .q-right { display: flex; gap: 10px; align-items: center; }
+    .quota { font-size: .74rem; font-weight: 800; padding: 4px 9px; border-radius: 99px; background: rgba(237,196,119,.12); color: var(--gold); border: 1px solid rgba(237,196,119,.3); font-variant-numeric: tabular-nums; }
+    .quota.low { background: rgba(239,68,68,.14); color: #fca5a5; border-color: rgba(239,68,68,.35); }
+    .lock-box { margin-top: 16px; padding: 16px; border-radius: 14px; background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.3); line-height: 1.6; }
+    .lock-box b.big { display: block; font-family: var(--font-head); font-size: 1.5rem; color: #fca5a5; font-variant-numeric: tabular-nums; margin: 4px 0; }
+    .question { font-size: 1.22rem; font-weight: 650; line-height: 1.45; font-family: var(--font-head); }
+    .cue { margin-top: 12px; padding: 16px; border-radius: 14px; background: #f8fafc; color: #0f172a; }
+    .cue b { display: block; font-size: 1.05rem; margin-bottom: 8px; }
+    .cue ul { margin: 0; padding-left: 18px; line-height: 1.7; }
+    .cue textarea { width: 100%; margin-top: 12px; min-height: 70px; border-radius: 10px; border: 1px solid #cbd5e1; padding: 9px; font: inherit; font-size: .88rem; background: #fff; color: #0f172a; resize: vertical; }
+
+    .mic-zone { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 22px 0 6px; }
+    .mic { position: relative; width: 92px; height: 92px; border-radius: 50%; border: 0; cursor: pointer; background: var(--accent); color: #0b1216; font-size: 2rem; display: grid; place-items: center; box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 35%, transparent); transition: transform .15s; }
+    .mic:hover { transform: scale(1.04); }
+    .mic.rec { background: #ef4444; color: #fff; box-shadow: 0 0 0 calc(var(--lvl, 0) * 22px) rgba(239,68,68,.25), 0 10px 30px rgba(239,68,68,.35); }
+    .mic:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+    .mic-hint { font-size: .85rem; color: var(--text3); text-align: center; }
+    .typed { display: flex; gap: 8px; margin-top: 10px; }
+    .typed input { flex: 1; min-width: 0; background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; color: var(--text); padding: 11px 13px; font: inherit; }
+    .you { margin-top: 14px; padding: 12px 14px; border-radius: 12px; background: var(--surface2); border-left: 3px solid var(--accent); font-size: .92rem; line-height: 1.6; }
+    .you small { display: block; color: var(--text3); font-size: .72rem; margin-bottom: 4px; }
+
+    .fb { margin-top: 12px; display: grid; gap: 10px; }
+    .fb-card { padding: 13px 14px; border-radius: 12px; background: var(--surface2); border: 1px solid var(--border); font-size: .9rem; line-height: 1.6; }
+    .fb-card h4 { margin: 0 0 6px; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text3); }
+    .wrong { color: #fca5a5; text-decoration: line-through; text-decoration-color: rgba(252,165,165,.6); }
+    .right { color: #86efac; font-weight: 700; }
+    .retry-badge { display: inline-flex; gap: 6px; align-items: center; padding: 6px 11px; border-radius: 99px; background: rgba(239,68,68,.14); color: #fca5a5; font-weight: 750; font-size: .8rem; }
+    .row-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: space-between; margin-top: 16px; }
+
+    /* ── NATIJA ── */
+    .band-hero { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; }
+    .band-ring { --p: 0; width: 150px; height: 150px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(#fb7185 calc(var(--p) * 1%), var(--surface2) 0); }
+    .band-ring div { width: 122px; height: 122px; border-radius: 50%; background: var(--bg2); display: grid; place-items: center; text-align: center; }
+    .band-ring b { font-family: var(--font-head); font-size: 2.6rem; line-height: 1; }
+    .band-ring small { color: var(--text3); font-size: .72rem; }
+    .crit { display: grid; gap: 10px; }
+    .crit-row { display: grid; grid-template-columns: 1fr 44px; gap: 10px; align-items: center; font-size: .86rem; }
+    .bar { height: 8px; border-radius: 99px; background: var(--surface2); overflow: hidden; margin-top: 4px; }
+    .bar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent), #fb7185); }
+    .crit-row b { text-align: right; font-size: 1.05rem; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+    .list { margin: 0; padding-left: 18px; line-height: 1.7; font-size: .9rem; color: var(--text2); }
+    .loading { display: flex; gap: 12px; align-items: center; color: var(--text2); }
+    .spin { width: 20px; height: 20px; border-radius: 50%; border: 3px solid var(--border2); border-top-color: var(--accent); animation: sp 0.8s linear infinite; }
+    @keyframes sp { to { transform: rotate(360deg); } }
+
+    .modal { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.6); display: grid; place-items: center; padding: 16px; }
+    .modal .box { max-width: 420px; width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: 18px; padding: 22px; text-align: center; }
+    .modal h3 { font-family: var(--font-head); }
+    .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 60; background: var(--bg3); border: 1px solid var(--border2); padding: 11px 16px; border-radius: 12px; font-size: .88rem; max-width: calc(100% - 32px); }
+
+    @media (max-width: 860px) {
+      .stage { grid-template-columns: 1fr; }
+      .teacher-card { position: relative; top: 0; display: grid; grid-template-columns: 120px 1fr; gap: 12px; align-items: center; padding: 14px; }
+      #avatar { max-width: 120px; }
+      .t-name, .t-role { text-align: left; }
+      .emo-chip { margin: 8px 0 0; }
+      .subtitle { grid-column: 1 / -1; margin-top: 4px; }
+      .t-tools { grid-column: 1 / -1; justify-content: flex-start; }
+      .modes, .grid2 { grid-template-columns: 1fr; }
+      .band-hero { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      nav .links a.hide-m { display: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="../index.html">Lingua<span>Verse</span></a>
+    <div class="links">
+      <a class="hide-m" href="./ielts-prep.html">IELTS tayyorlov</a>
+      <a class="hide-m" href="./courses.html">Video kurslar</a>
+      <a href="./writing-coach.html">Writing</a>
+      <span class="plan-pill" id="planPill">…</span>
+    </div>
+  </nav>
+
+  <main>
+    <div class="stage">
+      <!-- USTOZ -->
+      <aside class="teacher-card" id="teacherCard">
+        <div class="tv-wrap" id="avatar"></div>
+        <div>
+          <div class="t-name" id="tName">Mr. Daniel Carter</div>
+          <div class="t-role" id="tRole">IELTS senior examiner · London</div>
+          <div class="emo-chip" id="emoChip"><i class="fa-solid fa-face-meh"></i> <span>Diqqat bilan tinglayapti</span></div>
+        </div>
+        <div class="subtitle" id="subtitle">Salom! Men sizning imtihonchingizman. Tilni va rejimni tanlang — boshlaymiz.</div>
+        <div class="t-tools">
+          <button id="btnSub" class="on" onclick="toggleSub()"><i class="fa-solid fa-closed-captioning"></i> Subtitr</button>
+          <button id="btnMute" onclick="toggleMute()"><i class="fa-solid fa-volume-high"></i> Ovoz</button>
+          <button onclick="repeatLast()"><i class="fa-solid fa-rotate-left"></i> Qaytar</button>
+        </div>
+      </aside>
+
+      <section>
+        <!-- 1) SOZLASH -->
+        <div id="scrSetup">
+          <div class="panel hero">
+            <h1>IELTS Speaking <em>imtihonchi</em></h1>
+            <p class="muted">Haqiqiy imtihon formatida: Part 1 (shaxsiy savollar), Part 2 (cue card, 1 daqiqa tayyorlanish + 2 daqiqa nutq), Part 3 (munozara). Ustoz sizni eshitadi, his-tuyg'u bilan munosabat bildiradi va oxirida 4 mezon bo'yicha band ball beradi. Javoblar ikki mustaqil AI imtihonchi tomonidan baholanadi.</p>
+
+            <div class="lbl">Til</div>
+            <div class="chips" id="langChips"></div>
+
+            <div class="lbl">Rejim</div>
+            <div class="modes">
+              <button class="mode sel" data-mode="exam" onclick="pickMode(this)">
+                <b><i class="fa-solid fa-stopwatch"></i> Haqiqiy imtihon</b>
+                <span>To'liq mock test, 11–14 daqiqa. Imtihonchi o'rgatmaydi — oxirida band ball va batafsil tahlil.</span>
+              </button>
+              <button class="mode" data-mode="coach" onclick="pickMode(this)">
+                <b><i class="fa-solid fa-fire"></i> Qattiq ustoz bilan mashq</b>
+                <span>Har javobdan keyin tanbeh yoki maqtov, xato tuzatish, band 8 namunasi. Yomon javobni qayta aytdiradi.</span>
+              </button>
+            </div>
+
+            <div class="lbl">Hozirgi darajangiz</div>
+            <div class="chips" id="levelChips"></div>
+
+            <div class="notice" id="planNotice">Tekshirilmoqda…</div>
+            <div class="lock-box hidden" id="lockBox"></div>
+
+            <div class="start-row">
+              <button class="btn big" id="btnStart" onclick="startTest()"><i class="fa-solid fa-microphone"></i> Imtihonni boshlash</button>
+              <span class="muted" style="font-size:.82rem">Mikrofon kerak. Quloqchin tavsiya etiladi.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) IMTIHON -->
+        <div id="scrTest" class="hidden">
+          <div class="steps"><div class="step" data-p="1">Part 1</div><div class="step" data-p="2">Part 2</div><div class="step" data-p="3">Part 3</div></div>
+          <div class="panel">
+            <div class="q-head"><span class="q-tag" id="qTag">Part 1</span><span class="q-right"><span class="quota hidden" id="quotaChip"></span><span class="timer" id="timer">00:00</span></span></div>
+            <div class="question" id="qText">…</div>
+            <div class="cue hidden" id="cue"></div>
+
+            <div class="mic-zone">
+              <button class="mic" id="mic" onclick="toggleMic()" disabled aria-label="Gapirish"><i class="fa-solid fa-microphone"></i></button>
+              <div class="mic-hint" id="micHint">Ustoz gapirib bo'lishini kuting…</div>
+            </div>
+            <div class="typed">
+              <input id="typed" placeholder="Yoki javobni yozing va Enter bosing…" onkeydown="if(event.key==='Enter')sendTyped()">
+              <button class="btn ghost" onclick="sendTyped()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+
+            <div class="you hidden" id="youBox"><small>Siz aytdingiz:</small><span id="youText"></span></div>
+            <div class="fb" id="fb"></div>
+
+            <div class="row-actions">
+              <button class="btn ghost" onclick="skipQuestion()"><i class="fa-solid fa-forward"></i> Keyingi savol</button>
+              <button class="btn red" onclick="finishTest()"><i class="fa-solid fa-flag-checkered"></i> Yakunlash va baholash</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3) NATIJA -->
+        <div id="scrResult" class="hidden">
+          <div class="panel" id="resultBox"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="modal hidden" id="upModal">
+    <div class="box">
+      <h3 id="upTitle"><i class="fa-solid fa-graduation-cap" style="color:#fb7185"></i> IELTS PRO kerak</h3>
+      <p class="muted" id="upText">Bepul sinov limiti tugadi.</p>
+      <p class="muted">IELTS PRO — oyiga 200 000 so'm: cheksiz imtihonchi, qattiq ustoz, har kuni onlayn darslar, avto-to'lov.</p>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px">
+        <a class="btn red" href="../order.html?plan=ielts"><i class="fa-solid fa-crown"></i> IELTS PRO olish</a>
+        <button class="btn ghost" onclick="$('upModal').classList.add('hidden')">Keyinroq</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth, db, url } from '../js/lv-core.js';
+    import { onAuthStateChanged } from '/js/fb/firebase-auth.js';
+    import { doc, getDoc } from '/js/fb/firebase-firestore.js';
+    import { TeacherAvatar, TeacherVoice, TeacherEar, teacherApi, TeacherMemory, TEACHER_LOOKS, EMOTION_LABELS, TEACHER_CSS } from '../js/lv-teacher.mjs';
+
+    const $ = id => document.getElementById(id);
+    window.$ = $;
+    const style = document.createElement('style'); style.textContent = TEACHER_CSS; document.head.appendChild(style);
+
+    const LANGS = [
+      ['english', '🇬🇧', 'Ingliz (IELTS)'], ['russian', '🇷🇺', 'Rus'], ['german', '🇩🇪', 'Nemis'], ['spanish', '🇪🇸', 'Ispan'],
+      ['turkish', '🇹🇷', 'Turk'], ['korean', '🇰🇷', 'Koreys'], ['chinese', '🇨🇳', 'Xitoy'], ['arabic', '🇸🇦', 'Arab']
+    ];
+    const LEVELS = ['A2', 'B1', 'B2', 'C1', 'C2'];
+
+    // Imtihonchining an'anaviy (skript) iboralari — AI chaqiruvisiz, tez va aniq
+    const SCRIPT = {
+      english: { hello: "Good afternoon. My name is Daniel Carter, and I'll be your examiner today. In this first part, I'd like to ask you some questions about yourself.", p2: "Now I'm going to give you a topic, and I'd like you to talk about it for one to two minutes. You have one minute to think about what you're going to say. You can make some notes if you wish.", go: "All right? Remember you have one to two minutes for this. I'll tell you when the time is up. Can you start speaking now, please?", stop: "Thank you.", p3: "We've been talking about this topic, and now I'd like to discuss with you some more general questions related to it.", end: "Thank you. That is the end of the speaking test." },
+      russian: { hello: "Добрый день. Меня зовут Борис Сергеевич, я ваш экзаменатор. Сначала несколько вопросов о вас.", p2: "Сейчас я дам вам тему. У вас есть одна минута на подготовку, затем говорите одну-две минуты.", go: "Время вышло. Пожалуйста, начинайте.", stop: "Спасибо.", p3: "А теперь обсудим более общие вопросы по этой теме.", end: "Спасибо. Экзамен окончен." },
+      german: { hello: "Guten Tag. Mein Name ist Klaus Weber, ich bin heute Ihr Prüfer. Zuerst ein paar Fragen zu Ihrer Person.", p2: "Jetzt bekommen Sie ein Thema. Sie haben eine Minute Vorbereitungszeit und sprechen dann ein bis zwei Minuten.", go: "Die Zeit ist um. Bitte beginnen Sie jetzt.", stop: "Danke schön.", p3: "Lassen Sie uns nun einige allgemeinere Fragen zu diesem Thema besprechen.", end: "Vielen Dank. Die Prüfung ist beendet." },
+      spanish: { hello: "Buenas tardes. Me llamo Elena Ruiz y seré su examinadora hoy. Primero, algunas preguntas sobre usted.", p2: "Ahora le daré un tema. Tiene un minuto para prepararse y luego hablará de uno a dos minutos.", go: "Se acabó el tiempo. Puede empezar a hablar, por favor.", stop: "Gracias.", p3: "Ahora vamos a hablar de algunas preguntas más generales sobre este tema.", end: "Gracias. El examen ha terminado." },
+      turkish: { hello: "İyi günler. Ben Ayşe Hoca, bugün sınav görevliniz olacağım. Önce sizinle ilgili birkaç soru soracağım.", p2: "Şimdi size bir konu vereceğim. Hazırlanmak için bir dakikanız var, sonra bir iki dakika konuşacaksınız.", go: "Süre doldu. Lütfen konuşmaya başlayın.", stop: "Teşekkürler.", p3: "Şimdi bu konuyla ilgili daha genel sorular konuşalım.", end: "Teşekkür ederim. Sınav bitti." },
+      korean: { hello: "안녕하세요. 저는 김지은 선생님입니다. 오늘 시험관입니다. 먼저 본인에 대해 몇 가지 질문하겠습니다.", p2: "이제 주제를 드리겠습니다. 1분 동안 준비하고 1~2분 동안 말하세요.", go: "준비 시간이 끝났습니다. 이제 말씀해 주세요.", stop: "감사합니다.", p3: "이제 이 주제와 관련된 더 일반적인 질문을 해 보겠습니다.", end: "감사합니다. 시험이 끝났습니다." },
+      chinese: { hello: "下午好。我是王老师，今天由我担任你的考官。首先，我想问你一些关于你自己的问题。", p2: "现在我给你一个话题。你有一分钟准备时间，然后说一到两分钟。", go: "准备时间到了。请开始说。", stop: "谢谢。", p3: "现在我们来讨论一些和这个话题相关的更普遍的问题。", end: "谢谢。口语考试结束了。" },
+      arabic: { hello: "مساء الخير. أنا الأستاذ خالد، وسأكون ممتحنك اليوم. أولاً، بعض الأسئلة عنك.", p2: "سأعطيك الآن موضوعاً. لديك دقيقة واحدة للتحضير، ثم تتحدث لمدة دقيقة إلى دقيقتين.", go: "انتهى وقت التحضير. ابدأ الكلام من فضلك.", stop: "شكراً.", p3: "والآن لنناقش بعض الأسئلة العامة المتعلقة بهذا الموضوع.", end: "شكراً لك. انتهى الامتحان." }
+    };
+
+    // AI savol tuza olmasa — zaxira savollar (ingliz)
+    const FALLBACK_Q = {
+      part1: ['Do you work or are you a student?', 'What do you enjoy most about your studies or job?', 'Where is your hometown?', 'Do you prefer mornings or evenings? Why?', 'How often do you use your phone to learn new things?'],
+      part2: { topic: 'Describe a skill you learned that you are proud of.', bullets: ['what the skill is', 'when and how you learned it', 'how difficult it was', 'and explain why you are proud of it'] },
+      part3: ['Why do some people learn new skills faster than others?', 'Should schools focus more on practical skills than on academic subjects?', 'How has technology changed the way people learn?', 'Will traditional teachers still be needed in the future?']
+    };
+
+    const S = {
+      lang: 'english', mode: 'exam', level: 'B2', plan: 'free', user: null,
+      Q: null, part: 1, idx: 0, history: [], transcript: [],
+      recording: false, busy: false, lastSay: '', lastEmotion: 'neutral', timerId: 0, t0: 0, partLimit: 0,
+      quota: null, quotaLeft: null, quotaTick: 0, timeUp: false
+    };
+
+    const avatar = new TeacherAvatar($('avatar'), S.lang);
+    avatar.onEmotion = (emo) => {
+      const L = EMOTION_LABELS[emo] || EMOTION_LABELS.neutral;
+      const chip = $('emoChip');
+      chip.style.setProperty('--emo', L.color);
+      chip.innerHTML = `<i class="fa-solid ${L.icon}"></i> <span>${L.uz}</span>`;
+      $('teacherCard').style.setProperty('--tv-glow', L.color);
+    };
+    avatar.setEmotion('neutral');
+
+    const locale = () => TEACHER_LOOKS[S.lang].locale;
+    const sc = () => SCRIPT[S.lang] || SCRIPT.english;
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    function toast(msg) {
+      const t = document.createElement('div'); t.className = 'toast'; t.innerHTML = msg;
+      document.body.appendChild(t); setTimeout(() => t.remove(), 3800);
+    }
+
+    // ── SOZLASH EKRANI ──
+    function renderChips() {
+      $('langChips').innerHTML = LANGS.map(([id, f, n]) => `<button class="chip ${S.lang === id ? 'sel' : ''}" onclick="pickLang('${id}')">${f} ${n}</button>`).join('');
+      $('levelChips').innerHTML = LEVELS.map(l => `<button class="chip ${S.level === l ? 'sel' : ''}" onclick="pickLevel('${l}')">${l}</button>`).join('');
+    }
+    window.pickLang = id => {
+      S.lang = id; renderChips();
+      avatar.setTeacher(id);
+      const L = TEACHER_LOOKS[id];
+      $('tName').textContent = L.name; $('tRole').textContent = L.role;
+      try { localStorage.setItem('lv_exam_lang', id); } catch {}
+    };
+    window.pickLevel = l => { S.level = l; renderChips(); };
+    window.pickMode = el => {
+      document.querySelectorAll('.mode').forEach(m => m.classList.remove('sel'));
+      el.classList.add('sel'); S.mode = el.dataset.mode;
+      $('btnStart').innerHTML = S.mode === 'exam'
+        ? '<i class="fa-solid fa-microphone"></i> Imtihonni boshlash'
+        : '<i class="fa-solid fa-fire"></i> Ustoz bilan mashqni boshlash';
+    };
+
+    window.toggleSub = () => { $('subtitle').classList.toggle('off'); $('btnSub').classList.toggle('on'); };
+    window.toggleMute = () => { TeacherVoice.muted = !TeacherVoice.muted; $('btnMute').classList.toggle('on', TeacherVoice.muted); if (TeacherVoice.muted) TeacherVoice.stop(); };
+    window.repeatLast = () => { if (S.lastSay) teacherSay(S.lastSay, S.lastEmotion, 1); };
+
+    // ── USTOZ GAPIRADI ──
+    async function teacherSay(text, emotion = 'neutral', intensity = 1) {
+      S.lastSay = text; S.lastEmotion = emotion;
+      avatar.setEmotion(emotion, intensity);
+      $('subtitle').textContent = text;
+      setMic(false, 'Ustoz gapiryapti…');
+      await TeacherVoice.say(text, locale(), emotion, avatar);
+    }
+
+    function setMic(enabled, hint) {
+      $('mic').disabled = !enabled;
+      if (hint) $('micHint').textContent = hint;
+    }
+
+    function setStep(p) {
+      document.querySelectorAll('.step').forEach(s => {
+        const n = +s.dataset.p;
+        s.classList.toggle('on', n === p);
+        s.classList.toggle('done', n < p);
+      });
+      $('qTag').textContent = 'Part ' + p;
+    }
+
+    function startTimer(limitSec = 0, onEnd = null) {
+      clearInterval(S.timerId);
+      S.t0 = Date.now(); S.partLimit = limitSec;
+      const tick = () => {
+        const sec = Math.floor((Date.now() - S.t0) / 1000);
+        const show = limitSec ? Math.max(0, limitSec - sec) : sec;
+        $('timer').textContent = String(Math.floor(show / 60)).padStart(2, '0') + ':' + String(show % 60).padStart(2, '0');
+        $('timer').classList.toggle('warn', !!limitSec && limitSec - sec <= 10);
+        if (limitSec && sec >= limitSec) { clearInterval(S.timerId); onEnd?.(); }
+      };
+      tick(); S.timerId = setInterval(tick, 500);
+    }
+
+    // ── BOSHLASH ──
+    window.startTest = async function () {
+      if (!S.user) { location.href = '../auth/login.html?redirect=' + encodeURIComponent(location.pathname); return; }
+      $('btnStart').disabled = true;
+      $('btnStart').innerHTML = '<span class="spin"></span> Savollar tayyorlanmoqda…';
+      try {
+        S.Q = await teacherApi('questions', { lang: S.lang });
+        syncQuota(S.Q.quota);
+      } catch (e) {
+        if (e.upgrade) { pickMode(document.querySelector('.mode.sel')); $('btnStart').disabled = false; return onLimit(e); }
+        if (S.lang !== 'english') { toast('Savollar tuzilmadi: ' + esc(e.message)); $('btnStart').disabled = false; pickMode(document.querySelector('.mode.sel')); return; }
+        S.Q = FALLBACK_Q;
+      }
+      $('btnStart').disabled = false;
+      S.part = 1; S.idx = 0; S.history = []; S.transcript = [];
+      $('scrSetup').classList.add('hidden'); $('scrTest').classList.remove('hidden');
+      setStep(1); startTimer();
+      S.timeUp = false; $('typed').disabled = false;
+      if (S.quotaLeft != null) { renderQuota(); startQuotaTick(); }
+
+      if (S.mode === 'exam') {
+        await teacherSay(sc().hello, 'neutral');
+        await askCurrent();
+      } else {
+        // Mashq: ustoz o'zini tanishtiradi (AI) va birinchi savolni beradi
+        await coachTurn('', true);
+      }
+    };
+
+    function currentQuestion() {
+      if (S.part === 1) return S.Q.part1[S.idx];
+      if (S.part === 2) return S.Q.part2.topic;
+      return S.Q.part3[S.idx];
+    }
+
+    async function askCurrent() {
+      const q = currentQuestion();
+      $('qText').textContent = q;
+      $('cue').classList.add('hidden');
+      $('fb').innerHTML = '';
+      await teacherSay(q, 'neutral');
+      listenReady();
+    }
+
+    function listenReady() {
+      setMic(true, 'Mikrofonni bosing va javob bering. Tugatgach yana bosing.');
+    }
+
+    // ── PART 2 ──
+    async function startPart2() {
+      S.part = 2; S.idx = 0; setStep(2);
+      $('qText').textContent = 'Cue card';
+      $('fb').innerHTML = '';
+      await teacherSay(sc().p2, 'neutral');
+      const c = S.Q.part2;
+      $('cue').innerHTML = `<b>${esc(c.topic)}</b><div style="font-size:.85rem;margin-bottom:4px">You should say:</div><ul>${c.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+        <textarea placeholder="Qoralama (ixtiyoriy) — kalit so'zlarni yozing"></textarea>
+        <div style="margin-top:10px"><button class="btn" onclick="endPrep()"><i class="fa-solid fa-forward"></i> Tayyorman</button></div>`;
+      $('cue').classList.remove('hidden');
+      setMic(false, '1 daqiqa tayyorlaning…');
+      startTimer(60, () => endPrep());
+    }
+    window.endPrep = async function () {
+      if (S.part !== 2 || S._p2started) return;
+      S._p2started = true;
+      clearInterval(S.timerId);
+      await teacherSay(sc().go, 'neutral');
+      setMic(true, 'Gapiring — 2 daqiqagacha. Tugatgach mikrofonni bosing.');
+      await toggleMic();
+      startTimer(120, () => { if (S.recording) toggleMic(); });
+    };
+
+    // ── MIKROFON ──
+    window.toggleMic = async function () {
+      if (S.busy) return;
+      if (!S.recording) {
+        try {
+          TeacherVoice.stop();
+          await TeacherEar.start({ onLevel: v => $('mic').style.setProperty('--lvl', v.toFixed(2)) });
+          S.recording = true;
+          $('mic').classList.add('rec');
+          $('mic').innerHTML = '<i class="fa-solid fa-stop"></i>';
+          avatar.setListening(true);
+          $('micHint').textContent = 'Tinglayapman… tugatgach bosing.';
+        } catch (e) {
+          toast('Mikrofon ishlamadi: ' + esc(e.message) + ' — javobni yozib yuboring.');
+        }
+        return;
+      }
+      S.recording = false;
+      $('mic').classList.remove('rec');
+      $('mic').innerHTML = '<i class="fa-solid fa-microphone"></i>';
+      avatar.setListening(false);
+      S.busy = true; setMic(false, 'Nutq matnga o\'girilmoqda…');
+      avatar.setEmotion('thinking');
+      try {
+        const r = await TeacherEar.stop(locale());
+        S.busy = false;
+        if (!r.text) { setMic(true, 'Ovoz eshitilmadi. Qaytadan, balandroq gapiring.'); avatar.setEmotion('stern'); return; }
+        await handleAnswer(r.text, r.pron);
+      } catch (e) {
+        S.busy = false;
+        setMic(true, e.message);
+        $('typed').focus();
+      }
+    };
+
+    window.sendTyped = async function () {
+      const v = $('typed').value.trim();
+      if (!v || S.busy) return;
+      $('typed').value = '';
+      if (S.part === 2 && !S._p2started) await endPrep();
+      if (S.recording) { TeacherEar.cancel(); S.recording = false; $('mic').classList.remove('rec'); $('mic').innerHTML = '<i class="fa-solid fa-microphone"></i>'; avatar.setListening(false); }
+      await handleAnswer(v, null);
+    };
+
+    // ── JAVOBNI QAYTA ISHLASH ──
+    async function handleAnswer(text, pron) {
+      $('youBox').classList.remove('hidden');
+      $('youText').textContent = text;
+      const q = currentQuestion();
+      S.transcript.push({ part: S.part, q, a: text, pron: pron || undefined });
+      S.history.push({ role: 'teacher', text: q }, { role: 'student', text });
+
+      if (S.mode === 'coach') return coachTurn(text, false, pron);
+      return examTurn(text, pron);
+    }
+
+    function nextPointer() {
+      if (S.part === 1) {
+        if (S.idx + 1 < S.Q.part1.length) return { part: 1, idx: S.idx + 1 };
+        return { part: 2, idx: 0 };
+      }
+      if (S.part === 2) return { part: 3, idx: 0 };
+      if (S.idx + 1 < S.Q.part3.length) return { part: 3, idx: S.idx + 1 };
+      return null;
+    }
+
+    async function examTurn(text, pron) {
+      const nx = nextPointer();
+      if (S.part === 2) {
+        clearInterval(S.timerId);
+        await teacherSay(sc().stop, 'neutral');
+      }
+      if (!nx) return finishTest();
+      if (nx.part === 2 && S.part === 1) { S.idx = 0; return startPart2(); }
+      if (nx.part === 3 && S.part === 2) {
+        S.part = 3; S.idx = 0; setStep(3); startTimer();
+        await teacherSay(sc().p3, 'neutral');
+        return askCurrent();
+      }
+      // Imtihonchi qisqa munosabat bildirib, keyingi savolni beradi
+      const nextQ = nx.part === 1 ? S.Q.part1[nx.idx] : S.Q.part3[nx.idx];
+      S.part = nx.part; S.idx = nx.idx;
+      $('qText').textContent = nextQ;
+      S.busy = true; setMic(false, 'Imtihonchi…');
+      try {
+        const r = await teacherApi('reply', {
+          lang: S.lang, mode: 'exam', level: S.level, history: S.history.slice(-6),
+          userText: text, question: S.transcript.at(-1).q, nextQuestion: nextQ, pron
+        });
+        S.busy = false;
+        syncQuota(r.quota);
+        await teacherSay(r.say, r.emotion, r.intensity);
+      } catch (e) {
+        S.busy = false;
+        if (e.upgrade) return onLimit(e);
+        await teacherSay(nextQ, 'neutral');
+      }
+      listenReady();
+    }
+
+    async function coachTurn(text, start = false, pron = null) {
+      S.busy = true; setMic(false, 'Ustoz o\'ylayapti…');
+      avatar.setEmotion('thinking');
+      const q = start ? currentQuestion() : S.transcript.at(-1)?.q;
+      try {
+        const r = await teacherApi('reply', {
+          lang: S.lang, mode: 'coach', level: S.level, start,
+          history: S.history.slice(-10), userText: text, question: q,
+          memory: TeacherMemory.get(S.lang), pron
+        });
+        S.busy = false;
+        syncQuota(r.quota);
+        if (r.memoryAdd) TeacherMemory.add(S.lang, r.memoryAdd);
+        renderFeedback(r);
+        S.history.push({ role: 'teacher', text: r.say });
+        if (!start && !r.retry) {
+          const nx = nextPointer();
+          if (nx) { S.part = nx.part === 2 ? 3 : nx.part; S.idx = nx.part === 2 ? 0 : nx.idx; setStep(S.part); }
+        }
+        // Ustoz o'z savolini (follow-up) beradi — ekranda ham shu
+        $('qText').textContent = r.retry ? (q + '  ↻') : (r.say.split(/(?<=[.!?。？！])\s+/).filter(s => /[?？]\s*$/.test(s)).pop() || currentQuestion());
+        if (!r.retry && S.transcript.length) S.transcript.at(-1).followUp = $('qText').textContent;
+        await teacherSay(r.say, r.emotion, r.intensity);
+        listenReady();
+      } catch (e) {
+        S.busy = false;
+        if (e.upgrade) return onLimit(e);
+        toast(esc(e.message));
+        listenReady();
+      }
+    }
+
+    function renderFeedback(r) {
+      const parts = [];
+      if (r.retry) parts.push(`<div><span class="retry-badge"><i class="fa-solid fa-rotate-left"></i> Qaytadan javob bering!</span></div>`);
+      if (r.correction) parts.push(`<div class="fb-card"><h4>Xato</h4><span class="wrong">${esc(r.correction.wrong)}</span> → <span class="right">${esc(r.correction.right)}</span><div class="muted" style="margin-top:6px">${esc(r.correction.why_uz)}</div></div>`);
+      if (r.betterAnswer) parts.push(`<div class="fb-card"><h4>Band 8 shunday aytadi</h4>${esc(r.betterAnswer)} <button class="btn ghost" style="padding:5px 9px;font-size:.75rem;margin-left:6px" onclick='sayModel(${JSON.stringify(r.betterAnswer)})'><i class="fa-solid fa-volume-high"></i></button></div>`);
+      if (r.tip) parts.push(`<div class="fb-card"><h4>Maslahat</h4>${esc(r.tip)}</div>`);
+      if (r.bandHint) parts.push(`<div class="muted" style="font-size:.8rem">Bu javob taxminan band <b style="color:var(--text)">${r.bandHint}</b> darajasida.</div>`);
+      $('fb').innerHTML = parts.join('');
+    }
+    window.sayModel = t => TeacherVoice.say(t, locale(), 'encouraging', avatar);
+
+    window.skipQuestion = async function () {
+      if (S.busy) return;
+      if (S.recording) { TeacherEar.cancel(); S.recording = false; $('mic').classList.remove('rec'); $('mic').innerHTML = '<i class="fa-solid fa-microphone"></i>'; avatar.setListening(false); }
+      const nx = nextPointer();
+      if (!nx) return finishTest();
+      if (S.mode === 'exam') {
+        if (nx.part === 2 && S.part === 1) return startPart2();
+        if (nx.part === 3 && S.part === 2) { clearInterval(S.timerId); S.part = 3; S.idx = 0; setStep(3); startTimer(); await teacherSay(sc().p3, 'neutral'); return askCurrent(); }
+      }
+      S.part = nx.part === 2 && S.mode === 'coach' ? 3 : nx.part; S.idx = nx.part === 2 && S.mode === 'coach' ? 0 : nx.idx;
+      setStep(S.part);
+      if (S.part === 2) return startPart2();
+      await askCurrent();
+    };
+
+    // ── YAKUN VA BAHOLASH ──
+    window.finishTest = async function () {
+      if (S.recording) { TeacherEar.cancel(); S.recording = false; }
+      clearInterval(S.timerId);
+      TeacherVoice.stop();
+      stopQuotaTick();
+      if (S.transcript.length < (S.timeUp ? 1 : 2)) {
+        if (S.timeUp) { showLockScreen(); return; }
+        toast('Baholash uchun kamida 2 ta savolga javob bering.'); return;
+      }
+      $('scrTest').classList.add('hidden'); $('scrResult').classList.remove('hidden');
+      $('resultBox').innerHTML = `<div class="loading"><div class="spin"></div> Ikki imtihonchi javoblaringizni mustaqil baholamoqda… (15–25 soniya)</div>`;
+      teacherSay(sc().end, 'thinking');
+      try {
+        const R = await teacherApi('assess', { lang: S.lang, mode: S.mode, transcript: S.transcript });
+        renderResult(R);
+        const emo = R.overall >= 7.5 ? 'impressed' : R.overall >= 6.5 ? 'proud' : R.overall >= 5 ? 'encouraging' : 'disappointed';
+        const sayTxt = S.lang === 'english'
+          ? (R.overall >= 7.5 ? `Excellent work. Your overall band is ${R.overall}. That is a genuinely strong performance.` : R.overall >= 6 ? `Your overall band is ${R.overall}. Good, but not good enough yet. Look at my feedback carefully.` : `Your overall band is ${R.overall}. Honestly, we have a lot of work to do. Follow the plan, and come back tomorrow.`)
+          : `${R.overall}`;
+        await teacherSay(sayTxt, emo, R.overall >= 7.5 || R.overall < 5 ? 2 : 1);
+      } catch (e) {
+        if (e.locked) { showLockScreen(e.quota); return; }
+        if (e.upgrade) { showUpgrade(e.message); }
+        $('resultBox').innerHTML = `<p>Baholab bo'lmadi: ${esc(e.message)}</p><button class="btn" onclick="finishTest()">Qayta urinish</button>`;
+        $('scrTest').classList.remove('hidden');
+      }
+    };
+
+    function renderResult(R) {
+      const C = R.criteria || {};
+      const crit = [['fc', 'Fluency & Coherence — Ravonlik'], ['lr', 'Lexical Resource — Lug\'at'], ['gra', 'Grammar — Grammatika'], ['pr', 'Pronunciation — Talaffuz']];
+      $('resultBox').innerHTML = `
+        <div class="band-hero">
+          <div class="band-ring" style="--p:${(R.overall || 0) / 9 * 100}"><div><b>${R.overall ?? '—'}</b><small>${esc(R.exam === 'IELTS' ? 'Overall band' : 'Ball (0–9)')}<br>${esc(R.cefr || '')}</small></div></div>
+          <div>
+            <h2 style="font-family:var(--font-head);margin-bottom:10px">Natijangiz</h2>
+            <div class="crit">${crit.map(([k, n]) => `<div class="crit-row"><div>${n}<div class="bar"><i style="width:${(C[k] || 0) / 9 * 100}%"></i></div></div><b>${C[k] ?? '—'}</b></div>`).join('')}</div>
+            <div class="muted" style="font-size:.76rem;margin-top:8px">${R.examiners || 1} ta mustaqil AI imtihonchi bahosining o'rtachasi. Rasmiy natija emas — haqiqiy imtihonga tayyorlik ko'rsatkichi.</div>
+          </div>
+        </div>
+        ${R.examinerComment ? `<div class="fb-card" style="margin-top:16px"><h4>Imtihonchi xulosasi</h4>${esc(R.examinerComment)}</div>` : ''}
+        <div class="grid2">
+          <div class="fb-card"><h4>Kuchli tomonlar</h4><ul class="list">${(R.strengths || []).map(s => `<li>${esc(s)}</li>`).join('')}</ul></div>
+          <div class="fb-card"><h4>Zaif tomonlar</h4><ul class="list">${(R.weaknesses || []).map(s => `<li>${esc(s)}</li>`).join('')}</ul></div>
+        </div>
+        ${(R.corrections || []).length ? `<div class="fb-card" style="margin-top:12px"><h4>Xatolaringiz</h4>${R.corrections.map(c => `<div style="margin:8px 0"><span class="wrong">${esc(c.wrong)}</span> → <span class="right">${esc(c.right)}</span><div class="muted" style="font-size:.82rem">${esc(c.why_uz)}</div></div>`).join('')}</div>` : ''}
+        ${(R.upgrades || []).length ? `<div class="fb-card" style="margin-top:12px"><h4>Lug'atni band 8 ga ko'taring</h4>${R.upgrades.map(u => `<div style="margin:6px 0">${esc(u.basic)} → <span class="right">${esc(u.advanced)}</span></div>`).join('')}</div>` : ''}
+        ${(R.plan || []).length ? `<div class="fb-card" style="margin-top:12px"><h4>30 kunlik reja</h4><ol class="list">${R.plan.map(p => `<li>${esc(p)}</li>`).join('')}</ol></div>` : ''}
+        <div class="row-actions">
+          <button class="btn" onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Yangi imtihon</button>
+          <a class="btn ghost" href="./courses.html?lang=${S.lang}"><i class="fa-solid fa-circle-play"></i> Video darslar</a>
+          <a class="btn ghost" href="./certificate-center.html"><i class="fa-solid fa-award"></i> Sertifikat markazi</a>
+        </div>`;
+    }
+
+    // ═══ BEPUL KVOTA: 5 daqiqa → 5 kun yopiq ═══
+    // Haqiqiy hisob serverda. Bu yerdagi taymer faqat ko'rsatish uchun:
+    // har server javobida qayta to'g'rilanadi.
+    const fmtSec = n => `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}`;
+    const OYLAR = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr'];
+    const fmtDate = iso => { const d = new Date(iso); return `${d.getDate()}-${OYLAR[d.getMonth()]}, ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; };
+
+    function syncQuota(q) {
+      if (!q) return;
+      S.quota = q;
+      S.quotaLeft = q.leftSec;
+      renderQuota();
+      if (!S.quotaTick && !$('scrTest').classList.contains('hidden')) startQuotaTick();
+    }
+    function renderQuota() {
+      const chip = $('quotaChip');
+      if (S.quotaLeft == null) { chip.classList.add('hidden'); return; }
+      chip.classList.remove('hidden');
+      chip.classList.toggle('low', S.quotaLeft <= 60);
+      chip.textContent = 'Bepul: ' + fmtSec(Math.max(0, S.quotaLeft));
+    }
+    function startQuotaTick() {
+      stopQuotaTick();
+      S.quotaTick = setInterval(() => {
+        if (S.quotaLeft == null) return;
+        S.quotaLeft -= 1;
+        renderQuota();
+        if (S.quotaLeft <= 0) timeUp();
+      }, 1000);
+    }
+    function stopQuotaTick() { clearInterval(S.quotaTick); S.quotaTick = 0; }
+
+    async function timeUp() {
+      if (S.timeUp) return;
+      S.timeUp = true;
+      stopQuotaTick();
+      if (S.recording) { TeacherEar.cancel(); S.recording = false; $('mic').classList.remove('rec'); $('mic').innerHTML = '<i class="fa-solid fa-microphone"></i>'; avatar.setListening(false); }
+      setMic(false, 'Bepul vaqt tugadi.');
+      $('typed').disabled = true;
+      const bye = S.lang === 'english' ? "I'm afraid our time is up. Let me give you your result." : (sc().end || '');
+      await teacherSay(bye, 'stern');
+      finishTest();
+    }
+
+    function onLimit(e) {
+      if (e.locked && e.justEnded && S.transcript.length) return timeUp();
+      if (e.locked) return showLockScreen(e.quota);
+      showUpgrade(e.message);
+    }
+
+    function showLockScreen(q = S.quota) {
+      stopQuotaTick();
+      clearInterval(S.timerId);
+      TeacherVoice.stop();
+      const until = q?.lockedUntil ? fmtDate(q.lockedUntil) : '5 kundan keyin';
+      $('upTitle').innerHTML = '<i class="fa-solid fa-lock" style="color:#fb7185"></i> Bepul vaqt tugadi';
+      $('upText').innerHTML = `Bepul 5 daqiqalik speaking ishlatildi. Ustoz <b>${esc(until)}</b> da yana ochiladi.`;
+      $('upModal').classList.remove('hidden');
+      avatar.setEmotion('disappointed');
+      applyLock(q);
+      $('scrTest').classList.add('hidden'); $('scrResult').classList.add('hidden'); $('scrSetup').classList.remove('hidden');
+    }
+
+    let _lockTimer = 0;
+    function applyLock(q) {
+      if (!q?.locked || !q.lockedUntil) return;
+      const end = new Date(q.lockedUntil).getTime();
+      $('btnStart').disabled = true;
+      $('btnStart').innerHTML = '<i class="fa-solid fa-lock"></i> Yopiq';
+      const box = $('lockBox');
+      box.classList.remove('hidden');
+      const draw = () => {
+        const ms = Math.max(0, end - Date.now());
+        if (!ms) { clearInterval(_lockTimer); location.reload(); return; }
+        const d = Math.floor(ms / 86400000), h = Math.floor(ms / 3600000) % 24, m = Math.floor(ms / 60000) % 60, sec = Math.floor(ms / 1000) % 60;
+        box.innerHTML = `<i class="fa-solid fa-lock" style="color:#fca5a5"></i> Bepul 5 daqiqa tugadi. Ustoz qayta ochilishiga:
+          <b class="big">${d} kun ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}</b>
+          <span class="muted">Ochiladi: ${esc(fmtDate(q.lockedUntil))}</span>
+          <div style="margin-top:12px"><a class="btn red" href="../order.html?plan=ielts"><i class="fa-solid fa-crown"></i> Hozir davom etish — IELTS PRO</a></div>`;
+      };
+      clearInterval(_lockTimer); draw(); _lockTimer = setInterval(draw, 1000);
+    }
+
+    function showUpgrade(msg) {
+      $('upText').textContent = msg || 'Bepul sinov limiti tugadi.';
+      $('upModal').classList.remove('hidden');
+      avatar.setEmotion('disappointed');
+      $('btnStart').disabled = false;
+    }
+
+    // ── FOYDALANUVCHI ──
+    onAuthStateChanged(auth, async user => {
+      S.user = user;
+      if (!user) {
+        $('planPill').textContent = 'Kirilmagan';
+        $('planNotice').innerHTML = `Imtihon uchun <a href="../auth/login.html">tizimga kiring</a>. Ro'yxatdan o'tish bepul.`;
+        return;
+      }
+      try {
+        const snap = await getDoc(doc(db, 'users', user.uid));
+        const u = snap.exists() ? snap.data() : {};
+        const exp = u.planExpiry?.toDate ? u.planExpiry.toDate().getTime() : 0;
+        S.plan = (u.plan && u.plan !== 'free' && (!exp || exp > Date.now())) ? u.plan : 'free';
+        const best = u.ieltsBand?.[S.lang];
+        if (u.onboarding?.level || u.level) { S.level = u.onboarding?.level || u.level; renderChips(); }
+        const pro = S.plan === 'ielts' || S.plan === 'premium';
+        $('planPill').textContent = pro ? (S.plan === 'ielts' ? 'IELTS PRO' : 'PREMIUM') : 'Bepul';
+        $('planPill').classList.toggle('pro', pro);
+        $('planNotice').innerHTML = pro
+          ? `<i class="fa-solid fa-circle-check" style="color:var(--green)"></i> Cheksiz imtihon va ustoz ochiq.${best ? ` Eng yaxshi natijangiz: <b>band ${best}</b>.` : ''}`
+          : `Bepul: ustoz bilan jami <b>5 daqiqa</b> gaplashish, keyin 5 kunga yopiladi. Cheksiz mashq va avto-to'lov uchun — <a href="../order.html?plan=ielts">IELTS PRO (200 000 so'm/oy)</a>.`;
+        if (!pro) {
+          const q = await teacherApi('quota').then(d => d.quota).catch(() => null);
+          if (q) {
+            S.quota = q;
+            if (q.locked) applyLock(q);
+            else $('planNotice').innerHTML += ` <b>Qolgan vaqt: ${fmtSec(q.leftSec)}</b>`;
+          }
+        }
+      } catch {
+        $('planNotice').textContent = 'Profil yuklanmadi, lekin imtihonni boshlash mumkin.';
+      }
+    });
+
+    // Boshlang'ich holat
+    try { const l = new URLSearchParams(location.search).get('lang') || window.LearningLanguage.get().targetLang || localStorage.getItem('lv_exam_lang'); if (l && TEACHER_LOOKS[l]) S.lang = l; } catch {}
+    if (new URLSearchParams(location.search).get('mode') === 'coach') pickMode(document.querySelector('[data-mode="coach"]'));
+    renderChips(); pickLang(S.lang);
+  </script>
+</body>
+</html>

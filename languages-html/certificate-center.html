@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sakkizta til bo‘yicha tan olingan imtihon yo‘nalishlari, kurslar va CEFR A1–C2 tayyorgarlik rejasi.">
+  <title>Til sertifikatlariga tayyorgarlik — LinguaVerse</title>
+  <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px max(18px, calc((100% - 1080px)/2)); background: var(--nav-bg); border-bottom: 1px solid var(--border); }
+    nav a { color: var(--text2); text-decoration: none; font-weight: 650; font-size: .85rem; }
+    nav .logo { color: var(--text); font-size: 1.1rem; }
+    nav .logo span { color: var(--accent); }
+    .links { display: flex; gap: 14px; flex-wrap: wrap; }
+    main { max-width: 1080px; padding: 28px 18px 70px; margin: auto; }
+    h1,h2,h3,p { margin-top: 0; }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.5rem); margin-bottom: 8px; }
+    h2 { font-size: 1.1rem; margin-bottom: 12px; }
+    .muted { color: var(--text3); line-height: 1.65; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin: 16px 0; }
+    .notice { border-left: 4px solid var(--gold); background: rgba(245,200,66,.08); padding: 14px 16px; border-radius: 10px; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 12px; }
+    .skill,.level,.exam-step { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 15px; }
+    .skill h3,.level h3,.exam-step h3 { margin-bottom: 6px; }
+    .skill a,.exam-link { color: var(--accent); font-weight: 700; }
+    .level strong { color: var(--accent); }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr)); gap: 12px; align-items: end; }
+    label { display: grid; gap: 6px; color: var(--text2); font-weight: 650; font-size: .88rem; }
+    select,input { width: 100%; background: var(--surface2); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 10px; font: inherit; }
+    .btn { display: inline-flex; border: 0; border-radius: 10px; background: var(--accent); color: #fff; font: inherit; font-weight: 700; padding: 10px 15px; cursor: pointer; text-decoration: none; }
+    .btn.secondary { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .plan-item { margin: 8px 0; padding: 12px; border-radius: 9px; background: var(--surface2); }
+    .plan-item p { margin: 4px 0 0; }
+    .check-row { display: flex; align-items: flex-start; gap: 10px; padding: 12px 0; border-top: 1px solid var(--border); line-height: 1.5; }
+    .check-row input { width: auto; margin-top: 4px; accent-color: var(--accent); }
+    .check-row strong { display: block; }
+    .exam-meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .tag { display: inline-block; border: 1px solid var(--border); background: var(--surface2); padding: 5px 9px; border-radius: 999px; margin: 3px; font-size: .82rem; }
+    #planError { color: var(--red); }
+    @media(max-width:600px) { nav { align-items:flex-start; } .links { gap:10px; } main { padding-inline:12px; } }
+  </style>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="../index.html">Lingua<span>Verse</span></a>
+    <div class="links">
+      <a href="./language.html">Darslar</a>
+      <a href="./speaking-coach.html">Speaking Coach</a>
+      <a href="./ielts-prep.html">IELTS mashqlari</a>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <p class="muted">8 ta til · imtihon yo‘nalishlari · A1 dan C2 gacha tayyorgarlik</p>
+      <h1>Til sertifikatlariga tayyorgarlik markazi</h1>
+      <p class="muted">Aniq rasmiy imtihonni tanlang, uning bo‘limlari va rasmiy manbalarini oching, tayyorgarlik jarayonini kuzating.</p>
+    </header>
+
+    <div class="notice">
+      <strong>Muhim:</strong> LinguaVerse kurs va mashqlari rasmiy imtihon yoki akkreditatsiyalangan sertifikat bermaydi; daraja yoki imtihon natijasini kafolatlamaydi.
+      CEFRdagi C2 eng yuqori umumiy daraja, ammo IELTS bandi, TestDaF TDN, TOPIK, HSK va ACTFL ko‘rsatkichlari unga bevosita teng emas. Rasmiy natija faqat imtihon tashkilotchisidan olinadi. Talab, format va topshirish joyini rasmiy manbadan tasdiqlang.
+    </div>
+
+    <section class="card" aria-labelledby="languageHeading">
+      <h2 id="languageHeading">Til va imtihon yo‘nalishini tanlang</h2>
+      <div class="form-grid">
+        <label for="languageSelect">O‘rganiladigan til
+          <select id="languageSelect"></select>
+        </label>
+        <label for="examSelect">Rasmiy imtihon
+          <select id="examSelect"></select>
+        </label>
+        <div><a class="btn" id="courseLink" href="./English.html">Til kursini ochish</a></div>
+      </div>
+      <p class="muted" id="examNote" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="formatHeading">
+      <div class="exam-meta">
+        <h2 id="formatHeading">Tanlangan imtihon formati</h2>
+        <a class="btn secondary exam-link" id="officialLink" href="https://ielts.org/take-a-test/preparation-resources" target="_blank" rel="noopener noreferrer">Tashkilotning rasmiy sahifasi ↗</a>
+      </div>
+      <p class="muted" id="examFormat"></p>
+      <div id="examSkills" aria-label="Imtihon bo‘limlari"></div>
+      <p class="muted">Imtihon formatlari yangilanishi mumkin. Rasmiy topshiriq namunasi, mezon, ball chegarasi va imtihon versiyasi bo‘yicha tashkilot ko‘rsatmasi ustuvor.</p>
+    </section>
+
+    <section class="card">
+      <h2>Imtihon bo‘limlariga mos mashq</h2>
+      <p class="muted">Bu ko‘rsatmalar imtihon tarkibiga moslangan. LinguaVerse’dagi mashqlar rasmiy namuna, to‘liq mock test yoki rasmiy baholash o‘rnini bosmaydi.</p>
+      <div class="grid">
+        <article class="skill"><h3>Tinglab tushunish</h3><p class="muted">Rasmiy audio namunalarini tinglab, vaqt va savol turlarini imtihon mezonida mashq qiling.</p></article>
+        <article class="skill"><h3>O‘qib tushunish</h3><p class="muted">Rasmiy namuna matnlarini vaqt bilan ishlab, har javobga matndan dalil toping.</p></article>
+        <article class="skill" id="writingSkill"><h3>Yozish</h3><p class="muted">Aynan shu imtihon va daraja uchun rasmiy yozish mezonlari bilan mashq qiling.</p><a id="writingLink" href="./writing-coach.html">English Writing Coach →</a></article>
+        <article class="skill" id="speakingSkill"><h3>Gapirish</h3><p class="muted">Ovozli mashq imtihonning speaking bo‘limi bo‘lsa yoki qo‘shimcha kerak bo‘lsa foydali.</p><a id="speakingLink" href="./speaking-coach.html?target=english">Speaking Coach →</a></article>
+        <article class="skill" id="grammarSkill"><h3>Grammatika va leksika</h3><p class="muted">Grammatika va leksikaga ajratilgan topshiriqlarni, vaqt chegarasida, xatolar jurnali bilan bajaring.</p></article>
+      </div>
+      <div id="englishPracticeLinks">
+        <p class="muted">English uchun alohida original IELTS mini-mashqlari mavjud. Ular rasmiy yoki to‘liq IELTS sinovi emas.</p>
+        <a class="btn secondary" href="./ielts-prep.html">IELTS mini-mashqlarini ochish</a>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="checklistHeading">
+      <h2 id="checklistHeading">Rasmiy imtihonga tayyorlik ro‘yxati</h2>
+      <p class="muted">Belgilangan bandlar tanlangan imtihon uchun brauzeringizda saqlanadi. Ro‘yxat o‘zi natija yoki tayyorlik sertifikati bermaydi.</p>
+      <div id="readinessChecklist"></div>
+      <p class="muted" id="readinessProgress" aria-live="polite"></p>
+      <p id="checklistError" role="alert" hidden></p>
+    </section>
+
+    <section class="card">
+      <h2>Imtihon maqsadiga mos kunlik reja</h2>
+      <p class="muted">Tanlangan imtihonda rostdan baholanadigan bo‘limlargagina vaqt taqsimlaydi. Bu tayyorgarlik rejasi, daraja diagnostikasi yoki natija prognozi emas.</p>
+      <form id="planForm" class="form-grid">
+        <label for="targetSelect"><span id="targetLabel">Maqsad ko‘rsatkich</span>
+          <select id="targetSelect"></select>
+        </label>
+        <label for="dailyMinutes">Kuniga (daqiqada)
+          <input id="dailyMinutes" type="number" min="15" max="360" step="1" value="60" required>
+        </label>
+        <label for="examDate">Imtihon sanasi (ixtiyoriy)
+          <input id="examDate" type="date">
+        </label>
+        <div><button class="btn" type="submit">Reja tuzish</button></div>
+      </form>
+      <p id="planError" role="alert" hidden></p>
+      <div id="studyPlan" aria-live="polite"></div>
+    </section>
+  </main>
+  <script type="module">
+    import { CERTIFICATION_LANGUAGES, READINESS_STEPS, createStudyPlan, getCertificationExam, getCertificationLanguage } from '../js/language-certificate.mjs';
+
+    const $ = id => document.getElementById(id);
+    const languageSelect = $('languageSelect');
+    const examSelect = $('examSelect');
+    const examKey = (languageId, examName) => `lv_certificate_prep_${languageId}_${encodeURIComponent(examName)}`;
+    const selectedExam = () => getCertificationExam(languageSelect.value, examSelect.selectedOptions[0]?.dataset.name);
+
+    languageSelect.innerHTML = CERTIFICATION_LANGUAGES.map(language =>
+      `<option value="${language.id}">${language.name} · ${language.nativeName}</option>`
+    ).join('');
+    function renderExam() {
+      const language = getCertificationLanguage(languageSelect.value);
+      const exam = selectedExam();
+      if (!language || !exam) throw new Error('Tanlangan imtihon ro‘yxatda topilmadi.');
+      $('targetLabel').textContent = exam.targetLabel;
+      $('targetSelect').innerHTML = exam.targets.map(target =>
+        `<option value="${target}">${target}</option>`
+      ).join('');
+      $('examNote').textContent = `${language.standard} · ${language.note}`;
+      $('examFormat').textContent = exam.format;
+      $('officialLink').href = exam.officialUrl;
+      $('examSkills').innerHTML = exam.skillIds.map(id =>
+        `<span class="tag">${id === 'grammar' ? 'Grammatika va leksika' : ({ listening: 'Listening', reading: 'Reading', writing: 'Writing', speaking: 'Speaking' })[id]}</span>`
+      ).join('');
+      $('courseLink').href = language.course;
+      $('speakingLink').href = `./speaking-coach.html?target=${encodeURIComponent(language.id)}`;
+      $('writingSkill').hidden = !exam.skillIds.includes('writing');
+      $('speakingSkill').hidden = !exam.skillIds.includes('speaking');
+      $('grammarSkill').hidden = !exam.skillIds.includes('grammar');
+      $('englishPracticeLinks').hidden = language.id !== 'english' || !exam.name.startsWith('IELTS');
+      $('writingLink').hidden = language.id !== 'english';
+      const key = examKey(language.id, exam.name);
+      try {
+        const saved = JSON.parse(localStorage.getItem(key) || 'null');
+        const checked = Array.isArray(saved?.checked) ? saved.checked : [];
+        $('readinessChecklist').innerHTML = READINESS_STEPS.map(step =>
+          `<label class="check-row"><input type="checkbox" data-step="${step.id}" ${checked.includes(step.id) ? 'checked' : ''}><span><strong>${step.title}</strong>${step.detail}</span></label>`
+        ).join('');
+        updateProgress();
+        $('dailyMinutes').value = Number.isInteger(saved?.dailyMinutes) ? saved.dailyMinutes : 60;
+        $('targetSelect').value = exam.targets.includes(saved?.target) ? saved.target : exam.targets[exam.targets.length - 1];
+        $('examDate').value = typeof saved?.examDate === 'string' ? saved.examDate : '';
+        $('studyPlan').replaceChildren();
+        $('planError').hidden = true;
+        $('checklistError').hidden = true;
+      } catch (error) {
+        console.error('[Sertifikat tayyorgarligi] Saqlangan ma’lumot o‘qilmadi:', error);
+        $('checklistError').textContent = 'Saqlangan tayyorgarlik ma’lumoti o‘qilmadi. Brauzer xotirasi sozlamalarini tekshiring.';
+        $('checklistError').hidden = false;
+      }
+    }
+
+    function updateProgress() {
+      const checked = $('readinessChecklist').querySelectorAll('input:checked').length;
+      $('readinessProgress').textContent = `Bajarildi: ${checked}/${READINESS_STEPS.length}. Bu o‘zini-o‘zi kuzatish ro‘yxati, rasmiy tayyorlik bahosi emas.`;
+    }
+
+    function renderLanguage() {
+      const language = getCertificationLanguage(languageSelect.value);
+      if (!language) throw new Error('Tanlangan til ro‘yxatda topilmadi.');
+      examSelect.innerHTML = language.exams.map(item =>
+        `<option value="${item.name}" data-name="${item.name}">${item.name}</option>`
+      ).join('');
+      renderExam();
+    }
+
+    function renderPlan(plan) {
+      $('studyPlan').innerHTML = plan.skills.map(skill =>
+        `<article class="plan-item"><strong>${skill.title} · ${skill.minutes} daqiqa</strong><p class="muted">${skill.task}</p></article>`
+      ).join('') + `<p class="muted">${plan.language.name} · ${plan.exam.name} · maqsad: ${plan.target} · kuniga ${plan.dailyMinutes} daqiqa.` +
+        (plan.daysLeft === null ? '' : ` Imtihongacha ${plan.daysLeft} kun.`) + '</p>';
+    }
+
+    languageSelect.addEventListener('change', renderLanguage);
+    examSelect.addEventListener('change', renderExam);
+    $('readinessChecklist').addEventListener('change', () => {
+      const exam = selectedExam();
+      const language = getCertificationLanguage(languageSelect.value);
+      const key = examKey(language.id, exam.name);
+      const checked = Array.from($('readinessChecklist').querySelectorAll('input:checked'), input => input.dataset.step);
+      try {
+        const saved = JSON.parse(localStorage.getItem(key) || '{}');
+        localStorage.setItem(key, JSON.stringify({ ...saved, checked }));
+        $('checklistError').hidden = true;
+        updateProgress();
+      } catch (error) {
+        console.error('[Sertifikat tayyorgarligi] Checklist saqlanmadi:', error);
+        $('checklistError').textContent = 'Belgilangan bosqichlar saqlanmadi. Brauzer xotirasini tekshiring.';
+        $('checklistError').hidden = false;
+      }
+    });
+    $('planForm').addEventListener('submit', event => {
+      event.preventDefault();
+      $('planError').hidden = true;
+      try {
+        const dailyMinutes = Number($('dailyMinutes').value);
+        const exam = selectedExam();
+        if (!exam) throw new RangeError('Imtihonni tanlang.');
+        const target = $('targetSelect').value;
+        const plan = createStudyPlan({
+          languageId: languageSelect.value,
+          examName: exam.name,
+          target,
+          dailyMinutes,
+          examDate: $('examDate').value
+        });
+        const key = examKey(languageSelect.value, exam.name);
+        const saved = JSON.parse(localStorage.getItem(key) || '{}');
+        localStorage.setItem(key, JSON.stringify({
+          checked: Array.isArray(saved.checked) ? saved.checked : [],
+          target,
+          dailyMinutes,
+          examDate: $('examDate').value
+        }));
+        renderPlan(plan);
+      } catch (error) {
+        if (!(error instanceof RangeError)) {
+          console.error('[Sertifikat tayyorgarligi] Reja saqlanmadi:', error);
+          $('planError').textContent = 'Reja saqlanmadi. Brauzer xotirasi sozlamalarini tekshiring.';
+          $('planError').hidden = false;
+          return;
+        }
+        $('studyPlan').replaceChildren();
+        $('planError').textContent = error.message;
+        $('planError').hidden = false;
+      }
+    });
+
+    renderLanguage();
+  </script>
+</body>
+</html>

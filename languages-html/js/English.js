@@ -1,14 +1,22 @@
 // =====================================================// English.js — LinguaVerse (FIXED VERSION - 100% corrected)
 // =====================================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { buildCourseCurriculum } from './unit-curriculum.mjs';
+import { mountAIUnitBuilder } from './ai-unit-builder.mjs';
+import { encodeInlineHandlerArg } from './ai-unit-data.mjs';
+import { findSkillVideos } from './youtube-recommendations.mjs';
+import { formatAIResponse, getAIThinkingMode, initializeAIChatUI } from './ai-chat-ui.mjs';
+import { initializeApp } from "/js/fb/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
     increment, serverTimestamp, arrayUnion, collection,
     addDoc, query, orderBy, limit, getDocs, onSnapshot
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
+import { courseProgressKey, isCourseLevelUnlocked, isCourseUnitUnlocked, migrateCourseProgress, recordCourseLessonAttempt, renderCourseJourney } from './course-journey.mjs';
 
+const COURSE_ID = 'english';
 const $id = id => document.getElementById(id);
+initializeAIChatUI();
 
 // ── FIREBASE ──
 const FB_CONFIG = {
@@ -22,7 +30,7 @@ const FB_CONFIG = {
 
 let _app, _auth, _db;
 try {
-    const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+    const { getApp } = await import("/js/fb/firebase-app.js");
     _app = getApp();
 } catch {
     _app = initializeApp(FB_CONFIG);
@@ -125,7 +133,7 @@ const WDB = [
     { e: 'big', u: 'Katta', t: 'adjective', l: 'beginner', ex: 'This is a big house.', eu: "Bu katta uy." },
     { e: 'small', u: 'Kichik', t: 'adjective', l: 'beginner', ex: 'I have a small dog.', eu: "Menda kichik it bor." },
     { e: 'happy', u: 'Xursand', t: 'adjective', l: 'beginner', ex: "I'm very happy today!", eu: "Bugun juda xursandman!" },
-    { e: 'sad', u: "Qayg'li", t: 'adjective', l: 'beginner', ex: 'She looks sad today.', eu: "U bugun qayg'li ko'rinadi." },
+    { e: 'sad', u: "Qayg'uli", t: 'adjective', l: 'beginner', ex: 'She looks sad today.', eu: "U bugun qayg'uli ko'rinadi." },
     { e: 'hot', u: 'Issiq', t: 'adjective', l: 'beginner', ex: 'It is very hot outside.', eu: "Tashqarida juda issiq." },
     { e: 'cold', u: 'Sovuq', t: 'adjective', l: 'beginner', ex: 'The water is cold.', eu: "Suv sovuq." },
     { e: 'red', u: 'Qizil', t: 'adjective', l: 'beginner', ex: 'I like red apples.', eu: "Men qizil olmalarni yaxshi ko'raman." },
@@ -153,7 +161,7 @@ const WDB = [
     { e: 'cat', u: 'Mushuk', t: 'noun', l: 'beginner', ex: 'The cat is sleeping.', eu: "Mushuk uxlayapti." },
     { e: 'house', u: 'Uy', t: 'noun', l: 'beginner', ex: 'I live in a big house.', eu: "Men katta uyda yashayman." },
     { e: 'car', u: 'Avtomobil', t: 'noun', l: 'beginner', ex: 'My father has a red car.', eu: "Otamning qizil mashinasi bor." },
-    { e: 'run', u: 'Yugurmaq', t: 'verb', l: 'beginner', ex: 'She runs every morning.', eu: "U har ertalab yuguradi." },
+    { e: 'run', u: 'Yugurmoq', t: 'verb', l: 'beginner', ex: 'She runs every morning.', eu: "U har ertalab yuguradi." },
     { e: 'eat', u: 'Yemoq', t: 'verb', l: 'beginner', ex: 'We eat dinner at 7.', eu: "Biz soat 7 da kechki ovqat yeymiz." },
     { e: 'drink', u: 'Ichmoq', t: 'verb', l: 'beginner', ex: 'He drinks coffee.', eu: "U qahva ichadi." },
     { e: 'sleep', u: 'Uxlamoq', t: 'verb', l: 'beginner', ex: 'Children sleep early.', eu: "Bolalar erta uxlashadi." },
@@ -165,7 +173,7 @@ const WDB = [
     { e: 'play', u: "O'ynamoq", t: 'verb', l: 'beginner', ex: 'Children love to play.', eu: "Bolalar o'ynashni yaxshi ko'rishadi." },
     { e: 'Monday', u: 'Dushanba', t: 'noun', l: 'beginner', ex: 'Monday is the first day of the week.', eu: "Dushanba haftaning birinchi kuni." },
     { e: 'Tuesday', u: 'Seshanba', t: 'noun', l: 'beginner', ex: 'I have class on Tuesday.', eu: "Seshanba kuni darsim bor." },
-    { e: 'Wednesday', u: 'Chorshanba', t: 'noun', l: 'beginner', ex: 'We meet every Wednesday.', eu: "Biz har chorshanba uchrashAmiz." },
+    { e: 'Wednesday', u: 'Chorshanba', t: 'noun', l: 'beginner', ex: 'We meet every Wednesday.', eu: "Biz har chorshanba kuni uchrashamiz." },
     { e: 'Thursday', u: 'Payshanba', t: 'noun', l: 'beginner', ex: 'Thursday is my favourite day.', eu: "Payshanba mening sevimli kunim." },
     { e: 'Friday', u: 'Juma', t: 'noun', l: 'beginner', ex: 'We finish early on Friday.', eu: "Juma kuni biz erta tugatamiz." },
     { e: 'Saturday', u: 'Shanba', t: 'noun', l: 'beginner', ex: 'I rest on Saturday.', eu: "Shanba kuni dam olaman." },
@@ -183,7 +191,7 @@ const WDB = [
     { e: 'moon', u: 'Oy', t: 'noun', l: 'beginner', ex: 'The moon is bright tonight.', eu: "Bu kecha oy yorqin." },
     { e: 'flower', u: 'Gul', t: 'noun', l: 'beginner', ex: 'She has beautiful flowers.', eu: "Uning chiroyli gullari bor." },
     { e: 'tree', u: 'Daraxt', t: 'noun', l: 'beginner', ex: 'The tree is very tall.', eu: "Daraxt juda baland." },
-    { e: 'bird', u: 'Qush', t: 'noun', l: 'beginner', ex: 'The bird is singing.', eu: "Qush sayrAyapti." },
+    { e: 'bird', u: 'Qush', t: 'noun', l: 'beginner', ex: 'The bird is singing.', eu: "Qush sayrayapti." },
     { e: 'fish', u: 'Baliq', t: 'noun', l: 'beginner', ex: 'I like eating fish.', eu: "Men baliq yeyishni yaxshi ko'raman." },
     { e: 'new', u: 'Yangi', t: 'adjective', l: 'beginner', ex: 'I have a new phone.', eu: "Mening yangi telefonim bor." },
     { e: 'old', u: 'Eski/Qari', t: 'adjective', l: 'beginner', ex: 'This is an old building.', eu: "Bu eski bino." },
@@ -194,9 +202,9 @@ const WDB = [
     { e: 'open', u: 'Ochiq', t: 'adjective', l: 'beginner', ex: 'The door is open.', eu: "Eshik ochiq." },
     { e: 'closed', u: 'Yopiq', t: 'adjective', l: 'beginner', ex: 'The shop is closed.', eu: "Do'kon yopiq." },
     { e: 'love', u: 'Sevmoq/Muhabbat', t: 'verb/noun', l: 'beginner', ex: 'I love my family.', eu: "Men oilamni sevaman." },
-    { e: 'like', u: 'Yoqtirishmoq', t: 'verb', l: 'beginner', ex: 'I like chocolate.', eu: "Men shokoladni yoqtiraman." },
+    { e: 'like', u: 'Yoqtirmoq', t: 'verb', l: 'beginner', ex: 'I like chocolate.', eu: "Men shokoladni yoqtiraman." },
     { e: 'want', u: 'Xohlamoq', t: 'verb', l: 'beginner', ex: 'I want to go home.', eu: "Men uyga ketmoqchiman." },
-    { e: 'need', u: 'Kerakmoq', t: 'verb', l: 'beginner', ex: 'I need your help.', eu: "Sizning yordamingiz kerak." },
+    { e: 'need', u: "Kerak bo'lmoq", t: 'verb', l: 'beginner', ex: 'I need your help.', eu: "Sizning yordamingiz kerak." },
     { e: 'know', u: 'Bilmoq', t: 'verb', l: 'beginner', ex: 'Do you know her?', eu: "Uni bilasizmi?" },
     { e: 'see', u: "Ko'rmoq", t: 'verb', l: 'beginner', ex: 'I can see a mountain.', eu: "Men tog'ni ko'ra olaman." },
     { e: 'come', u: 'Kelmoq', t: 'verb', l: 'beginner', ex: 'Please come here.', eu: "Iltimos, bu yerga keling." },
@@ -277,12 +285,12 @@ const WDB = [
     { e: 'river', u: 'Daryo', t: 'noun', l: 'elementary', ex: 'The river is beautiful.', eu: "Daryo go'zal." },
     { e: 'sea', u: 'Dengiz', t: 'noun', l: 'elementary', ex: 'I love the sea.', eu: "Men dengizni yaxshi ko'raman." },
     { e: 'forest', u: "O'rmon", t: 'noun', l: 'elementary', ex: 'The forest is dark and quiet.', eu: "O'rmon qorong'i va sokin." },
-    { e: 'animal', u: 'Hayvon', t: 'noun', l: 'elementary', ex: 'My favourite animal is a lion.', eu: "Mening sevimli hayvon â€” sher." },
+    { e: 'animal', u: 'Hayvon', t: 'noun', l: 'elementary', ex: 'My favourite animal is a lion.', eu: "Mening sevimli hayvon — sher." },
     { e: 'sport', u: 'Sport', t: 'noun', l: 'elementary', ex: 'Sport keeps you healthy.', eu: "Sport sizni sog'lom saqlaydi." },
     { e: 'team', u: 'Jamoa', t: 'noun', l: 'elementary', ex: 'Our team won the match.', eu: "Bizning jamoamiz o'yinda g'olib keldi." },
     { e: 'winner', u: "G'olib", t: 'noun', l: 'elementary', ex: 'She is the winner!', eu: "U g'olib!" },
     { e: 'story', u: 'Hikoya', t: 'noun', l: 'elementary', ex: 'Tell me a story.', eu: "Menga hikoya aytib ber." },
-    { e: 'adventure', u: 'Sarguzasht', t: 'noun', l: 'elementary', ex: 'Life is an adventure.', eu: "Hayot â€” bu sarguzasht." },
+    { e: 'adventure', u: 'Sarguzasht', t: 'noun', l: 'elementary', ex: 'Life is an adventure.', eu: "Hayot — bu sarguzasht." },
     { e: 'dream', u: 'Orzu/Tush', t: 'noun', l: 'elementary', ex: "Follow your dream.", eu: "Orzuingiz ortidan yuring." },
     { e: 'laugh', u: 'Kulmoq', t: 'verb', l: 'elementary', ex: 'She always makes me laugh.', eu: "U har doim meni kuldiradi." },
     { e: 'cry', u: "Yig'lamoq", t: 'verb', l: 'elementary', ex: "Don't cry, everything is okay.", eu: "Yig'lama, hammasi yaxshi bo'ladi." },
@@ -324,7 +332,7 @@ const WDB = [
     { e: 'environment', u: 'Atrof-muhit', t: 'noun', l: 'pre-intermediate', ex: 'We must protect the environment.', eu: "Biz atrof-muhitni himoya qilishimiz kerak." },
     { e: 'technology', u: 'Texnologiya', t: 'noun', l: 'pre-intermediate', ex: 'Technology changes our lives.', eu: "Texnologiya hayotimizni o'zgartiradi." },
     { e: 'society', u: 'Jamiyat', t: 'noun', l: 'pre-intermediate', ex: 'Society is changing fast.', eu: "Jamiyat tez o'zgarmoqda." },
-    { e: 'education', u: "Ta'lim", t: 'noun', l: 'pre-intermediate', ex: "Education is the key to success.", eu: "Ta'lim â€” muvaffaqiyat kaliti." },
+    { e: 'education', u: "Ta'lim", t: 'noun', l: 'pre-intermediate', ex: "Education is the key to success.", eu: "Ta'lim — muvaffaqiyat kaliti." },
     { e: 'career', u: 'Karyera', t: 'noun', l: 'pre-intermediate', ex: 'I want a good career.', eu: "Men yaxshi karyera istayman." },
     { e: 'salary', u: 'Maosh', t: 'noun', l: 'pre-intermediate', ex: 'His salary is very high.', eu: "Uning maoshi juda baland." },
     { e: 'colleague', u: 'Hamkasb', t: 'noun', l: 'pre-intermediate', ex: 'My colleague is helpful.', eu: "Hamkasabim yordamsevar." },
@@ -393,6 +401,7 @@ const WDB = [
     { e: 'insofar', u: 'Darajada', t: 'conjunction', l: 'advanced', ex: 'Insofar as possible, we will help.', eu: "Imkon qadar yordam beramiz." },
     { e: 'forthcoming', u: 'Yaqinlashayotgan', t: 'adjective', l: 'advanced', ex: 'The forthcoming changes are significant.', eu: "Yaqinlashayotgan o'zgarishlar muhim." },
     { e: 'plausible', u: 'Ishonchli ko\'rinadigan', t: 'adjective', l: 'advanced', ex: 'That seems plausible.', eu: "Bu ishonchli ko'rinadi." },
+    { e: 'alphabet', u: 'Alifbo', t: 'noun', l: 'beginner', ex: 'The English alphabet has 26 letters.', eu: "Ingliz alifbosida 26 ta harf bor." },
 ];
 
 // ══════════════════════════════════════════════════════════════
@@ -585,6 +594,7 @@ const UD_DATA = {
         },
     ]
 };
+buildCourseCurriculum(UD_DATA, WDB, 'en-US', 'e');
 
 // ══════════════════════════════════════════════════════════════
 // GRAMMAR QUESTIONS
@@ -767,7 +777,14 @@ async function loadUserData() {
             UActiveTags = d.activeTags || [];
             UOwnedRanks = d.ownedRanks || [];
             UOwnedTags = d.ownedTags || [];
-            UProg = d.progress || {};
+            const courseMigration = migrateCourseProgress(d.progress || {}, COURSE_ID, UD_DATA);
+            UProg = courseMigration.progress;
+            if (Object.keys(courseMigration.updates).length) await updateUserField(courseMigration.updates);
+            if (courseMigration.unresolvedLegacyIds.length &&
+                !localStorage.getItem('lv-course-progress-migration-v2')) {
+                localStorage.setItem('lv-course-progress-migration-v2', 'shown');
+                showToast('Eski progressdagi bir xil IDli unitlar tillarga aralashmasligi uchun avtomatik ko‘chmadi.', 'warning');
+            }
             USk = d.skills || { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
             UStats = d.stats || { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 };
         } else {
@@ -895,6 +912,7 @@ async function callAI(prompt, maxTok = 1000) {
         const r = await fetch(AI_PROXY, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [{ role: 'user', parts: [{ text: prompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTok }
             })
@@ -947,15 +965,35 @@ function drawRadar() {
 // UNITS
 // ══════════════════════════════════════════════════════════════
 window.switchLevel = function (level, el) {
+    if (!isCourseLevelUnlocked(UD_DATA, UProg, COURSE_ID, level)) {
+        showToast('Avval joriy bosqichdagi barcha unitlarni yakunlang.', 'warning');
+        return;
+    }
     curLevel = level;
-    document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', el ? t === el : t.dataset.level === level));
     renderUnits();
 };
 
 function renderUnits() {
+    curLevel = renderCourseJourney({
+        courseId: COURSE_ID,
+        levels: UD_DATA,
+        progress: UProg,
+        activeLevel: curLevel,
+        onSelect: window.switchLevel,
+    });
     const grid = $id('unitsGrid'); if (!grid) return;
     const units = UD_DATA[curLevel] || [];
     grid.innerHTML = '';
+    mountAIUnitBuilder({
+        container: grid, courseId: COURSE_ID, level: curLevel, locale: 'en-US', wordField: 'e',
+        dictionary: WDB, units: () => UD_DATA[curLevel] || [],
+        onUnitsLoaded: (level, added) => {
+            const levelUnits = UD_DATA[level] || (UD_DATA[level] = []);
+            const ids = new Set(levelUnits.map(unit => unit.id));
+            added.forEach(unit => { if (!ids.has(unit.id)) levelUnits.push(unit); });
+            if (level === curLevel) renderUnits();
+        }
+    });
     units.forEach((unit, i) => {
         const done = ['A', 'B', 'C', 'D'].filter(l => UProg[`${unit.id}_${l}`] >= 100).length;
         const pct = Math.round((done / 4) * 100);
@@ -985,7 +1023,13 @@ function renderUnits() {
     });
 }
 
+window.renderUnits = renderUnits;
+
 window.openUnit = function (unit) {
+    if (!unit || !isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unit.id)) {
+        showToast('Bu unit hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     curUnit = unit;
     const modal = $id('unitModal');
     const content = $id('modalContent');
@@ -1026,6 +1070,10 @@ window.openUnit = function (unit) {
 };
 
 window.openLesson = async function (unitId, lessonKey) {
+    if (!isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unitId)) {
+        showToast('Bu dars hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     let unit = null;
     for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === unitId); if (f) { unit = f; break; } }
     if (!unit) return;
@@ -1104,7 +1152,7 @@ function lessonA(unit) {
       <h3 style="margin-bottom:10px;color:#e8ecff"><i class="fa-solid fa-pen-to-square" style="color:#60a5fa"></i> Grammatika Qoidasi</h3>
       <div style="font-size:0.9rem;color:#c7d2fe;margin-bottom:8px"><i class="fa-solid fa-lightbulb" style="color:#f5c842"></i> ${unit.grammar_rule || ''}</div>
       <div style="font-size:0.85rem;color:#a78bfa;font-style:italic"><i class="fa-solid fa-pencil" style="color:#60a5fa"></i> ${unit.grammar_example || ''}</div>
-      <button onclick="window.aiGrammarExplain('${unit.title}','${(unit.grammar_rule || '').replace(/'/g, "\\'")}')" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#a78bfa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil tushuntirsin (1 token)</button>
+      <button onclick="window.aiGrammarExplain(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.grammar_rule || '')}'))" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#a78bfa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil tushuntirsin (1 token)</button>
       <div id="gramRuleFB" style="margin-top:8px;font-size:0.8rem"></div>
     </div>
     <div style="margin-bottom:20px">
@@ -1413,7 +1461,7 @@ function lessonD(unit) {
         <textarea id="dta" placeholder="Bu yerda yozing..." oninput="window.updWC()" style="width:100%;height:100px;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;resize:none;box-sizing:border-box"></textarea>
         <div style="display:flex;gap:10px;font-size:0.75rem;color:#666;margin:6px 0"><span id="dwc">0 so'z</span><span id="dcc">0 belgi</span><span id="dst" style="color:#f87171">Min 40 so'z</span></div>
         <div style="display:flex;gap:6px">
-          <button onclick="window.aiWrit('${unit.title}','${unit.words.slice(0, 5).join(',')}')" style="padding:7px 14px;border-radius:8px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#a78bfa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI (1 token)</button>
+          <button onclick="window.aiWrit(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.words.slice(0, 5).join(','))}'))" style="padding:7px 14px;border-radius:8px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);color:#a78bfa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI (1 token)</button>
           <button onclick="window.selfChk(40)" style="padding:7px 14px;border-radius:8px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);color:#60a5fa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-chart-pie" style="color:#60a5fa"></i> So'z soni</button>
         </div>
         <div id="wfb" style="margin-top:8px;font-size:0.8rem"></div>
@@ -1538,32 +1586,31 @@ async function finLesson(uid, lk, skill, sc, tot) {
     showResult(lk, pct, xpE, coinE, unit, uid);
 }
 
-// FIX #5: allDone check — set progress first, then check all 4 lessons
 async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, coinEarned) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 70;
-
-    // Set current lesson as done BEFORE checking allDone
-    UProg[`${unitId}_${lessonKey}`] = 100;
-
-    // Now check if ALL 4 lessons are done
-    const allDone = ['A', 'B', 'C', 'D'].every(l => UProg[`${unitId}_${l}`] >= 100);
+    const attempt = recordCourseLessonAttempt(UProg, unitId, lessonKey, pct);
 
     if (!CU) {
         UXP += xpEarned;
         UCoin += coinEarned;
         updateDisplays(); renderUnits();
-        showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`, 'success');
+        showToast(
+            attempt.passed
+                ? `<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`
+                : 'Darsdan o‘tish uchun kamida 60% kerak. Qayta urinib ko‘ring.',
+            attempt.passed ? 'success' : 'warning'
+        );
         return;
     }
     try {
         const updates = {
             xp: increment(xpEarned), coins: increment(coinEarned),
             totalXP: increment(xpEarned), totalCoins: increment(coinEarned),
-            [`progress.${unitId}_${lessonKey}`]: 100,
+            [`progress.${courseProgressKey(COURSE_ID, `${unitId}_${lessonKey}`)}`]: attempt.progressValue,
             [`scores.${unitId}_${lessonKey}`]: pct,
             'stats.totalSessions': increment(1)
         };
-        if (allDone) {
+        if (attempt.completedNow) {
             updates['stats.unitsCompleted'] = increment(1);
             updates.xp = increment(xpEarned + 50);
             updates.coins = increment(coinEarned + 10);
@@ -1573,8 +1620,8 @@ async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, c
             showToast(`<i class="fa-solid fa-champagne-glasses" style="color:#f5c842"></i> Unit to'liq! +50 XP +10 <i class="fa-solid fa-coins" style="color:#f5c842"></i> bonus!`, 'success');
         }
         await updateUserField(updates);
-        UXP += xpEarned + (allDone ? 50 : 0);
-        UCoin += coinEarned + (allDone ? 10 : 0);
+        UXP += xpEarned + (attempt.completedNow ? 50 : 0);
+        UCoin += coinEarned + (attempt.completedNow ? 10 : 0);
         updateDisplays();
         showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i> saqlandi!`, 'success');
     } catch (e) { console.error(e); }
@@ -1584,6 +1631,16 @@ function showResult(lk, pct, xp, coin, unit, uid) {
     const lnames = { A: "Grammatika", B: 'Listening', C: 'Reading', D: 'Speaking' };
     const nxt = { A: 'B', B: 'C', C: 'D', D: null };
     const content = $id('modalContent'); if (!content) return;
+    const unitComplete = ['A', 'B', 'C', 'D'].every(lesson => UProg[`${uid}_${lesson}`] >= 100);
+    if (pct < 60 || (!nxt[lk] && !unitComplete)) {
+        content.innerHTML = `<div style="text-align:center;padding:24px">
+          <h3>${pct < 60 ? 'O‘tish uchun kamida 60% kerak.' : 'Unitdagi qolgan darslarni ham yakunlang.'}</h3>
+          ${pct < 60 ? `<button class="course-result-action" onclick="window.openLesson('${uid}','${lk}')">Qayta urinib ko‘rish</button>` : ''}
+          <button class="course-result-action secondary" onclick="document.getElementById('unitModal').classList.remove('active');renderUnits()">Unitlarga qaytish</button>
+        </div>`;
+        const modal = $id('unitModal'); if (modal) modal.classList.add('active');
+        return;
+    }
     const circleColor = pct >= 80 ? '#34d399' : pct >= 60 ? '#f5c842' : '#ef4444';
     content.innerHTML = `<div style="text-align:center;padding:20px">
       <div style="width:120px;height:120px;border-radius:50%;background:${circleColor}22;border:3px solid ${circleColor};display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px">
@@ -1846,6 +1903,7 @@ window.sendChatMessage = async function () {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [
                     { role: 'user', parts: [{ text: curChatMode.sys + LANG_RULES }] },
                     ...chatHist.slice(-10)
@@ -1878,9 +1936,10 @@ function appendChat(role, html, save = false, id = null) {
     const div = document.createElement('div');
     div.className = `chat-msg ${isAI ? 'ai-msg' : 'user-msg'}`;
     if (id) div.id = id;
+    const content = isAI && save ? formatAIResponse(html) : isAI ? html : esc(html).replace(/\n/g, '<br>');
     div.innerHTML = `
       <div class="chat-avatar">${isAI ? '<i class="fa-solid fa-robot"></i>' : '<i class="fa-solid fa-user"></i>'}</div>
-      <div class="chat-bubble">${html}</div>`;
+      <div class="chat-bubble">${content}</div>`;
     c.appendChild(div);
     c.scrollTop = c.scrollHeight;
 }
@@ -1897,22 +1956,7 @@ window.clearChatHistory = async function () {
 // MISC
 // ══════════════════════════════════════════════════════════════
 window.findYoutubeVideos = function () {
-    const grid = $id('videosGrid'); if (!grid) return;
-    const videos = [
-        { title: 'English for Beginners — Full Course', channel: 'EnglishClass101', id: 'sTANio_2E0Q' },
-        { title: 'Learn English in 30 Minutes', channel: 'English Addict', id: 'X_9m-4rXSmo' },
-        { title: '500 English Phrases', channel: 'Linguamarina', id: 'X9_Vr0DKOSM' },
-        { title: 'IELTS Speaking — Band 9', channel: 'IELTS Advantage', id: 'x8D_SLFliAI' },
-    ];
-    grid.innerHTML = videos.map(v => `<div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
-        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" style="display:block">
-          <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width:100%;height:160px;object-fit:cover" alt="${v.title}">
-          <div style="padding:12px">
-            <div style="font-weight:600;font-size:0.85rem;color:#e8ecff;margin-bottom:4px">${v.title}</div>
-            <div style="font-size:0.75rem;color:#666"><i class="fa-brands fa-youtube" style="color:#ef4444;margin-right:4px"></i>${v.channel}</div>
-          </div>
-        </a>
-    </div>`).join('');
+    return findSkillVideos({ language: 'English', languageId: 'english', exam: 'IELTS', skills: USk, level: curLevel });
 };
 
 window.closeModal = function () { $id('unitModal')?.classList.remove('active'); };

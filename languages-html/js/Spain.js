@@ -9,15 +9,21 @@ function esc(s) {
 // =====================================================
 // Spanish.js — LinguaVerse (Español kursi — 100% to'liq)
 // =====================================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { findSkillVideos } from './youtube-recommendations.mjs';
+import { encodeInlineHandlerArg } from './ai-unit-data.mjs';
+import { formatAIResponse, getAIThinkingMode, initializeAIChatUI } from './ai-chat-ui.mjs';
+import { initializeApp } from "/js/fb/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
     increment, serverTimestamp, arrayUnion, collection,
     addDoc, query, orderBy, limit, getDocs, onSnapshot
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
+import { courseProgressKey, isCourseLevelUnlocked, isCourseUnitUnlocked, migrateCourseProgress, recordCourseLessonAttempt, renderCourseJourney } from './course-journey.mjs';
 
+const COURSE_ID = 'spanish';
 const $id = id => document.getElementById(id);
+initializeAIChatUI();
 
 // ── FIREBASE ──
 const FB_CONFIG = {
@@ -31,7 +37,7 @@ const FB_CONFIG = {
 
 let _app, _auth, _db;
 try {
-    const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+    const { getApp } = await import("/js/fb/firebase-app.js");
     _app = getApp();
 } catch {
     _app = initializeApp(FB_CONFIG);
@@ -134,7 +140,7 @@ const WDB = [
     { e: 'grande', u: 'Katta', t: 'adjetivo', l: 'principiante', ex: 'Esta es una casa grande.', eu: "Bu katta uy." },
     { e: 'pequeño', u: 'Kichik', t: 'adjetivo', l: 'principiante', ex: 'Tengo un perro pequeño.', eu: "Menda kichik it bor." },
     { e: 'feliz', u: 'Xursand', t: 'adjetivo', l: 'principiante', ex: '¡Estoy muy feliz hoy!', eu: "Bugun juda xursandman!" },
-    { e: 'triste', u: "Qayg'li", t: 'adjetivo', l: 'principiante', ex: 'Ella parece triste hoy.', eu: "U bugun qayg'li ko'rinadi." },
+    { e: 'triste', u: "Qayg'uli", t: 'adjetivo', l: 'principiante', ex: 'Ella parece triste hoy.', eu: "U bugun qayg'uli ko'rinadi." },
     { e: 'caliente', u: 'Issiq', t: 'adjetivo', l: 'principiante', ex: 'Hace mucho calor afuera.', eu: "Tashqarida juda issiq." },
     { e: 'frío', u: 'Sovuq', t: 'adjetivo', l: 'principiante', ex: 'El agua está fría.', eu: "Suv sovuq." },
     { e: 'rojo', u: 'Qizil', t: 'adjetivo', l: 'principiante', ex: 'Me gustan las manzanas rojas.', eu: "Men qizil olmalarni yaxshi ko'raman." },
@@ -162,7 +168,7 @@ const WDB = [
     { e: 'gato', u: 'Mushuk', t: 'sustantivo', l: 'principiante', ex: 'El gato está durmiendo.', eu: "Mushuk uxlayapti." },
     { e: 'casa', u: 'Uy', t: 'sustantivo', l: 'principiante', ex: 'Vivo en una casa grande.', eu: "Men katta uyda yashayman." },
     { e: 'coche', u: 'Avtomobil', t: 'sustantivo', l: 'principiante', ex: 'Mi padre tiene un coche rojo.', eu: "Otamning qizil mashinasi bor." },
-    { e: 'correr', u: 'Yugurmaq', t: 'verbo', l: 'principiante', ex: 'Ella corre cada mañana.', eu: "U har ertalab yuguradi." },
+    { e: 'correr', u: 'Yugurmoq', t: 'verbo', l: 'principiante', ex: 'Ella corre cada mañana.', eu: "U har ertalab yuguradi." },
     { e: 'comer', u: 'Yemoq', t: 'verbo', l: 'principiante', ex: 'Cenamos a las 7.', eu: "Biz soat 7 da kechki ovqat yeymiz." },
     { e: 'beber', u: 'Ichmoq', t: 'verbo', l: 'principiante', ex: 'Él bebe café.', eu: "U qahva ichadi." },
     { e: 'dormir', u: 'Uxlamoq', t: 'verbo', l: 'principiante', ex: 'Los niños duermen temprano.', eu: "Bolalar erta uxlashadi." },
@@ -174,7 +180,7 @@ const WDB = [
     { e: 'jugar', u: "O'ynamoq", t: 'verbo', l: 'principiante', ex: 'A los niños les encanta jugar.', eu: "Bolalar o'ynashni yaxshi ko'rishadi." },
     { e: 'lunes', u: 'Dushanba', t: 'sustantivo', l: 'principiante', ex: 'El lunes es el primer día de la semana.', eu: "Dushanba haftaning birinchi kuni." },
     { e: 'martes', u: 'Seshanba', t: 'sustantivo', l: 'principiante', ex: 'Tengo clase el martes.', eu: "Seshanba kuni darsim bor." },
-    { e: 'miércoles', u: 'Chorshanba', t: 'sustantivo', l: 'principiante', ex: 'Nos reunimos cada miércoles.', eu: "Biz har chorshanba uchrashAmiz." },
+    { e: 'miércoles', u: 'Chorshanba', t: 'sustantivo', l: 'principiante', ex: 'Nos reunimos cada miércoles.', eu: "Biz har chorshanba kuni uchrashamiz." },
     { e: 'jueves', u: 'Payshanba', t: 'sustantivo', l: 'principiante', ex: 'El jueves es mi día favorito.', eu: "Payshanba mening sevimli kunim." },
     { e: 'viernes', u: 'Juma', t: 'sustantivo', l: 'principiante', ex: 'El viernes terminamos pronto.', eu: "Juma kuni biz erta tugatamiz." },
     { e: 'sábado', u: 'Shanba', t: 'sustantivo', l: 'principiante', ex: 'Descanso el sábado.', eu: "Shanba kuni dam olaman." },
@@ -190,7 +196,7 @@ const WDB = [
     { e: 'sol', u: 'Quyosh', t: 'sustantivo', l: 'principiante', ex: 'El sol brilla hoy.', eu: "Bugun quyosh chiqyapti." },
     { e: 'flor', u: 'Gul', t: 'sustantivo', l: 'principiante', ex: 'Ella tiene flores hermosas.', eu: "Uning chiroyli gullari bor." },
     { e: 'árbol', u: 'Daraxt', t: 'sustantivo', l: 'principiante', ex: 'El árbol es muy alto.', eu: "Daraxt juda baland." },
-    { e: 'pájaro', u: 'Qush', t: 'sustantivo', l: 'principiante', ex: 'El pájaro está cantando.', eu: "Qush sayrAyapti." },
+    { e: 'pájaro', u: 'Qush', t: 'sustantivo', l: 'principiante', ex: 'El pájaro está cantando.', eu: "Qush sayrayapti." },
     { e: 'pez', u: 'Baliq', t: 'sustantivo', l: 'principiante', ex: 'Me gusta comer pescado.', eu: "Men baliq yeyishni yaxshi ko'raman." },
     { e: 'nuevo', u: 'Yangi', t: 'adjetivo', l: 'principiante', ex: 'Tengo un teléfono nuevo.', eu: "Mening yangi telefonim bor." },
     { e: 'viejo', u: 'Eski/Qari', t: 'adjetivo', l: 'principiante', ex: 'Este es un edificio viejo.', eu: "Bu eski bino." },
@@ -357,6 +363,8 @@ const WDB = [
 // ══════════════════════════════════════════════════════════════
 // UNITS DATA — ESPAÑOL
 // ══════════════════════════════════════════════════════════════
+import { buildCourseCurriculum } from './unit-curriculum.mjs';
+import { mountAIUnitBuilder } from './ai-unit-builder.mjs';
 const UD_DATA = {
     principiante: [
         {
@@ -539,6 +547,7 @@ const UD_DATA = {
         },
     ]
 };
+buildCourseCurriculum(UD_DATA, WDB, 'es-ES', 'e');
 
 // ══════════════════════════════════════════════════════════════
 // GRAMMAR QUESTIONS — ESPAÑOL
@@ -713,7 +722,14 @@ async function loadUserData() {
             UActiveTags = d.activeTags || [];
             UOwnedRanks = d.ownedRanks || [];
             UOwnedTags = d.ownedTags || [];
-            UProg = d.progress || {};
+            const courseMigration = migrateCourseProgress(d.progress || {}, COURSE_ID, UD_DATA);
+            UProg = courseMigration.progress;
+            if (Object.keys(courseMigration.updates).length) await updateUserField(courseMigration.updates);
+            if (courseMigration.unresolvedLegacyIds.length &&
+                !localStorage.getItem('lv-course-progress-migration-v2')) {
+                localStorage.setItem('lv-course-progress-migration-v2', 'shown');
+                showToast('Eski progressdagi bir xil IDli unitlar tillarga aralashmasligi uchun avtomatik ko‘chmadi.', 'warning');
+            }
             USk = d.skills || { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
             UStats = d.stats || { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 };
         } else {
@@ -893,15 +909,35 @@ function drawRadar() {
 // UNITS
 // ══════════════════════════════════════════════════════════════
 window.switchLevel = function (level, el) {
+    if (!isCourseLevelUnlocked(UD_DATA, UProg, COURSE_ID, level)) {
+        showToast('Avval joriy bosqichdagi barcha unitlarni yakunlang.', 'warning');
+        return;
+    }
     curLevel = level;
-    document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', el ? t === el : t.dataset.level === level));
     renderUnits();
 };
 
 function renderUnits() {
+    curLevel = renderCourseJourney({
+        courseId: COURSE_ID,
+        levels: UD_DATA,
+        progress: UProg,
+        activeLevel: curLevel,
+        onSelect: window.switchLevel,
+    });
     const grid = $id('unitsGrid'); if (!grid) return;
     const units = UD_DATA[curLevel] || [];
     grid.innerHTML = '';
+    mountAIUnitBuilder({
+        container: grid, courseId: COURSE_ID, level: curLevel, locale: 'es-ES', wordField: 'e',
+        dictionary: WDB, units: () => UD_DATA[curLevel] || [],
+        onUnitsLoaded: (level, added) => {
+            const levelUnits = UD_DATA[level] || (UD_DATA[level] = []);
+            const ids = new Set(levelUnits.map(unit => unit.id));
+            added.forEach(unit => { if (!ids.has(unit.id)) levelUnits.push(unit); });
+            if (level === curLevel) renderUnits();
+        }
+    });
     units.forEach((unit, i) => {
         const done = ['A', 'B', 'C', 'D'].filter(l => UProg[`${unit.id}_${l}`] >= 100).length;
         const pct = Math.round((done / 4) * 100);
@@ -931,7 +967,13 @@ function renderUnits() {
     });
 }
 
+window.renderUnits = renderUnits;
+
 window.openUnit = function (unit) {
+    if (!unit || !isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unit.id)) {
+        showToast('Bu unit hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     curUnit = unit;
     const modal = $id('unitModal');
     const content = $id('modalContent');
@@ -972,6 +1014,10 @@ window.openUnit = function (unit) {
 };
 
 window.openLesson = async function (unitId, lessonKey) {
+    if (!isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unitId)) {
+        showToast('Bu dars hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     let unit = null;
     for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === unitId); if (f) { unit = f; break; } }
     if (!unit) return;
@@ -1050,7 +1096,7 @@ function lessonA(unit) {
       <h3 style="margin-bottom:10px;color:#fff5f0"><i class="fa-solid fa-pen-to-square" style="color:#60a5fa"></i> Regla Gramatical</h3>
       <div style="font-size:0.9rem;color:#ffd4de;margin-bottom:8px"><i class="fa-solid fa-lightbulb" style="color:#f5c842"></i> ${unit.grammar_rule || ''}</div>
       <div style="font-size:0.85rem;color:#f0a500;font-style:italic"><i class="fa-solid fa-pencil" style="color:#60a5fa"></i> ${unit.grammar_example || ''}</div>
-      <button onclick="window.aiGrammarExplain('${unit.title}','${(unit.grammar_rule || '').replace(/'/g, "\\'")}')" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(240,165,0,0.1);border:1px solid rgba(240,165,0,0.25);color:#f0a500;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil tushuntirsin (1 token)</button>
+      <button onclick="window.aiGrammarExplain(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.grammar_rule || '')}'))" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(240,165,0,0.1);border:1px solid rgba(240,165,0,0.25);color:#f0a500;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil tushuntirsin (1 token)</button>
       <div id="gramRuleFB" style="margin-top:8px;font-size:0.8rem"></div>
     </div>
     <div style="margin-bottom:20px">
@@ -1359,7 +1405,7 @@ function lessonD(unit) {
         <textarea id="dta" placeholder="Escribe aquí..." oninput="window.updWC()" style="width:100%;height:100px;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff5f0;font-family:inherit;resize:none;box-sizing:border-box"></textarea>
         <div style="display:flex;gap:10px;font-size:0.75rem;color:#666;margin:6px 0"><span id="dwc">0 palabras</span><span id="dcc">0 caracteres</span><span id="dst" style="color:#f87171">Mín 40 palabras</span></div>
         <div style="display:flex;gap:6px">
-          <button onclick="window.aiWrit('${unit.title}','${unit.words.slice(0, 5).join(',')}')" style="padding:7px 14px;border-radius:8px;background:rgba(240,165,0,0.1);border:1px solid rgba(240,165,0,0.25);color:#f0a500;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI (1 token)</button>
+          <button onclick="window.aiWrit(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.words.slice(0, 5).join(','))}'))" style="padding:7px 14px;border-radius:8px;background:rgba(240,165,0,0.1);border:1px solid rgba(240,165,0,0.25);color:#f0a500;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI (1 token)</button>
           <button onclick="window.selfChk(40)" style="padding:7px 14px;border-radius:8px;background:rgba(212,69,106,0.1);border:1px solid rgba(212,69,106,0.2);color:#d4456a;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-chart-pie" style="color:#60a5fa"></i> Contar palabras</button>
         </div>
         <div id="wfb" style="margin-top:8px;font-size:0.8rem"></div>
@@ -1486,23 +1532,27 @@ async function finLesson(uid, lk, skill, sc, tot) {
 
 async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, coinEarned) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 70;
-    UProg[`${unitId}_${lessonKey}`] = 100;
-    const allDone = ['A', 'B', 'C', 'D'].every(l => UProg[`${unitId}_${l}`] >= 100);
+    const attempt = recordCourseLessonAttempt(UProg, unitId, lessonKey, pct);
     if (!CU) {
         UXP += xpEarned; UCoin += coinEarned;
         updateDisplays(); renderUnits();
-        showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`, 'success');
+        showToast(
+            attempt.passed
+                ? `<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`
+                : 'Darsdan o‘tish uchun kamida 60% kerak. Qayta urinib ko‘ring.',
+            attempt.passed ? 'success' : 'warning'
+        );
         return;
     }
     try {
         const updates = {
             xp: increment(xpEarned), coins: increment(coinEarned),
             totalXP: increment(xpEarned), totalCoins: increment(coinEarned),
-            [`progress.${unitId}_${lessonKey}`]: 100,
+            [`progress.${courseProgressKey(COURSE_ID, `${unitId}_${lessonKey}`)}`]: attempt.progressValue,
             [`scores.${unitId}_${lessonKey}`]: pct,
             'stats.totalSessions': increment(1)
         };
-        if (allDone) {
+        if (attempt.completedNow) {
             updates['stats.unitsCompleted'] = increment(1);
             updates.xp = increment(xpEarned + 50);
             updates.coins = increment(coinEarned + 10);
@@ -1512,8 +1562,8 @@ async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, c
             showToast(`<i class="fa-solid fa-champagne-glasses" style="color:#f5c842"></i> Unidad completada! +50 XP +10 <i class="fa-solid fa-coins" style="color:#f5c842"></i> bonus!`, 'success');
         }
         await updateUserField(updates);
-        UXP += xpEarned + (allDone ? 50 : 0);
-        UCoin += coinEarned + (allDone ? 10 : 0);
+        UXP += xpEarned + (attempt.completedNow ? 50 : 0);
+        UCoin += coinEarned + (attempt.completedNow ? 10 : 0);
         updateDisplays();
         showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i> guardado!`, 'success');
     } catch (e) { console.error(e); }
@@ -1523,6 +1573,16 @@ function showResult(lk, pct, xp, coin, unit, uid) {
     const lnames = { A: "Gramática", B: 'Comprensión Auditiva', C: 'Lectura', D: 'Expresión Oral' };
     const nxt = { A: 'B', B: 'C', C: 'D', D: null };
     const content = $id('modalContent'); if (!content) return;
+    const unitComplete = ['A', 'B', 'C', 'D'].every(lesson => UProg[`${uid}_${lesson}`] >= 100);
+    if (pct < 60 || (!nxt[lk] && !unitComplete)) {
+        content.innerHTML = `<div style="text-align:center;padding:24px">
+          <h3>${pct < 60 ? 'O‘tish uchun kamida 60% kerak.' : 'Unitdagi qolgan darslarni ham yakunlang.'}</h3>
+          ${pct < 60 ? `<button class="course-result-action" onclick="window.openLesson('${uid}','${lk}')">Qayta urinib ko‘rish</button>` : ''}
+          <button class="course-result-action secondary" onclick="document.getElementById('unitModal').classList.remove('active');renderUnits()">Unitlarga qaytish</button>
+        </div>`;
+        const modal = $id('unitModal'); if (modal) modal.classList.add('active');
+        return;
+    }
     const circleColor = pct >= 80 ? '#2ecc71' : pct >= 60 ? '#f0a500' : '#ef4444';
     content.innerHTML = `<div style="text-align:center;padding:20px">
       <div style="width:120px;height:120px;border-radius:50%;background:${circleColor}22;border:3px solid ${circleColor};display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px">
@@ -1836,22 +1896,10 @@ window.clearChatHistory = async function () {
 // MISC
 // ══════════════════════════════════════════════════════════════
 window.findYoutubeVideos = function () {
-    const grid = $id('videosGrid'); if (!grid) return;
-    const videos = [
-        { title: 'Español para Principiantes — Curso Completo', channel: 'SpanishPod101', id: 'H6LJHXS8M_o' },
-        { title: 'Aprende Español en 30 Minutos', channel: 'Easy Spanish', id: 'oKJhIXJMsNs' },
-        { title: '500 Frases en Español', channel: 'Dreaming Spanish', id: 'CYgXC48pqFc' },
-        { title: 'DELE B2 — Preparación', channel: 'DELE Prep', id: 'oaD6hYJvM5s' },
-    ];
-    grid.innerHTML = videos.map(v => `<div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
-        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" style="display:block">
-          <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width:100%;height:160px;object-fit:cover" alt="${v.title}">
-          <div style="padding:12px">
-            <div style="font-weight:600;font-size:0.85rem;color:#fff5f0;margin-bottom:4px">${v.title}</div>
-            <div style="font-size:0.75rem;color:#666"><i class="fa-brands fa-youtube" style="color:#ef4444;margin-right:4px"></i>${v.channel}</div>
-          </div>
-        </a>
-    </div>`).join('');
+    return findSkillVideos({
+        language: 'Español', languageId: 'spanish', exam: 'DELE', skills: USk, level: curLevel,
+        skillLabels: { reading: 'comprensión lectora', writing: 'expresión escrita', speaking: 'expresión oral', listening: 'comprensión auditiva', grammar: 'gramática' }
+    });
 };
 
 window.closeModal = function () { $id('unitModal')?.classList.remove('active'); };

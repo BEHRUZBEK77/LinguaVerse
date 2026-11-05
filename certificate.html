@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sertifikat — LinguaVerse</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: #0f1419; color: #e2e8f0; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 24px 16px; }
+    .bar { width: 100%; max-width: 960px; display: flex; justify-content: space-between; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+    .bar a, .bar button { color: #0b1216; background: #70cdbb; border: 0; border-radius: 10px; padding: 10px 14px; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+    .bar a.ghost { background: transparent; color: #cbd5e1; border: 1px solid #334155; }
+    .cert { width: 100%; max-width: 960px; aspect-ratio: 1.414; background: #fffdf7; color: #1e293b; border-radius: 6px; position: relative; padding: 5.5% 7%; box-shadow: 0 20px 60px rgba(0,0,0,.45); display: flex; flex-direction: column; align-items: center; text-align: center; overflow: hidden; }
+    .cert::before { content: ''; position: absolute; inset: 2.2%; border: 2px solid #b8913a; border-radius: 4px; pointer-events: none; }
+    .cert::after { content: ''; position: absolute; inset: 3.2%; border: 1px solid #d9c18a; pointer-events: none; }
+    .brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(1rem, 2.6vw, 1.6rem); letter-spacing: .02em; }
+    .brand span { color: #0f766e; }
+    .title { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 5vw, 3.2rem); margin: 3% 0 1%; color: #7c5a12; }
+    .sub { font-size: clamp(.7rem, 1.6vw, .95rem); color: #475569; letter-spacing: .14em; text-transform: uppercase; }
+    .name { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 4.6vw, 2.9rem); margin: 3% 0 1%; border-bottom: 1px solid #cbd5e1; padding: 0 4% 1%; }
+    .desc { font-size: clamp(.75rem, 1.7vw, 1.05rem); line-height: 1.6; max-width: 80%; color: #334155; }
+    .lvl { margin-top: 2.5%; font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.6rem); color: #0f766e; line-height: 1; }
+    .foot { margin-top: auto; width: 100%; display: flex; justify-content: space-between; align-items: flex-end; font-size: clamp(.6rem, 1.3vw, .8rem); color: #475569; }
+    .seal { width: clamp(60px, 11vw, 110px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #d4a93c 0 55%, #b8913a 56% 62%, #e9cf8b 63% 100%); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: clamp(.6rem, 1.4vw, .85rem); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    .msg { max-width: 560px; text-align: center; padding: 40px 16px; }
+    @media print { body { background: #fff; padding: 0; } .bar { display: none; } .cert { box-shadow: none; max-width: none; border-radius: 0; } @page { size: A4 landscape; margin: 0; } }
+  </style>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
+</head>
+<body>
+  <div class="bar">
+    <a class="ghost" href="languages-html/courses.html">← Kurslar</a>
+    <div style="display:flex;gap:8px">
+      <button onclick="copyLink()">Havolani nusxalash</button>
+      <button onclick="print()">PDF / Chop etish</button>
+    </div>
+  </div>
+  <div id="root"><div class="msg">Tekshirilmoqda…</div></div>
+  <script>
+    const id = new URLSearchParams(location.search).get('id') || '';
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    function copyLink() { navigator.clipboard?.writeText(location.href); }
+    fetch('/.netlify/functions/course?verify=' + encodeURIComponent(id))
+      .then(r => r.json())
+      .then(c => {
+        if (!c.valid) { document.getElementById('root').innerHTML = `<div class="msg"><h2>Sertifikat topilmadi</h2><p>ID: ${esc(id)} — bunday sertifikat LinguaVerse bazasida yo'q.</p></div>`; return; }
+        const date = c.issuedAt ? new Date(c.issuedAt).toLocaleDateString('uz-UZ', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+        document.getElementById('root').outerHTML = `<div class="cert">
+          <div class="brand">Lingua<span>Verse</span></div>
+          <div class="title">Sertifikat</div>
+          <div class="sub">Ushbu sertifikat egasi</div>
+          <div class="name">${esc(c.name)}</div>
+          <div class="desc"><b>${esc(c.course)}</b> kursini to'liq tamomladi va yakuniy imtihonni <b>${esc(c.finalScore)}%</b> natija bilan topshirdi.</div>
+          <div class="lvl">${esc(c.level)}</div>
+          <div class="sub" style="margin-top:4px">CEFR darajasi</div>
+          <div class="foot">
+            <div style="text-align:left">Berilgan sana: <b>${esc(date)}</b><br>Sertifikat ID: <b>${esc(c.certId)}</b><br>Tekshirish: ${esc(location.host)}/certificate.html?id=${esc(c.certId)}</div>
+            <div class="seal">VERIFIED</div>
+          </div>
+        </div>`;
+      })
+      .catch(() => { document.getElementById('root').innerHTML = '<div class="msg">Tekshirib bo\'lmadi. Internetni tekshiring.</div>'; });
+  </script>
+</body>
+</html>

@@ -5,8 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tanishuv — LinguaVerse</title>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     :root {
       --bg: #04060f;
@@ -343,6 +341,9 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
@@ -366,9 +367,9 @@
   </div>
 
   <script type="module">
-    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { initializeApp, getApps, getApp } from "/js/fb/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "/js/fb/firebase-firestore.js";
 
     const FB_CONFIG = {
       apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
@@ -421,7 +422,10 @@
           { v: 'en', ic: '🇬🇧', label: 'Ingliz' },
           { v: 'tr', ic: '🇹🇷', label: 'Turk' },
           { v: 'ar', ic: '🇸🇦', label: 'Arab' },
-          { v: 'ko', ic: '🇰🇷', label: 'Koreys' }
+          { v: 'ko', ic: '🇰🇷', label: '한국어' },
+          { v: 'de', ic: '🇩🇪', label: 'Deutsch' },
+          { v: 'es', ic: '🇪🇸', label: 'Español' },
+          { v: 'zh', ic: '🇨🇳', label: '中文' }
         ]
       },
       {
@@ -544,7 +548,7 @@
     // ═══════════════════════════════════════════════════════════════════
     // HOLAT
     // ═══════════════════════════════════════════════════════════════════
-    const answers = {};
+    const answers = { ...window.LearningLanguage.get() };
     let step = 0;
     let user = null;
     let saving = false;
@@ -664,6 +668,8 @@
             saveDraft();
           } else {
             answers[q.key] = v;
+            if (q.key === 'nativeLang') window.LearningLanguage.set({nativeLang:v});
+            if (q.key === 'targetLang') window.LearningLanguage.set({targetLang:v});
             card.querySelectorAll('.opt').forEach(b => b.classList.remove('on'));
             btn.classList.add('on');
             updateNext(q);
@@ -835,7 +841,7 @@
         localStorage.removeItem(DRAFT);
         // Boshqa sahifalar darhol ishlatishi uchun
         localStorage.setItem('lv_target', answers.targetLang);
-        localStorage.setItem('coach_native', answers.nativeLang);
+        window.LearningLanguage.set({nativeLang:answers.nativeLang, targetLang:answers.targetLang});
         localStorage.setItem('lv_level', level);
 
         showDone(level, plan);

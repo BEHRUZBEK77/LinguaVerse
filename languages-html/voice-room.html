@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>LinguaVerse — Voice Rooms</title>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
     <style>
         *,
@@ -2057,6 +2055,9 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
@@ -2565,13 +2566,13 @@
     <div class="toast" id="toast"></div>
 
     <script type="module">
-        import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { initializeApp, getApp } from "/js/fb/firebase-app.js";
         import {
             getFirestore, collection, addDoc, doc, deleteDoc,
             updateDoc, onSnapshot, serverTimestamp, query, orderBy,
             arrayUnion, arrayRemove, getDoc, increment
-        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        } from "/js/fb/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "/js/fb/firebase-auth.js";
         // Gapirish vaqti uchun XP/coin mukofoti faqat tizimga kirgan
         // (Firebase Auth) userlarga beriladi — bu sahifa o'zi email/parol
         // talab qilmaydi (mehmon rejimida ham ishlaydi), shuning uchun LV
@@ -2580,8 +2581,10 @@
         // shuning uchun quyida ensureAuth() har doim (mehmon bo'lsa ham)
         // ko'rinmas anonim login qiladi.
         import { LV, url as lvUrl } from '../js/lv-core.js';
+        import { getAIThinkingMode } from './js/ai-chat-ui.mjs';
         const AI_URL = lvUrl('.netlify/functions/ai');
         const REWARD_URL = lvUrl('.netlify/functions/voice-reward');
+        const ROOM_URL = lvUrl('.netlify/functions/voice-room');
 
         // ══ ANONIM AUTENTIFIKATSIYA ══
         // firestore.rules'da voiceRooms yozish uchun endi request.auth!=null
@@ -2589,20 +2592,52 @@
         // bo'lib, istalgan kishi boshqa xonalarni o'chira/spam qila olardi).
         // Login/parol so'ramasdan xavfsizlikni oshirish uchun eng oddiy yo'l —
         // ko'rinmas anonim Firebase hisobi.
+        const auth = getAuth();
         let authReady = null;
         function ensureAuth() {
+            if (auth.currentUser) return Promise.resolve(auth.currentUser);
             if (authReady) return authReady;
-            const auth = getAuth();
-            authReady = new Promise(resolve => {
-                onAuthStateChanged(auth, user => {
-                    if (user) { resolve(user); return; }
-                    signInAnonymously(auth).catch(e => console.error('[voice-room] anon auth xato:', e.code || e.message));
+            authReady = new Promise((resolve, reject) => {
+                let unsubscribe = () => {};
+                let signInStarted = false;
+                unsubscribe = onAuthStateChanged(auth, user => {
+                    if (user) {
+                        unsubscribe();
+                        resolve(user);
+                        return;
+                    }
+                    if (signInStarted) return;
+                    signInStarted = true;
+                    signInAnonymously(auth).catch(error => {
+                        unsubscribe();
+                        reject(error);
+                    });
+                }, error => {
+                    unsubscribe();
+                    reject(error);
                 });
+            }).catch(error => {
+                authReady = null;
+                throw error;
             });
             return authReady;
         }
-        ensureAuth();
-
+        async function requestVoiceRoom(action, payload = {}) {
+            const user = await ensureAuth();
+            const response = await fetch(ROOM_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action, ...payload, idToken: await user.getIdToken() }),
+                keepalive: action === 'leave'
+            });
+            const data = await response.json();
+            if (!response.ok) throw new Error(data.error || 'Xona so‘rovi bajarilmadi');
+            return data;
+        }
+        function showRoomAuthError(error) {
+            console.warn('[voice-room] room authentication unavailable:', error.code || error.message);
+            showToast('Mehmon sifatida kirib bo‘lmadi. Xonaga kirish uchun <a href="../auth/login.html" style="color:inherit;text-decoration:underline">tizimga kiring</a>.', 'error');
+        }
         const FB_CONFIG = {
             apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
             authDomain: "linguaverse-81b52.firebaseapp.com",
@@ -3492,7 +3527,11 @@
                 const r = await fetch(AI_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ model: 'nova', messages: [{ role: 'user', content: prompt }] })
+                    body: JSON.stringify({
+                        model: 'nova',
+                        thinkingMode: getAIThinkingMode(),
+                        messages: [{ role: 'user', content: prompt }]
+                    })
                 });
                 const out = await r.json();
                 if (!r.ok || !out.text) throw new Error(out.message || 'AI javob bermadi');
@@ -3750,12 +3789,15 @@
       </div>
       <div class="participants-preview">${avatars}${extra}</div>
       <div class="rc-bottom">
-        <button class="rc-join" onclick="window.joinRoom('${r.id}')">
+        <button class="rc-join" data-room-id="${escHtml(r.id)}">
           <i class="fa-solid fa-arrow-right-to-bracket"></i> Kirish
         </button>
       </div>
     </div>`;
             }).join('');
+            grid.querySelectorAll('.rc-join[data-room-id]').forEach(button => {
+                button.addEventListener('click', () => window.joinRoom(button.dataset.roomId));
+            });
         };
 
         function escHtml(s) {
@@ -3816,7 +3858,12 @@
             if (!myName) { showToast('<i class="fa-solid fa-exclamation"></i> Ismingizni kiriting!', 'error'); return; }
             if (!myRoomName) { showToast('<i class="fa-solid fa-exclamation"></i> Xona nomini kiriting!', 'error'); return; }
 
-            await ensureAuth(); // firestore.rules voiceRooms yozish uchun auth talab qiladi
+            try {
+                await ensureAuth();
+            } catch (error) {
+                showRoomAuthError(error);
+                return;
+            }
 
             const lang = document.getElementById('cm_lang').value;
             const level = document.getElementById('cm_level').value;
@@ -3862,15 +3909,22 @@
             try {
                 const docRef = await addDoc(collection(db, 'voiceRooms'), {
                     name: myRoomName, description: desc, hostName: myName, hostPeerId: myPeerId,
+                    hostUid: auth.currentUser.uid,
                     lang, level, maxPeers, locked: roomType === 'locked',
-                    password: roomType === 'locked' ? pass : '',
-                    peers: [{ peerId: myPeerId, name: myName }],
+                    peers: [{ uid: auth.currentUser.uid, peerId: myPeerId, name: myName }],
                     createdAt: serverTimestamp()
                 });
                 myRoomDocId = docRef.id;
+                if (roomType === 'locked') {
+                    await requestVoiceRoom('configure', { roomId: myRoomDocId, password: pass });
+                }
             } catch (e) {
+                if (myRoomDocId) {
+                    await deleteDoc(doc(db, 'voiceRooms', myRoomDocId)).catch(() => { });
+                    myRoomDocId = null;
+                }
                 hideOverlay();
-                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Firebase xatosi!', 'error');
+                showToast('<i class="fa-solid fa-triangle-exclamation"></i> Xona sozlanmadi: ' + e.message, 'error');
                 myStream.getTracks().forEach(t => t.stop()); myStream = null;
                 peer.destroy(); peer = null;
                 return;
@@ -3899,7 +3953,12 @@
             const myName = document.getElementById('myName').value.trim();
             if (!myName) { showToast('<i class="fa-solid fa-exclamation"></i> Avval ismingizni kiriting!', 'error'); return; }
 
-            await ensureAuth(); // xonaga qo'shilish 'peers' ustiga update yozadi — auth kerak
+            try {
+                await ensureAuth();
+            } catch (error) {
+                showRoomAuthError(error);
+                return;
+            }
 
             let roomData;
             try {
@@ -3927,15 +3986,15 @@
             let roomData;
             try {
                 const snap = await getDoc(doc(db, 'voiceRooms', pendingJoinRoomId));
+                if (!snap.exists()) { showToast('Xona topilmadi!', 'error'); return; }
                 roomData = snap.data();
             } catch (e) { showToast('Xatolik!', 'error'); return; }
-            if (roomData.password !== pass) { showToast('<i class="fa-solid fa-lock"></i> Noto\'g\'ri parol!', 'error'); return; }
             closeModal('joinPassModal');
-            await doJoinRoom(pendingJoinRoomId, roomData);
+            await doJoinRoom(pendingJoinRoomId, roomData, pass);
             pendingJoinRoomId = null;
         };
 
-        async function doJoinRoom(roomDocId, roomData) {
+        async function doJoinRoom(roomDocId, roomData, password = '') {
             const myName = document.getElementById('myName').value.trim();
             stopMicTest();
 
@@ -3968,15 +4027,26 @@
                 return;
             }
 
+            try {
+                await requestVoiceRoom('join', {
+                    roomId: roomDocId,
+                    peerId: myPeerId,
+                    name: myName,
+                    password
+                });
+            } catch (e) {
+                hideOverlay();
+                showToast('<i class="fa-solid fa-lock"></i> Xonaga kirib bo‘lmadi: ' + e.message, 'error');
+                myStream?.getTracks().forEach(t => t.stop());
+                myStream = null;
+                peer?.destroy();
+                peer = null;
+                return;
+            }
+
             myRoomDocId = roomDocId;
             myRoomName = roomData.name;
             myRoomData = roomData;
-
-            try {
-                await updateDoc(doc(db, 'voiceRooms', roomDocId), {
-                    peers: arrayUnion({ peerId: myPeerId, name: myName })
-                });
-            } catch (e) { }
 
             const existingPeers = roomData.peers || [];
             existingPeers.forEach(p => { if (p.peerId !== myPeerId) callPeer(p.peerId, p.name); });
@@ -4012,27 +4082,9 @@
 
             if (updateFirestore && myRoomDocId && myPeerId) {
                 try {
-                    const snap = await getDoc(doc(db, 'voiceRooms', myRoomDocId));
-                    if (snap.exists()) {
-                        const data = snap.data();
-                        const myName = document.getElementById('myName').value.trim();
-                        const remaining = (data.peers || []).filter(p => p.peerId !== myPeerId);
-
-                        // Xona ikki holatda o'chiriladi: (1) hech kim qolmasa,
-                        // (2) host ketsa (host ketganda qolganlar baribir
-                        // hech kimga ulana olmaydi — PeerJS 'call' javobini
-                        // faqat host beradi). Aks holda faqat ro'yxatdan
-                        // chiqib ketamiz.
-                        if (remaining.length === 0 || data.hostPeerId === myPeerId) {
-                            await deleteDoc(doc(db, 'voiceRooms', myRoomDocId));
-                        } else {
-                            await updateDoc(doc(db, 'voiceRooms', myRoomDocId), {
-                                peers: arrayRemove({ peerId: myPeerId, name: myName })
-                            });
-                        }
-                    }
+                    await requestVoiceRoom('leave', { roomId: myRoomDocId });
                 } catch (e) {
-                    console.warn('[voice-room] xonadan chiqishda Firestore xatosi:', e.code || e.message);
+                    console.warn('[voice-room] xonadan chiqishda server xatosi:', e.message);
                 }
             }
 

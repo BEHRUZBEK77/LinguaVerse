@@ -3,7 +3,7 @@
 // Token system: -400 lesson (own: 200, team: 100, universal: 50)
 // Firebase realtime + Groq AI + TTS audio + 300+ functions
 // =====================================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { initializeApp } from "/js/fb/firebase-app.js";
 
 // XSS himoyasi: foydalanuvchi kiritgan matnni innerHTML ichiga qo'yishdan
 // oldin ekranlaymiz (masalan dictation input qiymati).
@@ -13,12 +13,13 @@ function esc(s) {
     }[c]));
 }
 
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
     increment, serverTimestamp, collection, addDoc,
     query, orderBy, limit, getDocs, arrayUnion, where
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
+import { createFallbackDailyPlan } from "./adaptive-plan-fallback.mjs";
 
 // ──────────────────────────────────────────────
 // FIREBASE INIT
@@ -32,13 +33,13 @@ const FB_CONFIG = {
     appId: "1:1037869292716:web:567bf2c9f9ed0862941309"
 };
 // Xavfsiz: AI so'rovlar endi ochiq worker emas, server funksiyasi orqali (kalit serverda)
-const AI_PROXY = "/.netlify/functions/groq";
+const AI_PROXY = "/.netlify/functions/ai";
 const NATIVE_LANG = ({ uz: "Uzbek", en: "English", ru: "Russian", es: "Spanish", de: "German", tr: "Turkish", ar: "Arabic", ko: "Korean", zh: "Chinese" })[localStorage.getItem('coach_native') || localStorage.getItem('lv_lang') || 'uz'] || "Uzbek";
 const LANG_RULES = `\n\nIMPORTANT OVERRIDE: The student's native language is ${NATIVE_LANG}. Speak PRIMARILY in the language being taught on this page — practice must happen in the target language itself. Use ${NATIVE_LANG} ONLY for short translations and explanations of mistakes. NEVER reply fully in ${NATIVE_LANG}.\nQUALITY BAR: teach at professional exam-preparation level (IELTS/Goethe/DELE/TOPIK/HSK-equivalent): authentic natural language, precise corrections referencing grammar rules, exam-style feedback on fluency, vocabulary range and accuracy. Push the student slightly above their current level.`;
 
 
 let _app, _auth, _db;
-try { const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"); _app = getApp(); }
+try { const { getApp } = await import("/js/fb/firebase-app.js"); _app = getApp(); }
 catch { _app = initializeApp(FB_CONFIG); }
 _auth = getAuth(_app);
 _db = getFirestore(_app);
@@ -607,6 +608,15 @@ Respond ONLY with valid JSON:
         return await this._call(prompt, 1200);
     },
 
+    async generateDailyPlanSafely(analysis, langCfg, userData) {
+        try {
+            return await this.generateDailyPlan(analysis, langCfg, userData);
+        } catch (error) {
+            console.error('[adaptive] AI kunlik reja yarata olmadi; vaqtinchalik reja ishlatiladi:', error);
+            return createFallbackDailyPlan(analysis, userData);
+        }
+    },
+
     // ── ROADMAP ──
     async generateRoadmap(analysis, langCfg, userData) {
         const { userLevel, weak, strong } = analysis;
@@ -748,8 +758,18 @@ Personalize the lesson: recycle the student's recurring mistakes into exercises,
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTokens }
             })
         });
-        if (!resp.ok) throw new Error(`AI error: ${resp.status}`);
-        const d = await resp.json();
+        let d;
+        try {
+            d = await resp.json();
+        } catch (error) {
+            if (!resp.ok) throw new Error(`AI error: ${resp.status}; server JSON javob qaytarmadi`);
+            throw error;
+        }
+        if (!resp.ok) {
+            const details = Array.isArray(d.detail) ? d.detail.join(' | ') : d.detail;
+            const reason = [d.error, details, d.lastError].filter(Boolean).join(' — ').slice(0, 500);
+            throw new Error(`AI error: ${resp.status}${reason ? ` — ${reason}` : ''}`);
+        }
         const raw = d.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
         const clean = raw.replace(/```json|```/g, '').trim();
         return JSON.parse(clean);
@@ -1115,6 +1135,8 @@ const ENGINE = {
             <div style="flex:1;font-size:.72rem;color:#f5c842">${p.funChallenge || 'Bugun 5 ta yangi so\'z o\'rganing!'}</div>
         </div>
 
+        ${p.isFallback ? `<div class="ae-limit-warn" role="status"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span><div style="font-size:.75rem;color:#fbbf24">AI hozir javob bermayapti. Vaqtinchalik reja tuzildi; “Yangi reja yaratish” orqali keyinroq qayta urinib ko‘ring.</div></div>` : ''}
+
         ${remaining === 0 ? `<div class="ae-limit-warn"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span><div style="font-size:.75rem;color:#ef4444">Kunlik dars limiti (${lim.daily}) tugadi! Ertaga qayta keling yoki rejani yaxshilang.</div></div>` : ''}
 
         <div class="ae-sec"><span><i class="fa-solid fa-calendar-days" style="color:#60a5fa"></i></span> Bugungi reja <span class="ae-badge">${p.totalMinutes || 30} min</span></div>
@@ -1156,8 +1178,10 @@ const ENGINE = {
         const body = document.getElementById('ae-body');
         body.innerHTML = `<div class="ae-loading"><div class="ae-spinner"></div><div class="ae-loading-msg">Yangi plan yaratyapti...</div></div>`;
         const ud = await DB.getUserData(this.userId);
-        this.dailyPlan = await AI_GEN.generateDailyPlan(this.analysis, this.langCfg, ud);
-        await DB.savePlan(this.userId, this.dailyPlan, this.langCfg.name);
+        this.dailyPlan = await AI_GEN.generateDailyPlanSafely(this.analysis, this.langCfg, ud);
+        if (!this.dailyPlan.isFallback) {
+            await DB.savePlan(this.userId, this.dailyPlan, this.langCfg.name);
+        }
         this._renderPlan(body);
     },
 
@@ -2440,8 +2464,10 @@ const ENGINE = {
             // Load or generate daily plan
             if (!ENGINE.dailyPlan) {
                 const ud = await DB.getUserData(user.uid);
-                ENGINE.dailyPlan = await AI_GEN.generateDailyPlan(ENGINE.analysis, langCfg, ud);
-                await DB.savePlan(user.uid, ENGINE.dailyPlan, langCfg.name);
+                ENGINE.dailyPlan = await AI_GEN.generateDailyPlanSafely(ENGINE.analysis, langCfg, ud);
+                if (!ENGINE.dailyPlan.isFallback) {
+                    await DB.savePlan(user.uid, ENGINE.dailyPlan, langCfg.name);
+                }
             }
 
             // Refresh plan tab

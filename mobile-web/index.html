@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080d1a">
+  <title>LinguaVerse</title>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #080d1a; color: #eef0ff; font: 16px system-ui, sans-serif; }
+    main { max-width: 28rem; padding: 2rem; text-align: center; }
+    a { color: #a78bfa; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>LinguaVerse</h1>
+    <p>Sayt bilan bir xil hisobingiz va ma’lumotlaringiz yuklanmoqda…</p>
+    <p id="offline" hidden>Internetga ulaning, so‘ng <a href="https://linguaverce.netlify.app/?lv_app=android">qayta urinib ko‘ring</a>.</p>
+  </main>
+  <script>
+    const site = 'https://linguaverce.netlify.app/?lv_app=android';
+    const timeout = setTimeout(() => { document.getElementById('offline').hidden = false; }, 12000);
+    addEventListener('load', () => {
+      if (navigator.onLine) location.replace(site);
+      else clearTimeout(timeout);
+    });
+    addEventListener('offline', () => { document.getElementById('offline').hidden = false; });
+  </script>
+</body>
+</html>

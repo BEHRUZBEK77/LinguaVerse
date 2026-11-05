@@ -9,15 +9,23 @@ function esc(s) {
 // =====================================================// Russian.js — LinguaVerse (Русский язык — полная версия)
 // Firebase + Token система (1 токен за каждый символ в чате)
 // =====================================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { buildCourseCurriculum } from './unit-curriculum.mjs';
+import { mountAIUnitBuilder } from './ai-unit-builder.mjs';
+import { encodeInlineHandlerArg } from './ai-unit-data.mjs';
+import { findSkillVideos } from './youtube-recommendations.mjs';
+import { formatAIResponse, getAIThinkingMode, initializeAIChatUI } from './ai-chat-ui.mjs';
+import { initializeApp } from "/js/fb/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
     increment, serverTimestamp, arrayUnion, collection,
     addDoc, query, orderBy, limit, getDocs, onSnapshot
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
+import { courseProgressKey, isCourseLevelUnlocked, isCourseUnitUnlocked, migrateCourseProgress, recordCourseLessonAttempt, renderCourseJourney } from './course-journey.mjs';
 
+const COURSE_ID = 'russian';
 const $id = id => document.getElementById(id);
+initializeAIChatUI();
 
 // ── FIREBASE ──
 const FB_CONFIG = {
@@ -31,7 +39,7 @@ const FB_CONFIG = {
 
 let _app, _auth, _db;
 try {
-    const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+    const { getApp } = await import("/js/fb/firebase-app.js");
     _app = getApp();
 } catch {
     _app = initializeApp(FB_CONFIG);
@@ -155,7 +163,7 @@ const WDB = [
     { e: 'собака', u: 'It', t: 'ot', l: 'beginner', ex: 'У меня добрая собака.', eu: "Menda mehribon it bor." },
     { e: 'кошка', u: 'Mushuk', t: 'ot', l: 'beginner', ex: 'Кошка спит.', eu: "Mushuk uxlayapti." },
     { e: 'понедельник', u: 'Dushanba', t: 'ot', l: 'beginner', ex: 'В понедельник у меня урок.', eu: "Dushanbada darsim bor." },
-    { e: 'вторник', u: 'Seshanba', t: 'ot', l: 'beginner', ex: 'Во вторник мы встречаемся.', eu: "Seshanbada uchrashAmiz." },
+    { e: 'вторник', u: 'Seshanba', t: 'ot', l: 'beginner', ex: 'Во вторник мы встречаемся.', eu: "Seshanba kuni uchrashamiz." },
     { e: 'среда', u: 'Chorshanba', t: 'ot', l: 'beginner', ex: 'Среда — середина недели.', eu: "Chorshanba — haftaning o'rtasi." },
     { e: 'четверг', u: 'Payshanba', t: 'ot', l: 'beginner', ex: 'В четверг у меня экзамен.', eu: "Payshanbada imtihon bor." },
     { e: 'пятница', u: 'Juma', t: 'ot', l: 'beginner', ex: 'В пятницу мы отдыхаем.', eu: "Juma kuni dam olamiz." },
@@ -484,6 +492,7 @@ const UD_DATA = {
         },
     ]
 };
+buildCourseCurriculum(UD_DATA, WDB, 'ru-RU', 'e');
 
 // ══════════════════════════════════════════════════════════════
 // ГРАММАТИЧЕСКИЕ ЗАДАНИЯ
@@ -685,7 +694,14 @@ async function loadUserData() {
             UActiveTags = d.activeTags || [];
             UOwnedRanks = d.ownedRanks || [];
             UOwnedTags = d.ownedTags || [];
-            UProg = d.progress || {};
+            const courseMigration = migrateCourseProgress(d.progress || {}, COURSE_ID, UD_DATA);
+            UProg = courseMigration.progress;
+            if (Object.keys(courseMigration.updates).length) await updateUserField(courseMigration.updates);
+            if (courseMigration.unresolvedLegacyIds.length &&
+                !localStorage.getItem('lv-course-progress-migration-v2')) {
+                localStorage.setItem('lv-course-progress-migration-v2', 'shown');
+                showToast('Eski progressdagi bir xil IDli unitlar tillarga aralashmasligi uchun avtomatik ko‘chmadi.', 'warning');
+            }
             USk = d.skills || { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
             UStats = d.stats || { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 };
         } else {
@@ -819,6 +835,7 @@ async function callAI(prompt, maxTok = 1000) {
         const r = await fetch(AI_PROXY, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [{ role: 'user', parts: [{ text: prompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTok }
             })
@@ -871,15 +888,35 @@ function drawRadar() {
 // ЮНИТЫ
 // ══════════════════════════════════════════════════════════════
 window.switchLevel = function (level, el) {
+    if (!isCourseLevelUnlocked(UD_DATA, UProg, COURSE_ID, level)) {
+        showToast('Avval joriy bosqichdagi barcha unitlarni yakunlang.', 'warning');
+        return;
+    }
     curLevel = level;
-    document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', el ? t === el : t.dataset.level === level));
     renderUnits();
 };
 
 function renderUnits() {
+    curLevel = renderCourseJourney({
+        courseId: COURSE_ID,
+        levels: UD_DATA,
+        progress: UProg,
+        activeLevel: curLevel,
+        onSelect: window.switchLevel,
+    });
     const grid = $id('unitsGrid'); if (!grid) return;
     const units = UD_DATA[curLevel] || [];
     grid.innerHTML = '';
+    mountAIUnitBuilder({
+        container: grid, courseId: COURSE_ID, level: curLevel, locale: 'ru-RU', wordField: 'e',
+        dictionary: WDB, units: () => UD_DATA[curLevel] || [],
+        onUnitsLoaded: (level, added) => {
+            const levelUnits = UD_DATA[level] || (UD_DATA[level] = []);
+            const ids = new Set(levelUnits.map(unit => unit.id));
+            added.forEach(unit => { if (!ids.has(unit.id)) levelUnits.push(unit); });
+            if (level === curLevel) renderUnits();
+        }
+    });
     units.forEach((unit, i) => {
         const done = ['A', 'B', 'C', 'D'].filter(l => UProg[`${unit.id}_${l}`] >= 100).length;
         const pct = Math.round((done / 4) * 100);
@@ -909,7 +946,13 @@ function renderUnits() {
     });
 }
 
+window.renderUnits = renderUnits;
+
 window.openUnit = function (unit) {
+    if (!unit || !isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unit.id)) {
+        showToast('Bu unit hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     curUnit = unit;
     const modal = $id('unitModal');
     const content = $id('modalContent');
@@ -950,6 +993,10 @@ window.openUnit = function (unit) {
 };
 
 window.openLesson = async function (unitId, lessonKey) {
+    if (!isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unitId)) {
+        showToast('Bu dars hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     let unit = null;
     for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === unitId); if (f) { unit = f; break; } }
     if (!unit) return;
@@ -1028,7 +1075,7 @@ function lessonA(unit) {
       <h3 style="margin-bottom:10px;color:#e8ecff;font-family:'Playfair Display',serif"><i class="fa-solid fa-pen-to-square" style="color:#60a5fa"></i> Правило грамматики</h3>
       <div style="font-size:0.9rem;color:#fdd;margin-bottom:8px"><i class="fa-solid fa-lightbulb" style="color:#f5c842"></i> ${unit.grammar_rule || ''}</div>
       <div style="font-size:0.85rem;color:#e88;font-style:italic"><i class="fa-solid fa-pencil" style="color:#60a5fa"></i> ${unit.grammar_example || ''}</div>
-      <button onclick="window.aiGrammarExplain('${unit.title}','${(unit.grammar_rule || '').replace(/'/g, "\\'")}')" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.25);color:#e88;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI объяснит подробнее (1 токен)</button>
+      <button onclick="window.aiGrammarExplain(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.grammar_rule || '')}'))" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.25);color:#e88;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI объяснит подробнее (1 токен)</button>
       <div id="gramRuleFB" style="margin-top:8px;font-size:0.8rem"></div>
     </div>
     <div style="margin-bottom:20px">
@@ -1337,7 +1384,7 @@ function lessonD(unit) {
         <textarea id="dta" placeholder="Пишите здесь..." oninput="window.updWC()" style="width:100%;height:100px;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;resize:none;box-sizing:border-box"></textarea>
         <div style="display:flex;gap:10px;font-size:0.75rem;color:#666;margin:6px 0"><span id="dwc">0 слов</span><span id="dcc">0 симв.</span><span id="dst" style="color:#f87171">Мин. 40 слов</span></div>
         <div style="display:flex;gap:6px">
-          <button onclick="window.aiWrit('${unit.title}','${unit.words.slice(0, 5).join(',')}')" style="padding:7px 14px;border-radius:8px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.25);color:#e88;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI проверит (1 токен)</button>
+          <button onclick="window.aiWrit(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.words.slice(0, 5).join(','))}'))" style="padding:7px 14px;border-radius:8px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.25);color:#e88;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI проверит (1 токен)</button>
           <button onclick="window.selfChk(40)" style="padding:7px 14px;border-radius:8px;background:rgba(41,128,185,0.1);border:1px solid rgba(41,128,185,0.2);color:#60a5fa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-chart-pie" style="color:#60a5fa"></i> Подсчёт слов</button>
         </div>
         <div id="wfb" style="margin-top:8px;font-size:0.8rem"></div>
@@ -1464,23 +1511,27 @@ async function finLesson(uid, lk, skill, sc, tot) {
 
 async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, coinEarned) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 70;
-    UProg[`${unitId}_${lessonKey}`] = 100;
-    const allDone = ['A', 'B', 'C', 'D'].every(l => UProg[`${unitId}_${l}`] >= 100);
+    const attempt = recordCourseLessonAttempt(UProg, unitId, lessonKey, pct);
     if (!CU) {
         UXP += xpEarned; UCoin += coinEarned;
         updateDisplays(); renderUnits();
-        showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`, 'success');
+        showToast(
+            attempt.passed
+                ? `<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`
+                : 'Darsdan o‘tish uchun kamida 60% kerak. Qayta urinib ko‘ring.',
+            attempt.passed ? 'success' : 'warning'
+        );
         return;
     }
     try {
         const updates = {
             xp: increment(xpEarned), coins: increment(coinEarned),
             totalXP: increment(xpEarned), totalCoins: increment(coinEarned),
-            [`progress.${unitId}_${lessonKey}`]: 100,
+            [`progress.${courseProgressKey(COURSE_ID, `${unitId}_${lessonKey}`)}`]: attempt.progressValue,
             [`scores.${unitId}_${lessonKey}`]: pct,
             'stats.totalSessions': increment(1)
         };
-        if (allDone) {
+        if (attempt.completedNow) {
             updates['stats.unitsCompleted'] = increment(1);
             updates.xp = increment(xpEarned + 50);
             updates.coins = increment(coinEarned + 10);
@@ -1490,8 +1541,8 @@ async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, c
             showToast(`<i class="fa-solid fa-champagne-glasses" style="color:#f5c842"></i> Юнит пройден! +50 XP +10 <i class="fa-solid fa-coins" style="color:#f5c842"></i> бонус!`, 'success');
         }
         await updateUserField(updates);
-        UXP += xpEarned + (allDone ? 50 : 0);
-        UCoin += coinEarned + (allDone ? 10 : 0);
+        UXP += xpEarned + (attempt.completedNow ? 50 : 0);
+        UCoin += coinEarned + (attempt.completedNow ? 10 : 0);
         updateDisplays();
         showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i> сохранено!`, 'success');
     } catch (e) { console.error(e); }
@@ -1501,6 +1552,16 @@ function showResult(lk, pct, xp, coin, unit, uid) {
     const lnames = { A: "Грамматика", B: 'Аудирование', C: 'Чтение', D: 'Говорение' };
     const nxt = { A: 'B', B: 'C', C: 'D', D: null };
     const content = $id('modalContent'); if (!content) return;
+    const unitComplete = ['A', 'B', 'C', 'D'].every(lesson => UProg[`${uid}_${lesson}`] >= 100);
+    if (pct < 60 || (!nxt[lk] && !unitComplete)) {
+        content.innerHTML = `<div style="text-align:center;padding:24px">
+          <h3>${pct < 60 ? 'O‘tish uchun kamida 60% kerak.' : 'Unitdagi qolgan darslarni ham yakunlang.'}</h3>
+          ${pct < 60 ? `<button class="course-result-action" onclick="window.openLesson('${uid}','${lk}')">Qayta urinib ko‘rish</button>` : ''}
+          <button class="course-result-action secondary" onclick="document.getElementById('unitModal').classList.remove('active');renderUnits()">Unitlarga qaytish</button>
+        </div>`;
+        const modal = $id('unitModal'); if (modal) modal.classList.add('active');
+        return;
+    }
     const circleColor = pct >= 80 ? '#34d399' : pct >= 60 ? '#f5c842' : '#ef4444';
     content.innerHTML = `<div style="text-align:center;padding:20px">
       <div style="width:120px;height:120px;border-radius:50%;background:${circleColor}22;border:3px solid ${circleColor};display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px">
@@ -1765,6 +1826,7 @@ window.sendChatMessage = async function () {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [
                     { role: 'user', parts: [{ text: curChatMode.sys + LANG_RULES }] },
                     ...chatHist.slice(-10)
@@ -1796,9 +1858,10 @@ function appendChat(role, html, save = false, id = null) {
     const div = document.createElement('div');
     div.className = `chat-msg ${isAI ? 'ai-msg' : 'user-msg'}`;
     if (id) div.id = id;
+    const content = isAI && save ? formatAIResponse(html) : isAI ? html : esc(html).replace(/\n/g, '<br>');
     div.innerHTML = `
       <div class="chat-avatar">${isAI ? '<i class="fa-solid fa-robot"></i>' : '<i class="fa-solid fa-user"></i>'}</div>
-      <div class="chat-bubble">${html}</div>`;
+      <div class="chat-bubble">${content}</div>`;
     c.appendChild(div);
     c.scrollTop = c.scrollHeight;
 }
@@ -1815,22 +1878,10 @@ window.clearChatHistory = async function () {
 // ВИДЕО
 // ══════════════════════════════════════════════════════════════
 window.findYoutubeVideos = function () {
-    const grid = $id('videosGrid'); if (!grid) return;
-    const videos = [
-        { title: 'Русский язык для начинающих', channel: 'Russian with Max', id: 'sTANio_2E0Q' },
-        { title: 'Грамматика русского языка', channel: 'RussianPod101', id: 'X_9m-4rXSmo' },
-        { title: '500 русских фраз', channel: 'Russian Language Club', id: 'X9_Vr0DKOSM' },
-        { title: 'Подготовка к ТРКИ', channel: 'Learn Russian', id: 'x8D_SLFliAI' },
-    ];
-    grid.innerHTML = videos.map(v => `<div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
-        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" style="display:block">
-          <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width:100%;height:160px;object-fit:cover" alt="${v.title}">
-          <div style="padding:12px">
-            <div style="font-weight:600;font-size:0.85rem;color:#e8ecff;margin-bottom:4px">${v.title}</div>
-            <div style="font-size:0.75rem;color:#666"><i class="fa-brands fa-youtube" style="color:#ef4444;margin-right:4px"></i>${v.channel}</div>
-          </div>
-        </a>
-    </div>`).join('');
+    return findSkillVideos({
+        language: 'Русский', languageId: 'russian', exam: 'TORFL', skills: USk, level: curLevel,
+        skillLabels: { reading: 'чтение', writing: 'письмо', speaking: 'говорение', listening: 'аудирование', grammar: 'грамматика' }
+    });
 };
 
 // ══════════════════════════════════════════════════════════════

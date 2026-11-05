@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LinguaVerse — Sinov to'lovi</title>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     :root {
@@ -39,14 +37,24 @@
     .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
     .result { margin-top: 18px; font-size: 0.85rem; line-height: 1.6; }
     .note { margin-top: 20px; font-size: 0.72rem; color: var(--muted); line-height: 1.6; }
-    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
-    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before { font-family: "Font Awesome 6 Free" !important; }
-    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
+    @media (max-width: 640px) {
+      nav { height: auto; min-height: 62px; padding: 9px 12px; flex-direction: column; gap: 6px; }
+      .logo { font-size: 1rem; }
+      .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 2px; }
+      .nav-links a { padding: 6px 8px; font-size: .72rem; }
+      .wrap { padding: 28px 12px 60px; }
+      .card { padding: 28px 18px; }
+      .btn { max-width: 100%; justify-content: center; padding: 13px 18px; }
+      .order-id b { overflow-wrap: anywhere; }
+    }
   </style>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="css/lv-theme.css">
+  <script src="js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
@@ -80,8 +88,8 @@
   </div>
 
   <script type="module">
-    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { initializeApp, getApps, getApp } from "/js/fb/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 
     const FB_CONFIG = {
       apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
@@ -98,8 +106,12 @@
     const PLAN_META = {
       nova:    { name: 'NOVA',    ic: 'fa-bolt',  col: '#3b82f6' },
       mega:    { name: 'MEGA',    ic: 'fa-rocket',col: '#8b5cf6' },
-      premium: { name: 'PREMIUM', ic: 'fa-crown', col: '#f59e0b' }
+      premium: { name: 'PREMIUM', ic: 'fa-crown', col: '#f59e0b' },
+      ielts:   { name: 'IELTS PRO', ic: 'fa-graduation-cap', col: '#e11d48' }
     };
+    // Video kurs: plan=english_c2 ko'rinishida keladi
+    const _cm = /^([a-z]+)_(b2|c2)$/.exec(new URLSearchParams(location.search).get('plan') || '');
+    if (_cm) PLAN_META[_cm[0]] = { name: _cm[1][0].toUpperCase() + _cm[1].slice(1) + ' ' + _cm[2].toUpperCase() + ' video kurs', ic: 'fa-circle-play', col: '#e11d48' };
 
     const params = new URLSearchParams(location.search);
     const orderId = params.get('order');

@@ -308,7 +308,7 @@ export const Voice = {
     if (!text?.trim()) return;
     Voice.stop();
 
-    const key = `${lang}|${opts.voice || 'default'}|${opts.rate || 1}|${text}`;
+    const key = `${lang}|${opts.voice || 'default'}|${opts.rate || 1}|${opts.emotion || ''}|${text}`;
     let src = ttsCache.get(key);
 
     if (!src) {

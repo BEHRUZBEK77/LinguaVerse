@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LinguaVerse — Tillar Dunyosi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         *,
         *::before,
@@ -1348,11 +1347,34 @@
 
         @media(max-width:768px) {
             nav {
-                padding: 0 16px
+                height: auto;
+                min-height: 64px;
+                padding: 10px 16px;
+                flex-wrap: wrap;
+                gap: 8px
             }
 
             .nav-center {
                 display: none
+            }
+
+            .logo {
+                font-size: 1.15rem
+            }
+
+            .nav-right {
+                gap: 5px;
+                margin-left: auto
+            }
+
+            .nav-right .btn-ghost,
+            .nav-right .btn-primary {
+                padding: 7px 10px;
+                font-size: .75rem
+            }
+
+            .lang-btn {
+                padding: 6px 8px
             }
 
             .section,
@@ -1386,6 +1408,46 @@
                 text-align: center
             }
         }
+
+        @media(max-width:420px) {
+            nav {
+                padding: 8px 10px;
+                gap: 6px
+            }
+
+            .logo {
+                font-size: 1rem
+            }
+
+            .nav-right {
+                gap: 4px
+            }
+
+            .theme-btn {
+                width: 32px;
+                height: 32px
+            }
+
+            .nav-right .btn-ghost,
+            .nav-right .btn-primary {
+                padding: 6px 7px;
+                font-size: .68rem
+            }
+
+            .hero-stats {
+                width: 100%;
+                max-width: 300px;
+                gap: 14px;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin: 38px auto 0
+            }
+
+            .hero-stats .stat {
+                flex: 1 1 88px;
+                min-width: 0
+            }
+        }
     
         /* ── NAV PROFILE (real ma'lumot) ── */
         .nav-profile { display:flex; align-items:center; gap:8px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:5px 10px 5px 6px; cursor:pointer; transition:all .2s; text-decoration:none; }
@@ -1417,17 +1479,9 @@
         .how-nm { font-weight:700; margin-bottom:6px; }
         .how-ds { font-size:.8rem; color:var(--muted); line-height:1.6; }
 
-    /* ── FONT AWESOME FIX: universal reset ::before shriftini buzmasligi uchun ── */
-    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
-    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before {
-      font-family: "Font Awesome 6 Free" !important;
-    }
-    .fa-brands, .fab, .fa-brands::before, .fab::before {
-      font-family: "Font Awesome 6 Brands" !important;
-    }
-    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
-  
 </style>
+    <link rel="stylesheet" href="css/lv-theme.css">
+  <script src="js/lv-icons.js" defer></script>
 </head>
 
 <body>

@@ -30,7 +30,7 @@ import { currentLang } from './lv-i18n.js';
 import {
   doc, setDoc, addDoc, collection, getDocs, deleteDoc,
   query, orderBy, limit as fbLimit, serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
 
 const lang = currentLang();
 const COMMUNITY_URL = url('.netlify/functions/community');

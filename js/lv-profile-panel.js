@@ -17,7 +17,7 @@ import { planText, resourceText, currentLang } from './lv-i18n.js';
 import { ITEMS, CATEGORIES, loadInventory } from './lv-shop-items.js';
 import {
   doc, setDoc, serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
 
 const lang = currentLang();
 
@@ -99,7 +99,7 @@ function renderPlan(snap) {
         <i class="fa-solid ${p.fa}"></i> ${p.name}
       </span>
       ${exp}
-      ${snap.plan === 'premium'
+      ${snap.plan === 'ielts'
         ? `<span class="pp-btn ghost" style="cursor:default">Eng yuqori reja</span>`
         : `<a class="pp-btn" href="../order.html">${snap.plan === 'free' ? 'Rejani olish' : 'Oshirish'}</a>`}
     </div>

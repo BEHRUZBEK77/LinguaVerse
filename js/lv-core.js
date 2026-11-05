@@ -13,12 +13,12 @@
 //   const r = await LV.ai('mega', messages); // so'rov + avtomatik hisoblash
 // ═══════════════════════════════════════════════════════════════════════════
 
-import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { initializeApp, getApps, getApp } from "/js/fb/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
   getFirestore, doc, getDoc, setDoc, updateDoc, runTransaction,
   serverTimestamp, increment, collection, addDoc
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
 
 // ───────────────────────────────────────────────────────────────────────────
 // FIREBASE
@@ -72,6 +72,8 @@ let functionsAvailable = null;   // bir marta aniqlanadi va eslab qolinadi
  * @returns {{ok:boolean, text?:string, backend?:string, error?:string}}
  */
 export async function aiRequest(payload, signal) {
+  const preferences = globalThis.LearningLanguage?.get();
+  if (preferences) payload = { ...preferences, ...payload };
   if (functionsAvailable !== false) {
     try {
       const r = await fetch(AI_URL, {
@@ -197,10 +199,32 @@ export const PLANS = {
       'Imtihonga tayyorlov (IELTS/Goethe/TOPIK)',
       "Ustuvor qo'llab-quvvatlash"
     ]
+  },
+  ielts: {
+    id: 'ielts',
+    name: 'IELTS PRO',
+    tagline: "IELTS 8–9 ga tayyorlov va onlayn darslar",
+    icon: '<i class="fa-solid fa-graduation-cap" style="color:#f43f5e"></i>',
+    fa: 'fa-graduation-cap',
+    color: '#e11d48',
+    accent: '#fb7185',
+    price: 200000,
+    priceLabel: "200 000 so'm",
+    order: 4,
+    badge: 'IELTS 8+',
+    models: ['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus'],
+    perks: [
+      'IELTS Speaking imtihonchi — Part 1, 2, 3 + band ball',
+      "Qattiq AI ustoz: emotsiya va jonli ovoz bilan",
+      'Kuniga 90 ta AI onlayn dars (8 til)',
+      'PREMIUM ning barcha imkoniyatlari, limitlar 1.5x',
+      'Speaking 300 daqiqa/kun',
+      'Writing Task 1/2 band baholash'
+    ]
   }
 };
 
-export const PLAN_ORDER = ['free', 'nova', 'mega', 'premium'];
+export const PLAN_ORDER = ['free', 'nova', 'mega', 'premium', 'ielts'];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DAVOMIYLIKLAR — rejalar kunlik / oylik / 3 oylik / 6 oylik / 1 yillik sotiladi.
@@ -352,6 +376,22 @@ export const LIMITS = {
     coach:     [45, 225, 650],
     vocab_ai:  [120, 600, 1800],
     translate: [2000, 10000, 30000]
+  },
+
+  // ── IELTS PRO — 200 000 so'm. PREMIUM × 1.5 + imtihon rejimi.
+  ielts: {
+    nova:      [1200, 6000, 18000],
+    pro:       [380, 1900, 5700],
+    mega:      [520, 2600, 7800],
+    proplus:   [270, 1350, 4000],
+    premium:   [330, 1650, 5000],
+    megaplus:  [140, 700, 2000],
+    speak_min: [300, 1500, 4500],
+    writing:   [140, 700, 2000],
+    lesson:    [90, 450, 1350],
+    coach:     [70, 350, 1000],
+    vocab_ai:  [180, 900, 2700],
+    translate: [3000, 15000, 45000]
   }
 };
 
@@ -480,6 +520,9 @@ export const LV = {
         if (u) {
           try {
             state.profile = await loadProfile(u.uid);
+            try {
+              if (!localStorage.getItem('lv_language_setup') && state.profile.nativeLang) globalThis.LearningLanguage?.set({nativeLang:state.profile.nativeLang,targetLang:state.profile.targetLang});
+            } catch {}
             state.plan = resolvePlan(state.profile);
             state.planExpiry = state.profile.planExpiry || null;
             state.usage = await loadUsage(u.uid);
@@ -710,7 +753,7 @@ export const LV = {
    * AI so'rovi + avtomatik limit hisoblash.
    * @param {string} modelId  nova | pro | mega | proplus | premium | megaplus
    * @param {Array}  messages [{role:'user'|'assistant'|'system', content:'...'}]
-   * @param {object} opts     { task, target, native, level, temperature, maxTokens, signal }
+   * @param {object} opts     { task, target, native, level, temperature, maxTokens, thinkingMode, signal }
    */
   async ai(modelId, messages, opts = {}) {
     if (!MODELS[modelId]) throw new Error(`Noma'lum model: ${modelId}`);
@@ -734,14 +777,26 @@ export const LV = {
       ...opts
     });
 
-    const targetKey = (opts.target || state.profile?.targetLang || 'english').toLowerCase();
+    const targetKey = (opts.target || globalThis.LearningLanguage?.get().targetLang || state.profile?.targetLang || 'english').toLowerCase();
+    const nativeCode = opts.native || globalThis.LearningLanguage?.get().nativeLang || state.profile?.nativeLang || 'uz';
+
+    let thinkingMode = opts.thinkingMode;
+    if (!thinkingMode) {
+      try {
+        thinkingMode = localStorage.getItem('lv_ai_thinking_mode') === 'balanced' ? 'balanced' : 'deep';
+      } catch {
+        thinkingMode = 'deep';
+      }
+    }
 
     const payload = {
       model: modelId,
+      nativeLang: nativeCode, targetLang: targetKey,
       plan: state.plan,
       messages: [{ role: 'system', content: system }, ...messages],
       temperature: opts.temperature,
-      maxTokens: opts.maxTokens
+      maxTokens: opts.maxTokens,
+      thinkingMode
     };
 
     try {
@@ -752,18 +807,18 @@ export const LV = {
       // koreys tanlanganda kirillcha javob kelsa), bir marta qattiqroq
       // eslatma bilan qayta so'raladi — foydalanuvchi noto'g'ri tildagi
       // javobni ko'rishdan oldin.
-      if (data.ok && replyBreaksLanguageLock(data.text, targetKey)) {
+      if (data.ok && replyBreaksLanguageLock(data.text, targetKey, nativeCode)) {
         console.warn('[LV] LANGUAGE LOCK buzildi, qayta so\'ralmoqda...');
         const retryPayload = {
           ...payload,
           messages: [
             ...payload.messages,
             { role: 'assistant', content: data.text },
-            { role: 'system', content: `YOUR PREVIOUS REPLY WAS WRONG — it was not written in the target language. Rewrite your reply again, entirely in the target language this time. No exceptions.` }
+            { role: 'system', content: `YOUR PREVIOUS REPLY WAS WRONG — it was not written in the target language. Rewrite your reply again, entirely in the target language this time. Use the selected native language for explanations, and the target language for examples and practice.` }
           ]
         };
         const retryData = await aiRequest(retryPayload, opts.signal);
-        if (retryData.ok && !replyBreaksLanguageLock(retryData.text, targetKey)) {
+        if (retryData.ok && !replyBreaksLanguageLock(retryData.text, targetKey, nativeCode)) {
           data = retryData;
         } else if (retryData.ok) {
           // Ikkinchi urinish ham buzilgan bo'lsa, foydalanuvchini javobsiz
@@ -890,11 +945,12 @@ const SCRIPT_RANGES = {
   japanese: /[\u3040-\u30FF]/
 };
 
-function replyBreaksLanguageLock(text, targetKey) {
+function replyBreaksLanguageLock(text, targetKey, nativeCode = 'uz') {
+  const nativeTarget = {ru:'russian',ar:'arabic',ko:'korean',zh:'chinese'}[nativeCode];
   const s = String(text || '');
   if (!s.trim()) return false;
   for (const [langId, re] of Object.entries(SCRIPT_RANGES)) {
-    if (langId === targetKey) continue;
+    if (langId === targetKey || langId === nativeTarget) continue;
     if (re.test(s)) return true;
   }
   return false;
@@ -979,13 +1035,13 @@ export function buildSystemPrompt(o = {}) {
   const ob = profile.onboarding || {};
 
   // Daraja: prompt sifati rejaga qarab tanlanadi
-  const tier = (plan === 'premium') ? 'expert'
+  const tier = (plan === 'premium' || plan === 'ielts') ? 'expert'
              : (plan === 'mega') ? 'standard'
              : 'basic';
 
-  const targetKey = (o.target || profile.targetLang || 'english').toLowerCase();
+  const targetKey = (o.target || globalThis.LearningLanguage?.get().targetLang || profile.targetLang || 'english').toLowerCase();
   const target = LANG_NAMES[targetKey] || 'English';
-  const nativeCode = o.native || profile.nativeLang || 'uz';
+  const nativeCode = o.native || globalThis.LearningLanguage?.get().nativeLang || profile.nativeLang || 'uz';
   const native = NATIVE_NAMES[nativeCode] || 'Uzbek';
   const level = o.level || ob.level || profile.level || 'A2';
   const exam = EXAM_BY_LANG[targetKey] || 'IELTS';
@@ -1028,6 +1084,8 @@ export function buildSystemPrompt(o = {}) {
   // Model nomi — AI o'zini shu nom bilan tanishtirsin
   prompt += `\n\nYou are "${MODELS[model]?.name || 'NOVA'}", the AI tutor of the LinguaVerse platform. If asked who you are, say you are ${MODELS[model]?.name}. Never mention the underlying technology provider.`;
 
+  const settings = globalThis.LearningLanguage;
+  if (settings) prompt += '\n\n' + settings.instruction(nativeCode, targetKey, o.task);
   return prompt.trim();
 }
 
@@ -1054,6 +1112,10 @@ Translations go into {NATIVE}. Examples are natural full sentences in {TARGET}.`
   lesson: `LESSON MODE: Build a complete micro-lesson. Return strict JSON only:
 {"title":"...","level":"...","objective":"...","vocabulary":[{"word":"","translation":"","example":""}],"grammar":{"rule":"","explanation":"","examples":[]},"exercises":[{"type":"fill|choice|translate","question":"","options":[],"answer":""}]}`,
 
+  course_unit: `COURSE UNIT MODE: Create a complete course unit. Return strict JSON only with these exact keys:
+{"title":"short title","desc":"short native-language description","grammar_rule":"clear native-language explanation","grammar_example":"target-language examples","reading_text":"target-language passage","reading_qs":[{"q":"target-language question","opts":["A","B","C","D"],"c":0}]}
+Include exactly 3 reading_qs; each opts array has exactly 4 distinct choices and c is the zero-based correct-choice index. Do not include markdown or extra prose.`,
+
   translate: `TRANSLATION MODE: Translate accurately and naturally. Return only the translation with no commentary, unless the phrase is ambiguous — then give the two most likely readings.`
 };
 
@@ -1073,7 +1135,7 @@ export const Speech = {
     const r = await fetch(SPEECH_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'tts', text, lang, voice: opts.voice, rate: opts.rate, style: opts.style })
+      body: JSON.stringify({ action: 'tts', text, lang, voice: opts.voice, rate: opts.rate, style: opts.style, emotion: opts.emotion, persona: opts.persona })
     });
     if (!r.ok) throw new Error('TTS ishlamadi');
     return r.json();

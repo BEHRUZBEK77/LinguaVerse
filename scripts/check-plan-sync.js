@@ -42,6 +42,20 @@ for (const id of ids) {
   );
 }
 
+// ── Video kurs narxlari: js/course-catalog.mjs ↔ _plans.js COURSE_LEVELS ──
+const { COURSE_LEVELS: serverCourses } = require(path.join(ROOT, 'netlify', 'functions', '_plans.js'));
+const catalog = fs.readFileSync(path.join(ROOT, 'js', 'course-catalog.mjs'), 'utf8');
+const cm = /COURSE_PRICES\s*=\s*\{([^}]*)\}/.exec(catalog);
+const clientCourses = {};
+if (cm) for (const [, k, v] of cm[1].matchAll(/(\w+):\s*(\d+)/g)) clientCourses[k] = +v;
+for (const id of Object.keys(serverCourses)) {
+  const c = clientCourses[id];
+  const s = serverCourses[id].price;
+  const ok = c === s;
+  if (!ok) fail++;
+  console.log(('kurs_' + id).padEnd(11) + String(c ?? '—').padEnd(11) + String(s).padEnd(11) + (ok ? '✅' : '❌ FARQ BOR'));
+}
+
 console.log('');
 if (fail) {
   console.log(`❌ ${fail} ta rejada narx farq qilyapti.`);

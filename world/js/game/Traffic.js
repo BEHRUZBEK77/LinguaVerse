@@ -21,6 +21,8 @@ const CAR_COLORS = [
 const PED_SKINS = [0xf1c27d, 0xd8a06a, 0x8a5a3a, 0xc97e5a];
 const PED_SHIRTS = [0x4f6ef7, 0xe85c5c, 0x5cb85c, 0xf0a33a, 0x9a66e0, 0x4ab8b8, 0xe87ad0, 0x7a8a9a];
 const PED_HAIRS = [0x2a201a, 0x3a2a1a, 0x5a3a1a, 0x22282e];
+const PED_PANTS = [0x293449, 0x48515d, 0x343238, 0x59604a];
+const PED_SHOES = [0x252329, 0x4a3022, 0x454a52];
 
 function randRange(a, b) { return a + Math.random() * (b - a); }
 
@@ -92,7 +94,7 @@ export class Traffic {
       mesh.rotation.y = car.dir > 0 ? 0 : Math.PI;
     } else {
       mesh.position.set(lane, 0, car.pos);
-      mesh.rotation.y = car.dir > 0 ? Math.PI / 2 : -Math.PI / 2;
+      mesh.rotation.y = car.dir > 0 ? -Math.PI / 2 : Math.PI / 2;
     }
   }
 
@@ -103,13 +105,23 @@ export class Traffic {
       const skin = PED_SKINS[(Math.random() * PED_SKINS.length) | 0];
       const shirt = PED_SHIRTS[(Math.random() * PED_SHIRTS.length) | 0];
       const hair = PED_HAIRS[(Math.random() * PED_HAIRS.length) | 0];
+      const pants = PED_PANTS[(Math.random() * PED_PANTS.length) | 0];
+      const shoe = PED_SHOES[(Math.random() * PED_SHOES.length) | 0];
       const female = Math.random() < 0.5;
+      const hairStyle = female
+        ? (Math.random() < 0.72 ? 'long' : 'curly')
+        : (Math.random() < 0.22 ? 'curly' : 'short');
       const mesh = buildAvatar({
         skin, shirt,
-        pants: 0x3a3f52,
+        pants,
+        shoe,
         hair,
-        hairStyle: female ? 'long' : 'short',
+        hairStyle,
+        sharedMaterials: true,
         beard: !female && Math.random() < 0.3
+      });
+      mesh.traverse(part => {
+        if (part.isMesh) part.castShadow = false;
       });
       // bolalar — kichikroq
       const child = Math.random() < 0.12;
@@ -149,9 +161,9 @@ export class Traffic {
       car.pos += car.dir * car.speed * dt;
 
       // g'ildiraklar aylanishi
-      const spin = car.dir * car.speed / 0.3 * dt;
+      const spin = car.speed / 0.235 * dt;
       for (const w of car.wheels) {
-        w.rotation.x -= spin;   // g'ildirak lokal o'qi bo'ylab
+        w.rotation.z -= spin;   // barcha yo'nalishlarda mashinaning lokal oldinga yo'nalishi
       }
 
       // oxiriga yetganda narigi tarafga
@@ -170,9 +182,7 @@ export class Traffic {
       if (p.state === 'idle') {
         // turib nafas oladi — muzlab qolmagan ko'rinishda
         p.breathePhase += dt * 1.6;
-        const br = Math.sin(p.breathePhase) * 0.015;
-        p.parts.torso.position.y = 0.9 + br;
-        p.parts.head.position.y = 1.48 + br * 0.8;
+        this._animatePed(p, false);
 
         if (p.timer <= 0) {
           // yangi nuqtaga yo'l olish
@@ -215,16 +225,24 @@ export class Traffic {
     }
   }
 
-  _animatePed(p) {
+  _animatePed(p, walking = true) {
     const parts = p.parts;
-    const swing = Math.sin(p.walkPhase);
-    const swing2 = Math.sin(p.walkPhase + Math.PI);
+    const swing = walking ? Math.sin(p.walkPhase) : 0;
+    const swing2 = walking ? Math.sin(p.walkPhase + Math.PI) : 0;
+    const breath = Math.sin(p.breathePhase) * 0.015;
     parts.legL.pivot.rotation.x = swing * 0.5;
     parts.legR.pivot.rotation.x = swing2 * 0.5;
-    parts.armL.pivot.rotation.x = swing2 * 0.6;
-    parts.armR.pivot.rotation.x = swing * 0.6;
-    parts.torso.position.y = 0.9 + Math.abs(swing) * 0.02;
-    parts.head.position.y = 1.48 + Math.abs(swing) * 0.014;
+    parts.legL.knee.rotation.x = walking ? Math.max(0, swing) * 0.28 : 0;
+    parts.legR.knee.rotation.x = walking ? Math.max(0, swing2) * 0.28 : 0;
+    parts.armL.pivot.rotation.x = walking ? swing2 * 0.6 : Math.sin(p.breathePhase * 0.5) * 0.025;
+    parts.armR.pivot.rotation.x = walking ? swing * 0.6 : -Math.sin(p.breathePhase * 0.5) * 0.025;
+    parts.armL.elbow.rotation.x = walking ? 0.16 + Math.max(0, swing) * 0.12 : 0.04;
+    parts.armR.elbow.rotation.x = walking ? 0.16 + Math.max(0, swing2) * 0.12 : 0.04;
+    parts.torso.position.y = 0.9 + (walking ? Math.abs(swing) * 0.02 : breath);
+    parts.head.position.y = 1.48 + (walking ? Math.abs(swing) * 0.014 : breath * 0.8);
+    parts.torso.rotation.x = walking ? 0.035 : 0;
+    parts.torso.rotation.z = walking ? swing * 0.025 : 0;
+    parts.head.rotation.x = walking ? -swing * 0.025 : 0;
   }
 
   dispose() {

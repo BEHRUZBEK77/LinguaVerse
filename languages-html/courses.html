@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LinguaVerse AI video kurslari: 8 tilda har biri 150 ta video dars (A1–C2). B2 kursi 200 000 so'm, C2 kursi 400 000 so'm. AI ustoz, emotsiyali ovoz, test va sertifikat.">
+  <title>AI video kurslar — LinguaVerse</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <script src="../js/lv-icons.js" defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); min-height: 100vh; }
+    nav { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px max(16px, calc((100% - 1180px)/2)); background: var(--nav-bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+    nav a { color: var(--text2); text-decoration: none; font-weight: 600; font-size: .85rem; }
+    nav .logo { color: var(--text); font-size: 1.1rem; font-family: var(--font-head); font-weight: 700; }
+    nav .logo span { color: var(--accent); }
+    .links { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    main { max-width: 1180px; margin: auto; padding: 24px 16px 80px; }
+    h1, h2, h3, p { margin-top: 0; }
+    .muted { color: var(--text3); line-height: 1.6; }
+    .hidden { display: none !important; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 12px; background: var(--accent); color: #0b1216; font: inherit; font-weight: 750; padding: 11px 16px; cursor: pointer; text-decoration: none; transition: transform .15s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .btn.ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .btn.red { background: #e11d48; color: #fff; }
+
+    .hero h1 { font-family: var(--font-head); font-size: clamp(1.7rem, 4.5vw, 2.6rem); margin-bottom: 8px; }
+    .hero h1 em { font-style: normal; color: #fb7185; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+    .chip { padding: 9px 13px; border-radius: 12px; background: var(--surface2); border: 1px solid var(--border); color: var(--text); cursor: pointer; font: inherit; font-size: .9rem; }
+    .chip.sel { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+
+    .courses { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .course { position: relative; border-radius: 20px; padding: 22px; background: linear-gradient(160deg, color-mix(in srgb, var(--c) 18%, transparent), var(--surface) 60%); border: 1px solid color-mix(in srgb, var(--c) 35%, var(--border)); }
+    .course .lvl { display: inline-block; font-family: var(--font-head); font-weight: 700; font-size: 2.2rem; color: var(--c); line-height: 1; }
+    .course h3 { margin: 8px 0 6px; font-size: 1.15rem; }
+    .course .price { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; margin: 12px 0 2px; }
+    .course .price small { font-size: .78rem; color: var(--text3); font-weight: 500; }
+    .course ul { padding-left: 18px; color: var(--text2); line-height: 1.75; font-size: .88rem; margin: 12px 0 16px; }
+    .course .acts { display: flex; gap: 8px; flex-wrap: wrap; }
+    .owned { position: absolute; top: 16px; right: 16px; padding: 5px 10px; border-radius: 99px; font-size: .72rem; font-weight: 800; background: rgba(140,207,157,.15); color: var(--green); }
+    .pbar { height: 7px; border-radius: 99px; background: var(--surface2); overflow: hidden; margin-top: 10px; }
+    .pbar i { display: block; height: 100%; background: var(--c); }
+
+    .lessons { margin-top: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 18px; }
+    .lessons-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .ls { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; padding: 12px 10px; border-radius: 12px; cursor: pointer; border: 1px solid transparent; }
+    .ls:hover { background: var(--surface2); border-color: var(--border); }
+    .ls .num { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--surface2); font-weight: 800; font-size: .85rem; }
+    .ls.done .num { background: rgba(140,207,157,.18); color: var(--green); }
+    .ls.locked { opacity: .6; }
+    .ls .tag { font-size: .7rem; padding: 3px 8px; border-radius: 6px; background: var(--surface2); color: var(--text3); }
+    .ls .t { font-weight: 650; font-size: .93rem; }
+    .cefr-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 4px 0 6px; }
+    .cefr-tab { padding: 6px 12px; border-radius: 9px; background: var(--surface2); border: 1px solid var(--border); color: var(--text); text-decoration: none; font-weight: 800; font-size: .8rem; }
+    .cefr-head { position: sticky; top: 58px; z-index: 2; margin: 16px 0 6px; padding: 9px 12px; border-radius: 10px; background: var(--bg2); border: 1px solid var(--border); font-size: .85rem; color: var(--text2); }
+    .cefr-head b { color: var(--accent); font-family: var(--font-head); font-size: 1rem; margin-right: 4px; }
+
+    /* ── PLEYER ── */
+    .player-wrap > * { flex-shrink: 0; }
+    .player-wrap { position: fixed; inset: 0; z-index: 40; background: rgba(5,8,12,.985); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; overflow-y: auto; padding: 14px; }
+    .player-top { width: 100%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .player-top b { font-family: var(--font-head); font-size: 1rem; }
+    .screen { position: relative; width: 100%; max-width: 1100px; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: radial-gradient(120% 120% at 0% 0%, #1b2a3a 0%, #0c1218 55%, #10151b 100%); border: 1px solid var(--border2); display: grid; grid-template-columns: 34% 1fr; }
+    .screen .brand { position: absolute; top: 14px; left: 18px; font-family: var(--font-head); font-weight: 700; font-size: .85rem; opacity: .75; }
+    .screen .brand span { color: var(--accent); }
+    .screen .lvl-badge { position: absolute; top: 12px; right: 16px; font-size: .72rem; padding: 4px 9px; border-radius: 8px; background: rgba(255,255,255,.08); }
+    .s-avatar { display: grid; place-items: end center; padding: 40px 6% 0; }
+    .s-avatar > div { width: 100%; max-width: 320px; aspect-ratio: 1 / 1.05; }
+    .board { padding: 54px 5% 90px 2%; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+    .board .kind { font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .board h2 { font-family: var(--font-head); font-size: clamp(1rem, 2.6vw, 1.9rem); margin: 0; line-height: 1.2; }
+    .board .line { font-size: clamp(.8rem, 1.7vw, 1.15rem); padding: 8px 12px; border-left: 3px solid var(--accent); background: rgba(255,255,255,.04); border-radius: 0 10px 10px 0; opacity: 0; transform: translateX(14px); transition: all .45s ease; }
+    .board .ex { font-size: clamp(.75rem, 1.5vw, 1rem); padding: 8px 12px; border-radius: 10px; background: rgba(112,205,187,.08); opacity: 0; transform: translateY(8px); transition: all .45s ease; }
+    .board .ex small { display: block; color: var(--text3); }
+    .board .in { opacity: 1; transform: none; }
+    .subs { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(92%, 860px); text-align: center; pointer-events: none; }
+    .subs .tgt { display: inline; background: rgba(0,0,0,.72); padding: 4px 10px; border-radius: 8px; font-size: clamp(.78rem, 1.6vw, 1.05rem); line-height: 1.9; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .subs .uz { display: block; margin-top: 4px; font-size: clamp(.68rem, 1.3vw, .85rem); color: #fde68a; text-shadow: 0 1px 3px #000; }
+    .subs.off { display: none; }
+    .loader { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(5,8,12,.75); text-align: center; padding: 20px; }
+    .spin { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--border2); border-top-color: var(--accent); animation: sp .8s linear infinite; margin: 0 auto 12px; }
+    @keyframes sp { to { transform: rotate(360deg); } }
+
+    .mp4 { width: 100%; max-width: 1100px; aspect-ratio: 16 / 9; border-radius: 18px; background: #000; border: 1px solid var(--border2); }
+    .vid-badge { display: inline-flex; gap: 6px; align-items: center; font-size: .72rem; font-weight: 800; padding: 4px 9px; border-radius: 8px; background: rgba(225,29,72,.15); color: #fb7185; margin-left: 8px; }
+    .controls { width: 100%; max-width: 1100px; display: flex; align-items: center; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+    .controls button { background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 9px 12px; font: inherit; font-size: .85rem; cursor: pointer; }
+    .controls button.on { color: var(--accent); border-color: var(--border-hi); }
+    .segs { flex: 1; display: flex; gap: 4px; min-width: 160px; }
+    .segs i { flex: 1; height: 6px; border-radius: 99px; background: var(--surface3); cursor: pointer; position: relative; overflow: hidden; }
+    .segs i.done { background: var(--accent); }
+    .segs i.cur::after { content: ''; position: absolute; inset: 0; width: var(--p, 0%); background: var(--accent); }
+
+    .after { width: 100%; max-width: 1100px; margin-top: 14px; display: grid; gap: 14px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+    .vocab { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+    .vocab div { padding: 9px 11px; border-radius: 10px; background: var(--surface2); font-size: .88rem; }
+    .vocab small { display: block; color: var(--text3); }
+    .q { padding: 12px 0; border-top: 1px solid var(--border); }
+    .q p { font-weight: 650; margin-bottom: 8px; }
+    .opt { display: flex; gap: 9px; align-items: flex-start; padding: 8px 10px; margin: 5px 0; border-radius: 10px; cursor: pointer; border: 1px solid var(--border); background: var(--surface2); font-size: .9rem; }
+    .opt input { margin-top: 3px; accent-color: var(--accent); }
+    .opt.ok { border-color: var(--green); background: rgba(140,207,157,.12); }
+    .opt.bad { border-color: #f87171; background: rgba(248,113,113,.12); }
+    .why { font-size: .82rem; color: var(--text3); margin-top: 4px; }
+
+    .modal { position: fixed; inset: 0; z-index: 60; background: rgba(0,0,0,.65); display: grid; place-items: center; padding: 16px; }
+    .modal .box { max-width: 440px; width: 100%; background: var(--bg2); border: 1px solid var(--border2); border-radius: 18px; padding: 22px; }
+    .modal h3 { font-family: var(--font-head); margin-bottom: 6px; }
+    .chk { display: flex; gap: 10px; align-items: flex-start; font-size: .85rem; line-height: 1.5; color: var(--text2); margin: 14px 0; }
+    .chk a { color: var(--accent); }
+    .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); z-index: 80; background: var(--bg3); border: 1px solid var(--border2); padding: 11px 16px; border-radius: 12px; font-size: .88rem; max-width: calc(100% - 32px); }
+    .course-profile{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 22px;margin:24px 0;border:1px solid #315b58;border-radius:16px;background:linear-gradient(110deg,#11332e66,#101926)}
+    .course-profile small{display:block;color:var(--text2);margin-top:5px}
+    .preview-card{padding:22px;border:1px solid #385d61;border-radius:20px;background:linear-gradient(120deg,#17373c66,#141c2e);margin:24px 0}
+    .preview-card summary{cursor:pointer;font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:#a5ebd7}
+    .preview-card video{width:100%;max-height:620px;border-radius:12px;margin-top:16px;background:#07131c}
+    .lesson-tools{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+    .lesson-tools input,.lesson-tools select{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:12px;font:inherit;max-width:100%}
+    .lesson-tools input{flex:1;min-width:180px}
+    .media-status{width:100%;max-width:1100px;padding:14px 18px;border-radius:12px;background:#14252c;border:1px solid #3d5a64;color:#c8dcdf;line-height:1.6}
+    .media-status:empty{display:none}.media-status button{margin:8px 8px 0 0}
+    .chapter-list{display:flex;gap:8px;flex-wrap:wrap;max-width:1100px;width:100%}.chapter-list:empty{display:none}
+    .chapter-list button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;cursor:pointer;font:inherit;font-size:.8rem}
+    .chapter-list button.active{border-color:#8de2c7;color:#8de2c7}.chapter-list button span{opacity:.6;margin-inline-end:8px}
+    .sub-ad { margin-top: 22px; display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 18px; border-radius: 18px; border: 1px solid rgba(225,29,72,.35); background: linear-gradient(120deg, rgba(225,29,72,.12), transparent); }
+
+    @media (max-width: 760px) {
+      .courses { grid-template-columns: 1fr; }
+      .screen { grid-template-columns: 1fr; aspect-ratio: auto; min-height: 76vh; }
+      .s-avatar { padding: 44px 0 0; }
+      .s-avatar > div { max-width: 150px; }
+      .board { padding: 8px 18px 120px; justify-content: flex-start; }
+      .ls { grid-template-columns: 36px 1fr; }
+      .ls .tag { display: none; }
+      nav .links a.hide-m { display: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="../index.html">Lingua<span>Verse</span></a>
+    <div class="links">
+      <a class="hide-m" href="./ielts-examiner.html">IELTS imtihonchi</a>
+      <a class="hide-m" href="./ielts-prep.html">IELTS tayyorlov</a>
+      <a href="./profile.html">Profil</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div style="color:#88ddc6;letter-spacing:.18em;font-size:.75rem;font-weight:800;margin-bottom:14px">LINGUAVERSE / LANGUAGE ACADEMY</div>
+      <h1 id="courseHeading"></h1>
+      <p class="muted" id="courseIntro"></p>
+    </section>
+    <div class="course-profile"><div><b id="coursePair" translate="no"></b><small id="coursePairHint"></small></div><button class="btn ghost" id="courseSettings" onclick="openLanguageSettings()"></button></div>
+    <details class="preview-card" id="samplePreview"><summary id="sampleTitle"></summary><p class="muted" id="sampleNote" style="margin-top:10px"></p><video id="sampleVideo" controls playsinline preload="none" poster="../media/lessons/greetings-poster.jpg"><source src="../media/lessons/uz_english_b2_02.mp4" type="video/mp4"><track kind="subtitles" src="../media/lessons/uz_english_b2_02.vtt" srclang="uz" label="O‘zbekcha"></video></details>
+
+    <div class="chips" id="langChips"></div>
+    <div class="courses" id="courses"></div>
+    <div class="lessons hidden" id="lessons"></div>
+
+    <div class="sub-ad">
+      <div>
+        <b style="font-family:var(--font-head);font-size:1.05rem"><i class="fa-solid fa-graduation-cap" style="color:#fb7185"></i> IELTS PRO — oyiga 200 000 so'm</b>
+        <div class="muted" style="font-size:.86rem">Har kuni onlayn darslar, cheksiz IELTS Speaking imtihonchi va qattiq AI ustoz. Avto-to'lov bilan.</div>
+      </div>
+      <a class="btn red" href="../order.html?plan=ielts">Obuna bo'lish</a>
+    </div>
+  </main>
+
+  <!-- PLEYER -->
+  <div class="player-wrap hidden" id="player">
+    <div class="player-top">
+      <b id="pTitle">Dars</b>
+      <button class="btn ghost" onclick="closePlayer()"><i class="fa-solid fa-xmark"></i> Yopish</button>
+    </div>
+    <div class="screen" id="screen">
+      <div class="brand">Lingua<span>Verse</span></div>
+      <div class="lvl-badge" id="pBadge">B2</div>
+      <div class="s-avatar"><div id="pAvatar"></div></div>
+      <div class="board" id="board"></div>
+      <div class="subs" id="subs"><span class="tgt" id="subT"></span><span class="uz" id="subU"></span></div>
+      <div class="loader" id="pLoader"><div><div class="spin"></div><div id="pLoadTxt">Ustoz darsni tayyorlamoqda…</div><div class="muted" style="font-size:.8rem;margin-top:6px">Dars birinchi marta ochilganda tayyorlanishi biroz vaqt olishi mumkin.</div></div></div>
+    </div>
+    <video id="mp4" class="mp4 hidden" controls playsinline preload="metadata" controlslist="nodownload" oncontextmenu="return false"></video>
+    <div class="media-status" id="mediaStatus" role="status" translate="no"></div>
+    <div class="chapter-list" id="videoChapters" translate="no"></div>
+    <div class="controls" id="liveControls">
+      <button onclick="prevScene()" aria-label="Oldingi"><i class="fa-solid fa-backward-step"></i></button>
+      <button id="btnPlay" onclick="togglePlay()" aria-label="Ijro"><i class="fa-solid fa-play"></i></button>
+      <button onclick="nextScene()" aria-label="Keyingi"><i class="fa-solid fa-forward-step"></i></button>
+      <div class="segs" id="segs"></div>
+      <button id="btnSpeed" onclick="cycleSpeed()">1×</button>
+      <button id="btnSubs" class="on" onclick="toggleSubs()"><i class="fa-solid fa-closed-captioning"></i></button>
+      <button id="btnNativeAudio" class="on" onclick="toggleNativeAudio()" aria-label="Ona tilidagi izoh">◎</button>
+      <button id="btnUz" class="on" onclick="toggleUz()">UZ</button>
+      <button onclick="fullscreen()" aria-label="To'liq ekran"><i class="fa-solid fa-expand"></i></button>
+    </div>
+    <div class="after" id="after"></div>
+  </div>
+
+  <!-- SOTIB OLISH -->
+  <div class="modal hidden" id="buyModal">
+    <div class="box">
+      <h3 id="buyTitle">Kursni sotib olish</h3>
+      <div class="muted" id="buySub"></div>
+      <div style="font-family:var(--font-head);font-size:1.6rem;font-weight:700;margin:12px 0" id="buyPrice"></div>
+      <label class="chk"><input type="checkbox" id="buyOffer"> <span>Men <a href="../offer.html" target="_blank" rel="noopener">Ommaviy oferta</a> shartlariga roziman.</span></label>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn red" id="buyBtn" onclick="payCourse()"><i class="fa-solid fa-credit-card"></i> Karta bilan to'lash</button>
+        <button class="btn ghost" onclick="$('buyModal').classList.add('hidden')">Bekor qilish</button>
+      </div>
+      <div class="muted" style="font-size:.78rem;margin-top:12px">To'lov inPAY orqali (Uzcard, Humo, Visa). To'lovdan keyin kurs darhol ochiladi. Naqd to'lash uchun: <a href="https://t.me/Akromov141" target="_blank" rel="noopener" style="color:var(--accent)">@Akromov141</a> — admin qo'lda yoqib beradi.</div>
+      <div id="buyRes" style="margin-top:10px;font-size:.85rem"></div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { copy } from '../js/learning-copy.mjs';
+    import { captionsVtt } from '../js/video-captions.mjs';
+    import { auth, url } from '../js/lv-core.js';
+    import { onAuthStateChanged } from '/js/fb/firebase-auth.js';
+    import { COURSE_LANGS, COURSE_LEVELS, courseKey, FREE_PREVIEW_LESSONS } from '../js/course-catalog.mjs';
+    import { TeacherAvatar, TEACHER_CSS, EMOTION_LABELS } from '../js/lv-teacher.mjs';
+
+    const $ = id => document.getElementById(id);
+    window.$ = $;
+    const st = document.createElement('style'); st.textContent = TEACHER_CSS; document.head.appendChild(st);
+    const COURSE_URL = url('.netlify/functions/course');
+    const PAY_URL = url('.netlify/functions/payment');
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const fmt = n => n.toLocaleString('ru-RU');
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    const toast = m => { const t = document.createElement('div'); t.className = 'toast'; t.innerHTML = m; document.body.appendChild(t); setTimeout(() => t.remove(), 4000); };
+
+    const pref = window.LearningLanguage.get();
+    const nativeLang = pref.nativeLang;
+    const nativeInfo = window.LearningLanguage.languages[nativeLang];
+    const t = key => copy(key, nativeLang);
+    for (const [id,key] of Object.entries({courseHeading:'courses',courseIntro:'courseIntro',coursePairHint:'hint',courseSettings:'settings',sampleTitle:'preview',sampleNote:'previewNote'})) $(id).textContent = t(key);
+    $('btnUz').textContent = nativeLang.toUpperCase();
+    $('btnNativeAudio').title = t('nativeAudio');
+    $('btnNativeAudio').setAttribute('aria-label',t('nativeAudio'));
+    $('sampleVideo').onplay = () => { if (!$('player').classList.contains('hidden')) closePlayer(); };
+    const params = new URLSearchParams(location.search);
+    const S = { lang: params.get('lang') || pref.targetLang, level: params.get('level') || null, user: null, mine: { owned: [], progress: {} }, buy: null };
+
+    async function api(action, payload = {}) {
+      if (!S.user) throw Object.assign(new Error('Tizimga kiring'), { code: 'auth' });
+      const idToken = await S.user.getIdToken();
+      const r = await fetch(COURSE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, idToken, nativeLang, ...payload }) });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw Object.assign(new Error(d.error || 'Xato'), { status: r.status, data: d });
+      return d;
+    }
+
+    const owns = (lang, level) => S.mine.owned.includes(courseKey(lang, level)) || (level === 'b2' && S.mine.owned.includes(courseKey(lang, 'c2')));
+
+    // ── KATALOG ──
+    function renderLangs() {
+      $('coursePair').textContent = nativeInfo.label + ' → ' + (COURSE_LANGS.find(l=>l.id===S.lang)?.native || 'English');
+      $('langChips').innerHTML = COURSE_LANGS.map(l => `<button class="chip ${S.lang === l.id ? 'sel' : ''}" onclick="pickLang('${l.id}')">${l.flag} ${l.native}</button>`).join('');
+    }
+    window.pickLang = id => { if (!COURSE_LANGS.some(l=>l.id===id)) return; window.LearningLanguage.set({targetLang:id},{notify:false}); S.lang = id; S.level = null; renderLangs(); renderCourses(); $('lessons').classList.add('hidden'); history.replaceState(null, '', `?lang=${id}`); };
+
+    function renderCourses() {
+      const L = COURSE_LANGS.find(l => l.id === S.lang) || COURSE_LANGS[0];
+      $('courses').innerHTML = ['b2', 'c2'].map(lv => {
+        const C = COURSE_LEVELS[lv];
+        const own = owns(S.lang, lv);
+        const pr = S.mine.progress[courseKey(S.lang, lv)];
+        const pct = pr ? Math.round(pr.passedCount / C.lessons.length * 100) : 0;
+        return `<div class="course" style="--c:${C.color}">
+          ${own ? '<span class="owned"><i class="fa-solid fa-check"></i> Sizniki</span>' : ''}
+          <div class="lvl">${C.short}</div>
+          <h3>${L.flag} ${esc(L.name)} — ${esc(C.name)}</h3>
+          <div class="muted" style="font-size:.88rem">${esc(C.promise)}</div>
+          <div class="price">${fmt(C.price)} so'm <small>· bir martalik, umrbod</small></div>
+          <ul>
+            <li>${C.lessons.length} ta video dars, har biri ~30 daqiqa (${C.cefrs.join(' → ')}) + har birida test${lv === 'c2' ? ` · B2 kursi bilan jami ${COURSE_LEVELS.b2.lessons.length + C.lessons.length} ta` : ''}</li>
+            <li>${esc(L.native)} tilida gapiruvchi shaxsiy AI ustoz ovozi</li>
+            <li translate="no">${esc(nativeInfo.label)} · ${esc(t("captions"))} · ${esc(t("nativeAudio"))}</li>
+            <li>Yakuniy imtihon va tekshiriladigan sertifikat${lv === 'c2' ? ' · B2 kursi ham ichida' : ''}</li>
+            <li>${esc(L.exam)} imtihoniga tayyorlov</li>
+          </ul>
+          ${own && pr ? `<div class="muted" style="font-size:.8rem">Progress: ${pr.passedCount}/${C.lessons.length}${pr.certificateId ? ` · <a href="../certificate.html?id=${esc(pr.certificateId)}" style="color:var(--gold)">Sertifikat</a>` : ''}</div><div class="pbar"><i style="width:${pct}%"></i></div><div style="height:12px"></div>` : ''}
+          <div class="acts">
+            ${own
+              ? `<button class="btn" onclick="openCourse('${lv}')"><i class="fa-solid fa-circle-play"></i> Darslarga o'tish</button>`
+              : `<button class="btn red" onclick="buy('${lv}')"><i class="fa-solid fa-cart-shopping"></i> Sotib olish</button>
+                 <button class="btn ghost" onclick="openCourse('${lv}')"><i class="fa-solid fa-play"></i> 1-dars bepul</button>`}
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    window.openCourse = function (lv) {
+      if (!COURSE_LEVELS[lv]) return;
+      S.level = lv;
+      const C = COURSE_LEVELS[lv];
+      const own = owns(S.lang, lv);
+      const pr = S.mine.progress[courseKey(S.lang, lv)]?.lessons || {};
+      $('lessons').classList.remove('hidden');
+      $('lessons').innerHTML = `<div class="lessons-head"><h2 style="font-family:var(--font-head);margin:0">${C.short} kursi — ${C.lessons.length} ta dars</h2>${own ? '' : `<button class="btn red" onclick="buy('${lv}')">Butun kursni ochish — ${fmt(C.price)} so'm</button>`}</div>` +
+        `<div class="lesson-tools"><input id="lessonSearch" type="search" placeholder="${esc(t('search'))}" aria-label="${esc(t('search'))}" oninput="filterLessons()"><select id="lessonLevel" aria-label="CEFR" onchange="filterLessons()"><option value="">${esc(t('all'))}</option>${C.cefrs.map(c=>`<option>${c}</option>`).join('')}</select></div>` +
+        `<div class="cefr-tabs">${C.cefrs.map(c => `<a href="#cefr-${c}" class="cefr-tab">${c}</a>`).join('')}</div>` +
+        C.lessons.map((l, i) => {
+          const head = (i === 0 || C.lessons[i - 1].cefr !== l.cefr)
+            ? `<div class="cefr-head" id="cefr-${l.cefr}"><b>${l.cefr}</b> daraja · ${C.lessons.filter(x => x.cefr === l.cefr).length} ta dars</div>` : '';
+          const locked = !own && i >= FREE_PREVIEW_LESSONS;
+          const done = pr[i]?.passed;
+          return head + `<div data-cefr="${l.cefr}" class="ls ${locked ? 'locked' : ''} ${done ? 'done' : ''}" onclick="${locked ? `buy('${lv}')` : `play(${i})`}">
+            <div class="num">${done ? '<i class="fa-solid fa-check"></i>' : locked ? '<i class="fa-solid fa-lock"></i>' : i + 1}</div>
+            <div><div class="t">${esc(l.t)}</div>${pr[i] ? `<div class="muted" style="font-size:.76rem">Test: ${Math.round(pr[i].score * 100)}%</div>` : (i === 0 && !own ? '<div class="muted" style="font-size:.76rem">Bepul</div>' : '')}</div>
+            <span class="tag">${esc(l.skill)}</span>
+          </div>`;
+        }).join('');
+      $('lessons').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    window.filterLessons = () => {
+      const q = $('lessonSearch').value.toLocaleLowerCase();
+      const level = $('lessonLevel').value;
+      document.querySelectorAll('#lessons .ls').forEach(row => { row.hidden = !(row.textContent.toLocaleLowerCase().includes(q) && (!level || row.dataset.cefr === level)); row.style.display = row.hidden ? 'none' : ''; });
+      document.querySelectorAll('#lessons .cefr-head').forEach(h => { const cefr=h.id.replace('cefr-',''); h.hidden = ![...document.querySelectorAll('#lessons .ls')].some(r=>r.dataset.cefr===cefr && !r.hidden); });
+    };
+
+    // ── SOTIB OLISH ──
+    window.buy = function (lv) {
+      if (!S.user) { location.href = '../auth/login.html?redirect=' + encodeURIComponent(location.pathname + location.search); return; }
+      const L = COURSE_LANGS.find(l => l.id === S.lang);
+      const C = COURSE_LEVELS[lv];
+      S.buy = lv;
+      $('buyTitle').textContent = `${L.flag} ${L.name} — ${C.short} video kurs`;
+      $('buySub').textContent = C.promise;
+      $('buyPrice').textContent = fmt(C.price) + " so'm";
+      $('buyRes').innerHTML = '';
+      $('buyModal').classList.remove('hidden');
+    };
+
+    window.payCourse = async function () {
+      if (!$('buyOffer').checked) { $('buyRes').innerHTML = '<span style="color:#fca5a5">Avval oferta shartlariga rozilik bering.</span>'; return; }
+      const btn = $('buyBtn'); btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Havola tayyorlanmoqda…';
+      try {
+        const idToken = await S.user.getIdToken();
+        const r = await fetch(PAY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'create', kind: 'course', lang: S.lang, level: S.buy, idToken, offerAccepted: true }) });
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok || !d.paymentUrl) throw new Error(d.error || "To'lov havolasi olinmadi");
+        try { localStorage.setItem('lv_last_order', d.orderId); } catch {}
+        location.href = d.paymentUrl;
+      } catch (e) {
+        $('buyRes').innerHTML = `<span style="color:#fca5a5">${esc(e.message)}</span>`;
+        btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-credit-card"></i> Karta bilan to\'lash';
+      }
+    };
+
+    // ═══ PLEYER ═══
+    const P = { n: 0, data: null, scene: 0, playing: false, audio: null, speed: 1, subs: true, uz: true, cache: {}, avatar: null, token: 0, nativeAudio: true, captionUrls: [] };
+
+    window.play = async function (n) {
+      if (!S.user) { location.href = '../auth/login.html?redirect=' + encodeURIComponent(location.pathname + location.search); return; }
+      $('sampleVideo').pause();
+      clearVideoTracks();
+      $('mediaStatus').textContent = ''; $('videoChapters').replaceChildren();
+      P.n = n; P.scene = 0; P.data = null; P.cache = {}; P.token++; P.started = false; P.playing = false; stopAudio();
+      try { $('mp4').pause(); $('mp4').removeAttribute('src'); $('mp4').load(); } catch {}
+      $('mp4').classList.add('hidden'); $('screen').classList.remove('hidden'); $('liveControls').classList.remove('hidden');
+      const C = COURSE_LEVELS[S.level];
+      $('player').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      $('pTitle').textContent = `${C.lessons[n].cefr} · ${n + 1}-dars: ${C.lessons[n].t}`;
+      $('pBadge').textContent = `${C.lessons[n].cefr} · ${n + 1}/${C.lessons.length}`;
+      $('after').innerHTML = '';
+      $('board').innerHTML = '';
+      $('subT').textContent = ''; $('subU').textContent = '';
+      $('pLoader').classList.remove('hidden');
+      $('pLoadTxt').textContent = 'Ustoz darsni tayyorlamoqda…';
+      if (!P.avatar) P.avatar = new TeacherAvatar($('pAvatar'), S.lang); else P.avatar.setTeacher(S.lang);
+      await loadLesson(P.token);
+    };
+
+    async function loadLesson(token) {
+      // 30 daqiqalik dars qism-qism tayyorlanadi: birinchi qism kelishi bilan
+      // dars boshlanadi, qolgan qismlar orqa fonda qo'shilib boradi.
+      for (let attempt = 0, errors = 0; attempt < 30; attempt++) {
+        if (token !== P.token) return;
+        try {
+          const d = await api('lesson', { lang: S.lang, level: S.level, n: P.n });
+          if (token !== P.token) return;
+          P.data = d;
+          if (!P.started) startPlayback(); else if (!d.videoUrl) renderSegs();
+          if (d.status === 'ready') { if (!d.videoUrl && d.videoStatus === 'rendering') $('mediaStatus').textContent = t('rendering'); renderAfter(); return; }
+          const pr = d.parts || {};
+          $('pLoadTxt').textContent = pr.total && pr.done < pr.total ? `Ustoz darsni tayyorlamoqda… ${pr.done}/${pr.total} qism` : 'Test tayyorlanmoqda…';
+          if (P.started && !d.videoUrl && pr.total) $('mediaStatus').textContent = pr.done < pr.total ? `Dars tayyorlanmoqda: ${pr.done}/${pr.total} qism (~${Math.round((pr.estSeconds || 0) / 60)} daq.)` : (d.videoStatus === 'rendering' ? t('rendering') : '');
+          await sleep(1200);
+        } catch (e) {
+          if (token !== P.token) return;
+          if (e.status === 402) { closePlayer(); buy(S.level); toast(esc(e.message)); return; }
+          if (++errors >= 4) { $('pLoadTxt').innerHTML = `${esc(e.message)}<br><button class="btn" style="margin-top:12px" onclick="play(${P.n})">Qayta urinish</button>`; return; }
+          await sleep(1500);
+        }
+      }
+      if (P.data) renderAfter();
+    }
+
+    function clearVideoTracks() {
+      P.captionUrls.forEach(URL.revokeObjectURL); P.captionUrls = [];
+      $('mp4').querySelectorAll('track').forEach(track => track.remove());
+      $('mp4').onerror = null; $('mp4').ontimeupdate = null;
+    }
+    function setupVideoExtras() {
+      const video = $('mp4');
+      for (const [trackName, locale, label] of [['native',nativeLang,nativeInfo.label],['target',(P.data.locale || 'en').split('-')[0],COURSE_LANGS.find(l=>l.id===S.lang).native]]) {
+        const cues = P.data.videoCaptions || [];
+        if (!cues.length) continue;
+        const track = document.createElement('track'); track.kind='subtitles'; track.srclang=locale; track.label=label;
+        track.src=URL.createObjectURL(new Blob([captionsVtt(cues,trackName)],{type:'text/vtt'}));
+        P.captionUrls.push(track.src); video.append(track);
+      }
+      $('videoChapters').setAttribute('aria-label',t('chapters'));
+      (P.data.videoChapters || []).forEach((chapter,i) => {
+        const b=document.createElement('button'); b.type='button';
+        b.textContent = `${Math.floor(chapter.start/60)}:${String(Math.floor(chapter.start%60)).padStart(2,'0')} · ${chapter.title}`;
+        b.onclick=()=>{video.currentTime=chapter.start;video.play().catch(()=>{});};
+        $('videoChapters').append(b);
+      });
+      video.ontimeupdate=()=>{ const chapters=P.data.videoChapters || []; [...$('videoChapters').children].forEach((b,i)=>b.classList.toggle('active',video.currentTime>=chapters[i].start && (!chapters[i+1] || video.currentTime<chapters[i+1].start))); };
+      video.onerror=()=>{
+        $('mediaStatus').replaceChildren(document.createTextNode(t('videoError')));
+        const retry=document.createElement('button'); retry.className='btn';retry.textContent=t('retry');retry.onclick=()=>play(P.n);
+        const live=document.createElement('button');live.className='btn ghost';live.textContent=t('interactive');live.onclick=()=>startInteractive();
+        $('mediaStatus').append(document.createElement('br'),retry,live);
+      };
+    }
+    function startInteractive() {
+      $('mp4').pause(); clearVideoTracks(); $('videoChapters').replaceChildren();
+      $('screen').classList.remove('hidden'); $('liveControls').classList.remove('hidden'); $('mp4').classList.add('hidden');
+      $('mediaStatus').textContent=P.data.videoUrl ? t('interactive') : P.data.videoStatus === 'rendering' ? t('rendering') : t('pending');
+      renderSegs(); showScene(0,true);
+    }
+    function startPlayback() {
+      P.started = true;
+      $('pLoader').classList.add('hidden');
+      // Haqiqiy MP4 video tayyor bo'lsa — uni ko'rsatamiz (montajlangan dars)
+      if (P.data.videoUrl) {
+        $('screen').classList.add('hidden'); $('liveControls').classList.add('hidden');
+        const v = $('mp4');
+        v.classList.remove('hidden');
+        v.src = P.data.videoUrl;
+        setupVideoExtras();
+        $('mediaStatus').textContent = 'MP4 · ' + nativeInfo.label + ' → ' + COURSE_LANGS.find(l=>l.id===S.lang).native;
+        v.playbackRate = P.speed;
+        v.onended = () => { P.avatar?.setEmotion('proud'); $('after').scrollIntoView({ behavior: 'smooth' }); };
+        v.play().catch(() => {});
+        $('pTitle').insertAdjacentHTML('beforeend', '<span class="vid-badge"><i class="fa-solid fa-film"></i> MP4</span>');
+        return;
+      }
+      startInteractive();
+    }
+
+    function renderSegs() {
+      const n = P.data.lesson.scenes.length;
+      $('segs').innerHTML = Array.from({ length: n }, (_, i) => `<i class="${i < P.scene ? 'done' : i === P.scene ? 'cur' : ''}" onclick="goScene(${i})"></i>`).join('');
+    }
+
+    const KIND = { intro: 'Kirish', explain: 'Tushuntirish', example: 'Misollar', mistake: 'Ko\'p uchraydigan xato', practice: 'Mashq — ovoz chiqarib ayting', recap: 'Xulosa' };
+
+    async function showScene(i, autoplay) {
+      const sc = P.data.lesson.scenes[i];
+      if (!sc) return;
+      P.scene = i; renderSegs();
+      P.avatar.setEmotion(sc.emotion, sc.kind === 'mistake' ? 2 : 1);
+      $('board').innerHTML = `<div class="kind">${esc(KIND[sc.kind] || sc.kind)}</div><h2>${esc(sc.title)}</h2>` +
+        sc.board.map(b => `<div class="line">${esc(b)}</div>`).join('') +
+        sc.examples.map(e => `<div class="ex">${esc(e.t)}<small>${esc(e.uz)}</small></div>`).join('');
+      // Slayd elementlari ketma-ket chiqadi — montaj effekti
+      [...$('board').querySelectorAll('.line,.ex')].forEach((el, k) => setTimeout(() => el.classList.add('in'), 350 + k * 650 / P.speed));
+      $('subT').textContent = sc.say; $('subU').textContent = P.uz ? sc.say_uz : '';
+      $('subT').style.display = sc.say ? '' : 'none';
+      if (autoplay) await playScene(i);
+    }
+
+    async function sceneAudio(i, track = 'target') {
+      const key = i + ':' + track;
+      if (P.cache[key]) return P.cache[key];
+      const cache = P.cache;
+      const d = await api('audio', { lang: S.lang, level: S.level, n: P.n, scene: i, track });
+      cache[key] = `data:${d.mime || 'audio/mpeg'};base64,${d.audio}`;
+      return cache[key];
+    }
+
+    async function playScene(i) {
+      stopAudio();
+      P.playing = true; setPlayBtn();
+      const audioRun = P.audioRun = (P.audioRun || 0) + 1;
+      const token = P.token;
+      try {
+        const scene = P.data.lesson.scenes[i];
+        if (P.nativeAudio && scene.say_native) {
+          const nativeSrc = await sceneAudio(i, 'native');
+          if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+          $('subU').textContent = scene.say_native;
+          await playSrc(nativeSrc);
+          if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+          $('subU').textContent = P.uz ? scene.say_uz : '';
+        }
+        const src = await sceneAudio(i);
+        if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+        if (i + 1 < P.data.lesson.scenes.length) sceneAudio(i + 1).catch(() => {});        // keyingi sahnani oldindan yuklaymiz
+        await playSrc(src);
+      } catch (e) {
+        // Server ovozi yo'q (bepul oylik limit tugagan yoki tarmoq) — bepul brauzer ovozi
+        console.warn('[course] ovoz:', e.message);
+        if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+        const sc = P.data.lesson.scenes[i];
+        if (P.nativeAudio && sc.say_native) {
+          $('subU').textContent = sc.say_native;
+          await speakBrowser(sc.say_native, nativeInfo.locale);
+          if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+          $('subU').textContent = P.uz ? sc.say_uz : '';
+        }
+        await speakBrowser(sc.say);
+      }
+      if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+      const pause = P.data.lesson.scenes[i].practice_seconds || 0;
+      if (pause) $('mediaStatus').textContent = t('practice');
+      await sleep((900 + pause * 1000) / P.speed);
+      if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+      // Keyingi qism hali tayyorlanayotgan bo'lsa — kutib, keyin davom etamiz
+      for (let w = 0; w < 120 && i + 1 >= P.data.lesson.scenes.length && P.data.status !== 'ready'; w++) {
+        $('mediaStatus').textContent = 'Keyingi qism tayyorlanmoqda…';
+        await sleep(1000);
+        if (token !== P.token || audioRun !== P.audioRun || P.scene !== i || !P.playing) return;
+      }
+      if (i + 1 < P.data.lesson.scenes.length) showScene(i + 1, true);
+      else { P.playing = false; setPlayBtn(); P.avatar.setEmotion('proud', 1); $('after').scrollIntoView({ behavior: 'smooth' }); }
+    }
+
+    let _ctx = null, _raf = 0;
+    function playSrc(src) {
+      return new Promise(resolve => {
+        const a = new Audio(src); P.audio = a; a.playbackRate = P.speed;
+        P.avatar.setSpeaking(true);
+        try {
+          _ctx = _ctx || new (window.AudioContext || window.webkitAudioContext)();
+          const node = _ctx.createMediaElementSource(a); const an = _ctx.createAnalyser(); an.fftSize = 512;
+          node.connect(an); an.connect(_ctx.destination);
+          const buf = new Uint8Array(an.fftSize);
+          const tick = () => { an.getByteTimeDomainData(buf); let s = 0; for (const v of buf) { const x = (v - 128) / 128; s += x * x; } P.avatar.mouthLevel(Math.min(1, Math.sqrt(s / buf.length) * 5)); _raf = requestAnimationFrame(tick); };
+          if (_ctx.state === 'suspended') _ctx.resume();
+          tick();
+        } catch {}
+        const segTick = setInterval(() => { const seg = $('segs').querySelector('.cur'); if (seg && a.duration) seg.style.setProperty('--p', (a.currentTime / a.duration * 100) + '%'); }, 200);
+        a.onended = a.onerror = a.onpause = () => { clearInterval(segTick); cancelAnimationFrame(_raf); P.avatar.setSpeaking(false); resolve(); };
+        a.play().catch(() => { P.playing = false; setPlayBtn(); resolve(); });
+      });
+    }
+
+    function speakBrowser(text, locale) {
+      return new Promise(resolve => {
+        if (!('speechSynthesis' in window) || !text) return resolve();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = locale || P.data.locale || 'en-GB'; u.rate = P.speed;
+        // Shu til uchun qurilmadagi eng yaxshi ovoz (Natural/Neural/Google bo'lsa — o'sha)
+        const vs = speechSynthesis.getVoices().filter(v => v.lang.replace('_', '-').toLowerCase().startsWith(u.lang.slice(0, 2).toLowerCase()));
+        const best = vs.find(v => /natural|neural|online|google/i.test(v.name)) || vs[0];
+        if (best) u.voice = best;
+        let t = 0; const f = setInterval(() => P.avatar.mouthLevel(0.25 + 0.6 * Math.abs(Math.sin(t += 0.6))), 90);
+        u.onend = u.onerror = () => { clearInterval(f); P.avatar.mouthLevel(0); resolve(); };
+        speechSynthesis.speak(u);
+      });
+    }
+
+    function stopAudio() { try { P.audio?.pause(); } catch {} P.audio = null; try { speechSynthesis.cancel(); } catch {} }
+    function setPlayBtn() { $('btnPlay').innerHTML = P.playing ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>'; }
+
+    window.toggleNativeAudio = () => { P.nativeAudio = !P.nativeAudio; $('btnNativeAudio').classList.toggle('on',P.nativeAudio); };
+    window.togglePlay = () => { if (!P.data) return; if (P.playing) { P.playing = false; stopAudio(); setPlayBtn(); } else playScene(P.scene); };
+    window.nextScene = () => { if (P.data && P.scene + 1 < P.data.lesson.scenes.length) { stopAudio(); showScene(P.scene + 1, true); } };
+    window.prevScene = () => { if (P.data && P.scene > 0) { stopAudio(); showScene(P.scene - 1, true); } };
+    window.goScene = i => { stopAudio(); showScene(i, true); };
+    window.cycleSpeed = () => { P.speed = P.speed === 1 ? 1.25 : P.speed === 1.25 ? 0.8 : 1; $('btnSpeed').textContent = P.speed + '×'; if (P.audio) P.audio.playbackRate = P.speed; };
+    window.toggleSubs = () => { P.subs = !P.subs; $('subs').classList.toggle('off', !P.subs); $('btnSubs').classList.toggle('on', P.subs); };
+    window.toggleUz = () => { P.uz = !P.uz; $('btnUz').classList.toggle('on', P.uz); const sc = P.data?.lesson.scenes[P.scene]; $('subU').textContent = P.uz && sc ? sc.say_uz : ''; };
+    window.fullscreen = () => { const el = P.data?.videoUrl && !$('mp4').classList.contains('hidden') ? $('mp4') : $('screen'); (document.fullscreenElement ? document.exitFullscreen() : el.requestFullscreen?.())?.catch?.(() => {}); };
+    window.closePlayer = () => { P.token++; P.playing = false; P.started = false; stopAudio(); try { $('mp4').pause(); $('mp4').removeAttribute('src'); $('mp4').load(); } catch {} clearVideoTracks(); $('player').classList.add('hidden'); document.body.style.overflow = ''; if (S.level) openCourse(S.level); };
+
+    // ── DARSDAN KEYIN: lug'at, uy vazifasi, test ──
+    function renderAfter() {
+      const Ls = P.data.lesson;
+      const quiz = Ls.quiz;
+      $('after').innerHTML = `
+        ${Ls.vocab?.length ? `<div class="card"><h3 style="margin-bottom:10px"><i class="fa-solid fa-book"></i> Darsning lug'ati</h3><div class="vocab">${Ls.vocab.map(v => `<div>${esc(v.w)}<small>${esc(v.uz)}</small></div>`).join('')}</div></div>` : ''}
+        ${quiz ? `<div class="card" id="quizCard"><h3 style="margin-bottom:4px"><i class="fa-solid fa-list-check"></i> Test ${P.n === COURSE_LEVELS[S.level].lessons.length - 1 ? '— YAKUNIY IMTIHON (80% kerak)' : '(60% dan o\'tish)'}</h3>
+          <div class="muted" style="font-size:.84rem">Javoblar serverda tekshiriladi.</div>
+          ${quiz.map((q, i) => `<div class="q"><p>${i + 1}. ${esc(q.q)}</p>${q.options.map((o, k) => `<label class="opt" id="o${i}_${k}"><input type="radio" name="q${i}" value="${k}"> <span>${esc(o)}</span></label>`).join('')}<div class="why" id="w${i}"></div></div>`).join('')}
+          <button class="btn" id="qBtn" onclick="submitQuiz()" style="margin-top:12px"><i class="fa-solid fa-check"></i> Tekshirish</button>
+          <div id="qRes" style="margin-top:12px"></div></div>` : `<div class="card muted">Test tayyorlanmoqda…</div>`}
+        ${Ls.homework_uz ? `<div class="card"><h3 style="margin-bottom:6px"><i class="fa-solid fa-pen"></i> Uy vazifasi</h3><div class="muted">${esc(Ls.homework_uz)}</div>
+          <a class="btn ghost" style="margin-top:10px" href="./ielts-examiner.html?lang=${S.lang}&mode=coach"><i class="fa-solid fa-microphone"></i> Ustozga gapirib topshirish</a></div>` : ''}`;
+    }
+
+    window.submitQuiz = async function () {
+      const q = P.data.lesson.quiz;
+      const answers = q.map((_, i) => { const c = document.querySelector(`input[name="q${i}"]:checked`); return c ? +c.value : -1; });
+      if (answers.includes(-1)) { toast('Barcha savollarga javob bering.'); return; }
+      $('qBtn').disabled = true;
+      try {
+        const r = await api('quiz', { lang: S.lang, level: S.level, n: P.n, answers });
+        r.review.forEach((rv, i) => {
+          const picked = answers[i];
+          $(`o${i}_${rv.answer}`)?.classList.add('ok');
+          if (!rv.ok) $(`o${i}_${picked}`)?.classList.add('bad');
+          $(`w${i}`).textContent = rv.ok ? '' : rv.why_uz;
+        });
+        P.avatar.setEmotion(r.passed ? (r.score >= 90 ? 'impressed' : 'proud') : (r.score < 40 ? 'angry' : 'disappointed'), r.passed ? 1 : 2);
+        $('qRes').innerHTML = `<b style="font-size:1.2rem">${r.score}%</b> (${r.correct}/${r.total}) — ${r.passed ? '<span style="color:var(--green)">O\'tdingiz!</span>' : '<span style="color:#fca5a5">O\'tmadingiz. Darsni qayta ko\'ring va yana urinib ko\'ring.</span>'}
+          ${r.certificate ? `<div style="margin-top:10px"><a class="btn red" href="../certificate.html?id=${esc(r.certificate)}"><i class="fa-solid fa-award"></i> Sertifikatni ochish</a></div>` : ''}
+          ${r.needMore ? `<div class="muted" style="margin-top:6px">${esc(r.needMore)}</div>` : ''}
+          ${r.passed && P.n + 1 < COURSE_LEVELS[S.level].lessons.length ? `<div style="margin-top:10px"><button class="btn" onclick="play(${P.n + 1})">Keyingi dars <i class="fa-solid fa-arrow-right"></i></button></div>` : ''}`;
+        refreshMine();
+      } catch (e) {
+        toast(esc(e.message));
+      }
+      $('qBtn').disabled = false;
+    };
+
+    async function refreshMine() {
+      try { S.mine = await api('mine'); } catch {}
+      renderCourses();
+    }
+
+    onAuthStateChanged(auth, async user => {
+      S.user = user;
+      if (user) await refreshMine(); else renderCourses();
+      if (S.level) openCourse(S.level);
+    });
+
+    document.addEventListener('keydown',e=>{if(e.key==='Escape' && !$('player').classList.contains('hidden')) closePlayer();});
+    if (!COURSE_LEVELS[S.level]) S.level = null;
+    if (!COURSE_LANGS.find(l => l.id === S.lang)) S.lang = 'english';
+    renderLangs(); renderCourses();
+  </script>
+</body>
+</html>

@@ -38,8 +38,11 @@ const container = document.getElementById('game-canvas');
 const sceneMgr = new SceneManager(container);
 const scene = sceneMgr.scene;
 const camera = sceneMgr.camera;
+sceneMgr.renderer.domElement.tabIndex = 0;
+sceneMgr.renderer.domElement.setAttribute('aria-label', "Til o'rganish 3D shahri");
 
 const cameraCtrl = new CameraController(camera);
+const cameraFollowTarget = new THREE.Vector3();
 const input = new InputManager(sceneMgr.renderer.domElement);
 // E tugmasi / joystik-interact — InputManager ishga tushishi uchun bog'lash
 input.onInteract = () => interactNearest();
@@ -292,7 +295,21 @@ const QUICK_REPLIES = {
   'ru-RU': ['Привет!', 'Как дела?', 'Повторите, пожалуйста', 'Спасибо!', 'До свидания!'],
   'es-ES': ['¡Hola!', '¿Cómo estás?', 'Repite, por favor', '¡Gracias!', '¡Adiós!'],
   'de-DE': ['Hallo!', 'Wie geht\'s?', 'Kannst du das wiederholen?', 'Danke!', 'Tschüss!'],
-  'tr-TR': ['Merhaba!', 'Nasılsın?', 'Tekrar söyler misin?', 'Teşekkürler!', 'Hoşça kal!']
+  'tr-TR': ['Merhaba!', 'Nasılsın?', 'Tekrar söyler misin?', 'Teşekkürler!', 'Hoşça kal!'],
+  'ar-SA': ['مرحباً!', 'كيف حالك؟', 'هل يمكنك الإعادة؟', 'شكراً!', 'إلى اللقاء!'],
+  'ko-KR': ['안녕하세요!', '어떻게 지내세요?', '다시 말씀해 주세요.', '감사합니다!', '안녕히 가세요!'],
+  'zh-CN': ['你好！', '你好吗？', '请再说一遍。', '谢谢！', '再见！']
+};
+
+const INITIAL_GREETINGS = {
+  'en-US': 'Hello! What would you like to practice today?',
+  'ru-RU': 'Здравствуйте! Что хотите сегодня попрактиковать?',
+  'es-ES': '¡Hola! ¿Qué te gustaría practicar hoy?',
+  'de-DE': 'Hallo! Was möchtest du heute üben?',
+  'tr-TR': 'Merhaba! Bugün ne çalışmak istersin?',
+  'ar-SA': 'مرحباً! ماذا تود أن تتدرب عليه اليوم؟',
+  'ko-KR': '안녕하세요! 오늘 무엇을 연습하고 싶으세요?',
+  'zh-CN': '你好！你今天想练习什么？'
 };
 
 function openDialog(npcDef) {
@@ -307,10 +324,11 @@ function openDialog(npcDef) {
   audio.talk();
   hud.openDialog(npcDef);
   hud.setQuickReplies(QUICK_REPLIES[store.settings.targetLang] || QUICK_REPLIES['en-US']);
-  hud.addMessage('npc', npcDef.greeting);
-  dialog.history.push({ role: 'assistant', content: npcDef.greeting });
-  showTalkBubble(npcDef, npcDef.greeting);
-  speak(npcDef.greeting);
+  const greeting = INITIAL_GREETINGS[store.settings.targetLang] || npcDef.greeting;
+  hud.addMessage('npc', greeting);
+  dialog.history.push({ role: 'assistant', content: greeting });
+  showTalkBubble(npcDef, greeting);
+  speak(greeting);
 }
 
 // ───────────────────────────────────────────────────────────────────────────
@@ -379,7 +397,7 @@ async function sendDialog(text) {
 
   // Questlar: suhbat xabari + ibora
   quests.trigger('talk', { npc: npc.id });
-  quests.checkPhrase(text);
+  quests.checkPhrase(text, npc.id);
   store.addTalk();
   refresh();
 
@@ -537,6 +555,10 @@ function applySettings(patch, opts = {}) {
     return;
   }
   sceneMgr.setQuality(s.quality);
+  if (currentCity && currentCity.weather === 'rain') {
+    if (s.quality === 'low') weather.dispose();
+    else weather.enable();
+  }
   audio.setVolume(s.sound);
   hud.loadSettings(s);
   hud.toast('Sozlamalar saqlandi', 'good', 1600);
@@ -618,12 +640,12 @@ function frame(now) {
   const nightFactor = (Math.sin(worldTime * 0.025) * 0.5 + 0.5) * 0.45;
   sceneMgr.setDayNight(nightFactor);
   sceneMgr.updateAmbient(dt);
+  if (builder) builder.updateAmbient(worldTime);
 
   // Kamera fokusi: suhbatda NPC, aks holda o'yinchi
-  const targetPos = dialog
-    ? new THREE.Vector3(dialog.npc.pos.x, 0, dialog.npc.pos.z)
-    : new THREE.Vector3(player.position.x, 0, player.position.z);
-  cameraCtrl.target.lerp(targetPos, 1 - Math.pow(0.001, dt));
+  if (dialog) cameraFollowTarget.set(dialog.npc.pos.x, 0, dialog.npc.pos.z);
+  else cameraFollowTarget.set(player.position.x, 0, player.position.z);
+  cameraCtrl.target.lerp(cameraFollowTarget, 1 - Math.pow(0.001, dt));
 
   // O'yinchi
   player.update(dt, input, cameraCtrl.yaw);
@@ -777,6 +799,7 @@ function selectSetup() {
     const showStep = which => {
       stepLang.hidden = which !== 'lang';
       stepCity.hidden = which !== 'city';
+      overlay.scrollTop = 0;
       document.querySelectorAll('.setup-dot').forEach(d =>
         d.classList.toggle('on', d.dataset.step === which));
     };
@@ -787,7 +810,10 @@ function selectSetup() {
         chosenLang = langCard.getAttribute('data-lang');
         selectSetupCard('.lang-card', 'data-lang', chosenLang);
         try { localStorage.setItem('lv_lang', chosenLang); } catch {}
-        setTimeout(() => showStep('city'), 220);
+        setTimeout(() => {
+          showStep('city');
+          document.querySelector('.city-card.selected')?.focus();
+        }, 220);
         return;
       }
 
@@ -802,17 +828,32 @@ function selectSetup() {
 
       if (e.target.closest('#btn-setup-back')) {
         showStep('lang');
+        document.querySelector('.lang-card.selected')?.focus();
         return;
       }
 
       if (e.target.closest('#btn-setup-enter') && chosenCity) {
         document.removeEventListener('click', onPick);
+        document.removeEventListener('keydown', onKeydown);
+        if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
         overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden', 'true');
+        sceneMgr.renderer.domElement.focus();
         resolve({ city: CITY_BY_ID[chosenCity], lang: chosenLang || DEFAULT_SETTINGS.targetLang });
       }
     };
 
+    const onKeydown = e => {
+      if ((e.key === 'Enter' || e.key === ' ') &&
+          e.target.closest('.lang-card, .city-card')) {
+        e.preventDefault();
+        onPick(e);
+      }
+    };
+
+    overlay.setAttribute('aria-hidden', 'false');
     document.addEventListener('click', onPick);
+    document.addEventListener('keydown', onKeydown);
     showStep('lang');
     overlay.classList.add('show');
   });
@@ -820,7 +861,9 @@ function selectSetup() {
 
 function selectSetupCard(selector, attr, id) {
   document.querySelectorAll(selector).forEach(c => {
-    c.classList.toggle('selected', c.getAttribute(attr) === id);
+    const selected = c.getAttribute(attr) === id;
+    c.classList.toggle('selected', selected);
+    c.setAttribute('aria-pressed', String(selected));
   });
 }
 

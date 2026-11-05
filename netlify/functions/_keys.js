@@ -1,21 +1,13 @@
 // ═══════════════════════════════════════════════════════════════════════════
 // _keys.js — API KALITLARINI O'QISH (barcha funksiyalar uchun yagona manba)
 //
-// Tartibi:
-//   1. data/api-keys.json  — admin panel orqali saqlangan kalitlar (avval)
-//   2. process.env         — .env / Netlify Environment Variables (zaxira)
-//
-// Nega bu kerak: admin panel kalitlarni saqlaganda ular darhol ishlashi
-// kerak. Fayl yozilgach, dev-server funksiyalarni har so'rovda qayta
-// yuklagani uchun yangi kalit darhol qo'llanadi.
-//
-// Netlify'da faylga yozib bo'lmaydi (ephemeral FS) — u yerda kalitlar
-// Netlify Environment Variables orqali beriladi va bu modul avtomatik
-// env'dan o'qiydi. Ya'ni ikki joy bir xil ishlaydi.
+// Kalitlar Firestore'dagi apiConfig/global hujjatidan yuklanadi; eski lokal
+// fayl va environment variables esa zaxira manbalar sifatida qoladi.
 // ═══════════════════════════════════════════════════════════════════════════
 
 const fs = require('fs');
 const path = require('path');
+const firestore = require('./_firestore.js');
 
 // Muammo: Netlify funksiya FS'ida __dirname = /var/task/netlify/functions
 // data/ papkasi loyiha ildizida. Ikkala holatni ham qamrab olamiz.
@@ -23,6 +15,9 @@ const CANDIDATES = [
   path.join(__dirname, '..', '..', 'data', 'api-keys.json'), // mahalliy: ROOT/data/api-keys.json
   path.join(process.cwd(), 'data', 'api-keys.json')
 ];
+let firestoreKeys = {};
+let defaultModel = '';
+let defaultProvider = '';
 
 function dataFile() {
   for (const p of CANDIDATES) {
@@ -32,6 +27,12 @@ function dataFile() {
   }
   // Birinchi (asosiy) yo'l — agar papka bo'lmasa, yozishda uni yaratamiz
   return CANDIDATES[0];
+}
+
+function isEphemeralRuntime() {
+  return process.env.NETLIFY === 'true'
+    || process.env.AWS_LAMBDA_FUNCTION_NAME != null
+    || process.env.LAMBDA_TASK_ROOT != null;
 }
 
 function load() {
@@ -47,8 +48,48 @@ function load() {
   return {};
 }
 
-/** Kalitni topadi: avval fayldan, yo'q bo'lsa process.env'dan. */
+/** Refreshes server-only settings from Firestore before handling a request. */
+async function refreshFromFirestore() {
+  if (!firestore.configured()) {
+    firestoreKeys = {};
+    defaultModel = '';
+    defaultProvider = '';
+    return;
+  }
+  const config = await firestore.getDoc('apiConfig/global');
+  firestoreKeys = config?.apiKeys && typeof config.apiKeys === 'object' && !Array.isArray(config.apiKeys)
+    ? config.apiKeys
+    : {};
+  defaultModel = typeof config?.defaultModel === 'string' ? config.defaultModel : '';
+  defaultProvider = typeof config?.defaultProvider === 'string' ? config.defaultProvider : '';
+}
+
+function getPersisted() {
+  return { ...firestoreKeys };
+}
+
+function setPersisted(value) {
+  firestoreKeys = value && typeof value === 'object' && !Array.isArray(value) ? { ...value } : {};
+}
+
+function getDefaultModel() {
+  return defaultModel;
+}
+
+function getDefaultProvider() {
+  return defaultProvider;
+}
+
+function source(name) {
+  if (firestoreKeys[name]) return 'firebase';
+  const fileKeys = load();
+  if (fileKeys[name]) return 'file';
+  return process.env[name] ? 'environment' : 'none';
+}
+
+/** Key priority: Firestore, legacy local file, then environment variables. */
 function get(name) {
+  if (firestoreKeys[name] != null && firestoreKeys[name] !== '') return String(firestoreKeys[name]);
   const fileKeys = load();
   if (fileKeys[name] != null && fileKeys[name] !== '') return String(fileKeys[name]);
   return process.env[name] || '';
@@ -56,22 +97,6 @@ function get(name) {
 
 function configured(name) {
   return !!get(name);
-}
-
-/** Barcha kalitlarni process.env'ga yozadi (qayta ishga tushirmasdan).
- *  `manage` — ro'yxatdagi lekin keys'da yo'q bo'lgan nomlar ham o'chiriladi
- *  (bo'sh maydon = eski env qiymati xotiraga yopishib qolmasligi uchun). */
-function applyToEnv(keys, manage) {
-  for (const [k, v] of Object.entries(keys || {})) {
-    if (v != null && v !== '') process.env[k] = String(v);
-    else delete process.env[k];
-  }
-  if (Array.isArray(manage)) {
-    for (const k of manage) {
-      const v = keys ? keys[k] : undefined;
-      if (v === undefined || v === null || v === '') delete process.env[k];
-    }
-  }
 }
 
 /** Kalitlarni data/api-keys.json'ga saqlaydi. */
@@ -95,4 +120,7 @@ function mask(value) {
   return '****' + s.slice(-4);
 }
 
-module.exports = { load, get, configured, applyToEnv, save, mask, dataFile };
+module.exports = {
+  load, get, configured, save, mask, dataFile, isEphemeralRuntime,
+  refreshFromFirestore, getPersisted, setPersisted, getDefaultModel, getDefaultProvider, source
+};

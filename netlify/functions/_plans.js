@@ -13,8 +13,47 @@ const PLANS = {
   free:    { id: 'free',    name: 'Bepul',   price: 0,     days: 0  },
   nova:    { id: 'nova',    name: 'NOVA',    price: 39999, days: 30 },
   mega:    { id: 'mega',    name: 'MEGA',    price: 49999, days: 30 },
-  premium: { id: 'premium', name: 'PREMIUM', price: 79999, days: 30 }
+  premium: { id: 'premium', name: 'PREMIUM', price: 79999, days: 30 },
+  // IELTS PRO — onlayn darslar + IELTS Speaking imtihonchi + barcha
+  // PREMIUM imkoniyatlari. Oylik obuna, avto-to'lov bilan uzaytiriladi.
+  ielts:   { id: 'ielts',   name: 'IELTS PRO', price: 200000, days: 30 }
 };
+
+// ═══════════════════════════════════════════════════════════════════════════
+// VIDEO KURSLAR — bir martalik xarid, umrbod ochiq.
+// Har bir til uchun alohida sotiladi: masalan english_b2, korean_c2.
+// C2 sotib olgan foydalanuvchiga B2 ham avtomatik ochiladi (C2 to'liq yo'l).
+// ⚠️ Narxlar js/course-catalog.mjs bilan BIR XIL bo'lishi shart.
+// ═══════════════════════════════════════════════════════════════════════════
+const COURSE_LEVELS = {
+  b2: { id: 'b2', name: 'B2 video kurs', price: 200000 },
+  c2: { id: 'c2', name: 'C2 video kurs', price: 400000 }
+};
+
+const COURSE_LANGS = {
+  english: 'Ingliz tili', russian: 'Rus tili', spanish: 'Ispan tili', german: 'Nemis tili',
+  turkish: 'Turk tili', arabic: 'Arab tili', korean: 'Koreys tili', chinese: 'Xitoy tili'
+};
+
+/** Kurs mahsuloti: { key:'english_c2', lang, level, name, price } yoki null. */
+function courseProduct(lang, level) {
+  const L = COURSE_LEVELS[String(level || '').toLowerCase()];
+  const langId = String(lang || '').toLowerCase();
+  if (!L || !COURSE_LANGS[langId]) return null;
+  return {
+    key: `${langId}_${L.id}`,
+    lang: langId,
+    level: L.id,
+    name: `${COURSE_LANGS[langId]} — ${L.name}`,
+    price: L.price
+  };
+}
+
+/** Kurs xaridi tasdiqlanganda qaysi kalitlar ochiladi (C2 → B2 ham). */
+function courseUnlocks(product) {
+  if (!product) return [];
+  return product.level === 'c2' ? [product.key, `${product.lang}_b2`] : [product.key];
+}
 
 // Davomiyliklar — js/lv-core.js bilan BIR XIL bo'lishi shart.
 // days → planExpiry shuncha kunga qo'shib hisoblanadi.
@@ -60,4 +99,7 @@ function referralReward(planPrice) {
   return Math.round((planPrice * REFERRAL_PERCENT) / 100) * 100;   // 100 so'mgacha yaxlitlash
 }
 
-module.exports = { PLANS, DURATIONS, DURATION_ORDER, planPrice, paidPlan, REFERRAL_PERCENT, referralReward };
+module.exports = {
+  PLANS, DURATIONS, DURATION_ORDER, planPrice, paidPlan, REFERRAL_PERCENT, referralReward,
+  COURSE_LEVELS, COURSE_LANGS, courseProduct, courseUnlocks
+};

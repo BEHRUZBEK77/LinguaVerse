@@ -104,7 +104,7 @@ function render() {
       <span class="lvb-chip"><i class="fa-solid fa-star" style="color:#a78bfa"></i> <b>${(snap.profile?.xp || 0).toLocaleString()}</b></span>
     </div>
     <button class="lvb-more" id="lvbToggle">Limitlar</button>
-    ${snap.plan !== 'premium' ? `<a class="lvb-up" href="../order.html">Rejani oshirish</a>` : ''}`;
+    ${!['premium', 'ielts'].includes(snap.plan) ? `<a class="lvb-up" href="../order.html">Rejani oshirish</a>` : ''}`;
 
   document.getElementById('lvbToggle').onclick = () => {
     panel.classList.toggle('open');

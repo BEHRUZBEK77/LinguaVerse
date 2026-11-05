@@ -9,15 +9,23 @@ function esc(s) {
 // =====================================================
 // Turkish.js — LinguaVerse (100% FIXED VERSION)
 // =====================================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { buildCourseCurriculum } from './unit-curriculum.mjs';
+import { mountAIUnitBuilder } from './ai-unit-builder.mjs';
+import { encodeInlineHandlerArg } from './ai-unit-data.mjs';
+import { findSkillVideos } from './youtube-recommendations.mjs';
+import { formatAIResponse, getAIThinkingMode, initializeAIChatUI } from './ai-chat-ui.mjs';
+import { initializeApp } from "/js/fb/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
     increment, serverTimestamp, collection,
     query, orderBy, limit, getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
+import { courseProgressKey, isCourseLevelUnlocked, isCourseUnitUnlocked, migrateCourseProgress, recordCourseLessonAttempt, renderCourseJourney } from './course-journey.mjs';
 
+const COURSE_ID = 'turkish';
 const $id = id => document.getElementById(id);
+initializeAIChatUI();
 
 // ── FIREBASE ──
 const FB_CONFIG = {
@@ -31,7 +39,7 @@ const FB_CONFIG = {
 
 let _app, _auth, _db;
 try {
-    const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+    const { getApp } = await import("/js/fb/firebase-app.js");
     _app = getApp();
 } catch {
     _app = initializeApp(FB_CONFIG);
@@ -164,7 +172,7 @@ const WDB = [
     { e: 'oynamak',    u: 'O\'ynamoq',       t: 'verb',         l: 'beginner', ex: 'Çocuklar oynamayı seviyor.',       eu: 'Bolalar o\'ynashni yaxshi ko\'radi.' },
     { e: 'pazartesi',  u: 'Dushanba',        t: 'noun',         l: 'beginner', ex: 'Pazartesi haftanın ilk günü.',     eu: 'Dushanba haftaning birinchi kuni.' },
     { e: 'salı',       u: 'Seshanba',        t: 'noun',         l: 'beginner', ex: 'Salı günü dersim var.',            eu: 'Seshanba kuni darsim bor.' },
-    { e: 'çarşamba',   u: 'Chorshanba',      t: 'noun',         l: 'beginner', ex: 'Her çarşamba buluşuruz.',          eu: 'Har chorshanba uchrashAmiz.' },
+    { e: 'çarşamba',   u: 'Chorshanba',      t: 'noun',         l: 'beginner', ex: 'Her çarşamba buluşuruz.',          eu: 'Har chorshanba kuni uchrashamiz.' },
     { e: 'perşembe',   u: 'Payshanba',       t: 'noun',         l: 'beginner', ex: 'Perşembe en sevdiğim gün.',        eu: 'Payshanba sevimli kunim.' },
     { e: 'cuma',       u: 'Juma',            t: 'noun',         l: 'beginner', ex: 'Cuma günü erken bitiririz.',       eu: 'Juma kuni erta tugatamiz.' },
     { e: 'cumartesi',  u: 'Shanba',          t: 'noun',         l: 'beginner', ex: 'Cumartesi dinlenirim.',             eu: 'Shanba kuni dam olaman.' },
@@ -182,7 +190,7 @@ const WDB = [
     { e: 'ay',         u: 'Oy',              t: 'noun',         l: 'beginner', ex: 'Bu gece ay parlak.',              eu: 'Bu kecha oy yorqin.' },
     { e: 'çiçek',      u: 'Gul',             t: 'noun',         l: 'beginner', ex: 'Güzel çiçekleri var.',            eu: 'Chiroyli gullari bor.' },
     { e: 'ağaç',       u: 'Daraxt',          t: 'noun',         l: 'beginner', ex: 'Ağaç çok uzun.',                  eu: 'Daraxt juda baland.' },
-    { e: 'kuş',        u: 'Qush',            t: 'noun',         l: 'beginner', ex: 'Kuş şarkı söylüyor.',             eu: 'Qush sayrAyapti.' },
+    { e: 'kuş',        u: 'Qush',            t: 'noun',         l: 'beginner', ex: 'Kuş şarkı söylüyor.',             eu: 'Qush sayrayapti.' },
     { e: 'balık',      u: 'Baliq',           t: 'noun',         l: 'beginner', ex: 'Balık yemeyi seviyorum.',         eu: 'Baliq yeyishni yaxshi ko\'raman.' },
     { e: 'yeni',       u: 'Yangi',           t: 'adjective',    l: 'beginner', ex: 'Yeni bir telefonum var.',         eu: 'Yangi telefonim bor.' },
     { e: 'eski',       u: 'Eski',            t: 'adjective',    l: 'beginner', ex: 'Bu eski bir bina.',              eu: 'Bu eski bino.' },
@@ -280,7 +288,6 @@ const WDB = [
     { e: 'seçmek',     u: 'Tanlash',         t: 'verb',         l: 'elementary', ex: 'Lütfen bir cevap seçin.',      eu: 'Iltimos, bitta javob tanlang.' },
     { e: 'hatırlamak', u: 'Eslamoq',         t: 'verb',         l: 'elementary', ex: 'Adınızı hatırlıyorum.',       eu: 'Ismingizni eslayman.' },
     { e: 'unutmak',    u: 'Unutmoq',         t: 'verb',         l: 'elementary', ex: 'Anahtarlarını unutma!',        eu: 'Kalitlarini unutma!' },
-    { e: 'geliştirmek',u: 'Yaxshilamoq',     t: 'verb',         l: 'elementary', ex: 'Türkçemi geliştirmek istiyorum.', eu: 'Turkchamni yaxshilashni xohlayman.' },
     { e: 'hazırlamak', u: 'Tayyorlamoq',     t: 'verb',         l: 'elementary', ex: 'Sınava hazırlanıyorum.',      eu: 'Imtihonga tayyorlanayapman.' },
     { e: 'eğlenmek',   u: 'Zavqlanmoq',      t: 'verb',         l: 'elementary', ex: 'Film izlemekten eğleniyorum.', eu: 'Film ko\'rishdan zavqlanaman.' },
     { e: 'bitirmek',   u: 'Tugatmoq',        t: 'verb',         l: 'elementary', ex: 'İşini bitirdin mi?',          eu: 'Ishingni tugatdingmi?' },
@@ -303,7 +310,7 @@ const WDB = [
     { e: 'son tarih',  u: 'Muddat',          t: 'noun',         l: 'pre-intermediate', ex: 'Son tarih yarın.',              eu: 'Muddati ertaga.' },
     { e: 'vazgeçmek',  u: 'Voz kechmoq',     t: 'verb',         l: 'pre-intermediate', ex: 'Hayallerinden vazgeçme.',      eu: 'Orzularingizdan voz kechmang.' },
     { e: 'başarı',     u: 'Muvaffaqiyat',    t: 'noun',         l: 'pre-intermediate', ex: 'Bu büyük bir başarı.',         eu: 'Bu katta muvaffaqiyat.' },
-    { e: 'meydan okumak',u:'Muammo',         t: 'noun',         l: 'pre-intermediate', ex: 'Her meydan okuma sizi güçlendirir.', eu: 'Har bir muammo sizni kuchliroq qiladi.' },
+    { e: 'meydan okuma',u:'Qiyinchilik',     t: 'noun',         l: 'pre-intermediate', ex: 'Her meydan okuma sizi güçlendirir.', eu: 'Har bir qiyinchilik sizni kuchliroq qiladi.' },
     { e: 'güvenli',    u: 'Ishonchli',       t: 'adjective',    l: 'pre-intermediate', ex: 'Kendinize güvenin.',           eu: 'O\'zingizga ishoning.' },
     { e: 'başarılı',   u: 'Muvaffaqiyatli',  t: 'adjective',    l: 'pre-intermediate', ex: 'O başarılı bir iş kadını.',   eu: 'U muvaffaqiyatli ish ayoli.' },
     { e: 'sorumlu',    u: 'Mas\'ul',         t: 'adjective',    l: 'pre-intermediate', ex: 'Eylemlerinizden sorumlu olun.', eu: 'Harakatlaringiz uchun mas\'ul bo\'ling.' },
@@ -320,7 +327,7 @@ const WDB = [
     { e: 'yönetmek',   u: 'Boshqarmoq',      t: 'verb',         l: 'pre-intermediate', ex: 'Büyük bir ekip yönetiyor.',  eu: 'Katta jamoani boshqaradi.' },
     { e: 'çözmek',     u: 'Yechmoq',         t: 'verb',         l: 'pre-intermediate', ex: 'Bu sorunu çözmemiz gerekiyor.', eu: 'Bu muammoni yechishimiz kerak.' },
     { e: 'başarmak',   u: 'Erishmoq',        t: 'verb',         l: 'pre-intermediate', ex: 'Hedeflerine ulaşabilirsiniz.', eu: 'Maqsadlaringizga erisha olasiz.' },
-    { e: 'geliştirmek',u: 'Rivojlantirmoq',  t: 'verb',         l: 'pre-intermediate', ex: 'Yeni fikirler geliştirmemiz gerekiyor.', eu: 'Yangi g\'oyalarni rivojlantirishimiz kerak.' },
+    { e: 'geliştirmek',u: 'Rivojlantirmoq / yaxshilamoq', t: 'verb', l: 'pre-intermediate', ex: 'Yeni fikirler geliştirmemiz gerekiyor.', eu: 'Yangi g\'oyalarni rivojlantirishimiz kerak.' },
     { e: 'artırmak',   u: 'Oshirmoq',        t: 'verb',         l: 'pre-intermediate', ex: 'Fiyatlar artıyor.',          eu: 'Narxlar oshmoqda.' },
     { e: 'azaltmak',   u: 'Kamaytirmoq',     t: 'verb',         l: 'pre-intermediate', ex: 'Kirliliği azaltmak zorundayız.', eu: 'Ifloslanishni kamaytirishimiz kerak.' },
     { e: 'önermek',    u: 'Taklif qilmoq',   t: 'verb',         l: 'pre-intermediate', ex: 'Şimdi gitmemizi öneriyorum.', eu: 'Endi ketishimizni taklif qilaman.' },
@@ -356,7 +363,6 @@ const WDB = [
     { e: 'savunuculuk',u: 'Himoya qilish',   t: 'verb',         l: 'advanced', ex: 'İnsan haklarını savunuyor.',       eu: 'Inson huquqlarini himoya qiladi.' },
     { e: 'oluşturmak', u: 'Tashkil etmoq',   t: 'verb',         l: 'advanced', ex: 'Bu bir ihlal oluşturuyor.',       eu: 'Bu qoidabuzarlik tashkil etadi.' },
     { e: 'kolaylaştırmak',u:'Osonlashtirmoq',t: 'verb',         l: 'advanced', ex: 'Teknoloji öğrenmeyi kolaylaştırıyor.', eu: 'Texnologiya o\'rganishni osonlashtiradi.' },
-    { e: 'geliştirmek',u: 'Rivojlantirmoq',  t: 'verb',         l: 'advanced', ex: 'Veri üzerinde çalışmalıyız.',     eu: 'Ma\'lumotlarda ishlamoq kerak.' },
     { e: 'kabul etmek',u: 'Tan olmoq',       t: 'verb',         l: 'advanced', ex: 'Hatamı kabul ediyorum.',          eu: 'Xatoimni tan olaman.' },
     { e: 'sürdürmek',  u: 'Davom ettirmoq',  t: 'verb',         l: 'advanced', ex: 'Çabalarımızı sürdürmeliyiz.',     eu: 'Kuchlarimizni davom ettirishimiz kerak.' },
 ];
@@ -567,6 +573,7 @@ const UD_DATA = {
         },
     ]
 };
+buildCourseCurriculum(UD_DATA, WDB, 'tr-TR', 'e');
 
 // ══════════════════════════════════════════════════════════════
 // UTILS
@@ -718,7 +725,14 @@ async function loadUserData() {
             UXP = d.xp || 0;
             UCoin = d.coins || 0;
             URank = d.rank || 'none';
-            UProg = d.progress || {};
+            const courseMigration = migrateCourseProgress(d.progress || {}, COURSE_ID, UD_DATA);
+            UProg = courseMigration.progress;
+            if (Object.keys(courseMigration.updates).length) await updateUserField(courseMigration.updates);
+            if (courseMigration.unresolvedLegacyIds.length &&
+                !localStorage.getItem('lv-course-progress-migration-v2')) {
+                localStorage.setItem('lv-course-progress-migration-v2', 'shown');
+                showToast('Eski progressdagi bir xil IDli unitlar tillarga aralashmasligi uchun avtomatik ko‘chmadi.', 'warning');
+            }
             USk = d.skills || { reading: 0, writing: 0, speaking: 0, listening: 0, grammar: 0 };
             UStats = d.stats || { unitsCompleted: 0, totalSessions: 0, streak: 0, totalXP: 0, totalCoins: 0 };
         } else {
@@ -850,6 +864,7 @@ async function callAI(prompt, maxTok = 1000) {
         const r = await fetch(AI_PROXY, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [{ role: 'user', parts: [{ text: prompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTok }
             })
@@ -888,15 +903,35 @@ function drawRadar() {
 // UNITS
 // ══════════════════════════════════════════════════════════════
 window.switchLevel = function (level, el) {
+    if (!isCourseLevelUnlocked(UD_DATA, UProg, COURSE_ID, level)) {
+        showToast('Avval joriy bosqichdagi barcha unitlarni yakunlang.', 'warning');
+        return;
+    }
     curLevel = level;
-    document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', el ? t === el : t.dataset.level === level));
     renderUnits();
 };
 
 function renderUnits() {
+    curLevel = renderCourseJourney({
+        courseId: COURSE_ID,
+        levels: UD_DATA,
+        progress: UProg,
+        activeLevel: curLevel,
+        onSelect: window.switchLevel,
+    });
     const grid = $id('unitsGrid'); if (!grid) return;
     const units = UD_DATA[curLevel] || [];
     grid.innerHTML = '';
+    mountAIUnitBuilder({
+        container: grid, courseId: COURSE_ID, level: curLevel, locale: 'tr-TR', wordField: 'e',
+        dictionary: WDB, units: () => UD_DATA[curLevel] || [],
+        onUnitsLoaded: (level, added) => {
+            const levelUnits = UD_DATA[level] || (UD_DATA[level] = []);
+            const ids = new Set(levelUnits.map(unit => unit.id));
+            added.forEach(unit => { if (!ids.has(unit.id)) levelUnits.push(unit); });
+            if (level === curLevel) renderUnits();
+        }
+    });
     units.forEach((unit, i) => {
         const done = ['A', 'B', 'C', 'D'].filter(l => UProg[`${unit.id}_${l}`] >= 100).length;
         const pct = Math.round((done / 4) * 100);
@@ -924,7 +959,13 @@ function renderUnits() {
     });
 }
 
+window.renderUnits = renderUnits;
+
 window.openUnit = function (unit) {
+    if (!unit || !isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unit.id)) {
+        showToast('Bu unit hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     curUnit = unit;
     const modal = $id('unitModal');
     const content = $id('modalContent');
@@ -965,6 +1006,10 @@ window.openUnit = function (unit) {
 };
 
 window.openLesson = async function (unitId, lessonKey) {
+    if (!isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unitId)) {
+        showToast('Bu dars hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     let unit = null;
     for (const lvl of Object.values(UD_DATA)) { const f = lvl.find(u => u.id === unitId); if (f) { unit = f; break; } }
     if (!unit) return;
@@ -1042,7 +1087,7 @@ function lessonA(unit) {
       <h3 style="margin-bottom:10px;color:#e8ecff"><i class="fa-solid fa-pen-to-square" style="color:#60a5fa"></i> Grammatika Qoidasi</h3>
       <div style="font-size:0.9rem;color:#fbd38d;margin-bottom:8px"><i class="fa-solid fa-lightbulb" style="color:#f5c842"></i> ${unit.grammar_rule || ''}</div>
       <div style="font-size:0.85rem;color:#f09944;font-style:italic"><i class="fa-solid fa-pencil" style="color:#60a5fa"></i> ${unit.grammar_example || ''}</div>
-      <button onclick="window.aiGrammarExplain('${unit.title}','${(unit.grammar_rule||'').replace(/'/g,"\\'")}')}" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(224,90,20,0.1);border:1px solid rgba(224,90,20,0.25);color:#f09944;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil tushuntirsin (1 token)</button>
+      <button onclick="window.aiGrammarExplain(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.grammar_rule || '')}'))" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:rgba(224,90,20,0.1);border:1px solid rgba(224,90,20,0.25);color:#f09944;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class='fa-solid fa-robot' style='color:#a78bfa'></i> AI batafsil tushuntirsin (1 token)</button>
       <div id="gramRuleFB" style="margin-top:8px;font-size:0.8rem"></div>
     </div>
     <div style="margin-bottom:20px">
@@ -1340,7 +1385,7 @@ function lessonD(unit) {
         <textarea id="dta" placeholder="Bu yerda yozing..." oninput="window.updWC()" style="width:100%;height:100px;padding:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#e8ecff;font-family:inherit;resize:none;box-sizing:border-box"></textarea>
         <div style="display:flex;gap:10px;font-size:0.75rem;color:#666;margin:6px 0"><span id="dwc">0 so'z</span><span id="dcc">0 belgi</span><span id="dst" style="color:#f87171">Min 40 so'z</span></div>
         <div style="display:flex;gap:6px">
-          <button onclick="window.aiWrit('${unit.title}','${unit.words.slice(0,5).join(',')}')" style="padding:7px 14px;border-radius:8px;background:rgba(224,90,20,0.1);border:1px solid rgba(224,90,20,0.25);color:#f09944;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI (1 token)</button>
+          <button onclick="window.aiWrit(decodeURIComponent('${encodeInlineHandlerArg(unit.title)}'),decodeURIComponent('${encodeInlineHandlerArg(unit.words.slice(0,5).join(','))}'))" style="padding:7px 14px;border-radius:8px;background:rgba(224,90,20,0.1);border:1px solid rgba(224,90,20,0.25);color:#f09944;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-robot" style="color:#a78bfa"></i> AI (1 token)</button>
           <button onclick="window.selfChk(40)" style="padding:7px 14px;border-radius:8px;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.2);color:#60a5fa;cursor:pointer;font-size:0.78rem;font-family:inherit"><i class="fa-solid fa-chart-pie" style="color:#60a5fa"></i> So'z soni</button>
         </div>
         <div id="wfb" style="margin-top:8px;font-size:0.8rem"></div>
@@ -1456,18 +1501,26 @@ async function finLesson(uid, lk, skill, sc, tot) {
 
 async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, coinEarned) {
     const pct = total > 0 ? Math.round((score / total) * 100) : 70;
-    UProg[`${unitId}_${lessonKey}`] = 100;
-    const allDone = ['A','B','C','D'].every(l => UProg[`${unitId}_${l}`] >= 100);
-    if (!CU) { UXP+=xpEarned; UCoin+=coinEarned; updateDisplays(); return; }
+    const attempt = recordCourseLessonAttempt(UProg, unitId, lessonKey, pct);
+    if (!CU) {
+        UXP+=xpEarned; UCoin+=coinEarned; updateDisplays(); renderUnits();
+        showToast(
+            attempt.passed
+                ? `<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i>`
+                : 'Darsdan o‘tish uchun kamida 60% kerak. Qayta urinib ko‘ring.',
+            attempt.passed ? 'success' : 'warning'
+        );
+        return;
+    }
     try {
         const updates = {
             xp: increment(xpEarned), coins: increment(coinEarned),
             totalXP: increment(xpEarned), totalCoins: increment(coinEarned),
-            [`progress.${unitId}_${lessonKey}`]: 100,
+            [`progress.${courseProgressKey(COURSE_ID, `${unitId}_${lessonKey}`)}`]: attempt.progressValue,
             [`scores.${unitId}_${lessonKey}`]: pct,
             'stats.totalSessions': increment(1)
         };
-        if (allDone) {
+        if (attempt.completedNow) {
             updates['stats.unitsCompleted'] = increment(1);
             updates.xp = increment(xpEarned + 50);
             updates.coins = increment(coinEarned + 10);
@@ -1477,8 +1530,8 @@ async function saveLessonCompletion(unitId, lessonKey, score, total, xpEarned, c
             showToast(`<i class="fa-solid fa-champagne-glasses" style="color:#f5c842"></i> Unit to'liq! +50 XP +10 <i class="fa-solid fa-coins" style="color:#f5c842"></i> bonus!`, 'success');
         }
         await updateUserField(updates);
-        UXP += xpEarned + (allDone ? 50 : 0);
-        UCoin += coinEarned + (allDone ? 10 : 0);
+        UXP += xpEarned + (attempt.completedNow ? 50 : 0);
+        UCoin += coinEarned + (attempt.completedNow ? 10 : 0);
         updateDisplays();
         showToast(`<i class="fa-solid fa-circle-check" style="color:#34d399"></i> +${xpEarned} XP +${coinEarned} <i class="fa-solid fa-coins" style="color:#f5c842"></i> saqlandi!`, 'success');
     } catch (e) { console.error(e); }
@@ -1488,6 +1541,16 @@ function showResult(lk, pct, xp, coin, unit, uid) {
     const lnames = { A:'Grammatika', B:'Listening', C:'Reading', D:'Speaking' };
     const nxt = { A:'B', B:'C', C:'D', D:null };
     const content = $id('modalContent'); if (!content) return;
+    const unitComplete = ['A', 'B', 'C', 'D'].every(lesson => UProg[`${uid}_${lesson}`] >= 100);
+    if (pct < 60 || (!nxt[lk] && !unitComplete)) {
+        content.innerHTML = `<div style="text-align:center;padding:24px">
+          <h3>${pct < 60 ? 'O‘tish uchun kamida 60% kerak.' : 'Unitdagi qolgan darslarni ham yakunlang.'}</h3>
+          ${pct < 60 ? `<button class="course-result-action" onclick="window.openLesson('${uid}','${lk}')">Qayta urinib ko‘rish</button>` : ''}
+          <button class="course-result-action secondary" onclick="document.getElementById('unitModal').classList.remove('active');renderUnits()">Unitlarga qaytish</button>
+        </div>`;
+        const modal = $id('unitModal'); if (modal) modal.classList.add('active');
+        return;
+    }
     const circleColor = pct>=80?'#34d399':pct>=60?'#f5c842':'#ef4444';
     content.innerHTML = `<div style="text-align:center;padding:20px">
       <div style="width:120px;height:120px;border-radius:50%;background:${circleColor}22;border:3px solid ${circleColor};display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px">
@@ -1728,7 +1791,7 @@ window.sendChatMessage = async function () {
     const sendBtn=$id('chatSendBtn'); if(sendBtn)sendBtn.disabled=true;
     try {
         const resp=await fetch(AI_PROXY,{method:'POST',headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({contents:[{role:'user',parts:[{text:curChatMode.sys+LANG_RULES}]},...chatHist.slice(-10)],generationConfig:{temperature:0.8,maxOutputTokens:1000}})});
+            body:JSON.stringify({thinkingMode:getAIThinkingMode(),contents:[{role:'user',parts:[{text:curChatMode.sys+LANG_RULES}]},...chatHist.slice(-10)],generationConfig:{temperature:0.8,maxOutputTokens:1000}})});
         const tb=$id(typingId); if(tb)tb.remove();
         if(!resp.ok){appendChat('assistant',`<i class="fa-solid fa-exclamation" style="color:#fbbf24"></i> AI xatolik: ${resp.status}`,false);return;}
         const d=await resp.json();
@@ -1749,7 +1812,8 @@ function appendChat(role, html, save=false, id=null) {
     const div=document.createElement('div');
     div.className=`chat-msg ${isAI?'ai-msg':'user-msg'}`;
     if(id) div.id=id;
-    div.innerHTML=`<div class="chat-avatar">${isAI?'<i class="fa-solid fa-robot"></i>':'<i class="fa-solid fa-user"></i>'}</div><div class="chat-bubble">${html}</div>`;
+    const content=isAI&&save?formatAIResponse(html):isAI?html:esc(html).replace(/\n/g,'<br>');
+    div.innerHTML=`<div class="chat-avatar">${isAI?'<i class="fa-solid fa-robot"></i>':'<i class="fa-solid fa-user"></i>'}</div><div class="chat-bubble">${content}</div>`;
     c.appendChild(div); c.scrollTop=c.scrollHeight;
 }
 
@@ -1765,22 +1829,10 @@ window.clearChatHistory = async function () {
 // VIDEO
 // ══════════════════════════════════════════════════════════════
 window.findYoutubeVideos = function () {
-    const grid=$id('videosGrid'); if(!grid) return;
-    const videos=[
-        {title:'Türkçe A1 - Tam Ders',        channel:'TürkçeKurs', id:'dQw4w9WgXcQ'},
-        {title:'Türkçe Öğrenin - 100 Kelime', channel:'TurkishClass101', id:'eVTXPUF4Oz4'},
-        {title:'Türkçe Gramer Dersleri',       channel:'TürkçeGramer',   id:'3JZ_D3ELwOQ'},
-        {title:'Günlük Türkçe Konuşma',        channel:'DailyTurkish',   id:'2Vv-BfVoq4g'},
-    ];
-    grid.innerHTML=videos.map(v=>`<div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08)">
-        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" style="display:block">
-          <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width:100%;height:160px;object-fit:cover" alt="${v.title}">
-          <div style="padding:12px">
-            <div style="font-weight:600;font-size:0.85rem;color:#e8ecff;margin-bottom:4px">${v.title}</div>
-            <div style="font-size:0.75rem;color:#666"><i class="fa-brands fa-youtube" style="color:#ef4444;margin-right:4px"></i>${v.channel}</div>
-          </div>
-        </a>
-    </div>`).join('');
+    return findSkillVideos({
+        language: 'Türkçe', languageId: 'turkish', exam: 'TÖMER', skills: USk, level: curLevel,
+        skillLabels: { reading: 'okuduğunu anlama', writing: 'yazma', speaking: 'konuşma', listening: 'dinleme', grammar: 'dil bilgisi' }
+    });
 };
 
 // ══════════════════════════════════════════════════════════════

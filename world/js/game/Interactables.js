@@ -65,25 +65,27 @@ export class Interactables {
     this.clearHighlight();
     this._highlighted = group;
     if (!group) return;
+    const highlightedMaterials = new Set();
     group.traverse(o => {
-      if (o.isMesh && o.material) {
-        o.material.userData._em = o.material.emissive ? o.material.emissive.clone() : null;
-        if (o.material.emissive) {
-          o.material.emissive.setHex(0xffffff);
-          o.material.emissiveIntensity = 0.35;
-        }
-      }
+      const material = o.isMesh && o.material;
+      if (!material || Array.isArray(material) || !material.emissive || highlightedMaterials.has(material)) return;
+      highlightedMaterials.add(material);
+      material.userData._highlightEmissive = material.emissive.clone();
+      material.userData._highlightEmissiveIntensity = material.emissiveIntensity;
+      material.emissive.setHex(0xffffff);
+      material.emissiveIntensity = 0.35;
     });
   }
 
   clearHighlight() {
     if (!this._highlighted) return;
     this._highlighted.traverse(o => {
-      if (o.isMesh && o.material && o.material.userData._em) {
-        o.material.emissive.copy(o.material.userData._em);
-        o.material.emissiveIntensity = o.material.userData._emIntensity ?? 0;
-        delete o.material.userData._em;
-      }
+      const material = o.isMesh && o.material;
+      if (!material || Array.isArray(material) || !material.userData._highlightEmissive) return;
+      material.emissive.copy(material.userData._highlightEmissive);
+      material.emissiveIntensity = material.userData._highlightEmissiveIntensity;
+      delete material.userData._highlightEmissive;
+      delete material.userData._highlightEmissiveIntensity;
     });
     this._highlighted = null;
   }

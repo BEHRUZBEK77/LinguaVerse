@@ -92,7 +92,7 @@ export const CITIES = [
   },
   {
     id: 'tokyo', name: 'Tokio', nameEn: 'Tokyo', flag: '🇯🇵', native: 'ja',
-    desc: 'Neon va sakura — o\'ng va tungi osmon',
+    desc: 'Neon chiroqlar va sakura — sharqona tungi manzara',
     sky: 0x2f3b66, fog: 0x3f4a75,
     grass: 0x2c5a3a, road: 0x1f2129, tree: 0xc47fa8,
     building: 0xfff0f5, tint: 1.05, lamp: 0xff8ad0,
@@ -143,7 +143,7 @@ export const WORDS = [
   // ── OFIS ──
   { id: 'office_meeting', zone: 'office', word: 'meeting', translation: 'yig\'ilish', type: 'noun', level: 'A2', prop: 'meeting', pos: { x: 132, z: -44 }, example: 'The meeting starts at nine.', exampleTranslation: 'Yig\'ilish soat 9 da boshlanadi.' },
   { id: 'office_deadline', zone: 'office', word: 'deadline', translation: 'muddat / oxirgi kun', type: 'noun', level: 'B1', prop: 'clock', pos: { x: 104, z: -50 }, example: 'The deadline is Friday.', exampleTranslation: 'Oxirgi muddat — juma.' },
-  { id: 'office_colleague', zone: 'office', word: 'colleague', translation: 'hamkasab', type: 'noun', level: 'A2', prop: 'colleague', pos: { x: 148, z: -60 }, example: 'My colleague helped me.', exampleTranslation: 'Hamkasbim menga yordam berdi.' },
+  { id: 'office_colleague', zone: 'office', word: 'colleague', translation: 'hamkasb', type: 'noun', level: 'A2', prop: 'colleague', pos: { x: 148, z: -60 }, example: 'My colleague helped me.', exampleTranslation: 'Hamkasbim menga yordam berdi.' },
   { id: 'office_laptop', zone: 'office', word: 'laptop', translation: 'noutbuk', type: 'noun', level: 'A1', prop: 'laptop', pos: { x: 120, z: -84 }, example: 'I work on my laptop.', exampleTranslation: 'Noutbukda ishlayman.' },
   { id: 'office_report', zone: 'office', word: 'report', translation: 'hisobot', type: 'noun', level: 'A2', prop: 'report', pos: { x: 138, z: -78 }, example: 'Please send me the report.', exampleTranslation: 'Iltimos, hisobotni yuboring.' },
   { id: 'office_email', zone: 'office', word: 'email', translation: 'elektron pochta', type: 'noun', level: 'A1', prop: 'email', pos: { x: 96, z: -68 }, example: 'I will send an email.', exampleTranslation: 'Email yuboraman.' },
@@ -258,20 +258,40 @@ export const QUESTS = [
   { id: 'q_welcome', title: 'Shaharga xush kelibsiz', desc: 'Kafe zonasiga boring va atrofni o\'rganing.', type: 'arrive', zone: 'cafe', xp: 20, coins: 10 },
   { id: 'q_cafe_words', title: 'Kofeda lug\'at', desc: 'Kafe zonasida 3 ta so\'z o\'rganing (predmetlarga bosing).', type: 'words', zone: 'cafe', count: 3, xp: 30, coins: 15 },
   { id: 'q_cafe_talk', title: 'Barista bilan suhbat', desc: 'Marta bilan suhbatlashing (E tugmasi yoki ustiga bosing).', type: 'talk', npc: 'cafe_marta', turns: 1, xp: 25, coins: 10 },
-  { id: 'q_cafe_order', title: 'Kofe buyurtma bering', desc: 'Marta bilan suhbatda: "I would like a coffee, please." deb ayting.', type: 'phrase', npc: 'cafe_marta', phrase: 'I would like a coffee', xp: 40, coins: 20 },
+  { id: 'q_cafe_order', title: 'Kofe buyurtma bering', desc: 'Marta bilan tanlangan tilda kofe buyurtma qiling.', type: 'phrase', npc: 'cafe_marta', phrase: {
+    'en-US': 'I would like a coffee', 'ru-RU': 'Я бы хотел кофе',
+    'es-ES': 'Quisiera un café', 'de-DE': 'Ich hätte gern einen Kaffee',
+    'tr-TR': 'Bir kahve istiyorum', 'ar-SA': 'أريد قهوة من فضلك',
+    'ko-KR': '커피 한 잔 주세요', 'zh-CN': '请给我一杯咖啡'
+  }, xp: 40, coins: 20 },
   { id: 'q_market_words', title: 'Bozorda lug\'at', desc: 'Bozorda 3 ta so\'z o\'rganing.', type: 'words', zone: 'market', count: 3, xp: 30, coins: 15 },
   { id: 'q_market_talk', title: 'Sotuvchi bilan suhbat', desc: 'Ali bilan suhbatlashing.', type: 'talk', npc: 'market_ali', turns: 1, xp: 25, coins: 10 },
-  { id: 'q_market_price', title: 'Narx so\'rang', desc: 'Ali bilan suhbatda: "How much is this apple?" deb so\'rang.', type: 'phrase', npc: 'market_ali', phrase: 'How much is this apple', xp: 40, coins: 20 },
+  { id: 'q_market_price', title: 'Narx so\'rang', desc: 'Ali bilan suhbatda olmaning narxini tanlangan tilda so\'rang.', type: 'phrase', npc: 'market_ali', phrase: {
+    'en-US': 'How much is this apple', 'ru-RU': 'Сколько стоит это яблоко',
+    'es-ES': 'Cuánto cuesta esta manzana', 'de-DE': 'Wie viel kostet dieser Apfel',
+    'tr-TR': 'Bu elma ne kadar', 'ar-SA': 'كم سعر هذه التفاحة',
+    'ko-KR': '이 사과는 얼마예요', 'zh-CN': '这个苹果多少钱'
+  }, xp: 40, coins: 20 },
   { id: 'q_office_words', title: 'Ofisda lug\'at', desc: 'Ofisda 3 ta so\'z o\'rganing.', type: 'words', zone: 'office', count: 3, xp: 30, coins: 15 },
   { id: 'q_office_talk', title: 'Hamkasab bilan suhbat', desc: 'Sara bilan suhbatlashing.', type: 'talk', npc: 'office_sara', turns: 1, xp: 25, coins: 10 },
   { id: 'q_airport_words', title: 'Aэroportda lug\'at', desc: 'Aэroportda 3 ta so\'z o\'rganing.', type: 'words', zone: 'airport', count: 3, xp: 30, coins: 15 },
   { id: 'q_airport_talk', title: 'Agent bilan suhbat', desc: 'Karim bilan suhbatlashing.', type: 'talk', npc: 'airport_karim', turns: 1, xp: 25, coins: 10 },
-  { id: 'q_airport_gate', title: 'Darvoza so\'rang', desc: 'Karim bilan suhbatda: "Where is my gate?" deb so\'rang.', type: 'phrase', npc: 'airport_karim', phrase: 'Where is my gate', xp: 40, coins: 20 },
+  { id: 'q_airport_gate', title: 'Darvozani so\'rang', desc: 'Karimdan uchish darvozasi qayerdaligini tanlangan tilda so\'rang.', type: 'phrase', npc: 'airport_karim', phrase: {
+    'en-US': 'Where is my gate', 'ru-RU': 'Где мой выход на посадку',
+    'es-ES': 'Dónde está mi puerta de embarque', 'de-DE': 'Wo ist mein Flugsteig',
+    'tr-TR': 'Kapım nerede', 'ar-SA': 'أين بوابة الصعود',
+    'ko-KR': '탑승구가 어디예요', 'zh-CN': '我的登机口在哪里'
+  }, xp: 40, coins: 20 },
   { id: 'q_home_words', title: 'Uyda lug\'at', desc: 'Uy zonasida 3 ta so\'z o\'rganing.', type: 'words', zone: 'home', count: 3, xp: 30, coins: 15 },
   { id: 'q_home_talk', title: 'Qo\'shni bilan suhbat', desc: 'Bob bilan suhbatlashing.', type: 'talk', npc: 'home_grandpa', turns: 1, xp: 25, coins: 10 },
   { id: 'q_school_words', title: 'Maktabda lug\'at', desc: 'Maktab zonasida 3 ta so\'z o\'rganing.', type: 'words', zone: 'school', count: 3, xp: 30, coins: 15 },
   { id: 'q_school_talk', title: 'O\'qituvchi bilan suhbat', desc: 'Nilufar bilan suhbatlashing.', type: 'talk', npc: 'school_nilufar', turns: 1, xp: 25, coins: 10 },
-  { id: 'q_school_question', title: 'Savol so\'rang', desc: 'Nilufar bilan suhbatda: "Can you help me, please?" deb so\'rang.', type: 'phrase', npc: 'school_nilufar', phrase: 'Can you help me', xp: 40, coins: 20 },
+  { id: 'q_school_question', title: 'Yordam so\'rang', desc: 'Nilufardan tanlangan tilda yordam so\'rang.', type: 'phrase', npc: 'school_nilufar', phrase: {
+    'en-US': 'Can you help me', 'ru-RU': 'Вы можете мне помочь',
+    'es-ES': 'Puedes ayudarme', 'de-DE': 'Können Sie mir helfen',
+    'tr-TR': 'Bana yardım edebilir misiniz', 'ar-SA': 'هل يمكنك مساعدتي',
+    'ko-KR': '저를 도와주실 수 있나요', 'zh-CN': '你能帮我吗'
+  }, xp: 40, coins: 20 },
   { id: 'q_explorer', title: 'Kashfiyotchi', desc: 'Har xil 3 ta zonaga tashrif buyuring.', type: 'zones', count: 3, xp: 50, coins: 30 }
 ];
 
@@ -305,7 +325,10 @@ export const TARGET_LANGS = [
   { id: 'ru-RU', label: 'Русский', flag: '🇷🇺' },
   { id: 'es-ES', label: 'Español', flag: '🇪🇸' },
   { id: 'de-DE', label: 'Deutsch', flag: '🇩🇪' },
-  { id: 'tr-TR', label: 'Türkçe', flag: '🇹🇷' }
+  { id: 'tr-TR', label: 'Türkçe', flag: '🇹🇷' },
+  { id: 'ar-SA', label: 'العربية', flag: '🇸🇦' },
+  { id: 'ko-KR', label: '한국어', flag: '🇰🇷' },
+  { id: 'zh-CN', label: '中文', flag: '🇨🇳' }
 ];
 
 export const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'];

@@ -302,6 +302,10 @@ export class HUD {
       const bar = prog.max > 0
         ? `<div class="qprog"><div style="width:${pct}%"></div></div>`
         : '';
+      const phrase = typeof q.phrase === 'string'
+        ? q.phrase
+        : q.phrase?.[store.settings.targetLang];
+      const phraseHint = phrase ? `<div class="qd"><b>${esc(phrase)}</b></div>` : '';
 
       return `
         <div class="quest-item ${isDone ? 'done' : isActive ? 'active' : ''}">
@@ -309,6 +313,7 @@ export class HUD {
           <div style="flex:1;min-width:0">
             <div class="qt">${esc(q.title)}</div>
             <div class="qd">${esc(q.desc)}</div>
+            ${phraseHint}
             ${reward}${bar}
           </div>
         </div>`;

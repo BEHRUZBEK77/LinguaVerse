@@ -1,55 +1,49 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// _auth.js — Firebase ID-TOKEN TEKSHIRUVI (umumiy yordamchi)
+// _auth.js — FOYDALANUVCHI TOKENINI TEKSHIRISH (endi Supabase Auth)
 //
-// payment.js dagi tasdiqlash mantig'i bilan bir xil — shu yerga chiqarildi,
-// chunki community.js kabi boshqa funksiyalar ham "bu so'rov haqiqatan ham
-// shu userdan keldimi" tekshirishi kerak.
+// Brauzer `idToken` sifatida Supabase access token yuboradi (js/fb/firebase-auth.js
+// dagi user.getIdToken()). Server uni Supabase'ning o'zida tekshiradi —
+// soxta yoki muddati o'tgan token rad etiladi.
+//
+// uid: Firebase'dan ko'chgan foydalanuvchida ESKI uid (app_metadata.legacy_uid)
+// qaytariladi — shuning uchun users/{uid} yo'llari va barcha eski ma'lumotlar
+// joyida qoladi. Yangi foydalanuvchida Supabase uuid.
 // ═══════════════════════════════════════════════════════════════════════════
 
-const crypto = require('crypto');
+const URL_ = () => (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
+const KEY = () => process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_ANON_KEY || '';
 
-let certCache = null, certCachedUntil = 0;
+const cache = new Map();          // token → { user, until }  (bitta funksiya ishga tushishi ichida)
 
-async function googleCerts() {
-  if (certCache && Date.now() < certCachedUntil) return certCache;
-  const r = await fetch('https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com');
-  if (!r.ok) throw new Error('Google sertifikatlari olinmadi');
-  certCache = await r.json();
-  const maxAge = /max-age=(\d+)/.exec(r.headers.get('cache-control') || '');
-  certCachedUntil = Date.now() + (maxAge ? +maxAge[1] : 3600) * 1000;
-  return certCache;
+function mapUser(u) {
+  const meta = u.user_metadata || {};
+  const email = u.email || '';
+  return {
+    uid: (u.app_metadata && u.app_metadata.legacy_uid) || u.id,
+    supabaseId: u.id,
+    email,
+    name: meta.full_name || meta.name || meta.displayName || (email ? email.split('@')[0] : "O'quvchi"),
+    anonymous: !!u.is_anonymous
+  };
 }
 
 async function verifyIdToken(idToken) {
   if (!idToken) throw new Error('Token yuborilmagan');
+  const hit = cache.get(idToken);
+  if (hit && hit.until > Date.now()) return hit.user;
 
-  const [h, p, s] = idToken.split('.');
-  if (!h || !p || !s) throw new Error("Token ko'rinishi noto'g'ri");
+  if (!URL_() || !KEY()) throw new Error('SUPABASE_URL sozlanmagan');
+  const r = await fetch(`${URL_()}/auth/v1/user`, {
+    headers: { apikey: KEY(), Authorization: `Bearer ${idToken}` }
+  });
+  if (!r.ok) throw new Error(r.status === 401 || r.status === 403 ? 'Token muddati tugagan yoki noto‘g‘ri' : 'Token tekshirilmadi');
+  const u = await r.json();
+  if (!u || !u.id) throw new Error("Tokenda foydalanuvchi yo'q");
 
-  const header = JSON.parse(Buffer.from(h, 'base64url').toString());
-  const payload = JSON.parse(Buffer.from(p, 'base64url').toString());
-  const projectId = process.env.FIREBASE_PROJECT_ID || 'linguaverse-81b52';
-
-  if (payload.aud !== projectId) throw new Error('Token boshqa loyihaga tegishli');
-  if (payload.iss !== `https://securetoken.google.com/${projectId}`) throw new Error("Token manbasi noto'g'ri");
-  if (payload.exp * 1000 < Date.now()) throw new Error('Token muddati tugagan');
-  if (!payload.sub) throw new Error("Tokenda foydalanuvchi yo'q");
-
-  const certs = await googleCerts();
-  const cert = certs[header.kid];
-  if (!cert) throw new Error('Token kaliti topilmadi');
-
-  const verifier = crypto.createVerify('RSA-SHA256');
-  verifier.update(`${h}.${p}`);
-  if (!verifier.verify(cert, Buffer.from(s, 'base64url'))) {
-    throw new Error("Token imzosi noto'g'ri");
-  }
-
-  return {
-    uid: payload.sub,
-    email: payload.email || '',
-    name: payload.name || (payload.email ? payload.email.split('@')[0] : "O'quvchi")
-  };
+  const user = mapUser(u);
+  cache.set(idToken, { user, until: Date.now() + 60_000 });
+  if (cache.size > 500) cache.delete(cache.keys().next().value);
+  return user;
 }
 
-module.exports = { verifyIdToken };
+module.exports = { verifyIdToken, mapUser };

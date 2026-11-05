@@ -18,6 +18,7 @@ export class CameraController {
     this.heightOffset = 1.45;  // avatar ko'kragi balandligi
 
     this._look = new THREE.Vector3();
+    this._cameraTarget = new THREE.Vector3();
   }
 
   update(dt, orbit = { x: 0, y: 0 }, zoom = 0) {
@@ -43,7 +44,8 @@ export class CameraController {
 
     // Kamerani silliq yaqinlashtiramiz (lerp)
     const smooth = 1 - Math.pow(0.0001, dt);
-    this.camera.position.lerp(new THREE.Vector3(px, py, pz), smooth);
+    this._cameraTarget.set(px, py, pz);
+    this.camera.position.lerp(this._cameraTarget, smooth);
 
     this._look.set(cx, cy, cz);
     this.camera.lookAt(this._look);

@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Parolni tiklash — LinguaVerse</title>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -198,6 +196,9 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
@@ -222,8 +223,8 @@
   </div>
 
   <script type="module">
-    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { initializeApp, getApps, getApp } from "/js/fb/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "/js/fb/firebase-auth.js";
 
     const FB_CONFIG = {
       apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",

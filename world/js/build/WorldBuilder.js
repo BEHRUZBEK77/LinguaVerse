@@ -75,6 +75,7 @@ export class WorldBuilder {
     this.npcMeshes = new Map();  // npcId → group
     this.lampLights = [];        // tunda yonadigan chiroq glow materiallari
     this.windowMats = [];        // tunda yonadigan bino derazalari
+    this.trees = [];
     this._rngSeed = 1;
   }
 
@@ -133,14 +134,6 @@ export class WorldBuilder {
     const roadV2 = buildRoad(WORLD.roadWidth, 232, road);  // x=60
     roadV2.position.set(60, 0.02, 0);
     this.scene.add(roadV2);
-
-    // Yo'l chetlari — pastak to'siq, o'yinchi yo'ldan chiqib ketmasin
-    for (const x of [-60, 60]) {
-      this.physics.addBox(x - WORLD.roadWidth / 2 - 0.3, 0, 0.6, 232);
-      this.physics.addBox(x + WORLD.roadWidth / 2 + 0.3, 0, 0.6, 232);
-    }
-    this.physics.addBox(0, -WORLD.roadWidth / 2 - 0.3, 352, 0.6);
-    this.physics.addBox(0, WORLD.roadWidth / 2 + 0.3, 352, 0.6);
 
     // Yo'l bo'ylab chiroqlar va daraxtlar
     for (let i = 0; i < 5; i++) {
@@ -218,6 +211,7 @@ export class WorldBuilder {
     obj.position.set(x, 0, z);
     obj.rotation.y = rot;
     this.scene.add(obj);
+    if (obj.userData && obj.userData.isTree) this.trees.push(obj);
     // Chiroq glow materiallarini yig'ish — kunduz/tun sikli uchun
     if (obj.userData && obj.userData.isLamp) {
       obj.traverse(o => {
@@ -227,6 +221,15 @@ export class WorldBuilder {
       });
     }
     return obj;
+  }
+
+  updateAmbient(time) {
+    for (const tree of this.trees) {
+      const phase = time * 0.7 + tree.userData.windPhase;
+      const canopy = tree.userData.canopy;
+      canopy.rotation.x = Math.sin(phase) * tree.userData.windStrength;
+      canopy.rotation.z = Math.cos(phase * 0.83) * tree.userData.windStrength * 0.72;
+    }
   }
 
   // ───────────────────────────────────────────────────────────────────────

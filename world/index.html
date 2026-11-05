@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Til Shahri — LinguaVerse 3D Dunyo</title>
   <link rel="icon" href="data:,">
   <meta name="description" content="3D immersive til o'rganish shahri: zonalar, NPC suhbatlar, lug'at, questlar.">
@@ -21,6 +21,9 @@
       }
     }
   </script>
+  <script src="../js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
@@ -48,32 +51,47 @@
       <!-- QADAM 1: Til -->
       <div class="setup-step" id="setup-step-lang">
         <h2 class="city-select-title">Qaysi tilda suhbatlashamiz? <span>🗣️</span></h2>
-        <p class="city-select-sub">NPClar bilan shu tilda gaplashib, yangi so'zlarni o'rganasiz</p>
+        <p class="city-select-sub">NPC suhbatlari tanlangan tilda bo'ladi. 3D lug'at va vazifalar hozircha ingliz tilida.</p>
         <div class="lang-grid">
-          <div class="lang-card" data-lang="en-US" tabindex="0">
+          <div class="lang-card" data-lang="en-US" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇬🇧</div>
             <div class="city-name">English</div>
             <div class="city-name-en">Ingliz tili</div>
           </div>
-          <div class="lang-card" data-lang="ru-RU" tabindex="0">
+          <div class="lang-card" data-lang="ru-RU" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇷🇺</div>
             <div class="city-name">Русский</div>
             <div class="city-name-en">Rus tili</div>
           </div>
-          <div class="lang-card" data-lang="es-ES" tabindex="0">
+          <div class="lang-card" data-lang="es-ES" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇪🇸</div>
             <div class="city-name">Español</div>
             <div class="city-name-en">Ispan tili</div>
           </div>
-          <div class="lang-card" data-lang="de-DE" tabindex="0">
+          <div class="lang-card" data-lang="de-DE" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇩🇪</div>
             <div class="city-name">Deutsch</div>
             <div class="city-name-en">Nemis tili</div>
           </div>
-          <div class="lang-card" data-lang="tr-TR" tabindex="0">
+          <div class="lang-card" data-lang="tr-TR" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇹🇷</div>
             <div class="city-name">Türkçe</div>
             <div class="city-name-en">Turk tili</div>
+          </div>
+          <div class="lang-card" data-lang="ar-SA" role="button" aria-pressed="false" tabindex="0">
+            <div class="city-flag">🇸🇦</div>
+            <div class="city-name">العربية</div>
+            <div class="city-name-en">Arab tili</div>
+          </div>
+          <div class="lang-card" data-lang="ko-KR" role="button" aria-pressed="false" tabindex="0">
+            <div class="city-flag">🇰🇷</div>
+            <div class="city-name">한국어</div>
+            <div class="city-name-en">Koreys tili</div>
+          </div>
+          <div class="lang-card" data-lang="zh-CN" role="button" aria-pressed="false" tabindex="0">
+            <div class="city-flag">🇨🇳</div>
+            <div class="city-name">中文</div>
+            <div class="city-name-en">Xitoy tili</div>
           </div>
         </div>
         <div class="city-select-note">Istagan payt o'yin ichidagi Sozlamalardan o'zgartirishingiz mumkin</div>
@@ -84,37 +102,37 @@
         <h2 class="city-select-title">Qaysi shaharga boramiz? <span>🌍</span></h2>
         <p class="city-select-sub">Har bir shahar o'ziga xos rang va muhitga ega</p>
         <div class="city-grid">
-          <div class="city-card" data-id="toshkent" tabindex="0">
+          <div class="city-card" data-id="toshkent" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇺🇿</div>
             <div class="city-name">Toshkent</div>
             <div class="city-name-en">Tashkent</div>
             <div class="city-desc">Yashil bog'lar, choyxonalar va quyoshli maydonlar</div>
           </div>
-          <div class="city-card" data-id="berlin" tabindex="0">
+          <div class="city-card" data-id="berlin" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇩🇪</div>
             <div class="city-name">Berlin</div>
             <div class="city-name-en">Berlin</div>
             <div class="city-desc">Zamonaviy metropol — aniq chiziqlar, kulrang-ko'k maydonlar</div>
           </div>
-          <div class="city-card" data-id="seul" tabindex="0">
+          <div class="city-card" data-id="seul" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇰🇷</div>
             <div class="city-name">Seul</div>
             <div class="city-name-en">Seoul</div>
             <div class="city-desc">Yorqin neonli, futuristik — kechki osmon</div>
           </div>
-          <div class="city-card" data-id="london" tabindex="0">
+          <div class="city-card" data-id="london" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇬🇧</div>
             <div class="city-name">London</div>
             <div class="city-name-en">London</div>
             <div class="city-desc">Klassik metropol — g'ishtli binolar, an'anaviy ko'chalar</div>
           </div>
-          <div class="city-card" data-id="tokyo" tabindex="0">
+          <div class="city-card" data-id="tokyo" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇯🇵</div>
             <div class="city-name">Tokio</div>
             <div class="city-name-en">Tokyo</div>
             <div class="city-desc">Neon va sakura — o'ng va tungi osmon</div>
           </div>
-          <div class="city-card" data-id="paris" tabindex="0">
+          <div class="city-card" data-id="paris" role="button" aria-pressed="false" tabindex="0">
             <div class="city-flag">🇫🇷</div>
             <div class="city-name">Parij</div>
             <div class="city-name-en">Paris</div>
@@ -130,7 +148,7 @@
   </div>
 
   <!-- ══════════ 3D SAHNA ══════════ -->
-  <div id="game-canvas"></div>
+  <div id="game-canvas" role="application" aria-label="Til o'rganish 3D shahri"></div>
 
   <!-- ══════════ HUD ══════════ -->
   <div id="hud">
@@ -270,6 +288,9 @@
           <option value="es-ES">🇪🇸 Español</option>
           <option value="de-DE">🇩🇪 Deutsch</option>
           <option value="tr-TR">🇹🇷 Türkçe</option>
+          <option value="ar-SA">🇸🇦 العربية</option>
+          <option value="ko-KR">🇰🇷 한국어</option>
+          <option value="zh-CN">🇨🇳 中文</option>
         </select>
       </label>
       <label class="set-row">

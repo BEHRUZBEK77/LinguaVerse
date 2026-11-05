@@ -21,7 +21,7 @@
 import { LV, db } from './lv-core.js';
 import {
   doc, runTransaction, serverTimestamp, increment, collection, getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
 
 // ═══════════════════════════════════════════════════════════════════════════
 // KATALOG — 58 ta mahsulot, 8 toifa

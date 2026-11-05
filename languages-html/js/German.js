@@ -8,15 +8,22 @@ function esc(s) {
 
 // =====================================================// German.js — LinguaVerse Deutsch (FIXED VERSION)
 // =====================================================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { buildCourseCurriculum } from './unit-curriculum.mjs';
+import { mountAIUnitBuilder } from './ai-unit-builder.mjs';
+import { findSkillVideos } from './youtube-recommendations.mjs';
+import { formatAIResponse, getAIThinkingMode, initializeAIChatUI } from './ai-chat-ui.mjs';
+import { initializeApp } from "/js/fb/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 import {
     getFirestore, doc, getDoc, setDoc, updateDoc,
     increment, serverTimestamp, collection,
     query, orderBy, limit, getDocs
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+} from "/js/fb/firebase-firestore.js";
+import { courseProgressKey, isCourseLevelUnlocked, isCourseUnitUnlocked, migrateCourseProgress, recordCourseLessonAttempt, renderCourseJourney } from './course-journey.mjs';
 
+const COURSE_ID = 'german';
 const $id = id => document.getElementById(id);
+initializeAIChatUI();
 
 // ── FIREBASE ──
 const FB_CONFIG = {
@@ -30,7 +37,7 @@ const FB_CONFIG = {
 
 let _app, _auth, _db;
 try {
-    const { getApp } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js");
+    const { getApp } = await import("/js/fb/firebase-app.js");
     _app = getApp();
 } catch {
     _app = initializeApp(FB_CONFIG);
@@ -146,7 +153,7 @@ const WDB = [
     { de: 'die Katze', u: "Mushuk", t: 'Nomen', l: 'beginner', ex: "Die Katze schläft.", eu: "Mushuk uxlayapti." },
     { de: 'das Haus', u: "Uy", t: 'Nomen', l: 'beginner', ex: "Ich wohne in einem großen Haus.", eu: "Men katta uyda yashayman." },
     { de: 'das Auto', u: "Avtomobil", t: 'Nomen', l: 'beginner', ex: "Mein Vater hat ein rotes Auto.", eu: "Otamning qizil mashinasi bor." },
-    { de: 'laufen', u: "Yugurmaq", t: 'Verb', l: 'beginner', ex: "Sie läuft jeden Morgen.", eu: "U har ertalab yuguradi." },
+    { de: 'laufen', u: "Yugurmoq", t: 'Verb', l: 'beginner', ex: "Sie läuft jeden Morgen.", eu: "U har ertalab yuguradi." },
     { de: 'essen', u: "Yemoq", t: 'Verb', l: 'beginner', ex: "Wir essen um 7 Uhr zu Abend.", eu: "Biz soat 7 da kechki ovqat yeymiz." },
     { de: 'trinken', u: "Ichmoq", t: 'Verb', l: 'beginner', ex: "Er trinkt Kaffee.", eu: "U qahva ichadi." },
     { de: 'schlafen', u: "Uxlamoq", t: 'Verb', l: 'beginner', ex: "Kinder schlafen früh.", eu: "Bolalar erta uxlaydilar." },
@@ -158,7 +165,7 @@ const WDB = [
     { de: 'spielen', u: "O'ynamoq", t: 'Verb', l: 'beginner', ex: "Kinder lieben es zu spielen.", eu: "Bolalar o'ynashni yaxshi ko'rishadi." },
     { de: 'der Montag', u: "Dushanba", t: 'Nomen', l: 'beginner', ex: "Montag ist der erste Tag der Woche.", eu: "Dushanba haftaning birinchi kuni." },
     { de: 'der Dienstag', u: "Seshanba", t: 'Nomen', l: 'beginner', ex: "Am Dienstag habe ich Unterricht.", eu: "Seshanba kuni darsim bor." },
-    { de: 'der Mittwoch', u: "Chorshanba", t: 'Nomen', l: 'beginner', ex: "Wir treffen uns jeden Mittwoch.", eu: "Biz har chorshanba uchrashAmiz." },
+    { de: 'der Mittwoch', u: "Chorshanba", t: 'Nomen', l: 'beginner', ex: "Wir treffen uns jeden Mittwoch.", eu: "Biz har chorshanba kuni uchrashamiz." },
     { de: 'der Donnerstag', u: "Payshanba", t: 'Nomen', l: 'beginner', ex: "Donnerstag ist mein Lieblingstag.", eu: "Payshanba mening sevimli kunim." },
     { de: 'der Freitag', u: "Juma", t: 'Nomen', l: 'beginner', ex: "Freitags gehen wir früh.", eu: "Juma kuni biz erta tugatamiz." },
     { de: 'der Samstag', u: "Shanba", t: 'Nomen', l: 'beginner', ex: "Am Samstag ruhe ich mich aus.", eu: "Shanba kuni dam olaman." },
@@ -331,6 +338,7 @@ const WDB = [
     { de: 'nichtsdestotrotz', u: "Shunga qaramasdan", t: 'Adverb', l: 'advanced', ex: "Nichtsdestotrotz haben wir Erfolg gehabt.", eu: "Shunga qaramasdan muvaffaqiyat qozondik." },
     { de: 'bevorstehend', u: "Yaqinlashayotgan", t: 'Adjektiv', l: 'advanced', ex: "Die bevorstehenden Änderungen sind bedeutsam.", eu: "Yaqinlashayotgan o'zgarishlar muhim." },
     { de: 'plausibel', u: "Ishonchli ko'rinadigan", t: 'Adjektiv', l: 'advanced', ex: "Das scheint plausibel.", eu: "Bu ishonchli ko'rinadi." },
+    { de: 'aufgeben', u: "Voz kechmoq", t: 'Verb', l: 'intermediate', ex: "Gib deine Ziele nicht auf.", eu: "Maqsadlaringizdan voz kechmang." },
 ];
 
 // ══════════════════════════════════════════════════════════════
@@ -833,6 +841,7 @@ const UD_DATA = {
         },
     ]
 };
+buildCourseCurriculum(UD_DATA, WDB, 'de-DE', 'de');
 
 // ══════════════════════════════════════════════════════════════
 // GRAMMATIK FRAGEN
@@ -1017,7 +1026,14 @@ async function loadUserData() {
             UXP = d.xp || 0;
             UCoin = d.coins || 0;
             URank = d.rank || 'none';
-            UProg = d.progress || {};
+            const courseMigration = migrateCourseProgress(d.progress || {}, COURSE_ID, UD_DATA);
+            UProg = courseMigration.progress;
+            if (Object.keys(courseMigration.updates).length) await updateUserField(courseMigration.updates);
+            if (courseMigration.unresolvedLegacyIds.length &&
+                !localStorage.getItem('lv-course-progress-migration-v2')) {
+                localStorage.setItem('lv-course-progress-migration-v2', 'shown');
+                showToast('Eski progressdagi bir xil IDli unitlar tillarga aralashmasligi uchun avtomatik ko‘chmadi.', 'warning');
+            }
             USk = d.skills || { lesen: 0, schreiben: 0, sprechen: 0, hoeren: 0, grammatik: 0 };
             UStats = d.stats || { unitsCompleted: 0, totalSessions: 0, streak: 0 };
         } else {
@@ -1152,6 +1168,7 @@ async function callAI(prompt, maxTok = 1000) {
         const r = await fetch(AI_PROXY, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+                thinkingMode: getAIThinkingMode(),
                 contents: [{ role: 'user', parts: [{ text: prompt }] }],
                 generationConfig: { temperature: 0.7, maxOutputTokens: maxTok }
             })
@@ -1206,17 +1223,37 @@ function drawRadar() {
 // UNITS
 // ══════════════════════════════════════════════════════════════
 window.switchLevel = function (level, el) {
+    if (!isCourseLevelUnlocked(UD_DATA, UProg, COURSE_ID, level)) {
+        showToast('Avval joriy bosqichdagi barcha unitlarni yakunlang.', 'warning');
+        return;
+    }
     curLevel = level;
-    document.querySelectorAll('.level-tab').forEach(t => t.classList.toggle('active', el ? t === el : t.dataset.level === level));
     renderUnits();
 };
 
 function renderUnits() {
+    curLevel = renderCourseJourney({
+        courseId: COURSE_ID,
+        levels: UD_DATA,
+        progress: UProg,
+        activeLevel: curLevel,
+        onSelect: window.switchLevel,
+    });
     const grid = $id('unitsGrid'); if (!grid) return;
     const units = UD_DATA[curLevel] || [];
     grid.innerHTML = '';
+    mountAIUnitBuilder({
+        container: grid, courseId: COURSE_ID, level: curLevel, locale: 'de-DE', wordField: 'de',
+        dictionary: WDB, units: () => UD_DATA[curLevel] || [],
+        onUnitsLoaded: (level, added) => {
+            const levelUnits = UD_DATA[level] || (UD_DATA[level] = []);
+            const ids = new Set(levelUnits.map(unit => unit.id));
+            added.forEach(unit => { if (!ids.has(unit.id)) levelUnits.push(unit); });
+            if (level === curLevel) renderUnits();
+        }
+    });
     if (!units.length) {
-        grid.innerHTML = '<div style="color:var(--text3);font-size:.9rem;padding:32px 0;text-align:center;grid-column:1/-1">Bu daraja uchun unitlar hali qo\'shilmagan.</div>';
+        grid.insertAdjacentHTML('afterbegin', '<div style="color:var(--text3);font-size:.9rem;padding:32px 0;text-align:center;grid-column:1/-1">Bu daraja uchun unitlar hali qo\'shilmagan.</div>');
         return;
     }
     units.forEach((unit, i) => {
@@ -1248,7 +1285,13 @@ function renderUnits() {
     });
 }
 
+window.renderUnits = renderUnits;
+
 window.openUnit = function (unit) {
+    if (!unit || !isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unit.id)) {
+        showToast('Bu unit hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     curUnit = unit;
     const modal = $id('unitModal');
     const content = $id('modalContent');
@@ -1296,6 +1339,10 @@ window.openUnit = function (unit) {
 // LESSON OPEN
 // ══════════════════════════════════════════════════════════════
 window.openLesson = async function (unitId, lessonKey) {
+    if (!isCourseUnitUnlocked(UD_DATA, UProg, COURSE_ID, unitId)) {
+        showToast('Bu dars hali qulflangan. Avval oldingi bosqichni yakunlang.', 'warning');
+        return;
+    }
     const allUnits = Object.values(UD_DATA).flat();
     const unit = allUnits.find(u => u.id === unitId);
     if (!unit) return;
@@ -1708,26 +1755,26 @@ async function finishLesson(key, skill) {
     const pct = lTotal > 0 ? Math.round((lScore / lTotal) * 100) : 100;
     const progKey = `${curUnit.id}_${key}`;
     const scoreKey = `score_${curUnit.id}_${key}`;
-    const passed = pct >= 60;
-
-    UProg[progKey] = passed ? 100 : Math.max(UProg[progKey] || 0, pct);
+    const attempt = recordCourseLessonAttempt(UProg, curUnit.id, key, pct);
+    const passed = attempt.passed;
     UProg[scoreKey] = pct;
 
     await updateUserField({
-        [`progress.${progKey}`]: UProg[progKey],
-        [`progress.${scoreKey}`]: pct,
+        [`progress.${courseProgressKey(COURSE_ID, progKey)}`]: attempt.progressValue,
+        [`progress.${courseProgressKey(COURSE_ID, scoreKey)}`]: pct,
     });
 
     if (passed) {
         await awardXP(curUnit.xp, skill);
         UCoin += curUnit.coin;
         await updateUserField({ coins: increment(curUnit.coin) });
-        UStats.unitsCompleted = (UStats.unitsCompleted || 0) + 1;
-        await updateUserField({ 'stats.unitsCompleted': increment(1) });
+        if (attempt.completedNow) {
+            UStats.unitsCompleted = (UStats.unitsCompleted || 0) + 1;
+            await updateUserField({ 'stats.unitsCompleted': increment(1) });
+        }
     }
 
-    const allDone = ['A', 'B', 'C', 'D'].every(l => UProg[`${curUnit.id}_${l}`] >= 100);
-
+    const allDone = ['A', 'B', 'C', 'D'].every(lesson => UProg[`${curUnit.id}_${lesson}`] >= 100);
     const body = $id('lessonBody');
     if (!body) return;
     body.innerHTML = `
@@ -1897,6 +1944,14 @@ window.filterWords = function () { wSrch = ($id('wordSearch')?.value.toLowerCase
 window.filterByLevel = function (level, el) { wFilt = level; document.querySelectorAll('.wf-tab').forEach(t => t.classList.remove('active')); if (el) el.classList.add('active'); renderWords(true); };
 window.loadMoreWords = function () { renderWords(false); };
 
+window.findYoutubeVideos = function () {
+    return findSkillVideos({
+        language: 'Deutsch', languageId: 'german', exam: 'Goethe exam', skills: USk, level: curLevel,
+        skillKeys: { reading: 'lesen', writing: 'schreiben', speaking: 'sprechen', listening: 'hoeren', grammar: 'grammatik' },
+        skillLabels: { reading: 'Leseverstehen', writing: 'Schreiben', speaking: 'Sprechen und Aussprache', listening: 'Hörverstehen', grammar: 'Grammatik' }
+    });
+};
+
 // ══════════════════════════════════════════════════════════════
 // AI CHAT — FIXED (chatBox → chatMessages)
 // ══════════════════════════════════════════════════════════════
@@ -1935,7 +1990,7 @@ function renderChatMessages() {
     box.innerHTML = chatHist.map(m => `
     <div style="display:flex;${m.role === 'user' ? 'justify-content:flex-end' : ''};margin-bottom:12px">
       <div style="max-width:80%;padding:10px 14px;border-radius:${m.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px'};background:${m.role === 'user' ? 'linear-gradient(135deg,var(--accent),var(--gold))' : 'rgba(255,255,255,.04)'};color:${m.role === 'user' ? '#0a0e1a' : 'var(--text)'};font-size:.84rem;line-height:1.6;border:${m.role === 'user' ? 'none' : '1px solid rgba(212,168,67,.12)'}">
-        ${esc(m.content).replace(/\n/g, '<br>')}
+        ${m.role === 'assistant' ? formatAIResponse(m.content) : esc(m.content).replace(/\n/g, '<br>')}
       </div>
     </div>`).join('');
     box.scrollTop = box.scrollHeight;
@@ -1986,7 +2041,7 @@ onAuthStateChanged(_auth, async (user) => {
 // ══════════════════════════════════════════════════════════════
 window.logOut = async function () {
     try {
-        const { signOut } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js");
+        const { signOut } = await import("/js/fb/firebase-auth.js");
         await signOut(_auth);
         showToast('Chiqildi <i class="fa-solid fa-check" style="color:#34d399"></i>', 'info');
         setTimeout(() => { window.location.href = '../index.html'; }, 1000);

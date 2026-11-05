@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>LinguaVerse — Admin Panel</title>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     *,
     *::before,
@@ -17,28 +15,28 @@
     }
 
     :root {
-      --bg: #020408;
-      --bg2: #040810;
-      --bg3: #080d1a;
-      --bg4: #0c1224;
-      --bg5: #101628;
-      --accent: #5b7cfa;
-      --accent2: #a78bfa;
-      --gold: #f5c842;
-      --gold2: #e8a800;
-      --green: #34d399;
-      --red: #f87171;
-      --orange: #fb923c;
-      --pink: #f472b6;
-      --cyan: #22d3ee;
-      --text: #eef0ff;
-      --text2: #a8b0d0;
-      --text3: #5a6288;
-      --border: rgba(255, 255, 255, 0.06);
-      --font-d: 'Cinzel', serif;
-      --font-h: 'Exo 2', sans-serif;
-      --font-b: 'Rajdhani', sans-serif;
-      --sidebar: 220px;
+      --bg: #10151b;
+      --bg2: #151d25;
+      --bg3: #1c2731;
+      --bg4: #263440;
+      --bg5: #303e49;
+      --accent: #70cdbb;
+      --accent2: #b7a8df;
+      --gold: #edc477;
+      --gold2: #d39b66;
+      --green: #8ccf9d;
+      --red: #e48f87;
+      --orange: #e6a47e;
+      --pink: #d59bb6;
+      --cyan: #81c6d6;
+      --text: #f1f5f6;
+      --text2: #c2cdd2;
+      --text3: #91a0a9;
+      --border: rgba(218, 234, 239, .11);
+      --font-d: 'Space Grotesk', 'Inter', sans-serif;
+      --font-h: 'Inter', sans-serif;
+      --font-b: 'Inter', sans-serif;
+      --admin-sidebar-width: 220px;
     }
 
     html {
@@ -272,7 +270,7 @@
       position: fixed;
       top: 62px;
       left: 0;
-      width: var(--sidebar);
+      width: var(--admin-sidebar-width);
       height: calc(100vh - 62px);
       background: rgba(4, 8, 16, .97);
       border-right: 1px solid var(--border);
@@ -353,7 +351,7 @@
 
     /* CONTENT */
     .content {
-      margin-left: var(--sidebar);
+      margin-left: var(--admin-sidebar-width);
       padding: 24px;
       min-height: calc(100vh - 62px);
       position: relative;
@@ -1132,6 +1130,16 @@
       background: rgba(91, 124, 250, .04)
     }
 
+    .op-grant { background: var(--surface, rgba(255,255,255,.03)); border: 1px solid rgba(140,207,157,.25); border-radius: 14px; padding: 16px; margin-bottom: 18px; }
+    .op-grant-title { font-weight: 800; font-size: .95rem; margin-bottom: 4px; }
+    .op-grant-sub { font-size: .78rem; color: var(--text3); line-height: 1.55; margin-bottom: 12px; }
+    .op-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-bottom: 12px; }
+    .op-sum { margin-left: auto; font-size: .8rem; color: var(--text2); }
+    .op-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .op-row .op-main { flex: 1; min-width: 200px; }
+    .op-row .op-amt { font-weight: 800; color: var(--gold); white-space: nowrap; }
+    .op-tag { display: inline-block; font-size: .64rem; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,.06); color: var(--text2); margin-left: 4px; }
+
     .btn-save {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       border: none;
@@ -1583,6 +1591,158 @@
       animation: fadeIn .3s ease
     }
 
+    .admin-ai-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .admin-ai-chat,
+    .admin-ai-side {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(155deg, var(--bg3), var(--bg2));
+      box-shadow: 0 16px 38px rgba(0, 0, 0, .22);
+    }
+
+    .admin-ai-chat { min-width: 0; overflow: hidden; }
+
+    .admin-ai-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .admin-ai-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1px solid rgba(112, 205, 187, .26);
+      border-radius: 14px;
+      background: rgba(112, 205, 187, .1);
+      color: #70cdbb;
+      font-size: 1.15rem;
+    }
+
+    .admin-ai-title { font-size: .98rem; font-weight: 800; color: var(--text); }
+    .admin-ai-caption { margin-top: 3px; color: var(--text3); font-size: .7rem; }
+
+    .admin-ai-log {
+      display: flex;
+      min-height: 260px;
+      max-height: min(52vh, 480px);
+      flex-direction: column;
+      gap: 12px;
+      overflow-y: auto;
+      padding: 18px 20px;
+    }
+
+    .admin-ai-msg {
+      max-width: min(90%, 720px);
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .035);
+      color: var(--text2);
+      font-size: .82rem;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+    }
+
+    .admin-ai-msg.user {
+      align-self: flex-end;
+      border-color: rgba(112, 205, 187, .24);
+      background: rgba(112, 205, 187, .08);
+      color: var(--text);
+    }
+    .admin-ai-msg .lv-ai-response-heading { margin-bottom: 8px; }
+    .admin-ai-msg .lv-ai-response-body p { margin: 0 0 8px; }
+    .admin-ai-msg .lv-ai-response-body p:last-child { margin-bottom: 0; }
+    .admin-ai-msg .lv-ai-response-body ul,
+    .admin-ai-msg .lv-ai-response-body ol { margin: 4px 0 8px; padding-left: 1.35rem; }
+
+    .admin-ai-compose {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 14px 18px;
+      border-top: 1px solid var(--border);
+      background: rgba(0, 0, 0, .12);
+    }
+
+    .admin-ai-compose .announce-input {
+      min-height: 48px;
+      max-height: 120px;
+      margin: 0;
+      resize: vertical;
+    }
+
+    .admin-ai-send {
+      display: inline-flex;
+      min-width: 112px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #70cdbb, #57aa9d);
+      color: #0c211f;
+      font: 800 .78rem var(--font-h);
+      cursor: pointer;
+    }
+
+    .admin-ai-send:disabled { opacity: .55; cursor: wait; }
+
+    .admin-ai-side { padding: 18px; }
+    .admin-ai-side h3 { margin-bottom: 8px; color: var(--text); font-size: .86rem; }
+    .admin-ai-side p { margin-bottom: 14px; color: var(--text3); font-size: .72rem; line-height: 1.6; }
+    .admin-ai-providers { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .admin-ai-provider {
+      padding: 5px 8px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text3);
+      font-size: .65rem;
+      text-transform: capitalize;
+    }
+
+    .admin-ai-provider.on {
+      border-color: rgba(140, 207, 157, .28);
+      background: rgba(140, 207, 157, .08);
+      color: var(--green);
+    }
+
+    .admin-ai-prompts { display: grid; gap: 7px; margin-top: 16px; }
+
+    .admin-ai-credit {
+      margin: 12px 0 0;
+      color: var(--text3);
+      font: 500 .62rem var(--font-h);
+      line-height: 1.6;
+    }
+
+    .admin-ai-credit a { color: var(--text2); text-decoration: underline; text-underline-offset: 2px; }
+
+    .admin-ai-prompt {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .025);
+      color: var(--text2);
+      font: 600 .68rem var(--font-h);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .admin-ai-prompt:hover { border-color: rgba(112, 205, 187, .35); color: var(--text); }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -1752,7 +1912,8 @@
       align-items: center;
       gap: 18px;
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      flex-wrap: wrap
     }
 
     .welcome-banner::before {
@@ -1788,6 +1949,22 @@
       color: var(--text3);
       font-family: var(--font-h)
     }
+
+    .welcome-ai-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      padding: 10px 13px;
+      border: 1px solid rgba(112, 205, 187, .3);
+      border-radius: 10px;
+      background: rgba(112, 205, 187, .1);
+      color: #85d9c9;
+      font: 750 .72rem var(--font-h);
+      white-space: nowrap;
+    }
+
+    .welcome-ai-link:hover { background: rgba(112, 205, 187, .16); }
 
     /* ═══ ACTIVITY FEED ═══ */
     .activity-item {
@@ -1910,6 +2087,17 @@
       .stats-grid {
         grid-template-columns: repeat(2, 1fr)
       }
+
+      .admin-ai-shell { grid-template-columns: minmax(0, 1fr); }
+      .admin-ai-side { order: -1; }
+      .admin-ai-log { min-height: 220px; }
+    }
+
+    @media(max-width:480px) {
+      .admin-ai-compose { grid-template-columns: minmax(0, 1fr); padding: 12px; }
+      .admin-ai-send { min-height: 44px; }
+      .admin-ai-head { padding: 14px; }
+      .admin-ai-log { padding: 14px; }
     }
 
     /* ═══ SCROLLBAR ═══ */
@@ -1955,6 +2143,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
 </head>
 
 <body>
@@ -1994,6 +2183,10 @@
       <div class="sidebar-item" onclick="showPage('orders')" data-page="orders"><span class="icon"><i
             class="fa-solid fa-clipboard-list"></i></span> Buyurtmalar <span class="sidebar-badge"
           id="pendingBadge">0</span></div>
+      <div class="sidebar-item" onclick="showPage('online')" data-page="online"><span class="icon"><i
+            class="fa-solid fa-credit-card"></i></span> Onlayn to'lovlar (inPAY)</div>
+      <div class="sidebar-item" onclick="showPage('factory')" data-page="factory"><span class="icon"><i
+            class="fa-solid fa-film"></i></span> Video fabrika</div>
       <div class="sidebar-item" onclick="showPage('receipts')" data-page="receipts"><span class="icon"><i
             class="fa-solid fa-images"></i></span> Cheklar</div>
       <div class="sidebar-item" onclick="showPage('payouts')" data-page="payouts"><span class="icon"><i
@@ -2008,6 +2201,8 @@
       <div class="sidebar-item" onclick="showPage('packs')" data-page="packs"><span class="icon"><i
             class="fa-solid fa-boxes-stacked"></i></span> Pack Catalog</div>
       <div class="sidebar-section">Tizim</div>
+      <div class="sidebar-item" onclick="showPage('ai')" data-page="ai"><span class="icon"><i
+            class="fa-solid fa-robot"></i></span> AI yordamchi</div>
       <div class="sidebar-item" onclick="showPage('announce')" data-page="announce"><span class="icon"><i
             class="fa-solid fa-bullhorn"></i></span> E'lon Yuborish</div>
       <div class="sidebar-item" onclick="showPage('apikeys')" data-page="apikeys"><span class="icon"><i
@@ -2044,6 +2239,9 @@
             <div class="wb-title">Xush Kelibsiz, Admin!</div>
             <div class="wb-sub" id="wbSub">LinguaVerse Admin Paneli — barcha ma'lumotlar real-time</div>
           </div>
+          <button class="welcome-ai-link" type="button" onclick="showPage('ai')">
+            <i class="fa-solid fa-sparkles" aria-hidden="true"></i> AI bilan tahlil
+          </button>
         </div>
         <div class="stats-grid" id="statsGrid">
           <div class="stat-card s-orders"><span class="stat-icon"><i class="fa-solid fa-clipboard-list"
@@ -2120,6 +2318,93 @@
         <div class="orders-wrap" id="ordersWrap">
           <div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>
         </div>
+      </div>
+
+      <!-- ONLAYN TO'LOVLAR (inPAY + qo'lda) -->
+      <div class="page-sec" id="page-online">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-credit-card" style="color:var(--accent);font-size:1rem"></i>
+            Onlayn to'lovlar</div>
+          <div class="page-actions">
+            <button class="filter-btn ab" onclick="runAutopayNow()"><i class="fa-solid fa-arrows-rotate"></i> Avto-to'lovni hozir yechish</button>
+            <button class="filter-btn ab" onclick="loadOnline()"><i class="fa-solid fa-rotate-right"></i> Yangilash</button>
+          </div>
+        </div>
+
+        <div class="op-grant">
+          <div class="op-grant-title"><i class="fa-solid fa-hand-holding-dollar" style="color:var(--green)"></i> Qo'lda to'lov qabul qilish</div>
+          <div class="op-grant-sub">Mijoz naqd, Click, Payme yoki boshqa yo'l bilan to'lagan bo'lsa — shu yerdan reja yoki kursni darhol yoqing. Buyurtma "to'landi" bo'lib yoziladi va hisobotda ko'rinadi.</div>
+          <div class="op-grid">
+            <div><label class="edit-label">Foydalanuvchi (email yoki UID)</label><input class="edit-input" id="gUser" placeholder="ism@gmail.com"></div>
+            <div><label class="edit-label">Nima beriladi</label>
+              <select class="edit-input" id="gKind" onchange="onGrantKind()">
+                <option value="plan">Obuna (reja)</option>
+                <option value="course">Video kurs</option>
+              </select></div>
+            <div class="g-plan"><label class="edit-label">Reja</label>
+              <select class="edit-input" id="gPlan">
+                <option value="ielts">IELTS PRO — 200 000</option>
+                <option value="premium">PREMIUM — 79 999</option>
+                <option value="mega">MEGA — 49 999</option>
+                <option value="nova">NOVA — 39 999</option>
+              </select></div>
+            <div class="g-plan"><label class="edit-label">Davr</label>
+              <select class="edit-input" id="gDur">
+                <option value="monthly">Oylik (30 kun)</option>
+                <option value="q3">3 oylik</option>
+                <option value="q6">6 oylik</option>
+                <option value="yearly">1 yillik</option>
+                <option value="daily">Kunlik</option>
+              </select></div>
+            <div class="g-course" style="display:none"><label class="edit-label">Til</label>
+              <select class="edit-input" id="gLang">
+                <option value="english">Ingliz</option><option value="russian">Rus</option>
+                <option value="spanish">Ispan</option><option value="german">Nemis</option>
+                <option value="turkish">Turk</option><option value="arabic">Arab</option>
+                <option value="korean">Koreys</option><option value="chinese">Xitoy</option>
+              </select></div>
+            <div class="g-course" style="display:none"><label class="edit-label">Daraja</label>
+              <select class="edit-input" id="gLevel">
+                <option value="b2">B2 — 200 000</option>
+                <option value="c2">C2 — 400 000 (B2 ham ochiladi)</option>
+              </select></div>
+            <div><label class="edit-label">To'langan summa (bo'sh = narx)</label><input class="edit-input" id="gAmount" type="number" min="0" placeholder="avtomatik"></div>
+            <div><label class="edit-label">To'lov usuli</label>
+              <select class="edit-input" id="gMethod">
+                <option value="naqd">Naqd</option><option value="click">Click</option>
+                <option value="payme">Payme</option><option value="karta">Kartadan kartaga</option>
+                <option value="inpay">inPAY (webhook kelmagan)</option><option value="sovga">Sovg'a / bonus</option>
+              </select></div>
+            <div style="grid-column:1/-1"><label class="edit-label">Izoh</label><input class="edit-input" id="gNote" placeholder="ixtiyoriy"></div>
+          </div>
+          <button class="btn-save" id="gBtn" onclick="adminGrant()"><i class="fa-solid fa-check"></i> To'lovni qabul qilish va yoqish</button>
+          <div class="action-result" id="gRes"></div>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterOnline('all',this)">Hammasi</button>
+          <button class="filter-btn pending" onclick="filterOnline('pending',this)"><i class="fa-solid fa-clock"></i> Kutilmoqda</button>
+          <button class="filter-btn approved" onclick="filterOnline('paid',this)"><i class="fa-solid fa-check"></i> To'langan</button>
+          <button class="filter-btn rejected" onclick="filterOnline('failed',this)"><i class="fa-solid fa-xmark"></i> Xato</button>
+          <div class="op-sum" id="onlineSum"></div>
+        </div>
+        <div class="orders-wrap" id="onlineWrap"><div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div></div>
+      </div>
+
+      <!-- VIDEO FABRIKA -->
+      <div class="page-sec" id="page-factory">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-film" style="color:#fb7185;font-size:1rem"></i> Video fabrika — AI MP4 darslar</div>
+          <div class="page-actions">
+            <button class="filter-btn ab" onclick="runFactory()"><i class="fa-solid fa-play"></i> Hozir ishga tushirish</button>
+            <button class="filter-btn ab" onclick="loadFactory()"><i class="fa-solid fa-rotate-right"></i> Yangilash</button>
+          </div>
+        </div>
+        <div class="op-grant-sub" style="margin-bottom:14px">Har bir tilda 150 ta dars (A1–C2). Fabrika GitHub Actions'da har 6 soatda o'zi ishlaydi: AI ssenariy yozadi, ustoz ovozi bilan 1080p MP4 montaj qiladi va saytga joylaydi. MP4 tayyor bo'lmagan darslar saytda jonli pleyerda ochilaveradi.</div>
+        <label style="display:block;margin:16px 0">Ona tili — video izohlari va subtitrlar
+      <select id="factoryNative" onchange="loadFactory()" style="margin-left:10px;padding:8px;border-radius:8px;background:#182136;color:white">
+        <option value="uz">O‘zbekcha</option><option value="en">English</option><option value="ru">Русский</option><option value="es">Español</option><option value="de">Deutsch</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="ko">한국어</option><option value="zh">中文</option>
+      </select></label><div id="factoryBox"><div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div></div>
       </div>
 
       <!-- PAYOUTS PAGE -->
@@ -2254,6 +2539,40 @@
           <div class="page-title"><i class="fa-solid fa-gear" style="color:var(--gold);font-size:1rem"></i> Sozlamalar
           </div>
         </div>
+        <div class="announce-form" style="margin-bottom:16px">
+          <div style="font-family:var(--font-d);font-size:.95rem;font-weight:800;margin-bottom:8px;letter-spacing:.04em">
+            <i class="fa-solid fa-user-shield" style="color:var(--accent)"></i> Admin hisob xavfsizligi
+          </div>
+          <div class="info-box" style="margin-bottom:14px">
+            Email yoki parolni o‘zgartirishda joriy parol qayta tasdiqlanadi. Yangi emailga tasdiqlash xati yuboriladi; havolani bosmaguningizcha email o‘zgarmaydi.
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:14px">
+            <div style="font-size:.8rem;font-weight:800;color:var(--text2);margin-bottom:10px">Admin emailini o‘zgartirish</div>
+            <label for="adminCurrentEmail" style="font-size:.7rem;color:var(--text3);display:block;margin-bottom:5px">Joriy email</label>
+            <input id="adminCurrentEmail" class="announce-input" type="email" readonly autocomplete="username" />
+            <label for="adminNewEmail" style="font-size:.7rem;color:var(--text3);display:block;margin:10px 0 5px">Yangi email</label>
+            <input id="adminNewEmail" class="announce-input" type="email" placeholder="yangi@email.com" autocomplete="email" />
+            <label for="adminEmailCurrentPassword" style="font-size:.7rem;color:var(--text3);display:block;margin:10px 0 5px">Joriy parol</label>
+            <input id="adminEmailCurrentPassword" class="announce-input" type="password" placeholder="Xavfsizlik uchun joriy parol" autocomplete="current-password" />
+            <button class="btn-save" id="changeAdminEmailBtn" type="button" onclick="changeAdminEmail()" style="margin-top:10px">
+              <i class="fa-solid fa-envelope"></i> Tasdiqlash xatini yuborish
+            </button>
+            <div id="adminEmailStatus" role="status" aria-live="polite" style="font-size:.76rem;margin-top:9px"></div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:14px">
+            <div style="font-size:.8rem;font-weight:800;color:var(--text2);margin-bottom:10px">Admin parolini o‘zgartirish</div>
+            <label for="adminPasswordCurrent" style="font-size:.7rem;color:var(--text3);display:block;margin-bottom:5px">Joriy parol</label>
+            <input id="adminPasswordCurrent" class="announce-input" type="password" placeholder="Joriy parol" autocomplete="current-password" />
+            <label for="adminNewPassword" style="font-size:.7rem;color:var(--text3);display:block;margin:10px 0 5px">Yangi parol</label>
+            <input id="adminNewPassword" class="announce-input" type="password" placeholder="Kamida 6 ta belgi" autocomplete="new-password" />
+            <label for="adminConfirmPassword" style="font-size:.7rem;color:var(--text3);display:block;margin:10px 0 5px">Yangi parolni takrorlang</label>
+            <input id="adminConfirmPassword" class="announce-input" type="password" placeholder="Yangi parolni qayta kiriting" autocomplete="new-password" />
+            <button class="btn-save" id="changeAdminPasswordBtn" type="button" onclick="changeAdminPassword()" style="margin-top:10px">
+              <i class="fa-solid fa-lock"></i> Parolni yangilash
+            </button>
+            <div id="adminPasswordStatus" role="status" aria-live="polite" style="font-size:.76rem;margin-top:9px"></div>
+          </div>
+        </div>
         <div class="announce-form" style="margin-bottom:16px;border-color:rgba(248,113,113,.25)">
           <div
             style="font-family:var(--font-d);font-size:.95rem;font-weight:800;margin-bottom:8px;color:var(--red);letter-spacing:.04em">
@@ -2352,12 +2671,104 @@
           <div class="page-actions"><button class="filter-btn ab" onclick="loadApikeys()"><i
                 class="fa-solid fa-rotate-right"></i> Yangilash</button></div>
         </div>
-        <div class="info-box"><i class="fa-solid fa-circle-info"></i> AI provayderlarining API kalitlari shu yerda
-          saqlanadi. Kalitlar <b>faqat serverda</b> turadi (<code>data/api-keys.json</code>) va klientga hech qachon
-          to'liq ko'rinmaydi. Biror maydonni bo'sh qoldirib "Saqlash" bossangiz — o'sha kalit o'chiriladi va
-          serverning zaxira qiymatiga qaytiladi.</div>
-        <div id="apikeysStatus" style="margin-bottom:12px"></div>
+        <div class="info-box"><i class="fa-solid fa-circle-info"></i> Provider va API kalitini tanlab <b>Qo‘shish</b> tugmasini bosing. Kalit Firebase’da server orqali saqlanadi; to‘liq qiymat brauzerga qaytarilmaydi.</div>
         <div class="announce-form" id="apikeysForm"></div>
+        <div class="announce-form" id="apikeysList" style="margin-top:16px"></div>
+        <div class="announce-form" style="margin-top:16px">
+          <div style="font-family:var(--font-h);font-size:.82rem;font-weight:800;margin-bottom:10px">Asosiy AI API</div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <select class="announce-input" id="defaultAIProvider" aria-label="Asosiy AI API provayderini tanlang" style="margin:0;max-width:320px"></select>
+            <button type="button" class="btn-save" id="saveDefaultAIProvider" onclick="saveDefaultAIProvider()"><i class="fa-solid fa-star"></i> Shu API’ni asosiy qilish</button>
+          </div>
+          <div id="defaultAIProviderStatus" aria-live="polite" style="margin-top:8px;font-size:.72rem;color:var(--text3)"></div>
+        </div>
+        <div class="announce-form" style="margin-top:16px">
+          <div style="font-family:var(--font-h);font-size:.82rem;font-weight:800;margin-bottom:10px">AI modellari</div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+            <select class="announce-input" id="defaultAIModel" aria-label="Asosiy AI modelini tanlang" style="margin:0;max-width:320px"></select>
+            <button type="button" class="btn-save" id="saveDefaultAIModel" onclick="saveDefaultAIModel()"><i class="fa-solid fa-star"></i> Shuni asosiy qilish</button>
+          </div>
+          <div id="defaultAIModelStatus" aria-live="polite" style="margin-top:8px;font-size:.72rem;color:var(--text3)"></div>
+        </div>
+        <div class="announce-form" style="margin-top:16px">
+          <div style="font-family:var(--font-h);font-size:.82rem;font-weight:800;margin-bottom:10px">Barcha API xizmatlari holati</div>
+          <div id="apikeysConfigStatus" aria-live="polite"></div>
+          <div style="margin-top:10px"><button type="button" class="filter-btn ab" onclick="testApikeys()"><i class="fa-solid fa-bolt"></i> AI APIlarni tekshirish</button></div>
+          <div id="apikeysStatus" aria-live="polite" style="margin-top:10px"></div>
+        </div>
+      </div>
+
+      <!-- ADMIN AI ASSISTANT -->
+      <div class="page-sec" id="page-ai">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-robot" style="color:#70cdbb;font-size:1rem"></i>
+            AI yordamchi</div>
+          <div class="page-actions">
+            <button class="filter-btn ab" type="button" onclick="loadAdminAIStatus()">
+              <i class="fa-solid fa-rotate-right"></i> Provayderlarni yangilash
+            </button>
+          </div>
+        </div>
+        <div class="info-box">
+          AI faqat paneldagi umumiy ko'rsatkichlar va sozlamalar bo'yicha maslahat beradi; buyurtma, foydalanuvchi yoki API kalitlarini o'zgartirmaydi.
+          Kalitlar serverda tekshiriladi va brauzerga yuborilmaydi. Jamoaviy rejim ta’lim, mahsulot va xavfsizlik bo‘yicha uchta alohida ekspert so‘rovini bajaradi; ular avtonom emas va tashqi amal bajarmaydi. Dolzarb ma’lumot uchun “internetdan qidir” deb so‘rang; qidiruv Gemini Google Search’dan foydalanadi.
+        </div>
+        <div class="admin-ai-shell">
+          <section class="admin-ai-chat" aria-label="Admin AI suhbati">
+            <header class="admin-ai-head">
+              <div class="admin-ai-mark"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
+              <div>
+                <div class="admin-ai-title">LinguaVerse Admin Copilot</div>
+                <div class="admin-ai-caption">Ko'rsatkichlarni tushuntiradi va keyingi xavfsiz qadamlarni tavsiya qiladi</div>
+              </div>
+            </header>
+            <div class="admin-ai-log" id="adminAiLog" role="log" aria-live="polite">
+              <div class="admin-ai-msg">Salom. Dashboard ko'rsatkichlari, AI provayderlari yoki panel sozlamalari haqida so'rang.</div>
+            </div>
+            <div class="admin-ai-compose">
+              <textarea class="announce-input" id="adminAiInput" rows="1" maxlength="1200"
+                placeholder="Masalan: Qaysi AI provayderlari hozir tayyor?"
+                aria-label="Admin AI ga savol yozing"
+                onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAdminAI()}"></textarea>
+              <button class="admin-ai-send" id="adminAiSend" type="button" onclick="sendAdminAI()">
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> So'rash
+              </button>
+            </div>
+          </section>
+          <aside class="admin-ai-side">
+            <h3>Ulangan AI provayderlar</h3>
+            <p>Serverdagi mavjud kalitlar avtomatik aniqlanadi. Kalit qiymatlari bu panelga uzatilmaydi.</p>
+            <div class="admin-ai-providers" id="adminAiProviders" aria-live="polite">
+              <span class="admin-ai-provider">Holat tekshirilmoqda...</span>
+            </div>
+            <div class="admin-ai-prompts">
+              <button class="admin-ai-prompt" type="button" onclick="askAdminAI('Hozir qaysi AI provayderlari sozlangan va fallback qanday ishlaydi?')">Provayderlar holatini tushuntir</button>
+              <button class="admin-ai-prompt" type="button" onclick="askAdminAI('Dashboarddagi asosiy ko‘rsatkichlarni tahlil qilib, xavfsiz keyingi qadamlarni ayt.')">Dashboardni tahlil qil</button>
+              <button class="admin-ai-prompt" type="button" onclick="askAdminAI('API kalitlarini xavfsiz saqlash va tekshirish bo‘yicha tavsiya ber.')">Kalitlar xavfsizligini tekshir</button>
+            </div>
+            <label for="adminAiModel" style="display:block;margin:16px 0 6px;color:var(--text3);font-size:.68rem">AI modeli</label>
+            <select class="announce-input" id="adminAiModel" style="margin:0">
+              <option value="nova">NOVA · Tezkor</option>
+              <option value="mega">MEGA · Tahlil</option>
+              <option value="premium">PREMIUM · Kuchli</option>
+              <option value="megaplus" selected>MEGA+ · Eng kuchli / chuqur tahlil</option>
+            </select>
+            <label for="adminAiMode" style="display:block;margin:12px 0 6px;color:var(--text3);font-size:.68rem">Tahlil rejimi</label>
+            <select class="announce-input" id="adminAiMode" style="margin:0">
+              <option value="advisor" selected>Maslahatchi · bitta nuqtai nazar</option>
+              <option value="team">Jamoaviy · uchta ekspert tahlili</option>
+            </select>
+            <label for="adminAiThinking" style="display:block;margin:12px 0 6px;color:var(--text3);font-size:.68rem">Fikrlash chuqurligi</label>
+            <select class="announce-input" id="adminAiThinking" style="margin:0">
+              <option value="balanced">Muvozanatli</option>
+              <option value="deep" selected>Juda chuqur · sekinroq va ko‘proq resurs talab qiladi</option>
+            </select>
+            <div style="font-size:.68rem;color:var(--text3);margin-top:7px">
+              MEGA+ odatda ko‘proq token ishlatishi mumkin. Xarajatlar tanlangan backend provayderi va ishlatilgan tokenlarga bog‘liq; provayder hisob-kitobini tekshiring.
+              Jamoaviy rejim uch ekspert tahlilini yuboradi va faqat maslahat beradi; internet qidiruvi qo‘shimcha API xarajati qilishi mumkin.
+            </div>
+          </aside>
+        </div>
       </div>
 
     </div><!-- /content -->
@@ -2418,9 +2829,10 @@
 
   <!-- FIREBASE + ADMIN LOGIC -->
   <script type="module">
-    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, collection, getDocs, doc, getDoc, updateDoc, query, orderBy, where, limit, addDoc, serverTimestamp, increment } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { formatAIResponse } from '../languages-html/js/ai-chat-ui.mjs';
+    import { initializeApp, getApps } from "/js/fb/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut, EmailAuthProvider, reauthenticateWithCredential, updatePassword, verifyBeforeUpdateEmail } from "/js/fb/firebase-auth.js";
+    import { getFirestore, collection, getDocs, doc, getDoc, updateDoc, query, orderBy, where, limit, addDoc, serverTimestamp, increment } from "/js/fb/firebase-firestore.js";
 
     const FB = { apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI", authDomain: "linguaverse-81b52.firebaseapp.com", projectId: "linguaverse-81b52", storageBucket: "linguaverse-81b52.firebasestorage.app", messagingSenderId: "1037869292716", appId: "1:1037869292716:web:567bf2c9f9ed0862941309" };
     const app = getApps().length ? getApps()[0] : initializeApp(FB);
@@ -2486,6 +2898,7 @@
       document.getElementById('authScreen').style.display = 'none';
       document.getElementById('app').style.display = 'block';
       document.getElementById('navUserEmail').textContent = user.email;
+      document.getElementById('adminCurrentEmail').value = user.email || '';
       document.getElementById('wbSub').textContent = `Kirgan: ${user.email} · Real-time monitoring`;
 
       renderAdminList(user);
@@ -2502,7 +2915,7 @@
         const rows = [];
         snap.forEach(d => {
           const me = d.id === user.uid;
-          const label = d.data().email || d.data().name || d.id;
+          const label = me ? (user.email || d.data().email || d.data().name || d.id) : (d.data().email || d.data().name || d.id);
           rows.push(`
             <div style="background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:10px;padding:9px 15px;font-size:.82rem;font-family:var(--font-h);display:flex;align-items:center;gap:10px">
               <i class="fa-solid fa-crown" style="color:${me ? 'var(--gold)' : 'var(--text3)'}"></i>
@@ -2540,6 +2953,106 @@
       document.getElementById('app').style.display = 'none';
     };
 
+    function accountAuthError(error) {
+      const messages = {
+        'auth/wrong-password': 'Joriy parol noto‘g‘ri.',
+        'auth/invalid-credential': 'Joriy email yoki parol tasdiqlanmadi.',
+        'auth/requires-recent-login': 'Sessiya eskirgan. Qayta kiring va yana urinib ko‘ring.',
+        'auth/weak-password': 'Parol juda zaif. Kamida 6 ta belgidan foydalaning.',
+        'auth/invalid-email': 'Email manzili noto‘g‘ri.',
+        'auth/email-already-in-use': 'Bu email boshqa hisobda ishlatilmoqda.',
+        'auth/network-request-failed': 'Tarmoq xatosi. Internetni tekshirib qayta urinib ko‘ring.',
+        'auth/operation-not-allowed': 'Firebase Authentication sozlamalarida email/parol amali yoqilmagan.'
+      };
+      return messages[error.code] || `Amal bajarilmadi: ${error.message || error.code || 'noma’lum xato'}`;
+    }
+
+    async function reauthenticateAdmin(currentPassword) {
+      if (!CURRENT_ADMIN?.email) throw new Error('Admin hisobi topilmadi. Qayta kiring.');
+      const credential = EmailAuthProvider.credential(CURRENT_ADMIN.email, currentPassword);
+      await reauthenticateWithCredential(CURRENT_ADMIN, credential);
+    }
+
+    window.changeAdminEmail = async function () {
+      const email = document.getElementById('adminNewEmail').value.trim();
+      const password = document.getElementById('adminEmailCurrentPassword').value;
+      const button = document.getElementById('changeAdminEmailBtn');
+      const status = document.getElementById('adminEmailStatus');
+      if (!email || !password) {
+        status.textContent = 'Yangi email va joriy parolni kiriting.';
+        status.style.color = 'var(--red)';
+        return;
+      }
+      if (email.toLowerCase() === (CURRENT_ADMIN?.email || '').toLowerCase()) {
+        status.textContent = 'Bu joriy email bilan bir xil.';
+        status.style.color = 'var(--red)';
+        return;
+      }
+
+      button.disabled = true;
+      status.textContent = 'Hisob tasdiqlanmoqda...';
+      status.style.color = 'var(--text2)';
+      try {
+        await reauthenticateAdmin(password);
+        await verifyBeforeUpdateEmail(CURRENT_ADMIN, email);
+        document.getElementById('adminNewEmail').value = '';
+        document.getElementById('adminEmailCurrentPassword').value = '';
+        status.textContent = `Tasdiqlash xati ${email} manziliga yuborildi. Email havolani tasdiqlaganingizdan keyin yangilanadi.`;
+        status.style.color = 'var(--green)';
+      } catch (error) {
+        status.textContent = accountAuthError(error);
+        status.style.color = 'var(--red)';
+      } finally {
+        button.disabled = false;
+      }
+    };
+
+    window.changeAdminPassword = async function () {
+      const currentPassword = document.getElementById('adminPasswordCurrent').value;
+      const newPassword = document.getElementById('adminNewPassword').value;
+      const confirmation = document.getElementById('adminConfirmPassword').value;
+      const button = document.getElementById('changeAdminPasswordBtn');
+      const status = document.getElementById('adminPasswordStatus');
+      if (!currentPassword || !newPassword || !confirmation) {
+        status.textContent = 'Barcha parol maydonlarini to‘ldiring.';
+        status.style.color = 'var(--red)';
+        return;
+      }
+      if (newPassword.length < 6) {
+        status.textContent = 'Yangi parol kamida 6 ta belgidan iborat bo‘lishi kerak.';
+        status.style.color = 'var(--red)';
+        return;
+      }
+      if (newPassword !== confirmation) {
+        status.textContent = 'Yangi parollar mos kelmadi.';
+        status.style.color = 'var(--red)';
+        return;
+      }
+      if (newPassword === currentPassword) {
+        status.textContent = 'Yangi parol joriy paroldan farq qilishi kerak.';
+        status.style.color = 'var(--red)';
+        return;
+      }
+
+      button.disabled = true;
+      status.textContent = 'Hisob tasdiqlanmoqda...';
+      status.style.color = 'var(--text2)';
+      try {
+        await reauthenticateAdmin(currentPassword);
+        await updatePassword(CURRENT_ADMIN, newPassword);
+        document.getElementById('adminPasswordCurrent').value = '';
+        document.getElementById('adminNewPassword').value = '';
+        document.getElementById('adminConfirmPassword').value = '';
+        status.textContent = 'Admin paroli muvaffaqiyatli yangilandi.';
+        status.style.color = 'var(--green)';
+      } catch (error) {
+        status.textContent = accountAuthError(error);
+        status.style.color = 'var(--red)';
+      } finally {
+        button.disabled = false;
+      }
+    };
+
     function showAuthErr(msg) {
       const el = document.getElementById('authErr');
       el.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> ' + msg; el.style.display = 'block';
@@ -2555,7 +3068,10 @@
       if (page === 'users') loadUsers();
       if (page === 'receipts') loadReceipts();
       if (page === 'payouts') loadPayouts();
-      if (page === 'apikeys') loadApikeys();
+      if (page === 'online') loadOnline();
+      if (page === 'factory') loadFactory();
+      if (page === 'apikeys') window.loadApikeys();
+      if (page === 'ai') loadAdminAIStatus();
     };
 
     window.toggleSidebar = function () { document.getElementById('sidebar').classList.toggle('open'); };
@@ -2765,6 +3281,180 @@ ${o.status === 'pending' ? `
       } catch (e) { grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span>${e.message}</div>`; }
     };
 
+    // ── ONLAYN TO'LOVLAR (inPAY + qo'lda) ─────────────
+    // Hammasi server orqali (payment.js admin-* amallari): server admin
+    // ekanini tekshiradi va tarifni/kursni xuddi webhook kabi yoqadi.
+    const PAY_URL = '/.netlify/functions/payment';
+    let _online = [], _onlineFilter = 'all';
+
+    async function payApi(action, extra = {}) {
+      const idToken = await CURRENT_ADMIN.getIdToken();
+      const r = await fetch(PAY_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action, idToken, ...extra })
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+      return d;
+    }
+
+    window.onGrantKind = function () {
+      const course = document.getElementById('gKind').value === 'course';
+      document.querySelectorAll('.g-plan').forEach(e => e.style.display = course ? 'none' : '');
+      document.querySelectorAll('.g-course').forEach(e => e.style.display = course ? '' : 'none');
+    };
+
+    window.loadOnline = async function () {
+      const wrap = document.getElementById('onlineWrap');
+      wrap.innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      try {
+        const d = await payApi('admin-orders', { limit: 200 });
+        _online = d.orders || [];
+        renderOnline();
+      } catch (e) {
+        wrap.innerHTML = `<div class="empty"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span>${esc(e.message)}</div>`;
+      }
+    };
+
+    window.filterOnline = function (f, btn) {
+      _onlineFilter = f;
+      btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderOnline();
+    };
+
+    function renderOnline() {
+      const wrap = document.getElementById('onlineWrap');
+      const list = _onlineFilter === 'all' ? _online : _online.filter(o => o.status === _onlineFilter);
+      const paid = _online.filter(o => o.status === 'paid' && !o.sandbox);
+      const month = new Date().toISOString().slice(0, 7);
+      const monthSum = paid.filter(o => (o.paidAt || '').startsWith(month)).reduce((a, o) => a + (o.amount || 0), 0);
+      document.getElementById('onlineSum').innerHTML = `Shu oy: <b style="color:var(--green)">${monthSum.toLocaleString()} so'm</b> · jami to'langan: ${paid.length} ta`;
+      if (!list.length) { wrap.innerHTML = '<div class="empty"><span><i class="fa-solid fa-inbox" style="color:#94a3b8"></i></span>Buyurtma yo\'q</div>'; return; }
+      const st = { paid: ['approved', "To'landi"], pending: ['pending', 'Kutilmoqda'], failed: ['rejected', 'Xato'] };
+      wrap.innerHTML = list.map(o => {
+        const [cls, lbl] = st[o.status] || ['pending', o.status];
+        const dt = o.createdAt ? new Date(o.createdAt).toLocaleString('uz') : '';
+        const tags = [
+          o.kind === 'course' ? '<span class="op-tag">kurs</span>' : '',
+          o.provider === 'manual' ? '<span class="op-tag">qo\'lda</span>' : '<span class="op-tag">inPAY</span>',
+          o.autopay ? '<span class="op-tag">avto</span>' : '',
+          o.renewal ? '<span class="op-tag">uzaytirish</span>' : '',
+          o.sandbox ? '<span class="op-tag" style="color:#fbbf24">sinov</span>' : ''
+        ].join('');
+        const act = o.status !== 'paid'
+          ? `<button class="btn-save" style="padding:7px 12px;font-size:.75rem" onclick="confirmOnline('${esc(o.orderId)}', this)"><i class="fa-solid fa-check"></i> To'landi deb tasdiqlash</button>`
+          : '';
+        return `<div class="order-card"><div class="op-row">
+          <div class="op-main">
+            <div style="font-weight:700">${esc(o.planName)} ${o.durationLabel ? '· ' + esc(o.durationLabel) : ''} ${tags}</div>
+            <div style="font-size:.74rem;color:var(--text3);margin-top:3px">${esc(o.userEmail || o.uid)} · ${esc(o.orderId)} · ${dt}</div>
+            ${o.error && o.status !== 'paid' ? `<div style="font-size:.72rem;color:var(--red);margin-top:3px">${esc(String(o.error).slice(0, 160))}</div>` : ''}
+          </div>
+          <div class="op-amt">${(o.amount || 0).toLocaleString()} so'm</div>
+          <span class="status-badge status-${cls}">${lbl}</span>
+          ${act}
+        </div></div>`;
+      }).join('');
+    }
+
+    window.confirmOnline = async function (orderId, btn) {
+      if (!confirm("Pul haqiqatan tushganini tekshirdingizmi? Buyurtma tasdiqlanadi va reja/kurs yoqiladi.")) return;
+      btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+      try {
+        await payApi('admin-confirm', { orderId });
+        toast('<i class="fa-solid fa-circle-check" style="color:#34d399"></i> Tasdiqlandi va yoqildi', 'success', 'fa-check-circle');
+        loadOnline();
+      } catch (e) {
+        btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-check"></i> To\'landi deb tasdiqlash';
+        toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark');
+      }
+    };
+
+    window.adminGrant = async function () {
+      const v = id => document.getElementById(id).value;
+      const res = document.getElementById('gRes');
+      const btn = document.getElementById('gBtn');
+      if (!v('gUser').trim()) { res.className = 'action-result err'; res.textContent = 'Foydalanuvchi email yoki UID kiriting.'; return; }
+      const kind = v('gKind');
+      const what = kind === 'course' ? `${v('gLang')} ${v('gLevel').toUpperCase()} kursi` : `${v('gPlan').toUpperCase()} (${v('gDur')})`;
+      if (!confirm(`${v('gUser')} uchun ${what} yoqilsinmi?`)) return;
+      btn.disabled = true;
+      try {
+        const d = await payApi('admin-grant', {
+          user: v('gUser').trim(), kind,
+          planId: v('gPlan'), duration: v('gDur'),
+          lang: v('gLang'), level: v('gLevel'),
+          amount: v('gAmount'), method: v('gMethod'), note: v('gNote')
+        });
+        res.className = 'action-result ok';
+        res.innerHTML = `<i class="fa-solid fa-check-circle"></i> Yoqildi: ${esc(d.email || d.uid)} · ${esc(d.orderId)}`;
+        loadOnline();
+      } catch (e) {
+        res.className = 'action-result err';
+        res.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> ' + esc(e.message);
+      } finally { btn.disabled = false; }
+    };
+
+    window.runAutopayNow = async function () {
+      if (!confirm("Muddati kelgan barcha avto-to'lov obunalaridan hozir pul yechilsinmi?")) return;
+      try {
+        const d = await payApi('admin-renew-run', { limit: 100 });
+        toast(`Avto-to'lov: tekshirildi ${d.checked || 0}, yechildi ${d.charged || 0}, xato ${d.failed || 0}`, 'success', 'fa-check-circle');
+        loadOnline();
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
+    // ── VIDEO FABRIKA ─────────────────────────────────
+    async function courseApi(action, extra = {}) {
+      const idToken = await CURRENT_ADMIN.getIdToken();
+      const r = await fetch('/.netlify/functions/course', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, idToken, nativeLang:document.getElementById('factoryNative')?.value || 'uz', ...extra }) });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+      return d;
+    }
+    window.loadFactory = async function () {
+      const box = document.getElementById('factoryBox');
+      try {
+        const d = await courseApi('factory-status');
+        const pct = d.total ? Math.round(d.done / d.total * 100) : 0;
+        const dt = iso => iso ? new Date(iso).toLocaleString('uz') : '—';
+        box.innerHTML = `
+          <div class="op-grant" style="border-color:rgba(251,113,133,.3)">
+            <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline">
+              <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:800">${d.done} / ${d.total} <span style="font-size:.9rem;color:var(--text3)">MP4 tayyor (${pct}%)</span></div>
+              <div style="font-size:.78rem;color:var(--text3)">Oxirgi ishga tushish: ${dt(d.lastRunAt)}</div>
+            </div>
+            <div style="height:9px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden;margin-top:10px"><div style="height:100%;width:${pct}%;background:linear-gradient(90deg,var(--accent),#fb7185)"></div></div>
+            <div style="margin-top:10px;font-size:.78rem;color:var(--text2)">
+              ${d.elevenLabs ? '<i class="fa-solid fa-circle-check" style="color:var(--green)"></i> ElevenLabs ulangan' : '<i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i> ElevenLabs kaliti yo\'q — Azure yoki oddiy ovoz ishlatiladi'}
+              &nbsp;·&nbsp; ${d.githubConfigured ? '<i class="fa-solid fa-circle-check" style="color:var(--green)"></i> GitHub ulangan' : '<i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i> "Hozir ishga tushirish" uchun Netlify\'da GITHUB_TOKEN va GITHUB_REPO kerak (avtomatik 6 soatlik jadval baribir ishlaydi)'}
+            </div>
+            <div style="margin-top:8px;font-size:.78rem;color:var(--text2)">
+              <i class="fa-solid fa-list-ol"></i> Navbatda (o'quvchilar ochgan darslar): <b>${d.queued ?? 0}</b>
+              &nbsp;·&nbsp; <i class="fa-solid fa-microphone"></i> Bu oy ovoz: ${d.budget ? (d.budget.unlimited ? 'cheklovsiz' : `<b>${Number(d.budget.used).toLocaleString('ru-RU')}</b> / ${Number(d.budget.limit).toLocaleString('ru-RU')} belgi (≈${Math.max(0, Math.floor((d.budget.limit - d.budget.used) / 25000))} ta dars qoldi)`) : '—'}
+              &nbsp;·&nbsp; <i class="fa-solid fa-hard-drive"></i> Saqlash: <b>${d.storage === 'r2' ? 'Cloudflare R2 (bepul)' : 'Firebase Storage'}</b>
+            </div>
+            ${d.lastError ? `<div style="margin-top:8px;font-size:.76rem;color:var(--red)">Oxirgi xato (${dt(d.lastErrorAt)}): ${esc(d.lastError)}</div>` : ''}
+          </div>
+          <div class="orders-wrap">${d.rows.map(r => `<div class="order-card"><div class="op-row">
+            <div class="op-main"><b>${r.flag} ${esc(r.name)}</b><div style="font-size:.74rem;color:var(--text3);margin-top:4px;display:flex;gap:6px;flex-wrap:wrap">${(r.levels || []).map(v => `<span style="padding:2px 7px;border-radius:99px;background:${v.done >= v.total ? 'rgba(52,211,153,.15)' : 'rgba(255,255,255,.05)'};color:${v.done >= v.total ? 'var(--green)' : 'var(--text2)'}"><b>${v.cefr}</b> ${v.done}/${v.total}</span>`).join('')}</div>
+              <div style="height:6px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden;margin-top:6px"><div style="height:100%;width:${Math.round(r.done / r.total * 100)}%;background:var(--accent)"></div></div></div>
+            <div class="op-amt">${r.done}/${r.total}</div>
+            <button class="btn-save" style="padding:7px 12px;font-size:.75rem" onclick="runFactory('${r.lang}')"><i class="fa-solid fa-play"></i> Shu tilni yaratish</button>
+          </div></div>`).join('')}</div>`;
+      } catch (e) {
+        box.innerHTML = `<div class="empty"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span>${esc(e.message)}</div>`;
+      }
+    };
+    window.runFactory = async function (lang) {
+      if (!confirm(lang ? `${lang} tili uchun keyingi 8 ta video yaratilsinmi?` : 'Barcha 8 til uchun keyingi videolar yaratilsinmi? (har tilga 8 tadan)')) return;
+      try {
+        await courseApi('factory-run', { langs: lang || 'all', batch: 4 });
+        toast('<i class="fa-solid fa-circle-check" style="color:#34d399"></i> Fabrika ishga tushdi. Har bir 30 daqiqalik video ~50 daqiqada tayyor bo\'ladi.', 'success', 'fa-check-circle');
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
     // ── PUL YECHISH SO'ROVLARI ─────────────────────────
     let _payouts = [];
 
@@ -2876,7 +3566,7 @@ ${o.status === 'pending' ? `
             const raw = String(itemId).replace(/^plan_/, '');
             const plan = MAP[raw] || raw;
 
-            if (!['nova', 'mega', 'premium'].includes(plan)) {
+            if (!['nova', 'mega', 'premium', 'ielts'].includes(plan)) {
               throw new Error("Noma'lum reja: " + itemId);
             }
 
@@ -2895,7 +3585,7 @@ ${o.status === 'pending' ? `
             updates.plan = plan;
             updates.planExpiry = new Date(from + days * 24 * 3600000);
             updates.planUpdatedAt = serverTimestamp();
-            updates.coins = increment(plan === 'premium' ? 3000 : plan === 'mega' ? 1500 : 700);
+            updates.coins = increment(plan === 'ielts' ? 5000 : plan === 'premium' ? 3000 : plan === 'mega' ? 1500 : 700);
           }
           else if (itemType === 'vip') { updates.isVIP = true; updates.vipExpiry = Date.now() + 30 * 24 * 3600000; updates.tokens = increment(5000); }
           else if (itemType === 'token_package') { const tokMap = { 'tok_500': 500, 'tok_1200': 1400, 'tok_3000': 3500, 'tok_7000': 8000, 'tok_15000': 18000 }; updates.tokens = increment(tokMap[itemId] || 500); }
@@ -2943,14 +3633,15 @@ ${o.status === 'pending' ? `
     // ── REJA YORDAMCHILARI ────────────────────────────
     // Bazada eski nomlar (pro/ultimate/basic) uchrashi mumkin — hammasini
     // js/lv-core.js dagi 4 ta haqiqiy rejaga keltiramiz.
-    const PLAN_ALIAS = { free: 'free', nova: 'nova', mega: 'mega', premium: 'premium',
+    const PLAN_ALIAS = { free: 'free', nova: 'nova', mega: 'mega', premium: 'premium', ielts: 'ielts',
                          pro: 'nova', basic: 'nova', starter: 'nova', own: 'nova',
                          team: 'mega', ultimate: 'premium', vip: 'premium', universal: 'premium' };
     const PLAN_META = {
       free:    { label: 'Bepul',   cls: 'plan-free',    fa: 'fa-seedling' },
       nova:    { label: 'NOVA',    cls: 'plan-pro',     fa: 'fa-bolt' },
       mega:    { label: 'MEGA',    cls: 'plan-premium', fa: 'fa-rocket' },
-      premium: { label: 'PREMIUM', cls: 'plan-ultimate',fa: 'fa-crown' }
+      premium: { label: 'PREMIUM', cls: 'plan-ultimate',fa: 'fa-crown' },
+      ielts:   { label: 'IELTS PRO', cls: 'plan-ultimate', fa: 'fa-graduation-cap' }
     };
     const planKey = p => PLAN_ALIAS[p] || 'free';
     const planMeta = p => PLAN_META[planKey(p)];
@@ -3036,6 +3727,7 @@ ${o.status === 'pending' ? `
 <option value="nova" ${pk === 'nova' ? 'selected' : ''}>NOVA — 39 999 so'm</option>
 <option value="mega" ${pk === 'mega' ? 'selected' : ''}>MEGA — 49 999 so'm</option>
 <option value="premium" ${pk === 'premium' ? 'selected' : ''}>PREMIUM — 79 999 so'm</option>
+<option value="ielts" ${pk === 'ielts' ? 'selected' : ''}>IELTS PRO — 200 000 so'm</option>
 </select></div>
 <div><label class="edit-label">Muddat (kun)</label><input class="edit-input" type="number" id="edit-days-${u.id}" value="${daysLeft || 30}" min="1" max="3650" placeholder="30"/></div>
 <div><label class="edit-label">VIP</label><select class="edit-input" id="edit-vip-${u.id}" style="cursor:pointer">
@@ -3167,59 +3859,325 @@ ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid 
     // ── API KALITLAR ──────────────────────────────────────────
     const KEYS_URL = '/.netlify/functions/admin-keys';
     const AI_URL = '/.netlify/functions/ai';
+    const ADMIN_AI_URL = '/.netlify/functions/admin-ai';
     const TEST_PROVIDERS = ['groq', 'gemini', 'deepseek', 'openrouter', 'cloudflare', 'azure'];
+    const AI_MODEL_LABELS = {
+      nova: 'NOVA · Tezkor',
+      pro: 'PRO · Fikrlash',
+      mega: 'MEGA · Tahlil',
+      proplus: 'PRO+ · Chuqur fikrlash',
+      premium: 'PREMIUM · Kuchli',
+      megaplus: 'MEGA+ · Eng kuchli'
+    };
+    const adminAIHistory = [];
 
-    async function loadApikeys() {
+    window.loadAdminAIStatus = async function () {
+      const box = document.getElementById('adminAiProviders');
+      if (!box) return;
+      box.innerHTML = '<span class="admin-ai-provider">Holat tekshirilmoqda...</span>';
+      try {
+        const response = await fetch(AI_URL, { cache: 'no-store' });
+        const data = await response.json();
+        if (!response.ok || !data.providers) throw new Error(data.error || 'AI holati olinmadi');
+        if (Array.isArray(data.models)) {
+          renderDefaultModel(data.models.map(id => ({ id, label: AI_MODEL_LABELS[id] || id.toUpperCase() })), data.defaultModel || 'nova');
+        }
+        const configured = Object.entries(data.providers).filter(([, state]) => state.configured);
+        box.innerHTML = configured.length
+          ? configured.map(([name]) => `<span class="admin-ai-provider on">${name === 'cloudflare' ? 'Cloudflare' : name}</span>`).join('')
+          : '<span class="admin-ai-provider">Hech bir provayder sozlanmagan</span>';
+      } catch (error) {
+        box.textContent = 'AI holatini aniqlab bo‘lmadi: ' + error.message;
+      }
+    };
+
+    function appendAdminAIMessage(role, text) {
+      const log = document.getElementById('adminAiLog');
+      const message = document.createElement('div');
+      message.className = 'admin-ai-msg' + (role === 'user' ? ' user' : '');
+      message.textContent = text;
+      log.appendChild(message);
+      log.scrollTop = log.scrollHeight;
+      return message;
+    }
+
+    window.askAdminAI = function (question) {
+      const input = document.getElementById('adminAiInput');
+      input.value = question;
+      window.sendAdminAI();
+    };
+
+    window.sendAdminAI = async function () {
+      const input = document.getElementById('adminAiInput');
+      const button = document.getElementById('adminAiSend');
+      const question = input.value.trim();
+      if (!question || button.disabled) return;
+      if (question.length > 1200) {
+        appendAdminAIMessage('assistant', 'Savol 1200 belgidan qisqa bo‘lishi kerak.');
+        return;
+      }
+
+      input.value = '';
+      appendAdminAIMessage('user', question);
+      adminAIHistory.push({ role: 'user', content: question });
+      button.disabled = true;
+      button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Kuting...';
+      const loading = appendAdminAIMessage('assistant', 'Javob tayyorlanmoqda…');
+      loading.textContent = '';
+      const loadingIcon = document.createElement('i');
+      loadingIcon.className = 'fa-solid fa-sparkles';
+      loadingIcon.setAttribute('aria-hidden', 'true');
+      loading.append(loadingIcon, document.createTextNode(' Javob tayyorlanmoqda…'));
+
+      try {
+        const token = await CURRENT_ADMIN.getIdToken();
+        const dashboard = {
+          users: document.getElementById('s-users')?.textContent || 'noma’lum',
+          orders: document.getElementById('s-total-orders')?.textContent || 'noma’lum',
+          pending: document.getElementById('s-pending')?.textContent || 'noma’lum',
+          revenue: document.getElementById('s-revenue')?.textContent || 'noma’lum'
+        };
+        const messages = [
+          {
+            role: 'system',
+            content: 'Siz LinguaVerse admin panelining faqat maslahat beruvchi yordamchisisiz. Foydalanuvchiga u yozgan tilda, aniq va qisqa javob bering. Quyidagi joriy dashboard yig‘ma ko‘rsatkichlari kontekst sifatida berilgan: ' +
+              JSON.stringify(dashboard) +
+              '. Siz buyurtma, foydalanuvchi, sozlama yoki API kalitlarini o‘zgartira olmaysiz. Kalit, parol yoki shaxsiy ma’lumotlarni so‘ramang va javobda takrorlamang. Noaniq joyda cheklovni ochiq ayting; bajarilmagan amalni bajarildi deb ko‘rsatmang.'
+          },
+          ...adminAIHistory.slice(-12)
+        ];
+        const response = await fetch(ADMIN_AI_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            model: document.getElementById('adminAiModel').value,
+            mode: document.getElementById('adminAiMode').value,
+            thinkingMode: document.getElementById('adminAiThinking').value,
+            messages
+          })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.text) throw new Error(data.error || 'AI javob qaytarmadi');
+        loading.innerHTML = formatAIResponse(data.text);
+        adminAIHistory.push({ role: 'assistant', content: data.text });
+        if (adminAIHistory.length > 14) adminAIHistory.splice(0, adminAIHistory.length - 14);
+      } catch (error) {
+        loading.textContent = 'AI bilan bog‘lanib bo‘lmadi: ' + error.message;
+      } finally {
+        button.disabled = false;
+        button.innerHTML = '<i class="fa-solid fa-paper-plane"></i> So‘rash';
+        input.focus();
+      }
+    };
+
+    window.loadApikeys = async function () {
       const box = document.getElementById('apikeysForm');
-      const st = document.getElementById('apikeysStatus');
+      const st = document.getElementById('apikeysConfigStatus');
       if (!box) return;
       box.innerHTML = '<div style="color:var(--text3);padding:12px"><i class="fa-solid fa-spinner fa-spin"></i> Yuklanmoqda...</div>';
       if (st) st.innerHTML = '';
+      const savedList = document.getElementById('apikeysList');
+      if (savedList) savedList.replaceChildren();
+      const testStatus = document.getElementById('apikeysStatus');
+      if (testStatus) testStatus.innerHTML = '';
       try {
         const idToken = await CURRENT_ADMIN.getIdToken();
         const r = await fetch(KEYS_URL, { headers: { Authorization: `Bearer ${idToken}` } });
         const d = await r.json();
-        if (!d.ok) throw new Error(d.error || 'Server xato qaytardi');
+        if (!r.ok || !d.ok) throw new Error(d.error || 'Server xato qaytardi');
         renderApikeys(d);
       } catch (e) {
-        box.innerHTML = `<div class="info-box" style="border-color:rgba(248,113,113,.3);color:var(--red)">
-          <i class="fa-solid fa-triangle-exclamation"></i> Kalitlar serveri yuklanmadi: ${e.message}<br>
-          Server ishlayotganini tekshiring: <code>node dev-server.js</code> (localhost:5500).</div>`;
+        box.textContent = `Firebase sozlamalari yuklanmadi: ${e.message}`;
+        if (st) st.textContent = 'Holatni aniqlab bo‘lmadi.';
+      }
+    };
+
+    function renderApikeys(d) {
+      renderApiConfigStatus(d.status);
+      renderSimpleApiKeys(d);
+    }
+
+    function renderSimpleApiKeys(d) {
+      const box = document.getElementById('apikeysForm');
+      box.replaceChildren();
+      const row = document.createElement('div');
+      row.setAttribute('style', 'display:flex;gap:10px;align-items:center;flex-wrap:wrap');
+      const provider = document.createElement('select');
+      provider.setAttribute('class', 'announce-input');
+      provider.id = 'apiKeyProvider';
+      provider.setAttribute('aria-label', 'API xizmatini tanlang');
+      provider.style.cssText = 'margin:0;max-width:320px';
+      for (const field of d.fields) {
+        const option = document.createElement('option');
+        option.value = field.name;
+        option.textContent = field.label;
+        provider.appendChild(option);
+      }
+      const input = document.createElement('input');
+      input.setAttribute('class', 'announce-input');
+      input.id = 'apiKeyValue';
+      input.type = 'password';
+      input.autocomplete = 'off';
+      input.placeholder = 'API kalitini kiriting';
+      input.setAttribute('aria-label', 'API kaliti');
+      input.style.cssText = 'margin:0;flex:1;min-width:220px';
+      const addButton = document.createElement('button');
+      addButton.type = 'button';
+      addButton.setAttribute('class', 'btn-save');
+      addButton.innerHTML = '<i class="fa-solid fa-plus"></i> Qo‘shish';
+      addButton.addEventListener('click', () => window.addApiKey());
+      row.append(provider, input, addButton);
+      box.appendChild(row);
+      renderSavedApiKeys(d.fields, d.status);
+      renderDefaultModel(d.models, d.defaultModel);
+      renderDefaultProvider(d.status, d.defaultProvider || '');
+    }
+
+    function renderSavedApiKeys(fields, status = {}) {
+      const box = document.getElementById('apikeysList');
+      box.replaceChildren();
+      const heading = document.createElement('div');
+      heading.setAttribute('style', 'font-family:var(--font-h);font-size:.82rem;font-weight:800;margin-bottom:10px');
+      heading.textContent = 'Saqlangan API xizmatlari';
+      box.appendChild(heading);
+      const configured = fields.filter(field => status[field.name]?.configured);
+      if (!configured.length) {
+        const empty = document.createElement('div');
+        empty.setAttribute('style', 'font-size:.74rem;color:var(--text3)');
+        empty.textContent = 'Hozircha saqlangan API kaliti yo‘q.';
+        box.appendChild(empty);
+        return;
+      }
+      for (const field of configured) {
+        const state = status[field.name];
+        const item = document.createElement('div');
+        item.setAttribute('style', 'display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);flex-wrap:wrap');
+        const label = document.createElement('span');
+        label.textContent = `${field.label} · ${state.masked || 'sozlangan'}`;
+        const actions = document.createElement('span');
+        actions.setAttribute('style', 'display:flex;align-items:center;gap:8px');
+        const source = document.createElement('span');
+        source.setAttribute('class', 'key-badge ok');
+        source.textContent = state.source === 'firebase' ? 'Firebase’da saqlangan' : state.source === 'environment' ? 'Server muhitida' : 'Eski lokal saqlash';
+        actions.appendChild(source);
+        if (state.source === 'firebase') {
+          const remove = document.createElement('button');
+          remove.type = 'button';
+          remove.setAttribute('class', 'filter-btn ab');
+          remove.textContent = 'O‘chirish';
+          remove.addEventListener('click', () => window.removeApiKey(field.name));
+          actions.appendChild(remove);
+        }
+        item.append(label, actions);
+        box.appendChild(item);
       }
     }
 
-    function renderApikeys(d) {
-      const box = document.getElementById('apikeysForm');
-      const rows = d.fields.map(f => {
-        const s = d.status[f.name] || {};
-        const field = f.type === 'textarea'
-          ? `<textarea class="announce-input" id="key-${f.name}" rows="2" placeholder="${f.label} (vergul bilan bir nechta)..." autocomplete="off"></textarea>`
-          : `<input type="${f.type}" class="announce-input" id="key-${f.name}" placeholder="${f.help}" autocomplete="off" />`;
-        return `
-        <div style="margin-bottom:16px">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;flex-wrap:wrap">
-            <label style="font-size:.72rem;color:var(--text2);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-family:var(--font-h)">${f.label}</label>
-            <span class="key-badge ${s.configured ? 'ok' : ''}" id="badge-${f.name}">${s.configured ? '✓ SOZLANGAN · ' + s.masked : 'SOZLANMAGAN'}</span>
-          </div>
-          ${field}
-          <div style="font-size:.68rem;color:var(--text3);margin-top:4px">${f.help}</div>
-        </div>`;
-      }).join('');
-
-      box.innerHTML = `
-        ${rows}
-        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
-          <button class="btn-save" onclick="saveApikeys()"><i class="fa-solid fa-floppy-disk"></i> Saqlash</button>
-          <button class="filter-btn ab" onclick="testApikeys()"><i class="fa-solid fa-bolt"></i> Barchasini tekshirish</button>
-        </div>`;
+    function renderDefaultModel(models = [], selectedModel = 'nova') {
+      const select = document.getElementById('defaultAIModel');
+      const status = document.getElementById('defaultAIModelStatus');
+      select.replaceChildren();
+      const assistantModel = document.getElementById('adminAiModel');
+      if (assistantModel) assistantModel.replaceChildren();
+      for (const model of models) {
+        const option = document.createElement('option');
+        option.value = model.id;
+        option.textContent = model.label;
+        select.appendChild(option.cloneNode(true));
+        if (assistantModel) assistantModel.appendChild(option);
+      }
+      select.value = selectedModel;
+      if (assistantModel) assistantModel.value = selectedModel;
+      status.textContent = `Hozirgi asosiy model: ${select.selectedOptions[0]?.textContent || selectedModel}`;
     }
 
-    window.saveApikeys = async function () {
+    function renderDefaultProvider(status = {}, selectedProvider = '') {
+      const select = document.getElementById('defaultAIProvider');
+      const button = document.getElementById('saveDefaultAIProvider');
+      const message = document.getElementById('defaultAIProviderStatus');
+      if (!select) return;
+      const providers = [
+        ['groq', 'Groq', ['GROQ_API_KEY']],
+        ['gemini', 'Gemini', ['GEMINI_API_KEYS']],
+        ['deepseek', 'DeepSeek', ['DEEPSEEK_API_KEY']],
+        ['openrouter', 'OpenRouter', ['OPENROUTER_API_KEY']],
+        ['cloudflare', 'Cloudflare Workers AI', ['CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_ACCOUNT_ID']],
+        ['azure', 'Azure OpenAI', ['AZURE_OPENAI_KEY', 'AZURE_OPENAI_RESOURCE']]
+      ].filter(([, , fields]) => fields.every(name => status[name]?.configured));
+      select.replaceChildren();
+      for (const [id, label] of providers) {
+        const option = document.createElement('option');
+        option.value = id;
+        option.textContent = label;
+        select.appendChild(option);
+      }
+      if (!providers.length) {
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = 'Avval AI API kalitini qo‘shing';
+        select.appendChild(option);
+      }
+      select.value = providers.some(([id]) => id === selectedProvider)
+        ? selectedProvider
+        : providers[0]?.[0] || '';
+      if (button) button.disabled = !providers.length;
+      const label = providers.find(([id]) => id === selectedProvider)?.[1];
+      message.textContent = label
+        ? `Hozir asosiy AI API: ${label}. Xato yoki limit bo‘lsa boshqa sozlangan API’lar zaxira sifatida ishlaydi.`
+        : providers.length
+          ? 'Asosiy provayder hali tanlanmagan.'
+          : 'Asosiy API qilish uchun avval AI provayder kalitini qo‘shing.';
+    }
+
+    function renderApiConfigStatus(status = {}) {
+      const box = document.getElementById('apikeysConfigStatus');
+      if (!box) return;
+      const configured = name => Boolean(status[name]?.configured);
+      const integrations = [
+        ['Groq AI', configured('GROQ_API_KEY')],
+        ['Gemini AI', configured('GEMINI_API_KEYS')],
+        ['DeepSeek AI', configured('DEEPSEEK_API_KEY')],
+        ['OpenRouter AI', configured('OPENROUTER_API_KEY')],
+        ['Cloudflare Workers AI', configured('CLOUDFLARE_API_TOKEN') && configured('CLOUDFLARE_ACCOUNT_ID')],
+        ['Azure OpenAI', configured('AZURE_OPENAI_KEY') && configured('AZURE_OPENAI_RESOURCE')],
+        ['Google Text-to-Speech', configured('GOOGLE_TTS_KEYS')],
+        ['YouTube Data API', configured('YOUTUBE_API_KEY')],
+        ['Azure Speech', configured('AZURE_SPEECH_KEY') && configured('AZURE_SPEECH_REGION')],
+        ['ElevenLabs Speaking', configured('ELEVENLABS_API_KEY')]
+      ];
+      box.replaceChildren();
+      for (const [name, isConfigured] of integrations) {
+        const chip = document.createElement('span');
+        chip.setAttribute('class', `test-chip ${isConfigured ? 'ok' : 'bad'}`);
+        chip.textContent = `${name}: ${isConfigured ? 'sozlangan' : 'sozlanmagan'}`;
+        box.appendChild(chip);
+      }
+    }
+
+    window.saveApikeys = async function (fieldName) {
       const payload = {};
-      document.querySelectorAll('#apikeysForm [id^="key-"]').forEach(el => {
-        payload[el.id.replace('key-', '')] = el.value;
+      const fields = fieldName
+        ? [document.getElementById(`key-${fieldName}`)].filter(Boolean)
+        : [...document.querySelectorAll('#apikeysForm [id^="key-"]')];
+      if (fieldName && !fields.length) return;
+      if (fieldName && !fields[0].value.trim() && fields[0].dataset.clear !== 'true') {
+        toast('Saqlash uchun avval API kalitini kiriting', 'info', 'fa-circle-info');
+        return;
+      }
+      fields.forEach(el => {
+        if (el.dataset.clear === 'true') {
+          payload[el.id.replace('key-', '')] = '';
+        } else if (el.value.trim()) {
+          payload[el.id.replace('key-', '')] = el.value;
+        }
       });
-      const btn = document.querySelector('#apikeysForm .btn-save');
+      const btn = fieldName
+        ? document.querySelector(`[data-save-key="${fieldName}"]`)
+        : document.querySelector('#apikeysForm .btn-save');
+      const originalLabel = btn?.innerHTML;
       if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saqlanmoqda...'; }
       try {
         const idToken = await CURRENT_ADMIN.getIdToken();
@@ -3230,12 +4188,96 @@ ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid 
         });
         const d = await r.json();
         if (!d.ok) throw new Error(d.error || 'Xato');
-        toast('✅ Kalitlar saqlandi', 'good', 'fa-circle-check');
+        if (d.unchanged) toast("O'zgarish yo'q — serverda yangi kalit saqlanmadi", 'info', 'fa-circle-info');
+        else toast(fieldName ? '✅ API kaliti doimiy saqlandi' : '✅ Kiritilgan kalitlar doimiy saqlandi', 'good', 'fa-circle-check');
         await loadApikeys();
       } catch (e) {
         toast('❌ Saqlanmadi: ' + e.message, 'bad', 'fa-circle-xmark');
       } finally {
-        if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Saqlash'; }
+        if (btn) { btn.disabled = false; btn.innerHTML = originalLabel; }
+      }
+    };
+
+    async function postApiKeySettings(payload) {
+      const idToken = await CURRENT_ADMIN.getIdToken();
+      const response = await fetch(KEYS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: ['Be' + 'arer', idToken].join(' ') },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      if (!response.ok || !data.ok) throw new Error(data.error || 'Firebase’da saqlash amalga oshmadi');
+      return data;
+    }
+
+    window.addApiKey = async function () {
+      const provider = document.getElementById('apiKeyProvider');
+      const input = document.getElementById('apiKeyValue');
+      const button = document.querySelector('#apikeysForm button');
+      const value = input.value.trim();
+      if (!value) {
+        toast('Avval API kalitini kiriting', 'info', 'fa-circle-info');
+        return;
+      }
+      button.disabled = true;
+      try {
+        await postApiKeySettings({ apiKeys: { [provider.value]: value } });
+        input.value = '';
+        toast('✅ API kaliti Firebase’da saqlandi', 'good', 'fa-circle-check');
+        await window.loadApikeys();
+      } catch (error) {
+        toast('❌ Saqlanmadi: ' + error.message, 'bad', 'fa-circle-xmark');
+      } finally {
+        button.disabled = false;
+      }
+    };
+    window.saveApikeys = window.addApiKey;
+
+    window.removeApiKey = async function (fieldName) {
+      try {
+        await postApiKeySettings({ apiKeys: { [fieldName]: '' } });
+        toast('API kaliti Firebase’dan o‘chirildi', 'good', 'fa-circle-check');
+        await window.loadApikeys();
+      } catch (error) {
+        toast('❌ O‘chirilmadi: ' + error.message, 'bad', 'fa-circle-xmark');
+      }
+    };
+
+    window.saveDefaultAIModel = async function () {
+      const select = document.getElementById('defaultAIModel');
+      const button = document.getElementById('saveDefaultAIModel');
+      button.disabled = true;
+      try {
+        await postApiKeySettings({ defaultModel: select.value });
+        const assistantModel = document.getElementById('adminAiModel');
+        if (assistantModel && [...assistantModel.options].some(option => option.value === select.value)) {
+          assistantModel.value = select.value;
+        }
+        document.getElementById('defaultAIModelStatus').textContent =
+          `Hozirgi asosiy model: ${select.selectedOptions[0]?.textContent || select.value}`;
+        toast('✅ Asosiy AI modeli Firebase’da saqlandi', 'good', 'fa-circle-check');
+      } catch (error) {
+        toast('❌ Model saqlanmadi: ' + error.message, 'bad', 'fa-circle-xmark');
+      } finally {
+        button.disabled = false;
+      }
+    };
+
+    window.saveDefaultAIProvider = async function () {
+      const select = document.getElementById('defaultAIProvider');
+      const button = document.getElementById('saveDefaultAIProvider');
+      if (!select?.value) return;
+      button.disabled = true;
+      try {
+        await postApiKeySettings({ defaultProvider: select.value });
+        const label = select.selectedOptions[0]?.textContent || select.value;
+        document.getElementById('defaultAIProviderStatus').textContent =
+          `Hozir asosiy AI API: ${label}. Xato yoki limit bo‘lsa boshqa sozlangan API’lar zaxira sifatida ishlaydi.`;
+        toast('✅ Asosiy AI API Firebase’da saqlandi', 'good', 'fa-circle-check');
+      } catch (error) {
+        toast('❌ Asosiy API saqlanmadi: ' + error.message, 'bad', 'fa-circle-xmark');
+      } finally {
+        button.disabled = false;
       }
     };
 
@@ -3243,18 +4285,27 @@ ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid 
       const st = document.getElementById('apikeysStatus');
       if (!st) return;
       st.innerHTML = '<div style="color:var(--text2);font-size:.82rem"><i class="fa-solid fa-spinner fa-spin"></i> Barchasi tekshirilmoqda...</div>';
-      const chips = [];
+      const chips = document.createDocumentFragment();
       for (const p of TEST_PROVIDERS) {
         try {
           const r = await fetch(AI_URL + '?test=' + p);
           const d = await r.json();
           const ok = d.ok === true;
-          chips.push(`<span class="test-chip ${ok ? 'ok' : 'bad'}">${p}: ${ok ? (d.backend || '✓') + ' ' + (d.ms != null ? d.ms + 'ms' : '') : (d.error || '✗')}</span>`);
+          const chip = document.createElement('span');
+          chip.setAttribute('class', `test-chip ${ok ? 'ok' : 'bad'}`);
+          chip.textContent = `${p}: ${ok ? (d.backend || '✓') + ' ' + (d.ms != null ? d.ms + 'ms' : '') : (d.error || '✗')}`;
+          chips.appendChild(chip);
         } catch (e) {
-          chips.push(`<span class="test-chip bad">${p}: xato</span>`);
+          const chip = document.createElement('span');
+          chip.setAttribute('class', 'test-chip bad');
+          chip.textContent = `${p}: xato (${e.message})`;
+          chips.appendChild(chip);
         }
       }
-      st.innerHTML = '<div style="font-size:.78rem;font-family:var(--font-h)">' + chips.join('') + '</div>';
+      const heading = document.createElement('div');
+      heading.setAttribute('style', 'font-size:.78rem;font-family:var(--font-h);margin:10px 0 6px');
+      heading.textContent = 'AI API jonli tekshiruv natijalari';
+      st.replaceChildren(heading, chips);
     };
 
     // ── TOAST ──────────────────────────────────────────

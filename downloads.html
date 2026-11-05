@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LinguaVerse ilovasini Windows, macOS, Linux va Android uchun yuklab oling.">
+  <meta name="theme-color" content="#080d1a">
+  <title>LinguaVerse — Ilovani yuklab olish</title>
+  <link rel="stylesheet" href="css/lv-theme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { min-height: 100vh; background: var(--bg); color: var(--text); }
+    nav { padding: 14px max(20px, calc((100% - 1040px) / 2)); border-bottom: 1px solid var(--border); }
+    nav a { color: var(--text); text-decoration: none; font-weight: 700; }
+    nav span { color: var(--accent); }
+    main { width: min(100% - 32px, 1040px); margin: 0 auto; padding: 54px 0 70px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0 0 10px; }
+    .lead { max-width: 680px; color: var(--text2); line-height: 1.7; margin: 0 0 30px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .card { padding: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+    .card i { font-size: 1.5rem; color: var(--accent); }
+    .card h2 { font-size: 1.1rem; margin: 14px 0 6px; }
+    .card p { min-height: 40px; color: var(--text2); font-size: .86rem; line-height: 1.5; }
+    .download { display: inline-flex; gap: 8px; align-items: center; padding: 10px 14px; border-radius: 10px; color: #fff; background: var(--accent); text-decoration: none; font-weight: 700; font-size: .84rem; }
+    .download[aria-disabled="true"] { opacity: .48; pointer-events: none; }
+    .release { margin: 22px 0; color: var(--text3); font-size: .86rem; }
+    .note { margin-top: 30px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 14px; color: var(--text2); line-height: 1.7; font-size: .86rem; }
+    .note a { color: var(--accent); }
+  </style>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
+</head>
+<body>
+  <nav><a href="index.html">Lingua<span>Verse</span></a></nav>
+  <main>
+    <h1>LinguaVerse’ni yuklab oling</h1>
+    <p class="lead">Kompyuter yoki Android’da ilovani oching. Saytdagi hisobingiz bilan kiring — kurslar, natijalar va o‘quv xotirangiz Firebase orqali qurilmalar o‘rtasida sinxronlanadi.</p>
+    <p class="release" id="releaseStatus" role="status">So‘nggi versiya tekshirilmoqda…</p>
+    <section class="grid" aria-label="Platformalar">
+      <article class="card" data-platform="windows">
+        <i class="fa-brands fa-windows" aria-hidden="true"></i>
+        <h2>Windows</h2><p>Windows 10/11, 64-bit kompyuterlar uchun o‘rnatuvchi.</p>
+        <a class="download" href="#" aria-disabled="true">Tayyorlanmoqda</a>
+      </article>
+      <article class="card" data-platform="macos">
+        <i class="fa-brands fa-apple" aria-hidden="true"></i>
+        <h2>macOS</h2><p>Apple Silicon va Intel Mac uchun universal disk obrazi.</p>
+        <a class="download" href="#" aria-disabled="true">Tayyorlanmoqda</a>
+      </article>
+      <article class="card" data-platform="linux">
+        <i class="fa-brands fa-linux" aria-hidden="true"></i>
+        <h2>Linux</h2><p>64-bit Linux uchun AppImage paketi.</p>
+        <a class="download" href="#" aria-disabled="true">Tayyorlanmoqda</a>
+      </article>
+      <article class="card" data-platform="android">
+        <i class="fa-brands fa-android" aria-hidden="true"></i>
+        <h2>Android</h2><p>Android 7.0 va undan yangi qurilmalar uchun APK.</p>
+        <a class="download" href="#" aria-disabled="true">Tayyorlanmoqda</a>
+      </article>
+    </section>
+    <div class="note">
+      <strong>Hisob va ma’lumotlar.</strong> Ilovalar LinguaVerse saytining o‘zini ochadi; har bir platformada bir xil login va Firebase hisobingiz ishlaydi. Ilovalar dastlabki marta internet talab qiladi. Android APK’ni o‘rnatishda Play Store’dan tashqaridagi ilovalarga ruxsat so‘ralishi mumkin.
+      <br><br><span id="installNote">Rasmiy buildlar chiqarilishi bilan shu sahifada yuklab olish havolalari paydo bo‘ladi.</span>
+    </div>
+  </main>
+  <script type="module" src="js/app-downloads.mjs"></script>
+</body>
+</html>

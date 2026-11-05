@@ -48,6 +48,7 @@ export class AudioManager {
     this.master.connect(this.ctx.destination);
     // Shahar muhit ovozi (avval setCity bilan belgilangan bo'lsa)
     this._applyCityAmbient();
+    if (this._zoneId) this.setZone(this._zoneId);
   }
 
   setVolume(v) {

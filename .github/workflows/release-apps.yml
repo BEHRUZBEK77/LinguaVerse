@@ -1,0 +1,106 @@
+name: Build and publish LinguaVerse apps
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  desktop:
+    name: Desktop (${{ matrix.platform }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows
+            runner: windows-latest
+          - platform: macos
+            runner: macos-latest
+          - platform: linux
+            runner: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run desktop:dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: desktop-${{ matrix.platform }}
+          path: dist-desktop/*
+          if-no-files-found: error
+          retention-days: 7
+
+  android:
+    name: Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v3
+      - run: npm ci
+      - run: npx cap sync android
+      - run: chmod +x android/gradlew
+      - run: android/gradlew -p android assembleDebug
+      - name: Prepare release APK
+        shell: bash
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk "LinguaVerse-${GITHUB_REF_NAME}-android-universal.apk"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: LinguaVerse-*-android-universal.apk
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    name: Publish release and website links
+    needs: [desktop, android]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: '*'
+          path: release-assets
+          merge-multiple: true
+      - name: Publish release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" release-assets/* --title "LinguaVerse $GITHUB_REF_NAME" --generate-notes
+      - name: Update website download manifest
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/update-release-manifest.mjs "$RUNNER_TEMP/releases.json"
+      - name: Deploy links through the default branch
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          cp "$RUNNER_TEMP/releases.json" downloads/releases.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add downloads/releases.json
+          if git diff --cached --quiet; then
+            echo "Download manifest is already current."
+          else
+            git commit -m "Update app download links for $GITHUB_REF_NAME"
+            git push origin "HEAD:$DEFAULT_BRANCH"
+          fi

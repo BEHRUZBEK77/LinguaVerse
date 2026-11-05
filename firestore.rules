@@ -33,14 +33,16 @@ service cloud.firestore {
       return request.resource.data.diff(resource.data).affectedKeys();
     }
 
-    // Klient HECH QACHON o'zgartira olmaydigan maydonlar.
-    //
-    // DIQQAT: 'coins' bu ro'yxatda YO'Q — coin o'yin valyutasi (do'kon,
-    // mukofotlar) va sahifalar uni to'g'ridan-to'g'ri yozadi. Haqiqiy pul
-    // ('balance', 'payoutTotal') esa himoyada qoladi — faqat server yozadi.
+    // Server boshqaradigan hisob, obuna va moderatsiya qiymatlari.
+    // coins/xp faqat shop va reward yozuvlari serverga ko'chirilgandan keyin qo'shiladi.
     function protectedFields() {
       return ['plan', 'planExpiry', 'role', 'balance',
-              'payoutTotal', 'referralEarnings', 'verified', 'banned'].toSet();
+              'payoutTotal', 'referralEarnings', 'referralCount',
+              'verified', 'banned', 'usage', 'subscription',
+              'payment', 'paymentStatus', 'paymentId', 'paymentMethod',
+              'paymentHistory', 'payout', 'payoutStatus',
+              // Sotib olingan video kurslar va IELTS natijalari — faqat server yozadi
+              'courses', 'ieltsBand'].toSet();
     }
 
     // ── ADMINLAR ────────────────────────────────────────────────────────
@@ -55,12 +57,16 @@ service cloud.firestore {
       allow read: if isOwner(uid) || isAdmin();
 
       // Yangi hisob: reja doim 'free'.
-      // Xush kelibsiz bonusi (50 coin) ruxsat etilgan — hujjat har uid uchun
-      // faqat BIR MARTA yaratiladi, shuning uchun takrorlab olib bo'lmaydi.
+      // Yangi hisobga beriladigan bir martalik welcome bonusdan ortig'i yo'q.
       allow create: if isOwner(uid)
+        && request.resource.data.get('uid', uid) == uid
         && request.resource.data.plan == 'free'
+        && request.resource.data.get('coins', 0) is number
+        && request.resource.data.get('coins', 0) >= 0
         && request.resource.data.get('coins', 0) <= 50
+        && request.resource.data.get('balance', 0) is number
         && request.resource.data.get('balance', 0) == 0
+        && request.resource.data.get('xp', 0) is number
         && request.resource.data.get('xp', 0) == 0
         && !('role' in request.resource.data);
 
@@ -102,6 +108,12 @@ service cloud.firestore {
       match /skill_history/{docId}{ allow read, write: if isOwner(uid) || isAdmin(); }
       match /lesson_counts/{docId}{ allow read, write: if isOwner(uid) || isAdmin(); }
 
+      // ── Video kurs progressi — test serverda tekshiriladi, faqat server yozadi ──
+      match /courseProgress/{courseKey} {
+        allow read: if isOwner(uid) || isAdmin();
+        allow write: if false;
+      }
+
       // ── 3D DUNYO TARAQQIYOTI (world) — egasiniki ─────────────────────
       match /world/{docId}      { allow read, write: if isOwner(uid) || isAdmin(); }
 
@@ -118,6 +130,40 @@ service cloud.firestore {
       }
     }
 
+    // ── AI VIDEO DARSLAR (course.js yaratadi va keshlaydi) ──────────────
+    // Kontent pullik — klient to'g'ridan-to'g'ri o'qiy olmaydi, faqat
+    // server huquqni tekshirib beradi.
+    match /courseLessons/{lessonId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /videoFactory/{docId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    match /courseAudio/{audioId} {
+      allow read, write: if isAdmin();
+    }
+
+    // ── SERTIFIKATLAR — hamma tekshira oladi (ID orqali), faqat server yozadi ──
+    match /certificates/{certId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // ── Bepul speaking kvotasi (5 daqiqa / 5 kun) — faqat server yozadi ──
+    match /speakQuota/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow write: if false;
+    }
+
+    // ── IELTS imtihon natijalari — egasi o'qiydi, faqat server yozadi ──
+    match /ieltsResults/{resultId} {
+      allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      allow write: if false;
+    }
+
     // ── BUYURTMALAR (to'lov cheklari) ───────────────────────────────────
     // Foydalanuvchi yuboradi, lekin holatini o'zgartira olmaydi.
     // Aks holda o'z buyurtmasini 'approved' qilib qo'yardi.
@@ -125,10 +171,7 @@ service cloud.firestore {
       allow read: if isAdmin()
         || (signedIn() && resource.data.uid == request.auth.uid);
 
-      allow create: if signedIn()
-        && request.resource.data.uid == request.auth.uid
-        && request.resource.data.status == 'pending';
-
+      allow create: if false;
       allow update, delete: if isAdmin();
     }
 
@@ -137,12 +180,7 @@ service cloud.firestore {
       allow read: if isAdmin()
         || (signedIn() && resource.data.uid == request.auth.uid);
 
-      allow create: if signedIn()
-        && request.resource.data.uid == request.auth.uid
-        && request.resource.data.status == 'pending'
-        && request.resource.data.amount is number
-        && request.resource.data.amount > 0;
-
+      allow create: if false;
       allow update, delete: if isAdmin();
     }
 
@@ -153,7 +191,10 @@ service cloud.firestore {
                         || resource.data.invitedUid == request.auth.uid));
       // Mukofot serverda/admin tomonidan beriladi — klient o'ziga yoza olmaydi
       allow create: if signedIn()
+        && refId == request.auth.uid
         && request.resource.data.invitedUid == request.auth.uid
+        && request.resource.data.inviterUid is string
+        && request.resource.data.inviterUid != request.auth.uid
         && request.resource.data.rewarded == false;
       allow update, delete: if isAdmin();
     }
@@ -178,7 +219,7 @@ service cloud.firestore {
     match /rooms/{roomId} {
       allow read: if signedIn();
       allow create: if signedIn() && request.resource.data.hostUid == request.auth.uid;
-      allow update: if signedIn();   // qatnashuvchilar ro'yxati yangilanadi
+      allow update: if signedIn() && resource.data.hostUid == request.auth.uid;
       allow delete: if isAdmin()
         || (signedIn() && resource.data.hostUid == request.auth.uid);
 
@@ -207,27 +248,45 @@ service cloud.firestore {
     function voiceRoomCoreUnchanged() {
       return request.resource.data.hostPeerId == resource.data.hostPeerId
           && request.resource.data.hostName   == resource.data.hostName
+          && request.resource.data.hostUid    == resource.data.hostUid
           && request.resource.data.lang       == resource.data.lang
           && request.resource.data.level      == resource.data.level
           && request.resource.data.createdAt  == resource.data.createdAt;
+    }
+    function isVoiceRoomMember(roomId) {
+      return signedIn()
+        && exists(/databases/$(database)/documents/voiceRoomMembers/$(roomId + '_' + request.auth.uid));
     }
     match /voiceRooms/{roomId} {
       allow read: if true;   // xonalar ro'yxati mehmonlarga ham ko'rinadi
 
       allow create: if signedIn()
         && request.resource.data.name is string && request.resource.data.name.size() <= 60
+        && request.resource.data.hostUid == request.auth.uid
         && request.resource.data.hostPeerId is string && request.resource.data.hostPeerId.size() <= 100
         && request.resource.data.hostName is string && request.resource.data.hostName.size() <= 40
-        && request.resource.data.peers is list && request.resource.data.peers.size() <= 1;
+        && request.resource.data.peers is list && request.resource.data.peers.size() == 1
+        && request.resource.data.peers[0].uid == request.auth.uid
+        && !('password' in request.resource.data);
 
       allow update: if signedIn()
         && voiceRoomCoreUnchanged()
+        && changed().hasOnly(['topic', 'topicHint', 'topicHistory'])
+        && (resource.data.hostUid == request.auth.uid || isVoiceRoomMember(roomId))
         && request.resource.data.peers is list && request.resource.data.peers.size() <= 30
         && (!('topic' in request.resource.data) || (request.resource.data.topic is string && request.resource.data.topic.size() <= 300))
         && (!('topicHint' in request.resource.data) || (request.resource.data.topicHint is string && request.resource.data.topicHint.size() <= 300))
         && (!('topicHistory' in request.resource.data) || (request.resource.data.topicHistory is list && request.resource.data.topicHistory.size() <= 12));
 
-      allow delete: if signedIn();
+      allow delete: if isAdmin() || (signedIn() && resource.data.hostUid == request.auth.uid);
+    }
+
+    // Voice-room secrets and membership are only managed by trusted server functions.
+    match /voiceRoomSecrets/{roomId} {
+      allow read, write: if false;
+    }
+    match /voiceRoomMembers/{memberId} {
+      allow read, write: if false;
     }
 
     // ── REYTING (leaderboard) ───────────────────────────────────────────

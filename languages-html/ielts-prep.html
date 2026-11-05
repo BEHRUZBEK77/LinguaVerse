@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LinguaVerse IELTS tayyorgarligi: Reading va Listening mini-mashqlari, Writing va Speaking murabbiylari, shaxsiy o'quv rejasi.">
+  <title>IELTS tayyorgarligi — LinguaVerse</title>
+  <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px max(18px, calc((100% - 1080px)/2)); background: var(--nav-bg); border-bottom: 1px solid var(--border); }
+    nav a { color: var(--text2); text-decoration: none; font-weight: 650; font-size: .85rem; }
+    nav .logo { color: var(--text); font-size: 1.1rem; }
+    nav .logo span { color: var(--accent); }
+    .links { display: flex; gap: 14px; flex-wrap: wrap; }
+    main { max-width: 1080px; padding: 28px 18px 70px; margin: auto; }
+    h1,h2,h3,p { margin-top: 0; }
+    h1 { font-size: clamp(1.7rem, 5vw, 2.5rem); margin-bottom: 8px; }
+    h2 { font-size: 1.1rem; margin-bottom: 12px; }
+    .muted { color: var(--text3); line-height: 1.65; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin: 16px 0; }
+    .notice { border-left: 4px solid var(--gold); background: rgba(245,200,66,.08); padding: 14px 16px; border-radius: 10px; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 12px; }
+    .skill { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 15px; }
+    .skill h3 { margin-bottom: 6px; }
+    .skill a { color: var(--accent); font-weight: 700; }
+    .practice-head { display:flex; justify-content:space-between; align-items:start; gap:12px; flex-wrap:wrap; }
+    .passage { white-space: pre-line; line-height: 1.8; max-height: 360px; overflow:auto; padding: 14px; background: var(--surface2); border-radius: 10px; }
+    .question { border-top: 1px solid var(--border); padding: 14px 0; }
+    .question p { font-weight: 650; margin-bottom: 10px; }
+    .option { display:flex; gap:9px; align-items:flex-start; margin: 8px 0; color: var(--text2); cursor:pointer; line-height:1.5; }
+    .option input { margin-top:4px; accent-color:var(--accent); }
+    .btn { border:0; border-radius:10px; background:var(--accent); color:#fff; font:inherit; font-weight:700; padding:10px 15px; cursor:pointer; }
+    .btn.secondary { background:var(--surface2); color:var(--text); border:1px solid var(--border); }
+    .btn:disabled { opacity:.55; cursor:not-allowed; }
+    .result { margin-top:14px; padding:14px; border-radius:10px; background:var(--surface2); line-height:1.65; }
+    .result[hidden] { display:none; }
+    .score { font-size:1.35rem; font-weight:800; }
+    .question-result { padding:8px 0; border-top:1px solid var(--border); }
+    .controls { display:flex; gap:9px; flex-wrap:wrap; align-items:center; margin:12px 0; }
+    .timer { color:var(--gold); font-variant-numeric:tabular-nums; font-weight:750; }
+    input[type=number],input[type=date] { background:var(--surface2); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:9px; font:inherit; }
+    .plan-item { margin:8px 0; padding:10px 12px; border-radius:9px; background:var(--surface2); }
+    @media(max-width:600px) { nav { align-items:flex-start; } .links { gap:10px; } main { padding-inline:12px; } }
+  </style>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="../index.html">Lingua<span>Verse</span></a>
+    <div class="links">
+      <a href="./certificate-center.html">Barcha sertifikatlar</a>
+      <a href="./writing-coach.html">Writing</a>
+      <a href="./ielts-examiner.html">Speaking imtihonchi</a>
+      <a href="./courses.html">Video kurslar</a>
+      <a href="./language.html">Darslar</a>
+    </div>
+  </nav>
+  <main>
+    <header>
+      <p class="muted">IELTS Academic &amp; General Training · mustaqil tayyorgarlik</p>
+      <h1>IELTS tayyorgarlik markazi</h1>
+      <p class="muted">Maqsad — yuqori natijaga tayyorlanish. 9.0 ni hech bir AI yoki kurs kafolatlamaydi: haqiqiy natija bilim, imtihon kuni va rasmiy baholashga bog'liq.</p>
+    </header>
+
+    <div class="notice">
+      <strong>Halol baholash:</strong> quyidagi Reading/Listening savollari original qisqa mashqlar, to'liq rasmiy IELTS testi emas.
+      Audio brauzer ovoz sintezida o'qiladi. Natijalar faqat to'g'ri javoblar soni — mini-test balidan IELTS bandi hisoblanmaydi.
+      Writing AI taxmini va Speaking transkripti ham rasmiy examiner bahosi emas.
+    </div>
+
+    <section class="card" style="border-color:rgba(225,29,72,.4);background:linear-gradient(120deg,rgba(225,29,72,.10),transparent)">
+      <div class="practice-head">
+        <div>
+          <h2>IELTS Speaking imtihonchi — jonli AI</h2>
+          <p class="muted">To'liq mock test (Part 1, 2, 3) qat'iy britaniyalik imtihonchi bilan: u sizni eshitadi, emotsiya bilan munosabat bildiradi va 4 mezon bo'yicha band ball beradi. "Qattiq ustoz" rejimida har bir xatoni tuzatadi.</p>
+        </div>
+        <a class="btn" href="./ielts-examiner.html" style="text-decoration:none">Imtihonni boshlash →</a>
+      </div>
+      <div class="grid" style="margin-top:6px">
+        <article class="skill"><h3>B2 video kurs</h3><p class="muted">A1 dan B2 gacha 100 ta AI video dars, IELTS 6–6.5. 200 000 so'm.</p><a href="./courses.html?lang=english&level=b2">Kursni ko'rish →</a></article>
+        <article class="skill"><h3>C2 video kurs</h3><p class="muted">C1–C2 + B2 kursi ichida, jami 150 ta video dars, IELTS 8–9. 400 000 so'm.</p><a href="./courses.html?lang=english&level=c2">Kursni ko'rish →</a></article>
+        <article class="skill"><h3>IELTS PRO obuna</h3><p class="muted">Cheksiz imtihonchi, har kuni onlayn darslar, avto-to'lov. 200 000 so'm/oy.</p><a href="../order.html?plan=ielts">Obuna bo'lish →</a></article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>To'rt ko'nikma bo'yicha mashq</h2>
+      <div class="grid">
+        <article class="skill"><h3>Listening</h3><p class="muted">Audio tinglab, asosiy ma'lumotlarni aniqlang.</p><a href="#listening">Listening mini-test ↓</a></article>
+        <article class="skill"><h3>Reading</h3><p class="muted">Matndan dalil toping; TRUE/FALSE/NOT GIVEN farqini mashq qiling.</p><a href="#reading">Reading mini-test ↓</a></article>
+        <article class="skill"><h3>Writing</h3><p class="muted">Academic Task 1/2 va General Training Task 1 mashqlari.</p><a href="./writing-coach.html">Writing Coach →</a></article>
+        <article class="skill"><h3>Speaking</h3><p class="muted">IELTS Part 1, cue-card Part 2 va muhokamali Part 3 mashqlari.</p><a href="./ielts-examiner.html">Speaking imtihonchi →</a></article>
+      </div>
+    </section>
+
+    <section class="card" id="listening">
+      <div class="practice-head"><div><h2>Listening · original mini-mashq</h2><p class="muted">Skriptni ko'rsatmaymiz. Ovoz brauzeringizda hosil qilinadi; kerak bo'lsa qayta eshitib mashq qiling.</p></div><span class="timer" id="listeningTimer">00:00</span></div>
+      <p id="listeningTitle" class="muted"></p>
+      <div class="controls"><button class="btn" id="playAudio" type="button">Audio tinglash</button><button class="btn secondary" id="stopAudio" type="button">To'xtatish</button><span id="audioStatus" class="muted" aria-live="polite"></span></div>
+      <div id="listeningQuestions"></div>
+      <button class="btn" id="checkListening" type="button">Javoblarni tekshirish</button>
+      <div class="result" id="listeningResult" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="card" id="reading">
+      <div class="practice-head"><div><h2>Reading · original mini-mashq</h2><p class="muted">Matnni o'qing va har bir javobni dalil bilan tekshiring.</p></div><span class="timer" id="readingTimer">00:00</span></div>
+      <h3 id="readingTitle"></h3>
+      <div class="passage" id="readingPassage"></div>
+      <div id="readingQuestions"></div>
+      <button class="btn" id="checkReading" type="button">Javoblarni tekshirish</button>
+      <div class="result" id="readingResult" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="card">
+      <h2>Haftalik reja tuzing</h2>
+      <p class="muted">Vaqt va imtihon sanasiga qarab, har kuni bajariladigan umumiy mashq rejasini tuzadi. Bu rasmiy diagnostika emas.</p>
+      <form id="planForm" class="controls">
+        <label>Kuniga (daqiqada) <input id="dailyMinutes" type="number" min="15" max="360" step="15" value="90" required></label>
+        <label>Imtihon sanasi (ixtiyoriy) <input id="examDate" type="date"></label>
+        <button class="btn" type="submit">Reja tuzish</button>
+      </form>
+      <div id="studyPlan" aria-live="polite"></div>
+    </section>
+  </main>
+  <script type="module">
+    import { LISTENING_PRACTICE, READING_PRACTICE, scoreListening, scoreReading } from '../js/ielts-practice.mjs';
+
+    const $ = id => document.getElementById(id);
+    let activeTimer = null;
+    let elapsed = { listening: 0, reading: 0 };
+    let timerId = null;
+
+    function renderQuestions(target, questions, name) {
+      $(target).innerHTML = questions.map((question, index) => {
+        const options = question.options || ['TRUE', 'FALSE', 'NOT GIVEN'];
+        return `<fieldset class="question"><legend><p>${index + 1}. ${question.prompt}</p></legend>` +
+          options.map((option, optionIndex) => `<label class="option"><input type="radio" name="${name}-${question.id}" value="${optionIndex}"> <span>${option}</span></label>`).join('') +
+          `</fieldset>`;
+      }).join('');
+    }
+
+    function beginTimer(skill) {
+      if (activeTimer === skill) return;
+      if (timerId) clearInterval(timerId);
+      activeTimer = skill;
+      timerId = setInterval(() => {
+        elapsed[skill]++;
+        const minutes = String(Math.floor(elapsed[skill] / 60)).padStart(2, '0');
+        const seconds = String(elapsed[skill] % 60).padStart(2, '0');
+        $(`${skill}Timer`).textContent = `${minutes}:${seconds}`;
+      }, 1000);
+    }
+
+    function stopTimer(skill) {
+      if (activeTimer !== skill) return;
+      clearInterval(timerId);
+      timerId = null;
+      activeTimer = null;
+    }
+
+    function collectAnswers(questions, name) {
+      const answers = {};
+      for (const question of questions) {
+        const selected = document.querySelector(`input[name="${name}-${question.id}"]:checked`);
+        answers[question.id] = selected ? Number(selected.value) : null;
+      }
+      return answers;
+    }
+
+    function renderResult(element, result) {
+      $(element).innerHTML = `<div class="score">${result.correct}/${result.total} to'g'ri (${result.percentage}%)</div>` +
+        `<p class="muted">Bu faqat mini-mashq natijasi; IELTS bandiga aylantirilmaydi.</p>` +
+        result.details.map((detail, index) =>
+          `<div class="question-result"><strong>${index + 1}. ${detail.correct ? 'To‘g‘ri' : 'Qayta ko‘rib chiqing'}</strong> — ${detail.explanation}</div>`
+        ).join('');
+      $(element).hidden = false;
+      localStorage.setItem(`lv_ielts_${element}`, JSON.stringify({
+        correct: result.correct,
+        total: result.total,
+        date: new Date().toISOString()
+      }));
+    }
+
+    $('listeningTitle').textContent = LISTENING_PRACTICE.title;
+    $('readingTitle').textContent = READING_PRACTICE.title;
+    $('readingPassage').textContent = READING_PRACTICE.passage;
+    renderQuestions('readingQuestions', READING_PRACTICE.questions, 'reading');
+    renderQuestions('listeningQuestions', LISTENING_PRACTICE.questions, 'listening');
+
+    $('playAudio').addEventListener('click', () => {
+      if (!('speechSynthesis' in window)) {
+        $('audioStatus').textContent = 'Brauzeringiz audio sintezini qo‘llamaydi.';
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(LISTENING_PRACTICE.script);
+      utterance.lang = 'en-GB';
+      utterance.rate = 0.9;
+      utterance.onstart = () => {
+        beginTimer('listening');
+        $('audioStatus').textContent = 'Audio ijro etilmoqda…';
+      };
+      utterance.onend = () => { stopTimer('listening'); $('audioStatus').textContent = 'Audio tugadi. Xohlasangiz qayta tinglang.'; };
+      utterance.onerror = () => { stopTimer('listening'); $('audioStatus').textContent = 'Audio ijro etilmadi. Brauzer ovoz sozlamalarini tekshiring.'; };
+      window.speechSynthesis.speak(utterance);
+    });
+    $('stopAudio').addEventListener('click', () => {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      stopTimer('listening');
+      $('audioStatus').textContent = 'Audio to‘xtatildi.';
+    });
+    $('readingPassage').addEventListener('click', () => beginTimer('reading'), { once: true });
+    $('readingQuestions').addEventListener('change', () => beginTimer('reading'));
+    $('listeningQuestions').addEventListener('change', () => beginTimer('listening'));
+
+    $('checkListening').addEventListener('click', () => {
+      stopTimer('listening');
+      renderResult('listeningResult', scoreListening(collectAnswers(LISTENING_PRACTICE.questions, 'listening')));
+    });
+    $('checkReading').addEventListener('click', () => {
+      stopTimer('reading');
+      renderResult('readingResult', scoreReading(collectAnswers(READING_PRACTICE.questions, 'reading')));
+    });
+
+    function renderPlan(minutes) {
+      const daily = [
+        ['Listening', 'Original audio mashqi, keyin eshitilmagan kalit so‘zlarni qayd eting.'],
+        ['Reading', 'Vaqt bilan passage o‘qing; javobni matndan dalil bilan isbotlang.'],
+        ['Writing', 'Task 1 yoki Task 2 ni vaqt chegarasida yozib, mezonlar bo‘yicha tahrir qiling.'],
+        ['Speaking', 'Part 1 savollariga javob bering; Part 2 ni 1–2 daqiqa gapirib yozib oling.']
+      ];
+      const minutesPerSkill = Math.floor(minutes / daily.length);
+      const examDate = $('examDate').value;
+      const daysLeft = examDate
+        ? Math.ceil((new Date(`${examDate}T00:00:00`).getTime() - new Date(new Date().toDateString()).getTime()) / 86400000)
+        : null;
+      $('studyPlan').innerHTML = daily.map(([skill, task]) =>
+        `<div class="plan-item"><strong>${skill} · ${minutesPerSkill} daqiqa</strong><br><span class="muted">${task}</span></div>`
+      ).join('') + `<p class="muted">Haftada kamida bir marta xatolarni ko‘rib chiqing va to‘liq vaqtli, sifatli materiallar bilan sinov qiling. Reja kuniga ${minutes} daqiqa.${daysLeft === null ? '' : ` Imtihongacha ${daysLeft} kun.`}</p>`;
+    }
+
+    $('planForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const minutes = Number($('dailyMinutes').value);
+      if (!Number.isInteger(minutes) || minutes < 15 || minutes > 360) return;
+      const examDate = $('examDate').value;
+      if (examDate && new Date(`${examDate}T00:00:00`) < new Date(new Date().toDateString())) {
+        $('studyPlan').textContent = 'Imtihon sanasi bugundan oldin bo‘lishi mumkin emas.';
+        return;
+      }
+      localStorage.setItem('lv_ielts_plan', JSON.stringify({ minutes, examDate, updatedAt: new Date().toISOString() }));
+      renderPlan(minutes);
+    });
+
+    try {
+      const plan = JSON.parse(localStorage.getItem('lv_ielts_plan') || 'null');
+      if (plan && Number.isInteger(plan.minutes) && plan.minutes >= 15 && plan.minutes <= 360) {
+        $('dailyMinutes').value = plan.minutes;
+        if (plan.examDate) $('examDate').value = plan.examDate;
+        renderPlan(plan.minutes);
+      }
+    } catch (error) {
+      console.warn('[IELTS] Saqlangan reja o‘qilmadi:', error);
+    }
+  </script>
+</body>
+</html>

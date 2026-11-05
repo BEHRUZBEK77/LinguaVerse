@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LinguaVerse — Pul ishlash</title>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { overflow-x: hidden; }
@@ -86,6 +84,9 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
@@ -180,9 +181,9 @@
 
   <script type="module" src="../js/lv-status-bar.js"></script>
   <script type="module">
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-    import { getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
+    import { getFirestore, collection, query, where, getDocs } from "/js/fb/firebase-firestore.js";
+    import { getApps, getApp } from "/js/fb/firebase-app.js";
     import { FB_CONFIG } from '../js/lv-core.js';
 
     const $ = id => document.getElementById(id);
@@ -191,7 +192,7 @@
     const nf = n => (n || 0).toLocaleString('uz');
 
     // ── Firebase (lv-core allaqachon init qilgan) ──
-    const app = getApps().length ? getApp() : (await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js')).initializeApp(FB_CONFIG);
+    const app = getApps().length ? getApp() : (await import('/js/fb/firebase-app.js')).initializeApp(FB_CONFIG);
     auth = getAuth(app); db = getFirestore(app);
 
     onAuthStateChanged(auth, async (u) => {

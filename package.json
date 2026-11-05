@@ -1,12 +1,85 @@
 {
   "name": "linguaverse",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "AI bilan til o'rganish platformasi",
   "private": true,
   "scripts": {
     "start": "node dev-server.js",
     "dev": "node dev-server.js",
-    "check": "node scripts/check-wiring.js && node scripts/check-plan-sync.js"
+    "desktop": "electron desktop/main.cjs",
+    "desktop:dist": "electron-builder --publish never",
+    "mobile:sync": "cap sync android",
+    "check": "node scripts/check-wiring.js && node scripts/check-plan-sync.js && node scripts/check-language-data.js",
+    "test": "node --test scripts/ratelimit.test.js scripts/ielts-writing.test.js scripts/ielts-practice.test.js scripts/language-certificate.test.js scripts/course-journey.test.js scripts/admin-api-keys.test.js scripts/admin-ai.test.js scripts/ai-router.test.js scripts/ai-chat-ui.test.js scripts/ai-coach-unit.test.js scripts/adaptive-plan-fallback.test.mjs scripts/youtube-recommendations.test.js scripts/youtube-videos.test.js scripts/elevenlabs.test.js scripts/teacher-course.test.js scripts/supabase-store.test.js scripts/learning-language.test.js",
+    "video": "node scripts/render-lesson-video.mjs"
   },
-  "engines": { "node": ">=18" }
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "desktop/main.cjs",
+  "build": {
+    "appId": "uz.linguaverse.desktop",
+    "productName": "LinguaVerse",
+    "directories": {
+      "output": "dist-desktop"
+    },
+    "files": [
+      "desktop/**/*",
+      "package.json"
+    ],
+    "artifactName": "LinguaVerse-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "LinguaVerse-${version}-windows-x64.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "artifactName": "LinguaVerse-${version}-macos-universal.${ext}",
+      "category": "public.app-category.education"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "LinguaVerse-${version}-linux-x64.${ext}",
+      "category": "Education"
+    }
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "allowScripts": {
+    "electron@37.10.3": true
+  }
 }

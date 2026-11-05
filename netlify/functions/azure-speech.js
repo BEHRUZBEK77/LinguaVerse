@@ -6,9 +6,8 @@
 //   POST { action:'tts' }       → neural ovoz (13 til)
 //   POST { action:'assess' }    → nutqni matnga + TALAFFUZ BAHOSI
 //
-// KALIT — faqat Netlify Environment Variables'da:
-//   AZURE_SPEECH_KEY    = ...
-//   AZURE_SPEECH_REGION = eastus
+// Kalitlar Firebase server sozlamalaridan yoki Netlify environment'dan olinadi;
+// hech qachon brauzerga uzatilmaydi.
 //
 // DIQQAT: kalitni bu faylga YOZMANG.
 // ═══════════════════════════════════════════════════════════════════════════
@@ -24,6 +23,70 @@ const CORS = {
 
 const KEY = () => (keys.get('AZURE_SPEECH_KEY') || '').trim();
 const REGION = () => (keys.get('AZURE_SPEECH_REGION') || 'eastus').trim().toLowerCase().replace(/\s+/g, '');
+const ELEVENLABS_KEY = () => (keys.get('ELEVENLABS_API_KEY') || '').trim();
+const ELEVENLABS_DEFAULT_VOICE = '21m00Tcm4TlvDq8ikWAM';
+const ELEVENLABS_UZBEK_VOICE = 'YPq6xmLsGXihVzYVFvZw';
+
+// ───────────────────────────────────────────────────────────────────────────
+// HAR BIR TIL UCHUN ALOHIDA USTOZ OVOZI (ElevenLabs standart kutubxonasi)
+//
+// Har bir til o'z "ustozi"ga ega — o'quvchi tilni almashtirganda boshqa odam
+// bilan gaplashayotgandek his qiladi. eleven_multilingual_v2 modeli har bir
+// ovozni 29 tilda tabiiy talaffuz bilan gapirtiradi.
+// Admin panel → API Kalitlar → ELEVENLABS_VOICE_<TIL> orqali almashtiriladi
+// (masalan Voice Library'dan ona tilida gapiruvchi ovoz tanlansa).
+// ───────────────────────────────────────────────────────────────────────────
+const ELEVENLABS_LANG_VOICES = {
+  'en-US': { id: 'onwK4e9ZLuTAKqWW03F9', name: 'Daniel — qat\'iy britaniyalik imtihonchi' },
+  'en-GB': { id: 'onwK4e9ZLuTAKqWW03F9', name: 'Daniel — qat\'iy britaniyalik imtihonchi' },
+  'ru-RU': { id: 'nPczCjzI2devNBz1zQrb', name: 'Brian — chuqur, ishonchli' },
+  'es-ES': { id: 'XrExE9yKIg1WjnnlVkGX', name: 'Matilda — iliq, aniq' },
+  'de-DE': { id: 'JBFqnCBsd6RMkjVDRZzb', name: 'George — vazmin, talabchan' },
+  'tr-TR': { id: 'XB0fDUnXU5powFXDhCwa', name: 'Charlotte — jonli, energik' },
+  'ar-SA': { id: 'pqHfZKP75CvOlQylNhV4', name: 'Bill — sokin, ishonchli' },
+  'ko-KR': { id: 'pFZP5JQG7iQjIQuC4Bku', name: 'Lily — mayin, aniq' },
+  'zh-CN': { id: 'Xb7hH8MSUJpSbSDYk0k2', name: 'Alice — ravon, aniq' },
+  'uz-UZ': { id: ELEVENLABS_UZBEK_VOICE, name: 'O\'zbek ustoz' }
+};
+
+// Admin panelda saqlanadigan kalit nomi: ELEVENLABS_VOICE_EN, _RU, ...
+const VOICE_KEY = locale => 'ELEVENLABS_VOICE_' + String(locale || 'en').split('-')[0].toUpperCase();
+
+// ───────────────────────────────────────────────────────────────────────────
+// EMOTSIYALAR — ustoz his-tuyg'usi ovozga o'tadi.
+//   stability ↓  → ovoz jonliroq, hissiyotliroq
+//   style ↑      → ifoda kuchliroq (ElevenLabs "style exaggeration")
+//   v3 modelida esa audio teglar ([angry], [laughs]) ishlatiladi.
+// ───────────────────────────────────────────────────────────────────────────
+const EMOTIONS = {
+  neutral:      { stability: 0.50, style: 0.15, speed: 1.00, v3: '',               azure: null },
+  happy:        { stability: 0.35, style: 0.55, speed: 1.04, v3: '[happy]',        azure: 'cheerful' },
+  proud:        { stability: 0.35, style: 0.60, speed: 1.02, v3: '[warmly]',       azure: 'cheerful' },
+  impressed:    { stability: 0.32, style: 0.65, speed: 1.03, v3: '[impressed]',    azure: 'excited' },
+  encouraging:  { stability: 0.40, style: 0.45, speed: 1.00, v3: '[encouraging]',  azure: 'friendly' },
+  thinking:     { stability: 0.55, style: 0.20, speed: 0.95, v3: '[thoughtful]',   azure: null },
+  stern:        { stability: 0.40, style: 0.70, speed: 0.98, v3: '[serious]',      azure: 'serious' },
+  disappointed: { stability: 0.42, style: 0.55, speed: 0.94, v3: '[sighs]',        azure: 'sad' },
+  angry:        { stability: 0.28, style: 0.85, speed: 1.02, v3: '[angry]',        azure: 'angry' },
+  laughing:     { stability: 0.25, style: 0.80, speed: 1.05, v3: '[laughs]',       azure: 'cheerful' },
+  surprised:    { stability: 0.30, style: 0.70, speed: 1.05, v3: '[surprised]',    azure: 'excited' }
+};
+
+function emotionProfile(emotion) {
+  return EMOTIONS[String(emotion || '').toLowerCase()] || EMOTIONS.neutral;
+}
+
+/** Til uchun ovoz: admin sozlagan > chaqiruvchi bergan > o'rnatilgan xarita. */
+function voiceForLocale(locale, dependencies = {}) {
+  if (locale === 'uz-UZ') {
+    const configuredUzbekVoice = dependencies.uzbekVoiceId ?? keys.get('ELEVENLABS_VOICE_ID');
+    return configuredUzbekVoice || ELEVENLABS_UZBEK_VOICE;
+  }
+  const configured = dependencies.langVoices?.[locale] ?? keys.get(VOICE_KEY(locale));
+  if (configured) return configured;
+  if (dependencies.defaultVoiceId) return dependencies.defaultVoiceId;
+  return (ELEVENLABS_LANG_VOICES[locale] || {}).id || ELEVENLABS_DEFAULT_VOICE;
+}
 
 // ───────────────────────────────────────────────────────────────────────────
 // OVOZLAR — har til uchun tanlangan eng tabiiy neural ovozlar
@@ -119,7 +182,8 @@ async function issueToken() {
 // ───────────────────────────────────────────────────────────────────────────
 // 2) TTS — neural ovoz
 // ───────────────────────────────────────────────────────────────────────────
-async function synthesize({ text, lang, voice, rate, pitch, style }) {
+async function synthesize({ text, lang, voice, rate, pitch, style, emotion }) {
+  if (!style && emotion) style = emotionProfile(emotion).azure;
   const key = KEY();
   if (!key) throw new Error('AZURE_SPEECH_KEY sozlanmagan');
   if (!text || !text.trim()) throw new Error("Matn bo'sh");
@@ -163,6 +227,74 @@ async function synthesize({ text, lang, voice, rate, pitch, style }) {
   if (!buf.length) throw new Error("Azure bo'sh audio qaytardi");
 
   return { audio: buf.toString('base64'), mime: 'audio/mpeg', voice: voiceName, lang: locale };
+}
+
+async function synthesizeElevenLabs({ text, lang, rate, emotion }, dependencies = {}) {
+  const apiKey = dependencies.apiKey ?? ELEVENLABS_KEY();
+  if (!apiKey) throw new Error('ElevenLabs API key sozlanmagan');
+  let value = String(text || '').trim();
+  if (!value) throw new Error('Matn bo‘sh');
+  if (value.length > 5000) throw new Error('ElevenLabs matni juda uzun (max 5000 belgi)');
+
+  const locale = normalizeLang(lang);
+  const voiceId = String(voiceForLocale(locale, dependencies)).trim();
+  if (!/^[A-Za-z0-9_-]{6,80}$/.test(voiceId)) throw new Error('ElevenLabs Voice ID formati noto‘g‘ri');
+
+  const emo = emotionProfile(emotion);
+  const modelId = String(dependencies.modelId ?? keys.get('ELEVENLABS_MODEL') ?? '').trim() || 'eleven_multilingual_v2';
+  const isV3 = /^eleven_v3/.test(modelId);
+  // v3 hissiyotni matn ichidagi audio teglar orqali beradi
+  if (isV3 && emo.v3 && !value.startsWith('[')) value = `${emo.v3} ${value}`;
+  const speed = Math.min(1.2, Math.max(0.7, (Number(rate) || 1) * (emotion ? emo.speed : 1)));
+  const voiceSettings = emotion
+    ? { stability: isV3 ? Math.max(0.0, Math.min(1, Math.round(emo.stability * 2) / 2)) : emo.stability,
+        similarity_boost: 0.8, style: emo.style, use_speaker_boost: true, speed }
+    : { stability: 0.5, similarity_boost: 0.75, speed };
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20_000);
+  try {
+    const response = await (dependencies.fetchImpl || fetch)(
+      `https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}?output_format=mp3_44100_128`,
+      {
+        method: 'POST',
+        headers: {
+          'xi-api-key': apiKey,
+          'Content-Type': 'application/json',
+          Accept: 'audio/mpeg'
+        },
+        body: JSON.stringify({
+          text: value,
+          model_id: modelId,
+          voice_settings: voiceSettings
+        }),
+        signal: controller.signal
+      }
+    );
+    if (!response.ok) throw new Error(`ElevenLabs HTTP ${response.status}`);
+    const audio = Buffer.from(await response.arrayBuffer());
+    if (!audio.length) throw new Error('ElevenLabs bo‘sh audio qaytardi');
+    return { audio: audio.toString('base64'), mime: 'audio/mpeg', voice: voiceId, lang: locale, provider: 'elevenlabs', emotion: emotion || 'neutral' };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function synthesizeConfigured(body, dependencies = {}) {
+  const elevenLabsKey = dependencies.elevenLabsKey ?? ELEVENLABS_KEY();
+  if (elevenLabsKey) {
+    try {
+      return await (dependencies.elevenLabs || synthesizeElevenLabs)(
+        body,
+        dependencies.elevenLabsDependencies
+      );
+    } catch (error) {
+      const azureKey = dependencies.azureKey ?? KEY();
+      if (!azureKey) throw error;
+      if (dependencies.onFallback) dependencies.onFallback(error);
+      else console.warn('[azure-speech] ElevenLabs TTS ishlamadi, Azure zaxirasi sinab ko‘riladi:', error.message);
+    }
+  }
+  return (dependencies.azure || synthesize)(body);
 }
 
 // ───────────────────────────────────────────────────────────────────────────
@@ -304,6 +436,7 @@ function buildFeedback(s, words) {
 // ───────────────────────────────────────────────────────────────────────────
 exports.handler = async function (event) {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers: CORS, body: '' };
+  await keys.refreshFromFirestore();
 
   const q = event.queryStringParameters || {};
 
@@ -317,18 +450,26 @@ exports.handler = async function (event) {
       }
     }
 
-    if (q.action === 'voices') return json(200, { voices: VOICES });
+    if (q.action === 'voices') {
+      const teachers = {};
+      for (const [loc, v] of Object.entries(ELEVENLABS_LANG_VOICES)) {
+        teachers[loc] = { name: v.name, custom: !!keys.get(loc === 'uz-UZ' ? 'ELEVENLABS_VOICE_ID' : VOICE_KEY(loc)) };
+      }
+      return json(200, { voices: VOICES, teachers, emotions: Object.keys(EMOTIONS) });
+    }
 
     // Sozlamalarni tekshirish: /.netlify/functions/azure-speech?test=1
     const status = {
       ok: true,
       keyConfigured: !!KEY(),
+      elevenLabsConfigured: !!ELEVENLABS_KEY(),
+      ttsProvider: ELEVENLABS_KEY() ? 'elevenlabs' : KEY() ? 'azure' : 'browser-fallback',
       region: keys.get('AZURE_SPEECH_REGION') || '(sozlanmagan, eastus ishlatiladi)',
       languages: Object.keys(VOICES)
     };
     if (q.test) {
       try {
-        const r = await synthesize({ text: 'Salom! Azure ovozi ishlayapti.', lang: 'uz-UZ', rate: 1 });
+        const r = await synthesizeConfigured({ text: 'Salom! Ovoz sinovi ishlayapti.', lang: 'uz-UZ', rate: 1 });
         status.ttsTest = `✅ ISHLADI (${Math.round(r.audio.length * 0.75 / 1024)} KB, ${r.voice})`;
       } catch (e) { status.ttsTest = `❌ XATO: ${e.message}`; }
       try {
@@ -345,7 +486,7 @@ exports.handler = async function (event) {
   // tezlik chekloviga olindi.
   const rl = await ratelimit.checkRateLimit(`azure-speech:${ratelimit.clientIp(event)}`, { windowMs: 60_000, max: 25 });
   if (!rl.ok) {
-    return json(429, { error: "Juda ko'p so'rov. Biroz kuting." });
+    return json(rl.unavailable ? 503 : 429, { error: rl.unavailable ? 'Xizmat vaqtincha mavjud emas.' : "Juda ko'p so'rov. Biroz kuting." });
   }
 
   let body;
@@ -354,7 +495,7 @@ exports.handler = async function (event) {
 
   try {
     switch (body.action) {
-      case 'tts':    return json(200, await synthesize(body));
+      case 'tts':    return json(200, await synthesizeConfigured(body));
       case 'assess': return json(200, await assess(body));
       case 'token':  return json(200, await issueToken(), { 'Cache-Control': 'no-store' });
       default:       return json(400, { error: `Noma'lum action: ${body.action}` });
@@ -372,3 +513,9 @@ function json(statusCode, body, extra = {}) {
     body: JSON.stringify(body)
   };
 }
+
+exports.synthesizeElevenLabs = synthesizeElevenLabs;
+exports.synthesizeConfigured = synthesizeConfigured;
+exports.EMOTIONS = EMOTIONS;
+exports.ELEVENLABS_LANG_VOICES = ELEVENLABS_LANG_VOICES;
+exports.voiceForLocale = voiceForLocale;

@@ -2,6 +2,16 @@
   functions = "netlify/functions"
   publish = "."
 
+# Netlify build: desktop (Electron) ilovasi kerak emas — yuklab olmaymiz
+[build.environment]
+  ELECTRON_SKIP_BINARY_DOWNLOAD = "1"
+  NODE_VERSION = "20"
+
+# course.js kurs katalogini (js/course-catalog.mjs) brauzer bilan umumiy
+# fayldan o'qiydi — funksiya paketiga qo'shilishi shart.
+[functions]
+  included_files = ["js/course-catalog.mjs", "js/learning-language.js", "locales/ui-source.json"]
+
 # Avto-to'lov: muddati kelgan obunalarni har kuni yechadi.
 # 05:00 UTC = Toshkentda 10:00 — kunduzi, ya'ni karta rad etsa
 # foydalanuvchi o'sha kuni xabar ko'radi va tuzata oladi.

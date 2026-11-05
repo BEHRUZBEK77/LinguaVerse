@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <title>LinguaVerse — video dars renderi</title>
+  <meta name="robots" content="noindex">
+  <!--
+    MP4 VIDEO DARS STUDIYASI
+    scripts/render-lesson-video.mjs bu sahifani 1280×720 oynada ochadi,
+    window.setup(data) bilan darsni beradi va har bir kadr uchun
+    window.frame(t) ni chaqirib skrinshot oladi (25 kadr/soniya). Natija
+    ffmpeg orqali ovoz bilan birlashtirilib MP4 bo'ladi.
+    Animatsiyalar CSS vaqtiga emas, t ga bog'liq — har kadr aniq va takrorlanadi.
+  -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    html, body { width: 1280px; height: 720px; overflow: hidden; background: #0b1117; color: #f1f5f6; font-family: Inter, system-ui, sans-serif; }
+    #stage { position: relative; width: 1280px; height: 720px; overflow: hidden; }
+
+    .bg { position: absolute; inset: 0; background: radial-gradient(120% 120% at 0% 0%, #17283a 0%, #0c1218 55%, #0e141b 100%); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .35; }
+    .orb.a { width: 520px; height: 520px; background: #1d4d5a; }
+    .orb.b { width: 420px; height: 420px; background: #4b1d3a; }
+    .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 48px 48px; }
+
+    .top { position: absolute; left: 40px; right: 40px; top: 26px; display: flex; justify-content: space-between; align-items: center; z-index: 5; }
+    .brand { font-family: 'Space Grotesk'; font-weight: 700; font-size: 22px; letter-spacing: .2px; }
+    .brand span { color: #70cdbb; }
+    .badge { font-size: 14px; font-weight: 700; padding: 7px 13px; border-radius: 10px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); }
+    .badge b { color: #fb7185; }
+
+    .teacher { position: absolute; left: 34px; bottom: 96px; width: 400px; z-index: 3; text-align: center; }
+    .teacher .av { width: 370px; height: 390px; margin: 0 auto; }
+    .plate { display: inline-flex; flex-direction: column; gap: 2px; margin-top: -6px; padding: 8px 18px; border-radius: 12px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.08); }
+    .plate b { font-family: 'Space Grotesk'; font-size: 18px; }
+    .plate small { font-size: 12.5px; color: #91a0a9; }
+    .emo { display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 99px; color: var(--emo); background: color-mix(in srgb, var(--emo) 16%, transparent); border: 1px solid color-mix(in srgb, var(--emo) 40%, transparent); }
+    .emo i { width: 8px; height: 8px; border-radius: 50%; background: var(--emo); }
+
+    .board { position: absolute; left: 470px; right: 50px; top: 92px; bottom: 150px; display: flex; flex-direction: column; justify-content: center; gap: 14px; z-index: 3; }
+    .kind { font-size: 14px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: #70cdbb; }
+    .title { font-family: 'Space Grotesk'; font-size: 40px; line-height: 1.15; font-weight: 700; }
+    .line { font-size: 22px; line-height: 1.4; padding: 11px 16px; border-left: 4px solid #70cdbb; background: rgba(255,255,255,.045); border-radius: 0 12px 12px 0; }
+    .ex { font-size: 20px; line-height: 1.4; padding: 11px 16px; border-radius: 12px; background: rgba(112,205,187,.09); border: 1px solid rgba(112,205,187,.18); }
+    .ex small { display: block; font-size: 15px; color: #a8b6bd; margin-top: 2px; }
+    .kind-mistake .line { border-left-color: #f87171; }
+    .kind-practice .line { border-left-color: #edc477; }
+
+    .subs { position: absolute; left: 470px; right: 50px; bottom: 54px; z-index: 6; text-align: left; }
+    .subs .t { display: inline; font-size: 21px; line-height: 1.75; padding: 4px 12px; background: rgba(0,0,0,.72); border-radius: 8px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .subs .u { display: block; margin-top: 6px; font-size: 16px; color: #fde68a; text-shadow: 0 1px 4px #000; }
+
+    .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: rgba(255,255,255,.06); z-index: 7; }
+    .progress i { display: block; height: 100%; background: linear-gradient(90deg, #70cdbb, #fb7185); }
+    .chapters { position: absolute; left: 40px; right: 40px; bottom: 18px; display: flex; gap: 6px; z-index: 6; }
+    .chapters i { flex: 1; height: 4px; border-radius: 99px; background: rgba(255,255,255,.1); }
+    .chapters i.on { background: #70cdbb; }
+
+    .card { position: absolute; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(90% 90% at 50% 40%, #16303a 0%, #0b1117 70%); }
+    .card .k { font-size: 16px; font-weight: 800; letter-spacing: .3em; text-transform: uppercase; color: #70cdbb; }
+    .card h1 { font-family: 'Space Grotesk'; font-size: 54px; line-height: 1.1; max-width: 1000px; margin: 18px 0; }
+    .card p { font-size: 20px; color: #a8b6bd; max-width: 860px; line-height: 1.5; }
+    .card .lv { font-family: 'Space Grotesk'; font-weight: 700; font-size: 110px; line-height: 1; background: linear-gradient(135deg, #70cdbb, #fb7185); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card .vocab { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 26px; max-width: 1100px; }
+    .card .vocab div { padding: 10px 12px; border-radius: 10px; background: rgba(255,255,255,.05); font-size: 17px; text-align: left; }
+    .card .vocab small { display: block; color: #91a0a9; font-size: 13px; }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div class="bg"></div>
+    <div class="orb a" id="orbA"></div>
+    <div class="orb b" id="orbB"></div>
+    <div class="grid"></div>
+
+    <div class="top">
+      <div class="brand">Lingua<span>Verse</span></div>
+      <div class="badge" id="badge"></div>
+    </div>
+
+    <div class="teacher" id="teacher">
+      <div class="av" id="avatar"></div>
+      <div class="plate"><b id="tName"></b><small id="tRole"></small></div><br>
+      <div class="emo" id="emo"><i></i><span></span></div>
+    </div>
+
+    <div class="board" id="board"></div>
+    <div class="subs" id="subs"><span class="t" id="subT"></span><span class="u" id="subU"></span></div>
+    <div class="chapters" id="chapters"></div>
+    <div class="progress"><i id="prog"></i></div>
+
+    <div class="card hidden" id="card"></div>
+  </div>
+
+  <script type="module">
+    import { TeacherAvatar, TEACHER_LOOKS, EMOTION_LABELS, TEACHER_CSS } from '../js/teacher-avatar.mjs';
+
+    const $ = id => document.getElementById(id);
+    const st = document.createElement('style'); st.textContent = TEACHER_CSS + '.tv-shake,.tv-bounce .tv-svg,.tv-speaking .tv-glow{animation:none!important}'; document.head.appendChild(st);
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const KIND = { intro: 'Kirish', explain: 'Tushuntirish', example: 'Misollar', mistake: "Ko'p uchraydigan xato", practice: 'Mashq — ovoz chiqarib ayting', recap: 'Xulosa' };
+    const ease = x => x <= 0 ? 0 : x >= 1 ? 1 : 1 - Math.pow(1 - x, 3);
+
+    let D = null, avatar = null, renderedScene = -2, lastEmotion = '';
+
+    /**
+     * data = {
+     *   lang, level, n, total, courseName, lessonTitle, uzTitle, goal,
+     *   scenes: [{ ...scene, start, audioStart, audioEnd, end }],
+     *   intro: {start,end}, outro: {start,end}, duration,
+     *   fps, envelope: number[] (har kadr uchun 0..1 ovoz balandligi)
+     * }
+     */
+    window.setup = function (data) {
+      D = data;
+      document.documentElement.lang = D.nativeLang || 'uz';
+      const L = TEACHER_LOOKS[D.lang] || TEACHER_LOOKS.english;
+      avatar = new TeacherAvatar($('avatar'), D.lang, { autoBlink: false });
+      $('tName').textContent = L.name;
+      $('tRole').textContent = D.courseName;
+      $('badge').innerHTML = `${esc(D.courseName)} · <b>${esc(D.cefr || D.level.toUpperCase())}</b> · #${D.n + 1}`;
+      $('chapters').innerHTML = D.scenes.map(() => '<i></i>').join('');
+      return document.fonts.ready.then(() => true);
+    };
+
+    function setEmotion(e, k) {
+      const key = e + k;
+      if (key === lastEmotion) return;
+      lastEmotion = key;
+      avatar.setEmotion(e, k);
+      const L = EMOTION_LABELS[e] || EMOTION_LABELS.neutral;
+      $('emo').style.setProperty('--emo', L.color);
+      $('emo').querySelector('span').textContent = 'AI';
+    }
+
+    // Subtitr bo'laklari: uzun matn ekranni to'smasin — gapma-gap, ovoz
+    // tezligiga mos (belgi soniga qarab) almashadi.
+    function chunks(text, max = 105) {
+      const sents = String(text || '').match(/[^.!?。？！]+[.!?。？！]*\s*/g) || [String(text || '')];
+      const out = [];
+      for (const raw of sents) {
+        const sTxt = raw.trim();
+        if (!sTxt) continue;
+        if (sTxt.length <= max) { out.push(sTxt); continue; }
+        let buf = '';
+        for (const part of sTxt.split(/(?<=[,;:])\s+/)) {
+          if ((buf + ' ' + part).trim().length > max && buf) { out.push(buf.trim()); buf = part; }
+          else buf = (buf + ' ' + part).trim();
+        }
+        if (buf) out.push(buf);
+      }
+      let acc = 0;
+      const total = out.reduce((a, c) => a + c.length, 0) || 1;
+      return out.map(c => { const from = acc / total; acc += c.length; return { text: c, from, to: acc / total }; });
+    }
+    let subT = [], subU = [];
+
+    function drawScene(i) {
+      if (renderedScene === i) return;
+      renderedScene = i;
+      const sc = D.scenes[i];
+      $('board').className = 'board kind-' + sc.kind;
+      $('board').innerHTML = `<div class="kind">${sc.lessonScene + 1} / ${D.scenes.reduce((m, x) => Math.max(m, (x.lessonScene ?? 0) + 1), 1)}</div><div class="title" dir="auto">${esc(sc.title)}</div>` +
+        sc.board.map(b => `<div class="line rv" dir="auto">${esc(b)}</div>`).join('') +
+        sc.examples.map(e => `<div class="ex rv" dir="auto">${esc(e.t)}<small dir="auto">${esc(e.uz)}</small></div>`).join('');
+      const dense = sc.board.length + sc.examples.length > 4;
+      $('board').style.fontSize = dense ? '18px' : '';
+      $('board').querySelector('.title').style.fontSize = sc.title.length > 45 ? '28px' : '34px';
+      for (const el of $('board').querySelectorAll('.line,.ex')) el.style.fontSize = dense ? '18px' : '20px';
+      subT = chunks(sc.say);
+      subU = chunks(sc.say_uz, 150);
+      [...$('chapters').children].forEach((c, k) => c.classList.toggle('on', k <= i));
+    }
+
+    function card(kind) {
+      const c = $('card');
+      c.classList.remove('hidden');
+      if (c.dataset.kind === kind) return;
+      c.dataset.kind = kind;
+      if (kind === 'intro') {
+        c.innerHTML = `<div class="k">${esc(D.courseName)} · #${D.n + 1} / ${D.total}</div>
+          <div class="lv">${esc(D.cefr || D.level.toUpperCase())}</div>
+          <h1>${esc(D.uzTitle)}</h1>
+          <p>${esc(D.goal || '')}</p>`;
+      } else {
+        c.innerHTML = `<div class="k">${esc(D.labels?.chapters || "LinguaVerse")}</div>
+          <h1>${esc(D.labels?.next || "Test")}</h1>
+          <p dir="auto">${esc(D.goal || "")}</p>
+          ${(D.vocab || []).length ? `<div class="vocab">${D.vocab.slice(0, 8).map(v => `<div>${esc(v.w)}<small>${esc(v.uz)}</small></div>`).join('')}</div>` : ''}`;
+      }
+    }
+
+    /** t (soniya) vaqtidagi kadrni chizadi. */
+    window.frame = function (t) {
+      const fi = Math.min(D.envelope.length - 1, Math.round(t * D.fps));
+      $('prog').style.width = (t / D.duration * 100).toFixed(2) + '%';
+      $('orbA').style.transform = `translate(${-120 + Math.sin(t / 7) * 60}px, ${-140 + Math.cos(t / 9) * 40}px)`;
+      $('orbB').style.transform = `translate(${880 + Math.cos(t / 8) * 70}px, ${380 + Math.sin(t / 6) * 50}px)`;
+
+      // Kirish va yakuniy kartochkalar (silliq paydo/so'nish)
+      if (t < D.intro.end) {
+        card('intro');
+        const a = 1 - ease((t - (D.intro.end - 0.6)) / 0.6);
+        $('card').style.opacity = a.toFixed(3);
+        $('card').style.transform = `scale(${(1 + 0.03 * ease(t / D.intro.end)).toFixed(4)})`;
+        if (a > 0.999) return;
+      } else if (t >= D.outro.start) {
+        card('outro');
+        $('card').style.opacity = ease((t - D.outro.start) / 0.6).toFixed(3);
+        $('card').style.transform = 'none';
+      } else {
+        $('card').classList.add('hidden');
+        $('card').style.opacity = 0;
+      }
+
+      // Joriy sahna
+      let i = D.scenes.findIndex(s => t >= s.start && t < s.end);
+      if (i < 0) i = t < D.scenes[0].start ? 0 : D.scenes.length - 1;
+      const sc = D.scenes[i];
+      drawScene(i);
+      setEmotion(sc.emotion, sc.kind === 'mistake' ? 2 : 1);
+
+      // Sahnalar orasida qisqa crossfade
+      const local = t - sc.start;
+      const fadeIn = ease(local / 0.35);
+      $('board').style.opacity = fadeIn.toFixed(3);
+      $('board').style.transform = `translateY(${((1 - fadeIn) * 14).toFixed(1)}px)`;
+
+      // Doska qatorlari nutq davomida ketma-ket chiqadi
+      const items = $('board').querySelectorAll('.rv');
+      const speak = Math.max(1, sc.audioEnd - sc.audioStart);
+      items.forEach((el, k) => {
+        const at = sc.audioStart + 0.2 + k * (speak * 0.7) / Math.max(1, items.length);
+        const p = ease((t - at) / 0.45);
+        el.style.opacity = p.toFixed(3);
+        el.style.transform = `translateX(${((1 - p) * 22).toFixed(1)}px)`;
+      });
+
+      // Subtitr faqat gapirayotganda
+      const talking = t >= sc.audioStart - 0.1 && t <= sc.audioEnd + 0.3;
+      const practicing = !talking && sc.practice_seconds && t > sc.audioEnd;
+      $('subs').style.opacity = talking || practicing ? 1 : 0;
+      const prog = Math.max(0, Math.min(0.999, (t - sc.audioStart) / Math.max(0.1, sc.audioEnd - sc.audioStart)));
+      const pick = arr => (arr.find(c => prog >= c.from && prog < c.to) || arr[arr.length - 1] || { text: '' }).text;
+      const tt = pick(subT), uu = pick(subU);
+      $('subT').dir = 'auto'; $('subU').dir = 'auto';
+      if ($('subT').textContent !== tt) $('subT').textContent = tt;
+      if ($('subU').textContent !== uu) $('subU').textContent = uu;
+
+      if (practicing) { $('subT').textContent = D.labels?.practice || 'Practice'; $('subU').textContent = String(Math.max(0, Math.ceil(sc.end - t))); }
+
+      // Og'iz — ovoz balandligi (lip-sync), ko'z qisish — har ~3.7 soniyada
+      avatar.mouthLevel(talking ? Math.min(1, (D.envelope[fi] || 0)) : 0);
+      avatar.setSpeaking(talking);
+      const cyc = (t + 1.3) % 3.7;
+      avatar.setBlink(cyc < 0.13);
+    };
+  </script>
+</body>
+</html>

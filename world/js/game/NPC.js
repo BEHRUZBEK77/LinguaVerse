@@ -94,8 +94,12 @@ export class NPC {
     parts.head.position.y = 1.48 + breath * 0.8;
     parts.legL.pivot.rotation.x = walking ? swing * 0.5 : 0;
     parts.legR.pivot.rotation.x = walking ? swing2 * 0.5 : 0;
+    parts.legL.knee.rotation.x = walking ? Math.max(0, swing) * 0.28 : 0;
+    parts.legR.knee.rotation.x = walking ? Math.max(0, swing2) * 0.28 : 0;
     parts.armL.pivot.rotation.x = walking ? swing2 * 0.6 : Math.sin(this._animTime * 0.8 + this._phase) * 0.06;
     parts.armR.pivot.rotation.x = walking ? swing * 0.6 : Math.sin(this._animTime * 0.8 + this._phase + Math.PI) * 0.06;
+    parts.armL.elbow.rotation.x = walking ? 0.16 + Math.max(0, swing) * 0.12 : 0.04;
+    parts.armR.elbow.rotation.x = walking ? 0.16 + Math.max(0, swing2) * 0.12 : 0.04;
 
     // Suhbatda gapirganda bosh silkitish
     if (this.talking) {
@@ -103,6 +107,11 @@ export class NPC {
       parts.torso.position.y = 0.9 + breath + Math.sin(this._animTime * 6) * 0.012;
     } else {
       parts.head.rotation.z = 0;
+    }
+    if (parts.head.userData.mouth) {
+      parts.head.userData.mouth.scale.x = this.talking
+        ? 1 + (Math.sin(this._animTime * 10) * 0.5 + 0.5) * 1.4
+        : 1;
     }
 
     // ── O'yinchiga yaqin bo'lsa — "!" belgisi va qarab turish ──

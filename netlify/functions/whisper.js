@@ -14,6 +14,7 @@ const CORS = {
 
 exports.handler = async function (event) {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 200, headers: CORS, body: '' };
+  await keys.refreshFromFirestore();
   // Health check — klient STT tayyorligini shu orqali biladi
   if (event.httpMethod === 'GET') {
     return {
@@ -28,7 +29,7 @@ exports.handler = async function (event) {
   // qo'shildi (speaking-coach.html orqali chaqiriladi).
   const rl = await ratelimit.checkRateLimit(`whisper:${ratelimit.clientIp(event)}`, { windowMs: 60_000, max: 15 });
   if (!rl.ok) {
-    return { statusCode: 429, headers: CORS, body: JSON.stringify({ error: "Juda ko'p so'rov. Biroz kuting." }) };
+    return { statusCode: rl.unavailable ? 503 : 429, headers: CORS, body: JSON.stringify({ error: rl.unavailable ? 'Xizmat vaqtincha mavjud emas.' : "Juda ko'p so'rov. Biroz kuting." }) };
   }
 
   if (!keys.get('GROQ_API_KEY')) {

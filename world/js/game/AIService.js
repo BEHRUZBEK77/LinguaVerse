@@ -10,7 +10,8 @@ import { ZONE_BY_ID } from '../config.js';
 
 const TARGET_LANG_NAME = {
   'en-US': 'English', 'ru-RU': 'Russian', 'es-ES': 'Spanish',
-  'de-DE': 'German', 'tr-TR': 'Turkish'
+  'de-DE': 'German', 'tr-TR': 'Turkish', 'ar-SA': 'Arabic',
+  'ko-KR': 'Korean', 'zh-CN': 'Chinese'
 };
 
 const NATIVE_NAME = { uz: 'Uzbek', ru: 'Russian', en: 'English' };
@@ -61,12 +62,11 @@ export async function npcReply(npc, history, settings, ctx = {}) {
   if (LV.snapshot().signedIn) {
     const r = await LV.ai('nova', messages, { task: 'speaking', level: settings.cefr });
     if (r.ok) return { ok: true, text: cleanReply(r.text), backend: r.backend };
-    if (r.reason !== 'auth') {
-      // Limit/plan/ai xatosi — so'zlab qo'ymaymiz, to'g'ridan-to'g'ri proxyga o'tamiz
-      const direct = await aiRequest({ model: 'nova', messages, temperature: 0.75, maxTokens: 300 });
-      if (direct.ok) return { ok: true, text: cleanReply(direct.text), backend: direct.backend, fallback: true };
-      return { ok: false, text: fallbackReply(npc), limitNote: r.message };
-    }
+    return {
+      ok: false,
+      text: fallbackReply(npc, settings),
+      limitNote: r.message || 'AI so‘rovi ruxsat etilmadi.'
+    };
   }
 
   // Mehmon — to'g'ridan-to'g'ri proxy
@@ -76,7 +76,7 @@ export async function npcReply(npc, history, settings, ctx = {}) {
   } catch (e) {
     console.warn('[world] AI xatosi:', e.message);
   }
-  return { ok: false, text: fallbackReply(npc) };
+  return { ok: false, text: fallbackReply(npc, settings) };
 }
 
 /** AI javobidan qo'pol qoldiqlarni tozalaymiz. */
@@ -100,9 +100,19 @@ const FALLBACKS = {
   market_dilya: "The bread is still warm. Would you like two loaves?"
 };
 
-function fallbackReply(npc) {
-  const base = FALLBACKS[npc.id] || "That's a good question! Let me think... Can you tell me more?";
-  return base;
+const FALLBACKS_BY_LANG = {
+  'ru-RU': 'Хороший вопрос! Давайте обсудим это. Что вы думаете?',
+  'es-ES': '¡Buena pregunta! Hablemos de ello. ¿Qué opinas?',
+  'de-DE': 'Gute Frage! Lass uns darüber sprechen. Was denkst du?',
+  'tr-TR': 'Güzel soru! Bunu konuşalım. Sen ne düşünüyorsun?',
+  'ar-SA': 'سؤال جيد! لنتحدث عن ذلك. ما رأيك؟',
+  'ko-KR': '좋은 질문이에요! 함께 이야기해 봐요. 어떻게 생각하세요?',
+  'zh-CN': '好问题！我们来聊聊吧。你怎么看？'
+};
+
+function fallbackReply(npc, settings) {
+  if (FALLBACKS_BY_LANG[settings.targetLang]) return FALLBACKS_BY_LANG[settings.targetLang];
+  return FALLBACKS[npc.id] || "That's a good question! Let me think... Can you tell me more?";
 }
 
 export default { npcReply, buildNpcSystem };

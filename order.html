@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LinguaVerse — Rejalar va To'lov</title>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     :root {
@@ -93,28 +91,24 @@
     .toast-wrap { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 400; }
     .toast { display: flex; align-items: center; gap: 9px; background: var(--surface); border: 1px solid var(--border); border-radius: 13px; padding: 11px 18px; font-size: 0.82rem; font-weight: 600; box-shadow: 0 14px 40px rgba(0,0,0,0.5); margin-top: 8px; }
   
-    /* ── FONT AWESOME FIX: universal reset ::before shriftini buzmasligi uchun ── */
-    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
-    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before {
-      font-family: "Font Awesome 6 Free" !important;
-    }
-    .fa-brands, .fab, .fa-brands::before, .fab::before {
-      font-family: "Font Awesome 6 Brands" !important;
-    }
-    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
-  
 </style>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="css/lv-theme.css">
+  <script src="js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
-  <nav>
+  <nav class="compact-nav">
     <a href="index.html" class="logo">Lingua<span>Verse</span></a>
-    <div class="nav-links">
+    <button class="compact-nav-toggle" type="button" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="primaryNav" data-nav-toggle>
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="nav-links compact-nav-links" id="primaryNav">
       <a href="index.html"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
       <a href="select-language.html"><i class="fa-solid fa-globe"></i> Tillar</a>
       <a href="languages-html/shop.html"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
@@ -200,9 +194,9 @@
   <div class="toast-wrap" id="toastWrap"></div>
 
   <script type="module">
-    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { initializeApp, getApps, getApp } from "/js/fb/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "/js/fb/firebase-firestore.js";
     import { DURATIONS, DURATION_ORDER, planPrice } from './js/lv-core.js';
 
     const FB_CONFIG = {
@@ -226,7 +220,8 @@
       { id: 'free', name: 'Bepul', ic: 'fa-seedling', col: '#94a3b8', uzs: 0, feats: ['NOVA AI — kuniga 40 ta savol', 'Speaking 15 daqiqa/kun', 'Kuniga 4 ta AI dars', 'Barcha 8 til ochiq', 'Coin va XP tizimi'] },
       { id: 'nova', name: 'NOVA', ic: 'fa-bolt', col: '#3b82f6', uzs: 39999, badge: 'Eng mashhur', feats: ['NOVA AI — kuniga 200 ta savol', "PRO AI (o'ylash rejimi) — kuniga 50 ta", 'Speaking 40 daqiqa/kun + talaffuz bahosi', 'Kuniga 12 ta AI dars', "Reklama yo'q"] },
       { id: 'mega', name: 'MEGA', ic: 'fa-rocket', col: '#8b5cf6', uzs: 49999, feats: ['MEGA AI — kuniga 150 ta savol', "PRO+ chuqur o'ylash — kuniga 60 ta", 'NOVA va PRO limitlari 2x oshgan', 'Speaking 80 daqiqa/kun', 'Kuniga 30 ta AI dars', "Shaxsiy o'quv rejasi"] },
-      { id: 'premium', name: 'PREMIUM', ic: 'fa-crown', col: '#f59e0b', uzs: 79999, feats: ['PREMIUM AI — kuniga 220 ta savol', "MEGA+ eng chuqur o'ylash — kuniga 90 ta", 'Barcha quyi modellar maksimal limitda', 'Speaking 150 daqiqa/kun', 'Kuniga 60 ta AI dars', 'Imtihonga tayyorlov (IELTS/Goethe/TOPIK)', "Ustuvor qo'llab-quvvatlash"] }
+      { id: 'premium', name: 'PREMIUM', ic: 'fa-crown', col: '#f59e0b', uzs: 79999, feats: ['PREMIUM AI — kuniga 220 ta savol', "MEGA+ eng chuqur o'ylash — kuniga 90 ta", 'Barcha quyi modellar maksimal limitda', 'Speaking 150 daqiqa/kun', 'Kuniga 60 ta AI dars', 'Imtihonga tayyorlov (IELTS/Goethe/TOPIK)', "Ustuvor qo'llab-quvvatlash"] },
+      { id: 'ielts', name: 'IELTS PRO', ic: 'fa-graduation-cap', col: '#e11d48', uzs: 200000, badge: 'IELTS 8+', feats: ['IELTS Speaking imtihonchi — Part 1, 2, 3 + band ball', 'Qattiq AI ustoz: emotsiya va jonli ovoz bilan', 'Kuniga 90 ta AI onlayn dars (8 til)', 'PREMIUM ning barcha imkoniyatlari, limitlar 1.5x', 'Speaking 300 daqiqa/kun', 'Writing Task 1/2 band baholash'] }
     ];
 
     const fmt = n => n.toLocaleString('ru-RU');
@@ -440,5 +435,6 @@
     render();
     onAuthStateChanged(auth, u => { CU = u; });
   </script>
+  <script src="js/responsive-nav.js" defer></script>
 </body>
 </html>

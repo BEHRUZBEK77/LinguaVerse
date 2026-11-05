@@ -63,7 +63,7 @@ const MIME = {
   '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
   '.gif': 'image/gif', '.svg': 'image/svg+xml', '.ico': 'image/x-icon',
   '.webp': 'image/webp', '.woff': 'font/woff', '.woff2': 'font/woff2',
-  '.ttf': 'font/ttf', '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.webm': 'video/webm'
+  '.ttf': 'font/ttf', '.mp3': 'audio/mpeg', '.wav': 'audio/wav', '.webm': 'video/webm', '.mp4': 'video/mp4', '.vtt': 'text/vtt; charset=utf-8'
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -126,6 +126,9 @@ function readBody(req) {
 function resolveFile(pathname) {
   // Katalogdan chiqib ketishga urinishni to'sib qo'yamiz
   const safe = path.normalize(decodeURIComponent(pathname)).replace(/^(\.\.[/\\])+/, '');
+  const publicPath = safe.replace(/\\/g, '/').replace(/^\/+/, '').toLowerCase();
+  if (publicPath === '.env' || publicPath.startsWith('.env.') ||
+      publicPath === 'data' || publicPath.startsWith('data/')) return null;
   let p = path.join(ROOT, safe);
 
   if (!p.startsWith(ROOT)) return null;
@@ -183,6 +186,29 @@ const server = http.createServer(async (req, res) => {
 
   const ext = path.extname(file).toLowerCase();
   const type = MIME[ext] || 'application/octet-stream';
+  // MP4 seeking needs byte ranges, including on the local preview server.
+  if (ext === '.mp4') {
+    const size = fs.statSync(file).size;
+    const headers = { 'Content-Type': type, 'Accept-Ranges': 'bytes', 'Cache-Control': 'no-store' };
+    const range = req.headers.range;
+    let start = 0, end = size - 1;
+    if (range) {
+      const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+      if (!match || (!match[1] && !match[2])) { res.writeHead(416, {...headers,'Content-Range':`bytes */${size}`}); return res.end(); }
+      if (!match[1]) start = Math.max(0, size - Number(match[2]));
+      else { start = Number(match[1]); if (match[2]) end = Math.min(end, Number(match[2])); }
+      if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end || start >= size) { res.writeHead(416, {...headers,'Content-Range':`bytes */${size}`}); return res.end(); }
+      headers['Content-Range'] = `bytes ${start}-${end}/${size}`;
+    }
+    headers['Content-Length'] = end - start + 1;
+    res.writeHead(range ? 206 : 200, headers);
+    if (req.method === 'HEAD') return res.end();
+    const stream = fs.createReadStream(file, {start,end});
+    stream.on('error', () => res.destroy());
+    res.on('close', () => stream.destroy());
+    stream.pipe(res); return;
+  }
+
 
   fs.readFile(file, (err, data) => {
     if (err) {

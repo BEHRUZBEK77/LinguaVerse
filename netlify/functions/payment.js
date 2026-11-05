@@ -17,7 +17,7 @@
 
 const crypto = require('crypto');
 const fsdb = require('./_firestore');
-const { paidPlan, referralReward } = require('./_plans');
+const { paidPlan, referralReward, courseProduct, courseUnlocks } = require('./_plans');
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -49,7 +49,8 @@ const INPAY = {
   merchantToken: () => process.env.INPAY_BEARER_TOKEN || process.env.INPAY_SECRET_KEY || '',
   // Webhook imzosini tekshirish uchun (HMAC-SHA256) — merchant tokendan alohida
   webhookSecret: () => process.env.INPAY_WEBHOOK_SECRET || process.env.INPAY_SECRET_KEY || '',
-  sandbox: () => process.env.INPAY_SANDBOX === '1',
+  production: () => process.env.CONTEXT === 'production' || process.env.NODE_ENV === 'production',
+  sandbox: () => process.env.INPAY_SANDBOX === '1' && !INPAY.production(),
 
   // ── (0) VAQTINCHALIK BEARER TOKEN OLISH VA KESHLASH ───────────────────
   // GET /api/v1/authorization/?merchant_id=...&merchant_token=...
@@ -190,48 +191,10 @@ const INPAY = {
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
-// FIREBASE ID-TOKEN TEKSHIRUVI
+// FOYDALANUVCHI TOKENI — Supabase Auth orqali tekshiriladi (_auth.js)
 // Klient "men falonchiman" deb aytishi yetarli emas — tokenni tasdiqlaymiz.
 // ═══════════════════════════════════════════════════════════════════════════
-let certCache = null, certCachedUntil = 0;
-
-async function googleCerts() {
-  if (certCache && Date.now() < certCachedUntil) return certCache;
-  const r = await fetch('https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com');
-  if (!r.ok) throw new Error('Google sertifikatlari olinmadi');
-  certCache = await r.json();
-  const maxAge = /max-age=(\d+)/.exec(r.headers.get('cache-control') || '');
-  certCachedUntil = Date.now() + (maxAge ? +maxAge[1] : 3600) * 1000;
-  return certCache;
-}
-
-async function verifyIdToken(idToken) {
-  if (!idToken) throw new Error('Token yuborilmagan');
-
-  const [h, p, s] = idToken.split('.');
-  if (!h || !p || !s) throw new Error("Token ko'rinishi noto'g'ri");
-
-  const header = JSON.parse(Buffer.from(h, 'base64url').toString());
-  const payload = JSON.parse(Buffer.from(p, 'base64url').toString());
-  const projectId = process.env.FIREBASE_PROJECT_ID || 'linguaverse-81b52';
-
-  if (payload.aud !== projectId) throw new Error('Token boshqa loyihaga tegishli');
-  if (payload.iss !== `https://securetoken.google.com/${projectId}`) throw new Error("Token manbasi noto'g'ri");
-  if (payload.exp * 1000 < Date.now()) throw new Error('Token muddati tugagan');
-  if (!payload.sub) throw new Error("Tokenda foydalanuvchi yo'q");
-
-  const certs = await googleCerts();
-  const cert = certs[header.kid];
-  if (!cert) throw new Error('Token kaliti topilmadi');
-
-  const verifier = crypto.createVerify('RSA-SHA256');
-  verifier.update(`${h}.${p}`);
-  if (!verifier.verify(cert, Buffer.from(s, 'base64url'))) {
-    throw new Error("Token imzosi noto'g'ri");
-  }
-
-  return { uid: payload.sub, email: payload.email || '' };
-}
+const { verifyIdToken } = require('./_auth.js');
 
 // ═══════════════════════════════════════════════════════════════════════════
 // AMALLAR
@@ -241,15 +204,32 @@ async function verifyIdToken(idToken) {
 async function createPayment(body, siteUrl) {
   const { uid, email } = await verifyIdToken(body.idToken);
 
-  const plan = paidPlan(body.planId, body.duration);
-  if (!plan) throw new Error("Noto'g'ri yoki bepul reja: " + body.planId);
+  // ── VIDEO KURS (bir martalik xarid) ──
+  // Kurs "reja"ga o'xshab buyurtma oqimidan o'tadi, faqat days=0 va
+  // tasdiqlanganda users/{uid}.courses ochiladi. Avto-to'lov kursga yo'q.
+  let plan;
+  let course = null;
+  if (body.kind === 'course') {
+    course = courseProduct(body.lang, body.level);
+    if (!course) throw new Error("Noto'g'ri kurs: " + body.lang + ' ' + body.level);
+    plan = {
+      id: 'course', name: course.name, price: course.price,
+      duration: 'lifetime', durationLabel: 'Umrbod', days: 0
+    };
+  } else {
+    plan = paidPlan(body.planId, body.duration);
+    if (!plan) throw new Error("Noto'g'ri yoki bepul reja: " + body.planId);
+  }
+  if (!INPAY.sandbox() && !INPAY.merchantId()) {
+    throw new Error('Production to‘lovlari uchun INPAY_MERCHANT_ID sozlanmagan');
+  }
 
   const orderId = 'LV-' + Date.now().toString(36).toUpperCase() + '-' +
                   crypto.randomBytes(3).toString('hex').toUpperCase();
 
   // Foydalanuvchi avto-to'lovni so'raganmi? Faqat u aniq yoqsa yoqiladi —
   // "unutib qoldi" degan bahona bilan pul yechilmasin.
-  const autopay = body.autopay === true;
+  const autopay = body.autopay === true && !course;
 
   // 1) Avval Firestore'ga yozamiz — provayder javob bermay qolsa ham iz qoladi
   await fsdb.addDoc('orders', {
@@ -265,6 +245,8 @@ async function createPayment(body, siteUrl) {
     days: plan.days,
     provider: 'inpay',
     status: 'pending',
+    kind: course ? 'course' : 'plan',
+    courseKey: course ? course.key : null,
     autopay,
     offerAccepted: body.offerAccepted === true,
     offerAcceptedAt: body.offerAccepted === true ? new Date() : null,
@@ -274,16 +256,14 @@ async function createPayment(body, siteUrl) {
 
   // 2) Sinov rejimi — provayder chaqirilmaydi, soxta havola qaytariladi.
   //    Butun oqimni haqiqiy pul sarflamasdan sinash uchun.
-  if (INPAY.sandbox() || !INPAY.merchantId()) {
+  if (INPAY.sandbox()) {
     return {
       orderId,
       amount: plan.price,
       duration: plan.duration,
       sandbox: true,
-      paymentUrl: `${siteUrl}/payment-sandbox.html?order=${orderId}&amount=${plan.price}&plan=${plan.id}&duration=${plan.duration}`,
-      eslatma: INPAY.merchantId()
-        ? 'Sinov rejimi yoqilgan (INPAY_SANDBOX=1)'
-        : 'INPAY_MERCHANT_ID sozlanmagan — sinov rejimida ishlayapti'
+      paymentUrl: `${siteUrl}/payment-sandbox.html?order=${orderId}&amount=${plan.price}&plan=${encodeURIComponent(course ? course.key : plan.id)}&duration=${plan.duration}`,
+      eslatma: 'Sinov rejimi yoqilgan (INPAY_SANDBOX=1)'
     };
   }
 
@@ -300,7 +280,7 @@ async function createPayment(body, siteUrl) {
       ...INPAY.createBody({
         orderId,
         amount: plan.price,
-        description: `LinguaVerse ${plan.name} — ${plan.durationLabel}`,
+        description: course ? `LinguaVerse ${plan.name}` : `LinguaVerse ${plan.name} — ${plan.durationLabel}`,
         callbackUrl: `${siteUrl}/.netlify/functions/payment/webhook`
       }),
       // Avto-to'lov so'ralganda provayderdan kartani eslab qolishni so'raymiz
@@ -348,7 +328,8 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
     activated = {
       already: false, plan: order.plan, uid: order.uid,
       days: order.days, duration: order.duration || 'monthly',
-      amount: order.amount, autopay: order.autopay === true
+      amount: order.amount, autopay: order.autopay === true,
+      kind: order.kind || 'plan', courseKey: order.courseKey || null
     };
     return {
       status: 'paid',
@@ -360,6 +341,15 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
   });
 
   if (!activated || activated.already) return activated;
+
+  // ── VIDEO KURS: kursni ochamiz (umrbod). Reja o'zgarmaydi. ──
+  if (activated.kind === 'course') {
+    await grantCourse(activated.uid, activated.courseKey, orderId, source);
+    try { await creditReferral(activated.uid, activated.amount); }
+    catch (e) { console.error('[payment] referal mukofoti berilmadi:', e.message); }
+    console.log(`[payment] kurs ochildi: ${activated.uid} → ${activated.courseKey}`);
+    return activated;
+  }
 
   // ── Tarifni yoqamiz. Buni FAQAT server qila oladi. ──
   const user = await fsdb.getDoc(`users/${activated.uid}`);
@@ -428,6 +418,10 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
 async function creditReferral(invitedUid, planPrice) {
   const refDoc = await fsdb.getDoc(`referrals/${invitedUid}`);
   if (!refDoc || refDoc.rewarded === true || !refDoc.inviterUid) return;
+  if (refDoc.inviterUid === invitedUid) {
+    console.warn(`[payment] o‘z-o‘zini taklif qilish rad etildi: ${invitedUid}`);
+    return;
+  }
 
   const reward = referralReward(planPrice);
   if (reward <= 0) return;
@@ -460,6 +454,136 @@ async function creditReferral(invitedUid, planPrice) {
   });
 
   console.log(`[payment] referal: ${refDoc.inviterUid} +${reward} so'm (do'st: ${invitedUid})`);
+}
+
+/**
+ * Kursni foydalanuvchiga ochadi. users/{uid}.courses xaritasi faqat server
+ * (yoki admin) yozadi — firestore.rules klientga taqiqlaydi.
+ * C2 xaridida B2 ham ochiladi.
+ */
+async function grantCourse(uid, key, orderId, source) {
+  const [lang, level] = String(key || '').split('_');
+  const product = courseProduct(lang, level);
+  if (!product) throw new Error("Noma'lum kurs: " + key);
+
+  const user = await fsdb.getDoc(`users/${uid}`);
+  const courses = { ...(user?.courses || {}) };
+  for (const k of courseUnlocks(product)) {
+    if (!courses[k]) courses[k] = { grantedAt: new Date(), orderId: orderId || null, source: source || 'payment' };
+  }
+  await fsdb.setDoc(`users/${uid}`, { courses });
+  await fsdb.addDoc(`users/${uid}/events`, {
+    event: 'course_granted', course: product.key, orderId: orderId || null, source: source || 'payment', at: new Date()
+  });
+  return courseUnlocks(product);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ADMIN — qo'lda tasdiqlash va qo'lda berish
+//
+// Ikki holat uchun:
+//  1. inPAY orqali pul tushgan, lekin webhook kelmay qolgan → admin
+//     buyurtmani "To'landi" deb tasdiqlaydi. Xuddi webhook kabi
+//     confirmPayment orqali o'tadi (idempotent, ikki marta hisoblanmaydi).
+//  2. Mijoz naqd/Click/boshqa usulda to'lagan → admin email yoki UID
+//     bo'yicha reja yoki kursni qo'lda beradi. Buning uchun ham "paid"
+//     buyurtma yoziladi — hisobotlarda daromad ko'rinsin.
+// Admin: Authorization: Bearer <ID-token> + admins/{uid} hujjati.
+// ═══════════════════════════════════════════════════════════════════════════
+async function requireAdmin(idToken) {
+  const auth = await verifyIdToken(idToken);
+  const adminDoc = await fsdb.getDoc(`admins/${auth.uid}`).catch(() => null);
+  if (!adminDoc) throw Object.assign(new Error("Admin huquqi yo'q"), { statusCode: 403 });
+  return auth;
+}
+
+async function findUid(target) {
+  const t = String(target || '').trim();
+  if (!t) throw new Error('Foydalanuvchi email yoki UID kiritilmagan');
+  if (!t.includes('@')) {
+    const u = await fsdb.getDoc(`users/${t}`);
+    if (!u) throw new Error('Bunday UID topilmadi: ' + t);
+    return { uid: t, email: u.email || '' };
+  }
+  const found = await fsdb.queryGroup('users', [{ field: 'email', op: 'EQUAL', value: t.toLowerCase() }], 1)
+    .catch(() => []);
+  const alt = found.length ? found : await fsdb.queryGroup('users', [{ field: 'email', op: 'EQUAL', value: t }], 1).catch(() => []);
+  if (!alt.length) throw new Error('Bu email bilan foydalanuvchi topilmadi: ' + t);
+  return { uid: alt[0].path.split('/').pop(), email: alt[0].email || t };
+}
+
+/** Kutilayotgan inPAY buyurtmani qo'lda "to'landi" qiladi. */
+async function adminConfirmOrder(body) {
+  const admin = await requireAdmin(body.idToken);
+  const orderId = String(body.orderId || '').trim();
+  const order = await fsdb.getDoc(`orders/${orderId}`);
+  if (!order) throw new Error('Buyurtma topilmadi: ' + orderId);
+  if (order.status === 'paid') return { ok: true, already: true };
+  // Admin "failed" bo'lgan buyurtmani ham tasdiqlay oladi (pul aslida tushgan bo'lsa)
+  if (order.status === 'failed') await fsdb.setDoc(`orders/${orderId}`, { status: 'pending' });
+
+  const res = await confirmPayment(orderId, order.amount, 'ADMIN-' + admin.uid.slice(0, 8), 'admin');
+  await fsdb.setDoc(`orders/${orderId}`, { confirmedByAdmin: admin.email || admin.uid, adminNote: String(body.note || '').slice(0, 300) });
+  return { ok: true, ...res };
+}
+
+/** Reja yoki kursni qo'lda beradi (naqd/boshqa to'lov uchun). */
+async function adminGrant(body) {
+  const admin = await requireAdmin(body.idToken);
+  const { uid, email } = await findUid(body.user);
+
+  let product, kind, courseKey = null;
+  if (body.kind === 'course') {
+    const c = courseProduct(body.lang, body.level);
+    if (!c) throw new Error("Noto'g'ri kurs");
+    product = { id: 'course', name: c.name, price: c.price, duration: 'lifetime', durationLabel: 'Umrbod', days: 0 };
+    kind = 'course'; courseKey = c.key;
+  } else {
+    const p = paidPlan(body.planId, body.duration);
+    if (!p) throw new Error("Noto'g'ri reja: " + body.planId);
+    product = p; kind = 'plan';
+  }
+  // Admin summani o'zgartira oladi (masalan chegirma bilan sotilgan bo'lsa)
+  const amount = body.amount != null && body.amount !== '' ? Math.max(0, Math.round(Number(body.amount) || 0)) : product.price;
+
+  const orderId = 'LVA-' + Date.now().toString(36).toUpperCase() + '-' + crypto.randomBytes(3).toString('hex').toUpperCase();
+  await fsdb.addDoc('orders', {
+    orderId, uid, userEmail: email,
+    plan: product.id, planName: product.name,
+    amount, currency: 'UZS',
+    duration: product.duration, durationLabel: product.durationLabel, days: product.days,
+    provider: 'manual', paymentMethod: String(body.method || 'naqd').slice(0, 40),
+    kind, courseKey,
+    status: 'pending', autopay: false,
+    createdBy: admin.email || admin.uid,
+    adminNote: String(body.note || '').slice(0, 300),
+    createdAt: new Date()
+  }, orderId);
+
+  const res = await confirmPayment(orderId, amount, 'MANUAL', 'admin');
+  return { ok: true, orderId, uid, email, ...res };
+}
+
+/** Admin uchun so'nggi onlayn buyurtmalar (inPAY + qo'lda). */
+async function adminOrders(body) {
+  await requireAdmin(body.idToken);
+  const rows = await fsdb.queryList('orders', [], 'createdAt', Math.min(200, Number(body.limit) || 100)).catch(() => []);
+  return {
+    ok: true,
+    orders: rows
+      .filter(o => o.provider === 'inpay' || o.provider === 'manual')
+      .map(o => ({
+        orderId: o.orderId || o.id,
+        uid: o.uid, userEmail: o.userEmail || '',
+        planName: o.planName || o.plan, kind: o.kind || 'plan', courseKey: o.courseKey || null,
+        amount: o.amount, status: o.status, provider: o.provider,
+        durationLabel: o.durationLabel || '', autopay: !!o.autopay, renewal: !!o.renewal,
+        sandbox: !!o.sandbox, confirmedBy: o.confirmedBy || null,
+        createdAt: o.createdAt instanceof Date ? o.createdAt.toISOString() : null,
+        paidAt: o.paidAt instanceof Date ? o.paidAt.toISOString() : null,
+        error: o.error || null
+      }))
+  };
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -817,6 +941,8 @@ exports.handler = async function (event) {
           orderId: order.orderId,
           status: order.status,
           plan: order.plan,
+          kind: order.kind || 'plan',
+          courseKey: order.courseKey || null,
           amount: order.amount,
           paidAt: order.paidAt || null
         });
@@ -839,6 +965,21 @@ exports.handler = async function (event) {
       case 'autopay-off':
         return json(200, await setAutopay(body.idToken, false));
 
+      // ── ADMIN ──
+      case 'admin-orders':
+        return json(200, await adminOrders(body));
+
+      case 'admin-confirm':
+        return json(200, await adminConfirmOrder(body));
+
+      case 'admin-grant':
+        return json(200, await adminGrant(body));
+
+      // Admin avto-to'lov navbatini qo'lda ishga tushiradi (RENEW_SECRET shart emas)
+      case 'admin-renew-run':
+        await requireAdmin(body.idToken);
+        return json(200, await runRenewals(Number(body.limit) || 50));
+
       // Navbatdagi obunalarni yechish. Ikki yo'l bilan chaqiriladi:
       // rejalashtirilgan funksiya (ichkaridan) yoki RENEW_SECRET bilan qo'lda.
       case 'renew-run': {
@@ -851,13 +992,14 @@ exports.handler = async function (event) {
 
       // Sinov rejimida to'lovni "amalga oshirish" — faqat sandbox'da
       case 'sandbox-confirm': {
-        if (!INPAY.sandbox() && INPAY.merchantId()) {
+        if (!INPAY.sandbox()) {
           return json(403, { error: "Sinov rejimi o'chirilgan" });
         }
         const { uid } = await verifyIdToken(body.idToken);
         const order = await fsdb.getDoc(`orders/${body.orderId}`);
         if (!order) return json(404, { error: 'Buyurtma topilmadi' });
         if (order.uid !== uid) return json(403, { error: 'Bu buyurtma sizniki emas' });
+        if (order.sandbox !== true) return json(403, { error: "Bu buyurtma sinov rejimida yaratilmagan" });
 
         const res = await confirmPayment(body.orderId, order.amount, 'SANDBOX', 'sandbox');
         return json(200, { ok: true, ...res });
@@ -868,7 +1010,7 @@ exports.handler = async function (event) {
     }
   } catch (e) {
     console.error('[payment]', body.action, e.message);
-    return json(400, { error: e.message });
+    return json(e.statusCode || 400, { error: e.message });
   }
 };
 
@@ -882,3 +1024,4 @@ function json(statusCode, body) {
 
 // renew-subscriptions.js kunlik jadval bo'yicha shuni chaqiradi
 exports.runRenewals = runRenewals;
+exports._test = { grantCourse, confirmPayment, adminGrant, createPayment };

@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kirish â€” LinguaVerse</title>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+    <title>Kirish — LinguaVerse</title>
 
 
     <style>
@@ -131,7 +129,7 @@
             }
         }
 
-        /* â”€â”€ CARD â”€â”€ */
+        /* ── CARD ── */
         .auth-wrap {
             position: relative;
             z-index: 10;
@@ -198,7 +196,7 @@
             line-height: 1.6;
         }
 
-        /* â”€â”€ GOOGLE BTN â”€â”€ */
+        /* ── GOOGLE BTN ── */
         .btn-google {
             width: 100%;
             display: flex;
@@ -230,7 +228,7 @@
             flex-shrink: 0;
         }
 
-        /* â”€â”€ DIVIDER â”€â”€ */
+        /* ── DIVIDER ── */
         .divider-line {
             display: flex;
             align-items: center;
@@ -252,7 +250,7 @@
             white-space: nowrap;
         }
 
-        /* â”€â”€ FORM â”€â”€ */
+        /* ── FORM ── */
         .form-group {
             margin-bottom: 16px;
             position: relative;
@@ -332,7 +330,7 @@
             color: #fff;
         }
 
-        /* â”€â”€ SUBMIT â”€â”€ */
+        /* ── SUBMIT ── */
         .btn-submit {
             width: 100%;
             padding: 13px;
@@ -389,7 +387,7 @@
             }
         }
 
-        /* â”€â”€ ERROR / SUCCESS â”€â”€ */
+        /* ── ERROR / SUCCESS ── */
         .msg-box {
             padding: 12px 14px;
             border-radius: 12px;
@@ -415,7 +413,7 @@
             color: #6ee7b7;
         }
 
-        /* â”€â”€ FOOTER LINK â”€â”€ */
+        /* ── FOOTER LINK ── */
         .auth-footer {
             text-align: center;
             font-size: 0.82rem;
@@ -460,27 +458,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
-  <!-- Yagona tema â€” sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
+  <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="../css/lv-theme.css">
+  <script src="../js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
-    <!-- BACK NAV -->
-    <div style="position:fixed;top:16px;left:16px;z-index:100">
-        <a href="../index.html"
-            style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#e8ecff;text-decoration:none;font-size:0.8rem;font-weight:600;backdrop-filter:blur(10px)"><i class="fa-solid fa-arrow-left"></i>
-            Bosh sahifa</a>
-    </div>
-
-
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
 
-    <div class="auth-wrap">
+    <main class="auth-layout">
+      <aside class="auth-story">
+        <a href="../index.html" class="logo">LinguaVerse</a>
+        <h2>Til o‘rganish — kundalik odat.</h2>
+        <p>O‘zingizga mos kursni tanlang, mashq qiling va taraqqiyotingizni bir joyda kuzating.</p>
+        <ul class="auth-story-list">
+          <li><i class="fa-solid fa-book-open" aria-hidden="true"></i> Sakkizta til bo‘yicha bosqichma-bosqich darslar</li>
+          <li><i class="fa-solid fa-microphone-lines" aria-hidden="true"></i> Gapirish va yozish uchun alohida mashqlar</li>
+          <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> O‘z sur’atingizda o‘rganing</li>
+        </ul>
+      </aside>
+      <div class="auth-wrap">
         <div class="auth-card">
-            <a href="../select-language.html" class="logo">Lingua<span>Verse</span></a>
-
             <h1 class="auth-title">Qaytib keldingiz! <i class="fa-solid fa-hand" style="color:#f5c842"></i></h1>
             <p class="auth-sub">Hisobingizga kiring va o'rganishni davom ettiring.</p>
 
@@ -543,24 +545,26 @@
         <a href="../index.html" class="back-home">
             <i class="fa-solid fa-arrow-left"></i> Bosh sahifaga qaytish
         </a>
-    </div>
+      </div>
+    </main>
 
     <!-- Firebase -->
     <script type="module">
 
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { initializeApp } from "/js/fb/firebase-app.js";
         import {
             getAuth,
             signInWithEmailAndPassword,
             GoogleAuthProvider,
             signInWithPopup,
+            signInWithRedirect,
             onAuthStateChanged,
             browserLocalPersistence,
             setPersistence
-        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        } from "/js/fb/firebase-auth.js";
         import {
             getFirestore, doc, getDoc, setDoc, serverTimestamp
-        } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+        } from "/js/fb/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
@@ -581,8 +585,19 @@
         await setPersistence(auth, browserLocalPersistence);
 
         // Redirect if already logged in
-        onAuthStateChanged(auth, user => {
-            if (user) redirectAfterLogin();
+        const usesAndroidApp = localStorage.getItem('lv_native_app') === 'android';
+        onAuthStateChanged(auth, async user => {
+            if (!user) return;
+            if (usesAndroidApp) {
+                try {
+                    await ensureUserDoc(user);
+                } catch (error) {
+                    console.error('[auth] Android hisob ma’lumoti saqlanmadi:', error);
+                    showMsg('Hisob ma’lumotlari saqlanmadi. Internetni tekshirib qayta urinib ko‘ring.');
+                    return;
+                }
+            }
+            redirectAfterLogin();
         });
 
         function redirectAfterLogin() {
@@ -643,7 +658,7 @@
             btn.classList.toggle('loading', state);
         }
 
-        // â”€â”€ EMAIL / PASSWORD LOGIN â”€â”€
+        // ── EMAIL / PASSWORD LOGIN ──
         document.getElementById('loginBtn').addEventListener('click', async () => {
             const email = document.getElementById('emailInput').value.trim();
             const pass = document.getElementById('passInput').value;
@@ -675,12 +690,16 @@
             if (e.key === 'Enter') document.getElementById('loginBtn').click();
         });
 
-        // â”€â”€ GOOGLE LOGIN â”€â”€
+        // ── GOOGLE LOGIN ──
         document.getElementById('googleBtn').addEventListener('click', async () => {
             const btn = document.getElementById('googleBtn');
             btn.disabled = true;
             btn.textContent = 'Yuklanmoqda...';
             try {
+                if (usesAndroidApp) {
+                    await signInWithRedirect(auth, provider);
+                    return;
+                }
                 const result = await signInWithPopup(auth, provider);
                 await ensureUserDoc(result.user);
                 showMsg('Google bilan muvaffaqiyatli kirildi!', 'success');
@@ -696,7 +715,7 @@
             }
         });
 
-        // â”€â”€ PASSWORD TOGGLE â”€â”€
+        // ── PASSWORD TOGGLE ──
         document.getElementById('togglePass').addEventListener('click', () => {
             const inp = document.getElementById('passInput');
             const icon = document.getElementById('eyeIcon');

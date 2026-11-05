@@ -72,7 +72,7 @@ export class QuestManager {
           break;
 
         case 'phrase':
-          if (event === 'phrase') {
+          if (event === 'phrase' && q.npc === data.npc) {
             // Suhbatda yozilgan matn yoki mikrofon matni orqali tekshiriladi
             this._checkPhrase(q, data);
           }
@@ -84,18 +84,24 @@ export class QuestManager {
   }
 
   /** Foydalanuvchi matnini barcha phrase-questlarga qarshi tekshiradi. */
-  checkPhrase(text) {
-    const t = String(text || '').toLowerCase();
+  checkPhrase(text, npcId) {
+    const normalize = value => String(value || '')
+      .normalize('NFKC')
+      .toLocaleLowerCase()
+      .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const t = normalize(text);
     for (const q of QUESTS) {
-      if (q.type === 'phrase' && !this.store.questDone(q.id)) {
-        if (t.includes(q.phrase.toLowerCase())) this._complete(q);
+      if (q.type === 'phrase' && q.npc === npcId && !this.store.questDone(q.id)) {
+        const phrase = typeof q.phrase === 'string' ? q.phrase : q.phrase[this.store.settings.targetLang];
+        if (phrase && t.includes(normalize(phrase))) this._complete(q);
       }
     }
   }
 
   _checkPhrase(q, data) {
-    const t = String(data.text || '').toLowerCase();
-    if (q.phrase && t.includes(q.phrase.toLowerCase())) this._complete(q);
+    this.checkPhrase(data.text, data.npc);
   }
 
   _bump(q) {

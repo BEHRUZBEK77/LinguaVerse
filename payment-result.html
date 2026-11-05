@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LinguaVerse — To'lov natijasi</title>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
     :root {
@@ -35,20 +33,23 @@
     .btn-primary { background: linear-gradient(135deg, var(--accent), #6d82f8); box-shadow: 0 8px 28px rgba(79,110,247,0.35); }
     .btn-ghost { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); margin-top: 10px; }
     .btn-ghost:hover { color: var(--text); border-color: var(--accent); }
-    .fa, .fas, .far, .fab, .fa-solid, .fa-regular,
-    .fa::before, .fas::before, .far::before, .fa-solid::before, .fa-regular::before { font-family: "Font Awesome 6 Free" !important; }
-    .fa-solid, .fas, .fa-solid::before, .fas::before { font-weight: 900; }
   </style>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="css/lv-theme.css">
+  <script src="js/lv-icons.js" defer></script>
+  <script src="/js/learning-language.js"></script>
+  <script type="module" src="/js/site-language.mjs"></script>
 </head>
 
 <body>
-  <nav>
+  <nav class="compact-nav">
     <a href="index.html" class="logo">Lingua<span>Verse</span></a>
-    <div class="nav-links">
+    <button class="compact-nav-toggle" type="button" aria-label="Menyuni ochish" aria-expanded="false" aria-controls="primaryNav" data-nav-toggle>
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="nav-links compact-nav-links" id="primaryNav">
       <a href="index.html"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
       <a href="select-language.html"><i class="fa-solid fa-globe"></i> Tillar</a>
       <a href="languages-html/shop.html"><i class="fa-solid fa-bag-shopping"></i> Do'kon</a>
@@ -69,8 +70,8 @@
   </div>
 
   <script type="module">
-    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { initializeApp, getApps, getApp } from "/js/fb/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "/js/fb/firebase-auth.js";
 
     const FB_CONFIG = {
       apiKey: "AIzaSyB-QDASPCTIKCx445PpeKFKC8fWydKHMcI",
@@ -84,7 +85,7 @@
     const app = getApps().length ? getApp() : initializeApp(FB_CONFIG);
     const auth = getAuth(app);
 
-    const PLAN_NAMES = { free: 'Bepul', nova: 'NOVA', mega: 'MEGA', premium: 'PREMIUM' };
+    const PLAN_NAMES = { free: 'Bepul', nova: 'NOVA', mega: 'MEGA', premium: 'PREMIUM', ielts: 'IELTS PRO' };
 
     const params = new URLSearchParams(location.search);
     const orderId = params.get('order');
@@ -144,7 +145,13 @@
 
         const planName = PLAN_NAMES[data.plan] || data.plan;
 
-        if (data.status === 'paid') {
+        if (data.status === 'paid' && data.kind === 'course') {
+          const [cl, lv] = String(data.courseKey || '').split('_');
+          setState('ok', 'fa-circle-check',
+            `Tabriklaymiz, ${(lv || '').toUpperCase()} video kurs ochildi!`,
+            `To'lov o'tdi. Kurs umrbod sizniki — darslarni hoziroq boshlang.`);
+          $('actions').innerHTML = `<a class="btn btn-primary" href="languages-html/courses.html?lang=${encodeURIComponent(cl || '')}&level=${encodeURIComponent(lv || '')}"><i class="fa-solid fa-circle-play"></i> Darslarni boshlash</a>`;
+        } else if (data.status === 'paid') {
           setState('ok', 'fa-circle-check',
             `Tabriklaymiz, ${planName} reja yoqildi!`,
             `To'lov muvaffaqiyatli o'tdi va ${planName} rejangiz faollashtirildi. Endi barcha imkoniyatlardan foydalanishingiz mumkin.`);
@@ -171,5 +178,6 @@
 
     onAuthStateChanged(auth, u => check(u));
   </script>
+  <script src="js/responsive-nav.js" defer></script>
 </body>
 </html>

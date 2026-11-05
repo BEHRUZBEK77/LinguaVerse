@@ -36,7 +36,8 @@ export class SceneManager {
       antialias: true,
       powerPreference: 'high-performance'
     });
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, opts.maxPixelRatio || 2));
+    const mobileViewport = matchMedia('(pointer: coarse), (max-width: 860px)').matches;
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, opts.maxPixelRatio || (mobileViewport ? 1.5 : 2)));
     this.renderer.setSize(container.clientWidth, container.clientHeight);
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -272,9 +273,13 @@ export class SceneManager {
 
   /** Sifat darajasi: high | medium | low */
   setQuality(level) {
-    const r = { high: 1, medium: 0.9, low: 0.6 }[level] || 1;
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, level === 'low' ? 1 : 2));
+    const mobileViewport = matchMedia('(pointer: coarse), (max-width: 860px)').matches;
+    const pixelRatioCap = level === 'low' ? 1 : level === 'medium' ? 1.25 : mobileViewport ? 1.5 : 2;
+    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, pixelRatioCap));
     this.renderer.shadowMap.enabled = level !== 'low';
+    const shadowSize = level === 'high' ? 2048 : 1024;
+    this.sun.shadow.mapSize.set(shadowSize, shadowSize);
+    this.sun.shadow.needsUpdate = true;
     this.renderer.toneMappingExposure = level === 'low' ? 1.1 : 1.05;
   }
 

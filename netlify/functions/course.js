@@ -265,7 +265,11 @@ async function ensureLessonStep(lang, level, idx, meta, total, opts = {}) {
       { role: 'user', content: `Create part ${k + 1} now.` }
     ], { temperature: 0.6, maxTokens: 7600, deadlineMs });
     const part = cleanCore(extractJson(r.text));
-    if (!part || part.scenes.length < 5 || part.scenes.some(sc => !sc.say_native || !sc.say_uz) || (k === 0 && (!part.goal_uz || part.vocab.length < 6))) throw httpErr(502, "Dars tayyorlanmadi, qayta urinib ko'ring");
+    if (!part || part.scenes.length < 5 || part.scenes.some(sc => !sc.say_native || !sc.say_uz) || (k === 0 && (!part.goal_uz || part.vocab.length < 6))) {
+      const why = !part ? `JSON o'qilmadi (${r.backend}, ${String(r.text || '').length} belgi, oxiri: ${String(r.text || '').slice(-80)})`
+        : `${r.backend}: sahna ${part.scenes.length}, say_native/say_uz yo'q ${part.scenes.filter(sc => !sc.say_native || !sc.say_uz).length}, goal ${!!part.goal_uz}, vocab ${part.vocab.length}`;
+      throw Object.assign(httpErr(502, "Dars tayyorlanmadi, qayta urinib ko'ring"), { detail: [`qism ${k + 1}: ${why}`] });
+    }
     const merged = cur
       ? { ...cur, scenes: [...cur.scenes, ...part.scenes], homework_uz: part.homework_uz || cur.homework_uz }
       : part;

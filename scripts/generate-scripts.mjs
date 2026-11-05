@@ -69,12 +69,17 @@ if (!args['export-only']) {
       if (doc?.core && doc.partsDone >= doc.partsTotal && doc.quiz) continue;
       const t0 = Date.now();
       try {
-        await course.ensureLesson(lang, level, idx, NATIVE, { tier: 'script' });
+        for (let attempt = 1; ; attempt++) {           // tayyor qismlar saqlanadi — qayta urinish davom ettiradi
+          try { await course.ensureLesson(lang, level, idx, NATIVE, { tier: 'script' }); break; }
+          catch (e) { if (attempt >= 3) throw e; console.warn(`  qayta urinish ${attempt}: ${e.message} ${(e.detail || []).join(' | ').slice(0, 300)}`); }
+        }
         made++;
         console.log(`✅ ${lang} ${lessonId(meta.cefr, syllabus.indexInLevel(level, idx))} — ${meta.t} (${Math.round((Date.now() - t0) / 1000)}s)`);
       } catch (e) {
         failed++;
-        console.warn(`⚠️ ${lang} ${level}#${idx}: ${e.message}`);
+        const detail = [e.message, ...(e.detail || [])].join(' | ').slice(0, 1500);
+        console.warn(`⚠️ ${lang} ${level}#${idx}: ${detail}`);
+        await fsdb.setDoc(`scriptFactory/${NATIVE}_${lang}`, { lastError: detail, lastErrorAt: new Date(), lesson: `${level}#${idx}` }).catch(() => {});
         if (failed >= 12 && failed > made) { console.error("Ko'p xato — AI kaliti yoki balansni tekshiring. To'xtadim."); break outer; }
       }
     }

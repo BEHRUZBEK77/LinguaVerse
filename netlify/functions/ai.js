@@ -124,7 +124,7 @@ const REGISTRY = {
     ]
   },
 
-  // ── ULTRA AI — ULTRA rejasi (159 999 so'm): eng kuchli modellar, eng chuqur
+  // ── ULTRA AI — ULTRA rejasi (350 000 so'm): eng kuchli modellar, eng chuqur
   // o'ylash, eng uzun javob. Birinchisi ishlamasa keyingisi — javobsiz qolmaydi.
   ultra: {
     label: 'ULTRA AI',

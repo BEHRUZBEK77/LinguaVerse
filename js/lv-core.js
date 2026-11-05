@@ -230,8 +230,8 @@ export const PLANS = {
     fa: 'fa-infinity',
     color: '#0f766e',
     accent: '#3cc3b0',
-    price: 159999,
-    priceLabel: "159 999 so'm",
+    price: 350000,
+    priceLabel: "350 000 so'm",
     order: 5,
     badge: 'Hammasi cheksiz',
     models: ['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus', 'ultra'],
@@ -426,7 +426,7 @@ export const LIMITS = {
     translate: [3000, 15000, 45000]
   },
 
-  // ── ULTRA — 159 999 so'm. Hamma narsa cheksiz (UNLIMITED).
+  // ── ULTRA — 350 000 so'm. Hamma narsa cheksiz (UNLIMITED).
   ultra: Object.fromEntries(['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus', 'ultra', 'speak_min', 'writing', 'lesson', 'coach', 'vocab_ai', 'translate']
     .map(r => [r, [1e9, 1e9, 1e9]]))
 };

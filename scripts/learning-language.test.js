@@ -245,10 +245,10 @@ test('60 core lessons per language get MP4; the other 90 use AI-picked YouTube l
   }
 });
 
-test('ULTRA plan: 159 999 so\'m, every video course unlocked while active, all limits unlimited', async () => {
+test('ULTRA plan: 350 000 so\'m, every video course unlocked while active, all limits unlimited', async () => {
   const plans = require('../netlify/functions/_plans.js');
-  assert.equal(plans.PLANS.ultra.price, 159999);
-  assert.equal(plans.paidPlan('ultra', 'monthly').price, 159999);
+  assert.equal(plans.PLANS.ultra.price, 350000);
+  assert.equal(plans.paidPlan('ultra', 'monthly').price, 350000);
   const future = new Date(Date.now() + 86400000), past = new Date(Date.now() - 86400000);
   assert.equal(plans.ultraActive({ plan: 'ultra', planExpiry: future }), true);
   assert.equal(plans.ultraActive({ plan: 'ultra', planExpiry: past }), false);

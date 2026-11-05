@@ -19,7 +19,7 @@ const PLANS = {
   ielts:   { id: 'ielts',   name: 'IELTS PRO', price: 200000, days: 30 },
   // ULTRA — hamma narsa cheksiz: barcha AI (ULTRA AI ham), barcha video
   // kurslar (8 til, B2 + C2), speaking/IELTS imtihonchi vaqt chegarasisiz.
-  ultra:   { id: 'ultra',   name: 'ULTRA',     price: 159999, days: 30 }
+  ultra:   { id: 'ultra',   name: 'ULTRA',     price: 350000, days: 30 }
 };
 
 /** ULTRA rejasi hozir faolmi (muddati o'tmagan). */

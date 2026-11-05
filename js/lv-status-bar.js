@@ -14,7 +14,7 @@
 //   <script type="module" src="../js/lv-status-bar.js"></script>
 // ═══════════════════════════════════════════════════════════════════════════
 
-import { LV, PLANS, RESOURCES } from './lv-core.js';
+import { LV, PLANS, RESOURCES, fmtUzDate } from './lv-core.js';
 import { planText, resourceText, currentLang } from './lv-i18n.js';
 
 const lang = currentLang();
@@ -148,7 +148,9 @@ function renderPanel(panel) {
         <div class="lvp-fill" style="width:${pct(rem.daily.used, rem.daily.cap)}%;background:${col}"></div>
       </div>
       <div class="lvp-sub">
-        Hafta: ${rem.weekly.left}/${rem.weekly.cap} · Oy: ${rem.monthly.left}/${rem.monthly.cap} ${r.unit}
+        ${rem.cycle
+          ? (rem.resetAt ? `Limit tugadi · ${fmtUzDate(rem.resetAt, false)} da tiklanadi` : `Kunlik cheklov yo'q · tugasa 1 haftada tiklanadi`)
+          : `Hafta: ${rem.weekly.left}/${rem.weekly.cap} · Oy: ${rem.monthly.left}/${rem.monthly.cap} ${r.unit}`}
       </div>
     </div>`;
   }).join('');

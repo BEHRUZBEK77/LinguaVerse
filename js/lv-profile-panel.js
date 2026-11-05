@@ -12,7 +12,7 @@
 // O'zini <div id="lvProfilePanel"></div> ichiga chizadi.
 // ═══════════════════════════════════════════════════════════════════════════
 
-import { LV, PLANS, RESOURCES, db } from './lv-core.js';
+import { LV, PLANS, RESOURCES, db, fmtUzDate } from './lv-core.js';
 import { planText, resourceText, currentLang } from './lv-i18n.js';
 import { ITEMS, CATEGORIES, loadInventory } from './lv-shop-items.js';
 import {
@@ -133,13 +133,13 @@ function renderLimits(snap) {
         <span class="pp-lv" style="color:${col}">${rem.daily.left}/${rem.daily.cap}</span>
       </div>
       <div class="pp-track"><div class="pp-fill" style="width:${usedPct}%;background:${col}"></div></div>
-      <div class="pp-sub">Hafta ${rem.weekly.left} · Oy ${rem.monthly.left} ${r.unit}</div>
+      <div class="pp-sub">${rem.cycle ? (rem.resetAt ? `Tiklanadi: ${fmtUzDate(rem.resetAt, false)}` : 'Tugasa 1 haftada tiklanadi') : `Hafta ${rem.weekly.left} · Oy ${rem.monthly.left} ${r.unit}`}</div>
     </div>`;
   }).join('');
 
   return `<div class="pp-card">
     <div class="pp-h"><i class="fa-solid fa-gauge-high"></i> Limitlar
-      <small>kunlik yarim tunda, haftalik dushanba, oylik oy boshida yangilanadi</small></div>
+      <small>${snap.plan === 'free' ? "bepul: kunlik cheklov yo'q, limit tugagan paytdan 1 hafta o'tib tiklanadi" : 'kunlik yarim tunda, haftalik dushanba, oylik oy boshida yangilanadi'}</small></div>
     <div class="pp-lims">${rows}</div>
   </div>`;
 }

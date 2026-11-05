@@ -129,10 +129,10 @@ export const PLANS = {
     order: 0,
     models: ['nova'],
     perks: [
-      'NOVA AI — kuniga 40 ta savol',
-      'Speaking 15 daqiqa/kun',
-      'Kuniga 4 ta AI dars',
-      'Barcha 8 til ochiq',
+      'NOVA AI — 400 ta savol',
+      'Speaking 120 daqiqa, 40 ta AI dars',
+      'Limit tugasa — 1 haftadan keyin tiklanadi',
+      'Barcha 8 til ochiq, 6 oy bepul',
       'Coin va XP tizimi'
     ]
   },
@@ -346,20 +346,22 @@ export const RESOURCES = {
 };
 
 export const LIMITS = {
-  // ── BEPUL: ataylab saxiy, lekin pullik rejalarga o'sish sababi qoladi
+  // ── BEPUL: kunlik cheklov YO'Q. Har resursga bitta "tsikl" limiti:
+  // tugaguncha ishlataveradi, tugagan paytdan 7 kun o'tib to'liq tiklanadi
+  // (FREE_CYCLE). Uchala ustun bir xil — jadvallarda ham shu son ko'rinadi.
   free: {
-    nova:      [40, 200, 600],
+    nova:      [400, 400, 400],
     pro:       null,
     mega:      null,
     proplus:   null,
     premium:   null,
     megaplus:  null,
-    speak_min: [15, 60, 180],
-    writing:   [6, 30, 90],
-    lesson:    [4, 20, 50],
-    coach:     [3, 15, 40],
-    vocab_ai:  [5, 25, 70],
-    translate: [60, 300, 900]
+    speak_min: [120, 120, 120],
+    writing:   [60, 60, 60],
+    lesson:    [40, 40, 40],
+    coach:     [30, 30, 30],
+    vocab_ai:  [50, 50, 50],
+    translate: [600, 600, 600]
   },
 
   // ── NOVA — 39 999 so'm
@@ -480,8 +482,23 @@ const state = {
   plan: 'free',
   planExpiry: null,
   usage: { daily: {}, weekly: {}, monthly: {} },
+  cycle: { counts: {}, lockedUntil: {} },   // bepul tarif: limit tugagan paytdan 7 kun
   loaded: false
 };
+
+// ── BEPUL TSIKL — limit tugagan paytdan 1 hafta o'tib tiklanadi ──
+const FREE_CYCLE_MS = 7 * 24 * 3600 * 1000;
+const CYCLE_DOC = 'free_cycle';
+const cycleLock = (c, res) => { const t = Number(c?.lockedUntil?.[res]) || 0; return t > Date.now() ? t : 0; };
+const cycleUsed = (c, res) => {
+  const t = Number(c?.lockedUntil?.[res]) || 0;
+  if (t && t <= Date.now()) return 0;               // hafta o'tdi — tiklangan
+  return Number(c?.counts?.[res]) || 0;
+};
+const isFreeCycle = planId => planId === 'free' && state.plan === 'free';
+const UZ_MONTHS = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentyabr', 'oktyabr', 'noyabr', 'dekabr'];
+export const fmtUzDate = (ms, time = true) => { const d = new Date(ms); return `${d.getDate()}-${UZ_MONTHS[d.getMonth()]}` + (time ? `, ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}` : ''); };
+const fmtWhen = ms => fmtUzDate(ms);
 
 let _readyPromise = null;
 const listeners = new Set();
@@ -531,7 +548,16 @@ async function loadProfile(uid) {
   return data;
 }
 
+async function loadCycle(uid) {
+  try {
+    const s = await getDoc(doc(db, 'users', uid, 'usage', CYCLE_DOC));
+    const d = s.exists() ? s.data() : {};
+    return { counts: d.counts || {}, lockedUntil: d.lockedUntil || {} };
+  } catch { return { counts: {}, lockedUntil: {} }; }
+}
+
 async function loadUsage(uid) {
+  loadCycle(uid).then(c => { state.cycle = c; emit(); });
   const keys = periodKeys();
   const out = { daily: {}, weekly: {}, monthly: {} };
   await Promise.all(PERIODS.map(async p => {
@@ -687,6 +713,25 @@ export const LV = {
       };
     }
 
+    // Bepul: bitta tsikl limiti, tugasa 1 haftadan keyin tiklanadi
+    if (isFreeCycle(state.plan)) {
+      const cap = limit[1];
+      const used = cycleUsed(state.cycle, resource);
+      const lock = cycleLock(state.cycle, resource);
+      if (lock || used + amount > cap) {
+        const label = RESOURCES[resource]?.label || resource;
+        const unit = RESOURCES[resource]?.unit || '';
+        const when = lock || (Date.now() + FREE_CYCLE_MS);
+        return {
+          ok: false, reason: 'limit', period: 'cycle', used, cap, resetAt: when,
+          message: `${label} limiti tugadi (${used}/${cap} ${unit}). ${fmtWhen(when)} da tiklanadi — 1 haftadan keyin.`,
+          upgrade: PLANS.nova,
+          action: { label: "Hozir davom etish — tarif tanlash", href: url('order.html') }
+        };
+      }
+      return { ok: true, remaining: LV.remaining(resource) };
+    }
+
     // Uchala davrni tekshiramiz — qaysi biri birinchi to'lsa, o'sha to'xtatadi
     for (let i = 0; i < PERIODS.length; i++) {
       const period = PERIODS[i];
@@ -716,6 +761,13 @@ export const LV = {
     const limit = LV.limitFor(resource, planId);
     if (!limit) return null;
     const out = {};
+    if (isFreeCycle(planId)) {
+      const cap = limit[1], used = cycleUsed(state.cycle, resource), lock = cycleLock(state.cycle, resource);
+      const row = { used, cap, left: lock ? 0 : Math.max(0, cap - used), unlimited: false };
+      PERIODS.forEach(p => { out[p] = { ...row }; });
+      out.min = row.left; out.unlimited = false; out.cycle = true; out.resetAt = lock || null;
+      return out;
+    }
     PERIODS.forEach((p, i) => {
       const used = state.usage[p]?.[resource] || 0;
       out[p] = { used, cap: limit[i], left: Math.max(0, limit[i] - used), unlimited: limit[i] >= 1e9 };
@@ -736,6 +788,37 @@ export const LV = {
     const uid = state.user.uid;
     const keys = periodKeys();
     const limit = LV.limitFor(resource);
+
+    if (isFreeCycle(state.plan)) {
+      const cap = limit[1];
+      const ref = doc(db, 'users', uid, 'usage', CYCLE_DOC);
+      try {
+        const next = await runTransaction(db, async tx => {
+          const snap = await tx.get(ref);
+          const d = snap.exists() ? snap.data() : {};
+          const c = { counts: d.counts || {}, lockedUntil: d.lockedUntil || {} };
+          if (cycleLock(c, resource)) { const e = new Error('LV_LIMIT'); e.code = 'LV_LIMIT'; e.cycle = c; throw e; }
+          const used = cycleUsed(c, resource);
+          const now = Date.now();
+          if (used + amount > cap) {
+            c.lockedUntil[resource] = now + FREE_CYCLE_MS;
+            tx.set(ref, { plan: 'free', counts: c.counts, lockedUntil: c.lockedUntil, updatedAt: serverTimestamp() }, { merge: true });
+            return { ...c, blocked: true };              // qulf saqlanadi (throw qilsak yozuv bekor bo'lardi)
+          }
+          c.counts[resource] = used + amount;
+          c.lockedUntil[resource] = used + amount >= cap ? now + FREE_CYCLE_MS : 0;   // aynan to'lgan payt — 7 kun
+          tx.set(ref, { plan: 'free', counts: c.counts, lockedUntil: c.lockedUntil, updatedAt: serverTimestamp() }, { merge: true });
+          return c;
+        });
+        state.cycle = { counts: next.counts, lockedUntil: next.lockedUntil }; emit();
+        if (next.blocked) return LV.can(resource, amount);
+        return { ok: true, remaining: LV.remaining(resource) };
+      } catch (e) {
+        if (e.code === 'LV_LIMIT') { state.cycle = await loadCycle(uid); emit(); return LV.can(resource, amount); }
+        console.error('[LV] tsikl hisoblanmadi:', e);
+        return { ok: false, reason: 'error', message: "Hisoblashda xato. Qayta urinib ko'ring." };
+      }
+    }
 
     try {
       await runTransaction(db, async tx => {

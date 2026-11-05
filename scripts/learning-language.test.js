@@ -204,3 +204,43 @@ test('Uzbek speech automatically uses ElevenLabs v3, other languages keep the co
   assert.ok([0, 0.5, 1].includes(bodies[0].voice_settings.stability));
   assert.equal(bodies[1].model_id, 'eleven_multilingual_v2');
 });
+
+test('60 core lessons per language get MP4; the other 90 use AI-picked YouTube lessons (cached)', async () => {
+  const cat = await import('../js/course-catalog.mjs');
+  assert.equal(cat.CORE_LESSONS_PER_LANGUAGE, 60);
+  const all = [...cat.COURSE_LEVELS.b2.lessons, ...cat.COURSE_LEVELS.c2.lessons];
+  for (const c of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']) {
+    const lv = all.filter(l => l.cefr === c);
+    assert.equal(lv.filter(l => l.core).length, 10, c);
+    assert.equal(lv.at(-1).core, true, c + ' level exam is a core MP4 lesson');
+  }
+  assert.equal(all[0].core, true, 'free preview lesson is a real MP4 lesson');
+
+  const store = new Map(); const searches = [];
+  const fake = { getDoc: async p => store.get(p) || null, setDoc: async (p, d) => store.set(p, { ...(store.get(p) || {}), ...d }), transact: async () => {} };
+  const paths = ['../netlify/functions/course.js', '../netlify/functions/_firestore.js', '../netlify/functions/_brain.js', '../netlify/functions/_keys.js'].map(p => require.resolve(p));
+  const saved = paths.map(p => require.cache[p]);
+  require.cache[paths[1]] = { id: paths[1], filename: paths[1], loaded: true, exports: { ...fake } };
+  require.cache[paths[2]] = { id: paths[2], filename: paths[2], loaded: true, exports: { ...require('../netlify/functions/_brain.js'), think: async () => ({ text: '{"native":"ingliz tili present simple dars","target":"present simple lesson A1"}' }) } };
+  require.cache[paths[3]] = { id: paths[3], filename: paths[3], loaded: true, exports: { ...require('../netlify/functions/_keys.js'), get: k => (k === 'YOUTUBE_API_KEY' ? 'yt' : ''), refreshFromFirestore: async () => {} } };
+  delete require.cache[paths[0]];
+  const origFetch = global.fetch;
+  global.fetch = async url => { const u = new URL(url); searches.push({ q: u.searchParams.get('q'), lang: u.searchParams.get('relevanceLanguage') });
+    const base = searches.length === 1 ? 'aaaaaaaaaa' : 'bbbbbbbbbb';
+    return { ok: true, json: async () => ({ items: [0, 1, 2].map(i => ({ id: { videoId: base + i }, snippet: { title: 'Lesson &amp; practice ' + i, channelTitle: 'Ch' } })) }) }; };
+  store.set('users/U', { courses: { english_b2: true } });
+  try {
+    const c = require('../netlify/functions/course.js');
+    const n = all.findIndex(l => !l.core);
+    const r = await c.youtubeLessons('U', { lang: 'english', level: 'b2', n, nativeLang: 'uz' });
+    assert.equal(r.videos.length, 4);
+    assert.deepEqual(r.videos.map(v => v.tag), ['native', 'native', 'target', 'target']);
+    assert.equal(r.videos[0].title, 'Lesson & practice 0');
+    assert.deepEqual(searches.map(s => s.lang), ['uz', 'en']);
+    await c.youtubeLessons('U', { lang: 'english', level: 'b2', n, nativeLang: 'uz' });
+    assert.equal(searches.length, 2, 'second open is served from cache, no YouTube quota used');
+  } finally {
+    global.fetch = origFetch;
+    paths.forEach((p, i) => { if (saved[i]) require.cache[p] = saved[i]; else delete require.cache[p]; });
+  }
+});

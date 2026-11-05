@@ -124,6 +124,11 @@
     .media-status{width:100%;max-width:1100px;padding:14px 18px;border-radius:12px;background:#14252c;border:1px solid #3d5a64;color:#c8dcdf;line-height:1.6}
     .media-status:empty{display:none}.media-status button{margin:8px 8px 0 0}
     .chapter-list{display:flex;gap:8px;flex-wrap:wrap;max-width:1100px;width:100%}.chapter-list:empty{display:none}
+    .yt-box{width:100%;max-width:1100px;display:flex;flex-direction:column;gap:10px}.yt-box.hidden{display:none}
+    .yt-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:18px;background:#000}
+    .yt-list{display:flex;gap:8px;flex-wrap:wrap}.yt-list button{flex:1 1 220px;text-align:left;border:1px solid var(--border2);background:var(--surface2);color:var(--text);border-radius:12px;padding:9px 12px;font:inherit;font-size:.82rem;cursor:pointer}
+    .yt-list button.on{border-color:#ff4e45;box-shadow:0 0 0 1px #ff4e45 inset}.yt-list small{display:block;color:var(--text3);margin-top:3px}
+    .ls .tag.mp4tag{background:rgba(112,205,187,.14);color:var(--accent)}.ls .tag.yttag{background:rgba(255,78,69,.12);color:#ff7a73}
     .chapter-list button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;cursor:pointer;font:inherit;font-size:.8rem}
     .chapter-list button.active{border-color:#8de2c7;color:#8de2c7}.chapter-list button span{opacity:.6;margin-inline-end:8px}
     .sub-ad { margin-top: 22px; display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 18px; border-radius: 18px; border: 1px solid rgba(225,29,72,.35); background: linear-gradient(120deg, rgba(225,29,72,.12), transparent); }
@@ -190,6 +195,7 @@
       <div class="loader" id="pLoader"><div><div class="spin"></div><div id="pLoadTxt">Ustoz darsni tayyorlamoqda…</div><div class="muted" style="font-size:.8rem;margin-top:6px">Dars birinchi marta ochilganda tayyorlanishi biroz vaqt olishi mumkin.</div></div></div>
     </div>
     <video id="mp4" class="mp4 hidden" controls playsinline preload="metadata" controlslist="nodownload" oncontextmenu="return false"></video>
+    <div class="yt-box hidden" id="ytBox"><iframe class="yt-frame" id="ytFrame" title="YouTube" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="yt-list" id="ytList"></div></div>
     <div class="media-status" id="mediaStatus" role="status" translate="no"></div>
     <div class="chapter-list" id="videoChapters" translate="no"></div>
     <div class="controls" id="liveControls">
@@ -284,7 +290,7 @@
           <div class="muted" style="font-size:.88rem">${esc(C.promise)}</div>
           <div class="price">${fmt(C.price)} so'm <small>· bir martalik, umrbod</small></div>
           <ul>
-            <li>${C.lessons.length} ta video dars, har biri ~30 daqiqa (${C.cefrs.join(' → ')}) + har birida test${lv === 'c2' ? ` · B2 kursi bilan jami ${COURSE_LEVELS.b2.lessons.length + C.lessons.length} ta` : ''}</li>
+            <li>${C.lessons.length} ta dars (${C.cefrs.join(' → ')}): ${C.lessons.filter(l => l.core).length} ta 30 daqiqalik MP4 video dars + ${C.lessons.filter(l => !l.core).length} ta AI tanlagan YouTube darsi, har birida test${lv === 'c2' ? ` · B2 kursi bilan jami ${COURSE_LEVELS.b2.lessons.length + C.lessons.length} ta` : ''}</li>
             <li>${esc(L.native)} tilida gapiruvchi shaxsiy AI ustoz ovozi</li>
             <li translate="no">${esc(nativeInfo.label)} · ${esc(t("captions"))} · ${esc(t("nativeAudio"))}</li>
             <li>Yakuniy imtihon va tekshiriladigan sertifikat${lv === 'c2' ? ' · B2 kursi ham ichida' : ''}</li>
@@ -319,7 +325,7 @@
           return head + `<div data-cefr="${l.cefr}" class="ls ${locked ? 'locked' : ''} ${done ? 'done' : ''}" onclick="${locked ? `buy('${lv}')` : `play(${i})`}">
             <div class="num">${done ? '<i class="fa-solid fa-check"></i>' : locked ? '<i class="fa-solid fa-lock"></i>' : i + 1}</div>
             <div><div class="t">${esc(l.t)}</div>${pr[i] ? `<div class="muted" style="font-size:.76rem">Test: ${Math.round(pr[i].score * 100)}%</div>` : (i === 0 && !own ? '<div class="muted" style="font-size:.76rem">Bepul</div>' : '')}</div>
-            <span class="tag">${esc(l.skill)}</span>
+            <span class="tag ${l.core ? 'mp4tag' : 'yttag'}">${l.core ? 'MP4' : 'YouTube'}</span><span class="tag">${esc(l.skill)}</span>
           </div>`;
         }).join('');
       $('lessons').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -396,10 +402,10 @@
           if (token !== P.token) return;
           P.data = d;
           if (!P.started) startPlayback(); else if (!d.videoUrl) renderSegs();
-          if (d.status === 'ready') { if (!d.videoUrl && d.videoStatus === 'rendering') $('mediaStatus').textContent = t('rendering'); renderAfter(); return; }
+          if (d.status === 'ready') { if (!d.videoUrl && d.videoStatus === 'rendering' && $('ytBox').classList.contains('hidden')) $('mediaStatus').textContent = t('rendering'); renderAfter(); return; }
           const pr = d.parts || {};
           $('pLoadTxt').textContent = pr.total && pr.done < pr.total ? `Ustoz darsni tayyorlamoqda… ${pr.done}/${pr.total} qism` : 'Test tayyorlanmoqda…';
-          if (P.started && !d.videoUrl && pr.total) $('mediaStatus').textContent = pr.done < pr.total ? `Dars tayyorlanmoqda: ${pr.done}/${pr.total} qism (~${Math.round((pr.estSeconds || 0) / 60)} daq.)` : (d.videoStatus === 'rendering' ? t('rendering') : '');
+          if (P.started && !d.videoUrl && pr.total && $('ytBox').classList.contains('hidden')) $('mediaStatus').textContent = pr.done < pr.total ? `Dars tayyorlanmoqda: ${pr.done}/${pr.total} qism (~${Math.round((pr.estSeconds || 0) / 60)} daq.)` : (d.videoStatus === 'rendering' ? t('rendering') : '');
           await sleep(1200);
         } catch (e) {
           if (token !== P.token) return;
@@ -440,7 +446,33 @@
         $('mediaStatus').append(document.createElement('br'),retry,live);
       };
     }
+    function stopYoutube() { $('ytFrame').removeAttribute('src'); $('ytBox').classList.add('hidden'); $('ytList').replaceChildren(); }
+    // YOUTUBE DARS: asosiy bo'lmagan 90 ta darsda AI topgan video darslar
+    async function showYoutube(token) {
+      $('screen').classList.add('hidden'); $('liveControls').classList.add('hidden'); $('mp4').classList.add('hidden');
+      $('ytBox').classList.remove('hidden'); $('mediaStatus').textContent = 'AI shu mavzu bo‘yicha eng yaxshi video darslarni qidirmoqda…';
+      let d;
+      try { d = await api('youtube', { lang: S.lang, level: S.level, n: P.n }); } catch (e) { d = { videos: [] }; }
+      if (token !== P.token) return;
+      const live = document.createElement('button'); live.innerHTML = '<b>🧑‍🏫 AI ustoz darsi</b><small>Shu mavzuni ustoz sizga interaktiv o‘qitadi</small>';
+      live.onclick = () => { stopYoutube(); startInteractive(); };
+      if (!d.videos?.length) {
+        stopYoutube(); startInteractive();
+        if (d.searchUrl) { const a = document.createElement('a'); a.href = d.searchUrl; a.target = '_blank'; a.rel = 'noopener'; a.textContent = ' · YouTube’da shu mavzuni ochish ↗'; $('mediaStatus').append(a); }
+        return;
+      }
+      const play = (v, b) => { $('ytFrame').src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.id)}?rel=0&modestbranding=1`; [...$('ytList').children].forEach(x => x.classList.toggle('on', x === b)); };
+      d.videos.forEach((v, i) => {
+        const b = document.createElement('button');
+        b.innerHTML = `<b></b><small></small>`; b.querySelector('b').textContent = v.title; b.querySelector('small').textContent = `${v.channel} · ${v.tag === 'native' ? nativeInfo.label + ' tilida tushuntirish' : COURSE_LANGS.find(l => l.id === S.lang).native}`;
+        b.onclick = () => play(v, b); $('ytList').append(b);
+        if (!i) play(v, b);
+      });
+      $('ytList').append(live);
+      $('mediaStatus').textContent = 'YouTube dars · videodan keyin pastdagi testni yeching';
+    }
     function startInteractive() {
+      stopYoutube();
       $('mp4').pause(); clearVideoTracks(); $('videoChapters').replaceChildren();
       $('screen').classList.remove('hidden'); $('liveControls').classList.remove('hidden'); $('mp4').classList.add('hidden');
       $('mediaStatus').textContent=P.data.videoUrl ? t('interactive') : P.data.videoStatus === 'rendering' ? t('rendering') : t('pending');
@@ -463,6 +495,7 @@
         $('pTitle').insertAdjacentHTML('beforeend', '<span class="vid-badge"><i class="fa-solid fa-film"></i> MP4</span>');
         return;
       }
+      if (P.data.meta && P.data.meta.core === false) { showYoutube(P.token); return; }
       startInteractive();
     }
 
@@ -591,7 +624,7 @@
     window.toggleSubs = () => { P.subs = !P.subs; $('subs').classList.toggle('off', !P.subs); $('btnSubs').classList.toggle('on', P.subs); };
     window.toggleUz = () => { P.uz = !P.uz; $('btnUz').classList.toggle('on', P.uz); const sc = P.data?.lesson.scenes[P.scene]; $('subU').textContent = P.uz && sc ? sc.say_uz : ''; };
     window.fullscreen = () => { const el = P.data?.videoUrl && !$('mp4').classList.contains('hidden') ? $('mp4') : $('screen'); (document.fullscreenElement ? document.exitFullscreen() : el.requestFullscreen?.())?.catch?.(() => {}); };
-    window.closePlayer = () => { P.token++; P.playing = false; P.started = false; stopAudio(); try { $('mp4').pause(); $('mp4').removeAttribute('src'); $('mp4').load(); } catch {} clearVideoTracks(); $('player').classList.add('hidden'); document.body.style.overflow = ''; if (S.level) openCourse(S.level); };
+    window.closePlayer = () => { stopYoutube(); P.token++; P.playing = false; P.started = false; stopAudio(); try { $('mp4').pause(); $('mp4').removeAttribute('src'); $('mp4').load(); } catch {} clearVideoTracks(); $('player').classList.add('hidden'); document.body.style.overflow = ''; if (S.level) openCourse(S.level); };
 
     // ── DARSDAN KEYIN: lug'at, uy vazifasi, test ──
     function renderAfter() {

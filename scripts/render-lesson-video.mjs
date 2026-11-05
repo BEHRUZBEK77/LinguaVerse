@@ -309,6 +309,7 @@ async function autoQueue() {
   const wanted = await fsdb.queryList('courseLessons', [{ field: 'videoWanted', op: 'EQUAL', value: true }, { field: 'nativeLang', op: 'EQUAL', value: NATIVE }], 'videoDemand', 200).catch(() => []);
   for (const d of wanted) {
     if (d.videoPath || !langs.includes(d.lang) || !['b2', 'c2'].includes(d.level) || !Number.isInteger(d.n)) continue;
+    if (!cat.COURSE_LEVELS[d.level].lessons[d.n]?.core) continue;   // MP4 faqat 60 ta asosiy darsga
     if (jobs.length < batch * 4) jobs.push({ lang: d.lang, level: d.level, n: d.n, docPath: course.lessonPath(d.lang, d.level, d.n, NATIVE), demand: d.videoDemand || 1 });
   }
   // 2) "all" rejimida qolgan darslar ham ketma-ket (A1 dan boshlab) — pullik
@@ -317,10 +318,12 @@ async function autoQueue() {
   for (const lang of langs) {
     if (learning.languages[NATIVE].target === lang) continue;
     for (const level of ['b2', 'c2']) {
-      const total = cat.COURSE_LEVELS[level].lessons.length;
+      const all = cat.COURSE_LEVELS[level].lessons;
+      const total = all.filter(l => l.core).length;
       let ready = 0;
-      for (let n = 0; n < total; n++) {
-        const cefr = cat.COURSE_LEVELS[level].lessons[n].cefr;
+      for (let n = 0; n < all.length; n++) {
+        if (!all[n].core) continue;                       // YouTube darslari — MP4 yasalmaydi
+        const cefr = all[n].cefr;
         cefrDone[`${lang}_${cefr}`] = cefrDone[`${lang}_${cefr}`] || 0;
         const doc = await fsdb.getDoc(course.lessonPath(lang, level, n, NATIVE)).catch(() => null);
         if (doc?.videoPath) { ready++; cefrDone[`${lang}_${cefr}`]++; continue; }

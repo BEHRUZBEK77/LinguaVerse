@@ -16,7 +16,7 @@
 // moslab o'rgatadi (masalan rus tilida kelishiklar, koreyschada hurmat shakllari).
 // ═══════════════════════════════════════════════════════════════════════════
 
-export const CATALOG_VERSION = 2;   // dars ro'yxati o'zgarsa oshiriladi (eski kesh aralashmasin)
+export const CATALOG_VERSION = 3;   // dars ro'yxati o'zgarsa oshiriladi (eski kesh aralashmasin)
 
 export const COURSE_PRICES = { b2: 200000, c2: 400000 };
 
@@ -198,7 +198,22 @@ const CEFR_TOPICS = {
   ]
 };
 
-const build = levels => levels.flatMap(cefr => CEFR_TOPICS[cefr].map(([t, skill]) => ({ t, skill, cefr })));
+// ── 60 TA ASOSIY DARS (har darajada 10 ta) — bular LinguaVerse'ning o'z
+// 30 daqiqalik MP4 video darslari (AI ustoz + ElevenLabs/Azure ovoz).
+// Qolgan 90 tasida AI YouTube'dan eng yaxshi darslarni topib ko'rsatadi
+// (+ AI ustozning interaktiv darsi va test) — jami 150 ta dars.
+// Raqamlar — CEFR_TOPICS dagi o'rin (0 dan). Har darajaning imtihoni (24) asosiy.
+const CORE = {
+  A1: [0, 1, 2, 3, 4, 6, 7, 8, 12, 24],     // alifbo, tanishuv, raqam, oila, "bo'lmoq", vaqt, hozirgi zamon, kafe, so'roq, imtihon
+  A2: [0, 1, 3, 4, 6, 9, 11, 17, 22, 24],   // o'tgan zamon ×2, kelajak, qiyos, shifokor, davomiy, buyruq, bog'lovchi, tajriba, imtihon
+  B1: [0, 1, 4, 5, 6, 7, 8, 9, 15, 24],     // zamonlar, perfekt, shart ×2, modal, majhul, nisbiy gap, fikr, ko'chirma gap, imtihon
+  B2: [1, 3, 5, 6, 12, 13, 14, 16, 19, 24], // nozik zamonlar, shart, dalil, rasmiy uslub, qo'shma gap, birikmalar, monolog, esse, taxmin, imtihon
+  C1: [1, 2, 5, 6, 8, 9, 10, 14, 21, 24],   // inversiya, akademik lug'at, modal, 2 daq. nutq, nominalizatsiya, kogeziya, esse, paraphrase, xatolar, imtihon
+  C2: [1, 3, 5, 9, 10, 11, 15, 16, 20, 24]  // registr, frazeologiya, murakkab grammatika, ilmiy uslub, band 9 esse, ohang, diplomatik til, Part 3, tahrir, imtihon
+};
+export const CORE_PER_LEVEL = 10;
+
+const build = levels => levels.flatMap(cefr => CEFR_TOPICS[cefr].map(([t, skill], i) => ({ t, skill, cefr, core: CORE[cefr].includes(i) })));
 
 export const COURSE_LEVELS = {
   b2: {
@@ -226,6 +241,7 @@ export const COURSE_LEVELS = {
 };
 
 export const LESSONS_PER_LANGUAGE = COURSE_LEVELS.b2.lessons.length + COURSE_LEVELS.c2.lessons.length;   // 150
+export const CORE_LESSONS_PER_LANGUAGE = [...COURSE_LEVELS.b2.lessons, ...COURSE_LEVELS.c2.lessons].filter(l => l.core).length;   // 60 (MP4)
 
 /** Kurs kaliti: english_c2 */
 export const courseKey = (lang, level) => `${lang}_${level}`;

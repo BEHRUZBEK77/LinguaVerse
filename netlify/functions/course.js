@@ -316,7 +316,7 @@ async function getLesson(uid, body) {
   if (step === 'core') return shape(doc, a, 'partial');
   // VIDEO NAVBATI: MP4 faqat kimdir ochgan darslar uchun yasaladi (bepul limit
   // keraksiz videolarga sarflanmaydi). Ko'p ochilgan dars navbatda oldinda.
-  if (doc.quiz && !doc.videoPath) {
+  if (doc.quiz && !doc.videoPath && a.lesson.core) {   // MP4 faqat 60 ta asosiy darsga
     await fsdb.setDoc(lessonPath(lang, level, a.idx, nativeLang), { videoWanted: true, videoDemand: (doc.videoDemand || 0) + 1, videoWantedAt: doc.videoWantedAt || new Date() })
       .then(() => { doc.videoWanted = true; })
       .catch(e => console.warn('[course] video navbati:', e.message));
@@ -453,8 +453,8 @@ async function factoryStatus(uid, body = {}) {
   const nativeTarget = learning.languages[learning.normalize(body.nativeLang)].target;
   const rows = cat.COURSE_LANGS.filter(l=>l.id!==nativeTarget).map(l => {
     const b2 = st.done?.[`${l.id}_b2`] || 0, c2 = st.done?.[`${l.id}_c2`] || 0;
-    const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].map(c => ({ cefr: c, done: st.cefr?.[`${l.id}_${c}`] || 0, total: [...cat.COURSE_LEVELS.b2.lessons, ...cat.COURSE_LEVELS.c2.lessons].filter(x => x.cefr === c).length }));
-    return { lang: l.id, name: l.name, flag: l.flag, b2, c2, levels, done: b2 + c2, total: cat.LESSONS_PER_LANGUAGE };
+    const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].map(c => ({ cefr: c, done: st.cefr?.[`${l.id}_${c}`] || 0, total: [...cat.COURSE_LEVELS.b2.lessons, ...cat.COURSE_LEVELS.c2.lessons].filter(x => x.cefr === c && x.core).length }));
+    return { lang: l.id, name: l.name, flag: l.flag, b2, c2, levels, done: b2 + c2, total: cat.CORE_LESSONS_PER_LANGUAGE };
   });
   const iso = d => d instanceof Date ? d.toISOString() : null;
   const budget = await require('./_ttsBudget.js').status().catch(() => null);
@@ -469,6 +469,72 @@ async function factoryStatus(uid, body = {}) {
     githubConfigured: !!(process.env.GITHUB_TOKEN && process.env.GITHUB_REPO),
     elevenLabs: !!keys.get('ELEVENLABS_API_KEY')
   };
+}
+
+// ───────────────────────────────────────────────────────────────────────────
+// YOUTUBE DARSLAR — 60 ta asosiy darsdan tashqari 90 tasida AI YouTube'dan
+// shu mavzu bo'yicha eng yaxshi video darslarni topadi: biri o'quvchining
+// ona tilida tushuntiradi, biri o'rganilayotgan tilning o'zida.
+// Natija 30 kun keshlanadi (YouTube API bepul kvotasi: kuniga ~50 ta dars).
+// Kalit: admin panel → YOUTUBE_API_KEY (Google Cloud, bepul).
+// ───────────────────────────────────────────────────────────────────────────
+const YT_TTL_MS = 30 * 24 * 3600_000;
+const ytPath = (lang, level, idx, nativeLang) => `courseYoutube/v1_${learning.normalize(nativeLang)}_${lang}_${level}_${idx}`;
+
+async function ytSearch(q, relevanceLanguage, apiKey) {
+  const url = new URL('https://www.googleapis.com/youtube/v3/search');
+  url.search = new URLSearchParams({ part: 'snippet', type: 'video', maxResults: '6', order: 'relevance', safeSearch: 'strict',
+    videoEmbeddable: 'true', relevanceLanguage, q: q.slice(0, 180), key: apiKey }).toString();
+  const r = await fetch(url, { signal: AbortSignal.timeout(7000) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d?.error?.message || `YouTube HTTP ${r.status}`);
+  return (d.items || []).filter(it => /^[A-Za-z0-9_-]{11}$/.test(it?.id?.videoId || '')).map(it => ({
+    id: it.id.videoId,
+    title: String(it.snippet?.title || '').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').slice(0, 200),
+    channel: String(it.snippet?.channelTitle || '').slice(0, 100)
+  }));
+}
+
+async function youtubeLessons(uid, body) {
+  const a = await access(uid, body.lang, body.level, body.n);
+  const nativeLang = learning.normalize(body.nativeLang || a.user?.nativeLang);
+  const L = LANG_INFO[body.lang];
+  const nativeName = learning.languages[nativeLang].name;
+  const fallbackQ = `${L.name} ${a.lesson.cefr} ${a.lesson.t}`;
+  const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(fallbackQ)}`;
+  const path = ytPath(body.lang, body.level, a.idx, nativeLang);
+  const cached = await fsdb.getDoc(path).catch(() => null);
+  if (cached?.videos?.length && cached.fetchedAt instanceof Date && Date.now() - cached.fetchedAt.getTime() < YT_TTL_MS) {
+    return { configured: true, videos: cached.videos, searchUrl };
+  }
+  await keys.refreshFromFirestore();
+  const apiKey = keys.get('YOUTUBE_API_KEY');
+  if (!apiKey) return { configured: false, videos: cached?.videos || [], searchUrl };
+
+  // AI qidiruv so'rovlarini yozadi: mavzuni ona tilida va o'rganilayotgan tilda
+  const cefr = a.lesson.cefr;
+  const material = syllabus.lessonMaterial(cefr, syllabus.indexInLevel(body.level, a.idx));
+  let queries = { native: `${L.name} ${cefr} ${a.lesson.t} dars`, target: `${L.name} ${cefr} ${material?.points?.[0] || a.lesson.t} lesson` };
+  try {
+    const r = await think('fast', [
+      { role: 'system', content: `You write YouTube search queries that find the best free video LESSONS for language learners. Return ONLY JSON {"native":"...","target":"..."}. "native": a query in ${nativeName} for a lesson that teaches this ${L.name} topic explained in ${nativeName}. "target": a query in ${L.name} (as natives would title such a lesson) for CEFR ${cefr} learners. Each under 70 characters, no quotes or hashtags.` },
+      { role: 'user', content: JSON.stringify({ topic_uz: a.lesson.t, skill: a.lesson.skill, cefr, focus: material?.points?.slice(0, 2) }) }
+    ], { temperature: 0.2, maxTokens: 200, deadlineMs: 6000 });
+    const j = extractJson(r.text);
+    if (typeof j?.native === 'string' && j.native.trim()) queries.native = j.native.trim();
+    if (typeof j?.target === 'string' && j.target.trim()) queries.target = j.target.trim();
+  } catch (e) { console.warn('[course] YouTube so\'rovi AI siz:', e.message); }
+
+  const targetCode = (L.locale || 'en').split('-')[0];
+  const [nativeVids, targetVids] = await Promise.all([
+    nativeLang === 'uz' || learning.languages[nativeLang].target !== body.lang ? ytSearch(queries.native, nativeLang, apiKey).catch(() => []) : [],
+    ytSearch(queries.target, targetCode, apiKey).catch(() => [])
+  ]);
+  const seen = new Set();
+  const pick = (list, n, tag) => list.filter(v => !seen.has(v.id) && seen.add(v.id)).slice(0, n).map(v => ({ ...v, tag }));
+  const videos = [...pick(nativeVids, 2, 'native'), ...pick(targetVids, 2, 'target')];
+  if (videos.length) await fsdb.setDoc(path, { videos, queries, fetchedAt: new Date(), lang: body.lang, level: body.level, n: a.idx, nativeLang }).catch(() => {});
+  return { configured: true, videos, searchUrl };
 }
 
 /** GitHub "Video fabrika" workflow'ini chaqirish (admin tugmasi va avto-video uchun umumiy). */
@@ -552,6 +618,7 @@ exports.handler = async function (event) {
       case 'mine':   return json(200, await mine(auth.uid));
       case 'lesson': return json(200, await getLesson(auth.uid, body));
       case 'audio':  return json(200, await sceneAudio(auth.uid, body));
+      case 'youtube': return json(200, await youtubeLessons(auth.uid, body));
       case 'quiz':   return json(200, await gradeQuiz(auth.uid, auth.email, auth.name, body));
       case 'factory-status': return json(200, await factoryStatus(auth.uid, body));
       case 'factory-run':    return json(200, await factoryRun(auth.uid, body));
@@ -581,5 +648,6 @@ module.exports.estimateSeconds = estimateSeconds;
 module.exports.ensureLessonStep = ensureLessonStep;
 module.exports.LESSON_MINUTES = LESSON_MINUTES;
 module.exports.autoVideo = autoVideo;
+module.exports.youtubeLessons = youtubeLessons;
 module.exports.quizPrompt = quizPrompt;
 module.exports.shape = shape;

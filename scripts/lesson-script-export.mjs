@@ -85,3 +85,12 @@ export function cutPoints(silences, count) {
   return [...silences].sort((a, b) => (b.end - b.start) - (a.end - a.start)).slice(0, count - 1)
     .sort((a, b) => a.start - b.start).map(s => (s.start + s.end) / 2);
 }
+
+/** Til bo'yicha dars raqami (1–150): A1-01 → 1, B2-25 → 100, C2-25 → 150 */
+export const lessonNumber = (cefr, n) => ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(cefr) * 25 + n + 1;
+
+/** Oddiy diktor matni: sarlavha va o'qiladigan bloklar, boshqa hech narsa yo'q. */
+export function toPlainText({ lang, cefr, idx, core }) {
+  const blocks = (core?.scenes || []).map(s => String(s.say_native || '').trim()).filter(Boolean);
+  return `${LANG_UZ[lang] || lang}. ${lessonNumber(cefr, idx)}-dars. ${core.title}\n\n` + blocks.join('\n\n') + '\n';
+}

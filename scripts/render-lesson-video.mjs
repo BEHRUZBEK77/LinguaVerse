@@ -33,7 +33,7 @@ import os from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { videoMetadata, captionsVtt } from '../js/video-captions.mjs';
 import { copy } from '../js/learning-copy.mjs';
-import { cutPoints, lessonId } from './lesson-script-export.mjs';
+import { cutPoints, lessonId, lessonNumber, LANG_UZ } from './lesson-script-export.mjs';
 
 const require = createRequire(import.meta.url);
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -213,8 +213,11 @@ async function renderOne(n, browser, baseUrl) {
   const work = fs.mkdtempSync(path.join(os.tmpdir(), `lv-${LANG}-${LEVEL}-${n}-`));
   // Diktor yozuvi bo'lsa — o'zbekcha qismlar sizning ovozingizda
   const nativeCount = renderScenes.filter(sc => sc.nativeSpeech).length;
-  const recRel = `${NATIVE}/${LANG}/${lessonId(L.meta.cefr, n % 25)}`;
-  const recording = args['no-recording'] ? null : await loadRecording(recRel, nativeCount, work);
+  const no = lessonNumber(L.meta.cefr, n % 25);
+  const recNames = [`${NATIVE}/${LANG}/${lessonId(L.meta.cefr, n % 25)}`, `${NATIVE}/${LANG}/${no}-dars`, `${NATIVE}/${LANG}/${String(no).padStart(3, '0')}-dars`,
+    `${NATIVE}/${LANG_UZ[LANG]}/${no}-dars`, `${NATIVE}/${LANG_UZ[LANG]}/${String(no).padStart(3, '0')}-dars`];
+  let recording = null, recRel = recNames[0];
+  for (const rel of args['no-recording'] ? [] : recNames) { recording = await loadRecording(rel, nativeCount, work); if (recording) { recRel = rel; break; } }
   if (recording) console.log(`  🎙 diktor yozuvi: ${recRel} (${recording.length} blok)`);
   // Oylik bepul ovoz limiti: butun dars ovozini oldindan band qilamiz
   // (yarmida to'xtab qolmasin). Yetmasa — keyingi oyga qoladi.

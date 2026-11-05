@@ -11,7 +11,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import { toMarkdown, indexMarkdown, readMinutes } from './lesson-script-export.mjs';
+import { toPlainText, lessonNumber, LANG_UZ } from './lesson-script-export.mjs';
 
 const require = createRequire(import.meta.url);
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -83,19 +83,13 @@ function toDoc({ native, lang, level, idx, cefr, L }) {
 }
 
 const lessons = loadAll();
-// Diktor matni
-const byLang = {};
+// Diktor matni: ssenariylar/<native>/<Ingliz tili>/001-dars.txt — faqat o'qiladigan matn
 for (const x of lessons) {
-  const dir = path.join(ROOT, 'ssenariylar', x.native, x.lang);
+  const dir = path.join(ROOT, 'ssenariylar', x.native, LANG_UZ[x.lang] || x.lang);
   fs.mkdirSync(dir, { recursive: true });
-  const est = toDoc(x).data.estSeconds;
-  fs.writeFileSync(path.join(dir, `${x.id}.md`), toMarkdown({ lang: x.lang, cefr: x.cefr, idx: x.n, meta: {}, core: x.L, native: x.native, estSeconds: est }));
-  (byLang[`${x.native}/${x.lang}`] ||= []).push({ id: x.id, title: x.L.title, ready: true, minutes: readMinutes(x.L), blocks: x.L.scenes.length, est });
-}
-for (const [key, rows] of Object.entries(byLang)) {
-  const [native, lang] = key.split('/');
-  fs.writeFileSync(path.join(ROOT, 'ssenariylar', native, lang, 'README.md'), indexMarkdown(lang, rows, native));
-  console.log(`📄 ${key}: ${rows.map(r => `${r.id} (~${Math.round(r.est / 60)} daq)`).join(', ')}`);
+  const name = `${String(lessonNumber(x.cefr, x.n)).padStart(3, '0')}-dars.txt`;
+  fs.writeFileSync(path.join(dir, name), toPlainText({ lang: x.lang, cefr: x.cefr, idx: x.n, core: x.L }));
+  console.log(`📄 ${x.native}/${x.lang} ${x.id} → ${name} (~${Math.round(toDoc(x).data.estSeconds / 60)} daq video)`);
 }
 
 const sqlIdx = args.indexOf('--sql');

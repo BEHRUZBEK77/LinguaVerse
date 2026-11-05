@@ -17,9 +17,8 @@ try {
   await page.locator('#lvLanguageSave').click();
   await page.waitForFunction(()=>document.querySelector('#courseHeading')?.textContent==='Видеоуроки' && !document.querySelector('#lvLanguageDialog'));
   assert.match(await page.locator('#coursePair').textContent(),/Русский → Deutsch/);
-  await page.goto(base+'/languages-html/ai-coach.html',{waitUntil:'networkidle'});
-  assert.equal(await page.locator('#nativeOpts .on').textContent(),'Русский');
-  assert.equal(await page.locator('#langOpts .on').textContent(),'Deutsch');
+  await page.goto(base+'/index.html',{waitUntil:'networkidle'});
+  assert.deepEqual(await page.evaluate(()=>window.LearningLanguage.get()),{nativeLang:'ru',targetLang:'german'}); // Speaking ustoz va boshqa sahifalar shu sozlamani o'qiydi
   await page.locator('#lvLanguageButton').click();
   await page.locator('#lvNative').selectOption('ar');
   await page.locator('#lvLanguageSave').click();

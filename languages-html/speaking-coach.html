@@ -207,7 +207,7 @@
     <a href="../index.html" class="logo">Lingua<span>Verse</span></a>
     <div class="nav-links">
       <a href="../select-language.html"><i class="fa-solid fa-globe"></i> <span data-i18n="nav_langs">Tillar</span></a>
-      <a href="ai-coach.html"><i class="fa-solid fa-user-astronaut"></i> <span data-i18n="nav_coach">AI Coach</span></a>
+      <a href="speaking-coach.html" aria-current="page"><i class="fa-solid fa-microphone"></i> Speaking</a>
       <a href="certificate-center.html"><i class="fa-solid fa-award"></i> Sertifikatlar</a>
       <a href="ielts-prep.html"><i class="fa-solid fa-graduation-cap"></i> IELTS</a>
       <a href="writing-coach.html"><i class="fa-solid fa-pen-nib"></i> <span data-i18n="nav_write">Writing</span></a>
@@ -393,7 +393,7 @@
     ];
     const FULLNAME = { english: 'English', russian: 'Russian', spanish: 'Spanish', german: 'German', turkish: 'Turkish', arabic: 'Arabic', korean: 'Korean', chinese: 'Chinese' };
     const ieltsMode = new URLSearchParams(location.search).get('level') === 'IELTS';
-    const initialTarget = TARGETS.find(language => language.id === new URLSearchParams(location.search).get('target')) || TARGETS[0];
+    const initialTarget = TARGETS.find(language => language.id === (new URLSearchParams(location.search).get('target') || new URLSearchParams(location.search).get('lang'))) || TARGETS.find(language => { try { return language.id === window.LearningLanguage.get().targetLang; } catch { return false; } }) || TARGETS[0];
 
     // ── UI TRANSLATIONS (9 til) ──
     const I18N = {
@@ -486,7 +486,8 @@ On every incorrect answer: identify the specific error, provide the natural corr
 
     // ── STATE ──
     let CU = null, tokens = 0, plan = 'free', coachMemory = null, coachMemoryLoaded = false;
-    let sel = { target: initialTarget, native: NATIVES[0], mode: 'normal', level: ieltsMode ? 'IELTS' : 'A1-A2' };
+    const savedPref = (() => { try { return window.LearningLanguage.get(); } catch { return {}; } })();   // butun sayt bilan bir xil til sozlamalari
+    let sel = { target: initialTarget, native: NATIVES.find(n => n.code === savedPref.nativeLang) || NATIVES[0], mode: 'normal', level: ieltsMode ? 'IELTS' : 'A1-A2' };
     let sess = { on: false, hist: [], startTs: 0, charged: 0, msgs: 0, timerIv: null, xp: 0, corrections: [], learningNotes: [] };
     let recog = null, recording = false, mediaRec = null, mediaChunks = [];
     let continuousListening = false, listenRestartTimer = null;
@@ -626,8 +627,8 @@ On every incorrect answer: identify the specific error, provide the natural corr
       $('nativeRow').innerHTML = NATIVES.map(l => chipHTML(l, sel.native.code, 'native')).join('');
     }
     window.pickLang = function (type, v) {
-      if (type === 'target') sel.target = TARGETS.find(l => l.id === v);
-      else { sel.native = NATIVES.find(l => l.code === v); applyI18n(sel.native.code); localStorage.setItem('coach_native', sel.native.code); }
+      if (type === 'target') { sel.target = TARGETS.find(l => l.id === v); try { window.LearningLanguage.set({ targetLang: v }, { notify: false }); } catch {} }
+      else { sel.native = NATIVES.find(l => l.code === v); applyI18n(sel.native.code); try { window.LearningLanguage.set({ nativeLang: sel.native.code }, { notify: false }); } catch { localStorage.setItem('coach_native', sel.native.code); } }
       renderChips();
       if (ieltsMode) {
         document.querySelectorAll('.lvl-btn').forEach(button => button.classList.toggle('sel', button.dataset.lvl === 'IELTS'));

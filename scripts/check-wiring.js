@@ -144,7 +144,6 @@ const lvCore = fs.readFileSync(path.join(ROOT, 'js', 'lv-core.js'), 'utf8');
 const writingHelpers = fs.readFileSync(path.join(ROOT, 'js', 'ielts-writing.mjs'), 'utf8');
 const aiRouter = fs.readFileSync(path.join(ROOT, 'netlify', 'functions', 'ai.js'), 'utf8');
 const legacyAiRouter = fs.readFileSync(path.join(ROOT, 'netlify', 'functions', 'groq.js'), 'utf8');
-const aiCoachHtml = fs.readFileSync(path.join(ROOT, 'languages-html', 'ai-coach.html'), 'utf8');
 const speakingCoachHtml = fs.readFileSync(path.join(ROOT, 'languages-html', 'speaking-coach.html'), 'utf8');
 const writingCoachHtml = fs.readFileSync(path.join(ROOT, 'languages-html', 'writing-coach.html'), 'utf8');
 const voiceRoomHtml = fs.readFileSync(path.join(ROOT, 'languages-html', 'voice-room.html'), 'utf8');
@@ -208,11 +207,6 @@ if (!adminHtml.includes("provider.id = 'apiKeyProvider'") ||
     !legacyAiRouter.includes('thinkingPlan ? DEEP_CHAIN : CHAIN') ||
     languageAiModules.some(module => !module.includes("from './ai-chat-ui.mjs'") || !module.includes('formatAIResponse(')) ||
     !adminHtml.includes('id="adminAiThinking"') ||
-    !aiCoachHtml.includes("initializeAIChatUI('.controls')") ||
-    !aiCoachHtml.includes('getCoachMemoryDocumentId(targetId)') ||
-    !aiCoachHtml.includes('formatCoachMemoryContext(coachMemory)') ||
-    !aiCoachHtml.includes('window.pickFocus') ||
-    !aiCoachHtml.includes('FOCI') ||
     !speakingCoachHtml.includes("initializeAIChatUI('#setupPanel')") ||
     !speakingCoachHtml.includes('id="continuousListenBtn"') ||
     !speakingCoachHtml.includes('class="robot-head"') ||

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap');
 /* ═══════════════════════════════════════════════════════════════════
    LinguaVerse — YAGONA TEMA
    Butun saytda bitta shrift, bitta rang palitrasi, bitta kursor qoidasi.
@@ -17,46 +18,46 @@
   color-scheme: dark;
   /* ── SHRIFTLAR ──
      Sahifalar turli nom ishlatgani uchun barcha taxalluslar bir joyga */
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-head: 'Space Grotesk', var(--font-body);
+  --font-body: 'Onest', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-head: 'Unbounded', 'Space Grotesk', var(--font-body);
   --font-display: var(--font-head);
   --font-b: var(--font-body);
   --font-h: var(--font-head);
   --font-d: var(--font-head);
 
   /* ── FON ── quyudan yorug'ga */
-  --bg: #10151b;
-  --bg2: #151d25;
-  --bg3: #1c2731;
-  --bg4: #263440;
-  --surface: rgba(229, 239, 242, .045);
-  --surface2: rgba(229, 239, 242, .075);
-  --surface3: rgba(229, 239, 242, .11);
-  --nav-bg: rgba(16, 21, 27, .96);
-  --sidebar: #151d25;
+  --bg: #0f1a33;
+  --bg2: #152447;
+  --bg3: #1c2e57;
+  --bg4: #263a69;
+  --surface: rgba(214, 226, 255, .05);
+  --surface2: rgba(214, 226, 255, .08);
+  --surface3: rgba(214, 226, 255, .12);
+  --nav-bg: rgba(15, 26, 51, .94);
+  --sidebar: #152447;
 
   /* ── MATN ── */
-  --text: #f1f5f6;
-  --text2: #c2cdd2;
-  --text3: #91a0a9;
-  --muted: #91a0a9;
+  --text: #f2ecdd;
+  --text2: #cdd3e3;
+  --text3: #9aa6c4;
+  --muted: #9aa6c4;
 
   /* ── CHEGARA ── */
-  --border: rgba(218, 234, 239, .11);
-  --border2: rgba(218, 234, 239, .18);
-  --border-hi: rgba(112, 205, 187, .42);
+  --border: rgba(196, 210, 255, .12);
+  --border2: rgba(196, 210, 255, .2);
+  --border-hi: rgba(60, 195, 176, .5);
   --radius: 12px;
 
   /* ── RANGLAR ── */
-  --accent: #70cdbb;
-  --accent2: #e6b987;
+  --accent: #3cc3b0;
+  --accent2: #e8a93a;
   --purple: #b7a8df;
-  --cyan: #81c6d6;
+  --cyan: #5cc8e0;
   --green: #8ccf9d;
   --success: #8ccf9d;
-  --gold: #edc477;
-  --gold2: #d39b66;
-  --yellow: #edc477;
+  --gold: #e8a93a;
+  --gold2: #d08a24;
+  --yellow: #f0bd55;
   --orange: #e6a47e;
   --red: #e48f87;
   --pink: #d59bb6;
@@ -66,8 +67,8 @@
   --pc-glow: none;
   --chip-glow: none;
   --red-glow: none;
-  --card-hover: rgba(229, 239, 242, .055);
-  --card-accent: rgba(112, 205, 187, .12);
+  --card-hover: rgba(214, 226, 255, .07);
+  --card-accent: rgba(60, 195, 176, .14);
 }
 
 :root[data-theme="light"] {
@@ -87,11 +88,11 @@
   --muted: #737d72;
   --border: rgba(37, 45, 39, .12);
   --border2: rgba(37, 45, 39, .2);
-  --border-hi: rgba(49, 92, 73, .36);
-  --accent: #315c49;
+  --border-hi: rgba(31, 95, 139, .36);
+  --accent: #1f5f8b;
   --accent2: #b96e4a;
   --purple: #735d8d;
-  --cyan: #367f79;
+  --cyan: #17867a;
   --green: #477b53;
   --success: #477b53;
   --gold: #99661f;
@@ -104,8 +105,8 @@
   --pc-glow: none;
   --chip-glow: none;
   --red-glow: none;
-  --card-hover: rgba(49, 92, 73, .045);
-  --card-accent: rgba(49, 92, 73, .08);
+  --card-hover: rgba(31, 95, 139, .05);
+  --card-accent: rgba(31, 95, 139, .08);
 }
 
 /* ── SHRIFTNI MAJBURAN QO'LLASH ──
@@ -135,7 +136,8 @@ h1, h2, h3, h4, h5, h6,
 .hero-title, .page-title, .section-title,
 .card-title, .modal-title, .stat-value {
   font-family: var(--font-head);
-  letter-spacing: -.01em;
+  letter-spacing: -.02em;
+  text-wrap: balance;
 }
 
 .lv-icon {

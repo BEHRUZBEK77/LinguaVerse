@@ -18,8 +18,8 @@ for (const f of process.argv.slice(2)) {
     if (loc.n === 24 && L.quiz.length < 15) throw new Error('imtihon darsida test kamida 15 savol');
     const min = course.estimateSeconds(L, RATE[loc.cefr]) / 60;
     const words = L.scenes.reduce((a, s) => a + s.say_native.split(/\s+/).length, 0);
-    const ok = min >= 23;
-    console.log(`${ok ? '✅' : '⚠️'} ${f}: ${L.scenes.length} sahna, ~${min.toFixed(1)} daq video, o'zbekcha ${words} so'z, test ${L.quiz.length}${ok ? '' : ' — 23 daqiqadan kam, sahna qo\'shing'}`);
+    const ok = min >= 23 && min <= 32;
+    console.log(`${ok ? '✅' : '⚠️'} ${f}: ${L.scenes.length} sahna, ~${min.toFixed(1)} daq video, o'zbekcha ${words} so'z, test ${L.quiz.length}${ok ? '' : min < 23 ? ' — 23 daqiqadan kam, sahna qo\'shing' : ' — 32 daqiqadan uzun, qisqartiring'}`);
     if (!ok) bad++;
   } catch (e) { bad++; console.log(`❌ ${f}: ${e.message}`); }
 }

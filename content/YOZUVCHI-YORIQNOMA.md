@@ -43,7 +43,7 @@ Each scene has these keys:
 Distractors should come from typical mistakes Uzbek speakers make.
 
 ## Required shape of each lesson
-- **Length:** 42–55 scenes. `node scripts/lesson-check.mjs <file>` must print ✅ (at least 23 minutes estimated). Uzbek narration is roughly 1500–2300 words; higher levels can have longer `say`.
+- **Length:** 42–55 scenes. `node scripts/lesson-check.mjs <file>` must print ✅ (estimated 23–32 minutes; aim for 25–28). Uzbek narration is roughly 1500–2200 words; higher levels can have longer `say`.
 - **Order:**
   1. Opening: greet, give a 1–2 sentence recap of the previous lesson and state today's outcome.
   2. For each mandatory point: rule → many examples → contrast with Uzbek → typical mistake (a `mistake` scene with ✗/✓ on the board) → guided `practice` with a pause → an `explain` scene with the answers.

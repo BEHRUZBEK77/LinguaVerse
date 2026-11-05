@@ -147,7 +147,7 @@ function partPrompt(L, level, meta, idx, total, nativeLang, k, count, previous) 
     `PART FOCUS: ${partFocus(k, count, material)}`,
     previous.length ? `Already covered in previous parts (do NOT repeat, continue naturally): ${previous.join(' | ')}` : '',
     k > 0 ? 'This part CONTINUES the same lesson: do not greet, do not welcome the learner again, do not restate the lesson goal and do not re-introduce material listed above.' : '',
-    'ACCURACY: double-check every grammar, stress, phonetic and spelling claim before writing it (e.g. stress positions, IPA, irregular forms). If you are not certain a claim is true, leave it out. A native-speaker teacher will read say_native aloud on camera, so it must be natural, error-free spoken ' + nativeName + '.',
+    'ACCURACY: double-check every grammar, stress, phonetic and spelling claim before writing it (e.g. stress positions, IPA, irregular forms). If you are not certain a claim is true, leave it out. Never write placeholders such as [Your Name] or ___ in say/say_native (the teacher does not introduce himself by name). A native-speaker teacher will read say_native aloud on camera, so it must be natural, error-free spoken ' + nativeName + '.',
     k === 0
       ? 'Output STRICT JSON only: {"title":"","goal_uz":"","vocab":[],"scenes":[],"homework_uz":""}  (vocab: 10–14 items)'
       : 'Output STRICT JSON only: {"scenes":[],"homework_uz":""}  (homework_uz only in the FINAL part, otherwise "")'

@@ -97,7 +97,7 @@ test('web search calls Gemini grounding and returns cited sources', async () => 
   assert.equal(result.sources[0].url, 'https://example.com/exam');
 });
 
-test('team mode runs three independent expert prompts', async () => {
+test('team mode runs three independent expert prompts', async (t) => {
   const calls = [];
   const providers = Object.fromEntries(
     ['gemini', 'deepseek', 'openrouter', 'groq', 'cloudflare', 'azure'].map(provider => [
@@ -116,7 +116,7 @@ test('team mode runs three independent expert prompts', async () => {
     timeoutMs: 100
   });
 
-  test('team mode applies the deep-thinking route and larger analysis budget when requested', async () => {
+  await t.test('team mode applies the deep-thinking route and larger analysis budget when requested', async () => {
     const calls = [];
     const providers = Object.fromEntries(
       ['gemini', 'deepseek', 'openrouter', 'groq', 'cloudflare', 'azure'].map(provider => [

@@ -242,11 +242,11 @@
 
   <div class="modal hidden" id="upModal">
     <div class="box">
-      <h3 id="upTitle"><i class="fa-solid fa-graduation-cap" style="color:#fb7185"></i> IELTS PRO kerak</h3>
+      <h3 id="upTitle"><i class="fa-solid fa-graduation-cap" style="color:#fb7185"></i> SERTIFIKAT PRO kerak</h3>
       <p class="muted" id="upText">Bepul sinov limiti tugadi.</p>
-      <p class="muted">IELTS PRO — oyiga 200 000 so'm: cheksiz imtihonchi, qattiq ustoz, har kuni onlayn darslar, avto-to'lov.</p>
+      <p class="muted">SERTIFIKAT PRO — oyiga 200 000 so'm: 8 tilda sertifikat imtihonchisi (IELTS, TORFL, DELE, Goethe, TYS, TOPIK, HSK, ALPT), ULTRA AI kuniga 30 ta, qattiq ustoz, avto-to'lov.</p>
       <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px">
-        <a class="btn red" href="../order.html?plan=ielts"><i class="fa-solid fa-crown"></i> IELTS PRO olish</a>
+        <a class="btn red" href="../order.html?plan=ielts"><i class="fa-solid fa-crown"></i> SERTIFIKAT PRO olish</a>
         <button class="btn ghost" onclick="$('upModal').classList.add('hidden')">Keyinroq</button>
       </div>
     </div>
@@ -739,7 +739,7 @@
         box.innerHTML = `<i class="fa-solid fa-lock" style="color:#fca5a5"></i> Bepul 5 daqiqa tugadi. Ustoz qayta ochilishiga:
           <b class="big">${d} kun ${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}</b>
           <span class="muted">Ochiladi: ${esc(fmtDate(q.lockedUntil))}</span>
-          <div style="margin-top:12px"><a class="btn red" href="../order.html?plan=ielts"><i class="fa-solid fa-crown"></i> Hozir davom etish — IELTS PRO</a></div>`;
+          <div style="margin-top:12px"><a class="btn red" href="../order.html?plan=ielts"><i class="fa-solid fa-crown"></i> Hozir davom etish — SERTIFIKAT PRO</a></div>`;
       };
       clearInterval(_lockTimer); draw(); _lockTimer = setInterval(draw, 1000);
     }
@@ -767,11 +767,11 @@
         const best = u.ieltsBand?.[S.lang];
         if (u.onboarding?.level || u.level) { S.level = u.onboarding?.level || u.level; renderChips(); }
         const pro = S.plan === 'ielts' || S.plan === 'premium' || S.plan === 'ultra';
-        $('planPill').textContent = pro ? ({ ielts: 'IELTS PRO', ultra: 'ULTRA' }[S.plan] || 'PREMIUM') : 'Bepul';
+        $('planPill').textContent = pro ? ({ ielts: 'SERTIFIKAT PRO', ultra: 'ULTRA' }[S.plan] || 'PREMIUM') : 'Bepul';
         $('planPill').classList.toggle('pro', pro);
         $('planNotice').innerHTML = pro
           ? `<i class="fa-solid fa-circle-check" style="color:var(--green)"></i> Cheksiz imtihon va ustoz ochiq.${best ? ` Eng yaxshi natijangiz: <b>band ${best}</b>.` : ''}`
-          : `Bepul: ustoz bilan jami <b>5 daqiqa</b> gaplashish, keyin 5 kunga yopiladi. Cheksiz mashq va avto-to'lov uchun — <a href="../order.html?plan=ielts">IELTS PRO (200 000 so'm/oy)</a>.`;
+          : `Bepul: ustoz bilan jami <b>5 daqiqa</b> gaplashish, keyin 5 kunga yopiladi. Cheksiz mashq va avto-to'lov uchun — <a href="../order.html?plan=ielts">SERTIFIKAT PRO (200 000 so'm/oy)</a>.`;
         if (!pro) {
           const q = await teacherApi('quota').then(d => d.quota).catch(() => null);
           if (q) {

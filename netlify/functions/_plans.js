@@ -14,9 +14,10 @@ const PLANS = {
   nova:    { id: 'nova',    name: 'NOVA',    price: 39999, days: 30 },
   mega:    { id: 'mega',    name: 'MEGA',    price: 49999, days: 30 },
   premium: { id: 'premium', name: 'PREMIUM', price: 79999, days: 30 },
-  // IELTS PRO — onlayn darslar + IELTS Speaking imtihonchi + barcha
+  // SERTIFIKAT PRO (id 'ielts' — eski obunachilar uchun o'zgarmagan): 8 tilda
+  // xalqaro sertifikatga tayyorlov + imtihonchi + ULTRA AI kuniga 30 ta + barcha
   // PREMIUM imkoniyatlari. Oylik obuna, avto-to'lov bilan uzaytiriladi.
-  ielts:   { id: 'ielts',   name: 'IELTS PRO', price: 200000, days: 30 },
+  ielts:   { id: 'ielts',   name: 'SERTIFIKAT PRO', price: 200000, days: 30 },
   // ULTRA — hamma narsa cheksiz: barcha AI (ULTRA AI ham), barcha video
   // kurslar (8 til, B2 + C2), speaking/IELTS imtihonchi vaqt chegarasisiz.
   ultra:   { id: 'ultra',   name: 'ULTRA',     price: 350000, days: 30 }

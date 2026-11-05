@@ -202,8 +202,8 @@ export const PLANS = {
   },
   ielts: {
     id: 'ielts',
-    name: 'IELTS PRO',
-    tagline: "IELTS 8–9 ga tayyorlov va onlayn darslar",
+    name: 'SERTIFIKAT PRO',
+    tagline: "8 tilda xalqaro sertifikatga chuqur tayyorlov",
     icon: '<i class="fa-solid fa-graduation-cap" style="color:#f43f5e"></i>',
     fa: 'fa-graduation-cap',
     color: '#e11d48',
@@ -211,15 +211,15 @@ export const PLANS = {
     price: 200000,
     priceLabel: "200 000 so'm",
     order: 4,
-    badge: 'IELTS 8+',
-    models: ['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus'],
+    badge: '8 ta sertifikat',
+    models: ['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus', 'ultra'],
     perks: [
-      'IELTS Speaking imtihonchi — Part 1, 2, 3 + band ball',
-      "Qattiq AI ustoz: emotsiya va jonli ovoz bilan",
-      'Kuniga 90 ta AI onlayn dars (8 til)',
-      'PREMIUM ning barcha imkoniyatlari, limitlar 1.5x',
-      'Speaking 300 daqiqa/kun',
-      'Writing Task 1/2 band baholash'
+      '8 ta xalqaro sertifikat: IELTS, TORFL, DELE, Goethe, TYS, TOPIK, HSK, ALPT',
+      "ULTRA AI — kuniga 30 ta so'rov (eng kuchli model)",
+      "Speaking imtihonchi har bir imtihon formatida + ball va CEFR daraja",
+      "Chuqur tayyorlov: 4 ko'nikma, shaxsiy reja, mock imtihonlar",
+      'Writing baholash (IELTS Task 1/2 va boshqa imtihonlar)',
+      'PREMIUM ning barcha imkoniyatlari, limitlar 1.5x, Speaking 300 daqiqa/kun'
     ]
   },
   ultra: {
@@ -410,7 +410,7 @@ export const LIMITS = {
     translate: [2000, 10000, 30000]
   },
 
-  // ── IELTS PRO — 200 000 so'm. PREMIUM × 1.5 + imtihon rejimi.
+  // ── SERTIFIKAT PRO (id: ielts) — 200 000 so'm. PREMIUM × 1.5 + 8 til imtihon rejimi + ULTRA AI kuniga 30 ta.
   ielts: {
     nova:      [1200, 6000, 18000],
     pro:       [380, 1900, 5700],
@@ -423,7 +423,8 @@ export const LIMITS = {
     lesson:    [90, 450, 1350],
     coach:     [70, 350, 1000],
     vocab_ai:  [180, 900, 2700],
-    translate: [3000, 15000, 45000]
+    translate: [3000, 15000, 45000],
+    ultra:     [30, 210, 900]
   },
 
   // ── ULTRA — 350 000 so'm. Hamma narsa cheksiz (UNLIMITED).

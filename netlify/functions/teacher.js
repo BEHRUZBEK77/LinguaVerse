@@ -391,7 +391,7 @@ function lockMessage(quota) {
   // Toshkent vaqti (UTC+5)
   const t = d ? new Date(d.getTime() + 5 * 3600_000) : null;
   const when = t ? `${t.getUTCDate()}-${OYLAR[t.getUTCMonth()]}, ${String(t.getUTCHours()).padStart(2, '0')}:${String(t.getUTCMinutes()).padStart(2, '0')}` : '5 kundan keyin';
-  return `Bepul 5 daqiqalik speaking tugadi. Ustoz ${when} da yana ochiladi. Hozir davom etish uchun — IELTS PRO.`;
+  return `Bepul 5 daqiqalik speaking tugadi. Ustoz ${when} da yana ochiladi. Hozir davom etish uchun — SERTIFIKAT PRO.`;
 }
 
 async function gate(action, uid, plan) {
@@ -406,7 +406,7 @@ async function gate(action, uid, plan) {
       ok: false, status: 402,
       error: premium
         ? 'Bugungi limit tugadi. Ertaga davom etamiz.'
-        : "Bepul sinov limiti tugadi. To'liq IELTS imtihonchi va cheksiz ustoz uchun IELTS PRO rejasini oling.",
+        : "Bepul sinov limiti tugadi. To'liq sertifikat imtihonchisi va cheksiz ustoz uchun SERTIFIKAT PRO rejasini oling.",
       upgrade: !premium
     };
   }

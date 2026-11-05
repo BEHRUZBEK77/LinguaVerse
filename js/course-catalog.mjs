@@ -224,7 +224,7 @@ export const COURSE_LEVELS = {
     price: COURSE_PRICES.b2,
     priceLabel: "200 000 so'm",
     color: '#3b82f6',
-    promise: "Noldan erkin muloqotgacha: 4 daraja, 100 ta video dars. IELTS 6.0–6.5 ga teng.",
+    promise: "Noldan erkin muloqotgacha: 4 daraja, 100 ta dars. IELTS 6.0–6.5 ga teng.",
     lessons: build(['A1', 'A2', 'B1', 'B2'])
   },
   c2: {
@@ -235,7 +235,7 @@ export const COURSE_LEVELS = {
     price: COURSE_PRICES.c2,
     priceLabel: "400 000 so'm",
     color: '#e11d48',
-    promise: "Ona tili darajasiga yaqin. IELTS 8.0–9.0. B2 kursi ham ichida — jami 150 ta video dars.",
+    promise: "Ona tili darajasiga yaqin. IELTS 8.0–9.0. B2 kursi ham ichida — jami 150 ta dars.",
     lessons: build(['C1', 'C2'])
   }
 };

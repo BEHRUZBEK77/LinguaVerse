@@ -2,190 +2,824 @@
  "title": "Sonlar 0 dan 100 gacha: yosh, telefon raqami va narxlar",
  "goal_uz": "Dars oxirida 0 dan 100 gacha sanaysiz, yoshingizni to‘g‘ri aytasiz, telefon raqamingizni inglizcha aytasiz va 13 bilan 30 kabi o‘xshash sonlarni eshitib farqlaysiz.",
  "vocab": [
-  { "w": "number", "uz": "son, raqam" },
-  { "w": "zero / oh", "uz": "nol" },
-  { "w": "teen", "uz": "13–19 sonlar (-teen)" },
-  { "w": "years old", "uz": "yoshda" },
-  { "w": "phone number", "uz": "telefon raqami" },
-  { "w": "double", "uz": "qo‘sh, ikkita bir xil" },
-  { "w": "How old are you?", "uz": "Necha yoshdasiz?" },
-  { "w": "How much is it?", "uz": "Bu qancha turadi?" },
-  { "w": "price", "uz": "narx" },
-  { "w": "hundred", "uz": "yuz" }
+  {
+   "w": "number",
+   "uz": "son, raqam"
+  },
+  {
+   "w": "zero / oh",
+   "uz": "nol"
+  },
+  {
+   "w": "teen",
+   "uz": "13–19 sonlar (-teen)"
+  },
+  {
+   "w": "years old",
+   "uz": "yoshda"
+  },
+  {
+   "w": "phone number",
+   "uz": "telefon raqami"
+  },
+  {
+   "w": "double",
+   "uz": "qo‘sh, ikkita bir xil"
+  },
+  {
+   "w": "How old are you?",
+   "uz": "Necha yoshdasiz?"
+  },
+  {
+   "w": "How much is it?",
+   "uz": "Bu qancha turadi?"
+  },
+  {
+   "w": "price",
+   "uz": "narx"
+  },
+  {
+   "w": "hundred",
+   "uz": "yuz"
+  }
  ],
  "scenes": [
-  { "kind": "intro", "title": "Uchinchi dars", "emotion": "happy",
-    "board": ["Lesson 3: Numbers", "(Sonlar)"], "examples": [],
-    "say_native": "Assalomu alaykum! Uchinchi darsga xush kelibsiz. O‘tgan darsda salomlashish va tanishishni o‘rgandik. Bugun har kuni kerak bo‘ladigan mavzu: sonlar. Yoshingizni aytish, telefon raqamingizni berish, narxni so‘rash va tushunish — bularning hammasi sonlarsiz bo‘lmaydi. Dars oxirida yuzgacha bemalol sanaysiz.",
-    "say": "Hello! Today we will learn numbers from zero to one hundred.", "say_uz": "Salom! Bugun noldan yuzgacha sonlarni o‘rganamiz.", "practice_seconds": 0 },
-  { "kind": "example", "title": "0 dan 5 gacha", "emotion": "neutral",
-    "board": ["0 zero  1 one  2 two", "3 three  4 four  5 five"], "examples": [],
-    "say_native": "Boshladik. Nol — “zero”. Bir — “one”, u “uan” deb aytiladi, yozilishiga qaramang. Ikki — “two”, “tu”. Uch — “three”: o‘tgan darsdagi “th” tovushini eslang, til tishlar orasida. To‘rt — “four”. Besh — “five”, bu yerda V tovushi, tishlar labga tegadi.",
-    "say": "Zero. One. Two. Three. Four. Five.", "say_uz": "Nol. Bir. Ikki. Uch. To‘rt. Besh.", "practice_seconds": 0 },
-  { "kind": "example", "title": "6 dan 10 gacha", "emotion": "neutral",
-    "board": ["6 six  7 seven  8 eight", "9 nine  10 ten"], "examples": [],
-    "say_native": "Davom etamiz. Olti — “six”. Yetti — “seven”, ikki bo‘g‘inli, urg‘u birinchi bo‘g‘inda: “SE-ven”. Sakkiz — “eight”, “eyt” deb aytiladi, “gh” harflari o‘qilmaydi. To‘qqiz — “nine”, “nayn”. O‘n — “ten”.",
-    "say": "Six. Seven. Eight. Nine. Ten.", "say_uz": "Olti. Yetti. Sakkiz. To‘qqiz. O‘n.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "0–10 ni takrorlang", "emotion": "encouraging",
-    "board": ["0 1 2 3 4 5 6 7 8 9 10"], "examples": [],
-    "say_native": "Endi noldan o‘ngacha takrorlang. “Three” da til tishlar orasida, “five” va “seven” da V tovushi, “eight” esa “eyt”.",
-    "say": "Zero, one, two, three, four, five, six, seven, eight, nine, ten.", "say_uz": "Noldan o‘ngacha.", "practice_seconds": 10 },
-  { "kind": "practice", "title": "Teskari sanang", "emotion": "encouraging",
-    "board": ["10 → 0"], "examples": [],
-    "say_native": "Yodlashning yaxshi usuli — teskari sanash. O‘ndan nolgacha teskari sanang, xuddi raketa uchishidan oldingidek.",
-    "say": "Now count down: ten, nine, eight… Your turn!", "say_uz": "Endi teskari sanang: o‘n, to‘qqiz, sakkiz… Navbat sizda!", "practice_seconds": 10 },
-  { "kind": "example", "title": "11 va 12", "emotion": "surprised",
-    "board": ["11 eleven", "12 twelve"], "examples": [],
-    "say_native": "O‘n bir va o‘n ikki maxsus so‘zlar, ularni shunchaki yodlab olasiz. O‘n bir — “eleven”, urg‘u ikkinchi bo‘g‘inda: “i-LE-ven”. O‘n ikki — “twelve”. Bu so‘zlarning oxirida ham V tovushi bor.",
-    "say": "Eleven. Twelve.", "say_uz": "O‘n bir. O‘n ikki.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "13 dan 19 gacha: -teen", "emotion": "thinking",
-    "board": ["13 thirteen  14 fourteen  15 fifteen", "16 sixteen  17 seventeen", "18 eighteen  19 nineteen"], "examples": [],
-    "say_native": "O‘n uchdan o‘n to‘qqizgacha bitta qoliplar asosida yasaladi: songa “-teen” qo‘shiladi. Fourteen, sixteen, seventeen, nineteen — oddiy. Uchta istisno bor: o‘n uch — “thirteen”, “three” emas “thir”. O‘n besh — “fifteen”, “five” emas “fif”. O‘n sakkiz — “eighteen”, bitta T bilan yoziladi. “-teen” qismida urg‘u bor va unli cho‘zib aytiladi: “thir-TEEN”.",
-    "say": "Thirteen. Fourteen. Fifteen. Sixteen. Seventeen. Eighteen. Nineteen.", "say_uz": "O‘n uch … o‘n to‘qqiz.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "11–19 ni takrorlang", "emotion": "encouraging",
-    "board": ["11 12 13 14 15 16 17 18 19"], "examples": [],
-    "say_native": "Takrorlang va “-teen” qismini aniq, cho‘zib ayting. Bu keyingi qoidani tushunish uchun juda muhim.",
-    "say": "Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen.", "say_uz": "O‘n birdan o‘n to‘qqizgacha.", "practice_seconds": 10 },
-  { "kind": "explain", "title": "O‘nliklar: -ty", "emotion": "neutral",
-    "board": ["20 twenty  30 thirty  40 forty", "50 fifty  60 sixty  70 seventy", "80 eighty  90 ninety  100 one hundred"], "examples": [],
-    "say_native": "Endi o‘nliklar. Ular “-ty” qo‘shimchasi bilan yasaladi. Yigirma — “twenty”, o‘ttiz — “thirty”, qirq — “forty”. Diqqat: “forty” da U harfi yo‘q, bu imloda eng ko‘p uchraydigan xato. Ellik — “fifty”, oltmish — “sixty”, yetmish — “seventy”, sakson — “eighty”, to‘qson — “ninety”. Yuz — “one hundred” yoki “a hundred”.",
-    "say": "Twenty. Thirty. Forty. Fifty. Sixty. Seventy. Eighty. Ninety. One hundred.", "say_uz": "Yigirma … to‘qson. Yuz.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "O‘nliklarni takrorlang", "emotion": "encouraging",
-    "board": ["10 20 30 40 50 60 70 80 90 100"], "examples": [],
-    "say_native": "O‘nliklarni o‘ndan yuzgacha takrorlang. “-ty” qismi qisqa va yengil aytiladi, urg‘u birinchi bo‘g‘inda: “TWEN-ty”, “THIR-ty”.",
-    "say": "Ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety, one hundred.", "say_uz": "O‘n, yigirma … yuz.", "practice_seconds": 10 },
-  { "kind": "mistake", "title": "13 yoki 30? Eng xavfli juftlik", "emotion": "stern",
-    "board": ["thir-TEEN (13)  ·  THIR-ty (30)", "four-TEEN (14)  ·  FOR-ty (40)", "fif-TEEN (15)  ·  FIF-ty (50)"], "examples": [],
-    "say_native": "Endi darsning eng muhim qismi. “Thirteen” va “thirty”, “fourteen” va “forty”, “fifteen” va “fifty” bir-biriga juda o‘xshab eshitiladi. Farq urg‘uda: “-teen” li sonlarda urg‘u oxirida va tovush cho‘ziq: “thir-TEEN”. “-ty” li sonlarda urg‘u boshida, oxiri qisqa: “THIR-ty”. Narx yoki uchrashuv vaqtida bu xato o‘n yetti dollar farq qilishi mumkin!",
-    "say": "Thirteen, thirty. Fourteen, forty. Fifteen, fifty.", "say_uz": "13, 30. 14, 40. 15, 50.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Qaysi sonni eshitdingiz?", "emotion": "encouraging",
-    "board": ["1) 13 / 30?  2) 40 / 14?", "3) 15 / 50?  4) 80 / 18?"], "examples": [],
-    "say_native": "Tinglash mashqi. To‘rtta son aytiladi. Har birida qaysi variantni eshitganingizni yozing. Urg‘uga quloq soling: boshidami yoki oxiridami?",
-    "say": "One: thirty. Two: fourteen. Three: fifteen. Four: eighty.", "say_uz": "Bir: 30. Ikki: 14. Uch: 15. To‘rt: 80.", "practice_seconds": 10 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) 30  2) 14  3) 15  4) 80"], "examples": [],
-    "say_native": "Javoblar: birinchi — o‘ttiz, “THIR-ty”. Ikkinchi — o‘n to‘rt, “four-TEEN”. Uchinchi — o‘n besh, “fif-TEEN”. To‘rtinchi — sakson, “EIGH-ty”. To‘rttasini topgan bo‘lsangiz, qulog‘ingiz yaxshi ishlayapti. Xato qilsangiz, yuqoridagi uchta juftlikni yana bir bor tinglang.",
-    "say": "Thirty. Fourteen. Fifteen. Eighty.", "say_uz": "30. 14. 15. 80.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Murakkab sonlar: 21–99", "emotion": "neutral",
-    "board": ["21 twenty-one", "35 thirty-five", "99 ninety-nine"], "examples": [],
-    "say_native": "Yigirma birdan to‘qson to‘qqizgacha sonlar xuddi o‘zbekchadagidek yasaladi: avval o‘nlik, keyin birlik. Yigirma bir — “twenty-one”, o‘ttiz besh — “thirty-five”, to‘qson to‘qqiz — “ninety-nine”. Yozganda ular orasiga chiziqcha qo‘yiladi.",
-    "say": "Twenty-one. Thirty-five. Forty-two. Sixty-seven. Ninety-nine.", "say_uz": "21. 35. 42. 67. 99.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Sonlarni o‘qing", "emotion": "encouraging",
-    "board": ["24 · 38 · 47 · 56 · 73 · 91"], "examples": [],
-    "say_native": "Ekrandagi oltita sonni inglizcha o‘qing. Shoshilmang: avval o‘nlikni, keyin birlikni ayting.",
-    "say": "Read the numbers on the screen.", "say_uz": "Ekrandagi sonlarni o‘qing.", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["24 twenty-four  38 thirty-eight", "47 forty-seven  56 fifty-six", "73 seventy-three  91 ninety-one"], "examples": [],
-    "say_native": "Tekshiramiz: twenty-four, thirty-eight, forty-seven, fifty-six, seventy-three, ninety-one. “Forty” ni “for-ty” deb, “U” siz yozish va aytishni yana bir bor eslang.",
-    "say": "Twenty-four. Thirty-eight. Forty-seven. Fifty-six. Seventy-three. Ninety-one.", "say_uz": "24. 38. 47. 56. 73. 91.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Yoshni aytish", "emotion": "thinking",
-    "board": ["How old are you?", "I'm 25. / I'm 25 years old.", "✗ I have 25 years."],
-    "examples": [{ "t": "How old are you?", "uz": "Necha yoshdasiz?" }, { "t": "I'm twenty-five years old.", "uz": "Men yigirma besh yoshdaman." }],
-    "say_native": "Endi yosh. Savol: “How old are you?” — so‘zma-so‘z “qanchalik qarisiz?”, lekin ma’nosi “necha yoshdasiz?”. Javob “to be” fe’li bilan: “I’m twenty-five” yoki to‘liqroq “I’m twenty-five years old.” Faqat “years” deb tugatib bo‘lmaydi: “I’m twenty-five years” — xato. Yoki faqat son, yoki “years old”.",
-    "say": "How old are you? I'm twenty-five. I'm twenty-five years old.", "say_uz": "Necha yoshdasiz? Yigirma beshdaman. Men yigirma besh yoshdaman.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "I have 25 years — xato", "emotion": "stern",
-    "board": ["✗ I have 25 years.", "✗ I'm 25 years.", "✓ I'm 25. / I'm 25 years old."], "examples": [],
-    "say_native": "Ruscha “мне двадцать пять лет” yoki boshqa tillar ta’sirida ko‘pchilik “I have twenty-five years” deydi. Ingliz tilida yosh “have” bilan emas, faqat “am”, “is”, “are” bilan aytiladi. Boshqa odam haqida: “He’s ten” — u o‘n yoshda, “My mother is fifty-two” — onam ellik ikki yoshda.",
-    "say": "Not: I have twenty-five years. Say: I'm twenty-five. My mother is fifty-two.", "say_uz": "I have 25 years emas. I'm 25 deng. Onam 52 yoshda.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Yoshingizni ayting", "emotion": "encouraging",
-    "board": ["I'm ___ (years old).", "My father is ___. My sister is ___."], "examples": [],
-    "say_native": "Endi siz ayting: necha yoshdasiz? Keyin oilangizdan ikki kishining yoshini ayting. Masalan: “I’m nineteen. My father is forty-eight. My sister is fifteen.”",
-    "say": "How old are you? How old is your father?", "say_uz": "Necha yoshdasiz? Otangiz necha yoshda?", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Telefon raqamini aytish", "emotion": "neutral",
-    "board": ["90 123 45 67", "nine-oh, one-two-three, four-five, six-seven"], "examples": [],
-    "say_native": "Telefon raqamini ingliz tilida qanday aytamiz? O‘zbekchada ko‘pincha “to‘qson, bir yuz yigirma uch” deymiz. Ingliz tilida esa telefon raqami har bir raqam alohida aytiladi va guruhlar orasida qisqa to‘xtaladi. To‘qson — “nine, oh”, keyin “one, two, three”, keyin “four, five”, “six, seven”.",
-    "say": "My number is nine-oh, one-two-three, four-five, six-seven.", "say_uz": "Mening raqamim 90 123 45 67.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Oh va double", "emotion": "thinking",
-    "board": ["0 → oh (telefon) / zero", "44 → double four", "555 → five-five-five"], "examples": [],
-    "say_native": "Ikkita odat bor. Birinchisi: telefon raqamida nol ko‘pincha “oh” deb aytiladi, xuddi O harfi kabi. “Zero” deyish ham xato emas. Ikkinchisi: ketma-ket ikkita bir xil raqam bo‘lsa, Britaniyada ko‘pincha “double” deyishadi: qirq to‘rt emas, “double four”. Uchta bir xil raqamni esa alohida aytgan ma’qul: “five, five, five”.",
-    "say": "Oh-seven-seven, double four. Or: zero, seven, seven, four, four.", "say_uz": "0-7-7, 4-4. Yoki: nol, yetti, yetti, to‘rt, to‘rt.", "practice_seconds": 0 },
-  { "kind": "example", "title": "Raqam so‘rash dialogi", "emotion": "happy",
-    "board": ["What's your phone number?", "It's 93 508 22 16.", "Sorry, can you repeat that?"], "examples": [{ "t": "Can you repeat that, please?", "uz": "Takrorlay olasizmi, iltimos?" }],
-    "say_native": "Dialogni tinglang. Bir kishi raqam so‘raydi, ikkinchisi aytadi, keyin birinchisi eshitmay qolgan joyini qayta so‘raydi. “What’s your phone number?” — telefon raqamingiz qanday? “Sorry, can you repeat that?” — kechirasiz, takrorlay olasizmi? Bu ibora sizga ham juda kerak bo‘ladi.",
-    "say": "What's your phone number? It's nine-three, five-oh-eight, double two, one-six. Sorry, can you repeat that? Nine-three, five-oh-eight, double two, one-six. Thanks!",
-    "say_uz": "Telefon raqamingiz qanday? 93 508 22 16. Kechirasiz, takrorlay olasizmi? 93 508 22 16. Rahmat!", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Raqamni yozib oling", "emotion": "encouraging",
-    "board": ["__ ___ __ __"], "examples": [],
-    "say_native": "Endi siz yozib olasiz. Bir raqam aytiladi, uni daftaringizga yozing. “Oh” va “double” ga e’tibor bering.",
-    "say": "Please write down this number: nine-seven, three-oh-one, double eight, four-five.", "say_uz": "Bu raqamni yozib oling.", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Javob", "emotion": "proud",
-    "board": ["97 301 88 45"], "examples": [],
-    "say_native": "To‘g‘ri javob: to‘qson yetti, uch yuz bir, sakson sakkiz, qirq besh. “Oh” — bu nol, “double eight” — ikkita sakkiz. Shunday yozgan bo‘lsangiz, barakalla!",
-    "say": "Nine-seven, three-oh-one, double eight, four-five.", "say_uz": "97 301 88 45.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "O‘z raqamingizni ayting", "emotion": "encouraging",
-    "board": ["My phone number is ___."], "examples": [],
-    "say_native": "Endi o‘zingizning telefon raqamingizni inglizcha ayting. Har bir raqamni alohida, guruhlar orasida qisqa to‘xtab. Agar raqamingizni aytishni istamasangiz, xayoliy raqam o‘ylab toping.",
-    "say": "What's your phone number?", "say_uz": "Telefon raqamingiz qanday?", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Narxni so‘rash", "emotion": "neutral",
-    "board": ["How much is it?", "It's 15 dollars. ($15)", "How much are they?"],
-    "examples": [{ "t": "How much is this bag?", "uz": "Bu sumka qancha turadi?" }],
-    "say_native": "Sonlar do‘konda juda kerak. Narx so‘rash: “How much is it?” — bu qancha turadi? Ko‘p narsa haqida: “How much are they?” Javob: “It’s fifteen dollars” — o‘n besh dollar. Narxlarni eshitganda ham “fifteen” va “fifty” farqiga ehtiyot bo‘ling. Ishonchingiz komil bo‘lmasa, qayta so‘rang: “Fifteen or fifty?”",
-    "say": "How much is this bag? It's fifteen dollars. Sorry, fifteen or fifty? Fifteen.", "say_uz": "Bu sumka qancha? 15 dollar. Kechirasiz, 15 mi yoki 50 mi? 15.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Dollar va sent", "emotion": "thinking",
-    "board": ["$4.50 → four dollars fifty / four fifty", "£12.99 → twelve pounds ninety-nine / twelve ninety-nine"], "examples": [],
-    "say_native": "Narxda nuqtadan keyingi qism sent yoki pens bo‘ladi. To‘rt dollar ellik sentni to‘liq aytsa “four dollars fifty”, qisqacha esa “four fifty” deyishadi. Angliyada pul birligi funt — “pound”: “twelve pounds ninety-nine” yoki qisqasi “twelve ninety-nine”. Kundalik hayotda qisqa shakl ko‘proq ishlatiladi.",
-    "say": "That's four fifty, please. It's twelve ninety-nine.", "say_uz": "To‘rt ellik bo‘ladi. O‘n ikki to‘qson to‘qqiz.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Narxlarni o‘qing", "emotion": "encouraging",
-    "board": ["$13 · $30 · $7.50 · $64"], "examples": [],
-    "say_native": "Ekrandagi to‘rtta narxni ayting. O‘n uch bilan o‘ttizni urg‘u bilan farqlang.",
-    "say": "Read the prices.", "say_uz": "Narxlarni o‘qing.", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["thirteen dollars · thirty dollars", "seven fifty · sixty-four dollars"], "examples": [],
-    "say_native": "Javoblar: “thirteen dollars”, “thirty dollars” — birinchisida urg‘u oxirida, ikkinchisida boshida. “Seven fifty” yoki “seven dollars fifty”. Va “sixty-four dollars”.",
-    "say": "Thirteen dollars. Thirty dollars. Seven fifty. Sixty-four dollars.", "say_uz": "13 dollar. 30 dollar. 7,50. 64 dollar.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Yuzdan keyin: kichik qadam", "emotion": "neutral",
-    "board": ["100 one hundred", "101 one hundred and one (UK)", "250 two hundred and fifty"], "examples": [],
-    "say_native": "Yuzdan katta sonlarni keyingi darslarda chuqurroq o‘rganamiz, hozircha bitta qoida yetarli. Britaniyada yuzdan keyin “and” qo‘shiladi: “one hundred and one” — bir yuz bir, “two hundred and fifty” — ikki yuz ellik. Amerikada “and” ko‘pincha tushirib qoldiriladi. Va “hundred” so‘zi ko‘plikda ham “s” olmaydi: “two hundred”, “two hundreds” emas.",
-    "say": "One hundred and one. Two hundred and fifty.", "say_uz": "Bir yuz bir. Ikki yuz ellik.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "Sonlardagi tipik xatolar", "emotion": "stern",
-    "board": ["✗ fourty → ✓ forty", "✗ two hundreds → ✓ two hundred", "✗ I have 20 years → ✓ I'm 20"], "examples": [],
-    "say_native": "Sonlardagi tipik xatolarni jamlaymiz. Birinchi: “forty” ni U bilan yozish. Ikkinchi: “two hundreds” deyish. Uchinchi: “I have twenty years”. To‘rtinchi: “thirteen” bilan “thirty” ni bir xil aytish. Va beshinchi: “three” ni “tri” yoki “sri” deyish — til tishlar orasida bo‘lishi kerak.",
-    "say": "Forty. Two hundred. I'm twenty. Thirteen, thirty. Three.", "say_uz": "Qirq. Ikki yuz. Men yigirma yoshdaman. 13, 30. Uch.", "practice_seconds": 0 },
-  { "kind": "example", "title": "Tinglang: ro‘yxatdan o‘tish", "emotion": "happy",
-    "board": ["Name? Age? Phone?"], "examples": [],
-    "say_native": "Endi uzunroq dialog. Bir yigit sport zalida ro‘yxatdan o‘tyapti. Xodim uning ismi, yoshi va telefon raqamini so‘raydi. Tinglang va uchta ma’lumotni yozib oling.",
-    "say": "Hello! I'd like to join the gym. Sure. What's your name? Bobur Aliyev. How old are you, Bobur? I'm nineteen. And what's your phone number? It's nine-nine, four-oh-two, seven-seven, one-three. Great. It's thirty dollars a month. Thirty? Yes, thirty.",
-    "say_uz": "Salom! Sport zaliga yozilmoqchiman. Albatta. Ismingiz? Bobur Aliyev. Necha yoshdasiz, Bobur? O‘n to‘qqizda. Telefon raqamingiz? 99 402 77 13. Zo‘r. Oyiga o‘ttiz dollar. O‘ttiz? Ha, o‘ttiz.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Savollarga javob bering", "emotion": "encouraging",
-    "board": ["1) How old is Bobur?", "2) What's his phone number?", "3) How much is the gym?"], "examples": [],
-    "say_native": "Savollar: Bobur necha yoshda? Uning telefon raqami qanday? Sport zali oyiga qancha turadi? Javoblarni yozing.",
-    "say": "How old is Bobur? What's his phone number? How much is the gym?", "say_uz": "Bobur necha yoshda? Telefon raqami? Zal qancha turadi?", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) 19", "2) 99 402 77 13", "3) $30 a month"], "examples": [],
-    "say_native": "Javoblar: Bobur o‘n to‘qqiz yoshda — “nineteen”, “ninety” emas. Raqami: to‘qson to‘qqiz, to‘rt yuz ikki, yetmish yetti, o‘n uch. Zal oyiga o‘ttiz dollar. Bobur ham “thirty” ni aniqlashtirib so‘radi — bu juda to‘g‘ri odat.",
-    "say": "He's nineteen. His number is nine-nine, four-oh-two, seven-seven, one-three. The gym is thirty dollars a month.", "say_uz": "U o‘n to‘qqizda. Raqami 99 402 77 13. Zal oyiga o‘ttiz dollar.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Tez hisob", "emotion": "encouraging",
-    "board": ["5 + 7 = ?", "20 + 13 = ?", "50 − 6 = ?"], "examples": [],
-    "say_native": "Miya uchun mashq: oddiy hisob-kitobni inglizcha ayting. “Plus” — qo‘shish, “minus” — ayirish, “is” yoki “equals” — teng. Masalan: “Five plus seven is twelve.”",
-    "say": "Five plus seven is? Twenty plus thirteen is? Fifty minus six is?", "say_uz": "5 + 7? 20 + 13? 50 − 6?", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["twelve · thirty-three · forty-four"], "examples": [],
-    "say_native": "Javoblar: o‘n ikki — “twelve”. O‘ttiz uch — “thirty-three”. Qirq to‘rt — “forty-four”. Inglizcha hisoblash sonlarni tezroq eslab qolishga yordam beradi, buni har kuni bir necha daqiqa qilib turing.",
-    "say": "Five plus seven is twelve. Twenty plus thirteen is thirty-three. Fifty minus six is forty-four.", "say_uz": "5 + 7 = 12. 20 + 13 = 33. 50 − 6 = 44.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Hammasi birga", "emotion": "encouraging",
-    "board": ["My name is ___.", "I'm ___ years old.", "My phone number is ___.", "My favourite number is ___."], "examples": [],
-    "say_native": "Yakuniy mashq. Ekrandagi to‘rt jumlani o‘zingiz haqingizda to‘ldirib ayting: ismingiz, yoshingiz, telefon raqamingiz va eng yoqtirgan soningiz.",
-    "say": "Tell me about you: name, age, phone number and favourite number.", "say_uz": "O‘zingiz haqingizda ayting: ism, yosh, telefon raqam va sevimli son.", "practice_seconds": 20 },
-  { "kind": "recap", "title": "Bugun nimani o‘rgandik", "emotion": "proud",
-    "board": ["0–20 · -teen / -ty · 21–99", "How old are you? I'm 25.", "Phone: nine-oh, double four", "How much is it?"], "examples": [],
-    "say_native": "Xulosa. Noldan yuzgacha sanashni o‘rgandik: o‘n uchdan o‘n to‘qqizgacha “-teen”, o‘nliklar “-ty” bilan yasaladi. “-teen” da urg‘u oxirida, “-ty” da boshida. Yoshni “I’m twenty-five” deb aytamiz, “have” bilan emas. Telefon raqami raqamma-raqam aytiladi, nol — “oh”, ikkita bir xil raqam — “double”. Narxni “How much is it?” deb so‘raymiz.",
-    "say": "Well done! Now you can count to one hundred and talk about age, phone numbers and prices.", "say_uz": "Barakalla! Endi yuzgacha sanay olasiz, yosh, telefon raqam va narx haqida gapira olasiz.", "practice_seconds": 0 },
-  { "kind": "recap", "title": "Uyga vazifa", "emotion": "encouraging",
-    "board": ["1) Age + phone number + 3 prices", "2) Write 13–19 and 30, 40, 50 in words"], "examples": [],
-    "say_native": "Uyga vazifa. Birinchi: ovoz yozib oling — yoshingiz, telefon raqamingiz va uyingizdagi uchta narsaning taxminiy narxi. Masalan: “My phone is about two hundred dollars.” Ikkinchi: o‘n uchdan o‘n to‘qqizgacha va o‘ttiz, qirq, ellikni so‘z bilan yozing. Tekshiring: “forty” da U yo‘q, “eighteen” da bitta T. Keyingi darsda o‘zingiz va oilangiz haqida gapirishni o‘rganamiz. Ko‘rishguncha!",
-    "say": "See you in the next lesson. Bye!", "say_uz": "Keyingi darsda ko‘rishamiz. Xayr!", "practice_seconds": 0 }
+  {
+   "kind": "intro",
+   "title": "Uchinchi dars",
+   "emotion": "happy",
+   "board": [
+    "Lesson 3: Numbers",
+    "(Sonlar)"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Uchinchi darsga xush kelibsiz. O‘tgan darsda salomlashish va tanishishni o‘rgandik. Bugun har kuni kerak bo‘ladigan mavzu: sonlar. Yoshingizni aytish, telefon raqamingizni berish, narxni so‘rash va tushunish — bularning hammasi sonlarsiz bo‘lmaydi. Dars oxirida yuzgacha bemalol sanaysiz.",
+   "say": "Hello! Today we will learn numbers from zero to one hundred.",
+   "say_uz": "Salom! Bugun noldan yuzgacha sonlarni o‘rganamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "0 dan 5 gacha",
+   "emotion": "neutral",
+   "board": [
+    "0 zero  1 one  2 two",
+    "3 three  4 four  5 five"
+   ],
+   "examples": [],
+   "say_native": "Boshladik. Nol — “zero”. Bir — “one”, u “uan” deb aytiladi, yozilishiga qaramang. Ikki — “two”, “tu”. Uch — “three”: o‘tgan darsdagi “th” tovushini eslang, til tishlar orasida. To‘rt — “four”. Besh — “five”, bu yerda V tovushi, tishlar labga tegadi.",
+   "say": "Zero. One. Two. Three. Four. Five.",
+   "say_uz": "Nol. Bir. Ikki. Uch. To‘rt. Besh.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "6 dan 10 gacha",
+   "emotion": "neutral",
+   "board": [
+    "6 six  7 seven  8 eight",
+    "9 nine  10 ten"
+   ],
+   "examples": [],
+   "say_native": "Davom etamiz. Olti — “six”. Yetti — “seven”, ikki bo‘g‘inli, urg‘u birinchi bo‘g‘inda: “SE-ven”. Sakkiz — “eight”, “eyt” deb aytiladi, “gh” harflari o‘qilmaydi. To‘qqiz — “nine”, “nayn”. O‘n — “ten”.",
+   "say": "Six. Seven. Eight. Nine. Ten.",
+   "say_uz": "Olti. Yetti. Sakkiz. To‘qqiz. O‘n.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "0–10 ni takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "0 1 2 3 4 5 6 7 8 9 10"
+   ],
+   "examples": [],
+   "say_native": "Endi noldan o‘ngacha takrorlang. “Three” da til tishlar orasida, “five” va “seven” da V tovushi, “eight” esa “eyt”.",
+   "say": "Zero, one, two, three, four, five, six, seven, eight, nine, ten.",
+   "say_uz": "Noldan o‘ngacha.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "practice",
+   "title": "Teskari sanang",
+   "emotion": "encouraging",
+   "board": [
+    "10 → 0"
+   ],
+   "examples": [],
+   "say_native": "Yodlashning yaxshi usuli — teskari sanash. O‘ndan nolgacha teskari sanang, xuddi raketa uchishidan oldingidek.",
+   "say": "Now count down: ten, nine, eight… Your turn!",
+   "say_uz": "Endi teskari sanang: o‘n, to‘qqiz, sakkiz… Navbat sizda!",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "example",
+   "title": "11 va 12",
+   "emotion": "surprised",
+   "board": [
+    "11 eleven",
+    "12 twelve"
+   ],
+   "examples": [],
+   "say_native": "O‘n bir va o‘n ikki maxsus so‘zlar, ularni shunchaki yodlab olasiz. O‘n bir — “eleven”, urg‘u ikkinchi bo‘g‘inda: “i-LE-ven”. O‘n ikki — “twelve”. Bu so‘zlarning oxirida ham V tovushi bor.",
+   "say": "Eleven. Twelve.",
+   "say_uz": "O‘n bir. O‘n ikki.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "13 dan 19 gacha: -teen",
+   "emotion": "thinking",
+   "board": [
+    "13 thirteen  14 fourteen  15 fifteen",
+    "16 sixteen  17 seventeen",
+    "18 eighteen  19 nineteen"
+   ],
+   "examples": [],
+   "say_native": "O‘n uchdan o‘n to‘qqizgacha bitta qoliplar asosida yasaladi: songa “-teen” qo‘shiladi. Fourteen, sixteen, seventeen, nineteen — oddiy. Uchta istisno bor: o‘n uch — “thirteen”, “three” emas “thir”. O‘n besh — “fifteen”, “five” emas “fif”. O‘n sakkiz — “eighteen”, bitta T bilan yoziladi. “-teen” qismida urg‘u bor va unli cho‘zib aytiladi: “thir-TEEN”.",
+   "say": "Thirteen. Fourteen. Fifteen. Sixteen. Seventeen. Eighteen. Nineteen.",
+   "say_uz": "O‘n uch … o‘n to‘qqiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "11–19 ni takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "11 12 13 14 15 16 17 18 19"
+   ],
+   "examples": [],
+   "say_native": "Takrorlang va “-teen” qismini aniq, cho‘zib ayting. Bu keyingi qoidani tushunish uchun juda muhim.",
+   "say": "Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen.",
+   "say_uz": "O‘n birdan o‘n to‘qqizgacha.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "O‘nliklar: -ty",
+   "emotion": "neutral",
+   "board": [
+    "20 twenty  30 thirty  40 forty",
+    "50 fifty  60 sixty  70 seventy",
+    "80 eighty  90 ninety  100 one hundred"
+   ],
+   "examples": [],
+   "say_native": "Endi o‘nliklar. Ular “-ty” qo‘shimchasi bilan yasaladi. Yigirma — “twenty”, o‘ttiz — “thirty”, qirq — “forty”. Diqqat: “forty” da U harfi yo‘q, bu imloda eng ko‘p uchraydigan xato. Ellik — “fifty”, oltmish — “sixty”, yetmish — “seventy”, sakson — “eighty”, to‘qson — “ninety”. Yuz — “one hundred” yoki “a hundred”.",
+   "say": "Twenty. Thirty. Forty. Fifty. Sixty. Seventy. Eighty. Ninety. One hundred.",
+   "say_uz": "Yigirma … to‘qson. Yuz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "O‘nliklarni takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "10 20 30 40 50 60 70 80 90 100"
+   ],
+   "examples": [],
+   "say_native": "O‘nliklarni o‘ndan yuzgacha takrorlang. “-ty” qismi qisqa va yengil aytiladi, urg‘u birinchi bo‘g‘inda: “TWEN-ty”, “THIR-ty”.",
+   "say": "Ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety, one hundred.",
+   "say_uz": "O‘n, yigirma … yuz.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "mistake",
+   "title": "13 yoki 30? Eng xavfli juftlik",
+   "emotion": "stern",
+   "board": [
+    "thir-TEEN (13)  ·  THIR-ty (30)",
+    "four-TEEN (14)  ·  FOR-ty (40)",
+    "fif-TEEN (15)  ·  FIF-ty (50)"
+   ],
+   "examples": [],
+   "say_native": "Endi darsning eng muhim qismi. “Thirteen” va “thirty”, “fourteen” va “forty”, “fifteen” va “fifty” bir-biriga juda o‘xshab eshitiladi. Farq urg‘uda: “-teen” li sonlarda urg‘u oxirida va tovush cho‘ziq: “thir-TEEN”. “-ty” li sonlarda urg‘u boshida, oxiri qisqa: “THIR-ty”. Narx yoki uchrashuv vaqtida bu xato o‘n yetti dollar farq qilishi mumkin!",
+   "say": "Thirteen, thirty. Fourteen, forty. Fifteen, fifty.",
+   "say_uz": "13, 30. 14, 40. 15, 50.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qaysi sonni eshitdingiz?",
+   "emotion": "encouraging",
+   "board": [
+    "1) 13 / 30?  2) 40 / 14?",
+    "3) 15 / 50?  4) 80 / 18?"
+   ],
+   "examples": [],
+   "say_native": "Tinglash mashqi. To‘rtta son aytiladi. Har birida qaysi variantni eshitganingizni yozing. Urg‘uga quloq soling: boshidami yoki oxiridami?",
+   "say": "One: thirty. Two: fourteen. Three: fifteen. Four: eighty.",
+   "say_uz": "Bir: 30. Ikki: 14. Uch: 15. To‘rt: 80.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) 30  2) 14  3) 15  4) 80"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: birinchi — o‘ttiz, “THIR-ty”. Ikkinchi — o‘n to‘rt, “four-TEEN”. Uchinchi — o‘n besh, “fif-TEEN”. To‘rtinchi — sakson, “EIGH-ty”. To‘rttasini topgan bo‘lsangiz, qulog‘ingiz yaxshi ishlayapti. Xato qilsangiz, yuqoridagi uchta juftlikni yana bir bor tinglang.",
+   "say": "Thirty. Fourteen. Fifteen. Eighty.",
+   "say_uz": "30. 14. 15. 80.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Murakkab sonlar: 21–99",
+   "emotion": "neutral",
+   "board": [
+    "21 twenty-one",
+    "35 thirty-five",
+    "99 ninety-nine"
+   ],
+   "examples": [],
+   "say_native": "Yigirma birdan to‘qson to‘qqizgacha sonlar xuddi o‘zbekchadagidek yasaladi: avval o‘nlik, keyin birlik. Yigirma bir — “twenty-one”, o‘ttiz besh — “thirty-five”, to‘qson to‘qqiz — “ninety-nine”. Yozganda ular orasiga chiziqcha qo‘yiladi.",
+   "say": "Twenty-one. Thirty-five. Forty-two. Sixty-seven. Ninety-nine.",
+   "say_uz": "21. 35. 42. 67. 99.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sonlarni o‘qing",
+   "emotion": "encouraging",
+   "board": [
+    "24 · 38 · 47 · 56 · 73 · 91"
+   ],
+   "examples": [],
+   "say_native": "Ekrandagi oltita sonni inglizcha o‘qing. Shoshilmang: avval o‘nlikni, keyin birlikni ayting.",
+   "say": "Read the numbers on the screen.",
+   "say_uz": "Ekrandagi sonlarni o‘qing.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "24 twenty-four  38 thirty-eight",
+    "47 forty-seven  56 fifty-six",
+    "73 seventy-three  91 ninety-one"
+   ],
+   "examples": [],
+   "say_native": "Tekshiramiz: twenty-four, thirty-eight, forty-seven, fifty-six, seventy-three, ninety-one. “Forty” ni “for-ty” deb, “U” siz yozish va aytishni yana bir bor eslang.",
+   "say": "Twenty-four. Thirty-eight. Forty-seven. Fifty-six. Seventy-three. Ninety-one.",
+   "say_uz": "24. 38. 47. 56. 73. 91.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yoshni aytish",
+   "emotion": "thinking",
+   "board": [
+    "How old are you?",
+    "I'm 25. / I'm 25 years old.",
+    "✗ I have 25 years."
+   ],
+   "examples": [
+    {
+     "t": "How old are you?",
+     "uz": "Necha yoshdasiz?"
+    },
+    {
+     "t": "I'm twenty-five years old.",
+     "uz": "Men yigirma besh yoshdaman."
+    }
+   ],
+   "say_native": "Endi yosh. Savol: “How old are you?” — so‘zma-so‘z “qanchalik qarisiz?”, lekin ma’nosi “necha yoshdasiz?”. Javob “to be” fe’li bilan: “I’m twenty-five” yoki to‘liqroq “I’m twenty-five years old.” Faqat “years” deb tugatib bo‘lmaydi: “I’m twenty-five years” — xato. Yoki faqat son, yoki “years old”.",
+   "say": "How old are you? I'm twenty-five. I'm twenty-five years old.",
+   "say_uz": "Necha yoshdasiz? Yigirma beshdaman. Men yigirma besh yoshdaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "I have 25 years — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ I have 25 years.",
+    "✗ I'm 25 years.",
+    "✓ I'm 25. / I'm 25 years old."
+   ],
+   "examples": [],
+   "say_native": "Ruscha “мне двадцать пять лет” yoki boshqa tillar ta’sirida ko‘pchilik “I have twenty-five years” deydi. Ingliz tilida yosh “have” bilan emas, faqat “am”, “is”, “are” bilan aytiladi. Boshqa odam haqida: “He’s ten” — u o‘n yoshda, “My mother is fifty-two” — onam ellik ikki yoshda.",
+   "say": "Not: I have twenty-five years. Say: I'm twenty-five. My mother is fifty-two.",
+   "say_uz": "I have 25 years emas. I'm 25 deng. Onam 52 yoshda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yoshingizni ayting",
+   "emotion": "encouraging",
+   "board": [
+    "I'm ___ (years old).",
+    "My father is ___. My sister is ___."
+   ],
+   "examples": [],
+   "say_native": "Endi siz ayting: necha yoshdasiz? Keyin oilangizdan ikki kishining yoshini ayting. Masalan: “I’m nineteen. My father is forty-eight. My sister is fifteen.”",
+   "say": "How old are you? How old is your father?",
+   "say_uz": "Necha yoshdasiz? Otangiz necha yoshda?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Telefon raqamini aytish",
+   "emotion": "neutral",
+   "board": [
+    "90 123 45 67",
+    "nine-oh, one-two-three, four-five, six-seven"
+   ],
+   "examples": [],
+   "say_native": "Telefon raqamini ingliz tilida qanday aytamiz? O‘zbekchada ko‘pincha “to‘qson, bir yuz yigirma uch” deymiz. Ingliz tilida esa telefon raqami har bir raqam alohida aytiladi va guruhlar orasida qisqa to‘xtaladi. To‘qson — “nine, oh”, keyin “one, two, three”, keyin “four, five”, “six, seven”.",
+   "say": "My number is nine-oh, one-two-three, four-five, six-seven.",
+   "say_uz": "Mening raqamim 90 123 45 67.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Oh va double",
+   "emotion": "thinking",
+   "board": [
+    "0 → oh (telefon) / zero",
+    "44 → double four",
+    "555 → five-five-five"
+   ],
+   "examples": [],
+   "say_native": "Ikkita odat bor. Birinchisi: telefon raqamida nol ko‘pincha “oh” deb aytiladi, xuddi O harfi kabi. “Zero” deyish ham xato emas. Ikkinchisi: ketma-ket ikkita bir xil raqam bo‘lsa, Britaniyada ko‘pincha “double” deyishadi: qirq to‘rt emas, “double four”. Uchta bir xil raqamni esa alohida aytgan ma’qul: “five, five, five”.",
+   "say": "Oh-seven-seven, double four. Or: zero, seven, seven, four, four.",
+   "say_uz": "0-7-7, 4-4. Yoki: nol, yetti, yetti, to‘rt, to‘rt.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Raqam so‘rash dialogi",
+   "emotion": "happy",
+   "board": [
+    "What's your phone number?",
+    "It's 93 508 22 16.",
+    "Sorry, can you repeat that?"
+   ],
+   "examples": [
+    {
+     "t": "Can you repeat that, please?",
+     "uz": "Takrorlay olasizmi, iltimos?"
+    }
+   ],
+   "say_native": "Dialogni tinglang. Bir kishi raqam so‘raydi, ikkinchisi aytadi, keyin birinchisi eshitmay qolgan joyini qayta so‘raydi. “What’s your phone number?” — telefon raqamingiz qanday? “Sorry, can you repeat that?” — kechirasiz, takrorlay olasizmi? Bu ibora sizga ham juda kerak bo‘ladi.",
+   "say": "What's your phone number? It's nine-three, five-oh-eight, double two, one-six. Sorry, can you repeat that? Nine-three, five-oh-eight, double two, one-six. Thanks!",
+   "say_uz": "Telefon raqamingiz qanday? 93 508 22 16. Kechirasiz, takrorlay olasizmi? 93 508 22 16. Rahmat!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Raqamni yozib oling",
+   "emotion": "encouraging",
+   "board": [
+    "__ ___ __ __"
+   ],
+   "examples": [],
+   "say_native": "Endi siz yozib olasiz. Bir raqam aytiladi, uni daftaringizga yozing. “Oh” va “double” ga e’tibor bering.",
+   "say": "Please write down this number: nine-seven, three-oh-one, double eight, four-five.",
+   "say_uz": "Bu raqamni yozib oling.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javob",
+   "emotion": "proud",
+   "board": [
+    "97 301 88 45"
+   ],
+   "examples": [],
+   "say_native": "To‘g‘ri javob: to‘qson yetti, uch yuz bir, sakson sakkiz, qirq besh. “Oh” — bu nol, “double eight” — ikkita sakkiz. Shunday yozgan bo‘lsangiz, barakalla!",
+   "say": "Nine-seven, three-oh-one, double eight, four-five.",
+   "say_uz": "97 301 88 45.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "O‘z raqamingizni ayting",
+   "emotion": "encouraging",
+   "board": [
+    "My phone number is ___."
+   ],
+   "examples": [],
+   "say_native": "Endi o‘zingizning telefon raqamingizni inglizcha ayting. Har bir raqamni alohida, guruhlar orasida qisqa to‘xtab. Agar raqamingizni aytishni istamasangiz, xayoliy raqam o‘ylab toping.",
+   "say": "What's your phone number?",
+   "say_uz": "Telefon raqamingiz qanday?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Narxni so‘rash",
+   "emotion": "neutral",
+   "board": [
+    "How much is it?",
+    "It's 15 dollars. ($15)",
+    "How much are they?"
+   ],
+   "examples": [
+    {
+     "t": "How much is this bag?",
+     "uz": "Bu sumka qancha turadi?"
+    }
+   ],
+   "say_native": "Sonlar do‘konda juda kerak. Narx so‘rash: “How much is it?” — bu qancha turadi? Ko‘p narsa haqida: “How much are they?” Javob: “It’s fifteen dollars” — o‘n besh dollar. Narxlarni eshitganda ham “fifteen” va “fifty” farqiga ehtiyot bo‘ling. Ishonchingiz komil bo‘lmasa, qayta so‘rang: “Fifteen or fifty?”",
+   "say": "How much is this bag? It's fifteen dollars. Sorry, fifteen or fifty? Fifteen.",
+   "say_uz": "Bu sumka qancha? 15 dollar. Kechirasiz, 15 mi yoki 50 mi? 15.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Dollar va sent",
+   "emotion": "thinking",
+   "board": [
+    "$4.50 → four dollars fifty / four fifty",
+    "£12.99 → twelve pounds ninety-nine / twelve ninety-nine"
+   ],
+   "examples": [],
+   "say_native": "Narxda nuqtadan keyingi qism sent yoki pens bo‘ladi. To‘rt dollar ellik sentni to‘liq aytsa “four dollars fifty”, qisqacha esa “four fifty” deyishadi. Angliyada pul birligi funt — “pound”: “twelve pounds ninety-nine” yoki qisqasi “twelve ninety-nine”. Kundalik hayotda qisqa shakl ko‘proq ishlatiladi.",
+   "say": "That's four fifty, please. It's twelve ninety-nine.",
+   "say_uz": "To‘rt ellik bo‘ladi. O‘n ikki to‘qson to‘qqiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Narxlarni o‘qing",
+   "emotion": "encouraging",
+   "board": [
+    "$13 · $30 · $7.50 · $64"
+   ],
+   "examples": [],
+   "say_native": "Ekrandagi to‘rtta narxni ayting. O‘n uch bilan o‘ttizni urg‘u bilan farqlang.",
+   "say": "Read the prices.",
+   "say_uz": "Narxlarni o‘qing.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "thirteen dollars · thirty dollars",
+    "seven fifty · sixty-four dollars"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “thirteen dollars”, “thirty dollars” — birinchisida urg‘u oxirida, ikkinchisida boshida. “Seven fifty” yoki “seven dollars fifty”. Va “sixty-four dollars”.",
+   "say": "Thirteen dollars. Thirty dollars. Seven fifty. Sixty-four dollars.",
+   "say_uz": "13 dollar. 30 dollar. 7,50. 64 dollar.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yuzdan keyin: kichik qadam",
+   "emotion": "neutral",
+   "board": [
+    "100 one hundred",
+    "101 one hundred and one (UK)",
+    "250 two hundred and fifty"
+   ],
+   "examples": [],
+   "say_native": "Yuzdan katta sonlarni keyingi darslarda chuqurroq o‘rganamiz, hozircha bitta qoida yetarli. Britaniyada yuzdan keyin “and” qo‘shiladi: “one hundred and one” — bir yuz bir, “two hundred and fifty” — ikki yuz ellik. Amerikada “and” ko‘pincha tushirib qoldiriladi. Va “hundred” so‘zi ko‘plikda ham “s” olmaydi: “two hundred”, “two hundreds” emas.",
+   "say": "One hundred and one. Two hundred and fifty.",
+   "say_uz": "Bir yuz bir. Ikki yuz ellik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Sonlardagi tipik xatolar",
+   "emotion": "stern",
+   "board": [
+    "✗ fourty → ✓ forty",
+    "✗ two hundreds → ✓ two hundred",
+    "✗ I have 20 years → ✓ I'm 20"
+   ],
+   "examples": [],
+   "say_native": "Sonlardagi tipik xatolarni jamlaymiz. Birinchi: “forty” ni U bilan yozish. Ikkinchi: “two hundreds” deyish. Uchinchi: “I have twenty years”. To‘rtinchi: “thirteen” bilan “thirty” ni bir xil aytish. Va beshinchi: “three” ni “tri” yoki “sri” deyish — til tishlar orasida bo‘lishi kerak.",
+   "say": "Forty. Two hundred. I'm twenty. Thirteen, thirty. Three.",
+   "say_uz": "Qirq. Ikki yuz. Men yigirma yoshdaman. 13, 30. Uch.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: ro‘yxatdan o‘tish",
+   "emotion": "happy",
+   "board": [
+    "Name? Age? Phone?"
+   ],
+   "examples": [],
+   "say_native": "Endi uzunroq dialog. Bir yigit sport zalida ro‘yxatdan o‘tyapti. Xodim uning ismi, yoshi va telefon raqamini so‘raydi. Tinglang va uchta ma’lumotni yozib oling.",
+   "say": "Hello! I'd like to join the gym. Sure. What's your name? Bobur Aliyev. How old are you, Bobur? I'm nineteen. And what's your phone number? It's nine-nine, four-oh-two, seven-seven, one-three. Great. It's thirty dollars a month. Thirty? Yes, thirty.",
+   "say_uz": "Salom! Sport zaliga yozilmoqchiman. Albatta. Ismingiz? Bobur Aliyev. Necha yoshdasiz, Bobur? O‘n to‘qqizda. Telefon raqamingiz? 99 402 77 13. Zo‘r. Oyiga o‘ttiz dollar. O‘ttiz? Ha, o‘ttiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savollarga javob bering",
+   "emotion": "encouraging",
+   "board": [
+    "1) How old is Bobur?",
+    "2) What's his phone number?",
+    "3) How much is the gym?"
+   ],
+   "examples": [],
+   "say_native": "Savollar: Bobur necha yoshda? Uning telefon raqami qanday? Sport zali oyiga qancha turadi? Javoblarni yozing.",
+   "say": "How old is Bobur? What's his phone number? How much is the gym?",
+   "say_uz": "Bobur necha yoshda? Telefon raqami? Zal qancha turadi?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) 19",
+    "2) 99 402 77 13",
+    "3) $30 a month"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Bobur o‘n to‘qqiz yoshda — “nineteen”, “ninety” emas. Raqami: to‘qson to‘qqiz, to‘rt yuz ikki, yetmish yetti, o‘n uch. Zal oyiga o‘ttiz dollar. Bobur ham “thirty” ni aniqlashtirib so‘radi — bu juda to‘g‘ri odat.",
+   "say": "He's nineteen. His number is nine-nine, four-oh-two, seven-seven, one-three. The gym is thirty dollars a month.",
+   "say_uz": "U o‘n to‘qqizda. Raqami 99 402 77 13. Zal oyiga o‘ttiz dollar.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tez hisob",
+   "emotion": "encouraging",
+   "board": [
+    "5 + 7 = ?",
+    "20 + 13 = ?",
+    "50 − 6 = ?"
+   ],
+   "examples": [],
+   "say_native": "Miya uchun mashq: oddiy hisob-kitobni inglizcha ayting. “Plus” — qo‘shish, “minus” — ayirish, “is” yoki “equals” — teng. Masalan: “Five plus seven is twelve.”",
+   "say": "Five plus seven is? Twenty plus thirteen is? Fifty minus six is?",
+   "say_uz": "5 + 7? 20 + 13? 50 − 6?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "twelve · thirty-three · forty-four"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: o‘n ikki — “twelve”. O‘ttiz uch — “thirty-three”. Qirq to‘rt — “forty-four”. Inglizcha hisoblash sonlarni tezroq eslab qolishga yordam beradi, buni har kuni bir necha daqiqa qilib turing.",
+   "say": "Five plus seven is twelve. Twenty plus thirteen is thirty-three. Fifty minus six is forty-four.",
+   "say_uz": "5 + 7 = 12. 20 + 13 = 33. 50 − 6 = 44.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Xona, avtobus, reys raqamlari",
+   "emotion": "neutral",
+   "board": [
+    "Room 205 → room two-oh-five",
+    "Bus 12 → bus number twelve",
+    "Flight 381 → flight three-eight-one"
+   ],
+   "examples": [
+    {
+     "t": "Your room is two-oh-five.",
+     "uz": "Xonangiz 205."
+    }
+   ],
+   "say_native": "Telefon raqamidan tashqari ham ko‘p raqamlar alohida-alohida aytiladi. Mehmonxona xonasi ikki yuz beshni ko‘pincha “two-oh-five” deyishadi. Reys raqami ham shunday: “flight three-eight-one”. Avtobus raqami esa oddiy son kabi aytiladi: “bus number twelve”. Bu iboralar safarda juda kerak bo‘ladi.",
+   "say": "Your room is two-oh-five. Take bus number twelve. Flight three-eight-one to London is boarding now.",
+   "say_uz": "Xonangiz 205. 12-avtobusga chiqing. Londonga 381-reys uchun chiqish boshlandi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Raqamlarni ayting",
+   "emotion": "encouraging",
+   "board": [
+    "Room 314",
+    "Bus 27",
+    "Flight 506"
+   ],
+   "examples": [],
+   "say_native": "Ekrandagi uchta raqamni safardagidek ayting: xona raqami, avtobus raqami va reys raqami.",
+   "say": "Say the room number, the bus number and the flight number.",
+   "say_uz": "Xona, avtobus va reys raqamini ayting.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "room three-one-four",
+    "bus number twenty-seven",
+    "flight five-oh-six"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: xona — “three-one-four”. Avtobus — “number twenty-seven”. Reys — “five-oh-six”, bu yerda ham nol “oh” deb aytiladi.",
+   "say": "Room three-one-four. Bus number twenty-seven. Flight five-oh-six.",
+   "say_uz": "314-xona. 27-avtobus. 506-reys.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikki-ikkidan, beshta-beshtadan",
+   "emotion": "encouraging",
+   "board": [
+    "2, 4, 6 … 20",
+    "5, 10, 15 … 100"
+   ],
+   "examples": [],
+   "say_native": "Sonlarni avtomatik aytish uchun sanash mashqi. Avval ikkidan yigirmagacha ikki-ikkidan sanang. Keyin beshdan yuzgacha beshta-beshtadan sanang. Tezlikka emas, to‘g‘rilikka e’tibor bering.",
+   "say": "Count in twos to twenty. Then count in fives to one hundred.",
+   "say_uz": "Yigirmagacha ikkitalab, keyin yuzgacha beshtalab sanang.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "example",
+   "title": "Kafeda: narxlar",
+   "emotion": "happy",
+   "board": [
+    "coffee? sandwich? total?"
+   ],
+   "examples": [],
+   "say_native": "Yana bir tinglash mashqi, bu safar kafeda. Mijoz kofe va sendvich buyuradi. Tinglang va har birining narxini hamda jami summani yozib oling.",
+   "say": "Hi, a coffee and a sandwich, please. Sure. The coffee is three fifty and the sandwich is six dollars. So that's nine fifty, please. Here you are. Thank you!",
+   "say_uz": "Salom, bitta kofe va bitta sendvich, iltimos. Albatta. Kofe uch ellik, sendvich olti dollar. Jami to‘qqiz ellik. Marhamat. Rahmat!",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "coffee $3.50",
+    "sandwich $6",
+    "total $9.50"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: kofe uch dollar ellik sent — “three fifty”. Sendvich olti dollar. Jami to‘qqiz dollar ellik sent — “nine fifty”. “Here you are” — marhamat, pulni yoki biror narsani uzatganda aytiladi.",
+   "say": "Coffee: three fifty. Sandwich: six dollars. Total: nine fifty.",
+   "say_uz": "Kofe 3,50. Sendvich 6 dollar. Jami 9,50.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Hammasi birga",
+   "emotion": "encouraging",
+   "board": [
+    "My name is ___.",
+    "I'm ___ years old.",
+    "My phone number is ___.",
+    "My favourite number is ___."
+   ],
+   "examples": [],
+   "say_native": "Yakuniy mashq. Ekrandagi to‘rt jumlani o‘zingiz haqingizda to‘ldirib ayting: ismingiz, yoshingiz, telefon raqamingiz va eng yoqtirgan soningiz.",
+   "say": "Tell me about you: name, age, phone number and favourite number.",
+   "say_uz": "O‘zingiz haqingizda ayting: ism, yosh, telefon raqam va sevimli son.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "0–20 · -teen / -ty · 21–99",
+    "How old are you? I'm 25.",
+    "Phone: nine-oh, double four",
+    "How much is it?"
+   ],
+   "examples": [],
+   "say_native": "Xulosa. Noldan yuzgacha sanashni o‘rgandik: o‘n uchdan o‘n to‘qqizgacha “-teen”, o‘nliklar “-ty” bilan yasaladi. “-teen” da urg‘u oxirida, “-ty” da boshida. Yoshni “I’m twenty-five” deb aytamiz, “have” bilan emas. Telefon raqami raqamma-raqam aytiladi, nol — “oh”, ikkita bir xil raqam — “double”. Narxni “How much is it?” deb so‘raymiz.",
+   "say": "Well done! Now you can count to one hundred and talk about age, phone numbers and prices.",
+   "say_uz": "Barakalla! Endi yuzgacha sanay olasiz, yosh, telefon raqam va narx haqida gapira olasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "1) Age + phone number + 3 prices",
+    "2) Write 13–19 and 30, 40, 50 in words"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. Birinchi: ovoz yozib oling — yoshingiz, telefon raqamingiz va uyingizdagi uchta narsaning taxminiy narxi. Masalan: “My phone is about two hundred dollars.” Ikkinchi: o‘n uchdan o‘n to‘qqizgacha va o‘ttiz, qirq, ellikni so‘z bilan yozing. Tekshiring: “forty” da U yo‘q, “eighteen” da bitta T. Keyingi darsda o‘zingiz va oilangiz haqida gapirishni o‘rganamiz. Ko‘rishguncha!",
+   "say": "See you in the next lesson. Bye!",
+   "say_uz": "Keyingi darsda ko‘rishamiz. Xayr!",
+   "practice_seconds": 0
+  }
  ],
  "homework_uz": "1) Ovoz yozing: yoshingiz, telefon raqamingiz va uchta narsaning narxi. 2) 13–19 sonlarini hamda 30, 40, 50 ni so‘z bilan yozing. Mezon: I'm + yosh (have emas), telefon raqami raqamma-raqam, forty U siz, eighteen bitta T bilan, -teen va -ty urg‘usi farqli.",
  "quiz": [
-  { "q": "How do you write 40?", "options": ["fourty", "forty", "fourteen", "forteen"], "answer": 1, "why_uz": "Qirq — forty, U harfisiz. Fourteen — o‘n to‘rt." },
-  { "q": "Where is the stress in 13?", "options": ["THIR-teen", "thir-TEEN", "no stress", "on both"], "answer": 1, "why_uz": "-teen li sonlarda urg‘u oxirgi bo‘g‘inda: thir-TEEN." },
-  { "q": "Choose the correct answer to “How old are you?”", "options": ["I have 20 years.", "I'm 20 years.", "I'm 20 years old.", "My age have 20."], "answer": 2, "why_uz": "Yosh to be bilan: I'm 20 yoki I'm 20 years old." },
-  { "q": "In a phone number, 0 is often said as:", "options": ["oh", "null", "nothing", "zeroes"], "answer": 0, "why_uz": "Telefon raqamida nol ko‘pincha “oh” deb aytiladi." },
-  { "q": "How can you say 44 in a British phone number?", "options": ["forty-four", "double four", "four four four", "fourty-four"], "answer": 1, "why_uz": "Ikkita bir xil raqam — double four." },
-  { "q": "How do you ask about price?", "options": ["How many is it?", "How much is it?", "What cost?", "How price?"], "answer": 1, "why_uz": "Narx: How much is it? / How much are they?" },
-  { "q": "Which number is “fifty”?", "options": ["15", "50", "55", "5"], "answer": 1, "why_uz": "Fifty — 50, fifteen — 15." },
-  { "q": "250 in British English:", "options": ["two hundreds fifty", "two hundred and fifty", "twenty-fifty", "two hundred fiveteen"], "answer": 1, "why_uz": "Hundred ko‘plikda s olmaydi, Britaniyada and qo‘shiladi: two hundred and fifty." },
-  { "q": "How do you spell 18?", "options": ["eightteen", "eighteen", "eighten", "aiteen"], "answer": 1, "why_uz": "Eighteen — bitta T bilan." },
-  { "q": "You didn't hear the number. What do you say?", "options": ["Sorry, can you repeat that?", "Good night.", "How old are you?", "Nice to meet you."], "answer": 0, "why_uz": "Qayta so‘rash: Sorry, can you repeat that?" }
+  {
+   "q": "How do you write 40?",
+   "options": [
+    "fourty",
+    "forty",
+    "fourteen",
+    "forteen"
+   ],
+   "answer": 1,
+   "why_uz": "Qirq — forty, U harfisiz. Fourteen — o‘n to‘rt."
+  },
+  {
+   "q": "Where is the stress in 13?",
+   "options": [
+    "THIR-teen",
+    "thir-TEEN",
+    "no stress",
+    "on both"
+   ],
+   "answer": 1,
+   "why_uz": "-teen li sonlarda urg‘u oxirgi bo‘g‘inda: thir-TEEN."
+  },
+  {
+   "q": "Choose the correct answer to “How old are you?”",
+   "options": [
+    "I have 20 years.",
+    "I'm 20 years.",
+    "I'm 20 years old.",
+    "My age have 20."
+   ],
+   "answer": 2,
+   "why_uz": "Yosh to be bilan: I'm 20 yoki I'm 20 years old."
+  },
+  {
+   "q": "In a phone number, 0 is often said as:",
+   "options": [
+    "oh",
+    "null",
+    "nothing",
+    "zeroes"
+   ],
+   "answer": 0,
+   "why_uz": "Telefon raqamida nol ko‘pincha “oh” deb aytiladi."
+  },
+  {
+   "q": "How can you say 44 in a British phone number?",
+   "options": [
+    "forty-four",
+    "double four",
+    "four four four",
+    "fourty-four"
+   ],
+   "answer": 1,
+   "why_uz": "Ikkita bir xil raqam — double four."
+  },
+  {
+   "q": "How do you ask about price?",
+   "options": [
+    "How many is it?",
+    "How much is it?",
+    "What cost?",
+    "How price?"
+   ],
+   "answer": 1,
+   "why_uz": "Narx: How much is it? / How much are they?"
+  },
+  {
+   "q": "Which number is “fifty”?",
+   "options": [
+    "15",
+    "50",
+    "55",
+    "5"
+   ],
+   "answer": 1,
+   "why_uz": "Fifty — 50, fifteen — 15."
+  },
+  {
+   "q": "250 in British English:",
+   "options": [
+    "two hundreds fifty",
+    "two hundred and fifty",
+    "twenty-fifty",
+    "two hundred fiveteen"
+   ],
+   "answer": 1,
+   "why_uz": "Hundred ko‘plikda s olmaydi, Britaniyada and qo‘shiladi: two hundred and fifty."
+  },
+  {
+   "q": "How do you spell 18?",
+   "options": [
+    "eightteen",
+    "eighteen",
+    "eighten",
+    "aiteen"
+   ],
+   "answer": 1,
+   "why_uz": "Eighteen — bitta T bilan."
+  },
+  {
+   "q": "You didn't hear the number. What do you say?",
+   "options": [
+    "Sorry, can you repeat that?",
+    "Good night.",
+    "How old are you?",
+    "Nice to meet you."
+   ],
+   "answer": 0,
+   "why_uz": "Qayta so‘rash: Sorry, can you repeat that?"
+  }
  ]
 }

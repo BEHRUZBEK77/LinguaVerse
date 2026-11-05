@@ -162,7 +162,7 @@
     /* Panjara ko'rinishi — til va qiziqish tanlash uchun */
     .opts.grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
       gap: 10px;
     }
 
@@ -333,7 +333,7 @@
     @media (max-width: 560px) {
       .q-title { font-size: 23px; }
       main { padding: 28px 16px 130px; }
-      .opts.grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+      .opts.grid { grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr)); }
     }
   </style>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

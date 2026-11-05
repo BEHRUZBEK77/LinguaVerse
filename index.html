@@ -301,7 +301,7 @@
     /* ── TILLAR ── */
     .langs {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(178px, 100%), 1fr));
       gap: 13px;
     }
 
@@ -320,7 +320,7 @@
     .lang-meta { font-size: 13px; color: var(--muted); }
 
     /* ── AI MODELLAR ── */
-    .models { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 13px; }
+    .models { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 13px; }
 
     .model {
       background: var(--surface);
@@ -366,7 +366,7 @@
     .model-plan b { color: var(--text); }
 
     /* ── IMKONIYATLAR ── */
-    .feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 13px; }
+    .feats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(268px, 100%), 1fr)); gap: 13px; }
 
     .feat {
       background: var(--surface);
@@ -382,7 +382,7 @@
     /* ── REJALAR ── */
     .plans {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(255px, 100%), 1fr));
       gap: 15px;
       align-items: stretch;
     }
@@ -467,7 +467,7 @@
     .per-tab.on { background: rgba(79, 110, 247, .12); border-color: rgba(79, 110, 247, .35); color: var(--accent); }
 
     /* To'lov shartlari kartochkalari */
-    .bill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 16px; }
+    .bill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 14px; margin-top: 16px; }
     .bill-item { display: flex; gap: 11px; align-items: flex-start; }
     .bill-item > i { color: var(--accent); font-size: 15px; margin-top: 3px; flex-shrink: 0; }
     .bill-item b { display: block; font-size: 13.5px; margin-bottom: 3px; }
@@ -488,7 +488,7 @@
     .dash { opacity: .4; }
 
     /* ── QADAMLAR ── */
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 26px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 26px; }
     .step { text-align: center; }
 
     .step-n {
@@ -564,7 +564,7 @@
       .stats { grid-template-columns: repeat(2, 1fr); }
       .hero { padding: 54px 0 50px; }
       section { padding: 56px 0; }
-      .hero-btns .btn { flex: 1; min-width: 145px; }
+      .hero-btns .btn { flex: 1; min-width: min(145px, 100%); }
     }
 
     [dir="rtl"] .nav-links { margin-left: 0; margin-right: 18px; }
@@ -682,6 +682,19 @@
       padding: 2px 6px;
       border-radius: 5px;
       font-size: 13px;
+    }
+  
+    /* Juda tor ekranlar (Galaxy Fold 280px va undan kichik) */
+    @media (max-width: 330px) {
+      .nav-in { padding-left: 10px; padding-right: 10px; gap: 6px; }
+      .logo { font-size: 16px; }
+      .nav-right { gap: 5px; }
+      .nav-right .icon-btn { width: 32px; height: 32px; }
+      #themeBtn { display: none; }
+      .hero-btns { flex-wrap: wrap; }
+      .hero-btns .btn { flex: 1 1 100%; }
+      h1 { font-size: clamp(26px, 10vw, 40px); }
+      .btn { max-width: 100%; white-space: normal; text-align: center; padding-left: 14px; padding-right: 14px; }
     }
   </style>
   <!-- Google Fonts: render-blocking bo'lmasin — fon rejimida yuklanadi -->

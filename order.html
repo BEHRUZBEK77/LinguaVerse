@@ -26,7 +26,7 @@
     .head h1 { font-size: clamp(1.8rem, 5vw, 2.7rem); font-weight: 800; margin-bottom: 10px; }
     .head h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .head p { color: var(--muted); font-size: 0.92rem; }
-    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-bottom: 44px; }
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 18px; margin-bottom: 44px; }
     .plan { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 26px; position: relative; transition: all .25s; cursor: pointer; }
     .plan:hover { transform: translateY(-4px); }
     .plan.sel { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 18px 50px rgba(79,110,247,0.22); }

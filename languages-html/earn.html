@@ -28,7 +28,7 @@
     .card h2 { font-family: var(--font-head); font-size: .95rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
 
     /* Balans kartochkalari */
-    .bal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .bal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr)); gap: 12px; }
     .bal { border-radius: 14px; padding: 18px; border: 1px solid var(--border); }
     .bal.money { background: linear-gradient(135deg, rgba(52,211,153,.14), rgba(52,211,153,.04)); border-color: rgba(52,211,153,.3); }
     .bal.coin { background: linear-gradient(135deg, rgba(245,200,66,.12), rgba(245,200,66,.03)); border-color: rgba(245,200,66,.25); }
@@ -41,7 +41,7 @@
     /* Referal havola */
     .ref-link { display: flex; gap: 8px; margin-top: 4px; }
     .ref-link input { flex: 1; padding: 12px 14px; border-radius: 11px; background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-size: .82rem; font-family: var(--font-body); }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px; margin-top: 16px; }
     .step { display: flex; gap: 10px; align-items: flex-start; }
     .step .num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: var(--card-accent); border: 1px solid var(--border-hi); color: var(--accent); display: grid; place-items: center; font-weight: 700; font-size: .82rem; }
     .step b { display: block; font-size: .84rem; margin-bottom: 2px; }

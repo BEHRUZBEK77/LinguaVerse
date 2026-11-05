@@ -493,7 +493,7 @@
     /* GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(min(185px, 100%), 1fr));
       gap: 16px
     }
 
@@ -2500,7 +2500,7 @@
       }
 
       .grid {
-        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr))
+        grid-template-columns: repeat(auto-fill, minmax(min(155px, 100%), 1fr))
       }
     }
 

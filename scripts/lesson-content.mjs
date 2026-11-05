@@ -82,27 +82,31 @@ function toDoc({ native, lang, level, idx, cefr, L }) {
   };
 }
 
-const lessons = loadAll();
-// Diktor matni: ssenariylar/<native>/<Ingliz tili>/001-dars.txt — faqat o'qiladigan matn
-for (const x of lessons) {
-  const dir = path.join(ROOT, 'ssenariylar', x.native, LANG_UZ[x.lang] || x.lang);
-  fs.mkdirSync(dir, { recursive: true });
-  const name = `${String(lessonNumber(x.cefr, x.n)).padStart(3, '0')}-dars.txt`;
-  fs.writeFileSync(path.join(dir, name), toPlainText({ lang: x.lang, cefr: x.cefr, idx: x.n, core: x.L }));
-  console.log(`📄 ${x.native}/${x.lang} ${x.id} → ${name} (~${Math.round(toDoc(x).data.estSeconds / 60)} daq video)`);
-}
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();
 
-const sqlIdx = args.indexOf('--sql');
-if (sqlIdx >= 0) {
-  const q = s => '$lv$' + s + '$lv$';
-  const sql = lessons.map(toDoc).map(d =>
-    `insert into public.docs (path, col, parent, data) values (${q(d.path)}, 'courseLessons', '', ${q(JSON.stringify(d.data))}::jsonb)\n` +
-    `on conflict (path) do update set data = excluded.data, version = docs.version + 1, updated_at = now();`
-  ).join('\n');
-  fs.writeFileSync(args[sqlIdx + 1], sql);
-  console.log(`SQL: ${args[sqlIdx + 1]} (${lessons.length} dars)`);
-}
-if (args.includes('--push')) {
-  const fsdb = require(path.join(ROOT, 'netlify/functions/_firestore.js'));
-  for (const d of lessons.map(toDoc)) { await fsdb.setDoc(d.path, { ...d.data, createdAt: new Date() }); console.log('↑', d.path); }
+async function main() {
+  const lessons = loadAll();
+  // Diktor matni: ssenariylar/<native>/<Ingliz tili>/001-dars.txt — faqat o'qiladigan matn
+  for (const x of lessons) {
+    const dir = path.join(ROOT, 'ssenariylar', x.native, LANG_UZ[x.lang] || x.lang);
+    fs.mkdirSync(dir, { recursive: true });
+    const name = `${String(lessonNumber(x.cefr, x.n)).padStart(3, '0')}-dars.txt`;
+    fs.writeFileSync(path.join(dir, name), toPlainText({ lang: x.lang, cefr: x.cefr, idx: x.n, core: x.L }));
+    console.log(`📄 ${x.native}/${x.lang} ${x.id} → ${name} (~${Math.round(toDoc(x).data.estSeconds / 60)} daq video)`);
+  }
+
+  const sqlIdx = args.indexOf('--sql');
+  if (sqlIdx >= 0) {
+    const q = s => '$lv$' + s + '$lv$';
+    const sql = lessons.map(toDoc).map(d =>
+      `insert into public.docs (path, col, parent, data) values (${q(d.path)}, 'courseLessons', '', ${q(JSON.stringify(d.data))}::jsonb)\n` +
+      `on conflict (path) do update set data = excluded.data, version = docs.version + 1, updated_at = now();`
+    ).join('\n');
+    fs.writeFileSync(args[sqlIdx + 1], sql);
+    console.log(`SQL: ${args[sqlIdx + 1]} (${lessons.length} dars)`);
+  }
+  if (args.includes('--push')) {
+    const fsdb = require(path.join(ROOT, 'netlify/functions/_firestore.js'));
+    for (const d of lessons.map(toDoc)) { await fsdb.setDoc(d.path, { ...d.data, createdAt: new Date() }); console.log('↑', d.path); }
+  }
 }

@@ -10,7 +10,7 @@ name: Video (Sado ovoz)
 on:
   push:
     branches: [main]
-    paths: [".github/workflows/videos-sado.yml"]
+    paths: [".github/workflows/videos-sado.yml", "scripts/video-smoke.mjs"]
   schedule:
     - cron: "40 */6 * * *"     # har 6 soatda: yangi yozilgan darslarning videolari
   workflow_dispatch:
@@ -59,6 +59,20 @@ jobs:
           path: ~/.sado-models
           key: sado-models-v1
       - run: bash scripts/tts/fetch-sado-models.sh ~/.sado-models
+
+      - name: Tezkor sinov (faqat 0-bo'lak)
+        if: matrix.shard == 0
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          VIDEO_STORE: ${{ secrets.R2_BUCKET == '' && 'github' || 'r2' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SADO_MODELS: /home/runner/.sado-models
+        run: node scripts/video-smoke.mjs
 
       - name: Videolarni yasash va yuklash
         env:

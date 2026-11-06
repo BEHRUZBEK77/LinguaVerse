@@ -479,7 +479,10 @@ try {
       if (!doc?.core || doc.backend !== 'manual') { console.log(`  ⏭ ${LANG} ${level}#${n + 1}: qo'lda yozilgan dars hali yo'q`); continue; }
       if (doc.videoPath && doc.videoVoice === VOICE_TAG() && !args.force) { console.log(`  ✓ #${i + 1}: video bor`); continue; }
       try { await renderOne(n, browser, baseUrl); }
-      catch (e) { failed.push(i + 1); console.error(`  ❌ #${i + 1}: ${e.message}`); }
+      catch (e) {
+        failed.push(i + 1); console.error(`  ❌ #${i + 1}: ${e.message}`);
+        await fsdb.setDoc(course.lessonPath(LANG, level, n, NATIVE), { videoError: String(e.stack || e.message).slice(0, 900), videoErrorAt: new Date() }).catch(() => {});
+      }
     }
   } else {
     for (const n of lessonList()) {

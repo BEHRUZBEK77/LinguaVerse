@@ -14,14 +14,14 @@ on:
   workflow_dispatch:
     inputs:
       course:
-        description: "Til (english, russian, …)"
-        default: english
+        description: "Til (all, english, russian, …)"
+        default: all
       force:
         description: "Tayyor videolarni ham qayta yasash (true/false)"
         default: "false"
 
 concurrency:
-  group: videos-sado-${{ github.event.inputs.course || 'english' }}
+  group: videos-sado
   cancel-in-progress: false
 
 permissions:
@@ -71,7 +71,7 @@ jobs:
           SADO_MODELS: /home/runner/.sado-models
         run: |
           node scripts/render-lesson-video.mjs \
-            --course "${{ github.event.inputs.course || 'english' }}" \
+            --course "${{ github.event.inputs.course || 'all' }}" \
             --shard "${{ matrix.shard }}/40" \
             --tts sado --native uz --no-recording \
             ${{ github.event.inputs.force == 'true' && '--force' || '' }} \

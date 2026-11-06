@@ -71,3 +71,19 @@ Distractors should come from typical mistakes Uzbek speakers make.
 ## Done when
 - [ ] `node scripts/lesson-check.mjs content/uz/english/<ID>.json` prints ✅ for every lesson you wrote.
 - [ ] You did not edit any other file and did not run git commands.
+
+## Other target languages (russian, spanish, german, turkish, arabic, korean, chinese)
+The course structure, the JSON format and all the rules above stay exactly the same. Only these points change:
+- **File and brief:** `content/uz/<lang>/<ID>.json`; run `node scripts/lesson-brief.mjs <lang> <ID>` and `node scripts/lesson-check.mjs content/uz/<lang>/<ID>.json`.
+- **`say` and `examples[].t`:** written in the target language. They are read by a native TTS voice of that language, so write normal script, not transliteration.
+- **Standard variety:**
+  - Russian: standard Russian.
+  - Spanish: Castilian (Spain), mentioning Latin American differences where they matter.
+  - German: standard Hochdeutsch.
+  - Turkish: standard Istanbul Turkish.
+  - Arabic: Modern Standard Arabic (fusha), with full vowel marks (harakat) on A1–A2 examples.
+  - Chinese: Mandarin in simplified characters, with pinyin with tone marks on the board.
+  - Korean: standard Seoul Korean, with romanization on the board at A1–A2.
+- **Board lines:** show the target script, with a pronunciation hint in brackets where useful at A1–A2.
+- **`say_native` (Uzbek):** explains rules by contrasting them with Uzbek. Turkish is close to Uzbek, so show both the shared and the false-friend words. Russian: many learners already know some, so address the typical Uzbek-speaker errors (cases, aspect, stress).
+- **Accuracy:** the same requirements, adapted to the language. Check every case ending, tone, honorific level, gender, plural form, verb conjugation and writing-system claim. If unsure, leave it out.

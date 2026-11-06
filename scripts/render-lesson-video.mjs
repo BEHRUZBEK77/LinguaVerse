@@ -467,14 +467,16 @@ try {
     const fsdb = require(path.join(ROOT, 'netlify/functions/_firestore.js'));
     const course = require(path.join(ROOT, 'netlify/functions/course.js'));
     const [k, total] = String(args.shard || '0/1').split('/').map(Number);
-    LANG = String(args.course);
-    const all = [...Array(100).keys()].map(n => ['b2', n]).concat([...Array(50).keys()].map(n => ['c2', n]));
+    const cat = await import(pathToFileURL(path.join(ROOT, 'js', 'course-catalog.mjs')).href);
+    const langs = args.course === 'all' ? cat.COURSE_LANGS.map(l => l.id).filter(l => SADO_PIPER[cat.COURSE_LANGS.find(c => c.id === l).locale.slice(0, 2)]) : [String(args.course)];
+    const one = [...Array(100).keys()].map(n => ['b2', n]).concat([...Array(50).keys()].map(n => ['c2', n]));
+    const all = one.flatMap(x => langs.map(l => [l, ...x]));        // tillar aralash: hamma til parallel siljiydi
     for (let i = 0; i < all.length; i++) {
       if (i % total !== k) continue;
-      const [level, n] = all[i];
-      LEVEL = level;
+      const [lang, level, n] = all[i];
+      LANG = lang; LEVEL = level;
       const doc = await fsdb.getDoc(course.lessonPath(LANG, level, n, NATIVE)).catch(() => null);
-      if (!doc?.core || doc.backend !== 'manual') { console.log(`  ⏭ #${i + 1}: qo'lda yozilgan dars hali yo'q`); continue; }
+      if (!doc?.core || doc.backend !== 'manual') { console.log(`  ⏭ ${LANG} ${level}#${n + 1}: qo'lda yozilgan dars hali yo'q`); continue; }
       if (doc.videoPath && doc.videoVoice === VOICE_TAG() && !args.force) { console.log(`  ✓ #${i + 1}: video bor`); continue; }
       try { await renderOne(n, browser, baseUrl); }
       catch (e) { failed.push(i + 1); console.error(`  ❌ #${i + 1}: ${e.message}`); }

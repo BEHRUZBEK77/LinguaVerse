@@ -11,6 +11,8 @@ on:
   push:
     branches: [main]
     paths: [".github/workflows/videos-sado.yml"]
+  schedule:
+    - cron: "40 */6 * * *"     # har 6 soatda: yangi yozilgan darslarning videolari
   workflow_dispatch:
     inputs:
       course:

@@ -74,7 +74,7 @@ function toDoc({ native, lang, level, idx, cefr, L }) {
     path: `courseLessons/v4_${native}_${lang}_${level}_${idx}`,
     data: {
       core: JSON.stringify(core), quiz: JSON.stringify(quiz),
-      partsTotal: 6, partsDone: 6, extraParts: 2,
+      partsTotal: 6, partsDone: 6, extraParts: 0,
       estSeconds: Math.round(course.estimateSeconds(core, CEFR_RATE[cefr] || 1)),
       lang, level, nativeLang: native, n: idx, backend: 'manual', authored: 'manual',
       createdAt: { $t: new Date().toISOString() }

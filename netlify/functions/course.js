@@ -257,7 +257,8 @@ async function ensureLessonStep(lang, level, idx, meta, total, opts = {}) {
   const extra = doc?.extraParts || 0;
   const cur = doc?.core ? JSON.parse(doc.core) : null;
   const short = cur && done >= count + extra && extra < MAX_EXTRA_PARTS && estimateSeconds(cur, CEFR_RATE[meta.cefr] || 1) < LESSON_MINUTES * 60 * 0.85;
-  if (!doc?.core || done < count + extra || short) {
+  const manual = doc?.authored === 'manual';                  // qo'lda yozilgan darsga AI qism qo'shilmaydi
+  if (!manual && (!doc?.core || done < count + extra || short)) {
     const k = short ? count + extra : done;
     const previous = (cur?.scenes || []).map(sc => sc.title).filter(Boolean).slice(-40);
     const r = await think(opts.tier || 'write', [

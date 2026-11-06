@@ -1,0 +1,78 @@
+# ════════════════════════════════════════════════════════════════════════════
+# VIDEO DARSLAR — SADO OVOZI (bepul, erkak ovoz)
+# O'zbekcha tushuntirish: MMS (Sado Studio), chet tildagi namunalar: Piper.
+# Butun kurs (150 dars) 40 ta bo'lakka bo'linib, 20 tagacha parallel yasaladi.
+# Tayyor videolar qayta yasalmaydi — to'xtasa, qayta ishga tushirsangiz davom etadi.
+# Saqlash: R2 kalitlari bo'lsa R2, bo'lmasa GitHub Releases (videos-v1).
+# ════════════════════════════════════════════════════════════════════════════
+name: Video (Sado ovoz)
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/videos-sado.yml"]
+  workflow_dispatch:
+    inputs:
+      course:
+        description: "Til (english, russian, …)"
+        default: english
+      force:
+        description: "Tayyor videolarni ham qayta yasash (true/false)"
+        default: "false"
+
+concurrency:
+  group: videos-sado-${{ github.event.inputs.course || 'english' }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+                20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: ffmpeg, shriftlar, brauzer, ovoz dvigatellari
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-cjk fonts-noto-core
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+          pip install -q onnxruntime numpy piper-tts
+
+      - name: Ovoz modellari (kesh)
+        uses: actions/cache@v4
+        with:
+          path: ~/.sado-models
+          key: sado-models-v1
+      - run: bash scripts/tts/fetch-sado-models.sh ~/.sado-models
+
+      - name: Videolarni yasash va yuklash
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          VIDEO_STORE: ${{ secrets.R2_BUCKET == '' && 'github' || 'r2' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SADO_MODELS: /home/runner/.sado-models
+        run: |
+          node scripts/render-lesson-video.mjs \
+            --course "${{ github.event.inputs.course || 'english' }}" \
+            --shard "${{ matrix.shard }}/40" \
+            --tts sado --native uz --no-recording \
+            ${{ github.event.inputs.force == 'true' && '--force' || '' }} \
+            --out out/videos

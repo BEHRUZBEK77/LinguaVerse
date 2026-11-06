@@ -145,6 +145,13 @@ async function loadLesson(n) {
 
 // ── 2) OVOZ ── (tezlik CEFR darajasiga qarab: A1 sekin, C2 tabiiy)
 const CEFR_RATE = { A1: 0.85, A2: 0.88, B1: 0.92, B2: 0.95, C1: 1, C2: 1 };
+// Sado (Piper) erkak ovozlari; speaker — ko'p diktorli modellarda tanlangan erkak ovoz
+const SADO_PIPER = {
+  en: { model: 'en_US-libritts-high', speaker: 20 }, ru: { model: 'ru_RU-dmitri-medium' },
+  de: { model: 'de_DE-mls-medium', speaker: 0 }, es: { model: 'es_ES-sharvard-medium', speaker: 0 },
+  tr: { model: 'tr_TR-dfki-medium' }, ar: { model: 'ar_JO-kareem-medium' }, zh: { model: 'zh_CN-huayan-medium' }
+};
+const VOICE_TAG = () => TTS === 'sado' ? 'sado-v1' : TTS;
 let RATE = 1;
 async function synth(text, locale, emotion, file) {
   if (TTS === 'windows') {
@@ -152,6 +159,22 @@ async function synth(text, locale, emotion, file) {
     const textFile = file + '.txt';
     fs.writeFileSync(textFile, text, 'utf8');
     sh('powershell.exe', ['-NoProfile', '-File', path.join(ROOT, 'scripts/windows-tts.ps1'), '-TextFile', textFile, '-OutputFile', file, '-Locale', locale]);
+    return file;
+  }
+  if (TTS === 'sado') {
+    // Sado Studio ovozlari: o'zbekcha — MMS (erkak), chet tillar — Piper (erkak diktor)
+    const dir = process.env.SADO_MODELS || path.join(os.homedir(), '.sado-models');
+    const lang2 = String(locale).slice(0, 2);
+    let r;
+    if (lang2 === 'uz') r = spawnSync('python3', [path.join(ROOT, 'scripts/tts/mms.py'), path.join(dir, 'uz-mms'), file], { input: text, encoding: 'utf8' });
+    else {
+      const v = SADO_PIPER[lang2];
+      if (!v) throw new Error(`Sado: ${locale} uchun ovoz yo'q`);
+      const argv = ['-m', 'piper', '-m', path.join(dir, v.model + '.onnx'), '-f', file, '--length-scale', String(+(1 / RATE).toFixed(3))];
+      if (v.speaker != null) argv.push('-s', String(v.speaker));
+      r = spawnSync('python3', argv, { input: text, encoding: 'utf8' });
+    }
+    if (r.status !== 0 || !fs.existsSync(file)) throw new Error('sado ovoz: ' + String(r.stderr || r.error).slice(-400));
     return file;
   }
   if (TTS === 'piper') {
@@ -242,7 +265,7 @@ async function renderOne(n, browser, baseUrl) {
   for (let i = 0; i < renderScenes.length; i++) {
     const sc = renderScenes[i];
     const recFile = recording && sc.nativeSpeech ? recording[renderScenes.slice(0, i).filter(x => x.nativeSpeech).length] : null;
-    const rawFile = recFile || await synth(sc.say, sc.nativeSpeech ? learning.languages[NATIVE].locale : langInfo.locale, sc.emotion, path.join(work, `s${i}.${TTS === 'piper' || TTS === 'windows' ? 'wav' : 'mp3'}`));
+    const rawFile = recFile || await synth(sc.say, sc.nativeSpeech ? learning.languages[NATIVE].locale : langInfo.locale, sc.emotion, path.join(work, `s${i}.${['piper', 'windows', 'sado'].includes(TTS) ? 'wav' : 'mp3'}`));
     const wav = path.join(work, `s${i}n.wav`);
     sh(FFMPEG, ['-v', 'error', '-y', '-i', rawFile, '-ac', '1', '-ar', '44100', '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-c:a', 'pcm_s16le', wav]);
     const d = ffprobeDur(wav);
@@ -315,7 +338,7 @@ async function renderOne(n, browser, baseUrl) {
     const course = require(path.join(ROOT, 'netlify/functions/course.js'));
     const objectName = `courseVideos/v3/${NATIVE}/${LANG}_${LEVEL}_${n}.mp4`;
     await storage.upload(objectName, fs.readFileSync(file), 'video/mp4');
-    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: storage.storedPath(objectName), videoWanted: false, videoDuration: Math.round(duration), videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null });
+    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null });
     await bumpStatus(fsdb, `${LANG}_${LEVEL}`, 1);
     const cefr = L.meta?.cefr;
     if (cefr) await fsdb.transact(`videoFactory/v3_${NATIVE}`, cur => ({ cefr: { ...(cur?.cefr || {}), [`${LANG}_${cefr}`]: ((cur?.cefr || {})[`${LANG}_${cefr}`] || 0) + 1 } })).catch(() => {});
@@ -438,6 +461,24 @@ try {
       }
     }
     await bumpStatus(fsdb, '', 0, { lastRunAt: new Date() });
+  } else if (args.course) {
+    // Butun kurs (150 dars), runnerlar o'rtasida bo'lingan: --course english --shard 3/20
+    args.upload = true;
+    const fsdb = require(path.join(ROOT, 'netlify/functions/_firestore.js'));
+    const course = require(path.join(ROOT, 'netlify/functions/course.js'));
+    const [k, total] = String(args.shard || '0/1').split('/').map(Number);
+    LANG = String(args.course);
+    const all = [...Array(100).keys()].map(n => ['b2', n]).concat([...Array(50).keys()].map(n => ['c2', n]));
+    for (let i = 0; i < all.length; i++) {
+      if (i % total !== k) continue;
+      const [level, n] = all[i];
+      LEVEL = level;
+      const doc = await fsdb.getDoc(course.lessonPath(LANG, level, n, NATIVE)).catch(() => null);
+      if (!doc?.core || doc.backend !== 'manual') { console.log(`  ⏭ #${i + 1}: qo'lda yozilgan dars hali yo'q`); continue; }
+      if (doc.videoPath && doc.videoVoice === VOICE_TAG() && !args.force) { console.log(`  ✓ #${i + 1}: video bor`); continue; }
+      try { await renderOne(n, browser, baseUrl); }
+      catch (e) { failed.push(i + 1); console.error(`  ❌ #${i + 1}: ${e.message}`); }
+    }
   } else {
     for (const n of lessonList()) {
       try { await renderOne(n, browser, baseUrl); }

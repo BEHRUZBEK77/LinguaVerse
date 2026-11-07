@@ -70,7 +70,7 @@ function lessonList() {
 
 function sh(cmd, argv, opts = {}) {
   const r = spawnSync(cmd, argv, { encoding: 'utf8', maxBuffer: 1 << 26, ...opts });
-  if (r.status !== 0) throw new Error(`${cmd} xato: ${(r.stderr || '').slice(-600)}`);
+  if (r.status !== 0) throw new Error(`${cmd} xato: ${r.error ? r.error.message + ' ' : ''}${r.signal ? 'signal ' + r.signal + ' ' : ''}${(r.stderr || '').slice(-600)}`);
   return r.stdout;
 }
 const ffprobeDur = f => Number(sh(FFPROBE, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f]).trim());
@@ -204,7 +204,7 @@ function serve() {
 
 // ── Ovoz balandligi konverti (lip-sync uchun, har kadrga bitta qiymat) ──
 function envelope(wavFile, duration) {
-  const raw = sh(FFMPEG, ['-v', 'error', '-i', wavFile, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'], { encoding: 'buffer' });
+  const raw = sh(FFMPEG, ['-v', 'error', '-i', wavFile, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'], { encoding: 'buffer', maxBuffer: 1 << 28 });   // 35+ daqiqalik trek 64 MB dan oshadi
   const samples = new Int16Array(raw.buffer, raw.byteOffset, Math.floor(raw.length / 2));
   const per = 16000 / FPS;
   const frames = Math.ceil(duration * FPS);

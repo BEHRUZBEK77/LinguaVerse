@@ -47,9 +47,14 @@ function presign({ method = 'GET', host, path, region, keyId, secret, expires = 
 }
 
 // GitHub Releases (R2 bo'lmaganda vaqtinchalik): VIDEO_STORE=github, GITHUB_TOKEN, GITHUB_REPOSITORY
+// Repoda "immutable releases" yoqilgan: e'lon qilingan relizga fayl qo'shib bo'lmaydi.
+// Shuning uchun har bir video o'z relizida: qoralama (draft) → fayl yuklash → e'lon qilish.
+// Saqlangan yo'l: "gh:<tag>#<objectName>". Eski "gh:<objectName>" yozuvlari videos-v1 ga qaraydi.
 const GH_TAG = 'videos-v1';
 const ghRepo = () => process.env.GITHUB_REPOSITORY || process.env.GITHUB_VIDEO_REPO || 'BEHRUZBEK77/LinguaVerse';
 const ghName = objectName => objectName.replace(/\//g, '__');
+const ghTag = (objectName, date = new Date()) =>
+  'vid-' + objectName.replace(/^courseVideos\//, '').replace(/\.mp4$/, '').replace(/[^\w.-]+/g, '-') + '-' + date.toISOString().replace(/\D/g, '').slice(0, 14);
 const provider = () => (process.env.VIDEO_STORE === 'github' ? 'gh' : r2() ? 'r2' : 'gcs');
 
 async function ghUpload(objectName, buffer, contentType) {
@@ -57,26 +62,37 @@ async function ghUpload(objectName, buffer, contentType) {
   if (!token) throw new Error('GITHUB_TOKEN yo\'q');
   const api = `https://api.github.com/repos/${ghRepo()}`;
   const h = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'linguaverse-video' };
-  let rel = await fetch(`${api}/releases/tags/${GH_TAG}`, { headers: h });
-  if (rel.status === 404) rel = await fetch(`${api}/releases`, { method: 'POST', headers: h, body: JSON.stringify({ tag_name: GH_TAG, name: 'LinguaVerse video darslar', body: 'Avtomatik yaratilgan dars videolari.', prerelease: true }) });
-  if (rel.status === 422) rel = await fetch(`${api}/releases/tags/${GH_TAG}`, { headers: h });   // parallel runner yaratib bo'ldi
+  const tag = ghTag(objectName);
+  const rel = await fetch(`${api}/releases`, { method: 'POST', headers: h, body: JSON.stringify({ tag_name: tag, name: `Video: ${objectName.split('/').pop()}`, body: 'Avtomatik yaratilgan dars videosi.', draft: true, prerelease: true, make_latest: 'false' }) });
   if (!rel.ok) throw new Error(`GitHub release: ${rel.status} ${(await rel.text()).slice(0, 200)}`);
   const release = await rel.json();
   const name = ghName(objectName);
-  for (const a of release.assets || []) if (a.name === name) await fetch(`${api}/releases/assets/${a.id}`, { method: 'DELETE', headers: h });
-  const up = await fetch(`https://uploads.github.com/repos/${ghRepo()}/releases/${release.id}/assets?name=${encodeURIComponent(name)}`, { method: 'POST', headers: { ...h, 'Content-Type': contentType }, body: buffer });
-  if (!up.ok) throw new Error(`GitHub yuklash: ${up.status} ${(await up.text()).slice(0, 200)}`);
-  return { name, size: buffer.length, provider: 'gh' };
+  try {
+    const up = await fetch(`https://uploads.github.com/repos/${ghRepo()}/releases/${release.id}/assets?name=${encodeURIComponent(name)}`, { method: 'POST', headers: { ...h, 'Content-Type': contentType }, body: buffer });
+    if (!up.ok) throw new Error(`GitHub yuklash: ${up.status} ${(await up.text()).slice(0, 200)}`);
+    const pub = await fetch(`${api}/releases/${release.id}`, { method: 'PATCH', headers: h, body: JSON.stringify({ draft: false, make_latest: 'false' }) });
+    if (!pub.ok) throw new Error(`GitHub e'lon: ${pub.status} ${(await pub.text()).slice(0, 200)}`);
+  } catch (e) {
+    await fetch(`${api}/releases/${release.id}`, { method: 'DELETE', headers: h }).catch(() => {});   // chala qoralama qolmasin
+    throw e;
+  }
+  return { name, tag, size: buffer.length, provider: 'gh', stored: `gh:${tag}#${objectName}` };
 }
 
 async function upload(objectName, buffer, contentType = 'video/mp4') {
-  if (provider() === 'gh') return ghUpload(objectName, buffer, contentType);
+  if (provider() === 'gh') {
+    // tarmoq uzilishi bo'lsa 3 marta urinadi
+    for (let i = 1; ; i++) {
+      try { return await ghUpload(objectName, buffer, contentType); }
+      catch (e) { if (i >= 3) throw e; await new Promise(r => setTimeout(r, 5000 * i)); }
+    }
+  }
   const c = r2();
   if (!c) return require('./_gcs.js').upload(objectName, buffer, contentType);
   const url = presign({ method: 'PUT', host: c.host, path: `/${c.bucket}/${objectName}`, region: c.region, keyId: c.keyId, secret: c.secret, expires: 900 });
   const r = await fetch(url, { method: 'PUT', headers: { 'Content-Type': contentType }, body: buffer });
   if (!r.ok) throw new Error(`R2 ga yuklanmadi: ${r.status} ${(await r.text().catch(() => '')).slice(0, 200)}`);
-  return { bucket: c.bucket, name: objectName, size: buffer.length, provider: 'r2' };
+  return { bucket: c.bucket, name: objectName, size: buffer.length, provider: 'r2', stored: `r2:${objectName}` };
 }
 
 /** Vaqtinchalik ko'rish havolasi. "r2:" / "gcs:" prefiksi videoning qayerdaligini bildiradi. */
@@ -85,7 +101,11 @@ function signedUrl(storedPath, ttlSec = 3 * 3600) {
   const where = m ? m[1] : 'gcs';                    // eski yozuvlar — Firebase
   const name = m ? m[2] : storedPath;
   if (where === 'gcs') return require('./_gcs.js').signedUrl(name, ttlSec);
-  if (where === 'gh') return `https://github.com/${ghRepo()}/releases/download/${GH_TAG}/${ghName(name)}`;
+  if (where === 'gh') {
+    const hash = name.indexOf('#');
+    const [tag, obj] = hash > 0 ? [name.slice(0, hash), name.slice(hash + 1)] : [GH_TAG, name];
+    return `https://github.com/${ghRepo()}/releases/download/${tag}/${ghName(obj)}`;
+  }
   const c = r2();
   if (!c) throw new Error('R2 sozlanmagan');
   return presign({ method: 'GET', host: c.host, path: `/${c.bucket}/${name}`, region: c.region, keyId: c.keyId, secret: c.secret, expires: Math.min(ttlSec, 604800) });
@@ -94,4 +114,4 @@ function signedUrl(storedPath, ttlSec = 3 * 3600) {
 /** Saqlangan yo'l (dars hujjatiga yoziladi) */
 const storedPath = (objectName, where = provider()) => `${where}:${objectName}`;
 
-module.exports = { upload, signedUrl, storedPath, provider, presign };
+module.exports = { upload, signedUrl, storedPath, provider, presign, ghTag };

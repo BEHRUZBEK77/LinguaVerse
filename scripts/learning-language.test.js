@@ -137,6 +137,18 @@ test('R2 presigned URLs match the official AWS SigV4 test vector and keep paths 
   } finally { process.env = env; }
 });
 
+test('GitHub video storage uses one immutable release per video and resolves its download URL', () => {
+  const st = require('../netlify/functions/_storage.js');
+  const tag = st.ghTag('courseVideos/v3/uz/english_b2_0.mp4', new Date('2026-11-07T02:31:05Z'));
+  assert.equal(tag, 'vid-v3-uz-english_b2_0-20261107023105');
+  const env = { ...process.env };
+  process.env.GITHUB_REPOSITORY = 'o/r';
+  try {
+    assert.equal(st.signedUrl(`gh:${tag}#courseVideos/v3/uz/english_b2_0.mp4`), `https://github.com/o/r/releases/download/${tag}/courseVideos__v3__uz__english_b2_0.mp4`);
+    assert.equal(st.signedUrl('gh:courseVideos/v3/uz/english_b2_0.mp4'), 'https://github.com/o/r/releases/download/videos-v1/courseVideos__v3__uz__english_b2_0.mp4');
+  } finally { process.env = env; }
+});
+
 test('monthly free voice budget stops at the limit and can be disabled for paid plans', async () => {
   const store = new Map();
   const fake = { getDoc: async p => store.get(p) || null, transact: async (p, fn) => { const next = fn(store.get(p) || null); if (next) store.set(p, { ...(store.get(p) || {}), ...next }); } };

@@ -3,14 +3,15 @@
 # O'zbekcha tushuntirish: MMS (Sado Studio), chet tildagi namunalar: Piper.
 # Butun kurs (150 dars) 40 ta bo'lakka bo'linib, 20 tagacha parallel yasaladi.
 # Tayyor videolar qayta yasalmaydi — to'xtasa, qayta ishga tushirsangiz davom etadi.
-# Saqlash: R2 kalitlari bo'lsa R2, bo'lmasa GitHub Releases (videos-v1).
+# Saqlash: R2 kalitlari bo'lsa R2, bo'lmasa GitHub Releases (har video o'z relizida).
+# Avval 3 daqiqalik sinov (smoke): o'tmasa, 40 ta server soatlab bekorga ishlamaydi.
 # ════════════════════════════════════════════════════════════════════════════
 name: Video (Sado ovoz)
 
 on:
   push:
     branches: [main]
-    paths: [".github/workflows/videos-sado.yml", "scripts/video-smoke.mjs"]
+    paths: [".github/workflows/videos-sado.yml", "scripts/video-smoke.mjs", "netlify/functions/_storage.js"]
   schedule:
     - cron: "40 */6 * * *"     # har 6 soatda: yangi yozilgan darslarning videolari
   workflow_dispatch:
@@ -30,7 +31,45 @@ permissions:
   contents: write
 
 jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+
+      - name: ffmpeg, shriftlar, brauzer, ovoz dvigatellari
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-cjk fonts-noto-core
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+          pip install -q onnxruntime numpy piper-tts
+
+      - name: Ovoz modellari (kesh)
+        uses: actions/cache@v4
+        with:
+          path: ~/.sado-models
+          key: sado-models-v1
+      - run: bash scripts/tts/fetch-sado-models.sh ~/.sado-models
+
+      - name: Tezkor sinov — qisqa video yasab, yuklab, ochilishini tekshiradi
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          VIDEO_STORE: ${{ secrets.R2_BUCKET == '' && 'github' || 'r2' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SADO_MODELS: /home/runner/.sado-models
+        run: node scripts/video-smoke.mjs
+
   render:
+    needs: smoke
     runs-on: ubuntu-latest
     timeout-minutes: 355
     strategy:
@@ -60,20 +99,6 @@ jobs:
           key: sado-models-v1
       - run: bash scripts/tts/fetch-sado-models.sh ~/.sado-models
 
-      - name: Tezkor sinov (faqat 0-bo'lak)
-        if: matrix.shard == 0
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET: ${{ secrets.R2_BUCKET }}
-          VIDEO_STORE: ${{ secrets.R2_BUCKET == '' && 'github' || 'r2' }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SADO_MODELS: /home/runner/.sado-models
-        run: node scripts/video-smoke.mjs
-
       - name: Videolarni yasash va yuklash
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -92,3 +117,13 @@ jobs:
             --tts sado --native uz --no-recording \
             ${{ github.event.inputs.force == 'true' && '--force' || '' }} \
             --out out/videos
+
+      # Yuklash yiqilsa ham yasalgan video yo'qolmasin: 7 kun Actions'da saqlanadi
+      - name: Yuklanmagan videolarni saqlab qo'yish
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: videos-shard-${{ matrix.shard }}
+          path: out/videos/*.mp4
+          retention-days: 7
+          if-no-files-found: ignore

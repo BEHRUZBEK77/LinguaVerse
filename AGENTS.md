@@ -26,7 +26,12 @@ a narrated video automatically. Your main job here is usually **writing lesson f
 
 ## Hard rules
 
-- Never push a lesson that does not print ✅ in `lesson-check`.
+- Never push a lesson that does not print ✅ in `lesson-check`. ⚠️ (too short/long) is NOT ✅.
+- Write lesson files with your file-write tool, always as UTF-8. On Windows never use
+  PowerShell `Out-File`, `Set-Content` or `>` to write JSON — they break o‘, ī, ü, п into
+  mojibake (oâ€˜, Ä«). `lesson-check` rejects such files; rewrite them, don't "fix" with scripts.
+- Do not leave helper scripts (fix.mjs, debug.js, …) in the repo; never commit them.
+- Run `lesson-check` again on every file right before `git add`.
 - Do not edit files outside `content/uz/` unless the user explicitly asks.
 - Do not rewrite or "improve" existing lessons unless asked.
 - `say_native` (teacher's explanation) is **Uzbek in Latin script** with correct

@@ -13,7 +13,11 @@ for (const f of process.argv.slice(2)) {
     const id = path.basename(f, '.json');
     const loc = locate(id);
     if (!loc) throw new Error("fayl nomi A1-01 ko'rinishida bo'lishi kerak");
-    const L = JSON.parse(fs.readFileSync(f, 'utf8'));
+    const raw = fs.readFileSync(f, 'utf8');
+    // Buzilgan kodlash (UTF-8 → Windows-1252): o‘ → oâ€˜, ī → Ä«, п → Ð¿
+    const moji = raw.match(/â€|[ÃÄÅÐÑ][\u0080-\u00BF]|\uFFFD/);
+    if (moji) throw new Error(`matn kodlashi buzilgan ("${raw.slice(Math.max(0, moji.index - 15), moji.index + 15)}"). Faylni UTF-8 da qayta yozing (PowerShell Out-File/Set-Content ishlatmang)`);
+    const L = JSON.parse(raw);
     validate(L, f);
     if (loc.n === 24 && L.quiz.length < 15) throw new Error('imtihon darsida test kamida 15 savol');
     const min = course.estimateSeconds(L, RATE[loc.cefr]) / 60;

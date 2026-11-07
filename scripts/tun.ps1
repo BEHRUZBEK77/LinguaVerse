@@ -103,16 +103,23 @@ function Run-Lang($lang) {
     $model = $models[0]
     $taskFile = Join-Path $Dir "task-$lang.md"
     Set-Content -Path $taskFile -Value (Task-Text $lang $id) -Encoding UTF8
-    $out = Join-Path $Dir "out-$lang.txt"; $err = Join-Path $Dir "err-$lang.txt"
+    $out = Join-Path $Dir "out-$lang.txt"
     Log $lang "$id  ←  $model"
     $msg = "Read the file .overnight/task-$lang.md and do exactly what it says."
-    $exe = (Get-Command opencode).Source
-    $argv = @('run', $flag, $model, "`"$msg`"")
-    if ($exe -like '*.ps1') { $argv = @('-ExecutionPolicy', 'Bypass', '-File', "`"$exe`"") + $argv; $exe = 'powershell' }
-    $p = Start-Process -FilePath $exe -ArgumentList $argv -NoNewWindow -PassThru `
-         -RedirectStandardOutput $out -RedirectStandardError $err -WorkingDirectory $Root
-    if (-not $p.WaitForExit($RunMinutes * 60 * 1000)) { try { $p.Kill() } catch {}; Log $lang "${id}: $RunMinutes daqiqadan oshdi, to'xtatildi" }
-    $text = ((Get-Content $out -Raw -ErrorAction SilentlyContinue) + "`n" + (Get-Content $err -Raw -ErrorAction SilentlyContinue))
+    $t0 = Get-Date
+    # `& opencode` — testdagi `opencode models` bilan bir xil usul (npm .ps1 shim bilan ishlaydi)
+    $job = Start-Job -ScriptBlock {
+      param($root, $flag, $model, $msg)
+      Set-Location $root
+      try { [Console]::OutputEncoding = [Text.Encoding]::UTF8 } catch {}
+      & opencode run $flag $model $msg 2>&1 | ForEach-Object { "$_" }
+      "EXITCODE=$LASTEXITCODE"
+    } -ArgumentList $Root, $flag, $model, $msg
+    if (-not (Wait-Job $job -Timeout ($RunMinutes * 60))) { Stop-Job $job; Log $lang "${id}: $RunMinutes daqiqadan oshdi, to'xtatildi" }
+    $text = (Receive-Job $job -ErrorAction SilentlyContinue 2>&1 | Out-String)
+    Remove-Job $job -Force -ErrorAction SilentlyContinue
+    Set-Content -Path $out -Value $text -Encoding UTF8
+    $secs = [int]((Get-Date) - $t0).TotalSeconds
     $done = (& git ls-files "content/uz/$lang/$id.json")
     if ($done) {
       Log $lang "$id ✅ GitHub'ga yuklandi"
@@ -122,7 +129,9 @@ function Run-Lang($lang) {
       Log $lang "$model limitda yoki xato ($($Matches[0])) — 1 soatga chetga, keyingi modelga o'taman"
     } else {
       $fails[$model] = 1 + [int]$fails[$model]
-      Log $lang "$id hali tayyor emas ($model, urinish $($fails[$model]))"
+      $tail = (($text -split "`n" | Where-Object { "$_".Trim() }) | Select-Object -Last 3) -join ' | '
+      if ($tail.Length -gt 300) { $tail = $tail.Substring($tail.Length - 300) }
+      Log $lang "$id hali tayyor emas ($model, urinish $($fails[$model]), ${secs}s): $tail"
       if ($fails[$model] -ge 2) { $blocked[$model] = (Get-Date).AddMinutes(90); $fails[$model] = 0; Log $lang "$model 2 marta natija bermadi — keyingi modelga o'taman" }
     }
   }

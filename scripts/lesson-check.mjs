@@ -18,6 +18,13 @@ for (const f of process.argv.slice(2)) {
     const moji = raw.match(/â€|[ÃÄÅÐÑ][\u0080-\u00BF]|\uFFFD/);
     if (moji) throw new Error(`matn kodlashi buzilgan ("${raw.slice(Math.max(0, moji.index - 15), moji.index + 15)}"). Faylni UTF-8 da qayta yozing (PowerShell Out-File/Set-Content ishlatmang)`);
     const L = JSON.parse(raw);
+    // O'zbekcha matnda o‘/g‘ faqat ‘ bilan (oddiy ' ` ʻ ʼ emas) — hamma darslarda bir xil bo'lsin
+    const uz = [L.goal_uz, L.homework_uz, ...(L.scenes || []).flatMap(s => [s.say_native, s.say_uz]), ...(L.quiz || []).map(q => q.why_uz)].filter(Boolean).join('\n');
+    const apo = uz.match(/[oOgG]['`ʻʼ](?=[a-z])(?!clock)/);
+    if (apo) throw new Error(`o‘zbekcha matnda "${apo[0]}" — o‘ va g‘ ni faqat ‘ belgisi bilan yozing (o‘, g‘). Faylni UTF-8 da qayta yozing`);
+    // Ko'rinmas/boshqaruv belgilari
+    const ctl = raw.match(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u200B-\u200F\u2028\u2029\uFEFF]/);
+    if (ctl) throw new Error(`ko'rinmas belgi U+${ctl[0].charCodeAt(0).toString(16).padStart(4, '0')} — olib tashlang`);
     validate(L, f);
     if (loc.n === 24 && L.quiz.length < 15) throw new Error('imtihon darsida test kamida 15 savol');
     const min = course.estimateSeconds(L, RATE[loc.cefr]) / 60;

@@ -31,8 +31,12 @@ export function locate(id) {
   return order < 4 ? { level: 'b2', idx: order * 25 + n, cefr: m[1], n } : { level: 'c2', idx: (order - 4) * 25 + n, cefr: m[1], n };
 }
 
+// Buzilgan kodlash (UTF-8 → Windows-1252): o‘ → oâ€˜, ī → Ä«, п → Ð¿
+export const MOJIBAKE = /â€|[ÃÄÅÐÑ][\u0080-\u00BF]|\uFFFD/;
+
 export function validate(L, file) {
   const err = [];
+  if (MOJIBAKE.test(JSON.stringify(L))) err.push("kodlash buzilgan (mojibake: oâ€˜ kabi) — faylni UTF-8 da qayta yozing");
   if (!L.title || !L.goal_uz || !L.homework_uz) err.push('title/goal_uz/homework_uz');
   if (!Array.isArray(L.vocab) || L.vocab.length < 6) err.push('vocab < 6');
   if (!Array.isArray(L.scenes) || L.scenes.length < 20) err.push('sahna < 20');
@@ -49,6 +53,7 @@ export function validate(L, file) {
   if (err.length) throw new Error(`${file}: ${err.join(', ')}`);
 }
 
+export const SKIPPED = [];
 export function loadAll() {
   const out = [];
   if (!fs.existsSync(CONTENT)) return out;
@@ -58,9 +63,12 @@ export function loadAll() {
         const id = f.replace(/\.json$/, '');
         const loc = locate(id);
         if (!loc) throw new Error(`Noto'g'ri fayl nomi: ${native}/${lang}/${f}`);
-        const L = JSON.parse(fs.readFileSync(path.join(CONTENT, native, lang, f), 'utf8'));
-        validate(L, `${native}/${lang}/${f}`);
-        out.push({ native, lang, id, ...loc, L });
+        // Bitta buzuq dars qolgan hamma darslarning saytga chiqishini to'xtatmasin
+        try {
+          const L = JSON.parse(fs.readFileSync(path.join(CONTENT, native, lang, f), 'utf8'));
+          validate(L, `${native}/${lang}/${f}`);
+          out.push({ native, lang, id, ...loc, L });
+        } catch (e) { SKIPPED.push(`${native}/${lang}/${f}: ${e.message}`); }
       }
     }
   }
@@ -108,5 +116,10 @@ async function main() {
   if (args.includes('--push')) {
     const fsdb = require(path.join(ROOT, 'netlify/functions/_firestore.js'));
     for (const d of lessons.map(toDoc)) { await fsdb.setDoc(d.path, { ...d.data, createdAt: new Date() }); console.log('↑', d.path); }
+  }
+  if (SKIPPED.length) {
+    console.log(`\n❌ ${SKIPPED.length} ta dars xato sababli saytga chiqarilmadi:`);
+    for (const s of SKIPPED) console.log('  ' + s);
+    process.exitCode = 1;
   }
 }

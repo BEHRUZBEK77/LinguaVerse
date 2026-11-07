@@ -4,6 +4,14 @@ LinguaVerse teaches foreign languages to Uzbek speakers. Each course has 150 vid
 lessons (A1–C2, 25 per level). A lesson is one JSON file; GitHub Actions turns it into
 a narrated video automatically. Your main job here is usually **writing lesson files**.
 
+## One-time setup (every new clone)
+
+    git config core.hooksPath .githooks
+
+This turns on the pre-commit check. If a commit is BLOCKED, read the message, fix the
+named lesson files, re-run `lesson-check` until ✅, and commit again. Never use
+`--no-verify`, and never edit `.githooks/` or `scripts/` to get past it.
+
 ## Writing lessons — the workflow
 
 1. Read `content/YOZUVCHI-YORIQNOMA.md` **fully** before the first lesson. It is the

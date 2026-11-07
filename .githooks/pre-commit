@@ -1,0 +1,33 @@
+#!/bin/sh
+# LinguaVerse: har bir commitdan oldin dars fayllarini tekshiradi.
+# O'rnatish (bir marta): git config core.hooksPath .githooks
+staged=$(git diff --cached --name-only --diff-filter=ACMR)
+lessons=$(printf '%s\n' "$staged" | grep -E '^content/[a-z]+/[a-z]+/[ABC][12]-[0-9][0-9]\.json$')
+other=$(printf '%s\n' "$staged" | grep -v '^content/' | grep -v '^$')
+
+if [ -n "$other" ] && [ -z "$LV_ALLOW_CODE" ]; then
+  echo ""
+  echo "❌ COMMIT BLOCKED: lesson writers may only commit lesson files in content/uz/<lang>/."
+  echo "These files must not be committed:"
+  printf '  %s\n' $other
+  echo "Fix: git restore --staged <file>  (and delete helper scripts like fix.mjs, debug.js)."
+  exit 1
+fi
+
+[ -z "$lessons" ] && exit 0
+out=$(node scripts/lesson-check.mjs $lessons 2>&1)
+code=$?
+echo "$out"
+if [ $code -ne 0 ]; then
+  echo ""
+  echo "❌ COMMIT BLOCKED: the lessons marked ❌ or ⚠️ above are not acceptable."
+  echo "YOU MUST FIX THEM NOW:"
+  echo "  - 'kodlash buzilgan' (mojibake like oâ€˜, Ä«): rewrite the WHOLE file with your file-write tool as UTF-8."
+  echo "    Do not use PowerShell Out-File/Set-Content/> and do not try to repair it with a script."
+  echo "  - '23 daqiqadan kam': add scenes / expand explanations; '32 daqiqadan uzun': shorten."
+  echo "  - any other ❌: fix the field named in the message."
+  echo "Then run: node scripts/lesson-check.mjs <file>  until it prints ✅, git add the file, and commit again."
+  echo "Never use --no-verify."
+  exit 1
+fi
+exit 0

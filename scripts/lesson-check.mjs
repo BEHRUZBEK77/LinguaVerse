@@ -6,7 +6,7 @@ import { createRequire } from 'node:module';
 import { validate, locate } from './lesson-content.mjs';
 const require = createRequire(import.meta.url);
 const course = require(path.resolve('netlify/functions/course.js'));
-const RATE = { A1: 0.85, A2: 0.88, B1: 0.92, B2: 0.95, C1: 1, C2: 1 };
+const RATE = { A1: 0.85, A2: 0.88, B1: 0.92, B2: 0.95, C1: 1, C2: 1, P1: 0.95, P2: 1 };
 let bad = 0;
 for (const f of process.argv.slice(2)) {
   try {
@@ -48,7 +48,7 @@ for (const f of process.argv.slice(2)) {
     const dir = path.dirname(path.resolve(f)), me = path.basename(f);
     const others = new Set();
     for (const g of fs.readdirSync(dir)) {
-      if (g === me || !/^[ABC][12]-\d\d\.json$/.test(g)) continue;
+      if (g === me || !/^[ABCP][12]-\d\d\.json$/.test(g)) continue;
       try { for (const s of JSON.parse(fs.readFileSync(path.join(dir, g), 'utf8')).scenes || []) if ((s.say_native || '').length > 60) others.add(s.say_native); } catch {}
     }
     const copied = long.filter(n => others.has(n)).length;

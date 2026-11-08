@@ -11,6 +11,60 @@
 'use strict';
 
 const S = {
+  P1: [
+    ['Answer typical job-interview questions confidently.', ['self-presentation in 60 seconds', 'strengths/weaknesses with examples (STAR)', 'questions to ask the employer', 'polite formulas and register'], 'Record answers to 5 interview questions.'],
+    ['Write a CV/profile and a short professional bio.', ['CV sections and vocabulary', 'action verbs for achievements', 'dates, places, job titles', 'profile summary in 3 sentences'], 'Write your CV summary and 5 achievement lines.'],
+    ['Handle everyday workplace communication.', ['small talk at work', 'asking for and offering help', 'clarifying tasks and deadlines', 'polite disagreement'], 'Role-play 4 short office situations.'],
+    ['Make and take professional phone and video calls.', ['opening and closing a call', 'asking someone to repeat/spell', 'leaving a voicemail', 'handling bad connection'], 'Script and record a 2-minute call.'],
+    ['Write clear formal e-mails.', ['subject lines and greetings', 'structure: purpose, details, action', 'formal connectors', 'closing formulas and signature'], 'Write 3 e-mails: request, reply, reminder.'],
+    ['Take part in and run a meeting.', ['agenda and opening', 'giving and asking for opinions', 'interrupting politely', 'summarising decisions and next steps'], 'Write minutes for a 10-minute meeting.'],
+    ['Give a structured 3-minute presentation.', ['signposting phrases', 'introducing visuals', 'handling questions', 'strong opening and ending'], 'Record a 3-minute presentation.'],
+    ['Serve customers and handle requests.', ['greeting and offering help', 'explaining products and prices', 'dealing with complaints', 'polite refusal and alternatives'], 'Role-play 3 customer conversations.'],
+    ['Negotiate simple deals.', ['stating needs and limits', 'making offers and counter-offers', 'conditional proposals', 'closing an agreement'], 'Negotiate a price in a written dialogue.'],
+    ['Solve real travel problems.', ['check-in, security, boarding', 'lost luggage and delays', 'hotel booking and complaints', 'asking for refunds'], 'Write and act out 3 travel problem dialogues.'],
+    ['Describe health problems precisely.', ['symptoms and body vocabulary', 'duration and intensity', 'understanding instructions and dosage words', 'making an appointment'], 'Describe 3 symptoms in a doctor dialogue.'],
+    ['Handle banking and official paperwork.', ['opening an account', 'cards, transfers, fees', 'filling in forms', 'asking about documents and deadlines'], 'Fill in a sample form and explain each field.'],
+    ['Rent a flat and solve housing issues.', ['reading a rental ad', 'asking about conditions and contract', 'reporting repairs', 'neighbours and house rules'], 'Write a message to a landlord about a repair.'],
+    ['Apply to a university abroad.', ['programme and admission vocabulary', 'required documents', 'writing to an admissions office', 'deadlines and dates'], 'Write an enquiry to an admissions office.'],
+    ['Write a motivation letter for a grant or scholarship.', ['structure of a motivation letter', 'presenting goals and achievements', 'linking past, present and future', 'persuasive but modest tone'], 'Write a 200-word motivation letter.'],
+    ['Understand natural fast speech.', ['connected speech and reductions', 'fillers and hesitation', 'guessing meaning from context', 'listening for key words'], 'Transcribe 1 minute of natural speech.'],
+    ['Follow news and podcasts.', ['news vocabulary and headlines', 'main idea vs detail', 'numbers and names in news', 'summarising what you heard'], 'Summarise one news item in 5 sentences.'],
+    ['Communicate online appropriately.', ['chat abbreviations and emoji culture', 'comments and reviews', 'professional networking messages', 'online politeness'], 'Write a professional networking message and a review.'],
+    ['Use common colloquial expressions safely.', ['frequent spoken expressions', 'informal vs neutral equivalents', 'what NOT to use in formal settings', 'reacting naturally'], 'Use 10 expressions in mini-dialogues.'],
+    ['Fix the pronunciation errors typical for Uzbek speakers.', ['sounds absent in Uzbek', 'stress and rhythm', 'intonation of questions and lists', 'minimal-pair drills'], 'Record 20 minimal pairs and a short text.'],
+    ['Eliminate the 30 most common errors of Uzbek speakers.', ['word order and agreement errors', 'false friends with Uzbek/Russian', 'preposition/case errors', 'tense and aspect errors'], 'Correct 15 sentences with typical errors.'],
+    ['Tell an engaging story about an experience.', ['story structure', 'past-time sequencing', 'adding feelings and details', 'reacting to others\' stories'], 'Record a 2-minute personal story.'],
+    ['Argue a position and respond to counter-arguments.', ['stating and supporting opinions', 'conceding and countering', 'asking for evidence', 'staying polite under pressure'], 'Write both sides of a debate and record your view.'],
+    ['Avoid cultural mistakes in the target culture.', ['forms of address and politeness', 'taboo topics', 'gestures and personal space', 'gifts, invitations and punctuality'], 'List 10 do\'s and don\'ts and explain them.'],
+    ['Review the PRO 1 module and pass the final test.', ['job application set: CV, letter, interview', 'phone, e-mail and meeting skills', 'everyday professional situations', 'error and pronunciation review'], 'Complete the final project: application + 3-minute interview recording.']
+  ],
+  P2: [
+    ['Lead complex negotiations.', ['preparation and BATNA language', 'framing and anchoring', 'hedging and softening', 'handling deadlock'], 'Write a negotiation script with 3 rounds.'],
+    ['Write proposals, complaints and responses.', ['proposal structure', 'formal complaint and apology', 'persuasive business register', 'concise follow-ups'], 'Write a proposal and a reply to a complaint.'],
+    ['Write structured reports.', ['report sections', 'objective, impersonal style', 'recommendations', 'executive summary'], 'Write a 300-word report with recommendations.'],
+    ['Describe and interpret data and charts.', ['trend vocabulary', 'comparing figures', 'approximation and precision', 'drawing conclusions'], 'Describe 2 charts in writing.'],
+    ['Deliver a persuasive public speech.', ['rhetorical devices', 'pace, pauses and emphasis', 'engaging the audience', 'memorable conclusions'], 'Record a 4-minute persuasive speech.'],
+    ['Moderate discussions and panels.', ['introducing speakers', 'managing time and turns', 'bridging and summarising', 'handling difficult participants'], 'Moderate a recorded mock panel.'],
+    ['Read academic articles efficiently.', ['article structure', 'skimming and scanning', 'identifying claims and evidence', 'academic vocabulary'], 'Summarise an article abstract and conclusion.'],
+    ['Write abstracts, summaries and citations.', ['paraphrasing and summarising', 'citation phrases', 'hedging in academic writing', 'avoiding plagiarism'], 'Write an abstract of 150 words.'],
+    ['Understand legal and official language.', ['contract structure and terms', 'obligations and conditions', 'formal passive and nominal style', 'reading the fine print'], 'Explain 5 contract clauses in simple words.'],
+    ['Use medical language professionally.', ['anatomy and conditions', 'patient communication', 'case presentation', 'medical abbreviations'], 'Present a short patient case.'],
+    ['Communicate in IT and tech settings.', ['software and hardware vocabulary', 'describing processes and bugs', 'stand-ups and tickets', 'explaining tech to non-experts'], 'Write a bug report and explain it simply.'],
+    ['Discuss finance and economics.', ['financial statements vocabulary', 'markets and trends', 'cause and effect in economics', 'reading financial news'], 'Summarise a financial news item.'],
+    ['Create and analyse marketing messages.', ['persuasive language and slogans', 'target audience description', 'brand voice', 'campaign evaluation'], 'Write a short ad and a campaign plan.'],
+    ['Work professionally in tourism and hospitality.', ['guiding a tour', 'describing places and history', 'service recovery', 'upselling politely'], 'Record a 3-minute tour of your city.'],
+    ['Translate between Uzbek and the target language.', ['sense vs word-for-word', 'false friends', 'register transfer', 'checking and editing a translation'], 'Translate a 150-word text both ways.'],
+    ['Practise consecutive interpreting basics.', ['note-taking symbols', 'memory and chunking', 'numbers and names', 'delivery and self-correction'], 'Interpret 5 short recorded passages.'],
+    ['Handle awkward situations diplomatically.', ['softening criticism', 'saying no politely', 'indirect requests', 'face-saving expressions'], 'Rewrite 10 blunt sentences diplomatically.'],
+    ['Give feedback and resolve conflicts.', ['feedback models', 'active listening phrases', 'de-escalation', 'agreeing on solutions'], 'Role-play a feedback conversation.'],
+    ['Lead and motivate a team.', ['delegating tasks', 'setting goals and expectations', 'motivating and recognising', 'running one-to-ones'], 'Write a team kickoff speech.'],
+    ['Give interviews and understand journalism.', ['interview techniques', 'staying on message', 'news writing style', 'fact vs opinion'], 'Record a mock media interview.'],
+    ['Analyse literary texts.', ['themes and imagery', 'narrative voice', 'stylistic devices', 'writing a short analysis'], 'Analyse a short poem or story extract.'],
+    ['Master the writing part of the language\'s official exam.', ['task types and scoring criteria', 'planning in 5 minutes', 'high-scoring structures', 'common penalties'], 'Write one full exam writing task under time.'],
+    ['Master the speaking part of the official exam.', ['task types and scoring criteria', 'fluency strategies', 'extending answers', 'handling unknown topics'], 'Record a full mock speaking test.'],
+    ['Build a professional language portfolio and career plan.', ['evidence of language level', 'LinkedIn-style profile in the target language', 'networking plan', 'lifelong learning plan'], 'Create your portfolio and 6-month plan.'],
+    ['Review the PRO 2 module and pass the final test.', ['negotiation and business writing', 'professional fields vocabulary', 'translation and diplomacy', 'official exam strategies'], 'Complete the final project: report + 4-minute speech recording.']
+  ],
   A1: [
     ['Read and pronounce every letter/sound of the script and spell own name aloud.', ['writing system or alphabet overview (letters, syllable blocks, characters or Pinyin as relevant)', 'sounds that do not exist in the native language', 'stress/tone basics', 'spelling own name'], 'Spell your name and city aloud, then read 5 new words.'],
     ['Greet people, introduce yourself and say goodbye in formal and informal situations.', ['formal vs informal greetings by time of day', 'my name is / I am from', 'asking someone\'s name and origin', 'polite leave-taking'], 'Record a 30-second self-introduction with a greeting and a goodbye.'],
@@ -188,6 +242,17 @@ const LANG_NOTES = {
 };
 
 const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+// Har til uchun rasmiy xalqaro imtihonlar (PRO kursdagi imtihon darslari uchun)
+const EXAMS = {
+  english: 'IELTS (Academic/General), TOEFL iBT, Cambridge B2 First / C1 Advanced',
+  russian: 'ТРКИ / TORFL (ТБУ, ТРКИ-1…4)',
+  german: 'Goethe-Zertifikat (B1–C2), TestDaF, telc',
+  spanish: 'DELE (Instituto Cervantes), SIELE',
+  turkish: 'Yunus Emre Enstitüsü TYS (Türkçe Yeterlik Sınavı), TÖMER',
+  arabic: "arab tili bo'yicha xalqaro sertifikat imtihonlari (o'qish, yozish, tinglash, gapirish)",
+  korean: 'TOPIK I / TOPIK II',
+  chinese: 'HSK (1–6/1–9) va HSKK (og‘zaki)'
+};
 
 /** cefr + daraja ichidagi o'rin bo'yicha material: { goal, points, task } yoki null */
 function lessonMaterial(cefr, indexInLevel) {
@@ -198,4 +263,4 @@ function lessonMaterial(cefr, indexInLevel) {
 /** Kursdagi dars raqamidan (b2: 0–99, c2: 0–49) daraja ichidagi o'rinni topadi */
 function indexInLevel(level, idx) { return idx % 25; }
 
-module.exports = { SYLLABUS: S, LANG_NOTES, LEVELS, lessonMaterial, indexInLevel };
+module.exports = { SYLLABUS: S, LANG_NOTES, LEVELS, EXAMS, lessonMaterial, indexInLevel };

@@ -38,7 +38,8 @@ function ultraActive(user) {
 // ═══════════════════════════════════════════════════════════════════════════
 const COURSE_LEVELS = {
   b2: { id: 'b2', name: 'B2 video kurs', price: 200000 },
-  c2: { id: 'c2', name: 'C2 video kurs', price: 400000 }
+  c2: { id: 'c2', name: 'C2 video kurs', price: 400000 },
+  pro: { id: 'pro', name: 'PRO professional kurs', price: 300000 }
 };
 
 const COURSE_LANGS = {

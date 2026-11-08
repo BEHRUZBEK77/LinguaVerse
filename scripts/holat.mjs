@@ -19,17 +19,17 @@ const ago = s => s < 3600 ? `${Math.round(s / 60)} daq oldin` : s < 86400 ? `${(
 console.log(`\nLinguaVerse — holat (${new Date().toLocaleString('uz-UZ')})\n`);
 let total = 0;
 for (const l of LANGS) {
-  const n = sh(`git ls-tree --name-only ${ref} content/uz/${l}/`).split('\n').filter(f => /[ABC][12]-\d\d\.json$/.test(f)).length;
+  const n = sh(`git ls-tree --name-only ${ref} content/uz/${l}/`).split('\n').filter(f => /[ABCP][12]-\d\d\.json$/.test(f)).length;
   total += n;
   const t = Number(sh(`git log -1 --format=%ct ${ref} -- content/uz/${l}/`)) || 0;
   const age = t ? now - t : Infinity;
-  const done = n >= 150;
+  const done = n >= 200;
   const c = done ? G : age < 3600 ? G : age < 3 * 3600 ? Y : R;
   const st = done ? 'TUGADI' : age < 3600 ? 'ishlayapti' : age < 3 * 3600 ? 'sekin' : "TO'XTAGAN";
-  const bar = '█'.repeat(Math.round(n / 10)) + '░'.repeat(15 - Math.round(n / 10));
-  console.log(`${c}${st.padEnd(11)}${X} ${l.padEnd(8)} ${bar} ${String(n).padStart(3)}/150  ${D}oxirgi dars: ${t ? ago(age) : '—'}${X}`);
+  const bar = '█'.repeat(Math.round(n / 10)) + '░'.repeat(20 - Math.round(n / 10));
+  console.log(`${c}${st.padEnd(11)}${X} ${l.padEnd(8)} ${bar} ${String(n).padStart(3)}/200  ${D}oxirgi dars: ${t ? ago(age) : '—'}${X}`);
 }
-console.log(`\nJami: ${total} / ${LANGS.length * 150} dars`);
+console.log(`\nJami: ${total} / ${LANGS.length * 200} dars (har tilda 150 asosiy + 50 PRO)`);
 
 // Avtomatik yozish skriptining oxirgi xabarlari (bo'lsa)
 const dir = path.join(ROOT, '.overnight');

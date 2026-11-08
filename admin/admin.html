@@ -3438,9 +3438,9 @@ ${o.status === 'pending' ? `
       try {
         const d = await courseApi('admin-videos', { lang, nativeLang: 'uz' });
         const byId = Object.fromEntries(d.lessons.map(l => [l.id, l]));
-        const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+        const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'P1', 'P2'];
         const pct = Math.round(d.withVideo / d.total * 100);
-        let html = `<div class="op-grant-sub" style="margin-bottom:12px">Videosi tayyor: <b>${d.withVideo}</b> / ${d.total} (${pct}%) · yozilgan darslar: <b>${d.lessons.length}</b> / ${d.total}. Kulrang — dars hali yozilmagan, sariq — dars bor, video navbatda.</div>`;
+        let html = `<div class="op-grant-sub" style="margin-bottom:12px">Videosi tayyor: <b>${d.withVideo}</b> / ${d.total} (150 asosiy + 50 PRO) (${pct}%) · yozilgan darslar: <b>${d.lessons.length}</b> / ${d.total}. Kulrang — dars hali yozilmagan, sariq — dars bor, video navbatda.</div>`;
         for (const lv of levels) {
           const cells = [];
           let ready = 0;

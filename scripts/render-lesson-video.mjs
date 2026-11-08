@@ -396,7 +396,7 @@ async function autoQueue() {
   // 1) NAVBAT: o'quvchilar ochgan darslar (eng ko'p ochilgani birinchi)
   const wanted = await fsdb.queryList('courseLessons', [{ field: 'videoWanted', op: 'EQUAL', value: true }, { field: 'nativeLang', op: 'EQUAL', value: NATIVE }], 'videoDemand', 200).catch(() => []);
   for (const d of wanted) {
-    if (d.videoPath || !langs.includes(d.lang) || !['b2', 'c2'].includes(d.level) || !Number.isInteger(d.n)) continue;
+    if (d.videoPath || !langs.includes(d.lang) || !['b2', 'c2', 'pro'].includes(d.level) || !Number.isInteger(d.n)) continue;
     if (!cat.COURSE_LEVELS[d.level].lessons[d.n]?.core) continue;   // MP4 faqat 60 ta asosiy darsga
     if (jobs.length < batch * 4) jobs.push({ lang: d.lang, level: d.level, n: d.n, docPath: course.lessonPath(d.lang, d.level, d.n, NATIVE), demand: d.videoDemand || 1 });
   }
@@ -405,7 +405,7 @@ async function autoQueue() {
   const fillAll = String(args.mode || process.env.VIDEO_MODE || 'demand') === 'all';
   for (const lang of langs) {
     if (learning.languages[NATIVE].target === lang) continue;
-    for (const level of ['b2', 'c2']) {
+    for (const level of ['b2', 'c2', 'pro']) {
       const all = cat.COURSE_LEVELS[level].lessons;
       const total = all.filter(l => l.core).length;
       let ready = 0;

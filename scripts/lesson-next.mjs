@@ -14,7 +14,7 @@ const LANGS = ['russian', 'turkish', 'spanish', 'arabic', 'chinese', 'korean', '
 const own = process.argv[2];
 if (!LANGS.includes(own)) { console.error(`Ishlatish: node scripts/lesson-next.mjs <til>  (${LANGS.join(', ')})`); process.exit(1); }
 const queue = lang => {
-  const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts/lesson-missing.mjs'), lang, '150', '--json'], { encoding: 'utf8', maxBuffer: 1 << 24 });
+  const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts/lesson-missing.mjs'), lang, '200', '--json'], { encoding: 'utf8', maxBuffer: 1 << 24 });
   try { return JSON.parse(r.stdout.trim() || '[]'); } catch { return []; }
 };
 const mine = queue(own);

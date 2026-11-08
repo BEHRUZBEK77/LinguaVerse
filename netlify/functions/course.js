@@ -137,7 +137,7 @@ function partFocus(k, count, material) {
 
 function partPrompt(L, level, meta, idx, total, nativeLang, k, count, previous) {
   const nativeName = learning.languages[learning.normalize(nativeLang)].name;
-  const cefr = meta.cefr || (level === 'c2' ? 'C2' : 'B2');
+  const cefr = meta.cefr || (level === 'c2' ? 'C2' : level === 'pro' ? 'P2' : 'B2');
   const material = syllabus.lessonMaterial(cefr, syllabus.indexInLevel(level, idx));
   return [
     corePrompt(L, level, meta, idx, total, nativeLang)
@@ -156,7 +156,7 @@ function partPrompt(L, level, meta, idx, total, nativeLang, k, count, previous) 
 
 function corePrompt(L, level, meta, idx, total, nativeLang = 'uz') {
   const nativeName = learning.languages[learning.normalize(nativeLang)].name;
-  const cefr = meta.cefr || (level === 'c2' ? 'C2' : 'B2');
+  const cefr = meta.cefr || (level === 'c2' ? 'C2' : level === 'pro' ? 'P2' : 'B2');
   return [
     `You are an elite ${L.name} teacher producing a professional VIDEO LESSON for ${nativeName}-speaking learners (CEFR ${cefr}, lesson ${idx + 1} of ${total} in the ${level.toUpperCase()} course).`,
     `Lesson topic (in Uzbek): "${meta.t}". Skill focus: ${meta.skill}. Teach it through the real grammar and usage of ${L.name} (adapt the topic to how ${L.name} actually works; e.g. cases, honorifics, tones, script).`,
@@ -304,7 +304,7 @@ async function ensureLessonStep(lang, level, idx, meta, total, opts = {}) {
 
 /** Render skripti uchun: sahnalar va test to'liq tayyor bo'lguncha. */
 async function ensureLesson(lang, level, idx, nativeLang = 'uz', opts = {}) {
-  if (!LANG_INFO[lang] || !['b2', 'c2'].includes(level)) throw httpErr(400, 'Invalid course');
+  if (!LANG_INFO[lang] || !['b2', 'c2', 'pro'].includes(level)) throw httpErr(400, 'Invalid course');
   const cat = await catalog();
   const lessons = cat.COURSE_LEVELS[level].lessons;
   if (!Number.isInteger(idx) || !lessons[idx]) throw httpErr(400, 'Invalid lesson');
@@ -489,7 +489,7 @@ async function adminVideos(uid, body = {}) {
     { field: 'lang', op: 'EQUAL', value: lang }
   ], null, 400).catch(() => []);
   const storage = require('./_storage.js');
-  const CEFR = { b2: ['A1', 'A2', 'B1', 'B2'], c2: ['C1', 'C2'] };
+  const CEFR = { b2: ['A1', 'A2', 'B1', 'B2'], c2: ['C1', 'C2'], pro: ['P1', 'P2'] };
   const lessons = docs.filter(d => CEFR[d.level] && Number.isInteger(Number(d.n))).map(d => {
     const n = Number(d.n);
     let title = '';
@@ -503,7 +503,7 @@ async function adminVideos(uid, body = {}) {
       error: d.videoError || null
     };
   }).sort((x, y) => x.id.localeCompare(y.id));
-  return { lang, total: 150, lessons, withVideo: lessons.filter(l => l.video).length };
+  return { lang, total: 200, lessons, withVideo: lessons.filter(l => l.video).length };
 }
 
 // ───────────────────────────────────────────────────────────────────────────

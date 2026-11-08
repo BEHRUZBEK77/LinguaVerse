@@ -19,15 +19,16 @@ const CONTENT = path.join(ROOT, 'content');
 const args = process.argv.slice(2);
 const KINDS = ['intro', 'explain', 'example', 'mistake', 'practice', 'recap'];
 const EMOS = ['neutral', 'happy', 'proud', 'impressed', 'encouraging', 'thinking', 'stern', 'disappointed', 'surprised'];
-const CEFR_RATE = { A1: 0.85, A2: 0.88, B1: 0.92, B2: 0.95, C1: 1, C2: 1 };
+const CEFR_RATE = { A1: 0.85, A2: 0.88, B1: 0.92, B2: 0.95, C1: 1, C2: 1, P1: 0.95, P2: 1 };
 
 /** A1-01 → { level:'b2', idx:0, cefr:'A1', n:0 } (b2 kursi: A1–B2, c2 kursi: C1–C2) */
 export function locate(id) {
-  const m = /^(A1|A2|B1|B2|C1|C2)-(\d{2})$/.exec(id);
+  const m = /^(A1|A2|B1|B2|C1|C2|P1|P2)-(\d{2})$/.exec(id);
   if (!m) return null;
   const n = Number(m[2]) - 1;
   if (n < 0 || n > 24) return null;
-  const order = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'].indexOf(m[1]);
+  const order = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'P1', 'P2'].indexOf(m[1]);
+  if (order >= 6) return { level: 'pro', idx: (order - 6) * 25 + n, cefr: m[1], n };   // PRO kurs
   return order < 4 ? { level: 'b2', idx: order * 25 + n, cefr: m[1], n } : { level: 'c2', idx: (order - 4) * 25 + n, cefr: m[1], n };
 }
 

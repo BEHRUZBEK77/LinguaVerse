@@ -18,7 +18,7 @@
 
 export const CATALOG_VERSION = 3;   // dars ro'yxati o'zgarsa oshiriladi (eski kesh aralashmasin)
 
-export const COURSE_PRICES = { b2: 200000, c2: 400000 };
+export const COURSE_PRICES = { b2: 200000, c2: 400000, pro: 300000 };
 
 export const COURSE_LANGS = [
   { id: 'english', name: 'Ingliz tili', native: 'English', flag: '🇬🇧', locale: 'en-GB', exam: 'IELTS' },
@@ -34,6 +34,61 @@ export const COURSE_LANGS = [
 // ── 25 tadan mavzu har bir CEFR darajasi uchun ──
 // [mavzu, ko'nikma]
 const CEFR_TOPICS = {
+  // PRO kurs (har tilda 50 ta professional dars): P1 — B1–B2 amaliy, P2 — C1 professional
+  P1: [
+    ['Ish suhbati (intervyu)', 'Ish'],
+    ['Rezyume va o\'zini taqdim etish', 'Yozish'],
+    ['Ish joyida hamkasblar bilan muloqot', 'Gapirish'],
+    ['Telefon va video qo\'ng\'iroqlar', 'Tinglash'],
+    ['Rasmiy elektron xat', 'Yozish'],
+    ['Uchrashuv va yig\'ilish', 'Gapirish'],
+    ['Taqdimot (prezentatsiya)', 'Gapirish'],
+    ['Mijozlar bilan ishlash', 'Gapirish'],
+    ['Savdo va muzokara asoslari', 'Gapirish'],
+    ['Sayohat: aeroport va mehmonxona', 'Gapirish'],
+    ['Shifokor va dorixona', 'Gapirish'],
+    ['Bank, pul va hujjatlar', 'Lug\'at'],
+    ['Ijara va kommunal xizmatlar', 'Gapirish'],
+    ['Universitetga hujjat topshirish', 'Yozish'],
+    ['Grant va motivatsion xat', 'Yozish'],
+    ['Tez nutqni tushunish', 'Tinglash'],
+    ['Yangiliklar va podkastlar', 'Tinglash'],
+    ['Onlayn muloqot va ijtimoiy tarmoqlar', 'Yozish'],
+    ['So\'zlashuv iboralari', 'Lug\'at'],
+    ['Talaffuz klinikasi', 'Talaffuz'],
+    ['Eng ko\'p uchraydigan 30 xato', 'Grammatika'],
+    ['Hikoya qilish va tajriba', 'Gapirish'],
+    ['Bahs va o\'z fikrini himoya qilish', 'Gapirish'],
+    ['Madaniyat va odob', 'Madaniyat'],
+    ['PRO 1 yakuniy loyiha va imtihon', 'Imtihon']
+  ],
+  P2: [
+    ['Professional muzokaralar', 'Gapirish'],
+    ['Biznes yozishmalar', 'Yozish'],
+    ['Hisobot va tahliliy matn', 'Yozish'],
+    ['Grafik va ma\'lumotlarni tushuntirish', 'Yozish'],
+    ['Ommaviy nutq va notiqlik', 'Gapirish'],
+    ['Munozarani boshqarish', 'Gapirish'],
+    ['Ilmiy maqola o\'qish', 'O\'qish'],
+    ['Akademik yozuv', 'Yozish'],
+    ['Huquqiy va rasmiy hujjatlar tili', 'Lug\'at'],
+    ['Tibbiyot sohasi tili', 'Lug\'at'],
+    ['IT va texnologiya tili', 'Lug\'at'],
+    ['Moliya va iqtisod tili', 'Lug\'at'],
+    ['Marketing va reklama tili', 'Lug\'at'],
+    ['Turizm va mehmondo\'stlik', 'Gapirish'],
+    ['Tarjima asoslari', 'Tarjima'],
+    ['Izchil (konsekutiv) tarjimaga kirish', 'Tarjima'],
+    ['Diplomatik va yumshoq til', 'Gapirish'],
+    ['Mojaroni hal qilish va fikr-mulohaza', 'Gapirish'],
+    ['Liderlik va jamoa boshqaruvi', 'Gapirish'],
+    ['Media: intervyu va jurnalistika', 'Gapirish'],
+    ['Badiiy matn tahlili', 'O\'qish'],
+    ['Rasmiy imtihon: yozish qismi', 'Imtihon'],
+    ['Rasmiy imtihon: gapirish qismi', 'Imtihon'],
+    ['Professional portfolio va karyera', 'Strategiya'],
+    ['PRO 2 yakuniy imtihon', 'Imtihon']
+  ],
   A1: [
     ['Alifbo, tovushlar va talaffuz asoslari', 'Talaffuz'],
     ['Salomlashish, tanishish va xayrlashish', 'Speaking'],
@@ -209,6 +264,7 @@ const CORE = {
   B1: [0, 1, 4, 5, 6, 7, 8, 9, 15, 24],     // zamonlar, perfekt, shart ×2, modal, majhul, nisbiy gap, fikr, ko'chirma gap, imtihon
   B2: [1, 3, 5, 6, 12, 13, 14, 16, 19, 24], // nozik zamonlar, shart, dalil, rasmiy uslub, qo'shma gap, birikmalar, monolog, esse, taxmin, imtihon
   C1: [1, 2, 5, 6, 8, 9, 10, 14, 21, 24],   // inversiya, akademik lug'at, modal, 2 daq. nutq, nominalizatsiya, kogeziya, esse, paraphrase, xatolar, imtihon
+  P1: [...Array(25).keys()], P2: [...Array(25).keys()],   // PRO: hammasi MP4
   C2: [1, 3, 5, 9, 10, 11, 15, 16, 20, 24]  // registr, frazeologiya, murakkab grammatika, ilmiy uslub, band 9 esse, ohang, diplomatik til, Part 3, tahrir, imtihon
 };
 export const CORE_PER_LEVEL = 10;
@@ -237,6 +293,17 @@ export const COURSE_LEVELS = {
     color: '#e11d48',
     promise: "Ona tili darajasiga yaqin. IELTS 8.0–9.0. B2 kursi ham ichida — jami 150 ta dars.",
     lessons: build(['C1', 'C2'])
+  },
+  pro: {
+    id: 'pro',
+    name: 'PRO — professional kurs',
+    short: 'PRO',
+    cefrs: ['P1', 'P2'],
+    price: COURSE_PRICES.pro,
+    priceLabel: "300 000 so'm",
+    color: '#f59e0b',
+    promise: "Ish, o'qish va xalqaro imtihon uchun: intervyu, rasmiy xat, taqdimot, muzokara, sohalar tili, tarjima. 50 ta dars.",
+    lessons: build(['P1', 'P2'])
   }
 };
 

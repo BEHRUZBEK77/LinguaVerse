@@ -278,7 +278,7 @@
 
     function renderCourses() {
       const L = COURSE_LANGS.find(l => l.id === S.lang) || COURSE_LANGS[0];
-      $('courses').innerHTML = ['b2', 'c2'].map(lv => {
+      $('courses').innerHTML = ['b2', 'c2', 'pro'].map(lv => {
         const C = COURSE_LEVELS[lv];
         const own = owns(S.lang, lv);
         const pr = S.mine.progress[courseKey(S.lang, lv)];

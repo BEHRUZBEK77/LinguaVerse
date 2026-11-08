@@ -1,0 +1,21 @@
+# Saytga admin qo'shish. Email GitHub secret ADMIN_EMAIL da saqlanadi (repo ochiq —
+# jurnalda ko'rinmasin). Ishga tushirish: Actions → "Admin qo'shish" → Run workflow.
+name: Admin qo'shish
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  admin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Admin qilish
+        env:
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/make-admin.mjs

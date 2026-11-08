@@ -1,6 +1,6 @@
 {
  "title": "Oddiy matnni o‘qish va tinglash",
- "goal_uz": "Dars oxirida arab tilida oddiy matnni o‘qib tushunasiz (asosiy g‘oyani topish), ismlar, raqamlar va joylarni tinglaysiz, kalit so‘zlar strategiyasini ishlatasiz va matn asosida savollarga javob berasiz.",
+ "goal_uz": "Dars oxirida arab tilida oddiy matnni o‘qib asosiy g‘oyani topa olasiz, ism, raqam va joylarni tinglab tushuna olasiz, kalit so‘zlar strategiyasidan foydalana olasiz hamda matn bo‘yicha savollarga to‘liq javob bera olasiz.",
  "vocab": [
   {
    "w": "النَّصُّ",
@@ -8,19 +8,11 @@
   },
   {
    "w": "الْفِكْرَةُ الْعَامَّةُ",
-   "uz": "umumiy g‘oya"
+   "uz": "umumiy g‘oya / asosiy g‘oya"
   },
   {
-   "w": "الْكَلِمَةُ الْمِفْتَاحُ",
+   "w": "الْكَلِمَةُ الْمِفْتَاحِيَّةُ",
    "uz": "kalit so‘z"
-  },
-  {
-   "w": "السُّؤَالُ",
-   "uz": "savol"
-  },
-  {
-   "w": "الْجَوَابُ",
-   "uz": "javob"
   },
   {
    "w": "الِاسْمُ",
@@ -33,12 +25,28 @@
   {
    "w": "الْمَكَانُ",
    "uz": "joy"
+  },
+  {
+   "w": "السُّؤَالُ",
+   "uz": "savol"
+  },
+  {
+   "w": "الْجَوَابُ",
+   "uz": "javob"
+  },
+  {
+   "w": "الْحِوَارُ",
+   "uz": "dialog / suhbat"
+  },
+  {
+   "w": "الْقِصَّةُ",
+   "uz": "hikoya / qissa"
   }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "O‘n yigirma to‘rtinchi dars: matnni o‘qish va tinglash",
+   "title": "O‘n to‘rtinchi dars: o‘qish va tinglash",
    "emotion": "happy",
    "board": [
     "الدَّرْسُ الرَّابِعُ وَالْعِشْرُونَ (24-dars)",
@@ -46,496 +54,420 @@
    ],
    "examples": [
     {
-     "t": "اقْرَأِ النَّصَّ وَأَجِبْ.",
-     "uz": "Matnni o‘qing va javob bering."
+     "t": "اِقْرَأِ النَّصَّ ثُمَّ أَجِبْ.",
+     "uz": "Matnni o‘qing, keyin javob bering."
     }
    ],
-   "say_native": "Assalomu alaykum! O‘n yigirma to‘rtinchi darsga xush kelibsiz. O‘tgan darsda transport va chipta olishni o‘rgandik. Bugun oddiy matnni o‘qish va tinglashni o‘rganamiz. O‘qish — «al-qirā'atu»: ko‘z bilan o‘qish va qayta o‘qish mumkin. Tinglash — «al-istimā‘u»: quloq bilan tinglash va bir marta eshitiladi. Birinchi, matnni o‘qib asosiy g‘oyani topishni o‘rganamiz. Ikkinchi, tinglashda ismlar, raqamlar va joylarni ushlashni o‘rganamiz. Uchinchi, kalit so‘zlar strategiyasini — matndagi muhim so‘zlarga e'tibor qaratishni o‘rganamiz. To‘rtinchi, matn bo‘yicha savollarga to‘liq gap bilan javob berishni o‘rganamiz. Dars oxirida qisqa dialogni 4 ta gap bilan aytib berasiz va o‘zingizni tekshirasiz. Boshlaymiz.",
-   "say": "أهلاً وسهلاً! في الدرس الرابع والعشرين نتعلم قراءة النصوص البسيطة.",
-   "say_uz": "O‘n yigirma to‘rtinchi darsga xush kelibsiz. Bugun oddiy matnni o‘qishni o‘rganamiz.",
+   "say_native": "Assalomu alaykum! O‘n to‘rtinchi darsimizga xush kelibsiz. O‘tgan darsda transport va chipta olishni o‘rgandik: vokzalda so‘rash, poyezd chiptasini olish va yo‘nalishni aniqlash. Bugun arab tilini o‘qish va tinglash qobiliyatini rivojlantiramiz. To‘rtta muhim ko‘nikma o‘rganamiz: birinchidan, matnni o‘qib uning asosiy g‘oyasini topish, ikkinchidan, tinglashda ismlarni, raqamlarni va joylarni aniq ushlash, uchinchidan, kalit so‘zlar strategiyasidan foydalanish, to‘rtinchidan, matn bo‘yicha to‘liq savollarga javob berish. Dars oxirida qisqa dialogni to‘rt gap bilan qayta aytib berasiz. Boshlaymiz.",
+   "say": "أَهْلًا وَسَهْلًا! فِي الدَّرْسِ الرَّابِعِ وَالْعِشْرِينَ نَتَعَلَّمُ قِرَاءَةَ النُّصُوصِ الْبَسِيطَةِ وَالِاسْتِمَاعَ إِلَيْهَا.",
+   "say_uz": "Xush kelibsiz! Yigirma to‘rtinchi darsda oddiy matnlarni o‘qishni va ularga quloq solishni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Matnni o‘qib asosiy g‘oyani topish",
+   "title": "Bugungi dars rejasi",
    "emotion": "neutral",
    "board": [
+    "1. مَا الْفِكْرَةُ الْعَامَّةُ؟ — asosiy g‘oya",
+    "2. الِاسْمُ وَالرَّقَمُ وَالْمَكَانُ — ism, raqam, joy",
+    "3. الْكَلِمَةُ الْمِفْتَاحِيَّةُ — kalit so‘z",
+    "4. اِقْرَأِ الْأَسْئِلَةَ أَوَّلًا — savollarga javob"
+   ],
+   "examples": [],
+   "say_native": "Bugungi rejamizni ko‘rib chiqamiz. Birinchi qismda asosiy g‘oya qanday topilishini o‘rganamiz: matnni seingan holda emas, balki maqsadli o‘qish kerak. Ikkinchi qismda tinglashni mashq qilamiz — ismlar, raqamlar va joylar radio e'lonida va oddiy suhbatda qanday yangraydi. Uchinchi qismda kalit so‘zlar strategiyasini o‘rganamiz — matnning eng muhim so‘zlarini topib, ma'noni tez tushunish. To‘rtinchi qismda esa tushunish savollariga to‘liq gaplar bilan javob berishni o‘rganamiz. Har bir bo‘limda tinglash matnlari va qisqa mashqlar bor, oxirida esa yaxlit takrorlash kutmoqda. Tayyor bo‘lsangiz, birinchi lug‘atdan boshlaymiz.",
+   "say": "فِي هَذَا الدَّرْسِ نَتَعَرَّفُ عَلَى أَهَمِّ مَهَارَاتِ الْقِرَاءَةِ وَالِاسْتِمَاعِ.",
+   "say_uz": "Bu darsda o‘qish va tinglashning eng muhim ko‘nikmalari bilan tanishamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yangi lug‘at: matn o‘qish so‘zlari",
+   "emotion": "neutral",
+   "board": [
+    "النَّصُّ — matn",
     "الْفِكْرَةُ الْعَامَّةُ — umumiy g‘oya",
-    "اقْرَأِ الْعُنْوَانَ أَوَّلًا — avval sarlavhani o‘qing",
-    "لَا تَقْرَأْ كُلَّ كَلِمَةٍ — har bir so‘zni o‘qimang"
+    "الْكَلِمَةُ الْمِفْتَاحِيَّةُ — kalit so‘z",
+    "الْعُنْوَانُ — sarlavha",
+    "الْحِوَارُ — dialog",
+    "الْقِصَّةُ — hikoya"
    ],
    "examples": [
     {
-     "t": "الْفِكْرَةُ الْعَامَّةُ",
-     "uz": "umumiy g‘oya"
+     "t": "النَّصُّ",
+     "uz": "matn"
     },
     {
-     "t": "اقْرَأِ الْعُنْوَانَ",
-     "uz": "sarlavhani o‘qing"
-    }
-   ],
-   "say_native": "Matnni o‘qib asosiy g‘oyani topish: bir, avval matn sarlavhasini o‘qing — sarlavha matnning mavzusini ko‘rsatadi, ikki, har bir paragrafning birinchi gapini o‘qing — odatda asosiy g‘oya shu yerda bo‘ladi, uch, har bir so‘zni o‘qish shart emas — faqat mavzuni tushuning. «al-fikratu al-‘āmmatu» — umumiy g‘oya, «iqra'i al-‘unwāna awwalan» — avval sarlavhani o‘qing, «lā taqra' kulla kalbimatin» — har bir so‘zni o‘qimang. Misol: sarlavha «الْمَدْرَسَةُ» bo‘lsa, matn maktab haqida ekanligini bilasiz. Endi shu strategiyani amalda ishlatamiz.",
-   "say": "الْفِكْرَةُ الْعَامَّةُ، اقْرَأِ الْعُنْوَانَ أَوَّلًا.",
-   "say_uz": "Umumiy g‘oya, avval sarlavhani o‘qing.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Asosiy g‘oyani topishni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Umumiy g‘oya",
-    "2) Avval sarlavhani o‘qing"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Uchta iborani arabcha aytng: umumiy g‘oya, avval sarlavhani o‘qing. «al-fikratu al-‘āmmatu», «iqra'i al-‘unwāna awwalan» deb ayting. Har birini baland ovozda unang.",
-   "say": "الْفِكْرَةُ الْعَامَّةُ، اقْرَأِ الْعُنْوَانَ أَوَّلًا.",
-   "say_uz": "Umumiy g‘oya, avval sarlavhani o‘qing.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "الْفِكْرَةُ الْعَامَّةُ",
-    "اقْرَأِ الْعُنْوَانَ أَوَّلًا"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: al-fikratu al-‘āmmatu — umumiy g‘oya, iqra'i al-‘unwāna awwalan — avval sarlavhani o‘qing. Endi tinglashda ismlar, raqamlar va joylarni ushlashni o‘rganamiz.",
-   "say": "الْفِكْرَةُ الْعَامَّةُ.",
-   "say_uz": "Umumiy g‘oya.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Tinglash: ismlar, raqamlar, joylar",
-   "emotion": "neutral",
-   "board": [
-    "الِاسْمُ — ism: أَحْمَدُ، سَامِي، فَاطِمَةُ",
-    "الرَّقَمُ — raqam: وَاحِدٌ، عَشَرَةٌ، مِائَةٌ",
-    "الْمَكَانُ — joy: الْقَاهِرَةُ، طَشْقَنْدَ"
-   ],
-   "examples": [
-    {
-     "t": "الِاسْمُ",
-     "uz": "ism"
+     "t": "الْعُنْوَانُ",
+     "uz": "sarlavha"
     },
-    {
-     "t": "الرَّقَمُ",
-     "uz": "raqam"
-    }
-   ],
-   "say_native": "Tinglashda eng muhim narsalar — ismlar, raqamlar va joylar. Ism eshitilganda uni yozib oling: «Aḥmadu» — Ahmad, «Sāmī» — Sami, «Fāṭimatu» — Fotima, «Khālidu» — Xolid, «Laylā» — Laylo. Raqamlarni alohida ushlang: «wāḥidun» — 1, «‘asharatun» — 10, «‘ishrūna» — 20, «mi'atun» — 100. Joylarni ushlang: «al-Qāhirah» — Qohira, «Ṭashqand» — Toshkent, «al-Madīnah» — Madina, «Makkah» — Makka, «Dimashq» — Damashq. «al-ismu» — ism, «ar-raqamu» — raqam, «al-makānu» — joy. «ismu al-mutaḥaddithi Aḥmadu» — so‘zlovchining ismi Ahmad. «min Ṭashqand ilā al-Qāhirati» — Toshkentdan Qohiraga. Endi shu uchta toifani tinglashni mashq qilamiz.",
-   "say": "الِاسْمُ، الرَّقَمُ، الْمَكَانُ، أَحْمَدُ، الْقَاهِرَةُ.",
-   "say_uz": "Ism, raqam, joy, Ahmad, Qohira.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Ismlar, raqamlar, joylarni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ahmad",
-    "2) Sami",
-    "3) Qohira",
-    "4) 100"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta tinglash birligi ayting: Ahmad, Sami, Qohira, 100. «Aḥmadu», «Sāmī», «al-Qāhirah», «mi'atun» deb ayting. Har birini baland ovozda unang.",
-   "say": "أَحْمَدُ، سَامِي، الْقَاهِرَةُ، مِائَةٌ.",
-   "say_uz": "Ahmad, Sami, Qohira, 100.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "أَحْمَدُ",
-    "سَامِي",
-    "الْقَاهِرَةُ",
-    "مِائَةٌ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Aḥmadu — Ahmad, Sāmī — Sami, al-Qāhirah — Qohira, mi'atun — 100. Endi kalit so‘zlar strategiyasini o‘rganamiz.",
-   "say": "أَحْمَدُ، سَامِي، الْقَاهِرَةُ.",
-   "say_uz": "Ahmad, Sami, Qohira.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Kalit so‘zlar strategiyasi",
-   "emotion": "neutral",
-   "board": [
-    "الْكَلِمَةُ الْمِفْتَاحُ — kalit so‘z: matndagi eng muhim so‘z",
-    "مَثَلًا: الْمَدْرَسَةُ ← matn maktab haqida"
-   ],
-   "examples": [
-    {
-     "t": "الْكَلِمَةُ الْمِفْتَاحُ",
-     "uz": "kalit so‘z"
-    }
-   ],
-   "say_native": "Kalit so‘zlar strategiyasi: matndagi eng muhim so‘zlarni toping. «al-kalimatu al-miftāḥu» — kalit so‘z. Bu so‘z matnning mavzusini ochadi: «al-madrasatu» — maktab (matn maktab haqida), «as-safaru» — sayohat (matn sayohat haqida), «al-‘ā'ilatu» — oila (matn oila haqida). Misol: «Ahmadu min aṭ-Ṭāʾifi. yadh-habu ilā al-madrasati kulla yawmin. yusāfiru fī al-‘uṭlati.» — Ahmad Toiflik. Har kuni maktabga boradi. Ta'tilda sayohat qiladi. Kalit so‘zlar: «al-madrasatu», «yusāfiru», «al-‘uṭlatu». Endi shu strategiyani amalda ishlatamiz.",
-   "say": "الْكَلِمَةُ الْمِفْتَاحُ، الْمَدْرَسَةُ، السَّفَرُ، الْعَائِلَةُ.",
-   "say_uz": "Kalit so‘z, maktab, sayohat, oila.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Kalit so‘zlarni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Kalit so‘z",
-    "2) Maktab",
-    "3) Sayohat"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Uchta iborani arabcha aytng: kalit so‘z, maktab, sayohat. «al-kalimatu al-miftāḥu», «al-madrasatu», «as-safaru» deb ayting. Har birini baland ovozda unang.",
-   "say": "الْكَلِمَةُ الْمِفْتَاحُ، الْمَدْرَسَةُ، السَّفَرُ.",
-   "say_uz": "Kalit so‘z, maktab, sayohat.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "الْكَلِمَةُ الْمِفْتَاحُ",
-    "الْمَدْرَسَةُ",
-    "السَّفَرُ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: al-kalimatu al-miftāḥu — kalit so‘z, al-madrasatu — maktab, as-safaru — sayohat. Endi matn bo‘yicha savollarga javob berishni o‘rganamiz.",
-   "say": "الْكَلِمَةُ الْمِفْتَاحُ.",
-   "say_uz": "Kalit so‘z.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Matn bo‘yicha savollarga javob berish",
-   "emotion": "neutral",
-   "board": [
-    "1) اقْرَأِ الْأَسْئِلَةَ أَوَّلًا — avval savollarni o‘qing",
-    "2) ابْحَثْ عَنِ الْإِجَابَةِ فِي النَّصِّ — javobni matndan qidiring",
-    "3) أَجِبْ بِجُمْلَةٍ كَامِلَةٍ — to‘liq gap bilan javob bering"
-   ],
-   "examples": [
-    {
-     "t": "اقْرَأِ الْأَسْئِلَةَ أَوَّلًا",
-     "uz": "avval savollarni o‘qing"
-    }
-   ],
-   "say_native": "Matn bo‘yicha savollarga javob berish: bir, avval savollarni o‘qing — «iqra'i al-as'ilata awwalan», ikki, javobni matndan qidiring — «ibḥath ‘ani al-ijābati fī an-naṣṣi», uch, to‘liq gap bilan javob bering — «ajib bi jumlah kāmilatin», to‘rt, qayta tekshiring — «taḥaqqaq min al-ijābati awwalan». «ar-raqamu» — raqam: agar savol raqam haqida bo‘lsa, matndan raqamni qidiring. «al-makānu» — joy: agar savol joy haqida bo‘lsa, matndan joyni qidiring. «al-ismu» — ism: agar savol ism haqida bo‘lsa, matndan ismni qidiring. Endi shu strategiyani amalda ishlatamiz.",
-   "say": "اقْرَأِ الْأَسْئِلَةَ أَوَّلًا، ابْحَثْ عَنِ الْإِجَابَةِ فِي النَّصِّ.",
-   "say_uz": "Avval savollarni o‘qing, javobni matndan qidiring.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Savollarga javob berishni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Avval savollarni o‘qing",
-    "2) Javobni matndan qidiring",
-    "3) To‘liq gap bilan javob bering"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Uchta strategiyani arabcha aytng: avval savollarni o‘qing, javobni matndan qidiring, to‘liq gap bilan javob bering. «iqra'i al-as'ilata awwalan», «ibḥath ‘ani al-ijābati fī an-naṣṣi», «ajib bi jumlah kāmilatin» deb ayting. Har birini baland ovozda unang.",
-   "say": "اقْرَأِ الْأَسْئِلَةَ أَوَّلًا، ابْحَثْ عَنِ الْإِجَابَةِ فِي النَّصِّ، أَجِبْ بِجُمْلَةٍ كَامِلَةٍ.",
-   "say_uz": "Avval savollarni o‘qing, javobni matndan qidiring, to‘liq gap bilan javob bering.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "اقْرَأِ الْأَسْئِلَةَ أَوَّلًا",
-    "ابْحَثْ عَنِ الْإِجَابَةِ فِي النَّصِّ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: iqra'i al-as'ilata awwalan, ibḥath ‘ani al-ijābati fī an-naṣṣi, ajib bi jumlah kāmilatin. Endi misol matnni ko‘ramiz.",
-   "say": "اقْرَأِ الْأَسْئِلَةَ أَوَّلًا.",
-   "say_uz": "Avval savollarni o‘qing.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Misol matn: Ahmad haqida",
-   "emotion": "happy",
-   "board": [
-    "أَحْمَدُ طَالِبٌ مِنَ الْقَاهِرَةِ. يَدْرُسُ فِي الْمَدْرَسَةِ الثَّانَوِيَّةِ. يُحِبُّ الْقِرَاءَةَ وَالسِّبَاحَةَ. فِي الْعُطْلَةِ يُسَافِرُ مَعَ عَائِلَتِهِ. عُمْرُهُ سَبْعَةَ عَشَرَ عَامًا."
-   ],
-   "examples": [
-    {
-     "t": "أَحْمَدُ طَالِبٌ مِنَ الْقَاهِرَةِ",
-     "uz": "Ahmad Qohiralik talaba"
-    }
-   ],
-   "say_native": "Misol matnni o‘qing: «Aḥmadu ṭālibun mina al-Qāhirati. yadrusu fī al-madrasati ath-thānawiyyati. yuḥibbu al-qirā'ata wa as-sibāḥata. fī al-‘uṭlati yusāfiru ma‘a ‘ā'ilatihi. ‘umruhu sab‘ata ‘ashara ‘āman» — Ahmad Qohiralik talaba. O‘rta maktabda o‘qiydi. O‘qishni va suzishni yoqtiradi. Ta'tilda oilasi bilan sayohat qiladi. Yoshi o‘n yetti. Kalit so‘zlar: «aṭ-ṭālibu», «al-madrasatu», «al-Qāhirah». Endi matn bo‘yicha savollarga javob bering.",
-   "say": "أَحْمَدُ طَالِبٌ مِنَ الْقَاهِرَةِ، يَدْرُسُ فِي الْمَدْرَسَةِ الثَّانَوِيَّةِ، يُحِبُّ الْقِرَاءَةَ وَالسِّبَاحَةَ، فِي الْعُطْلَةِ يُسَافِرُ مَعَ عَائِلَتِهِ، عُمْرُهُ سَبْعَةَ عَشَرَ عَامًا.",
-   "say_uz": "Ahmad Qohiralik talaba, o‘rta maktabda o‘qiydi, o‘qishni va suzishni yoqtiradi, ta'tilda oilasi bilan sayohat qiladi, yoshi o‘n yetti.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Misol matn bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ahmad qayerdan?",
-    "2) Qayerda o‘qiydi?",
-    "3) Nima yoqtiradi?",
-    "4) Yoshi nechada?"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Misol matn bo‘yicha savollarga javob bering: Ahmad qayerdan?, qayerda o‘qiydi?, nima yoqtiradi?, yoshi nechada?. Har birini baland ovozda unang.",
-   "say": "أَحْمَدُ مِنَ الْقَاهِرَةِ، يَدْرُسُ فِي الْمَدْرَسَةِ الثَّانَوِيَّةِ، يُحِبُّ الْقِرَاءَةَ وَالسِّبَاحَةَ، عُمْرُهُ سَبْعَةَ عَشَرَ عَامًا.",
-   "say_uz": "Ahmad Qohiralik, o‘rta maktabda o‘qiydi, o‘qishni va suzishni yoqtiradi, yoshi o‘n yetti.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "أَحْمَدُ مِنَ الْقَاهِرَةِ",
-    "يَدْرُسُ فِي الْمَدْرَسَةِ الثَّانَوِيَّةِ",
-    "يُحِبُّ الْقِرَاءَةَ وَالسِّبَاحَةَ",
-    "عُمْرُهُ سَبْعَةَ عَشَرَ عَامًا"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Aḥmadu mina al-Qāhirati, yadrusu fī al-madrasati ath-thānawiyyati, yuḥibbu al-qirā'ata wa as-sibāḥata, ‘umruhu sab‘ata ‘ashara ‘āman. Endi dialogni tinglang va savollarga javob bering.",
-   "say": "أَحْمَدُ مِنَ الْقَاهِرَةِ.",
-   "say_uz": "Ahmad Qohiralik.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Dialog: oddiy suhbat",
-   "emotion": "happy",
-   "board": [
-    "أَحْمَدُ: مِنْ أَيْنَ أَنْتَ؟",
-    "سَامِي: أَنَا مِنْ طَشْقَنْدَ. وَأَنْتَ؟",
-    "أَحْمَدُ: أَنَا مِنَ الْقَاهِرَةِ. عُمْرِي سَبْعَةَ عَشَرَ عَامًا.",
-    "سَامِي: أَنَا عُمْرِي ثَمَانِيَةَ عَشَرَ عَامًا."
-   ],
-   "examples": [],
-   "say_native": "Dialog: «aḥmadu: min ayna anta?» — Ahmad: sen qayerdansan? «sāmiyu: anā min Ṭashqand. wa anta?» — Sami: men Toshkentdanman. va sen? «aḥmadu: anā mina al-Qāhirati. ‘umrī sab‘ata ‘ashara ‘āman» — Ahmad: men Qohiradanman. yoshim o‘n yetti. «sāmiyu: anā ‘umrī thamāniyata ‘ashara ‘āman» — Sami: men yoshim o‘n sakkiz. Bu dialogda ismlar va raqamlar tinglash uchun ishlatiladi. Endi dialogdan javob bering.",
-   "say": "مِنْ أَيْنَ أَنْتَ؟، أَنَا مِنْ طَشْقَنْدَ، وَأَنْتَ؟، أَنَا مِنَ الْقَاهِرَةِ، عُمْرِي سَبْعَةَ عَشَرَ عَامًا، أَنَا عُمْرِي ثَمَانِيَةَ عَشَرَ عَامًا.",
-   "say_uz": "Sen qayerdansan?, men Toshkentdanman, va sen?, men Qohiradanman, yoshim o‘n yetti, men yoshim o‘n sakkiz.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialog bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ahmad nima so‘raydi?",
-    "2) Sami qayerdan?",
-    "3) Ahmadning yoshi nechada?",
-    "4) Samining yoshi nechada?"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Dialog bo‘yicha savollarga javob bering: Ahmad nima so‘raydi?, Sami qayerdan?, Ahmadning yoshi nechada?, Samining yoshi nechada?. Har birini baland ovozda unang.",
-   "say": "مِنْ أَيْنَ أَنْتَ؟، أَنَا مِنْ طَشْقَنْدَ، عُمْرِي سَبْعَةَ عَشَرَ عَامًا، أَنَا عُمْرِي ثَمَانِيَةَ عَشَرَ عَامًا.",
-   "say_uz": "Sen qayerdansan?, men Toshkentdanman, yoshim o‘n yetti, men yoshim o‘n sakkiz.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "مِنْ أَيْنَ أَنْتَ؟",
-    "أَنَا مِنْ طَشْقَنْدَ",
-    "عُمْرِي سَبْعَةَ عَشَرَ عَامًا",
-    "أَنَا عُمْرِي ثَمَانِيَةَ عَشَرَ عَامًا"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: min ayna anta?, anā min Ṭashqand, ‘umrī sab‘ata ‘ashara ‘āman, anā ‘umrī thamāniyata ‘ashara ‘āman. Endi dialogni 4 ta gap bilan qayta ayting.",
-   "say": "مِنْ أَيْنَ أَنْتَ؟، أَنَا مِنْ طَشْقَنْدَ.",
-   "say_uz": "Sen qayerdansan?, men Toshkentdanman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Ismlar, raqamlar, joylarni takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ahmad",
-    "2) 100",
-    "3) Qohira"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Uchta tinglash birligi ayting: Ahmad, 100, Qohira. «Aḥmadu», «mi'atun», «al-Qāhirah» deb ayting. Har birini baland ovozda unang.",
-   "say": "أَحْمَدُ، مِائَةٌ، الْقَاهِرَةُ.",
-   "say_uz": "Ahmad, 100, Qohira.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "practice",
-   "title": "Dialogni 4 ta gap bilan qayta ayting",
-   "emotion": "thinking",
-   "board": [
-    "Kim",
-    "Qayerdan",
-    "Yoshi",
-    "Xulosa"
-   ],
-   "examples": [],
-   "say_native": "Endi qisqa dialogni 4 ta gap bilan qayta ayting. «anā min Ṭashqand», «Aḥmadu mina al-Qāhirati», «‘umrī sab‘ata ‘ashara ‘āman», «anā ‘umrī thamāniyata ‘ashara ‘āman» shaklida gapiring. Har birini baland ovozda unang.",
-   "say": "أَنَا مِنْ طَشْقَنْدَ، أَحْمَدُ مِنَ الْقَاهِرَةِ، عُمْرِي سَبْعَةَ عَشَرَ عَامًا، أَنَا عُمْرِي ثَمَانِيَةَ عَشَرَ عَامًا.",
-   "say_uz": "Men Toshkentdanman, Ahmad Qohiradanman, yoshim o‘n yetti, men yoshim o‘n sakkiz.",
-   "practice_seconds": 24
-  },
-  {
-   "kind": "explain",
-   "title": "O‘z-ozingizni tekshiring",
-   "emotion": "proud",
-   "board": [
-    "Asosiy g‘oya?",
-    "Ismlar/raqamlar/joylar?",
-    "Kalit so‘zlar?",
-    "Savollarga javob?"
-   ],
-   "examples": [],
-   "say_native": "Tekshiring. Birinchi: matnning asosiy g‘oyasini topa olasizmi? Ikkinchi: ismlarni, raqamlarni va joylarni tinglab ushlay olasizmi? Uchinchi: kalit so‘zlarni (al-kalimatu al-miftāḥu) aniqlay olasizmi? To‘rtinchi: matn bo‘yicha savollarga to‘liq gap bilan javob bera olasizmi? Har biriga «ha» desangiz, vazifa bajarildi.",
-   "say": "تَحْقِيقٌ لِلْقِرَاءَةِ وَالاسْتِمَاعِ.",
-   "say_uz": "O‘qish va tinglashni tekshiring.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "O‘qish va tinglash: farqlari",
-   "emotion": "neutral",
-   "board": [
-    "الْقِرَاءَةُ — ko‘z bilan o‘qish",
-    "الِاسْتِمَاعُ — quloq bilan tinglash",
-    "Ikkalasi ham: asosiy g‘oyani topish"
-   ],
-   "examples": [
-    {
-     "t": "الْقِرَاءَةُ",
-     "uz": "o‘qish"
-    },
-    {
-     "t": "الِاسْتِمَاعُ",
-     "uz": "tinglash"
-    }
-   ],
-   "say_native": "O‘qish va tinglash — ikkita turli ko‘nikma, lekin ikkalasida ham asosiy g‘oyani topish bir xil. O‘qishda — «al-qirā'atu» — ko‘z bilan o‘qiysiz: «reading» matnni istalgan vaqtda qayta o‘qishingiz mumkin, lekin tinglashda matn bir marta aytiladi va u qaytib kelmaydi. Tinglashda — «al-istimā‘u» — «listening» har bir so‘zni ushlash shart emas, muhim so‘zlarni ushlang: ismlar, raqamlar, joylar. «ar-rutynu lā intakhi» — yaxshi o‘qish va tinglash uchun ko‘p mashq qilish kerak. Ikkalasida ham kalit so‘zlarga e'tibor bering. Endi shu farqni eslab qoling va mashq qiling.",
-   "say": "الْقِرَاءَةُ، الِاسْتِمَاعُ.",
-   "say_uz": "O‘qish, tinglash.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Tinglashda daftar tutish",
-   "emotion": "neutral",
-   "board": [
-    "اُكْتُبِ الْمُهِمَّ — muhimlarini yozing",
-    "أَسْمَاءُ، أَرْقَامُ، أَمَاكِنُ — ismlar, raqamlar, joylar"
-   ],
-   "examples": [
-    {
-     "t": "اُكْتُبِ الْمُهِمَّ",
-     "uz": "muhimlarini yozing"
-    }
-   ],
-   "say_native": "Tinglashda daftar tutish — eshitganingizni qisqacha yozish. «uktubi al-muhimma» — muhimlarini yozing. Yozish kerak bo‘lganlar: ismlar («alismu» — ism: Aḥmadu, Sāmī), raqamlar («ar-raqamu» — raqam: wāḥidun, ‘asharatun), joylar («al-makānu» — joy: al-Qāhirah, Ṭashqand). «ad-daftaru» — daftar. Tinglayotganda qog‘ozga quyidagilarni yozing: bir, eshitgan ismlarni; ikki, eshitgan raqamlarni; uch, eshitgan joylarni; to‘rt, matnning umumiy mavzusini. Keyin javoblarni matn bilan solishtiring. Endi shu usulni amalda ishlatamiz.",
-   "say": "اُكْتُبِ الْمُهِمَّ، أَسْمَاءٌ، أَرْقَامٌ، أَمَاكِنُ.",
-   "say_uz": "Muhimlarini yozing, ismlar, raqamlar, joylar.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Ismlar, raqamlar, joylarni tinglang va yozing",
-   "emotion": "encouraging",
-   "board": [
-    "Tinglang: ismlar, raqamlar, joylar",
-    "Daftarningizga yozing"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Quyidagilarni tinglang va daftarningizga yozing: «Aḥmadu», «Sāmī», «Fāṭimatu», «wāḥidun», «‘asharatun», «mi'atun», «al-Qāhirah», «Ṭashqand», «al-Madīnah». Har birini baland ovozda ayting va yozing. Keyin ularni baland ovozda qayta o‘qing.",
-   "say": "أَحْمَدُ، سَامِي، فَاطِمَةُ، وَاحِدٌ، عَشَرَةٌ، مِائَةٌ، الْقَاهِرَةُ، طَشْقَنْدَ، الْمَدِينَةُ.",
-   "say_uz": "Ahmad, Sami, Fotima, 1, 10, 100, Qohira, Toshkent, Madina.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "explain",
-   "title": "Matn turlari: dialog, hikoya, xat",
-   "emotion": "neutral",
-   "board": [
-    "الْحِوَارُ — dialog: ikki kishi gaplashadi",
-    "الْقِصَّةُ — hikoya: bir kishi aytadi",
-    "الرِّسَالَةُ — xat: yozma xabar"
-   ],
-   "examples": [
     {
      "t": "الْحِوَارُ",
      "uz": "dialog"
-    },
-    {
-     "t": "الرِّسَالَةُ",
-     "uz": "xat"
     }
    ],
-   "say_native": "Matn turlari: «al-ḥiwāru» — dialog (ikki kishi gaplashadi va rollar almashadi), «al-qiṣṣatu» — hikoya (bir kishi gapirib beradi, voqea ketma-ketligi bor), «ar-risālatu» — xat (yozma xabar, salom va yakun bor). «al-ḥiwāru» dialogda ismlar va savollar ko‘p uchraydi — «man anta?» (sen kimsan?), «min ayna anta?» (sen qayerdansan?), «kam ‘umruka?» (yoshing nechada?). «al-qiṣṣatu» da «kāna» (edi) va vaqt so‘zlari ko‘p — «fī yawmin mina al-ayyāmi» (bir kun), «ba‘da dhālika» (undan keyin). «ar-risālatu» da «ṣadīqī al-‘azīzu» (aziz do‘stim) bilan boshlanadi va «taḥiyyātī» (salomlarim) bilan tugaydi. Matn turini tanish — javob berishni osonlashtiradi va tezlashtiradi. Endi shu turlarni tanishni o‘rganamiz.",
-   "say": "الْحِوَارُ، الْقِصَّةُ، الرِّسَالَةُ.",
-   "say_uz": "Dialog, hikoya, xat.",
+   "say_native": "Yangi lug‘atimiz bilan tanishing. «an-naṣṣu» — matn, ya'ni arab tilida o‘qiyotgan yoki eshitayotgan yozuv. «al-fikratu al-‘āmmatu» — umumiy g‘oya, matn nima haqida ekanligini ifodalaydi. «al-kalimatu al-miftāḥiyyatu» — kalit so‘z, ya'ni matn mazmunini ochadigan muhim so‘z. «al-‘unwānu» — sarlavha, matnning boshidagi yozuv, u mavzuni aytib beradi. «al-ḥiwāru» — dialog, ikki kishi orasidagi suhbat. «al-qiṣṣatu» — hikoya, bir kishi aytib beradigan voqea. «as-su'ālu» — savol, «al-jawābu» — javob. Bu so‘zlar dars bo‘yi ko‘p marta uchraydi, shuning uchun ularni hoziroq yodlab oling.",
+   "say": "النَّصُّ، الْفِكْرَةُ الْعَامَّةُ، الْكَلِمَةُ الْمِفْتَاحِيَّةُ، الْعُنْوَانُ، الْحِوَارُ، الْقِصَّةُ، السُّؤَالُ، الْجَوَابُ.",
+   "say_uz": "Matn, umumiy g‘oya, kalit so‘z, sarlavha, dialog, hikoya, savol, javob.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Matn turlarini ayting",
+   "title": "Lug‘atni takrorlang",
    "emotion": "encouraging",
    "board": [
-    "1) dialog",
-    "2) hikoya",
-    "3) xat"
+    "1) Matn",
+    "2) Umumiy g‘oya",
+    "3) Kalit so‘z",
+    "4) Sarlavha",
+    "5) Dialog"
    ],
    "examples": [],
-   "say_native": "Mashq. Uchta matn turini arabcha aytng: dialog, hikoya, xat. «al-ḥiwāru», «al-qiṣṣatu», «ar-risālatu» deb ayting. Har birini baland ovozda unang.",
-   "say": "الْحِوَارُ، الْقِصَّةُ، الرِّسَالَةُ.",
-   "say_uz": "Dialog, hikoya, xat.",
+   "say_native": "Mashq vaqti. Men o‘zbekcha aytaman, siz arabcha aytasiz: matn, umumiy g‘oya, kalit so‘z, sarlavha, dialog. «an-naṣṣu», «al-fikratu al-‘āmmatu», «al-kalimatu al-miftāḥiyyatu», «al-‘unwānu», «al-ḥiwāru». Har bir so‘zni sekin va aniq ayting, urg‘uga e'tibor bering. Tayyor bo‘lsangiz, boshlaymiz.",
+   "say": "النَّصُّ، الْفِكْرَةُ الْعَامَّةُ، الْكَلِمَةُ الْمِفْتَاحِيَّةُ، الْعُنْوَانُ، الْحِوَارُ.",
+   "say_uz": "Matn, umumiy g‘oya, kalit so‘z, sarlavha, dialog.",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: lug‘at",
    "emotion": "proud",
    "board": [
-    "الْحِوَارُ",
-    "الْقِصَّةُ",
-    "الرِّسَالَةُ"
+    "النَّصُّ — matn",
+    "الْفِكْرَةُ الْعَامَّةُ — umumiy g‘oya",
+    "الْكَلِمَةُ الْمِفْتَاحِيَّةُ — kalit so‘z",
+    "الْعُنْوَانُ — sarlavha",
+    "الْحِوَارُ — dialog"
    ],
    "examples": [],
-   "say_native": "Javoblar: al-ḥiwāru — dialog, al-qiṣṣatu — hikoya, ar-risālatu — xat. Endi matnni takrorlab o‘qish strategiyasını o‘rganamiz.",
-   "say": "الْحِوَارُ، الْقِصَّةُ، الرِّسَالَةُ.",
-   "say_uz": "Dialog, hikoya, xat.",
+   "say_native": "Javoblaringizni tekshiring: «an-naṣṣu» — matn, «al-fikratu al-‘āmmatu» — umumiy g‘oya, «al-kalimatu al-miftāḥiyyatu» — kalit so‘z, «al-‘unwānu» — sarlavha, «al-ḥiwāru» — dialog. Agar bittasini adashtirgan bo‘lsangiz, hozir yana bir marta takrorlang. Shuni yodda tuting: bu so‘zlar kundalik imtihon va tushunish topshiriqlarida doimo uchraydi. Endi birinchi asosiy ko‘nikmaga o‘tamiz — matnning asosiy g‘oyasini topish.",
+   "say": "النَّصُّ، الْفِكْرَةُ الْعَامَّةُ، الْكَلِمَةُ الْمِفْتَاحِيَّةُ، الْعُنْوَانُ، الْحِوَارُ.",
+   "say_uz": "Matn, umumiy g‘oya, kalit so‘z, sarlavha, dialog.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Matnni takrorlab o‘qish strategiyasi",
+   "title": "Birinchi nuqta: asosiy g‘oyani topish",
    "emotion": "neutral",
    "board": [
-    "1) Birinchi o‘qish: asosiy g‘oyani toping",
-    "2) Ikkinchi o‘qish: tafsilotlarni toping",
-    "3) Uchinchi: javoblarni matn bilan solishtiring"
+    "1. اِقْرَأِ الْعُنْوَانَ أَوَّلًا — avval sarlavhani o‘qing",
+    "2. اِقْرَأِ الْجُمْلَةَ الْأُولَى — birinchi gapni o‘qing",
+    "3. لَا تَقْرَأْ كُلَّ كَلِمَةٍ — har bir so‘zni tarjima qilmang"
    ],
    "examples": [
     {
-     "t": "اقْرَأْ مَرَّةً أُخْرَى",
-     "uz": "yana bir marta o‘qing"
+     "t": "اِقْرَأِ الْعُنْوَانَ أَوَّلًا.",
+     "uz": "Avval sarlavhani o‘qing."
     }
    ],
-   "say_native": "Matnni takrorlab o‘qish strategiyasi: birinchi o‘qishda — «al-fikratu al-‘āmmatu» — umumiy g‘oyani topasiz va matn mavzusini tushunasiz, ikkinchi o‘qishda ismlar, raqamlar va joylarni — «al-ismu», «ar-raqamu», «al-makānu» — ushlaysiz, uchinchi o‘qishda savollarga javob berasiz va javoblarni matn bilan solishtirasiz. «iqra' marratan ukhrā» — yana bir marta o‘qing. Ko‘pchilik uch marta o‘qiydi: avval mavzu uchun, keyin tafsilotlar uchun, keyin javoblar uchun. Endi shu strategiyani amalda ishlatamiz.",
-   "say": "اقْرَأْ مَرَّةً أُخْرَى، اقْرَأْ مَرَّتَيْنِ.",
-   "say_uz": "Yana bir marta o‘qing, ikki marta o‘qing.",
+   "say_native": "Asosiy g‘oyani topish uchun uchta qadam bor. Birinchi qadam — sarlavhani o‘qing: agar sarlavha «الْمَدْرَسَةُ» bo‘lsa, matn maktab haqida ekanligini darhol bilasiz, uzoq o‘qish shart emas. Ikkinchi qadam — har bir parchaning birinchi gapini o‘qing, chunki arab matnlarida asosiy fikr odatda birinchi gapda beriladi. Uchinchi qadam — hech qachon har bir so‘zning tarjimasini qidirmang: u vaqt yo‘qotadi va asosiy g‘oyadan chalg‘itadi. O‘zbek tilida ham xuddi shunday: «Kitob yangi» degan matnning g‘oyasi bitta, barcha so‘zlar mana shu g‘oyaga xizmat qiladi. Bu strategiya imtihonda eng ko‘p vaqt tejaydigan vositadir.",
+   "say": "اِقْرَأِ الْعُنْوَانَ أَوَّلًا، ثُمَّ اِقْرَأِ الْجُمْلَةَ الْأُولَى، وَلَا تَقْرَأْ كُلَّ كَلِمَةٍ.",
+   "say_uz": "Avval sarlavhani o‘qing, keyin birinchi gapni o‘qing, har bir so‘zni o‘qimang.",
    "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Namuna matn: maktab haqida",
+   "emotion": "happy",
+   "board": [
+    "مَدْرَسَتُنَا جَدِيدَةٌ وَكَبِيرَةٌ.",
+    "فِيهَا مَكْتَبَةٌ وَمَلْعَبٌ كَبِيرٌ.",
+    "نُحِبُّ مَدْرَسَتَنَا كَثِيرًا."
+   ],
+   "examples": [
+    {
+     "t": "مَدْرَسَتُنَا جَدِيدَةٌ وَكَبِيرَةٌ.",
+     "uz": "Maktabimiz yangi va katta."
+    },
+    {
+     "t": "فِيهَا مَكْتَبَةٌ وَمَلْعَبٌ.",
+     "uz": "Unda kutubxona va o‘yin maydoni bor."
+    }
+   ],
+   "say_native": "Endi namuna matnni tinglang. Men bir marta to‘liq o‘qiman, siz faqat tinglang va sarlavhaga e'tibor bering: «مَدْرَسَتُنَا جَدِيدَةٌ وَكَبِيرَةٌ. فِيهَا مَكْتَبَةٌ وَمَلْعَبٌ كَبِيرٌ. نُحِبُّ مَدْرَسَتَنَا كَثِيرًا». Tarjimasi: maktabimiz yangi va katta, unda kutubxona va katta o‘yin maydoni bor, biz maktabimizni juda yaxshi ko‘ramiz. Bu matnning asosiy g‘oyasi nima? Maktab va u qanday ekanligi haqida. Diqqat qiling: matnda kutubxona, maydon kabi tafsilotlar bor, lekin ular asosiy g‘oyaga xizmat qiladi, alohida mavzu emas.",
+   "say": "مَدْرَسَتُنَا جَدِيدَةٌ وَكَبِيرَةٌ، فِيهَا مَكْتَبَةٌ وَمَلْعَبٌ كَبِيرٌ، نُحِبُّ مَدْرَسَتَنَا كَثِيرًا.",
+   "say_uz": "Maktabimiz yangi va katta, unda kutubxona va katta o‘yin maydoni bor, biz maktabimizni juda yaxshi ko‘ramiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Asosiy g‘oya nima?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Matn kutubxona haqida",
+    "2) Matn maktab haqida",
+    "3) Matn o‘yin maydoni haqida"
+   ],
+   "examples": [],
+   "say_native": "Savol: tinglagan matningizning asosiy g‘oyasi qaysi javobda to‘g‘ri berilgan? Birinchi variant: matn kutubxona haqida. Ikkinchi variant: matn maktab haqida. Uchinchi variant: matn o‘yin maydoni haqida. O‘ylab ko‘ring: kutubxona va maydon matnda tilga olingan, lekin ular nimani ta'riflaydi? To‘g‘ri, maktabni. Javobni baland ovozda ayting, keyin keyingi sahifada tekshiramiz.",
+   "say": "مَا هِيَ الْفِكْرَةُ الْعَامَّةُ لِلنَّصِّ؟",
+   "say_uz": "Matnning asosiy g‘oyasi nima?",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: asosiy g‘oya",
+   "emotion": "proud",
+   "board": [
+    "✓ Matn maktab haqida",
+    "Kutubxona va maydon — tafsilot"
+   ],
+   "examples": [],
+   "say_native": "To‘g‘ri javob — ikkinchi variant: matn maktab haqida. Kutubxona va o‘yin maydoni — bular faqat tafsilotlar, asosiy g‘oya emas. Eslatib o‘taman: asosiy g‘oya odatda sarlavhaga eng yaqin bo‘ladi va matnning boshlanish gapida o‘z aksini topadi. O‘zbek tilidagi matnlarda ham xuddi shunday — «O‘zbekistonning poytaxti Toshkent» degan gapning g‘oyasi Toshkent haqida, boshqa har qanday tafsilot ikkinchi o‘rinda turadi. Endi o‘qish tezligi haqida gaplashamiz.",
+   "say": "الْجَوَابُ الصَّحِيحُ: النَّصُّ عَنِ الْمَدْرَسَةِ.",
+   "say_uz": "To‘g‘ri javob: matn maktab haqida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tez o‘qish va diqqatli o‘qish",
+   "emotion": "thinking",
+   "board": [
+    "السَّرْعُ — tez ko‘z yugurish: g‘oya uchun",
+    "التَّدَقُّقُ — diqqatli o‘qish: tafsilotlar uchun"
+   ],
+   "examples": [
+    {
+     "t": "اِقْرَأْ بِسُرْعَةٍ.",
+     "uz": "Tez o‘qing."
+    }
+   ],
+   "say_native": "O‘qishning ikki xil usuli bor. Birinchisi — tez ko‘z yugurish, arabchasida «as-sar‘u»: matnga tez nazar tashlab, umumiy g‘oyani olasiz, savollarga tayyorgarlikda juda foydali. Ikkinchisi — diqqatli o‘qish, ya'ni «at-tadaqquq»: har bir gapni sinchiklab o‘qiysiz, raqam va ismlar kabi tafsilotlar aynan shu usul bilan topiladi. Xatoni ko‘pchilik shunday qiladi: birinchi o‘qishda hamma narsani tushunishga urinadi. To‘g‘ri yo‘l — avval tez o‘qib g‘oyani oling, keyin savollar bo‘yicha kerakli joylarni diqqatli o‘qing. Xuddi xarita ko‘rgandek: avval yo‘nalishni bilasiz, keyin aniq ko‘chani topasiz.",
+   "say": "اِقْرَأْ بِسُرْعَةٍ لِلْفِكْرَةِ الْعَامَّةِ، وَبِتَدَقُّقٍ لِلتَّفَاصِيلِ.",
+   "say_uz": "Asosiy g‘oya uchun tez o‘qing, tafsilotlar uchun diqqatli o‘qing.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: hamma so‘zni tarjima qilish",
+   "emotion": "stern",
+   "board": [
+    "✗ Har bir so‘zning tarjimasini qidirish",
+    "✓ Avval g‘oyani toping, keyin tafsilot"
+   ],
+   "examples": [],
+   "say_native": "Eng ko‘p uchraydigan xato haqida ogohlantiraman. Ba'zi o‘quvchilar matnni boshidan oxirigacha har bir so‘zni lug‘atdan qidirib o‘qiydi. Natijada vaqt o‘tadi, charchaysiz, eng asosiysi — asosiy g‘oyani unuta boshlaysiz. Arab tilida so‘z ildizlari bir-biriga o‘xshash bo‘lgani uchun bitta notanish so‘z butun matnni tarjima qilishga majbur qilmasligi kerak. To‘g‘ri yo‘l: sarlavhani ko‘ring, birinchi gaplarni o‘qing, g‘oyani aniqlang, shundan keyingina notanish so‘zlardan faqat keraklilarini qidiring. Buni imtihon maslahati deb eslab qoling.",
+   "say": "لَا تَقْرَأْ كُلَّ كَلِمَةٍ، اِبْحَثْ عَنِ الْفِكْرَةِ الْعَامَّةِ أَوَّلًا.",
+   "say_uz": "Har bir so‘zni o‘qimang, avval asosiy g‘oyani qidiring.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sarlavhadan g‘oyani toping",
+   "emotion": "encouraging",
+   "board": [
+    "Sarlavha: «السَّفَرُ بِالْقِطَارِ»",
+    "G‘oya qaysi? 1) mehmonxona 2) sayohat 3) bozor"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Tasavvur qiling: matnning sarlavhasi «السَّفَرُ بِالْقِطَارِ» — poyezdda sayohat. Uchta variant berilgan: birinchisi mehmonxona, ikkinchisi sayohat, uchinchisi bozor. Sarlavhani arabcha o‘qiy olganingiz uchun g‘oyani darhol topasiz. Javobni ayting va nega shunday tanlaganingizni tushuntiring. Shuni yodda tuting: sarlavha har doim matnning yuragi.",
+   "say": "السَّفَرُ بِالْقِطَارِ. مَا الْفِكْرَةُ؟",
+   "say_uz": "Poyezdda sayohat. G‘oya nima?",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: sarlavha mashqi",
+   "emotion": "proud",
+   "board": [
+    "✓ Ikkinchi variant: sayohat",
+    "السَّفَرُ بِالْقِطَارِ — poyezdda sayohat"
+   ],
+   "examples": [],
+   "say_native": "To‘g‘ri javob — ikkinchi variant: sayohat. «as-safaru bi-l-qiṭāri» poyezdda sayohat degani, shu sababli matn transport va sayohat haqida. Birinchi variant mehmonxona — sarlavhada bunday ma'no yo‘q, uchinchi variant bozor — u ham mos emas. Diqqat qiling: to‘g‘ri javobni sarlavhadagi tanish so‘zlardan topdik, butun matnni o‘qimasdan. Xuddi shu usulni har qanday arab matnida qo‘llashingiz mumkin. Endi tinglash qismiga o‘tamiz — ism, raqam va joylarni eshitishni o‘rganamiz.",
+   "say": "الصَّوَابُ: السَّفَرُ. النَّصُّ عَنِ السَّفَرِ بِالْقِطَارِ.",
+   "say_uz": "To‘g‘ri: sayohat. Matn poyezdda sayohat haqida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ikkinchi nuqta: tinglash strategiyasi",
+   "emotion": "neutral",
+   "board": [
+    "الِاسْمُ — ismlar: أَحْمَدُ، فَاطِمَةُ",
+    "الرَّقَمُ — raqamlar: سَبْعَةَ عَشَرَ، مِائَةٌ",
+    "الْمَكَانُ — joylar: الْقَاهِرَةُ، طَشْقَنْدُ"
+   ],
+   "examples": [
+    {
+     "t": "أَيْنَ تَسْكُنُ؟",
+     "uz": "Qayerda yashaysiz?"
+    }
+   ],
+   "say_native": "Tinglashda uchta narsaga quloq tuting. Birinchisi — ismlar: odamlar ismlari matnda eng muhim belgilar, odatda gap boshida keladi, masalan «أَحْمَدُ», «فَاطِمَةُ». Ikkinchisi — raqamlar: yosh, vaqt, narx, miqdor kabi ma'lumotlar har doim raqam bilan beriladi, masalan «سَبْعَةَ عَشَرَ» o‘n yetti, «مِائَةٌ» — yuz. Uchinchisi — joylar: shahar va davlat nomlari, masalan «الْقَاهِرَةُ» Qohira, «طَشْقَنْدُ» Toshkent. O‘zbek tilida ham sariq rang ismlarni ajratishga yordam beradi — arab e'lonlarida ham ismlar alohida urg‘u bilan aytiladi. Keyingi matnni shunday tinglang.",
+   "say": "اِسْتَمِعْ إِلَى الْأَسْمَاءِ وَالْأَرْقَامِ وَالْأَمَاكِنِ.",
+   "say_uz": "Ismlarga, raqamlarga va joylarga quloq soling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash matni: yangi markaz e'loni",
+   "emotion": "happy",
+   "board": [
+    "يُفْتَتَحُ مَرْكَزُ النَّخِيلَةِ يَوْمَ السَّبْتِ.",
+    "السَّاعَةُ التَّاسِعَةُ صَبَاحًا.",
+    "أَوَّلُ مِائَةِ زَائِرٍ يَحْصُلُونَ عَلَى هَدِيَّةٍ."
+   ],
+   "examples": [
+    {
+     "t": "مَتَى يُفْتَتَحُ الْمَرْكَزُ؟",
+     "uz": "Markaz qachon ochiladi?"
+    }
+   ],
+   "say_native": "Diqqat bilan tinglang, men faqat bir marta o‘qiyman: «يُفْتَتَحُ مَرْكَزُ النَّخِيلَةِ يَوْمَ السَّبْتِ فِي السَّاعَةِ التَّاسِعَةِ صَبَاحًا. أَوَّلُ مِائَةِ زَائِرٍ يَحْصُلُونَ عَلَى هَدِيَّةٍ. يُدِيرُ الْمَرْكَزَ السَّيِّدُ خَالِدٌ.» Tarjimasi: Nexila markazi shanba kuni soat to‘qqizda ochiladi, birinchi yuz tashrifchiga sovg‘a beriladi, markazni janob Xolid boshqaradi. Endi uchta narsani qidiring: ism — Xolid, raqamlar — to‘qqiz va yuz, joy — Nexila. Ularni xotirada saqlang, keyingi sahifada savollar bor.",
+   "say": "يُفْتَتَحُ مَرْكَزُ النَّخِيلَةِ يَوْمَ السَّبْتِ فِي السَّاعَةِ التَّاسِعَةِ صَبَاحًا، أَوَّلُ مِائَةِ زَائِرٍ يَحْصُلُونَ عَلَى هَدِيَّةٍ، يُدِيرُ الْمَرْكَزَ السَّيِّدُ خَالِدٌ.",
+   "say_uz": "Nexila markazi shanba kuni soat to‘qqizda ochiladi, birinchi yuz tashrifchiga sovg‘a beriladi, markazni janob Xolid boshqaradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "E'londan nima eshitdingiz?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Markaz nomi nima?",
+    "2) Qachon ochiladi? Soat nechida?",
+    "3) Nechta tashrifchiga sovg‘a bor?",
+    "4) Markazni kim boshqaradi?"
+   ],
+   "examples": [],
+   "say_native": "Mashq vaqti. E'lon asosida to‘rtta savolga javob bering: birinchi, markazning nomi nima? Ikkinchi, markaz qachon va soat nechida ochiladi? Uchinchi, nechta tashrifchiga sovg‘a beriladi? To‘rtinchi, markazni kim boshqaradi? Javoblarni baland ovozda ayting — ismlarni, raqamlarni va joyni alohida daftarga yozib oling. Vaqt — o‘n besh soniya, keyin javoblarni tekshiramiz.",
+   "say": "مَا اسْمُ الْمَرْكَزِ؟ مَتَى يُفْتَتَحُ؟ كَمْ زَائِرًا يَحْصُلُ عَلَى هَدِيَّةٍ؟ مَنْ يُدِيرُ الْمَرْكَزَ؟",
+   "say_uz": "Markazning nomi nima? Qachon ochiladi? Nechta tashrifchi sovg‘a oladi? Markazni kim boshqaradi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: e'lon mashqi",
+   "emotion": "proud",
+   "board": [
+    "الْمَرْكَزُ: مَرْكَزُ النَّخِيلَةِ",
+    "يَوْمُ السَّبْتِ، التَّاسِعَةُ صَبَاحًا",
+    "مِائَةُ زَائِرٍ، خَالِدٌ"
+   ],
+   "examples": [],
+   "say_native": "Javoblarni tekshiramiz. Markazning nomi — «مَرْكَزُ النَّخِيلَةِ», Nexila markazi. Ochilish vaqti — shanba kuni, soat to‘qqizda. Sovg‘a oladigan tashrifchilar soni — yuzta. Markaz rahbari — janob Xolid. Diqqat qiling: bu javoblarning hammasi e'londa ochiq aytilgan, hech qanday taxmin kerak emas. Tinglashda eng yaxshi strategiya — savoldagi so‘zni e'lon ichidan topib, yonidagi raqam yoki ismni olish. Agar savol «qachon?» bo‘lsa, vaqt so‘zini qidiring, «kim?» bo‘lsa — ismni. Shuni mashq qilib boramiz.",
+   "say": "مَرْكَزُ النَّخِيلَةِ، يَوْمُ السَّبْتِ، التَّاسِعَةُ صَبَاحًا، مِائَةُ زَائِرٍ، خَالِدٌ.",
+   "say_uz": "Nexila markazi, shanba kuni, soat to‘qqizda, yuz tashrifchi, Xolid.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Raqamlarni tinglang va yozing",
+   "emotion": "encouraging",
+   "board": [
+    "Raqamlarni daftaringizga yozing",
+    "7 — 17 — 100"
+   ],
+   "examples": [],
+   "say_native": "Sof tinglash mashqi. Men faqat raqamlarni bir marta o‘qiyman: «سَبْعَةٌ، سَبْعَةَ عَشَرَ، مِائَةٌ، تِسْعَةٌ، خَمْسَةٌ وَعِشْرُونَ». Siz ularni daftaringizga yozib oling. Arab raqamlarini eshitish odat emas, shuning uchun sekin tinglang va har bir sonni alohida yozing. Keyingi sahifada to‘g‘ri javoblar bor, ularni o‘zingiz bilang solishtiring.",
+   "say": "سَبْعَةٌ، سَبْعَةَ عَشَرَ، مِائَةٌ، تِسْعَةٌ، خَمْسَةٌ وَعِشْرُونَ.",
+   "say_uz": "Yetti, o‘n yetti, yuz, to‘qqiz, yigirma besh.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: raqamlar",
+   "emotion": "proud",
+   "board": [
+    "سَبْعَةٌ — 7",
+    "سَبْعَةَ عَشَرَ — 17",
+    "مِائَةٌ — 100",
+    "تِسْعَةٌ — 9",
+    "خَمْسَةٌ وَعِشْرُونَ — 25"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: «سَبْعَةٌ» — yetti, «سَبْعَةَ عَشَرَ» — o‘n yetti, «مِائَةٌ» — yuz, «تِسْعَةٌ» — to‘qqiz, «خَمْسَةٌ وَعِشْرُونَ» — yigirma besh. Chalkashlik odatda o‘nlik sonlarda chiqadi: arab tilida «وَعِشْرُونَ» — yigirma, «خَمْسَةٌ وَعِشْرُونَ» — besh va yigirma, ya'ni yigirma besh. O‘zbek tilida ham tartib o‘xshash — avval birlik, keyin o‘nlik. Xato qilgan bo‘lsangiz, bu raqamlarni yana bir marta takrorlab ovoz chiqarib ayting. Endi kalit so‘zlar strategiyasiga o‘tamiz.",
+   "say": "سَبْعَةٌ وَسَبْعَةَ عَشَرَ وَمِائَةٌ وَتِسْعَةٌ وَخَمْسَةٌ وَعِشْرُونَ.",
+   "say_uz": "Yetti, o‘n yetti, yuz, to‘qqiz va yigirma besh.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Uchinchi nuqta: kalit so‘zlar strategiyasi",
+   "emotion": "neutral",
+   "board": [
+    "الْكَلِمَةُ الْمِفْتَاحِيَّةُ — matnni ochadigan so‘z",
+    "أَسَمَاءُ، أَفْعَالُ، أَرْقَامُ — ismlari, fe'llari, raqamlari",
+    "حُرُوفُ الْجَرِّ — xizmat so‘zlarini o‘tkazib yuboring"
+   ],
+   "examples": [
+    {
+     "t": "الْكَلِمَاتُ الْمِفْتَاحِيَّةُ",
+     "uz": "kalit so‘zlar"
+    }
+   ],
+   "say_native": "Kalit so‘zlar strategiyasi — o‘qish va tinglashning eng kuchli quroli. Matndagi har bir so‘z bir xil ahamiyatga ega emas: «فِي», «مِنْ», «عَلَى» kabi predloglar faqat grammatik xizmat qiladi, ularni o‘tkazib yuborsangiz ham ma'no buzilmaydi. Kalit so‘zlar esa uch xil bo‘ladi: birinchisi ismlar — odam va joy nomlari, ikkinchisi fe'llar — nima qilinganligi haqidagi so‘zlar, uchinchisi raqamlar — vaqt, miqdor, narx. Matnni o‘qib yoki tinglab shu uch turdagi so‘zlarni belgilang, qolganlarini elakdan o‘tkazing. Natijada matnning yuragini tez topasiz.",
+   "say": "اِبْحَثْ عَنِ الْكَلِمَاتِ الْمِفْتَاحِيَّةِ: الْأَسْمَاءُ وَالْأَفْعَالُ وَالْأَرْقَامُ.",
+   "say_uz": "Kalit so‘zlarni qidiring: ismlar, fe'llar va raqamlar.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Kalit so‘zlarni toping",
+   "emotion": "encouraging",
+   "board": [
+    "Matn: «يُسَافِرُ أَحْمَدُ إِلَى الْقَاهِرَةِ غَدًا بِالْقِطَارِ.»",
+    "Kalit so‘zlar qaysilar?"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Quyidagi gapdagi kalit so‘zlarni toping: «يُسَافِرُ أَحْمَدُ إِلَى الْقَاهِرَةِ غَدًا بِالْقِطَارِ.» — Ahmad ertaga Qohiraga poyezdda sayohat qiladi. O‘ylab ko‘ring: ism — Ahmad va Qohira, fe'l — sayohat qiladi, vaqt — ertaga, transport — poyezd. Xizmat so‘zlari «إِلَى» va «بِ» ma'no bermaydi, ularni e'tiborsiz qoldiring. Javobni baland ovozda ayting va nima uchun shunday tanlaganingizni tushuntiring.",
+   "say": "يُسَافِرُ أَحْمَدُ إِلَى الْقَاهِرَةِ غَدًا بِالْقِطَارِ. اِسْتَخْرِجِ الْكَلِمَاتِ الْمِفْتَاحِيَّةَ.",
+   "say_uz": "Ahmad ertaga Qohiraga poyezdda sayohat qiladi. Kalit so‘zlarni ajrating.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: kalit so‘zlar",
+   "emotion": "proud",
+   "board": [
+    "أَحْمَدُ، الْقَاهِرَةُ — ismlar",
+    "يُسَافِرُ — fe'l",
+    "غَدًا، الْقِطَارُ — vaqt va transport"
+   ],
+   "examples": [],
+   "say_native": "To‘g‘ri kalit so‘zlar: «أَحْمَدُ» va «الْقَاهِرَةُ» — ismlar, kim va qayerga ekanini ko‘rsatadi; «يُسَافِرُ» — fe'l, nima qilayotganini bildiradi; «غَدًا» — vaqt, qachonligini aytadi; «الْقِطَارُ» — transport turi. Predloglar «إِلَى» va «بِ» hech narsani anglatmaydi, shuning uchun ular kalit emas. Endi shu usulni uzunroq matnda qo‘llaymiz. Esingizda bo‘lsin: kalit so‘zlar strategiyasi birinchi o‘qishda ham, tinglashda ham ishlaydi.",
+   "say": "الْكَلِمَاتُ الْمِفْتَاحِيَّةُ: أَحْمَدُ، الْقَاهِرَةُ، يُسَافِرُ، غَدًا، الْقِطَارُ.",
+   "say_uz": "Kalit so‘zlar: Ahmad, Qohira, sayohat qiladi, ertaga, poyezd.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz nuqtasi: shamsiy va qamariy harflar",
+   "emotion": "thinking",
+   "board": [
+    "الشَّمْسِيَّةُ: الرَّقَمُ ← «ar-raqamu»",
+    "الْقَمَرِيَّةُ: الْمَكَانُ ← «al-makānu»",
+    "الْقَاهِرَةُ ← «al-Qāhiratu»"
+   ],
+   "examples": [
+    {
+     "t": "الرَّقَمُ",
+     "uz": "raqam (ar-raqam)"
+    },
+    {
+     "t": "الْمَكَانُ",
+     "uz": "joy (al-makon)"
+    }
+   ],
+   "say_native": "Tinglashda bir sirni bilishingiz kerak: arab tilida «الْ» artiklining talaffuzi keyingi harfga qarab o‘zgaradi. Shamsiy harflar kelsa — ya'ni sh, s, d, t, r, n va boshqalar — «l» ovozi eshitilmaydi, keyingi harf ikkita aytiladi: «الرَّقَمُ» — «ar-raqamu», «النَّصُّ» — «an-naṣṣu», «السُّؤَالُ» — «as-su'ālu». Qamariy harflar kelsa — masalan m, q, b, k, f — «l» to‘liq eshitiladi: «الْمَكَانُ» — «al-makānu», «الْقَاهِرَةُ» — «al-Qāhiratu». O‘zbek tilida bunday farq yo‘q, shuning uchun shamsiy so‘zlarni eshitganda «l» yo‘qligini bilib, asosiy harfni ushlash kerak.",
+   "say": "الرَّقَمُ، النَّصُّ، الْمَكَانُ.",
+   "say_uz": "ar-raqam, an-nass, al-makon — artiklning talaffuzi keyingi harfga bog‘liq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Shamsiy yoki qamariymi?",
+   "emotion": "encouraging",
+   "board": [
+    "1) الرَّقَمُ",
+    "2) الْمَكَانُ",
+    "3) النَّصُّ",
+    "4) الْقَاهِرَةُ"
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta so‘zni ayting va har birida «l» eshitilish-eshitilmasligini ayting: «الرَّقَمُ» — shamsiy, l tushib qoladi; «الْمَكَانُ» — qamariy, l to‘liq; «النَّصُّ» — shamsiy; «الْقَاهِرَةُ» — qamariy. Har birini ikki marta takrorlang: avval asta, keyin normal tezlikda. Tinglashda bu quloqni mashq qiladi.",
+   "say": "الرَّقَمُ، الْمَكَانُ، النَّصُّ، الْقَاهِرَةُ.",
+   "say_uz": "ar-raqam, al-makon, an-nass, al-Qohira.",
+   "practice_seconds": 10
   },
   {
    "kind": "practice",
@@ -567,12 +499,12 @@
   },
   {
    "kind": "practice",
-   "title": "Matn bo‘yicha savollarga javob bering (yakuniy)",
+   "title": "Misol matn bo‘yicha savollarga javob bering (yakuniy)",
    "emotion": "encouraging",
    "board": [
-    "Ahmad qayerdan?",
-    "Qayerda o‘qiydi?",
-    "Yoshi nechada?"
+    "1) Ahmad qayerdan?",
+    "2) Qayerda o‘qiydi?",
+    "3) Yoshi nechada?"
    ],
    "examples": [],
    "say_native": "Mashq. Misol matn bo‘yicha savollarga javob bering: Ahmad qayerdan?, qayerda o‘qiydi?, yoshi nechada?. «Aḥmadu mina al-Qāhirati», «yadrusu fī al-madrasati ath-thānawiyyati», «‘umruhu sab‘ata ‘ashara ‘āman» shaklida javob bering. Har birini baland ovozda unang va uch marta takrorlang.",
@@ -598,7 +530,7 @@
   },
   {
    "kind": "practice",
-   "title": "Dialog bo‘yicha savollar (yakuniy)",
+   "title": "Dialog bo‘yicha savollar (yakuniy takrorlash)",
    "emotion": "encouraging",
    "board": [
     "1) Ahmad nima so‘raydi?",
@@ -614,43 +546,13 @@
   },
   {
    "kind": "practice",
-   "title": "Matn turlarini takrorlash (yakuniy)",
+   "title": "Misol matnni o‘qib javob bering (yakuniy takrorlash)",
    "emotion": "encouraging",
    "board": [
-    "1) dialog",
-    "2) hikoya",
-    "3) xat"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Uchta matn turini arabcha aytng: dialog, hikoya, xat. «al-ḥiwāru», «al-qiṣṣatu», «ar-risālatu» deb ayting. Har birini baland ovozda unang va uch marta takrorlang.",
-   "say": "الْحِوَارُ، الْقِصَّةُ، الرِّسَالَةُ.",
-   "say_uz": "Dialog, hikoya, xat.",
-   "practice_seconds": 35
-  },
-  {
-   "kind": "practice",
-   "title": "Kalit so‘z strategiyasini takrorlash (yakuniy)",
-   "emotion": "encouraging",
-   "board": [
-    "1) Kalit so‘z",
-    "2) Maktab",
-    "3) Sayohat"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Uchta iborani arabcha aytng: kalit so‘z, maktab, sayohat. «al-kalimatu al-miftāḥu», «al-madrasatu», «as-safaru» deb ayting. Har birini baland ovozda unang va uch marta takrorlang.",
-   "say": "الْكَلِمَةُ الْمِفْتَاحُ، الْمَدْرَسَةُ، السَّفَرُ.",
-   "say_uz": "Kalit so‘z, maktab, sayohat.",
-   "practice_seconds": 35
-  },
-  {
-   "kind": "practice",
-   "title": "Misol matnni o‘qib javob bering (yakuniy)",
-   "emotion": "encouraging",
-   "board": [
-    "Ahmad qayerdan?",
-    "Qayerda o‘qiydi?",
-    "Nima yoqtiradi?",
-    "Yoshi nechada?"
+    "1) Ahmad qayerdan?",
+    "2) Qayerda o‘qiydi?",
+    "3) Nima yoqtiradi?",
+    "4) Yoshi nechada?"
    ],
    "examples": [],
    "say_native": "Mashq. Misol matnni o‘qib savollarga javob bering: Ahmad qayerdan?, qayerda o‘qiydi?, nima yoqtiradi?, yoshi nechada?. Har birini baland ovozda unang va uch marta takrorlang.",
@@ -659,145 +561,133 @@
    "practice_seconds": 35
   },
   {
-   "kind": "recap",
-   "title": "Bugun nimani o‘rgandik",
+   "kind": "explain",
+   "title": "Javoblar: shamsiy va qamariy",
    "emotion": "proud",
    "board": [
-    "الْفِكْرَةُ الْعَامَّةُ",
-    "الِاسْمُ، الرَّقَمُ، الْمَكَانُ",
-    "الْكَلِمَةُ الْمِفْتَاحُ"
+    "الرَّقَمُ — ar-raqamu (shamsiy)",
+    "النَّصُّ — an-naṣṣu (shamsiy)",
+    "الْمَكَانُ — al-makānu (qamariy)",
+    "الْقَاهِرَةُ — al-Qāhiratu (qamariy)"
    ],
    "examples": [],
-   "say_native": "Xulosa. Oddiy matnni o‘qish va tinglashni o‘rgandik: matnning asosiy g‘oyasini topish (al-fikratu al-‘āmmatu), tinglashda ismlar, raqamlar va joylarni ushlash (alismu, ar-raqamu, al-makānu), kalit so‘zlar strategiyasi (al-kalimatu al-miftāḥu), matn bo‘yicha savollarga javob berish. Endi keyingi darsda A1 yakuniy imtihonni ko‘ramiz.",
-   "say": "الْفِكْرَةُ الْعَامَّةُ، الِاسْمُ، الرَّقَمُ، الْكَلِمَةُ الْمِفْتَاحُ.",
-   "say_uz": "Umumiy g‘oya, ism, raqam, kalit so‘z.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "recap",
-   "title": "Uy vazifasi",
-   "emotion": "encouraging",
-   "board": [
-    "Qisqa dialogni 4 ta gap bilan qayta ayting"
-   ],
-   "examples": [],
-   "say_native": "Uy vazifasi. Qisqa dialogni 4 ta gap bilan qayta ayting hamda yozib qo‘ying. Muvaffaqiyat mezoni: 4 ta gap, ismlar va raqamlarni to‘g‘ri ishlatish, asosiy g‘oyani aytish. Keyingi darsda A1 yakuniy imtihonni ko‘ramiz.",
-   "say": "أَنَا مِنْ طَشْقَنْدَ.",
-   "say_uz": "Men Toshkentdanman.",
+   "say_native": "Javoblar: «الرَّقَمُ» — shamsiy, «ar-raqamu»; «النَّصُّ» — shamsiy, «an-naṣṣu»; «الْمَكَانُ» — qamariy, «al-makānu»; «الْقَاهِرَةُ» — qamariy, «al-Qāhiratu». Qoidani yodda tutish uchun bitta usul: shamsiy harflar tish va til bilan aytiladi, ya'ni quyosh so‘zidagi kabi; qolganlari qamariy, ya'ni oy so‘zidagidek. Agar ikkilansangiz, shunchaki tilingizni tektirib ko‘ring. Endi eng muhim tinglash matni — to‘liq dialog — keladi.",
+   "say": "الشَّمْسِيَّةُ، الْقَمَرِيَّةُ.",
+   "say_uz": "ar-raqam shamsiy, al-makon qamariy.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Qisqa dialogni 4 ta gap bilan qayta ayting hamda yozib qo‘ying. Muvaffaqiyat mezoni: 4 ta gap, ismlar va raqamlarni to‘g‘ri ishlatish, asosiy g‘oyani aytish.",
+ "homework_uz": "Qisqa dialogni 4 ta gap bilan qayta ayting hamda daftaringizga yozib qo‘ying: kim, qayerdan, yoshi nechada va nega uchrashdilar. Muvaffaqiyat mezoni: 4 ta to‘liq gap, ism va raqamlarni to‘g‘ri ishlatish, asosiy g‘oyani saqlash. Keyingi dars: A1 yakuniy imtihon.",
  "quiz": [
   {
-   "q": "“Umumiy g‘oya” arabchada:",
+   "q": "«Umumiy g‘oya» arabchada qanday aytiladi?",
    "options": [
-    "الْكَلِمَةُ الْمِفْتَاحُ",
+    "الْكَلِمَةُ الْمِفْتَاحِيَّةُ",
     "الْفِكْرَةُ الْعَامَّةُ",
     "الْجَوَابُ",
     "السُّؤَالُ"
    ],
    "answer": 1,
-   "why_uz": "“al-fikratu al-‘āmmatu» — umumiy g‘oya."
+   "why_uz": "«al-fikratu al-‘āmmatu» — matnning asosiy g‘oyasi."
   },
   {
-   "q": "“Kalit so‘z” arabchada:",
+   "q": "«Kalit so‘z» arabchada qanday aytiladi?",
    "options": [
-    "الْفِكْرَةُ الْعَامَّةُ",
-    "الْجَوَابُ",
-    "السُّؤَالُ",
-    "الْكَلِمَةُ الْمِفْتَاحُ"
+    "النَّصُّ",
+    "الْعُنْوَانُ",
+    "الْكَلِمَةُ الْمِفْتَاحِيَّةُ",
+    "الْحِوَارُ"
    ],
-   "answer": 3,
-   "why_uz": "“al-kalimatu al-miftāḥu» — kalit so‘z."
+   "answer": 2,
+   "why_uz": "«al-kalimatu al-miftāḥiyyatu» — matnni ochadigan so‘z."
   },
   {
-   "q": "“Ism” arabchada:",
+   "q": "«Ism» arabchada:",
    "options": [
     "الرَّقَمُ",
     "الْمَكَانُ",
-    "الِاسْمُ",
-    "الْجَوَابُ"
-   ],
-   "answer": 2,
-   "why_uz": "“al-ismu» — ism."
-  },
-  {
-   "q": "“Raqam” arabchada:",
-   "options": [
-    "الِاسْمُ",
-    "الْمَكَانُ",
     "الْجَوَابُ",
-    "الرَّقَمُ"
+    "الِاسْمُ"
    ],
    "answer": 3,
-   "why_uz": "“ar-raqamu» — raqam."
+   "why_uz": "«al-ismu» — ism."
   },
   {
-   "q": "“Joy” arabchada:",
+   "q": "«Raqam» arabchada:",
    "options": [
     "الِاسْمُ",
     "الرَّقَمُ",
     "الْمَكَانُ",
     "السُّؤَالُ"
    ],
-   "answer": 2,
-   "why_uz": "“al-makānu» — joy."
+   "answer": 1,
+   "why_uz": "«ar-raqamu» — raqam, shamsiy harf bilan."
   },
   {
-   "q": "“Avval sarlavhani o‘qing” arabchada:",
+   "q": "«Joy» arabchada:",
    "options": [
-    "اقْرَأِ الْأَسْئِلَةَ أَوَّلًا",
-    "اقْرَأِ الْعُنْوَانَ أَوَّلًا",
-    "اقْرَأِ الْجَوَابَ أَوَّلًا",
-    "اقْرَأِ النَّصَّ أَوَّلًا"
+    "الْمَكَانُ",
+    "النَّصُّ",
+    "الْقِصَّةُ",
+    "الْعُنْوَانُ"
    ],
-   "answer": 1,
-   "why_uz": "“iqra'i al-‘unwāna awwalan» — avval sarlavhani o‘qing."
+   "answer": 0,
+   "why_uz": "«al-makānu» — joy, qamariy harf bilan."
   },
   {
    "q": "Matnni o‘qishda birinchi nima qilinadi?",
    "options": [
-    "Har bir so‘z o‘qiladi",
-    "Javoblar yoziladi",
+    "Har bir so‘z lug‘atdan qidiriladi",
     "Sarlavha o‘qiladi",
-    "Raqamlar sanaladi"
+    "Javoblar yoziladi",
+    "Matn yodlab olinadi"
+   ],
+   "answer": 1,
+   "why_uz": "Sarlavha matnning mavzusini bildiradi, avval u o‘qiladi."
+  },
+  {
+   "q": "Shamsiy harfdan oldin «الْ» qanday o‘qiladi?",
+   "options": [
+    "al- deb to‘liq o‘qiladi",
+    "l ovozi tushib, keyingi harf ikkita aytiladi",
+    "a deb qisqa o‘qiladi",
+    "Hech qanday farq yo‘q"
+   ],
+   "answer": 1,
+   "why_uz": "«ar-raqamu», «an-naṣṣu» — shamsiy harflarda l eshitilmaydi."
+  },
+  {
+   "q": "«Ahmad Qohiralik talaba» — to‘g‘ri tarjima:",
+   "options": [
+    "أَحْمَدُ مِنَ الْمَدِينَةِ",
+    "أَحْمَدُ مِنَ الْقَاهِرَةِ",
+    "أَحْمَدُ مِنْ طَشْقَنْدَ",
+    "أَحْمَدُ إِلَى الْقَاهِرَةِ"
+   ],
+   "answer": 1,
+   "why_uz": "«an / mina» predlogi bilan joydan kelib chiqish bildiriladi."
+  },
+  {
+   "q": "«Yoshi o‘n yetti» arabchada qanday aytiladi?",
+   "options": [
+    "عُمْرُهُ خَمْسَةَ عَشَرَ عَامًا",
+    "عُمْرُهُ ثَمَانِيَةَ عَشَرَ عَامًا",
+    "عُمْرُهُ سَبْعَةَ عَشَرَ عَامًا",
+    "عُمْرُهُ تِسْعَةَ عَشَرَ عَامًا"
    ],
    "answer": 2,
-   "why_uz": "“iqra'i al-‘unwāna awwalan» — avval sarlavhani o‘qing."
+   "why_uz": "«sab‘ata ‘ashara» — o‘n yetti."
   },
   {
-   "q": "“Ahmad yoshi o‘n yetti” arabchada:",
+   "q": "Kalit so‘zlar strategiyasida nima qilinadi?",
    "options": [
-    "عُمْرُهُ سَبْعَةَ عَشَرَ عَامًا",
-    "عُمْرُهُ ثَمَانِيَةَ عَشَرَ عَامًا",
-    "عُمْرُهُ تِسْعَةَ عَشَرَ عَامًا",
-    "عُمْرُهُ سِتَّةَ عَشَرَ عَامًا"
-   ],
-   "answer": 0,
-   "why_uz": "“‘umruhu sab‘ata ‘ashara ‘āman» — yoshi o‘n yetti."
-  },
-  {
-   "q": "“Sami Toshkentdanman” arabchada:",
-   "options": [
-    "أَنَا مِنَ الْقَاهِرَةِ",
-    "أَنَا مِنْ طَشْقَنْدَ",
-    "أَنَا مِنَ الْمَدِينَةِ",
-    "أَنَا مِنَ الْقَاهِرَةِ وَطَشْقَنْدَ"
+    "Hamma so‘z yodlanadi",
+    "Asosiy ismlar, fe'llar va raqamlar topiladi",
+    "Matn to‘liq tarjima qilinadi",
+    "Faqat sarlavha o‘qiladi"
    ],
    "answer": 1,
-   "why_uz": "“anā min Ṭashqand» — men Toshkentdanman."
-  },
-  {
-   "q": "Kalit so‘z strategiyasida nima qilinadi?",
-   "options": [
-    "Har bir so‘z yodlanadi",
-    "Muhim so‘zlar topiladi",
-    "Matn yodlanadi",
-    "Savollar tuzib chiqiladi"
-   ],
-   "answer": 1,
-   "why_uz": "“al-kalimatu al-miftāḥu» — matndagi muhim so‘zlarni topish strategiyasi."
+   "why_uz": "Kalit so‘zlar — matnning asosiy mazmunini ochadigan ism, fe'l va raqamlar."
   }
  ]
 }

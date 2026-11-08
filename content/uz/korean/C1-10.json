@@ -1,554 +1,807 @@
 {
  "title": "Kogeziya: bog‘lovchi vositalar",
- "goal_uz": "Bog‘lovchi vositalardan mohirona foydalaning: referens, almashtirish va ellips, ilg‘or bog‘lovchilar, paragraflar orasidagi izchillik hamda matnni mexanik bog‘lashdan qochish.",
+ "goal_uz": "Matn kogeziyasini (bog‘liqlikni) o‘zlashtiring: havolalar, almashtirish va tushirish, ilg‘or bog‘lovchilar, paragraf aro ko‘priklar va mexanik bog‘lashdan qochish.",
  "vocab": [
   {
-   "w": "응집성 (eungjibseong, 凝集性)",
-   "uz": "kogeziya — matnning ichki izchilligi"
+   "w": "응집성 (eungjipseong)",
+   "uz": "bog‘liqlik, kogeziya"
   },
   {
-   "w": "참조 (chamjo, 參照)",
-   "uz": "referens — oldingi/keyingi narsaga ishora"
+   "w": "지시 (jisi)",
+   "uz": "havola, ko‘rsatish"
   },
   {
-   "w": "대용 (daeyong, 代用)",
-   "uz": "almashtirish (substitution)"
+   "w": "대용 (daeyong)",
+   "uz": "almashtirish"
   },
   {
-   "w": "생략 (saengnyak, 省略)",
-   "uz": "ellips — tushirib qoldirish"
+   "w": "생략 (saengnyak)",
+   "uz": "tushirish, ellipsis"
   },
   {
-   "w": "이 / 그 / 저 (i / geu / jeo)",
-   "uz": "bu / o‘sha / anavi — anaforik referenslar"
+   "w": "연결 (yeongyeol)",
+   "uz": "bog‘lash"
   },
   {
-   "w": "전자 (jeonja, 前者)",
-   "uz": "oldingisi (the former)"
+   "w": "화제 (hwaje)",
+   "uz": "mavzu, tema"
   },
   {
-   "w": "후자 (huja, 後者)",
-   "uz": "keyingisi (the latter)"
+   "w": "단락 (danrak)",
+   "uz": "paragraf"
   },
   {
-   "w": "반면에 (banmyeon-e)",
-   "uz": "aksincha, boshqa tomondan"
+   "w": "문단 (mundan)",
+   "uz": "band, paragraf"
   },
   {
-   "w": "따라서 (ttaraseo)",
-   "uz": "shuning uchun, demak"
+   "w": "전환 (jeonhwan)",
+   "uz": "o‘tish, almashish"
   },
   {
-   "w": "그럼에도 불구하고 (geureomedo bulguhago)",
-   "uz": "shunday bo‘lsa-da"
+   "w": "지시어 (jisieo)",
+   "uz": "havola so‘zi"
+  },
+  {
+   "w": "논리 (nonri)",
+   "uz": "mantiq"
+  },
+  {
+   "w": "매끄러운 (maekkeureoun)",
+   "uz": "silliq, ravon"
   }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Kogeziya: bog‘lovchi vositalar",
+   "title": "Kogeziya darsiga xush kelibsiz",
    "emotion": "happy",
    "board": [
-    "응집성: matnning suyagi",
-    "Bugun: referens · almashtirish · ellips · ilg‘or bog‘lovchilar"
+    "Kogeziya: bog‘lovchi vositalar",
+    "Bugun: havolalar · ilg‘or bog‘lovchilar · paragraf aro ko‘priklar · mexanik bog‘lashdan qochish"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! Bugungi darsimizda kogeziya — matnning ichki izchilligi haqida gaplashamiz. Kogeziya — bu matndagi gaplarni bir-biriga bog‘laydigan ko‘rinmas ip: olmoshlarning oldingi so‘zga ishora qilishi, takroriy tuzilmalar, bog‘lovchilar. Yaxshi kogeziyasiz matn — bog‘lanmagan g‘ishtlar; kogeziya bilan u butun bir devor. TOPIK II 쓰기 da aynan izchillik yuqori ballning asosiy sharti. Bugun to‘rt ko‘nikma: referens, almashtirish, ellips va ilg‘or bog‘lovchilar hamda ularni haddan tashqari ishlatmaslik san‘ati.",
-   "say": "오늘은 응집성 장치를 배워요.",
-   "say_uz": "Bugun kogeziya vositalarini o‘rganamiz.",
+   "say_native": "Assalomu alaykum! Bugun yozishingizni bir butun matn darajasiga ko‘taramiz. Kogeziya — matn qismlarini bog‘lab turgan yashirin ip: havolalar, almashtirish, tushirish va bog‘lovchi so‘zlar. C1 yozuvida mukammal grammatika yetarli emas — gaplar bir-biriga silliq bog‘langan bo‘lishi kerak. Bu darsdan keyin siz berilgan matnni tahlil qilib, kogeziyasini yaxshilay olasiz.",
+   "say": "오늘은 응집성과 결속 장치를 배워요.",
+   "say_uz": "Bugun kogeziya va bog‘lovchi vositalarni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Kogeziya nima va nega kerak?",
+   "title": "Kogeziya nima?",
    "emotion": "neutral",
    "board": [
-    "Kogeziya: gap → gap → paragraf",
-    "Tanasiz matn = bezovta o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Kogeziya nima? Har bir matn — zanjir: har bir gap oldingisidan kelib chiqadi va keyingisiga ko‘prik bo‘ladi. Agar gaplar faqat ketma-ket tursa, lekin bir-birini «ushlamasa», o‘quvchi xatoga yo‘l qo‘yadi. Kogeziya uch vositada ishlaydi: referens — narsalarga ishora qilish; almashtirish — takror o‘rniga boshqa so‘z; ellips — kerakli narsani tushuntirib tushirib qoldirish. Koreys matnlarida ko‘pincha fe‘l ham yashirin qoladi — kontekst hamma narsani aytadi. Shuni bilsangiz, o‘qish ham, yozish ham yengillashadi.",
-   "say": "응집성은 글의 뼈대예요.",
-   "say_uz": "Kogeziya — matnning suyagi.",
-   "practice_seconds": 28
-  },
-  {
-   "kind": "explain",
-   "title": "Referens 1: 이 / 그 / 저 + ot",
-   "emotion": "thinking",
-   "board": [
-    "이 — yaqin, bu · 그 — uzoq, o‘sha · 저 — nariroq",
-    "그는 / 그것을 / 이러한"
+    "Kogeziya = matnni bir tutgan ko‘priklar",
+    "Havola · almashtirish · tushirish · bog‘lovchilar"
    ],
    "examples": [
     {
-     "t": "그 정책은 효과가 있었다.",
-     "uz": "U o‘sha siyosat samarali bo‘ldi."
+     "t": "이 문제를 먼저 살펴보아야 합니다.",
+     "uz": "Bu muammoni avval ko‘rib chiqish kerak."
     }
    ],
-   "say_native": "Referens — matndagi narsalarga ishora qilish. «이» — yaqin, yangi aytilgan narsa: «이 방법은 효과적입니다» — «bu usul samarali». «그» — oldin tilga olingan, bir oz uzoq narsa: «그 정책은 실패했습니다» — «u siyosat muvaffaqiyatsiz bo‘ldi» — «정책» yaqinda aytilgan bo‘ladi. «저» — hammadan uzoq, hammamiz ko‘rib turgan narsa: «저 산은 유명합니다» — «u tog‘ mashhur». Aslini olganda koreyschada referens shakl jadvali matnning ichki xaritasi: o‘quvchi «그» ni ko‘rsa — «bu oldin nima?» deb o‘ylaydi va oldingi gapga qaytadi. Shu sabab referens matnning eng muhim bog‘lovchisi.",
-   "say": "그 정책은 효과가 있었습니다.",
-   "say_uz": "U o‘sha siyosat samarali bo‘ldi.",
-   "practice_seconds": 28
+   "say_native": "Kogeziya — matn ichidagi bog‘lovchi mexanizm. Uni to‘rt qismga bo‘lamiz: havola — «이 문제», «그 결과»; almashtirish — «전자», «후자»; tushirish — takrorlanadigan otning tushirilishi; bog‘lovchilar — «따라서», «그러므로». «이 문제를 먼저 살펴보아야 합니다» — «이» havolasi muammoni oldingi matnga bog‘laydi. Bu to‘rt vositani bugun birma-bir o‘rganamiz.",
+   "say": "응집성은 텍스트를 하나로 묶는 힘입니다.",
+   "say_uz": "Kogeziya — matnni yopishtiruvchi quvvat.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Referens 2: 전자 / 후자 va nomi bilan ishora",
-   "emotion": "thinking",
-   "board": [
-    "전자/후자 — «oldingisi / keyingisi»",
-    "앞서 언급한 · 이러한 · 그러한"
-   ],
-   "examples": [
-    {
-     "t": "전자는 비용이, 후자는 시간이 문제이다.",
-     "uz": "Oldingisida xarajat, keyingisida vaqt muammo."
-    }
-   ],
-   "say_native": "Ikki narsani solishtirayotganda «전자» — «oldingisi» va «후자» — «keyingisi» ishlatiladi. «온라인 교육과 오프라인 교육이 있다. 전자는 편리하지만, 후자는 집중에 도움이 된다» — «onlayn va oflayn ta‘lim bor. Oldingisi qulay, keyingisi diqqatga yordam beradi». Rasmiy matnlarda «앞서 언급한 바와 같이» — «oldin aytilganidek» — paragraf boshida eng ishonchli ko‘prik. Sifatdosh shakli: «이러한» — «shunday»: «이러한 경향은 계속될 것이다» — «bunday tendensiya davom etadi». «그러한» — «o‘shandek» — biroz uzoqroq ishora.",
-   "say": "전자는 비용이 문제입니다.",
-   "say_uz": "Oldingisida xarajat muammo.",
-   "practice_seconds": 28
-  },
-  {
-   "kind": "explain",
-   "title": "Almashtirish: ~ㄴ 것 va 그렇다",
+   "title": "Havola 1: 이 / 그 / 저",
    "emotion": "neutral",
    "board": [
-    "Takror o‘rniga: 그렇다 · 그런 · ~ㄴ 것",
-    "대신에 — «uning o‘rniga»"
+    "이 — bu (yaqin) · 그 — u (oldin tilga olingan) · 저 — ana u",
+    "이 문제 · 그 결과 · 그 사람"
    ],
    "examples": [
     {
-     "t": "그는 열심히 공부했다. 그렇게 해서 성공했다.",
-     "uz": "U qattiq o‘qidi. Shunday qilib muvaffaq bo‘ldi."
+     "t": "그 결과는 매우 흥미로웠습니다.",
+     "uz": "O‘sha natija juda qiziqarli bo‘ldi."
     }
    ],
-   "say_native": "Almashtirish — oldingi so‘z yoki gapni boshqa so‘z bilan almashtirish. Fe‘l uchun: «그렇다» — «shunday qilmoq»: «그는 매일 공부했다. 그렇게 해서 시험에 합격했다» — «u har kuni o‘qidi. Shunday qilib imtihondan o‘tdi». Sifat uchun: «그런» — «shunday»: «그런 의견도 있습니다» — «shunday fikr ham bor». Gap uchun: «이것은/그것은»: oldingi gapni «그것은» deb chaqirasiz. «~ㄴ 것» — «…gan narsa»: «그가 말한 것은 사실이다» — «uning aytgani haqiqat» — «말한 것» oldingi butun gapni almashtiradi. «대신에» — «o‘rniga»: taqqoslash nuqtalarida.",
-   "say": "그는 매일 공부했고, 그렇게 합격했습니다.",
-   "say_uz": "U har kuni o‘qidi, shunday qilib o‘tdi.",
-   "practice_seconds": 28
+   "say_native": "Birinchi havola guruhi — 이·그·저. «이» — ko‘pincha yaqin yoki hozirgi: «이 문제를». «그» — oldin tilga olingan narsa: «그 결과는» — o‘sha natija (oldingi gapdagi muhokama qilingan). «저» — uzoqdagi yoki u tomonda turgan. Yozishda eng ko‘p ishlatiladigan juft «이» (shu yerda bormiz) va «그» (oldin aytdik). Har safar «그»ni ko‘rsangiz, matn ichida unga bog‘liq oldingi referentni qidiring.",
+   "say": "그 결과는 매우 흥미로웠습니다.",
+   "say_uz": "O‘sha natija juda qiziqarli edi.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Ellips: tushuntirib tushirib qoldirish",
-   "emotion": "thinking",
+   "title": "Havola 2: 이것 · 그것 · 저것 · 이러한",
+   "emotion": "neutral",
    "board": [
-    "Kontekst bo‘lsa: sub‘yekt/ob‘yekt tushadi",
-    "Koreyscha: «누구» ni qaytarmang"
+    "이것 · 그것 · 저것 — «bu / o‘sha / ana u (narsa)»",
+    "이러한 — «bunday / shu kabi»"
    ],
    "examples": [
     {
-     "t": "영희는 도서관에 갔다. (그녀는) 책을 빌렸다.",
-     "uz": "Younghi kutubxonaga bordi. (U) kitob oldi."
+     "t": "이러한 현상은 전 세계적으로 나타나고 있습니다.",
+     "uz": "Bunday hodisa butun dunyo bo‘ylab kuzatilmoqda."
     }
    ],
-   "say_native": "Ellips — kontekstdan ayon bo‘lgan narsani aytmay qoldirish. Koreyschada sub‘yekt odatda tushiriladi: «영희는 도서관에 갔다. 책을 빌렸다» — «Younghi kutubxonaga bordi. Kitob oldi» — ikkinchi gapda «u» yo‘q, lekin hamma tushunadi. Ob‘yekt ham tushadi: «편지를 썼다. 부쳤다» — «xat yozdi. (Uni) jo‘natdi». Ellips — kuchli kogeziya vositasi, chunki u gaplarni «bir tanaga» aylantiradi. Xato faqat bitta: kim-nima ayon emas bo‘lsa, ellips qilish xato. Har tushirilgan so‘z o‘quvchi aqldan o‘tkazishi kerak.",
-   "say": "영희는 도서관에 갔다. 책을 빌렸다.",
-   "say_uz": "Younghi kutubxonaga bordi. Kitob oldi.",
-   "practice_seconds": 28
+   "say_native": "Ikkinchi havola guruhi — to‘liq ot so‘zlari. «이것» — bu narsa (sizga yaqin yoki hozir muhokama), «그것» — o‘sha narsa (oldin tilga olingan), «저것» — ana u narsa. «이러한» — «bunday, shu kabi»: «이러한 현상은 전 세계적으로 나타나고 있습니다» — bu hodisani oldingi gaplar tushuntirgan bo‘ladi. «이러한» ko‘pincha umumiy xulosa yoki umumlashtirish oldidan keladi.",
+   "say": "이러한 현상은 전 세계적으로 나타나고 있습니다.",
+   "say_uz": "Bunday hodisa butun dunyo bo‘ylab kuzatilmoqda.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Havola 3: 앞서 언급한 · 앞서 살펴본",
+   "emotion": "neutral",
+   "board": [
+    "앞서 언급한 — «muqaddam tilga olingan»",
+    "앞서 살펴본 — «muqaddam ko‘rib chiqilgan»"
+   ],
+   "examples": [
+    {
+     "t": "앞서 언급한 바와 같이, 이 문제는 복잡합니다.",
+     "uz": "Muqaddam aytilganidek, bu muammo murakkab."
+    }
+   ],
+   "say_native": "Uchinchi havola guruhi — matn ichidagi uzoq havolalar. «앞서 언급한» — muqaddam tilga olingan: «앞서 언급한 바와 같이» — muqaddam aytilganidek. «앞서 살펴본» — muqaddam ko‘rib chiqilgan, paragraf aro o‘tishlarda. Bu ikki ifoda eng professional havola vositalaridir — ular matnning ichki xaritasini yaratadi: «biz qayerdan keldik, hozir qaydamiz».",
+   "say": "앞서 언급한 바와 같이, 이 문제는 복잡합니다.",
+   "say_uz": "Muqaddam aytilganidek, bu muammo murakkab.",
+   "practice_seconds": 14
   },
   {
    "kind": "practice",
-   "title": "Mashq: referens va almashtirish",
+   "title": "Havolani to‘ldiring",
    "emotion": "encouraging",
    "board": [
-    "O‘rniga 이/그/저 · 전자/후자 · 그렇게"
+    "이 · 그 · 저 · 이러한 · 앞서 언급한"
    ],
    "examples": [],
-   "say_native": "Mashq: gaplarni bog‘lovchi vositalar bilan birlashtiring. Birinchi: «정부는 새 정책을 발표했다. 정부는 이 정책이 효과적이라고 말했다» → «정부는 새 정책을 발표했다. 그 정책이 효과적이라고 말했다». Ikkinchi: «온라인 수업과 오프라인 수업이 있다. 전자는 편리하고 후자는 집중에 좋다». Uchinchi: «그는 매일 연습했다. 그렇게 해서 합격했다». To‘rtinchi: «그 기술은 빠르다. 이러한 기술이 산업을 바꿀 것이다». Har biri uchun qaysi vositani ishlatganingizni belgilang.",
-   "say": "두 문장을 응집성 장치로 연결해 보세요.",
-   "say_uz": "Ikki gapni kogeziya vositalari bilan birlashtiring.",
-   "practice_seconds": 52
+   "say_native": "Mashq: qavs ichiga mos havolani qo‘ying. Birinchi: 여러분은 (이) 문제를 이미 아십니다. Ikkinchi: (그) 결과는 예상과 달랐습니다. Uchinchi: (이러한) 경향은 최근에 두드러집니다. To‘rtinchi: (앞서 언급한) 바와 같이, 노력은 필수입니다. Beshinchi: (이것)은 무엇을 의미합니까. Oltinchi: (그것)은 이전 단락에서 설명한 것입니다. Ovoz chiqarib o‘qing.",
+   "say": "빈칸에 알맞은 지시어를 채워 보세요.",
+   "say_uz": "Bo‘sh joyga mos havola so‘zini qo‘ying.",
+   "practice_seconds": 30
   },
   {
    "kind": "explain",
-   "title": "Ilg‘or bog‘lovchilar 1: 그러나 · 따라서 · 한편 · 게다가",
+   "title": "Almashtirish: 전자 / 후자",
    "emotion": "neutral",
    "board": [
-    "그러나 — lekin · 따라서 — shuning uchun",
-    "한편 — boshqa tomondan · 게다가 — ustiga"
+    "전자 — muqaddim zikr qilingan",
+    "후자 — keyin zikr qilingan"
    ],
    "examples": [
     {
-     "t": "정부는 노력했다. 그러나 결과는 부족했다.",
-     "uz": "Hukumat harakat qildi. Lekin natija yetarli emasdi."
+     "t": "노력과 운, 전자는 필수적이고 후자는 보조적입니다.",
+     "uz": "Harakat va omad — birinchisi zaruriy, ikkinchisi yordamchi."
     }
    ],
-   "say_native": "Ilg‘or bog‘lovchilarni guruhlarga ajrating. Qarshi qo‘yuvchi: «그러나» — «ammo/lekin»: rasmiy uslub uchun «하지만» o‘rniga. Natija bog‘lovchisi: «따라서» — «shuning uchun»: rasmiy va akademik matnning asosi, «그래서» ning katta jiyani. Paralel fikr: «한편» — «boshqa tomondan»: ikki tomonni teng ko‘rib chiqish uchun. Qo‘shimcha: «게다가» — «ustiga, yana»: dalillarni to‘plash uchun. Masalan: «정부는 투자를 늘렸다. 그러나 일자리는 늘지 않았다. 한편 민간 기업은 채용을 줄였다. 따라서 정책의 재검토가 필요하다.»",
-   "say": "그러나 결과는 부족했습니다.",
-   "say_uz": "Lekin natija yetarli emasdi.",
-   "practice_seconds": 28
+   "say_native": "Almashtirish vositasi — 전자/후자: «muqaddim/oxirgi». Ikki elementli xabarda ikkalasini takrorlash o‘rniga: «노력과 운, 전자는 필수적이고 후자는 보조적입니다» — harakat va omad, birinchisi zaruriy, ikkinchisi yordamchi. Ehtiyot bo‘ling: 전자/후자 faqat ikkita element uchun; uchtasi va undan ko‘p bo‘lsa — «첫 번째/두 번째» yoki «앞의 것/뒤의 것» ishlating.",
+   "say": "전자는 필수적이고 후자는 보조적입니다.",
+   "say_uz": "Birinchisi zaruriy, ikkinchisi yordamchi.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Ilg‘or bog‘lovchilar 2: 반면에 · 그럼에도 불구하고",
+   "title": "Tushirish: ellipsis",
    "emotion": "thinking",
    "board": [
-    "반면에 — aksincha (solishtirish)",
-    "그럼에도 불구하고 — shunga qaramay"
+    "Takrorlanadigan otni tushirish",
+    "철수는 왔다. (철수는) 밥을 먹었다."
    ],
    "examples": [
     {
-     "t": "비용은 늘었다. 그럼에도 불구하고 품질은 좋아졌다.",
-     "uz": "Xarajat oshdi. Shunga qaramay sifat yaxshilandi."
+     "t": "철수는 왔다. 그리고 밥을 먹었다.",
+     "uz": "Cheolsu keldi. Va ovqat yedi."
     }
    ],
-   "say_native": "Ikkinchi to‘rtlik — solishtirish va kutilmaslik. «반면에» — «aksincha»: ikki tomonni tengma-teng qo‘yish: «대도시는 인프라가 잘 갖춰져 있다. 반면에 지방은 그렇지 않다» — «yirik shaharlarda infratuzilma yaxshi. Aksincha, viloyatlarda unday emas». «그럼에도 불구하고» — «shunga qaramay»: qarama-qarshilik kutilgan natijani buzadi: «비가 왔다. 그럼에도 불구하고 행사는 계속됐다». «이와 같이» — «xuddi shu tarzda»: xulosa kiritish. «나아가» — «bundan tashqari, yana»: fikringizni yanada kengaytirish, TOPIK II 쓰기 ning eng chiroyli vositalaridan biri.",
-   "say": "그럼에도 불구하고 행사는 계속되었습니다.",
-   "say_uz": "Shunga qaramay tadbir davom etdi.",
-   "practice_seconds": 28
+   "say_native": "Tushirish eng nozik kogeziya vositasi. «철수는 왔다. 그리고 밥을 먹었다» — ikkinchi gapdagi «철수는» tushirildi; koreyscha bunda tabiiy va shart. O‘zbekchada ham «va ovqat yedi» deb aytish mumkin — «u» bo‘lmasa ham tushunarli. Korea grammatikasi egani hech qachon takrorlamaydi, agar ega aniq bo‘lsa. Yozishda bunday tushirish matnni yengillashtiradi.",
+   "say": "철수는 왔다. 그리고 밥을 먹었다.",
+   "say_uz": "Cheolsu keldi. Va ovqat yedi.",
+   "practice_seconds": 14
   },
   {
    "kind": "practice",
-   "title": "Mashq: bog‘lovchini tanlang",
+   "title": "Almashtirish va tushirish mashqi",
    "emotion": "encouraging",
    "board": [
-    "그러나 · 따라서 · 한편 · 게다가 · 그럼에도 불구하고"
+    "전자/후자 · otning tushirilishi"
    ],
    "examples": [],
-   "say_native": "Mashq: bo‘sh joyga mos bog‘lovchini tanlang. Birinchi: «비가 왔다. (  ) 행사는 그대로 진행됐다» — «그럼에도 불구하고». Ikkinchi: «인건비가 올랐다. (  ) 수익은 줄었다» — «따라서». Uchinchi: «정부는 지원을 약속했다. (  ) 지방 정부는 반대했다» — «한편». To‘rtinchi: «이 제품은 품질이 좋다. (  ) 가격도 저렴하다» — «게다가». Beshinchi: «전문가들은 경고했다. (  ) 사람들은 듣지 않았다» — «그러나». Har tanlovingizni bir jumlada tushuntiring.",
-   "say": "문맥에 맞는 연결어를 골라 보세요.",
-   "say_uz": "Kontekstga mos bog‘lovchini tanlang.",
-   "practice_seconds": 52
-  },
-  {
-   "kind": "explain",
-   "title": "Mexanik bog‘lash xatosi",
-   "emotion": "stern",
-   "board": [
-    "Har gapni «그리고» bilan boshlash — xato",
-    "Bog‘lovchi — ta‘m beruvchi, har doim emas"
-   ],
-   "examples": [],
-   "say_native": "Eng keng tarqalgan xato — har gapni «그리고» bilan boshlash. Matn zanjir emas, rosario bo‘lib qoladi — ulanish shunday kuchsiz. Bog‘lovchi har gapda kerak emas: referens, umumiy o‘zak so‘zlar va ellips ko‘pincha yetarli. «And the book was great. And it was interesting. And I learned a lot» — inglizchada ham sun‘iy. Koreyschada ham: «그리고 그 책은 좋았다. 그리고 흥미로웠다. 그리고 많이 배웠다» — zerikarli. To‘g‘risi: «그 책은 정말 좋았다. 흥미로운 내용 덕분에 많이 배웠다». Bog‘lovchini faqat mantiq o‘zgarganda ishlating.",
-   "say": "모든 문장을 «그리고»로 시작하지 마세요.",
-   "say_uz": "Har gapni «그리고» bilan boshlamang.",
-   "practice_seconds": 28
+   "say_native": "Mashq. Birinchi: «노력과 운»ni 전자/후자 bilan almashtiring: «(전자)는 필수적이고 (후자)는 보조적이다». Ikkinchi: «철수는 왔어요. 철수는 밥을 먹었어요» — «철수는» ni tushiring va koreyscha yozing. Uchinchi: «성공과 행복, (전자)는 목표이고 (후자)는 과정입니다» — to‘ldiring. Har gapni ovoz chiqarib o‘qing.",
+   "say": "전자와 후자를 넣고, 중복되는 주어를 생략해 보세요.",
+   "say_uz": "«Muqaddim/oxirgi»ni qo‘ying va takror egani tushiring.",
+   "practice_seconds": 30
   },
   {
    "kind": "example",
-   "title": "Tahlil: kogeziyasi kuchli paragraf",
-   "emotion": "thinking",
-   "board": [
-    "Matn: 기술 발전과 일자리"
-   ],
-   "examples": [
-    {
-     "t": "이러한 변화는 새로운 기회를 만든다.",
-     "uz": "Bunday o‘zgarishlar yangi imkoniyatlar yaratadi."
-    }
-   ],
-   "say_native": "Tinglang va kogeziya vositalarini sanang: «기술 발전은 일자리에 큰 영향을 미친다. 특히 제조업에서는 자동화가 빠르게 진행되고 있다. 이러한 변화는 단순 노동을 줄이는 반면에, 새로운 기술 직종을 만들어 낸다. 따라서 교육 정책은 미래형 인재 양성에 초점을 맞춰야 한다.» Toping: «특히» — ta‘kid uchun; «이러한 변화는» — referens (oldingi «자동화»); «반면에» — kontrast; «따라서» — xulosa. To‘rtta vosita, bitta paragraf — va o‘quvchi xato qilmaydi. Kogeziya aynan shu oddiy: ishora qil, bog‘la, xulosa qil.",
-   "say": "이러한 변화는 새로운 기술 직종을 만들어 냅니다.",
-   "say_uz": "Bunday o‘zgarishlar yangi texnologik kasblarni yaratadi.",
-   "practice_seconds": 24
-  },
-  {
-   "kind": "explain",
-   "title": "Paragraf→paragraf kogeziyasi",
-   "emotion": "thinking",
-   "board": [
-    "Mavzu gapi → dalil → xulosa → ko‘prik",
-    "Paragraf oxiri = keyingi paragraf eshigi"
-   ],
-   "examples": [
-    {
-     "t": "이 점에서 교육의 역할이 중요하다.",
-     "uz": "Shu jihatdan ta‘limning o‘rni muhim."
-    }
-   ],
-   "say_native": "Paragraflar orasidagi kogeziya — matnning yuqori qavati. Har paragraf mavzu gapi bilan boshlanadi: «본 장에서는…» — «ushbu bo‘limda…». Keyin dalillar, oxirida mini-xulosa: «이상에서…» — «yuqoridagilardan…». Keyingi paragraf oldingisiga ko‘prik bilan boshlanadi: «이러한 맥락에서…» — «shu kontekstda…»; «이 점에서…» — «shu jihatdan…». Agar paragraf oxiri «…이 필요하다» deb tugasa, keyingi paragraf «이러한 필요성에 대해…» bilan davom etishi kerak. O‘quvchi bir paragraf tugaganda keyingisiga tabiiy o‘tadi.",
-   "say": "이 점에서 교육의 역할이 중요합니다.",
-   "say_uz": "Shu jihatdan ta‘limning o‘rni muhim.",
-   "practice_seconds": 28
-  },
-  {
-   "kind": "practice",
-   "title": "Mashq: paragraflarni bir-biriga bog‘lang",
-   "emotion": "encouraging",
-   "board": [
-    "Ikki paragraf + ko‘prik jumla"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Birinchi paragraf: «청년 실업률은 지난 10년 동안 꾸준히 상승했다.» Ikkinchi paragraf: «정부는 청년 고용 장려 정책을 발표했다.» Ularni ko‘prik jumla bilan ulang: «이러한 상황에서 정부는…» — «shu vaziyatda hukumat…». Yana bir juft: «기업들은 비용 절감을 위해 자동화를 도입하고 있다.» + «일부 직종은 사라지고 있다.» — «이는 특히 단순 노동 직종에서 두드러진다.» Har juftni ovoz chiqarib o‘qing: avval ikki alohida paragraf, keyin birlashtirilgan.",
-   "say": "두 단락을 다리 문장으로 연결해 보세요.",
-   "say_uz": "Ikki paragrafni ko‘prik gap bilan bog‘lang.",
-   "practice_seconds": 52
-  },
-  {
-   "kind": "example",
-   "title": "Dialog: taqdimotda kogeziya",
-   "emotion": "neutral",
-   "board": [
-    "Dialog: 발표 질의응답 — «방금 말씀하신…»"
-   ],
-   "examples": [
-    {
-     "t": "앞서 말씀드린 바와 같이…",
-     "uz": "Oldin aytganimdek…"
-    }
-   ],
-   "say_native": "Tinglang: taqdimotdan keyingi savol-javob. «앞서 말씀드린 바와 같이, 자동화는 필연적인 흐름입니다. 다만 그 속도는 산업마다 다릅니다. 이러한 차이는 교육 정책의 차별화 필요성을 보여줍니다.» — «oldin aytganimdek, avtomatlashtirish muqarrar jarayon. Faqat tezligi sohada farq qiladi. Bunday farq ta‘lim siyosatini tabaqalashtirish zarurligini ko‘rsatadi.» Savol beruvchi: «숫가 언급하신 통계의 출처가 어디인가요?» — «tilga olgan statistikaning manbai qayerda?» «그것은 2024년 고용노동부 자료입니다.» Diqqat: og‘zaki nutqda ham kogeziya ishlaydi — «앞서», «이러한 차이», «그것은».",
-   "say": "앞서 말씀드린 바와 같이 자동화는 필연적입니다.",
-   "say_uz": "Oldin aytganimdek, avtomatlashtirish muqarrar.",
-   "practice_seconds": 24
-  },
-  {
-   "kind": "explain",
-   "title": "Leksik kogeziya: o‘zak so‘zlarning takrori",
-   "emotion": "thinking",
-   "board": [
-    "Takror ≠ xato · Sinonim zanjirlari",
-    "같은 어근: 교육 → 교육적 → 교육하다"
-   ],
-   "examples": [
-    {
-     "t": "교육은 중요하다. 이 교육적 가치는…",
-     "uz": "Ta‘lim muhim. Bu ta‘limiy qadriyat…"
-    }
-   ],
-   "say_native": "Kogeziya faqat grammatik emas — leksik ham. Bir mavzuning so‘zlari matn bo‘ylab «zanjir» hosil qiladi: «교육» — «교육적» — «교육하다» — «교육 제도» — «교육열». Xuddi shu o‘zakdan kelib chiqish — eng kuchli leksik kogeziya. Takrorning o‘zi ham xato emas: akademik matnda kalit so‘zning takrorlanishi normal, chunki har sinonim yangi ohang berishi mumkin, lekin «mavzu» yo‘qolmasligi kerak. Sinonimlar zanjirini rejalang: birinchi paragrafda «청년 실업», ikkinchisida «청년 고용 문제», uchinchisida «젊은 세대의 일자리 부족» — bir xil mavzu, turli so‘zlar, bir ip.",
-   "say": "같은 어근의 단어를 반복해 흐름을 유지하세요.",
-   "say_uz": "Bir o‘zakdagi so‘zlar bilan matn oqimini saqlang.",
-   "practice_seconds": 28
-  },
-  {
-   "kind": "practice",
-   "title": "Mashq: leksik kogeziya zanjirini tuzing",
-   "emotion": "encouraging",
-   "board": [
-    "«청년 실업» uchun sinonimlar zanjiri"
-   ],
-   "examples": [],
-   "say_native": "Mashq: «청년 실업» mavzusi uchun besh bo‘g‘inli leksik zanjir tuzing. Birinchi paragrafda «청년 실업»; ikkinchisida «젊은 세대의 일자리 부족»; uchinchisida «고용 시장의 어려움»; to‘rtinchisida «청년층의 취업난»; xulosada yana «청년 실업 문제» — mavzu «uyiga qaytsin». Har bosqichda 한자어 o‘zaklaridan foydalaning: «실업», «고용», «취업». Yozgan zanjiringizni ovoz chiqarib o‘qib, mavzu ipini his qiling: u uzilmasligi kerak.",
-   "say": "청년 실업 주제로 어휘 사슬을 만들어 보세요.",
-   "say_uz": "Yoshlar ishsizligi mavzusida leksik zanjir tuzing.",
-   "practice_seconds": 52
-  },
-  {
-   "kind": "explain",
-   "title": "Ko‘p uchraydigan xatolar",
-   "emotion": "stern",
-   "board": [
-    "Nomsiz «이것» · Aniqlanmagan «그»",
-    "«그래서» + «그래서» + «그래서»"
-   ],
-   "examples": [],
-   "say_native": "Eng ko‘p uchraydigan xatolar. Birinchi: «이것» — «bu narsa» — aniqlanmagan referent: «이것 때문에 문제가 생겼습니다» — nimani nazarda tutyapsiz? Har «이것» ning «ota-onasi» ayon bo‘lsin. Ikkinchi: «그» ni uzoq masofaga tashlash: olti gap oldingi narsaga «그» bilan qaytmaslik kerak — matnni yangidan o‘qing, referent sovib qoladi. Uchinchi: «그래서» ni ketma-ket ishlatish — sabab-natija har gaplarda emas, muhim bog‘lanishlarda. To‘rtinchi: ikki «전자/후자» ni bitta gapda — qaysi biri qaysi ekanini chalkashtirish.",
-   "say": "참조하는 대상을 분명히 하세요.",
-   "say_uz": "Referensingizning nima ekani aniq bo‘lsin.",
-   "practice_seconds": 28
-  },
-  {
-   "kind": "practice",
-   "title": "Mashq: xatolarni tuzating",
-   "emotion": "encouraging",
-   "board": [
-    "Nomsiz «이것» va to‘planib qolgan «그래서»"
-   ],
-   "examples": [],
-   "say_native": "Mashq: quyidagi gaplardagi kogeziya xatolarini tuzating. Birinchi: «정부는 정책을 발표했다. 이것은 중요하다» → «그 정책은 중요하다». Ikkinchi: «그래서 문제를 분석했다. 그래서 원인을 찾았다. 그래서 해결책을 제시했다» — uchtasini bittada yig‘ing: «원인을 분석한 결과, 해결책을 제시했다». Uchinchi: bir xil «그» ning to‘rtta gap oldingi narsaga ishorasi — oldidagi otni takrorlang. To‘rtinchi: «전자» va «후자» ga tapqirganingizda, oldinroq ikki narsani aniq sanab o‘ting. Har birini tushuntirib yozing.",
-   "say": "응집성 오류를 찾아 고쳐 보세요.",
-   "say_uz": "Kogeziya xatolarini topib tuzating.",
-   "practice_seconds": 52
-  },
-  {
-   "kind": "explain",
-   "title": "Tekshirish usuli: «그리고»siz o‘qish testi",
+   "title": "Dialog 1: tahririyatda",
    "emotion": "happy",
    "board": [
-    "Matnni bog‘lovchisiz o‘qing",
-    "Oqim saqlansa — kogeziya kuchli"
+    "편집실 · 원고 교정"
    ],
-   "examples": [],
-   "say_native": "O‘z matningizdagi kogeziyani tekshirishning oddiy usuli — «그리고»siz o‘qish testi. Matndan barcha bog‘lovchilarni bo‘lsa, xayolan oling: «그러나», «따라서», «그리고», «하지만». Qolgan matn hali ham o‘qiladimi, gap mantiqan davom etadimi? Agar ha — kogeziya kuchli, bog‘lovchilar faqat vosita, poydevor emas. Agar matn bo‘laklarga ajralsa — poydevor zaif: referens va leksik zanjirlarni mustahkamlang. Bu testni har TOPIK II 쓰기 yozganingizdan keyin bir marta qiling — uch daqiqa vaqtingizni oladi, lekin ballni oshiradi.",
-   "say": "연결어 없이 글을 읽어 보세요.",
-   "say_uz": "Matnni bog‘lovchisiz o‘qib ko‘ring.",
-   "practice_seconds": 28
+   "examples": [
+    {
+     "t": "편집자: 여기서 «그는»이 누구를 가리키는지 불분명해요.",
+     "uz": "Muharrir: Bu yerda «u» kimni nazarda tutadi, aniq emas."
+    },
+    {
+     "t": "작가: 아, 그러면 «이 연구자는»으로 바꿔야겠네요.",
+     "uz": "Muallif: Xo‘sh, demak «bu tadqiqotchi» deb o‘zgartirishim kerak."
+    },
+    {
+     "t": "편집자: 그리고 «그리고»가 세 번이나 나와요. «또한», «따라서»로 바꿔 보세요.",
+     "uz": "Muharrir: Yana bu yerda «va» uch marta uchrayapti. «Bundan tashqari», «shunday bo‘lib» bilan almashtiring."
+    },
+    {
+     "t": "작가: «따라서»로 바꾸면 의미가 달라지지 않나요?",
+     "uz": "Muallif: «Shunday bo‘lib»ga aylantirsam, ma‘no o‘zgarmaydimi?"
+    },
+    {
+     "t": "편집자: 네, «따라서»는 인과, «또한»은 첨가예요. 맥락에 맞게 골라 쓰세요.",
+     "uz": "Muharrir: Ha, «shunday bo‘lib» — sababiyat, «bundan tashqari» — qo‘shish. Kontekstga qarab tanlang."
+    }
+   ],
+   "say_native": "Tahririyat suhbati — maqolani tuzatmoqda. Muharrir nomo‘lum havolani topadi: «그는» kim? Muallif uni «이 연구자는» deb aniqlaydi. Keyin muharrir «그리고»ning ortiqchaligini ko‘rsatadi va «또한» bilan «따라서» ni taklif qiladi. Muallif «따라서» ning ma‘nosi o‘zgarishiga shubha qiladi — muharrir ikki bog‘lovchining farqini tushuntiradi: sababiyat va qo‘shish. Eshiting: bitta kichik to‘g‘rilash butun paragrafni silliqlashtiradi.",
+   "say": "그는이 아니라 이 연구자라고 밝혀 쓰세요.",
+   "say_uz": "«U» o‘rniga «bu tadqiqotchi» deb aniq yozing.",
+   "practice_seconds": 18
   },
   {
    "kind": "practice",
-   "title": "Mashq: bog‘lovchisiz matnni tiklang",
-   "emotion": "encouraging",
+   "title": "Dialog 1 asosida 4 savol",
+   "emotion": "thinking",
    "board": [
-    "Gap bo‘laklarini referens bilan birlashtiring"
+    "Tinglab, 4 savolga javob bering"
    ],
    "examples": [],
-   "say_native": "Mashq: quyidagi uchta alohida gapni yagona o‘qiladigan paragrafga aylantiring: «청년 실업률이 높다. 정부는 지원 정책을 발표했다. 효과는 아직 불확실하다.» Bog‘lovchisiz yechim: «청년 실업률이 높다. 정부는 이러한 상황에 대응하기 위해 지원 정책을 발표했다. 다만 효과는 아직 불확실하다.» E‘tibor bering: «이러한 상황» — referens, «다만» — yumshoq qarama-qarshilik, bog‘lovchi atigi bitta. Har biringiz uchun o‘zingizning uchta gapingizni shunday birlashtiring.",
-   "say": "세 문장을 한 단락으로 묶어 보세요.",
-   "say_uz": "Uch gapni bitta paragrafga birlashtiring.",
-   "practice_seconds": 52
+   "say_native": "Dialog asosida to‘rt savol. Birinchi: muharrir qaysi havolaning nomo‘lum ekanligini aytdi? Ikkinchi: muallif uni nima bilan almashtirdi? Uchinchi: muharrir qaysi bog‘lovchining haddan tashqari uchratishidan shikoyat qildi? To‘rtinchi: «따라서» va «또한» ning ma‘no farqi nima? Har javobni to‘liq jumlada bering.",
+   "say": "대화를 듣고 네 가지 질문에 답해 보세요.",
+   "say_uz": "Suhbatni tinglab, to‘rtta savolga javob bering.",
+   "practice_seconds": 30
   },
   {
-   "kind": "practice",
-   "title": "Uy vazifasi: berilgan matnning kogeziyasini yaxshilang",
+   "kind": "explain",
+   "title": "Javoblar: dialog 1",
    "emotion": "proud",
    "board": [
-    "Matn: «도시 문제와 해결책»",
-    "Referens + Bog‘lovchi + Leksik zanjir"
+    "Javoblar"
    ],
    "examples": [],
-   "say_native": "Uy vazifasi uchun tayyorgarlik: quyidagi matnni o‘qing va xatolarini toping — «도시는 많은 문제가 있다. 그리고 환경 오염이 심각하다. 그리고 교통 체증도 심하다. 그래서 정부는 해결해야 한다. 그래서 정책이 필요하다. 이것은 중요하다». Bu matnni kogeziyasi kuchli versiyaga aylantiring: takrorlarni olib tashlang, referens qo‘shing, leksik zanjir tuzing: «도시는 다양한 문제에 직면해 있다. 특히 환경 오염과 교통 체증이 심각하다. 이러한 도시 문제는 정부의 적극적인 정책 개입을 요구한다. 따라서 장기적인 해결책이 필요하다.»",
-   "say": "글의 응집성을 높여 보세요.",
-   "say_uz": "Matnning kogeziyasini oshiring.",
-   "practice_seconds": 52
+   "say_native": "Javoblar: birinchi — «그는» havolasi kimga tegishli ekanligi aniq emas edi. Ikkinchi — muallif «이 연구자는» deb aniq nom bilan almashtirdi. Uchinchi — «그리고» uch marta qo‘llanganidan shikoyat qildi. To‘rtinchi — «따라서» — sabab natija bog‘liqligi (shuning uchun), «또한» — qo‘shimcha elementni bog‘lash (bundan tashqari, yana). Tanlov doim kontekstga bog‘liq: sabab uchun «따라서», qo‘shish uchun «또한».",
+   "say": "따라서는 인과, 또한은 첨가입니다.",
+   "say_uz": "«Shunday bo‘lib» — sababiyat, «bundan tashqari» — qo‘shish.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Ilg‘or bog‘lovchilar 1: 그럼에도 불구하고",
+   "emotion": "neutral",
+   "board": [
+    "그럼에도 불구하고 — «shunga qaramay»",
+    "그럼에도 — «shunga qaramay» (qisqaroq)"
+   ],
+   "examples": [
+    {
+     "t": "증거가 부족하다. 그럼에도 불구하고, 그는 무죄를 주장했다.",
+     "uz": "Dalil yetarli emas edi. Shunga qaramay, u aybsizligini ta‘kidladi."
+    }
+   ],
+   "say_native": "Birinchi ilg‘or bog‘lovchi — 그럼에도 불구하고: «shunga qaramay». Bu ~지만 yoki ~는데도 dan rasmiyroq va kuchliroq yozma shakli: «증거가 부족하다. 그럼에도 불구하고, 그는 무죄를 주장했다» — dalil yetarli emas edi, shunga qaramay u aybsizligini ta‘kidladi. «그럼에도» — undan qisqaroq, kundalikroq, lekin rasmiy matnda ham ishlatiladi. Kontrastni ushbu so‘zsiz ko‘rsatib bo‘lmaydi.",
+   "say": "그럼에도 불구하고, 그는 무죄를 주장했습니다.",
+   "say_uz": "Shunga qaramay, u aybsizligini da‘vo qildi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Ilg‘or bog‘lovchilar 2: 이에 반해 · 반면에",
+   "emotion": "neutral",
+   "board": [
+    "이에 반해 — «buning aksicha»",
+    "반면에 — «aksincha»"
+   ],
+   "examples": [
+    {
+     "t": "전자는 편리하다. 이에 반해, 후자는 비용이 많이 든다.",
+     "uz": "Birinchisi qulay. Buning aksicha, ikkinchisi ko‘p xarajat oladi."
+    }
+   ],
+   "say_native": "Ikkinchi juft — qarama-qarshi havolalar. 이에 반해 — «buning aksicha»: ikki faktni keskin ajratish, ayniqsa rasmiy matnda. 반면에 — «aksincha»: umumiy qarama-qarshi, ikkalasi ham juda keng qo‘llanadi. «이에 반해» ko‘pincha 전자/후자 jufti bilan birga keladi: «전자는 편리하다. 이에 반해, 후자는 비용이 많이 든다» — birinchisi qulay, ikkinchisi qimmat.",
+   "say": "이에 반해, 후자는 비용이 많이 듭니다.",
+   "say_uz": "Buning aksicha, ikkinchisi qimmat.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Ilg‘or bog‘lovchilar 3: 이와 더불어 · 그뿐만 아니라",
+   "emotion": "neutral",
+   "board": [
+    "이와 더불어 — «buning bilan birga»",
+    "그뿐만 아니라 — «bundan tashqari, hatto»"
+   ],
+   "examples": [
+    {
+     "t": "관심이 증가했다. 이와 더불어, 예산도 확대되었다.",
+     "uz": "Qiziqish o‘sdi. Buning bilan birga, byudjet ham kengaydi."
+    }
+   ],
+   "say_native": "Uchinchi juft — qo‘shish bog‘lovchilari. 이와 더불어 — «buning bilan birga, qo‘shimcha ravishda»: parallel rivojlanishni bildiradi: «관심이 증가했다. 이와 더불어, 예산도 확대되었다». 그뿐만 아니라 — «bundan tashqari, hatto»: avvalgi argumentni kuchaytirish. Ikkalasi ham «그리고» ning akademik o‘rinbosarlari — matnni silliq va boy qiladi.",
+   "say": "이와 더불어, 예산도 확대되었습니다.",
+   "say_uz": "Bundan tashqari, byudjet ham kengaydi.",
+   "practice_seconds": 14
   },
   {
    "kind": "practice",
-   "title": "Tezkor savol-javob: bog‘lovchilar",
+   "title": "Bog‘lovchilarni vaziyatga moslang",
    "emotion": "encouraging",
    "board": [
-    "Bog‘lovchini eshiting → vazifasini ayting"
+    "그럼에도 불구하고 · 이에 반해 · 이와 더불어 · 그뿐만 아니라"
    ],
    "examples": [],
-   "say_native": "Tezkor mashq. Men bog‘lovchini aytaman, siz vazifasini ayting. Birinchi: «그러나» — qarama-qarshilik, rasmiy ammo. Ikkinchi: «따라서» — xulosa, shuning uchun. Uchinchi: «한편» — paralel, boshqa tomondan. To‘rtinchi: «게다가» — qo‘shimcha, ustiga. Beshinchi: «반면에» — solishtirish, aksincha. Oltinchi: «그럼에도 불구하고» — qarshilik kutilganga zid. Yettinchi: «이와 같이» — xuddi shu tarzda, o‘xshatish. Sakkizinchi: «나아가» — kengaytirish, bundan tashqari. Yigirma soniyada aytishga harakat qiling.",
-   "say": "연결어를 듣고 기능을 말해 보세요.",
-   "say_uz": "Bog‘lovchini eshitib vazifasini ayting.",
-   "practice_seconds": 52
+   "say_native": "Mashq: har vaziyatga mos bog‘lovchini tanlang. Birinchi: dalil kuchli, lekin gapiruvchi baribir shubhada — qaysi bog‘lovchi? Ikkinchi: ikki typyning taqqoslanishi — biri qulay, biri qimmat — qaysi? Uchinchi: qiziqish oshdi va byudjet ham kengaydi — parallel qo‘shish uchun qaysi? To‘rtinchi: ta‘lim ishlaydi va ish topish ham osonlashadi — «bundan tashqari» uchun qaysi? Har birini jumlada ishlating.",
+   "say": "상황에 알맞은 연결 어미를 골라 보세요.",
+   "say_uz": "Vaziyatga mos bog‘lovchini tanlang.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Ilg‘or bog‘lovchilar 4: 따라서 · 그러므로 · 결과적으로",
+   "emotion": "neutral",
+   "board": [
+    "따라서 — shuning uchun · 그러므로 — shuning uchun (mantiqiy)",
+    "결과적으로 — natijada (amaliy)"
+   ],
+   "examples": [
+    {
+     "t": "예산이 부족하다. 따라서 계획을 수정해야 한다.",
+     "uz": "byudjet yetarli emas. Shuning uchun rejani tuzatish kerak."
+    }
+   ],
+   "say_native": "Xulosa bog‘lovchilari uchta: «따라서» — shuning uchun, eng neytral va universal; «그러므로» — mantiqiy xulosa, bir oz rasmiyroq, matematika va falsafa tili; «결과적으로» — natijada, amaliy yakun, ko‘pincha dalillar to‘planganidan keyin. Naqsh: «예산이 부족하다. 따라서 계획을 수정해야 한다» — byudjet yetarli emas, shuning uchun rejani tuzatish kerak. Uchtaga ham «so»ning o‘rindagi rasmiy muqobil.",
+   "say": "예산이 부족하므로 따라서 수정이 필요합니다.",
+   "say_uz": "Byudjet yetarli emas, shuning uchun tuzatish kerak.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Ilg‘or bog‘lovchilar 5: 즉 · 다시 말해 · 요컨대",
+   "emotion": "neutral",
+   "board": [
+    "즉 — ya‘ni · 다시 말해 — boshqacha aytganda · 요컨대 — xulosa qilib aytganda"
+   ],
+   "examples": [
+    {
+     "t": "그는 내성적이다. 즉, 사람들과 쉽게 어울리지 않는다.",
+     "uz": "U — ichki dunyoli. Ya‘ni odamlar bilan osongina aralasha olmaydi."
+    }
+   ],
+   "say_native": "Aniqlashtirish bog‘lovchilari: «즉» — ya‘ni, bir avval aytilganni aniqlashtirish; «다시 말해» — boshqacha aytganda, qayta ifodalash; «요컨대» — xulosa qilib aytganda, eng qisqa umumlashtirish. «그는 내성적이다. 즉, 사람들과 쉽게 어울리지 않는다» — u — ichki dunyoli, ya‘ni odamlar bilan osongina aralasha olmaydi. Uchtaga ham og‘zaki va yozma nutqda kuchli qurollar.",
+   "say": "즉, 사람들과 쉽게 어울리지 않는 사람입니다.",
+   "say_uz": "Ya‘ni, odamlar bilan osongina aralasha olmaydigan odamdir.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "practice",
+   "title": "Bog‘lovchilarni vaziyatga moslang 2",
+   "emotion": "encouraging",
+   "board": [
+    "따라서 · 즉 · 다시 말해 · 요컨대"
+   ],
+   "examples": [],
+   "say_native": "Mashq: har vaziyatga mos xulosa/aniqlashtirish bog‘lovchisini tanlang. Birinchi: sabab berilgandan keyin mantiqiy natija — qaysi? Ikkinchi: bir jumlani boshqacha ifodalamoqchisiz — qaysi? Uchinchi: butun paragrafni uch so‘zda xulosalamoqchisiz — qaysi? To‘rtinchi: bir atamani aniqroq yoritish uchun — «즉» yoki «다시 말해» qaysi tabiiyroq? Har birini jumlada yozing.",
+   "say": "상황에 맞는 요약 연결어를 골라 보세요.",
+   "say_uz": "Vaziyatga mos xulosa bog‘lovchisini tanlang.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: universitet yozish markazi",
+   "emotion": "happy",
+   "board": [
+    "글쓰기 센터 · 학생과 튜터"
+   ],
+   "examples": [
+    {
+     "t": "튜터: 단락과 단락을 어떻게 연결했어요?",
+     "uz": "Tyutor: Paragraflar orasini qanday bog‘ladingiz?"
+    },
+    {
+     "t": "학생: 다 그냥 «그리고»로 시작했어요.",
+     "uz": "Talaba: Hammasini «va» bilan boshladim."
+    },
+    {
+     "t": "튜터: 앞 단락에서 다룬 내용을 «앞 단락에서 살펴보았듯이»로 회상해 보세요.",
+     "uz": "Tyutor: Oldingi paragrafda ishlangan materialni «muqaddam ko‘rib chiqilganidek» deb eslang."
+    },
+    {
+     "t": "학생: «앞 단락에서 살펴보았듯이, 이 요인은…» 이런 식으로요?",
+     "uz": "Talaba: «Muqaddam ko‘rib chiqilganidek, bu omil…» shunaqami?"
+    },
+    {
+     "t": "튜터: 맞아요. 다음 단락은 «다음으로», 마지막은 «마지막으로»로 시작하면 길을 잃지 않아요.",
+     "uz": "Tyutor: To‘g‘ri. Keyingi paragraf «keyingisi», oxirgisi «oxirgi» bilan boshlanadi — o‘quvchi yo‘ldan adashadi emas."
+    }
+   ],
+   "say_native": "Universitet yozish markazi suhbati — paragraf aro kogeziya. Tyutor talabaga: «단락과 단락을 어떻게 연결했어요?» — paragraf aro qanday o‘tdingiz? Talaba tan oladi: hammasini «그리고» bilan boshlagan. Tyutor yagona vositani o‘rgatadi: «앞 단락에서 살펴보았듯이» — muqaddam ko‘rib chiqilganidek. Keyin «다음으로» va «마지막으로» bilan paragraf o‘tishlarini o‘rgatadi. Eshiting: paragraf aro ko‘priklarsiz matn xaritasiz xaritaga o‘xshaydi.",
+   "say": "앞 단락에서 살펴보았듯이, 다음으로 넘어갑시다.",
+   "say_uz": "Muqaddam ko‘rib chiqilganidek, keyingisiga o‘tamiz.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog 2 asosida 4 savol",
+   "emotion": "thinking",
+   "board": [
+    "Tinglab, 4 savolga javob bering"
+   ],
+   "examples": [],
+   "say_native": "Dialog asosida to‘rt savol. Birinchi: talaba paragraflar orasini nima bilan bog‘laganini tan oldi? Ikkinchi: tyutor qaysi havolani «muqaddam ko‘rib chiqilganidek» deb o‘rgatdi? Uchinchi: keyingi paragraf qaysi bog‘lovchi bilan boshlanishi kerak? To‘rtinchi: oxirgi paragraf qaysi bog‘lovchi bilan boshlanishi kerak va nega? Har javobni jumlada bering.",
+   "say": "대화를 듣고 네 가지 질문에 답해 보세요.",
+   "say_uz": "Suhbatni tinglab, to‘rtta savolga javob bering.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: dialog 2",
+   "emotion": "proud",
+   "board": [
+    "Javoblar"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: birinchi — talaba hammasini «그리고» bilan boshlaganini aytdi. Ikkinchi — «앞 단락에서 살펴보았듯이» — muqaddam ko‘rib chiqilganidek. Uchinchi — «다음으로» — keyingi paragraf. To‘rtinchi — «마지막으로» — oxirgi paragraf, chunki o‘quvchi oxirga yetganini bilishi va yakunni kutishi kerak; bu kogeziyaning yo‘l ko‘rsatuvchi vazifasi.",
+   "say": "다음으로, 마지막으로 — 독자가 길을 잃지 않게 해 줍니다.",
+   "say_uz": "«Keyingisi», «oxirgisi» — o‘quvchini yo‘ldan adashdan saqlaydi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Paragraf aro ko‘priklar",
+   "emotion": "neutral",
+   "board": [
+    "앞 단락에서 ~했듯이 — eski materialni eslatish",
+    "다음으로 · 마지막으로 — o‘tish"
+   ],
+   "examples": [
+    {
+     "t": "앞 단락에서 살펴본 바와 같이, 증가는 뚜렷하다.",
+     "uz": "Muqaddam paragrafda ko‘rib chiqilganidek, o‘sish aniq."
+    }
+   ],
+   "say_native": "Paragraf aro ko‘priklar: «앞 단락에서 살펴본 바와 같이» — muqaddam paragrafda ko‘rib chiqilganidek, eski materialni eslatish; «다음으로» — keyingi; «마지막으로» — oxirgi; «이 점에서» — shu jihatdan: «이 점에서, 정책은 재고되어야 한다». «요약하면» — yakunlovchi paragrafda. Bu ko‘priklar o‘quvchiga matningizning yo‘l xaritasini beradi: qaerdamiz, qayerga ketamiz.",
+   "say": "앞 단락에서 살펴본 바와 같이, 증가는 뚜렷합니다.",
+   "say_uz": "Muqaddam paragrafda ko‘rib chiqilganidek, o‘sish aniq.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Yakuniy o‘tish: 이 점에서 · 요약하면",
+   "emotion": "neutral",
+   "board": [
+    "이 점에서 — «shu jihatdan»",
+    "요약하면 — «xulosa qilib aytganda»"
+   ],
+   "examples": [
+    {
+     "t": "이 점에서, 정책은 재고되어야 한다.",
+     "uz": "Shu jihatdan, siyosatni qayta ko‘rib chiqish kerak."
+    }
+   ],
+   "say_native": "Xulosa paragrafiga o‘tish uchun ikki vosita. «이 점에서» — shu jihatdan: «이 점에서, 정책은 재고되어야 한다» — shu jihatdan, siyosatni qayta ko‘rib chiqish kerak; bu muhim nuqtadan xulosaga o‘tish. «요약하면» — xulosa qilib aytganda: butun matnni bir jumlada yopish. Ikkalasi ham matnning yakuniy qismiga professional va silliq o‘tishni ta‘minlaydi.",
+   "say": "이 점에서, 정책은 재고되어야 합니다.",
+   "say_uz": "Shu jihatdan, siyosatni qayta ko‘rib chiqish kerak.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "practice",
+   "title": "Paragraflarga ko‘prik qo‘ying",
+   "emotion": "encouraging",
+   "board": [
+    "앞 단락에서 ~했듯이 · 다음으로 · 마지막으로 · 이 점에서"
+   ],
+   "examples": [
+    {
+     "t": "( ) 앞서 다룬 통계를 보면, 증가는 뚜렷하다.",
+     "uz": "( ) muqaddam ko‘rib chiqilgan statistikaga qaraganda, o‘sish aniq."
+    }
+   ],
+   "say_native": "Mashq: to‘rtta paragrafga ko‘prik so‘z qo‘ying. Birinchi paragraf boshlanadi: «( ) muqaddam ko‘rib chiqilgan statistikaga qaraganda, o‘sish aniq» — «앞 단락에서 살펴본 바와 같이». Ikkinchi: «( ) bu muammoning sabablarini ko‘rib chiqamiz» — «다음으로». Uchinchi: «( ) yechimga o‘tamiz» — «마지막으로». To‘rtinchi: «( ) shu jihatdan, siyosat o‘zgartirilishi kerak» — «이 점에서». Har birini to‘liq jumlada yozing.",
+   "say": "단락 사이에 연결 표현을 넣어 보세요.",
+   "say_uz": "Paragraflar orasiga ko‘prik iboralarini qo‘ying.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Mexanik bog‘lashdan saqlanish",
+   "emotion": "stern",
+   "board": [
+    "그리고를 har gap boshida takrorlamang",
+    "Kutilayotgan → boshqa variant"
+   ],
+   "examples": [
+    {
+     "t": "어색함: 그리고, 그리고, 그리고",
+     "uz": "And, and, and — mexanik bog‘lash"
+    }
+   ],
+   "say_native": "Eng ko‘p uchraydigan C1 xatosi — mexanik bog‘lash. «그리고»ni har gap boshida ishlatish matnni robotik qiladi: «그리고, 그리고, 그리고». Har safar «그리고» yozishni xohlasangiz, o‘zingizga so‘rang: bu qo‘shishmi — «또한», «이와 더불어»; sababmi — «따라서», «그러므로»; qarama-qarshimi — «반면에», «이에 반해»; xulosami — «따라서», «요컨대». Har bog‘lovchi o‘z ishini qiladi.",
+   "say": "그리고만 반복하지 말고, 상황에 맞는 연결어를 쓰세요.",
+   "say_uz": "Faqat «va»ni takrorlamang — kontekstga mos bog‘lovchini ishlating.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "practice",
+   "title": "«그리고»ni kamaytiring",
+   "emotion": "encouraging",
+   "board": [
+    "5 ta «그리고»ni almashtiring"
+   ],
+   "examples": [],
+   "say_native": "Mashq: «그리고»ni besh vaqt ishlatilgan paragrafni tuzating. Matn: «청년 실업이 증가했다. 그리고 정부는 정책을 발표했다. 그리고 기업들은 관심을 보였다. 그리고 예산이 확대되었다. 그리고 결과는 아직 미지수이다.» Har «그리고»ni kontekstga mos bog‘lovchiga aylantiring: «이와 더불어», «이에 따라», «그뿐만 아니라», «따라서», «그러나».",
+   "say": "그리고를 상황에 맞는 연결어로 바꿔 보세요.",
+   "say_uz": "«Va»ni kontekstga mos bog‘lovchilarga aylantiring.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Variatsiya juftlari",
+   "emotion": "neutral",
+   "board": [
+    "또한 ↔ 아울러 · 더불어",
+    "따라서 ↔ 그러므로 · 이에 따라",
+    "반면에 ↔ 이에 반해"
+   ],
+   "examples": [
+    {
+     "t": "또한 — 아울러 — 더불어",
+     "uz": "bundan tashqari — shu bilan birga — qo‘shimcha ravishda"
+    }
+   ],
+   "say_native": "Xilma-xillik uchun variatsiya juftlarini yodlang. Qo‘shish: «또한 / 아울러 / 더불어 / 그뿐만 아니라». Xulosa: «따라서 / 그러므로 / 이에 따라 / 결과적으로». Qarama-qarshi: «반면에 / 이에 반해 / 그와 달리». Aniqlashtirish: «즉 / 다시 말해 / 요컨대». Bir bog‘lovchini uch marta yozish o‘rniga, bir xil ma‘nodagi ikkinchisini ishlating — matn tabiiyroq va boyroq eshitiladi.",
+   "say": "동일한 연결어만 반복하지 말고 다양하게 쓰세요.",
+   "say_uz": "Bir bog‘lovchini takrorlamang — xilmalarini ishlating.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "practice",
+   "title": "Matnni yaxshilang",
+   "emotion": "encouraging",
+   "board": [
+    "Berilgan matnning kogeziyasini tuzating"
+   ],
+   "examples": [
+    {
+     "t": "어색함: 그는 왔다. 그리고 그는 먹었다. 그리고 그는 갔다.",
+     "uz": "Keldi. Va yedi. Va ketdi. — egani takrorlash + «va»ni takrorlash"
+    }
+   ],
+   "say_native": "Mashq: berilgan matnni yaxshilang. «그는 왔다. 그리고 그는 밥을 먹었다. 그리고 그는 갔다. 그리고 그것은 기억에 남았다.» Muammolar: egani takrorlash — tushirish mumkin; «그리고»ni uch marta ishlatish — almashtirish kerak; «그것» nomo‘lum bo‘lishi mumkin — aniqlashtiring. Tuzatilgan versiya: «그는 왔다. 밥을 먹었다. 그리고 갔다. 그 경험은 기억에 남았다.»",
+   "say": "지문의 응집성을 고쳐 보세요.",
+   "say_uz": "Matnning kogeziyasini tuzating.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "practice",
+   "title": "Xatoni toping",
+   "emotion": "stern",
+   "board": [
+    "6 ta xatoli bog‘lanish — toping"
+   ],
+   "examples": [],
+   "say_native": "Xatoni toping. Birinchi: «그리고, 그리고, 그리고» — mexanik bog‘lash. Ikkinchi: «그는» — referent noma‘lum, «이 연구자는» kerak. Uchinchi: «전자/후자» uch elementga ishlatilgan. To‘rtinchi: «그럼에도 불구하고» ziddiyatsiz kontekstda. Beshinchi: yangi paragrafni «그리고» bilan boshlash. Oltinchi: «따라서» sababsiz xulosada — «그러므로» yoki «결과적으로» mos emas, mantiq kerak.",
+   "say": "결속 장치의 오류를 찾아보세요.",
+   "say_uz": "Bog‘lovchi vositalardagi xatolarni toping.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: xatolar tahlili",
+   "emotion": "proud",
+   "board": [
+    "Javoblar"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: birinchi — «그리고» takrorini «또한 / 이와 더불어 / 따라서» bilan almashtiring. Ikkinchi — noaniq havolani aniq ot bilan almashtiring. Uchinchi — 전자/후자 faqat ikkita element uchun. To‘rtinchi — «그럼에도 불구하고» faqat haqiqiy ziddiyatli kontekstda. Beshinchi — paragraflar «다음으로 / 마지막으로 / 이 점에서» bilan boshlanadi. Oltinchi — «따라서» mantiqiy xulosada bo‘lsin; dalillar to‘plangach «결과적으로» ishlatiladi.",
+   "say": "이제 결속 장치의 오류를 스스로 고칠 수 있습니다.",
+   "say_uz": "Endi bog‘lovchilardagi xatolarni o‘zingiz tuzatasiz.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "practice",
+   "title": "Tezkor takror",
+   "emotion": "encouraging",
+   "board": [
+    "Bog‘lovchi → ma‘no 5 soniyada"
+   ],
+   "examples": [],
+   "say_native": "Tezkor takror. Men bog‘lovchini aytaman, siz ma‘nosini: «앞서 언급한», «전자», «후자», «그럼에도 불구하고», «이에 반해», «이와 더불어», «그뿐만 아니라», «따라서», «즉», «요컨대», «앞 단락에서 살펴본 바와 같이», «다음으로», «이 점에서». Javoblar: muqaddam tilga olingan; muqaddim; oxirgi; shunga qaramay; buning aksicha; buning bilan birga; bundan tashqari; shuning uchun; ya‘ni; xulosa qilib aytganda; muqaddam paragrafda ko‘rib chiqilganidek; keyingi; shu jihatdan.",
+   "say": "결속 표현들을 빠르게 복습하세요.",
+   "say_uz": "Bog‘lovchi iboralarni tez takrorlang.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy mashq: berilgan matnning kogeziyasini yaxshilang",
+   "emotion": "encouraging",
+   "board": [
+    "Uy vazifangizdagi matnning bir qismi"
+   ],
+   "examples": [
+    {
+     "t": "어색함: 그리고 A이다. 그리고 B이다. 그리고 C이다.",
+     "uz": "Va A. Va B. Va C."
+    }
+   ],
+   "say_native": "Yakuniy mashq matni: «청년 실업이 증가했다. 그리고 정부가 대책을 발표했다. 그리고 기업이 관심을 보였다. 그리고 예산이 확대되었다. 그리고 결과는 아직 미지수이다. 그리고 앞으로도 지켜봐야 한다.» Vazifa: havolalarni aniqlashtiring, «그리고»ni turli bog‘lovchilarga almashtiring, birini tushiring, paragrafni yakunlovchi jumla bilan yoping. Yozing va uy vazifangizga kiriting.",
+   "say": "주어진 글의 응집성을 개선해 보세요.",
+   "say_uz": "Berilgan matnning kogeziyasini yaxshilang.",
+   "practice_seconds": 45
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna: yaxshilangan matn",
+   "emotion": "proud",
+   "board": [
+    "Namuna"
+   ],
+   "examples": [
+    {
+     "t": "청년 실업이 증가했다. 이에 따라 정부는 대책을 발표했다.",
+     "uz": "Yoshlar ishsizligi o‘sdi. Shunga asosan hukumat choralar e‘lon qildi."
+    },
+    {
+     "t": "그뿐만 아니라 기업들도 관심을 보이기 시작했다.",
+     "uz": "Bundan tashqari, kompaniyalar ham qiziqish bildira boshladi."
+    },
+    {
+     "t": "이와 더불어, 예산도 확대되었다. 그러나 결과는 아직 미지수이다.",
+     "uz": "Buning bilan birga, byudjet ham kengaydi. Biroq natija hali noma‘lum."
+    },
+    {
+     "t": "따라서 앞으로도 지속적인 관찰이 필요하다.",
+     "uz": "Shuning uchun bundan keyin ham doimiy kuzatish zarur."
+    }
+   ],
+   "say_native": "Namuna yaxshilangan matn: «청년 실업이 증가했다. 이에 따라 정부는 대책을 발표했다» — «그리고» o‘rniga «이에 따라» — shunga asosan. «그뿐만 아니라 기업들도 관심을 보이기 시작했다» — bundan tashqari. «이와 더불어, 예산도 확대되었다. 그러나 결과는 아직 미지수이다» — parallel qo‘shish + qarama-qarshi. «따라서 앞으로도 지속적인 관찰이 필요하다» — mantiqiy xulosa. Besh «그리고» o‘rniga beshta aniq bog‘lovchi.",
+   "say": "이것이 응집성을 개선한 모범입니다.",
+   "say_uz": "Mana kogeziyasi yaxshilangan namunaviy matn.",
+   "practice_seconds": 14
   },
   {
    "kind": "recap",
-   "title": "Bugun nimalarni o‘rgandik",
+   "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
    "board": [
-    "Referens: 이/그/저 · 전자/후자 · 이러한",
-    "Almashtirish: 그렇다 · ~ㄴ 것 · Ellips",
-    "Ilg‘or bog‘lovchilar: 그러나 · 따라서 · 그럼에도 불구하고",
-    "Leksik zanjir va «그리고»siz o‘qish testi"
+    "Havola: 이/그/저 · 이것/그것/저것 · 이러한 · 앞서 언급한",
+    "Almashtirish: 전자/후자 · Tushirish: ellipsis",
+    "Bog‘lovchilar: 그럼에도 · 이에 반해 · 이와 더불어 · 따라서",
+    "Aniqlashtirish: 즉 · 다시 말해 · 요컨대",
+    "Paragraf aro: 앞 단락에서 ~했듯이 · 다음으로 · 마지막으로 · 이 점에서"
    ],
    "examples": [],
-   "say_native": "Xulosa qilamiz. Kogeziyaning to‘rt vositasini o‘rgandik: referens — «이/그/저», «전자/후자», «이러한/그러한»; almashtirish — «그렇다», «~ㄴ 것»; ellips — kontekstdan ayon so‘zlarni tushirib qoldirish; ilg‘or bog‘lovchilar — «그러나, 따라서, 한편, 게다가, 반면에, 그럼에도 불구하고, 이와 같이, 나아가». Leksik zanjirlar ham ko‘p gapiradi: bir mavzuning o‘zak so‘zlari matn bo‘ylab tanani mustahkamlaydi. Va eng muhim qoida: bog‘lovchini haddan tashqari ishlatmang — matn oqadigan bo‘lsin, zanjirivor emas.",
-   "say": "오늘 배운 응집성 장치를 정리해 봅시다.",
-   "say_uz": "Bugun o‘rgangan kogeziya vositalarini yakunlaylik.",
+   "say_native": "Xulosa qilamiz. Bugun kogeziyaning barcha vositalarini o‘rgandik: havola — «이/그/저», «이것/그것», «이러한», «앞서 언급한»; almashtirish — «전자/후자»; tushirish — egani takrorlamaslik; ilg‘or bog‘lovchilar — «그럼에도 불구하고», «이에 반해», «이와 더불어», «따라서», «즉», «요컨대»; paragraf aro ko‘priklar — «앞 단락에서 ~», «다음으로», «마지막으로», «이 점에서»; va mexanik bog‘lashdan qochish — «그리고»ni har joyda takrorlamaslik. Endi matningiz bir butun organizmdek o‘qiladi.",
+   "say": "이제 여러분의 글은 하나로 묶인 텍스트입니다.",
+   "say_uz": "Endi yozganingiz — bitta butun matn.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Keyingi dars: argumentli esse — band 7–8",
+   "title": "Uyga vazifa",
    "emotion": "happy",
    "board": [
-    "Keyingi dars: argumentli esse namunalari",
-    "UY VAZIFA: berilgan matnning kogeziyasini yaxshilang"
+    "Uy vazifa: berilgan matnning kogeziyasini yaxshilang",
+    "Keyingi dars: C1-11 Argumentli esse: band 7–8 namunalar"
    ],
    "examples": [],
-   "say_native": "Uy vazifa: berilgan matnni oling — o‘zingiz yozgan har qanday qisqa matn bo‘lsin, yoki oldingi darsdagi o‘z paragraflaringiz — va uning kogeziyasini yaxshilang: bog‘lovchilar sonini kamaytiring, referens va leksik zanjirlarni qo‘shing, paragraflar orasidagi ko‘priklarni tekshiring. Bir, uch va yetti kundan keyin qayta o‘qib, har safar bitta yaxshilanish kiriting. Keyingi darsda argumentli esse: band 7–8 namunalarini tahlil qilamiz — 서론·본론·결론 struktura, kuchli tezis va dalillar bilan. Kelasi uchrashuvgacha!",
-   "say": "다음 시간에는 논증 에세이 샘플을 배워요.",
-   "say_uz": "Keyingi darsda argumentli esse namunalarini o‘rganamiz.",
+   "say_native": "Uy vazifa: sizga berilgan paragrafni — yoki o‘zingiz yozgan istalgan matnni — kogeziyasini yaxshilang: kamida uchta «그리고»ni to‘g‘ri bog‘lovchiga almashtiring, bir noaniq havolani aniqlang va birini tushiring, paragraf aro ko‘prik qo‘ying. Keyingi darsimiz — «Argumentli esse: band 7–8 namunalar»: yuqori ball argument esse namunalari, qiymat va startegiyalar. Keyingi dars: C1-11 Argumentli esse: band 7–8 namunalar. Kelasi uchrashuvgacha!",
+   "say": "다음 시간에는 논증 에세이를 분석해요.",
+   "say_uz": "Keyingi darsda argument esse tahlil qilamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "O‘zingiz yozgan avvalgi paragraflaringizdan birini (yoki har qanday kichik matnni) tanlang va uning kogeziyasini yaxshilang: to‘planib qolgan bog‘lovchilarni («그리고», «그래서») olib tashlang, referenslar (이/그/저, 전자/후자, 이러한) qo‘shing, eski «것» larni almashtirish bilan qisqartiring, leksik zanjirni tekshiring va paragraflar orasidagi ko‘prik gaplarni mustahkamlang. Har o‘zgartirishning tagiga chizib, yoniga qaysi vosita ishlatilganini yozing. Bir, uch va yetti kundan keyin qayta o‘qib, har safar bitta tafovut qo‘shing.",
+ "homework_uz": "Berilgan matn (yoki o‘zingiz yozgan matn) kogeziyasini yaxshilang: kamida 3 ta «그리고»ni to‘g‘ri bog‘lovchiga almashtiring («또한», «따라서», «반면에» va h.k.), 1 noaniq havolani («그는», «그것») aniq ot bilan almashtiring, takrorlangan egani tushiring (ellipsis), kamida 2 ta paragrafga ko‘prik qo‘ying («앞 단락에서 ~했듯이», «다음으로», «이 점에서»). Yaxshilangan versiyani aksillaftiring va o‘zgarishlaringizni bir jumlada izohlang. Keyingi dars: C1-11 Argumentli esse: band 7–8 namunalar",
  "quiz": [
   {
-   "q": "What is cohesion in a text?",
+   "q": "What is 응집성 (cohesion)?",
    "options": [
-    "the correct use of particles",
-    "the visible and invisible links that hold sentences together",
-    "the number of paragraphs",
-    "the choice of honorifics"
-   ],
-   "answer": 1,
-   "why_uz": "Kogeziya — gaplarni bir-biriga bog‘laydigan ip: referens, almashtirish, ellips, bog‘lovchilar."
-  },
-  {
-   "q": "Which demonstrative refers to something mentioned just before?",
-   "options": [
-    "이",
-    "저",
-    "그",
-    "뭐"
+    "the length of a paragraph",
+    "the grammatical correctness of each sentence",
+    "the ties that connect parts of a text",
+    "the beauty of calligraphy"
    ],
    "answer": 2,
-   "why_uz": "«그» — yaqinda tilga olingan, «o‘sha» degan faraziy referent; «이» — yangi/yaqin."
+   "why_uz": "Kogeziya — matn qismlarini bog‘lab turgan ko‘priklar."
   },
   {
-   "q": "What do 전자 and 후자 mean?",
+   "q": "“이 / 그 / 저” are examples of…",
    "options": [
-    "the former and the latter",
-    "the first and second people",
-    "electronic and post-electronic",
-    "today and yesterday"
+    "honorifics",
+    "reference words",
+    "conjunctions",
+    "endings"
+   ],
+   "answer": 1,
+   "why_uz": "이/그/저 — havola so‘zlari: «이 문제», «그 결과»."
+  },
+  {
+   "q": "전자 / 후자 are used to refer to…",
+   "options": [
+    "the first and second items in a pair",
+    "two people you dislike",
+    "formal and informal speech",
+    "past and future"
    ],
    "answer": 0,
-   "why_uz": "«전자» — «the former», «후자» — «the latter»: ikki narsani solishtirishning rasmiy usuli."
+   "why_uz": "전자 — muqaddim, 후자 — oxirgi, faqat ikkita element uchun."
   },
   {
-   "q": "Which verb-of-saying substitutes for a whole previous clause?",
+   "q": "Which is correct paragraph reference?",
    "options": [
-    "하다",
-    "그렇다",
-    "되다",
-    "말하다"
+    "앞서 언급한 바와 같이",
+    "뒤에 언급한 바와 같이",
+    "저 문제 전에",
+    "이렇게 저렇게"
    ],
-   "answer": 1,
-   "why_uz": "«그렇다» — «shunday qilish/shunday»: oldingi gap yoki fe‘lning almashtiruvchisi."
+   "answer": 0,
+   "why_uz": "앞서 언급한 — «muqaddam tilga olingan», ichki havola."
   },
   {
-   "q": "What is ellipsis in Korean writing?",
+   "q": "“그럼에도 불구하고” means…",
    "options": [
-    "using three dots",
-    "omitting what the context makes obvious",
-    "replacing verbs with nouns",
-    "adding honorifics"
+    "therefore",
+    "moreover",
+    "nevertheless, despite that",
+    "in other words"
    ],
-   "answer": 1,
-   "why_uz": "Ellips — kontekstdan ayon bo‘lgan so‘zni (ko‘pincha sub‘yekt) tushirib qoldirish."
+   "answer": 2,
+   "why_uz": "그럼에도 불구하고 — shunga qaramay."
   },
   {
-   "q": "Which linker introduces a formal conclusion?",
+   "q": "Which linker adds parallel information?",
    "options": [
-    "한편",
-    "게다가",
     "따라서",
-    "반면에"
+    "이와 더불어",
+    "반면에",
+    "요컨대"
+   ],
+   "answer": 1,
+   "why_uz": "이와 더불어 — «buning bilan birga», parallel qo‘shish."
+  },
+  {
+   "q": "“즉” is used to…",
+   "options": [
+    "conclude the essay",
+    "clarify what you just said",
+    "add emphasis",
+    "show contrast"
+   ],
+   "answer": 1,
+   "why_uz": "즉 — «ya‘ni», avval aytilganni aniqlashtirish."
+  },
+  {
+   "q": "What is the best fix for repeated “그리고”?",
+   "options": [
+    "keep it — it is always correct",
+    "replace with context-appropriate linkers",
+    "delete every second occurrence",
+    "replace with “하지만” everywhere"
+   ],
+   "answer": 1,
+   "why_uz": "Mexanik bog‘lashdan saqlanish — kontekstga mos bog‘lovchini tanlang."
+  },
+  {
+   "q": "Which phrase links back to the previous paragraph?",
+   "options": [
+    "마지막으로",
+    "다음으로",
+    "앞 단락에서 살펴본 바와 같이",
+    "요컨대"
    ],
    "answer": 2,
-   "why_uz": "«따라서» — «shuning uchun»: rasmiy va akademik xulosa kiritishning standart shakli."
+   "why_uz": "Oldingi paragraf materialiga eslatish — ichki ko‘prik."
   },
   {
-   "q": "What does «그럼에도 불구하고» express?",
+   "q": "Ellipsis of the subject is natural in Korean when…",
    "options": [
-    "addition",
-    "contrast against expectations (\"nevertheless\")",
-    "reason",
-    "sequence"
+    "never",
+    "the subject is clear from context",
+    "the sentence is honorific",
+    "it is the first sentence"
    ],
    "answer": 1,
-   "why_uz": "«그럼에도 불구하고» — « shunga qaramay»: kutilgan natijaga zid qarshilik."
-  },
-  {
-   "q": "Which sentence best avoids mechanical linking?",
-   "options": [
-    "그리고 그는 갔다. 그리고 먹었다. 그리고 잤다.",
-    "그는 갔다. 그리고 먹었다. 그리고 잤다.",
-    "그는 갔다. 밥을 먹고 잤다.",
-    "그는 갔다 and then 먹었다 and then 잤다."
-   ],
-   "answer": 2,
-   "why_uz": "Kontekstni ellips va tabiiy oqim bilan tuzing; «그리고» ni har gapda emas."
-  },
-  {
-   "q": "What is a lexical chain?",
-   "options": [
-    "a list of vocabulary from a dictionary",
-    "a series of same-root words running through a text to hold it together",
-    "alphabetical ordering of words",
-    "a list of linkers to memorise"
-   ],
-   "answer": 1,
-   "why_uz": "«교육 → 교육적 → 교육 제도» — bir o‘zakning matn bo‘ylab tarqalishi."
-  },
-  {
-   "q": "How does the \"read it without linkers\" test work?",
-   "options": [
-    "delete all particles and re-read",
-    "remove linker words mentally; if the text still flows, cohesion is strong",
-    "underline every 그러나 and 따라서",
-    "rewrite the text in English"
-   ],
-   "answer": 1,
-   "why_uz": "Agar bog‘lovchilarsiz ham matn mantiqiy oqsa — kogeziya kuchli, poydevor mustahkam."
+   "why_uz": "Koreyscha da egani takrorlamaslik tabiiy — agar ega aniq bo‘lsa."
   }
  ]
 }

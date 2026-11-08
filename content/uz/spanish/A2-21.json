@@ -1,145 +1,381 @@
 {
   "title": "Pul, narx va savdolashish",
-  "goal_uz": "Ispan tilida pul, narx va savdolashishni amalga oshirasiz: katta sonlar bilan narxlar, qimmat/arzon, chegirma, qaytimer, savdolashish iboralari va naqd/karta",
-  "homework_uz": "Bozordagi savdolashish dialogini o‘ylab ko‘ring",
+  "goal_uz": "Ispan tilida pul va narx bilan ishlay olasiz: yevro va yirik sonlar, qimmat/arzon, chegirma va qaytim, savdolashish frasalari va kartadan to‘lash",
+  "homework_uz": "Sherigingiz bilan bozorda savdolashish rol o‘ynang. Muvaffaqiyat mezoni: kamida 8 ta ispan gapi, savdolashish frasalari va yakuniy narx kelishgan bo‘lsin. Keyingi dars: telefon, internet va ijtimoiy tarmoqlar.",
   "vocab": [
-    {
-      "w": "el dinero",
-      "uz": "pul"
-    },
     {
       "w": "el euro",
       "uz": "yevro"
     },
     {
-      "w": "el dólar",
-      "uz": "dollar"
+      "w": "el céntimo",
+      "uz": "tiyin"
     },
     {
-      "w": "caro / barata",
+      "w": "caro / barato",
       "uz": "qimmat / arzon"
+    },
+    {
+      "w": "el precio",
+      "uz": "narx"
     },
     {
       "w": "el descuento",
       "uz": "chegirma"
     },
     {
+      "w": "la rebaja",
+      "uz": "narx tushirish (chegirma)"
+    },
+    {
       "w": "el cambio",
-      "uz": "qaytimer"
+      "uz": "qaytim"
     },
     {
-      "w": "¿Cuánto vale?",
-      "uz": "Narxi qancha?"
+      "w": "en efectivo",
+      "uz": "naqd pul bilan"
     },
     {
-      "w": "Es muy caro.",
-      "uz": "Bu juda qimmat."
+      "w": "con tarjeta",
+      "uz": "karta bilan"
     },
     {
-      "w": "¿Me hace un descuento?",
-      "uz": "Chegirma qila olasizmi?"
-    },
-    {
-      "w": "¿Puedo pagar con tarjeta?",
-      "uz": "Karta bilan to‘lasam bo‘ladimi?"
+      "w": "el mercado",
+      "uz": "bozor"
     }
   ],
   "scenes": [
     {
       "kind": "intro",
-      "title": "O‘ttiz uchinchi darsga xush kelibsiz",
+      "title": "Qirq oltinchi darsga xush kelibsiz",
       "emotion": "happy",
       "board": [
-        "Lección 46: dinero y precios",
-        "(pul va narx)",
-        "¿Cuánto vale?"
+        "Lección 46: el dinero",
+        "(pul, narx va savdolashish)",
+        "¿Cuánto cuesta? Es muy caro."
       ],
       "examples": [
         {
-          "t": "¿Cuánto vale?",
-          "uz": "Narxi qancha?"
+          "t": "¿Cuánto cuesta? Es muy caro.",
+          "uz": "Qancha turadi? Juda qimmat."
         }
       ],
-      "say": "¡Hola! Hoy aprendemos sobre el dinero, los precios y el regateo.",
-      "say_native": "Assalomu alaykum! O‘ttiz uchinchi darsga xush kelibsiz. O‘tgan darsda kino, musiqa va kitoblar haqida gaplashdik. Bugun pul, narx va savdolashish haqida gaplashamiz: katta sonlar, qimmat/arzon, chegirma, qaytimer va savdolashish iboralari.",
-      "say_uz": "Salom! Bugun pul, narx va savdolashish haqida gaplashamiz.",
+      "say": "¡Hola! Hoy aprendemos a manejar el dinero, los precios y el arte del regateo.",
+      "say_native": "Assalomu alaykum! Qirq oltinchi darsga xush kelibsiz. O‘tgan darsda kino, musiqa va kitoblarni muhokama qilishni o‘rgandik. Bugun esa pul haqida gaplashamiz: yevro va yirik sonlar, qimmat va arzon, chegirma hamda qaytim, do‘kon va bozorda savdolashish frasalari, naqd yoki karta bilan to‘lash. Savol-javoblar kundalik hayotda eng ko‘p ishlatiladi.",
+      "say_uz": "Salom! Bugun pul, narx va savdolashishni o‘rganamiz.",
       "practice_seconds": 0
     },
     {
       "kind": "explain",
-      "title": "Katta sonlar va narxlar",
+      "title": "Yevro va tiyin",
       "emotion": "neutral",
       "board": [
-        "100 cien · 200 doscientos · 1000 mil",
-        "50 euro — ellik yevro",
-        "100 euro — yuz yevro",
-        "1000 euro — ming yevro"
+        "1 euro = 100 céntimos",
+        "un euro — bir yevro",
+        "cincuenta céntimos — ellik tiyin",
+        "Ispaniya — yevro hududi"
       ],
       "examples": [
         {
-          "t": "Cuesta cien euros.",
-          "uz": "U yuz yevro turadi."
+          "t": "Un euro es cien céntimos.",
+          "uz": "Bir yevro yuz tiyin."
         },
         {
-          "t": "Cuesta mil euros.",
-          "uz": "U ming yevro turadi."
+          "t": "Doscientos euros.",
+          "uz": "Ikki yuz yevro."
         }
       ],
-      "say": "Cuesta cien euros. Cuesta doscientos euros. Cuesta mil euros.",
-      "say_native": "Katta sonlar narxlarda ko‘p ishlatiladi: “cien” yuz, “doscientos” ikki yuz, “mil” ming. “Cuesta cien euros”, yuz yevro turadi. “Cuesta doscientos euros”, ikki yuz yevro. “Cuesta mil euros”, ming yevro. E’tibor: “mil” — “miles” emas.",
-      "say_uz": "U yuz yevro turadi. U ikki yuz yevro. U ming yevro.",
+      "say": "El euro es la moneda de España y cien céntimos equivalen a un euro.",
+      "say_native": "Ispaniyada pul birligi — yevro; bir yevro yuz tiyinga teng: “cien céntimos” — yuz tiyin. Narxlar odatda yevro va o‘nliklar bilan beriladi: “dos euros con cincuenta” — ikki yarim yevro. Ispaniyada narxlar ko‘p hollarda “,50” va “,95” bilan tugaydi; kassada sizga qaytim “la vuelta” yoki “el cambio” deb beriladi.",
+      "say_uz": "Yevro: 1 yevro = 100 tiyin; “dos euros con cincuenta” — 2.50 yevro.",
       "practice_seconds": 0
     },
     {
       "kind": "explain",
-      "title": "Qimmat va arzon",
+      "title": "Yirik sonlarni aytish: yuz mingdan milliongacha",
+      "emotion": "neutral",
+      "board": [
+        "cien — 100",
+        "quinientos — 500",
+        "setecientos — 700",
+        "setecientos ≠ setecientos",
+        "mil — 1000",
+        "un millón — million"
+      ],
+      "examples": [
+        {
+          "t": "Quinientos euros.",
+          "uz": "Besh yuz yevro."
+        },
+        {
+          "t": "Un millón de euros.",
+          "uz": "Bir million yevro."
+        }
+      ],
+      "say": "Cien, quinientos, setecientos, novecientos, mil, un millón: los números grandes del español.",
+      "say_native": "Yirik sonlarni yodda tuting: “cien” — yuz; “doscientos” — ikki yuz; “quinientos” — besh yuz; “setecientos” — yetti yuz (bir “c” bilan); “novecientos” — to‘qqiz yuz; “mil” — ming; “dos mil” — ikki ming; “un millón” — million (“un millón de euros” — “de” bilan); “dos millones” — ikki million. Eslatma: “cien” va “ciento” — “cien” 100 ning o‘zi, lekin “ciento veinte” — 120.",
+      "say_uz": "Yirik sonlar: cien, quinientos, setecientos, novecientos, mil, un millón.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "practice",
+      "title": "Yirik sonlarni ayting",
+      "emotion": "encouraging",
+      "board": [
+        "1) «besh yuz yevro»",
+        "2) «yetti yuz»",
+        "3) «ikki ming»",
+        "4) «ikki million»"
+      ],
+      "examples": [],
+      "say": "Di en español: quinientos euros; setecientos; dos mil; dos millones; novecientos.",
+      "say_native": "Besh sonni ispan tilida ayting. Birinchi, “besh yuz yevro” — “quinientos euros”. Ikkinchi, “yetti yuz” — “setecientos”. Uchinchi, “ikki ming” — “dos mil”. To‘rtinchi, “ikki million” — “dos millones”. Beshinchi, “to‘qqiz yuz” — “novecientos”. Har birini ovoz chiqarib ayting va yozib ko‘ring.",
+      "say_uz": "Besh son: quinientos, setecientos, dos mil, dos millones, novecientos.",
+      "practice_seconds": 14
+    },
+    {
+      "kind": "explain",
+      "title": "Javoblar: yirik sonlar",
+      "emotion": "proud",
+      "board": [
+        "quinientos euros",
+        "setecientos",
+        "dos mil",
+        "dos millones",
+        "novecientos"
+      ],
+      "examples": [],
+      "say": "Quinientos euros; setecientos; dos mil; dos millones; novecientos.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: “setecientos” bir “c” bilan, “quinientos” esa “ni” bilan yoziladi; “mil” ko‘plikda o‘zgarmaydi — “dos mil”, lekin “un millón” — “dos millones” da “-es” qo‘shiladi.",
+      "say_uz": "Javoblar doskada. «Setecientos» — bir «c»; «un millón — millones».",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "explain",
+      "title": "«caro» va «barato» — qimmat va arzon",
       "emotion": "neutral",
       "board": [
         "caro — qimmat",
         "barato — arzon",
-        "muy caro — juda qimmat",
-        "muy barato — juda arzon",
-        "¿Cuánto cuesta?"
+        "Es muy caro. — Juda qimmat.",
+        "Qué barato. — Arzonku."
       ],
       "examples": [
         {
           "t": "Es muy caro.",
-          "uz": "Bu juda qimmat."
+          "uz": "Juda qimmat."
         },
         {
-          "t": "Es muy barato.",
-          "uz": "Bu juda arzon."
+          "t": "¡Qué barato!",
+          "uz": "Arzonku!"
         }
       ],
-      "say": "Es muy caro. Es muy barato. ¿Cuánto cuesta?",
-      "say_native": "“Caro” qimmat, “barato” arzon: “es muy caro”, bu juda qimmat; “es muy barato”, bu juda arzon. “¿Cuánto cuesta?” — narxi qancha? “¿Cuánto vale?” ham narxi qancha degani. Ikkalasi ham bir xil.",
-      "say_uz": "Bu juda qimmat. Bu juda arzon. Narxi qancha?",
+      "say": "Caro es caro y barato es barato: es muy caro; qué barato; es una ganga.",
+      "say_native": "“Caro” — qimmat, “barato” — arzon. Narxga munosabat: “es muy caro” — juda qimmat; “qué barato” — arzonku; “es una ganga” — bu “omad”, degani — juda arzonga tekkan ma’nosida; “está en oferta” — sotuvda. Contra: “cada vez más caro” — tobora qimmatlashmoqda; “cada vez más barato” — tobora arzonlashmoqda.",
+      "say_uz": "“Caro” — qimmat; “barato” — arzon; “ganga” — omadli narx.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "practice",
+      "title": "Qimmat yoki arzon?",
+      "emotion": "encouraging",
+      "board": [
+        "1) «Bu juda qimmat»",
+        "2) «Arzonku!»",
+        "3) «Omadli narx»",
+        "4) «Narx tobora qimmatlashmoqda»"
+      ],
+      "examples": [],
+      "say": "Di en español: es muy caro; ¡qué barato!; es una ganga; cada vez más caro.",
+      "say_native": "To‘rtta munosabatni ayting. Birinchi, “bu juda qimmat” — “es muy caro”. Ikkinchi, “arzonku!” — “¡qué barato!”. Uchinchi, “omadli narx” — “es una ganga”. To‘rtinchi, “narx tobora qimmatlashmoqda” — “cada vez más caro”. Har birini do‘konda eshitgandek qilib ayting.",
+      "say_uz": "To‘rt munosabat: muy caro, qué barato, ganga, cada vez más caro.",
+      "practice_seconds": 13
+    },
+    {
+      "kind": "explain",
+      "title": "Javoblar: qimmat yoki arzon",
+      "emotion": "proud",
+      "board": [
+        "Es muy caro.",
+        "¡Qué barato!",
+        "Es una ganga.",
+        "Cada vez más caro."
+      ],
+      "examples": [],
+      "say": "Es muy caro; ¡qué barato!; es una ganga; cada vez más caro.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: “es muy caro” va “está muy caro” ikkalasi ishlatiladi; “ganga” — omadli xarid, bozorda ko‘p eshitiladigan so‘z.",
+      "say_uz": "Javoblar doskada. «Ganga» — omadli xarid.",
       "practice_seconds": 0
     },
     {
       "kind": "explain",
-      "title": "Savdolashish iboralari",
+      "title": "Qaytim va chegirma",
       "emotion": "thinking",
       "board": [
-        "¿Cuánto vale? — Narxi qancha?",
-        "Es muy caro — Bu juda qimmat",
-        "¿Me hace un descuento? — Chegirma qila olasizmi?",
-        "¿Cuánto me da? — Menga qancha berasiz?",
-        "Le doy... — Men ... beraman"
+        "el cambio / la vuelta — qaytim",
+        "el descuento — chegirma",
+        "la rebaja — chegirma (sotuv)",
+        "las rebajas — chegirmalar oyi"
       ],
       "examples": [
         {
-          "t": "¿Cuánto vale?",
-          "uz": "Narxi qancha?"
+          "t": "¿Me puede dar el cambio?",
+          "uz": "Qaytimni berolasizmi?"
         },
         {
-          "t": "Es muy caro, ¿me hace un descuento?",
-          "uz": "Bu juda qimmat, chegirma qila olasizmi?"
+          "t": "¿Hay algún descuento?",
+          "uz": "Chegirma bormi?"
         }
       ],
-      "say": "¿Cuánto vale? Es muy caro, ¿me hace un descuento?",
-      "say_native": "Savdolashish iboralari: “¿cuánto vale?” narxi qancha? “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? “¿Cuánto me da?” menga qancha berasiz? “Le doy...” men ... beraman. Ispaniyada bozorlarda savdolashish odatiy.",
-      "say_uz": "Narxi qancha? Bu juda qimmat, chegirma qila olasizmi?",
+      "say": "El cambio o la vuelta es el dinero que sobra; el descuento es una rebaja en el precio; las rebajas son épocas de ofertas.",
+      "say_native": "Uch so‘z. “El cambio” yoki “la vuelta” — qaytim: “¿me puede dar el cambio?” — qaytimni berolasizmi? “El descuento” — chegirma, “¿hay algún descuento?” — chegirma bormi? “La rebaja” — narx tushirish; “las rebajas” esa Ispaniyada yozgi va qishki chegirmalar davri (janvar va iyul-avgust) — do‘konlar narxlarni pasaytiradi. Esda tuting: “cambio” ham qaytim, ham “valyuta kursi” — kontekst farqlaydi.",
+      "say_uz": "So‘zlar: el cambio / la vuelta — qaytim; el descuento — chegirma; las rebajas — chegirmalar davri.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "practice",
+      "title": "Qaytim va chegirma",
+      "emotion": "encouraging",
+      "board": [
+        "1) «Qaytimni berolasizmi?»",
+        "2) «Chegirma bormi?»",
+        "3) «Yozgi chegirmalar oyi»",
+        "4) «Narx tushiring»"
+      ],
+      "examples": [],
+      "say": "Di en español: ¿me puede dar el cambio?; ¿hay algún descuento?; las rebajas de verano; ¿hace un descuento?",
+      "say_native": "To‘rtta gapni ayting. Birinchi, “qaytimni berolasizmi?” — “¿me puede dar el cambio?”. Ikkinchi, “chegirma bormi?” — “¿hay algún descuento?”. Uchinchi, “yozgi chegirmalar oyi” — “las rebajas de verano”. To‘rtinchi, “narx tushiring” — “¿me hace un descuento?”. Har birini do‘konda sotuvchiga murojaatdek ayting.",
+      "say_uz": "To‘rt murojaat: cambio, descuento, rebajas, ¿me hace un descuento?",
+      "practice_seconds": 14
+    },
+    {
+      "kind": "explain",
+      "title": "Javoblar: qaytim va chegirma",
+      "emotion": "proud",
+      "board": [
+        "¿Me puede dar el cambio?",
+        "¿Hay algún descuento?",
+        "Las rebajas de verano.",
+        "¿Me hace un descuento?"
+      ],
+      "examples": [],
+      "say": "¿Me puede dar el cambio?; ¿hay algún descuento?; las rebajas de verano; ¿me hace un descuento?",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: “¿me hace un descuento?” — savdolashishning rasmiy murojaati; sotuvchi “no, lo siento, el precio es fijo” — yo‘q, afsuski narx qat’iy, deb javob berishi mumkin; do‘konlarda qat’iy, bozorlarda yumshoqroq.",
+      "say_uz": "Javoblar doskada. «¿Me hace un descuento?» — savdolashishning muloyim shakli.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "explain",
+      "title": "Savdolashish frasalari",
+      "emotion": "neutral",
+      "board": [
+        "¿Cuánto cuesta? — qancha turadi?",
+        "¿Me lo deja en…? — … ga bera olasizmi?",
+        "Le doy diez euros.",
+        "¿Cuál es su último precio?"
+      ],
+      "examples": [
+        {
+          "t": "¿Me lo deja en quince euros?",
+          "uz": "O‘n besh yevroga bera olasizmi?"
+        },
+        {
+          "t": "Le doy diez euros.",
+          "uz": "O‘n yevro beraman."
+        }
+      ],
+      "say": "Para regatear: ¿cuánto cuesta?; ¿me lo deja en...?; le doy...; ¿cuál es su último precio?",
+      "say_native": "Savdolashish frasalari. “¿Cuánto cuesta?” — qancha turadi?; “¿me lo deja en quince euros?” — o‘n besh yevroga bera olasizmi?; “le doy diez euros” — o‘n yevro beraman (oxirgi taklif); “¿cuál es su último precio?” — eng oxirgi narxingiz qancha?; “así me llevo los dos” — shunday bo‘lsa ikkitasini olaman. Savdolashishda tabassum va muloyimlik — madaniy aloqa.",
+      "say_uz": "Savdolashish: ¿cuánto cuesta?; ¿me lo deja en…?; le doy…; ¿cuál es su último precio?",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "practice",
+      "title": "Savdolashing",
+      "emotion": "encouraging",
+      "board": [
+        "1) Narxni so‘rang",
+        "2) O‘n besh yevroga so‘rang",
+        "3) O‘n yevro taklif qiling",
+        "4) Oxirgi narxni so‘rang"
+      ],
+      "examples": [],
+      "say": "Regatea: pregunta el precio; pide que te lo deje en quince euros; ofrece diez; pregunta el último precio.",
+      "say_native": "Savdolashishni oynang. Birinchi, “¿cuánto cuesta?” — narxni so‘rang. Ikkinchi, “¿me lo deja en quince euros?” — o‘n besh yevroga bera olasizmi? Uchinchi, “le doy diez euros” — o‘n yevro beraman. To‘rtinchi, “¿cuál es su último precio?” — oxirgi narxingiz qancha? Har birini bozorda sotuvchiga murojaatdek ayting — tabassum bilan.",
+      "say_uz": "Savdolashish: narx, o‘n besh, o‘n, oxirgi narx.",
+      "practice_seconds": 15
+    },
+    {
+      "kind": "explain",
+      "title": "Javoblar: savdolashing",
+      "emotion": "proud",
+      "board": [
+        "¿Cuánto cuesta?",
+        "¿Me lo deja en quince euros?",
+        "Le doy diez euros.",
+        "¿Cuál es su último precio?"
+      ],
+      "examples": [],
+      "say": "¿Cuánto cuesta?; ¿me lo deja en quince euros?; le doy diez euros; ¿cuál es su último precio?",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: savdolashishda nisbatan past narx taklif qiling — yakuniy narx ko‘pincha o‘rtada bo‘ladi; “le doy diez” o‘rniga o‘zingizning narxingizni ayting. Tabassum va tabassum — eng kuchli qurolingiz.",
+      "say_uz": "Javoblar doskada. Tabassum — savdolashishning quroli.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "explain",
+      "title": "Savdolashish madaniyati",
+      "emotion": "thinking",
+      "board": [
+        "do‘konlarda narx qat’iy",
+        "bozorlarda savdolashish odatiy",
+        "Ispaniya: Mercado de San Miguel",
+        "Lotin Amerika: bozor madaniyati"
+      ],
+      "examples": [
+        {
+          "t": "En el mercado se regatea.",
+          "uz": "Bozorda savdolashiladi."
+        },
+        {
+          "t": "En las tiendas, el precio es fijo.",
+          "uz": "Do‘konlarda narx qat’iy."
+        }
+      ],
+      "say": "En las tiendas el precio es fijo; en los mercados el regateo es parte de la cultura, siempre con respeto.",
+      "say_native": "Madaniyat farqi: do‘konlarda (supermarketlar, kiyim do‘konlari) narx qat’iy — savdolashish o‘rinsiz. Bozorlarda (“el mercado”) esa savdolashish odatiy va kutilgan — Madridda Rastro, Mercado San Miguel; Meksika, Peru, Marokash bozorlarida ham xuddi shunday. Savdolashishda hurmat saqlang: tabassum, salom, qisqa gap va xo‘rsinish bor. Ispaniyada “¿me lo deja en…?” deb so‘rash mutlaqo tabiiy.",
+      "say_uz": "Do‘konlarda narx qat’iy; bozorlarda savdolashish odatiy; tabassum shart.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "practice",
+      "title": "Qaysi vaziyat?",
+      "emotion": "encouraging",
+      "board": [
+        "1) supermarketda narx",
+        "2) bozorda narx",
+        "3) Rastroda narx",
+        "4) do‘konda narx"
+      ],
+      "examples": [],
+      "say": "Decide: regatear o no: el supermercado; el mercado; el Rastro; la tienda.",
+      "say_native": "To‘rt vaziyatga javob bering. Birinchi, supermarketda — savdolashmang; narx yorliqda yozilgan. Ikkinchi, bozorda — ha, savdolashing, bu odat va hurmatli aloqa. Uchinchi, Rastroda — albatta savdolashing; bu Madridning eng mashhur bozori. To‘rtinchi, oddiy do‘konda — narx qat’iy, savdolashmang. Har birini nega deb ovoz chiqarib ayting.",
+      "say_uz": "To‘rt vaziyat: supermarket — qat’iy; bozor va Rastro — savdolashish mumkin; do‘kon — qat’iy.",
+      "practice_seconds": 13
+    },
+    {
+      "kind": "explain",
+      "title": "Javoblar: qaysi vaziyat",
+      "emotion": "proud",
+      "board": [
+        "supermarket — savdolashmaysiz",
+        "bozor — savdolashing",
+        "Rastro — savdolashing",
+        "do‘kon — narx qat’iy"
+      ],
+      "examples": [],
+      "say": "Supermercado, no regatees; mercado, regatea; Rastro, regatea; tienda, precio fijo.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: savdolashish — bozor madaniyati; uni hurmat bilan o‘rganing va ishlating — bu sizga yaxshi narx va yaxshi aloqa beradi.",
+      "say_uz": "Javoblar doskada. Savdolashish — bozor madaniyati.",
       "practice_seconds": 0
     },
     {
@@ -147,104 +383,102 @@
       "title": "Pul xatolari",
       "emotion": "stern",
       "board": [
-        "✗ ¿Cuánto cuesta esto?",
-        "✓ ¿Cuánto vale esto?",
-        "✗ Es muy caro!",
-        "✓ ¡Es muy caro!"
+        "✗ el cambio as exchange rate",
+        "✓ la vuelta = qaytim; cambio = qaytim / valyuta",
+        "✗ quiero propina (tips)",
+        "✓ propina — choychaqcha, descuento — chegirma",
+        "✗ es barato ser español",
+        "✓ barato — arzon (sif)"
       ],
       "examples": [],
-      "say": "¿Cuánto vale esto? ¡Es muy caro!",
-      "say_native": "Ikki nuance. “¿Cuánto cuesta esto?” ham to‘g‘ri — “cuesta” fe’li bilan. “¿Cuánto vale?” esa “valer” fe’li bilan. Ikkalasi to‘g‘ri, lekin “vale” bozor savdolashishida tabiiyroq. “Es muy caro!” — undov belgi tabiiy, lekin grammatik jihatdan shart emas.",
-      "say_uz": "Narxi qancha? Bu juda qimmat!",
+      "say": "Cambio puede ser cambio de dinero o tipo de cambio; la vuelta es el cambio que recibes; propina es la propina, descuento es descuento.",
+      "say_native": "Uch xato. Birinchi, “el cambio” — ikki ma’noda: qaytim va valyuta kursi; “la vuelta” esa faqat qaytim. Ikkinchi, “propina” — choychaqcha (xizmat uchun beriladigan qo‘shimcha pul); “descuento” esa narx tushirish — ular boshqa so‘zlar. Uchinchi, “barato” — arzon, sifat; “es barato” haq bo‘lsa — narx haqida, kasb yoki odam haqida emas.",
+      "say_uz": "Uch xato: cambio/vuelta, propina/descuento, barato.",
       "practice_seconds": 0
     },
     {
       "kind": "practice",
-      "title": "Savdolashish mashqi",
+      "title": "Xatoni toping",
       "emotion": "encouraging",
       "board": [
-        "1) Narxi qancha?",
-        "2) Bu juda qimmat.",
-        "3) Chegirma qila olasizmi?",
-        "4) Men ... beraman."
+        "1) «change» so‘zi ispancha",
+        "2) «chegirma» va «choychaqcha»",
+        "3) «bu arzon» (narx)",
+        "4) «qaytim» — ikkita so‘z"
       ],
       "examples": [],
-      "say": "¿Cuánto vale? Es muy caro. ¿Me hace un descuento? Le doy cien euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, narxi qancha? Ikkinchi, bu juda qimmat. Uchinchi, chegirma qila olasizmi? To‘rtinchi, men yuz yevro beraman. “¿Cuánto vale?”, “es muy caro”, “¿me hace un descuento?”, “le doy cien euros”.",
-      "say_uz": "Narxi qancha? Bu juda qimmat. Chegirma qila olasizmi? Men yuz yevro beraman.",
-      "practice_seconds": 13
+      "say": "Escribe: cambio y vuelta; descuento y propina; es barato; dos formas de decir cambio.",
+      "say_native": "To‘rtta savolga javob yozing. Birinchi, inglizcha “change”ning ispanchasi — “el cambio” va “la vuelta”. Ikkinchi, chegirma — “el descuento”, choychaqcha — “la propina”. Uchinchi, narx haqida “arzon” — “es barato”. To‘rtinchi, qaytimni ikki xil ayting: “el cambio” va “la vuelta”. Har birini javob varaqasida yozing.",
+      "say_uz": "To‘rt javob: cambio/vuelta, descuento/propina, es barato.",
+      "practice_seconds": 14
     },
     {
       "kind": "explain",
-      "title": "Javoblar: savdolashish mashqi",
+      "title": "Javoblar: xatolar",
       "emotion": "proud",
       "board": [
-        "¿Cuánto vale?",
-        "Es muy caro.",
-        "¿Me hace un descuento?",
-        "Le doy cien euros."
+        "cambio, vuelta",
+        "descuento, propina",
+        "es barato",
+        "cambio, vuelta"
       ],
       "examples": [],
-      "say": "¿Cuánto vale? Es muy caro. ¿Me hace un descuento? Le doy cien euros.",
-      "say_native": "Javoblar doskada. “¿Cuánto vale?” narxi qancha? “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? “Le doy cien euros” men yuz yevro beraman.",
-      "say_uz": "Narxi qancha? Bu juda qimmat. Chegirma qila olasizmi? Men yuz yevro beraman.",
+      "say": "Cambio y vuelta; descuento y propina; es barato.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: so‘zlarning ko‘p ma’noliligi ispan tilining tabiiy xususiyati — kontekst hal qiladi; ikkala ma’noni ham bilib qo‘ying.",
+      "say_uz": "Javoblar doskada. Ko‘p ma’noli so‘zlar — kontekst hal qiladi.",
       "practice_seconds": 0
     },
     {
-      "kind": "explain",
-      "title": "Chegirma va qaytimer",
-      "emotion": "neutral",
+      "kind": "example",
+      "title": "ESCUCHA 1: bozorda savdolashish",
+      "emotion": "happy",
       "board": [
-        "el descuento — chegirma",
-        "el cambio — qaytimer",
-        "¿Cuánto de descuento me da?",
-        "El cambio es de cinco euros."
+        "— ¿Cuánto cuesta la bufanda?",
+        "— Veinte euros",
+        "— ¿Me lo deja en quince?",
+        "— Dieciocho y se la llevo"
       ],
       "examples": [
         {
-          "t": "¿Cuánto de descuento me da?",
-          "uz": "Menga qancha chegirma qilasiz?"
-        },
-        {
-          "t": "El cambio es de cinco euros.",
-          "uz": "Qaytimer besh yevro."
+          "t": "— ¿Me lo deja en quince?",
+          "uz": "— O‘n beshga bera olasizmi?"
         }
       ],
-      "say": "¿Cuánto de descuento me da? El cambio es de cinco euros.",
-      "say_native": "“El descuento” chegirma, “el cambio” qaytimer. “¿Cuánto de descuento me da?” menga qancha chegirma qilasiz? “El cambio es de cinco euros”, qaytimer besh yevro.",
-      "say_uz": "Menga qancha chegirma qilasiz? Qaytimer besh yevro.",
+      "say": "— Buenos días. ¿Cuánto cuesta la bufanda azul? — Veinte euros, señora. Es muy bonita. — ¿Me lo deja en quince? — Ni pensarlo. Dieciocho euros. — Le doy quince y, además, la llevo puesta. — Diecisiete y se la lleva puesta. — Vale, trato hecho. Gracias.",
+      "say_native": "Birinchi tinglovni tinglang. Mijoz bozorda ko‘k sharfga narxlashmoqda: sotuvchi yigirma yevro so‘raydi, mijoz o‘n besh taklif qiladi, sotuvchi o‘n sakkizga tushiradi, mijoz o‘n beshni taklif qilishni davom ettiradi (“le doy quince y, además, la llevo puesta” — o‘n besh beraman va kiyib ham olaman), sotuvchi o‘n yettiga tushiradi va mijoz rozi bo‘ladi: “trato hecho” — kelishdik. Tabassum va muloyimlik — bu savdolashishning san’ati.",
+      "say_uz": "Birinchi tinglov: 20 → 15 talab, 18 taklif, yakunda 17 — kelishdik.",
       "practice_seconds": 0
     },
     {
       "kind": "practice",
-      "title": "Chegirma va qaytimer mashqi",
+      "title": "Tushunish 1",
       "emotion": "encouraging",
       "board": [
-        "1) Menga qancha chegirma qilasiz?",
-        "2) Qaytimer besh yevro.",
-        "3) Bu juda qimmat.",
-        "4) Men 50 yevro beraman."
+        "1) ¿Qué compra?",
+        "2) ¿Cuánto pide el vendedor?",
+        "3) ¿Cuánto ofrece la clienta y al final?",
+        "4) ¿Qué significa «trato hecho»?"
       ],
       "examples": [],
-      "say": "¿Cuánto de descuento me da? El cambio es de cinco euros. Es muy caro. Le doy cincuenta euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, menga qancha chegirma qilasiz? Ikkinchi, qaytimer besh yevro. Uchinchi, bu juda qimmat. To‘rtinchi, men ellik yevro beraman. “¿Cuánto de descuento me da?”, “el cambio es de cinco euros”, “es muy caro”, “le doy cincuenta euros”.",
-      "say_uz": "Menga qancha chegirma qilasiz? Qaytimer besh yevro. Bu juda qimmat. Men ellik yevro beraman.",
-      "practice_seconds": 13
+      "say": "Responde: ¿qué compra? ¿cuánto pide el vendedor? ¿cuánto ofrece la clienta? ¿qué significa trato hecho?",
+      "say_native": "To‘rtta savolga javob bering. Birinchi, mijoz nima sotib oladi? Ikkinchi, sotuvchi necha yevro so‘raydi? Uchinchi, mijoz necha yevro taklif qiladi va yakunda necha yevroga rozi bo‘ladi? To‘rtinchi, “trato hecho” nimani anglatadi? Javoblarni ovoz chiqarib ayting — keyingi sahnada tekshiramiz.",
+      "say_uz": "To‘rt savol: nima, necha, yakuniy narx, «trato hecho».",
+      "practice_seconds": 15
     },
     {
       "kind": "explain",
-      "title": "Javoblar: chegirma va qaytimer",
+      "title": "Javoblar: tushunish 1",
       "emotion": "proud",
       "board": [
-        "¿Cuánto de descuento me da?",
-        "El cambio es de cinco euros.",
-        "Es muy caro.",
-        "Le doy cincuenta euros."
+        "1 — una bufanda azul",
+        "2 — veinte euros",
+        "3 — quince; al final diecisiete",
+        "4 — kelishdik (anlaşma)"
       ],
       "examples": [],
-      "say": "¿Cuánto de descuento me da? El cambio es de cinco euros. Es muy caro. Le doy cincuenta euros.",
-      "say_native": "Javoblar doskada. “¿Cuánto de descuento me da?” menga qancha chegirma qilasiz? “El cambio es de cinco euros”, qaytimer besh yevro. “Es muy caro” bu juda qimmat. “Le doy cincuenta euros” men ellik yevro beraman.",
-      "say_uz": "Menga qancha chegirma qilasiz? Qaytimer besh yevro. Bu juda qimmat. Men ellik yevro beraman.",
+      "say": "Una bufanda azul; veinte euros; quince y al final diecisiete; trato hecho significa que se acepta el precio.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “Trato hecho” — kelishdik, degani — yakuniy kelishuv iborasi. Savdolashishda yakunda ikkalar ham yengamiz: sotuvchi narxni tushiradi, mijoz esa xarid qiladi.",
+      "say_uz": "Javoblar: ko‘k sharf; 20; 15 yakunda 17; «trato hecho» — kelishdik.",
       "practice_seconds": 0
     },
     {
@@ -254,643 +488,416 @@
       "board": [
         "en efectivo — naqd",
         "con tarjeta — karta bilan",
-        "¿Puedo pagar con tarjeta?",
-        "en efectivo, por favor"
+        "¿Se puede pagar con tarjeta?",
+        "bozorlarda ko‘pincha naqd"
       ],
       "examples": [
         {
-          "t": "¿Puedo pagar con tarjeta?",
-          "uz": "Karta bilan to‘lasam bo‘ladimi?"
+          "t": "¿Se puede pagar con tarjeta?",
+          "uz": "Karta bilan to‘lasa bo‘ladimi?"
         },
         {
-          "t": "Pago en efectivo, por favor.",
-          "uz": "Naqd to‘layman, iltimos."
+          "t": "Pago en efectivo.",
+          "uz": "Naqd pul bilan to‘layman."
         }
       ],
-      "say": "¿Puedo pagar con tarjeta? Pago en efectivo, por favor.",
-      "say_native": "To‘lov: “en efectivo” naqd, “con tarjeta” karta bilan. “¿Puedo pagar con tarjeta?” karta bilan to‘lasam bo‘ladimi? “Pago en efectivo, por favor”, naqd to‘layman, iltimos.",
-      "say_uz": "Karta bilan to‘lasam bo‘ladimi? Naqd to‘layman, iltimos.",
+      "say": "En efectivo es en metálico; con tarjeta, con tarjeta bancaria; el mercado prefiere efectivo.",
+      "say_native": "Ikki to‘lov usuli. “En efectivo” yoki “en metálico” — naqd pul; “con tarjeta” — karta bilan; “¿se puede pagar con tarjeta?” — karta bilan to‘lasa bo‘ladimi? Ispaniyada do‘konlarda kartalar hamma joyda qabul qilinadi; bozorlarda va mayda do‘konlarda faqat naqd bo‘lishi mumkin. Ba’zi joylarda “solo efectivo” — faqat naqd, deb yoziladi — shuni unutmang.",
+      "say_uz": "Ikki usul: en efectivo — naqd; con tarjeta — karta. “Solo efectivo” — faqat naqd.",
       "practice_seconds": 0
     },
     {
       "kind": "practice",
-      "title": "Naqd/karta mashqi",
+      "title": "To‘lov usuli",
       "emotion": "encouraging",
       "board": [
-        "1) Karta bilan to‘lasam bo‘ladimi?",
-        "2) Naqd to‘layman.",
-        "3) Bu juda qimmat.",
-        "4) Men ... beraman."
+        "1) «karta bilan to‘lasa bo‘ladimi?»",
+        "2) «naqd pul bilan to‘layman»",
+        "3) «faqat naqd» yozuvi",
+        "4) «naqdmi yoki kartami?»"
       ],
       "examples": [],
-      "say": "¿Puedo pagar con tarjeta? Pago en efectivo, por favor. Es muy caro. Le doy veinte euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, karta bilan to‘lasam bo‘ladimi? Ikkinchi, naqd to‘layman. Uchinchi, bu juda qimmat. To‘rtinchi, men yigirma yevro beraman. “¿Puedo pagar con tarjeta?”, “pago en efectivo, por favor”, “es muy caro”, “le doy veinte euros”.",
-      "say_uz": "Karta bilan to‘lasam bo‘ladimi? Naqd to‘layman. Bu juda qimmat. Men yigirma yevro beraman.",
-      "practice_seconds": 13
+      "say": "Pregunta y responde: ¿se puede pagar con tarjeta?; pago en efectivo; solo efectivo; ¿con tarjeta o en efectivo?",
+      "say_native": "To‘rtta vaziyatni bajaring. Birinchi, “karta bilan to‘lasa bo‘ladimi?” — “¿se puede pagar con tarjeta?”. Ikkinchi, “naqd pul bilan to‘layman” — “pago en efectivo”. Uchinchi, do‘kon eshigida qanday yozuv ko‘rasiz — “solo efectivo” — faqat naqd olinadi. To‘rtinchi, sotuvchi sizdan nima so‘raydi — “¿con tarjeta o en efectivo?”. Har birini rolda o‘ynang.",
+      "say_uz": "To‘rt vaziyat: karta, naqd, «solo efectivo», tanlov.",
+      "practice_seconds": 14
     },
     {
       "kind": "explain",
-      "title": "Javoblar: naqd/karta",
+      "title": "Javoblar: to‘lov usuli",
       "emotion": "proud",
       "board": [
-        "¿Puedo pagar con tarjeta?",
-        "Pago en efectivo, por favor.",
-        "Es muy caro.",
-        "Le doy veinte euros."
+        "¿Se puede pagar con tarjeta?",
+        "Pago en efectivo.",
+        "Solo efectivo.",
+        "¿Con tarjeta o en efectivo?"
       ],
       "examples": [],
-      "say": "¿Puedo pagar con tarjeta? Pago en efectivo, por favor. Es muy caro. Le doy veinte euros.",
-      "say_native": "Javoblar doskada. “¿Puedo pagar con tarjeta?” karta bilan to‘lasam bo‘ladimi? “Pago en efectivo, por favor”, naqd to‘layman, iltimos. “Es muy caro” bu juda qimmat. “Le doy veinte euros” men yigirma yevro beraman.",
-      "say_uz": "Karta bilan to‘lasam bo‘ladimi? Naqd to‘layman. Bu juda qimmat. Men yigirma yevro beraman.",
+      "say": "¿Se puede pagar con tarjeta?; pago en efectivo; solo efectivo; ¿con tarjeta o en efectivo?",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: “¿se puede…?” — “mumkinmi?” muloyim shakli; “solo efectivo” yozuvini ko‘rsangiz, oldindan naqd tayyorlang — karta rad etilishi mumkin.",
+      "say_uz": "Javoblar doskada. «Solo efectivo» — naqdni oldindan tayyorlang.",
       "practice_seconds": 0
     },
     {
       "kind": "example",
-      "title": "Dialog: bozor",
-      "emotion": "neutral",
+      "title": "ESCUCHA 2: do‘konda",
+      "emotion": "happy",
       "board": [
-        "A: ¿Cuánto vale esto?",
-        "B: Cien euros.",
-        "A: Es muy caro, ¿me hace un descuento?",
-        "B: Bueno, le doy ochenta."
+        "— ¿Cuánto cuesta la camiseta?",
+        "— Dieciocho euros",
+        "— ¿Tienen tarjeta de débito?",
+        "— Sí, de acuerdo"
       ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro, ¿me hace un descuento? Bueno, le doy ochenta.",
-      "say_native": "Birinchi dialog — bozor savdolashish. “¿Cuánto vale esto?” buning narxi qancha? “Cien euros”, yuz yevro. “Es muy caro, ¿me hace un descuento?” bu juda qimmat, chegirma qila olasizmi? “Bueno, le doy ochenta”, xo‘p, sizga sakkson beraman.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat, chegirma qila olasizmi? Xo‘p, sizga sakkson beraman.",
+      "examples": [
+        {
+          "t": "— ¿Tienen tarjeta de débito?",
+          "uz": "— Debit karta bormi?"
+        }
+      ],
+      "say": "— Buenos días. ¿Cuánto cuesta la camiseta blanca? — Dieciocho euros. — Bueno, me la llevo. ¿Tienen tarjeta de débito? — Sí, de acuerdo. ¿Va a pagar con tarjeta o en efectivo? — Con tarjeta, por favor. — Aquí tiene el ticket. — Gracias, que tenga un buen día.",
+      "say_native": "Ikkinchi tinglovni tinglang. Mijoz oq futbolka sotib olmoqda: narxi o‘n sakkiz yevro; mijoz “¿tienen tarjeta de débito?” — debit karta bormi? — deb so‘raydi; sotuvchi “sí, de acuerdo” — ha, albatta deydi; to‘lov karta bilan amalga oshiriladi; sotuvchi “aquí tiene el ticket” — mana sizga chek, deb aytadi. “Tarjeta de débito” — debit karta, “tarjeta de crédito” — kredit karta.",
+      "say_uz": "Ikkinchi tinglov: oq futbolka, 18 yevro, debit karta, chek.",
       "practice_seconds": 0
     },
     {
       "kind": "practice",
-      "title": "Dialog savollar",
+      "title": "Tushunish 2",
       "emotion": "encouraging",
       "board": [
-        "1) ¿Cuánto vale?",
-        "2) ¿Qué responde?",
-        "3) ¿Cuánto le da?"
+        "1) ¿Qué compra?",
+        "2) ¿Cuánto cuesta?",
+        "3) ¿Qué pregunta sobre la tarjeta?",
+        "4) ¿Con qué paga?"
       ],
       "examples": [],
-      "say": "¿Cuánto vale? ¿Qué responde? ¿Cuánto le da?",
-      "say_native": "Uchta savol tuzing. Birinchi, narxi qancha? Ikkinchi, u nima deb javob beradi? Uchinchi, u qancha beradi? Javoblarni dialogdan toping: yuz yevro, chegirma so‘raydi, sakson beradi. Hozir javob bering.",
-      "say_uz": "Narxi qancha? U nima deb javob beradi? U qancha beradi?",
-      "practice_seconds": 12
+      "say": "Responde: ¿qué compra? ¿cuánto cuesta? ¿qué pregunta sobre la tarjeta? ¿con qué paga?",
+      "say_native": "To‘rtta savolga javob bering. Birinchi, mijoz nima sotib oladi? Ikkinchi, qancha turadi? Uchinchi, karta haqida nima so‘raydi? To‘rtinchi, nima bilan to‘laydi? Javoblarni ovoz chiqarib ayting — keyingi sahnada tekshiramiz.",
+      "say_uz": "To‘rt savol: nima, narx, karta, to‘lov.",
+      "practice_seconds": 15
     },
     {
       "kind": "explain",
-      "title": "Javoblar: bozor",
+      "title": "Javoblar: tushunish 2",
       "emotion": "proud",
       "board": [
-        "Cien euros.",
-        "Pide un descuento.",
-        "Le da ochenta."
+        "1 — una camiseta blanca",
+        "2 — dieciocho euros",
+        "3 — «¿tienen tarjeta de débito?»",
+        "4 — con tarjeta"
       ],
       "examples": [],
-      "say": "Cien euros. Pide un descuento. Le da ochenta.",
-      "say_native": "Javoblar doskada. “Cien euros”, yuz yevro. “Pide un descuento”, chegirma so‘raydi. “Le da ochenta”, unga sakson beradi.",
-      "say_uz": "Yuz yevro. Chegirma so‘raydi. Unga sakson beradi.",
+      "say": "Una camiseta blanca; dieciocho euros; pregunta si tienen tarjeta de débito; paga con tarjeta.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: “tarjeta de débito” — debit, “tarjeta de crédito” — kredit; ikkalasi ham do‘konlarda qabul qilinadi; “el ticket” yoki “el recibo” — chek.",
+      "say_uz": "Javoblar: futbolka; 18; debit karta; kartada to‘ladi.",
       "practice_seconds": 0
     },
     {
       "kind": "practice",
-      "title": "Mustaqil topshiriq: savdolashish",
+      "title": "Yakuniy topshiriq: bozor rol o‘ynash",
       "emotion": "encouraging",
       "board": [
-        "Bozorda savdolashish dialogi",
-        "Narx, chegirma va qaytimer",
-        "Ovoz chiqarib yozib oling"
+        "sherik bilan o‘ynang",
+        "savol-javob: narx, chegirma",
+        "oxirida kelishing: «trato hecho»",
+        "naqd to‘lang va qaytim oling"
       ],
       "examples": [],
-      "say": "Actúa un regateo en el mercado.",
-      "say_native": "Yakuniy topshiriq. Bozorda savdolashish dialogini o‘ylab ko‘ring: narxni so‘rang, chegirma so‘rang, qaytimer oling. Ovoz chiqarib yozib oling.",
-      "say_uz": "Bozorda savdolashish dialogini o‘ylab ko‘ring: narx, chegirma va qaytimer.",
+      "say": "Haz un role-play: compra algo en el mercado con tu compañero y llega a un precio.",
+      "say_native": "Yakuniy topshiriq. Sherigingiz bilan bozor savdolashishini oynang. Biri sotuvchi, biri mijoz. Mijoz: narxni so‘rang, chegirma so‘rang, o‘z taklifingizni bering. Sotuvchi: o‘zingizning narxingizni ayting, chegirma qiling, yakunda kelishing (“trato hecho”). Naqd to‘lang va qaytimni sanab oling — “el cambio” — buni realdir. O‘ynagan dialoggingizni yozib oling — uy vazifangizning asosi bo‘ladi.",
+      "say_uz": "Rolli o‘ynash: narx, chegirma, «trato hecho», naqd to‘lov — va qaytimlarni sanang.",
       "practice_seconds": 20
     },
     {
-      "kind": "explain",
-      "title": "Namuna va tekshiruv",
-      "emotion": "proud",
+      "kind": "example",
+      "title": "Namuna dialog",
+      "emotion": "neutral",
       "board": [
-        "¿Cuánto vale esto?",
-        "Cien euros.",
-        "Es muy caro, ¿me hace un descuento?",
-        "Bueno, le doy ochenta."
+        "— ¿Cuánto cuesta este bolso?",
+        "— Treinta euros",
+        "— ¿Me lo deja en veinticinco?",
+        "— Le doy veinticinco y nos llevamos los dos"
       ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro, ¿me hace un descuento? Bueno, le doy ochenta.",
-      "say_native": "Namuna hikoya. “¿Cuánto vale esto?” buning narxi qancha? “Cien euros”, yuz yevro. “Es muy caro, ¿me hace un descuento?” bu juda qimmat, chegirma qila olasizmi? “Bueno, le doy ochenta”, xo‘p, sizga sakkson beraman. Tekshiring: narx, chegirma, savdolashish.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat, chegirma qila olasizmi? Xo‘p, sizga sakkson beraman.",
+      "examples": [
+        {
+          "t": "— ¿Me lo deja en veinticinco?",
+          "uz": "— Yigirma beshga bera olasizmi?"
+        }
+      ],
+      "say": "Muestra: ¿cuánto cuesta este bolso?; treinta euros; ¿me lo deja en veinticinco?; vale, trato hecho.",
+      "say_native": "Namuna dialog. Mijoz sumka narxini so‘raydi: “¿cuánto cuesta este bolso?”; sotuvchi o‘ttiz yevro so‘raydi; mijoz yigirma besh taklif qiladi; sotuvchi “trato hecho” deydi; mijoz naqd to‘lab, qaytimni oladi. Dialog qisqa — besh jumlada butun jarayon. Sizniki ham shu qadar tabiiy bo‘lsin.",
+      "say_uz": "Namuna: sumka, o‘ttiz, yigirma besh, «trato hecho».",
       "practice_seconds": 0
     },
     {
       "kind": "practice",
-      "title": "Narx mashqi",
+      "title": "Tez mashq: so‘zlarni moslang",
       "emotion": "encouraging",
       "board": [
-        "1) Narxi qancha?",
-        "2) Bu juda qimmat.",
-        "3) Bu juda arzon.",
-        "4) Yuz yevro."
+        "1) el cambio",
+        "2) caro",
+        "3) barato",
+        "4) el descuento"
       ],
       "examples": [],
-      "say": "¿Cuánto vale? Es muy caro. Es muy barato. Cien euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, narxi qancha? Ikkinchi, bu juda qimmat. Uchinchi, bu juda arzon. To‘rtinchi, yuz yevro. “¿Cuánto vale?”, “es muy caro”, “es muy barato”, “cien euros”.",
-      "say_uz": "Narxi qancha? Bu juda qimmat. Bu juda arzon. Yuz yevro.",
+      "say": "Une: qaytim; qimmat; arzon; chegirma.",
+      "say_native": "Tez mashq — to‘rt so‘z, to‘rt ma’no. “El cambio” — qaytim; “caro” — qimmat; “barato” — arzon; “el descuento” — chegirma. Har biriga bitta ispan jumlasi yozing va ovoz chiqarib ayting.",
+      "say_uz": "Tez mashq: el cambio, caro, barato, el descuento.",
       "practice_seconds": 13
     },
     {
       "kind": "explain",
-      "title": "Javoblar: narx mashqi",
+      "title": "Javoblar: tez mashq",
       "emotion": "proud",
       "board": [
-        "¿Cuánto vale?",
-        "Es muy caro.",
-        "Es muy barato.",
-        "Cien euros."
+        "el cambio — qaytim",
+        "caro — qimmat",
+        "barato — arzon",
+        "el descuento — chegirma"
       ],
       "examples": [],
-      "say": "¿Cuánto vale? Es muy caro. Es muy barato. Cien euros.",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto vale?” narxi qancha? “Es muy caro” bu juda qimmat, “es muy barato” bu juda arzon, “cien euros” yuz yevro. Hammasi to‘g‘ri.",
-      "say_uz": "Narxi qancha? Bu juda qimmat. Bu juda arzon. Yuz yevro.",
+      "say": "El cambio, el cambio; caro, caro; barato, barato; el descuento, el descuento.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: bu to‘rt so‘z bozor suhbatining asosi — ularni ishlatib turing, tez orada hatto yangi, qimmat do‘konlarda ham erkin bo‘lasiz.",
+      "say_uz": "Javoblar doskada. Bozorning asosi.",
       "practice_seconds": 0
     },
     {
       "kind": "practice",
-      "title": "Savdolashish mashqi 2",
+      "title": "Xatoni toping 2",
       "emotion": "encouraging",
       "board": [
-        "1) Narxi qancha?",
-        "2) Bu juda qimmat.",
-        "3) Chegirma qila olasizmi?",
-        "4) Men ... beraman."
+        "1) «Quiero propina» (chegirma)",
+        "2) «es barato ser español»",
+        "3) «cambio = change o‘zgarish»",
+        "4) «man ganga»"
       ],
       "examples": [],
-      "say": "¿Cuánto vale esto? Es muy caro. ¿Me hace un descuento? Le doy cien euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, buning narxi qancha? Ikkinchi, bu juda qimmat. Uchinchi, chegirma qila olasizmi? To‘rtinchi, men yuz yevro beraman. “¿Cuánto vale esto?”, “es muy caro”, “¿me hace un descuento?”, “le doy cien euros”.",
-      "say_uz": "Buning narxi qancha? Bu juda qimmat. Chegirma qila olasizmi? Men yuz yevro beraman.",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: savdolashish mashqi 2",
-      "emotion": "proud",
-      "board": [
-        "¿Cuánto vale esto?",
-        "Es muy caro.",
-        "¿Me hace un descuento?",
-        "Le doy cien euros."
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Es muy caro. ¿Me hace un descuento? Le doy cien euros.",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto vale esto?” buning narxi qancha? “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? “Le doy cien euros” men yuz yevro beraman. Hammasi to‘g‘ri.",
-      "say_uz": "Buning narxi qancha? Bu juda qimmat. Chegirma qila olasizmi? Men yuz yevro beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Chegirma va qaytimer mashqi 2",
-      "emotion": "encouraging",
-      "board": [
-        "1) Menga qancha chegirma qilasiz?",
-        "2) Qaytimer besh yevro.",
-        "3) Bu juda qimmat.",
-        "4) Men 50 yevro beraman."
-      ],
-      "examples": [],
-      "say": "¿Cuánto de descuento me da? El cambio es de cinco euros. Es muy caro. Le doy cincuenta euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, menga qancha chegirma qilasiz? Ikkinchi, qaytimer besh yevro. Uchinchi, bu juda qimmat. To‘rtinchi, men ellik yevro beraman. “¿Cuánto de descuento me da?”, “el cambio es de cinco euros”, “es muy caro”, “le doy cincuenta euros”.",
-      "say_uz": "Menga qancha chegirma qilasiz? Qaytimer besh yevro. Bu juda qimmat. Men ellik yevro beraman.",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: chegirma va qaytimer mashqi 2",
-      "emotion": "proud",
-      "board": [
-        "¿Cuánto de descuento me da?",
-        "El cambio es de cinco euros.",
-        "Es muy caro.",
-        "Le doy cincuenta euros."
-      ],
-      "examples": [],
-      "say": "¿Cuánto de descuento me da? El cambio es de cinco euros. Es muy caro. Le doy cincuenta euros.",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto de descuento me da?” menga qancha chegirma qilasiz? “El cambio es de cinco euros”, qaytimer besh yevro. “Es muy caro” bu juda qimmat. “Le doy cincuenta euros” men ellik yevro beraman.",
-      "say_uz": "Menga qancha chegirma qilasiz? Qaytimer besh yevro. Bu juda qimmat. Men ellik yevro beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Naqd/karta mashqi 2",
-      "emotion": "encouraging",
-      "board": [
-        "1) Karta bilan to‘lasam bo‘ladimi?",
-        "2) Naqd to‘layman.",
-        "3) Bu juda qimmat.",
-        "4) Men ... beraman."
-      ],
-      "examples": [],
-      "say": "¿Puedo pagar con tarjeta? Pago en efectivo, por favor. Es muy caro. Le doy veinte euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, karta bilan to‘lasam bo‘ladimi? Ikkinchi, naqd to‘layman. Uchinchi, bu juda qimmat. To‘rtinchi, men yigirma yevro beraman. “¿Puedo pagar con tarjeta?”, “pago en efectivo, por favor”, “es muy caro”, “le doy veinte euros”.",
-      "say_uz": "Karta bilan to‘lasam bo‘ladimi? Naqd to‘layman. Bu juda qimmat. Men yigirma yevro beraman.",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: naqd/karta mashqi 2",
-      "emotion": "proud",
-      "board": [
-        "¿Puedo pagar con tarjeta?",
-        "Pago en efectivo, por favor.",
-        "Es muy caro.",
-        "Le doy veinte euros."
-      ],
-      "examples": [],
-      "say": "¿Puedo pagar con tarjeta? Pago en efectivo, por favor. Es muy caro. Le doy veinte euros.",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Puedo pagar con tarjeta?” karta bilan to‘lasam bo‘ladimi? “Pago en efectivo, por favor”, naqd to‘layman, iltimos. “Es muy caro” bu juda qimmat. “Le doy veinte euros” men yigirma yevro beraman.",
-      "say_uz": "Karta bilan to‘lasam bo‘ladimi? Naqd to‘layman. Bu juda qimmat. Men yigirma yevro beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Bozor mashqi 2",
-      "emotion": "encouraging",
-      "board": [
-        "1) Buning narxi qancha?",
-        "2) Yuz yevro.",
-        "3) Bu juda qimmat.",
-        "4) Chegirma qila olasizmi?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "To‘rtta gap tuzing. Birinchi, buning narxi qancha? Ikkinchi, yuz yevro. Uchinchi, bu juda qimmat. To‘rtinchi, chegirma qila olasizmi? “¿Cuánto vale esto?”, “cien euros”, “es muy caro”, “¿me hace un descuento?”.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: bozor mashqi 2",
-      "emotion": "proud",
-      "board": [
-        "¿Cuánto vale esto?",
-        "Cien euros.",
-        "Es muy caro.",
-        "¿Me hace un descuento?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto vale esto?” buning narxi qancha? “Cien euros”, yuz yevro. “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? Hammasi to‘g‘ri.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Katta sonlar mashqi",
-      "emotion": "encouraging",
-      "board": [
-        "1) Yuz yevro.",
-        "2) Ikki yuz yevro.",
-        "3) Besh yuz yevro.",
-        "4) Ming yevro."
-      ],
-      "examples": [],
-      "say": "Cuesta cien euros. Cuesta doscientos euros. Cuesta quinientos euros. Cuesta mil euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, yuz yevro. Ikkinchi, ikki yuz yevro. Uchinchi, besh yuz yevro. To‘rtinchi, ming yevro. “Cuesta cien euros”, “cuesta doscientos euros”, “cuesta quinientos euros”, “cuesta mil euros”.",
-      "say_uz": "Yuz yevro. Ikki yuz yevro. Besh yuz yevro. Ming yevro.",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: katta sonlar mashqi",
-      "emotion": "proud",
-      "board": [
-        "Cuesta cien euros.",
-        "Cuesta doscientos euros.",
-        "Cuesta quinientos euros.",
-        "Cuesta mil euros."
-      ],
-      "examples": [],
-      "say": "Cuesta cien euros. Cuesta doscientos euros. Cuesta quinientos euros. Cuesta mil euros.",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “Cien” yuz, “doscientos” ikki yuz, “quinientos” besh yuz, “mil” ming. E’tibor: “mil” — “miles” emas. Hammasi to‘g‘ri, hammasi katta sonlar bilan.",
-      "say_uz": "Yuz yevro. Ikki yuz yevro. Besh yuz yevro. Ming yevro.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Bozor mashqi 3",
-      "emotion": "encouraging",
-      "board": [
-        "1) Buning narxi qancha?",
-        "2) Yuz yevro.",
-        "3) Bu juda qimmat.",
-        "4) Chegirma qila olasizmi?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "To‘rtta gap tuzing. Birinchi, buning narxi qancha? Ikkinchi, yuz yevro. Uchinchi, bu juda qimmat. To‘rtinchi, chegirma qila olasizmi? “¿Cuánto vale esto?”, “cien euros”, “es muy caro”, “¿me hace un descuento?”. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: bozor mashqi 3",
-      "emotion": "proud",
-      "board": [
-        "¿Cuánto vale esto?",
-        "Cien euros.",
-        "Es muy caro.",
-        "¿Me hace un descuento?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto vale esto?” buning narxi qancha? “Cien euros”, yuz yevro. “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Bozor mashqi 4",
-      "emotion": "encouraging",
-      "board": [
-        "1) Buning narxi qancha?",
-        "2) Yuz yevro.",
-        "3) Bu juda qimmat.",
-        "4) Chegirma qila olasizmi?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "To‘rtta gap tuzing. Birinchi, buning narxi qancha? Ikkinchi, yuz yevro. Uchinchi, bu juda qimmat. To‘rtinchi, chegirma qila olasizmi? “¿Cuánto vale esto?”, “cien euros”, “es muy caro”, “¿me hace un descuento?”. Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: bozor mashqi 4",
-      "emotion": "proud",
-      "board": [
-        "¿Cuánto vale esto?",
-        "Cien euros.",
-        "Es muy caro.",
-        "¿Me hace un descuento?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto vale esto?” buning narxi qancha? “Cien euros”, yuz yevro. “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Naqd/karta mashqi 3",
-      "emotion": "encouraging",
-      "board": [
-        "1) Karta bilan to‘lasam bo‘ladimi?",
-        "2) Naqd to‘layman.",
-        "3) Bu juda qimmat.",
-        "4) Men 50 yevro beraman."
-      ],
-      "examples": [],
-      "say": "¿Puedo pagar con tarjeta? Pago en efectivo, por favor. Es muy caro. Le doy cincuenta euros.",
-      "say_native": "To‘rtta gap tuzing. Birinchi, karta bilan to‘lasam bo‘ladimi? Ikkinchi, naqd to‘layman. Uchinchi, bu juda qimmat. To‘rtinchi, men ellik yevro beraman. “¿Puedo pagar con tarjeta?”, “pago en efectivo, por favor”, “es muy caro”, “le doy cincuenta euros”.",
-      "say_uz": "Karta bilan to‘lasam bo‘ladimi? Naqd to‘layman. Bu juda qimmat. Men ellik yevro beraman.",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: naqd/karta mashqi 3",
-      "emotion": "proud",
-      "board": [
-        "¿Puedo pagar con tarjeta?",
-        "Pago en efectivo, por favor.",
-        "Es muy caro.",
-        "Le doy cincuenta euros."
-      ],
-      "examples": [],
-      "say": "¿Puedo pagar con tarjeta? Pago en efectivo, por favor. Es muy caro. Le doy cincuenta euros.",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Puedo pagar con tarjeta?” karta bilan to‘lasam bo‘ladimi? “Pago en efectivo, por favor”, naqd to‘layman, iltimos. “Es muy caro” bu juda qimmat. “Le doy cincuenta euros” men ellik yevro beraman. Hammasi to‘g‘ri, hammasi to‘lov bilan, hammasi to‘g‘ri, hammasi to‘lov bilan.",
-      "say_uz": "Karta bilan to‘lasam bo‘ladimi? Naqd to‘layman. Bu juda qimmat. Men ellik yevro beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Bozor mashqi 5",
-      "emotion": "encouraging",
-      "board": [
-        "1) Buning narxi qancha?",
-        "2) Yuz yevro.",
-        "3) Bu juda qimmat.",
-        "4) Chegirma qila olasizmi?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "To‘rtta gap tuzing. Birinchi, buning narxi qancha? Ikkinchi, yuz yevro. Uchinchi, bu juda qimmat. To‘rtinchi, chegirma qila olasizmi? “¿Cuánto vale esto?”, “cien euros”, “es muy caro”, “¿me hace un descuento?”. Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: bozor mashqi 5",
-      "emotion": "proud",
-      "board": [
-        "¿Cuánto vale esto?",
-        "Cien euros.",
-        "Es muy caro.",
-        "¿Me hace un descuento?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto vale esto?” buning narxi qancha? “Cien euros”, yuz yevro. “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Bozor mashqi 6",
-      "emotion": "encouraging",
-      "board": [
-        "1) Buning narxi qancha?",
-        "2) Yuz yevro.",
-        "3) Bu juda qimmat.",
-        "4) Chegirma qila olasizmi?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "To‘rtta gap tuzing. Birinchi, buning narxi qancha? Ikkinchi, yuz yevro. Uchinchi, bu juda qimmat. To‘rtinchi, chegirma qila olasizmi? “¿Cuánto vale esto?”, “cien euros”, “es muy caro”, “¿me hace un descuento?”. Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 13
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar: bozor mashqi 6",
-      "emotion": "proud",
-      "board": [
-        "¿Cuánto vale esto?",
-        "Cien euros.",
-        "Es muy caro.",
-        "¿Me hace un descuento?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. “¿Cuánto vale esto?” buning narxi qancha? “Cien euros”, yuz yevro. “Es muy caro” bu juda qimmat. “¿Me hace un descuento?” chegirma qila olasizmi? Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Bozor mashqi 7",
-      "emotion": "encouraging",
-      "board": [
-        "1) Buning narxi qancha?",
-        "2) Yuz yevro.",
-        "3) Bu juda qimmat.",
-        "4) Chegirma qila olasizmi?"
-      ],
-      "examples": [],
-      "say": "¿Cuánto vale esto? Cien euros. Es muy caro. ¿Me hace un descuento?",
-      "say_native": "To‘rtta gap tuzing. Birinchi, buning narxi qancha? Ikkinchi, yuz yevro. Uchinchi, bu juda qimmat. To‘rtinchi, chegirma qila olasizmi? “¿Cuánto vale esto?”, “cien euros”, “es muy caro”, “¿me hace un descuento?”. Hammasi to‘g‘ri, hammasi savdolashish bilan, hammasi to‘g‘ri, hammasi savdolashish bilan. Hammasi to‘g‘ri, hammasi savdolashish bilan.",
-      "say_uz": "Buning narxi qancha? Yuz yevro. Bu juda qimmat. Chegirma qila olasizmi?",
+      "say": "Corrige: quiero propina; man ganga; cambio solo como change.",
+      "say_native": "To‘rtta xatoni tuzatib yozing. Birinchi, “quiero un descuento” — chegirma, “propina” emas. Ikkinchi, “es barato” — narxga nisbatan, odamga nisbatan emas. Uchinchi, “el cambio” — qaytim va valyuta kursi; “change” o‘zgarish emas. To‘rtinchi, “es una ganga” — omadli xarid, to‘liq ibora bilan. Har birini o‘z joyida ayting.",
+      "say_uz": "To‘rt xatoni tuzating: descuento, barato, el cambio, ganga.",
       "practice_seconds": 14
     },
     {
-      "kind": "recap",
-      "title": "Dars xulosasi",
-      "emotion": "neutral",
+      "kind": "explain",
+      "title": "Javoblar: xatoni toping 2",
+      "emotion": "proud",
       "board": [
-        "katta sonlar: cien, mil",
-        "qimmat/arzon: caro, barato",
-        "savdolashish: ¿cuánto vale?, descuento",
-        "to‘lov: en efectivo, con tarjeta"
+        "quiero un descuento",
+        "es barato (narxga)",
+        "el cambio (qaytim)",
+        "es una ganga"
       ],
       "examples": [],
-      "say": "Hoy hemos aprendido el dinero y el regateo.",
-      "say_native": "Xulosa. Pul: “cien” yuz, “mil” ming. Qimmat/arzon: “caro”, “barato”. Savdolashish: “¿cuánto vale?”, “es muy caro”, “¿me hace un descuento?”, “le doy...”. To‘lov: “en efectivo”, “con tarjeta”.",
-      "say_uz": "Bugun pul, narx va savdolashish haqida gaplashamiz.",
+      "say": "Quiero un descuento; es barato, para precios; el cambio, la vuelta; es una ganga.",
+      "say_native": "Javoblar doskada. Hammasi to‘g‘ri. Esda tuting: “propina” choychaqcha, “ganga” omadli narx, “cambio” ko‘p ma’noli — kontekst hal qiladi.",
+      "say_uz": "Javoblar doskada. Kontekst hal qiladi.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "practice",
+      "title": "Sayohat pul mashqi",
+      "emotion": "encouraging",
+      "board": [
+        "1) “Pul ayirboshlash.”",
+        "2) “Kurs qancha?”",
+        "3) “Yevro yoki dollar.”",
+        "4) “Chek oling.”"
+      ],
+      "examples": [],
+      "say": "Necesito cambiar mis dólares a euros antes de viajar. ¿A qué cambio está el dólar hoy? Quiero cambiar cincuenta dólares a euros.",
+      "say_native": "To‘rtta gap tuzing va sayohatda pulni mashq qiling. Birinchi, “Necesito cambiar mis dólares a euros antes de viajar” — sayohatdan oldin dollarni yevroga almashtirishim kerak; “cambiar dinero” — pulni ayirboshlash va u sayohatdan oldin juda muhim. Ikkinchi, “¿A qué cambio está el dólar hoy?” — bugun dollar kursi qancha?; “el cambio” — kurs va u har kuni o‘zgaradi. Uchinchi, “Quiero cambiar cincuenta dólares a euros” — ellik dollarni yevroga almashtirishni xohlayman; kassada shunday deysiz va ular sizga yevro berishadi. To‘rtinchi, “¿Me puede dar el recibo del cambio por favor?” — ayirboshlash chekini berishingiz mumkinmi, iltimos?; chek sizning pulingizni qayta xavfsizligini ta’minlaydi.",
+      "say_uz": "Dollarni yevroga almashtirmoqchiman. Dollar kursi qancha? Ellik dollarni yevroga. Chek olishni xohlayman.",
+      "practice_seconds": 18
+    },
+    {
+      "kind": "explain",
+      "title": "Javoblar: sayohat pul mashqi",
+      "emotion": "proud",
+      "board": [
+        "Necesito cambiar dinero.",
+        "¿A qué cambio está el dólar hoy?",
+        "Quiero cambiar cincuenta dólares.",
+        "¿Me puede dar el recibo?"
+      ],
+      "examples": [],
+      "say": "Necesito cambiar dinero a euros antes de viajar. ¿A qué cambio está el dólar hoy exactamente? Quiero cambiar cincuenta dólares.",
+      "say_native": "Javoblar doskada. “Necesito cambiar dinero”, “¿a qué cambio está el dólar?”, “quiero cambiar cincuenta dólares”, “¿me puede dar el recibo?” — sayohat oldidan pul almashtirishning to‘rt qadami va ular sizga kerak bo‘ladi.",
+      "say_uz": "Pul ayirboshlash kerak. Kurs qancha? Ellik dollar. Chekni bering.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "practice",
+      "title": "Chegirma va aksiya mashqi",
+      "emotion": "encouraging",
+      "board": [
+        "1) “Chegirma bormi?”",
+        "2) “Aksiya bormi?”",
+        "3) “Nechchada sotuvda?”",
+        "4) “Mayli, olaman.”"
+      ],
+      "examples": [],
+      "say": "¿Hay alguna rebaja en esta tienda hoy? ¿Hay alguna oferta especial para clientes hoy? ¿Cuánto está en venta ahora?",
+      "say_native": "To‘rtta gap tuzing va chegirmalarni mashq qiling. Birinchi, “¿Hay alguna rebaja en esta tienda hoy?” — bugun shu do‘konda biror narx tushirish bormi?; “la rebaja” — narx tushirish va u sotuvda juda keng tarqalgan. Ikkinchi, “¿Hay alguna oferta especial para clientes?” — mijozlar uchun biror maxsus taklif bormi?; “la oferta” — taklif va u aksiya yoki paket chegirma bo‘lishi mumkin. Uchinchi, “¿Cuánto está en venta ahora?” — hozir sotuvda qancha?; “en venta” — sotuvda va u arzonroq demakdir. To‘rtinchi, “Está muy bien, me lo llevo ahora mismo” — juda yaxshi, hozirning o‘zida olaman; aksiya imkoniyatidan foydalaning va narxni tejashingiz mumkin.",
+      "say_uz": "Bugun biror narx tushirish bormi? Mijozlar uchun maxsus taklif bormi? Hozir sotuvda qancha? Juda yaxshi, hozir olaman.",
+      "practice_seconds": 17
+    },
+    {
+      "kind": "explain",
+      "title": "Javoblar: chegirma mashqi",
+      "emotion": "proud",
+      "board": [
+        "¿Hay alguna rebaja?",
+        "¿Hay alguna oferta especial?",
+        "¿Cuánto está en venta?",
+        "Me lo llevo ahora."
+      ],
+      "examples": [],
+      "say": "¿Hay alguna rebaja en esta tienda hoy? ¿Hay alguna oferta especial para clientes? ¿Cuánto está en venta ahora? Me lo llevo.",
+      "say_native": "Javoblar doskada. “¿Hay alguna rebaja?”, “¿hay alguna oferta especial?”, “¿cuánto está en venta?”, “me lo llevo” — chegirmalarni topishning to‘rt qadami va ular sizga pulni tejashda yordam beradi.",
+      "say_uz": "Narx tushirish bormi? Maxsus taklif bormi? Hozir sotuvda? Olaman.",
       "practice_seconds": 0
     },
     {
       "kind": "recap",
-      "title": "Uy vazifasi",
-      "emotion": "encouraging",
+      "title": "Bugun nimani o‘rgandik",
+      "emotion": "neutral",
       "board": [
-        "Uy vazifasi: bozorda savdolashish dialogi",
-        "Mezon: narx + chegirma + qaytimer",
-        "Keyingi dars: telefon va internet"
+        "yevro: cien, mil, un millón…",
+        "caro / barato / ganga",
+        "descuento · rebajas · el cambio",
+        "savdolashish: ¿me lo deja en…? · «trato hecho»"
       ],
       "examples": [],
-      "say": "Deberes: actúa un regateo en el mercado. En la próxima clase aprendemos el teléfono y el internet.",
-      "say_native": "Uy vazifasi. Bozorda savdolashish dialogini o‘ylab ko‘ring. Muvaffaqiyat mezoni: narx so‘rash bor, chegirma so‘rash bor, savdolashish iboralari ishlatilgan. Keyingi darsda telefon, internet va ijtimoiy tarmoqlar haqida gaplashamiz.",
-      "say_uz": "Uy vazifasi: bozorda savdolashish dialogini o‘ylab ko‘ring. Keyingi darsda telefon va internet haqida gaplashamiz.",
+      "say": "Hoy hemos aprendido el dinero, los precios y el arte del regateo.",
+      "say_native": "Xulosa. Bugun pul mavzusini o‘rgandik: yevro va yirik sonlar (cien, quinientos, setecientos, mil, un millón); qimmat/arzon (“caro / barato”, “es una ganga”); qaytim va chegirma (“el cambio / la vuelta”, “el descuento”, “las rebajas”); savdolashish frasalari (“¿me lo deja en…?”, “le doy…”, “¿cuál es su último precio?”, “trato hecho”); naqd yoki karta (“en efectivo / con tarjeta”, “solo efectivo”).",
+      "say_uz": "Bugun pul, narx va savdolashishni o‘rgandik.",
+      "practice_seconds": 0
+    },
+    {
+      "kind": "recap",
+      "title": "Uyga vazifa",
+      "emotion": "encouraging",
+      "board": [
+        "Uy vazifasi: bozor savdolashish rol o‘ynash",
+        "Mezon: 8+ gap, narx kelishuvi",
+        "Keyingi dars: telefon, internet va ijtimoiy tarmoqlar"
+      ],
+      "examples": [],
+      "say": "Deberes: haz un role-play de regateo en un mercado. En la próxima clase aprendemos el teléfono y internet.",
+      "say_native": "Uy vazifasi. Sherigingiz bilan bozor savdolashishini oynang: narx so‘rang, chegirma so‘rang, taklifingizni bering, yakunda kelishing. Muvaffaqiyat mezoni: kamida 8 ta ispan gapi, savdolashish frasalari ishlatilgan, yakuniy narx kelishilgan. Keyingi darsda telefon, internet va ijtimoiy tarmoqlarni o‘rganamiz.",
+      "say_uz": "Uy vazifasi: bozor savdolashish rol o‘ynash. Keyingi dars: telefon va internet.",
       "practice_seconds": 0
     }
   ],
   "quiz": [
     {
-      "q": "What does 'cien' mean?",
+      "q": "How many céntimos are in one euro?",
       "options": [
-        "one hundred",
-        "one thousand",
-        "ten",
-        "one"
+        "100",
+        "10",
+        "1000",
+        "50"
       ],
       "answer": 0,
-      "why_uz": "“Cien” — yuz."
+      "why_uz": "Bir yevro = 100 tiyin."
     },
     {
-      "q": "What does 'mil' mean?",
+      "q": "What does 'quinientos' mean?",
       "options": [
-        "one thousand",
-        "one hundred",
-        "ten",
-        "one"
+        "500",
+        "700",
+        "900",
+        "600"
       ],
       "answer": 0,
-      "why_uz": "“Mil” — ming."
+      "why_uz": "“Quinientos” — besh yuz."
     },
     {
-      "q": "What does 'caro' mean?",
+      "q": "How do you spell 'seven hundred' in Spanish?",
       "options": [
-        "expensive",
-        "cheap",
-        "big",
-        "small"
+        "setecientos",
+        "settecientos",
+        "setesientos",
+        "seticentos"
       ],
       "answer": 0,
-      "why_uz": "“Caro” — qimmat."
+      "why_uz": "Yetti yuz — “setecientos”, bir «c» bilan."
     },
     {
       "q": "What does 'barato' mean?",
       "options": [
         "cheap",
         "expensive",
-        "big",
-        "small"
+        "free",
+        "broken"
       ],
       "answer": 0,
       "why_uz": "“Barato” — arzon."
     },
     {
-      "q": "What does '¿Cuánto vale?' mean?",
+      "q": "What does 'el cambio' mean in a shop?",
       "options": [
-        "How much?",
-        "Who is it?",
-        "Where is it?",
-        "What is it?"
+        "the change (money)",
+        "the size",
+        "the queue",
+        "the bargain"
       ],
       "answer": 0,
-      "why_uz": "“¿Cuánto vale?” — Narxi qancha?"
+      "why_uz": "“El cambio” — qaytim."
     },
     {
-      "q": "What does 'el descuento' mean?",
+      "q": "How do you ask for a discount?",
       "options": [
-        "the discount",
-        "the change",
-        "the price",
-        "the money"
+        "¿Hay algún descuento?",
+        "¿Cuánto cuesta?",
+        "¿Dónde está?",
+        "¿Qué hora es?"
       ],
       "answer": 0,
-      "why_uz": "“El descuento” — chegirma."
+      "why_uz": "“¿Hay algún descuento?” — chegirma bormi?"
     },
     {
-      "q": "What does 'el cambio' mean?",
+      "q": "In Spain, where is bargaining expected?",
       "options": [
-        "the change",
-        "the discount",
-        "the price",
-        "the money"
+        "in markets and street stalls",
+        "in every shop",
+        "in department stores",
+        "at the bank"
       ],
       "answer": 0,
-      "why_uz": "“El cambio” — qaytimer."
+      "why_uz": "Bozorlarda savdolashish odatiy; do‘konlarda narx qat’iy."
     },
     {
-      "q": "What does 'en efectivo' mean?",
+      "q": "What does 'solo efectivo' mean?",
       "options": [
-        "in cash",
-        "by card",
-        "for free",
-        "with discount"
+        "cash only",
+        "no cards",
+        "no change given",
+        "exact change only"
       ],
       "answer": 0,
-      "why_uz": "“En efectivo” — naqd."
+      "why_uz": "“Solo efectivo” — faqat naqd pul."
     },
     {
-      "q": "What does 'con tarjeta' mean?",
+      "q": "What does 'trato hecho' mean?",
       "options": [
-        "by card",
-        "in cash",
-        "for free",
-        "with discount"
+        "it's a deal",
+        "no deal",
+        "too expensive",
+        "no thanks"
       ],
       "answer": 0,
-      "why_uz": "“Con tarjeta” — karta bilan."
+      "why_uz": "“Trato hecho” — kelishdik."
     },
     {
-      "q": "Complete: ¿Cuánto ___ usted esto? (vale)",
+      "q": "Which is a bargaining phrase?",
       "options": [
-        "vale",
-        "cuesta",
-        "valen",
-        "vales"
+        "¿Me lo deja en quince?",
+        "¿Dónde está la caja?",
+        "¿Qué hora es?",
+        "¿Cómo se llama?"
       ],
       "answer": 0,
-      "why_uz": "“¿Cuánto vale usted esto?” — Narxi qancha?"
+      "why_uz": "“¿Me lo deja en…?” — savdolashishning asosiy iborasi."
     }
   ]
 }

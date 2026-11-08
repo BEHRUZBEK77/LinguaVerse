@@ -1,0 +1,753 @@
+{
+ "title": "Sayohat: aeroport va mehmonxona",
+ "goal_uz": "Dars oxirida siz inglizcha aeroportda check-in qilasiz, xavfsizlik va boarding bosqichlarini tushunasiz, yo‘qolgan yuk va kechikkan reys kabi real muammolarni hal qilasiz, mehmonxonada buyurtma berasiz, shikoyat qilasiz va refundi talab qilasiz.",
+ "homework_uz": "Uchta sayohat muammosi dialogini yozib, ovoz chiqarib o‘ynang: (1) aeroport — reys kechikishi yoki yo‘qolgan yuk; (2) mehmonxona — shikoyat va yechim talabi; (3) refund — pulni qaytarish so‘rovi. Muvaffaqiyat mezoni: har bir dialog inglizchada, kamida to‘rt replikadan iborat, aniq yechim bilan yakunlanadi va o‘ynalganda ikki daqiqadan oshmaydi. Keyingi dars: P1-11 Shifokor va dorixona.",
+ "vocab": [
+  {
+   "w": "check-in",
+   "uz": "ro‘yxatdan o‘tish (bagaj topshirish bilan)"
+  },
+  {
+   "w": "boarding pass",
+   "uz": "samolyotga chiqish talonchisi"
+  },
+  {
+   "w": "carry-on luggage",
+   "uz": "qo‘l yuki (samolyot ichiga olinadi)"
+  },
+  {
+   "w": "claim tag",
+   "uz": "yuk talonchisi (yo‘qolgan yukni topishda kerak)"
+  },
+  {
+   "w": "delayed / cancelled",
+   "uz": "kechikkan / bekor qilingan (reys)"
+  },
+  {
+   "w": "missed connection",
+   "uz": "ulanish reysini o‘tkazib yuborish"
+  },
+  {
+   "w": "reservation",
+   "uz": "buyurtma (mehmonxona yoki ovqat uchun)"
+  },
+  {
+   "w": "complaint",
+   "uz": "shikoyat ('I'd like to make a complaint')"
+  },
+  {
+   "w": "refund",
+   "uz": "pulni qaytarish ('I'd like to request a refund')"
+  },
+  {
+   "w": "receipt",
+   "uz": "chek — har doim saqlang"
+  },
+  {
+   "w": "claim form",
+   "uz": "kompensatsiya arizasi (yo‘qolgan yuk yoki bekor qilingan reys uchun)"
+  },
+  {
+   "w": "travel insurance",
+   "uz": "sayohat sug‘urtasi"
+  }
+ ],
+ "scenes": [
+  {
+   "kind": "intro",
+   "title": "Sayohat darsiga xush kelibsiz",
+   "emotion": "happy",
+   "board": [
+    "Travel: Airport & Hotel",
+    "(Aeroport va mehmonxona)",
+    "PRO 10-dars"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! O‘tgan darsda savdo va narx muzokarasini o‘rgandik — ehtiyoj, taklif, shartli taklif va yopish. Bugun esa inglizcha sayohat: aeroportda check-in, xavfsizlik nazorati va samolyotga chiqish, kechikkan reys va yo‘qolgan yuk kabi muammolar, mehmonxonada buyurtma, shikoyat va refund so‘rash. Dars oxirida siz haqiqiy sayohat muammolarini inglizcha hal qilasiz.",
+   "say": "Welcome! Last lesson was sales and negotiation. Today: travel English — airport check-in, security, boarding, delays, lost luggage, hotel bookings, complaints and refunds. By the end, you'll solve real travel problems in English.",
+   "say_uz": "Assalomu alaykum! O‘tgan darsda savdo va muzokara o‘rgandik. Bugun: sayohat inglizchasi — check-in, xavfsizlik, boarding, kechikishlar, yo‘qolgan yuk, mehmonxona buyurtmasi, shikoyat va refund. Dars oxirida siz real sayohat muammolarini hal qilasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sayohat inglizchasining 4 hududi",
+   "emotion": "neutral",
+   "board": [
+    "1 Aeroport: check-in, security, boarding",
+    "2 Parvoz: kechikish, yuk, ulanish",
+    "3 Mehmonxona: buyurtma, to‘lov, shikoyat",
+    "4 Claims: refund va sug‘urta"
+   ],
+   "examples": [],
+   "say_native": "Sayohat desa darhol to‘rt hudud yodga keladi. Birinchisi — aeroport: check-in oynasi, xavfsizlik nazorati va boarding. Ikkinchisi — parvoz muammolari: kechikish, yukning yo‘qolishi, ulanish reysini o‘tkazib yuborish. Uchinchisi — mehmonxona: buyurtma, ro‘yxatdan o‘tish, to‘lov va shikoyat. To‘rtinchisi — da’volar: refund so‘rash va sug‘urta arizasi. Bugungi dars shu to‘rt hududni chuqur ochadi.",
+   "say": "Travel English covers four areas. One: the airport — check-in, security, boarding. Two: flight problems — delays, lost luggage, missed connections. Three: the hotel — booking, payment, complaints. Four: claims — refunds and insurance. Today we cover all four.",
+   "say_uz": "Sayohat inglizchasi to‘rt hududga ega. Bir: aeroport — check-in, xavfsizlik, boarding. Ikki: parvoz muammolari — kechikish, yo‘qolgan yuk, ulanish. Uch: mehmonxona — buyurtma, to‘lov, shikoyat. To‘rt: da’volar — refund va sug‘urta. Bugun barchasini ochib beramiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Check-in: oyna yoki kiosk",
+   "emotion": "neutral",
+   "board": [
+    "Passport, please.",
+    "'Window or aisle?'",
+    "Baggage: 'I'd like to check in…'"
+   ],
+   "examples": [
+    {
+     "t": "I'd like to check in for flight HY402 to London.",
+     "uz": "HY402 London reysi uchun check-in qilmoqchiman."
+    }
+   ],
+   "say_native": "Check-in ikki joyda: oyna va kiosk. Oyna xodimiga: 'I'd like to check in for flight HY402 to London.' Undan keyin pasport, yuk cheklashlari va o‘rindiq tanlovi: 'Window or aisle?' — deraza yoki yo‘lak. Yuk topshirganda: 'I'd like to check in two bags.' Kioskda o‘zingiz pasportni skanerlaysiz, o‘rindiqni tanlaysiz va talonchini chop etasiz. Ikki holda ham muhim hujjat — pasport; viza kerak bo‘lsa, vizani ham tayyor tuting.",
+   "say": "Check-in happens at a desk or a self-service kiosk. At the desk: 'I'd like to check in for flight HY402 to London.' The agent will ask about seats — 'Window or aisle?' — and bags: 'I'd like to check in two bags.' At a kiosk, scan your passport, choose a seat and print the boarding pass.",
+   "say_uz": "Check-in oynada yoki kioskda bo‘ladi. Oynada: 'I'd like to check in for flight HY402 to London.' O‘rindiq so‘raladi — 'Window or aisle?' — deraza yoki yo‘lak; yuk haqida: 'I'd like to check in two bags.' Kioskda o‘zingiz pasportni skanerlaysiz, o‘rindiq tanlaysiz, talonchi chop etasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Namuna: check-in dialogi",
+   "emotion": "neutral",
+   "board": [
+    "At the check-in desk",
+    "Pasport → yuk → o‘rindiq"
+   ],
+   "examples": [],
+   "say_native": "Namuna check-in dialogini o‘qing: yo‘lovchi reys raqamini aytadi, pasportni beradi, yuk sonini bildiradi va o‘rindiq tanlaydi — deraza yoki yo‘lak. E’tibor bering: jumlalar qisqa va to‘g‘ridan-to‘g‘ri, chunki check-in navbati tez o‘tadi; xodim har savolni bir marta so‘raydi, siz ham aniq javob bering.",
+   "say": "Good morning. I'd like to check in for flight HY402 to London. Agent: Passport, please. Here it is. Agent: How many bags? Two. Agent: Any hand luggage? Just this backpack. Agent: Window or aisle? A window seat, please. Agent: Here's your boarding pass. Your gate is B12, boarding at 09:30. Have a great flight.",
+   "say_uz": "Xayrli tong. HY402 London reysi uchun check-in qilmoqchiman. Xodim: Pasportingiz. Mana. Xodim: Nechta yuk? Ikkita. Xodim: Qo‘l yuki? Faqat shu ryukzak. Xodim: Deraza yoki yo‘lakni yoqtirasiz? Deraza joyi, iltimos. Xodim: Mana boarding pass. Gate B12, boarding 09:30 da. Yaxshi parvoz tilayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Security: xavfsizlik nazorati",
+   "emotion": "neutral",
+   "board": [
+    "Liquids: 100 ml, bitta sumka",
+    "Laptop — trayda alohida",
+    "Belts, shoes, — trayga"
+   ],
+   "examples": [
+    {
+     "t": "Please remove your laptop and liquids from the bag.",
+     "uz": "Iltimos, laptop va suyuqliklarni sumkadan chiqaring."
+    }
+   ],
+   "say_native": "Xavfsizlik nazoratida bemalol o‘tish uchun uch qoida. Bir: suyuqliklar — har bir butilka yuz millilitrdan oshmasligi kerak va hammasi bitta shaffof sumkada. Ikki: noutbuk, planshet va katta elektronika sumkadan chiqarib, alohida trayga qo‘yiladi. Uch: kamar, soat, metal buyumlar va ko‘pincha poyabzal ham trayga tushadi. Inglizcha buyruqlar qisqa: 'Laptop out, please', 'Liquids in the bag', 'Shoes off'. Tushunmasangiz, xotirjam so‘rang: 'Sorry, what do you need me to do?'",
+   "say": "Three security rules. One: liquids — max one hundred millilitres per bottle, all in one clear bag. Two: laptops and tablets come out of the bag into a separate tray. Three: belts, watches and often shoes go in a tray too. Orders are short: 'Laptop out, please', 'Liquids in the bag'.",
+   "say_uz": "Xavfsizlikda uch qoida. Bir: suyuqliklar — har bir butilka yuz millilitrdan, hammasi bitta shaffof sumkada. Ikki: laptop va planshetlar sumkadan alohida trayga. Uch: kamar, soat va ko‘pincha poyabzal ham trayga. Buyruqlar qisqa: 'Laptop out, please', 'Liquids in the bag'.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Boarding: gate, guruhlar va final call",
+   "emotion": "neutral",
+   "board": [
+    "Gate B12 — darvoza raqami",
+    "Group A / B / C",
+    "'Final call' — oxirgi chaqiruv"
+   ],
+   "examples": [
+    {
+     "t": "This is the final call for flight HY402.",
+     "uz": "Bu HY402 reysi uchun oxirgi chaqiruv."
+    }
+   ],
+   "say_native": "Boarding paytida gate raqamini monitorlardan tekshiring — u o‘zgarib qolishi mumkin. Boarding passda guruhingiz ko‘rsatilgan: Group A birinchi kiradi, keyin B, keyin C. 'Priority boarding' — nogironligi bo‘lgan yo‘lovchilar, onalik va biznes klass. Agar ismingiz chaqirilsa va kechiksangiz: 'final call' — oxirgi chaqiruv. Inglizcha e’lonlarni tinglang: 'We are now boarding group B', 'Final call for flight HY402, passengers please proceed to gate B12'.",
+   "say": "Check the gate on the monitors — it can change. Your pass shows your group: A boards first, then B, then C. 'Priority boarding' is for passengers with reduced mobility, families and business class. 'Final call' is the last announcement before the door closes — don't miss it.",
+   "say_uz": "Gate raqamini monitordan tekshiring — u o‘zgarishi mumkin. Passda guruhingiz: A birinchi kiradi, keyin B, keyin C. 'Priority boarding' — nogironligi bor yo‘lovchilar, oilalar va biznes klass. 'Final call' — eshik yopilishidan oldingi oxirgi e’lon.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Check-in so‘roqlarini ayting",
+   "emotion": "encouraging",
+   "board": [
+    "'I'd like to check in for flight…'",
+    "'Window or aisle?'",
+    "20 soniya"
+   ],
+   "examples": [],
+   "say_native": "Endi ovoz chiqarib aytib bering. Uch qisqa replika tayyorlang: bir — reysingiz va London manzili bilan check-in so‘rang; ikki — oyna xodimi so‘rasa, deraza joyini tanlang; uch — ikki yuk va bitta qo‘l yuki ryukzak ekanini ayting. Yigirma soniya, tabiiy ohangda, shoshilmasdan.",
+   "say": "Out loud: one — ask to check in for your flight; two — when the agent asks, choose a window seat; three — state your baggage: two bags plus one backpack as cabin luggage. Twenty seconds, natural pace.",
+   "say_uz": "Ovoz chiqarib: bir — reysingiz uchun check-in so‘rang; ikki — xodim so‘rasa, deraza joyini tanlang; uch — yuk miqdorini ayting: ikkita yuk va qo‘l yuki ryukzak. Yigirma soniya.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Kechikish va bekor qilish: huquqlaringiz",
+   "emotion": "neutral",
+   "board": [
+    "'My flight is delayed.'",
+    "'What are my options?'",
+    "'Am I entitled to a meal / hotel?'"
+   ],
+   "examples": [
+    {
+     "t": "My flight is delayed — what are my options?",
+     "uz": "Reysim kechikdi — qanday imkoniyatlarim bor?"
+    }
+   ],
+   "say_native": "Kechikish xabari kelganda vahimaga tushmang, uch savolni so‘rang: bir — 'How long is the delay?'; ikki — 'What are my options?'; uch — 'Am I entitled to a meal, a hotel or compensation?' Ko‘pincha ikki-uch soat kechikishda aviakompaniya ovqat vaucherini, tunga qolsa — mehmonxona va transferni berishi kerak. Bekor qilishda: qayta bron qilish yoki pulni to‘liq qaytarish — tanlov sizniki. Har doim xodimdan yozma tasdiq yoki claim form so‘rang.",
+   "say": "When a delay is announced, ask three things: 'How long is the delay?' 'What are my options?' 'Am I entitled to a meal or a hotel?' Two to three hours — usually a meal voucher; overnight — a hotel and transfers. If cancelled: rebooking or a full refund — your choice. Always ask for a written claim form.",
+   "say_uz": "Kechikish e’lon qilinganda uch savol so‘rang: 'How long is the delay?' 'What are my options?' 'Am I entitled to a meal or a hotel?' Ikki-uch soat — ovqat vaucheri; tunga qolsa — mehmonxona va transfer. Bekor qilishda: qayta bron yoki to‘liq refund — tanlov sizniki. Yozma claim form so‘rang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yo‘qolgan yuk: baggage claim",
+   "emotion": "neutral",
+   "board": [
+    "'My baggage hasn't arrived.'",
+    "Claim tag — majburiy",
+    "Claim form — to‘ldiring"
+   ],
+   "examples": [
+    {
+     "t": "My baggage hasn't arrived — here's my claim tag.",
+     "uz": "Yukim kelmadi — mana yuk talonchim."
+    }
+   ],
+   "say_native": "Yuk karuseldan chiqmasa, darhol yuk xizmatiga boring — baggage claim desk. Ayting: 'My baggage hasn't arrived. Here's my claim tag.' Xodim PIR arizasini to‘ldiradi — bu 'Property Irregularity Report'. Arizaga vaqtni, reysni, yuk ko‘rinishini va telefoningizni yozasiz. Yuk ko‘pincha keyingi reys bilan bir-ikki kun ichida yetkaziladi. Claim tagsiz ariza qabul qilinishi qiyin — chek va talonchini har doim saqlang.",
+   "say": "If your bag doesn't appear on the carousel, go straight to the baggage claim desk: 'My baggage hasn't arrived — here's my claim tag.' They file a Property Irregularity Report. Your bag usually arrives on the next flight within a day or two. Keep the claim tag — no tag, no claim.",
+   "say_uz": "Yuk karuselda chiqmasa, baggage claim deskiga boring: 'My baggage hasn't arrived — here's my claim tag.' Ular PIR — Property Irregularity Report — to‘ldiradi. Yuk odatda keyingi reys bilan bir-ikki kunda keladi. Claim tagsiz da’vo qiyin — talonchini saqlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ulanish reysi: missed connection",
+   "emotion": "neutral",
+   "board": [
+    "'I missed my connection.'",
+    "Bir bilet — yangi reys bepul",
+    "Ikki alohida bilet — muammo"
+   ],
+   "examples": [
+    {
+     "t": "I missed my connection — flight HY900.",
+     "uz": "Ulanish reysimni o‘tkazib yubordim — HY900."
+    }
+   ],
+   "say_native": "Ulanish reysi o‘tkazib yuborilganda birinchi savol — biletlar qanday: bitta bron yoki alohida? Bitta biletda kechikish sizning aybingiz emas — aviakompaniya keyingi reysga yozadi va ovqat yoki mehmonxona beradi. Alohida biletlarda — sizning javobgarligingiz; yangi chipta sotib olishingiz kerak bo‘lishi mumkin. Inglizcha: 'I missed my connection — flight HY900. What are my options?' Har doim oldindan barcha bron raqamlarini, ya’ni booking references, saqlang.",
+   "say": "Missed connection? First question: one booking or two separate tickets. One ticket — not your fault, the airline rebooks you and may cover meals or a hotel. Two tickets — your responsibility, you might need to buy a new seat. Say: 'I missed my connection — flight HY900. What are my options?' Keep all booking references.",
+   "say_uz": "Ulanish reysi o‘tdimi? Birinchi savol: bitta bron yoki ikki alohida chipta? Bitta chipta — sizning aybingiz emas, kompaniya qayta yozadi, ovqat yoki mehmonxona berishi mumkin. Ikki chipta — sizning javobgarligingiz. Ayting: 'I missed my connection — flight HY900. What are my options?' Bron raqamlarini saqlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash 1: reys kechikdi, yuk yo‘qoldi",
+   "emotion": "neutral",
+   "board": [
+    "Listening 1: Airport problems",
+    "Timur + agent"
+   ],
+   "examples": [],
+   "say_native": "Birinchi tinglash — aeroportda ikki muammo bir vaqtda: reys kechikdi va yuk topilmadi. Timur agent bilan gaplashmoqda — jo‘nash vaqti, ovqat vaucheri va yuk yetkazib berish manzili haqida aniq gaplashadi. Diqqat bilan tinglang va raqamlarni esda tuting — keyingi sahifada to‘rtta savol bor.",
+   "say": "Timur: Excuse me, my flight HY771 to Dubai is delayed. What are my options? Agent: The new departure is 22:40, a three-hour delay. Timur: Am I entitled to a meal? Agent: Yes, here's a meal voucher. And your baggage didn't arrive? Timur: Right — my black suitcase is missing. Here's my claim tag. Agent: I'll file a report now. Where are you staying? Timur: The Gulf Hotel. Agent: It will be delivered there within two days. Timur: Thank you — and do I need to re-check the bag myself? Agent: No. We deliver it.",
+   "say_uz": "Timur: Kechirasiz, HY771 Dubay reysim kechikdi. Qanday imkoniyatlarim bor? Agent: Yangi jo‘nash — 22:40, uch soat kechikish. Timur: Ovqat haqim bormi? Agent: Ha, mana ovqat vaucheri. Va yukingiz kelmadimi? Timur: To‘g‘ri — qora chamadonim yo‘qoldi. Mana claim tag. Agent: Hozir ariza to‘ldiraman. Qayerda yashaysiz? Timur: The Gulf Hotel. Agent: Ikki kun ichida o‘sha yerga yetkaziladi. Timur: Rahmat — yukni o‘zim qayta topshiramanmi? Agent: Yo‘q. Biz yetkazamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tinglash savollari 1",
+   "emotion": "encouraging",
+   "board": [
+    "1 Yangi jo‘nash vaqti qancha?",
+    "2 Timur qanday vaucher oldi?",
+    "3 Yuk qanday ko‘rinishda edi?",
+    "4 Yuk qayerga yetkaziladi?"
+   ],
+   "examples": [],
+   "say_native": "To‘rt savol. Bir: yangi jo‘nash vaqti qancha va kechikish necha soat davom etadi? Ikki: Timur qanday vaucher oldi va nega aynan o‘sha? Uch: yo‘qolgan yuk qanday ko‘rinishda edi? To‘rt: yuk qayerga va qancha vaqt ichida yetkaziladi? Javoblarni ichingizda tartib bilan ayting.",
+   "say": "Four questions. One: what is the new departure time and how long is the delay? Two: what voucher did Timur receive? Three: what did the missing bag look like? Four: where will the bag be delivered, and how fast? Answers in your head.",
+   "say_uz": "To‘rt savol. Bir: yangi jo‘nash vaqti va kechikish qancha? Ikki: Timur qanday vaucher oldi? Uch: yo‘qolgan yuk qanday ko‘rinishda? To‘rt: yuk qayerga va qancha vaqtda yetkaziladi? Javoblarni ichingizda ayting.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: tinglash 1",
+   "emotion": "happy",
+   "board": [
+    "1. 22:40 — 3 soat kechikish",
+    "2. Ovqat vaucheri",
+    "3. Qora chamadon",
+    "4. The Gulf Hotel, 2 kun ichida"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Bir: yangi jo‘nash — 22:40, uch soat kechikish. Ikki: ovqat vaucheri, chunki kechikish ikki soatdan oshadi. Uch: qora chamadon. To‘rt: yuk The Gulf Hotelga ikki kun ichida yetkaziladi — va Timurning vazifasi faqat hisobot nusxasini saqlash.",
+   "say": "Answers. One: the new departure is 22:40, a three-hour delay. Two: a meal voucher, because the delay exceeds two hours. Three: a black suitcase. Four: the bag will be delivered to the Gulf Hotel within two days — Timur just keeps the report copy.",
+   "say_uz": "Javoblar. Bir: yangi jo‘nash — 22:40, uch soat kechikish. Ikki: ovqat vaucheri — kechikish ikki soatdan oshadi. Uch: qora chamadon. To‘rt: yuk The Gulf Hotelga ikki kun ichida yetkaziladi — Timur faqat hisobot nusxasini saqlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Travel insurance: sug‘urta arizasi",
+   "emotion": "neutral",
+   "board": [
+    "'Do you have travel insurance?'",
+    "Policy number — saqlang",
+    "Receipts + claim form"
+   ],
+   "examples": [
+    {
+     "t": "I'm calling about a claim — my policy number is LV-2214.",
+     "uz": "Ariza bo‘yicha qo‘ng‘iroq qilyapman — sug‘urta raqamim LV-2214."
+    }
+   ],
+   "say_native": "Sayohat sug‘urtasi katta xarajatlardan himoya qiladi: tibbiy yordam, yo‘qolgan yuk, reys bekor qilinishi. Xodimlar ko‘pincha so‘raydi: 'Do you have travel insurance?' Arangizda sug‘urta bo‘lsa, policy raqamini ayting. Ariza topshirishda uch narsa kerak: chek va faktura, yozma hisobot va claim form. Telefon orqali: 'I'm calling about a claim — my policy number is LV-2214.' Cheklarni hech qachon tashlamang — sug‘urta kompaniyalar aynan cheksiz arizalarni rad etadi.",
+   "say": "Travel insurance protects against big costs — medical care, lost bags, cancelled flights. You'll be asked: 'Do you have travel insurance?' Answer with your policy number. A claim needs three things: receipts, a written report and a claim form. On the phone: 'I'm calling about a claim — my policy number is LV-2214.'",
+   "say_uz": "Sayohat sug‘urtasi katta xarajatlardan — tibbiyot, yo‘qolgan yuk, bekor qilishdan himoya qiladi. Sizdan so‘raladi: 'Do you have travel insurance?' Policy raqamini ayting. Ariza uchun: chek, yozma hisobot, claim form. Telefonda: 'I'm calling about a claim — my policy number is LV-2214.'",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mehmonxona: buyurtma va check-in/out",
+   "emotion": "neutral",
+   "board": [
+    "'I have a reservation.'",
+    "Check-in 14:00 / check-out 11:00",
+    "'Under the name…'"
+   ],
+   "examples": [
+    {
+     "t": "I have a reservation under the name Azamat Karimov.",
+     "uz": "Azamat Karimov nomiga buyurtmam bor."
+    }
+   ],
+   "say_native": "Mehmonxonada asosiy ibora — 'I have a reservation'. Check-in odatda tushdan keyin ikki da, check-out ertalab o‘n birdan oldin. Resepsionda: 'I have a reservation under the name Karimov.' Xodim pasportingizni so‘raydi, kredit kartangizni deposit uchun oladi va xona kalitini beradi. Erta check-in yoki kech check-out joyni oldindan so‘rang: 'Could I check out at one instead of eleven?' — ko‘pincha qo‘shimcha to‘lovsiz yoki kichik to‘lov bilan beriladi.",
+   "say": "Key phrase: 'I have a reservation.' Check-in is usually 2 pm, check-out 11 am. At reception: 'I have a reservation under the name Karimov.' They'll ask for a passport and a credit card for the deposit. Early check-in or late check-out? Just ask: 'Could I check out at one instead of eleven?'",
+   "say_uz": "Asosiy ibora: 'I have a reservation.' Check-in odatda 14:00, check-out 11:00. Resepsionda: 'I have a reservation under the name Karimov.' Pasport va deposit uchun kredit karta so‘raladi. Erta kirish yoki kech chiqishni so‘rang: 'Could I check out at one instead of eleven?'",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Namuna: mehmonxona buyurtmasi telefonda",
+   "emotion": "neutral",
+   "board": [
+    "Phone booking",
+    "Ism + sana + xona turi"
+   ],
+   "examples": [],
+   "say_native": "Namuna telefon buyurtmasini o‘qing: mijoz ism, sanalar va xona turini aytadi, narxni va nonushta kiritilganini so‘raydi, oxirida bekor qilish shartlarini aniqlashtiradi. E’tibor bering — mijoz 'cancellation policy' ni oldindan so‘rayapti; bu keyingi shikoyatlarning va bahsli to‘lovlarning oldini oladi.",
+   "say": "Good morning, the Grand Hotel. Hello — I'd like to book a double room for three nights, from the 15th to the 18th of March. Agent: With a view, or city side? City side, please. Agent: That's 180 dollars per night, breakfast included. Could I have your credit card details? … And what is your cancellation policy? Free cancellation until 48 hours before arrival, then one night's charge. Agent: Shall I hold it under Karimov? Yes, please.",
+   "say_uz": "Xayrli tong, The Grand mehmonxonasi. Salom — 15-martdan 18-martgacha uch tunga ikki o‘rinli xona buyurtma qilmoqchiman. Agent: Ko‘rinishli yoki shahar tomon? Shahar tomon, iltimos. Agent: Kechasiga yuz sakson dollar, nonushta bilan. Kredit karta tafsilotlarini bering. … Va bekor qilish shartingiz qanday? Yetib kelishdan 48 soat oldingacha bepul, keyin bir kecha haqi. Agent: Karimov nomiga rasmiylashtiraymi? Ha, iltimos.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Shikoyat: muammoni aniq ayting",
+   "emotion": "neutral",
+   "board": [
+    "'The air conditioning isn't working.'",
+    "'It's too noisy to sleep.'",
+    "'I'd like to speak to the manager.'"
+   ],
+   "examples": [
+    {
+     "t": "The air conditioning isn't working and the room is too hot.",
+     "uz": "Konditsioner ishlamayapti va xona juda issiq."
+    }
+   ],
+   "say_native": "Mehmonxonada shikoyat uch qismdan iborat: muammoni aniq ayting, ta’sirini ayting, yechim taklif qiling. 'The air conditioning isn't working and the room is too hot' — muammo. 'I can't sleep in this heat' — ta’sir. 'Could you fix it or move me to another room?' — yechim. Agar xodim yordam bera olmasa: 'I'd like to speak to the manager, please.' Shikoyatda ham chek va sana kerak bo‘lishi mumkin — hamma hujjatlarni saqlang.",
+   "say": "A hotel complaint has three parts: the problem — 'The air conditioning isn't working'; the effect — 'I can't sleep in this heat'; the request — 'Could you fix it or move me to another room?' If the staff can't help: 'I'd like to speak to the manager, please.' Keep receipts and dates.",
+   "say_uz": "Mehmonxona shikoyati uch qismdan: muammo — 'The air conditioning isn't working'; ta’sir — 'I can't sleep in this heat'; so‘rov — 'Could you fix it or move me to another room?' Xodim yordam bera olmasa: 'I'd like to speak to the manager, please.' Chek va sanalarni saqlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Namuna: shikoyat va yechim",
+   "emotion": "neutral",
+   "board": [
+    "Complaint",
+    "Muammo → ta’sir → so‘rov"
+   ],
+   "examples": [],
+   "say_native": "Namuna shikoyat dialogini o‘qing: mijoz avval muammoni aytadi, keyin ta’sirini — uxlay olmayotganini — bildiradi, oxirida yechim so‘raydi; menejer uzr so‘rab ikki yechim taklif qiladi. E’tibor bering — mijoz jahl qilmadi, menejer ham himoyaga o‘tmadi: bu ideal mehmonxona suhbati.",
+   "say": "Good evening. There's a problem with my room — the air conditioning isn't working, and I can't sleep in this heat. Manager: I'm very sorry. Let me send a technician now, or we can move you to room 412 on the quieter side. Which would you prefer? A room change would be better. Manager: Of course. I'll have your bags moved tonight and add a complimentary dinner voucher. Manager: And tonight's stay — do I need to pay for tonight? No, that's on us tonight. Thank you so much, you've been very helpful.",
+   "say_uz": "Xayrli kech. Xonamda muammo bor — konditsioner ishlamayapti va bu issiqda uxlay olmayapman. Menejer: Chin dildan uzr. Texnik jo‘natamiz yoki sizni 412-xonaga, tinch tomoniga ko‘chiramiz. Qaysi biri? Xona almashtirish yaxshiroq. Menejer: Albatta. Sumkalaringizni bugun kechada ko‘chiramiz va bepul kechki ovqat qo‘shamiz. Boshqa savol? Bugungi kecha uchun ham to‘laymanmi? Yo‘q, bugun bizning hisobimizdan. Juda rahmat, juda yordam berdingiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Shikoyatni aytib bering",
+   "emotion": "encouraging",
+   "board": [
+    "Muammo + ta’sir + so‘rov",
+    "25 soniya"
+   ],
+   "examples": [],
+   "say_native": "Shikoyat muammosini ovoz chiqarib ifodalang. Vaziyat: xona juda shoshilinch shovqin chiqmoqda — yo‘lakdan musiqa kelyapti va uxlab bo‘lmayapti. Muammoni ayting, ta’sirini bildiring va yechim so‘rang: 'Could you move me to a quieter room?' Yigirma besh soniya.",
+   "say": "Speak the complaint. Scenario: your room is too noisy — music from the corridor and you can't sleep. State the problem, its effect, and request: 'Could you move me to a quieter room?' Twenty-five seconds.",
+   "say_uz": "Shikoyatni ayting. Vaziyat: xona juda shovqinli — yo‘lakdan musiqa kelyapti, uxlab bo‘lmayapti. Muammo, ta’sir va so‘rovni ayting: 'Could you move me to a quieter room?' Yigirma besh soniya.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Refund: pulni qaytarish so‘rovi",
+   "emotion": "neutral",
+   "board": [
+    "'I'd like to request a refund.'",
+    "Chek + bron + sabab",
+    "Yozma ariza qoldiring"
+   ],
+   "examples": [
+    {
+     "t": "I'd like to request a refund for tonight's stay, please.",
+     "uz": "Bugungi kecha uchun refund so‘ramoqchiman, iltimos."
+    }
+   ],
+   "say_native": "Refund so‘rashning tartibi aniq: avval muammoni aytib o‘ting, keyin 'I'd like to request a refund' deb so‘rang, sababini va hujjatlarni ko‘rsating. 'Bekor qilish 48 soat oldingacha bepul edi — men 72 soat oldin bekor qildim' kabi faktlarni ayting. Chek, bron tasdig‘i va yozishmalaringizni arizaga ilova qiling. Agar mehmonxona yoki aviakompaniya rad etsa, keyingi qadam — bank kartangizga chargeback so‘rovi; lekin buni oxirgi chora sifatida ishlating.",
+   "say": "Refund procedure: state the problem, then 'I'd like to request a refund', give your reasons and documents. Quote the facts — 'I cancelled 72 hours in advance, and the policy allows free cancellation up to 48 hours.' Attach receipts and booking confirmation. If refused, a chargeback through your bank is the last resort.",
+   "say_uz": "Refund tartibi: muammoni ayting, 'I'd like to request a refund' deb so‘rang, sabab va hujjatlarni ko‘rsating. Faktlarni keltiring — '72 soat oldin bekor qildim, politika 48 soatgacha bepul.' Chek va bron tasdig‘ini ilova qiling. Rad etilsa — bank orqali chargeback oxirgi chora.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash 2: mehmonxona — refund so‘rovi",
+   "emotion": "neutral",
+   "board": [
+    "Listening 2: Hotel refund",
+    "Dilnoza + menejer"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi tinglash — mehmonxonadagi muammo refundga aylanadi. Dilnoza konditsioneri buzuq xonada qoldi, xona almashtirilmadi; endi u o‘tgan kechaning pulini qaytarishni so‘raydi. Diqqat bilan tinglang — dalil va sanalarni esda tuting: hisobot vaqti va bron emaili muhim.",
+   "say": "Dilnoza: I'd like to request a refund for last night's stay. Manager: Why? Dilnoza: The air conditioning was broken. I reported it at 21:00; nobody came until midnight. I slept in 34 degrees. Manager: Can you show me the report? Dilnoza: Here's the reception confirmation, and the booking email with the cancellation terms. Manager: That's fair. I'll refund last night and add a ten percent voucher. Dilnoza: Could I get the refund in writing, please? Manager: Of course — I'll email you today.",
+   "say_uz": "Dilnoza: O‘tgan kecha uchun refund so‘ramoqchiman. Menejer: Nega ekan? Dilnoza: Konditsioner buzuq edi. Soat 21:00 da xabar berdim, yarim tungacha hech kim kelmadi. O‘ttiz to‘rt daraja issiqda uxladim. Menejer: Hisobotni ko‘rsata olasizmi? Dilnoza: Mana resepsiyon tasdig‘i. Va mana bron emaillarimiz — bekor qilish shartlari bilan; bir tun qoldim, xona yaroqsiz edi. Menejer: Asosli. O‘tgan kecha haqini qaytaramiz va keyingi qolishingizga o‘n foiz chegirma qo‘shamiz. Dilnoza: Rahmat. Refundni yozma ravishda berasizmi? Menejer: Albatta — bugun email bilan tasdiq yuboraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tinglash savollari 2",
+   "emotion": "encouraging",
+   "board": [
+    "1 Muammo nima edi?",
+    "2 Dilnoza qanday dalillar keltirdi?",
+    "3 Menejer qanday yechim berdi?",
+    "4 Dilnoza yozma tasdiqni nima uchun so‘radi?"
+   ],
+   "examples": [],
+   "say_native": "To‘rt savol. Bir: Dilnozaning muammosi nima edi va aynan qachon xabar berdi? Ikki: u qanday dalillar keltirdi — ikki hujjatni ayting? Uch: menejer qanday yechim taklif qildi va unga nima qo‘shdi? To‘rt: Dilnoza refundni yozma ravishda berishini nima uchun so‘radi? Javoblarni ichingizda ayting.",
+   "say": "Four questions. One: what was Dilnoza's problem, and when did she report it? Two: what evidence did she bring? Three: what solution did the manager offer? Four: why did she ask for the refund in writing? Answers in your head.",
+   "say_uz": "To‘rt savol. Bir: Dilnozaning muammosi nima edi va qachon xabar berdi? Ikki: qanday dalillar keltirdi? Uch: menejer qanday yechim taklif qildi? To‘rt: nima uchun yozma tasdiq so‘radi? Javoblarni ichingizda ayting.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: tinglash 2",
+   "emotion": "happy",
+   "board": [
+    "1. Buzuq konditsioner, 21:00 da xabar berdi",
+    "2. Resepsiyon tasdig‘i + bron email",
+    "3. Kecha haqi qaytarildi + 10% vaucher",
+    "4. Yozma dalil uchun"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Bir: konditsioner buzuq edi — u soat 21:00 da xabar berdi. Ikki: Dalil sifatida resepsiyon tasdig‘ini va bekor qilish shartlari ko‘rsatilgan bron emailini ko‘rsatdi. Uch: menejer kecha haqini to‘liq qaytardi va keyingi qolish uchun o‘n foiz chegirma vaucheri qo‘shdi. To‘rt: refundni yozma ravishda olish — kelajakdagi bahslardan himoya: yozma tasdiq har doim dalil bo‘ladi.",
+   "say": "Answers. One: the air conditioning broke; she reported it at 21:00. Two: she showed the reception confirmation and the booking email with the cancellation terms. Three: the manager refunded the night and added a ten-per-cent voucher for her next stay. Four: written confirmation protects her if the refund never arrives — proof beats memory.",
+   "say_uz": "Javoblar. Bir: konditsioner buzuq; 21:00 da xabar berildi. Ikki: resepsiyon tasdig‘i va bron emaili — bekor qilish shartlari bilan. Uch: kecha haqi qaytarildi + o‘n foiz vaucher. To‘rt: yozma tasdiq — refund kelmasa, dalil bo‘ladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "UK vs US: sayohat so‘zlari",
+   "emotion": "thinking",
+   "board": [
+    "lift / elevator",
+    "queue / line",
+    "luggage / baggage",
+    "booking / reservation"
+   ],
+   "examples": [
+    {
+     "t": "Take the lift to the fourth floor. (UK) / Take the elevator. (US)",
+     "uz": "Liftda to‘rtinchi qavatga chiqing (UK) / elevator (US)"
+    }
+   ],
+   "say_native": "Britancha va amerikalikcha so‘zlar sayohatda doim aralashib ketadi. 'Lift' — UK, 'elevator' — US. 'Queue' — UK, 'line' — US — navbat. 'Luggage' va 'baggage' — ikkalasi ham qabul qilinadi, lekin aviakompaniyalar 'baggage claim' deydi. 'Booking' — UK, 'reservation' — US, ikkalasi ham to‘g‘ri. 'Holiday' — UK, 'vacation' — US. Hamma joyda tushunishadi — sizga ham ikki variantni tanimoq kerak, xolos.",
+   "say": "British versus American: 'lift' is UK, 'elevator' US. 'Queue' UK, 'line' US. 'Luggage' and 'baggage' both work; airlines say 'baggage claim'. 'Booking' UK, 'reservation' US. 'Holiday' UK, 'vacation' US. Everyone will understand you — just recognise both sets.",
+   "say_uz": "Britancha va amerikalikcha: 'lift' UK, 'elevator' US. 'Queue' UK, 'line' US. 'Luggage' va 'baggage' — ikkalasi ham to‘g‘ri; aviakompaniyalar 'baggage claim' deydi. 'Booking' UK, 'reservation' US. 'Holiday' UK, 'vacation' US. Ikki variantni taning, xolos.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: comfortable, reservation",
+   "emotion": "thinking",
+   "board": [
+    "comfortable → 'KUMF-ta-bul'",
+    "reservation → 'rez-ar-VAY-shun'",
+    "probably → 'PROB-li'"
+   ],
+   "examples": [
+    {
+     "t": "My reservation is under Karimov.",
+     "uz": "Buyurtmam Karimov nomiga."
+    }
+   ],
+   "say_native": "Uchta qiyin so‘z. 'Comfortable' — aslida to‘rt bo‘g‘in emas, uchta: 'KUMF-ta-bul' — birinchi 't' deyarli yo‘q. 'Reservation' — stress uchinchi bo‘g‘inda: 'rez-ar-VAY-shun', ruscha 'rezervATSIYA' ga o‘xshaydi. 'Probably' — ko‘pincha 'PROB-li' deb qisqaradi. Sekin va aniq aytsangiz, hech qanday aks-sado bo‘lmaydi — aeroport va mehmonxonada aniqlik eng muhim narsa.",
+   "say": "Three tricky words. 'Comfortable' is three syllables — 'KUMF-ta-bul'. 'Reservation' stresses the third syllable — 'rez-ar-VAY-shun'. 'Probably' reduces to 'PROB-li'. Slow and clear beats fast and fuzzy — clarity wins at the airport.",
+   "say_uz": "Uchta qiyin so‘z. 'Comfortable' — uch bo‘g‘in: 'KUMF-ta-bul'. 'Reservation' — stress uchinchi bo‘g‘inda: 'rez-ar-VAY-shun'. 'Probably' — 'PROB-li'. Sekin va aniq gapiring — aniqlik tezlikdan muhim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "6 tipik xato: sayohat inglizchasida",
+   "emotion": "stern",
+   "board": [
+    "1 'luggages' — sanaladigan emas",
+    "2 'advices' — maslahat sanalmaydi",
+    "3 'I lost my bag in the airport' — 'at the airport'",
+    "4 'Which gate I go?' — so‘roq tartibi",
+    "5 'I have a doubt' — savolim bor",
+    "6 'Make a photo' — 'take a photo'"
+   ],
+   "examples": [],
+   "say_native": "Olti xato. Bir: 'luggages' yo‘q — luggage sanalmaydi: 'two pieces of luggage'. Ikki: 'advices' ham yo‘q — 'some advice'. Uch: 'in the airport' emas — 'at the airport'; samolyot esa 'on the plane'. To‘rt: 'Which gate I go?' emas — 'Which gate do I go to?' Besh: inglizchada 'I have a doubt' hindcha uslub — 'I have a question' deb ayting. Oltinchi: 'make a photo' emas — 'take a photo'.",
+   "say": "Six fixes. 'Luggages' doesn't exist — 'two pieces of luggage'. 'Advices' — 'some advice'. Say 'at the airport', 'on the plane'. 'Which gate do I go to?' — not 'Which gate I go?' 'I have a question', not 'I have a doubt'. 'Take a photo', not 'make a photo'.",
+   "say_uz": "Olti tuzatish. 'Luggages' yo‘q — 'two pieces of luggage'. 'Advices' yo‘q — 'some advice'. 'At the airport', 'on the plane'. 'Which gate do I go to?' 'I have a question', 'I have a doubt' emas. 'Take a photo', 'make a photo' emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato → To‘g‘ri: sanalmaydigan otlar",
+   "emotion": "stern",
+   "board": [
+    "✗ 'My luggages are lost'",
+    "✓ 'My luggage is lost'",
+    "✗ 'She gave me many advices'",
+    "✓ 'She gave me a lot of advice'"
+   ],
+   "examples": [],
+   "say_native": "Eng keng tarqalgan xato — sanalmaydigan otlarga ko‘plik qo‘shimchasi. 'Luggage', 'baggage', 'advice', 'information', 'equipment' — hech biriga -s qo‘shilmaydi. Son kerak bo‘lsa, yordamchi so‘z ishlating: 'two pieces of luggage', 'a piece of advice', 'some information'. O‘zbekcha 'maslahatlar' qoidasi inglizchaga o‘tmaydi — inglizchada qarorlar sanalmaydi, ma’lumotlar oqadi.",
+   "say": "The biggest trap: pluralising uncountable nouns. 'Luggage', 'baggage', 'advice', 'information', 'equipment' — never add -s. Need a count? Use a helper: 'two pieces of luggage', 'a piece of advice', 'some information'. Uzbek plural rules don't transfer.",
+   "say_uz": "Eng katta tuzoq: sanalmaydigan otlarga -s qo‘shish. 'Luggage', 'baggage', 'advice', 'information', 'equipment' — hech qachon -s olmaydi. Son kerakmi? Yordamchi so‘z: 'two pieces of luggage', 'a piece of advice', 'some information'.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Xatolarni tuzating",
+   "emotion": "thinking",
+   "board": [
+    "'My luggages are lost' → ?",
+    "'I have a doubt' → ?",
+    "'Which gate I go?' → ?",
+    "25 soniya"
+   ],
+   "examples": [],
+   "say_native": "Uchta xatoni inglizchaga tuzating: 'My luggages are lost' — 'My luggage is lost'. 'I have a doubt' — 'I have a question'. 'Which gate I go?' — 'Which gate do I go to?' Har birini to‘g‘ri shaklda ikki marta ovoz chiqarib ayting — yigirma besh soniyada.",
+   "say": "Fix three lines: 'My luggages are lost' — 'My luggage is lost.' 'I have a doubt' — 'I have a question.' 'Which gate I go?' — 'Which gate do I go to?' Say each aloud, correct form. Twenty-five seconds.",
+   "say_uz": "Uchta qatorni tuzating: 'My luggages are lost' — 'My luggage is lost.' 'I have a doubt' — 'I have a question.' 'Which gate I go?' — 'Which gate do I go to?' Ovoz chiqarib — yigirma besh soniya.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "practice",
+   "title": "To‘liq aeroport dialogini o‘ynang",
+   "emotion": "encouraging",
+   "board": [
+    "Check-in → security → gate",
+    "35 soniya"
+   ],
+   "examples": [],
+   "say_native": "Endi butun aeroport dialogini ovoz chiqarib aytib bering. Uch bosqich: bir — check-in oynasida reysingizni va ikkita yukni topshiring; ikki — securityda laptop va suyuqliklarni trayga qo‘ying; uch — darvozani so‘rang va boarding guruhingizni eshiting. O‘ttiz besh soniyada uch bosqichni ham o‘ynab chiqing.",
+   "say": "Act out the full airport scene. Three beats: one — at check-in, name your flight and two bags; two — at security, put the laptop and liquids in a tray; three — ask for your gate and hear your boarding group called. Thirty-five seconds.",
+   "say_uz": "Butun aeroport sahnasini o‘ynang. Uch bosqich: bir — check-in oynasida reys va ikkita yuk; ikki — securityda laptop va suyuqliklar trayga; uch — darvozani so‘rang, boarding guruhingizni eshiting. O‘ttiz besh soniya.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Muammoni hal qilishning 3 qadami",
+   "emotion": "neutral",
+   "board": [
+    "1 Muammoni ayting",
+    "2 Nima kerakligini ayting",
+    "3 Dalil bering: ref, chekjegara"
+   ],
+   "examples": [
+    {
+     "t": "My bag is missing — here's my claim tag and booking reference.",
+     "uz": "Yukim yo‘qoldi — mana claim tag va bron raqamim."
+    }
+   ],
+   "say_native": "Har qanday sayohat muammosini uch qadamda hal qiling. Bir: muammoni bir jumla bilan aniq ayting — 'My flight is delayed', 'The air conditioning isn't working'. Ikki: nima kerakligini ayting — rebook, refund, yangi xona. Uch: dalilni bering — bron raqami, claim tag, chek, hisobot. Xodimlar hujjat bilan tezroq ishlaydi — ular sizning his-tuyg‘ularingiz bilan emas, arizangiz bilan ishlaydi.",
+   "say": "Solve any travel problem in three steps. One: state the problem in one line — 'My flight is delayed'. Two: say what you need — a rebooking, a refund, a different room. Three: hand over proof — booking reference, claim tag, receipt, report. Staff work with paperwork, not with feelings.",
+   "say_uz": "Har sayohat muammosini uch qadamda yeching. Bir: muammoni bir jumlada — 'My flight is delayed'. Ikki: nima kerakligini ayting — qayta bron, refund, boshqa xona. Uch: dalilni bering — bron raqami, claim tag, chek. Xodimlar hujjat bilan tezroq ishlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Og‘ir vaziyatda muloyimlik",
+   "emotion": "encouraging",
+   "board": [
+    "'Could you please help me?'",
+    "Xodim ham odam — yordam bering",
+    "Shovqin emas, faktlar kuchli"
+   ],
+   "examples": [
+    {
+     "t": "I know it's not your fault — could you please help me?",
+     "uz": "Bilaman, bu sizning aybingiz emas — yordam bera olasizmi?"
+    }
+   ],
+   "say_native": "Sayohat muammolarida eng kuchli qurol — muloyimlik. Xodim muammoni o‘zi yaratmadi; u sizga yordam berishi kerak bo‘lgan odam. 'Could you please help me?' — shunday boshlangan suhbat har doim tezroq va yaxshiroq yakunlanadi. 'I know it's not your fault' — hursandchilik qilsa ham, ijobiy munosabat har doim ishlaydi. Shovqin, haqorat va talabkorlik — xodimni sizga qarshi qiladi va muammoni cho‘zadi.",
+   "say": "The strongest tool in a travel crisis is politeness. The agent didn't create the problem — they're the person who can fix it. Open with 'Could you please help me?' and, if you can, add 'I know it's not your fault'. Noise and shouting push staff against you; calm and facts pull them to your side.",
+   "say_uz": "Sayohat inqirozida eng kuchli qurol — muloyimlik. Xodim muammoni yaratmagan — u yecha oladigan odam. 'Could you please help me?' bilan boshlang; 'I know it's not your fault' qo‘shing. Shovqin — xodimni sizga qarshi qiladi; tinchlik va faktlar — sizning tarafingizga.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Mehmonxona shikoyatini o‘ynang",
+   "emotion": "encouraging",
+   "board": [
+    "Muammo → ta’sir → so‘rov",
+    "40 soniya"
+   ],
+   "examples": [],
+   "say_native": "Endi mehmonxona shikoyatini boshidan oxirigacha o‘ynang. Vaziyat: internet ishlamayapti va ertalab videokonferensiyangiz bor. Resepsiyonga boring: muammoni ayting, ta’sirini bildiring — muhim uchrashuv — yechim so‘rang: 'Could you fix it tonight, or move me to a room with working Wi-Fi?' Yetishmasa, manager bilan gaplashing. Qirq soniyada butun sahnani o‘ynang.",
+   "say": "Act out the full hotel complaint. Scenario: the Wi-Fi is down and you have an important video call tomorrow morning. Go to reception: problem, effect, request — 'Could you fix it tonight, or move me to a room with working Wi-Fi?' If unresolved, escalate to the manager. Forty seconds.",
+   "say_uz": "Mehmonxona shikoyatini boshidan oxirigacha o‘ynang. Wi-Fi ishlamayapti, ertaga ertalab muhim videokonferensiyangiz bor. Resepsiyonga boring: muammo, ta’sir, so‘rov — 'Could you fix it tonight, or move me to a room with working Wi-Fi?' Yetmasa — managerga. Qirq soniya.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "recap",
+   "title": "Bugungi darsning xulosasi",
+   "emotion": "proud",
+   "board": [
+    "Check-in → security → boarding",
+    "Kechikish: 'What are my options?'",
+    "Yuk: claim tag + PIR",
+    "Shikoyat: muammo → ta’sir → so‘rov",
+    "Refund: 'I'd like to request a refund'"
+   ],
+   "examples": [],
+   "say_native": "Xulosa: aeroportda — pass, yuk va boarding guruhini biling. Kechikishda uch savol: muddat, imkoniyatlar, huquqlar. Yuk yo‘qolsa — claim tag va PIR ariza. Mehmonxonada — muammo, ta’sir va so‘rov uchligi. Refundda — chek, bron tasdig‘i va yozma ariza. Va har doim: muloyimlik va dalil — shoshilinch his-tuyg‘ulardan kuchli.",
+   "say": "In short: at the airport — pass, bags, boarding group. Delayed? Ask about time, options, your rights. Missing bag? Claim tag and PIR. Hotel? Problem, effect, request. Refund? Receipt, booking confirmation, written claim. Always: politeness plus proof beats outrage.",
+   "say_uz": "Xulosa: aeroportda — pass, yuk, guruh. Kechikish — muddat, imkoniyat, huquq. Yuk — claim tag va PIR. Mehmonxona — muammo, ta’sir, so‘rov. Refund — chek, bron, yozma ariza. Muloyimlik va dalil har doim g‘olib.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi va keyingi dars",
+   "emotion": "encouraging",
+   "board": [
+    "Uy vazifasi: 3 ta sayohat muammosi dialogi",
+    "Keyingi dars: Shifokor va dorixona"
+   ],
+   "examples": [],
+   "say_native": "Uy vazifasi: uchta sayohat muammosi dialogini yozib, ovoz chiqarib o‘ynang — aeroportda kechikish yoki yo‘qolgan yuk, mehmonxonada shikoyat va refund so‘rovi. Har dialogda kamida to‘rt replika va aniq yechim bo‘lsin. Keyingi darsda shifokor va dorixonani o‘rganamiz — simptomlar, tana a’zolari, doza va qabul, ya’ni shifokorga aniq og‘riqni ta’riflash. Omad tilayman!",
+   "say": "Homework: write and act out three travel-problem dialogues — an airport delay or lost bag, a hotel complaint, a refund request. At least four turns each, with a clear resolution. Next lesson: the doctor and the pharmacy — describing symptoms precisely. Good luck!",
+   "say_uz": "Uy vazifasi: uchta sayohat muammosi dialogini yozib o‘ynang — aeroportda kechikish yoki yo‘qolgan yuk, mehmonxona shikoyati, refund so‘rovi. Har birida to‘rt replika va aniq yechim. Keyingi dars: shifokor va dorixona — simptomlarni aniq ta’riflash. Omad tilayman!",
+   "practice_seconds": 0
+  }
+ ],
+ "quiz": [
+  {
+   "q": "What do you need at the check-in desk?",
+   "options": [
+    "A hotel voucher",
+    "Your passport",
+    "Your insurance policy",
+    "A credit card only"
+   ],
+   "answer": 1,
+   "why_uz": "Check-in uchun asosiy hujjat — pasport (kerak bo‘lsa viza ham); kredit karta deposit uchun mehmonxonada so‘raladi."
+  },
+  {
+   "q": "How much liquid can you carry in hand luggage?",
+   "options": [
+    "No limit",
+    "1 litre per bottle",
+    "Max 100 ml per bottle, all in one clear bag",
+    "Only medicine"
+   ],
+   "answer": 2,
+   "why_uz": "Xavfsizlik qoidasi: har bir butilka yuz millilitrdan, hammasi bitta shaffof sumkada."
+  },
+  {
+   "q": "What does 'final call' mean?",
+   "options": [
+    "The last phone call before the flight",
+    "A meal service announcement",
+    "The end of boarding groups A and B",
+    "The last announcement before the door closes"
+   ],
+   "answer": 3,
+   "why_uz": "Final call — eshik yopilishidan oldingi oxirgi chaqiruv; kechiksangiz, samolyot sizsiz ketadi."
+  },
+  {
+   "q": "Your bag didn't arrive. What should you do first?",
+   "options": [
+    "Wait by the carousel for an hour",
+    "Go to the baggage claim desk with your claim tag",
+    "Call the police",
+    "Buy a new suitcase and go home"
+   ],
+   "answer": 1,
+   "why_uz": "Yuk kelmasa, darhol baggage claim deskiga claim tag bilan boring — PIR arizasi to‘ldiriladi."
+  },
+  {
+   "q": "A delay of three hours usually entitles you to…",
+   "options": [
+    "A free flight to another city",
+    "Nothing at all",
+    "A meal voucher",
+    "Two free checked bags"
+   ],
+   "answer": 2,
+   "why_uz": "Ikki-uch soatdan oshgan kechikishda aviakompaniya odatda ovqat vaucherini beradi; tunga qolsangiz — mehmonxona va transfer."
+  },
+  {
+   "q": "One ticket, two flights, missed connection — who is responsible?",
+   "options": [
+    "You, always",
+    "The airline — they rebook you",
+    "Nobody",
+    "The travel agent"
+   ],
+   "answer": 1,
+   "why_uz": "Bitta bron bitta shartnoma: kechikish sizning aybingiz emas — aviakompaniya qayta yozadi va ovqat/mehmonxona berishi mumkin."
+  },
+  {
+   "q": "How do you start a hotel complaint?",
+   "options": [
+    "'I want a refund now!'",
+    "'This hotel is terrible.'",
+    "'The air conditioning isn't working, and I can't sleep in this heat.'",
+    "'Call the manager immediately!'"
+   ],
+   "answer": 2,
+   "why_uz": "Shikoyat uch qismi: muammo, ta’sir, so‘rov — his-tuyg‘u emas, fakt va natija."
+  },
+  {
+   "q": "What proof supports a refund claim?",
+   "options": [
+    "Your word alone",
+    "Receipts, booking confirmation and a written report",
+    "A photo of the hotel lobby",
+    "The manager's business card"
+   ],
+   "answer": 1,
+   "why_uz": "Chek, bron tasdig‘i va yozma hisobot — refund arizasining uch ustuni; ularsiz rad etiladi."
+  },
+  {
+   "q": "Which is correct English?",
+   "options": [
+    "My luggages are lost.",
+    "She gave me many advices.",
+    "My luggage is lost.",
+    "I have a doubt about the gate."
+   ],
+   "answer": 2,
+   "why_uz": "Luggage, baggage, advice, information — sanalmaydi; 'two pieces of luggage' desangiz sonini ham ayta olasiz."
+  },
+  {
+   "q": "How do you begin when you need help at the airport?",
+   "options": [
+    "Demand loudly that someone fixes it",
+    "'Could you please help me?'",
+    "Walk away silently",
+    "Shout at the first person you see"
+   ],
+   "answer": 1,
+   "why_uz": "Muloyimlik — eng tez yechim: xodimlar tinch murojaatga faktlar bilan javob beradi."
+  }
+ ]
+}

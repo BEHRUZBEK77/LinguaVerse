@@ -1,34 +1,30 @@
 {
  "title": "Hayotiy tajriba haqida gapirish",
- "goal_uz": "Dars oxirida hayotiy tajriba haqida gapira olasiz: 过 (guò) yordamida tajribani ifodalay olasiz, “hech qachon qilganmisiz?” va “hech qachon qilmaganman” ni aytasiz, 过 va 了 farqini oddiy kontekstda tushunasiz va tajriba haqida qo‘shimcha savollar berasiz. 8 ta “Have you ever…?” savol-javobini bajara olasiz.",
+ "goal_uz": "Dars oxirida hayotiy tajriba haqida gapira olasiz: xitoy tilida 过 (guò) bilan tajribani ifoda etasiz (borganman, ko‘rganman, yeb ko‘rganman), “hech qachon … qilganmisiz?” savolini va “hech qachon qilmaganman” inkorini to‘g‘ri tuzasiz, 过 (tajriba) va 了 (aniq o‘tgan voqea/oddiy o‘tgan kontekst) farqini tushunasiz hamda tajribadan keyin qo‘shimcha savollar (qachon, necha marta, qanday, qayerda, kim bilan) berasiz. Uy vazifasida 8 ta “Have you ever…?” savol-javobini bajarasiz.",
  "vocab": [
   {
    "w": "过 (guò)",
-   "uz": "tajriba bildiruvchi yuklama (fe’ldan keyin)"
+   "uz": "tajriba yuklamasi (fe‘ldan keyin)"
   },
   {
    "w": "去过 (qùguò)",
-   "uz": "borganman (tajriba)"
+   "uz": "borganman (tajriba bor)"
   },
   {
    "w": "吃过 (chīguò)",
-   "uz": "yeganman (tajriba)"
+   "uz": "yeb ko‘rganman"
   },
   {
    "w": "看过 (kànguò)",
-   "uz": "ko‘rganman (tajriba)"
+   "uz": "ko‘rganman"
   },
   {
    "w": "没…过 (méi…guò)",
-   "uz": "hech …maganman (tajriba inkori)"
+   "uz": "…maganman (tajriba inkori)"
   },
   {
    "w": "从来 (cónglái)",
    "uz": "hech qachon (ko‘pincha inkor bilan)"
-  },
-  {
-   "w": "经历 (jīnglì)",
-   "uz": "tajriba, boshdan kechirish"
   },
   {
    "w": "一次 (yí cì)",
@@ -39,8 +35,12 @@
    "uz": "bir necha marta"
   },
   {
-   "w": "已经 (yǐjīng)",
-   "uz": "allaqachon"
+   "w": "什么时候 (shénme shíhou)",
+   "uz": "qachon"
+  },
+  {
+   "w": "怎么样 (zěnmeyàng)",
+   "uz": "qanday (edi)?"
   }
  ],
  "scenes": [
@@ -49,80 +49,116 @@
    "title": "Tajriba: 过",
    "emotion": "happy",
    "board": [
-    "第四十八课：去过、吃过、看过",
-    "A2-23: Hayotiy tajriba"
+    "第四十八课：你去过中国吗？",
+    "A2-23: hayotiy tajriba",
+    "过 guò — tajriba (ever)"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! Bugun hayotiy tajriba haqida gaplashamiz. Xitoy tilida “qilganman/ko‘rganman/borganman” tajribasini ifodalash uchun fe’ldan keyin 过 (guò) ishlatiladi: 去过 — borganman (umrda), 吃过 — yeganman, 看过 — ko‘rganman. Bu ingliz tilidagi present perfect tajriba ma’nosiga yaqin, lekin xitoy tilida zamon emas, balki tajriba yuklamasi. Savol: 你去过中国吗？ Inkor: 我没去过. Dars oxirida 8 ta savol-javob qilasiz.",
-   "say": "大家好！你去过中国吗？我吃过北京烤鸭。你看过那部电影吗？",
-   "say_uz": "Hammaga salom! Xitoyga borganmisiz? Pekin o‘rdagini yeganman. Ana u filmni ko‘rganmisiz?",
+   "say_native": "Assalomu alaykum! Oldingi darsda telefon, internet va ijtimoiy tarmoqlar haqida gaplashgan edik. Bugun hayotiy tajriba haqida gapirishni o‘rganamiz. Ingliz tilida “Have you ever…?” degan savol bor; xitoy tilida bu ma‘noni ifodalash uchun fe‘ldan keyin 过 (guò) yuklamasi ishlatiladi. Masalan: 你去过中国吗? — Xitoyga borganmisiz? Bu yerda muhim narsa aniq sana emas, balki tajribaning bor-yo‘qligi: umr davomida shunday tajriba bo‘lganmi? Xitoy tilida fe‘llar ingliz tilidagi kabi zamon bo‘yicha tuslanmaydi. Shuning uchun 过, 了 kabi aspekt/zarra va vaqt so‘zlari gapning ma‘nosini aniqlaydi. Bugun biz 过 ning ijobiy, savol va inkor shakllarini, “hech qachon” ma‘nosini, 过 va 了 farqini hamda tajribadan keyin beriladigan qo‘shimcha savollarni o‘rganamiz. Dars oxirida 8 ta “Have you ever…?” savol-javobini bajarasiz.",
+   "say": "你好！你去过中国吗？我去过北京。你吃过饺子吗？我吃过很多次。",
+   "say_uz": "Salom! Xitoyga borganmisiz? Pekinda bo‘lganman. Chuchvara yeb ko‘rganmisiz? Ko‘p marta yeb ko‘rganman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "过 — tajriba",
+   "title": "过 — tajriba tuzilmasi",
    "emotion": "neutral",
    "board": [
-    "Fe’l + 过 (guò) — tajriba bor",
-    "去过 qùguò — borganman (biror vaqtda)",
-    "吃过 chīguò — yeganman",
-    "看过 kànguò — ko‘rganman",
-    "学过 xuéguò — o‘rganganman"
+    "Ega + fe‘l + 过 + (obyekt)",
+    "我去过北京。 — Pekinda bo‘lganman.",
+    "她吃过火锅。 — u hotpot yeb ko‘rgan.",
+    "Tajriba = biror vaqtda bo‘lgan, aniq vaqt muhim emas"
    ],
    "examples": [
     {
-     "t": "我去过北京。",
-     "uz": "Pekinda bo‘lganman (tajribam bor)."
+     "t": "我去过上海。",
+     "uz": "Shanxayda bo‘lganman."
     },
     {
-     "t": "我吃过饺子。",
-     "uz": "Chuchvara yeganman."
+     "t": "我们看过这部电影。",
+     "uz": "Bu filmni ko‘rganmiz."
+    },
+    {
+     "t": "他学过中文。",
+     "uz": "U xitoy tilini o‘rgangan (tajribasi bor)."
     }
    ],
-   "say_native": "过 fe’ldan keyin keladi va hayotiy tajribani bildiradi: shu ishni biror vaqtda qilganman. “Wǒ qùguò Běijīng” — Pekinga borganman (tajriba). Qachonligi aniq aytilmasligi mumkin; muhim — tajriba bor-yo‘qligi. Bu 了 dan farq qiladi — 了 ko‘proq aniq voqea yoki tugallanishni bildiradi (oddiy kontekstda).",
-   "say": "我去过上海。我吃过中国菜。我看过这本书。我学过一点儿中文。",
-   "say_uz": "Shanxayda bo‘lganman. Xitoy taomini yeganman. Bu kitobni ko‘rganman. Biroz xitoy tilini o‘rganganman.",
+   "say_native": "过 fe‘ldan keyin keladi va hayotiy tajribani bildiradi: bu harakat sizning hayotingizda biror vaqtda sodir bo‘lgan. “我去过北京” deganda siz “Pekinga borganman” deyapsiz, lekin qachon borganingizni aniq aytmayapsiz — tajriba borligi muhim. Xitoy tilida bu “present perfect experience” kabi tushuniladi, lekin grammatik jihatdan fe‘l tuslanmaydi; faqat 过 qo‘shiladi. Tuzilma juda oddiy: ega, keyin fe‘l, keyin 过, keyin obyekt yoki joy. Masalan: 去过北京, 吃过饺子, 看过那本书, 学过中文. Agar obyekt bo‘lmasa ham bo‘ladi: 我去过 — men borganman (tajribam bor). A2 darajasida 过 ni ko‘p ishlatiladigan fe‘llar bilan mashq qilish muhim: 去, 来, 吃, 喝, 看, 听, 学, 住, 做, 见, 参加, 坐.",
+   "say": "我去过上海。我们看过这部电影。他学过中文。她来过这里。",
+   "say_uz": "Shanxayda bo‘lganman. Bu filmni ko‘rganmiz. U xitoy tilini o‘rgangan. U bu yerga kelgan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ko‘p ishlatiladigan fe‘l + 过",
+   "emotion": "neutral",
+   "board": [
+    "住过 zhùguò — yashagan (tajriba)",
+    "做过 zuòguò — qilgan",
+    "见过 jiànguò — ko‘rgan/uchrashgan",
+    "参加过 cānjiāguò — qatnashgan",
+    "坐过 zuòguò — min gan/o‘tirgan (transport)"
+   ],
+   "examples": [
+    {
+     "t": "我住过上海。",
+     "uz": "Shanxayda yashaganman."
+    },
+    {
+     "t": "你见过他吗？",
+     "uz": "U bilan uchrashganmisiz?"
+    },
+    {
+     "t": "我坐过飞机。",
+     "uz": "Samolyotda uchganman."
+    }
+   ],
+   "say_native": "过 deyarli har qanday harakat fe‘li bilan ishlatilishi mumkin. A2 da eng foydali fe‘llarni ko‘rib chiqamiz. 住过 — biror joyda yashagan tajribangiz bor: 我住过北京. 做过 — qilganman: 我做过这个工作. 见过 — ko‘rganman yoki uchrashganman: 我见过那个老师. 参加过 — qatnashganman: 我参加过比赛. 坐过 — transportda min gan tajriba: 我坐过飞机, 我坐过高铁. Eslatma: 坐 va 做 bir xil pinyin bo‘lishi mumkin (zuò), lekin ieroglif va ma‘no farq qiladi; gap kontekstiga qarang. Tajriba haqida gapirganda fe‘lning ma‘nosini to‘g‘ri tanlash muhim, 过 esa tajriba qatlamini qo‘shadi.",
+   "say": "我住过上海。你见过他吗？我坐过飞机。我们参加过比赛。",
+   "say_uz": "Shanxayda yashaganman. U bilan uchrashganmisiz? Samolyotda uchganman. Musobaqada qatnashganmiz.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "过 mashqi",
+   "title": "过 bilan gap tuzing",
    "emotion": "encouraging",
    "board": [
     "1) Men Pekinda bo‘lganman.",
-    "2) Xitoy taomini yeganman.",
-    "3) Bu filmni ko‘rganman."
+    "2) U xitoy taomini yeb ko‘rgan.",
+    "3) Biz bu filmni ko‘rganmiz.",
+    "4) Men samolyotda uchganman."
    ],
    "examples": [],
-   "say_native": "Uchta gap: 去过北京, 吃过中国菜, 看过这部电影. 过 ni fe’ldan keyin qo‘ying.",
-   "say": "我去过北京。我吃过中国菜。我看过这部电影。",
-   "say_uz": "Pekinda bo‘lganman. Xitoy taomini yeganman. Bu filmni ko‘rganman.",
-   "practice_seconds": 12
+   "say_native": "To‘rtta gapni xitoycha ayting. Har birida fe‘ldan keyin 过 qo‘ying. Faqat tarjima emas, tuzilmani ham his qiling: kim + nima qildi (tajriba) + obyekt/joy.",
+   "say": "我去过北京。他吃过中国菜。我们看过这部电影。我坐过飞机。",
+   "say_uz": "Pekinda bo‘lganman. U xitoy taomini yeb ko‘rgan. Bu filmni ko‘rganmiz. Samolyotda uchganman.",
+   "practice_seconds": 15
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar va izoh",
    "emotion": "happy",
    "board": [
-    "去过北京",
-    "吃过中国菜",
-    "看过这部电影"
+    "去过北京 ✓",
+    "吃过中国菜 ✓",
+    "看过这部电影 ✓",
+    "坐过飞机 ✓"
    ],
    "examples": [],
-   "say_native": "Javoblar: 过 tajribani ko‘rsatdi. Endi savol va inkor.",
-   "say": "我去过北京。我吃过中国菜。我看过这部电影。",
-   "say_uz": "Pekinda bo‘lganman. Xitoy taomini yeganman. Bu filmni ko‘rganman.",
+   "say_native": "Javoblar to‘g‘ri. Har bir gapda 过 tajribani ko‘rsatdi. Bu gaplar “qachon?” degan savolga javob bermaydi — ular faqat tajriba borligini bildiradi. Agar kimdir “qachon bording?” deb so‘rasa, bu qo‘shimcha savol bo‘ladi va biz uni darsning keyingi qismida o‘rganamiz. Hozircha 过 ni tajriba belgisi sifatida mustahkamlang: fe‘l + 过 = qilganman/e bo‘lganman/k‘rganman.",
+   "say": "我去过北京。他吃过中国菜。我们看过这部电影。我坐过飞机。",
+   "say_uz": "Pekinda bo‘lganman. U xitoy taomini yeb ko‘rgan. Bu filmni ko‘rganmiz. Samolyotda uchganman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Savol: …过吗？",
+   "title": "Tajriba savoli: …过吗？",
    "emotion": "neutral",
    "board": [
-    "你去过中国吗？ nǐ qùguò Zhōngguó ma?",
-    "你吃过饺子吗？",
-    "你看过那本书吗？",
-    "Javob: 去过 / 没去过"
+    "Fe‘l + 过 + 吗？",
+    "你去过中国吗？ — Xitoyga borganmisiz?",
+    "你吃过饺子吗？ — chuchvara yeb ko‘rganmisiz?",
+    "Bu “Have you ever…?” ma‘nosiga yaqin"
    ],
    "examples": [
     {
@@ -130,492 +166,306 @@
      "uz": "Yaponiyaga borganmisiz?"
     },
     {
-     "t": "去过一次。/ 没去过。",
-     "uz": "Bir marta borganman. / Bormaganman."
+     "t": "你看过这本书吗？",
+     "uz": "Bu kitobni o‘qib ko‘rganmisiz/ko‘rganmisiz?"
+    },
+    {
+     "t": "你喝过中国茶吗？",
+     "uz": "Xitoy choyini ichib ko‘rganmisiz?"
     }
    ],
-   "say_native": "Tajriba savoli: fe’l + 过 + 吗? “Nǐ qùguò Zhōngguó ma?” — Xitoyga borganmisiz? Qisqa javob: 去过 (ha), 没去过 (yo‘q). 一次 — bir marta, 几次 — bir necha marta qo‘shish mumkin.",
-   "say": "你去过中国吗？你吃过北京烤鸭吗？你看过这部电影吗？",
-   "say_uz": "Xitoyga borganmisiz? Pekin o‘rdagini yeganmisiz? Bu filmni ko‘rganmisiz?",
+   "say_native": "Tajriba haqida so‘rashning eng oddiy usuli — gap oxiriga 吗 qo‘shish: fe‘l + 过 + obyekt + 吗? “你去过中国吗?” — siz umr davomida Xitoyga borganmisizmi? Javobni taxmin qilish shart emas; ha yoki yo‘q bo‘lishi mumkin. Qisqa javobda ko‘pincha fe‘l + 过 takrorlanadi: 去过 (ha, borganman) yoki 没去过 (yo‘q, bormaganman). Bu savol shakli kundalik suhbatda juda keng tarqalgan: sayohat, taom, filmlar, tajribalar haqida. Eslatma: 过 bor gapda 吗 ishlatish tabiiy. Bu “ever” ma‘nosini beradi, lekin xitoy tilida alohida “ever” so‘zi har doim yozilmaydi — 过 va kontekst yetarli bo‘ladi.",
+   "say": "你去过日本吗？你看过这本书吗？你喝过中国茶吗？你听过这首歌吗？",
+   "say_uz": "Yaponiyaga borganmisiz? Bu kitobni ko‘rganmisiz? Xitoy choyini ichib ko‘rganmisiz? Bu qo‘shiqni eshitganmisiz?",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Savollar",
+   "title": "…过吗? savollar tuzing",
    "emotion": "encouraging",
    "board": [
     "1) Xitoyga borganmisiz?",
-    "2) Sushi yeganmisiz?",
-    "3) Bu kitobni o‘qiganmisiz?"
+    "2) Sushi yeb ko‘rganmisiz?",
+    "3) Bu kitobni o‘qiganmisiz? (读过)",
+    "4) Chet elda yashaganmisiz? (住过国外)"
    ],
    "examples": [],
-   "say_native": "Uchta savol tuzing: 去过中国吗, 吃过寿司吗, 看过/读过这本书吗. 读过 (dúguò) — o‘qiganman (tajriba).",
-   "say": "你去过中国吗？你吃过寿司吗？你读过这本书吗？",
-   "say_uz": "Xitoyga borganmisiz? Sushi yeganmisiz? Bu kitobni o‘qiganmisiz?",
-   "practice_seconds": 12
+   "say_native": "To‘rtta savol tuzing. Har birida 过 va 吗 bo‘lsin. 3-savolda 读过 dúguò — o‘qib ko‘rganman ishlating. 4-savolda 住过 va 国外 so‘zlarini birlashtiring.",
+   "say": "你去过中国吗？你吃过寿司吗？你读过这本书吗？你住过国外吗？",
+   "say_uz": "Xitoyga borganmisiz? Sushi yeb ko‘rganmisiz? Bu kitobni o‘qiganmisiz? Chet elda yashaganmisiz?",
+   "practice_seconds": 15
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "happy",
    "board": [
-    "去过中国吗？",
-    "吃过寿司吗？",
-    "读过这本书吗？"
+    "去过中国吗？ ✓",
+    "吃过寿司吗？ ✓",
+    "读过这本书吗？ ✓",
+    "住过国外吗？ ✓"
    ],
    "examples": [],
-   "say_native": "Javoblar: tajriba savollari. Ha/yo‘q javobi: 去过/没去过, 吃过/没吃过. Endi inkor va “hech qachon”.",
-   "say": "你去过中国吗？你吃过寿司吗？你读过这本书吗？",
-   "say_uz": "Xitoyga borganmisiz? Sushi yeganmisiz? Bu kitobni o‘qiganmisiz?",
+   "say_native": "Savollar to‘g‘ri tuzildi. Eslatma: obyekt bor bo‘lsa, odatda fe‘l + 过 + obyekt + 吗 tartibi ishlatiladi: 你吃过寿司吗? Joy bilan ham: 你去过中国吗? Savol tuzilmasi bir xil qoladi, faqat fe‘l va obyekt o‘zgaradi. Endi javob berishni va inkorni ko‘ramiz — ayniqsa “hech qachon” ma‘nosini.",
+   "say": "你去过中国吗？你吃过寿司吗？你读过这本书吗？你住过国外吗？",
+   "say_uz": "Xitoyga borganmisiz? Sushi yeb ko‘rganmisiz? Bu kitobni o‘qiganmisiz? Chet elda yashaganmisiz?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Inkor: 没…过 / 从来没…过",
+   "title": "Inkor: 没…过 va 从来没…过 (never)",
    "emotion": "neutral",
    "board": [
-    "没去过 méi qùguò — bormaganman (tajriba yo‘q)",
-    "从来没去过 cónglái méi qùguò — hech qachon bormaganman",
-    "没吃过, 没看过"
+    "没 + fe‘l + 过 — tajriba yo‘q",
+    "我没去过中国。 — Xitoyga bormaganman.",
+    "从来没/从来没有 + fe‘l + 过 — hech qachon",
+    "我从来没吃过这个。 — buni hech qachon yemaganman."
    ],
    "examples": [
     {
-     "t": "我没去过中国。",
-     "uz": "Xitoyga bormaganman."
+     "t": "我没去过日本。",
+     "uz": "Yaponiyaga bormaganman."
     },
     {
-     "t": "我从来没吃过这个。",
-     "uz": "Buni hech qachon yemaganman."
+     "t": "他从来没看过京剧。",
+     "uz": "U Pekin operasini hech qachon ko‘rmagan."
+    },
+    {
+     "t": "我们从来没坐过船。",
+     "uz": "Biz hech qachon kemada bo‘lmaganmiz."
     }
    ],
-   "say_native": "Tajriba inkori: 没 + fe’l + 过. “Méi qùguò” — bormaganman. Kuchliroq: 从来没…过 — hech qachon. “Cónglái méi chīguò” — hech qachon yemaganman. 从来 odatda inkor bilan ishlatiladi.",
-   "say": "我没去过日本。我没吃过那个。我从来没看过这部电影。",
-   "say_uz": "Yaponiyaga bormaganman. Anavi narsani yemaganman. Bu filmni hech qachon ko‘rmaganman.",
+   "say_native": "Tajriba inkori uchun 没 ishlatiladi: 没 + fe‘l + 过. Xitoy tilida o‘tgan/tajriba inkorida odatda 不 emas, 没 ishlatilishini eslang: 我没去过, 我没吃过. Bu juda muhim qoidadir. “Hech qachon” ma‘nosini kuchaytirish uchun 从来 (cónglái) qo‘shiladi: 从来没去过 yoki 从来没有去过. 从来 inkor bilan keladi va tajriba umuman yo‘qligini bildiradi. Ingliz tilidagi “never” ga yaqin. Masalan: 我从来没吃过臭豆腐 — bu taomni hayotimda hech qachon yemaganman. Savolga qisqa inkor javob: 没去过. To‘liqroq: 我从来没去过. Ijobiy va inkor farqini aniq saqlang: 去过 vs 没去过.",
+   "say": "我没去过日本。他从来没看过京剧。我们从来没坐过船。我没吃过那个。",
+   "say_uz": "Yaponiyaga bormaganman. U Pekin operasini hech qachon ko‘rmagan. Hech qachon kemada bo‘lmaganmiz. Uni yemaganman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Inkor",
+   "title": "Inkor va never",
    "emotion": "encouraging",
    "board": [
-    "1) Xitoyga bormaganman.",
-    "2) Buni hech qachon yemaganman.",
-    "3) Bu filmni ko‘rmaganman."
+    "1) Men Xitoyga bormaganman.",
+    "2) U buni hech qachon yemagan.",
+    "3) Biz Pekin operasini ko‘rmaganmiz.",
+    "4) Siz hech qachon samolyotda uchganmisiz? (savol) — yo‘q javob bering."
    ],
    "examples": [],
-   "say_native": "Uchta gap: 没去过, 从来没吃过, 没看过. 从来 ni 2-gapda ishlating.",
-   "say": "我没去过中国。我从来没吃过这个。我没看过这部电影。",
-   "say_uz": "Xitoyga bormaganman. Buni hech qachon yemaganman. Bu filmni ko‘rmaganman.",
-   "practice_seconds": 12
+   "say_native": "Uchta inkor gap va bitta savol-javob tuzing. 2-gapda 从来没…过 ishlating. 4-savolga “hech qachon” ma‘nosida javob bering.",
+   "say": "我没去过中国。他从来没吃过这个。我们没看过京剧。你坐过飞机吗？我从来没坐过飞机。",
+   "say_uz": "Xitoyga bormaganman. U buni hech qachon yemagan. Pekin operasini ko‘rmaganmiz. Samolyotda uchganmisiz? Hech qachon uchmaganman.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "happy",
    "board": [
-    "没去过",
-    "从来没吃过",
-    "没看过"
+    "没去过 ✓",
+    "从来没吃过 ✓",
+    "没看过京剧 ✓",
+    "从来没坐过飞机 ✓"
    ],
    "examples": [],
-   "say_native": "Javoblar: tajriba inkori. “Hech qachon” — 从来没…过. Endi 过 va 了 farqi (oddiy).",
-   "say": "我没去过中国。我从来没吃过这个。我没看过这部电影。",
-   "say_uz": "Xitoyga bormaganman. Buni hech qachon yemaganman. Bu filmni ko‘rmaganman.",
+   "say_native": "Javoblar: 没…过 oddiy tajriba inkori, 从来没…过 esa “hech qachon”ni kuchliroq bildiradi. Ikkalasi ham to‘g‘ri, lekin ma‘no ottenkasi farq qiladi. Agar suhbatdosh “umuman tajriba yo‘qmi?” deb so‘rasa, 从来没…过 juda mos keladi. Keyin ko‘pincha 但是我想… (lekin xohlayman) qo‘shiladi: 我从来没去过中国，但是我想去 — hech qachon bormaganman, lekin bormoqchiman. Bu gap tuzilishi hayotiy suhbatda juda foydali.",
+   "say": "我没去过中国。他从来没吃过这个。我们没看过京剧。我从来没坐过飞机，但是我想坐。",
+   "say_uz": "Xitoyga bormaganman. U buni hech qachon yemagan. Pekin operasini ko‘rmaganmiz. Hech qachon samolyotda uchmaganman, lekin uchmoqchiman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "过 va 了 — oddiy farq",
+   "title": "过 va 了: tajriba va aniq o‘tgan voqea",
    "emotion": "neutral",
    "board": [
-    "过 — tajriba (umrda, biror vaqtda)",
-    "我去过北京。 (tajribam bor)",
-    "了 — aniq voqea/tugallanish (kontekstda)",
+    "过 — tajriba: qachonligi aniq emas",
+    "我去过北京。 (umuman tajriba bor)",
+    "了 — aniq voqea/vaqt kontekstida",
     "我昨天去了北京。 (kecha bordim)",
-    "Ikkalasi ham “o‘tgan” bilan bog‘liq, lekin ma’no farqi bor"
+    "Aniq vaqt (昨天/去年/上个月) bo‘lsa, ko‘pincha 了"
    ],
    "examples": [
     {
      "t": "我吃过北京烤鸭。",
-     "uz": "Pekin o‘rdagini yeganman (tajriba)."
+     "uz": "Pekin o‘rdagini yeb ko‘rganman (tajriba)."
     },
     {
      "t": "我昨天吃了北京烤鸭。",
-     "uz": "Kecha Pekin o‘rdagi yedim (aniq voqea)."
+     "uz": "Kecha Pekin o‘rdagini yedim (aniq voqea)."
+    },
+    {
+     "t": "你看过这部电影吗？",
+     "uz": "Bu filmni ko‘rganmisiz? (tajriba)"
+    },
+    {
+     "t": "我上个星期看了这部电影。",
+     "uz": "O‘tgan hafta bu filmni ko‘rdim (aniq vaqt)."
     }
    ],
-   "say_native": "Oddiy farq: 过 tajriba — “umrda qilganmanmi?”, ko‘pincha qachonligi muhim emas. 了 ko‘pincha aniq voqea yoki tugallanish — “kecha yedim”, “bordim”. “Wǒ qùguò Běijīng” — tajriba. “Wǒ zuótiān qù le Běijīng” — kecha bordim (aniq vaqt). Ikkalasini chalkashtirmang, lekin ikkalasi ham murakkab; A2 da asosiy tajriba 过 ni o‘rganamiz.",
-   "say": "我去过北京。我昨天去了上海。你吃过饺子吗？我今天吃了饺子。",
-   "say_uz": "Pekinda bo‘lganman (tajriba). Kecha Shanxayga bordim. Chuchvara yeganmisiz? Bugun chuchvara yedim.",
+   "say_native": "Bu darsning eng muhim farqlaridan biri: 过 va 了. Ikkalasi ham o‘tgan tajriba/voqea bilan bog‘liq ko‘rinishi mumkin, lekin vazifasi boshqacha. 过 tajribani bildiradi: hayotingizda shunday narsa bo‘lganmi? Qachonligi ko‘pincha aytilmaydi yoki muhim emas. 了 esa aniq sodir bo‘lgan voqeani yoki tugallanishni kontekstda ko‘rsatadi; ko‘pincha aniq vaqt bilan keladi: 昨天, 去年, 上个星期, 刚才, 2019年. “我去过北京” — tajriba. “我去年去了北京” — o‘tgan yili bordim, aniq voqea. Suhbatda tabiiy zanjir bo‘ladi: avval 过 bilan tajriba so‘raladi, keyin 了 bilan aniq tafsilot aytiladi. Masalan: “你去过北京吗?” — “去过。” — “什么时候去的?” — “去年去了。” Eslatma: xitoy tilida 了 ning ishlatilishi murakkabroq bo‘lishi mumkin, lekin A2 darajasida shu oddiy farqni tushunish yetarli: tajriba = 过, aniq vaqtli voqea = ko‘pincha 了.",
+   "say": "我吃过北京烤鸭。我昨天吃了北京烤鸭。你看过这部电影吗？我上个星期看了这部电影。",
+   "say_uz": "Pekin o‘rdagini yeb ko‘rganman. Kecha Pekin o‘rdagini yedim. Bu filmni ko‘rganmisiz? O‘tgan hafta bu filmni ko‘rdim.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "过 va 了",
+   "title": "Keng tarqalgan xatolar",
    "emotion": "stern",
    "board": [
-    "Tajriba savoli: 你去过吗？ (umuman)",
-    "Aniq o‘tgan voqea + vaqt: 我昨天去了。",
-    "Bitta gapda 过 va 了 ni aralashtirib yubormang (bu darajada)"
+    "Tajriba inkori: 不去过 ✗ → 没去过 ✓",
+    "Tajriba savoli (umuman): 你昨天去过吗？ ✗ (chalkash)",
+    "Aniq vaqt bo‘lsa: 我去年去过北京 ✗ → 我去年去了北京 ✓ (aniq voqea)",
+    "过 = tajriba, 了 = aniq voqea/vaqt konteksti"
    ],
    "examples": [],
-   "say_native": "Xato: tajriba haqida so‘rayotganda 了 ishlatish o‘rniga 过 ishlating: “Nǐ qùguò ma?” Aniq vaqt (kecha, o‘tgan yil) bilan gapirsangiz, 过 o‘rniga ko‘pincha 了 yoki oddiy o‘tgan kontekst keladi. A2 da qoidani sodda tuting: tajriba = 过, aniq voqea + vaqt = 了 (tez-tez).",
-   "say": "你去过北京吗？— 去过。我去年去了北京。",
-   "say_uz": "Pekinda bo‘lganmisiz? — Ha, bo‘lganman. O‘tgan yili Pekinga bordim.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Qo‘shimcha savollar",
-   "emotion": "neutral",
-   "board": [
-    "什么时候？ shénme shíhou? — qachon?",
-    "去哪儿了？/ 去过哪儿？ — qayerga? (kontekstga qarab)",
-    "几次？ jǐ cì? — necha marta?",
-    "怎么样？ zěnmeyàng? — qanday edi?"
-   ],
-   "examples": [
-    {
-     "t": "你去过中国吗？去过。什么时候去的？去年。",
-     "uz": "Xitoyga borganmisiz? Ha. Qachon? O‘tgan yili."
-    }
-   ],
-   "say_native": "Tajriba savolidan keyin qo‘shimcha savollar: 什么时候? — qachon? 几次? — necha marta? 怎么样? — qanday edi? Javobda aniq voqea haqida gapirsangiz, 了 ishlatilishi mumkin: 去年去了. Bu tabiiy — avval tajriba, keyin tafsilot.",
-   "say": "你去过北京吗？去过一次。什么时候？去年。怎么样？很好！",
-   "say_uz": "Pekinda bo‘lganmisiz? Bir marta. Qachon? O‘tgan yili. Qanday edi? Juda yaxshi!",
+   "say_native": "Uchta xatoga e‘tibor bering. Birinchisi: tajriba inkorida 不 ishlatmang. To‘g‘risi 没去过, 没吃过. Bu qoida deyarli har doim shunday. Ikkinchisi: 过 tajriba, shuning uchun “kecha borganmisiz?” degan aniq vaqtli savolda 过 tabiiy emas. Agar aniq vaqt bo‘lsa, ko‘pincha 了 yoki oddiy o‘tgan voqea shakli ishlatiladi. Uchinchisi: “去年我去过北京” deyish ba‘zan eshitilishi mumkin, lekin A2 darajasida aniq vaqt bo‘lganda 了 ni tanlash xavfsizroq va aniqroq: 我去年去了北京. Tajriba haqida umumiy so‘rayotganda 过 ishlating: 你去过北京吗? Tafsilotga o‘tganda vaqt va 了 kelishi mumkin. Bu farqni mexanik emas, ma‘no orqali tushuning.",
+   "say": "我没去过中国。你去过北京吗？去过。我去年去了北京。",
+   "say_uz": "Xitoyga bormaganman. Pekinda bo‘lganmisiz? Ha. O‘tgan yili Pekinga bordim.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Savol-javob zanjiri",
+   "title": "过 yoki 了?",
    "emotion": "encouraging",
    "board": [
-    "A: 你去过…吗？",
-    "B: 去过/没去过。",
-    "A: 什么时候？/几次？/怎么样？",
+    "1) Siz Pekinda bo‘lganmisiz? (tajriba)",
+    "2) Men kecha Pekinga bordim. (aniq vaqt)",
+    "3) U hotpot yeb ko‘rgan. (tajriba)",
+    "4) Biz o‘tgan hafta hotpot yedik. (aniq vaqt)"
+   ],
+   "examples": [],
+   "say_native": "To‘rtta gapni to‘g‘ri shaklda ayting. 1 va 3 tajriba — 过. 2 va 4 aniq vaqt — 了. Har birida sababni o‘ylang.",
+   "say": "你去过北京吗？我昨天去了北京。他吃过火锅。我们上个星期吃了火锅。",
+   "say_uz": "Pekinda bo‘lganmisiz? Kecha Pekinga bordim. U hotpot yeb ko‘rgan. O‘tgan hafta hotpot yedik.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "happy",
+   "board": [
+    "过吗？ (tajriba) ✓",
+    "昨天去了 (aniq vaqt) ✓",
+    "吃过 (tajriba) ✓",
+    "上个星期吃了 (aniq vaqt) ✓"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: tajriba savoli va tajriba daragi 过 bilan, aniq vaqt ko‘rsatilgan voqealar esa 了 bilan ifodalandi. Bu kontrastni eslab qoling. Agar gapda 昨天, 去年, 上个月, 刚才 kabi aniq vaqt bo‘lsa, “bu tajriba bormi?” emas, balki “o‘sha paytda nima bo‘ldi?” ma‘nosi kuchli bo‘ladi va 了 mos keladi. Agar savol umumiy tajriba haqida bo‘lsa, 过 ishlating.",
+   "say": "你去过北京吗？我昨天去了北京。他吃过火锅。我们上个星期吃了火锅。",
+   "say_uz": "Pekinda bo‘lganmisiz? Kecha Pekinga bordim. U hotpot yeb ko‘rgan. O‘tgan hafta hotpot yedik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qo‘shimcha savollar: qachon, necha marta",
+   "emotion": "neutral",
+   "board": [
+    "什么时候？ shénme shíhou — qachon?",
+    "什么时候去的？ — qachon bordingiz?",
+    "几次？ jǐ cì — necha marta?",
+    "一次 / 两次 / 好几次 / 很多次"
+   ],
+   "examples": [
+    {
+     "t": "你去过北京吗？去过。去过几次？两次。",
+     "uz": "Pekinda bo‘lganmisiz? Ha. Necha marta? Ikki marta."
+    },
+    {
+     "t": "什么时候去的？去年。",
+     "uz": "Qachon bordingiz? O‘tgan yili."
+    }
+   ],
+   "say_native": "Tajriba savolidan keyin suhbatni davom ettirish uchun qo‘shimcha savollar beriladi. Eng ko‘p ishlatiladiganlari: 几次? — necha marta? 什么时候? — qachon? Birinchi savol tajriba miqdorini aniqlaydi: 一次 (bir marta), 两次 (ikki marta), 好几次 (bir necha marta), 很多次 (ko‘p marta). Ikkinchi savol aniq vaqtni so‘raydi. Diqqat qiling: “什么时候去的?” iborasida 的 ishlatiladi va bu ko‘pincha aniq o‘tgan voqea haqida tafsilot so‘rashdir. Bu tabiiy: avval 过 bilan tajriba borligini bilasiz, keyin aniq voqea qachon bo‘lganini so‘raysiz. Xitoy tilida shunday zanjir juda keng tarqalgan.",
+   "say": "你去过北京吗？去过。去过几次？两次。什么时候去的？去年。",
+   "say_uz": "Pekinda bo‘lganmisiz? Ha. Necha marta? Ikki marta. Qachon bordingiz? O‘tgan yili.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qo‘shimcha savollar: qanday, qayerda, kim bilan",
+   "emotion": "neutral",
+   "board": [
+    "怎么样？ zěnmeyàng — qanday edi?",
+    "好玩吗？ hǎowán ma — qiziqarlimi?",
+    "去哪儿了？ / 去过哪儿？ — qayerga? (kontekstga qarab)",
+    "跟谁一起去的？ gēn shéi yìqǐ qù de — kim bilan?"
+   ],
+   "examples": [
+    {
+     "t": "你去过上海吗？去过。怎么样？很好玩。",
+     "uz": "Shanxayda bo‘lganmisiz? Ha. Qanday edi? Juda qiziqarli."
+    },
+    {
+     "t": "你跟谁一起去的？跟朋友一起去的。",
+     "uz": "Kim bilan bordingiz? Do‘stim bilan."
+    }
+   ],
+   "say_native": "Tajribani chuqurroq so‘rash uchun boshqa savollar ham ishlatiladi. 怎么样? — qanday edi? Bu fikr va taassurotni so‘raydi. 好玩吗? / 好吃吗? / 有意思吗? — qiziqarlimi, mazalimi, qiziqmi? kabi aniqroq savollar ham bo‘lishi mumkin. 去过哪儿? yoki 去过哪些地方? — qayerlarga borganingiz bor? Bu savol tajriba doirasini kengaytiradi. 跟谁一起去的? — kim bilan bordingiz? 什么时候去的? kabi, bu ham aniq voqea tafsilotiga o‘tadi. Suhbatda bu savollarni ketma-ket berish mumkin: avval tajriba bormi, keyin necha marta, qachon, kim bilan, qanday bo‘ldi. Bu sizning 8 ta “Have you ever…?” uy vazifangizni ham boy qiladi.",
+   "say": "你去过上海吗？去过。怎么样？很好玩。你跟谁一起去的？跟朋友一起去的。",
+   "say_uz": "Shanxayda bo‘lganmisiz? Ha. Qanday edi? Juda qiziqarli. Kim bilan bordingiz? Do‘stim bilan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qo‘shimcha savollar bilan zanjir",
+   "emotion": "encouraging",
+   "board": [
+    "A: 你吃过火锅吗？",
+    "B: … (ha/yo‘q)",
+    "A: 吃过几次？/什么时候？/怎么样？",
     "B: …"
    ],
    "examples": [],
-   "say_native": "Qisqa zanjir tuzing: tajriba savoli, javob, qo‘shimcha savol va javob. Masalan: Xitoy, bir marta, o‘tgan yili, juda yaxshi.",
-   "say": "你去过上海吗？去过一次。什么时候去的？两年前。怎么样？我很喜欢上海。",
-   "say_uz": "Shanxayda bo‘lganmisiz? Bir marta. Qachon? Ikki yil oldin. Qanday? Shanxay menga juda yoqdi.",
-   "practice_seconds": 15
+   "say_native": "4 qadamli suhbat zanjiri tuzing. Mavzu: 火锅 (hotpot). Birinchi savol 过 bilan, keyin 几次, 什么时候 yoki 怎么样 dan kamida ikkitasini ishlating. Agar yo‘q javob bersangiz, 从来没吃过 + 但是我想尝尝 deyishingiz mumkin.",
+   "say": "你吃过火锅吗？吃过。吃过几次？三次。怎么样？又辣又好吃。",
+   "say_uz": "Hotpot yeb ko‘rganmisiz? Ha. Necha marta? Uch marta. Qanday edi? Ham achchiq, ham mazali.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "happy",
    "board": [
-    "去过一次",
-    "两年前",
-    "很喜欢"
+    "吃过 ✓",
+    "三次 ✓",
+    "又辣又好吃 ✓"
    ],
    "examples": [],
-   "say_native": "Javoblar: tajriba + tafsilot. Bu “Have you ever…?” dialogiga mos. Endi 8 ta savol-javob mashqi.",
-   "say": "你去过上海吗？去过一次。什么时候去的？两年前。怎么样？我很喜欢上海。",
-   "say_uz": "Shanxayda bo‘lganmisiz? Bir marta. Qachon? Ikki yil oldin. Qanday? Shanxay menga juda yoqdi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "8 ta savol-javob (1–4)",
-   "emotion": "encouraging",
-   "board": [
-    "1) Boshqa davlatga borganmisiz?",
-    "2) Xitoy taomini yeganmisiz?",
-    "3) Xitoy filmi ko‘rganmisiz?",
-    "4) Xitoy tilini o‘rganganmisiz?"
-   ],
-   "examples": [],
-   "say_native": "Birinchi 4 ta savol-javob. Har biriga 过 bilan savol va javob bering. Ha bo‘lsa, 几次 yoki 什么时候 qo‘shing. Yo‘q bo‘lsa, 没去过/从来没…过.",
-   "say": "你去过别的国家吗？我去过一次。你吃过中国菜吗？吃过。你看过中国电影吗？看过几次。你学过中文吗？学过一点儿。",
-   "say_uz": "Boshqa davlatga borganmisiz? Bir marta. Xitoy taomini yeganmisiz? Ha. Xitoy filmi ko‘rganmisiz? Bir necha marta. Xitoy tilini o‘rganganmisiz? Biroz o‘rganganman.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar 1–4",
-   "emotion": "happy",
-   "board": [
-    "去过一次",
-    "吃过",
-    "看过几次",
-    "学过一点儿"
-   ],
-   "examples": [],
-   "say_native": "4 ta savol-javob tayyor. 别的国家 — boshqa davlat. 学过一点儿 — biroz o‘rganganman. Endi 5–8.",
-   "say": "你去过别的国家吗？我去过一次。你吃过中国菜吗？吃过。你看过中国电影吗？看过几次。你学过中文吗？学过一点儿。",
-   "say_uz": "Boshqa davlatga borganmisiz? Bir marta. Xitoy taomini yeganmisiz? Ha. Xitoy filmi ko‘rganmisiz? Bir necha marta. Xitoy tilini o‘rganganmisiz? Biroz o‘rganganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "8 ta savol-javob (5–8)",
-   "emotion": "encouraging",
-   "board": [
-    "5) Tog‘ga chiqqanmisiz?",
-    "6) Dengizda suzganmisiz?",
-    "7) Konsertga borganmisiz?",
-    "8) Chet ellik do‘st bilan gaplashganmisiz?"
-   ],
-   "examples": [],
-   "say_native": "Yana 4 ta savol-javob (jami 8). 爬过山, 游过泳, 去过音乐会, 和外国朋友说过话. Ha yoki yo‘q — o‘zingizga mos javob bering.",
-   "say": "你爬过山吗？爬过。你在海里游过泳吗？游过。你去过音乐会吗？没去过。你和外国朋友说过话吗？说过。",
-   "say_uz": "Tog‘ga chiqqanmisiz? Ha. Dengizda suzganmisiz? Ha. Konsertga borganmisiz? Yo‘q. Chet ellik do‘st bilan gaplashganmisiz? Ha.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar 5–8",
-   "emotion": "happy",
-   "board": [
-    "爬过山",
-    "游过泳",
-    "没去过音乐会",
-    "说过话"
-   ],
-   "examples": [],
-   "say_native": "8 ta savol-javob tugadi. Uy vazifasi: 8 ta “Have you ever…?” savol-javobini yozing va ayting. 过 va 没/从来没过 ni to‘g‘ri ishlating. A2-23 yakunlandi.",
-   "say": "你爬过山吗？爬过。你在海里游过泳吗？游过。你去过音乐会吗？没去过。你和外国朋友说过话吗？说过。",
-   "say_uz": "Tog‘ga chiqqanmisiz? Ha. Dengizda suzganmisiz? Ha. Konsertga borganmisiz? Yo‘q. Chet ellik do‘st bilan gaplashganmisiz? Ha.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Tajriba fe’llari (ko‘proq)",
-   "emotion": "neutral",
-   "board": [
-    "去过 qùguò — borgan",
-    "来过 láiguò — kelgan",
-    "吃过 chīguò — yegan",
-    "喝过 hēguò — ichgan",
-    "听过 tīngguò — eshitgan",
-    "见过 jiànguò — ko‘rgan/uchrashgan"
-   ],
-   "examples": [
-    {
-     "t": "你见过他吗？",
-     "uz": "U bilan uchrashganmisiz/uni ko‘rganmisiz?"
-    },
-    {
-     "t": "我听过这首歌。",
-     "uz": "Bu qo‘shiqni eshitganman."
-    }
-   ],
-   "say_native": "过 ko‘p fe’llar bilan ishlatiladi: 去过, 来过, 吃过, 喝过, 听过, 见过, 学过, 住过 (yashaganman), 做过 (qilganman). Tuzilma bir xil: fe’l + 过. Tajriba bor-yo‘qligini so‘rash va aytish uchun asosiy qolip.",
-   "say": "我来过这里。我喝过中国茶。我听过这首歌。我见过那个老师。",
-   "say_uz": "Bu yerga kelganman. Xitoy choyini ichganman. Bu qo‘shiqni eshitganman. Ana u o‘qituvchini ko‘rganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Fe’l + 过",
-   "emotion": "encouraging",
-   "board": [
-    "1) Bu yerga kelganman.",
-    "2) Xitoy choyini ichganman.",
-    "3) Bu qo‘shiqni eshitganman."
-   ],
-   "examples": [],
-   "say_native": "Uchta gap: 来过这里, 喝过中国茶, 听过这首歌. 过 ni to‘g‘ri qo‘ying.",
-   "say": "我来过这里。我喝过中国茶。我听过这首歌。",
-   "say_uz": "Bu yerga kelganman. Xitoy choyini ichganman. Bu qo‘shiqni eshitganman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "来过这里",
-    "喝过中国茶",
-    "听过这首歌"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: turli fe’llar bilan 过. 住过 — biror joyda yashaganman (tajriba), 做过 — qilganman. Endi savol tuzishni mashq qilamiz.",
-   "say": "我来过这里。我喝过中国茶。我听过这首歌。",
-   "say_uz": "Bu yerga kelganman. Xitoy choyini ichganman. Bu qo‘shiqni eshitganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Savol tuzish",
-   "emotion": "neutral",
-   "board": [
-    "你 + fe’l + 过 + ot/joy + 吗？",
-    "你去过北京吗？",
-    "你吃过饺子吗？",
-    "你学过中文吗？"
-   ],
-   "examples": [
-    {
-     "t": "你住过别的城市吗？",
-     "uz": "Boshqa shaharda yashaganmisiz?"
-    },
-    {
-     "t": "你做过这个工作吗？",
-     "uz": "Bu ishni qilganmisiz?"
-    }
-   ],
-   "say_native": "Savol tuzilmasi oddiy: mavzu + fe’l + 过 + obyekt + 吗? “Nǐ zhùguò bié de chéngshì ma?” — boshqa shaharda yashaganmisiz? “Nǐ zuòguò zhège gōngzuò ma?” — bu ishni qilganmisiz? Tajriba haqida so‘rayapsiz.",
-   "say": "你去过上海吗？你吃过火锅吗？你住过国外吗？你做过志愿者吗？",
-   "say_uz": "Shanxayda bo‘lganmisiz? Xotpot yeganmisiz? Chet elda yashaganmisiz? Ko‘ngilli bo‘lganmisiz?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Savollar tuzing",
-   "emotion": "encouraging",
-   "board": [
-    "1) Xotpot yeganmisiz?",
-    "2) Xitoyda yashaganmisiz?",
-    "3) Bu qo‘shiqni eshitganmisiz?"
-   ],
-   "examples": [],
-   "say_native": "Uchta savol tuzing. 吃过火锅吗, 住过中国吗, 听过这首歌吗. 过 va 吗 ni unutmang.",
-   "say": "你吃过火锅吗？你住过中国吗？你听过这首歌吗？",
-   "say_uz": "Xotpot yeganmisiz? Xitoyda yashaganmisiz? Bu qo‘shiqni eshitganmisiz?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "吃过火锅吗？",
-    "住过中国吗？",
-    "听过这首歌吗？"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tajriba savollari to‘g‘ri. Endi javob berish usullari.",
-   "say": "你吃过火锅吗？你住过中国吗？你听过这首歌吗？",
-   "say_uz": "Xotpot yeganmisiz? Xitoyda yashaganmisiz? Bu qo‘shiqni eshitganmisiz?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Javob berish: ha, yo‘q, tafsilot",
-   "emotion": "neutral",
-   "board": [
-    "去过。— Ha, borganman.",
-    "去过两次。— Ikki marta.",
-    "没去过。— Yo‘q.",
-    "从来没去过。— Hech qachon yo‘q."
-   ],
-   "examples": [
-    {
-     "t": "你去过北京吗？去过两次。",
-     "uz": "Pekinda bo‘lganmisiz? Ikki marta bo‘lganman."
-    },
-    {
-     "t": "你吃过这个吗？没吃过。",
-     "uz": "Buni yeganmisiz? Yo‘q, yemaganman."
-    }
-   ],
-   "say_native": "Javobda fe’l + 过 ni takrorlash kifoya: 去过. Tafsilot: 一次, 两次, 几次, 很多次. Inkor: 没去过 yoki 从来没去过. “Liǎng cì” — ikki marta. Bu tabiiy javob.",
-   "say": "去过。去过两次。没去过。从来没去过。",
-   "say_uz": "Ha. Ikki marta. Yo‘q. Hech qachon yo‘q.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Javoblar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ha, bir marta borganman.",
-    "2) Yo‘q, bormaganman.",
-    "3) Hech qachon yemaganman."
-   ],
-   "examples": [],
-   "say_native": "Uchta javob: 去过一次, 没去过, 从来没吃过. Savolga mos fe’lni tanlang.",
-   "say": "去过一次。没去过。我从来没吃过。",
-   "say_uz": "Bir marta borganman. Bormaganman. Hech qachon yemaganman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "去过一次",
-    "没去过",
-    "从来没吃过"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: turli shakllar. 从来没…过 kuchliroq inkor. Endi qo‘shimcha savollar bilan suhbat.",
-   "say": "去过一次。没去过。我从来没吃过。",
-   "say_uz": "Bir marta borganman. Bormaganman. Hech qachon yemaganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Qo‘shimcha savollar: qachon, necha marta, qanday",
-   "emotion": "neutral",
-   "board": [
-    "什么时候去的？ shénme shíhou qù de?",
-    "去过几次？ qùguò jǐ cì?",
-    "怎么样？ zěnmeyàng? — qanday edi?",
-    "喜欢吗？ xǐhuan ma?"
-   ],
-   "examples": [
-    {
-     "t": "你去过北京吗？去过。什么时候？去年。怎么样？很有意思。",
-     "uz": "Pekinda bo‘lganmisiz? Ha. Qachon? O‘tgan yili. Qanday? Juda qiziqarli."
-    }
-   ],
-   "say_native": "Tajribadan keyin tafsilot: 什么时候? 几次? 怎么样? 喜欢吗? Eslatma: “什么时候去的?” da 的 ishlatiladi — bu aniq o‘tgan voqea haqida. Avval 过 bilan tajriba, keyin tafsilot. A2 da bu tabiiy zanjir.",
-   "say": "你去过中国吗？去过。去过几次？一次。什么时候去的？去年。你喜欢吗？很喜欢。",
-   "say_uz": "Xitoyga borganmisiz? Ha. Necha marta? Bir marta. Qachon? O‘tgan yili. Yoqdimi? Juda yoqdi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Zanjir suhbat",
-   "emotion": "encouraging",
-   "board": [
-    "Savol: …过吗？",
-    "Javob + 几次",
-    "Qachon?",
-    "Qanday/yoqdimi?"
-   ],
-   "examples": [],
-   "say_native": "4 qadamli zanjir: tajriba savoli, javob va necha marta, qachon, qanday. Mavzu: biror shahar yoki taom. Hozir mashq qiling.",
-   "say": "你吃过北京烤鸭吗？吃过。吃过几次？两次。什么时候吃的？去年。好吃吗？很好吃！",
-   "say_uz": "Pekin o‘rdagini yeganmisiz? Ha. Necha marta? Ikki marta. Qachon? O‘tgan yili. Mazalimi? Juda mazali!",
-   "practice_seconds": 15
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "吃过",
-    "两次",
-    "去年",
-    "很好吃"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tajriba va tafsilot zanjiri. Bu “Have you ever…?” uslubidagi suhbat.",
-   "say": "你吃过北京烤鸭吗？吃过。吃过几次？两次。什么时候吃的？去年。好吃吗？很好吃！",
-   "say_uz": "Pekin o‘rdagini yeganmisiz? Ha. Necha marta? Ikki marta. Qachon? O‘tgan yili. Mazalimi? Juda mazali!",
+   "say_native": "Javoblar: tajriba + miqdor + taassurot. Bu to‘liq va tabiiy suhbat. 又…又… (ham… ham…) A2 da foydali tuzilma bo‘lib, ikki sifatni birga ifodalaydi. Sizning uy vazifangizdagi 8 ta savol-javobning kamida bir nechtasida shunday qo‘shimcha ma‘lumot bo‘lsa, javoblar ancha tabiiy chiqadi.",
+   "say": "你吃过火锅吗？吃过。吃过几次？三次。怎么样？又辣又好吃。",
+   "say_uz": "Hotpot yeb ko‘rganmisiz? Ha. Necha marta? Uch marta. Qanday edi? Ham achchiq, ham mazali.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog: tajriba",
+   "title": "Dialog 1: sayohat tajribasi",
    "emotion": "happy",
    "board": [
     "A: 你去过中国吗？",
     "B: 去过一次。",
-    "A: 去过哪儿？",
-    "B: 去过北京和上海。",
-    "A: 怎么样？",
-    "B: 很好，我很喜欢。"
+    "A: 去过哪些城市？",
+    "B: 去过北京和西安。",
+    "A: 什么时候去的？怎么样？"
    ],
    "examples": [],
-   "say_native": "Dialogni tinglang. Tajriba savoli, necha marta, qayerlar, qanday. 去过哪儿? — qayerlarga borgan? 和 bilan ikki joy aytish mumkin.",
-   "say": "你去过中国吗？去过一次。你去过哪儿？我去过北京和上海。你觉得怎么样？很好玩，我很喜欢。",
-   "say_uz": "Xitoyga borganmisiz? Bir marta. Qayerlarga? Pekin va Shanxay. Qanday? Juda qiziqarli, yoqdi.",
+   "say_native": "Dialogni tinglang va tuzilmani kuzating. Birinchi savol tajriba: 去过吗? Ikkinchi javob miqdor: 一次. Keyin qaysi joylar: 哪些城市, javobda 和 bilan ro‘yxat. So‘ng qachon va qanday — bu aniq voqea tafsilotiga o‘tish. Xitoy tilida bitta suhbat ichida 过 va 了 tabiiy almashishi mumkin: tajriba 过, tafsilot/aniq voqea 了 yoki 的 tuzilmasi bilan. Bu xato emas; suhbat oqimiga mos.",
+   "say": "你去过中国吗？去过一次。你去过哪些城市？我去过北京和西安。什么时候去的？去年去的。怎么样？很有意思，我很喜欢。",
+   "say_uz": "Xitoyga borganmisiz? Bir marta. Qaysi shaharlarga? Pekin va Sian. Qachon bordingiz? O‘tgan yili. Qanday edi? Juda qiziqarli, yoqdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: hech qachon va istak",
+   "emotion": "happy",
+   "board": [
+    "A: 你坐过高铁吗？",
+    "B: 我从来没坐过。",
+    "A: 为什么？",
+    "B: 但是我很想坐一次。"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialogda inkor va istak bor. 从来没坐过 — hech qachon minmaganman. 但是我很想坐一次 — lekin bir marta minishni juda xohlayman. 但是 (lekin) A2 da o‘rgangan bog‘lovchi; u inkor va istakni tabiiy bog‘laydi. 想 + fe‘l — xohlamoq. 从来没…过, 但是想… — bu “never, but I want to” ma‘nosining juda foydali xitoycha shakli. Uy vazifasida ham shunday javob berishingiz mumkin.",
+   "say": "你坐过高铁吗？我从来没坐过。为什么？因为我们那儿没有高铁，但是我很想坐一次。",
+   "say_uz": "Tezyurar poyezdda min ganmisiz? Hech qachon minmaganman. Nega? Bizning joyda tezyurar poyezd yo‘q, lekin bir marta minishni juda xohlayman.",
    "practice_seconds": 0
   },
   {
@@ -623,568 +473,435 @@
    "title": "Dialog tuzing",
    "emotion": "encouraging",
    "board": [
-    "2 kishi: A savol, B javob",
-    "Kamida 4 replik",
-    "过, 几次, 怎么样 ishlating"
+    "Ikki kishi: A va B",
+    "A 过 bilan savol beradi",
+    "B javob beradi (过 yoki 从来没过)",
+    "Kamida 2 ta qo‘shimcha savol: 几次/什么时候/怎么样/跟谁"
    ],
    "examples": [],
-   "say_native": "Ikki kishilik dialog: tajriba haqida. A 过 savol beradi, B javob beradi va tafsilot qo‘shadi. Kamida 4 replik. Hozir mashq qiling.",
-   "say": "你看过中国电影吗？看过，我看过两次。你觉得怎么样？我觉得很有意思。",
-   "say_uz": "Xitoy filmini ko‘rganmisiz? Ha, ikki marta. Qanday? Qiziqarli deb o‘ylayman.",
+   "say_native": "Ikki kishilik qisqa dialog tuzing. Mavzuni o‘zingiz tanlang: sayohat, taom, film, sport yoki til o‘rganish. A tajriba savolini beradi. B javob beradi va kerak bo‘lsa 从来没…过 + 但是我想… ishlatadi. Keyin A kamida ikkita qo‘shimcha savol beradi. Bu mashq uy vazifasiga tayyorlaydi.",
+   "say": "你看过中文电影吗？看过几次。什么时候看的？上个月。你觉得怎么样？很有意思。",
+   "say_uz": "Xitoy filmini ko‘rganmisiz? Bir necha marta. Qachon ko‘rdingiz? O‘tgan oy. Qanday deb o‘ylaysiz? Juda qiziqarli.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "happy",
+   "board": [
+    "过 savol ✓",
+    "Tajriba/inkor javobi ✓",
+    "Qo‘shimcha savollar ✓"
+   ],
+   "examples": [],
+   "say_native": "Dialog tuzilmasi to‘g‘ri bo‘lsa, 过, qo‘shimcha savollar va tafsilotlar tabiiy chiqadi. Endi 8 ta “Have you ever…?” savol-javobni bosqichma-bosqich tayyorlaymiz. Har bir savol-javobda kamida 过 yoki 没…过 bo‘lsin; imkon bo‘lsa bir nechta javobga 几次, 什么时候, 怎么样 yoki 跟谁 kabi tafsilot qo‘shing.",
+   "say": "你看过中文电影吗？看过几次。什么时候看的？上个月。你觉得怎么样？很有意思。",
+   "say_uz": "Xitoy filmini ko‘rganmisiz? Bir necha marta. Qachon ko‘rdingiz? O‘tgan oy. Qanday? Juda qiziqarli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "8 ta savol-javob (1–2)",
+   "emotion": "encouraging",
+   "board": [
+    "1) Have you ever been to another country?",
+    "你去过别的国家吗？",
+    "2) Have you ever eaten Chinese food?",
+    "你吃过中国菜吗？"
+   ],
+   "examples": [],
+   "say_native": "Birinchi ikkita savol. Har biriga xitoycha savol va javob bering. Javobingiz ha bo‘lsa, 去过/吃过 + qisqa tafsilot. Yo‘q bo‘lsa, 没去过/从来没吃过 + 但是我想…. Xitoy tilida gap tuzing, inglizcha savol faqat ma‘no uchun.",
+   "say": "你去过别的国家吗？我去过一次。你吃过中国菜吗？我吃过很多次，我很喜欢。",
+   "say_uz": "Boshqa davlatga borganmisiz? Bir marta borganman. Xitoy taomini yeb ko‘rganmisiz? Ko‘p marta yeb ko‘rganman, yoqadi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "practice",
+   "title": "8 ta savol-javob (3–4)",
+   "emotion": "encouraging",
+   "board": [
+    "3) Have you ever watched a Chinese movie?",
+    "你看过中国电影吗？",
+    "4) Have you ever learned another language?",
+    "你学过别的语言吗？"
+   ],
+   "examples": [],
+   "say_native": "3 va 4-savollar. 3-savolda 看过 ishlating. 4-savolda 学过: xitoy tili, ingliz tili yoki boshqa til haqida o‘zingizga mos javob bering. 学过一点儿 — biroz o‘rganganman.",
+   "say": "你看过中国电影吗？看过一次，觉得很有意思。你学过别的语言吗？我学过英语，也学过一点儿中文。",
+   "say_uz": "Xitoy filmini ko‘rganmisiz? Bir marta, qiziqarli edi. Boshqa til o‘rganganmisiz? Ingliz tilini o‘rganganman, bir oz xitoy tilini ham.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "practice",
+   "title": "8 ta savol-javob (5–6)",
+   "emotion": "encouraging",
+   "board": [
+    "5) Have you ever climbed a mountain?",
+    "你爬过山吗？ páguò shān",
+    "6) Have you ever traveled by plane?",
+    "你坐过飞机吗？"
+   ],
+   "examples": [],
+   "say_native": "5 va 6-savollar. 爬过山 — tog‘ga chiqqanman. 坐过飞机 — samolyotda uchganman. Biriga ha, biriga yo‘q javob berib ko‘ring, shunda 过 va 从来没…过 ikkalasini mashq qilasiz.",
+   "say": "你爬过山吗？爬过一次，觉得很累但是很开心。你坐过飞机吗？我从来没坐过飞机，但是我想坐一次。",
+   "say_uz": "Tog‘ga chiqqanmisiz? Bir marta, charchadim lekin xursand bo‘ldim. Samolyotda uchganmisiz? Hech qachon uchmaganman, lekin bir marta uchmoqchiman.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "practice",
+   "title": "8 ta savol-javob (7–8)",
+   "emotion": "encouraging",
+   "board": [
+    "7) Have you ever been to a concert?",
+    "你去过音乐会吗？ yīnyuèhuì",
+    "8) Have you ever volunteered?",
+    "你做过志愿者吗？ zhìyuànzhě"
+   ],
+   "examples": [],
+   "say_native": "7 va 8-savollar bilan 8 ta savol-javob to‘liq bo‘ladi. 音乐会 — konsert. 志愿者 — ko‘ngilli. Javoblarga qisqa tafsilot qo‘shing: 一次, 几次, 很有意义 (mazmunli), 很开心 va hokazo. Bu uy vazifangizning yakuniy ko‘rinishi.",
+   "say": "你去过音乐会吗？去过几次，我很喜欢。你做过志愿者吗？做过一次，觉得很有意义。",
+   "say_uz": "Konsertga borganmisiz? Bir necha marta, yoqadi. Ko‘ngilli bo‘lganmisiz? Bir marta, mazmunli edi.",
    "practice_seconds": 15
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "看过两次",
-    "很有意思"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: qisqa dialog. Uy vazifasida 8 ta savol-javob bo‘ladi — har biri bitta juft yoki qisqa zanjir bo‘lishi mumkin.",
-   "say": "你看过中国电影吗？看过，我看过两次。你觉得怎么样？我觉得很有意思。",
-   "say_uz": "Xitoy filmini ko‘rganmisiz? Ha, ikki marta. Qanday? Qiziqarli deb o‘ylayman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "过 va vaqt so‘zlari",
-   "emotion": "neutral",
-   "board": [
-    "过 — ko‘pincha aniq vaqt shart emas",
-    "去年我去了北京。 (了, aniq vaqt)",
-    "我去过北京。 (过, tajriba)",
-    "以前 yǐqián — avval/ilgari"
-   ],
-   "examples": [
-    {
-     "t": "我以前去过一次。",
-     "uz": "Ilgari bir marta borganman."
-    },
-    {
-     "t": "你以前吃过这个吗？",
-     "uz": "Buni ilgari yeganmisiz?"
-    }
-   ],
-   "say_native": "过 bilan ko‘pincha aniq sana shart emas — tajriba muhim. 以前 — ilgari, 过 bilan yaxshi keladi: 以前去过. Aniq vaqt (去年, 昨天) aytilganda, ko‘pincha 了 ishlatiladi: 去年去了. Buni aralashtirib yubormang.",
-   "say": "我以前去过北京。去年我又去了北京。你以前吃过火锅吗？",
-   "say_uz": "Ilgari Pekinda bo‘lganman. O‘tgan yili yana Pekinga bordim. Ilgari xotpot yeganmisiz?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "以前 va 过",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ilgari borganman.",
-    "2) Ilgari yeganmisiz?",
-    "3) Hech qachon ko‘rmaganman."
-   ],
-   "examples": [],
-   "say_native": "Uchta gap: 以前去过, 以前吃过吗, 从来没看过. 过 va mos so‘zlarni ishlating.",
-   "say": "我以前去过那里。你以前吃过这个吗？我从来没看过那个。",
-   "say_uz": "Ilgari u yerga borganman. Buni ilgari yeganmisiz? Anavisini hech qachon ko‘rmaganman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "以前去过",
-    "以前吃过吗？",
-    "从来没看过"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 以前 过 bilan tabiiy. Endi 8 ta savol-javobga tayyorlanamiz.",
-   "say": "我以前去过那里。你以前吃过这个吗？我从来没看过那个。",
-   "say_uz": "Ilgari u yerga borganman. Buni ilgari yeganmisiz? Anavisini hech qachon ko‘rmaganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "8 ta savol-javob (to‘liq)",
-   "emotion": "encouraging",
-   "board": [
-    "1) 去过别的国家吗？ 2) 吃过中国菜吗？ 3) 看过中国电影吗？ 4) 学过别的语言吗？",
-    "5) 爬过山吗？ 6) 去过海边吗？ 7) 参加过比赛吗？ 8) 做过志愿者吗？"
-   ],
-   "examples": [],
-   "say_native": "8 ta savol va har biriga javob yozing. 过, 没过, 从来没过, 一次/几次 ishlating. Ixtiyoriy: 什么时候, 怎么样. Hozir bajaring.",
-   "say": "你去过别的国家吗？去过一次。你吃过中国菜吗？吃过。你看过中国电影吗？看过几次。你学过别的语言吗？学过一点儿。你爬过山吗？爬过。你去过海边吗？去过很多次。你参加过比赛吗？没参加过。你做过志愿者吗？做过一次。",
-   "say_uz": "Boshqa davlatga borganmisiz? Bir marta. Xitoy taomini yeganmisiz? Ha. Xitoy filmi ko‘rganmisiz? Bir necha marta. Boshqa til o‘rganganmisiz? Biroz. Tog‘ga chiqqanmisiz? Ha. Dengiz bo‘yiga borganmisiz? Ko‘p marta. Musobaqada qatnashganmisiz? Yo‘q. Ko‘ngilli bo‘lganmisiz? Bir marta.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "explain",
-   "title": "Namuna 8 savol-javob",
-   "emotion": "proud",
-   "board": [
-    "8 ta savol + 8 ta javob ✓",
-    "过/没过/一次/几次 ishlatilgan ✓"
-   ],
-   "examples": [],
-   "say_native": "Namuna 8 ta savol-javobni ko‘rsatdi. Sizning javoblaringiz o‘zingizga mos bo‘lsin. 参加过 (cānjiāguò) — qatnashganman. A2-23 yakunlandi.",
-   "say": "你去过别的国家吗？去过一次。你吃过中国菜吗？吃过。你看过中国电影吗？看过几次。你学过别的语言吗？学过一点儿。你爬过山吗？爬过。你去过海边吗？去过很多次。你参加过比赛吗？没参加过。你做过志愿者吗？做过一次。",
-   "say_uz": "Boshqa davlatga borganmisiz? Bir marta. Xitoy taomini yeganmisiz? Ha. Xitoy filmi ko‘rganmisiz? Bir necha marta. Boshqa til o‘rganganmisiz? Biroz. Tog‘ga chiqqanmisiz? Ha. Dengiz bo‘yiga borganmisiz? Ko‘p marta. Musobaqada qatnashganmisiz? Yo‘q. Ko‘ngilli bo‘lganmisiz? Bir marta.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Shaharlar va joylar bilan tajriba",
-   "emotion": "neutral",
-   "board": [
-    "你去过哪些地方？ nǐ qùguò nǎxiē dìfang? — qaysi joylarga borgan?",
-    "去过北京、上海和西安。",
-    "没去过南方。 méi qùguò nánfāng — janubga bormaganman"
-   ],
-   "examples": [
-    {
-     "t": "我去过北京和上海，但是没去过西安。",
-     "uz": "Pekin va Shanxayda bo‘lganman, lekin Sian‘da bo‘lmaganman."
-    }
-   ],
-   "say_native": "Joylar haqida tajriba: 哪些地方 — qaysi joylar. Bir nechta joyni 和 bilan ayting: 北京和上海. 但是 bilan farqlash mumkin: 去过…, 但是没去过…. Bu boyroq javob.",
-   "say": "你去过哪些城市？我去过北京和上海，但是没去过广州。",
-   "say_uz": "Qaysi shaharlarda bo‘lgansiz? Pekin va Shanxayda bo‘lganman, lekin Guanchjouda bo‘lmaganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Joylar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ikki shaharda bo‘lganman.",
-    "2) Bir joyga bormaganman.",
-    "3) Qayerlarga borganingizni ayting."
-   ],
-   "examples": [],
-   "say_native": "Uchta gap: 去过A和B, 没去过C. O‘zingizga mos joylar yoki umumiy misollar.",
-   "say": "我去过塔什干和撒马尔罕。我没去过布哈拉，但是我想去。",
-   "say_uz": "Toshkent va Samarqandda bo‘lganman. Buxoroda bo‘lmaganman, lekin bormoqchiman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "去过A和B",
-    "没去过C",
-    "想去"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tajriba va istak. 想去 — bormoqchiman (kelajak), 去过 — tajriba. Farqni saqlang.",
-   "say": "我去过塔什干和撒马尔罕。我没去过布哈拉，但是我想去。",
-   "say_uz": "Toshkent va Samarqandda bo‘lganman. Buxoroda bo‘lmaganman, lekin bormoqchiman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Taom va tajriba",
-   "emotion": "neutral",
-   "board": [
-    "尝过 chángguò — tatib ko‘rgan",
-    "辣的 là de — achchiq",
-    "甜的 tián de — shirin",
-    "没吃过那么辣的 — bunchalik achchiq yemaganman"
-   ],
-   "examples": [
-    {
-     "t": "你吃过火锅吗？吃过，又辣又好吃。",
-     "uz": "Xotpot yeganmisiz? Ha, achchiq va mazali."
-    }
-   ],
-   "say_native": "Taom tajribasi: 吃过, 尝过 (tatib ko‘rgan). Ta’rif: 辣的 achchiq, 甜的 shirin, 好吃 mazali. “Yòu là yòu hǎochī” — ham achchiq, ham mazali. Tajriba + fikr.",
-   "say": "你吃过川菜吗？吃过，很辣，但是很好吃。我没吃过那么辣的菜。",
-   "say_uz": "Sichuan taomini yeganmisiz? Ha, juda achchiq, lekin mazali. Bunchalik achchiq taom yemaganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Taom tajribasi",
-   "emotion": "encouraging",
-   "board": [
-    "1) Xitoy taomini yeganmisiz?",
-    "2) Qanday edi? (mazali/achchiq)",
-    "3) Hech qachon yemagan taom bormi?"
-   ],
-   "examples": [],
-   "say_native": "Uchta savol-javob: 吃过吗, 怎么样, 没吃过/从来没吃过. Tajriba va fikr.",
-   "say": "你吃过饺子吗？吃过，很好吃。你吃过臭豆腐吗？没吃过，我有点儿害怕。",
-   "say_uz": "Chuchvara yeganmisiz? Ha, mazali. Hidi kuchli tofu yeganmisiz? Yo‘q, biroz qo‘rqaman.",
-   "practice_seconds": 15
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "吃过，很好吃",
-    "没吃过，有点儿害怕"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tajriba va his-tuyg‘u. 过 bilan fikrni birlashtirish tabiiy.",
-   "say": "你吃过饺子吗？吃过，很好吃。你吃过臭豆腐吗？没吃过，我有点儿害怕。",
-   "say_uz": "Chuchvara yeganmisiz? Ha, mazali. Hidi kuchli tofu yeganmisiz? Yo‘q, biroz qo‘rqaman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ko‘rish va tinglash tajribasi",
-   "emotion": "neutral",
-   "board": [
-    "看过电影 kànguò diànyǐng",
-    "听过音乐 tīngguò yīnyuè",
-    "读过书 dúguò shū",
-    "见过名人 jiànguò míngrén — mashhur odamni ko‘rganman"
-   ],
-   "examples": [
-    {
-     "t": "你看过这部电影吗？看过一次，觉得很好看。",
-     "uz": "Bu filmni ko‘rganmisiz? Bir marta, yaxshi deb o‘ylayman."
-    }
-   ],
-   "say_native": "Madaniy tajriba: 看过电影, 听过音乐, 读过书, 见过名人. Tajriba + qisqa fikr: 觉得很好看. Bu suhbatni davom ettiradi.",
-   "say": "你看过中国电影吗？看过，觉得很有意思。你听过中文歌吗？听过几首。",
-   "say_uz": "Xitoy filmini ko‘rganmisiz? Ha, qiziqarli. Xitoy qo‘shig‘ini eshitganmisiz? Bir necha marta.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Madaniy tajriba",
-   "emotion": "encouraging",
-   "board": [
-    "1) Xitoy filmini ko‘rganmisiz?",
-    "2) Xitoy qo‘shig‘ini eshitganmisiz?",
-    "3) Qanday fikrdasiz?"
-   ],
-   "examples": [],
-   "say_native": "Uchta savol-javob: 电影, 歌, fikr. 看过, 听过, 觉得 ishlating.",
-   "say": "你看过中国电影吗？看过一次。你听过中文歌吗？听过。你觉得怎么样？很好听。",
-   "say_uz": "Xitoy filmini ko‘rganmisiz? Bir marta. Xitoy qo‘shig‘ini eshitganmisiz? Ha. Qanday? Yoqimli.",
-   "practice_seconds": 15
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "看过一次",
-    "听过",
-    "很好听"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: madaniy tajriba va fikr. 过 bilan 觉得 ni birlashtirish tabiiy.",
-   "say": "你看过中国电影吗？看过一次。你听过中文歌吗？听过。你觉得怎么样？很好听。",
-   "say_uz": "Xitoy filmini ko‘rganmisiz? Bir marta. Xitoy qo‘shig‘ini eshitganmisiz? Ha. Qanday? Yoqimli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Hech qachon — 从来没…过",
-   "emotion": "neutral",
-   "board": [
-    "从来没去过 cónglái méi qùguò",
-    "从来没吃过",
-    "从来没见过",
-    "强调：umuman tajriba yo‘q"
-   ],
-   "examples": [
-    {
-     "t": "我从来没去过国外，但是我想去。",
-     "uz": "Hech qachon chet elga bormaganman, lekin bormoqchiman."
-    }
-   ],
-   "say_native": "从来没…过 “hech qachon …maganman” degani — tajriba umuman yo‘q. Kuchli inkor. Keyin 但是我想… bilan istak qo‘shish mumkin: bormaganman, lekin bormoqchiman.",
-   "say": "我从来没去过中国，但是我想去。我从来没吃过北京烤鸭，但是我想尝尝。",
-   "say_uz": "Hech qachon Xitoyga bormaganman, lekin bormoqchiman. Pekin o‘rdagini hech yemaganman, lekin tatib ko‘rmoqchiman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Hech qachon + istak",
-   "emotion": "encouraging",
-   "board": [
-    "1) Hech qachon bormaganman, lekin bormoqchiman.",
-    "2) Hech qachon yemaganman, lekin tatib ko‘rmoqchiman."
-   ],
-   "examples": [],
-   "say_native": "Ikki gap: 从来没…过, 但是我想…. Tajriba yo‘q, lekin istak bor.",
-   "say": "我从来没去过日本，但是我想去。我从来没吃过寿司，但是我想尝尝。",
-   "say_uz": "Hech qachon Yaponiyaga bormaganman, lekin bormoqchiman. Sushi hech yemaganman, lekin tatib ko‘rmoqchiman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "从来没去过，但是想去",
-    "从来没吃过，但是想尝尝"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: inkor + istak. 但是 (A2-18) ishlatildi. Endi 8 ta savol-javobni boyitamiz.",
-   "say": "我从来没去过日本，但是我想去。我从来没吃过寿司，但是我想尝尝。",
-   "say_uz": "Hech qachon Yaponiyaga bormaganman, lekin bormoqchiman. Sushi hech yemaganman, lekin tatib ko‘rmoqchiman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "8 savol-javob: qo‘shimcha tafsilot",
-   "emotion": "encouraging",
-   "board": [
-    "Har bir javobga 1 ta tafsilot qo‘shing: 几次, 什么时候, 怎么样, yoki 但是我想…",
-    "8 juft to‘liq"
-   ],
-   "examples": [],
-   "say_native": "8 ta savol-javobga tafsilot qo‘shing. Masalan: 去过一次，去年去的，很好玩. Yoki: 没去过，但是我想去. Har biri 2 qismli bo‘lsin.",
-   "say": "你去过别的国家吗？去过一次，去年去的，很有意思。你吃过中国菜吗？吃过很多次，我很喜欢。你看过中国电影吗？看过几次，觉得很好看。你学过别的语言吗？学过英语，也学过一点儿中文。你爬过山吗？爬过，觉得很累但是很开心。你去过海边吗？去过很多次。你参加过比赛吗？没参加过，但是我想试试。你做过志愿者吗？做过一次，很有意义。",
-   "say_uz": "Boshqa davlatga borganmisiz? Bir marta, o‘tgan yili, qiziqarli. Xitoy taomini yeganmisiz? Ko‘p marta, yoqadi. Xitoy filmi ko‘rganmisiz? Bir necha marta, yaxshi. Boshqa til o‘rganganmisiz? Ingliz va biroz xitoy tili. Tog‘ga chiqqanmisiz? Ha, charchadim lekin xursand. Dengiz bo‘yiga borganmisiz? Ko‘p marta. Musobaqada qatnashganmisiz? Yo‘q, lekin sinab ko‘rmoqchiman. Ko‘ngilli bo‘lganmisiz? Bir marta, mazmunli edi.",
-   "practice_seconds": 35
-  },
-  {
-   "kind": "explain",
-   "title": "Namuna va yakun",
-   "emotion": "proud",
-   "board": [
-    "8 ta savol-javob + tafsilot ✓",
-    "过/没过/从来没过 + 觉得/但是想 ✓"
-   ],
-   "examples": [],
-   "say_native": "Namuna 8 ta savol-javobni tafsilot bilan ko‘rsatdi. Siz ham shunday bajaring. A2-23 yakunlandi.",
-   "say": "你去过别的国家吗？去过一次，去年去的，很有意思。你吃过中国菜吗？吃过很多次，我很喜欢。你看过中国电影吗？看过几次，觉得很好看。你学过别的语言吗？学过英语，也学过一点儿中文。你爬过山吗？爬过，觉得很累但是很开心。你去过海边吗？去过很多次。你参加过比赛吗？没参加过，但是我想试试。你做过志愿者吗？做过一次，很有意义。",
-   "say_uz": "Boshqa davlatga borganmisiz? Bir marta, o‘tgan yili, qiziqarli. Xitoy taomini yeganmisiz? Ko‘p marta, yoqadi. Xitoy filmi ko‘rganmisiz? Bir necha marta, yaxshi. Boshqa til o‘rganganmisiz? Ingliz va biroz xitoy tili. Tog‘ga chiqqanmisiz? Ha, charchadim lekin xursand. Dengiz bo‘yiga borganmisiz? Ko‘p marta. Musobaqada qatnashganmisiz? Yo‘q, lekin sinab ko‘rmoqchiman. Ko‘ngilli bo‘lganmisiz? Bir marta, mazmunli edi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Qayta tajriba: 又/再 (qisqa eslatma)",
-   "emotion": "neutral",
-   "board": [
-    "我去过北京，去年又去了。 — borganman, o‘tgan yili yana bordim",
-    "想再去一次 xiǎng zài qù yí cì — yana bir bor bormoqchiman"
-   ],
-   "examples": [
-    {
-     "t": "我去过上海，想再去一次。",
-     "uz": "Shanxayda bo‘lganman, yana bir bor bormoqchiman."
-    }
-   ],
-   "say_native": "Tajriba (过) va takror (又/再) farq qiladi. “Qùguò” — tajriba bor. “Yòu qù le” — yana bordim (o‘tgan). “Xiǎng zài qù” — yana bormoqchiman (kelajak). A2 da asosiy urg‘u 过 ga; 又/再 ni tanish bo‘lishi uchun ko‘rdik.",
-   "say": "我去过北京，去年又去了。我很喜欢，想再去一次。",
-   "say_uz": "Pekinda bo‘lganman, o‘tgan yili yana bordim. Yoqdi, yana bir bor bormoqchiman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tajriba va istak",
-   "emotion": "encouraging",
-   "board": [
-    "1) Biror joyga borganman.",
-    "2) Yoqdi / yoqmadi.",
-    "3) Yana bormoqchiman / bormoqchi emasman."
-   ],
-   "examples": [],
-   "say_native": "Uchta gap: 去过, 怎么样, 想再去/不想再去. 过 va 想再 ishlating.",
-   "say": "我去过西安，觉得很有意思。我想再去一次。",
-   "say_uz": "Sianda bo‘lganman, qiziqarli edi. Yana bir bor bormoqchiman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "去过",
-    "很有意思",
-    "想再去一次"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tajriba va kelajak istagi. 过 tajribani, 想再 niyatni bildiradi.",
-   "say": "我去过西安，觉得很有意思。我想再去一次。",
-   "say_uz": "Sianda bo‘lganman, qiziqarli edi. Yana bir bor bormoqchiman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Umumiy savollar: hayotiy tajriba",
-   "emotion": "neutral",
-   "board": [
-    "你有什么特别的经历吗？ nǐ yǒu shénme tèbié de jīnglì ma?",
-    "我做过… / 我去过… / 我参加过…",
-    "经历 jīnglì — tajriba (ot)"
-   ],
-   "examples": [
-    {
-     "t": "你有什么特别的经历吗？我参加过一次比赛。",
-     "uz": "Qanday maxsus tajribangiz bor? Bir marta musobaqada qatnashganman."
-    }
-   ],
-   "say_native": "Umumiy savol: “Maxsus tajribangiz bormi?” 经历 — tajriba (ot). Javobda 过 bilan fe’l ishlating: 参加过, 做过, 去过. Bu ochiq savol.",
-   "say": "你有什么特别的经历吗？我去过很多地方，也做过志愿者。",
-   "say_uz": "Maxsus tajribangiz bormi? Ko‘p joylarga borganman, ko‘ngilli ham bo‘lganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Maxsus tajriba",
-   "emotion": "encouraging",
-   "board": [
-    "1) Maxsus tajribangiz bormi?",
-    "2) 2 ta tajriba ayting (过 bilan)."
-   ],
-   "examples": [],
-   "say_native": "Savol va 2 ta javob: 你有什么特别的经历吗? 我…过…, 也…过…. Tajribalarni ayting.",
-   "say": "你有什么特别的经历吗？我爬过山，也学过中文。",
-   "say_uz": "Maxsus tajribangiz bormi? Tog‘ga chiqqanman, xitoy tilini ham o‘rganganman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "happy",
-   "board": [
-    "爬过山",
-    "也学过中文"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ikki tajriba. 也 bilan bog‘lash (A2-18) ham ishlaydi.",
-   "say": "你有什么特别的经历吗？我爬过山，也学过中文。",
-   "say_uz": "Maxsus tajribangiz bormi? Tog‘ga chiqqanman, xitoy tilini ham o‘rganganman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "8 savol-javob: yakuniy",
-   "emotion": "encouraging",
-   "board": [
-    "8 ta “你…过吗？” + javob",
-    "Har birida 过 yoki 没过/从来没过",
-    "Kamida 3 tasida tafsilot (几次/什么时候/怎么样)"
-   ],
-   "examples": [],
-   "say_native": "Yakuniy uy vazifasi: 8 ta savol-javob. Har birida 过. Kamida 3 tasida tafsilot qo‘shing. O‘zingizga mos mavzular: sayohat, taom, til, sport, madaniyat, ish/tajriba.",
-   "say": "1.你去过中国吗？没去过，但是我想去。2.你吃过中国菜吗？吃过，很多次。3.你看过中文电影吗？看过一次，觉得很有意思。4.你学过中文吗？学过一点儿。5.你去过海边吗？去过几次。6.你爬过山吗？爬过一次。7.你参加过比赛吗？从来没参加过。8.你做过志愿者吗？做过，很有意义。",
-   "say_uz": "1. Xitoyga borganmisiz? Yo‘q, lekin bormoqchiman. 2. Xitoy taomini yeganmisiz? Ha, ko‘p marta. 3. Xitoy filmini ko‘rganmisiz? Bir marta, qiziqarli. 4. Xitoy tilini o‘rganganmisiz? Biroz. 5. Dengiz bo‘yiga borganmisiz? Bir necha marta. 6. Tog‘ga chiqqanmisiz? Bir marta. 7. Musobaqada qatnashganmisiz? Hech qachon. 8. Ko‘ngilli bo‘lganmisiz? Ha, mazmunli.",
-   "practice_seconds": 35
-  },
-  {
-   "kind": "explain",
-   "title": "Namuna va yakun",
+   "title": "8 ta savol-javob namunasi (to‘liq)",
    "emotion": "proud",
    "board": [
     "8 savol-javob ✓",
-    "过/没过/从来没过 + tafsilotlar ✓"
+    "过 / 没过 / 从来没过 ✓",
+    "Tafsilot: 几次, 什么时候, 怎么样 ✓"
    ],
    "examples": [],
-   "say_native": "Namuna uy vazifasiga to‘liq mos. Siz ham 8 ta savol-javob yozing. A2-23 yakunlandi.",
-   "say": "1.你去过中国吗？没去过，但是我想去。2.你吃过中国菜吗？吃过，很多次。3.你看过中文电影吗？看过一次，觉得很有意思。4.你学过中文吗？学过一点儿。5.你去过海边吗？去过几次。6.你爬过山吗？爬过一次。7.你参加过比赛吗？从来没参加过。8.你做过志愿者吗？做过，很有意义。",
-   "say_uz": "1. Xitoyga borganmisiz? Yo‘q, lekin bormoqchiman. 2. Xitoy taomini yeganmisiz? Ha, ko‘p marta. 3. Xitoy filmini ko‘rganmisiz? Bir marta, qiziqarli. 4. Xitoy tilini o‘rganganmisiz? Biroz. 5. Dengiz bo‘yiga borganmisiz? Bir necha marta. 6. Tog‘ga chiqqanmisiz? Bir marta. 7. Musobaqada qatnashganmisiz? Hech qachon. 8. Ko‘ngilli bo‘lganmisiz? Ha, mazmunli.",
+   "say_native": "Endi 8 ta savol-javobning namunasini eshiting. Bu namuna siznikidan farq qilishi mumkin va shunday bo‘lishi kerak — javoblar o‘zingizning haqiqiy tajribangizga mos bo‘lsin. Muhimi: har bir savolda 过 ishlatilgan, ba‘zi javoblarda 没…过 yoki 从来没…过 bor, ba‘zi javoblarda 几次, 什么时候, 怎么样 yoki 但是我想… kabi tafsilotlar bor. Xitoycha so‘z tartibini saqlang va fe‘lni tuslamang. Siz 了 ni aniq tafsilotda ishlatsangiz ham bo‘ladi, lekin asosiy tajriba savol-javobida 过 yetakchi bo‘lishi kerak.",
+   "say": "你去过别的国家吗？去过一次。你吃过中国菜吗？吃过很多次。你看过中国电影吗？看过一次，觉得很有意思。你学过别的语言吗？学过英语，也学过一点儿中文。你爬过山吗？爬过，但是很累。你坐过飞机吗？从来没坐过，但是我想坐。你去过音乐会吗？去过几次。你做过志愿者吗？没做过，但是我想试试。",
+   "say_uz": "Boshqa davlatga borganmisiz? Bir marta. Xitoy taomini yeb ko‘rganmisiz? Ko‘p marta. Xitoy filmini ko‘rganmisiz? Bir marta, qiziqarli. Boshqa til o‘rganganmisiz? Ingliz va biroz xitoy tili. Tog‘ga chiqqanmisiz? Ha, lekin charchadim. Samolyotda uchganmisiz? Hech qachon, lekin xohlayman. Konsertga borganmisiz? Bir necha marta. Ko‘ngilli bo‘lganmisiz? Yo‘q, lekin sinab ko‘rmoqchiman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Qisqa eslatma",
+   "title": "过 va 了: vaqt so‘zlari bilan farq",
    "emotion": "neutral",
    "board": [
-    "过 = tajriba",
-    "没…过 = tajriba yo‘q",
-    "从来没…过 = hech qachon",
-    "…过吗？ = tajriba savoli"
+    "Tajriba: 以前, 有一次, 从来 — ko‘pincha 过",
+    "Aniq vaqt: 昨天, 去年, 上个月, 刚才 — ko‘pincha 了",
+    "我以前去过北京。 (tajriba)",
+    "我去年去了北京。 (aniq voqea)"
    ],
    "examples": [
     {
-     "t": "你去过吗？没去过。去过一次。",
-     "uz": "Borganmisiz? Yo‘q. Bir marta borganman."
+     "t": "我以前吃过饺子。",
+     "uz": "Ilgari chuchvara yeb ko‘rganman."
+    },
+    {
+     "t": "我昨天吃了饺子。",
+     "uz": "Kecha chuchvara yedim."
+    },
+    {
+     "t": "你去过上海吗？我去年去了。",
+     "uz": "Shanxayda bo‘lganmisiz? O‘tgan yili bordim."
     }
    ],
-   "say_native": "Qisqa eslatma: 过 tajriba, 没…过 tajriba yo‘q, 从来没…过 hech qachon, …过吗? savol. Bu to‘rtta shaklni eslang. 8 ta savol-javobda ularni ishlating.",
-   "say": "你去过吗？去过。没去过。我从来没去过。",
-   "say_uz": "Borganmisiz? Ha. Yo‘q. Hech qachon bormaganman.",
+   "say_native": "过 va 了 ni farqlashda vaqt so‘zlari juda yaxshi yordam beradi. 以前 (ilgari), 有一次 (bir marta, umumiy), 从来 (hech qachon) kabi so‘zlar tajribaga yaqin va ko‘pincha 过 bilan ishlatiladi: 我以前去过北京. Aksincha, 昨天 (kecha), 前天 (tushadan oldingi kun), 上个星期 (o‘tgan hafta), 去年 (o‘tgan yili), 刚才 (hozirgina) kabi aniq vaqt ko‘rsatkichlari aniq voqeaga ishora qiladi va ko‘pincha 了 bilan keladi: 我昨天去了北京. Suhbatda bu ikki qatlam birga ishlaydi: avval tajriba (过), keyin aniq tafsilot (了). Masalan: “你去过上海吗?” — “去过。” — “什么时候去的?” — “去年去了。” Bu zanjirda birinchi javob tajriba, uchinchi javob aniq o‘tgan voqea. Xitoy tilini o‘rganishda bu farqni “qaysi fe‘l shakli?” deb emas, “qanday ma‘no va qaysi vaqt?” deb tushunish foydaliroq.",
+   "say": "我以前吃过饺子。我昨天吃了饺子。你去过上海吗？我去年去了。",
+   "say_uz": "Ilgari chuchvara yeb ko‘rganman. Kecha chuchvara yedim. Shanxayda bo‘lganmisiz? O‘tgan yili bordim.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Tezkor mashq",
+   "title": "Vaqt so‘zi va 过/了",
    "emotion": "encouraging",
    "board": [
-    "3 ta savol-javob: yeganmisiz? ko‘rganmisiz? borganmisiz?"
+    "1) Ilgari Pekinga borganman. (以前)",
+    "2) Kecha Pekinga bordim. (昨天)",
+    "3) Siz bu filmni ko‘rganmisiz? (tajriba)",
+    "4) Men o‘tgan oy bu filmni ko‘rdim. (上个月)"
    ],
    "examples": [],
-   "say_native": "Tezkor mashq: uchta savol-javob. 吃过吗? 看过吗? 去过吗? Javoblaringizni ayting.",
-   "say": "你吃过吗？吃过。你看过吗？没看过。你去过吗？去过一次。",
-   "say_uz": "Yeganmisiz? Ha. Ko‘rganmisiz? Yo‘q. Borganmisiz? Bir marta.",
-   "practice_seconds": 12
+   "say_native": "To‘rtta gap. Vaqt so‘ziga qarab 过 yoki 了 ni tanlang. 1 va 3 tajriba, 2 va 4 aniq voqea.",
+   "say": "我以前去过北京。我昨天去了北京。你看过这部电影吗？我上个月看了这部电影。",
+   "say_uz": "Ilgari Pekinda bo‘lganman. Kecha Pekinga bordim. Bu filmni ko‘rganmisiz? O‘tgan oy bu filmni ko‘rdim.",
+   "practice_seconds": 15
   },
   {
    "kind": "explain",
-   "title": "Yakun",
-   "emotion": "proud",
+   "title": "Javoblar",
+   "emotion": "happy",
    "board": [
-    "过 bilan tajriba tayyor ✓",
-    "8 savol-javob tayyor ✓"
+    "以前去过 ✓",
+    "昨天去了 ✓",
+    "看过吗 ✓",
+    "上个月看了 ✓"
    ],
    "examples": [],
-   "say_native": "Tajriba mavzusi tayyor. 过 ni ishonch bilan ishlating. A2-23 yakunlandi.",
-   "say": "你吃过吗？吃过。你看过吗？没看过。你去过吗？去过一次。",
-   "say_uz": "Yeganmisiz? Ha. Ko‘rganmisiz? Yo‘q. Borganmisiz? Bir marta.",
+   "say_native": "Javoblar: vaqt so‘zi to‘g‘ri tanlovga yordam berdi. Agar imtihonda yoki real suhbatda ikkilansangiz, o‘zingizdan so‘rang: men tajriba borligini aytyapmanmi yoki aniq bir paytda nima bo‘lganini aytyapmanmi? Birinchi holat — 过, ikkinchi holat — ko‘pincha 了. Bu A2 darajasida eng foydali mezon.",
+   "say": "我以前去过北京。我昨天去了北京。你看过这部电影吗？我上个月看了这部电影。",
+   "say_uz": "Ilgari Pekinda bo‘lganman. Kecha Pekinga bordim. Bu filmni ko‘rganmisiz? O‘tgan oy bu filmni ko‘rdim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "“Never” va tajriba inkori: ko‘proq misollar",
+   "emotion": "neutral",
+   "board": [
+    "没去过 — tajriba yo‘q",
+    "从来没去过 — hech qachon (kuchli)",
+    "一次也没去过 — bir marta ham bormaganman (kuchli)",
+    "从来没…过, 但是想… — hech qachon, lekin xohlayman"
+   ],
+   "examples": [
+    {
+     "t": "我一次也没去过中国。",
+     "uz": "Xitoyga bir marta ham bormaganman."
+    },
+    {
+     "t": "她从来没吃过辣的。",
+     "uz": "U hech qachon achchiq taom yemagan."
+    },
+    {
+     "t": "我没见过他，但是听说过他。",
+     "uz": "Uni ko‘rmaganman, lekin haqida eshitganman."
+    }
+   ],
+   "say_native": "“Hech qachon” ma‘nosini xitoy tilida bir necha usul bilan ifodalash mumkin. Eng keng tarqalgani: 从来没…过. Yana bir tabiiy variant: 一次也没…过 — bir marta ham qilmaganman. Ikkalasi ham tajriba yo‘qligini kuchli bildiradi. 没…过 esa oddiy inkor bo‘lishi mumkin: hozircha tajriba yo‘q, lekin “hech qachon” urg‘usi unchalik kuchli emas. Suhbatda bu farq muhim: 从来没去过 desangiz, umr davomida tajriba yo‘q deyapsiz. 没去过 desangiz, oddiy “bormaganman” deyapsiz. Shuningdek, inkordan keyin istak yoki qarama-qarshi ma‘lumot qo‘shish mumkin: 我没见过他，但是听说过他 — uni ko‘rmaganman, lekin haqida eshitganman. Bu gapda ikki xil fe‘l bilan 过 ishlatilgan: 见过 va 听说过.",
+   "say": "我一次也没去过中国。她从来没吃过辣的。我没见过他，但是听说过他。",
+   "say_uz": "Xitoyga bir marta ham bormaganman. U hech qachon achchiq taom yemagan. Uni ko‘rmaganman, lekin haqida eshitganman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Never/inkor mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) Hech qachon Pekinda bo‘lmaganman. (从来没)",
+    "2) Bir marta ham bu taomni yemaganman. (一次也没)",
+    "3) U bilan uchrashmaganman, lekin eshitganman. (没见过/听说过)"
+   ],
+   "examples": [],
+   "say_native": "Uchta gap tuzing. 1-gapda 从来没…过, 2-gapda 一次也没…过, 3-gapda ikki fe‘l bilan 过 ishlating: 见过 va 听说过. Bu inkor va tajriba ifodalarini boyitadi.",
+   "say": "我从来没去过北京。我一次也没吃过这个菜。我没见过他，但是听说过他。",
+   "say_uz": "Hech qachon Pekinda bo‘lmaganman. Bu taomni bir marta ham yemaganman. U bilan uchrashmaganman, lekin haqida eshitganman.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "happy",
+   "board": [
+    "从来没去过 ✓",
+    "一次也没吃过 ✓",
+    "没见过，但是听说过 ✓"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: turli inkor shakllari to‘g‘ri. 一次也没…过 A2 da foydali kuchli inkordir. 但是 bilan qarama-qarshi ma‘lumot berish ham tabiiy. Endi qo‘shimcha savollarni yana bir bor amalda ko‘ramiz.",
+   "say": "我从来没去过北京。我一次也没吃过这个菜。我没见过他，但是听说过他。",
+   "say_uz": "Hech qachon Pekinda bo‘lmaganman. Bu taomni bir marta ham yemaganman. U bilan uchrashmaganman, lekin haqida eshitganman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qo‘shimcha savollar: qayerga, kim bilan, qaysi",
+   "emotion": "neutral",
+   "board": [
+    "你去过哪些地方？ — qaysi joylarga borgan?",
+    "你跟谁一起去的？ — kim bilan bording?",
+    "你吃过哪种中国菜？ — qaysi turdagi xitoy taomini?",
+    "你最喜欢哪个？ — qaysi biri eng yoqdi?"
+   ],
+   "examples": [
+    {
+     "t": "你去过哪些国家？",
+     "uz": "Qaysi davlatlarda bo‘lgansiz?"
+    },
+    {
+     "t": "我去过韩国和日本。",
+     "uz": "Koreya va Yaponiyada bo‘lganman."
+    },
+    {
+     "t": "你跟谁一起去的？跟家人一起去的。",
+     "uz": "Kim bilan bordingiz? Oilam bilan."
+    }
+   ],
+   "say_native": "Tajriba haqida savol berishda qayerga, kim bilan va qaysi birini aniqlash juda tabiiy. 哪些地方/哪些国家 — qaysi joylar/davlatlar? Bu savolga ro‘yxat bilan javob berish mumkin: 北京和上海, 韩国和日本. 跟谁一起…? — kim bilan? 跟朋友一起, 跟家人一起, 一个人 (yolg‘iz). 哪种/哪个 — qaysi tur, qaysi biri? Masalan, 哪种中国菜 — qaysi turdagi xitoy taomi. Bu savollar tajribani oddiy “ha/yo‘q” dan boy suhbatga aylantiradi. Eslatma: 一起…的 yoki 一起去了 kabi tafsilotlarda aniq voqea ma‘nosi kuchayadi; bu 过 dan keyingi tabiiy davomdir.",
+   "say": "你去过哪些国家？我去过韩国和日本。你跟谁一起去的？跟家人一起去的。",
+   "say_uz": "Qaysi davlatlarda bo‘lgansiz? Koreya va Yaponiyada bo‘lganman. Kim bilan bordingiz? Oilam bilan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Boy suhbat: 5 savol",
+   "emotion": "encouraging",
+   "board": [
+    "1) 你去过别的城市吗？",
+    "2) 去过哪些城市？",
+    "3) 去过几次？",
+    "4) 跟谁一起去的？",
+    "5) 你觉得怎么样？"
+   ],
+   "examples": [],
+   "say_native": "Bitta mavzu — shahar/sayohat — bo‘yicha 5 ta savolga javob bering. Bu bitta “Have you ever…?” savolini to‘liq suhbatga aylantiradi. 过, 没…过, 几次, 跟谁一起, 怎么样 ni ishlating.",
+   "say": "你去过别的城市吗？去过。去过哪些城市？去过撒马尔罕和布哈拉。去过几次？好几次。跟谁一起去的？跟朋友一起去的。你觉得怎么样？很有意思。",
+   "say_uz": "Boshqa shaharlarda bo‘lganmisiz? Ha. Qaysi shaharlarda? Samarqand va Buxoroda. Necha marta? Bir necha marta. Kim bilan? Do‘stlarim bilan. Qanday edi? Juda qiziqarli.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "happy",
+   "board": [
+    "去过哪些城市 ✓",
+    "好几次 ✓",
+    "跟朋友一起 ✓",
+    "怎么样 ✓"
+   ],
+   "examples": [],
+   "say_native": "Bu to‘liq suhbat namunasi: tajriba borligi, qaysi joylar, necha marta, kim bilan va taassurot. Siz ham 8 ta uy vazifasi savolingizdan bir nechtasini shunday kengaytira olasiz. Kengaytirish majburiy emas, lekin nutqingizni ancha tabiiy qiladi.",
+   "say": "你去过别的城市吗？去过。去过哪些城市？去过撒马尔罕和布哈拉。去过几次？好几次。跟谁一起去的？跟朋友一起去的。你觉得怎么样？很有意思。",
+   "say_uz": "Boshqa shaharlarda bo‘lganmisiz? Ha. Qaysi shaharlarda? Samarqand va Buxoroda. Necha marta? Bir necha marta. Kim bilan? Do‘stlarim bilan. Qanday? Juda qiziqarli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Oddiy o‘tgan voqea (simple past) bilan taqqoslash",
+   "emotion": "neutral",
+   "board": [
+    "“I ate dumplings yesterday.” — aniq o‘tgan voqea",
+    "我昨天吃了饺子。",
+    "“Have you ever eaten dumplings?” — tajriba",
+    "你吃过饺子吗？",
+    "Xitoy tilida ikkisi ham fe‘l tuslanmaydi; 了/过 farqlaydi"
+   ],
+   "examples": [
+    {
+     "t": "我昨天去了商店。",
+     "uz": "Kecha do‘konga bordim."
+    },
+    {
+     "t": "我去过那个商店。",
+     "uz": "O‘sha do‘konga borganman (tajriba)."
+    },
+    {
+     "t": "他上个月看了这部电影。",
+     "uz": "U o‘tgan oy bu filmni ko‘rdi."
+    },
+    {
+     "t": "他看过这部电影。",
+     "uz": "U bu filmni ko‘rgan (tajribasi bor)."
+    }
+   ],
+   "say_native": "Ingliz tilida simple past (“I went”) va present perfect experience (“I have been”) grammatik jihatdan farqlanadi. Xitoy tilida fe‘l o‘zgarmaydi — 去 baribir 去. Farqni 了, 过 va vaqt so‘zlari beradi. Aniq o‘tgan voqea, ayniqsa vaqt ko‘rsatilsa: 我昨天去了商店. Bu “kecha bordim” — oddiy o‘tgan voqeaga yaqin. Tajriba: 我去过那个商店 — “u do‘konga borganman”, qachonligi muhim emas. Shuning uchun xitoy tilida “past tense” ni bitta qoida bilan emas, kontekst bilan tushunish kerak. A2 darajasida sizdan so‘raladigan asosiy narsa: tajriba haqida so‘ralganda 过 ishlata olish, aniq vaqtli voqeada esa 了 va vaqt so‘zlarini tanib olish. Murakkab holatlarni keyingi darajalarda chuqurroq ko‘rasiz.",
+   "say": "我昨天去了商店。我去过那个商店。他上个月看了这部电影。他看过这部电影。",
+   "say_uz": "Kecha do‘konga bordim. O‘sha do‘konga borganman. U o‘tgan oy bu filmni ko‘rdi. U bu filmni ko‘rgan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tajriba yoki aniq o‘tgan voqea?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Have you ever been to China?",
+    "2) I went to China last year.",
+    "3) Have you ever eaten hotpot?",
+    "4) I ate hotpot yesterday."
+   ],
+   "examples": [],
+   "say_native": "To‘rtta gapni xitoychaga aylantiring. 1 va 3 tajriba savoli (过). 2 va 4 aniq o‘tgan voqea (vaqt + 了). Bu mashq briefdagi “contrast with the simple past” talabini mustahkamlaydi.",
+   "say": "你去过中国吗？我去年去了中国。你吃过火锅吗？我昨天吃了火锅。",
+   "say_uz": "Xitoyga borganmisiz? O‘tgan yili Xitoyga bordim. Hotpot yeb ko‘rganmisiz? Kecha hotpot yedim.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "happy",
+   "board": [
+    "去过吗？ (tajriba) ✓",
+    "去年去了 (aniq voqea) ✓",
+    "吃过吗？ (tajriba) ✓",
+    "昨天吃了 (aniq voqea) ✓"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: ikki juft aniq kontrast. Ingliz tilidagi simple past va experience savoli xitoy tilida turli vositalar bilan ifodalanadi, lekin fe‘lning o‘zi o‘zgarmaydi. Shu sababli 过 va 了 ni tushunish juda muhim.",
+   "say": "你去过中国吗？我去年去了中国。你吃过火锅吗？我昨天吃了火锅。",
+   "say_uz": "Xitoyga borganmisiz? O‘tgan yili Xitoyga bordim. Hotpot yeb ko‘rganmisiz? Kecha hotpot yedim.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Qo‘shimcha misollar",
+   "title": "Qo‘shimcha tajribalar: hayot va madaniyat",
    "emotion": "happy",
    "board": [
-    "我坐过飞机。 zuòguò fēijī — samolyotda uchganman",
-    "我没坐过船。 méi zuòguò chuán — kemada bo‘lmaganman",
-    "你参加过比赛吗？ cānjiāguò bǐsài — musobaqada qatnashganmisiz?"
+    "看过京剧 kànguò jīngjù — Pekin operasini ko‘rgan",
+    "过春节 guò Chūnjié — Bahor bayramini nishonlagan (tajriba)",
+    "写过汉字 xiěguò Hànzì — ieroglif yozgan",
+    "听过中文歌 tīngguò Zhōngwén gē — xitoy qo‘shig‘ini eshitgan"
    ],
    "examples": [
     {
-     "t": "你坐过飞机吗？坐过几次。",
-     "uz": "Samolyotda uchganmisiz? Bir necha marta."
+     "t": "你看过京剧吗？",
+     "uz": "Pekin operasini ko‘rganmisiz?"
     },
     {
-     "t": "我从来没坐过船。",
-     "uz": "Hech qachon kemada bo‘lmaganman."
+     "t": "我写过汉字，但是写得不好。",
+     "uz": "Ieroglif yozganman, lekin yomon yozaman."
+    },
+    {
+     "t": "她听过很多中文歌。",
+     "uz": "U ko‘p xitoy qo‘shiqlarini eshitgan."
     }
    ],
-   "say_native": "Qo‘shimcha tajribalar: 坐过飞机 — samolyotda uchganman, 坐过船 — kemada bo‘lganman. 参加过比赛 — musobaqada qatnashganman. Har qanday fe’l bilan 过 ishlatish mumkin: tajriba bor-yo‘qligini so‘rang.",
-   "say": "你坐过飞机吗？坐过几次。你坐过船吗？我从来没坐过船。你参加过比赛吗？参加过一次。",
-   "say_uz": "Samolyotda uchganmisiz? Bir necha marta. Kemada bo‘lganmisiz? Hech qachon. Musobaqada qatnashganmisiz? Bir marta.",
+   "say_native": "Tajriba faqat sayohat emas — madaniyat, til va kundalik hayot tajribalari ham 过 bilan ifodalanadi. 看过京剧 — Pekin operasini ko‘rganmisizmi? 写过汉字 — ieroglif yozganmisizmi? Bu savollar sizning xitoy tili va madaniyati bilan tajribangizga tegishli. Eslatma: 过春节 dagi 过 fe‘l sifatida ham ishlatilishi mumkin (bayramni o‘tkazmoq/nishonlamoq), lekin bu darajada biz tajriba yuklamasi 过 ga e‘tibor qaratamiz. Muhimi: fe‘l + 过 = tajriba bor. Uy vazifasida o‘zingizga qiziq mavzularni tanlang: taom, sayohat, sport, til, film, musiqa.",
+   "say": "你看过京剧吗？我写过汉字，但是写得不好。她听过很多中文歌。",
+   "say_uz": "Pekin operasini ko‘rganmisiz? Ieroglif yozganman, lekin yomon yozaman. U ko‘p xitoy qo‘shiqlarini eshitgan.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha savollar",
+   "title": "O‘zingizning tajribangiz",
    "emotion": "encouraging",
    "board": [
-    "1) Samolyotda uchganmisiz?",
-    "2) Kemada bo‘lganmisiz?",
-    "3) Musobaqada qatnashganmisiz?"
+    "3 ta savol-javob yozing (o‘zingizga mos):",
+    "1) taom yoki ichimlik",
+    "2) sayohat yoki joy",
+    "3) til, film, musiqa yoki sport",
+    "Har birida 过/没…过 + 1 ta tafsilot"
    ],
    "examples": [],
-   "say_native": "Uchta savol-javob: 坐过飞机吗, 坐过船吗, 参加过比赛吗. O‘zingizga mos javob bering.",
-   "say": "你坐过飞机吗？坐过。你坐过船吗？没坐过。你参加过比赛吗？参加过一次。",
-   "say_uz": "Samolyotda uchganmisiz? Ha. Kemada bo‘lganmisiz? Yo‘q. Musobaqada qatnashganmisiz? Bir marta.",
-   "practice_seconds": 12
+   "say_native": "Endi 8 ta uy vazifasining 3 tasini hozirdan tayyorlang. O‘zingizga mos mavzu tanlang. Har birida savol (你…过吗?), javob (过 yoki 没…过/从来没…过) va bitta tafsilot bo‘lsin: 几次, 什么时候, 怎么样, 跟谁 yoki 但是我想…. Bu tayyorgarlik uy vazifasini osonlashtiradi.",
+   "say": "你吃过包子吗？吃过很多次，很好吃。你去过别的城市吗？去过一次。你听过中文歌吗？听过几首，觉得很好听。",
+   "say_uz": "Baozi yeb ko‘rganmisiz? Ko‘p marta, juda mazali. Boshqa shaharda bo‘lganmisiz? Bir marta. Xitoy qo‘shig‘ini eshitganmisiz? Bir nechta, yoqimli.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar va yakuniy tayyorgarlik",
+   "emotion": "happy",
+   "board": [
+    "3 savol-javob tayyor ✓",
+    "过/没过 + tafsilot ✓",
+    "Qolgan 5 tasini uyda bajaring"
+   ],
+   "examples": [],
+   "say_native": "Yaxshi. Uchta savol-javob tayyor bo‘lsa, qolgan beshtasini ham shu andoza bilan bajarasiz. Farqi bor: har safar bir xil fe‘lni ishlatishingiz shart emas — 去过, 吃过, 看过, 学过, 坐过, 参加过, 住过, 听过 kabi turli fe‘llarni tanlang. Bu sizning lug‘atingiz va grammatikangizni birga mustahkamlaydi. Javoblaringiz chin bo‘lishi shart emas; grammatik jihatdan to‘g‘ri va mantiqli bo‘lishi muhim.",
+   "say": "你吃过包子吗？吃过很多次，很好吃。你去过别的城市吗？去过一次。你听过中文歌吗？听过几首，觉得很好听。",
+   "say_uz": "Baozi yeb ko‘rganmisiz? Ko‘p marta. Boshqa shaharda bo‘lganmisiz? Bir marta. Xitoy qo‘shig‘ini eshitganmisiz? Bir nechta, yoqimli.",
+   "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Dars xulosasi",
    "emotion": "proud",
    "board": [
-    "过 — tajriba: 去过, 吃过, 看过",
-    "Savol: …过吗？",
-    "Inkor: 没…过 / 从来没…过",
-    "过 (tajriba) vs 了 (aniq voqea, vaqt bilan)"
+    "过 — tajriba (ever): 去过、吃过、看过",
+    "…过吗？ — tajriba savoli",
+    "没…过 / 从来没…过 — never",
+    "过 vs 了 — tajriba vs aniq vaqtli voqea",
+    "Qo‘shimcha savollar: 几次、什么时候、怎么样、跟谁"
    ],
    "examples": [],
-   "say_native": "Xulosa. 过 tajribani bildiradi. Savol: 你…过吗? Inkor: 没…过 yoki 从来没…过. 过 va 了 farqi: 过 — tajriba, 了 — ko‘pincha aniq voqea/vaqt. Qo‘shimcha savollar: 什么时候, 几次, 怎么样.",
-   "say": "今天我们学会了用“过”谈论经历。你做得很好！",
-   "say_uz": "Bugun 过 bilan tajriba haqida gapirishni o‘rgandik. Juda yaxshi!",
+   "say_native": "Bugun hayotiy tajriba haqida gapirishni o‘rgandik. Asosiy nuqtalar: 过 fe‘ldan keyin kelib tajribani bildiradi. Savol: 你…过吗? Inkor: 没…过, kuchli inkor: 从来没…过. 过 va 了 farqi: 过 umumiy tajriba, 了 esa ko‘pincha aniq vaqt bilan bog‘liq voqea. Suhbatni davom ettirish uchun 几次, 什么时候, 怎么样, 跟谁一起 kabi qo‘shimcha savollarni ishlatdik. Xitoy tilida fe‘l tuslanmasligini yana bir bor eslang — ma‘noni 过, 了, 没 va vaqt so‘zlari beradi.",
+   "say": "今天我们学习了用“过”谈经历，也学会了怎么问“你……过吗？”。你做得很好！",
+   "say_uz": "Bugun 过 bilan tajriba haqida gapirishni va “siz … qilganmisiz?” deb so‘rashni o‘rgandik. Juda yaxshi!",
    "practice_seconds": 0
   },
   {
@@ -1193,128 +910,128 @@
    "emotion": "encouraging",
    "board": [
     "8 ta “Have you ever…?” savol-javob",
-    "过 / 没过 / 从来没过",
-    "Qo‘shimcha: 几次, 什么时候 (ixtiyoriy)",
-    "Keyingi dars: tinglash"
+    "Har birida 过 yoki 没…过 / 从来没…过",
+    "Kamida 3 tasida qo‘shimcha savol/javob tafsiloti",
+    "Keyingi dars: A2-24 — Tinglash"
    ],
    "examples": [],
-   "say_native": "Uy vazifasi: 8 ta “Hech qachon … qilganmisiz?” savol-javobini yozing. 过, 没…过, 从来没…过 ishlating. Istasangiz, 几次 yoki 什么时候 qo‘shing. Keyingi darsda e’lonlar va dialoglarni tinglaymiz.",
-   "say": "请写八个“你……过吗？”的问题和回答。下节课我们练习听力。",
-   "say_uz": "8 ta “Siz … qilganmisiz?” savol-javobini yozing. Keyingi darsda tinglash mashq qilamiz.",
+   "say_native": "Uy vazifasi: 8 ta “Have you ever…?” savol-javob yozing va aytib mashq qiling. Har bir juftda xitoycha savol (…过吗?) va xitoycha javob bo‘lsin. Kamida uchta javobda qo‘shimcha tafsilot qo‘shing: 几次, 什么时候, 怎么样, 跟谁 yoki 从来没…过，但是我想…. Javoblar sizga mos bo‘lishi mumkin — ha yoki yo‘q. Muhimi grammatik tuzilmani to‘g‘ri ishlatish: 没…过, 从来没…过, fe‘l + 过. Keyingi darsda e‘lonlar va dialoglarni tinglashni mashq qilamiz.",
+   "say": "请完成八个“你……过吗？”的问答。下节课我们练习听力。再见！",
+   "say_uz": "Sakkizta “siz … qilganmisiz?” savol-javobini bajaring. Keyingi darsda tinglashni mashq qilamiz. Xayr!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "8 ta “Hech qachon … qilganmisiz?” (Have you ever…?) savol-javobini yozing. Har birida 过 ishlating; javoblarda 去过/没去过 yoki 从来没…过 dan foydalaning. Ixtiyoriy: 几次, 什么时候, 怎么样 qo‘shing.",
+ "homework_uz": "8 ta “Have you ever…?” savol-javob yozing va ayting. Har birida 你…过吗? savoli va 过 / 没…过 / 从来没…过 bilan javob bo‘lsin. Kamida 3 ta javobga qo‘shimcha tafsilot qo‘shing: 几次, 什么时候, 怎么样, 跟谁一起 yoki 但是我想…. Masalan: 你去过别的国家吗？去过一次，去年去的。 你坐过飞机吗？我从来没坐过，但是我想坐一次。",
  "quiz": [
   {
-   "q": "Which structure expresses life experience (have done something)?",
+   "q": "Tajriba ma‘nosini bildirish uchun qaysi yuklama ishlatiladi?",
    "options": [
-    "Verb + 过",
-    "Verb + 了 only for all cases",
-    "是 + Verb",
-    "在 + Verb"
+    "了",
+    "过",
+    "着",
+    "的"
    ],
-   "answer": 0,
-   "why_uz": "过 tajriba bildiradi."
+   "answer": 1,
+   "why_uz": "Fe‘ldan keyin 过 tajribani bildiradi: 去过, 吃过."
   },
   {
-   "q": "How do you ask “Have you been to China?”",
+   "q": "“Siz Xitoyga borganmisiz?” (tajriba) qaysi?",
    "options": [
+    "你去中国了吗？",
+    "你去了中国吗？",
     "你去过中国吗？",
-    "你去了中国吗？ (only completed event, less natural for experience question)",
-    "你去中国过吗？",
-    "你是去中国吗？"
+    "你要去中国吗？"
    ],
-   "answer": 0,
-   "why_uz": "Tajriba savoli: 去过吗？"
+   "answer": 2,
+   "why_uz": "Tajriba savoli: fe‘l + 过 + 吗."
   },
   {
-   "q": "“I have never eaten this.” (stronger)",
+   "q": "Tajriba inkori qaysi to‘g‘ri?",
    "options": [
-    "我从来没吃过这个。",
-    "我吃过这个。",
-    "我昨天吃了这个。",
-    "我要吃这个。"
+    "我不去过。",
+    "我没去过。",
+    "我不去了。",
+    "我没去了过。"
    ],
-   "answer": 0,
-   "why_uz": "从来没…过 — hech qachon."
+   "answer": 1,
+   "why_uz": "Tajriba inkori: 没 + fe‘l + 过."
   },
   {
-   "q": "Negative of experience: “haven’t been”",
+   "q": "“Hech qachon yemaganman” qaysi?",
    "options": [
-    "没去过",
-    "不去过",
-    "没去了",
-    "别去过"
+    "我不吃过。",
+    "我没吃了。",
+    "我从来没吃过。",
+    "我从来不吃。"
    ],
-   "answer": 0,
-   "why_uz": "没 + fe’l + 过."
+   "answer": 2,
+   "why_uz": "Hech qachon (tajriba yo‘q): 从来没…过."
   },
   {
-   "q": "过 is mainly about…",
+   "q": "过 va 了 farqi haqida qaysi to‘g‘riroq?",
    "options": [
-    "experience at some time in life",
-    "a specific time like yesterday only",
-    "future plans",
-    "ability"
+    "Ikkalasi bir xil",
+    "过 ko‘pincha tajriba, 了 ko‘pincha aniq vaqtli voqea",
+    "了 faqat savolda",
+    "过 faqat kelasi zamon uchun"
    ],
-   "answer": 0,
-   "why_uz": "过 — tajriba."
+   "answer": 1,
+   "why_uz": "过 — umumiy tajriba; 了 — ko‘pincha aniq voqea/vaqt kontekstida."
   },
   {
-   "q": "Which fits: “I ___ that movie.” (experience)",
+   "q": "“我昨天___北京。” (kecha bordim) bo‘sh joyga nima mos?",
    "options": [
-    "看过",
-    "看了昨天 (awkward alone)",
-    "看着",
-    "要看"
+    "去过",
+    "去了",
+    "去着",
+    "去过了"
    ],
-   "answer": 0,
-   "why_uz": "Ko‘rganman (tajriba) — 看过."
+   "answer": 1,
+   "why_uz": "Aniq vaqt (kecha) + voqea: 去了."
   },
   {
-   "q": "“一次” means…",
+   "q": "“Necha marta?” xitoycha qaysi?",
    "options": [
-    "one time / once",
-    "first",
-    "together",
-    "always"
+    "什么时候？",
+    "怎么样？",
+    "几次？",
+    "在哪儿？"
    ],
-   "answer": 0,
-   "why_uz": "一次 — bir marta."
+   "answer": 2,
+   "why_uz": "几次 = necha marta."
   },
   {
-   "q": "Follow-up question after 你去过北京吗？",
+   "q": "“Qanday edi?” xitoycha qaysi?",
    "options": [
-    "什么时候去的？",
-    "多少钱？",
-    "哪个颜色？",
-    "几本书？"
+    "几次？",
+    "什么时候？",
+    "跟谁？",
+    "怎么样？"
    ],
-   "answer": 0,
-   "why_uz": "Qachon — tafsilot so‘rovi."
+   "answer": 3,
+   "why_uz": "怎么样? — qanday?"
   },
   {
-   "q": "Which sentence contrasts experience vs specific past event?",
+   "q": "“你吃过火锅吗？” ga qisqa ijobiy javob?",
    "options": [
-    "我去过北京。我去年去了上海。",
-    "我去了过北京。",
-    "我去过了北京昨天。",
-    "我过去北京了去年。"
+    "不吃。",
+    "吃过。",
+    "吃了。",
+    "没吃。"
    ],
-   "answer": 0,
-   "why_uz": "Birinchi tajriba, ikkinchi aniq vaqt bilan."
+   "answer": 1,
+   "why_uz": "Tajriba savoliga: fe‘l + 过."
   },
   {
-   "q": "从来 is usually used with…",
+   "q": "Qaysi gap tajriba + istakni to‘g‘ri bildiradi?",
    "options": [
-    "negation (没/不)",
-    "only affirmative",
-    "questions only",
-    "numbers only"
+    "我没去过，但是我想去。",
+    "我不去过，但是想。",
+    "我去了，但是没想去。",
+    "我去过，但是我没去。"
    ],
    "answer": 0,
-   "why_uz": "从来 ko‘pincha inkor bilan."
+   "why_uz": "从来/没…过 + 但是我想… = tajriba yo‘q, lekin xohlayman."
   }
  ]
 }

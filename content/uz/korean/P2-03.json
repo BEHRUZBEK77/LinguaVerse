@@ -1,0 +1,503 @@
+{
+ "title": "Hisobot va tahliliy matn",
+ "goal_uz": "Strukturali hisobot yozishni o‘rganing: hisobot bo‘limlari, xolis va shaxssiz uslub, tavsiyalar bo‘limi hamda ijroiya xulosasi — koreys korporativ hujjatlarining standartida.",
+ "vocab": [
+  {
+   "w": "보고서 (bogoseo)",
+   "uz": "hisobot"
+  },
+  {
+   "w": "요약 (yoyak)",
+   "uz": "xulosa, qisqa bayoni"
+  },
+  {
+   "w": "현황 (hyeonhwang)",
+   "uz": "hozirgi ahvol, joriy holat"
+  },
+  {
+   "w": "분석 (bunseok)",
+   "uz": "tahlil"
+  },
+  {
+   "w": "권고 사항 (gwongo sahang)",
+   "uz": "tavsiyalar bo‘limi"
+  },
+  {
+   "w": "객관적 (gaekgwanjeok)",
+   "uz": "obyektiv, xolis"
+  },
+  {
+   "w": "무인칭체 (mu-inchingche)",
+   "uz": "shaxssiz uslub (men/biz demaydigan ohang)"
+  },
+  {
+   "w": "~으로 판단됩니다 (~euro pandan-doemnida)",
+   "uz": "…deb topildi / baholandi"
+  },
+  {
+   "w": "~로 나타났다 (~ro natanatta)",
+   "uz": "…ekanligi aniqlandi"
+  },
+  {
+   "w": "표 (pyo)",
+   "uz": "jadval"
+  },
+  {
+   "w": "개선 (gaeseon)",
+   "uz": "yaxshilash, takomillashtirish"
+  },
+  {
+   "w": "결론 (gyeollon)",
+   "uz": "xulosa"
+  }
+ ],
+ "scenes": [
+  {
+   "kind": "intro",
+   "title": "PRO 2 · Dars 3 — Hisobot va tahliliy matn",
+   "emotion": "happy",
+   "board": [
+    "P2-03 · 보고서 작성",
+    "Bo‘limlar · xolis uslub · tavsiyalar · 요약"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! P2-02 darsida xatlar — taklif, shikoyat, uzr va follow-up — yozishni o‘rgandingiz; bugun xatdan ham rasmiyroq, og‘irroq hujjat turiga — hisobotga, ya’ni 보고서 — o‘tamiz. Koreya kompaniyalarida hisobot qabul qiluvchi rahbarning birinchi o‘qigan hujjatidir va u qaror qabul qilishning asosiga aylanadi. Bugun to‘rtta narsani o‘rganasiz: birinchi, hisobotning to‘liq tuzilishi — sarlavhadan tavsiyalargacha; ikkinchi, ijroiya xulosasi — 요약 — qanday yoziladi; uchinchi, xolis va shaxssiz uslub — “men o‘ylayman” emas, “deb topildi”; to‘rtinchi, tavsiyalar — 권고 사항 — qanday shakllanadi va yetkaziladi. Darsning oxirida uy vazifasi: 300 so‘zli qisqa hisobot yozasiz. Professional hayotda “yaxshi hisobot yozadi” degan maqtov — eng katta iltifotlardan biri; bugun shu maqtovga yaqinlashamiz.",
+   "say": "안녕하세요! 오늘은 보고서 작성을 함께 공부해요.",
+   "say_uz": "Assalomu alaykum! Bugun hisobot yozishni birga o‘rganamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hisobot va xat: farqi nimada",
+   "emotion": "neutral",
+   "board": [
+    "메일 = 대화 · 보고서 = 기록",
+    "보고서 = 근거가 남는 문서"
+   ],
+   "examples": [
+    {
+     "t": "본 보고서는 3분기 매출 현황을 분석한 것입니다.",
+     "uz": "Ushbu hisobot 3-chorak savdo holatini tahlil qilgan hujjatdir."
+    }
+   ],
+   "say_native": "Avvalo farqni aniqlaymiz. Xat — bu ma’lum bir shaxsga qaratilgan suhbat: siz “shu odamga” yozasiz va javob kutasiz. Hisobot — bu tashkilotning xotirasi: uni bir emas, ko‘p odam o‘qiydi — rahbar, hamkor bo‘lim, audit, kelgusi yildagi tahlilchi. Shuning uchun hisobotning uchta qoidalari bor. Birinchi, muddatlilik: hisobot faktni yozadi, fikrni emas — faktning ortida dalil to‘liq bo‘lsin. Ikkinchi, mustaqillik: hisobot egasi anonim — “men” va “biz” deyarli ishlatilmaydi; muallifning o‘rniga hujjatning o‘zi gapiradi. Uchinchi, takrorlash mumkinligi: istalgan o‘quvchi jadvalga qarab natijani qayta tekshira olishi kerak. Agar xatda “meningcha” bolsa, hisobotda “분석 결과” bo‘ladi. Bu farqni tushunsangiz, uslubingiz darhol o‘zgaradi.",
+   "say": "보고서는 개인의 의견이 아니라 조직의 기억입니다.",
+   "say_uz": "Hisobot shaxsning fikri emas, tashkilotning xotirasidir.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Hisobotning to‘liq skeleti",
+   "emotion": "thinking",
+   "board": [
+    "제목 → 요약 → 배경 → 현황 → 분석 → 권고 사항 → 첨부",
+    "표와 그림은 본문 옆에"
+   ],
+   "examples": [
+    {
+     "t": "1. 배경 2. 현황 3. 분석 4. 권고 사항",
+     "uz": "1. Fon 2. Hozirgi holat 3. Tahlil 4. Tavsiyalar"
+    }
+   ],
+   "say_native": "Standart koreys hisobotining bo‘limlari yettita. Birinchi — 제목: hujjat nomi, raqam va sana bilan — “2026-Q3 매출 분석 보고서”. Ikkinchi — 요약: ijroiya xulosasi, 3-4 jumla; eng muhim natija birinchi jumlada. Uchinchi — 배경: nega bu hisobot yozilgan; bir-ikki xat. To‘rtinchi — 현황: nima sodir bo‘ldi; raqamlar va jadvallar. Beshinchi — 분석: bu raqamlar nimani anglatadi; sabab va oqibat. Oltinchi — 권고 사항: nima qilish kerak; har biri mas’ul va muddat bilan. Yettinchi — 첨부: jadvallar, so‘rovnomalar, manbalar. Har bir bo‘lim raqamlansin va sarlavhasi qalin yozilsin — koreys o‘quvchi hisobotni boshdan-oxir o‘qimaydi, sarlavhalar oralab o‘qiydi; agar 3-bo‘lim sizning eng kuchli tahlilingiz bo‘lsa, uni ko‘rib chiqishi uchun sarlavhasi aniq bo‘lsin.",
+   "say": "제목, 요약, 배경, 현황, 분석, 권고 사항, 첨부. 이 순서로 씁니다.",
+   "say_uz": "Sarlavha, xulosa, fon, holat, tahlil, tavsiyalar, ilova. Shu tartibda yoziladi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "example",
+   "title": "Namuna 1: hisobot sarlavha sahifasi",
+   "emotion": "neutral",
+   "board": [
+    "문서번호 LV-2026-114 · 2026-10-30 · 영업기획팀"
+   ],
+   "examples": [],
+   "say_native": "Sarlavha sahifasini tahlil qiling: yuqori o‘ng tomonda hujjat raqami — LV-2026-114 — bu hujjatni keyincha topib olish uchun; uning yonida sana. O‘rtada katta sarlavha: “3분기 영업 현황 및 개선 방안 보고서”. Pastda muallif tashkilot — “영업기획팀” — va tarqatilgan ro‘yxati: “사장, 본부장, 팀장”. E’tibor bering: sarlavha ikki qismdan iborat — “현황” nima borligini, “개선 방안” nima qilish kerakligini va’da qiladi; bitta sarlavha butun hujjatning mazmunini ocha oladi. O‘zingizning hisobotingizni yozishda ham sarlavhani oxirida qo‘ying — yozib bo‘lgach, hujjat aynan nima haqida ekanini bir qatorda ayting; bu sizni tafsilotga yo‘l qo‘ymaydi.",
+   "say": "문서번호 LV-2026-114 / 작성일 2026년 10월 30일 / 영업기획팀 / 3분기 영업 현황 및 개선 방안 보고서 / 배포: 사장, 본부장",
+   "say_uz": "Hujjat raqami LV-2026-114 / Sana 2026-yil 30-oktabr / Savdo rejalashtirish bo‘limi / 3-chorak savdo holati va yaxshilash choralar bayonnomasi / Tarqatish: direktor, birlashma boshlig‘i",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Ijroiya xulosasi: 요약 yozish",
+   "emotion": "thinking",
+   "board": [
+    "가장 중요한 결론을 첫 문장에",
+    "3–4문장 · 숫자 포함 · 읽는 데 30초"
+   ],
+   "examples": [
+    {
+     "t": "3분기 매출은 전년 대비 12% 증가했으나 수익률은 2%p 하락했습니다.",
+     "uz": "3-chorak savdosi 12% o‘sdi, lekin rentabellik 2% punktga pasaydi."
+    }
+   ],
+   "say_native": "Ijroiya xulosasi — 요약 — hisobotning eng muhim va eng qiyin qismi. Rahbar faqat shu bo‘limni o‘qib qaror qilishi mumkin; qolgan bo‘limlar esa dalillar. Qoidalar to‘rtta. Birinchi, eng muhim xulosani birinchi jumlada ayting — rahbar vaqtli odam. Ikkinchi, 3-4 jumla yetadi — undan uzog‘i allaqachon “본문” bo‘ladi. Uchinchi, har bir jumlada raqam bo‘lsin — “o‘sdi” emas, “12% 증가”; “tushdi” emas, “2%p 하락”. To‘rtinchi, oxirgi jumlada eng muhim tavsiyani ayting — “이에 따라 원가 절감 방안을 권고합니다” — shundan keyin rahbar keyingi bo‘limlarga o‘tadimi yo‘qmi o‘zi tanlaydi. 요약ni hisobot yakuni yozilgandan keyin yozing — avval 본문, keyin 요약 — chunki xulosa matningizning eng yaxshi qismi bo‘lishi kerak.",
+   "say": "요약은 가장 중요한 결론을 첫 문장에, 숫자와 함께, 3~4문장으로 씁니다.",
+   "say_uz": "Xulosa — eng muhim natija birinchi jumlada, raqamlar bilan, 3–4 jumla bilan yoziladi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "example",
+   "title": "Namuna 2: 3 jumlali ijroiya xulosasi",
+   "emotion": "neutral",
+   "board": [
+    "결과(+12%) → 문제(수익률 -2%p) → 권고(원가 절감)"
+   ],
+   "examples": [],
+   "say_native": "Diqqat bilan tahlil qiling — bu 3 jumlali ijroiya xulosasi. Birinchi jumla: natija — savdo 12% o‘sdi, lekin rentabellik 2% punktga tushdi; ya’ni yaxshi yangilik ichida yomon tendensiya yashirin. Ikkinchi jumla: sabab — xomashyo narxi 9% oshgani uchun marja qisqardi. Uchinchi jumla: tavsiya — asosiy xomashyo uchun yillik shartnoma bilan narxni barqarorlashtirish tavsiya qilinadi. Rahbar shu 3 jumlani o‘qib, boshqa hech narsani o‘qimasdan qaror qila oladi. Namuna matnni o‘qib, “%p” — foiz punkti — atamasini yodlang: koreys hisobotlarida o‘sish sur’ati bilan marjaning farqi aynan shu belgi bilan ifodalanadi; oddiy “%” bilan adashmang.",
+   "say": "3분기 매출은 전년 동기 대비 12% 증가했으나 원자재 가격 상승으로 영업이익률은 2%p 하락했습니다. 주요 원인은 구리 가격 9% 상승으로 확인됩니다. 이에 따라 주요 원자재에 대한 연간 계약 체결로 원가를 안정화할 것을 권고합니다.",
+   "say_uz": "3-chorak savdosi o‘tgan yilning shu davriga nisbatan 12% o‘sdi, ammo xomashyo narxi oshishi tufayli operatsion foyda marjasi 2% punktga pasaydi. Asosiy sabab — mis narxining 9% oshishi deb aniqlandi. Shuning uchun asosiy xomashyolar bo‘yicha yillik shartnomalar bilan tannarxni barqarorlashtirishni tavsiya qilamiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Xolis, shaxssiz uslub: 객관적 문체",
+   "emotion": "thinking",
+   "board": [
+    "“저는” 금지 → “~로 나타났다”, “~으로 판단됩니다”",
+    "감정 형용사 대신 측정값"
+   ],
+   "examples": [
+    {
+     "t": "(X) 저는 이 안이 최선이라고 생각합니다.",
+     "uz": "(X) Men bu rejani eng yaxshi deb o‘ylayman."
+    },
+    {
+     "t": "(O) 각 대안의 비용 비교 결과, B안이 가장 효율적인 것으로 판단됩니다.",
+     "uz": "(O) Har bir variantning xarajat tahlili natijasida B reja eng samarali deb topildi."
+    }
+   ],
+   "say_native": "Shaxssiz uslub — 무인칭체 — koreys hisobotining yuragi. U uchta qoidaga tayanadi. Birinchi, shaxsni olib tashlang: “제 생각에는” o‘rniga “분석 결과”, “저는 판단합니다” o‘rniga “~으로 판단됩니다”. Ikkinchi, hissiy so‘zlarni o‘lchov birliklariga almashtiring: “많이 증가했다” o‘rniga “30% 증가했다”; “매우 심각하다” o‘rniga “고객 이탈률이 15%에 달했다”. Uchinchi, qat’iylik o‘rniga ehtiyotkorlik: “확실하다” o‘rniga “~로 보입니다”, “가능성이 높습니다”, “~할 것으로 예상됩니다”. Bu uch qatlam bilan sizning matningiz nafaqat rasmiy, balki ishonchli ham eshitiladi — koreys o‘quvchi shaxssiz uslubni betaraflik emas, professionalizm belgisi deb biladi. Yana bir amaliy hiyla: har bir xulosangizdan keyin “근거:” deb yozib, dalil raqamini qavs ichida bering — masalan “(근거: 표 2)”.",
+   "say": "‘저는’이라는 말을 보고서로 옮기면 ‘~으로 판단됩니다’가 됩니다.",
+   "say_uz": "‘Men’ degan so‘z hisobotga o‘tganda ‘deb topildi’ga aylanadi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "example",
+   "title": "Namuna 3: sub’ektiv gapni xolisga aylantirish",
+   "emotion": "neutral",
+   "board": [
+    "감정형 → 측정형 변환 5문장"
+   ],
+   "examples": [],
+   "say_native": "Bu mashq-namunasida sub’ektiv gaplar xolisga aylantirilgan. Birinchi: “이 제품은 매우 좋다” — “본 제품의 만족도는 5점 만점에 4.6점으로 조사되었다”. Ikkinchi: “직원들이 힘들어한다” — “응답자의 62%가 업무 과중을 호소했다”. Uchinchi: “매출이 왜 이렇게 안 나오나” — “목표 대비 달성률은 78%로 확인되었다”. To‘rtinchi: “경쟁사보다 훨씬 낮다” — “경쟁사 대비 단가는 평균 8% 낮은 수준으로 나타났다”. Beshta misolning har birida sub’ektiv sifat o‘lchov birligiga aylandi. O‘zingiz ham istalgan sub’ektiv jumlangizni shu ikki savol bilan tekshiring: “qancha?” va “kim aytdi?”. Agar ikkala savolga javob bo‘lmasa, jumla hali xolis emas.",
+   "say": "1) ‘매우 좋다’ → ‘만족도 4.6점’. 2) ‘힘들어한다’ → ‘62%가 과중 호소’. 3) ‘안 나온다’ → ‘달성률 78%’. 측정값으로 바꾸세요.",
+   "say_uz": "1) ‘Juda yaxshi’ → ‘qoniqish 4.6 ball’. 2) ‘Qiynalayapti’ → ‘62% ortiqcha yukdan shikoyat qiladi’. 3) ‘Chiqmayapti’ → ‘bajarilish 78%’. O‘lchov birligiga aylantiring.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Jadval va raqamlarni so‘zda ifodalash",
+   "emotion": "neutral",
+   "board": [
+    "“표 2에 따르면…” — 근거 연결",
+    "전년 대비 · 전월 대비 · 목표 대비"
+   ],
+   "examples": [
+    {
+     "t": "표 2에 따르면 불량률은 3.1%에서 1.8%로 개선되었습니다.",
+     "uz": "2-jadvalga ko‘ra, nuqson darajasi 3,1%dan 1,8%ga yaxshilandi."
+    }
+   ],
+   "say_native": "Hisobotning har bir raqami matnda nomi bilan tilga olinishi kerak. Buning uchun koreyscha uchta solishtirish qolipi eng ko‘p ishlatiladi. Birinchi: “전년 동기 대비” — o‘tgan yilning shu davriga nisbatan; mavsumiy ta’sirni nazorat qiladi. Ikkinchi: “전월 대비” — o‘tgan oyga nisbatan — tezkor tendensiyani ko‘rsatadi. Uchinchi: “목표 대비” — rejaga nisbatan — bajarilish darajasini ko‘rsatadi. Raqamlarni aytganda mana shu buyruqqa amal qiling: avval manba — “표 2에 따르면”, keyin baza — “전년 대비”, keyin raqam — “12% 증가”, keyin ma’no — “이는 신제품 효과로 분석됩니다”. Bu to‘rt bo‘lak matningizni jadvaldan matnga olib chiqadi va o‘quvchi uchun hanuz ochiq qoladi: jadvaldagi raqam hech qachon matnga ko‘chirilmasdan turib, o‘z-o‘zidan ma’no kasb etmaydi.",
+   "say": "숫자는 ‘표 2에 따르면’으로 시작하고, ‘전년 대비’라는 기준으로 설명하세요.",
+   "say_uz": "Raqamlarni ‘2-jadvalga ko‘ra’ bilan boshlang va ‘o‘tgan yilga nisbatan’ degan tayanch bilan izohlang.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Tavsiyalar (권고 사항) qanday yoziladi",
+   "emotion": "thinking",
+   "board": [
+    "문제 → 대안 → 기대 효과 → 책임·기한",
+    "“~해야 한다” 대신 “~을 권고합니다”"
+   ],
+   "examples": [
+    {
+     "t": "원가 안정화를 위해 연간 계약 체결을 권고합니다.",
+     "uz": "Tannarxni barqarorlashtirish uchun yillik shartnoma tuzishni tavsiya qilamiz."
+    }
+   ],
+   "say_native": "Tavsiyalar bo‘limi — hisobotning qaror qabul qilinadigan qismi va ko‘pchilikning eng zaif nuqtasi. Kuchli tavsiyaning anatomiyasi to‘rtta element: birinchi, muammo — bitta qatorda; ikkinchi, muqobil — nima qilish kerak; uchinchi, kutilayotgan samara — raqam bilan; to‘rtinchi, mas’ul va muddat — kim va qachongacha. Va til: “~해야 합니다” — “qilish kerak” — koreys hisobotida buyruqdek tuyuladi va qarshilikka uchraydi; “~을 권고합니다” — “tavsiya qilamiz” — professional va yumshoq. Tavsiyalar uch-to‘rtta banddan oshmasin — har biri bir abzatsdan; agar o‘nta tavsiyangiz bo‘lsa, ularning hech biri bajarilmaydi. Va shuni eslang: tavsiya “yaxshi bo‘lardi” emas, “이것을 하면 이만큼의 결과가 난다” — buni qilsangiz mana shuncha natija bo‘ladi — degan raqamli va’dadir.",
+   "say": "권고 사항은 문제, 대안, 기대 효과, 책임과 기한으로 구성합니다.",
+   "say_uz": "Tavsiyalar bo‘limi muammo, muqobil, kutilayotgan samara, mas’ul va muddatdan iborat bo‘ladi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "example",
+   "title": "Namuna 4: tavsiyalar bo‘limi",
+   "emotion": "neutral",
+   "board": [
+    "1) 연간 계약(원가 -5%) · 2) 2단계 검수 · 3) 교육 2회/분기"
+   ],
+   "examples": [],
+   "say_native": "Bu tavsiyalar bo‘limini tahlil qiling — uchta tavsiya, uchta band. Birinchi tavsiya: asosiy xomashyo bo‘yicha yillik shartnoma — kutilayotgan samara tannarxning 5% pasayishi — mas’ul: xarid bo‘limi, muddat: noyabr oxiri. Ikkinchi tavsiya: qabul tekshiruviga ikki bosqichli tasdiqlash — kutilayotgan samara nuqson darajasini 1%gacha tushirish — mas’ul: sifat bo‘limi. Uchinchi tavsiya: chorakiga ikki marta sifat bo‘yicha o‘quv — mas’ul: inson resurslari — muddat: dekabrdan boshlab. Har bir bandda to‘rtta element bor — muammo, muqobil, raqamli samara, mas’ul va muddat. Namuna matnni o‘qib, “권고합니다” jumlasining uch marta takrorlanishini sezing — koreys hisobotida parallel qurilish ishonchni oshiradi.",
+   "say": "1) 구리 등 주요 원자재에 대한 연간 계약 체결을 권고합니다. 기대 효과는 원가 5% 절감이며, 담당은 구매팀, 기한은 11월 말입니다. 2) 입고 검사에 2단계 확인 절차 도입을 권고합니다. 3) 분기별 2회 품질 교육 시행을 권고합니다.",
+   "say_uz": "1) Mis va boshqa asosiy xomashyolar bo‘yicha yillik shartnoma tuzishni tavsiya qilamiz. Kutilayotgan samara — tannarxning 5% pasayishi; mas’ul — xarid bo‘limi, muddat — noyabr oxiri. 2) Qabul tekshiruviga 2 bosqichli tasdiqlash joriy etishni tavsiya qilamiz. 3) Chorakiga 2 marta sifat bo‘yicha o‘quv o‘tkazishni tavsiya qilamiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq: 3 jumlali 요약 yozing",
+   "emotion": "encouraging",
+   "board": [
+    "주어진 데이터로 요약 3문장 작성",
+    "첫 문장에 가장 중요한 결론"
+   ],
+   "examples": [],
+   "say_native": "Endi siz yozasiz. Ma’lumot: 3-chorak savdosi reja 대비 78% bajarildi, asosiy sabab — yangi mahsulot reklama kampaniyasining kechikishi, tavsiya — reklama byudjetini 20% oshirish. Uch jumlali ijroiya xulosasini koreyscha yozing: birinchi jumlada eng muhim natija — “3분기 매출 달성률은 78%로 확인됩니다”; ikkinchi jumlada sabab — “이는 신제품 캠페인 지연에 기인한 것으로 분석됩니다”; uchinchi jumlada tavsiya — “이에 따라 광고 예산 20% 증액을 권고합니다”. 40 soniyadan oshmang va har bir jumlada raqam bo‘lishiga e’tibor bering: 78%, 20%. Bu mashq uy vazifangizdagi 300 so‘zli hisobotning eng muhim qismiga tayyorgarlik.",
+   "say": "3문장 요약을 써 보세요. 첫 문장에 78%, 둘째 문장에 원인, 셋째 문장에 20% 증액 권고를 넣으세요.",
+   "say_uz": "Uch jumlali xulosa yozib ko‘ring. Birinchi jumlada 78%, ikkinchisida sabab, uchinchisida 20% oshirish tavsiyasi bo‘lsin.",
+   "practice_seconds": 40
+  },
+  {
+   "kind": "explain",
+   "title": "Hisobot turlari: qaysi biri qachon",
+   "emotion": "neutral",
+   "board": [
+    "주간 보고서 · 출장 보고서 · 분석 보고서",
+    "형식은 다르지만 뼈대는 같다"
+   ],
+   "examples": [
+    {
+     "t": "주간 보고서: 이번 주 진행 상황과 다음 주 계획.",
+     "uz": "Haftalik hisobot: shu haftadagi ishlar va keyingi hafta rejasi."
+    }
+   ],
+   "say_native": "Koreys tashkilotlarida hisobotning uchta asosiy turi bor. Birinchi — 주간 보고서, haftalik hisobot: qisqa, jadval shaklida; “금주 진행 사항 / 차주 계획 / 이슈 및 지원 요청” — shu haftadagi ishlar, keyingi hafta rejasi, muammolar va so‘rovlar — uch blok. Ikkinchi — 출장 보고서, komandirovka hisoboti: qayerga, nega, kim bilan borildi; natijalar va keyingi choralar. Uchinchi — 분석 보고서, tahliliy hisobot: ma’lumotlar chuqur tahlili; aynan bugun o‘rganayotganimiz. Qaysi turni yozayotganingizdan qat’i nazar, skelet bir xil: natija — sabab — tavsiya. Farq faqat uzunlikda: haftalik hisobot yarim sahifa, tahliliy hisobot esa 5-10 sahifa. Shuni yodda tuting: koreys rahbar har bir hisobotdan bitta narsa kutadi — “그래서 뭐 해야 하는데?” — xo‘sh, unda nima qilish kerak? — ya’ni aniq javob.",
+   "say": "주간, 출장, 분석 보고서. 형식은 달라도 뼈대는 같습니다. 결과, 원인, 권고.",
+   "say_uz": "Haftalik, komandirovka, tahliliy hisobot. Shakli har xil, skeleti bir xil. Natija, sabab, tavsiya.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Namuna 5: haftalik hisobot",
+   "emotion": "neutral",
+   "board": [
+    "금주 진행 → 차주 계획 → 이슈/요청"
+   ],
+   "examples": [],
+   "say_native": "Haftalik hisobot namunasi: yuqorida hafta raqami va sana; birinchi blok — 금주 진행 사항: uch band, har biri holati bilan — “완료” ya tugallandi, “진행 중” ya davom etayapti; ikkinchi blok — 차주 계획: qilinadigan ishlar va muddatlari; uchinchi blok — 이슈 및 지원 요청: rahbardan nima kerak — byudjet tasdig‘i, qo‘shimcha xodim, qaror. E’tibor bering: haftalik hisobotda ortiqcha tafsilot yo‘q, faqat qaror talab qiladigan narsalar. Koreyscha haftalik hisobotning eng kuchli tomoni — aynan shu soddalik: rahbar uni 30 soniyada o‘qib, “OK” deydi yoki qaror chiqaradi. O‘zingizning keyingi haftalik hisobotingizni ham aynan shu uch blokda yozing — boshqa hech narsa kerak emas.",
+   "say": "제43주 주간 보고. 금주 진행: 1) A사 미팅 완료, 2) 견적서 발송 완료, 3) 품질 이슈 분석 진행 중. 차주 계획: 1) B사 방문 11/10, 2) 분석 결과 보고 11/12. 이슈: 품질 개선 예산 승인 요청.",
+   "say_uz": "43-hafta haftalik hisobot. Bu hafta: 1) A kompaniyasi bilan uchrashuv — tugallandi; 2) narx taklifi yuborildi; 3) sifat muammosi tahlili — davom etmoqda. Keyingi hafta: 1) B kompaniyasiga tashrif — 10-noyabr; 2) tahlil natijalari hisoboti — 12-noyabr. Muammo: sifatni yaxshilash uchun byudjet tasdig‘ini so‘raymiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Hisobotdagi eng keng tarqalgan xatolar",
+   "emotion": "stern",
+   "board": [
+    "의견만 있고 근거 없음 · 요약 없음 · 권고에 기한 없음"
+   ],
+   "examples": [
+    {
+     "t": "(X) “많이 개선되었다” → (O) “불량률이 1.3%p 개선되었다”",
+     "uz": "Ko‘p yaxshilandi o‘rniga: nuqson darajasi 1,3% punktga yaxshilandi."
+    }
+   ],
+   "say_native": "Beshta klassik xatoni yodlang. Birinchi: da’vo bor, dalil yo‘q — har bir “yaxshilandi” orqasida raqam tursin. Ikkinchi: ijroiya xulosasi yo‘q — rahbar 10 sahifani o‘qib chiqa olmaydi; 요약 — birinchi sahifa, birinchi narsa. Uchinchi: tavsiyada muddat va mas’ul yo‘q — “개선해야 합니다” hech narsani anglatmaydi; “가 구매팀, 11월 30일까지” — mana shu hisobot. To‘rtinchi: maqsadsiz jadvallar — har bir jadval keyingi abzatsda tilga olinishi shart. Beshinchi: uzunlik — 10 sahifalik hisobot hech qachon o‘qilmaydi; 300 so‘zli yadro + ilovalar ideal. Agar siz bu besh xatodan uchtasini tuzatsangiz, hisobotingiz darhol o‘rtachadan yuqori bo‘ladi. Va har safar yozib bo‘lgach, uchta savolni bering: xulosa bormi? raqam bormi? tavsiyada muddat bormi?",
+   "say": "근거 없는 의견, 요약 없는 본문, 기한 없는 권고. 이 세 가지를 피하세요.",
+   "say_uz": "Dalilsiz fikr, xulosasiz asosiy matn, muddatsiz tavsiya. Shu uchtasidan qoching.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq: sub’ektivni xolisga aylantiring",
+   "emotion": "thinking",
+   "board": [
+    "5문장을 무인칭·측정형으로 변환",
+    "“크게 증가” → “34% 증가”"
+   ],
+   "examples": [],
+   "say_native": "Endi yozib mashq qiling: quyidagi sub’ektiv gaplarni xolis, shaxssiz ko‘rinishga aylantiring. Bir: “매출이 크게 늘었다” — raqam bilan ayting. Ikki: “고객이 불만족스러워한다” — so‘rovnoma natijasi bilan. Uch: “경쟁사보다 훨씬 비싸다” — solishtirish koeffitsienti bilan. To‘rt: “우리 팀이 최선을 다했다” — amalga oshirilgan ishlar ro‘yxati bilan. Besh: “이 안이 가장 낫다” — variantlarni xarajat bo‘yicha taqqoslash bilan. Har birini koreyscha yozib chiqing — “크게 늘었다” emas, “34% 증가했다”; “불만족” emas, “응답자의 58%가 불만족으로 응답했다”. 40 soniya — besh jumla — mashqning o‘zi.",
+   "say": "다음 문장들을 측정형으로 바꿔 보세요. ‘크게 늘었다’는 ‘34% 증가했다’로, ‘불만이다’는 ‘58%가 불만족 응답’으로.",
+   "say_uz": "Keyingi gaplarni o‘lchov birligiga aylantiring. ‘Ancha oshdi’ — ‘34% oshdi’ga, ‘norozi’ — ‘58% norozi javob berdi’ga.",
+   "practice_seconds": 40
+  },
+  {
+   "kind": "example",
+   "title": "Namuna 6: to‘liq qisqa hisobot (300 so‘z)",
+   "emotion": "proud",
+   "board": [
+    "제목 → 요약 → 배경 → 현황 → 분석 → 권고 사항",
+    "우수 보고서의 완결형"
+   ],
+   "examples": [],
+   "say_native": "Bu to‘liq namuna — uy vazifangizning namunasi. Sarlavha: “3분기 반품률 증가 원인과 개선 방안”. Yoyak:반품률 4.1%dan 6.3%ga oshdi — sabab yetkazish qadog‘ining zaifligi — tavsiya: ikki qavatli qadoqlash va 3-chorakda 2%gacha tushirish. Fon: kompaniya shu yil qadoqlashni arzonlashtirgan. Holat: raqamlar jadvali — oylar bo‘yicha qaytarib olishlar. Tahlil: qadoqlash o‘zgarganidan keyin nuqson darajasi 53% oshdi. Tavsiyalar: ikki band — qadoq o‘zgarishi va sifat nazorati — mas’ul va muddat bilan. Namuna matnni o‘qiyotganingizda har bir bo‘limning sarlavhasiga e’tibor bering — aynan shu tuzilish uy vazifangizda ham talab qilinadi. O‘zingiz yozayotganda ham sarlavhalarni yozing va har bo‘lim ostida 2-3 jumladan oshmang.",
+   "say": "3분기 반품률은 4.1%에서 6.3%로 상승했습니다. 원인은 6월 포장 사양 변경이며, 개선안으로 이중 포장 도입을 권고합니다. 본 보고서는 배경, 현황, 분석, 권고 사항 순으로 구성합니다.",
+   "say_uz": "3-chorak qaytarish darajasi 4,1%dan 6,3%ga oshdi. Sababi — iyundagi qadoqlash spetsifikatsiyasi o‘zgarishi; yaxshilash varianti — ikki qavat qadoqlash joriy etish. Ushbu hisobot fon, holat, tahlil, tavsiyalar tartibida tuzilgan.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Reja: o‘z 300 so‘zli hisobotingiz",
+   "emotion": "thinking",
+   "board": [
+    "주제 선택 → 요약 3문장 → 권고 2개",
+    "배경 1문장 · 현황 2문장 · 분석 1문장"
+   ],
+   "examples": [],
+   "say_native": "Uy vazifasiga tayyorgarlik. Daftaringizda quyidagilarni yozing: birinchi, mavzu — tanlang: o‘zingiz ishlaydigan joydagi real yoki tasavvuriy muammo, masalan “이번 달 고객 상담 대기 시간 증가” yoki “배송 지연 원인 분석”. Ikkinchi, ijroiya xulosasi — 3 jumla, birinchi jumlada eng muhim natija, raqam bilan. Uchinchi, bo‘limlar skeleti — fon bir jumla, holat ikki jumla va raqam, tahlil bir-ikki jumla, tavsiyalar ikki band — har birida mas’ul va muddat. To‘rtinchi, 300 so‘zdan oshmaslik chegarasini belgilang. Yozib bo‘lgach, tekshiring: xulosa bormi, raqam bormi, tavsiyada muddat bormi — uchala savolga “ha” javobi bo‘lmasa, matnni qayta ko‘ring.",
+   "say": "자신의 보고서 주제를 정하고, 요약 3문장과 권고 2개를 적어 보세요.",
+   "say_uz": "Hisobotingiz mavzusini tanlang, 3 jumlali xulosa va 2 ta tavsiya yozib chiqing.",
+   "practice_seconds": 35
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq: tavsiyani topshiring",
+   "emotion": "encouraging",
+   "board": [
+    "권고 1개 = 문제 + 대안 + 기대 효과 + 담당·기한",
+    "2~3문장 · 숫자 포함"
+   ],
+   "examples": [],
+   "say_native": "Oxirgi mashq: bitta to‘liq tavsiyani koreyscha yozing. Vaziyat: sizning hisobotingizda mijoz so‘rovga javob vaqti o‘rtacha 18 soatga chiqqani aniqlandi va reja — 4 soat. Tavsiyangizni uch qatorda yozing: birinchi qatorda muammo va raqam — “고객 문의 평균 응답 시간이 18시간으로 목표(4시간)를 크게 초과했습니다”; ikkinchi qatorda muqobil va samara — “챗봇 1차 응대 도입으로 응답 시간을 4시간 이내로 단축할 수 있을 것으로 권고합니다”; uchinchi qatorda mas’ul va muddat — “담당: 고객지원팀, 기한: 11월 30일”. Shu uch qatorni ovoz chiqarib o‘qing — bu sizning hisobotdagi eng kuchli jumlaringiz bo‘ladi. 35 soniya ajrating.",
+   "say": "문의 응답 시간 18시간, 목표 4시간. 챗봇 도입으로 4시간 이내 단축을 권고합니다. 담당은 고객지원팀, 기한은 11월 30일입니다. 이렇게 세 줄로 써 보세요.",
+   "say_uz": "So‘rovga javob vaqti 18 soat, reja 4 soat. Chatbot joriy etib 4 soatgacha qisqartirishni tavsiya qilamiz. Mas’ul — mijozlarga yordam bo‘limi, muddat — 30-noyabr. Shu uch qatorda yozib ko‘ring.",
+   "practice_seconds": 35
+  },
+  {
+   "kind": "recap",
+   "title": "Xulosa: hisobotning to‘rt ustuni",
+   "emotion": "encouraging",
+   "board": [
+    "구조: 제목→요약→배경→현황→분석→권고→첨부",
+    "문체: 무인칭 · 측정값 · 근거 표시",
+    "권고: 문제→대안→효과→책임·기한",
+    "요약: 3–4문장 · 첫 문장에 결론"
+   ],
+   "examples": [],
+   "say_native": "Bugungi to‘rtta ustunni takrorlaymiz. Birinchi ustun — tuzilish: sarlavha, ijroiya xulosasi, fon, holat, tahlil, tavsiyalar, ilova — har biri raqamlangan va sarlavhali. Ikkinchi ustun — uslub: shaxssiz, o‘lchovli, ehtiyotkor — “men” o‘rniga “deb topildi”, “ko‘p” o‘rniga “34%”. Uchinchi ustun — tavsiyalar: muammo, muqobil, raqamli samara, mas’ul va muddat — va doim “권고합니다” qolipi. To‘rtinchi ustun — ijroiya xulosasi: 3-4 jumla, eng muhim natija birinchi jumlada, raqam bilan. Bu to‘rtta ustun ustida qurilgan har qanday hisobot koreys rahbari tomonidan jiddiy hujjat sifatida qabul qilinadi — hatto u muallifni hech qachon ko‘rmagan bo‘lsa ham.",
+   "say": "구조, 문체, 권고, 요약. 이 네 가지가 좋은 보고서의 기둥입니다.",
+   "say_uz": "Tuzilish, uslub, tavsiyalar, xulosa. Shu to‘rttasi yaxshi hisobotning ustuni.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "recap",
+   "title": "Keyingi dars: Grafik va ma’lumotlarni tushuntirish",
+   "emotion": "proud",
+   "board": [
+    "Uy vazifa: 300 so‘zlik 보고서 + 권고 2개",
+    "Keyingi dars: 추세 어휘 · 수치 비교 · 결론 도출"
+   ],
+   "examples": [],
+   "say_native": "Tabriklayman — P2-03 darsini yakunladingiz! Uy vazifangiz: 300 so‘zli hisobot yozing — sarlavha, 3 jumlali ijroiya xulosasi, fon, holat, tahlil va ikkita tavsiya — har birida mas’ul va muddat bilan. Koreyscha va o‘zbekcha tarjimasini qo‘shib yozing; “~으로 판단됩니다”, “~로 나타났다”, “권고합니다” iboralarini majburiy ishlating. Keyingi dars — P2-04 “Grafik va ma’lumotlarni tushuntirish” — bugungi hisobotning “현황” bo‘limini grafik tiliga aylantiradi: o‘sish va tushish lug‘ati, raqamlarni taqqoslash, taxmin va aniqlik, va nihoyat grafikdan xulosa chiqarish. Bugungi hisobot skeleti ertaga ma’lumotlar bilan jonlanadi.",
+   "say": "300자 보고서에 요약과 권고 두 개를 담아 써 보세요. 다음 시간에는 그래프와 데이터 설명을 배웁니다.",
+   "say_uz": "300 so‘zli hisobotingizga xulosa va ikkita tavsiya yozing. Keyingi darsda grafik va ma’lumot tushuntirishni o‘rganamiz.",
+   "practice_seconds": 0
+  }
+ ],
+ "homework_uz": "300 so‘zli hisobot (보고서) yozing: hujjat raqami va sarlavha, 3 jumlali ijroiya xulosasi (요약) — eng muhim natija birinchi jumlada, fon, holat (raqamlar bilan), tahlil, ikkita tavsiya (권고 사항) — har birida mas’ul va muddat. Koreyscha matn va o‘zbekcha tarjimasi bilan.",
+ "quiz": [
+  {
+   "q": "What should the executive summary (요약) of a Korean report lead with?",
+   "options": [
+    "The author’s personal opinion",
+    "The single most important conclusion, with numbers",
+    "A list of attachments",
+    "The meeting agenda"
+   ],
+   "answer": 1,
+   "why_uz": "Ijroiya xulosasi 3-4 jumla bo‘lib, eng muhim natija birinchi jumlada va raqamlar bilan aytiladi — rahbar qarorni yеrdan chiqaradi."
+  },
+  {
+   "q": "Which style does a formal Korean report (보고서) use?",
+   "options": [
+    "Informal spoken style with “나”",
+    "Objective, impersonal style (무인칭체)",
+    "Poetic descriptive style",
+    "Casual texting style"
+   ],
+   "answer": 1,
+   "why_uz": "Hisobot shaxssiz uslubda yoziladi: “제 생각에는” o‘rniga “분석 결과”, “저는 판단합니다” o‘rniga “~으로 판단됩니다”."
+  },
+  {
+   "q": "Which ending is typical for a formal recommendation in a report?",
+   "options": [
+    "~해야 해요",
+    "~을 권고합니다",
+    "~하자",
+    "~하면 좋겠어"
+   ],
+   "answer": 1,
+   "why_uz": "“~을 권고합니다” — “tavsiya qilamiz” — professional, yozma registr; “~해야 합니다” buyruqdek tuyuladi."
+  },
+  {
+   "q": "What does “전년 동기 대비 12% 증가” mean?",
+   "options": [
+    "12% increase compared with the previous quarter",
+    "12% increase compared with the same period last year",
+    "12% target for next year",
+    "12% price cut for loyal customers"
+   ],
+   "answer": 1,
+   "why_uz": "“전년 동기 대비” — o‘tgan yilning shu davriga nisbatan; “동기” mavsumiy ta’sirni nazorat qiladi, “전월 대비” esa oylik taqqoslash uchun."
+  },
+  {
+   "q": "What belongs in the 권고 사항 (recommendations) section?",
+   "options": [
+    "Only the company slogan",
+    "Problem → alternative → expected effect → owner and deadline",
+    "Personal opinions without dates",
+    "A list of employees to blame"
+   ],
+   "answer": 1,
+   "why_uz": "Kuchli tavsiya: muammo — muqobil — raqamli kutilayotgan samara — mas’ul va muddat; muddatsiz tavsiya hisobotda ishlamaydi."
+  },
+  {
+   "q": "What is the Korean term for “table” inside a report?",
+   "options": [
+    "표",
+    "그림",
+    "도표",
+    "서식"
+   ],
+   "answer": 0,
+   "why_uz": "“표” jadval; “그림” rasm; “도표” grafik/sxema. Hisobotda “표 2에 따르면” qolipi bilan jadvalga murojaat qilinadi."
+  },
+  {
+   "q": "Which sentence is written in the correct impersonal style?",
+   "options": [
+    "저는 이 방안이 최선이라고 생각합니다",
+    "각 대안의 비교 결과, B안이 가장 효율적인 것으로 판단됩니다",
+    "제 친구도 그렇게 말했어요",
+    "제 느낌에는 그게 맞을 거예요"
+   ],
+   "answer": 1,
+   "why_uz": "Shaxssiz uslubda muallif yo‘qoladi: “비교 결과 … 판단됩니다” — tahlil natijasi o‘zi gapiradi."
+  },
+  {
+   "q": "How long should an executive summary be, ideally?",
+   "options": [
+    "One full page",
+    "3–4 sentences with concrete numbers",
+    "A single word: “OK”",
+    "As long as the whole report"
+   ],
+   "answer": 1,
+   "why_uz": "Yoyak — 3-4 jumla, raqamlar bilan; rahbar 30 soniyada o‘qib qaror qiladi. Ortiqchasi allaqachon asosiy matn."
+  },
+  {
+   "q": "What is the biggest problem with a recommendation that has no deadline?",
+   "options": [
+    "It is too short",
+    "It cannot be tracked or executed — it stays a wish, not a plan",
+    "It makes the report look colorful",
+    "It violates Korean grammar"
+   ],
+   "answer": 1,
+   "why_uz": "Muddat va mas’ulsiz tavsiya bajarilmaydigan iltimos; koreys hisobotida har bir tavsiyada “담당” va “기한” bo‘lishi shart."
+  },
+  {
+   "q": "Which phrase correctly introduces data from a source in the text?",
+   "options": [
+    "제가 보기에는",
+    "표 2에 따르면",
+    "아마도",
+    "느낌상"
+   ],
+   "answer": 1,
+   "why_uz": "“표 2에 따르면” — 2-jadvalga ko‘ra — raqamni manbaga bog‘laydigan standart qolip; hisobotda dalil belgisi shart."
+  }
+ ]
+}

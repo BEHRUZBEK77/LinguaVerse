@@ -1,593 +1,1023 @@
 {
  "title": "Uy, xonalar va jihozlar",
- "goal_uz": "Dars oxirida rus tilida uyingizni tasvirlaysiz, xonalar va mebellarni nomlaysiz, «У меня есть», «Это», «В комнате», «На столе» kabi iboralarni to‘g‘ri ishlatasiz, hajm va holatni sifatlar bilan aytasiz. Oxirida uyingiz haqida sakkiz gap tuzib bera olasiz.",
+ "goal_uz": "Dars oxirida rus tilida xonalar va mebel nomlarini to‘g‘ri jinsi bilan ishlatasiz, «есть» va «нет» bilan nima bor-yo‘qligini aytasiz, «в» va «на» ni farqlab narsalar qayerdaligini aytasiz, «стоит, лежит, висит» bilan xonani tasvirlaysiz va uyingizni sakkiz gapda xonama-xona ta’riflaysiz.",
  "vocab": [
-  {"w": "комната", "uz": "xona"},
-  {"w": "спальня", "uz": "yotoqxona"},
-  {"w": "гостиная", "uz": "mehmonxona"},
-  {"w": "кухня", "uz": "oshxona"},
-  {"w": "ванная", "uz": "hammom"},
-  {"w": "коридор", "uz": "yo‘lak"},
-  {"w": "стол", "uz": "stol"},
-  {"w": "стул", "uz": "stul"},
-  {"w": "кровать", "uz": "karavot"},
-  {"w": "диван", "uz": "divan"}
+  {
+   "w": "комната",
+   "uz": "xona"
+  },
+  {
+   "w": "кухня — на кухне",
+   "uz": "oshxona"
+  },
+  {
+   "w": "спальня",
+   "uz": "yotoqxona"
+  },
+  {
+   "w": "гостиная",
+   "uz": "mehmonxona"
+  },
+  {
+   "w": "кровать (она)",
+   "uz": "karavot"
+  },
+  {
+   "w": "шкаф — в шкафу",
+   "uz": "shkaf"
+  },
+  {
+   "w": "есть / нет",
+   "uz": "bor / yo‘q"
+  },
+  {
+   "w": "стоит / лежит / висит",
+   "uz": "turibdi / yotibdi / osig‘liq"
+  },
+  {
+   "w": "рядом с",
+   "uz": "yonida"
+  },
+  {
+   "w": "уютный",
+   "uz": "shinam"
+  }
  ],
  "scenes": [
   {
    "kind": "intro",
    "title": "O‘ninchi dars: uy va xonalar",
    "emotion": "happy",
-   "board": ["Это моя комната.", "У меня есть стол.", "Стол в комнате.", "Книга на столе."],
-   "examples": [],
-   "say_native": "Assalomu alaykum! O‘ninchi darsga xush kelibsiz. O‘tgan darsda kafeda buyurtma berishni o‘rgandik. Bugun uy, xonalar va jihozlar haqida gaplashamiz. Xona nomlarini, mebel so‘zlarini, «У меня есть» iborasini, «В» va «На» predloglarini va sifatlarni o‘rganamiz. Oxirida uyingiz haqida sakkiz gap tuzasiz deb umid qilaman.",
-   "say": "Здравствуйте! Сегодня мы говорим о доме, комнатах и мебели.",
-   "say_uz": "Assalomu alaykum! Bugun uy, xonalar va mebel haqida gaplashamiz.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Xonalar: birinchi guruh",
-   "emotion": "neutral",
-   "board": ["комната · спальня · гостиная", "Это моя комната.", "Это спальня. · Это гостиная."],
-   "examples": [
-   {"t": "Это моя комната.", "uz": "Bu mening xonam."},
-   {"t": "Это спальня.", "uz": "Bu yotoqxona."}
+   "board": [
+    "У меня двухкомнатная квартира.",
+    "На кухне есть холодильник.",
+    "Диван стоит рядом с окном.",
+    "Спальня маленькая, но уютная."
    ],
-   "say_native": "Xona nomlarini o‘rganamiz. “Комната” — xona, eng oddiy so‘z. “Спальня” — yotoqxona, uxlanadigan xona. “Гостиная” — mehmonxona, mehmon qabul qilinadigan katta xona. Bu uch so‘z deyarli har bir uyni tasvirlaganda uchraydi. “Это моя комната” — bu mening xonam, “это спальня” — bu yotoqxona degani.",
-   "say": "Это комната. Это спальня. Это гостиная.",
-   "say_uz": "Bu xona. Bu yotoqxona. Bu mehmonxona.",
+   "examples": [],
+   "say_native": "Assalomu alaykum! O‘ninchi darsga xush kelibsiz. Oldingi darsda kafeda buyurtma berdik: “Мне, пожалуйста, чай”, va “хочу воду” kabi “-у” oxirini o‘rgandik. Bugun uyingiz haqida gapiramiz. Xonalar va jihozlar nomlarini, biror narsa bor yoki yo‘qligini aytishni, narsalar qayerda turganini va xonalar qanday ekanini tasvirlashni o‘rganamiz. Oxirida uyingizni xonama-xona tasvirlaysiz.",
+   "say": "Здравствуйте! Сегодня мы говорим о доме: комнаты, мебель и где что стоит.",
+   "say_uz": "Assalomu alaykum! Bugun uy haqida gaplashamiz: xonalar, mebel va nima qayerda turgani.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Xonalar: ikkinchi guruh",
+   "title": "Uy va kvartira",
    "emotion": "neutral",
-   "board": ["кухня · ванная · коридор", "Это кухня.", "Это ванная. · Это коридор."],
-   "examples": [
-   {"t": "Это кухня.", "uz": "Bu oshxona."},
-   {"t": "Это ванная.", "uz": "Bu hammom."}
+   "board": [
+    "дом (uy, bino) · квартира (kvartira)",
+    "комната (xona) · этаж [эта́ш] (qavat)",
+    "Я живу на третьем этаже."
    ],
-   "say_native": "Ikkinchi guruh xonalar: “кухня” — oshxona, taom tayyorlanadigan joy. “Ванная” — hammom, yuvinadigan xona. “Коридор” — yo‘lak, xonalarni bog‘laydigan tor joy. “Это кухня” — bu oshxona, “это ванная” — bu hammom. Bu so‘zlarni ofitsiant emas, uy egalari tilida eshitsiz, shuning uchun do‘stlaringiz uyiga borganda ular kerak bo‘ladi.",
-   "say": "Это кухня. Это ванная. Это коридор.",
-   "say_uz": "Bu oshxona. Bu hammom. Bu yo‘lak.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Xonalarni nomlang",
-   "emotion": "encouraging",
-   "board": ["1) комната  2) спальня  3) гостиная", "4) кухня  5) ванная  6) коридор"],
-   "examples": [],
-   "say_native": "Olti xona nomini “это” bilan ayting. “Это комната”, “это спальня”, “это гостиная”, “это кухня”, “это ванная”, “это коридор”. Har birini alohida gap qilib, ohangni aniq talaffuz qiling. Agar birini adashtirsangiz, keyingi javobda tuzatasiz, lekin yozuvni ko‘rib yodlashga harakat qiling.",
-   "say": "Это комната. Это спальня. Это гостиная. Это кухня. Это ванная. Это коридор.",
-   "say_uz": "Bu xona. Bu yotoqxona. Bu mehmonxona. Bu oshxona. Bu hammom. Bu yo‘lak.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Это комната.", "Это спальня.", "Это гостиная.", "Это кухня.", "Это ванная.", "Это коридор."],
-   "examples": [],
-   "say_native": "Javoblar: “Это комната”, “это спальня”, “это гостиная”, “это кухня”, “это ванная”, “это коридор”. Har bir xona “это” bilan boshlangan, chunki biz narsani ko‘rsatib nomlaymiz. Bu shakl o‘zbek tilidagi “bu xona” deganiga teng. Endi siz har qanday xonani ko‘rsatib nomlay olasiz.",
-   "say": "Это комната. Это спальня. Это гостиная. Это кухня. Это ванная. Это коридор.",
-   "say_uz": "Bu xona. Bu yotoqxona. Bu mehmonxona. Bu oshxona. Bu hammom. Bu yo‘lak.",
+   "examples": [
+    {
+     "t": "Я живу в квартире.",
+     "uz": "Men kvartirada yashayman."
+    },
+    {
+     "t": "Моя квартира на пятом этаже.",
+     "uz": "Kvartiram beshinchi qavatda."
+    }
+   ],
+   "say_native": "Boshlaymiz. “Дом” — uy, ko‘p qavatli bino ham “дом” deyiladi. “Квартира” — kvartira, “комната” — xona, “этаж” — qavat. “Этаж” so‘zining oxiridagi “ж” jarangsizlanib “ш” bo‘lib eshitiladi: “etash”. Qavatni aytishning tayyor qolipi: “на третьем этаже” — uchinchi qavatda, “на пятом этаже” — beshinchi qavatda. Bu iboralarni yaxlit yodlang.",
+   "say": "Дом. Квартира. Комната. Этаж. Я живу на третьем этаже.",
+   "say_uz": "Uy. Kvartira. Xona. Qavat. Men uchinchi qavatda yashayman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Mebel: birinchi guruh",
+   "title": "Xonalar",
+   "emotion": "neutral",
+   "board": [
+    "кухня (oshxona) · спальня (yotoqxona)",
+    "гостиная (mehmonxona) · ванная (vannaxona)",
+    "туалет · прихожая (dahliz) · балкон"
+   ],
+   "examples": [
+    {
+     "t": "В квартире есть кухня и две спальни.",
+     "uz": "Kvartirada oshxona va ikkita yotoqxona bor."
+    }
+   ],
+   "say_native": "Xonalar. “Кухня” — oshxona, “спальня” — yotoqxona, “гостиная” — mehmonxona, ya’ni katta umumiy xona. “Ванная” — vannaxona, “туалет” — hojatxona, “прихожая” — kirish joyi, dahliz. “Балкон” — balkon. E’tibor bering: “гостиная”, “ванная”, “прихожая” sifatga o‘xshab tugaydi, chunki aslida “гостиная комната” degan iboradan qisqargan. Shuning uchun ular keyinroq sifat kabi o‘zgaradi.",
+   "say": "Кухня. Спальня. Гостиная. Ванная. Туалет. Прихожая. Балкон.",
+   "say_uz": "Oshxona. Yotoqxona. Mehmonxona. Vannaxona. Hojatxona. Dahliz. Balkon.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mebel",
+   "emotion": "neutral",
+   "board": [
+    "стол (stol) · стул (stul)",
+    "диван · кресло (kreslo)",
+    "шкаф (shkaf) · кровать (karavot)",
+    "полка (javon)"
+   ],
+   "examples": [
+    {
+     "t": "В комнате есть стол и два стула.",
+     "uz": "Xonada stol va ikkita stul bor."
+    }
+   ],
+   "say_native": "Endi mebel, ruscha “мебель”. “Стол” — stol, “стул” — stul. Bu ikkisini adashtirmang: “стол” ustida yeyiladi, “стул” ustida o‘tiriladi. “Диван” — divan, “кресло” — kreslo, yumshoq o‘rindiq. “Шкаф” — shkaf, “кровать” — karavot, “полка” — javon. Ko‘p so‘zlar o‘zbek tiliga rus tilidan kirgan, bu sizga yordam beradi, lekin talaffuz va urg‘uni rus tilidagidek qiling: “крова́ть”, “дива́н”.",
+   "say": "Стол. Стул. Диван. Кресло. Шкаф. Кровать. Полка.",
+   "say_uz": "Stol. Stul. Divan. Kreslo. Shkaf. Karavot. Javon.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Uydagi boshqa narsalar",
+   "emotion": "neutral",
+   "board": [
+    "окно́ (deraza) · дверь (eshik)",
+    "холоди́льник · плита́ (plita)",
+    "телевизор · лампа · ковёр (gilam)",
+    "стена (devor) · пол (pol)"
+   ],
+   "examples": [
+    {
+     "t": "На кухне есть холодильник и плита.",
+     "uz": "Oshxonada muzlatgich va plita bor."
+    }
+   ],
+   "say_native": "Yana muhim so‘zlar. “Окно” — deraza, “дверь” — eshik. “Холодильник” — muzlatgich, “плита” — oshxona plitasi, “телевизор” — televizor, “лампа” — chiroq, “ковёр” — gilam. O‘zbek uylarida gilam juda muhim, shuning uchun bu so‘z kerak bo‘ladi. “Стена” — devor, “пол” — pol, yer. “Окно” ko‘plikda urg‘uni ko‘chiradi: “окно́” — “о́кна”.",
+   "say": "Окно. Дверь. Холодильник. Плита. Телевизор. Лампа. Ковёр. Стена. Пол.",
+   "say_uz": "Deraza. Eshik. Muzlatgich. Plita. Televizor. Chiroq. Gilam. Devor. Pol.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Jins: кровать va дверь",
    "emotion": "thinking",
-   "board": ["стол · стул · кровать · диван", "Стол в комнате.", "Кровать в спальне."],
-   "examples": [
-   {"t": "Стол в комнате.", "uz": "Stol xonada."},
-   {"t": "Кровать в спальне.", "uz": "Karavot yotoqxonada."}
+   "board": [
+    "он: стол, стул, диван, шкаф, ковёр",
+    "она: кухня, комната, полка, кровать, дверь",
+    "оно: окно, кресло",
+    "-ь → jinsini yodlang!"
    ],
-   "say_native": "Mebel so‘zlari: “стол” — stol, “стул” — stul, “кровать” — karavot, “диван” — divan. “Стол в комнате” — stol xonada, “кровать в спальне” — karavot yotoqxonada. Stol ovqatlanadigan, stul o‘tiriladigan, karavot uxlanadigan, divan dam olinadigan mebel. Bu to‘rtta so‘z har qanday xonani tasvirlashda asos bo‘ladi.",
-   "say": "Стол в комнате. Стул в комнате. Кровать в спальне. Диван в гостиной.",
-   "say_uz": "Stol xonada. Stul xonada. Karavot yotoqxonada. Divan mehmonxonada.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Mebel: ikkinchi guruh",
-   "emotion": "neutral",
-   "board": ["шкаф · лампа · ковёр · подушка", "Шкаф в спальне.", "Лампа на столе."],
    "examples": [
-   {"t": "Шкаф в спальне.", "uz": "Shkaf yotoqxonada."},
-   {"t": "Лампа на столе.", "uz": "Chiroq stol ustida."}
+    {
+     "t": "большой шкаф · большая кровать",
+     "uz": "katta shkaf · katta karavot"
+    },
+    {
+     "t": "новое кресло",
+     "uz": "yangi kreslo"
+    }
    ],
-   "say_native": "Yana to‘rt mebel: “шкаф” — shkaf, kiyim saqlanadi. “Лампа” — chiroq, “ковёр” — gilam, “подушка” — yostiq. “Шкаф в спальне” — shkaf yotoqxonada, “лампа на столе” — chiroq stol ustida. Bu so‘zlar bilan siz xonadagi buyumlarni aniq ko‘rsatib, qayerda turganini ayta olasiz.",
-   "say": "Шкаф в спальне. Лампа на столе. Ковёр на полу. Подушка на кровати.",
-   "say_uz": "Shkaf yotoqxonada. Chiroq stol ustida. Gilam pol ustida. Yostiq karavot ustida.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Mebelni nomlang",
-   "emotion": "encouraging",
-   "board": ["1) стол  2) стул  3) кровать  4) диван", "5) шкаф  6) лампа  7) ковёр  8) подушка"],
-   "examples": [],
-   "say_native": "Sakkiz mebel nomini ayting. “Стол, стул, кровать, диван, шкаф, лампа, ковёр, подушка”. Har birini bitta so‘z bilan emas, to‘liq gap bilan ayting: “стол в комнате, стул у стола, кровать в спальне, диван в гостиной”. Shunda nutq tabiiy va aniq eshitiladi.",
-   "say": "Стол в комнате. Стул у стола. Кровать в спальне. Диван в гостиной. Шкаф в спальне. Лампа на столе.",
-   "say_uz": "Stol xonada. Stul stol yonida. Karavot yotoqxonada. Divan mehmonxonada. Shkaf yotoqxonada. Chiroq stol ustida.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Стол в комнате.", "Стул у стола.", "Кровать в спальне.", "Диван в гостиной."],
-   "examples": [],
-   "say_native": "Javoblar: “Стол в комнате”, “стул у стола”, “кровать в спальне”, “диван в гостиной”, “шкаф в спальне”, “лампа на столе”. Mebel nomi bilan birga u turgan joy ham aytilgan. “У стола” — stol yonida degani, “на столе” — stol ustida degani. Bu ikki ibora farqini bilish joyini aniq tasvirlashga yordam beradi.",
-   "say": "Стол в комнате. Стул у стола. Кровать в спальне. Диван в гостиной. Шкаф в спальне. Лампа на столе.",
-   "say_uz": "Stol xonada. Stul stol yonida. Karavot yotoqxonada. Divan mehmonxonada. Shkaf yotoqxonada. Chiroq stol ustida.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "У меня есть",
-   "emotion": "neutral",
-   "board": ["У меня есть ...", "У меня есть стол.", "У меня есть кровать.", "У меня есть диван."],
-   "examples": [
-   {"t": "У меня есть стол.", "uz": "Menda stol bor."},
-   {"t": "У меня есть кровать.", "uz": "Menda karavot bor."}
-   ],
-   "say_native": "“У меня есть” — menda bor degani. Keyin buyum nomi keladi: “у меня есть стол” — menda stol bor, “у меня есть кровать” — menda karavot bor, “у меня есть диван” — menda divan bor. Bu ibora o‘z buyumlaringiz haqida gapirganda ishlatiladi. O‘zbek tilidagi “menda bor” so‘zi rus tilida aynan shu shaklda aytiladi.",
-   "say": "У меня есть стол. У меня есть кровать. У меня есть диван. У меня есть лампа.",
-   "say_uz": "Menda stol bor. Menda karavot bor. Menda divan bor. Menda chiroq bor.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Menda bor deb ayting",
-   "emotion": "encouraging",
-   "board": ["1) Stol", "2) Karavot", "3) Divan", "4) Chiroq", "5) Shkaf"],
-   "examples": [],
-   "say_native": "Besh buyum haqida “у меня есть” bilan gapiring. “У меня есть стол”, “у меня есть кровать”, “у меня есть диван”, “у меня есть лампа”, “у меня есть шкаф”. Har bir gap to‘liq bo‘lsin, buyumning joyini ham qo‘shib yuborishingiz mumkin: “стол в комнате”. Javoblarni baland ovozda ayting.",
-   "say": "У меня есть стол. У меня есть кровать. У меня есть диван. У меня есть лампа. У меня есть шкаф.",
-   "say_uz": "Menda stol bor. Menda karavot bor. Menda divan bor. Menda chiroq bor. Menda shkaf bor.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["У меня есть стол.", "У меня есть кровать.", "У меня есть диван.", "У меня есть лампа."],
-   "examples": [],
-   "say_native": "Javoblar: “У меня есть стол”, “у меня есть кровать”, “у меня есть диван”, “у меня есть лампа”, “у меня есть шкаф”. Har bir gap “у меня есть” bilan boshlangan va buyum nomi to‘g‘ri shaklda kelgan. Bu shakl o‘z buyumlaringiz borligini bildirishning eng oddiy usuli. Endi siz o‘z xonangiz haqida gapira olasiz.",
-   "say": "У меня есть стол. У меня есть кровать. У меня есть диван. У меня есть лампа.",
-   "say_uz": "Menda stol bor. Menda karavot bor. Menda divan bor. Menda chiroq bor.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "У меня есть va Это",
-   "emotion": "thinking",
-   "board": ["У меня есть стол.", "Это стол.", "У меня есть диван.", "Это диван."],
-   "examples": [
-   {"t": "У меня есть стол.", "uz": "Menda stol bor."},
-   {"t": "Это стол.", "uz": "Bu stol."}
-   ],
-   "say_native": "Ikkala iborani farqlang. “У меня есть стол” — menda stol bor, egalikni bildiradi. “Это стол” — bu stol, buyumni ko‘rsatib nomlaydi. “У меня есть диван” — menda divan bor, “это диван” — bu divan. Birinchisi o‘z buyumingiz borligini, ikkinchisi buyumni ko‘rsatib nomlashni bildiradi. Ikkalasini aralashtirmang.",
-   "say": "У меня есть стол. Это стол. У меня есть диван. Это диван.",
-   "say_uz": "Menda stol bor. Bu stol. Menda divan bor. Bu divan.",
+   "say_native": "Oldingi darsdagi kabi, sifat otning jinsiga moslashadi. Undosh bilan tugaganlar erkak jinsi: “большой шкаф”. “-а, -я” bilan tugaganlar ayol jinsi: “большая кухня”. “-о” bilan tugaganlar o‘rta jins: “новое кресло”. Eng qiyini — yumshoq belgi “ь” bilan tugagan so‘zlar. “Кровать” va “дверь” — ayol jinsi: “большая кровать”, “новая дверь”. Bunday so‘zlarning jinsini alohida yodlash kerak.",
+   "say": "Большой шкаф. Большая кухня. Новое кресло. Большая кровать. Новая дверь.",
+   "say_uz": "Katta shkaf. Katta oshxona. Yangi kreslo. Katta karavot. Yangi eshik.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "У меня стол — xato",
+   "title": "Большой кровать — xato",
    "emotion": "stern",
-   "board": ["✗ У меня стол.", "✓ У меня есть стол.", "✗ У меня диван.", "✓ У меня есть диван."],
-   "examples": [],
-   "say_native": "“У меня стол” yoki “у меня диван” deb aytish kundalik suhbatda uchrashi mumkin, lekin o‘quvchi sifatida siz har doim “есть” so‘zini qo‘shing. “У меня есть стол” — to‘g‘ri va xavfsiz shakl. “Есть” so‘zini tushirib qoldirish o‘zbek tilidagi “menda stol bor” degan gapga yaqin bo‘lsa ham, rus tilida standart shakl “есть” bilan aytiladi.",
-   "say": "У меня есть стол. У меня есть диван. У меня есть кровать. У меня есть лампа.",
-   "say_uz": "Menda stol bor. Menda divan bor. Menda karavot bor. Menda chiroq bor.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Это моя комната",
-   "emotion": "neutral",
-   "board": ["Это моя комната.", "Это моя спальня.", "Это моя кухня.", "Это моя кровать."],
-   "examples": [
-   {"t": "Это моя комната.", "uz": "Bu mening xonam."},
-   {"t": "Это моя спальня.", "uz": "Bu mening yotoqxonam."}
+   "board": [
+    "✗ большой кровать → ✓ большая кровать",
+    "✗ новый кресло → ✓ новое кресло",
+    "✗ старая шкаф → ✓ старый шкаф"
    ],
-   "say_native": "“Это моя” — bu mening degani. Ayol jinsidagi otlar bilan “моя” ishlatiladi: “это моя комната”, “это моя спальня”, “это моя кухня”. Erkak jinsidagi otlarda “мой” bo‘ladi, lekin xonalarning aksariyati ayol jinsida. “Это моя кровать” — bu mening karavotim. Bu shakl xonani ko‘rsatayotganda ayniqsa tabiiy eshitiladi.",
-   "say": "Это моя комната. Это моя спальня. Это моя кухня. Это моя кровать.",
-   "say_uz": "Bu mening xonam. Bu mening yotoqxonam. Bu mening oshxonam. Bu mening karavotim.",
+   "examples": [],
+   "say_native": "Tipik xato: “кровать” so‘zi undoshga o‘xshab eshitilgani uchun “большой кровать” deyish. To‘g‘risi “большая кровать”, chunki u ayol jinsi. “Кресло” — o‘rta jins, shuning uchun “новое кресло”, “новый кресло” emas. “Шкаф” esa erkak jinsi: “старый шкаф”. Yangi so‘zni doim sifat bilan birga yodlang: “большая кровать”, shunda jins o‘zi esda qoladi.",
+   "say": "Большая кровать. Новое кресло. Старый шкаф.",
+   "say_uz": "Katta karavot. Yangi kreslo. Eski shkaf.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Bu mening deb ayting",
+   "title": "Jinsini toping",
    "emotion": "encouraging",
-   "board": ["1) Xona", "2) Yotoqxona", "3) Oshxona", "4) Karavot"],
+   "board": [
+    "1) стол",
+    "2) кровать",
+    "3) кресло",
+    "4) кухня",
+    "5) дверь",
+    "6) окно"
+   ],
    "examples": [],
-   "say_native": "To‘rtta buyumni “это моя” bilan ko‘rsating. “Это моя комната”, “это моя спальня”, “это моя кухня”, “это моя кровать”. Har birida “моя” so‘zini qo‘shib, buyum egaligini bildiring. Bu shakl mehmonlarga xonangizni tanishtirganda juda foydali va hurmatli eshitiladi.",
-   "say": "Это моя комната. Это моя спальня. Это моя кухня. Это моя кровать.",
-   "say_uz": "Bu mening xonam. Bu mening yotoqxonam. Bu mening oshxonam. Bu mening karavotim.",
+   "say_native": "Mashq. Oltita so‘z bor. Har biri uchun “он”, “она” yoki “оно” deng va “большой”, “большая” yoki “большое” bilan birikma tuzing. Yumshoq belgili so‘zlarga ayniqsa diqqat qiling.",
+   "say": "Стол… Кровать… Кресло… Кухня… Дверь… Окно…",
+   "say_uz": "Stol… Karavot… Kreslo… Oshxona… Eshik… Deraza…",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Это моя комната.", "Это моя спальня.", "Это моя кухня.", "Это моя кровать."],
-   "examples": [],
-   "say_native": "Javoblar: “Это моя комната”, “это моя спальня”, “это моя кухня”, “это моя кровать”. Har birida “моя” so‘zi ayol jinsiga mos ravishda ishlangan. Erkak jinsidagi otlarda “мой” bo‘lardi, masalan “это мой стол”. Xonalar aksariyati ayol jinsida bo‘lgani uchun “моя” shakli ko‘p uchraydi.",
-   "say": "Это моя комната. Это моя спальня. Это моя кухня. Это моя кровать.",
-   "say_uz": "Bu mening xonam. Bu mening yotoqxonam. Bu mening oshxonam. Bu mening karavotim.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "В комнате",
-   "emotion": "neutral",
-   "board": ["в комнате · в спальне · в кухне", "Стол в комнате.", "Кровать в спальне."],
-   "examples": [
-   {"t": "Стол в комнате.", "uz": "Stol xonada."},
-   {"t": "Кровать в спальне.", "uz": "Karavot yotoqxonada."}
+   "board": [
+    "1) он — большой стол",
+    "2) она — большая кровать",
+    "3) оно — большое кресло",
+    "4) она — большая кухня",
+    "5) она — большая дверь",
+    "6) оно — большое окно"
    ],
-   "say_native": "“В” predlogi biror joy ichini bildiradi. “В комнате” — xonada, “в спальне” — yotoqxonada, “в кухне” — oshxonada. “Стол в комнате” — stol xonada, “кровать в спальне” — karavot yotoqxonada. O‘zbek tilidagi “xonada” degan ibora rus tilida aynan “в” bilan ifodalanadi. Ot oxiri -е ga o‘zgaradi: комната — в комнате.",
-   "say": "Стол в комнате. Кровать в спальне. Шкаф в спальне. Диван в гостиной.",
-   "say_uz": "Stol xonada. Karavot yotoqxonada. Shkaf yotoqxonada. Divan mehmonxonada.",
+   "examples": [],
+   "say_native": "Javoblar: “стол” — он, “большой стол”. “Кровать” — она, “большая кровать”. “Кресло” — оно, “большое кресло”. “Кухня” — она. “Дверь” — она, “большая дверь”. “Окно” — оно, “большое окно”. Agar “кровать” va “дверь” da adashgan bo‘lsangiz, xavotir olmang, bu eng ko‘p uchraydigan xato.",
+   "say": "Большой стол. Большая кровать. Большое кресло. Большая кухня. Большая дверь. Большое окно.",
+   "say_uz": "Katta stol. Katta karavot. Katta kreslo. Katta oshxona. Katta eshik. Katta deraza.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "На столе",
-   "emotion": "neutral",
-   "board": ["на столе · на кровати · на полу", "Книга на столе.", "Лампа на столе."],
-   "examples": [
-   {"t": "Книга на столе.", "uz": "Kitob stol ustida."},
-   {"t": "Лампа на столе.", "uz": "Chiroq stol ustida."}
+   "title": "Есть — bor",
+   "emotion": "thinking",
+   "board": [
+    "В квартире есть балкон.",
+    "Здесь есть лифт.",
+    "— В доме есть лифт? — Да, есть.",
+    "есть = bor"
    ],
-   "say_native": "“На” predlogi sirt ustida turishni bildiradi. “На столе” — stol ustida, “на кровати” — karavot ustida, “на полу” — pol ustida. “Книга на столе” — kitob stol ustida, “лампа на столе” — chiroq stol ustida. O‘zbek tilidagi “stol ustida” rus tilida “на столе” deb aytiladi. Bu ikki predlogni farqlash joylashuvni aniq tasvirlashga yordam beradi.",
-   "say": "Книга на столе. Лампа на столе. Ковёр на полу. Подушка на кровати.",
-   "say_uz": "Kitob stol ustida. Chiroq stol ustida. Gilam pol ustida. Yostiq karavot ustida.",
+   "examples": [
+    {
+     "t": "В квартире есть балкон.",
+     "uz": "Kvartirada balkon bor."
+    },
+    {
+     "t": "— Здесь есть лифт? — Да, есть.",
+     "uz": "— Bu yerda lift bormi? — Ha, bor."
+    }
+   ],
+   "say_native": "Biror narsa borligini aytish uchun “есть” ishlatiladi, bu o‘zbekchadagi “bor” ga to‘g‘ri keladi. Tartib: joy, keyin “есть”, keyin narsa. “В квартире есть балкон” — kvartirada balkon bor. Savol ham xuddi shunday, faqat ohang ko‘tariladi: “В доме есть лифт?” Qisqa javob: “Да, есть”. O‘zbekchada “bor” gap oxirida keladi, rus tilida esa “есть” odatda narsadan oldin turadi.",
+   "say": "В квартире есть балкон. В доме есть лифт? Да, есть.",
+   "say_uz": "Kvartirada balkon bor. Uyda lift bormi? Ha, bor.",
    "practice_seconds": 0
   },
   {
-   "kind": "practice",
-   "title": "В yoki На ni tanlang",
-   "emotion": "encouraging",
-   "board": ["1) Stol ... xonada", "2) Kitob ... stol ustida", "3) Karavot ... yotoqxonada", "4) Chiroq ... stol ustida"],
-   "examples": [],
-   "say_native": "To‘rtta gapni “в” yoki “на” bilan yakunlang. “Стол в комнате”, “книга на столе”, “кровать в спальне”, “лампа на столе”. Xonada bo‘lsa “в”, sirt ustida bo‘lsa “на” ishlatiladi. Har bir javobni to‘liq gap qilib ayting va predlogni aniq talaffuz qiling.",
-   "say": "Стол в комнате. Книга на столе. Кровать в спальне. Лампа на столе.",
-   "say_uz": "Stol xonada. Kitob stol ustida. Karavot yotoqxonada. Chiroq stol ustida.",
-   "practice_seconds": 12
+   "kind": "explain",
+   "title": "Tasvirda есть tushib qoladi",
+   "emotion": "neutral",
+   "board": [
+    "В комнате — стол, диван и шкаф.",
+    "Комната большая. (есть yo‘q!)",
+    "есть — bor-yo‘qligi muhim bo‘lganda"
+   ],
+   "examples": [
+    {
+     "t": "В спальне — кровать и шкаф.",
+     "uz": "Yotoqxonada karavot va shkaf bor."
+    },
+    {
+     "t": "Кухня светлая.",
+     "uz": "Oshxona yorug‘."
+    }
+   ],
+   "say_native": "Muhim nozik joy. Xonani tasvirlab, narsalarni sanab chiqsangiz, “есть” ko‘pincha tushib qoladi: “В комнате — стол, диван и шкаф”. “Есть” asosan narsa bor yoki yo‘qligi muhim bo‘lganda kerak: “Здесь есть лифт?” Narsaning qandayligini aytganda esa “есть” umuman ishlatilmaydi: “Комната большая” — xona katta. Oldingi darslardagi qoidani eslang: rus tilida hozirgi zamonda “bo‘lmoq” fe’li tushib qoladi.",
+   "say": "В комнате — стол, диван и шкаф. Комната большая. Кухня светлая.",
+   "say_uz": "Xonada stol, divan va shkaf bor. Xona katta. Oshxona yorug‘.",
+   "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Стол в комнате.", "Книга на столе.", "Кровать в спальне.", "Лампа на столе."],
-   "examples": [],
-   "say_native": "Javoblar: “Стол в комнате”, “книга на столе”, “кровать в спальне”, “лампа на столе”. Birinchi va uchinchi gaplarda “в”, ikkinchi va to‘rtinchi gaplarda “на” ishlatilgan. “В” — ichida, “на” — ustida degani. Bu farqni bilmasangiz, joylashuvni tasvirlashda adashasiz, shuning uchun har bir predlogni ongli tanlang.",
-   "say": "Стол в комнате. Книга на столе. Кровать в спальне. Лампа на столе.",
-   "say_uz": "Stol xonada. Kitob stol ustida. Karavot yotoqxonada. Chiroq stol ustida.",
+   "title": "Нет — yo‘q",
+   "emotion": "thinking",
+   "board": [
+    "Здесь нет лифта. (лифт → лифта)",
+    "В комнате нет шкафа.",
+    "— Балкон есть? — Нет, балкона нет.",
+    "нет + -а / -ы / -и"
+   ],
+   "examples": [
+    {
+     "t": "В доме нет лифта.",
+     "uz": "Uyda lift yo‘q."
+    },
+    {
+     "t": "На кухне нет стола.",
+     "uz": "Oshxonada stol yo‘q."
+    }
+   ],
+   "say_native": "Endi “yo‘q”. “Нет” dan keyin narsa qaratqich kelishigiga o‘tadi. Erkak jinsi so‘zlarga “-а” qo‘shiladi: “лифт” — “нет лифта”, “шкаф” — “нет шкафа”, “стол” — “нет стола”, “балкон” — “нет балкона”. Ayol jinsida “-а” o‘rniga “-ы” yoki “-и”: “нет полки”, “нет кухни”. Hozircha shu qolipni o‘rganing, bu kelishikni keyingi darslarda chuqurroq ko‘ramiz. O‘zbekchada “lift yo‘q” deb so‘z o‘zgarmaydi, ruschada o‘zgaradi.",
+   "say": "Здесь нет лифта. В комнате нет шкафа. Балкона нет.",
+   "say_uz": "Bu yerda lift yo‘q. Xonada shkaf yo‘q. Balkon yo‘q.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Книга в столе — xato",
+   "title": "Нет лифт, комната есть большая — xato",
    "emotion": "stern",
-   "board": ["✗ Книга в столе.", "✓ Книга на столе.", "✗ Лампа в столе.", "✓ Лампа на столе."],
+   "board": [
+    "✗ Здесь нет лифт.",
+    "✓ Здесь нет лифта.",
+    "✗ Комната есть большая.",
+    "✓ Комната большая."
+   ],
    "examples": [],
-   "say_native": "“Книга в столе” deb aytish xato, chunki kitob stol ichida emas, stol ustida turadi. To‘g‘risi: “книга на столе”. “Лампа в столе” ham xato, to‘g‘risi: “лампа на столе”. O‘zbek tilida “stol ichida” degan ibora rus tilida ham “в столе” bo‘lardi, lekin kitob va chiroq stol ustida turadi, shuning uchun “на” ishlatiladi. Bu farqni muntazam eslab turing.",
-   "say": "Книга на столе. Лампа на столе. Подушка на кровати. Ковёр на полу.",
-   "say_uz": "Kitob stol ustida. Chiroq stol ustida. Yostiq karavot ustida. Gilam pol ustida.",
+   "say_native": "Ikki xato. Birinchisi: “нет” dan keyin so‘zni o‘zgartirmaslik. “Нет лифт” emas, “нет лифта”. Ikkinchisi: o‘zbekcha “xona katta” yoki inglizcha “is” ni tarjima qilib “Комната есть большая” deyish. Rus tilida bu noto‘g‘ri. “Есть” sifat bilan ishlatilmaydi. To‘g‘risi oddiy: “Комната большая”.",
+   "say": "Здесь нет лифта. Комната большая.",
+   "say_uz": "Bu yerda lift yo‘q. Xona katta.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Bor yoki yo‘q",
+   "emotion": "encouraging",
+   "board": [
+    "1) Kvartirada balkon bor.",
+    "2) Uyda lift yo‘q.",
+    "3) Xonada televizor bormi?",
+    "4) Xonada shkaf yo‘q."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni ruschaga o‘giring. “Bor” uchun “есть”, “yo‘q” uchun “нет” va so‘z oxirini “-а” ga o‘zgartiring. Uchinchisi savol, ohangni ko‘taring. Joyni gap boshida ayting: “в квартире”, “в доме”, “в комнате”.",
+   "say": "В квартире… В доме… В комнате… В комнате…",
+   "say_uz": "Kvartirada… Uyda… Xonada… Xonada…",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) В квартире есть балкон.",
+    "2) В доме нет лифта.",
+    "3) В комнате есть телевизор?",
+    "4) В комнате нет шкафа."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “В квартире есть балкон”. “В доме нет лифта”, “лифт” emas, “лифта”. “В комнате есть телевизор?” — savol ohangi bilan. “В комнате нет шкафа”. Diqqat qiling: joy so‘zlari “в квартире”, “в доме”, “в комнате” hammasi “-е” bilan tugadi. Endi aynan shu qoidani o‘rganamiz.",
+   "say": "В квартире есть балкон. В доме нет лифта. В комнате есть телевизор? В комнате нет шкафа.",
+   "say_uz": "Kvartirada balkon bor. Uyda lift yo‘q. Xonada televizor bormi? Xonada shkaf yo‘q.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Sifat moslashuvi",
+   "title": "Где? в + -е",
    "emotion": "thinking",
-   "board": ["большой · большая · большое", "Стол большой.", "Комната большая.", "Кресло большое."],
-   "examples": [
-   {"t": "Стол большой.", "uz": "Stol katta."},
-   {"t": "Комната большая.", "uz": "Xona katta."}
+   "board": [
+    "дом → в доме · комната → в комнате",
+    "спальня → в спальне · квартира → в квартире",
+    "гостиная → в гостиной · ванная → в ванной"
    ],
-   "say_native": "Sifat ot bilan jins bo‘yicha moslashadi. “Большой” — erkak jins, “большая” — ayol jins, “большое” — o‘rta jins. “Стол большой” — stol katta, “комната большая” — xona katta, “кресло большое” — kreslo katta. O‘zbek tilida sifat o‘zgarmaydi, rus tilida esa ot jinsiga qarab o‘zgaradi, shuning uchun jinsni bilish muhim.",
-   "say": "Стол большой. Комната большая. Кресло большое. Окно большое.",
-   "say_uz": "Stol katta. Xona katta. Kreslo katta. Deraza katta.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Sifatni moslang",
-   "emotion": "encouraging",
-   "board": ["1) Stol — katta", "2) Xona — katta", "3) Deraza — katta", "4) Kreslo — katta"],
-   "examples": [],
-   "say_native": "To‘rtta otni sifat bilan moslang. “Стол большой”, “комната большая”, “окно большое”, “кресло большое”. Stol erkak jinsida, shuning uchun “большой”. Xona ayol jinsida, shuning uchun “большая”. Deraza va kreslo o‘rta jinsda, shuning uchun “большое”. Jinsni adashtirmasdan, har birini to‘liq gap qilib ayting.",
-   "say": "Стол большой. Комната большая. Окно большое. Кресло большое.",
-   "say_uz": "Stol katta. Xona katta. Deraza katta. Kreslo katta.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Стол большой.", "Комната большая.", "Окно большое.", "Кресло большое."],
-   "examples": [],
-   "say_native": "Javoblar: “Стол большой”, “комната большая”, “окно большое”, “кресло большое”. Har bir sifat ot jinsiga moslangan. “Большой” — erkak, “большая” — ayol, “большое” — o‘rta jins uchun. Agar jinsni adashtirsangiz, sifat ot bilan moslashmaydi va gap g‘alati eshitiladi, shuning uchun ot jinsini avval tekshiring.",
-   "say": "Стол большой. Комната большая. Окно большое. Кресло большое.",
-   "say_uz": "Stol katta. Xona katta. Deraza katta. Kreslo katta.",
+   "examples": [
+    {
+     "t": "Мама в спальне.",
+     "uz": "Onam yotoqxonada."
+    },
+    {
+     "t": "Телевизор в гостиной.",
+     "uz": "Televizor mehmonxonada."
+    }
+   ],
+   "say_native": "“Где?” — qayerda? Javob uchun “в” va so‘z oxiridagi “-е” kerak. Bu o‘zbekchadagi “-da” qo‘shimchasiga o‘xshaydi. “Дом” — “в доме”, “комната” — “в комнате”, “спальня” — “в спальне”. Sifatga o‘xshagan xona nomlari boshqacha: “гостиная” — “в гостиной”, “ванная” — “в ванной”. “Мама в спальне” — onam yotoqxonada. Bu yerda ham “есть” yoki “находится” shart emas.",
+   "say": "Где мама? Мама в спальне. Где телевизор? Телевизор в гостиной.",
+   "say_uz": "Onam qayerda? Onam yotoqxonada. Televizor qayerda? Televizor mehmonxonada.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Где ...?",
+   "title": "В yoki на?",
+   "emotion": "thinking",
+   "board": [
+    "в — ichida: в комнате, в шкафу",
+    "на — ustida: на столе, на стене",
+    "на кухне · на балконе · на этаже"
+   ],
+   "examples": [
+    {
+     "t": "Книга на столе.",
+     "uz": "Kitob stol ustida."
+    },
+    {
+     "t": "Папа на кухне.",
+     "uz": "Dadam oshxonada."
+    }
+   ],
+   "say_native": "O‘zbekchada bitta “-da” bor, rus tilida esa ikkita predlog: “в” va “на”. “В” — biror narsaning ichida: “в комнате”, “в шкафу”. “На” — sirtida, ustida: “на столе” — stol ustida, “на стене” — devorda. Lekin ba’zi joylar bilan qoidaga qaramay “на” ishlatiladi va ularni yodlash kerak: “на кухне”, “на балконе”, “на этаже”. “Папа на кухне” — dadam oshxonada.",
+   "say": "Книга на столе. Картина на стене. Папа на кухне. Кошка на балконе.",
+   "say_uz": "Kitob stol ustida. Rasm devorda. Dadam oshxonada. Mushuk balkonda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Maxsus oxir: -у́",
    "emotion": "neutral",
-   "board": ["Где стол? — В комнате.", "Где книга? — На столе.", "Где кровать? — В спальне."],
-   "examples": [
-   {"t": "Где стол? — В комнате.", "uz": "Stol qayerda? — Xonada."},
-   {"t": "Где книга? — На столе.", "uz": "Kitob qayerda? — Stol ustida."}
+   "board": [
+    "шкаф → в шкафу́",
+    "пол → на полу́",
+    "угол → в углу́",
+    "кровать → на кровати"
    ],
-   "say_native": "“Где” — qayerda degan so‘roq so‘zi. “Где стол?” — stol qayerda? Javob: “В комнате” — xonada. “Где книга?” — kitob qayerda? Javob: “На столе” — stol ustida. “Где кровать?” — karavot qayerda? Javob: “В спальне” — yotoqxonada. Bu savol va javoblar joyini so‘rashda eng oddiy usuli.",
-   "say": "Где стол? В комнате. Где книга? На столе. Где кровать? В спальне.",
-   "say_uz": "Stol qayerda? Xonada. Kitob qayerda? Stol ustida. Karavot qayerda? Yotoqxonada.",
+   "examples": [
+    {
+     "t": "Одежда в шкафу.",
+     "uz": "Kiyimlar shkafda."
+    },
+    {
+     "t": "Ковёр на полу.",
+     "uz": "Gilam polda."
+    }
+   ],
+   "say_native": "Bir nechta qisqa erkak jinsi so‘zlar “-е” o‘rniga urg‘uli “-у” oladi. “Шкаф” — “в шкафу”, “пол” — “на полу”, “угол” — burchak, “в углу”. Urg‘u doim shu “у” ga tushadi. “Одежда в шкафу” — kiyimlar shkafda. Yumshoq belgili ayol jinsi so‘zlar esa “-и” oladi: “кровать” — “на кровати”. Bu so‘zlar uy haqida gapirganda juda ko‘p uchraydi.",
+   "say": "Одежда в шкафу. Ковёр на полу. Кресло в углу. Кошка на кровати.",
+   "say_uz": "Kiyimlar shkafda. Gilam polda. Kreslo burchakda. Mushuk karavotda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "В кухня, в шкафе — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ в кухня · ✗ в кухне",
+    "✓ на кухне",
+    "✗ в шкафе · ✗ на пол",
+    "✓ в шкафу · ✓ на полу"
+   ],
+   "examples": [],
+   "say_native": "Uchta tipik xato. Birinchisi: so‘zni o‘zgartirmaslik, “в кухня”. Ikkinchisi: “кухня” bilan “в” ishlatish. Odatiy shakl “на кухне”. Uchinchisi: “в шкафе”, “на пол”. To‘g‘risi “в шкафу”, “на полу”. Bu shakllarni ko‘p eshitib, tayyor ibora sifatida yodlang: “на кухне”, “в шкафу”, “на полу”.",
+   "say": "На кухне. В шкафу. На полу.",
+   "say_uz": "Oshxonada. Shkafda. Polda.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qayerda deb so‘rang",
+   "title": "Qayerda? Ayting",
    "emotion": "encouraging",
-   "board": ["1) Stol qayerda?", "2) Kitob qayerda?", "3) Karavot qayerda?", "4) Chiroq qayerda?"],
+   "board": [
+    "1) комната (в)",
+    "2) кухня",
+    "3) шкаф",
+    "4) гостиная",
+    "5) балкон",
+    "6) стол (ustida)"
+   ],
    "examples": [],
-   "say_native": "To‘rtta buyum qayerda turganini so‘rang va javob bering. “Где стол? — В комнате”, “где книга? — На столе”, “где кровать? — В спальне”, “где лампа? — На столе”. Har bir savol “где” bilan boshlanib, javob “в” yoki “на” bilan yakunlanadi. Savol va javobni birga baland ovozda ayting.",
-   "say": "Где стол? В комнате. Где книга? На столе. Где кровать? В спальне. Где лампа? На столе.",
-   "say_uz": "Stol qayerda? Xonada. Kitob qayerda? Stol ustida. Karavot qayerda? Yotoqxonada. Chiroq qayerda? Stol ustida.",
+   "say_native": "Mashq. Har bir so‘zni “qayerda?” savoliga javob shakliga keltiring. To‘g‘ri predlogni tanlang: “в” yoki “на”. Oxirni ham o‘zgartiring: “-е”, “-у” yoki sifatga o‘xshagan “-ой”. Javoblarni baland ovozda ayting.",
+   "say": "В… На… В… В… На… На…",
+   "say_uz": "…da… …da… …da… …da… …da… …ustida…",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Где стол? — В комнате.", "Где книга? — На столе.", "Где кровать? — В спальне."],
+   "board": [
+    "1) в комнате",
+    "2) на кухне",
+    "3) в шкафу",
+    "4) в гостиной",
+    "5) на балконе",
+    "6) на столе"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Где стол? — В комнате”, “где книга? — На столе”, “где кровать? — В спальне”, “где лампа? — На столе”. Har bir savolda “где” so‘roq so‘zi ishlatilgan, javoblarda “в” yoki “на” predlogi kelgan. Joylashuvni so‘rash va javob berish muloqotning eng oddiy shakli, shuning uchun uni mustahkam yodlang.",
-   "say": "Где стол? В комнате. Где книга? На столе. Где кровать? В спальне.",
-   "say_uz": "Stol qayerda? Xonada. Kitob qayerda? Stol ustida. Karavot qayerda? Yotoqxonada.",
+   "say_native": "Javoblar: “в комнате”, “на кухне”, “в шкафу”, “в гостиной”, “на балконе”, “на столе”. Ikkinchi va beshinchi javoblarda “на”, chunki “кухня” va “балкон” shu predlogni talab qiladi. Uchinchisida maxsus “-у”. To‘rtinchisida sifatga o‘xshagan oxir “-ой”.",
+   "say": "В комнате. На кухне. В шкафу. В гостиной. На балконе. На столе.",
+   "say_uz": "Xonada. Oshxonada. Shkafda. Mehmonxonada. Balkonda. Stol ustida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Под, над, рядом с",
+   "emotion": "thinking",
+   "board": [
+    "под столом (stol ostida)",
+    "над диваном (divan tepasida)",
+    "рядом с окном (deraza yonida)",
+    "между окном и дверью (orasida)"
+   ],
+   "examples": [
+    {
+     "t": "Кошка под столом.",
+     "uz": "Mushuk stol ostida."
+    },
+    {
+     "t": "Лампа над столом.",
+     "uz": "Chiroq stol tepasida."
+    }
+   ],
+   "say_native": "Endi joylashuv so‘zlari. “Под” — ostida, “над” — tepasida, “рядом с” — yonida, “между” — orasida. Bu so‘zlardan keyin ot vosita kelishigiga o‘tadi va ko‘pincha “-ом” oladi: “под столом”, “над диваном”, “рядом с окном”. Ayol jinsida “-ой”: “рядом с кухней”. Hozircha bu birikmalarni tayyor holda yodlang. O‘zbekchada “stol ostida” deb ot o‘zgarmaydi, rus tilida esa ot o‘zgaradi.",
+   "say": "Кошка под столом. Лампа над столом. Шкаф рядом с окном.",
+   "say_uz": "Mushuk stol ostida. Chiroq stol tepasida. Shkaf deraza yonida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Слева, справа, напротив",
+   "emotion": "neutral",
+   "board": [
+    "слева (chap tomonda) · справа (o‘ng tomonda)",
+    "в центре (o‘rtada) · в углу (burchakda)",
+    "напротив окна (deraza qarshisida)"
+   ],
+   "examples": [
+    {
+     "t": "Слева диван, справа шкаф.",
+     "uz": "Chapda divan, o‘ngda shkaf."
+    },
+    {
+     "t": "Телевизор напротив дивана.",
+     "uz": "Televizor divan qarshisida."
+    }
+   ],
+   "say_native": "Xonani tasvirlaganda yana bu so‘zlar kerak: “слева” — chap tomonda, “справа” — o‘ng tomonda, “в центре” — o‘rtada, “в углу” — burchakda. “Напротив” — qarshisida, undan keyin so‘z “-а” oladi: “напротив окна”, “напротив дивана”. Masalan: “Слева диван, справа шкаф, в центре стол”. Bu tuzilish xonani tez va aniq tasvirlashga yordam beradi.",
+   "say": "Слева диван, справа шкаф. В центре стол. Телевизор напротив дивана.",
+   "say_uz": "Chapda divan, o‘ngda shkaf. O‘rtada stol. Televizor divan qarshisida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Стоит, лежит, висит",
+   "emotion": "thinking",
+   "board": [
+    "стоит — tik turadi: стол, шкаф, лампа",
+    "лежит — yotadi: ковёр, книга",
+    "висит — osilib turadi: картина, зеркало"
+   ],
+   "examples": [
+    {
+     "t": "На стене висит картина.",
+     "uz": "Devorda rasm osig‘liq."
+    },
+    {
+     "t": "На полу лежит ковёр.",
+     "uz": "Polda gilam to‘shalgan."
+    }
+   ],
+   "say_native": "Ruslar xonani tasvirlaganda ko‘pincha “есть” o‘rniga uchta fe’l ishlatadi. “Стоит” — tik turadi: “шкаф стоит в углу”. “Лежит” — yotadi: “ковёр лежит на полу”, “книга лежит на столе”. “Висит” — osilib turadi: “на стене висит картина”. O‘zbekchada ham “turibdi”, “yotibdi”, “osig‘liq” deymiz, demak mantiq bir xil. Ko‘plikda: “стоят”, “лежат”, “висят”.",
+   "say": "Шкаф стоит в углу. Ковёр лежит на полу. На стене висит картина.",
+   "say_uz": "Shkaf burchakda turibdi. Gilam polda yotibdi. Devorda rasm osig‘liq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Под стол, картина стоит — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Кошка под стол.",
+    "✓ Кошка под столом.",
+    "✗ Картина стоит на стене.",
+    "✓ Картина висит на стене."
+   ],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: “под”, “над”, “рядом с” dan keyin so‘zni o‘zgartirmaslik. “Под стол” emas, “под столом”. Ikkinchisi: fe’lni noto‘g‘ri tanlash. Rasm devorda turmaydi, osilib turadi: “картина висит на стене”. Gilam esa yotadi: “ковёр лежит”. Narsaning holatini tasavvur qiling, keyin fe’lni tanlang.",
+   "say": "Кошка под столом. Картина висит на стене. Ковёр лежит на полу.",
+   "say_uz": "Mushuk stol ostida. Rasm devorda osig‘liq. Gilam polda yotibdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Xonani tasvirlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Chiroq stol ustida turibdi.",
+    "2) Mushuk divan ostida yotibdi.",
+    "3) Rasm divan tepasida osig‘liq.",
+    "4) Shkaf deraza yonida turibdi."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni ruschaga o‘giring. Har birida to‘g‘ri fe’lni tanlang: “стоит”, “лежит” yoki “висит”. Keyin joylashuv so‘zi va so‘z oxiri: “на столе”, “под диваном”, “над диваном”, “рядом с окном”.",
+   "say": "Лампа… Кошка… Картина… Шкаф…",
+   "say_uz": "Chiroq… Mushuk… Rasm… Shkaf…",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Лампа стоит на столе.",
+    "2) Кошка лежит под диваном.",
+    "3) Картина висит над диваном.",
+    "4) Шкаф стоит рядом с окном."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Лампа стоит на столе” — stol chirog‘i tik turadi. “Кошка лежит под диваном”. “Картина висит над диваном”. “Шкаф стоит рядом с окном”. E’tibor bering: “на столе” da “-е”, “под диваном”, “над диваном”, “с окном” da esa “-ом”. Fe’llarni to‘g‘ri tanlagan bo‘lsangiz, tasviringiz juda tabiiy eshitiladi.",
+   "say": "Лампа стоит на столе. Кошка лежит под диваном. Картина висит над диваном. Шкаф стоит рядом с окном.",
+   "say_uz": "Chiroq stol ustida turibdi. Mushuk divan ostida yotibdi. Rasm divan tepasida osig‘liq. Shkaf deraza yonida turibdi.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 1: do‘stning uyi",
+   "title": "Dialog 1: yangi kvartira",
    "emotion": "happy",
-   "board": ["— Какая у тебя комната?", "— У меня есть стол и диван.", "— Где кровать? — В спальне."],
+   "board": [
+    "Tinglang: necha xona? oshxona qanday?",
+    "Лифт есть?"
+   ],
    "examples": [],
-   "say_native": "Birinchi dialog. Do‘stlar bir-birining uyini tomosha qilmoqda. Tinglab bo‘lgach, bitta do‘stning xonasi qanday, unda qanday mebellar borligini va karavot qayerda turganini ayting. “Какая у тебя комната?” — xonang qanday? Degan savolda sifat ot bilan moslangan, buni diqqat bilan eshitib turing.",
-   "say": "Привет! Это моя комната. Какая она? Она большая и светлая. У меня есть стол и диван. А где кровать? Кровать в спальне. Спасибо, что пришёл!",
-   "say_uz": "Salom! Bu mening xonam. U qanday? U katta va yorug‘. Menda stol va divan bor. Karavot-chi? Karavot yotoqxonada. Kelganing uchun rahmat!",
+   "say_native": "Birinchi dialog. Dilshod do‘sti Lolaga qo‘ng‘iroq qilib, uning yangi kvartirasi haqida so‘rayapti. Tinglang va eslab qoling: kvartirada nechta xona bor, oshxona qanday, yotoqxonada nima bor va uyda lift bormi.",
+   "say": "— Привет, Лола! Как твоя новая квартира? — Привет! Квартира хорошая. Две комнаты, кухня и балкон. — Кухня большая? — Нет, маленькая, но очень светлая. — А что есть в спальне? — Кровать, шкаф и стол. Окно большое. — А лифт есть? — Нет, лифта нет, а я живу на пятом этаже!",
+   "say_uz": "— Salom, Lola! Yangi kvartirang qanday? — Salom! Kvartira yaxshi. Ikkita xona, oshxona va balkon. — Oshxona kattami? — Yo‘q, kichik, lekin juda yorug‘. — Yotoqxonada nima bor? — Karavot, shkaf va stol. Deraza katta. — Lift bormi? — Yo‘q, lift yo‘q, men esa beshinchi qavatda yashayman!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Xona qanday?", "2) Unda qanday mebel bor?", "3) Karavot qayerda?"],
+   "board": [
+    "1) Сколько комнат?",
+    "2) Какая кухня?",
+    "3) Что есть в спальне?",
+    "4) Лифт есть?"
+   ],
    "examples": [],
-   "say_native": "Uchta savol. Xona qanday? Unda qanday mebel bor? Karavot qayerda? Javoblarni rus tilida, to‘liq gap bilan ayting. “Комната большая и светлая”, “у меня есть стол и диван”, “кровать в спальне” qoliplaridan foydalaning. Sifat ot bilan moslashgan bo‘lsin.",
-   "say": "Какая комната? Какая мебель в комнате? Где кровать?",
-   "say_uz": "Xona qanday? Xonada qanday mebel bor? Karavot qayerda?",
+   "say_native": "To‘rtta savolga ruscha qisqa javob bering. Kvartirada nechta xona bor? Oshxona qanday? Yotoqxonada nima bor? Lift bormi? To‘rtinchi javobda “нет” dan keyingi shaklni unutmang.",
+   "say": "Сколько комнат? Какая кухня? Что есть в спальне? Лифт есть?",
+   "say_uz": "Nechta xona? Oshxona qanday? Yotoqxonada nima bor? Lift bormi?",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Комната большая и светлая.", "У меня есть стол и диван.", "Кровать в спальне."],
+   "board": [
+    "1) две комнаты",
+    "2) маленькая, но светлая",
+    "3) кровать, шкаф и стол",
+    "4) нет, лифта нет"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Комната большая и светлая”, “у меня есть стол и диван”, “кровать в спальне”. Xona katta va yorug‘, unda stol va divan bor, karavot yotoqxonada. “Большая” so‘zi xona bilan moslashgan, chunki xona ayol jinsida. Dialogdagi iboralar xonani tasvirlashda aynan ishlatiladi.",
-   "say": "Комната большая и светлая. У меня есть стол и диван. Кровать в спальне.",
-   "say_uz": "Xona katta va yorug‘. Menda stol va divan bor. Karavot yotoqxonada.",
+   "say_native": "Javoblar: kvartirada ikkita xona — “две комнаты”, shuningdek oshxona va balkon. Oshxona “маленькая, но очень светлая” — kichik, lekin yorug‘. Yotoqxonada karavot, shkaf va stol bor. Lift yo‘q: “лифта нет”. Lola beshinchi qavatda yashaydi, shuning uchun bu unga noqulay.",
+   "say": "Две комнаты. Маленькая, но светлая. Кровать, шкаф и стол. Лифта нет.",
+   "say_uz": "Ikkita xona. Kichik, lekin yorug‘. Karavot, shkaf va stol. Lift yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘lcham: большой, маленький",
+   "emotion": "neutral",
+   "board": [
+    "большой / большая / большое / большие",
+    "маленький / маленькая / маленькое / маленькие",
+    "просторный (keng) · тесный (tor)"
+   ],
+   "examples": [
+    {
+     "t": "У нас большая гостиная.",
+     "uz": "Bizda katta mehmonxona bor."
+    },
+    {
+     "t": "Окна большие.",
+     "uz": "Derazalar katta."
+    }
+   ],
+   "say_native": "Endi tasvirlash. O‘lcham: “большой” — katta, “маленький” — kichik, “просторный” — keng, “тесный” — tor, siqiq. Sifat to‘rtta shaklga ega: erkak, ayol, o‘rta jins va ko‘plik. Ko‘plikda “-ые” yoki “-ие”: “большие окна”, “маленькие комнаты”. “Маленький” da “к” dan keyin “ы” emas, “и” yoziladi, xuddi “горячий” dagidek.",
+   "say": "Большой дом. Маленькая кухня. Большое окно. Большие комнаты.",
+   "say_uz": "Katta uy. Kichik oshxona. Katta deraza. Katta xonalar.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Holat: новый, старый, уютный",
+   "emotion": "neutral",
+   "board": [
+    "новый (yangi) · старый (eski)",
+    "чистый (toza) · светлый (yorug‘) · тёмный (qorong‘i)",
+    "удобный (qulay) · уютный (shinam)"
+   ],
+   "examples": [
+    {
+     "t": "Диван старый, но удобный.",
+     "uz": "Divan eski, lekin qulay."
+    },
+    {
+     "t": "Спальня маленькая, но уютная.",
+     "uz": "Yotoqxona kichik, lekin shinam."
+    }
+   ],
+   "say_native": "Holatni bildiruvchi sifatlar: “новый” — yangi, “старый” — eski, “чистый” — toza, “светлый” — yorug‘, “тёмный” — qorong‘i, “удобный” — qulay, “уютный” — shinam, iliq. “Но” — lekin, ikki sifatni qarshilantirishga juda qulay: “Диван старый, но удобный”. “Спальня маленькая, но уютная”. Rus tilida uy haqida gapirganda “уютный” so‘zi juda ko‘p ishlatiladi.",
+   "say": "Диван старый, но удобный. Спальня маленькая, но уютная.",
+   "say_uz": "Divan eski, lekin qulay. Yotoqxona kichik, lekin shinam.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Очень va не очень",
+   "emotion": "thinking",
+   "board": [
+    "очень большая (juda katta)",
+    "не очень новый (unchalik yangi emas)",
+    "Кухня очень светлая."
+   ],
+   "examples": [
+    {
+     "t": "Квартира не очень большая.",
+     "uz": "Kvartira unchalik katta emas."
+    },
+    {
+     "t": "Комната очень чистая.",
+     "uz": "Xona juda toza."
+    }
+   ],
+   "say_native": "Darajani aytish uchun “очень” — juda, va “не очень” — unchalik emas. “Кухня очень светлая” — oshxona juda yorug‘. “Квартира не очень большая” — kvartira unchalik katta emas. “Не очень” juda muloyim ibora: ruslar “маленькая” deyish o‘rniga ko‘pincha “не очень большая” deydi. O‘zbekchadagi “unchalik … emas” bilan bir xil.",
+   "say": "Кухня очень светлая. Квартира не очень большая.",
+   "say_uz": "Oshxona juda yorug‘. Kvartira unchalik katta emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Комнаты большая — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Кухня есть маленькая.",
+    "✓ Кухня маленькая.",
+    "✗ Комнаты большая.",
+    "✓ Комнаты большие."
+   ],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi yana “есть” ni sifat bilan ishlatish: “Кухня есть маленькая”. To‘g‘risi “Кухня маленькая”. Ikkinchisi: ko‘plik otga birlik sifat: “Комнаты большая”. “Комнаты” ko‘plik, shuning uchun sifat ham ko‘plikda: “большие”. O‘zbekchada “xonalar katta” deb sifat o‘zgarmaydi, rus tilida esa moslashadi.",
+   "say": "Кухня маленькая. Комнаты большие.",
+   "say_uz": "Oshxona kichik. Xonalar katta.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ruscha tasvirlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Kvartira katta va yorug‘.",
+    "2) Divan eski, lekin qulay.",
+    "3) Oshxona kichik, lekin toza.",
+    "4) Derazalar katta."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni ruschaga o‘giring. “Есть” ishlatmang. Sifatni otning jinsi va soniga moslang. “Lekin” uchun “но”, “va” uchun “и” ishlating. Javoblarni tabiiy ohangda ayting.",
+   "say": "Квартира… Диван… Кухня… Окна…",
+   "say_uz": "Kvartira… Divan… Oshxona… Derazalar…",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Квартира большая и светлая.",
+    "2) Диван старый, но удобный.",
+    "3) Кухня маленькая, но чистая.",
+    "4) Окна большие."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Квартира большая и светлая” — ayol jinsi. “Диван старый, но удобный” — erkak jinsi. “Кухня маленькая, но чистая”. “Окна большие” — ko‘plik, urg‘u boshida: “о́кна”. Hech bir gapda “есть” yo‘q. Shunday qilib, sifat bilan tasvir juda oddiy tuziladi.",
+   "say": "Квартира большая и светлая. Диван старый, но удобный. Кухня маленькая, но чистая. Окна большие.",
+   "say_uz": "Kvartira katta va yorug‘. Divan eski, lekin qulay. Oshxona kichik, lekin toza. Derazalar katta.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Сколько комнат?",
+   "emotion": "thinking",
+   "board": [
+    "1 → одна комната",
+    "2, 3, 4 → две / три / четыре комнаты",
+    "5+ → пять комнат",
+    "Сколько в квартире комнат?"
+   ],
+   "examples": [
+    {
+     "t": "В квартире три комнаты.",
+     "uz": "Kvartirada uchta xona bor."
+    },
+    {
+     "t": "В доме пять комнат.",
+     "uz": "Uyda beshta xona bor."
+    }
+   ],
+   "say_native": "Oldingi darsda “рубль, рубля, рублей” qoidasini o‘rgandik. Xonalar bilan ham xuddi shunday: “одна комната”, “две, три, четыре комнаты”, “пять комнат”. E’tibor bering, “комната” ayol jinsi, shuning uchun “один” emas, “одна”, “два” emas, “две”. Savol: “Сколько в квартире комнат?” — kvartirada nechta xona bor?",
+   "say": "Сколько в квартире комнат? Три комнаты. В доме пять комнат.",
+   "say_uz": "Kvartirada nechta xona bor? Uchta xona. Uyda beshta xona bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: urg‘u va kuchsizlanish",
+   "emotion": "thinking",
+   "board": [
+    "окно́ [акно́] · балко́н [балко́н]",
+    "холоди́льник [халади́льник]",
+    "ко́мната · ку́хня · спа́льня",
+    "этаж [эта́ш] · гости́ная"
+   ],
+   "examples": [],
+   "say_native": "Talaffuz. Urg‘usiz “о” “а” ga yaqin eshitiladi: “окно” — “akno”, “холодильник” — “xaladilnik”. “Комната” da urg‘u birinchi bo‘g‘inda: “ко́мната”. “Кухня”, “спальня” ham boshida urg‘uli. “Гостиная” da urg‘u “ти” bo‘g‘inida. “Этаж” — oxiri “ш”. O‘zbekzabonlar ko‘pincha urg‘uni oxirgi bo‘g‘inga qo‘yadi, masalan “komnata” ni oxiridan. Rus tilida urg‘uni so‘z bilan birga yodlang.",
+   "say": "Окно. Холодильник. Комната. Кухня. Спальня. Гостиная. Этаж.",
+   "say_uz": "Deraza. Muzlatgich. Xona. Oshxona. Yotoqxona. Mehmonxona. Qavat.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 2: uy hajmi",
-   "emotion": "neutral",
-   "board": ["— Какая у вас квартира?", "— Большая, две комнаты.", "— А кухня? — Она маленькая."],
+   "title": "Dialog 2: kvartira ijarasi",
+   "emotion": "happy",
+   "board": [
+    "Tinglang: nechta xona? mebel bormi?",
+    "Какой этаж? Лифт есть?"
+   ],
    "examples": [],
-   "say_native": "Ikkinchi dialog. Qo‘shnilar kvartira hajmi va holati haqida gaplashmoqda. Tinglab bo‘lgach, kvartira qanday, nechta xona borligini va oshxona hajmini ayting. “Какая у вас квартира?” — kvartirangiz qanday? Degan savolda “большая” va “маленькая” sifatlari ot bilan moslashgan, shuning uchun har bir sifatni diqqat bilan tinglang.",
-   "say": "Какая у вас квартира? Она большая и новая. У нас две комнаты. А кухня? Кухня маленькая, но очень уютная. Спасибо!",
-   "say_uz": "Kvartirangiz qanday? U katta va yangi. Bizda ikki xona bor. Oshxona-chi? Oshxona kichik, lekin juda shinam. Rahmat!",
+   "say_native": "Ikkinchi dialog. Rustam ijaraga kvartira qidiryapti va uy egasiga qo‘ng‘iroq qildi. Tinglang va eslab qoling: kvartirada nechta xona bor, oshxonada nima bor, qaysi xonada qanday mebel bor, qaysi qavat va lift bormi.",
+   "say": "— Здравствуйте! Я звоню по поводу квартиры. Сколько там комнат? — Две: гостиная и спальня. — А кухня большая? — Да, большая и светлая. Там есть холодильник и плита. — А мебель есть? — В спальне есть кровать и шкаф, а в гостиной — диван. — Какой этаж? — Третий. Лифт есть. — Отлично, спасибо!",
+   "say_uz": "— Assalomu alaykum! Kvartira masalasida qo‘ng‘iroq qilyapman. U yerda nechta xona bor? — Ikkita: mehmonxona va yotoqxona. — Oshxona kattami? — Ha, katta va yorug‘. U yerda muzlatgich va plita bor. — Mebel bormi? — Yotoqxonada karavot va shkaf bor, mehmonxonada esa divan. — Qaysi qavat? — Uchinchi. Lift bor. — Ajoyib, rahmat!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Kvartira qanday?", "2) Nechta xona bor?", "3) Oshxona qanday?"],
+   "board": [
+    "1) Сколько комнат?",
+    "2) Что есть на кухне?",
+    "3) Что есть в гостиной?",
+    "4) Какой этаж? Лифт есть?"
+   ],
    "examples": [],
-   "say_native": "Uchta savol. Kvartira qanday? Nechta xona bor? Oshxona qanday? Javoblarni rus tilida, to‘liq gap bilan ayting. “Квартира большая и новая”, “у нас две комнаты”, “кухня маленькая, но уютная” qoliplaridan foydalaning. Hajm sifatlari ot jinsiga moslangan bo‘lsin.",
-   "say": "Какая квартира? Сколько комнат? Какая кухня?",
-   "say_uz": "Kvartira qanday? Nechta xona bor? Oshxona qanday?",
+   "say_native": "To‘rtta savol. Kvartirada nechta xona bor va ular qanday xonalar? Oshxonada nima bor? Mehmonxonada qanday mebel bor? Qaysi qavat va lift bormi? Ruscha qisqa javob bering.",
+   "say": "Сколько комнат? Что есть на кухне? Что есть в гостиной? Какой этаж?",
+   "say_uz": "Nechta xona? Oshxonada nima bor? Mehmonxonada nima bor? Qaysi qavat?",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Квартира большая и новая.", "У нас две комнаты.", "Кухня маленькая, но уютная."],
+   "board": [
+    "1) две: гостиная и спальня",
+    "2) холодильник и плита",
+    "3) диван",
+    "4) третий, лифт есть"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Квартира большая и новая”, “у нас две комнаты”, “кухня маленькая, но уютная”. Kvartira katta va yangi, ikki xona bor, oshxona kichik, lekin shinam. “Большая” va “маленькая” xona va oshxona bilan moslashgan, chunki ular ayol jinsida. Hajm va holatni aytganda sifatni albatta ot jinsiga moslang.",
-   "say": "Квартира большая и новая. У нас две комнаты. Кухня маленькая, но уютная.",
-   "say_uz": "Kvartira katta va yangi. Bizda ikki xona bor. Oshxona kichik, lekin shinam.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Urg‘u",
-   "emotion": "neutral",
-   "board": ["ко́мната · спа́льня · гости́ная", "ку́хня · ва́нная · коридо́р", "сто́л · сту́л · крова́ть · дива́н"],
-   "examples": [
-   {"t": "Это комната.", "uz": "Bu xona."},
-   {"t": "Это спальня.", "uz": "Bu yotoqxona."}
-   ],
-   "say_native": "Xona va mebel so‘zlarida urg‘u o‘zbek tilidan farq qiladi. “Ко́мната” — birinchi bo‘g‘inda, “спа́льня” — birinchida, “гости́ная” — ikkinchisida, “ку́хня” — birinchida, “ва́нная” — birinchida, “коридо́р” — oxirgisida, “сто́л”, “сту́л”, “крова́ть”, “дива́н” — har birining o‘z urg‘usi bor. Bu so‘zlarni talaffuz qilganda urg‘uni to‘g‘ri qo‘ying.",
-   "say": "Комната. Спальня. Гостиная. Кухня. Ванная. Коридор. Стол. Стул. Кровать. Диван.",
-   "say_uz": "Xona. Yotoqxona. Mehmonxona. Oshxona. Hammom. Yo‘lak. Stol. Stul. Karavot. Divan.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Hajm va holat",
-   "emotion": "thinking",
-   "board": ["большой · маленький · новый · старый", "Комната большая.", "Комната маленькая.", "Комната новая."],
-   "examples": [
-   {"t": "Комната большая.", "uz": "Xona katta."},
-   {"t": "Комната новая.", "uz": "Xona yangi."}
-   ],
-   "say_native": "Hajm va holatni sifatlar bilan ayting. “Большой” — katta, “маленький” — kichik, “новый” — yangi, “старый” — eski, “красивый” — chiroyli. “Комната большая” — xona katta, “комната маленькая” — xona kichik, “комната новая” — xona yangi. Har bir sifat ot bilan jins bo‘yicha moslashgan, shuning uchun ot jinsini tekshirib, sifatni tanlang.",
-   "say": "Комната большая. Комната маленькая. Комната новая. Комната красивая.",
-   "say_uz": "Xona katta. Xona kichik. Xona yangi. Xona chiroyli.",
+   "say_native": "Javoblar: ikkita xona, mehmonxona va yotoqxona. Oshxonada muzlatgich va plita bor: “на кухне есть холодильник и плита”. Mehmonxonada divan bor. Kvartira uchinchi qavatda, lift bor. Dialogda “в гостиной” va “на кухне” shakllarini eshitdingizmi? Bu bugungi qoidalarning jonli namunasi.",
+   "say": "Две комнаты: гостиная и спальня. Холодильник и плита. Диван. Третий этаж, лифт есть.",
+   "say_uz": "Ikkita xona: mehmonxona va yotoqxona. Muzlatgich va plita. Divan. Uchinchi qavat, lift bor.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Hajmni ayting",
+   "title": "Yakuniy vazifa: uyingiz",
    "emotion": "encouraging",
-   "board": ["1) Xona katta.", "2) Xona kichik.", "3) Stol katta.", "4) Deraza katta."],
+   "board": [
+    "У меня квартира / дом. Комнат: …",
+    "В гостиной есть… · На кухне…",
+    "Слева… справа… · стоит / лежит / висит",
+    "большой, светлый, уютный · нет…"
+   ],
    "examples": [],
-   "say_native": "To‘rtta xona va buyum hajmini ayting. “Комната большая”, “комната маленькая”, “стол большой”, “окно большое”. Har birida sifat ot jinsiga moslangan bo‘lsin. Oyina katta deb aytilsa, ot o‘rta jinsda, sifat ham o‘rta jinsda bo‘ladi. Buni diqqat bilan farqlang.",
-   "say": "Комната большая. Комната маленькая. Стол большой. Окно большое.",
-   "say_uz": "Xona katta. Xona kichik. Stol katta. Deraza katta.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Комната большая.", "Комната маленькая.", "Стол большой.", "Окно большое."],
-   "examples": [],
-   "say_native": "Javoblar: “Комната большая”, “комната маленькая”, “стол большой”, “окно большое”. Har bir sifat ot jinsiga moslangan. Xonalar ayol jinsida, shuning uchun “большая”, “маленькая”. Stol erkak jinsida, shuning uchun “большой”. Deraza o‘rta jinsda, shuning uchun “большое”. Hajmni aytganda jinsni tekshirish shart.",
-   "say": "Комната большая. Комната маленькая. Стол большой. Окно большое.",
-   "say_uz": "Xona katta. Xona kichik. Stol katta. Deraza katta.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yakuniy mashq: uyingizni tasvirlang",
-   "emotion": "encouraging",
-   "board": ["1) Bu mening xonam.", "2) Menda stol bor.", "3) Stol xonada.", "4) Kitob stol ustida.", "5) Xona katta."],
-   "examples": [],
-   "say_native": "Yakuniy mashq. Uyingiz haqida sakkiz gap tuzing. Har bir gapda xona, mebel, joy va sifatdan foydalaning. “Это моя комната”, “у меня есть стол”, “стол в комнате”, “книга на столе”, “комната большая”, “спальня маленькая”, “кухня новая”, “диван в гостиной”. Pauza bo‘lganda baland ovozda gapiring.",
-   "say": "Это моя комната. У меня есть стол. Стол в комнате. Книга на столе. Комната большая. Спальня маленькая. Кухня новая. Диван в гостиной.",
-   "say_uz": "Bu mening xonam. Menda stol bor. Stol xonada. Kitob stol ustida. Xona katta. Yotoqxona kichik. Oshxona yangi. Divan mehmonxonada.",
+   "say_native": "Endi eng muhim mashq. Uyingiz yoki kvartirangizni ruscha tasvirlang. Ekrandagi rejaga qarab, kamida olti gap ayting: necha xona bor, har bir xonada nima bor, narsalar qayerda turibdi, xonalar qanday, va bitta narsa yo‘qligini ayting. “Есть”, “нет”, “в”, “на” va “стоит, лежит, висит” ni ishlating.",
+   "say": "Расскажите, пожалуйста, о вашем доме.",
+   "say_uz": "Iltimos, uyingiz haqida gapirib bering.",
    "practice_seconds": 20
   },
   {
    "kind": "explain",
-   "title": "Namuna javob",
+   "title": "Namunaviy javob",
    "emotion": "proud",
-   "board": ["Это моя комната.", "У меня есть стол и диван.", "Книга на столе.", "Комната большая."],
+   "board": [
+    "У меня квартира на четвёртом этаже.",
+    "В квартире три комнаты, кухня и балкон.",
+    "В гостиной стоит большой диван, на полу лежит ковёр.",
+    "Кухня маленькая, но светлая. Лифта нет."
+   ],
    "examples": [],
-   "say_native": "Namuna: “Это моя комната. У меня есть стол и диван. Книга на столе. Комната большая. Спальня маленькая, но уютная. Кухня новая. Кровать в спальне. Диван в гостиной”. Har bir gapda “в” va “на” to‘g‘ri ishlatilgan, sifatlar jins bilan moslashgan. Siz ham shu tuzilishni o‘zingizga moslab takrorlang.",
-   "say": "Это моя комната. У меня есть стол и диван. Книга на столе. Комната большая. А кухня новая.",
-   "say_uz": "Bu mening xonam. Menda stol va divan bor. Kitob stol ustida. Xona katta. Oshxona yangi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "O‘zingizni tekshiring",
-   "emotion": "proud",
-   "board": ["У меня есть ...", "Это ...", "В комнате / На столе", "Комната большая / маленькая"],
-   "examples": [],
-   "say_native": "O‘zingizni tekshiring. Buyum borligini “у меня есть” bilan ayta olasizmi? Buyumni ko‘rsatib “это” bilan nomlay olasizmi? Joyini “в комнате” va “на столе” bilan to‘g‘ri ayta olasizmi? Sifatni ot jinsiga moslab, “большая” yoki “большой” ni to‘g‘ri tanlay olasizmi? Hammasi joyida bo‘lsa, uy haqida gaplashishga tayyorsiz.",
-   "say": "У меня есть стол. Это комната. Стол в комнате. Книга на столе. Комната большая.",
-   "say_uz": "Menda stol bor. Bu xona. Stol xonada. Kitob stol ustida. Xona katta.",
+   "say_native": "Namuna bilan solishtiring. “У меня квартира на четвёртом этаже. В квартире три комнаты, кухня и балкон. В гостиной стоит большой диван, на полу лежит ковёр. Над диваном висит картина. Кухня маленькая, но светлая. Лифта нет.” Bunda “есть” va “нет”, “в” va “на”, holat fe’llari va sifatlar bor. Sizning tasviringizda ham shular bo‘lsa, ajoyib.",
+   "say": "У меня квартира на четвёртом этаже. В квартире три комнаты, кухня и балкон. В гостиной стоит большой диван, на полу лежит ковёр. Кухня маленькая, но светлая.",
+   "say_uz": "Mening kvartiram to‘rtinchi qavatda. Kvartirada uchta xona, oshxona va balkon bor. Mehmonxonada katta divan turibdi, polda gilam yotibdi. Oshxona kichik, lekin yorug‘.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": ["комната · спальня · кухня · ванная", "У меня есть · Это моя ...", "В комнате · На столе", "большой · большая · большое"],
+   "board": [
+    "кухня, спальня, гостиная · стол, шкаф, кровать",
+    "есть / нет + лифта",
+    "в комнате · на кухне · в шкафу · под столом",
+    "стоит / лежит / висит · большой, уютный"
+   ],
    "examples": [],
-   "say_native": "Xulosa. Xona nomlarini o‘rgandik: “комната, спальня, гостиная, кухня, ванная, коридор”. Mebel nomlarini o‘rgandik: “стол, стул, кровать, диван, шкаф, лампа”. “У меня есть”, “это моя”, “в комнате”, “на столе” iboralarini o‘rgandik. Sifatlar ot bilan moslashganini o‘rgandik: “большой, большая, большое”. Endi uyingiz haqida bemalol gapirasiz.",
-   "say": "Отлично! Теперь вы умеете говорить о доме и комнатах.",
-   "say_uz": "Ajoyib! Endi uy va xonalar haqida gapira olasiz.",
+   "say_native": "Xulosa. Xonalar va mebel nomlarini jinsi bilan o‘rgandik, “кровать” va “дверь” ayol jinsi ekanini esladik. “Есть” — bor, “нет” — yo‘q, va “нет” dan keyin “лифта”. Joy uchun “в” va “на” ning farqi: “в комнате”, “на кухне”, “в шкафу”. Joylashuv: “под столом”, “над диваном”, “рядом с окном”. “Стоит, лежит, висит” bilan tabiiy tasvir. Sifatlar: “большой”, “уютный”, “старый, но удобный”.",
+   "say": "Отлично! Теперь вы можете рассказать о своём доме.",
+   "say_uz": "Ajoyib! Endi o‘z uyingiz haqida gapirib bera olasiz.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uyga vazifa",
    "emotion": "encouraging",
-   "board": ["Uyingizni tasvirlang: 8 gap", "Xona · mebel · joy · sifat", "Keyingi dars: shaharda yo‘l so‘rash"],
+   "board": [
+    "8 gap: uyingiz xonama-xona",
+    "есть / нет · в / на · стоит / лежит / висит",
+    "kamida 3 xil sifat"
+   ],
    "examples": [],
-   "say_native": "Uyga vazifa. Uyingizni xona-xonadan tasvirlab, sakkiz gap yozing. Har bir gapda “у меня есть”, “это”, “в” yoki “на”, sifatlardan foydalaning. Mezon: har bir gap rus tilida, sifat ot bilan moslashgan, joy predloglari to‘g‘ri. Keyingi darsda shaharda yo‘l so‘rash va tushuntirishni o‘rganamiz. Ko‘rishguncha!",
-   "say": "До свидания! До встречи на следующем уроке. Мы будем говорить о городе.",
-   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz. Biz shahar haqida gaplashamiz.",
+   "say_native": "Uyga vazifa. Uyingizni xonama-xona sakkiz gapda yozing. Mezon: kamida to‘rt xona nomi bor, kamida bitta “есть” va bitta “нет” gapi, “в” va “на” to‘g‘ri tanlangan, kamida bitta “стоит”, “лежит” yoki “висит”, kamida uchta sifat jinsga mos. Keyin matnni baland ovozda, urg‘uga e’tibor berib o‘qing. Keyingi darsda shaharda yo‘l so‘rash va yo‘l ko‘rsatishni o‘rganamiz. Ko‘rishguncha!",
+   "say": "До свидания! До встречи на следующем уроке.",
+   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Uyingizni xona-xonadan tasvirlab sakkiz gap yozing. Mezon: har bir gapda “у меня есть” yoki “это”, “в” yoki “на”, sifat ot bilan moslashgan, hamma gap rus tilida.",
+ "homework_uz": "Uyingizni xonama-xona 8 gapda tasvirlang. Mezon: kamida 4 xona nomi, kamida bitta «есть» va bitta «нет» (+ -а) gapi, «в» va «на» to‘g‘ri (на кухне, в шкафу), kamida bitta «стоит / лежит / висит», kamida 3 sifat ot jinsiga mos. Matnni urg‘uga e’tibor berib baland ovozda o‘qing.",
  "quiz": [
   {
-   "q": "How do you say ‘This is my room’?",
-   "options": ["Это моя комната.", "У меня есть комната.", "Это моя комната есть.", "Это мой комната."],
-   "answer": 0,
-   "why_uz": "Это моя комната — bu mening xonam."
+   "q": "Choose the correct form: «… кровать»",
+   "options": [
+    "большой",
+    "большая",
+    "большое",
+    "большие"
+   ],
+   "answer": 1,
+   "why_uz": "Кровать — ayol jinsi: большая кровать."
   },
   {
-   "q": "How do you say ‘I have a table’?",
-   "options": ["У меня есть стол.", "Это стол.", "У меня стол.", "Стол у меня."],
-   "answer": 0,
-   "why_uz": "У меня есть стол — menda stol bor."
+   "q": "How do you say ‘There is no lift here’?",
+   "options": [
+    "Здесь нет лифт.",
+    "Здесь нет лифта.",
+    "Здесь не есть лифт.",
+    "Здесь лифт нет есть."
+   ],
+   "answer": 1,
+   "why_uz": "Нет dan keyin -а: нет лифта."
   },
   {
-   "q": "Choose the correct preposition: ‘The book ___ the table’",
-   "options": ["на", "в", "у", "с"],
-   "answer": 0,
-   "why_uz": "Книга на столе — kitob stol ustida."
+   "q": "Choose the correct sentence.",
+   "options": [
+    "Комната есть большая.",
+    "Комната большая.",
+    "Комната большой.",
+    "Есть комната большая."
+   ],
+   "answer": 1,
+   "why_uz": "Sifat bilan есть ishlatilmaydi: комната большая."
   },
   {
-   "q": "Choose the correct preposition: ‘The table ___ the room’",
-   "options": ["в", "на", "у", "о"],
-   "answer": 0,
-   "why_uz": "Стол в комнате — stol xonada."
+   "q": "Where is dad? «Папа …»",
+   "options": [
+    "в кухне",
+    "на кухня",
+    "на кухне",
+    "в кухня"
+   ],
+   "answer": 2,
+   "why_uz": "Кухня bilan на ishlatiladi: на кухне."
   },
   {
-   "q": "Choose the correct adjective: ‘Комната большая’ because комната is ___",
-   "options": ["feminine", "masculine", "neuter", "plural"],
-   "answer": 0,
-   "why_uz": "Комната ayol jinsida, shuning uchun большая."
+   "q": "Choose the correct form: «Одежда в …»",
+   "options": [
+    "шкаф",
+    "шкафе",
+    "шкафу",
+    "шкафом"
+   ],
+   "answer": 2,
+   "why_uz": "Шкаф maxsus -у oladi: в шкафу."
   },
   {
-   "q": "Choose the correct adjective: ‘Стол большой’ because стол is ___",
-   "options": ["masculine", "feminine", "neuter", "plural"],
-   "answer": 0,
-   "why_uz": "Стол erkak jinsida, shuning uchun большой."
+   "q": "Choose the correct verb: «На стене … картина.»",
+   "options": [
+    "стоит",
+    "лежит",
+    "висит",
+    "сидит"
+   ],
+   "answer": 2,
+   "why_uz": "Rasm devorda osilib turadi: висит."
   },
   {
-   "q": "Which word means ‘bedroom’?",
-   "options": ["спальня", "кухня", "гостиная", "ванная"],
-   "answer": 0,
-   "why_uz": "Спальня — yotoqxona."
+   "q": "‘The cat is under the table.’",
+   "options": [
+    "Кошка под стол.",
+    "Кошка под столом.",
+    "Кошка на столом.",
+    "Кошка над стол."
+   ],
+   "answer": 1,
+   "why_uz": "Под dan keyin -ом: под столом."
   },
   {
-   "q": "Which word means ‘kitchen’?",
-   "options": ["кухня", "спальня", "коридор", "комната"],
-   "answer": 0,
-   "why_uz": "Кухня — oshxona."
+   "q": "Choose the correct form: «В квартире три …»",
+   "options": [
+    "комната",
+    "комнаты",
+    "комнат",
+    "комнату"
+   ],
+   "answer": 1,
+   "why_uz": "2, 3, 4 dan keyin комнаты."
   },
   {
-   "q": "How do you ask ‘Where is the table?’",
-   "options": ["Где стол?", "Что стол?", "Кто стол?", "Как стол?"],
-   "answer": 0,
-   "why_uz": "Где — qayerda degan so‘roq so‘zi."
+   "q": "Choose the correct sentence.",
+   "options": [
+    "Окна большая.",
+    "Окна большой.",
+    "Окна большие.",
+    "Окна большое."
+   ],
+   "answer": 2,
+   "why_uz": "Окна — ko‘plik: большие."
   },
   {
-   "q": "Choose the correct sentence: ‘The lamp is on the table’",
-   "options": ["Лампа на столе.", "Лампа в столе.", "Лампа у столе.", "Лампа о столе."],
-   "answer": 0,
-   "why_uz": "Лампа на столе — chiroq stol ustida."
+   "q": "Which word means ‘living room’?",
+   "options": [
+    "спальня",
+    "гостиная",
+    "ванная",
+    "прихожая"
+   ],
+   "answer": 1,
+   "why_uz": "Гостиная — mehmonxona."
   }
  ]
 }

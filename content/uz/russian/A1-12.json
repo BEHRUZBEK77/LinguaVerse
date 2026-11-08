@@ -1,582 +1,1006 @@
 {
  "title": "Ranglar, kiyim va do‘konda xarid",
- "goal_uz": "Dars oxirida rus tilida ranglarni sifat bilan moslab ayta olasiz, kiyim nomlarini bilasiz, «Какой у вас размер?», «Можно примерить?» kabi iboralar bilan o‘lchamni so‘raysiz va kiyib ko‘rasiz. Oxirida nima kiyganingizni tasvirlab, kurtka sotib olishni rolda ijro bera olasiz.",
+ "goal_uz": "Dars oxirida o‘n ikkita rangni va o‘n beshta kiyim nomini aytasiz, rangni otning jinsi va soniga moslaysiz (красная куртка, чёрное пальто, синие джинсы), «этот, эта, это, эти» va «тот, та, те» ni to‘g‘ri tanlaysiz, «На мне…» bilan nima kiyganingizni aytasiz hamda do‘konda o‘lcham, kiyib ko‘rish va narxni so‘rab kurtka sotib olasiz.",
  "vocab": [
-  {"w": "красный", "uz": "qizil"},
-  {"w": "синий", "uz": "ko‘k"},
-  {"w": "чёрный", "uz": "qora"},
-  {"w": "белый", "uz": "oq"},
-  {"w": "жёлтый", "uz": "sariq"},
-  {"w": "пальто", "uz": "palto"},
-  {"w": "куртка", "uz": "kurtka"},
-  {"w": "шапка", "uz": "bosh kiyim"},
-  {"w": "шарф", "uz": "ro‘mol"},
-  {"w": "свитер", "uz": "sviter"}
+  {
+   "w": "красный, синий, голубой",
+   "uz": "qizil, ko‘k, havorang"
+  },
+  {
+   "w": "чёрный, белый, серый",
+   "uz": "qora, oq, kulrang"
+  },
+  {
+   "w": "рубашка",
+   "uz": "ko‘ylak (erkaklar ko‘ylagi)"
+  },
+  {
+   "w": "платье",
+   "uz": "ayollar ko‘ylagi"
+  },
+  {
+   "w": "куртка",
+   "uz": "kurtka"
+  },
+  {
+   "w": "пальто",
+   "uz": "palto (o‘zgarmaydi)"
+  },
+  {
+   "w": "брюки, джинсы",
+   "uz": "shim, jinsi shim (faqat ko‘plik)"
+  },
+  {
+   "w": "размер",
+   "uz": "o‘lcham, razmer"
+  },
+  {
+   "w": "примерить",
+   "uz": "kiyib ko‘rmoq"
+  },
+  {
+   "w": "Сколько стоит?",
+   "uz": "Qancha turadi?"
+  }
  ],
  "scenes": [
   {
    "kind": "intro",
    "title": "O‘n ikkinchi dars: ranglar va kiyim",
    "emotion": "happy",
-   "board": ["Свитер красный.", "Шапка красная.", "Пальто красное.", "Какой у вас размер?"],
+   "board": [
+    "Какого цвета эта куртка?",
+    "На мне синяя рубашка.",
+    "Можно примерить?",
+    "Сколько стоят эти джинсы?"
+   ],
    "examples": [],
-   "say_native": "Assalomu alaykum! O‘n ikkinchi darsga xush kelibsiz. O‘tgan darsda shaharda yo‘l so‘rash va tushuntirishni o‘rgandik. Bugun ranglar, kiyim va do‘konda xarid qilishni o‘rganamiz. Rang sifatlari, kiyim nomlari, o‘lcham so‘rash va kiyib ko‘rishni mashq qilamiz. Oxirida kiyganingizni tasvirlab, kurtka sotib olishni ijro bera olasiz.",
-   "say": "Здравствуйте! Сегодня мы говорим о цветах, одежде и покупке в магазине.",
-   "say_uz": "Assalomu alaykum! Bugun ranglar, kiyim va do‘konda xarid haqida gaplashamiz.",
+   "say_native": "Assalomu alaykum! O‘n ikkinchi darsga xush kelibsiz. Oldingi darsda shaharda yo‘l so‘rashni o‘rgandik: “налево, направо, прямо”. Bugun ranglar, kiyim nomlari va do‘konda xarid qilishni o‘rganamiz. Rus tilida rang ham otga qarab o‘zgaradi, buni alohida mashq qilamiz. Dars oxirida nima kiyganingizni aytasiz va kurtkani kiyib ko‘rib sotib olasiz.",
+   "say": "Здравствуйте! Сегодня мы говорим о цветах и одежде. А потом мы идём в магазин.",
+   "say_uz": "Assalomu alaykum! Bugun ranglar va kiyim haqida gaplashamiz. Keyin do‘konga boramiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Rang sifatlari: erkak jins",
+   "title": "Asosiy ranglar",
    "emotion": "neutral",
-   "board": ["красный · синий · чёрный", "Свитер красный.", "Шарф синий.", "Свитер чёрный."],
-   "examples": [
-   {"t": "Свитер красный.", "uz": "Sviter qizil."},
-   {"t": "Шарф синий.", "uz": "Ro‘mol ko‘k."}
+   "board": [
+    "кра́сный — qizil · си́ний — ko‘k",
+    "зелёный — yashil · жёлтый — sariq",
+    "чёрный — qora · бе́лый — oq",
+    "Какого цвета? [kakóva] — qanday rangda?"
    ],
-   "say_native": "Rang sifatlari ot bilan moslashadi. Erkak jinsidagi otlarda “красный” — qizil, “синий” — ko‘k, “чёрный” — qora ishlatiladi. “Свитер красный” — sviter qizil, “шарф синий” — ro‘mol ko‘k, “свитер чёрный” — sviter qora. O‘zbek tilida sifat o‘zgarmaydi, rus tilida esa ot jinsiga qarab o‘zgaradi, shuning uchun jinsni tekshirish muhim.",
-   "say": "Свитер красный. Шарф синий. Свитер чёрный. Шарф красный.",
-   "say_uz": "Sviter qizil. Ro‘mol ko‘k. Sviter qora. Ro‘mol qizil.",
+   "examples": [
+    {
+     "t": "Помидор красный.",
+     "uz": "Pomidor qizil."
+    },
+    {
+     "t": "Снег белый.",
+     "uz": "Qor oq."
+    }
+   ],
+   "say_native": "Oltita asosiy rangdan boshlaymiz. “Красный” — qizil, “синий” — ko‘k, “зелёный” — yashil, “жёлтый” — sariq, “чёрный” — qora, “белый” — oq. Lug‘atda rang erkak jinsi shaklida, “-ый” yoki “-ий” bilan beriladi. “Ё” doim urg‘uli: зелёный, жёлтый, чёрный. Rangni so‘rash: “Какого цвета…?”, bunda “г” “в” kabi o‘qiladi: “какова”.",
+   "say": "Красный. Синий. Зелёный. Жёлтый. Чёрный. Белый. Какого цвета помидор? Он красный.",
+   "say_uz": "Qizil. Ko‘k. Yashil. Sariq. Qora. Oq. Pomidor qanday rangda? U qizil.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Rang sifatlari: ayol jins",
+   "title": "Yana oltita rang",
    "emotion": "neutral",
-   "board": ["красная · синяя · чёрная · белая", "Шапка красная.", "Куртка синяя.", "Шапка чёрная."],
-   "examples": [
-   {"t": "Шапка красная.", "uz": "Bosh kiyim qizil."},
-   {"t": "Куртка синяя.", "uz": "Kurtka ko‘k."}
+   "board": [
+    "се́рый — kulrang · кори́чневый — jigarrang",
+    "ро́зовый — pushti · ора́нжевый — to‘q sariq",
+    "фиоле́товый — binafsha · голубо́й — havorang"
    ],
-   "say_native": "Ayol jinsidagi otlarda “красная” — qizil, “синяя” — ko‘k, “чёрная” — qora, “белая” — oq ishlatiladi. “Шапка красная” — bosh kiyim qizil, “куртка синяя” — kurtka ko‘k, “шапка чёрная” — bosh kiyim qora. “Шапка” va “куртка” ayol jinsida, shuning uchun sifat ham ayol jinsida: “красная, синяя”. Bu farqni bilmasangiz, gap g‘alati eshitiladi.",
-   "say": "Шапка красная. Куртка синяя. Шапка чёрная. Куртка белая.",
-   "say_uz": "Bosh kiyim qizil. Kurtka ko‘k. Bosh kiyim qora. Kurtka oq.",
+   "examples": [
+    {
+     "t": "Слон серый.",
+     "uz": "Fil kulrang."
+    },
+    {
+     "t": "Апельсин оранжевый.",
+     "uz": "Apelsin to‘q sariq."
+    }
+   ],
+   "say_native": "Yana oltita rang. “Серый” — kulrang, “коричневый” — jigarrang, “розовый” — pushti, “оранжевый” — to‘q sariq, apelsin rangi, “фиолетовый” — binafsha. Uzun so‘zlarda urg‘uga e’tibor bering: кори́чневый, ора́нжевый, фиоле́товый. Urg‘usiz “о” “a” kabi eshitiladi: “розовый” deyarli “розавый” kabi aytiladi, lekin yozuvda doim “о”.",
+   "say": "Серый. Коричневый. Розовый. Оранжевый. Фиолетовый. Голубой. Слон серый. Апельсин оранжевый.",
+   "say_uz": "Kulrang. Jigarrang. Pushti. To‘q sariq. Binafsha. Havorang. Fil kulrang. Apelsin to‘q sariq.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Rang sifatlari: o‘rta jins va ko‘plik",
+   "title": "Синий va голубой: ikki xil ko‘k",
    "emotion": "thinking",
-   "board": ["красное · красные", "Пальто красное.", "Перчатки красные.", "Джинсы синие."],
-   "examples": [
-   {"t": "Пальто красное.", "uz": "Palto qizil."},
-   {"t": "Перчатки красные.", "uz": "Qo‘lqoplar qizil."}
+   "board": [
+    "синий — to‘q ko‘k (dengiz, jinsi)",
+    "голубой — och ko‘k, havorang (osmon)",
+    "Небо голубое. Море синее."
    ],
-   "say_native": "O‘rta jinsda “красное” — qizil, ko‘plikda “красные” — qizil ishlatiladi. “Пальто красное” — palto qizil, chunki palto o‘rta jinsda. “Перчатки красные” — qo‘lqoplar qizil, chunki qo‘lqop ko‘plikda, “джинсы синие” — jinsi ko‘k. O‘zbek tilida “palto qizil” deb aytiladi, rus tilida sifat ot bilan moslashgan bo‘ladi.",
-   "say": "Пальто красное. Перчатки красные. Джинсы синие. Пальто чёрное.",
-   "say_uz": "Palto qizil. Qo‘lqoplar qizil. Jinsi ko‘k. Palto qora.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Rangni ot bilan moslang",
-   "emotion": "encouraging",
-   "board": ["1) Sviter — qizil", "2) Bosh kiyim — qizil", "3) Palto — qizil", "4) Qo‘lqop — qizil"],
-   "examples": [],
-   "say_native": "To‘rtta otni rang sifati bilan moslab ayting. “Свитер красный”, “шапка красная”, “пальто красное”, “перчатки красные”. Sviter erkak jinsida, shuning uchun “красный”. Bosh kiyim ayol jinsida, shuning uchun “красная”. Palto o‘rta jinsda, shuning uchun “красное”. Qo‘lqop ko‘plikda, shuning uchun “красные”. Jinsni adashtirmang.",
-   "say": "Свитер красный. Шапка красная. Пальто красное. Перчатки красные.",
-   "say_uz": "Sviter qizil. Bosh kiyim qizil. Palto qizil. Qo‘lqoplar qizil.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Свитер красный.", "Шапка красная.", "Пальто красное.", "Перчатки красные."],
-   "examples": [],
-   "say_native": "Javoblar: “Свитер красный”, “шапка красная”, “пальто красное”, “перчатки красные”. Har bir sifat ot jinsiga moslangan. “Красный” — erkak, “красная” — ayol, “красное” — o‘rta jins, “красные” — ko‘plik uchun. Bu to‘rt shaklni yodlab qolsangiz, har qanday rangni har qanday ot bilan ayta olasiz.",
-   "say": "Свитер красный. Шапка красная. Пальто красное. Перчатки красные.",
-   "say_uz": "Sviter qizil. Bosh kiyim qizil. Palto qizil. Qo‘lqoplar qizil.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Kiyim: birinchi guruh",
-   "emotion": "neutral",
-   "board": ["пальто · куртка · шапка", "Это пальто.", "Это куртка. · Это шапка."],
    "examples": [
-   {"t": "Это пальто.", "uz": "Bu palto."},
-   {"t": "Это куртка.", "uz": "Bu kurtka."}
+    {
+     "t": "Небо голубое.",
+     "uz": "Osmon havorang."
+    },
+    {
+     "t": "Море синее.",
+     "uz": "Dengiz to‘q ko‘k."
+    }
    ],
-   "say_native": "Kiyim nomlari: “пальто” — palto, ustki kiyim, “куртка” — kurtka, “шапка” — bosh kiyim. “Это пальто” — bu palto, “это куртка” — bu kurtka, “это шапка” — bu bosh kiyim. Palto o‘rta jinsda, shuning uchun “это пальто” deyiladi. Kurtka va bosh kiyim ayol jinsida. Bu uch kiyim qishki kiyimning asosini tashkil etadi.",
-   "say": "Это пальто. Это куртка. Это шапка.",
-   "say_uz": "Bu palto. Bu kurtka. Bu bosh kiyim.",
+   "say_native": "O‘zbek tilida “ko‘k” bitta so‘z, rus tilida esa ikki xil ko‘k bor. “Синий” — to‘q ko‘k: dengiz, jinsi shim, siyoh rangi. “Голубой” — och ko‘k, havorang: osmon rangi. Shuningdek, o‘zbekcha “ko‘k” ba’zan yashilni ham bildiradi, masalan “ko‘k choy”. Rus tilida bu “зелёный чай”, chunki yashil rang doim “зелёный”.",
+   "say": "Небо голубое. Море синее. У меня синие джинсы и голубая рубашка.",
+   "say_uz": "Osmon havorang. Dengiz to‘q ko‘k. Menda to‘q ko‘k jinsi shim va havorang ko‘ylak bor.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Kiyim: ikkinchi guruh",
-   "emotion": "neutral",
-   "board": ["шарф · свитер · перчатки · джинсы", "Это шарф.", "Это свитер.", "Это перчатки."],
-   "examples": [
-   {"t": "Это шарф.", "uz": "Bu ro‘mol."},
-   {"t": "Это свитер.", "uz": "Bu sviter."}
-   ],
-   "say_native": "Ikkinchi guruh: “шарф” — ro‘mol, bo‘yinda o‘raladi, “свитер” — sviter, ustki yupqa kiyim, “перчатки” — qo‘lqop, “джинсы” — jinsi. “Это шарф” — bu ro‘mol, “это свитер” — bu sviter, “это перчатки” — bu qo‘lqop. Sharq va sviter erkak jinsida, qo‘lqop va jinsi ko‘plikda. Bu farq sifat moslashuvida ham ko‘rinadi.",
-   "say": "Это шарф. Это свитер. Это перчатки. Это джинсы.",
-   "say_uz": "Bu ro‘mol. Bu sviter. Bu qo‘lqoplar. Bu jinsi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Kiyimni nomlang",
-   "emotion": "encouraging",
-   "board": ["1) пальто  2) куртка  3) шапка  4) шарф", "5) свитер  6) перчатки  7) джинсы"],
-   "examples": [],
-   "say_native": "Yetti kiyim nomini “это” bilan ayting. “Это пальто”, “это куртка”, “это шапка”, “это шарф”, “это свитер”, “это перчатки”, “это джинсы”. Har birini bitta gap qilib, ohangni aniq talaffuz qiling. Palto o‘rta jinsda bo‘lsa ham, “это палто” shakli barcha kiyimlarda bir xil ishlatiladi.",
-   "say": "Это пальто. Это куртка. Это шапка. Это шарф. Это свитер. Это перчатки. Это джинсы.",
-   "say_uz": "Bu palto. Bu kurtka. Bu bosh kiyim. Bu ro‘mol. Bu sviter. Bu qo‘lqoplar. Bu jinsi.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Это пальто.", "Это куртка.", "Это шапка.", "Это шарф.", "Это свитер."],
-   "examples": [],
-   "say_native": "Javoblar: “Это пальто”, “это куртка”, “это шапка”, “это шарф”, “это свитер”, “это перчатки”, “это джинсы”. Har bir kiyim “это” bilan ko‘rsatib nomlangan. Bu shakl kiyimni ko‘rsatib nomlashda eng oddiy usul. Endi siz do‘konda har qanday kiyimni ko‘rsatib nomlay olasiz.",
-   "say": "Это пальто. Это куртка. Это шапка. Это шарф. Это свитер. Это перчатки. Это джинсы.",
-   "say_uz": "Bu palto. Bu kurtka. Bu bosh kiyim. Bu ro‘mol. Bu sviter. Bu qo‘lqoplar. Bu jinsi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Какой ...?",
+   "title": "Rang otga moslashadi",
    "emotion": "thinking",
-   "board": ["Какой размер?", "Какой цвет?", "Какой это?", "Какой свитер?"],
-   "examples": [
-   {"t": "Какой размер?", "uz": "Qaysi o‘lcham?"},
-   {"t": "Какой цвет?", "uz": "Qaysi rang?"}
+   "board": [
+    "красный свитер (erkak jinsi)",
+    "красная куртка (ayol jinsi)",
+    "красное платье (o‘rta jins)",
+    "красные джинсы (ko‘plik)"
    ],
-   "say_native": "“Какой” — qaysi degan so‘roq olmoshi, erkak jinsidagi otlarda ishlatiladi. “Какой размер?” — qaysi o‘lcham? “Какой цвет?” — qaysi rang? “Какой свитер?” — qaysi sviter? Ayol jinsidagi otlarda “какая” bo‘ladi: “какая шапка?” — qaysi bosh kiyim? O‘rta jinsda “какое” bo‘ladi: “какое пальто?” — qaysi palto? Do‘konda bu so‘roq so‘zlari ayniqsa ko‘p ishlatiladi.",
-   "say": "Какой размер? Какой цвет? Какой свитер? Какая шапка? Какое пальто?",
-   "say_uz": "Qaysi o‘lcham? Qaysi rang? Qaysi sviter? Qaysi bosh kiyim? Qaysi palto?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qaysi deb so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Qaysi o‘lcham?", "2) Qaysi rang?", "3) Qaysi sviter?", "4) Qaysi bosh kiyim?"],
-   "examples": [],
-   "say_native": "To‘rtta so‘roqni to‘g‘ri jins shaklida ayting. “Какой размер?”, “какой цвет?”, “какой свитер?”, “какая шапка?”. O‘lcham va rang erkak jinsida, shuning uchun “какой”. Sviter ham erkak jinsida. Bosh kiyim ayol jinsida, shuning uchun “какая”. Jinsga qarab olmoshni to‘g‘ri tanlang.",
-   "say": "Какой размер? Какой цвет? Какой свитер? Какая шапка?",
-   "say_uz": "Qaysi o‘lcham? Qaysi rang? Qaysi sviter? Qaysi bosh kiyim?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Какой размер?", "Какой цвет?", "Какой свитер?", "Какая шапка?"],
-   "examples": [],
-   "say_native": "Javoblar: “Какой размер?”, “какой цвет?”, “какой свитер?”, “какая шапка?”. Har bir olmosh ot jinsiga moslangan. “Какой” — erkak, “какая” — ayol jins uchun. Do‘konda o‘lcham va rangni so‘rashda bu olmoshlar ayniqsa ko‘p ishlatiladi. Jinsni adashtirmasdan, har bir so‘roqni to‘g‘ri tuzing.",
-   "say": "Какой размер? Какой цвет? Какой свитер? Какая шапка?",
-   "say_uz": "Qaysi o‘lcham? Qaysi rang? Qaysi sviter? Qaysi bosh kiyim?",
+   "examples": [
+    {
+     "t": "У меня красная куртка.",
+     "uz": "Menda qizil kurtka bor."
+    },
+    {
+     "t": "Это красное платье.",
+     "uz": "Bu qizil ko‘ylak."
+    }
+   ],
+   "say_native": "Endi eng muhim qoida. O‘zbek tilida “qizil” hech qachon o‘zgarmaydi: qizil sviter, qizil kurtka, qizil ko‘ylaklar. Rus tilida esa rang otning jinsi va soniga moslashadi. Erkak jinsida “-ый”: красный свитер. Ayol jinsida “-ая”: красная куртка. O‘rta jinsda “-ое”: красное платье. Ko‘plikda “-ые”: красные джинсы. Bu “мой, моя, мои” bilan bir xil mantiq.",
+   "say": "Красный свитер. Красная куртка. Красное платье. Красные джинсы.",
+   "say_uz": "Qizil sviter. Qizil kurtka. Qizil ko‘ylak. Qizil jinsi shim.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Это подходит?",
+   "title": "Otning jinsini qanday bilamiz",
    "emotion": "neutral",
-   "board": ["Мне подходит?", "Это мне подходит?", "Мне идёт?", "Размер подходит?"],
-   "examples": [
-   {"t": "Это мне подходит?", "uz": "Bu o‘lcham menga mosmi?"},
-   {"t": "Мне идёт?", "uz": "Menga yarashadimi?"}
+   "board": [
+    "undosh bilan → он: свитер, шарф",
+    "-а / -я → она: куртка, рубашка",
+    "-о / -е → оно: пальто, платье",
+    "-ы / -и → они: джинсы, брюки"
    ],
-   "say_native": "Kiyim o‘lchami mos ekanini so‘rash: “Это мне подходит?” — bu menga mosmi? “Мне идёт?” — menga yarashadimi? “Размер подходит?” — o‘lcham mosmi? Agar o‘lcham kichik bo‘lsa, “маленький” deysiz, katta bo‘lsa, “большой”. Bu savollar kiyimni kiyib ko‘rgandan keyin beriladi va do‘konda ayniqsa ko‘p ishlatiladi.",
-   "say": "Это мне подходит? Мне идёт? Размер подходит? Этот свитер мне подходит.",
-   "say_uz": "Bu menga mosmi? Menga yarashadimi? O‘lcham mosmi? Bu sviter menga mos.",
+   "examples": [
+    {
+     "t": "Шарф белый, а рубашка белая.",
+     "uz": "Sharf oq, ko‘ylak ham oq."
+    }
+   ],
+   "say_native": "Sifatni moslash uchun avval otning jinsini bilish kerak. Undosh bilan tugagan so‘z odatda erkak jinsi: свитер, шарф, костюм. “-а” yoki “-я” bilan tugasa, ayol jinsi: куртка, рубашка, юбка. “-о” yoki “-е” bilan tugasa, o‘rta jins: пальто, платье. “-ы” yoki “-и” odatda ko‘plik: джинсы, брюки.",
+   "say": "Свитер чёрный. Куртка чёрная. Платье чёрное. Брюки чёрные.",
+   "say_uz": "Sviter qora. Kurtka qora. Ko‘ylak qora. Shim qora.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Какой у вас размер?",
-   "emotion": "neutral",
-   "board": ["Какой у вас размер?", "Какой у вас свитер?", "Размер сорок шесть?"],
-   "examples": [
-   {"t": "Какой у вас размер?", "uz": "Sizda qaysi o‘lcham bor?"},
-   {"t": "Какой у вас свитер?", "uz": "Sizda qaysi sviter bor?"}
+   "title": "Синий: yumshoq oxirlar",
+   "emotion": "thinking",
+   "board": [
+    "синий свитер · синяя куртка",
+    "синее платье · синие джинсы",
+    "голубой · голубая · голубое · голубые"
    ],
-   "say_native": "Sotuvchi sizdan o‘lchamingizni so‘raydi: “Какой у вас размер?” — sizda qaysi o‘lcham bor? “Какой у вас свитер?” — sizda qaysi sviter bor? Bu savolda “у вас” — sizda, hurmatli shaklda. Siz javobda o‘lchamingizni ayting: “Мне нужен сорок шестой размер” — menga qirq oltinchi o‘lcham kerak. Do‘konda bu muloqot har kuni takrorlanadi.",
-   "say": "Какой у вас размер? Какой у вас свитер? Мне нужен сорок шестой размер. Спасибо!",
-   "say_uz": "Sizda qaysi o‘lcham bor? Sizda qaysi sviter bor? Menga qirq oltinchi o‘lcham kerak. Rahmat!",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "O‘lchamni so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Sizda qaysi o‘lcham bor?", "2) Sizda qaysi sviter bor?", "3) O‘lcham mosmi?"],
-   "examples": [],
-   "say_native": "Uchta savolni do‘kon ohangida ayting. “Какой у вас размер?”, “какой у вас свитер?”, “это мне подходит?”. Har biri ohang bilan so‘rilsin va javob kutib, bir oz to‘xtab qolish kerak. Bu savollar sizga sotuvchiga murojaat etganda ayniqsa hurmatli eshitiladi va har qanday do‘konda asosiy savol hisoblanadi.",
-   "say": "Какой у вас размер? Какой у вас свитер? Это мне подходит?",
-   "say_uz": "Sizda qaysi o‘lcham bor? Sizda qaysi sviter bor? Bu menga mosmi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Какой у вас размер?", "Какой у вас свитер?", "Это мне подходит?"],
-   "examples": [],
-   "say_native": "Javoblar: “Какой у вас размер?”, “какой у вас свитер?”, “это мне подходит?”. Har bir savol “какой” bilan boshlangan va ot bilan moslashgan. “У вас” — hurmatli shakl, “размер” erkak jinsida. Do‘konda sotuvchi bilan muloqot mana shu savollar bilan boshlanadi. Endi siz o‘lchamingizni aniq so‘rab bilib olasiz.",
-   "say": "Какой у вас размер? Какой у вас свитер? Это мне подходит?",
-   "say_uz": "Sizda qaysi o‘lcham bor? Sizda qaysi sviter bor? Bu menga mosmi?",
+   "examples": [
+    {
+     "t": "У него синий костюм.",
+     "uz": "Unda to‘q ko‘k kostyum bor."
+    },
+    {
+     "t": "Это синяя рубашка.",
+     "uz": "Bu to‘q ko‘k ko‘ylak."
+    }
+   ],
+   "say_native": "“Синий” boshqa ranglardan biroz farq qiladi, chunki uning oxiri yumshoq. Shakllari: синий свитер, синяя куртка, синее платье, синие джинсы. Ya’ni “-ий, -яя, -ее, -ие”. “Голубой” esa urg‘uli “-ой” bilan tugaydi: голубой свитер, lekin голубая куртка, голубое платье, голубые джинсы.",
+   "say": "Синий свитер. Синяя куртка. Синее платье. Синие джинсы. Голубая рубашка.",
+   "say_uz": "To‘q ko‘k sviter. To‘q ko‘k kurtka. To‘q ko‘k ko‘ylak. To‘q ko‘k jinsi. Havorang ko‘ylak.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Красный шапка — xato",
+   "title": "Красный куртка — xato",
    "emotion": "stern",
-   "board": ["✗ Шапка красный.", "✓ Шапка красная.", "✗ Пальто красный.", "✓ Пальто красное."],
-   "examples": [],
-   "say_native": "Rang sifatini ot jinsiga moslamaslik eng ko‘p uchraydigan xato. “Шапка красный” emas, “шапка красная”, chunki bosh kiyim ayol jinsida. “Пальто красный” ham xato, to‘g‘risi “пальто красное”, chunki palto o‘rta jinsda. O‘zbek tilida sifat o‘zgarmaydi, lekin rus tilida ot jinsiga qarab o‘zgaradi, shuning uchun har bir sifatdan oldin ot jinsini tekshiring.",
-   "say": "Шапка красная. Пальто красное. Свитер красный. Перчатки красные.",
-   "say_uz": "Bosh kiyim qizil. Palto qizil. Sviter qizil. Qo‘lqoplar qizil.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Этот / Эта / Это",
-   "emotion": "thinking",
-   "board": ["этот свитер · эта шапка · это пальто", "Этот свитер красный.", "Эта шапка красная."],
-   "examples": [
-   {"t": "Этот свитер красный.", "uz": "Bu sviter qizil."},
-   {"t": "Эта шапка красная.", "uz": "Bu bosh kiyim qizil."}
+   "board": [
+    "✗ красный куртка",
+    "✓ красная куртка",
+    "✗ синий джинсы",
+    "✓ синие джинсы"
    ],
-   "say_native": "Ko‘rsatkich olmoshi ham jins bo‘yicha o‘zgaradi. “Этот свитер” — bu sviter, erkak jinsda. “Эта шапка” — bu bosh kiyim, ayol jinsda. “Это пальто” — bu palto, o‘rta jinsda. “Этот свитер красный” — bu sviter qizil, “эта шапка красная” — bu bosh kiyim qizil. Do‘konda kiyimni ko‘rsatib, ana shu olmoshlar bilan aytiladi.",
-   "say": "Этот свитер красный. Эта шапка красная. Это пальто красное.",
-   "say_uz": "Bu sviter qizil. Bu bosh kiyim qizil. Bu palto qizil.",
+   "examples": [],
+   "say_native": "O‘zbek tilida sifat o‘zgarmagani uchun ko‘pchilik lug‘atdagi shaklni hamma joyda ishlatadi: “красный куртка”, “синий джинсы”, “белый платье”. Bu eng ko‘p uchraydigan xato. To‘g‘risi: “красная куртка”, “синие джинсы”, “белое платье”. Avval otga qarang, keyin rangning oxirini tanlang.",
+   "say": "Красная куртка. Синие джинсы. Белое платье.",
+   "say_uz": "Qizil kurtka. To‘q ko‘k jinsi. Oq ko‘ylak.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Bu kiyim qizil deb ayting",
+   "title": "Rangni moslang",
    "emotion": "encouraging",
-   "board": ["1) Bu sviter qizil.", "2) Bu bosh kiyim qizil.", "3) Bu palto qizil.", "4) Bu qo‘lqoplar qizil."],
+   "board": [
+    "1) (чёрный) куртка · 2) (белый) платье",
+    "3) (синий) джинсы",
+    "4) (зелёный) свитер",
+    "5) (жёлтый) юбка"
+   ],
    "examples": [],
-   "say_native": "To‘rtta kiyimni ko‘rsatib, rangini ayting. “Этот свитер красный”, “эта шапка красная”, “это пальто красное”, “эти перчатки красные”. Ko‘rsatkich olmoshi ot jinsiga moslangan, sifat ham moslangan bo‘lsin. Har birini bitta gap qilib, ko‘rsatib ayting, iltimos.",
-   "say": "Этот свитер красный. Эта шапка красная. Это пальто красное. Эти перчатки красные.",
-   "say_uz": "Bu sviter qizil. Bu bosh kiyim qizil. Bu palto qizil. Bu qo‘lqoplar qizil.",
-   "practice_seconds": 12
+   "say_native": "Mashq. Qavs ichidagi rangni otga moslab ayting. Avval otning jinsini aniqlang: “куртка” va “юбка” “-а” bilan tugaydi, “платье” “-е” bilan, “джинсы” ko‘plik, “свитер” undosh bilan. Keyin to‘g‘ri oxirni qo‘ying. “Синий” yumshoq ekanini unutmang. Har birini to‘liq ibora qilib ayting.",
+   "say": "Чёрный — куртка. Белый — платье. Синий — джинсы. Зелёный — свитер. Жёлтый — юбка.",
+   "say_uz": "Qora — kurtka. Oq — ko‘ylak. To‘q ko‘k — jinsi. Yashil — sviter. Sariq — yubka.",
+   "practice_seconds": 13
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Этот свитер красный.", "Эта шапка красная.", "Это пальто красное.", "Эти перчатки красные."],
+   "board": [
+    "1) чёрная куртка",
+    "2) белое платье",
+    "3) синие джинсы",
+    "4) зелёный свитер · 5) жёлтая юбка"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Этот свитер красный”, “эта шапка красная”, “это пальто красное”, “эти перчатки красные”. Har bir olmosh va sifat ot jinsiga moslangan. “Этот” — erkak, “эта” — ayol, “это” — o‘rta jins, “эти” — ko‘plik uchun. Do‘konda kiyimni ko‘rsatayotganda bu shakllar ayniqsa ko‘p ishlatiladi.",
-   "say": "Этот свитер красный. Эта шапка красная. Это пальто красное. Эти перчатки красные.",
-   "say_uz": "Bu sviter qizil. Bu bosh kiyim qizil. Bu palto qizil. Bu qo‘lqoplar qizil.",
+   "say_native": "Javoblar: “чёрная куртка”, “белое платье”, “синие джинсы”, “зелёный свитер”, “жёлтая юбка”. “Куртка” va “юбка” ayol jinsi, shuning uchun “-ая”. “Платье” o‘rta jins, “-ое”. “Джинсы” ko‘plik, va “синий” yumshoq bo‘lgani uchun “синие”. “Свитер” erkak jinsi, rang lug‘atdagidek qoladi.",
+   "say": "Чёрная куртка. Белое платье. Синие джинсы. Зелёный свитер. Жёлтая юбка.",
+   "say_uz": "Qora kurtka. Oq ko‘ylak. To‘q ko‘k jinsi. Yashil sviter. Sariq yubka.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Можно примерить?",
+   "title": "Kiyimlar: ustki kiyim",
    "emotion": "neutral",
-   "board": ["Можно примерить?", "Можно примерить свитер?", "Можно примерить куртку?", "Где примерочная?"],
-   "examples": [
-   {"t": "Можно примерить?", "uz": "Kiyib ko‘rsa bo‘ladimi?"},
-   {"t": "Можно примерить свитер?", "uz": "Sviterni kiyib ko‘rsa bo‘ladimi?"}
+   "board": [
+    "руба́шка — ko‘ylak · футбо́лка — futbolka",
+    "сви́тер — sviter · ку́ртка — kurtka",
+    "пальто́ — palto · пла́тье — ayollar ko‘ylagi",
+    "ю́бка — yubka · шарф — sharf · ша́пка — shapka"
    ],
-   "say_native": "Kiyimni kiyib ko‘rishni so‘rash: “Можно примерить?” — kiyib ko‘rsa bo‘ladimi? “Можно примерить свитер?” — sviterni kiyib ko‘rsa bo‘ladimi? “Можно примерить куртку?” — kurtkani kiyib ko‘rsa bo‘ladimi? “Где примерочная?” — kiyib ko‘rish xonasi qayerda? Bu savollar kiyim sotib olishda eng muhim savollar hisoblanadi.",
-   "say": "Можно примерить? Можно примерить свитер? Можно примерить куртку? Где примерочная?",
-   "say_uz": "Kiyib ko‘rsa bo‘ladimi? Sviterni kiyib ko‘rsa bo‘ladimi? Kurtkani kiyib ko‘rsa bo‘ladimi? Kiyib ko‘rish xonasi qayerda?",
+   "examples": [
+    {
+     "t": "Это белая рубашка.",
+     "uz": "Bu oq ko‘ylak."
+    },
+    {
+     "t": "Это красное платье.",
+     "uz": "Bu qizil ko‘ylak (ayollar uchun)."
+    }
+   ],
+   "say_native": "Endi kiyim nomlari. “Рубашка” — tugmali ko‘ylak, ko‘pincha erkaklar ko‘ylagi. “Футболка” — futbolka. “Свитер, куртка, пальто” o‘zbekchadagidek. “Платье” — ayollar ko‘ylagi. O‘zbekchada “ko‘ylak” ikkalasi uchun ishlatiladi, rus tilida esa bular boshqa narsa. “Юбка” — yubka, “шарф” — sharf, “шапка” — qishki shapka. “Платье” so‘zida “ь” bor: “плат-йе” kabi ajratib o‘qiladi.",
+   "say": "Рубашка. Футболка. Свитер. Куртка. Пальто. Платье. Юбка. Шарф. Шапка.",
+   "say_uz": "Ko‘ylak. Futbolka. Sviter. Kurtka. Palto. Ayollar ko‘ylagi. Yubka. Sharf. Shapka.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Faqat ko‘plikdagi kiyimlar",
+   "emotion": "thinking",
+   "board": [
+    "брю́ки — shim · джи́нсы — jinsi",
+    "шо́рты — shortik · носки́ — paypoq",
+    "ту́фли — tufli · кроссо́вки — krossovka",
+    "сапоги́ — etik · перча́тки — qo‘lqop"
+   ],
+   "examples": [
+    {
+     "t": "Мои джинсы синие.",
+     "uz": "Mening jinsim to‘q ko‘k."
+    },
+    {
+     "t": "Где мои носки?",
+     "uz": "Paypoqlarim qayerda?"
+    }
+   ],
+   "say_native": "Bir guruh kiyimlar rus tilida doim ko‘plikda turadi. “Брюки” — shim, “джинсы” — jinsi, “шорты” — shortik. O‘zbekchada “bitta shim” deymiz, rus tilida esa birlik shakli umuman yo‘q, faqat “брюки”. Shuning uchun ularga ko‘plik so‘zlari kerak: “синий брюки” emas, “синие брюки”; “мои джинсы дорогие”. Juft kiyimlar ham odatda ko‘plikda: “носки, туфли, кроссовки, сапоги, перчатки”.",
+   "say": "Брюки. Джинсы. Шорты. Носки. Туфли. Кроссовки. Сапоги. Перчатки. Мои джинсы синие.",
+   "say_uz": "Shim. Jinsi. Shortik. Paypoq. Tufli. Krossovka. Etik. Qo‘lqop. Mening jinsim to‘q ko‘k.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Чёрный пальто — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ чёрный пальто",
+    "✓ чёрное пальто",
+    "✗ два пальта / в пальте",
+    "✓ два пальто / в пальто"
+   ],
+   "examples": [],
+   "say_native": "“Пальто” o‘zbekchada ham bor, shuning uchun ko‘pchilik uni erkak jinsi deb o‘ylaydi va “чёрный пальто” deydi. Bu xato. “Пальто” “-о” bilan tugaydi va o‘rta jins: “чёрное пальто”, “новое пальто”. Bundan tashqari, u chet so‘z bo‘lgani uchun hech qachon o‘zgarmaydi: “два пальто”, “в пальто”. “Пальта” yoki “пальте” degan shakl yo‘q.",
+   "say": "Чёрное пальто. Новое пальто. У меня два пальто.",
+   "say_uz": "Qora palto. Yangi palto. Menda ikkita palto bor.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Kiyib ko‘rishni so‘rang",
+   "title": "Rus tiliga o‘giring",
    "emotion": "encouraging",
-   "board": ["1) Kiyib ko‘rsa bo‘ladimi?", "2) Sviterni kiyib ko‘rsa bo‘ladimi?", "3) Kurtkani kiyib ko‘rsa bo‘ladimi?"],
+   "board": [
+    "1) qora palto · 2) oq futbolka",
+    "3) jigarrang shim",
+    "4) qizil ko‘ylak (ayollar)",
+    "5) kulrang sharf"
+   ],
    "examples": [],
-   "say_native": "Uchta savolni ketma-ket ayting. “Можно примерить?”, “можно примерить свитер?”, “можно примерить куртку?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Sotuvchi odatda “да, конечно” deb javob beradi va kiyib ko‘rish xonasini ko‘rsatadi. Savolni aniq va xushmuomala ayting.",
-   "say": "Можно примерить? Можно примерить свитер? Можно примерить куртку?",
-   "say_uz": "Kiyib ko‘rsa bo‘ladimi? Sviterni kiyib ko‘rsa bo‘ladimi? Kurtkani kiyib ko‘rsa bo‘ladimi?",
-   "practice_seconds": 12
+   "say_native": "Mashq. Beshta iborani rus tiliga o‘giring. Har birida ikki qadam: avval kiyim nomini toping, keyin uning jinsiga qarab rangning oxirini qo‘ying. “Пальто” va “брюки” bilan ehtiyot bo‘ling, ular hozirgina ko‘rgan xatolarimizdan. To‘rtinchisida ayollar ko‘ylagi, ya’ni “рубашка” emas.",
+   "say": "Скажите по-русски: пальто, футболка, брюки, платье, шарф.",
+   "say_uz": "Rus tilida ayting: palto, futbolka, shim, ayollar ko‘ylagi, sharf.",
+   "practice_seconds": 13
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Можно примерить?", "Можно примерить свитер?", "Можно примерить куртку?"],
+   "board": [
+    "1) чёрное пальто",
+    "2) белая футболка",
+    "3) коричневые брюки",
+    "4) красное платье · 5) серый шарф"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Можно примерить?”, “можно примерить свитер?”, “можно примерить куртку?”. Har bir savol “можно примерить” bilan boshlangan va kiyim nomi tushunmovchilik ko‘rsatkich shaklida kelgan. Bu savol kiyim o‘lchami mos ekanini bilishning eng oson usuli. Har bir xaridda bu savolni berish odatga aylantiring.",
-   "say": "Можно примерить? Можно примерить свитер? Можно примерить куртку?",
-   "say_uz": "Kiyib ko‘rsa bo‘ladimi? Sviterni kiyib ko‘rsa bo‘ladimi? Kurtkani kiyib ko‘rsa bo‘ladimi?",
+   "say_native": "Javoblar: “чёрное пальто” — o‘rta jins. “Белая футболка” — ayol jinsi. “Коричневые брюки” — ko‘plik, chunki shim faqat ko‘plikda. “Красное платье” — o‘rta jins. “Серый шарф” — erkak jinsi. Agar “пальто” va “брюки” ni to‘g‘ri aytgan bo‘lsangiz, eng qiyin joydan o‘tdingiz.",
+   "say": "Чёрное пальто. Белая футболка. Коричневые брюки. Красное платье. Серый шарф.",
+   "say_uz": "Qora palto. Oq futbolka. Jigarrang shim. Qizil ko‘ylak. Kulrang sharf.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "На мне… — ustimda",
+   "emotion": "neutral",
+   "board": [
+    "На мне синяя рубашка.",
+    "На нём чёрный костюм.",
+    "На ней красное платье."
+   ],
+   "examples": [
+    {
+     "t": "На мне джинсы и белая футболка.",
+     "uz": "Ustimda jinsi va oq futbolka."
+    },
+    {
+     "t": "На ней красное платье.",
+     "uz": "Uning ustida qizil ko‘ylak."
+    }
+   ],
+   "say_native": "Hozir nima kiyganingizni aytish uchun eng oddiy qolip: “На мне…” — so‘zma-so‘z “ustimda”. “На мне синяя рубашка” — ustimda to‘q ko‘k ko‘ylak. Erkak haqida “на нём”, ayol haqida “на ней”. Bu yerda fe’l kerak emas, rang esa kiyimga moslashadi: “На нём чёрный костюм”.",
+   "say": "На мне джинсы и белая футболка. На нём чёрный костюм. На ней красное платье.",
+   "say_uz": "Ustimda jinsi va oq futbolka. Uning ustida qora kostyum. Uning ustida qizil ko‘ylak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Носить — kiyib yurmoq",
+   "emotion": "thinking",
+   "board": [
+    "я ношу́ · ты но́сишь",
+    "он / она но́сит",
+    "мы но́сим · вы но́сите · они но́сят",
+    "✗ я носю → ✓ я ношу"
+   ],
+   "examples": [
+    {
+     "t": "Я часто ношу джинсы.",
+     "uz": "Men tez-tez jinsi kiyaman."
+    },
+    {
+     "t": "Он всегда носит костюм.",
+     "uz": "U doim kostyum kiyadi."
+    }
+   ],
+   "say_native": "Odatda nima kiyishingizni aytish uchun “носить” fe’li kerak. U oldingi darsdagi ikkinchi tuslanishga kiradi: “я ношу, ты носишь, он носит, мы носим, вы носите, они носят”. Ikki narsaga diqqat: “я” shaklida “с” “ш” ga aylanadi — “я носю” emas, “я ношу”. Urg‘u ham ko‘chadi: “ношу́” da oxirida, qolganlarida boshida: “но́сишь, но́сит”.",
+   "say": "Я часто ношу джинсы. Ты носишь костюм? Он всегда носит кроссовки.",
+   "say_uz": "Men tez-tez jinsi kiyaman. Sen kostyum kiyasanmi? U doim krossovka kiyadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Kiyimni tasvirlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Ustimda oq ko‘ylak (рубашка).",
+    "2) Uning (erkak) ustida to‘q ko‘k kurtka.",
+    "3) Uning (ayol) ustida qora yubka.",
+    "4) Men tez-tez krossovka kiyaman."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni rus tiliga o‘giring. Birinchi uchtasida “на мне”, “на нём”, “на ней” qolipini ishlating va rangni kiyimga moslang. To‘rtinchisida “носить” fe’li kerak, “я” shaklini eslang. “Кроссовки” ko‘plikda ekanini ham unutmang. Javoblarni to‘liq gap qilib ayting.",
+   "say": "На мне… На нём… На ней… Я часто ношу…",
+   "say_uz": "Ustimda… Uning ustida… Uning ustida… Men tez-tez … kiyaman.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) На мне белая рубашка.",
+    "2) На нём синяя куртка.",
+    "3) На ней чёрная юбка.",
+    "4) Я часто ношу кроссовки."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “На мне белая рубашка”. “На нём синяя куртка” — “куртка” ayol jinsi, “синий” yumshoq, shuning uchun “синяя”. “На ней чёрная юбка”. “Я часто ношу кроссовки” — “ношу” da “ш”, va “кроссовки” ko‘plik. Ikkinchi gapda “на нём”, chunki gap erkak haqida, kurtka haqida emas.",
+   "say": "На мне белая рубашка. На нём синяя куртка. На ней чёрная юбка. Я часто ношу кроссовки.",
+   "say_uz": "Ustimda oq ko‘ylak. Uning ustida to‘q ko‘k kurtka. Uning ustida qora yubka. Men tez-tez krossovka kiyaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Этот, эта, это, эти — bu",
+   "emotion": "neutral",
+   "board": [
+    "этот свитер · эта куртка",
+    "это пальто · эти джинсы",
+    "тот · та · то · те — anavi (uzoqda)",
+    "Не эта куртка, а та."
+   ],
+   "examples": [
+    {
+     "t": "Этот свитер тёплый.",
+     "uz": "Bu sviter issiq."
+    },
+    {
+     "t": "Эта куртка дорогая.",
+     "uz": "Bu kurtka qimmat."
+    }
+   ],
+   "say_native": "Endi ko‘rsatish olmoshlari. O‘zbek tilida “bu” doim bir xil: bu sviter, bu kurtka, bu shimlar. Rus tilida “bu” ham rang kabi otga moslashadi. Erkak jinsi: “этот свитер”. Ayol jinsi: “эта куртка”. O‘rta jins: “это пальто”. Ko‘plik: “эти джинсы”. Uzoqdagi narsa uchun “тот, та, то, те”, ya’ni anavi: “Не эта куртка, а та” — bu emas, anavi kurtka.",
+   "say": "Этот свитер. Эта куртка. Это пальто. Эти джинсы. Не эта куртка, а та.",
+   "say_uz": "Bu sviter. Bu kurtka. Bu palto. Bu jinsi. Bu kurtka emas, anavisi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Это куртка yoki эта куртка?",
+   "emotion": "stern",
+   "board": [
+    "Это куртка. — Bu kurtka. (это o‘zgarmaydi)",
+    "Эта куртка красная. — Bu kurtka qizil.",
+    "✗ этот джинсы → ✓ эти джинсы",
+    "✗ эта пальто → ✓ это пальто"
+   ],
+   "examples": [],
+   "say_native": "Bu yerda ikki xil “это” bor va ular ko‘p adashtiriladi. Agar narsani tanishtirsangiz, ya’ni “bu — kurtka” desangiz, “это” o‘zgarmaydi: “Это куртка”, “Это джинсы”. Agar narsa haqida biror gap aytsangiz, “bu kurtka qizil” desangiz, otga moslanadi: “Эта куртка красная”, “Эти джинсы синие”. Shuningdek, “этот джинсы” va “эта пальто” xato: “эти джинсы”, “это пальто”.",
+   "say": "Это куртка. Эта куртка красная. Это джинсы. Эти джинсы синие.",
+   "say_uz": "Bu kurtka. Bu kurtka qizil. Bu jinsi. Bu jinsi to‘q ko‘k.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Этот, эта, это yoki эти?",
+   "emotion": "encouraging",
+   "board": [
+    "1) … рубашка · 2) … свитер",
+    "3) … пальто",
+    "4) … кроссовки",
+    "5) uzoqda: … туфли"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Bo‘sh joyga to‘g‘ri so‘zni qo‘ying: “этот, эта, это” yoki “эти”. Birinchi to‘rttasi yoningizda, qo‘lingizda. Beshinchisi esa uzoqda, javonda turibdi, shuning uchun u yerda “тот” guruhidan so‘z kerak. Avval otning jinsi va sonini aniqlang, keyin baland ovozda to‘liq ibora qilib ayting.",
+   "say": "Рубашка. Свитер. Пальто. Кроссовки. И далеко: туфли.",
+   "say_uz": "Ko‘ylak. Sviter. Palto. Krossovka. Va uzoqda: tufli.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) эта рубашка",
+    "2) этот свитер",
+    "3) это пальто",
+    "4) эти кроссовки · 5) те туфли"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “эта рубашка” — ayol jinsi. “Этот свитер” — erkak jinsi. “Это пальто” — o‘rta jins, yana o‘sha palto. “Эти кроссовки” — ko‘plik. Beshinchisi uzoqda va ko‘plikda: “те туфли”. Ko‘ryapsizmi, ko‘rsatish so‘zi va rang bir xil mantiq bilan o‘zgaradi: “эта красная рубашка”, “эти синие кроссовки”.",
+   "say": "Эта рубашка. Этот свитер. Это пальто. Эти кроссовки. Те туфли.",
+   "say_uz": "Bu ko‘ylak. Bu sviter. Bu palto. Bu krossovka. Anavi tufli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Сколько стоит? Сколько стоят?",
+   "emotion": "neutral",
+   "board": [
+    "Сколько сто́ит эта куртка? (bitta)",
+    "Сколько сто́ят эти джинсы? (ko‘p)",
+    "✗ Сколько стоит эти джинсы?",
+    "✗ Сколько стоить? → ✓ Сколько стоит?"
+   ],
+   "examples": [
+    {
+     "t": "Сколько стоит этот шарф?",
+     "uz": "Bu sharf qancha turadi?"
+    },
+    {
+     "t": "Сколько стоят эти туфли?",
+     "uz": "Bu tuflilar qancha turadi?"
+    }
+   ],
+   "say_native": "Narxni so‘rash: “Сколько стоит…?” — qancha turadi? Fe’l narsaning soniga moslashadi. Bitta narsa: “Сколько стоит эта куртка?” Ko‘plik: “Сколько стоят эти джинсы?” Oxirlari oldingi darsdagi kabi: “-ит” birlik, “-ят” ko‘plik. Jinsi bilan “стоит” deyish tipik xato. “Сколько стоить?” ham xato, savolda tuslangan shakl kerak. Javob: “Пять тысяч рублей”.",
+   "say": "Сколько стоит эта куртка? Пять тысяч рублей. Сколько стоят эти джинсы? Три тысячи рублей.",
+   "say_uz": "Bu kurtka qancha turadi? Besh ming rubl. Bu jinsi qancha turadi? Uch ming rubl.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Narxni tushunish",
+   "emotion": "thinking",
+   "board": [
+    "1 тысяча · 2, 3, 4 тысячи · 5+ тысяч",
+    "… тысяч(и) рублей",
+    "Это дорого. — qimmat · Это дёшево. — arzon",
+    "Есть подешевле? — arzonrog‘i bormi?"
+   ],
+   "examples": [
+    {
+     "t": "Две тысячи рублей.",
+     "uz": "Ikki ming rubl."
+    },
+    {
+     "t": "Это дорого. Есть подешевле?",
+     "uz": "Bu qimmat. Arzonrog‘i bormi?"
+    }
+   ],
+   "say_native": "Narxda “тысяча” — ming. U ham oldingi darsdagi “час, часа, часов” kabi o‘zgaradi: “одна тысяча”, “две, три, четыре тысячи”, beshdan boshlab “пять тысяч”. Ming so‘zidan keyin pul birligi doim “рублей” bo‘ladi: “две тысячи рублей”. Narx haqida fikr: “Это дорого” — qimmat, “Это дёшево” — arzon. Arzonroq narsa so‘rash uchun: “Есть подешевле?”",
+   "say": "Тысяча рублей. Две тысячи рублей. Пять тысяч рублей. Это дорого. Есть подешевле?",
+   "say_uz": "Ming rubl. Ikki ming rubl. Besh ming rubl. Bu qimmat. Arzonrog‘i bormi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Urg‘u: сто́ит yoki стои́т?",
+   "emotion": "thinking",
+   "board": [
+    "сто́ит — turadi (narx)",
+    "стои́т — turibdi (joyda)",
+    "Куртка сто́ит пять тысяч.",
+    "Шкаф стои́т в комнате."
+   ],
+   "examples": [
+    {
+     "t": "Куртка стоит пять тысяч рублей.",
+     "uz": "Kurtka besh ming rubl turadi."
+    },
+    {
+     "t": "Шкаф стоит в комнате.",
+     "uz": "Shkaf xonada turibdi."
+    }
+   ],
+   "say_native": "Rus tilida urg‘u ma’noni o‘zgartirishi mumkin, bunga yaxshi misol. “Сто́ит”, urg‘u birinchi bo‘g‘inda, narx haqida: kurtka besh ming turadi. “Стои́т”, urg‘u ikkinchi bo‘g‘inda, joyda tik turmoq: shkaf xonada turibdi. Yozuvda ikkalasi bir xil, shuning uchun do‘konda doim “СТО-ит” deb, boshini kuchli ayting.",
+   "say": "Куртка стоит пять тысяч рублей. Шкаф стоит в комнате.",
+   "say_uz": "Kurtka besh ming rubl turadi. Shkaf xonada turibdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Narxni so‘rang",
+   "emotion": "encouraging",
+   "board": [
+    "1) bu kurtka · 2) bu jinsi",
+    "3) anavi sharf",
+    "4) bu krossovka",
+    "5) Javob: 3000 ₽"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Har bir narsaning narxini so‘rang. Avval “стоит” yoki “стоят” ni tanlang, keyin “этот, эта, эти” yoki “тот” ni qo‘shing. Uchinchisida sharf uzoqda turibdi. Oxirida sotuvchining javobini ayting: uch ming rubl. Esda tuting, “три” dan keyin “тысячи”.",
+   "say": "Куртка. Джинсы. Шарф. Кроссовки. Три тысячи рублей.",
+   "say_uz": "Kurtka. Jinsi. Sharf. Krossovka. Uch ming rubl.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Сколько стоит эта куртка?",
+    "2) Сколько стоят эти джинсы?",
+    "3) Сколько стоит тот шарф?",
+    "4) Сколько стоят эти кроссовки? · 5) Три тысячи рублей."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Сколько стоит эта куртка?” “Сколько стоят эти джинсы?” “Сколько стоит тот шарф?” — uzoqda va erkak jinsi. “Сколько стоят эти кроссовки?” Javob: “Три тысячи рублей”. Jinsi va krossovka bilan fe’l “стоят”, ko‘rsatish so‘zi “эти”. Ikki joyda ham ko‘plik.",
+   "say": "Сколько стоит тот шарф? Сколько стоят эти кроссовки? Три тысячи рублей.",
+   "say_uz": "Bu kurtka qancha turadi? Bu jinsi qancha turadi? Anavi sharf qancha turadi? Bu krossovka qancha turadi? Uch ming rubl.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘lcham: размер",
+   "emotion": "neutral",
+   "board": [
+    "Какой у вас размер? — Сорок восьмой.",
+    "У вас есть другой размер?",
+    "побольше — kattarog‘i · поменьше — kichikrog‘i"
+   ],
+   "examples": [
+    {
+     "t": "Какой у вас размер?",
+     "uz": "O‘lchamingiz qanday?"
+    },
+    {
+     "t": "У вас есть размер побольше?",
+     "uz": "Kattaroq o‘lcham bormi?"
+    }
+   ],
+   "say_native": "Kiyim o‘lchami — “размер”. Sotuvchi so‘raydi: “Какой у вас размер?” — o‘lchamingiz qanday? Javobda tartib son ishlatiladi: “Сорок восьмой” — qirq sakkizinchi. Buni tayyor ibora sifatida yodlang. Agar kiyim to‘g‘ri kelmasa: “У вас есть размер побольше?” — kattarog‘i bormi? yoki “поменьше” — kichikrog‘i.",
+   "say": "Какой у вас размер? Сорок восьмой. У вас есть размер побольше? Да, есть.",
+   "say_uz": "O‘lchamingiz qanday? Qirq sakkizinchi. Kattaroq o‘lcham bormi? Ha, bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kiyib ko‘rish",
+   "emotion": "neutral",
+   "board": [
+    "Можно примерить? — Kiyib ko‘rsam bo‘ladimi?",
+    "Где примерочная? — Kiyinish xonasi qayerda?",
+    "Вам идёт! — Sizga yarashibdi!"
+   ],
+   "examples": [
+    {
+     "t": "Можно примерить эту куртку?",
+     "uz": "Bu kurtkani kiyib ko‘rsam bo‘ladimi?"
+    },
+    {
+     "t": "Вам очень идёт.",
+     "uz": "Sizga juda yarashibdi."
+    }
+   ],
+   "say_native": "Kiyimni kiyib ko‘rish uchun asosiy ibora: “Можно примерить?” — kiyib ko‘rsam bo‘ladimi? Sotuvchi: “Конечно. Примерочная там.” “Примерочная” — kiyinish xonasi. Agar narsani aniq ko‘rsatsangiz, “эта” “эту” ga aylanadi: “Можно примерить эту куртку?” Kiyim yarashsa, ruslar “Вам идёт!” deydi, so‘zma-so‘z “sizga boradi”.",
+   "say": "Можно примерить? Конечно. Примерочная там. Ну как? Вам очень идёт!",
+   "say_uz": "Kiyib ko‘rsam bo‘ladimi? Albatta. Kiyinish xonasi u yerda. Xo‘sh, qalay? Sizga juda yarashibdi!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kichik yoki katta",
+   "emotion": "thinking",
+   "board": [
+    "Куртка мне мала́. · Свитер мне мал.",
+    "Брюки мне малы́.",
+    "Пальто мне велико́. · Джинсы мне велики́."
+   ],
+   "examples": [
+    {
+     "t": "Эта куртка мне мала.",
+     "uz": "Bu kurtka menga kichik."
+    },
+    {
+     "t": "Брюки мне велики.",
+     "uz": "Shim menga katta."
+    }
+   ],
+   "say_native": "Kiyim to‘g‘ri kelmasa, rus tilida maxsus qisqa shakllar ishlatiladi. Kichik: “мал, мала, малы”. Katta: “велик, велика, велико, велики”. Ular ham otning jinsiga moslashadi: “свитер мне мал”, “куртка мне мала”, “брюки мне малы”, “пальто мне велико”. “Мне” — menga. Urg‘u oxirida: мала́, малы́, велика́. ",
+   "say": "Эта куртка мне мала. Свитер мне мал. Брюки мне велики. Можно размер побольше?",
+   "say_uz": "Bu kurtka menga kichik. Sviter menga kichik. Shim menga katta. Kattaroq o‘lcham bo‘ladimi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Мне куртка маленький — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Мне куртка маленький.",
+    "✓ Куртка мне мала.",
+    "✗ Брюки мне велик.",
+    "✓ Брюки мне велики."
+   ],
+   "examples": [],
+   "say_native": "O‘zbekchada “kurtka menga kichik” deymiz va ko‘pchilik buni so‘zma-so‘z o‘giradi: “мне куртка маленький”. Bunda ikki xato bor: jinsga moslash yo‘q va so‘z noto‘g‘ri. To‘g‘risi: “Куртка мне мала”. Shim bilan ham ko‘plik unutiladi: “брюки мне велик” emas, “брюки мне велики”. Formula: kiyim, “мне”, keyin “мал” yoki “велик” kerakli oxir bilan.",
+   "say": "Куртка мне мала. Брюки мне велики. Свитер мне мал.",
+   "say_uz": "Kurtka menga kichik. Shim menga katta. Sviter menga kichik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Do‘konda nima deysiz?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Kiyib ko‘rmoqchisiz.",
+    "2) Kurtka sizga kichik.",
+    "3) Kattaroq o‘lcham so‘rang.",
+    "4) Narx qimmat, arzonrog‘ini so‘rang."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Siz do‘kondasiz. To‘rtta vaziyat uchun rus tilida gap ayting. Birinchi: kiyimni kiyib ko‘rmoqchisiz. Ikkinchi: kurtka sizga kichik, jinsni unutmang. Uchinchi: sotuvchidan kattaroq o‘lcham so‘raysiz. To‘rtinchi: narx qimmat, arzonroq narsa bor-yo‘qligini so‘raysiz. Har birini do‘kondagidek tabiiy ohangda ayting.",
+   "say": "Вы в магазине. Что вы говорите?",
+   "say_uz": "Siz do‘kondasiz. Nima deysiz?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Можно примерить?",
+    "2) Куртка мне мала.",
+    "3) У вас есть размер побольше?",
+    "4) Это дорого. Есть подешевле?"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Можно примерить?” “Куртка мне мала” — “мала”, chunki kurtka ayol jinsi. “У вас есть размер побольше?” “Это дорого. Есть подешевле?” Bu to‘rtta gap bilan istalgan kiyim do‘konida bemalol gaplasha olasiz. Ularni bir necha marta takrorlang, bir-biriga ulanib, tayyor qolipga aylansin.",
+   "say": "Можно примерить? Куртка мне мала. Есть подешевле?",
+   "say_uz": "Kiyib ko‘rsam bo‘ladimi? Kurtka menga kichik. Kattaroq o‘lcham bormi? Bu qimmat. Arzonrog‘i bormi?",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 1: kurtka xarid",
+   "title": "Dialog 1: kurtka sotib olish",
    "emotion": "happy",
-   "board": ["— Можно примерить куртку?", "— Да, конечно. Какой у вас размер?", "— Сорок шестой."],
+   "board": [
+    "— Можно примерить эту куртку?",
+    "— Какой у вас размер?",
+    "— Сколько она стоит?",
+    "— Я возьму её."
+   ],
    "examples": [],
-   "say_native": "Birinchi dialog. O‘quvchi do‘konda kurtka kiyib ko‘rmoqchi, sotuvchi o‘lchamni so‘rayapti. Tinglab bo‘lgach, o‘quvchi kurtkani kiyib ko‘rganini, sotuvchi qanday savol berganini va o‘quvchi qanday javob berganini belgilang. “Конечно” — albatta degani, sotuvchi xursandlik bilan javob berganda aytiladi.",
-   "say": "Здравствуйте! Можно примерить куртку? Да, конечно! Какой у вас размер? Сорок шестой. Вот, пожалуйста. Спасибо! Как вам? Мне подходит! Очень хорошо!",
-   "say_uz": "Assalomu alaykum! Kurtkani kiyib ko‘rsa bo‘ladimi? Ha, albatta! Sizda qaysi o‘lcham bor? Qirq oltinchi. Mana, marhamat. Rahmat! Sizga qanday? Menga mos! Juda yaxshi!",
+   "say_native": "Birinchi dialog. Xaridor do‘konda kurtka tanlayapti. Tinglagach, to‘rtta savolga javob berasiz: xaridorning o‘lchami qanday, birinchi kurtka unga qanday, qaysi rangdagi kurtka bor va u qancha turadi? Yangi ibora: “Я возьму её” — men uni olaman. “Можно картой?” — karta bilan to‘lasam bo‘ladimi? Diqqat bilan tinglang.",
+   "say": "Здравствуйте! Можно примерить эту куртку? Конечно. Какой у вас размер? Сорок восьмой. Вот, пожалуйста. Примерочная там. Ну как? Она мне мала. У вас есть размер побольше? Да, вот пятидесятый. А чёрная есть? Нет, только синяя. Хорошо. Сколько она стоит? Шесть тысяч рублей. Я возьму её. Можно картой? Да, конечно.",
+   "say_uz": "Assalomu alaykum! Bu kurtkani kiyib ko‘rsam bo‘ladimi? Albatta. O‘lchamingiz qanday? Qirq sakkizinchi. Mana, marhamat. Kiyinish xonasi u yerda. Xo‘sh, qalay? Menga kichik. Kattaroq o‘lcham bormi? Ha, mana elliginchi. Qorasi bormi? Yo‘q, faqat to‘q ko‘ki. Yaxshi. U qancha turadi? Olti ming rubl. Men uni olaman. Karta bilan to‘lasam bo‘ladimi? Ha, albatta.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Kiyib ko‘rdi?", "2) O‘lcham qanday so‘raldi?", "3) Mos keldimi?"],
+   "board": [
+    "1) Какой у него размер?",
+    "2) Куртка ему мала или велика?",
+    "3) Какого цвета куртка?",
+    "4) Сколько она стоит?"
+   ],
    "examples": [],
-   "say_native": "Uchta savol. O‘quvchi kurtkani kiyib ko‘rdimi? O‘lcham qanday so‘raldi? Kiyim mos keldimi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Он примерил куртку”, “какой у вас размер?”, “ему подходит” qoliplaridan foydalaning. Odatiy do‘kon muloqotida shunday gaplar ishlatiladi.",
-   "say": "Он примерил куртку? Какой у вас размер? Ему подходит куртка?",
-   "say_uz": "U kurtkani kiyib ko‘rdimi? Sizda qaysi o‘lcham bor? Kurtka unga mos keldimi?",
-   "practice_seconds": 12
+   "say_native": "To‘rtta savol. Xaridorning o‘lchami qanday? Birinchi kurtka unga kichikmi yoki kattami? Oxirida qaysi rangdagi kurtka bor edi? Kurtka qancha turadi? Rus tilida qisqa javob bering. “Ему” — unga, “мне” ning “он” uchun shakli. Javoblarni baland ovozda ayting.",
+   "say": "Какой у него размер? Куртка ему мала или велика? Какого цвета куртка? Сколько она стоит?",
+   "say_uz": "Uning o‘lchami qanday? Kurtka unga kichikmi yoki kattami? Kurtka qanday rangda? U qancha turadi?",
+   "practice_seconds": 13
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Он примерил куртку.", "Какой у вас размер?", "Ему подходит."],
+   "board": [
+    "1) Сорок восьмой.",
+    "2) Она ему мала.",
+    "3) Синяя. Чёрной нет.",
+    "4) Шесть тысяч рублей."
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Он примерил куртку”, “какой у вас размер?”, “ему подходит”. O‘quvchi kurtkani kiyib ko‘rdi, sotuvchi o‘lchamni so‘radi va kiyim unga mos keldi. “Примерил” — kiyib ko‘rdi, “подходит” — mos keldi. Dialogdagi iboralar do‘konda xarid qilishda aynan ishlatiladi.",
-   "say": "Он примерил куртку. Какой у вас размер? Ему подходит куртка.",
-   "say_uz": "U kurtkani kiyib ko‘rdi. Sizda qaysi o‘lcham bor? Kurtka unga mos keldi.",
+   "say_native": "Javoblar: o‘lchami “сорок восьмой”. Kurtka unga kichik: “Она ему мала”, shuning uchun u “побольше” so‘radi va “пятидесятый”, ya’ni elliginchi o‘lchamni oldi. Rangi “синяя”, qorasi yo‘q edi: “Нет, только синяя”. Narxi “шесть тысяч рублей”. E’tibor bering, xaridor “А чёрная есть?” deb so‘radi: “чёрная”, chunki gap kurtka haqida.",
+   "say": "Сорок восьмой. Она ему мала. Синяя. Шесть тысяч рублей.",
+   "say_uz": "Qirq sakkizinchi. U unga kichik. To‘q ko‘k. Olti ming rubl.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 2: bosh kiyim xarid",
+   "title": "Dialog 2: dugonalar do‘konda",
    "emotion": "neutral",
-   "board": ["— Можно примерить шапку?", "— Да. Какого она цвета?", "— Красная."],
+   "board": [
+    "— Как тебе это платье?",
+    "— Цвет красивый, но оно дорогое.",
+    "— Мне нравятся эти туфли.",
+    "— Вон те? Они дешёвые!"
+   ],
    "examples": [],
-   "say_native": "Ikkinchi dialog. Ayol bosh kiyim kiyib ko‘rmoqchi, rangi qizil. Tinglab bo‘lgach, u qanday bosh kiyim kiyib ko‘rganini, rangi qanday ekanini va kiyim unga mos kelganini ayting. “Какого она цвета?” — u qanday rangda? Degan savol bosh kiyim rangi haqida so‘raydi, buni diqqat bilan eshitib turing.",
-   "say": "Можно примерить шапку? Да, конечно. Какого она цвета? Красная. Как вам? Мне очень подходит! Сколько стоит? Двести рублей. Спасибо!",
-   "say_uz": "Bosh kiyimni kiyib ko‘rsa bo‘ladimi? Ha, albatta. U qanday rangda? Qizil. Sizga qanday? Menga juda mos! Qancha turadi? Ikki yuz so‘m. Rahmat!",
+   "say_native": "Ikkinchi dialog. Ikki dugona do‘konda ko‘ylak va tufli ko‘rmoqda. Tinglagach, to‘rtta savolga javob berasiz: birinchi ko‘ylak qanday rangda va qancha turadi, ikkinchi ko‘ylak nega yoqmadi va tufli qancha turadi? “Как тебе…?” — senga qalay, qanday? “Мне нравятся” — menga yoqadi, ko‘plik uchun. Diqqat bilan tinglang.",
+   "say": "Как тебе это платье? Красивое, мне нравится зелёный цвет. Но оно дорогое: девять тысяч. Есть подешевле? Вот это, серое, четыре тысячи. Серое? Нет, я не ношу серый цвет. А мне нравятся вон те туфли. Чёрные? Да. Сколько они стоят? Две тысячи. Это дёшево! Я их возьму.",
+   "say_uz": "Senga bu ko‘ylak qalay? Chiroyli, menga yashil rang yoqadi. Lekin u qimmat: to‘qqiz ming. Arzonrog‘i bormi? Mana bu, kulrangi, to‘rt ming. Kulrangmi? Yo‘q, men kulrang kiymayman. Menga esa anavi tuflilar yoqadi. Qorasimi? Ha. Ular qancha turadi? Ikki ming. Bu arzon! Men ularni olaman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Bosh kiyim qanday rangda?", "2) Mos keldimi?", "3) Qancha turdi?"],
+   "board": [
+    "1) Какого цвета первое платье?",
+    "2) Сколько оно стоит?",
+    "3) Почему ей не нравится второе платье?",
+    "4) Сколько стоят туфли?"
+   ],
    "examples": [],
-   "say_native": "Uchta savol. Bosh kiyim qanday rangda? Mos keldimi? Qancha turdi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Она красная”, “ей подходит”, “двести рублей” qoliplaridan foydalaning. Rang sifati bosh kiyim bilan albatta moslashgan bo‘lsin, iltimos, har birini aniq talaffuz qiling.",
-   "say": "Какого она цвета? Ей подходит шапка? Сколько стоит шапка?",
-   "say_uz": "U qanday rangda? Bosh kiyim unga mos keldimi? Bosh kiyim qancha turadi?",
-   "practice_seconds": 12
+   "say_native": "To‘rtta savol. Birinchi ko‘ylak qanday rangda? U qancha turadi? Ikkinchi ko‘ylak nega yoqmadi? Tuflilar qancha turadi? Rus tilida qisqa javob bering va rangni “платье” ga moslang: u o‘rta jins. Tufli haqida esa ko‘plik so‘zlar kerak: “они”, “стоят”. Javoblarni baland ovozda ayting.",
+   "say": "Какого цвета первое платье? Сколько оно стоит? Почему второе платье не нравится? Сколько стоят туфли?",
+   "say_uz": "Birinchi ko‘ylak qanday rangda? U qancha turadi? Ikkinchi ko‘ylak nega yoqmadi? Tuflilar qancha turadi?",
+   "practice_seconds": 13
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Она красная.", "Ей подходит.", "Двести рублей."],
+   "board": [
+    "1) Зелёное.",
+    "2) Девять тысяч рублей.",
+    "3) Оно серое, а она не носит серый цвет.",
+    "4) Две тысячи. Они чёрные."
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Она красная”, “ей подходит”, “двести рублей”. Bosh kiyim qizil, unga mos keldi va ikki yuz rubl turdi. “Красная” bosh kiyim bilan moslashgan, chunki bosh kiyim ayol jinsida. “Подходит” — mos keldi, “сколько стоит” — qancha turadi. Bu iboralar xaridda aynan ishlatiladi.",
-   "say": "Она красная. Ей подходит шапка. Двести рублей.",
-   "say_uz": "U qizil. Bosh kiyim unga mos keldi. Ikki yuz so‘m.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Urg‘u",
-   "emotion": "neutral",
-   "board": ["кра́сный · си́ний · чёрный · бе́лый", "пальто́ · ку́ртка · ша́пка · шарф · сви́тер"],
-   "examples": [
-   {"t": "Свитер красный.", "uz": "Sviter qizil."},
-   {"t": "Шапка красная.", "uz": "Bosh kiyim qizil."}
-   ],
-   "say_native": "Rang va kiyim so‘zlarida urg‘u har xil tushadi. “Кра́сный” — birinchida, “си́ний” — birinchida, “чёрный” — birinchida, “бе́лый” — birinchida, “пальто́” — oxirgisida, “ку́ртка” — birinchida, “ша́пка” — birinchida, “сви́тер” — birinchida. Bu so‘zlarni talaffuz qilganda urg‘uni to‘g‘ri qo‘ying, aks holda ular g‘alati eshitiladi.",
-   "say": "Красный. Синий. Чёрный. Белый. Пальто. Куртка. Шапка. Шарф. Свитер.",
-   "say_uz": "Qizil. Ko‘k. Qora. Oq. Palto. Kurtka. Bosh kiyim. Ro‘mol. Sviter.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Какого цвета?",
-   "emotion": "thinking",
-   "board": ["Какого цвета?", "Какого цвета свитер?", "Какого цвета шапка?", "Какого цвета пальто?"],
-   "examples": [
-   {"t": "Какого цвета свитер?", "uz": "Sviter qanday rangda?"},
-   {"t": "Какого цвета шапка?", "uz": "Bosh kiyim qanday rangda?"}
-   ],
-   "say_native": "Rangni so‘rashning yana bir shakli: “Какого цвета?” — qanday rangda? “Какого цвета свитер?” — sviter qanday rangda? “Какого цвета шапка?” — bosh kiyim qanday rangda? “Какого цвета пальто?” — palto qanday rangda? Bu savolda “какого” ko‘rsatkich shaklida, “цвета” — rangning ko‘rsatkich shakli. Rangni so‘rashda aynan shu shakl ishlatiladi.",
-   "say": "Какого цвета свитер? Какого цвета шапка? Какого цвета пальто? Какого цвета куртка?",
-   "say_uz": "Sviter qanday rangda? Bosh kiyim qanday rangda? Palto qanday rangda? Kurtka qanday rangda?",
+   "say_native": "Javoblar: birinchi ko‘ylak yashil: “зелёное”, o‘rta jins. U to‘qqiz ming turadi. Ikkinchi ko‘ylak kulrang, dugona esa kulrang kiymaydi: “я не ношу серый цвет”. Tuflilar ikki ming turadi va ular qora. Dialogda “мне нравится” platye uchun, “мне нравятся” esa tufli uchun ishlatildi: birlik va ko‘plik.",
+   "say": "Зелёное. Девять тысяч. Оно серое, а она не носит серый цвет. Туфли стоят две тысячи.",
+   "say_uz": "Yashil. To‘qqiz ming. U kulrang, u esa kulrang kiymaydi. Tuflilar ikki ming turadi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Rangni so‘rang",
+   "title": "Yakuniy mashq: siz va do‘kon",
    "emotion": "encouraging",
-   "board": ["1) Sviter qanday rangda?", "2) Bosh kiyim qanday rangda?", "3) Palto qanday rangda?"],
-   "examples": [],
-   "say_native": "Uchta kiyim rangini so‘rab ayting. “Какого цвета свитер?”, “какого цвета шапка?”, “какого цвета пальто?”. Har bir savol “какого цвета” bilan boshlangan bo‘lsin. Javobda rang sifati ot bilan moslashgan holda aytiladi: “свитер красный”, “шапка красная”, “пальто красное”.",
-   "say": "Какого цвета свитер? Какого цвета шапка? Какого цвета пальто?",
-   "say_uz": "Sviter qanday rangda? Bosh kiyim qanday rangda? Palto qanday rangda?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Свитер красный.", "Шапка красная.", "Пальто красное."],
-   "examples": [],
-   "say_native": "Javoblar: “Свитер красный”, “шапка красная”, “пальто красное”. Har bir rang sifati ot bilan moslashgan. “Красный” — sviter bilan, “красная” — bosh kiyim bilan, “красное” — palto bilan. Rangni so‘rash “какого цвета” bilan, rangni aytish sifat bilan amalga oshiriladi. Bu muloqot do‘konda har kuni takrorlanadi.",
-   "say": "Свитер красный. Шапка красная. Пальто красное.",
-   "say_uz": "Sviter qizil. Bosh kiyim qizil. Palto qizil.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Мне нужен / нужен / нужно",
-   "emotion": "thinking",
-   "board": ["Мне нужен свитер.", "Мне нужна шапка.", "Мне нужно пальто.", "Мне нужны перчатки."],
-   "examples": [
-   {"t": "Мне нужен свитер.", "uz": "Menga sviter kerak."},
-   {"t": "Мне нужна шапка.", "uz": "Menga bosh kiyim kerak."}
+   "board": [
+    "1) На мне … (3–4 kiyim, rangi bilan)",
+    "2) Я часто ношу …",
+    "3) Do‘konda: размер, примерить, цена",
+    "4) Я возьму её."
    ],
-   "say_native": "“Мне нужен” — menga kerak degani, jins bo‘yicha o‘zgaradi. Erkak jinsda “мне нужен свитер” — menga sviter kerak, ayol jinsda “мне нужна шапка” — menga bosh kiyim kerak, o‘rta jinsda “мне нужно пальто” — menga palto kerak, ko‘plikda “мне нужны перчатки” — menga qo‘lqop kerak. Do‘konda “мне нужен” deb boshlash eng tabiiy.",
-   "say": "Мне нужен свитер. Мне нужна шапка. Мне нужно пальто. Мне нужны перчатки.",
-   "say_uz": "Menga sviter kerak. Menga bosh kiyim kerak. Menga palto kerak. Menga qo‘lqop kerak.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Menga kerak deb ayting",
-   "emotion": "encouraging",
-   "board": ["1) Sviter", "2) Bosh kiyim", "3) Palto", "4) Qo‘lqop"],
    "examples": [],
-   "say_native": "To‘rtta kiyimni “мне нужен” shaklida ayting. “Мне нужен свитер”, “мне нужна шапка”, “мне нужно пальто”, “мне нужны перчатки”. Har birida jinsga mos shakl ishlatilgan bo‘lsin. Do‘konda sotuvchiga “мне нужен” deb murojaat etish eng tabiiy va xushmuomala shakl hisoblanadi.",
-   "say": "Мне нужен свитер. Мне нужна шапка. Мне нужно пальто. Мне нужны перчатки.",
-   "say_uz": "Menga sviter kerak. Menga bosh kiyim kerak. Menga palto kerak. Menga qo‘lqop kerak.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Мне нужен свитер.", "Мне нужна шапка.", "Мне нужно пальто.", "Мне нужны перчатки."],
-   "examples": [],
-   "say_native": "Javoblar: “Мне нужен свитер”, “мне нужна шапка”, “мне нужно пальто”, “мне нужны перчатки”. Har biri jinsga mos shaklda aytilgan. “Нужен” — erkak, “нужна” — ayol, “нужно” — o‘rta jins, “нужны” — ko‘plik uchun. Bu shakl do‘konda buyurtma berishning asosiy usuli, shuning uchun uni mustahkam yodlang.",
-   "say": "Мне нужен свитер. Мне нужна шапка. Мне нужно пальто. Мне нужны перчатки.",
-   "say_uz": "Menga sviter kerak. Menga bosh kiyim kerak. Menga palto kerak. Menga qo‘lqop kerak.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yakuniy mashq: kiyganingizni tasvirlang",
-   "emotion": "encouraging",
-   "board": ["1) Men kiyganman: palto qizil.", "2) Bosh kiyim ko‘k.", "3) O‘lcham 46.", "4) Menga mos keladi."],
-   "examples": [],
-   "say_native": "Yakuniy mashq. Nima kiyganingizni tasvirlang va kurtka sotib olishni ijro qiling. “Я ношу пальто красное, шапку синюю, шарф чёрный. Какой у вас размер? Можно примерить куртку? Мне подходит!” Pauza bo‘lganda baland ovozda, ozod talaffuz bilan gapiring.",
-   "say": "Я ношу пальто красное. Шапку синюю. Шарф чёрный. Какой у вас размер? Можно примерить куртку? Мне подходит!",
-   "say_uz": "Men qizil palto kiyganman. Ko‘k bosh kiyim. Qora ro‘mol. Sizda qaysi o‘lcham bor? Kurtkani kiyib ko‘rsa bo‘ladimi? Menga mos keladi!",
-   "practice_seconds": 20
+   "say_native": "Yakuniy mashq, ikki qismdan iborat. Avval ustingizdagi kiyimlarni tasvirlang: “На мне…” bilan uch-to‘rtta kiyimni rangi bilan ayting va “я часто ношу…” bilan bitta odatingizni qo‘shing. Keyin o‘zingizni do‘konda tasavvur qiling: kurtkani kiyib ko‘rishni, o‘lchamni va narxni so‘rang, oxirida uni sotib oling. Pauzada baland ovozda gapiring.",
+   "say": "Что на вас сейчас? А теперь вы в магазине. Начинайте!",
+   "say_uz": "Hozir ustingizda nima bor? Endi siz do‘kondasiz. Boshlang!",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Namuna javob",
    "emotion": "proud",
-   "board": ["Я ношу пальто красное.", "Шапку синюю.", "Можно примерить куртку?", "Мне подходит!"],
+   "board": [
+    "На мне синие джинсы, белая рубашка и чёрное пальто.",
+    "Я часто ношу кроссовки.",
+    "Можно примерить эту куртку? Она мне мала.",
+    "Сколько она стоит? Я возьму её."
+   ],
    "examples": [],
-   "say_native": "Namuna: “Я ношу пальто красное. Шапку синюю. Шарф чёрный. Какой у вас размер? Можно примерить куртку? Мне подходит!” Har bir kiyim rang bilan moslashgan, o‘lcham aniq so‘ralgan, kiyib ko‘rish so‘ralgan va mos kelgani aytilgan. Siz ham shu tuzilishni o‘zingizga moslab takrorlang.",
-   "say": "Я ношу пальто красное. Шапку синюю. Шарф чёрный. Какой у вас размер? Можно примерить куртку? Мне подходит!",
-   "say_uz": "Men qizil palto kiyganman. Ko‘k bosh kiyim. Qora ro‘mol. Sizda qaysi o‘lcham bor? Kurtkani kiyib ko‘rsa bo‘ladimi? Menga mos keladi!",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "O‘zingizni tekshiring",
-   "emotion": "proud",
-   "board": ["Свитер красный / Шапка красная", "Какой у вас размер?", "Можно примерить?", "Мне нужен ..."],
-   "examples": [],
-   "say_native": "O‘zingizni tekshiring. Rang sifatini ot bilan moslay olasizmi: “свитер красный, шапка красная, пальто красное”? O‘lchamni “какой у вас размер?” deb so‘ra olasizmi? Kiyib ko‘rishni “можно примерить?” deb so‘ra olasizmi? “Мне нужен” bilan buyurtma bera olasizmi? Hammasi joyida bo‘lsa, do‘konda xarid qilishga tayyorsiz.",
-   "say": "Свитер красный. Шапка красная. Какой у вас размер? Можно примерить? Мне нужен свитер.",
-   "say_uz": "Sviter qizil. Bosh kiyim qizil. Sizda qaysi o‘lcham bor? Kiyib ko‘rsa bo‘ladimi? Menga sviter kerak.",
+   "say_native": "Namuna: “На мне синие джинсы, белая рубашка и чёрное пальто”. Uchta kiyim, uchta har xil oxir: ko‘plik, ayol jinsi, o‘rta jins. “Я часто ношу кроссовки.” Do‘konda: “Можно примерить эту куртку? Она мне мала. У вас есть размер побольше? Сколько она стоит? Я возьму её.” Sizning javobingiz shunga o‘xshash bo‘lsa, maqsadga yetdingiz.",
+   "say": "На мне синие джинсы, белая рубашка и чёрное пальто. Можно примерить эту куртку? Она мне мала. Я возьму её.",
+   "say_uz": "Ustimda to‘q ko‘k jinsi, oq ko‘ylak va qora palto. Men tez-tez krossovka kiyaman. Bu kurtkani kiyib ko‘rsam bo‘ladimi? U menga kichik. Kattaroq o‘lcham bormi? U qancha turadi? Men uni olaman.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": ["красный · красная · красное · красные", "пальто · куртка · шапка · шарф", "Какой у вас размер? · Можно примерить?", "Мне нужен · Мне нужна · Мне нужно"],
+   "board": [
+    "красный · красная · красное · красные",
+    "этот · эта · это · эти / тот · та · то · те",
+    "На мне… · Я ношу…",
+    "Можно примерить? · Сколько стоит / стоят?"
+   ],
    "examples": [],
-   "say_native": "Xulosa. Rang sifatlari ot bilan moslashganini o‘rgandik: “красный, красная, красное, красные”. Kiyim nomlarini o‘rgandik: “пальто, куртка, шапка, шарф, свитер, перчатки, джинсы”. Do‘kon iboralarini o‘rgandik: “какой у вас размер, можно примерить, какого цвета, мне нужен”. Endi do‘konda bemalol kiyim tanlab, sotib olasiz.",
-   "say": "Отлично! Теперь вы умеете говорить о цветах и одежде и покупать в магазине.",
-   "say_uz": "Ajoyib! Endi ranglar va kiyim haqida gapirib, do‘konda xarid qila olasiz.",
+   "say_native": "Xulosa. Bugun ranglarni va “синий” bilan “голубой” farqini o‘rgandik. Rang otga moslashadi: “красная куртка, красное платье, красные джинсы”. “Пальто” o‘rta jins va o‘zgarmaydi, “брюки” va “джинсы” faqat ko‘plikda. “Этот, эта, это, эти” va “тот, та, те” ham otga moslashadi. Do‘konda: “Можно примерить?”, “мне мала”, “Сколько стоит” va “стоят”.",
+   "say": "Отлично! Теперь вы знаете цвета и одежду и можете купить куртку в магазине.",
+   "say_uz": "Ajoyib! Endi ranglar va kiyimlarni bilasiz va do‘kondan kurtka sotib ola olasiz.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uyga vazifa",
    "emotion": "encouraging",
-   "board": ["Kiyganingizni tasvirlab 8 gap yozing", "Rang · o‘lcham · moslik", "Keyingi dars: so‘roq gaplar tuzish"],
+   "board": [
+    "5 gap: На мне… (rang bilan)",
+    "8 qatorli dialog: kurtka sotib olish",
+    "размер · примерить · Сколько стоит?"
+   ],
    "examples": [],
-   "say_native": "Uyga vazifa. Bugun kiyganingizni tasvirlab, sakkiz gap yozing. Har bir gapda rang, o‘lcham va moslikdan foydalaning. Mezon: har bir gap rus tilida, sifat ot bilan moslashgan, “какой у вас размер” va “можно примерить” ishlatilgan. Keyingi darsda so‘roq gaplar tuzishni o‘rganamiz. Ko‘rishguncha!",
-   "say": "До свидания! До встречи на следующем уроке. Мы будем говорить о вопросах.",
-   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz. Biz so‘roq gaplar haqida gaplashamiz.",
+   "say_native": "Uyga vazifa. Ustingizdagi kiyimlarni kamida beshta gap bilan tasvirlang, har bir gapda rang bo‘lsin. Keyin kurtka sotib olish haqida sakkiz qatorli dialog yozing. Mezon: rang otga mos, “этот, эта, эти” to‘g‘ri, dialogda o‘lcham, “Можно примерить?” va “Сколько стоит?” bor. Keyingi darsda so‘roq gaplar tuzishni chuqurroq o‘rganamiz. Ko‘rishguncha!",
+   "say": "До свидания! До встречи на следующем уроке.",
+   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Kiyganingizni tasvirlab sakkiz gap yozing. Mezon: har bir gap rus tilida, sifat ot bilan moslashgan, “какой у вас размер” va “можно примерить” iboralari ishlatilgan.",
+ "homework_uz": "Ustingizdagi kiyimlarni kamida beshta gap bilan tasvirlang («На мне…», har bir gapda rang bo‘lsin) va kurtka sotib olish haqida sakkiz qatorli dialog yozing. Muvaffaqiyat mezoni: rang otning jinsi va soniga mos (красная куртка, синие джинсы), «этот/эта/эти» to‘g‘ri tanlangan, dialogda o‘lcham, «Можно примерить?» va «Сколько стоит…?» bor. Keyin dialogni baland ovozda ikki rolda o‘qing.",
  "quiz": [
   {
-   "q": "Choose the correct adjective: ‘Шапка красная’ because шапка is ___",
-   "options": ["feminine", "masculine", "neuter", "plural"],
-   "answer": 0,
-   "why_uz": "Шапка ayol jinsida, shuning uchun красная."
+   "q": "Choose the correct form: «… куртка».",
+   "options": [
+    "красный",
+    "красная",
+    "красное",
+    "красные"
+   ],
+   "answer": 1,
+   "why_uz": "Куртка — ayol jinsi, shuning uchun красная куртка."
   },
   {
-   "q": "Choose the correct adjective: ‘Пальто красное’ because пальто is ___",
-   "options": ["neuter", "masculine", "feminine", "plural"],
-   "answer": 0,
-   "why_uz": "Пальто o‘rta jinsda, shuning uchun красное."
+   "q": "Choose the correct form: «… пальто».",
+   "options": [
+    "чёрный",
+    "чёрная",
+    "чёрное",
+    "чёрные"
+   ],
+   "answer": 2,
+   "why_uz": "Пальто — o‘rta jins va o‘zgarmaydi: чёрное пальто."
   },
   {
-   "q": "Choose the correct adjective: ‘Свитер красный’ because свитер is ___",
-   "options": ["masculine", "feminine", "neuter", "plural"],
-   "answer": 0,
-   "why_uz": "Свитер erkak jinsida, shuning uchun красный."
+   "q": "Choose the correct form: «… джинсы».",
+   "options": [
+    "синий",
+    "синяя",
+    "синее",
+    "синие"
+   ],
+   "answer": 3,
+   "why_uz": "Джинсы faqat ko‘plikda: синие джинсы."
   },
   {
-   "q": "How do you ask ‘What size do you have?’",
-   "options": ["Какой у вас размер?", "Какой размер ты?", "Какой у тебя размер?", "Какой размер есть?"],
-   "answer": 0,
-   "why_uz": "Какой у вас размер? — hurmatli savol."
+   "q": "Which colour is the colour of a clear sky?",
+   "options": [
+    "синий",
+    "голубой",
+    "зелёный",
+    "серый"
+   ],
+   "answer": 1,
+   "why_uz": "Osmon havorang: небо голубое. Синий — to‘q ko‘k."
+  },
+  {
+   "q": "Choose the correct word: «… свитер тёплый».",
+   "options": [
+    "Эта",
+    "Это",
+    "Этот",
+    "Эти"
+   ],
+   "answer": 2,
+   "why_uz": "Свитер — erkak jinsi: этот свитер."
+  },
+  {
+   "q": "Choose the correct question.",
+   "options": [
+    "Сколько стоит эти джинсы?",
+    "Сколько стоят эти джинсы?",
+    "Сколько стоить эти джинсы?",
+    "Сколько стоят этот джинсы?"
+   ],
+   "answer": 1,
+   "why_uz": "Джинсы ko‘plik: стоят va эти."
+  },
+  {
+   "q": "How do you say ‘This jacket is too small for me’?",
+   "options": [
+    "Мне куртка маленький.",
+    "Куртка мне мала.",
+    "Куртка мне мал.",
+    "Я куртка маленькая."
+   ],
+   "answer": 1,
+   "why_uz": "Kiyim, мне, мал/мала/малы: куртка мне мала."
   },
   {
    "q": "How do you ask ‘Can I try it on?’",
-   "options": ["Можно примерить?", "Можно снять?", "Можно купить?", "Можно дать?"],
-   "answer": 0,
-   "why_uz": "Можно примерить? — kiyib ko‘rsa bo‘ladimi?"
+   "options": [
+    "Можно купить?",
+    "Можно примерить?",
+    "Можно носить?",
+    "Можно картой?"
+   ],
+   "answer": 1,
+   "why_uz": "Примерить — kiyib ko‘rmoq: Можно примерить?"
   },
   {
-   "q": "How do you ask ‘What colour is the sweater?’",
-   "options": ["Какого цвета свитер?", "Какой цвета свитер?", "Какая цвета свитер?", "Как свитер цвет?"],
-   "answer": 0,
-   "why_uz": "Какого цвета — qanday rangda? ko‘rsatkich shakl."
+   "q": "Choose the correct form: «Я часто … джинсы».",
+   "options": [
+    "носю",
+    "носит",
+    "ношу",
+    "носят"
+   ],
+   "answer": 2,
+   "why_uz": "Я shaklida с → ш: я ношу."
   },
   {
-   "q": "Which word means ‘coat’?",
-   "options": ["пальто", "куртка", "шапка", "шарф"],
+   "q": "Which sentence means ‘I am wearing a white shirt’?",
+   "options": [
+    "На мне белая рубашка.",
+    "На мне есть белый рубашка.",
+    "Я белая рубашка.",
+    "На меня белое платье."
+   ],
    "answer": 0,
-   "why_uz": "Пальто — palto."
-  },
-  {
-   "q": "Which word means ‘hat’?",
-   "options": ["шапка", "куртка", "пальто", "свитер"],
-   "answer": 0,
-   "why_uz": "Шапка — bosh kiyim."
-  },
-  {
-   "q": "Choose the correct sentence: ‘I need a sweater’",
-   "options": ["Мне нужен свитер.", "Мне нужна свитер.", "Мне нужно свитер.", "Мне нужны свитер."],
-   "answer": 0,
-   "why_uz": "Свитер erkak jinsida, shuning uchun нужен."
-  },
-  {
-   "q": "Choose the correct sentence: ‘It fits me’",
-   "options": ["Это мне подходит.", "Это мне подходит есть.", "Это мой подходит.", "Это мне подходить."],
-   "answer": 0,
-   "why_uz": "Это мне подходит — bu menga mos."
+   "why_uz": "На мне + kiyim, есть kerak emas: на мне белая рубашка."
   }
  ]
 }

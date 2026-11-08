@@ -1,923 +1,493 @@
 {
  "title": "Uy, xonalar va jihozlar",
- "goal_uz": "Dars oxirida uy va xona nomlarini aytasiz, jihozlarni nomlay olasiz, “bor/yo‘q” degan mavjudlikni bildirasiz, joylashuv so‘zlarini ishlatasiz va uyni xona-bo‘xonaqarab sakkiz gapda tasvirlaysiz.",
+ "goal_uz": "Dars oxirida o‘nta xona va jihoz nomini aytasiz, “فِي الْبَيْتِ … / هُنَاكَ …” bilan nima borligini bildirasiz, narsalarning joyini oltita joy so‘zi bilan ko‘rsatasiz va uyingizni hajm hamda holat sifatlari bilan sakkiz gapda tasvirlaysiz.",
  "vocab": [
-  {
-   "w": "بَيْتٌ",
-   "uz": "uy"
-  },
-  {
-   "w": "غُرْفَةٌ",
-   "uz": "xona"
-  },
-  {
-   "w": "مَطْبَخٌ",
-   "uz": "oshxona"
-  },
-  {
-   "w": "حَمَّامٌ",
-   "uz": "hammom"
-  },
-  {
-   "w": "نَوْمٌ",
-   "uz": "yoxunai xona"
-  },
-  {
-   "w": "سَرِيرٌ",
-   "uz": "krevet"
-  },
-  {
-   "w": "طَاوِلَةٌ",
-   "uz": "stol"
-  },
-  {
-   "w": "كُرْسِيٌّ",
-   "uz": "stul"
-  },
-  {
-   "w": "بَابٌ",
-   "uz": "esik"
-  },
-  {
-   "w": "شَابَاكٌ",
-   "uz": "deraza"
-  }
+  {"w": "بَيْتٌ", "uz": "uy"},
+  {"w": "شَقَّةٌ", "uz": "kvartira"},
+  {"w": "غُرْفَةٌ", "uz": "xona"},
+  {"w": "مَطْبَخٌ", "uz": "oshxona"},
+  {"w": "حَمَّامٌ", "uz": "hammom, vannaxona"},
+  {"w": "سَرِيرٌ", "uz": "karavot"},
+  {"w": "خِزَانَةٌ", "uz": "shkaf"},
+  {"w": "طَاوِلَةٌ", "uz": "stol"},
+  {"w": "عَلَى", "uz": "ustida"},
+  {"w": "كَبِيرٌ", "uz": "katta"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "O‘nchi dars: mening uym",
+   "title": "O‘ninchi dars: mening uyim",
    "emotion": "happy",
-   "board": [
-    "الدَّرْسُ الْعَاشِرُ (10-dars)",
-    "Uy, xonalar va jihozlar"
-   ],
-   "examples": [
-    {
-     "t": "هَذَا بَيْتِي.",
-     "uz": "Bu mening uyim"
-    }
-   ],
-   "say_native": "Assalomu alaykum! O‘nchi darsga xush kelibsiz. O‘tgan darsda kafeda buyurtma berishni o‘rgandik. Bugun uy, xonalar va jihozlar haqida gaplashamiz. “Bor/yo‘q”, joylashuv so‘zlari, hajm va holatni tasvirlashni o‘rganamiz. Dars oxirida o‘zingizning uyingizni sakkiz gapda tasvirlaysiz. Boshlaymiz.",
-   "say": "Welcome to lesson ten. Today we describe a home, its rooms and furniture.",
-   "say_uz": "O‘nchi darsga xush kelibsiz. Bugun uy, xonalar va jihozlar haqida gaplashamiz.",
+   "board": ["الدَّرْسُ الْعَاشِرُ (10-dars)", "هَذَا بَيْتِي (hādhā baytī) — Bu mening uyim", "Uy, xonalar va jihozlar"],
+   "examples": [{"t": "هَذَا بَيْتِي.", "uz": "Bu mening uyim."}],
+   "say_native": "Assalomu alaykum! O‘ninchi darsga xush kelibsiz. Oldingi darsda kafeda muloyim buyurtma berishni, narx so‘rashni va hisobni to‘lashni o‘rgandik. Bugun uyga qaytamiz. Xona va jihoz nomlarini o‘rganasiz, uyda nima borligini aytasiz, narsalarning qayerda turganini ko‘rsatasiz va uyning katta-kichikligi, yangi-eskiligini tasvirlaysiz. Dars oxirida uyingizni sakkiz gapda tasvirlab berasiz.",
+   "say": "أَهْلًا وَسَهْلًا! هَذَا بَيْتِي. الْبَيْتُ كَبِيرٌ وَجَمِيلٌ.",
+   "say_uz": "Xush kelibsiz! Bu mening uyim. Uy katta va chiroyli.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Uy va xonalar",
+   "title": "Uy va kvartira",
    "emotion": "neutral",
-   "board": [
-    "بَيْتٌ — uy",
-    "غُرْفَةٌ — xona",
-    "مَطْبَخٌ — oshxona",
-    "حَمَّامٌ — hammom",
-    "نَوْمٌ — yoxunai xona"
-   ],
-   "examples": [
-    {
-     "t": "بَيْتٌ",
-     "uz": "uy"
-    },
-    {
-     "t": "غُرْفَةٌ",
-     "uz": "xona"
-    }
-   ],
-   "say_native": "Avval uy va xonalar. “Bayt” — uy, “ghurfah” — xona, “maṭbakh” — oshxona, “ḥammām” — hammom, “nawm” — yoxunai xona. “Ghurfah” va “nawm” ayol jinsli, “bayt”, “maṭbakh”, “ḥammām” erkak jinsli. Bu muhim, chunki sifatlar ularni mos keladi. “Al-baytu kabir” — uy katta, “al-ghurfatu ṣaghīra” — xona kichik. E’tibor bering: “ghurfah” oxiri “-ah”, bu ta marbuta, unpause holida “a” deb aytiladi.",
-   "say": "Bayt, ghurfah, matbakh, hammam, nawm. House, room, kitchen, bathroom, bedroom.",
-   "say_uz": "Bayt, ghurfa, matbakh, hammam, nawm. Uy, xona, oshxona, hammom, yoxunai xona.",
+   "board": ["بَيْتٌ (bayt) — uy", "شَقَّةٌ (shaqqa) — kvartira", "غُرْفَةٌ (ghurfa) — xona", "طَابِقٌ (ṭābiq) — qavat"],
+   "examples": [{"t": "أَسْكُنُ فِي شَقَّةٍ.", "uz": "Men kvartirada yashayman."}, {"t": "أَسْكُنُ فِي بَيْتٍ.", "uz": "Men hovli uyda yashayman."}],
+   "say_native": "Boshlaymiz. “Bayt” — uy. Bu so‘z umuman “uy, xonadon” ma’nosini beradi. “Shaqqa” — kvartira, ko‘p qavatli binodagi uy. “Ghurfa” — xona. Boshidagi “gh” bu o‘zbekcha “g‘”, shuning uchun sizga oson: g‘urfa. “Ṭābiq” — qavat. Yashash joyini aytish uchun “askunu fī …” — … da yashayman: “askunu fī shaqqa” — kvartirada yashayman. Bu fe’l oldingi darsdagi “a” prefiksli shakl.",
+   "say": "بَيْتٌ. شَقَّةٌ. غُرْفَةٌ. طَابِقٌ. أَسْكُنُ فِي شَقَّةٍ.",
+   "say_uz": "Uy. Kvartira. Xona. Qavat. Men kvartirada yashayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Xonalar",
+   "emotion": "neutral",
+   "board": ["غُرْفَةُ النَّوْمِ (ghurfatu n-nawm) — yotoqxona", "غُرْفَةُ الْجُلُوسِ (ghurfatu l-julūs) — mehmonxona", "مَطْبَخٌ (maṭbakh) — oshxona", "حَمَّامٌ (ḥammām) — hammom, vannaxona"],
+   "examples": [{"t": "غُرْفَةُ النَّوْمِ كَبِيرَةٌ.", "uz": "Yotoqxona katta."}, {"t": "الْمَطْبَخُ صَغِيرٌ.", "uz": "Oshxona kichik."}],
+   "say_native": "Xonalar. “Ghurfatu n-nawm” — so‘zma-so‘z “uyqu xonasi”, ya’ni yotoqxona. “Ghurfatu l-julūs” — “o‘tirish xonasi”, biz buni mehmonxona deymiz. Bu ikkalasi iḍāfa: o‘zbekchadagi “uyqu xonasi” kabi, faqat tartib teskari, avval “xona”, keyin “uyqu”. “Maṭbakh” — oshxona, “ṭabakha” — ovqat pishirmoq fe’lidan. “Ḥammām” — hammom, vannaxona, bu so‘z o‘zbek tiliga ham kirgan.",
+   "say": "غُرْفَةُ النَّوْمِ. غُرْفَةُ الْجُلُوسِ. مَطْبَخٌ. حَمَّامٌ.",
+   "say_uz": "Yotoqxona. Mehmonxona. Oshxona. Hammom.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xona nomlang",
+   "title": "Xonani ayting",
    "emotion": "encouraging",
-   "board": [
-    "1) uy",
-    "2) xona",
-    "3) oshxona",
-    "4) hammom",
-    "5) yoxunai xona"
-   ],
+   "board": ["1) oshxona", "2) yotoqxona", "3) kvartira", "4) hammom · 5) mehmonxona"],
    "examples": [],
-   "say_native": "Mashq. Beshta so‘zni arabcha ayting: uy, xona, oshxona, hammom, yoxunai xona. Har birini baland ovozda ayting.",
-   "say": "Say the Arabic words for house, room, kitchen, bathroom and bedroom.",
-   "say_uz": "Arabcha ayting: uy, xona, oshxona, hammom, yoxunai xona.",
-   "practice_seconds": 12
+   "say_native": "Mashq. Beshta so‘zni arabcha ayting: oshxona, yotoqxona, kvartira, hammom, mehmonxona. Yotoqxona va mehmonxona ikki so‘zdan iborat: avval “ghurfatu”, keyin xonaning vazifasi. Baland ovozda ayting.",
+   "say": "مَا اسْمُ هَذِهِ الْغُرْفَةِ؟",
+   "say_uz": "Bu xonaning nomi nima?",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "1) بَيْتٌ",
-    "2) غُرْفَةٌ",
-    "3) مَطْبَخٌ",
-    "4) حَمَّامٌ",
-    "5) نَوْمٌ"
-   ],
+   "board": ["1) مَطْبَخٌ  2) غُرْفَةُ النَّوْمِ", "3) شَقَّةٌ  4) حَمَّامٌ", "5) غُرْفَةُ الْجُلُوسِ"],
    "examples": [],
-   "say_native": "Javoblar: bayt, ghurfah, maṭbakh, ḥammām, nawm. “Hammām” da “m” shadda bilan: ham-mam. “Nawm” da uzun “aw” unli bor. Bu beshta so‘zni yaxshi yodlab oling, ular darsning asosini tashkil etadi.",
-   "say": "Bayt, ghurfah, matbakh, hammam, nawm.",
-   "say_uz": "Bayt, ghurfa, matbakh, hammam, nawm.",
+   "say_native": "Javoblar: maṭbakh, ghurfatu n-nawm, shaqqa, ḥammām, ghurfatu l-julūs. “Ghurfatu n-nawm” da “l” eshitilmaydi, chunki “n” quyosh harfi: “an-nawm”. “Ghurfatu l-julūs” da esa “l” eshitiladi, chunki “j” oy harfi. “Ḥammām” dagi “ḥ” tomoqdan chiqadi va “mm” ikkilangan: ḥam-mām.",
+   "say": "مَطْبَخٌ. غُرْفَةُ النَّوْمِ. شَقَّةٌ. حَمَّامٌ. غُرْفَةُ الْجُلُوسِ.",
+   "say_uz": "Oshxona. Yotoqxona. Kvartira. Hammom. Mehmonxona.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Jihozlar: birinchi to‘rt",
+   "title": "Jihozlar: birinchi qism",
    "emotion": "neutral",
-   "board": [
-    "سَرِيرٌ — krevet",
-    "طَاوِلَةٌ — stol",
-    "كُرْسِيٌّ — stul",
-    "بَابٌ — esik"
-   ],
-   "examples": [
-    {
-     "t": "سَرِيرٌ",
-     "uz": "krevet"
-    },
-    {
-     "t": "طَاوِلَةٌ",
-     "uz": "stol"
-    }
-   ],
-   "say_native": "Endi jihozlar. “Sirīr” — krevet, “ṭāwilah” — stol, “kursiyy” — stul, “bāb” — esik. “Ṭāwilah” da “ṭ” quyosh harfi, shuning uchun “al-ṭāwilah” emas, “aṭ-ṭāwilah” deymiz. “Kursiyy” oxirida “y” bor, lekin “kursī” deb aytiladi. “Bāb” — esik, “al-bābu” — o‘sha esik. Bu jihozlar hamma xonada bor.",
-   "say": "Sirir, tawilah, kursi, bab. Bed, table, chair, door.",
-   "say_uz": "Sirir, tawila, kursi, bab. Krevet, stol, stul, esik.",
+   "board": ["سَرِيرٌ (sarīr) — karavot", "خِزَانَةٌ (khizāna) — shkaf", "طَاوِلَةٌ (ṭāwila) — stol", "كُرْسِيٌّ (kursī) — stul"],
+   "examples": [{"t": "سَرِيرٌ وَخِزَانَةٌ", "uz": "Karavot va shkaf"}, {"t": "طَاوِلَةٌ وَكُرْسِيٌّ", "uz": "Stol va stul"}],
+   "say_native": "Endi jihozlar. “Sarīr” — karavot. “Khizāna” — shkaf; boshidagi “kh” o‘zbekcha “x” ga juda o‘xshaydi. Bu so‘z “xazina” bilan bir o‘zakdan, ya’ni narsa saqlanadigan joy. “Ṭāwila” — stol, boshidagi “ṭ” qalin. “Kursī” — stul. O‘zbek tilidagi “kursi” ham shu so‘zdan. Jinsiga e’tibor: khizāna va ṭāwila oxiri “-a”, ular ayol jinsi; sarīr va kursī erkak jinsi.",
+   "say": "سَرِيرٌ. خِزَانَةٌ. طَاوِلَةٌ. كُرْسِيٌّ.",
+   "say_uz": "Karavot. Shkaf. Stol. Stul.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Jihozlar: yana to‘rt",
-   "emotion": "impressed",
-   "board": [
-    "شَابَاكٌ — deraza",
-    "كِتَابٌ — kitob",
-    "مِصْبَاحٌ — chirog",
-    "بِطَانِيَةٌ — paltak"
-   ],
-   "examples": [
-    {
-     "t": "شَابَاكٌ",
-     "uz": "deraza"
-    },
-    {
-     "t": "مِصْبَاحٌ",
-     "uz": "chirog"
-    }
-   ],
-   "say_native": "Yana to‘rtta. “Shābāk” — deraza, “kitāb” — kitob, “miṣbāḥ” — chirog, “biṭāniyah” — paltak. “Shābāk” da “b” so‘ngda eshitiladi. “Miṣbāḥ” da “ṣ” quyosh harfi: “al-miṣbāḥ” emas, “aṣ-ṣiṣbāḥ”? Yo‘q, “aṣ-ṣibāḥ” deymiz, “l” “ṣ” ga qo‘shilib ketadi. “Biṭāniyah” — paltak, ayol jinsli. Endi barcha jihozlarni yodlab oling.",
-   "say": "Shabak, kitab, misbah, bitaniyah. Window, book, lamp, blanket.",
-   "say_uz": "Shabak, kitab, misbah, bitaniya. Deraza, kitob, chirog, paltak.",
+   "title": "Jihozlar: ikkinchi qism",
+   "emotion": "neutral",
+   "board": ["أَرِيكَةٌ (arīka) — divan", "سَجَّادَةٌ (sajjāda) — gilam", "نَافِذَةٌ (nāfidha) — deraza · بَابٌ (bāb) — eshik", "مِصْبَاحٌ (miṣbāḥ) — chiroq · ثَلَّاجَةٌ (thallāja) — muzlatgich"],
+   "examples": [{"t": "أَرِيكَةٌ وَسَجَّادَةٌ", "uz": "Divan va gilam"}, {"t": "بَابٌ وَنَافِذَةٌ", "uz": "Eshik va deraza"}],
+   "say_native": "Yana oltita so‘z. “Arīka” — divan. “Sajjāda” — gilam; “sajada”, ya’ni sajda qilmoq so‘zi bilan bog‘liq, avval joynamozni bildirgan. “Nāfidha” — deraza, “bāb” — eshik. “Miṣbāḥ” — chiroq. “Thallāja” — muzlatgich, “thalj” — qor so‘zidan. “Th” ingliz tilidagi “think” so‘zining boshidagi tovush: tilning uchi tishlar orasida.",
+   "say": "أَرِيكَةٌ. سَجَّادَةٌ. نَافِذَةٌ. بَابٌ. مِصْبَاحٌ. ثَلَّاجَةٌ.",
+   "say_uz": "Divan. Gilam. Deraza. Eshik. Chiroq. Muzlatgich.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Jihoz nomlang",
+   "title": "Qaysi xonada?",
    "emotion": "encouraging",
-   "board": [
-    "1) krevet",
-    "2) stol",
-    "3) stul",
-    "4) esik",
-    "5) deraza"
-   ],
+   "board": ["1) karavot → ?", "2) muzlatgich → ?", "3) divan → ?", "4) shkaf → ?"],
    "examples": [],
-   "say_native": "Mashq. Beshta jihozni arabcha ayting: krevet, stol, stul, esik, deraza. Quyosh harflarda “l” ni qo‘shlab ketishni unutmang.",
-   "say": "Say the Arabic words for bed, table, chair, door and window.",
-   "say_uz": "Arabcha ayting: krevet, stol, stul, esik, deraza.",
-   "practice_seconds": 12
+   "say_native": "Mashq. Har bir jihoz odatda qaysi xonada turadi? Arabcha to‘liq gap tuzing: karavot yotoqxonada, va hokazo. “Fī” predlogini ishlating: fī ghurfati n-nawm. To‘rtta jihoz: karavot, muzlatgich, divan, shkaf.",
+   "say": "أَيْنَ السَّرِيرُ؟ أَيْنَ الثَّلَّاجَةُ؟ أَيْنَ الْأَرِيكَةُ؟ أَيْنَ الْخِزَانَةُ؟",
+   "say_uz": "Karavot qayerda? Muzlatgich qayerda? Divan qayerda? Shkaf qayerda?",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "1) سَرِيرٌ",
-    "2) طَاوِلَةٌ",
-    "3) كُرْسِيٌّ",
-    "4) بَابٌ",
-    "5) شَابَاكٌ"
-   ],
+   "board": ["1) السَّرِيرُ فِي غُرْفَةِ النَّوْمِ.", "2) الثَّلَّاجَةُ فِي الْمَطْبَخِ.", "3) الْأَرِيكَةُ فِي غُرْفَةِ الْجُلُوسِ.", "4) الْخِزَانَةُ فِي غُرْفَةِ النَّوْمِ."],
    "examples": [],
-   "say_native": "Javoblar: sirīr, ṭāwilah, kursiyy, bāb, shābāk. “Tāwilah” va “shābāk” da “-ah” oxiri ta marbuta, unpause holida “a”. “Kursiyy” da “y” so‘ngda. Bu beshta jihozni yaxshi yodlab oling. Endi mavjudlikni bildirishni o‘rganamiz.",
-   "say": "Sirir, tawilah, kursi, bab, shabak.",
-   "say_uz": "Sirir, tawila, kursi, bab, shabak.",
+   "say_native": "Javoblar: “as-sarīru fī ghurfati n-nawm”. “Ath-thallājatu fil-maṭbakh”. “Al-arīkatu fī ghurfati l-julūs”. “Al-khizānatu fī ghurfati n-nawm”. Shkaf boshqa xonada bo‘lsa ham to‘g‘ri, asosiysi gap tuzilishi. E’tibor bering: “fī” dan keyin so‘z oxiri “-i” bo‘ladi: fil-maṭbakhi. Pauzada bu unli tushib qolishi mumkin.",
+   "say": "السَّرِيرُ فِي غُرْفَةِ النَّوْمِ. الثَّلَّاجَةُ فِي الْمَطْبَخِ. الْأَرِيكَةُ فِي غُرْفَةِ الْجُلُوسِ. الْخِزَانَةُ فِي غُرْفَةِ النَّوْمِ.",
+   "say_uz": "Karavot yotoqxonada. Muzlatgich oshxonada. Divan mehmonxonada. Shkaf yotoqxonada.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Bor/yo‘q: ʿindī va laysa",
+   "title": "“Bor” arabchada: فِي va هُنَاكَ",
    "emotion": "thinking",
-   "board": [
-    "عِنْدِي سَرِيرٌ — mening krevetim bor",
-    "لَيْسَ عِنْدِي طَاوِلَةٌ — mening stolim yo‘q",
-    "عِنْدَكَ غُرْفَةٌ — sizda xona bor"
-   ],
-   "examples": [
-    {
-     "t": "عِنْدِي سَرِيرٌ",
-     "uz": "Mening krevetim bor"
-    },
-    {
-     "t": "لَيْسَ عِنْدِي طَاوِلَةٌ",
-     "uz": "Mening stolim yo‘q"
-    }
-   ],
-   "say_native": "Mavjudlikni “ʿinda” bilan bildiramiz. “ʿindī sirīr” — mening krevetim bor. “Laysa ʿindī ṭāwilah” — mening stolim yo‘q. “ʿindaka ghurfah” — sizda xona bor. Oldingi darsda ko‘rgan “laysa” inkor uchun ishlatiladi. “ʿinda” predlogi, keyin ot. Bu o‘zbek tilidagi “menda bor/yo‘q” ga o‘xshaydi. “Bor” uchun alohida so‘z yo‘q, faqat “ʿindī + ot”.",
-   "say": "Indi sirir means I have a bed. Laysa indi tawilah means I do not have a table.",
-   "say_uz": "Indi sirir mening krevetim bor. Laysa indi tawila mening stolim yo‘q.",
+   "board": ["فِي الْبَيْتِ مَطْبَخٌ. — Uyda oshxona bor.", "فِي الْغُرْفَةِ سَرِيرٌ. — Xonada karavot bor.", "هُنَاكَ حَمَّامٌ فِي الشَّقَّةِ. — Kvartirada hammom bor."],
+   "examples": [{"t": "فِي الْبَيْتِ مَطْبَخٌ.", "uz": "Uyda oshxona bor."}, {"t": "هُنَاكَ حَمَّامٌ فِي الشَّقَّةِ.", "uz": "Kvartirada hammom bor."}],
+   "say_native": "Arab tilida “bor” degan alohida fe’l yo‘q. “Uyda oshxona bor” deyish uchun joyni oldinga qo‘yamiz: “fil-bayti maṭbakh” — so‘zma-so‘z “uyda — oshxona”. Qarang, tartib o‘zbekcha bilan bir xil: uyda oshxona bor. Ikkinchi usul: “hunāka” — u yerda, bor. “Hunāka ḥammāmun fish-shaqqa” — kvartirada hammom bor. Ikkalasi ham to‘g‘ri, birinchisi kundalik nutqda ko‘proq uchraydi.",
+   "say": "فِي الْبَيْتِ مَطْبَخٌ. فِي الْغُرْفَةِ سَرِيرٌ. هُنَاكَ حَمَّامٌ فِي الشَّقَّةِ.",
+   "say_uz": "Uyda oshxona bor. Xonada karavot bor. Kvartirada hammom bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nechta xona?",
+   "emotion": "thinking",
+   "board": ["غُرْفَةٌ وَاحِدَةٌ — bitta xona", "غُرْفَتَانِ — ikkita xona", "ثَلَاثُ غُرَفٍ — uchta xona", "أَرْبَعُ غُرَفٍ — to‘rtta xona"],
+   "examples": [{"t": "فِي الشَّقَّةِ غُرْفَتَانِ.", "uz": "Kvartirada ikkita xona bor."}, {"t": "فِي الْبَيْتِ أَرْبَعُ غُرَفٍ.", "uz": "Uyda to‘rtta xona bor."}],
+   "say_native": "Xonalar sonini aytamiz. Bitta: “ghurfatun wāḥida”, son otdan keyin keladi. Ikkita uchun son kerak emas, otning o‘ziga “-āni” qo‘shiladi: “ghurfatāni”. Bu ikkilik shakli, o‘zbek tilida yo‘q. Uchtadan o‘ntagacha ot ko‘plikda keladi: “thalāthu ghuraf”, “arbaʿu ghuraf”. “Ghuraf” — xonalar. O‘zbek tilida “uchta xona” birlikda, arabchada esa bu oraliqda ko‘plik kerak.",
+   "say": "غُرْفَةٌ وَاحِدَةٌ. غُرْفَتَانِ. ثَلَاثُ غُرَفٍ. أَرْبَعُ غُرَفٍ.",
+   "say_uz": "Bitta xona. Ikkita xona. Uchta xona. To‘rtta xona.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Bor/yo‘q xatosi",
+   "title": "Tartib va ko‘plik",
    "emotion": "stern",
-   "board": [
-    "✗ لَا عِنْدِي سَرِيرٌ",
-    "✓ لَيْسَ عِنْدِي سَرِيرٌ",
-    "✗ أَنَا عِنْدِي سَرِيرٌ",
-    "✓ عِنْدِي سَرِيرٌ"
-   ],
+   "board": ["✗ مَطْبَخٌ فِي الْبَيْتِ (uyda oshxona bor)", "✓ فِي الْبَيْتِ مَطْبَخٌ", "✗ ثَلَاثُ غُرْفَةٍ", "✓ ثَلَاثُ غُرَفٍ"],
    "examples": [],
-   "say_native": "Ikki xato. Birinchisi: “lā ʿindī sirīr” noto‘g‘ri, “laysa ʿindī sirīr” to‘g‘ri. Ikkinchisi: “ana ʿindī sirīr” — “men” qo‘shilmaslik kerak, chunki “ʿindī” allaqachon “menda” ma’nosini beradi. “Ana ʿindī” desangiz, gap o‘chadi. To‘g‘risi faqat “ʿindī sirīr”. O‘zbek tilida “menda bor” deymiz, “men” alohida so‘z yozilmasligi zarur.",
-   "say": "Say laysa indi sirir, not la indi sirir. Do not add ana before indi.",
-   "say_uz": "Laysa indi sirir deng, la indi sirir emas. Ana qo‘shmang.",
+   "say_native": "Ikki xato. Birinchisi: noaniq narsa bilan gapni boshlash. “Maṭbakhun fil-bayt” arab qulog‘iga g‘alati eshitiladi. “Bor” ma’nosida joy oldinga chiqadi: “fil-bayti maṭbakh”. Agar narsa aniq bo‘lsa, ya’ni “al-” bilan, unda u oldinda turadi: “al-maṭbakhu fil-bayt” — oshxona uyda. Ikkinchi xato: uch va to‘rtdan keyin birlik ishlatish. “Thalāthu ghurfa” emas, “thalāthu ghuraf”.",
+   "say": "فِي الْبَيْتِ مَطْبَخٌ. الْمَطْبَخُ فِي الْبَيْتِ. ثَلَاثُ غُرَفٍ.",
+   "say_uz": "Uyda oshxona bor. Oshxona uyda. Uchta xona.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Nima bor?",
+   "emotion": "encouraging",
+   "board": ["1) Kvartirada ikkita xona bor.", "2) Oshxonada muzlatgich bor.", "3) Mehmonxonada divan va gilam bor.", "4) Uyda uchta xona bor."],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: kvartirada ikkita xona bor. Ikkinchi: oshxonada muzlatgich bor. Uchinchi: mehmonxonada divan va gilam bor. To‘rtinchi: uyda uchta xona bor. Joyni oldinga qo‘ying va sonlarga e’tibor bering.",
+   "say": "مَاذَا فِي الْبَيْتِ؟",
+   "say_uz": "Uyda nima bor?",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) فِي الشَّقَّةِ غُرْفَتَانِ.", "2) فِي الْمَطْبَخِ ثَلَّاجَةٌ.", "3) فِي غُرْفَةِ الْجُلُوسِ أَرِيكَةٌ وَسَجَّادَةٌ.", "4) فِي الْبَيْتِ ثَلَاثُ غُرَفٍ."],
+   "examples": [],
+   "say_native": "Javoblar: “fish-shaqqati ghurfatān”. “Fil-maṭbakhi thallāja”. “Fī ghurfati l-julūsi arīkatun wa sajjāda”. “Fil-bayti thalāthu ghuraf”. Har bir gapda avval joy, keyin narsa. Agar “hunāka” bilan aytgan bo‘lsangiz ham to‘g‘ri: “hunāka thallājatun fil-maṭbakh”. Ikkita uchun “ghurfatāni”, uchta uchun ko‘plik “ghuraf” ishlatildi.",
+   "say": "فِي الشَّقَّةِ غُرْفَتَانِ. فِي الْمَطْبَخِ ثَلَّاجَةٌ. فِي غُرْفَةِ الْجُلُوسِ أَرِيكَةٌ وَسَجَّادَةٌ. فِي الْبَيْتِ ثَلَاثُ غُرَفٍ.",
+   "say_uz": "Kvartirada ikkita xona bor. Oshxonada muzlatgich bor. Mehmonxonada divan va gilam bor. Uyda uchta xona bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yo‘q va “menda bor”",
+   "emotion": "thinking",
+   "board": ["لَيْسَ فِي الْبَيْتِ حَدِيقَةٌ. — Uyda bog‘ yo‘q.", "عِنْدِي شَقَّةٌ. — Mening kvartiram bor.", "لَيْسَ عِنْدِي سَيَّارَةٌ. — Mening mashinam yo‘q."],
+   "examples": [{"t": "لَيْسَ فِي الشَّقَّةِ حَدِيقَةٌ.", "uz": "Kvartirada bog‘ yo‘q."}, {"t": "عِنْدِي غُرْفَةٌ كَبِيرَةٌ.", "uz": "Mening katta xonam bor."}],
+   "say_native": "“Yo‘q” deyish uchun gap boshiga “laysa” qo‘yiladi: “laysa fil-bayti ḥadīqa” — uyda bog‘ yo‘q. Inkorni keyingi darslarda batafsil o‘rganamiz, hozir shu qolipni eslang. Egalik uchun boshqa so‘z bor: “ʿindī” — mening … bor, so‘zma-so‘z “menda”. “ʿIndī shaqqa” — mening kvartiram bor. Farqni sezing: “fī” — joyda bor, “ʿindī” — menga tegishli. O‘zbekchadagi “uyda bor” va “menda bor” kabi.",
+   "say": "لَيْسَ فِي الْبَيْتِ حَدِيقَةٌ. عِنْدِي شَقَّةٌ. لَيْسَ عِنْدِي سَيَّارَةٌ.",
+   "say_uz": "Uyda bog‘ yo‘q. Mening kvartiram bor. Mening mashinam yo‘q.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Bor yoki yo‘q",
    "emotion": "encouraging",
-   "board": [
-    "1) Mening krevetim bor.",
-    "2) Mening stolim yo‘q.",
-    "3) Sizda deraza bor. (erkakka)",
-    "4) U (erkak) da hammom yo‘q."
-   ],
+   "board": ["1) Mening kvartiram bor.", "2) Kvartirada bog‘ yo‘q.", "3) Mening katta xonam bor.", "4) Oshxonada stol yo‘q."],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: mening krevetim bor. Ikkinchi: mening stolim yo‘q. Uchinchi: erkakka murojaat qilib, sizda deraza bor. To‘rtinchi: u erkakning da hammom yo‘q. “ʿindī” va “laysa ʿindī” ni to‘g‘ri tanlang.",
-   "say": "I have a bed. I do not have a table. Do you have a window? He does not have a bathroom.",
-   "say_uz": "Mening krevetim bor. Mening stolim yo‘q. Sizda deraza bor. Unda hammom yo‘q.",
+   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: mening kvartiram bor. Ikkinchi: kvartirada bog‘ yo‘q. Uchinchi: mening katta xonam bor. To‘rtinchi: oshxonada stol yo‘q. Qayerda “ʿindī”, qayerda “fī” kerakligini o‘ylab ko‘ring.",
+   "say": "عِنْدِي... لَيْسَ فِي...",
+   "say_uz": "Menda bor... da yo‘q...",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "عِنْدِي سَرِيرٌ",
-    "لَيْسَ عِنْدِي طَاوِلَةٌ",
-    "عِنْدَكَ شَابَاكٌ",
-    "لَيْسَ عِنْدَهُ حَمَّامٌ"
-   ],
+   "board": ["1) عِنْدِي شَقَّةٌ.", "2) لَيْسَ فِي الشَّقَّةِ حَدِيقَةٌ.", "3) عِنْدِي غُرْفَةٌ كَبِيرَةٌ.", "4) لَيْسَ فِي الْمَطْبَخِ طَاوِلَةٌ."],
    "examples": [],
-   "say_native": "Javoblar: ʿindī sirīr. Laysa ʿindī ṭāwilah. ʿindaka shābāk. Laysa ʿindahu ḥammām. To‘rtinchisida “ʿindahu” — uning (erkak) da. “Hu” egasi erkak uchun. Bu shakl oldingi darslardan eskirgan. Endi joylashuv so‘zlarini o‘rganamiz.",
-   "say": "Indi sirir. Laysa indi tawila. Indaka shabak. Laysa indahu hammam.",
-   "say_uz": "Indi sirir. Laysa indi tawila. Indaka shabak. Laysa indahu hammom.",
+   "say_native": "Javoblar: “ʿindī shaqqa”. “Laysa fish-shaqqati ḥadīqa”. “ʿIndī ghurfatun kabīra”. “Laysa fil-maṭbakhi ṭāwila”. Birinchi va uchinchisida egalik, shuning uchun “ʿindī”. Ikkinchi va to‘rtinchisida joyda yo‘qlik, shuning uchun “laysa fī”. Uchinchi gapda sifat “kabīra” ayol shaklida, chunki ghurfa ayol jinsi. Buni hozir batafsil ko‘ramiz.",
+   "say": "عِنْدِي شَقَّةٌ. لَيْسَ فِي الشَّقَّةِ حَدِيقَةٌ. عِنْدِي غُرْفَةٌ كَبِيرَةٌ. لَيْسَ فِي الْمَطْبَخِ طَاوِلَةٌ.",
+   "say_uz": "Mening kvartiram bor. Kvartirada bog‘ yo‘q. Mening katta xonam bor. Oshxonada stol yo‘q.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Joylashuv so‘zlari",
+   "title": "Joy so‘zlari: birinchi qism",
    "emotion": "neutral",
-   "board": [
-    "فَوْقَ — ustida",
-    "تَحْتَ — pastida",
-    "أَمَامَ — oldida",
-    "خَلْفَ — orqasida"
-   ],
-   "examples": [
-    {
-     "t": "الْكِتَابُ فَوْقَ الطَّاوِلَةِ",
-     "uz": "Kitob stolning ustida"
-    },
-    {
-     "t": "الْكِتَابُ تَحْتَ السَّرِيرِ",
-     "uz": "Kitob krevetning pastida"
-    }
-   ],
-   "say_native": "Joylashuv so‘zlari: “fawqa” — ustida, “taḥta” — pastida, “amāma” — oldida, “khalfā” — orqasida. “Al-kitābu fawqa al-ṭāwilati” — kitob stolning ustida. “Al-kitābu taḥta as-sarīri” — kitob krevetning pastida. Bu so‘zlardan keyingi ot majrūr bo‘ladi, ya’ni “-i” bilan: al-ṭāwilati, as-sarīri. O‘zbek tilida “-ning” qo‘shimchasi bor, arabchada esa ot “-i” bilan tugaydi.",
-   "say": "Fawqa, tahta, amama, khalfa. On, under, in front of, behind.",
-   "say_uz": "Fawka, taxta, amama, khalfa. Ustida, pastida, oldida, orqasida.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Joylashuvni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Kitob stolning ustida.",
-    "2) Qalam krevetning pastida.",
-    "3) Chirog derazaning oldida.",
-    "4) Non stolning orqasida."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: kitob stolning ustida. Ikkinchi: qalam krevetning pastida. Uchinchi: chirog derazaning oldida. To‘rtinchi: non stolning orqasida. “Fi” emas, joylashuv so‘zini ishlating.",
-   "say": "The book is on the table. The pen is under the bed. The lamp is in front of the window. The bread is behind the table.",
-   "say_uz": "Kitob stolning ustida. Qalam krevetning pastida. Chirog derazaning oldida. Non stolning orqasida.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "الْكِتَابُ فَوْقَ الطَّاوِلَةِ",
-    "الْقَلَمُ تَحْتَ السَّرِيرِ",
-    "الْمِصْبَاحُ أَمَامَ الشَّابَاكِ",
-    "الْخُبْزُ خَلْفَ الطَّاوِلَةِ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: al-kitābu fawqa al-ṭāwilati. Al-qalamu taḥta as-sarīri. Al-miṣbāḥu amāma al-shābāki. Al-khubzu khalfā al-ṭāwilati. Har birida joylashuv so‘zi va keyingi ot majrūr “-i” bilan. “Al-shābāki” da “l” “sh” ga qo‘shilib ketadi, chunki “sh” quyosh harfi. Bu farqni qulog‘ingiz bilan ilg‘ang.",
-   "say": "The book is on the table. The pen is under the bed. The lamp is in front of the window. The bread is behind the table.",
-   "say_uz": "Kitob stolning ustida. Qalam krevetning pastida. Chirog derazaning oldida. Non stolning orqasida.",
+   "board": ["فِي (fī) — ichida", "عَلَى (ʿalā) — ustida", "تَحْتَ (taḥta) — tagida", "بِجَانِبِ (bi-jānibi) — yonida"],
+   "examples": [{"t": "الْكِتَابُ عَلَى الطَّاوِلَةِ.", "uz": "Kitob stol ustida."}, {"t": "الْقِطَّةُ تَحْتَ السَّرِيرِ.", "uz": "Mushuk karavot tagida."}],
+   "say_native": "Endi joy so‘zlari. “Fī” — ichida, “ʿalā” — ustida, “taḥta” — tagida, “bi-jānibi” — yonida. Muhim farq: o‘zbek tilida bu so‘zlar otdan keyin keladi: “stol ustida”. Arab tilida esa otdan oldin: “ʿalā ṭ-ṭāwila” — ustida stol. Yangi so‘z: “qiṭṭa” — mushuk. “Al-qiṭṭatu taḥta s-sarīr” — mushuk karavot tagida.",
+   "say": "الْكِتَابُ عَلَى الطَّاوِلَةِ. الْقِطَّةُ تَحْتَ السَّرِيرِ. الْمِصْبَاحُ بِجَانِبِ الْأَرِيكَةِ.",
+   "say_uz": "Kitob stol ustida. Mushuk karavot tagida. Chiroq divan yonida.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Hajm va holat",
+   "title": "Joy so‘zlari: ikkinchi qism",
    "emotion": "neutral",
-   "board": [
-    "كَبِيرٌ — katta",
-    "صَغِيرٌ — kichik",
-    "جَدِيدٌ — yangi",
-    "قَدِيمٌ — eski"
-   ],
-   "examples": [
-    {
-     "t": "الْبَيْتُ كَبِيرٌ",
-     "uz": "Uy katta"
-    },
-    {
-     "t": "الْغُرْفَةُ صَغِيرَةٌ",
-     "uz": "Xona kichik"
-    }
-   ],
-   "say_native": "Sifatlar: “kabīr” — katta, “ṣaghīr” — kichik, “jadīd” — yangi, “qadīm” — eski. “Al-baytu kabīr” — uy katta. “Al-ghurfatu ṣaghīrah” — xona kichik. “Al-bābu jadīd” — esik yangi. “Al-kursiyyu qadīm” — stul eski. “Kabīr” erkak, “ṣaghīrah” ayol. “Wasaṭ” erkak. “Qifāzun kabīr” — katta qavat. Endi hajmni kiyimga qo‘shamiz.",
-   "say": "Kabir, saghir, jadid, qadim. Big, small, new, old.",
-   "say_uz": "Kabir, saghir, jadid, qadim. Katta, kichik, yangi, eski.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Sifatni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Uy katta.",
-    "2) Xona kichik.",
-    "3) Esik yangi.",
-    "4) Stul eski."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: uy katta. Ikkinchi: xona kichik. Uchinchi: esik yangi. To‘rtinchi: stul eski. Sifatning jinsini unutmang: xona ayol, esik erkak.",
-   "say": "The house is big. The room is small. The door is new. The chair is old.",
-   "say_uz": "Uy katta. Xona kichik. Esik yangi. Stul eski.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "الْبَيْتُ كَبِيرٌ",
-    "الْغُرْفَةُ صَغِيرَةٌ",
-    "الْبَابُ جَدِيدٌ",
-    "الْكُرْسِيُّ قَدِيمٌ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: al-baytu kabīr. Al-ghurfatu ṣaghīrah. Al-bābu jadīd. Al-kursiyyu qadīm. Uchinchi va to‘rtinchida “al-” egada, sifat “-un” bilan (yoki unpause “-u”). “Kursiyyu” da “y” so‘ngda. Bu shakllarni yaxshi yodlab oling. Endi iḍafani ko‘ramiz.",
-   "say": "The house is big. The room is small. The door is new. The chair is old.",
-   "say_uz": "Uy katta. Xona kichik. Esik yangi. Stul eski.",
+   "board": ["أَمَامَ (amāma) — oldida", "خَلْفَ (khalfa) — orqasida", "بَيْنَ ... وَ ... (bayna … wa …) — … bilan … orasida"],
+   "examples": [{"t": "الطَّاوِلَةُ أَمَامَ الْأَرِيكَةِ.", "uz": "Stol divan oldida."}, {"t": "الْكُرْسِيُّ بَيْنَ الطَّاوِلَةِ وَالْخِزَانَةِ.", "uz": "Stul stol bilan shkaf orasida."}],
+   "say_native": "Yana uchta: “amāma” — oldida, “khalfa” — orqasida, “bayna” — orasida. “Bayna” bilan ikki narsa “wa” orqali bog‘lanadi: “bayna ṭ-ṭāwilati wal-khizāna” — stol bilan shkaf orasida. O‘zbekchada “bilan” ishlatamiz, arabchada “va”. Yana bir so‘z: “fawqa” — tepasida, biror narsadan yuqorida, lekin unga tegmasdan: “al-miṣbāḥu fawqa ṭ-ṭāwila” — chiroq stol tepasida.",
+   "say": "الطَّاوِلَةُ أَمَامَ الْأَرِيكَةِ. الْخِزَانَةُ خَلْفَ الْبَابِ. الْكُرْسِيُّ بَيْنَ الطَّاوِلَةِ وَالْخِزَانَةِ.",
+   "say_uz": "Stol divan oldida. Shkaf eshik orqasida. Stul stol bilan shkaf orasida.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Iḍafa: xona nomlari",
+   "title": "Joy so‘zidan keyin “-i”",
    "emotion": "thinking",
-   "board": [
-    "غُرْفَةُ النَّوْمِ — yoxunai xona",
-    "غُرْفَةُ الضُّيُوفِ — mehmon xona",
-    "مَطْبَخُ الْبَيْتِ — uyning oshxonasi"
-   ],
-   "examples": [
-    {
-     "t": "غُرْفَةُ النَّوْمِ",
-     "uz": "yoxunai xona"
-    },
-    {
-     "t": "مَطْبَخُ الْبَيْتِ",
-     "uz": "uy oshxonasi"
-    }
-   ],
-   "say_native": "Iḍafa bilan xonalarni nomlaymiz. “Ghurfatu al-nawm” — yoxunai xona. “Maṭbakhu al-bayt” — uyning oshxonasi. “Ghurfatu al-maʿishah” — jonatma xona. Birinchi so‘z “al” va tanvinsiz, ikkinchisi “al” bilan. Bu oldingi darsdagi iḍafa qoidasi bilan bir xil. “Ghurfah” ayol jinsli, lekin iḍafada oxiri “-ah” emas, “-at”? Yo‘q, “ghurfatu” — tanvin bor. E’tibor bering: iḍafada birinchi so‘zning tanvini yo‘qotamiz: “ghurfatu”, “ghurfah” emas.",
-   "say": "Ghurfatu al-nawm means bedroom. Maṭbakhu al-bayt means the kitchen of the house.",
-   "say_uz": "Ghurfatu al-nawm yoxunai xona. Maṭbakhu al-bayt uy oshxonasi.",
+   "board": ["الطَّاوِلَةُ → عَلَى الطَّاوِلَةِ", "السَّرِيرُ → تَحْتَ السَّرِيرِ", "الْبَابُ → خَلْفَ الْبَابِ"],
+   "examples": [{"t": "عَلَى الطَّاوِلَةِ", "uz": "Stol ustida"}, {"t": "خَلْفَ الْبَابِ", "uz": "Eshik orqasida"}],
+   "say_native": "Joy so‘zlaridan keyingi ot doim “-i” bilan tugaydi: “aṭ-ṭāwilatu” — stol, lekin “ʿalā ṭ-ṭāwilati” — stol ustida. “As-sarīru”, lekin “taḥta s-sarīri”. Bu qaratqich kelishigi, o‘zbekchadagi “-ning” ga o‘xshaydi: “stolning usti”. Kundalik nutqda gap oxirida bu unli ko‘pincha aytilmaydi, lekin gap o‘rtasida aytiladi. Yozganda harakat bilan ko‘rsatamiz.",
+   "say": "الطَّاوِلَةُ. عَلَى الطَّاوِلَةِ. السَّرِيرُ. تَحْتَ السَّرِيرِ. الْبَابُ. خَلْفَ الْبَابِ.",
+   "say_uz": "Stol. Stol ustida. Karavot. Karavot tagida. Eshik. Eshik orqasida.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Iḍafa xatosi",
+   "title": "O‘zbekcha tartib xatosi",
    "emotion": "stern",
-   "board": [
-    "✗ الْغُرْفَةُ النَّوْمِ",
-    "✓ غُرْفَةُ النَّوْمِ",
-    "✗ غُرْفَةٌ النَّوْمِ",
-    "✓ غُرْفَةُ النَّوْمِ"
-   ],
+   "board": ["✗ الْكِتَابُ الطَّاوِلَةِ عَلَى", "✓ الْكِتَابُ عَلَى الطَّاوِلَةِ", "✗ تَحْتَ السَّرِيرُ", "✓ تَحْتَ السَّرِيرِ"],
    "examples": [],
-   "say_native": "Ikki xato. Birinchisi: “al-ghurfatu al-nawm” — birinchi so‘zda “al” bo‘lmasligi kerak. Ikkinchisi: “ghurfatun al-nawm” — birinchi so‘zda tanvin bo‘lmasligi kerak. To‘g‘risi “ghurfatu al-nawm”: birinchi so‘z yalang‘och, ikkinchisi “al” bilan. Bu qoidani unutmang, aks holda iḍafa bo‘ziladi.",
-   "say": "The first word of an idafa never takes al or tanwin.",
-   "say_uz": "Iḍafaning birinchi so‘zi hech qachon al yoki tanvin olmaydi.",
+   "say_native": "O‘zbek tilida so‘zlashuvchilarning eng tipik xatosi: joy so‘zini otdan keyin qo‘yish, xuddi “stol ustida” kabi. Arabchada bunday bo‘lmaydi: avval “ʿalā”, keyin “aṭ-ṭāwila”. Ikkinchi xato: joy so‘zidan keyin otni “-u” bilan qoldirish: “taḥta s-sarīru”. To‘g‘risi “taḥta s-sarīri”. Qoidani bitta jumlada eslang: joy so‘zi oldinda, ot “-i” bilan.",
+   "say": "الْكِتَابُ عَلَى الطَّاوِلَةِ. الْقِطَّةُ تَحْتَ السَّرِيرِ.",
+   "say_uz": "Kitob stol ustida. Mushuk karavot tagida.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Iḍafa tuzing",
+   "title": "Qayerda turibdi?",
    "emotion": "encouraging",
-   "board": [
-    "1) uyning esiki",
-    "2) xonada stul",
-    "3) uy oshxonasi",
-    "4) xona derazasi"
-   ],
+   "board": ["1) Chiroq stol ustida.", "2) Gilam divan oldida.", "3) Mushuk shkaf orqasida.", "4) Stul karavot bilan deraza orasida."],
    "examples": [],
-   "say_native": "Mashq. To‘rtta iḍafa birikmasini tuzing. Birinchi: uyning esiki. Ikkinchi: xonada stul. Uchinchi: uy oshxonasi. To‘rtinchi: xona derazasi. Birinchi so‘zda “al” va tanvin bo‘lmasin.",
-   "say": "The door of the house. A chair in the room. The kitchen of the house. The window of the room.",
-   "say_uz": "Uyning esiki. Xonada stul. Uy oshxonasi. Xona derazasi.",
-   "practice_seconds": 14
+   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: chiroq stol ustida. Ikkinchi: gilam divan oldida. Uchinchi: mushuk shkaf orqasida. To‘rtinchi: stul karavot bilan deraza orasida. Joy so‘zini otdan oldin qo‘ying va otni “-i” bilan tugating.",
+   "say": "أَيْنَ الْمِصْبَاحُ؟ أَيْنَ السَّجَّادَةُ؟ أَيْنَ الْقِطَّةُ؟ أَيْنَ الْكُرْسِيُّ؟",
+   "say_uz": "Chiroq qayerda? Gilam qayerda? Mushuk qayerda? Stul qayerda?",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "بَابُ الْبَيْتِ",
-    "كُرْسِيٌّ فِي غُرْفَةٍ",
-    "مَطْبَخُ الْبَيْتِ",
-    "شَابَاكُ غُرْفَةٍ"
-   ],
+   "board": ["1) الْمِصْبَاحُ عَلَى الطَّاوِلَةِ.", "2) السَّجَّادَةُ أَمَامَ الْأَرِيكَةِ.", "3) الْقِطَّةُ خَلْفَ الْخِزَانَةِ.", "4) الْكُرْسِيُّ بَيْنَ السَّرِيرِ وَالنَّافِذَةِ."],
    "examples": [],
-   "say_native": "Javoblar: bābu al-bayt. Kursiyyun fī ghurfatin. Maṭbakhu al-bayt. Shābāku ghurfatin. Uchinchi va to‘rtinchi iḍafa: bābu al-bayt, maṭbakhu al-bayt. Birinchi so‘z yalang‘och. Ikkinchi va to‘rtinchida “fī ghurfatin” — xonada, predlog “fī” va majrūr. Endi dialog ko‘ramiz.",
-   "say": "The door of the house. A chair in the room. The kitchen of the house. The window of the room.",
-   "say_uz": "Uyning esiki. Xonada stul. Uy oshxonasi. Xona derazasi.",
+   "say_native": "Javoblar: “al-miṣbāḥu ʿalā ṭ-ṭāwila”. “As-sajjādatu amāma l-arīka”. “Al-qiṭṭatu khalfa l-khizāna”. “Al-kursiyyu bayna s-sarīri wan-nāfidha”. To‘rtinchi gapda “wa” dan keyingi so‘z ham “-i” oladi, chunki u ham “bayna” ga tegishli. Agar biror gapda tartibni o‘zbekchadek qilgan bo‘lsangiz, uni yana bir bor to‘g‘ri ayting.",
+   "say": "الْمِصْبَاحُ عَلَى الطَّاوِلَةِ. السَّجَّادَةُ أَمَامَ الْأَرِيكَةِ. الْقِطَّةُ خَلْفَ الْخِزَانَةِ. الْكُرْسِيُّ بَيْنَ السَّرِيرِ وَالنَّافِذَةِ.",
+   "say_uz": "Chiroq stol ustida. Gilam divan oldida. Mushuk shkaf orqasida. Stul karavot bilan deraza orasida.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Birinchi dialog: yangi uy",
+   "title": "Birinchi dialog: yangi kvartira",
    "emotion": "happy",
-   "board": [
-    "سَامِي: كَيْفَ بَيْتُكَ يَا أَحْمَد؟",
-    "أَحْمَد: بَيْتُي كَبِيرٌ، وَفِيهِ خَمْسُ غُرُفٍ.",
-    "سَامِي: أَيْنَ السَّرِيرُ؟",
-    "أَحْمَد: السَّرِيرُ فِي غُرْفَةِ النَّوْمِ."
-   ],
+   "board": ["سَلِيمٌ: هَلْ عِنْدَكَ شَقَّةٌ جَدِيدَةٌ يَا أَنْوَرُ؟", "أَنْوَرُ: نَعَمْ! الشَّقَّةُ فِي الطَّابِقِ الثَّالِثِ.", "أَنْوَرُ: فِيهَا غُرْفَتَانِ وَمَطْبَخٌ صَغِيرٌ وَحَمَّامٌ.", "أَنْوَرُ: وَفِيهَا شُرْفَةٌ أَمَامَ غُرْفَةِ الْجُلُوسِ."],
    "examples": [],
-   "say_native": "Birinchi dialog. Sami Ahmadning uyini qanday ekanini so‘raydi: “kayfa baytuka?” Ahmad: “Baytī kabīr, wa fīhi khamsu ghuruf” — mening uyim katta, unda beshta xona bor. Sami: “ayna as-sarīr?” — krevet qayerda? Ahmad: “as-sarīru fī ghurfati al-nawm” — krevet yoxunaixonada. “Khamsu ghuruf” — beshta xona, ko‘plik. “Fīhi” — unda bor.",
-   "say": "How is your house, Ahmad? My house is big, it has five rooms. Where is the bed? The bed is in the bedroom.",
-   "say_uz": "Uyingiz qanday, Ahmad? Uyingim katta, unda beshta xona bor. Krevet qayerda? Krevet yoxunaixonada.",
+   "say_native": "Birinchi dialog. Salim do‘sti Anvardan yangi kvartirasi haqida so‘raydi. Anvar kvartira qaysi qavatda ekanini, unda nechta xona borligini va qanday xonalar borligini aytadi. Yangi so‘zlar: “ath-thālith” — uchinchi, “fīhā” — unda, ya’ni kvartirada, “shurfa” — balkon. Diqqat bilan tinglang, keyin to‘rtta savol bo‘ladi.",
+   "say": "هَلْ عِنْدَكَ شَقَّةٌ جَدِيدَةٌ يَا أَنْوَرُ؟ نَعَمْ! الشَّقَّةُ فِي الطَّابِقِ الثَّالِثِ. فِيهَا غُرْفَتَانِ وَمَطْبَخٌ صَغِيرٌ وَحَمَّامٌ. هَلْ فِيهَا شُرْفَةٌ؟ نَعَمْ، فِيهَا شُرْفَةٌ جَمِيلَةٌ أَمَامَ غُرْفَةِ الْجُلُوسِ.",
+   "say_uz": "Anvar, yangi kvartirang bormi? Ha! Kvartira uchinchi qavatda. Unda ikkita xona, kichkina oshxona va hammom bor. Balkon bormi? Ha, mehmonxona oldida chiroyli balkon bor.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": [
-    "1) Ahmadning uyi qanday?",
-    "2) Unda nechta xona bor?",
-    "3) Krevet qayerda?",
-    "4) Qayerda yoxunai xona?"
-   ],
+   "board": ["1) Kvartira nechanchi qavatda?", "2) Unda nechta xona bor?", "3) Oshxona qanday?", "4) Balkon qayerda?"],
    "examples": [],
-   "say_native": "To‘rtta savol. Birinchi: Ahmadning uyi qanday? Ikkinchi: unda nechta xona bor? Uchinchi: krevet qayerda? To‘rtinchi: qayerda yoxunai xona? Dialogdan javob bering.",
-   "say": "What is Ahmad's house like? How many rooms does it have? Where is the bed? Where is the bedroom?",
-   "say_uz": "Ahmadning uyi qanday? Unda nechta xona bor? Krevet qayerda? Qayerda yoxunai xona?",
+   "say_native": "To‘rtta savol. Birinchi: kvartira nechanchi qavatda? Ikkinchi: unda nechta xona bor? Uchinchi: oshxona katta yoki kichik? To‘rtinchi: balkon qayerda joylashgan? Javoblarni arabcha qisqa qilib ayting.",
+   "say": "فِي أَيِّ طَابِقٍ الشَّقَّةُ؟ كَمْ غُرْفَةً فِيهَا؟ كَيْفَ الْمَطْبَخُ؟ أَيْنَ الشُّرْفَةُ؟",
+   "say_uz": "Kvartira qaysi qavatda? Unda nechta xona bor? Oshxona qanday? Balkon qayerda?",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "1) كَبِيرٌ",
-    "2) خَمْسُ غُرُفٍ",
-    "3) فِي غُرْفَةِ النَّوْمِ",
-    "4) غُرْفَةُ النَّوْمِ"
-   ],
+   "board": ["1) فِي الطَّابِقِ الثَّالِثِ", "2) غُرْفَتَانِ", "3) صَغِيرٌ", "4) أَمَامَ غُرْفَةِ الْجُلُوسِ"],
    "examples": [],
-   "say_native": "Javoblar: kabīr — katta. Khamsu ghuruf — beshta xona. Fī ghurfati al-nawm — yoxunaixonada. Ghurfatu al-nawm — yoxunai xona. “Khamsu” — besh, ko‘plik shakl. “Ghuruf” — xonalar. Bu shakllarni eslab qoling. Endi o‘zingizning uyingizni tasvirlaysiz.",
-   "say": "Big. Five rooms. In the bedroom. The bedroom.",
-   "say_uz": "Katta. Beshta xona. Yoxunaixonada. Yoxunai xona.",
+   "say_native": "Javoblar: kvartira uchinchi qavatda — “fiṭ-ṭābiqi th-thālith”. Ikkita xona — “ghurfatān”. Oshxona kichik — “ṣaghīr”. Balkon mehmonxona oldida — “amāma ghurfati l-julūs”. Savoldagi “kam ghurfatan?” — nechta xona? “Kam” dan keyin ot birlikda va “-an” bilan keladi. Buni keyinroq so‘roq gaplar darsida yana ko‘ramiz.",
+   "say": "فِي الطَّابِقِ الثَّالِثِ. غُرْفَتَانِ. الْمَطْبَخُ صَغِيرٌ. الشُّرْفَةُ أَمَامَ غُرْفَةِ الْجُلُوسِ.",
+   "say_uz": "Uchinchi qavatda. Ikkita xona. Oshxona kichik. Balkon mehmonxona oldida.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Talaffuz: ta marbuta",
+   "title": "Hajm sifatlari",
+   "emotion": "neutral",
+   "board": ["كَبِيرٌ / كَبِيرَةٌ — katta", "صَغِيرٌ / صَغِيرَةٌ — kichik", "وَاسِعٌ / وَاسِعَةٌ — keng", "ضَيِّقٌ / ضَيِّقَةٌ — tor"],
+   "examples": [{"t": "الْبَيْتُ كَبِيرٌ.", "uz": "Uy katta."}, {"t": "الْغُرْفَةُ وَاسِعَةٌ.", "uz": "Xona keng."}],
+   "say_native": "Hajmni tasvirlaymiz. “Kabīr” — katta, “ṣaghīr” — kichik, “wāsiʿ” — keng, “ḍayyiq” — tor. Har birining ayol shakli “-a” bilan: kabīra, ṣaghīra, wāsiʿa, ḍayyiqa. Yaxshi xabar: “uy katta” gapida o‘zbek tilida ham, arab tilida ham “bo‘lmoq” fe’li kerak emas: “al-baytu kabīr” — uy katta. Faqat sifat otning jinsiga moslashadi.",
+   "say": "الْبَيْتُ كَبِيرٌ. الْمَطْبَخُ صَغِيرٌ. الْغُرْفَةُ وَاسِعَةٌ. الْحَمَّامُ ضَيِّقٌ.",
+   "say_uz": "Uy katta. Oshxona kichik. Xona keng. Hammom tor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Holat sifatlari",
+   "emotion": "neutral",
+   "board": ["جَدِيدٌ — yangi · قَدِيمٌ — eski", "نَظِيفٌ — toza", "مُرِيحٌ — qulay", "جَمِيلٌ — chiroyli"],
+   "examples": [{"t": "الْأَرِيكَةُ جَدِيدَةٌ وَمُرِيحَةٌ.", "uz": "Divan yangi va qulay."}, {"t": "الْمَطْبَخُ نَظِيفٌ.", "uz": "Oshxona toza."}],
+   "say_native": "Holat sifatlari. “Jadīd” — yangi, “qadīm” — eski, “naẓīf” — toza, “murīḥ” — qulay, “jamīl” — chiroyli. Bir nechta sifatni “wa” bilan bog‘laymiz: “al-arīkatu jadīdatun wa murīḥa” — divan yangi va qulay. Arīka ayol jinsi, shuning uchun ikkala sifat ham “-a” bilan. “Ẓ” harfi “naẓīf” da: bu qalin “z”, og‘izni to‘ldirib aytiladi.",
+   "say": "الْأَرِيكَةُ جَدِيدَةٌ وَمُرِيحَةٌ. الْمَطْبَخُ نَظِيفٌ. الْخِزَانَةُ قَدِيمَةٌ. الشُّرْفَةُ جَمِيلَةٌ.",
+   "say_uz": "Divan yangi va qulay. Oshxona toza. Shkaf eski. Balkon chiroyli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "“Katta uy” va “uy katta”",
    "emotion": "thinking",
-   "board": [
-    "غُرْفَةٌ — ghur-fah (pause: ghurfa)",
-    "غُرْفَةُ النَّوْمِ — ghur-fa-t al-nawm",
-    "طَاوِلَةٌ — ṭā-wi-lah (pause: ṭāwila)",
-    "t pause holida “-a”, bog‘langanda “-t”"
-   ],
-   "examples": [
-    {
-     "t": "غُرْفَةٌ",
-     "uz": "xona"
-    },
-    {
-     "t": "طَاوِلَةٌ",
-     "uz": "stol"
-    }
-   ],
-   "say_native": "Ta marbuta haqida yana bir bor. So‘z yakka turganda “ghurfah”, “ṭāwilah” deb aytiladi. Lekin keyingi so‘z bilan bog‘lansa “t” paydo bo‘ladi: “ghurfatu al-nawm”, “ṭāwilatu al-bayt”. Yozuvda bu harf “ta marbuta” deyiladi. “Al-ghurfatu” pause holida “al-ghurfa”. Bu tabiiy nutqning muhim belgisi. Baland ovozda takrorlang.",
-   "say": "Ghurfah at a pause, ghurfat in connection. Tawilah at a pause, tawilat in connection.",
-   "say_uz": "Pauzada ghurfa, bog‘langanda ghurfat. Pauzada tawila, bog‘langanda tawilat.",
+   "board": ["بَيْتٌ كَبِيرٌ — katta uy", "الْبَيْتُ الْكَبِيرُ — o‘sha katta uy", "الْبَيْتُ كَبِيرٌ. — Uy katta."],
+   "examples": [{"t": "عِنْدِي بَيْتٌ كَبِيرٌ.", "uz": "Mening katta uyim bor."}, {"t": "الْبَيْتُ كَبِيرٌ.", "uz": "Uy katta."}],
+   "say_native": "Nozik, lekin muhim farq. “Baytun kabīr” — katta uy, ikkalasi ham “al-” siz. “Al-baytu l-kabīr” — o‘sha katta uy, ikkalasida ham “al-”. Bular hali gap emas, faqat birikma. Gap bo‘lishi uchun otda “al-” bor, sifatda esa yo‘q: “al-baytu kabīr” — uy katta. O‘zbek tilida farq so‘z tartibida: “katta uy” va “uy katta”. Arab tilida esa farq “al-” da.",
+   "say": "بَيْتٌ كَبِيرٌ. الْبَيْتُ الْكَبِيرُ. الْبَيْتُ كَبِيرٌ.",
+   "say_uz": "Katta uy. O‘sha katta uy. Uy katta.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Sifat xatolari",
+   "emotion": "stern",
+   "board": ["✗ الْبَيْتُ الْكَبِيرُ. (uy katta)", "✓ الْبَيْتُ كَبِيرٌ.", "✗ الْغُرْفَةُ صَغِيرٌ.", "✓ الْغُرْفَةُ صَغِيرَةٌ."],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: “uy katta” demoqchi bo‘lib “al-baytu l-kabīr” deyish. Bu to‘liq gap emas, “o‘sha katta uy …” degan tugallanmagan birikma bo‘lib qoladi. Gap uchun sifatdan “al-” ni olib tashlang: “al-baytu kabīr”. Ikkinchisi: jinsni unutish. “Al-ghurfatu ṣaghīr” noto‘g‘ri, xona ayol jinsi: “al-ghurfatu ṣaghīra”.",
+   "say": "الْبَيْتُ كَبِيرٌ. الْغُرْفَةُ صَغِيرَةٌ.",
+   "say_uz": "Uy katta. Xona kichik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tasvirlang",
+   "emotion": "encouraging",
+   "board": ["1) Oshxona kichik va toza.", "2) Yotoqxona keng.", "3) Mening yangi divanim bor.", "4) Shkaf eski, lekin chiroyli."],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: oshxona kichik va toza. Ikkinchi: yotoqxona keng. Uchinchi: mening yangi divanim bor. To‘rtinchi: shkaf eski, lekin chiroyli. “Lekin” — “lākin”. Har gapda jinsni tekshiring va gap yoki birikma ekanini o‘ylang.",
+   "say": "كَيْفَ بَيْتُكَ؟",
+   "say_uz": "Uyingiz qanday?",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) الْمَطْبَخُ صَغِيرٌ وَنَظِيفٌ.", "2) غُرْفَةُ النَّوْمِ وَاسِعَةٌ.", "3) عِنْدِي أَرِيكَةٌ جَدِيدَةٌ.", "4) الْخِزَانَةُ قَدِيمَةٌ لَكِنَّهَا جَمِيلَةٌ."],
+   "examples": [],
+   "say_native": "Javoblar: “al-maṭbakhu ṣaghīrun wa naẓīf”. “Ghurfatu n-nawmi wāsiʿa” — ghurfa ayol jinsi, sifat ham ayol shaklida. “ʿIndī arīkatun jadīda” — bu birikma: yangi divan. “Al-khizānatu qadīmatun lākinnahā jamīla”. “Lākinnahā” — lekin u. Agar “lākin jamīla” desangiz ham sizni tushunishadi, lekin adabiy tilda “lākinnahā” chiroyliroq.",
+   "say": "الْمَطْبَخُ صَغِيرٌ وَنَظِيفٌ. غُرْفَةُ النَّوْمِ وَاسِعَةٌ. عِنْدِي أَرِيكَةٌ جَدِيدَةٌ. الْخِزَانَةُ قَدِيمَةٌ لَكِنَّهَا جَمِيلَةٌ.",
+   "say_uz": "Oshxona kichik va toza. Yotoqxona keng. Mening yangi divanim bor. Shkaf eski, lekin chiroyli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ikkinchi dialog: Laylining xonasi",
+   "emotion": "happy",
+   "board": ["لَيْلَى: تَفَضَّلِي! هَذِهِ غُرْفَتِي.", "سَارَةُ: مَا شَاءَ اللَّهُ! الْغُرْفَةُ وَاسِعَةٌ وَنَظِيفَةٌ.", "لَيْلَى: السَّرِيرُ بِجَانِبِ النَّافِذَةِ.", "سَارَةُ: وَأَيْنَ كُتُبُكِ؟ — لَيْلَى: تَحْتَ السَّرِيرِ!"],
+   "examples": [],
+   "say_native": "Ikkinchi dialog. Layli dugonasi Sorani o‘z xonasiga taklif qiladi. Sora xonani maqtaydi. “Mā shāʾa llāh” iborasini bilasiz, arablar ham biror narsani maqtaganda shunday deyishadi. Layli jihozlar qayerda turganini ko‘rsatadi. Yangi so‘zlar: “ghurfatī” — mening xonam, “maktab” — yozuv stoli, “kutubuki” — kitoblaring. Oxiridagi hazilga e’tibor bering.",
+   "say": "تَفَضَّلِي! هَذِهِ غُرْفَتِي. مَا شَاءَ اللَّهُ! الْغُرْفَةُ وَاسِعَةٌ وَنَظِيفَةٌ. السَّرِيرُ بِجَانِبِ النَّافِذَةِ، وَالْمَكْتَبُ أَمَامَ الْخِزَانَةِ. وَأَيْنَ كُتُبُكِ؟ كُتُبِي تَحْتَ السَّرِيرِ!",
+   "say_uz": "Marhamat! Bu mening xonam. Mashaolloh! Xona keng va toza. Karavot deraza yonida, yozuv stoli shkaf oldida. Kitoblaring qayerda? Kitoblarim karavot tagida!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": ["1) Xona qanday?", "2) Karavot qayerda?", "3) Yozuv stoli qayerda?", "4) Kitoblar qayerda?"],
+   "examples": [],
+   "say_native": "To‘rtta savol. Birinchi: Laylining xonasi qanday? Ikkita sifat bor edi. Ikkinchi: karavot qayerda? Uchinchi: yozuv stoli qayerda? To‘rtinchi: kitoblar qayerda? Javoblarni joy so‘zlari bilan arabcha ayting.",
+   "say": "كَيْفَ الْغُرْفَةُ؟ أَيْنَ السَّرِيرُ؟ أَيْنَ الْمَكْتَبُ؟ أَيْنَ الْكُتُبُ؟",
+   "say_uz": "Xona qanday? Karavot qayerda? Yozuv stoli qayerda? Kitoblar qayerda?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) وَاسِعَةٌ وَنَظِيفَةٌ", "2) بِجَانِبِ النَّافِذَةِ", "3) أَمَامَ الْخِزَانَةِ", "4) تَحْتَ السَّرِيرِ"],
+   "examples": [],
+   "say_native": "Javoblar: xona keng va toza — “wāsiʿatun wa naẓīfa”. Karavot deraza yonida — “bi-jānibi n-nāfidha”. Yozuv stoli shkaf oldida — “amāma l-khizāna”. Kitoblar esa karavot tagida — “taḥta s-sarīr”. Layli hazillashdi, kitob uchun yaxshi joy emas! E’tibor bering: “maktab” so‘zi ham yozuv stoli, ham ofis ma’nosini beradi.",
+   "say": "الْغُرْفَةُ وَاسِعَةٌ وَنَظِيفَةٌ. السَّرِيرُ بِجَانِبِ النَّافِذَةِ. الْمَكْتَبُ أَمَامَ الْخِزَانَةِ. الْكُتُبُ تَحْتَ السَّرِيرِ.",
+   "say_uz": "Xona keng va toza. Karavot deraza yonida. Yozuv stoli shkaf oldida. Kitoblar karavot tagida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: غ, خ, ح",
+   "emotion": "thinking",
+   "board": ["غُرْفَةٌ — غ = o‘zbekcha g‘", "خِزَانَةٌ · مَطْبَخٌ — خ = o‘zbekcha x", "حَمَّامٌ — ح: o‘zbek tilida yo‘q"],
+   "examples": [{"t": "غُرْفَةٌ وَمَطْبَخٌ", "uz": "Xona va oshxona"}, {"t": "حَمَّامٌ وَخِزَانَةٌ", "uz": "Hammom va shkaf"}],
+   "say_native": "Talaffuz. Bugungi so‘zlarda uchta tovush bor. “Gh” — “ghurfa” da. Bu o‘zbekcha “g‘” ning o‘zi, shuning uchun siz uni arablarga o‘xshab aytasiz. “Kh” — “khizāna” va “maṭbakh” da, bu o‘zbekcha “x”. “Ḥ” — “ḥammām” da, u o‘zbek tilida yo‘q. Uni “x” bilan almashtirmang: “xammam” emas, “ḥammām”. Tomoqni biroz siqib, xirillashsiz havo chiqaring.",
+   "say": "غُرْفَةٌ. خِزَانَةٌ. مَطْبَخٌ. حَمَّامٌ.",
+   "say_uz": "Xona. Shkaf. Oshxona. Hammom.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Baland ovozda takrorlang",
    "emotion": "encouraging",
-   "board": [
-    "1) غُرْفَةٌ",
-    "2) طَاوِلَةٌ",
-    "3) بَابٌ",
-    "4) شَابَاكٌ"
-   ],
+   "board": ["1) غُرْفَةُ النَّوْمِ", "2) الْخِزَانَةُ فِي الْمَطْبَخِ", "3) الْحَمَّامُ نَظِيفٌ", "4) غُرْفَةٌ وَحَمَّامٌ وَمَطْبَخٌ"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta so‘zni baland ovozda takrorlang: ghurfah, ṭāwilah, bāb, shābāk. Keyin ularni gap ichida takrorlang: “al-ghurfatu”, “aṭ-ṭāwilatu”. Har birini ikki marta ayting.",
-   "say": "Repeat: ghurfah, tawilah, bab, shabak.",
-   "say_uz": "Takrorlang: ghurfa, tawila, bab, shabak.",
+   "say_native": "Mashq. Doskadagi to‘rtta iborani tinglang va har birini ikki marta takrorlang. “G‘”, “x” va “ḥ” ni bir-biridan aniq farqlang. Ayniqsa to‘rtinchi iborada uchala tovush ketma-ket keladi.",
+   "say": "غُرْفَةُ النَّوْمِ... الْخِزَانَةُ فِي الْمَطْبَخِ... الْحَمَّامُ نَظِيفٌ... غُرْفَةٌ وَحَمَّامٌ وَمَطْبَخٌ...",
+   "say_uz": "Yotoqxona... shkaf oshxonada... hammom toza... xona, hammom va oshxona...",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Tekshirib ko‘ring",
    "emotion": "proud",
-   "board": [
-    "غُرْفَةٌ / غُرْفَةُ",
-    "طَاوِلَةٌ / طَاوِلَةُ",
-    "بَابٌ / بَابُ",
-    "شَابَاكٌ / شَابَاكُ"
-   ],
+   "board": ["غ ≠ ج  (ghurfa, jurfa emas)", "خ ≠ ح  (khizāna ≠ ḥammām)", "حَمَّامٌ ≠ خَمَّامٌ"],
    "examples": [],
-   "say_native": "Javoblar to‘g‘ri. “Ghurfah” pause holida, “ghurfatu” iḍafada. “Ṭāwilah” pause holida, “ṭāwilatu” iḍafada. “Bāb” va “shābāk” ta marbuta emas, ular “-un” bilan tugaydi. Bu farqni eslab qoling. Endi o‘zingizning uyingizni tasvirlaymiz.",
-   "say": "Ghurfah, tawilah, bab, shabak.",
-   "say_uz": "Ghurfa, tawila, bab, shabak.",
+   "say_native": "O‘zingizni tekshiring. “Ghurfa” ni yumshoq “g‘” bilan aytdingizmi? “Khizāna” da “x”, “ḥammām” da esa xirillamaydigan “ḥ” bo‘ldimi? Bu ikki tovushni ajratish arab tilida juda muhim, chunki ko‘p so‘zlar faqat shu tovush bilan farq qiladi. Yozuvda ham ular faqat nuqta bilan farqlanadi: “ḥ” nuqtasiz, “kh” ustida bitta nuqta.",
+   "say": "غُرْفَةٌ. خِزَانَةٌ. حَمَّامٌ. أَحْسَنْتَ!",
+   "say_uz": "Xona. Shkaf. Hammom. Barakalla!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Uyingizni tasvirlang",
    "emotion": "encouraging",
-   "board": [
-    "8 gap",
-    "Xona-bo‘xona",
-    "Jihoz va joylashuv"
-   ],
+   "board": ["1) أَسْكُنُ فِي ... (uy yoki kvartira)", "2) فِي ... غُرَفٍ (nechta xona)", "3) Har xona: nima bor, qayerda", "4) Sifatlar: kabīr, wāsiʿ, jadīd, murīḥ"],
    "examples": [],
-   "say_native": "Endi sizning navbatingiz. O‘zingizning uyingizni sakkiz gapda tasvirlang. Har gapda xona, jihoz yoki joylashuv so‘zi bo‘lsin. “ʿindī”, “fawqa”, “taḥta”, sifatlar va iḍafadan foydalaning. Sekin va aniq gapiring.",
-   "say": "Describe your home in eight sentences.",
-   "say_uz": "Uyingizni sakkiz gapda tasvirlang.",
+   "say_native": "Yakuniy vazifa. O‘z uyingizni sakkiz gapda tasvirlang. Avval qayerda yashashingizni ayting: uy yoki kvartira. Keyin nechta xona borligini. So‘ng har bir xonada nima borligini va jihozlar qayerda turganini ayting. Kamida ikkita sifat ishlating. Sekin va aniq gapiring, joy so‘zlari oldinda bo‘lsin.",
+   "say": "صِفْ بَيْتَكَ مِنْ فَضْلِكَ.",
+   "say_uz": "Iltimos, uyingizni tasvirlang.",
    "practice_seconds": 24
   },
   {
    "kind": "explain",
-   "title": "O‘z-o‘zini tekshirish",
+   "title": "Namuna javob",
    "emotion": "proud",
-   "board": [
-    "“ʿindī” bormi?",
-    "Joylashuv so‘zi bormi?",
-    "Sifat mosmi?",
-    "Sakkiz gap bormi?"
-   ],
+   "board": ["أَسْكُنُ فِي شَقَّةٍ. فِي الشَّقَّةِ ثَلَاثُ غُرَفٍ.", "غُرْفَةُ الْجُلُوسِ وَاسِعَةٌ. فِيهَا أَرِيكَةٌ وَسَجَّادَةٌ.", "الْمَطْبَخُ صَغِيرٌ لَكِنَّهُ نَظِيفٌ.", "سَرِيرِي بِجَانِبِ النَّافِذَةِ."],
    "examples": [],
-   "say_native": "Tekshiring. Birinchi: mavjudlik gapida “ʿindī” bormi? Ikkinchi: joylashuv so‘zi (fawqa, taḥta, amāma, khalfā) bormi? Uchinchi: sifat otga moslashganmi? To‘rtinchi: sakkizta gap tuzdingizmi? Har biriga “ha” desangiz, vazifa bajarildi.",
-   "say": "Check indi, location words, adjective agreement and eight sentences.",
-   "say_uz": "“Indi”, joylashuv so‘zlari, sifat mosligi va sakkiz gapni tekshiring.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Yana xonalar",
-   "emotion": "neutral",
-   "board": [
-    "غُرْفَةُ الضُّيُوفِ — mehmon xona",
-    "الشُّرُفَةُ — bivoncha",
-    "مَرْكَزُ الْعَمَلِ — ish xonasi",
-    "الْمَرْحَلَةُ — marches"
-   ],
-   "examples": [
-    {
-     "t": "الشُّرُفَةُ",
-     "uz": "bivoncha"
-    },
-    {
-     "t": "غُرْفَةُ الضُّيُوفِ",
-     "uz": "mehmon xona"
-    }
-   ],
-   "say_native": "Yana to‘rtta joy. “Ash-shurfah” — bivoncha, “ghurfatu al-ḍuyūf” — mehmon xona, “markazu al-ʿamal” — ish xonasi, “al-marḥalah” — marches. “Ash-shurfah” da “sh” quyosh harfi: “al-shurfah” emas, “ash-shurfah”. “Ghurfatu al-ḍuyūf” — iḍafa, mehmon xona. “Markazu al-ʿamal” — ish xonasi, iḍafa. “Al-marḥalah” — marches. Uylarda bu joylar ham bor. Endi ularni yaxshiroq yodlab olamiz.",
-   "say": "Ash-shurfah, ghurfatu al-duyuf, markazu al-amal, al-marhalah.",
-   "say_uz": "Ash-shurfah, ghurfatu al-duyuf, markazu al-amal, al-marḥalah.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yana xonalar",
-   "emotion": "encouraging",
-   "board": [
-    "1) bivoncha",
-    "2) mehmon xona",
-    "3) ish xonasi",
-    "4) marches",
-    "5) oshxona"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Beshta joyni arabcha ayting: bivoncha, mehmon xona, ish xonasi, marches, oshxona. Har birini baland ovozda ayting.",
-   "say": "Say the Arabic words for balcony, guest room, study, stairs and kitchen.",
-   "say_uz": "Arabcha ayting: bivoncha, mehmon xona, ish xonasi, marches, oshxona.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "1) الشُّرُفَةُ",
-    "2) غُرْفَةُ الضُّيُوفِ",
-    "3) مَرْكَزُ الْعَمَلِ",
-    "4) الْمَرْحَلَةُ",
-    "5) مَطْبَخٌ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ash-shurfah. Ghurfatu al-ḍuyūf. Markazu al-ʿamal. Al-marḥalah. Maṭbakh. Uchinchida “markaz” erkak jinsli, “markazu”. To‘rtinchida “al-marḥalah” — marches, “l” “m” ga qo‘shilib ketadi, chunki “m” oy harfi, shuning uchun “l” saqlanadi. Bu farqni eslab qoling.",
-   "say": "Ash-shurfah, ghurfatu al-duyuf, markazu al-amal, al-marhalah, matbakh.",
-   "say_uz": "Ash-shurfah, ghurfatu al-duyuf, markazu al-amal, al-marhala, matbakh.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Raqamlar: nechta xona?",
-   "emotion": "neutral",
-   "board": [
-    "وَاحِدٌ — bir",
-    "اثْنَانِ — ikki",
-    "ثَلَاثَةٌ — uch",
-    "أَرْبَعَةٌ — to‘rt"
-   ],
-   "examples": [
-    {
-     "t": "خَمْسُ غُرُفٍ",
-     "uz": "beshta xona"
-    },
-    {
-     "t": "غُرْفَتَانِ",
-     "uz": "ikki xona"
-   }
-  ],
-   "say_native": "Raqamlar: “wāḥidun” — bir, “ithnān” — ikki, “thalāthah” — uch, “arbaʿah” — to‘rt, “khamsah” — besh. “Khamsu ghuruf” — beshta xona. “Ghurfatāni” — ikki xona, ikkilik. “Thalāthatu ghuruf” — uchta xona. Xona ayol jinsli, lekin raqam “khams” erkak shaklda bor, shuning uchun “khamsu ghuruf”. Bu nozik nuqta, eslab qoling. “Wāḥidun bayt” — bir uy.",
-   "say": "Wahid, ithnan, thalatha, arbaa, khamsa. Khamsa ghuraf.",
-   "say_uz": "Vahid, ithnan, salasa, arbaa, khamsa. Khamsa xona.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Xonani sonlang",
-   "emotion": "encouraging",
-   "board": [
-    "1) bir uy",
-    "2) ikki xona",
-    "3) uchta xona",
-    "4) to‘rtta xona",
-    "5) beshta xona"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Beshta iborani arabcha ayting. Birinchi: bir uy. Ikkinchi: ikki xona. Uchinchi: uchta xona. To‘rtinchi: to‘rtta xona. Beshinchi: beshta xona. Raqam va xona so‘zini moslang.",
-   "say": "One house. Two rooms. Three rooms. Four rooms. Five rooms.",
-   "say_uz": "Bir uy. Ikki xona. Uchta xona. To‘rtta xona. Beshta xona.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "بَيْتٌ وَاحِدٌ",
-    "غُرْفَتَانِ",
-    "ثَلَاثُ غُرَفٍ",
-    "خَمْسُ غُرُفٍ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: baytun wāḥidun. Ghurfatāni. Thalāthatu ghuruf. Khamsu ghuruf. “Baytun wāḥidun” — bir uy. “Ghurfatāni” — ikki xona, ikkilik shakl, oxiri “-āni”. “Thalāthatu ghuruf” — uchta xona, ko‘plik. “Khamsu ghuruf” — beshta xona. Bu raqam shakllarni yaxshi yodlab oling, keyingi darsda ham kerak bo‘ladi.",
-   "say": "Baytun wahid. Ghurfatani. Thalathatu ghuraf. Khamsa ghuraf.",
-   "say_uz": "Bir uy. Ikki xona. Uchta xona. To‘rtta xona. Beshta xona.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Holat: toza va kir",
-   "emotion": "neutral",
-   "board": [
-    "نَظِيفٌ — toza",
-    "وَسِخٌ — kir",
-    "جَمِيلٌ — yiroq",
-    "قَدِيمٌ — eski"
-   ],
-   "examples": [
-    {
-     "t": "الْغُرْفَةُ نَظِيفَةٌ",
-     "uz": "Xona toza"
-    },
-    {
-     "t": "الْبَيْتُ قَدِيمٌ",
-     "uz": "Uy eski"
-    }
-   ],
-   "say_native": "Holat sifatlari: “naẓīf” — toza, “wasikh” — kir, “jamīl” — yiroq, “qadīm” — eski. “Al-ghurfatu naẓīfah” — xona toza. “Al-baytu qadīm” — uy eski. “Al-bābu jamīl” — esik yiroq. “Al-kursiyyu wasikh” — stul kir. Sifat otga moslashadi: ghurfah ayol, “naẓīfah”; bayt erkak, “qadīm”. Endi uyingizning holatini aytishingiz mumkin.",
-   "say": "Nazif, wasikh, jamil, qadim. Clean, dirty, beautiful, old.",
-   "say_uz": "Nazif, wasikh, jamil, qadim. Toza, kir, yiroq, eski.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Holati nima?",
-   "emotion": "encouraging",
-   "board": [
-    "1) Xona toza.",
-    "2) Uy eski.",
-    "3) Esik yiroq.",
-    "4) Stul kir."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: xona toza. Ikkinchi: uy eski. Uchinchi: esik yiroq. To‘rtinchi: stul kir. Sifat jinsini unutmang.",
-   "say": "The room is clean. The house is old. The door is beautiful. The chair is dirty.",
-   "say_uz": "Xona toza. Uy eski. Esik yiroq. Stul kir.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "الْغُرْفَةُ نَظِيفَةٌ",
-    "الْبَيْتُ قَدِيمٌ",
-    "الْبَابُ جَمِيلٌ",
-    "الْكُرْسِيُّ وَسِخٌ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: al-ghurfatu naẓīfah. Al-baytu qadīm. Al-bābu jamīl. Al-kursiyyu wasikh. Har birida sifat otga mos: ghurfah ayol, “naẓīfah”; bayt erkak, “qadīm”; bāb erkak, “jamīl”; kursi erkak, “wasikh”. Endi o‘zingizning uyingizning holatini aytasiz.",
-   "say": "The room is clean. The house is old. The door is beautiful. The chair is dirty.",
-   "say_uz": "Xona toza. Uy eski. Esik yiroq. Stul kir.",
+   "say_native": "Namuna javobni tinglang. Kvartirada yashash, uchta xona, keng mehmonxona va undagi jihozlar, kichik, lekin toza oshxona, deraza yonidagi karavot. “Lākinnahu” — lekin u, oshxona erkak jinsi bo‘lgani uchun “-hu”. “Sarīrī” — mening karavotim. O‘z javobingizni solishtiring: joy so‘zlari, sonlar va sifatlar to‘g‘rimi?",
+   "say": "أَسْكُنُ فِي شَقَّةٍ. فِي الشَّقَّةِ ثَلَاثُ غُرَفٍ. غُرْفَةُ الْجُلُوسِ وَاسِعَةٌ، فِيهَا أَرِيكَةٌ وَسَجَّادَةٌ. الْمَطْبَخُ صَغِيرٌ لَكِنَّهُ نَظِيفٌ. سَرِيرِي بِجَانِبِ النَّافِذَةِ.",
+   "say_uz": "Men kvartirada yashayman. Kvartirada uchta xona bor. Mehmonxona keng, unda divan va gilam bor. Oshxona kichik, lekin toza. Karavotim deraza yonida.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": [
-    "بَيْتٌ، غُرْفَةٌ، مَطْبَخٌ، حَمَّامٌ، نَوْمٌ",
-    "عِنْدِي سَرِيرٌ / لَيْسَ عِنْدِي طَاوِلَةٌ",
-    "فَوْقَ، تَحْتَ، أَمَامَ، خَلْفَ",
-    "غُرْفَةُ النَّوْمِ، بَابُ الْبَيْتِ"
-   ],
+   "board": ["غُرْفَةُ النَّوْمِ، مَطْبَخٌ، حَمَّامٌ، سَرِيرٌ، خِزَانَةٌ", "فِي الْبَيْتِ ثَلَاثُ غُرَفٍ. / عِنْدِي شَقَّةٌ.", "عَلَى، تَحْتَ، بِجَانِبِ، أَمَامَ، خَلْفَ، بَيْنَ", "الْبَيْتُ كَبِيرٌ ≠ بَيْتٌ كَبِيرٌ"],
    "examples": [],
-   "say_native": "Xulosa. Uy va xona nomlarini o‘rgandik: bayt, ghurfah, maṭbakh, ḥammām, nawm. Mavjudlik: “ʿindī” bor, “laysa ʿindī” yo‘q. Joylashuv: fawqa, taḥta, amāma, khalfā. Sifatlar: kabīr, ṣaghīr, jadīd, qadīm. Iḍafa: ghurfatu al-nawm, bābu al-bayt. Eng muhim fikr: jins va kelishik qoidalar hamma joyda bo‘ladi.",
-   "say": "Home and rooms, there is/are, location words, adjectives and idafa.",
-   "say_uz": "Uy va xonalar, bor/yo‘q, joylashuv so‘zlari, sifatlar va iḍafa.",
+   "say_native": "Xulosa. Xona va jihoz nomlarini o‘rgandik. “Bor” uchun joy oldinga chiqadi: “fil-bayti thalāthu ghuraf”, yoki “hunāka”. Egalik uchun “ʿindī”. Joy so‘zlari otdan oldin keladi va otni “-i” bilan tugatadi: “ʿalā ṭ-ṭāwilati”. Sifat otdan keyin keladi, jinsga moslashadi, va “al-baytu kabīr” — gap, “baytun kabīr” — birikma. Ikkita uchun “-āni”, uchtadan ko‘plik.",
+   "say": "فِي الْبَيْتِ ثَلَاثُ غُرَفٍ. الْكِتَابُ عَلَى الطَّاوِلَةِ. الْغُرْفَةُ كَبِيرَةٌ وَنَظِيفَةٌ.",
+   "say_uz": "Uyda uchta xona bor. Kitob stol ustida. Xona katta va toza.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uy vazifasi",
    "emotion": "encouraging",
-   "board": [
-    "8 gap",
-    "Xona-bo‘xona",
-    "Muvaffaqiyat: 8 gap"
-   ],
+   "board": ["Uyingizni xonama-xona tasvirlang", "8 gap", "Muvaffaqiyat: فِي/هُنَاكَ, 3 joy so‘zi, 2 sifat"],
    "examples": [],
-   "say_native": "Uy vazifasi. O‘zingizning uyingizni sakkizta arabcha gapda tasvirlang va yozib qo‘ying. Muvaffaqiyat mezoni: sakkizta gap, kamida bitta “ʿindī”, bitta joylashuv so‘zi, bitta sifat va bitta iḍafa. Keyingi darsda shaharda yo‘l so‘rash va tushuntirishni o‘rganamiz.",
-   "say": "Homework: describe your home in eight sentences.",
-   "say_uz": "Uy vazifasi: uyingizni sakkiz gapda tasvirlang.",
+   "say_native": "Uy vazifasi. Uyingizni xonama-xona sakkizta arabcha gapda yozing. Muvaffaqiyat mezoni: sakkizta gap, kamida bitta “fī … bor” yoki “hunāka” gapi, kamida uchta turli joy so‘zi va jinsga to‘g‘ri moslangan ikkita sifat. Yozib bo‘lgach, baland ovozda o‘qing. Keyingi darsda shaharda yo‘l so‘rash va yo‘l tushuntirishni o‘rganamiz.",
+   "say": "اُكْتُبْ ثَمَانِيَ جُمَلٍ عَنْ بَيْتِكَ. إِلَى اللِّقَاءِ!",
+   "say_uz": "Uyingiz haqida sakkizta gap yozing. Ko‘rishguncha!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "O‘zingizning uyingizni sakkizta arabcha gapda tasvirlang va yozib oling. Muvaffaqiyat mezoni: sakkizta gap, kamida bitta “ʿindī”, bitta joylashuv so‘zi, bitta sifat va bitta iḍafa.",
+ "homework_uz": "Uyingizni xonama-xona sakkizta arabcha gapda yozing va baland ovozda o‘qing. Muvaffaqiyat mezoni: sakkizta gap, kamida bitta “fī … / hunāka” gapi, kamida uchta turli joy so‘zi (ʿalā, taḥta, bi-jānibi, amāma, khalfa, bayna) va jinsga to‘g‘ri moslangan ikkita sifat.",
  "quiz": [
-  {
-   "q": "“Uy” arabchada:",
-   "options": [
-    "غُرْفَةٌ",
-    "بَيْتٌ",
-    "مَطْبَخٌ",
-    "حَمَّامٌ"
-   ],
-   "answer": 1,
-   "why_uz": "“Bayt” — uy."
-  },
-  {
-   "q": "“Yoxunai xona”:",
-   "options": [
-    "غُرْفَةُ النَّوْمِ",
-    "غُرْفَةُ الْمَطْبَخِ",
-    "حَمَّامُ الْبَيْتِ",
-    "بَابُ الْبَيْتِ"
-   ],
-   "answer": 0,
-   "why_uz": "“Ghurfatu al-nawm” — yoxunai xona."
-  },
-  {
-   "q": "“Krevet”:",
-   "options": [
-    "طَاوِلَةٌ",
-    "سَرِيرٌ",
-    "كُرْسِيٌّ",
-    "بَابٌ"
-   ],
-   "answer": 1,
-   "why_uz": "“Sirīr” — krevet."
-  },
-  {
-   "q": "“Mening krevetim bor”:",
-   "options": [
-    "عِنْدِي سَرِيرٌ",
-    "لَيْسَ عِنْدِي سَرِيرٌ",
-    "أَنَا عِنْدِي سَرِيرٌ",
-    "لَا عِنْدِي سَرِيرٌ"
-   ],
-   "answer": 0,
-   "why_uz": "“ʿindī sirīr” — mening krevetim bor."
-  },
-  {
-   "q": "“Mening stolim yo‘q”:",
-   "options": [
-    "عِنْدِي طَاوِلَةٌ",
-    "لَيْسَ عِنْدِي طَاوِلَةٌ",
-    "لَا طَاوِلَةٌ",
-    "أَنَا عِنْدِي طَاوِلَةٌ"
-   ],
-   "answer": 1,
-   "why_uz": "Inkor “laysa ʿindī”."
-  },
-  {
-   "q": "“Stolning ustida”:",
-   "options": [
-    "فَوْقَ الطَّاوِلَةِ",
-    "تَحْتَ الطَّاوِلَةِ",
-    "أَمَامَ الطَّاوِلَةِ",
-    "خَلْفَ الطَّاوِلَةِ"
-   ],
-   "answer": 0,
-   "why_uz": "“Fawqa” — ustida."
-  },
-  {
-   "q": "“Xona kichik”:",
-   "options": [
-    "الْغُرْفَةُ كَبِيرَةٌ",
-    "الْغُرْفَةُ صَغِيرَةٌ",
-    "الْغُرْفَةُ جَدِيدَةٌ",
-    "الْغُرْفَةُ قَدِيمَةٌ"
-   ],
-   "answer": 1,
-   "why_uz": "“Ṣaghīrah” — kichik, xona ayol jinsli."
-  },
-  {
-   "q": "“Yoxunai xona” iḍafasi:",
-   "options": [
-    "الغُرْفَةُ النَّوْمِ",
-    "غُرْفَةُ النَّوْمِ",
-    "غُرْفَةٌ النَّوْمِ",
-    "النَّوْمُ غُرْفَةٌ"
-   ],
-   "answer": 1,
-   "why_uz": "Birinchi so‘z al va tanvinsiz: ghurfatu al-nawm."
-  },
-  {
-   "q": "“Esik yangi”:",
-   "options": [
-    "الْبَابُ قَدِيمٌ",
-    "الْبَابُ جَدِيدٌ",
-    "الْبَابُ كَبِيرٌ",
-    "الْبَابُ صَغِيرٌ"
-   ],
-   "answer": 1,
-   "why_uz": "“Jadīd” — yangi, esik erkak jinsli."
-  },
-  {
-   "q": "“Uy oshxonasi”:",
-   "options": [
-    "الْغُرْفَةُ النَّوْمِ",
-    "مَطْبَخُ الْبَيْتِ",
-    "بَابُ الْبَيْتِ",
-    "حَمَّامُ الْبَيْتِ"
-   ],
-   "answer": 1,
-   "why_uz": "“Maṭbakhu al-bayt” — uyning oshxonasi."
-  }
+  {"q": "“Yotoqxona” arabchada:", "options": ["غُرْفَةُ الْجُلُوسِ", "غُرْفَةُ النَّوْمِ", "النَّوْمُ", "مَطْبَخٌ"], "answer": 1, "why_uz": "Ghurfatu n-nawm — uyqu xonasi, ya’ni yotoqxona."},
+  {"q": "“Shkaf”:", "options": ["خِزَانَةٌ", "حَمَّامٌ", "سَرِيرٌ", "نَافِذَةٌ"], "answer": 0, "why_uz": "Khizāna — shkaf. Sarīr — karavot, nāfidha — deraza."},
+  {"q": "“Uyda oshxona bor”:", "options": ["مَطْبَخٌ فِي الْبَيْتِ", "فِي الْبَيْتِ مَطْبَخٌ", "الْبَيْتُ مَطْبَخٌ", "مَطْبَخُ الْبَيْتِ"], "answer": 1, "why_uz": "“Bor” ma’nosida joy oldinga chiqadi: fil-bayti maṭbakh."},
+  {"q": "“Uchta xona”:", "options": ["ثَلَاثُ غُرْفَةٍ", "ثَلَاثَةُ غُرْفَةٌ", "ثَلَاثُ غُرَفٍ", "غُرْفَتَانِ"], "answer": 2, "why_uz": "Uchdan o‘ngacha ot ko‘plikda: thalāthu ghuraf."},
+  {"q": "“Ikkita xona”:", "options": ["غُرْفَتَانِ", "اثْنَانِ غُرْفَةٌ", "غُرَفٌ", "غُرْفَةٌ وَاحِدَةٌ"], "answer": 0, "why_uz": "Ikkilik shakli: ghurfa + āni = ghurfatāni."},
+  {"q": "“Kitob stol ustida”:", "options": ["الْكِتَابُ الطَّاوِلَةِ عَلَى", "الْكِتَابُ عَلَى الطَّاوِلَةُ", "الْكِتَابُ عَلَى الطَّاوِلَةِ", "عَلَى الْكِتَابُ الطَّاوِلَةِ"], "answer": 2, "why_uz": "Joy so‘zi otdan oldin, ot “-i” bilan: ʿalā ṭ-ṭāwilati."},
+  {"q": "“Mushuk karavot tagida”:", "options": ["الْقِطَّةُ فَوْقَ السَّرِيرِ", "الْقِطَّةُ تَحْتَ السَّرِيرِ", "الْقِطَّةُ أَمَامَ السَّرِيرِ", "الْقِطَّةُ خَلْفَ السَّرِيرِ"], "answer": 1, "why_uz": "Taḥta — tagida."},
+  {"q": "“Xona kichik”:", "options": ["الْغُرْفَةُ صَغِيرٌ", "الْغُرْفَةُ الصَّغِيرَةُ", "غُرْفَةٌ صَغِيرَةٌ", "الْغُرْفَةُ صَغِيرَةٌ"], "answer": 3, "why_uz": "Gap: otda “al-”, sifatda yo‘q; ghurfa ayol jinsi, shuning uchun ṣaghīra."},
+  {"q": "“Mening kvartiram bor”:", "options": ["عِنْدِي شَقَّةٌ", "فِي شَقَّةٍ", "أَنَا شَقَّةٌ", "لَيْسَ عِنْدِي شَقَّةٌ"], "answer": 0, "why_uz": "Egalik “ʿindī” bilan: ʿindī shaqqa."},
+  {"q": "“بَيْتٌ كَبِيرٌ” ma’nosi:", "options": ["Uy katta.", "katta uy", "uylar katta", "o‘sha katta uy"], "answer": 1, "why_uz": "Ikkalasi ham “al-” siz bo‘lsa, bu birikma: katta uy. “Uy katta” — al-baytu kabīr."}
  ]
 }

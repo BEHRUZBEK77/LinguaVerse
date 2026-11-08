@@ -1,598 +1,935 @@
 {
  "title": "So‘roq gaplar tuzish",
- "goal_uz": "Dars oxirida rus tilida so‘roq gaplarni to‘g‘ri tuza olasiz, so‘roq so‘zlari bilan «Что это?», «Кто это?», «Где?», «Когда?», «Почему?», «Как?», «Сколько?» deb so‘raysiz, ohang bilan ha-yo‘q savolini ayta olasiz. Oxirida yangi do‘stingizga o‘nta savol yozib bera olasiz.",
+ "goal_uz": "Dars oxirida rus tilida ohang yordamida «ha/yo‘q» savollarini berasiz, «кто, что, где, куда, откуда, когда, почему, как, сколько, какой, чей» so‘roq so‘zlarini to‘g‘ri tanlaysiz, so‘roq so‘zini gap boshiga qo‘yasiz, ikki xil savol ohangini farqlaysiz va yangi do‘stga o‘nta savol tuzasiz.",
  "vocab": [
-  {"w": "кто", "uz": "kim"},
-  {"w": "что", "uz": "nima"},
-  {"w": "где", "uz": "qayerda"},
-  {"w": "когда", "uz": "qachon"},
-  {"w": "почему", "uz": "nega"},
-  {"w": "как", "uz": "qanday"},
-  {"w": "сколько", "uz": "qancha"},
-  {"w": "куда", "uz": "qayerga"},
-  {"w": "откуда", "uz": "qayerdan"},
-  {"w": "какой", "uz": "qaysi"}
+  {
+   "w": "кто? что?",
+   "uz": "kim? nima?"
+  },
+  {
+   "w": "где?",
+   "uz": "qayerda?"
+  },
+  {
+   "w": "куда?",
+   "uz": "qayerga?"
+  },
+  {
+   "w": "откуда?",
+   "uz": "qayerdan?"
+  },
+  {
+   "w": "когда?",
+   "uz": "qachon?"
+  },
+  {
+   "w": "почему? — потому что",
+   "uz": "nega? — chunki"
+  },
+  {
+   "w": "как?",
+   "uz": "qanday? qalay?"
+  },
+  {
+   "w": "сколько?",
+   "uz": "qancha? nechta?"
+  },
+  {
+   "w": "какой? какая? какое? какие?",
+   "uz": "qanaqa? qaysi?"
+  },
+  {
+   "w": "чей? чья? чьё? чьи?",
+   "uz": "kimning?"
+  }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "O‘n uchinchi dars: so‘roq gaplar",
+   "title": "O‘n uchinchi dars: savollar",
    "emotion": "happy",
-   "board": ["Что это?", "Кто это?", "Где ты живёшь?", "Когда ты работаешь?"],
-   "examples": [],
-   "say_native": "Assalomu alaykum! O‘n uchinchi darsga xush kelibsiz. O‘tgan darsda ranglar, kiyim va do‘konda xarid qilishni o‘rgandik. Bugun so‘roq gaplar tuzishni o‘rganamiz. So‘roq so‘zlarini, ha-yo‘q savolining ohangini va so‘z tartibini mashq qilamiz. Oxirida yangi do‘stingizga o‘nta savol yozib bera olasiz deb umid qilaman.",
-   "say": "Здравствуйте! Сегодня мы говорим о вопросах и о том, как их правильно задавать.",
-   "say_uz": "Assalomu alaykum! Bugun so‘roq gaplar va ularni to‘g‘ri tuzish haqida gaplashamiz.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ha-yo‘q savoli",
-   "emotion": "neutral",
-   "board": ["Ты работаешь? ↗", "Ты живёшь в Ташкенте? ↗", "Вы читаете? ↗", "Ohang ko‘tariladi."],
-   "examples": [
-   {"t": "Ты работаешь?", "uz": "Sen ishlaysanmi?"},
-   {"t": "Вы читаете?", "uz": "Siz o‘qiysizmi?"}
+   "board": [
+    "Ты студент? ↗",
+    "Где ты живёшь? ↘",
+    "Куда ты идёшь?",
+    "Почему? — Потому что…"
    ],
-   "say_native": "Rus tilida ha-yo‘q savoli so‘z tartibini o‘zgartirmasdan, faqat ohang ko‘tarilib aytiladi. “Ты работаешь?” — sen ishlaysanmi? “Вы читаете?” — siz o‘qiysizmi? “Ты живёшь в Ташкенте?” — sen Toshkentda yashaysanmi? Ingliz tilidagi kabi yordamchi fe’l kerak emas, faqat ohang ko‘tariladi va oxirida so‘roq belgisi qo‘yiladi.",
-   "say": "Ты работаешь? Ты живёшь в Ташкенте? Вы читаете? Что ты делаешь?",
-   "say_uz": "Sen ishlaysanmi? Sen Toshkentda yashaysanmi? Siz o‘qiysizmi? Sen nima qilasan?",
+   "examples": [],
+   "say_native": "Assalomu alaykum! O‘n uchinchi darsga xush kelibsiz. Oldingi darsda ranglar va kiyimlarni o‘rgandik va do‘konda “Сколько стоит?” deb so‘radik. Bugun savol berishni tizimli o‘rganamiz: “ha” yoki “yo‘q” savollari, asosiy so‘roq so‘zlari, so‘z tartibi va savol ohangi. Dars oxirida yangi do‘stingizga o‘nta savol bera olasiz.",
+   "say": "Здравствуйте! Сегодня мы учимся задавать вопросы. Кто? Что? Где? Когда? Почему?",
+   "say_uz": "Assalomu alaykum! Bugun savol berishni o‘rganamiz. Kim? Nima? Qayerda? Qachon? Nega?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Что это?",
+   "title": "Ha/yo‘q savoli: so‘z tartibi o‘zgarmaydi",
+   "emotion": "neutral",
+   "board": [
+    "Ты студент. → Ты студент?",
+    "Он живёт в Ташкенте. → Он живёт в Ташкенте?",
+    "“-mi” yo‘q — faqat ohang"
+   ],
+   "examples": [
+    {
+     "t": "Ты студент?",
+     "uz": "Sen talabamisan?"
+    },
+    {
+     "t": "Вы говорите по-русски?",
+     "uz": "Siz rus tilida gaplashasizmi?"
+    }
+   ],
+   "say_native": "Oldingi darslarda ko‘rgan qoidani chuqurlashtiramiz. O‘zbek tilida savol uchun “-mi” qo‘shimchasi bor: talabamisan, yashaydimi. Rus tilida bunday qo‘shimcha ham, inglizchadagi “do” kabi yordamchi so‘z ham yo‘q. Darak gap va savol gap so‘zma-so‘z bir xil: “Ты студент.” va “Ты студент?” Farq faqat ohangda. Shuning uchun ohang rus tilida savolning yagona belgisi.",
+   "say": "Ты студент. Ты студент? Он живёт в Ташкенте. Он живёт в Ташкенте?",
+   "say_uz": "Sen talabasan. Sen talabamisan? U Toshkentda yashaydi. U Toshkentda yashaydimi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Savol ohangi: urg‘uli bo‘g‘inda ko‘tarilish",
    "emotion": "thinking",
-   "board": ["Что это?", "Что ты делаешь?", "Что это за книга?", "Что это? — Это книга."],
-   "examples": [
-   {"t": "Что это?", "uz": "Bu nima?"},
-   {"t": "Что ты делаешь?", "uz": "Sen nima qilasan?"}
+   "board": [
+    "Ты студе́нт? — “-де́-” ↗, keyin ↘",
+    "Это твоя су́мка? — “су́-” ↗",
+    "Ko‘tarilish gap oxirida emas, urg‘uda!"
    ],
-   "say_native": "“Что” — nima degan so‘roq so‘zi. “Что это?” — bu nima? “Что ты делаешь?” — sen nima qilasan? “Что это за книга?” — bu qanday kitob? Javobda “это” ishlatiladi: “это книга” — bu kitob. “Что” so‘zi gap boshida turadi va fe’l oldidan keladi. O‘zbek tilidagi “nima” rus tilida aynan “что” bilan ifodalanadi.",
-   "say": "Что это? Что ты делаешь? Что это за книга? Это книга.",
-   "say_uz": "Bu nima? Sen nima qilasan? Bu qanday kitob? Bu kitob.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Что bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Bu nima?", "2) Sen nima qilasan?", "3) Bu qanday kitob?", "4) Bu nima?"],
-   "examples": [],
-   "say_native": "To‘rtta savolni “что” bilan ayting. “Что это?”, “что ты делаешь?”, “что это за книга?”, “что это такое?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda “это” bilan boshlang: “это книга, это стол, это парк”. Savol va javobni birga baland ovozda ayting.",
-   "say": "Что это? Что ты делаешь? Что это за книга? Что это такое?",
-   "say_uz": "Bu nima? Sen nima qilasan? Bu qanday kitob? Bu nima degani?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Что это? — Это книга.", "Что ты делаешь? — Я читаю.", "Что это за книга? — Это словарь."],
-   "examples": [],
-   "say_native": "Javoblar: “Что это? — Это книга”, “что ты делаешь? — Я читаю”, “что это за книга? — Это словарь”. Har bir savol “что” bilan boshlangan, javob “это” yoki fe’l bilan kelgan. “Что ты делаешь?” savoliga javob fe’l bilan beriladi: “я читаю”. Bu savol shaklini yodlab qolsangiz, har qanday buyumni so‘rab bila olasiz.",
-   "say": "Что это? Это книга. Что ты делаешь? Я читаю. Что это за книга? Это словарь.",
-   "say_uz": "Bu nima? Bu kitob. Sen nima qilasan? Men o‘qiyman. Bu qanday kitob? Bu lug‘at.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Кто это?",
-   "emotion": "neutral",
-   "board": ["Кто это?", "Кто там?", "Кто это? — Это учитель.", "Кто это? — Это студент."],
    "examples": [
-   {"t": "Кто это?", "uz": "Bu kim?"},
-   {"t": "Кто там?", "uz": "U yerda kim?"}
+    {
+     "t": "Это твоя сумка?",
+     "uz": "Bu sening sumkangmi?"
+    },
+    {
+     "t": "Ты студент?",
+     "uz": "Sen talabamisan?"
+    }
    ],
-   "say_native": "“Кто” — kim degan so‘roq so‘zi. “Кто это?” — bu kim? “Кто там?” — u yerda kim? Javob: “Это учитель” — bu o‘qituvchi, “это студент” — bu talaba. “Кто” so‘zi odam haqida so‘ralganda ishlatiladi, “что” so‘zi buyum haqida. O‘zbek tilidagi “kim” rus tilida aynan “кто” deyiladi.",
-   "say": "Кто это? Кто там? Кто это? Это учитель. Это студент.",
-   "say_uz": "Bu kim? U yerda kim? Bu kim? Bu o‘qituvchi. Bu talaba.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Кто bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Bu kim?", "2) U yerda kim?", "3) Bu kim? — o‘qituvchi"],
-   "examples": [],
-   "say_native": "Uchta savolni “кто” bilan ayting. “Кто это?”, “кто там?”, “кто это?” Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda “это” bilan boshlang: “это учитель, это студент, это мой друг”. Odam haqida so‘rashda har doim “кто” ishlatiladi, “что” emas.",
-   "say": "Кто это? Кто там? Кто это? Это учитель. Это студент. Это мой друг.",
-   "say_uz": "Bu kim? U yerda kim? Bu kim? Bu o‘qituvchi. Bu talaba. Bu mening do‘stim.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Кто это? — Это учитель.", "Кто там? — Это студент.", "Кто это? — Это мой друг."],
-   "examples": [],
-   "say_native": "Javoblar: “Кто это? — Это учитель”, “кто там? — Это студент”, “кто это? — Это мой друг”. Har bir savol “кто” bilan boshlangan, javob “это” bilan kelgan. Odam haqida so‘ralganda “кто”, buyum haqida so‘ralganda “что” ishlatiladi. Bu farqni bilish muloqotda juda muhim, chunki ikki so‘z bir-birini almashtirib qo‘yib bo‘lmaydi.",
-   "say": "Кто это? Это учитель. Кто там? Это студент. Кто это? Это мой друг.",
-   "say_uz": "Bu kim? Bu o‘qituvchi. U yerda kim? Bu talaba. Bu kim? Bu mening do‘stim.",
+   "say_native": "Endi ohangning o‘zi. Rus tilidagi “ha/yo‘q” savolida ovoz asosiy so‘zning urg‘uli bo‘g‘inida keskin ko‘tariladi, keyin darhol pasayadi. “Ты студе́нт?” — ovoz “-де́-” da yuqoriga chiqadi, “-нт” da tushadi. “Это твоя су́мка?” — ko‘tarilish “су́-” da. O‘zbekcha odatimiz bilan ovozni gap oxirida cho‘zib ko‘tarsak, ruscha eshitilmaydi. Ko‘tarilish urg‘uli bo‘g‘inda bo‘lsin.",
+   "say": "Ты студент? Это твоя сумка? Вы врач?",
+   "say_uz": "Sen talabamisan? Bu sening sumkangmi? Siz shifokormisiz?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Где?",
-   "emotion": "neutral",
-   "board": ["Где ты живёшь?", "Где ты работаешь?", "Где аптека?", "Где ты?"],
-   "examples": [
-   {"t": "Где ты живёшь?", "uz": "Sen qayerda yashaysan?"},
-   {"t": "Где аптека?", "uz": "Dorixona qayerda?"}
-   ],
-   "say_native": "“Где” — qayerda degan so‘roq so‘zi. “Где ты живёшь?” — sen qayerda yashaysan? “Где ты работаешь?” — sen qayerda ishlaysan? “Где аптека?” — dorixona qayerda? Javobda joy nomi keladi: “я живу в Ташкенте” — men Toshkentda yashayman. Bu so‘roq so‘zi joylashuvni aniqlashda eng ko‘p ishlatiladi.",
-   "say": "Где ты живёшь? Где ты работаешь? Где аптека? Где ты?",
-   "say_uz": "Sen qayerda yashaysan? Sen qayerda ishlaysan? Dorixona qayerda? Sen qayerdasan?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Где bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Sen qayerda yashaysan?", "2) Sen qayerda ishlaysan?", "3) Dorixona qayerda?"],
-   "examples": [],
-   "say_native": "Uchta savolni “где” bilan ayting. “Где ты живёшь?”, “где ты работаешь?”, “где аптека?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda joy nomi keladi: “я живу в Ташкенте, я работаю в школе, аптека прямо”. Savol va javobni birga baland ovozda ayting.",
-   "say": "Где ты живёшь? Где ты работаешь? Где аптека? Я живу в Ташкенте.",
-   "say_uz": "Sen qayerda yashaysan? Sen qayerda ishlaysan? Dorixona qayerda? Men Toshkentda yashayman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Где ты живёшь? — В Ташкенте.", "Где ты работаешь? — В школе.", "Где аптека? — Прямо."],
-   "examples": [],
-   "say_native": "Javoblar: “Где ты живёшь? — В Ташкенте”, “где ты работаешь? — В школе”, “где аптека? — Прямо”. Har bir savol “где” bilan boshlangan, javob joy nomi bilan kelgan. “В” predlogi qayerdaligini bildiradi: “в Ташкенте, в школе”. Bu savol shakli yo‘l so‘rashda ham, tanishuvda ham ishlatiladi.",
-   "say": "Где ты живёшь? В Ташкенте. Где ты работаешь? В школе. Где аптека? Прямо.",
-   "say_uz": "Sen qayerda yashaysan? Toshkentda. Sen qayerda ishlaysan? Maktabda. Dorixona qayerda? To‘g‘ri.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Когда?",
-   "emotion": "neutral",
-   "board": ["Когда ты работаешь?", "Когда уроки?", "Когда ты дома?", "Когда? — Утром."],
-   "examples": [
-   {"t": "Когда ты работаешь?", "uz": "Sen qachon ishlaysan?"},
-   {"t": "Когда уроки?", "uz": "Darslar qachon?"}
-   ],
-   "say_native": "“Когда” — qachon degan so‘roq so‘zi. “Когда ты работаешь?” — sen qachon ishlaysan? “Когда уроки?” — darslar qachon? “Когда ты дома?” — sen qachon uyingdasan? Javobda vaqt nomi keladi: “утром” — ertalab, “вечером” — kechqurun, “в понедельник” — dushanba kuni. Bu so‘roq so‘zi vaqtni aniqlashda eng ko‘p ishlatiladi.",
-   "say": "Когда ты работаешь? Когда уроки? Когда ты дома? Утром. Вечером.",
-   "say_uz": "Sen qachon ishlaysan? Darslar qachon? Sen qachon uyingdasan? Ertalab. Kechqurun.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Когда bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Sen qachon ishlaysan?", "2) Darslar qachon?", "3) Sen qachon uyingdasan?"],
-   "examples": [],
-   "say_native": "Uchta savolni “когда” bilan ayting. “Когда ты работаешь?”, “когда уроки?”, “когда ты дома?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda vaqt nomi keladi: “утром, вечером, в понедельник” qoliplaridan foydalaning. Savol va javobni birga baland ovozda ayting.",
-   "say": "Когда ты работаешь? Когда уроки? Когда ты дома? Утром. Вечером.",
-   "say_uz": "Sen qachon ishlaysan? Darslar qachon? Sen qachon uyingdasan? Ertalab. Kechqurun.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Когда ты работаешь? — Утром.", "Когда уроки? — В понедельник.", "Когда ты дома? — Вечером."],
-   "examples": [],
-   "say_native": "Javoblar: “Когда ты работаешь? — Утром”, “когда уроки? — В понедельник”, “когда ты дома? — Вечером”. Har bir savol “когда” bilan boshlangan, javob vaqt nomi bilan kelgan. “Утром” — ertalab, “вечером” — kechqurun, “в понедельник” — dushanba kuni. Bu savol shakli kun tartibini aniqlashda juda foydali.",
-   "say": "Когда ты работаешь? Утром. Когда уроки? В понедельник. Когда ты дома? Вечером.",
-   "say_uz": "Sen qachon ishlaysan? Ertalab. Darslar qachon? Dushanba kuni. Sen qachon uyingdasan? Kechqurun.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Почему?",
+   "title": "Qaysi so‘z ko‘tariladi — ma’no o‘zgaradi",
    "emotion": "thinking",
-   "board": ["Почему ты дома?", "Почему ты не работаешь?", "Почему? — Потому что ...", "Почему ты устал?"],
-   "examples": [
-   {"t": "Почему ты дома?", "uz": "Nega sen uyingdasan?"},
-   {"t": "Почему ты не работаешь?", "uz": "Nega sen ishlamaysan?"}
+   "board": [
+    "А́нна работает в банке? — Annami?",
+    "Анна рабо́тает в банке? — ishlaydimi?",
+    "Анна работает в ба́нке? — bankdami?"
    ],
-   "say_native": "“Почему” — nega degan so‘roq so‘zi. “Почему ты дома?” — nega sen uyingdasan? “Почему ты не работаешь?” — nega sen ishlamaysan? “Почему ты устал?” — nega sen charchading? Javobda “потому что” bilan boshlanadi: “потому что я болен” — chunki men kasalman. Bu so‘roq so‘zi sababni aniqlashda ishlatiladi.",
-   "say": "Почему ты дома? Почему ты не работаешь? Почему ты устал? Потому что я болен.",
-   "say_uz": "Nega sen uyingdasan? Nega sen ishlamaysan? Nega sen charchading? Chunki men kasalman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Почему bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Nega uyingdasan?", "2) Nega ishlamaysan?", "3) Nega charchading?"],
-   "examples": [],
-   "say_native": "Uchta savolni “почему” bilan ayting. “Почему ты дома?”, “почему ты не работаешь?”, “почему ты устал?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda “потому что” bilan boshlang: “потому что я болен, потому что я устал, потому что я дома”. Savol va javobni birga ayting.",
-   "say": "Почему ты дома? Почему ты не работаешь? Почему ты устал? Потому что я болен.",
-   "say_uz": "Nega sen uyingdasan? Nega sen ishlamaysan? Nega sen charchading? Chunki men kasalman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Почему ты дома? — Я болен.", "Почему ты устал? — Я много работал.", "Почему? — Потому что."],
-   "examples": [],
-   "say_native": "Javoblar: “Почему ты дома? — Я болен”, “почему ты устал? — Я много работал”, “почему? — Потому что...”. Har bir savol “почему” bilan boshlangan, javob sabab bilan kelgan. “Потому что” — chunki degani, sababni boshlaydi. Bu savol shakli suhbatni chuqurlashtirib, fikrni aniqlashtirishga yordam beradi.",
-   "say": "Почему ты дома? Я болен. Почему ты устал? Я много работал.",
-   "say_uz": "Nega sen uyingdasan? Men kasalman. Nega sen charchading? Men ko‘p ishladim.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Как?",
-   "emotion": "neutral",
-   "board": ["Как дела?", "Как ты?", "Как жизнь?", "Как? — Хорошо."],
    "examples": [
-   {"t": "Как дела?", "uz": "Ishlar qanday?"},
-   {"t": "Как ты?", "uz": "Sen qanday?"}
+    {
+     "t": "Анна работает в банке?",
+     "uz": "Anna bankda ishlaydimi?"
+    }
    ],
-   "say_native": "“Как” — qanday degan so‘roq so‘zi. “Как дела?” — ishlar qanday? “Как ты?” — sen qanday? “Как жизнь?” — hayot qanday? Javob: “хорошо” — yaxshi, “плохо” — yomon, “спасибо, хорошо” — rahmat, yaxshi. Bu so‘roq so‘zi holatni, ahvolni so‘rashda eng ko‘p ishlatiladi. O‘zbek tilidagi “qanday” rus tilida aynan “как” deyiladi.",
-   "say": "Как дела? Как ты? Как жизнь? Хорошо. Спасибо, хорошо.",
-   "say_uz": "Ishlar qanday? Sen qanday? Hayot qanday? Yaxshi. Rahmat, yaxshi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Как bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Ishlar qanday?", "2) Sen qanday?", "3) Hayot qanday?"],
-   "examples": [],
-   "say_native": "Uchta savolni “как” bilan ayting. “Как дела?”, “как ты?”, “как жизнь?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda “хорошо” yoki “спасибо, хорошо” deb ayting. Bu savol tanishuvning eng oddiy shakli, shuning uchun uni har kuni ishlatasiz.",
-   "say": "Как дела? Как ты? Как жизнь? Хорошо. Спасибо, хорошо.",
-   "say_uz": "Ishlar qanday? Sen qanday? Hayot qanday? Yaxshi. Rahmat, yaxshi.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Как дела? — Хорошо.", "Как ты? — Спасибо, хорошо.", "Как жизнь? — Хорошо."],
-   "examples": [],
-   "say_native": "Javoblar: “Как дела? — Хорошо”, “как ты? — Спасибо, хорошо”, “как жизнь? — Хорошо”. Har bir savol “как” bilan boshlangan, javob holatni bildirgan. “Хорошо” — yaxshi, “плохо” — yomon. Bu javoblar suhbatning birinchi qadami, shuning uchun uni tabiiy va ozod ayta olish muhim.",
-   "say": "Как дела? Хорошо. Как ты? Спасибо, хорошо. Как жизнь? Хорошо.",
-   "say_uz": "Ishlar qanday? Yaxshi. Sen qanday? Rahmat, yaxshi. Hayot qanday? Yaxshi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Сколько?",
-   "emotion": "neutral",
-   "board": ["Сколько стоит?", "Сколько человек?", "Сколько стоит суп?", "Сколько? — Сто рублей."],
-   "examples": [
-   {"t": "Сколько стоит суп?", "uz": "Sho‘rva qancha turadi?"},
-   {"t": "Сколько человек?", "uz": "Nechta odam?"}
-   ],
-   "say_native": "“Сколько” — qancha degan so‘roq so‘zi. “Сколько стоит суп?” — sho‘rva qancha turadi? “Сколько человек?” — nechta odam? “Сколько стоит урок?” — dars qancha turadi? Javobda raqam keladi: “сто рублей” — yuz rubl, “пять человек” — besh odam. Bu so‘roq so‘zi miqdorni va narxni aniqlashda eng ko‘p ishlatiladi.",
-   "say": "Сколько стоит суп? Сколько человек? Сколько стоит урок? Сто рублей.",
-   "say_uz": "Sho‘rva qancha turadi? Nechta odam? Dars qancha turadi? Yuz rubl.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Сколько bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Sho‘rva qancha?", "2) Nechta odam?", "3) Dars qancha?"],
-   "examples": [],
-   "say_native": "Uchta savolni “сколько” bilan ayting. “Сколько стоит суп?”, “сколько человек?”, “сколько стоит урок?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda raqam keladi: “сто рублей, пять человек, двести рублей”. Raqamni aniq talaffuz qiling, aks holda tushunmovchilik bo‘ladi.",
-   "say": "Сколько стоит суп? Сколько человек? Сколько стоит урок? Сто рублей.",
-   "say_uz": "Sho‘rva qancha turadi? Nechta odam? Dars qancha turadi? Yuz rubl.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Сколько стоит суп? — Сто рублей.", "Сколько человек? — Пять.", "Сколько стоит урок? — Двести рублей."],
-   "examples": [],
-   "say_native": "Javoblar: “Сколько стоит суп? — Сто рублей”, “сколько человек? — Пять”, “сколько стоит урок? — Двести рублей”. Har bir savol “сколько” bilan boshlangan, javob raqam bilan kelgan. Bu so‘roq so‘zi narxni va miqdorni aniqlashda ayniqsa ko‘p ishlatiladi. Endi siz har qanday miqdorni so‘rab bilib olasiz.",
-   "say": "Сколько стоит суп? Сто рублей. Сколько человек? Пять. Сколько стоит урок? Двести рублей.",
-   "say_uz": "Sho‘rva qancha turadi? Yuz rubl. Nechta odam? Besh. Dars qancha turadi? Ikki yuz rubl.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Куда? Откуда?",
-   "emotion": "thinking",
-   "board": ["Куда ты идёшь?", "Откуда ты?", "Куда? — В школу.", "Откуда? — Из Ташкента."],
-   "examples": [
-   {"t": "Куда ты идёшь?", "uz": "Sen qayerga ketasan?"},
-   {"t": "Откуда ты?", "uz": "Sen qayerdansan?"}
-   ],
-   "say_native": "“Куда” — qayerga, “откуда” — qayerdan degan so‘roq so‘zlari. “Куда ты идёшь?” — sen qayerga ketasan? Javob: “в школу” — maktabga. “Откуда ты?” — sen qayerdansan? Javob: “из Ташкента” — Toshkentdan. Bu ikki so‘z yo‘nalishni aniqlashda ishlatiladi, biri boradigan joyni, ikkinchisi boshlang‘ich joyni so‘raydi.",
-   "say": "Куда ты идёшь? Откуда ты? Куда? В школу. Откуда? Из Ташкента.",
-   "say_uz": "Sen qayerga ketasan? Sen qayerdansan? Qayerga? Maktabga. Qayerdan? Toshkentdan.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Куда va Откуда bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Sen qayerga ketasan?", "2) Sen qayerdansan?", "3) U qayerga ketadi?"],
-   "examples": [],
-   "say_native": "Uchta savolni ketma-ket ayting. “Куда ты идёшь?”, “откуда ты?”, “куда он идёт?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. Javobda yo‘nalish nomi keladi: “в школу, из Ташкента, в парк”. Savol va javobni birga baland ovozda ayting.",
-   "say": "Куда ты идёшь? Откуда ты? Куда он идёт? В школу.",
-   "say_uz": "Sen qayerga ketasan? Sen qayerdansan? U qayerga ketadi? Maktabga.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Куда ты идёшь? — В школу.", "Откуда ты? — Из Ташкента.", "Куда он идёт? — В парк."],
-   "examples": [],
-   "say_native": "Javoblar: “Куда ты идёшь? — В школу”, “откуда ты? — Из Ташкента”, “куда он идёт? — В парк”. Har bir savol yo‘nalish so‘zi bilan boshlangan, javob joy nomi bilan kelgan. “Куда” — qayerga, “откуда” — qayerdan. Bu ikki so‘z farqini bilish yo‘lni aniq tushuntirishga yordam beradi.",
-   "say": "Куда ты идёшь? В школу. Откуда ты? Из Ташкента. Куда он идёт? В парк.",
-   "say_uz": "Sen qayerga ketasan? Maktabga. Sen qayerdansan? Toshkentdan. U qayerga ketadi? Bog‘ga.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Какой?",
-   "emotion": "neutral",
-   "board": ["Какой размер?", "Какой цвет?", "Какая шапка?", "Какое пальто?"],
-   "examples": [
-   {"t": "Какой размер?", "uz": "Qaysi o‘lcham?"},
-   {"t": "Какая шапка?", "uz": "Qaysi bosh kiyim?"}
-   ],
-   "say_native": "“Какой” — qaysi degan so‘roq olmoshi, jins bo‘yicha o‘zgaradi. Erkak jinsda “какой размер” — qaysi o‘lcham, ayol jinsda “какая шапка” — qaysi bosh kiyim, o‘rta jinsda “какое пальто” — qaysi palto. Bu olmosh sifat vazifasini bajaradi va ot bilan moslashadi. Do‘konda bu so‘roq so‘zi o‘lcham va rangni aniqlashda ishlatiladi.",
-   "say": "Какой размер? Какой цвет? Какая шапка? Какое пальто?",
-   "say_uz": "Qaysi o‘lcham? Qaysi rang? Qaysi bosh kiyim? Qaysi palto?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Какой bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Qaysi o‘lcham?", "2) Qaysi bosh kiyim?", "3) Qaysi palto?"],
-   "examples": [],
-   "say_native": "Uchta savolni to‘g‘ri jins shaklida ayting. “Какой размер?”, “какая шапка?”, “какое пальто?”. Har bir savol oxirida so‘roq belgisi bo‘lib, ohang ko‘tariladi. O‘lcham erkak jinsida, bosh kiyim ayol jinsida, palto o‘rta jinsda. Jinsga qarab olmoshni to‘g‘ri tanlang.",
-   "say": "Какой размер? Какая шапка? Какое пальто?",
-   "say_uz": "Qaysi o‘lcham? Qaysi bosh kiyim? Qaysi palto?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Какой размер? — Сорок шестой.", "Какая шапка? — Красная.", "Какое пальто? — Новое."],
-   "examples": [],
-   "say_native": "Javoblar: “Какой размер? — Сорок шестой”, “какая шапка? — Красная”, “какое пальто? — Новое”. Har bir olmosh ot jinsiga moslangan. “Какой” — erkak, “какая” — ayol, “какое” — o‘rta jinsda. Do‘konda bu savollar xaridning asosiy savollaridan biri hisoblanadi. Endi siz har qanday kiyimni aniqlay olasiz.",
-   "say": "Какой размер? Сорок шестой. Какая шапка? Красная. Какое пальто? Новое.",
-   "say_uz": "Qaysi o‘lcham? Qirq oltinchi. Qaysi bosh kiyim? Qizil. Qaysi palto? Yangi.",
+   "say_native": "Rus tilida so‘z tartibi o‘zgarmagani uchun savolning aniq nimaga qaratilganini ohang ko‘rsatadi. “А́нна работает в банке?” — aynan Annami, boshqa odam emasmi? “Анна рабо́тает в банке?” — u ishlaydimi yoki o‘qiydimi? “Анна работает в ба́нке?” — bankdami yoki boshqa joydami? O‘zbek tilida buni “-mi” ni ko‘chirib qilamiz: “Annami?”, “bankdami?”. Rus tilida ovozni kerakli so‘zda ko‘tarasiz.",
+   "say": "Анна работает в банке? Анна работает в банке? Анна работает в банке?",
+   "say_uz": "Anna bankda ishlaydimi? Anna bankda ishlaydimi? Anna bankda ishlaydimi?",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Ты есть работаешь? — xato",
+   "title": "Ты есть студент? — xato",
    "emotion": "stern",
-   "board": ["✗ Ты есть работаешь?", "✓ Ты работаешь?", "✗ Ты есть живёшь?", "✓ Ты живёшь?"],
-   "examples": [],
-   "say_native": "Rus tilida ha-yo‘q savolida yordamchi fe’l kerak emas, shuning uchun “ты есть работаешь?” deb aytish xato. To‘g‘risi: “ты работаешь?” — sen ishlaysanmi? “Ты есть живёшь?” ham xato, to‘g‘risi: “ты живёшь?” — sen yashaysanmi? Ingliz tilidagi “do” yoki “are” rus tilida yo‘q, faqat ohang ko‘tariladi. Asossiz “есть” so‘zini qo‘shmang.",
-   "say": "Ты работаешь? Ты живёшь? Ты читаешь? Вы работаете?",
-   "say_uz": "Sen ishlaysanmi? Sen yashaysanmi? Sen o‘qiysanmi? Siz ishlaysizmi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Savol ohangi",
-   "emotion": "thinking",
-   "board": ["Ты работаешь. (↓)", "Ты работаешь? (↑)", "Ты работаешь! (→)", "Oh: savol — ↑"],
-   "examples": [
-   {"t": "Ты работаешь.", "uz": "Sen ishlaysan."},
-   {"t": "Ты работаешь?", "uz": "Sen ishlaysanmi?"}
+   "board": [
+    "✗ Ты есть студент?",
+    "✓ Ты студент?",
+    "✗ Ты знаешь ли?",
+    "✓ Ты знаешь? (Знаешь ли ты…? — kitobiy)"
    ],
-   "say_native": "Savol ohangi gapning oxirida ko‘tariladi. “Ты работаешь.” — sen ishlaysan, ohang tushadi. “Ты работаешь?” — sen ishlaysanmi, ohang oxirgi bo‘g‘inda ko‘tariladi. Bu farq matnning o‘zida yotadi, yozuvda so‘roq belgisi bilan ko‘rsatiladi. Ohangni to‘g‘ri ko‘tarish savolni savolga, gapni gapga aylantiradi.",
-   "say": "Ты работаешь. Ты работаешь? Ты живёшь. Ты живёшь? Вы читаете. Вы читаете?",
-   "say_uz": "Sen ishlaysan. Sen ishlaysanmi? Sen yashaysan. Sen yashaysanmi? Siz o‘qiysiz. Siz o‘qiysizmi?",
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: “Ты есть студент?” Ingliz tilidagi “Are you” ta’sirida savolga “есть” qo‘shiladi. Hozirgi zamonda bu so‘z kerak emas: “Ты студент?” Ikkinchisi: “-mi” o‘rniga “ли” ni gap oxiriga qo‘yish: “Ты знаешь ли?” “Ли” kitobiy so‘z va fe’ldan keyin, gap boshida turadi: “Знаешь ли ты…?” Kundalik nutqda esa oddiy “Ты знаешь?” yetarli.",
+   "say": "Ты студент? Ты знаешь? Ты знаешь Анну?",
+   "say_uz": "Sen talabamisan? Bilasanmi? Annani bilasanmi?",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Savol ohangida ayting",
+   "title": "Ha/yo‘q savolini tuzing",
    "emotion": "encouraging",
-   "board": ["1) Sen ishlaysanmi?", "2) Sen o‘qiysanmi?", "3) Siz ishlaysizmi?", "4) U gapiradimi?"],
+   "board": [
+    "1) Sen talabamisan?",
+    "2) U Toshkentda yashaydimi?",
+    "3) Bu sening sumkangmi?",
+    "4) Siz rus tilida gaplashasizmi?"
+   ],
    "examples": [],
-   "say_native": "To‘rtta gapni savol ohangida ayting. “Ты работаешь?”, “ты читаешь?”, “вы работаете?”, “он говорит?”. Har birida oxirgi bo‘g‘inda ohang ko‘tarilishi kerak. Agar ohang tushsa, gap savol bo‘lib qolmaydi. Savolni aniq ohang bilan aytib, bir oz to‘xtab, javobni kuting.",
-   "say": "Ты работаешь? Ты читаешь? Вы работаете? Он говорит?",
-   "say_uz": "Sen ishlaysanmi? Sen o‘qiysanmi? Siz ishlaysizmi? U gapiradimi?",
-   "practice_seconds": 12
+   "say_native": "Mashq. To‘rtta savolni rus tiliga o‘giring. “Есть” va “ли” qo‘shmang, faqat ohangdan foydalaning. Har bir savolda ovozni qaysi so‘zda ko‘tarishni o‘ylang: birinchisida “студент”, uchinchisida “сумка”. To‘rtinchisida “вы” bilan fe’l “-ите” bilan tugaydi. Savollarni baland ovozda, to‘g‘ri ohang bilan ayting.",
+   "say": "Задайте вопросы по-русски.",
+   "say_uz": "Rus tilida savol bering.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Ты работаешь? — Да, работаю.", "Ты читаешь? — Нет, не читаю.", "Вы работаете? — Да, работаем."],
+   "board": [
+    "1) Ты студент?",
+    "2) Он живёт в Ташкенте?",
+    "3) Это твоя сумка?",
+    "4) Вы говорите по-русски?"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Ты работаешь? — Да, работаю”, “ты читаешь? — Нет, не читаю”, “вы работаете? — Да, работаем”. Har bir savol ohang bilan so‘ralgan, javob ha-yo‘q bilan boshlangan. “Да” — ha, “нет” — yo‘q. Qisqa javobda fe’l takrorlanadi: “работаю, читаю, работаем”. Bu shakl kundalik suhbatda har kuni ishlatiladi.",
-   "say": "Ты работаешь? Да, работаю. Ты читаешь? Нет, не читаю. Вы работаете? Да, работаем.",
-   "say_uz": "Sen ishlaysanmi? Ha, ishlayman. Sen o‘qiysanmi? Yo‘q, o‘qimayman. Siz ishlaysizmi? Ha, ishlaymiz.",
+   "say_native": "Javoblar: “Ты студент?” “Он живёт в Ташкенте?” “Это твоя сумка?” “Вы говорите по-русски?” Hamma savolda so‘z tartibi darak gapdagidek. Ovoz birinchisida “-де́-” da, ikkinchisida “Ташке́нте” da, uchinchisida “су́мка” da, to‘rtinchisida “по-ру́сски” da ko‘tariladi. Shu ko‘tarilishni eshitgan rus darhol savol ekanini tushunadi.",
+   "say": "Ты студент? Он живёт в Ташкенте? Это твоя сумка? Вы говорите по-русски?",
+   "say_uz": "Sen talabamisan? U Toshkentda yashaydimi? Bu sening sumkangmi? Siz rus tilida gaplashasizmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qisqa javob va “или” savoli",
+   "emotion": "neutral",
+   "board": [
+    "— Ты студент? — Да. / Нет, я врач.",
+    "— Чай или кофе? — Чай, пожалуйста.",
+    "Чай ↗ или ко́фе ↘?"
+   ],
+   "examples": [
+    {
+     "t": "Ты студент или врач?",
+     "uz": "Sen talabamisan yoki shifokor?"
+    },
+    {
+     "t": "— Чай или кофе? — Кофе.",
+     "uz": "— Choymi yoki qahva? — Qahva."
+    }
+   ],
+   "say_native": "Javobda “да” yoki “нет” yetarli, xohlasangiz aniqlik qo‘shasiz: “Нет, я врач.” Ikki variantdan tanlash uchun “или” — yoki ishlatiladi: “Чай или кофе?” Bu savolning ohangi boshqacha: birinchi variantda ovoz ko‘tariladi, ikkinchisida pasayadi: “Чай ↗ или ко́фе ↘?”. Javob “да” bilan emas, tanlangan so‘z bilan beriladi: “Чай, пожалуйста.” “Да” deb javob berish xato bo‘ladi.",
+   "say": "Ты студент? Нет, я врач. Чай или кофе? Чай, пожалуйста.",
+   "say_uz": "Sen talabamisan? Yo‘q, men shifokorman. Choymi yoki qahva? Choy, iltimos.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Кто? Что?",
+   "emotion": "neutral",
+   "board": [
+    "Кто это? — Это Азиз. / Это кошка.",
+    "Что это? — Это телефон.",
+    "кто — odam va hayvon",
+    "что — narsa"
+   ],
+   "examples": [
+    {
+     "t": "Кто это? — Это моя собака.",
+     "uz": "Bu kim? — Bu mening itim."
+    },
+    {
+     "t": "Что ты читаешь?",
+     "uz": "Nima o‘qiyapsan?"
+    }
+   ],
+   "say_native": "Endi so‘roq so‘zlari. “Кто?” — kim? “Что?” — nima? O‘zbek tilida hayvon haqida “nima?” deymiz: “bu nima? — mushuk”. Rus tilida esa hayvon ham “кто”: “Кто это? — Это кошка.” “Что” faqat narsalar uchun: “Что это? — Это телефон.” “Что” so‘zida “ч” “ш” kabi o‘qiladi: “што”. Fe’l bilan ham ishlatiladi: “Что ты читаешь?” — nima o‘qiyapsan?",
+   "say": "Кто это? Это мой брат. Кто это? Это кошка. Что это? Это телефон. Что ты читаешь?",
+   "say_uz": "Bu kim? Bu mening akam. Bu kim? Bu mushuk. Bu nima? Bu telefon. Nima o‘qiyapsan?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Где? Куда? Откуда?",
+   "emotion": "thinking",
+   "board": [
+    "где? — qayerda? (joy)",
+    "куда? — qayerga? (yo‘nalish)",
+    "откуда? — qayerdan?",
+    "Где ты? · Куда ты идёшь? · Откуда ты?"
+   ],
+   "examples": [
+    {
+     "t": "Где ты живёшь?",
+     "uz": "Qayerda yashaysan?"
+    },
+    {
+     "t": "Куда ты идёшь? — В магазин.",
+     "uz": "Qayerga ketyapsan? — Do‘konga."
+    }
+   ],
+   "say_native": "Bu uchlik o‘zbek tiliga juda o‘xshaydi. “Где?” — qayerda?, joy: “Где ты живёшь?” “Куда?” — qayerga?, harakat yo‘nalishi: “Куда ты идёшь? — В магазин.” “Откуда?” — qayerdan?: “Откуда ты? — Я из Самарканда.” O‘zbekchada “-da, -ga, -dan” qo‘shimchalari qanday farqlansa, rus tilida “где, куда, откуда” xuddi shunday farqlanadi. Qo‘shimchaga qarab so‘roq so‘zini tanlang.",
+   "say": "Где ты живёшь? В Ташкенте. Куда ты идёшь? В магазин. Откуда ты? Я из Самарканда.",
+   "say_uz": "Qayerda yashaysan? Toshkentda. Qayerga ketyapsan? Do‘konga. Qayerdansan? Men Samarqanddanman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Где ты идёшь? — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Где ты идёшь?",
+    "✓ Куда ты идёшь?",
+    "✗ Куда ты живёшь?",
+    "✓ Где ты живёшь?"
+   ],
+   "examples": [],
+   "say_native": "“Где” va “куда” ni aralashtirish rus tilini biladiganlar orasida ham juda ko‘p uchraydi. “Где ты идёшь?” emas, “Куда ты идёшь?”, chunki “идти” harakat fe’li va yo‘nalish so‘raladi. “Куда ты живёшь?” ham xato: yashash joy, harakat emas, demak “Где ты живёшь?” Oddiy sinov: o‘zbekchada “qayerga” desangiz, “куда”; “qayerda” desangiz, “где”.",
+   "say": "Куда ты идёшь? Где ты живёшь? Куда вы едете?",
+   "say_uz": "Qayerga ketyapsan? Qayerda yashaysan? Qayerga ketyapsiz?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Где, куда yoki откуда?",
+   "emotion": "encouraging",
+   "board": [
+    "1) … ты работаешь?",
+    "2) … вы идёте?",
+    "3) … ваш друг? — Из Бухары.",
+    "4) … мама? — Дома. · 5) … он едет?"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Bo‘sh joyga “где”, “куда” yoki “откуда” ni qo‘ying. Har bir savolni avval o‘zbekchaga o‘girib ko‘ring: qayerda, qayerga yoki qayerdan? Uchinchi va to‘rtinchi savollarda javob ham berilgan, u sizga yordam beradi. Beshinchisida “ехать” fe’li, u ham harakat fe’li. Savollarni to‘liq ayting.",
+   "say": "Работаешь. Идёте. Из Бухары. Дома. Едет.",
+   "say_uz": "Ishlaysan. Ketyapsiz. Buxorodan. Uyda. Ketyapti.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Где ты работаешь?",
+    "2) Куда вы идёте?",
+    "3) Откуда ваш друг?",
+    "4) Где мама? · 5) Куда он едет?"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Где ты работаешь?” — qayerda ishlaysan. “Куда вы идёте?” — qayerga ketyapsiz. “Откуда ваш друг? — Из Бухары”, qayerdan. “Где мама? — Дома”, qayerda. “Куда он едет?” — qayerga ketyapti. “Идти” va “ехать” bilan deyarli doim “куда” keladi. Bu harakat fe’llarini keyingi darslarda chuqurroq o‘rganamiz.",
+   "say": "Где ты работаешь? Куда вы идёте? Откуда ваш друг? Где мама? Куда он едет?",
+   "say_uz": "Qayerda ishlaysan? Qayerga ketyapsiz? Do‘stingiz qayerdan? Onam qayerda? U qayerga ketyapti?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Когда? Почему? — Потому что",
+   "emotion": "neutral",
+   "board": [
+    "Когда урок? — В девять.",
+    "Почему ты дома? — Потому что я болею.",
+    "почему? — nega? · потому что — chunki"
+   ],
+   "examples": [
+    {
+     "t": "Когда ты встаёшь? — В семь.",
+     "uz": "Qachon turasan? — Yettida."
+    },
+    {
+     "t": "Почему ты учишь русский?",
+     "uz": "Nega rus tilini o‘rganyapsan?"
+    }
+   ],
+   "say_native": "“Когда?” — qachon? Javobda oldingi darslardagi vaqt iboralari ishlatiladi: “Когда урок? — В девять.” “Почему?” — nega? Javob “потому что” bilan boshlanadi, bu “chunki” degani: “Почему ты дома? — Потому что я болею.” “Потому что” ikki so‘z bo‘lib yoziladi, “что” bu yerda ham “што” deb o‘qiladi. “Почему” da urg‘u oxirida: почему́.",
+   "say": "Когда урок? В девять часов. Почему ты дома? Потому что я болею.",
+   "say_uz": "Dars qachon? Soat to‘qqizda. Nega uydasan? Chunki kasalman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Почему… — Почему я… — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ — Почему ты дома? — Почему я болею.",
+    "✓ — Потому что я болею.",
+    "✗ потомучто",
+    "✓ потому что"
+   ],
+   "examples": [],
+   "say_native": "Ko‘p uchraydigan xato: javobni ham “почему” bilan boshlash. “Почему я болею” desangiz, “nega men kasalman?” degan yangi savol chiqadi. Javob doim “потому что” bilan: “Потому что я болею.” O‘zbek tilida “nega” va “chunki” boshqa so‘zlar, rus tilida ham shunday, faqat ular bir-biriga o‘xshab eshitiladi. Yozuvda “потому что” alohida yoziladi.",
+   "say": "Почему ты дома? Потому что я болею. Почему ты учишь русский? Потому что я работаю в России.",
+   "say_uz": "Nega uydasan? Chunki kasalman. Nega rus tilini o‘rganyapsan? Chunki Rossiyada ishlayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Когда yoki почему?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Dars qachon? — Soat to‘qqizda.",
+    "2) Nega uydasan? — Chunki kasalman.",
+    "3) Qachon turasan? — Yettida.",
+    "4) Nega rus tilini o‘rganyapsan? — Chunki Rossiyada ishlayman."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta qisqa suhbatni rus tiliga o‘giring: savolni ham, javobni ham. Qachon so‘ralsa “когда”, nega so‘ralsa “почему”, javobda esa “потому что”. Vaqtni aytishda oldingi darslardagi “в девять”, “в семь” iboralarini eslang. To‘rtinchisida “в России” — Rossiyada. Har bir juftni baland ovozda ayting.",
+   "say": "Когда? Почему? Потому что…",
+   "say_uz": "Qachon? Nega? Chunki…",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Когда урок? — В девять.",
+    "2) Почему ты дома? — Потому что я болею.",
+    "3) Когда ты встаёшь? — В семь.",
+    "4) Почему ты учишь русский? — Потому что я работаю в России."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Когда урок? — В девять.” “Почему ты дома? — Потому что я болею.” “Когда ты встаёшь? — В семь.” “Почему ты учишь русский? — Потому что я работаю в России.” “Когда” savoliga qisqa javob kifoya, “почему” ga esa odatda butun gap bilan javob beramiz. “Потому что” dan keyin oddiy darak gap keladi.",
+   "say": "Когда урок? В девять. Почему ты дома? Потому что я болею. Когда ты встаёшь? В семь. Почему ты учишь русский? Потому что я работаю в России.",
+   "say_uz": "Dars qachon? To‘qqizda. Nega uydasan? Chunki kasalman. Qachon turasan? Yettida. Nega rus tilini o‘rganyapsan? Chunki Rossiyada ishlayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Как? Сколько?",
+   "emotion": "neutral",
+   "board": [
+    "Как тебя зовут? · Как дела?",
+    "Как по-русски “kitob”?",
+    "Сколько тебе лет? · Сколько стоит?"
+   ],
+   "examples": [
+    {
+     "t": "Как по-русски «китоб»? — Книга.",
+     "uz": "“Kitob” ruscha qanday? — “Книга”."
+    },
+    {
+     "t": "Сколько тебе лет?",
+     "uz": "Necha yoshdasan?"
+    }
+   ],
+   "say_native": "“Как?” — qanday? qalay? Bu so‘z tayyor iboralarda juda ko‘p: “Как тебя зовут?”, “Как дела?”, “Как по-русски…?” — ruschasi qanday? “Сколько?” — qancha? nechta? Yosh va narxni so‘rashda ishlatiladi: “Сколько тебе лет?”, “Сколько стоит?” Bu iboralarni bo‘laklarga ajratmasdan, butunligicha yodlang, chunki so‘zma-so‘z tarjimasi o‘zbekchaga mos kelmaydi.",
+   "say": "Как тебя зовут? Как дела? Как это по-русски? Сколько тебе лет? Сколько стоит?",
+   "say_uz": "Isming nima? Ishlar qalay? Bu ruscha qanday? Necha yoshdasan? Qancha turadi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Что тебя зовут? — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Что тебя зовут? · Как твоё имя?",
+    "✓ Как тебя зовут?",
+    "✗ Сколько ты лет?",
+    "✓ Сколько тебе лет?"
+   ],
+   "examples": [],
+   "say_native": "O‘zbekchada “isming nima?” deymiz, shuning uchun “Что тебя зовут?” degan xato paydo bo‘ladi. Rus tilida ism “как” bilan so‘raladi: “Как тебя зовут?” Yoshda ham so‘zma-so‘z tarjima xato beradi: “Сколько ты лет?” emas, “Сколько тебе лет?”, ya’ni so‘zma-so‘z “senga necha yil?”. Hurmat bilan: “Как вас зовут?”, “Сколько вам лет?”.",
+   "say": "Как тебя зовут? Как вас зовут? Сколько тебе лет? Сколько вам лет?",
+   "say_uz": "Isming nima? Ismingiz nima? Necha yoshdasan? Necha yoshdasiz?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Какой? Чей?",
+   "emotion": "thinking",
+   "board": [
+    "какой телефон · какая книга",
+    "какое платье · какие джинсы",
+    "чей телефон · чья сумка · чьё пальто · чьи ключи"
+   ],
+   "examples": [
+    {
+     "t": "Какая это книга?",
+     "uz": "Bu qanaqa kitob?"
+    },
+    {
+     "t": "Чья это сумка? — Моя.",
+     "uz": "Bu kimning sumkasi? — Meniki."
+    }
+   ],
+   "say_native": "Ikki so‘roq so‘zi otga moslashadi, xuddi oldingi darsdagi ranglar kabi. “Какой?” — qanaqa? qaysi?: “какой телефон, какая книга, какое платье, какие джинсы”. “Чей?” — kimning?: “чей телефон, чья сумка, чьё пальто, чьи ключи”. O‘zbekchada “kimning” o‘zgarmaydi, rus tilida esa javobdagi “мой, моя, моё, мои” kabi to‘rt shaklga ega. “Чья это сумка? — Моя.”",
+   "say": "Какой у тебя телефон? Какая это книга? Чья это сумка? Моя. Чьи это ключи?",
+   "say_uz": "Telefoning qanaqa? Bu qanaqa kitob? Bu kimning sumkasi? Meniki. Bu kimning kalitlari?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "So‘roq so‘zini tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) … это? — Это кошка. · 2) … тебя зовут?",
+    "3) … ты учишь русский? — Потому что…",
+    "4) … стоит куртка? · 5) … это сумка? — Моя.",
+    "6) … у тебя телефон? — Новый."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Har bir bo‘sh joyga mos so‘roq so‘zini qo‘ying. Ba’zan javob ham berilgan, u yo‘l ko‘rsatadi. Birinchisida mushuk haqida so‘raladi, uni eslang. Beshinchisida “сумка” ayol jinsi, so‘roq so‘zi ham shunga moslashadi. Oltinchisida javob “новый”, demak qanaqa ekanini so‘rayapmiz. Savollarni to‘liq ayting.",
+   "say": "Это кошка. Тебя зовут. Ты учишь русский. Стоит куртка. Это сумка. У тебя телефон.",
+   "say_uz": "Bu mushuk. Isming. Rus tilini o‘rganyapsan. Kurtka turadi. Bu sumka. Telefoning.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Кто это? · 2) Как тебя зовут?",
+    "3) Почему ты учишь русский?",
+    "4) Сколько стоит куртка? · 5) Чья это сумка?",
+    "6) Какой у тебя телефон?"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Кто это?” — mushuk ham “кто”. “Как тебя зовут?” — “что” emas. “Почему ты учишь русский?” — javob “потому что” bilan. “Сколько стоит куртка?” “Чья это сумка?” — “сумка” ayol jinsi, shuning uchun “чья”. “Какой у тебя телефон?” — “телефон” erkak jinsi. Oltitadan beshtasini topsangiz, juda yaxshi natija.",
+   "say": "Кто это? Как тебя зовут? Почему ты учишь русский? Сколько стоит куртка? Чья это сумка? Какой у тебя телефон?",
+   "say_uz": "Bu kim? Isming nima? Nega rus tilini o‘rganyapsan? Kurtka qancha turadi? Bu kimning sumkasi? Telefoning qanaqa?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "So‘z tartibi: so‘roq so‘zi boshida",
+   "emotion": "neutral",
+   "board": [
+    "So‘roq so‘zi + olmosh + fe’l",
+    "Где ты работаешь?",
+    "Что вы делаете?",
+    "Когда ты встаёшь?"
+   ],
+   "examples": [
+    {
+     "t": "Где вы работаете?",
+     "uz": "Qayerda ishlaysiz?"
+    },
+    {
+     "t": "Что ты делаешь вечером?",
+     "uz": "Kechqurun nima qilasan?"
+    }
+   ],
+   "say_native": "Endi so‘z tartibi. O‘zbek tilida so‘roq so‘zi odatda fe’ldan oldin, gapning o‘rtasida turadi: “Siz qayerda ishlaysiz?” Rus tilida esa so‘roq so‘zi odatda gapning eng boshida keladi. Ega olmosh bo‘lsa, tartib shunday: so‘roq so‘zi, olmosh, fe’l. “Где вы работаете?”, “Что ты делаешь вечером?”. So‘zlashuvda “Ты где работаешь?” ham eshitiladi, lekin boshlash uchun eng ishonchli qolip shu.",
+   "say": "Где вы работаете? Что ты делаешь вечером? Когда ты встаёшь?",
+   "say_uz": "Qayerda ishlaysiz? Kechqurun nima qilasan? Qachon turasan?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ega ot bo‘lsa",
+   "emotion": "thinking",
+   "board": [
+    "Где работает твой брат?",
+    "Когда начинается урок?",
+    "Сколько стоит эта куртка?",
+    "So‘roq so‘zi + fe’l + ot"
+   ],
+   "examples": [
+    {
+     "t": "Где живёт твоя сестра?",
+     "uz": "Opang qayerda yashaydi?"
+    },
+    {
+     "t": "Когда начинается фильм?",
+     "uz": "Film qachon boshlanadi?"
+    }
+   ],
+   "say_native": "Agar ega olmosh emas, ot bo‘lsa, ko‘pincha fe’l otdan oldin keladi: “Где работает твой брат?”, “Когда начинается урок?”, “Сколько стоит эта куртка?”. Bu do‘kondagi savolimizga o‘xshaydi. “Где твой брат работает?” ham to‘g‘ri, xato emas. Muhimi, so‘roq so‘zi boshida bo‘lsin. “Начинается” — boshlanadi, buni tayyor so‘z sifatida oling.",
+   "say": "Где живёт твоя сестра? Когда начинается фильм? Сколько стоит эта куртка?",
+   "say_uz": "Opang qayerda yashaydi? Film qachon boshlanadi? Bu kurtka qancha turadi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Predlog so‘roq so‘zidan oldin",
+   "emotion": "stern",
+   "board": [
+    "✗ Кто с ты живёшь?",
+    "✓ С кем ты живёшь?",
+    "✗ Где есть банк?",
+    "✓ Где банк? · Где здесь банк?"
+   ],
+   "examples": [],
+   "say_native": "Ikki xato. O‘zbekchada “kim bilan” deymiz, “bilan” so‘zdan keyin keladi. Rus tilida predlog doim oldinda: “С кем ты живёшь?” — kim bilan yashaysan? “Кто с…” degan tartib yo‘q. Ikkinchi xato: “Где есть банк?” Joy so‘ralganda “есть” kerak emas: “Где банк?” yoki “Где здесь банк?” — bu yerda bank qayerda? Oldingi darsdagi yo‘l so‘rash iborasini eslang.",
+   "say": "С кем ты живёшь? Где банк? Где здесь банк?",
+   "say_uz": "Kim bilan yashaysan? Bank qayerda? Bu yerda bank qayerda?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "So‘zlarni tartibga keltiring",
+   "emotion": "encouraging",
+   "board": [
+    "1) ты / где / живёшь",
+    "2) делаете / что / вы / вечером",
+    "3) урок / когда / начинается",
+    "4) ты / с кем / работаешь"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Har bir qatordagi so‘zlardan to‘g‘ri savol tuzing. Qoida: so‘roq so‘zi boshida, keyin olmosh va fe’l. Uchinchisida ega ot, “урок”, shuning uchun fe’l undan oldin kelishi mumkin. To‘rtinchisida predlog so‘roq so‘zi bilan birga turadi. Savollarni ohang bilan baland ovozda ayting.",
+   "say": "Где? Что? Когда? С кем?",
+   "say_uz": "Qayerda? Nima? Qachon? Kim bilan?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Где ты живёшь?",
+    "2) Что вы делаете вечером?",
+    "3) Когда начинается урок?",
+    "4) С кем ты работаешь?"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Где ты живёшь?” “Что вы делаете вечером?” “Когда начинается урок?” “С кем ты работаешь?” Ikkinchisida “вечером” gap oxirida keldi, bu tabiiy. Uchinchisida “Когда урок начинается?” desangiz ham xato emas. To‘rtinchisida “с кем” bir butun, ajratilmaydi.",
+   "say": "Где ты живёшь? Что вы делаете вечером? Когда начинается урок? С кем ты работаешь?",
+   "say_uz": "Qayerda yashaysan? Kechqurun nima qilasiz? Dars qachon boshlanadi? Kim bilan ishlaysan?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "So‘roq so‘zli savol ohangi",
+   "emotion": "thinking",
+   "board": [
+    "Где ты живёшь? — “где” kuchli ↘",
+    "Ovoz oxirida ko‘tarilmaydi",
+    "Ты студент? ↗  ≠  Где ты живёшь? ↘"
+   ],
+   "examples": [
+    {
+     "t": "Как тебя зовут?",
+     "uz": "Isming nima?"
+    },
+    {
+     "t": "Куда ты идёшь?",
+     "uz": "Qayerga ketyapsan?"
+    }
+   ],
+   "say_native": "So‘roq so‘zli savolning ohangi “ha/yo‘q” savolidan farq qiladi. Bu yerda urg‘u so‘roq so‘zida, u biroz kuchliroq aytiladi, keyin ovoz bir tekis pasayib boradi. Gap oxirida ovoz ko‘tarilmaydi. “Где ты живёшь?” — “где” aniq, oxiri past. Ya’ni “ha/yo‘q” savolida ovoz ko‘tariladi, so‘roq so‘zli savolda esa ko‘tarish shart emas, chunki savolni so‘roq so‘zining o‘zi ko‘rsatadi.",
+   "say": "Где ты живёшь? Как тебя зовут? Куда ты идёшь? Когда урок?",
+   "say_uz": "Qayerda yashaysan? Isming nima? Qayerga ketyapsan? Dars qachon?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "“А ты?” ohangi",
+   "emotion": "neutral",
+   "board": [
+    "— Я из Ташкента. А ты? ↗",
+    "— Я работаю. А вы? ↗",
+    "а + olmosh/ot — ovoz pastdan yuqoriga"
+   ],
+   "examples": [
+    {
+     "t": "— Я студент. А ты?",
+     "uz": "— Men talabaman. Sen-chi?"
+    },
+    {
+     "t": "А твой брат?",
+     "uz": "Akang-chi?"
+    }
+   ],
+   "say_native": "Suhbatda juda qulay qisqa savol: “А ты?” — sen-chi? Bu o‘zbekchadagi “-chi” ga to‘liq mos keladi. “Я из Ташкента. А ты?” Ohangi o‘ziga xos: ovoz “а” dan keyingi so‘zda pastdan boshlanib, oxirigacha ko‘tarilib boradi. Shu kichik savol bilan suhbatni davom ettirasiz: “А вы?”, “А твой брат?”, “А завтра?”.",
+   "say": "Я из Ташкента. А ты? Я студент. А вы? А твой брат?",
+   "say_uz": "Men Toshkentdanman. Sen-chi? Men talabaman. Siz-chi? Akang-chi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "So‘roq so‘zli savolni ko‘tarish",
+   "emotion": "stern",
+   "board": [
+    "✗ Где ты живёшь? ↗ (oxirida ko‘tarish)",
+    "→ “qayerda dedingiz?” deb qayta so‘rash",
+    "✓ Где ты живёшь? ↘"
+   ],
+   "examples": [],
+   "say_native": "O‘zbek tilida so‘zlovchilar ko‘pincha har qanday savolda ovozni oxirida ko‘taradi. Rus tilida so‘roq so‘zli savolni “ha/yo‘q” savoli kabi ko‘tarsangiz, u boshqacha ma’no oladi: eshitmay qolgan narsangizni qayta so‘rayotgandek, “qayerda yashaysan, dedingmi?” Oddiy savolda so‘roq so‘zini aniq ayting va ovozni pasaytiring: “Где ты живёшь?”.",
+   "say": "Где ты живёшь? Что ты делаешь? Когда начинается урок?",
+   "say_uz": "Qayerda yashaysan? Nima qilyapsan? Dars qachon boshlanadi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ohangni aniqlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Ты врач?",
+    "2) Где ты работаешь?",
+    "3) Я из Бухары. А ты?",
+    "4) Чай или кофе?"
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta savolni tinglang va o‘zingiz takrorlang. Har biri uchun ohangni ayting: ovoz qayerda ko‘tariladi, qayerda pasayadi? Birinchisi “ha/yo‘q” savoli, ikkinchisida so‘roq so‘zi bor, uchinchisi qisqa “а” savoli, to‘rtinchisi tanlov savoli. Ohangni qo‘lingiz bilan havoda chizsangiz ham bo‘ladi.",
+   "say": "Ты врач? Где ты работаешь? Я из Бухары. А ты? Чай или кофе?",
+   "say_uz": "Sen shifokormisan? Qayerda ishlaysan? Men Buxorodanman. Sen-chi? Choymi yoki qahva?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Ты вра́ч? — “врач” da ↗",
+    "2) Где́ ты работаешь? — “где” kuchli, ↘",
+    "3) А ты? — pastdan yuqoriga ↗",
+    "4) Чай ↗ или ко́фе ↘?"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchisida ovoz “врач” so‘zida keskin ko‘tariladi. Ikkinchisida “где” aniq aytiladi va ovoz pasayadi. Uchinchisida “а ты” da ovoz pastdan yuqoriga ko‘tarilib boradi. To‘rtinchisida “чай” da ko‘tariladi, “кофе” da pasayadi. To‘rtta ohang bilan rus tilidagi deyarli barcha oddiy savollarni bera olasiz.",
+   "say": "Ты врач? Где ты работаешь? А ты? Чай или кофе?",
+   "say_uz": "Sen shifokormisan? Qayerda ishlaysan? Sen-chi? Choymi yoki qahva?",
    "practice_seconds": 0
   },
   {
    "kind": "example",
    "title": "Dialog 1: yangi do‘st",
    "emotion": "happy",
-   "board": ["— Как тебя зовут?", "— Меня зовут Алишер.", "— Где ты живёшь? — В Ташкенте."],
+   "board": [
+    "— Откуда ты?",
+    "— Что ты изучаешь?",
+    "— Где ты живёшь?",
+    "— Сколько тебе лет?"
+   ],
    "examples": [],
-   "say_native": "Birinchi dialog. Ikki yosh birinchi marta tanishmoqda. Tinglab bo‘lgach, yangi do‘stning ismi, qayerda yashashi va qayerda ishlashini belgilang. “Как тебя зовут?” — isming nima? Degan savol tanishuvning birinchi savoli, buni diqqat bilan eshitib turing.",
-   "say": "Как тебя зовут? Меня зовут Алишер. Где ты живёшь? Я живу в Ташкенте. Где ты работаешь? Я работаю в школе. А ты? Где ты живёшь? Я живу в Самарканде.",
-   "say_uz": "Isming nima? Mening ismim Alisher. Sen qayerda yashaysan? Men Toshkentda yashayman. Sen qayerda ishlaysan? Men maktabda ishlayman. Sen-chi? Sen qayerda yashaysan? Men Samarqandda yashayman.",
+   "say_native": "Birinchi dialog. Universitetda ikki talaba tanishmoqda. Tinglagach, to‘rtta savolga javob berasiz: Aziz qayerdan, u nimani o‘qiydi, qayerda yashaydi va necha yoshda? Yangi so‘zlar: “изучать” — o‘rganmoq, o‘qimoq, “общежитие” — yotoqxona. Savollarning ohangiga ham quloq soling.",
+   "say": "Привет! Ты новый студент? Да. Меня зовут Азиз. А тебя? Я Маша. Откуда ты? Я из Ташкента. А ты? Я из Казани. Что ты изучаешь? Экономику. А ты? Медицину. Где ты живёшь? В общежитии. Правда? Я тоже! Сколько тебе лет? Девятнадцать. А тебе? Двадцать.",
+   "say_uz": "Salom! Sen yangi talabamisan? Ha. Mening ismim Aziz. Seniki-chi? Men Mashaman. Qayerdansan? Men Toshkentdanman. Sen-chi? Men Qozondanman. Nimani o‘qiysan? Iqtisodiyotni. Sen-chi? Tibbiyotni. Qayerda yashaysan? Yotoqxonada. Rostdanmi? Men ham! Necha yoshdasan? O‘n to‘qqiz. Sen-chi? Yigirma.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Do‘stning ismi nima?", "2) Qayerda yashaydi?", "3) Qayerda ishlaydi?"],
+   "board": [
+    "1) Откуда Азиз?",
+    "2) Что он изучает?",
+    "3) Где он живёт?",
+    "4) Сколько ему лет?"
+   ],
    "examples": [],
-   "say_native": "Uchta savol. Do‘stning ismi nima? Qayerda yashaydi? Qayerda ishlaydi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Его зовут Алишер”, “он живёт в Ташкенте”, “он работает в школе” qoliplaridan foydalaning. Tanishuv savollari har doim shu tartibda beriladi.",
-   "say": "Как его зовут? Где он живёт? Где он работает?",
-   "say_uz": "Uning ismi nima? U qayerda yashaydi? U qayerda ishlaydi?",
-   "practice_seconds": 12
+   "say_native": "To‘rtta savol. Aziz qayerdan? U nimani o‘qiydi? Qayerda yashaydi? Necha yoshda? Rus tilida qisqa javob bering. “Ему” — unga, “Сколько ему лет?” — u necha yoshda? Javobda “он” bilan to‘liq gap tuzsangiz, yanada yaxshi: “Он из…”, “Он живёт…”. Javoblarni baland ovozda ayting.",
+   "say": "Откуда Азиз? Что он изучает? Где он живёт? Сколько ему лет?",
+   "say_uz": "Aziz qayerdan? U nimani o‘qiydi? U qayerda yashaydi? U necha yoshda?",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Его зовут Алишер.", "Он живёт в Ташкенте.", "Он работает в школе."],
+   "board": [
+    "1) Он из Ташкента.",
+    "2) Он изучает экономику.",
+    "3) Он живёт в общежитии.",
+    "4) Ему девятнадцать лет."
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Его зовут Алишер”, “он живёт в Ташкенте”, “он работает в школе”. Do‘stning ismi Alisher, u Toshkentda yashaydi va maktabda ishlaydi. “Зовут” — chaqiriladi, “живёт” — yashaydi, “работает” — ishlaydi. Tanishuv savollari: ism, yashash joyi, ish joyi — shu tartibda beriladi.",
-   "say": "Его зовут Алишер. Он живёт в Ташкенте. Он работает в школе.",
-   "say_uz": "Uning ismi Alisher. U Toshkentda yashaydi. U maktabda ishlaydi.",
+   "say_native": "Javoblar: “Он из Ташкента.” “Он изучает экономику.” “Он живёт в общежитии.” “Ему девятнадцать лет.” Dialogda “А тебя?” va “А ты?” savollari suhbatni qanday tez davom ettirganini sezdingizmi? Masha deyarli har bir javobdan keyin shu qisqa savolni ishlatdi. Bu tabiiy rus suhbatining belgisi.",
+   "say": "Он из Ташкента. Он изучает экономику. Он живёт в общежитии. Ему девятнадцать лет.",
+   "say_uz": "U Toshkentdan. U iqtisodiyotni o‘qiydi. U yotoqxonada yashaydi. U o‘n to‘qqiz yoshda.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 2: dam olish",
+   "title": "Dialog 2: til maktabiga qo‘ng‘iroq",
    "emotion": "neutral",
-   "board": ["— Когда ты дома?", "— Вечером, в семь часов.", "— Почему ты дома? — Я отдыхаю."],
+   "board": [
+    "— Когда начинается курс?",
+    "— Где находится школа?",
+    "— Сколько стоит курс?",
+    "— Почему так мало?"
+   ],
    "examples": [],
-   "say_native": "Ikkinchi dialog. Do‘stlar dam olish rejalarini muhokama qilmoqda. Tinglab bo‘lgach, do‘st qachon uyda bo‘lishini, nega uyda ekanini va qanday dam olishini ayting. “Когда ты дома?” — sen qachon uyingdasan? Degan savol vaqtni aniqlashda ishlatiladi, buni diqqat bilan eshitib turing.",
-   "say": "Когда ты дома? Вечером, в семь часов. Почему ты дома? Я отдыхаю. Как отдыхаешь? Я читаю и смотрю фильмы. Ты тоже?",
-   "say_uz": "Sen qachon uyingdasan? Kechqurun, soat yettida. Nega sen uyingdasan? Men dam olaman. Qanday dam olasan? Men o‘qiyman va film ko‘raman. Sen hammi?",
+   "say_native": "Ikkinchi dialog. Dilnoza til maktabiga qo‘ng‘iroq qilib, rus tili kursi haqida so‘rayapti. Tinglagach, to‘rtta savolga javob berasiz: kurs qachon boshlanadi, maktab qayerda, kurs qancha turadi va guruhda nega kam odam bor? “Находится” — joylashgan, “в месяц” — oyiga. Diqqat bilan tinglang.",
+   "say": "Алло, здравствуйте! Это школа языков? Да. Скажите, пожалуйста, когда начинается курс русского языка? Завтра, в шесть часов вечера. А где находится школа? На улице Навои, дом десять. Сколько стоит курс? Двести тысяч в месяц. Сколько человек в группе? Восемь. Почему так мало? Потому что так лучше для студентов. Как вас зовут? Дильноза. Ждём вас, Дильноза!",
+   "say_uz": "Allo, assalomu alaykum! Bu til maktabimi? Ha. Ayting-chi, rus tili kursi qachon boshlanadi? Ertaga, kechqurun soat oltida. Maktab qayerda joylashgan? Navoiy ko‘chasi, o‘ninchi uy. Kurs qancha turadi? Oyiga ikki yuz ming. Guruhda necha kishi? Sakkiz. Nega bunchalik kam? Chunki talabalar uchun shunday yaxshiroq. Ismingiz nima? Dilnoza. Sizni kutamiz, Dilnoza!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Do‘st qachon uyda?", "2) Nega uyda?", "3) Qanday dam oladi?"],
+   "board": [
+    "1) Когда начинается курс?",
+    "2) Где находится школа?",
+    "3) Сколько стоит курс?",
+    "4) Почему в группе мало человек?"
+   ],
    "examples": [],
-   "say_native": "Uchta savol. Do‘st qachon uyda? Nega uyda? Qanday dam oladi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Он дома вечером”, “он отдыхает”, “он читает и смотрит фильмы” qoliplaridan foydalaning. Vaqt va sabab savollari suhbatni chuqurlashtiradi va fikrni aniqlashtiradi.",
-   "say": "Когда он дома? Почему он дома? Как он отдыхает?",
-   "say_uz": "U qachon uyda? Nega u uyda? U qanday dam oladi?",
-   "practice_seconds": 12
+   "say_native": "To‘rtta savol. Kurs qachon boshlanadi? Maktab qayerda joylashgan? Kurs qancha turadi? Guruhda nega kam odam bor? Rus tilida qisqa javob bering. To‘rtinchisiga javobni “потому что” bilan boshlang. Narx va vaqtni raqam bilan aniq ayting. Javoblarni baland ovozda ayting.",
+   "say": "Когда начинается курс? Где находится школа? Сколько стоит курс? Почему в группе мало человек?",
+   "say_uz": "Kurs qachon boshlanadi? Maktab qayerda joylashgan? Kurs qancha turadi? Guruhda nega kam odam bor?",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Он дома вечером.", "Он отдыхает.", "Он читает и смотрит фильмы."],
+   "board": [
+    "1) Завтра, в шесть часов вечера.",
+    "2) На улице Навои, дом десять.",
+    "3) Двести тысяч в месяц.",
+    "4) Потому что так лучше для студентов."
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Он дома вечером”, “он отдыхает”, “он читает и смотрит фильмы”. Do‘st kechqurun uyda bo‘lib, dam oladi, o‘qiydi va film ko‘radi. “Когда” — vaqt, “почему” — sabab, “как” — qanday — bu uch so‘roq so‘zi suhbatni to‘liq tashkil etadi. Endi siz har qanday suhbatni savollar bilan qura olasiz.",
-   "say": "Он дома вечером. Он отдыхает. Он читает и смотрит фильмы.",
-   "say_uz": "U kechqurun uyda. U dam oladi. U o‘qiydi va film ko‘radi.",
+   "say_native": "Javoblar: kurs ertaga, kechqurun soat oltida boshlanadi: “в шесть часов вечера”. Maktab Navoiy ko‘chasi, o‘ninchi uyda. Kurs oyiga ikki yuz ming turadi. Guruhda sakkiz kishi, “потому что так лучше для студентов”. Dilnoza bitta qo‘ng‘iroqda beshta turli so‘roq so‘zini ishlatdi: когда, где, сколько, почему, va operator “как” bilan so‘radi.",
+   "say": "Завтра, в шесть часов вечера. На улице Навои. Двести тысяч в месяц. Потому что так лучше для студентов.",
+   "say_uz": "Ertaga, kechqurun soat oltida. Navoiy ko‘chasida. Oyiga ikki yuz ming. Chunki talabalar uchun shunday yaxshiroq.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Yakuniy mashq: o‘nta savol yozing",
+   "title": "Yakuniy mashq: yangi do‘stga savollar",
    "emotion": "encouraging",
-   "board": ["1) Ism?", "2) Qayerda yashaysan?", "3) Qayerda ishlaysan?", "4) Qachon uyingdasan?", "5) Nega?"],
+   "board": [
+    "3 ta ha/yo‘q savoli (ohang bilan)",
+    "кто · что · где · куда · откуда",
+    "когда · почему · как · сколько · какой",
+    "Jami: 10 ta savol"
+   ],
    "examples": [],
-   "say_native": "Yakuniy mashq. Yangi do‘stingizga o‘nta savol yozib, baland ovozda o‘qing. Savollar: ism, yashash joyi, ish joyi, vaqt, sabab, holat, miqdor, yo‘nalish. Har bir savol rus tilida, so‘roq belgisi bilan yozilgan bo‘lsin. Pauza bo‘lganda o‘z savollaringizni birma-bir ayting.",
-   "say": "Как тебя зовут? Где ты живёшь? Где ты работаешь? Когда ты дома? Почему ты дома? Как ты? Сколько стоит? Куда ты идёшь? Откуда ты? Какой у тебя размер?",
-   "say_uz": "Isming nima? Sen qayerda yashaysan? Sen qayerda ishlaysan? Sen qachon uyingdasan? Nega uyingdasan? Sen qanday? Qancha turadi? Sen qayerga ketasan? Sen qayerdansan? Qaysi o‘lchaming bor?",
+   "say_native": "Yakuniy mashq. Siz yangi do‘st bilan tanishyapsiz. Unga o‘nta savol bering. Uchtasi “ha/yo‘q” savoli bo‘lsin, ovozni urg‘uli bo‘g‘inda ko‘taring. Qolgan yettitasida turli so‘roq so‘zlarini ishlating va ularni gap boshiga qo‘ying. “Где” va “куда” ni adashtirmang. Pauzada baland ovozda gapiring.",
+   "say": "Вы знакомитесь с новым другом. Задайте десять вопросов. Начинайте!",
+   "say_uz": "Siz yangi do‘st bilan tanishyapsiz. O‘nta savol bering. Boshlang!",
    "practice_seconds": 20
   },
   {
    "kind": "explain",
    "title": "Namuna javob",
    "emotion": "proud",
-   "board": ["Как тебя зовут?", "Где ты живёшь?", "Где ты работаешь?", "Когда ты дома?", "Почему ты дома?"],
+   "board": [
+    "Ты студент? · Ты говоришь по-английски? · Ты любишь спорт?",
+    "Как тебя зовут? · Откуда ты? · Сколько тебе лет?",
+    "Где ты живёшь? · Куда ты идёшь вечером?",
+    "Почему ты учишь русский? · Какой твой любимый цвет?"
+   ],
    "examples": [],
-   "say_native": "Namuna: “Как тебя зовут? Где ты живёшь? Где ты работаешь? Когда ты дома? Почему ты дома? Как ты? Сколько стоит? Куда ты идёшь? Откуда ты? Какой у тебя размер?” Har bir savol so‘roq so‘zi bilan boshlangan, so‘z tartibi to‘g‘ri. So‘roq so‘zlari: “как, где, когда, почему, сколько, куда, откуда, какой”. Siz ham shunday o‘nta savol tuzing.",
-   "say": "Как тебя зовут? Где ты живёшь? Где ты работаешь? Когда ты дома? Почему ты дома? Как ты? Сколько стоит? Куда ты идёшь? Откуда ты? Какой у тебя размер?",
-   "say_uz": "Isming nima? Sen qayerda yashaysan? Sen qayerda ishlaysan? Sen qachon uyingdasan? Nega uyingdasan? Sen qanday? Qancha turadi? Sen qayerga ketasan? Sen qayerdansan? Qaysi o‘lchaming bor?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "O‘zingizni tekshiring",
-   "emotion": "proud",
-   "board": ["Что это? · Кто это?", "Где? · Когда? · Почему?", "Как? · Сколько? · Куда? · Откуда?", "Ты работаешь? (↗)"],
-   "examples": [],
-   "say_native": "O‘zingizni tekshiring. “Что это?” va “кто это?” deb so‘ra olasizmi? “Где, когда, почему” so‘zlari bilan savol tuza olasizmi? “Как, сколько, куда, откуда” bilan savol bera olasizmi? Ha-yo‘q savolini ohang ko‘tarib “ты работаешь?” deb ayta olasizmi? Hammasi joyida bo‘lsa, so‘roq gaplarni to‘g‘ri tuzasiz.",
-   "say": "Что это? Кто это? Где ты живёшь? Когда ты дома? Почему ты дома? Как ты? Ты работаешь?",
-   "say_uz": "Bu nima? Bu kim? Sen qayerda yashaysan? Sen qachon uyingdasan? Nega uyingdasan? Sen qanday? Sen ishlaysanmi?",
+   "say_native": "Namuna: uchta “ha/yo‘q” savoli: “Ты студент?”, “Ты говоришь по-английски?”, “Ты любишь спорт?” Va yettita so‘roq so‘zli savol: “Как тебя зовут?”, “Откуда ты?”, “Сколько тебе лет?”, “Где ты живёшь?”, “Куда ты идёшь вечером?”, “Почему ты учишь русский?”, “Какой твой любимый цвет?” “Любимый” — eng yaxshi ko‘rgan, sevimli.",
+   "say": "Как тебя зовут? Откуда ты? Сколько тебе лет? Ты студент? Где ты живёшь? Почему ты учишь русский? Какой твой любимый цвет?",
+   "say_uz": "Isming nima? Qayerdansan? Necha yoshdasan? Talabamisan? Qayerda yashaysan? Nega rus tilini o‘rganyapsan? Sevimli ranging qaysi?",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": ["Что? · Кто? · Где? · Когда?", "Почему? · Как? · Сколько?", "Куда? · Откуда? · Какой?", "Ты работаешь? — ohang ↗"],
+   "board": [
+    "Ты студент? ↗ — tartib o‘zgarmaydi, “есть”siz",
+    "кто · что · где · куда · откуда · когда",
+    "почему — потому что · как · сколько · какой · чей",
+    "So‘roq so‘zi boshida · ↘ ohang"
+   ],
    "examples": [],
-   "say_native": "Xulosa. So‘roq so‘zlarini o‘rgandik: “кто, что, где, когда, почему, как, сколько, куда, откуда, какой”. Ha-yo‘q savolining ohangini o‘rgandik: “ты работаешь?” — ohang oxirida ko‘tariladi. So‘z tartibi o‘zgarmasligini o‘rgandik. Endi har qanday savolni rus tilida to‘g‘ri tuza olasiz.",
+   "say_native": "Xulosa. “Ha/yo‘q” savolida so‘z tartibi o‘zgarmaydi, “-mi” o‘rnini ohang bosadi: ovoz urg‘uli bo‘g‘inda ko‘tariladi. “Есть” va “ли” kerak emas. So‘roq so‘zlarini o‘rgandik, “где, куда, откуда” ni “-da, -ga, -dan” bilan farqladik, “кто” hayvonlar uchun ham. “Почему” ga “потому что” bilan javob beramiz. So‘roq so‘zi gap boshida, ohangi pasayuvchi.",
    "say": "Отлично! Теперь вы умеете задавать вопросы по-русски.",
-   "say_uz": "Ajoyib! Endi rus tilida savollar bera olasiz.",
+   "say_uz": "Ajoyib! Endi rus tilida savol bera olasiz.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uyga vazifa",
    "emotion": "encouraging",
-   "board": ["Yangi do‘stga 10 ta savol yozing", "Что · Кто · Где · Когда · Почему", "Keyingi dars: inkor gaplar"],
+   "board": [
+    "10 savol: yangi do‘stga",
+    "3 ta ha/yo‘q + 7 xil so‘roq so‘zi",
+    "где ≠ куда · baland ovozda o‘qing"
+   ],
    "examples": [],
-   "say_native": "Uyga vazifa. Yangi do‘stingizga o‘nta savol yozing. Har bir savolda bitta so‘roq so‘zini ishlating: “что, кто, где, когда, почему, как, сколько, куда, откуда, какой”. Mezon: har bir savol rus tilida, ohang so‘roq belgisi bilan ko‘rsatilgan. Keyingi darsda inkor gaplarni o‘rganamiz. Ko‘rishguncha!",
-   "say": "До свидания! До встречи на следующем уроке. Мы будем говорить об отрицании.",
-   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz. Biz inkor gaplar haqida gaplashamiz.",
+   "say_native": "Uyga vazifa. Yangi do‘stga beradigan o‘nta savol yozing. Mezon: kamida uchta “ha/yo‘q” savoli, “есть” va “ли” siz; kamida yettita turli so‘roq so‘zi; so‘roq so‘zi gap boshida; “где” va “куда” to‘g‘ri. Keyin savollarni to‘g‘ri ohang bilan baland ovozda o‘qing. Keyingi darsda inkor gaplarni chuqurroq o‘rganamiz. Ko‘rishguncha!",
+   "say": "До свидания! До встречи на следующем уроке.",
+   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Yangi do‘stingizga rus tilida o‘nta savol yozing. Mezon: har bir savolda bitta so‘roq so‘zi (что, кто, где, когда, почему, как, сколько, куда, откуда, какой) ishlatilgan, savol ohangi so‘roq belgisi bilan ko‘rsatilgan.",
+ "homework_uz": "Yangi do‘stga beradigan o‘nta savol yozing. Muvaffaqiyat mezoni: kamida uchta «ha/yo‘q» savoli (faqat ohang bilan, «есть» va «ли»siz) va kamida yettita turli so‘roq so‘zi (кто, что, где, куда, откуда, когда, почему, как, сколько, какой); so‘roq so‘zi gap boshida, «где» va «куда» to‘g‘ri farqlangan. Keyin savollarni to‘g‘ri ohang bilan baland ovozda o‘qing.",
  "quiz": [
   {
-   "q": "How do you ask ‘What is this?’",
-   "options": ["Что это?", "Кто это?", "Где это?", "Как это?"],
-   "answer": 0,
-   "why_uz": "Что это? — bu nima? buyum haqida."
+   "q": "How do you turn «Ты студент.» into a yes/no question?",
+   "options": [
+    "Ты есть студент?",
+    "Ты студент?",
+    "Студент ли ты есть?",
+    "Ты студент ли?"
+   ],
+   "answer": 1,
+   "why_uz": "So‘z tartibi o‘zgarmaydi, faqat ohang: Ты студент?"
   },
   {
-   "q": "How do you ask ‘Who is this?’",
-   "options": ["Кто это?", "Что это?", "Где это?", "Когда это?"],
-   "answer": 0,
-   "why_uz": "Кто это? — bu kim? odam haqida."
+   "q": "Choose the correct question word: «… ты идёшь?» (direction)",
+   "options": [
+    "Где",
+    "Куда",
+    "Откуда",
+    "Когда"
+   ],
+   "answer": 1,
+   "why_uz": "Yo‘nalish — qayerga: куда ты идёшь?"
   },
   {
-   "q": "How do you ask ‘Where do you live?’",
-   "options": ["Где ты живёшь?", "Когда ты живёшь?", "Почему ты живёшь?", "Как ты живёшь?"],
-   "answer": 0,
-   "why_uz": "Где — qayerda, joylashuvni so‘raydi."
+   "q": "Choose the correct question word: «… ты живёшь?»",
+   "options": [
+    "Куда",
+    "Где",
+    "Откуда",
+    "Кто"
+   ],
+   "answer": 1,
+   "why_uz": "Joy — qayerda: где ты живёшь?"
   },
   {
-   "q": "How do you ask ‘When are you home?’",
-   "options": ["Когда ты дома?", "Где ты дома?", "Почему ты дома?", "Куда ты дома?"],
-   "answer": 0,
-   "why_uz": "Когда — qachon, vaqtni so‘raydi."
+   "q": "How do you ask ‘Where are you from?’",
+   "options": [
+    "Где ты?",
+    "Куда ты?",
+    "Откуда ты?",
+    "Кто ты?"
+   ],
+   "answer": 2,
+   "why_uz": "Qayerdan — откуда: Откуда ты?"
   },
   {
-   "q": "How do you ask ‘Why are you home?’",
-   "options": ["Почему ты дома?", "Когда ты дома?", "Где ты дома?", "Как ты дома?"],
-   "answer": 0,
-   "why_uz": "Почему — nega, sababni so‘raydi."
+   "q": "How do you ask someone’s name?",
+   "options": [
+    "Что тебя зовут?",
+    "Как тебя зовут?",
+    "Кто тебя зовут?",
+    "Как ты зовут?"
+   ],
+   "answer": 1,
+   "why_uz": "Ism как bilan so‘raladi: Как тебя зовут?"
   },
   {
-   "q": "How do you ask ‘How are you?’",
-   "options": ["Как ты?", "Что ты?", "Где ты?", "Когда ты?"],
-   "answer": 0,
-   "why_uz": "Как ты? — sen qanday? holatni so‘raydi."
+   "q": "How do you ask ‘How old are you?’",
+   "options": [
+    "Сколько ты лет?",
+    "Сколько тебе лет?",
+    "Как тебе лет?",
+    "Сколько у тебя лет есть?"
+   ],
+   "answer": 1,
+   "why_uz": "Tayyor ibora: Сколько тебе лет?"
   },
   {
-   "q": "How do you ask ‘How much is it?’",
-   "options": ["Сколько стоит?", "Где стоит?", "Когда стоит?", "Почему стоит?"],
-   "answer": 0,
-   "why_uz": "Сколько — qancha, miqdorni so‘raydi."
+   "q": "«Кто это?» or «Что это?» about a cat?",
+   "options": [
+    "Что это?",
+    "Кто это?",
+    "Какой это?",
+    "Чей это?"
+   ],
+   "answer": 1,
+   "why_uz": "Hayvon uchun ham кто: Кто это? — Это кошка."
   },
   {
-   "q": "How do you ask ‘Where are you going?’",
-   "options": ["Куда ты идёшь?", "Откуда ты идёшь?", "Где ты идёшь?", "Когда ты идёшь?"],
-   "answer": 0,
-   "why_uz": "Куда — qayerga, yo‘nalishni so‘raydi."
+   "q": "Choose the correct answer: «Почему ты дома?»",
+   "options": [
+    "Почему я болею.",
+    "Потому что я болею.",
+    "Потомучто болею.",
+    "Почему что я болею."
+   ],
+   "answer": 1,
+   "why_uz": "Nega? — chunki: потому что."
   },
   {
-   "q": "Which question is correct for ‘Do you work?’",
-   "options": ["Ты работаешь?", "Ты есть работаешь?", "Ты работаешь ли?", "Работаешь ты есть?"],
-   "answer": 0,
-   "why_uz": "Ты работаешь? — so‘z tartibi o‘zgarmaydi, ohang ko‘tariladi."
+   "q": "Choose the correct form: «… это сумка?»",
+   "options": [
+    "Чей",
+    "Чья",
+    "Чьё",
+    "Чьи"
+   ],
+   "answer": 1,
+   "why_uz": "Сумка — ayol jinsi: чья это сумка?"
   },
   {
-   "q": "How do you ask ‘Which size?’",
-   "options": ["Какой размер?", "Что размер?", "Где размер?", "Как размер?"],
-   "answer": 0,
-   "why_uz": "Какой — qaysi, sifatli olmosh, ot bilan moslashadi."
+   "q": "In «Где ты живёшь?» the voice normally…",
+   "options": [
+    "rises sharply at the end",
+    "is strongest on «где» and falls",
+    "rises on «ты»",
+    "stays high all the time"
+   ],
+   "answer": 1,
+   "why_uz": "So‘roq so‘zli savolda urg‘u so‘roq so‘zida, ovoz pasayadi."
   }
  ]
 }

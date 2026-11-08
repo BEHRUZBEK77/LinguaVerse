@@ -1,946 +1,504 @@
 {
  "title": "Ovqat, ichimlik va kafeda buyurtma berish",
- "goal_uz": "Dars oxirida mahsulot nomlarini aytasiz, “men istayman” va “buyurtma qiladiganman” shakllarida kafeda buyurtma berasiz, narhni so‘rayasiz va mahsulot turlarini ajratib aytasiz.",
+ "goal_uz": "Dars oxirida o‘nta ovqat va ichimlik nomini aytasiz, kafeda “أُرِيدُ … مِنْ فَضْلِكَ” bilan muloyim buyurtma berasiz, narxni so‘raysiz, hisobni so‘rab to‘laysiz va arab kafesidagi odob qoidalariga amal qilasiz.",
  "vocab": [
-  {
-   "w": "قَهْوَةٌ",
-   "uz": "qahva"
-  },
-  {
-   "w": "شَايٌ",
-   "uz": "choy"
-  },
-  {
-   "w": "مَاءٌ",
-   "uz": "suv"
-  },
-  {
-   "w": "خُبْزٌ",
-   "uz": "non"
-  },
-  {
-   "w": "جُبْنٌ",
-   "uz": "panir"
-  },
-  {
-   "w": "بَيْضٌ",
-   "uz": "tuxum"
-  },
-  {
-   "w": "فَاكِهَةٌ",
-   "uz": "meva"
-  },
-  {
-   "w": "بِطَاطِسٌ",
-   "uz": "kartoshka"
-  },
-  {
-   "w": "لَحْمٌ",
-   "uz": "go‘sht"
-  },
-  {
-   "w": "سُكَّرٌ",
-   "uz": "shakar"
-  }
+  {"w": "قَهْوَةٌ", "uz": "qahva"},
+  {"w": "شَايٌ", "uz": "choy"},
+  {"w": "مَاءٌ", "uz": "suv"},
+  {"w": "عَصِيرٌ", "uz": "sharbat"},
+  {"w": "حَلِيبٌ", "uz": "sut"},
+  {"w": "خُبْزٌ", "uz": "non"},
+  {"w": "جُبْنٌ", "uz": "pishloq"},
+  {"w": "دَجَاجٌ", "uz": "tovuq go‘shti"},
+  {"w": "مِنْ فَضْلِكَ", "uz": "iltimos (erkakka)"},
+  {"w": "الْحِسَابُ", "uz": "hisob (to‘lov)"}
  ],
  "scenes": [
   {
    "kind": "intro",
    "title": "To‘qqizinchi dars: kafeda",
    "emotion": "happy",
-   "board": [
-    "الدَّرْسُ التَّاسِعُ (9-dars)",
-    "Ovqat va ichimlik"
-   ],
-   "examples": [
-    {
-     "t": "أُحِبُّ الْقَهْوَةَ",
-     "uz": "Menga qahva yaxshi"   }
-  ],
-   "say_native": "Assalomu alaykum! To‘qqizinchi darsga xush kelibsiz. O‘tgan darsda hozirgi zamon fe’llarini va takrorlanish so‘zlarini o‘rgandik. Bugun kafeda buyurtma berishni o‘rganamiz: ovqat va ichimlik nomlarini, “men istayman” va “buyortma qiladiganman” shakllarini, narhni so‘rashni va to‘lashni. Dars oxirida kafeda buyurtma beruvchi shaxsdan tarjima qilasiz. Boshlaymiz.",
-   "say": "Welcome to lesson nine. Today we order food and drinks in a café.",
-   "say_uz": "To‘qqizinchi darsga xush kelibsiz. Bugun kafeda buyurtma berishni o‘rganamiz.",
+   "board": ["الدَّرْسُ التَّاسِعُ (9-dars)", "فِي الْمَقْهَى (fil-maqhā) — kafeda", "أُرِيدُ قَهْوَةً مِنْ فَضْلِكَ"],
+   "examples": [{"t": "أُرِيدُ قَهْوَةً مِنْ فَضْلِكَ.", "uz": "Iltimos, qahva olay (qahva istayman)."}],
+   "say_native": "Assalomu alaykum! To‘qqizinchi darsga xush kelibsiz. Oldingi darsda hozirgi zamon fe’lini shaxslarga qarab tusladik va odatlar haqida gapirdik. Bugun shu bilimni hayotga olib chiqamiz: kafega kiramiz. Ovqat va ichimlik nomlarini o‘rganasiz, muloyim buyurtma berasiz, narxni so‘raysiz va hisobni to‘laysiz. Arab kafesidagi odob qoidalarini ham bilib olasiz. Dars oxirida to‘liq buyurtmani o‘zingiz aytasiz.",
+   "say": "أَهْلًا وَسَهْلًا! الْيَوْمَ نَحْنُ فِي الْمَقْهَى. أُرِيدُ قَهْوَةً مِنْ فَضْلِكَ.",
+   "say_uz": "Xush kelibsiz! Bugun biz kafedamiz. Iltimos, qahva istayman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ichimliklar: birinchi to‘rt",
+   "title": "Ichimliklar",
    "emotion": "neutral",
-   "board": [
-    "قَهْوَةٌ — qahva",
-    "شَايٌ — choy",
-    "مَاءٌ — suv",
-    "عَصِيرٌ — sharbat"
-   ],
-   "examples": [
-    {
-     "t": "قَهْوَةٌ",
-     "uz": "qahva"
-    },
-    {
-     "t": "مَاءٌ",
-     "uz": "suv"
-    }
-   ],
-   "say_native": "Avval ichimliklar. “Qahvah” — qahva, “shāʾ” — choy, “māʾ” — suv, “ʿaṣīr” — sharbat. Bu so‘zlar ayol jinsli emas, erkak jinsli. “Al-qahwah” — o‘sha qahva. Gapda noaniq: “urīdu qahvah” — men qahvamni istayman. “Māʾ” da hamza bor, uni erkin ayting. E’tibor bering: “qahvah” da “h” aniq, oxirgi “-ah” qo‘shimcha oxiri bo‘ladi, lekin yozuvda ta marbuta emas.",
-   "say": "Qahva, chai, ma, aseer.",
-   "say_uz": "Qahva, choy, suv, sharbat.",
+   "board": ["قَهْوَةٌ (qahwa) — qahva", "شَايٌ (shāy) — choy", "مَاءٌ (māʾ) — suv", "عَصِيرٌ (ʿaṣīr) — sharbat · حَلِيبٌ (ḥalīb) — sut"],
+   "examples": [{"t": "قَهْوَةٌ وَشَايٌ", "uz": "Qahva va choy"}, {"t": "مَاءٌ وَحَلِيبٌ", "uz": "Suv va sut"}],
+   "say_native": "Avval ichimliklar. “Qahwa” — qahva. Ko‘rib turibsizki, o‘zbekcha “qahva” so‘zi aynan arab tilidan kirgan. “Shāy” — choy, bu ham bizga tanish. “Māʾ” — suv, oxirida hamza bor, uni qisqa to‘xtash bilan ayting. “ʿAṣīr” — sharbat, boshida tomoqdan chiqadigan ʿayn tovushi. “Ḥalīb” — sut, boshidagi “ḥ” o‘zbekcha “h” dan kuchliroq, xuddi ko‘zoynakka hovur purkagandek chiqadi.",
+   "say": "قَهْوَةٌ. شَايٌ. مَاءٌ. عَصِيرٌ. حَلِيبٌ.",
+   "say_uz": "Qahva. Choy. Suv. Sharbat. Sut.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ichimliklar: yana to‘rt",
+   "title": "Nonushta taomlari",
    "emotion": "neutral",
-   "board": [
-    "حَلْبٌ — sut",
-    "عَصِيرُ تُفَّاحٍ — olma sharbati",
-    "كُوكُوكُولا — koka-kola",
-    "مِيَاهٌ — suvlar (ko‘plik)"
-  ],
-   "examples": [
-    {
-     "t": "عَصِيرُ تُفَّاحٍ",
-     "uz": "olma sharbati"
-    },
-    {
-     "t": "حَلْبٌ",
-     "uz": "sut"   }
-  ],
-   "say_native": "Yana to‘rtta. “Ḥalb” — sut, “ʿaṣīr tuffāḥ” — olma sharbati, “kūkūkūlā” — koka-kola, “miyāh” — suvlar. “ʿAṣīr” va ichimlik nomi iḍafa bilan bog‘lanadi: olma sharbati. “Kūkūkūlā” bayt sifatida, gazlagan ichimlik. “Miyāh” — “māʾ”ning ko‘pligi. “Al-miyāh” — suvlar. Ichimliklarni kafeda buyurtma berishda eng ko‘p ishlatamiz.",
-   "say": "Halb, aseer tuffah, coca cola, miyah.",
-   "say_uz": "Halb, aseer tuffah, coca cola, miyah.",
+   "board": ["خُبْزٌ (khubz) — non", "جُبْنٌ (jubn) — pishloq", "بَيْضٌ (bayḍ) — tuxum", "زَيْتُونٌ (zaytūn) — zaytun"],
+   "examples": [{"t": "خُبْزٌ وَجُبْنٌ", "uz": "Non va pishloq"}, {"t": "بَيْضٌ وَزَيْتُونٌ", "uz": "Tuxum va zaytun"}],
+   "say_native": "Endi nonushta taomlari. “Khubz” — non. “Kh” tovushi o‘zbekcha “x” ga o‘xshaydi: xubz. “Jubn” — pishloq. “Bayḍ” — tuxum; oxiridagi “ḍ” qalin, og‘zni to‘ldirib aytiladigan “d”. “Zaytūn” — zaytun, bu so‘z ham bizga tanish. Arab mamlakatlarida nonushta ko‘pincha aynan shu to‘rttasidan iborat: non, pishloq, tuxum, zaytun va bir piyola choy.",
+   "say": "خُبْزٌ. جُبْنٌ. بَيْضٌ. زَيْتُونٌ.",
+   "say_uz": "Non. Pishloq. Tuxum. Zaytun.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tushlik taomlari",
+   "emotion": "neutral",
+   "board": ["لَحْمٌ (laḥm) — go‘sht", "دَجَاجٌ (dajāj) — tovuq go‘shti", "سَمَكٌ (samak) — baliq", "أَرُزٌّ (aruzz) — guruch, palov · سَلَطَةٌ (salaṭa) — salat"],
+   "examples": [{"t": "دَجَاجٌ وَأَرُزٌّ", "uz": "Tovuq va guruch"}, {"t": "سَمَكٌ وَسَلَطَةٌ", "uz": "Baliq va salat"}],
+   "say_native": "Tushlik uchun so‘zlar. “Laḥm” — go‘sht. “Dajāj” — tovuq go‘shti. “Samak” — baliq. “Aruzz” — guruch; kafeda “aruzz” desangiz, odatda pishirilgan guruch, ya’ni palovga o‘xshash taom keladi. Oxiridagi “zz” ikkilangan, uni cho‘zib ayting. “Salaṭa” — salat. Mevalar umumiy qilib “fākiha” deyiladi. Bu so‘zlar bilan menyuning katta qismini tushunasiz.",
+   "say": "لَحْمٌ. دَجَاجٌ. سَمَكٌ. أَرُزٌّ. سَلَطَةٌ.",
+   "say_uz": "Go‘sht. Tovuq. Baliq. Guruch. Salat.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Ichimlikni toping",
+   "title": "Arabcha ayting",
    "emotion": "encouraging",
-   "board": [
-    "1) qahva",
-    "2) choy",
-    "3) suv",
-    "4) sharbat",
-    "5) sut"
-   ],
+   "board": ["1) suv", "2) sut", "3) non", "4) pishloq · 5) baliq · 6) tovuq"],
    "examples": [],
-   "say_native": "Mashq. Beshta ichimlikni arabcha ayting: qahva, choy, suv, sharbat, sut. Har birini baland ovozda, hamzaga e’tibor bilan ayting.",
-   "say": "Say the Arabic words for coffee, tea, water, juice and milk.",
-   "say_uz": "Arabcha ayting: qahva, choy, suv, sharbat, sut.",
-   "practice_seconds": 12
+   "say_native": "Mashq. Doskadagi oltita so‘zni arabcha ayting: suv, sut, non, pishloq, baliq, tovuq go‘shti. Har birini baland ovozda ayting. “Sut” so‘zidagi kuchli “ḥ” ni va “suv” so‘zi oxiridagi hamzani unutmang.",
+   "say": "مَا اسْمُ هَذَا بِالْعَرَبِيَّةِ؟",
+   "say_uz": "Bu arabchada nima deyiladi?",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "1) قَهْوَةٌ",
-    "2) شَايٌ",
-    "3) مَاءٌ",
-    "4) عَصِيرٌ",
-    "5) حَلْبٌ"
-   ],
+   "board": ["1) مَاءٌ  2) حَلِيبٌ", "3) خُبْزٌ  4) جُبْنٌ", "5) سَمَكٌ  6) دَجَاجٌ"],
    "examples": [],
-   "say_native": "Javoblar: qahvah, shāʾ, māʾ, ʿaṣīr, ḥalb. “Shāʾ” va “māʾ” da uzun “ā” bor. “ʿAṣīr” da shadda: ʿaṣ-ṣir. “Ḥalb” da “l” bor, lekin oxiri “b”. Bu ichimliklarni yaxshi yodlab oling, keyingi darda buyurtma berishda kerak bo‘ladi.",
-   "say": "Qahva, chai, water, juice, milk.",
-   "say_uz": "Qahva, choy, suv, sharbat, sut.",
+   "say_native": "Javoblar: māʾ — suv, ḥalīb — sut, khubz — non, jubn — pishloq, samak — baliq, dajāj — tovuq go‘shti. Agar “ḥalīb” ni oddiy “halib” deb aytgan bo‘lsangiz, qo‘rqmang, sizni baribir tushunishadi, lekin to‘g‘ri talaffuzga intiling. “Jubn” va “khubz” ni adashtirib yubormang: non — khubz, pishloq — jubn.",
+   "say": "مَاءٌ. حَلِيبٌ. خُبْزٌ. جُبْنٌ. سَمَكٌ. دَجَاجٌ.",
+   "say_uz": "Suv. Sut. Non. Pishloq. Baliq. Tovuq.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ovqatlar: birinchi to‘rt",
-   "emotion": "neutral",
-   "board": [
-    "خُبْزٌ — non",
-    "جُبْنٌ — panir",
-    "بَيْضٌ — tuxum",
-    "لَحْمٌ — go‘sht"
-   ],
-   "examples": [
-    {
-     "t": "خُبْزٌ",
-     "uz": "non"
-    },
-    {
-     "t": "بَيْضٌ",
-     "uz": "tuxum"   }
-  ],
-   "say_native": "Endi ovqatlar. “Khubz” — non, “jubn” — panir, “bayḍ” — tuxum, “laḥm” — go‘sht. Bu so‘zlar erta nonushtada eng ko‘p ishlatiladi. “Khubz” da “z” so‘ngda eshitiladi. “Jubn” da “b” so‘ngda. “Bayḍ” da hamza bo‘lgan “ḍ” bor. “Laḥm” — go‘sht, “laḥm baqarī” — mantiq go‘shti. O‘zbek tilida “tuxum” erkak va ayolga bir xil, arabchada ham shunday, shuning uchun shaklni o‘zgarmaydi.",
-   "say": "Khubz, jubn, bayd, lahmd. Bread, cheese, eggs, meat.",
-   "say_uz": "Khubz, jubn, bayd, lahmd. Non, panir, tuxum, go‘sht.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ovqatlar: yana to‘rt",
-   "emotion": "impressed",
-   "board": [
-    "فَاكِهَةٌ — meva",
-    "بِطَاطِسٌ — kartoshka",
-    "سُكَّرٌ — shakar",
-    "عَسَلٌ — bal"
-   ],
-   "examples": [
-    {
-     "t": "فَاكِهَةٌ",
-     "uz": "meva"
-   },
-   {
-    "t": "عَسَلٌ",
-     "uz": "bal"
-   }
-  ],
-   "say_native": "Yana to‘rtta. “Fākiḥah” — meva, “biṭāṭis” — kartoshka, “sukkar” — shakar, “ʿasal” — bal. “Biṭāṭis” uzun so‘z, bo‘g‘inlarni ajratib ayting: bi-ṭā-ṭis. “Sukkar” da “k” ikkilanadi: suk-kar. “Fākiḥah” ayol jinsli, lekin ma’nosida meva bo‘ladi. “ʿAsal” — bal, qahvaga qo‘shiladi. Bu so‘zlar kafeda buyurtma berishda foydali.",
-   "say": "Fakiha, batatis, sukkar, asal.",
-   "say_uz": "Fakiha, batatis, sukkar, asal.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Ovqatni toping",
-   "emotion": "encouraging",
-   "board": [
-    "1) non",
-    "2) panir",
-    "3) tuxum",
-    "4) go‘sht",
-    "5) kartoshka"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Beshta ovqatni arabcha ayting: non, panir, tuxum, go‘sht, kartoshka. Ikkinchi undoshlar va shaddalarga e’tibor bering.",
-   "say": "Say the Arabic words for bread, cheese, eggs, meat and potatoes.",
-   "say_uz": "Arabcha ayting: non, panir, tuxum, go‘sht, kartoshka.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "1) خُبْزٌ",
-    "2) جُبْنٌ",
-    "3) بَيْضٌ",
-    "4) لَحْمٌ",
-    "5) بِطَاطِسٌ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: khubz, jubn, bayḍ, laḥm, biṭāṭis. “Bayḍ” va “laḥm” da “-ḍ” va “-m” oxiri to‘g‘ri talaffuz qilinishi kerak. “Biṭāṭis” da yoxshroq “t” harflari bor. Endi ichimlik va ovqatlarni birga ishlatamiz.",
-   "say": "Khubz, jubn, eggs, meat, potatoes.",
-   "say_uz": "Khubz, jubn, bayd, lahm, batatis.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "“Men istayman” — uḥibbu",
+   "title": "Ovqatning jinsi va sifat",
    "emotion": "thinking",
-   "board": [
-    "أُحِبُّ — men istayman / yaxshi ko‘raman",
-    "أُحِبُّ الْقَهْوَةَ — menga qahva yaxshi",
-    "أُحِبُّ الْمَيْزَ — (XATO!)"
-   ],
-   "examples": [
-    {
-     "t": "أُحِبُّ الْقَهْوَةَ",
-     "uz": "Menga qahva yaxshi"
-    },
-    {
-     "t": "أُحِبُّ الشَّايَ",
-     "uz": "Menga choy yaxshi"   }
-  ],
-   "say_native": "Buyurtma berishning oddiy usuli “uḥibbu” — men istayman yoki yaxshi ko‘raman. “Uḥibbu al-qahwah” — menga qahva yaxshi. “Uḥibbu ash-shāʾ” — menga choy yaxshi. E’tibor bering: “al-qahwah” da “al” bor, chunki aniq mahsulot. “Uḥibbu māʾ” — menga suv yaxshi. “Uḥibbu” fe’li bilan obyekt majrūr bo‘ladi, ya’ni “-a” bilan: al-qahwata, ash-shāya. Bu o‘zbek tilidagi “-ni” qo‘shimchasiga o‘xshaydi.",
-   "say": "Uhibbu al-qahwa means I like coffee.",
-   "say_uz": "Uhibbu al-qahwa — menga qahva yaxshi.",
+   "board": ["قَهْوَةٌ سَاخِنَةٌ — issiq qahva", "شَايٌ سَاخِنٌ — issiq choy", "مَاءٌ بَارِدٌ — sovuq suv", "سَلَطَةٌ طَازَجَةٌ — yangi salat"],
+   "examples": [{"t": "قَهْوَةٌ سَاخِنَةٌ", "uz": "Issiq qahva"}, {"t": "عَصِيرٌ بَارِدٌ", "uz": "Sovuq sharbat"}],
+   "say_native": "Arab tilida har bir ot erkak yoki ayol jinsida. Oxiri “ta marbuta” bilan tugagan so‘zlar, ya’ni “-a” bilan tugaganlar, odatda ayol jinsi: qahwa, salaṭa. Shāy, māʾ, ʿaṣīr esa erkak jinsi. Sifat otdan keyin keladi va unga moslashadi: “qahwa sākhina” — issiq qahva, “shāy sākhin” — issiq choy, “māʾ bārid” — sovuq suv. O‘zbek tilida sifat oldin turadi va o‘zgarmaydi, arab tilida esa keyin turadi va jinsga qarab o‘zgaradi.",
+   "say": "قَهْوَةٌ سَاخِنَةٌ. شَايٌ سَاخِنٌ. مَاءٌ بَارِدٌ. عَصِيرٌ بَارِدٌ.",
+   "say_uz": "Issiq qahva. Issiq choy. Sovuq suv. Sovuq sharbat.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "“Uḥibbu” xatosi",
+   "title": "Sifatni moslamaslik",
    "emotion": "stern",
-   "board": [
-    "✗ أُحِبُّ مَاء",
-    "✓ أُحِبُّ الْمَاءَ",
-    "✗ أُحِبُّ قَهْوَةٌ",
-    "✓ أُحِبُّ الْقَهْوَةَ"
-   ],
+   "board": ["✗ قَهْوَةٌ سَاخِنٌ", "✓ قَهْوَةٌ سَاخِنَةٌ", "✗ شَايٌ سَاخِنَةٌ", "✓ شَايٌ سَاخِنٌ"],
    "examples": [],
-   "say_native": "Ikki xato. Birinchisi: obyekt uchun “al” va “-a” bo‘lishi shart: “uḥibbu al-māʾa”, “uḥibbu māʾ” emas. Ikkinchisi: noaniq narsa uchun “-un” emas: “uḥibbu al-qahwata” — aniq qahva, “uḥibbu qahwatan” — bitta qahva. Buyurtma berishda aniq mahsulot ishlatiladi, shuning uchun “al-qahwata” to‘g‘ri. Obyektning oxiriga “-a” qo‘shilishi shart, uni unutmang.",
-   "say": "Say uhibbu al-mata, not uhibbu ma. The object takes -a.",
-   "say_uz": "Uhibbu al-mata, uhibbu ma emas. Obyekt oxiri -a bilan tugaydi.",
+   "say_native": "Ko‘p uchraydigan xato: sifatni otga moslamaslik. “Qahwa sākhin” noto‘g‘ri, chunki qahwa ayol jinsi, sifat ham “-a” oladi: “qahwa sākhina”. Teskari xato ham bor: o‘quvchi “-a” ni hamma joyga qo‘yib, “shāy sākhina” deydi. Choy erkak jinsi, demak “shāy sākhin”. Qoida oddiy: otning oxiriga qarang, “-a” bo‘lsa, sifatga ham “-a” qo‘shing.",
+   "say": "قَهْوَةٌ سَاخِنَةٌ. شَايٌ سَاخِنٌ.",
+   "say_uz": "Issiq qahva. Issiq choy.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qayerda nima bor?",
+   "title": "Sifatni qo‘shing",
    "emotion": "encouraging",
-   "board": [
-    "1) Qahva bor.",
-    "2) Choy bor.",
-    "3) Non bor.",
-    "4) Shakar bor."
-   ],
+   "board": ["1) sovuq suv", "2) issiq qahva", "3) sovuq sharbat", "4) issiq choy · 5) yangi salat"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: qahva bor. Ikkinchi: choy bor. Uchinchi: non bor. To‘rtinchi: shakar bor. “Fī” predlogini yoki iḍafani ishlatsangiz ham bo‘ladi, lekin hozircha oddiy “mawjūd” shaklida aytamiz.",
-   "say": "There is coffee. There is tea. There is bread. There is sugar.",
-   "say_uz": "Qahva bor. Choy bor. Non bor. Shakar bor.",
+   "say_native": "Mashq. Beshta birikmani arabcha ayting: sovuq suv, issiq qahva, sovuq sharbat, issiq choy, yangi salat. Issiq — sākhin, sovuq — bārid, yangi — ṭāzaj. Har safar otning jinsiga qarang va sifatni moslang.",
+   "say": "سَاخِنٌ... بَارِدٌ... طَازَجٌ...",
+   "say_uz": "Issiq... sovuq... yangi...",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "فِيهَا قَهْوَةٌ",
-    "فِيهَا شَايٌ",
-    "فِيهَا خُبْزٌ",
-    "فِيهَا سُكَّرٌ"
-   ],
+   "board": ["1) مَاءٌ بَارِدٌ  2) قَهْوَةٌ سَاخِنَةٌ", "3) عَصِيرٌ بَارِدٌ", "4) شَايٌ سَاخِنٌ", "5) سَلَطَةٌ طَازَجَةٌ"],
    "examples": [],
-   "say_native": "Javoblar: fīhā qahvah. Fīhā shāʾ. Fīhā khubz. Fīhā sukkar. “Fīhā” — unda bor. O‘zbek tilida “bor” alohida so‘z, arabchada “fīhā” yoki “fīh” bunday ma’noda ishlatiladi. Endi buyurtma beruvchi fe’llarni o‘rganamiz.",
-   "say": "There is coffee. There is tea. There is bread. There is sugar.",
-   "say_uz": "Qahva bor. Choy bor. Non bor. Shakar bor.",
+   "say_native": "Javoblar: māʾ bārid, qahwa sākhina, ʿaṣīr bārid, shāy sākhin, salaṭa ṭāzaja. Ikkinchi va beshinchi birikmada ot ayol jinsi, shuning uchun sifat ham “-a” bilan tugadi. Qolgan uchtasida ot erkak jinsi, sifat o‘zgarmadi. Bu moslik keyingi barcha darslarda ham kerak bo‘ladi.",
+   "say": "مَاءٌ بَارِدٌ. قَهْوَةٌ سَاخِنَةٌ. عَصِيرٌ بَارِدٌ. شَايٌ سَاخِنٌ. سَلَطَةٌ طَازَجَةٌ.",
+   "say_uz": "Sovuq suv. Issiq qahva. Sovuq sharbat. Issiq choy. Yangi salat.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Buyurtma beruvchi fe’llar",
+   "title": "Buyurtma: أُرِيدُ (urīdu)",
+   "emotion": "thinking",
+   "board": ["أُرِيدُ (urīdu) — istayman", "أُرِيدُ قَهْوَةً (qahwatan)", "أُرِيدُ شَايًا (shāyan)", "أُرِيدُ مَاءً (māʾan)"],
+   "examples": [{"t": "أُرِيدُ شَايًا.", "uz": "Choy istayman."}, {"t": "أُرِيدُ عَصِيرًا.", "uz": "Sharbat istayman."}],
+   "say_native": "Buyurtmaning asosiy fe’li “urīdu” — istayman. Bu oldingi darsdagi “a” prefiksli shakl: men istayman. Narsa nomi fe’ldan keyin keladi va oxiri “-an” bo‘ladi: “urīdu qahwatan”, “urīdu shāyan”, “urīdu māʾan”. O‘zbekchada “choy istayman” deymiz, so‘z tartibi teskari. Yozuvga e’tibor bering: “shāyan” da oxirida qo‘shimcha alif yoziladi, “qahwatan” va “māʾan” da esa yo‘q.",
+   "say": "أُرِيدُ قَهْوَةً. أُرِيدُ شَايًا. أُرِيدُ مَاءً. أُرِيدُ عَصِيرًا.",
+   "say_uz": "Qahva istayman. Choy istayman. Suv istayman. Sharbat istayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Iltimos: erkakka va ayolga",
    "emotion": "neutral",
-   "board": [
-    "أُرِيدُ — men istayman",
-    "أُرِيدُ قَهْوَةً — bitta qahva istayman",
-    "أُحِبُّ شَرْبَةً مِنَ الْقَهْوَةِ — bir cherek qahva"
-   ],
-   "examples": [
-    {
-     "t": "أُرِيدُ قَهْوَةً",
-     "uz": "Menga qahva kerak"
-   },
-   {
-    "t": "أُرِيدُ شَايًا",
-     "uz": "Menga choy kerak"
-   }
-  ],
-   "say_native": "Buyurtma berish uchun ikkita fe’l bor. “Uridu” — men istayman, “uḥibbu” — menga yaxshi ko‘raman. “Uridu qahwatan” — bitta qahva istayman. “Qahwatan” noaniq obyekt, oxiri “-an”. “Uḥibbu shurbatan mina al-qahwah” — bir cherek qahva. “Uridu” bilan obyekt “-an” bilan, “uḥibbu” bilan obyekt “-a” bilan keladi. Bu farqni unutmang.",
-   "say": "Uridu means I want. Uhibbu means I like. Uridu qahwatan.",
-   "say_uz": "Uridu men istayman. Uhibbu menga yaxshi ko‘raman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Istayman yoki yaxshi ko‘raman?",
-   "emotion": "encouraging",
-   "board": [
-    "1) Men choy istayman.",
-    "2) Meng qahva yaxshi.",
-    "3) Men suv istayman.",
-    "4) Menga sharbat yaxshi."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: men choy istayman. Ikkinchi: menga qahva yaxshi. Uchinchi: men suv istayman. To‘rtinchi: menga sharbat yaxshi. “Uridu” va “uḥibbu” ni to‘g‘ri tanlang.",
-   "say": "I want tea. I like coffee. I want water. I like juice.",
-   "say_uz": "Men choy istayman. Meng qahva yaxshi. Men suv istayman. Menga sharbat yaxshi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "أُرِيدُ شَايًا",
-    "أُحِبُّ الْقَهْوَةَ",
-    "أُرِيدُ مَاءً",
-    "أُحِبُّ الْعَصِيرَ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: urīdu ash-shāya. Uḥibbu al-qahwata. Urīdu māʾan. Uḥibbu al-ʿaṣīra. Birinchi va uchinchida “urīdu”, oxiri “-an”. Ikkinchi va to‘rtinchida “uḥibbu”, oxiri “-a”. Har bir gapda obyekt to‘g‘ri shaklda. Endi kafeda buyurtma berishni o‘rganamiz.",
-   "say": "I want tea. I like coffee. I want water. I like juice.",
-   "say_uz": "Men choy istayman. Meng qahva yaxshi. Men suv istayman. Menga sharbat yaxshi.",
+   "board": ["مِنْ فَضْلِكَ (min faḍlika) — iltimos (erkakka)", "مِنْ فَضْلِكِ (min faḍliki) — iltimos (ayolga)", "لَوْ سَمَحْتَ / لَوْ سَمَحْتِ — kechirasiz, iltimos"],
+   "examples": [{"t": "أُرِيدُ شَايًا مِنْ فَضْلِكَ.", "uz": "Iltimos, choy olay (erkak ofitsiantga)."}, {"t": "لَوْ سَمَحْتِ، مَاءً بَارِدًا.", "uz": "Kechirasiz, sovuq suv bering (ayolga)."}],
+   "say_native": "“Urīdu” yolg‘iz o‘zi biroz quruq eshitiladi, shuning uchun “iltimos” qo‘shamiz. Erkakka “min faḍlika”, ayolga “min faḍliki”. Ofitsiantni chaqirish uchun “law samaḥta” — kechirasiz, ayolga “law samaḥti”. O‘zbek tilida “iltimos” hammaga bir xil, arab tilida esa oxirgi unli suhbatdoshning jinsini ko‘rsatadi: “-ka” erkakka, “-ki” ayolga. Gap oxirida pauzada unli tushib, ikkalasi ham “min faḍlik” bo‘lib eshitilishi mumkin.",
+   "say": "أُرِيدُ شَايًا مِنْ فَضْلِكَ. لَوْ سَمَحْتِ، أُرِيدُ مَاءً بَارِدًا.",
+   "say_uz": "Iltimos, choy istayman. Kechirasiz, sovuq suv istayman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Kafeda buyurtma berish",
-   "emotion": "happy",
-   "board": [
-    "أُرِيدُ قَهْوَةً، مُنْفَكًّا — qahva, faqat",
-    "أُرِيدُ قَهْوَةً بِالسُّكَّرِ — shakkar bilan qahva",
-    "أُرِيدُ قَهْوَةً حَارَّةً — issiq qahva",
-    "أُرِيدُ شَايًا بَارِدًا — sovun choy"
-   ],
-   "examples": [
-    {
-     "t": "أُرِيدُ قَهْوَةً بِالسُّكَّرِ",
-     "uz": "Shakkar bilan qahva olaman"
-   },
-   {
-    "t": "أُرِيدُ شَايًا بَارِدًا",
-     "uz": "Sovun choy olaman"
-   }
-  ],
-   "say_native": "Kafeda buyurtma berish: “urīdu qahwatan munfaqqan” — faqat qahva, “urīdu qahwatan bi al-sukkari” — shakkar bilan qahva, “urīdu qahwatan ḥāṣiratan” — issiq qahva, “urīdu shāyan bāridan” — sovun choy. “Bi” — bilan. Sifat so‘zi otga moslashadi: qahwah ḥāṣirah, shāʾ bārid. “Issiq” — “ḥārr”, “sovuq” — “bārid”. “Sukkar” bilan “bi al-sukkari” — shakkar bilan.",
-   "say": "I want coffee only. Coffee with sugar. Hot coffee. Cold tea.",
-   "say_uz": "Faqat qahva. Shakkar bilan qahva. Issiq qahva. Sovun choy.",
+   "title": "Yana muloyim: أَوَدُّ va هَلْ عِنْدَكُمْ",
+   "emotion": "thinking",
+   "board": ["أَوَدُّ أَنْ أَطْلُبَ (awaddu an aṭluba) — buyurtma bermoqchi edim", "هَلْ عِنْدَكُمْ ...؟ (hal ʿindakum) — ... bormi?", "نَعَمْ، عِنْدَنَا. — Ha, bor."],
+   "examples": [{"t": "أَوَدُّ أَنْ أَطْلُبَ، مِنْ فَضْلِكَ.", "uz": "Iltimos, buyurtma bermoqchi edim."}, {"t": "هَلْ عِنْدَكُمْ عَصِيرُ بُرْتُقَالٍ؟", "uz": "Sizlarda apelsin sharbati bormi?"}],
+   "say_native": "Yana ikkita muloyim ibora. “Awaddu an aṭluba” — buyurtma bermoqchi edim. Bu “istayman” dan yumshoqroq, o‘zbekchadagi “-moqchi edim” ga o‘xshaydi. “Hal ʿindakum …?” — sizlarda … bormi? Bu “olsam bo‘ladimi” degan savolning eng tabiiy shakli. Javob: “naʿam, ʿindanā” — ha, bizda bor. So‘zlashuv tilida ko‘p arablar “mumkin …?” deyishadi, ya’ni “… mumkinmi?”, buni ham eshitasiz, lekin adabiy tilda yuqoridagi shakllar to‘g‘ri.",
+   "say": "أَوَدُّ أَنْ أَطْلُبَ، مِنْ فَضْلِكَ. هَلْ عِنْدَكُمْ عَصِيرُ بُرْتُقَالٍ؟ نَعَمْ، عِنْدَنَا.",
+   "say_uz": "Iltimos, buyurtma bermoqchi edim. Sizlarda apelsin sharbati bormi? Ha, bizda bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Piyola, stakan, likop",
+   "emotion": "neutral",
+   "board": ["فِنْجَانُ قَهْوَةٍ — bir piyola qahva", "كُوبُ شَايٍ — bir stakan choy", "زُجَاجَةُ مَاءٍ — bir shisha suv", "صَحْنُ سَلَطَةٍ — bir likop salat"],
+   "examples": [{"t": "أُرِيدُ فِنْجَانَ قَهْوَةٍ.", "uz": "Bir piyola qahva istayman."}, {"t": "أُرِيدُ زُجَاجَةَ مَاءٍ.", "uz": "Bir shisha suv istayman."}],
+   "say_native": "Buyurtmada ko‘pincha idish nomi ham aytiladi: “finjānu qahwa” — bir piyola qahva, “kūbu shāy” — bir stakan choy, “zujājatu māʾ” — bir shisha suv, “ṣaḥnu salaṭa” — bir likop salat. Bu iḍāfa, ya’ni ikki otning qo‘shilishi. O‘zbekchadagi “bir piyola qahva” kabi, lekin arabchada “bir” so‘zi kerak emas: birinchi so‘zning o‘zi “bitta” ma’nosini beradi. “Urīdu” dan keyin birinchi so‘z “-a” oladi: “urīdu finjāna qahwatin”.",
+   "say": "فِنْجَانُ قَهْوَةٍ. كُوبُ شَايٍ. زُجَاجَةُ مَاءٍ. أُرِيدُ فِنْجَانَ قَهْوَةٍ.",
+   "say_uz": "Bir piyola qahva. Bir stakan choy. Bir shisha suv. Bir piyola qahva istayman.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Sifat moslamasligi",
+   "title": "Iḍāfa va qo‘pol buyruq",
    "emotion": "stern",
-   "board": [
-    "✗ قَهْوَةٌ حَارٌّ",
-    "✓ قَهْوَةٌ حَارَّةٌ",
-    "✗ شَايٌ بَارِدٌ",
-    "✓ شَايٌ بَارِدٌ (erkak emas!)"
-   ],
+   "board": ["✗ أُرِيدُ فِنْجَانًا قَهْوَةً", "✓ أُرِيدُ فِنْجَانَ قَهْوَةٍ", "✗ أَعْطِنِي شَايًا!", "✓ أُرِيدُ شَايًا مِنْ فَضْلِكَ."],
    "examples": [],
-   "say_native": "Yana ikkita xato. Birinchisi: qahva ayol jinsli, shuning uchun “ḥārratun”, “ḥārrun” emas: “qahwah ḥāṣirah”. Ikkinchisi: choy ham ayol jinsli, “shāʾ bārid” to‘g‘ri, chunki “shāʾ” erkak jinsli? Yo‘q, “shāʾ” erkak, shuning uchun “bāridun” to‘g‘ri. To‘g‘rilashtirilsin: “shāʾ bāridun” — sovun choy. Eslang: “qahwah” ayol, “shāʾ” erkak. Sifat jinsga mos bo‘lsin.",
-   "say": "Coffee is feminine, tea is masculine: qahwa ḥāṣirah, shāʾ bārid.",
-   "say_uz": "Qahva ayol, shay erkak. Sifat jinsga mos bo‘lsin.",
+   "say_native": "Ikki xato. Birinchisi grammatik: iḍāfada birinchi so‘zga “-an” qo‘shib bo‘lmaydi. “Finjānan qahwatan” emas, “finjāna qahwatin”. Ikkinchisi odob xatosi. Ba’zi o‘quvchilar lug‘atdan “aʿṭinī” — menga ber, degan buyruqni topib, “aʿṭinī shāyan!” deydi. Grammatik jihatdan to‘g‘ri, lekin ofitsiantga qo‘pol eshitiladi. Kafeda “urīdu” yoki “awaddu” va albatta “min faḍlik” ishlating.",
+   "say": "أُرِيدُ فِنْجَانَ قَهْوَةٍ. أُرِيدُ شَايًا مِنْ فَضْلِكَ.",
+   "say_uz": "Bir piyola qahva istayman. Iltimos, choy istayman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Buyurtma bering",
+   "title": "Muloyim buyurtma bering",
    "emotion": "encouraging",
-   "board": [
-    "1) Men issiq qahva istayman.",
-    "2) Men sovun choy istayman.",
-    "3) Menga panir yaxshi.",
-    "4) Menga kartoshka yaxshi."
-   ],
+   "board": ["1) Iltimos, bir piyola qahva. (erkakka)", "2) Iltimos, bir shisha suv. (ayolga)", "3) Sizlarda apelsin sharbati bormi?", "4) Bir likop salat istayman."],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: men issiq qahva istayman. Ikkinchi: men sovun choy istayman. Uchinchi: menga panir yaxshi. To‘rtinchi: menga kartoshka yaxshi. Sifatlarni otga moslang.",
-   "say": "I want hot coffee. I want cold tea. I like cheese. I like potatoes.",
-   "say_uz": "Men issiq qahva istayman. Men sovun choy istayman. Meng panir yaxshi. Menga kartoshka yaxshi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "أُرِيدُ قَهْوَةً حَارَّةً",
-    "أُرِيدُ شَايًا بَارِدًا",
-    "أُحِبُّ الْجُبْنَ",
-    "أُحِبُّ الْبِطَاطِسَ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: urīdu qahwatan ḥāṣiratan. Urīdu shāyan bāridan. Uḥibbu al-jubna. Uḥibbu al-biṭāṭisa. Uchinchi va to‘rtinchida “uḥibbu” va “al-” bor. “Al-biṭāṭisa” da “l” saqlanadi, chunki “b” oy harfi. Bu shakllarni yaxshi yodlab oling, keyingi dialogda kerak bo‘ladi.",
-   "say": "I want hot coffee. I want cold tea. I like cheese. I like potatoes.",
-   "say_uz": "Men issiq qahva istayman. Men sovun choy istayman. Meng panir yaxshi. Menga kartoshka yaxshi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Narhni so‘rash",
-   "emotion": "neutral",
-   "board": [
-    "كَمْ الثَّمَنُ؟ — narh qancha?",
-    "ثَمَنُ الْقَهْوَةِ عَشْرَةُ دَرَاهِمَ.",
-    "هَذَا بِخَمْسَةِ دَرَاهِمَ — bu besh so‘m"
-   ],
-   "examples": [
-    {
-     "t": "كَمْ الثَّمَنُ؟",
-     "uz": "Narh qancha?"
-    },
-    {
-     "t": "هَذَا بِخَمْسَةِ دَرَاهِمَ",
-     "uz": "Bu besh so‘m"   }
-  ],
-   "say_native": "Narhni so‘rash: “kam ath-thamanu?” — narh qancha? Javob: “thamnu al-qahwah ʿasharatu dirhām” — qahva narhi on so‘m. “Hādhā bi khamsati dirhām” — bu besh so‘m. “Bi” — bilan, uchun. “Dirham” — valyuta nomi, “so‘m” ga o‘xshaydi. “ʿAshara” — on, “khamsah” — besh. Raqamlar keyinroq batafsil o‘rganiladi, hozircha ularni eslab qoling.",
-   "say": "Kam ath-thaman? How much is it? Thamnu al-qahwa ashara dirham.",
-   "say_uz": "Narh qancha? Qahva narhi on so‘m. Bu besh so‘m.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Narhni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Qahva narhi on so‘m.",
-    "2) Choy narhi besh so‘m.",
-    "3) Sut narhi ikki so‘m.",
-    "4) Non narhi bir so‘m."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: qahva narhi on so‘m. Ikkinchi: choy narhi besh so‘m. Uchinchi: sut narhi ikki so‘m. To‘rtinchi: non narhi bir so‘m. Raqamlarni ismiy shaklda aytang.",
-   "say": "Coffee is ten som. Tea is five som. Milk is two som. Bread is one som.",
-   "say_uz": "Qahva narhi on so‘m. Choy narhi besh so‘m. Sut narhi ikki so‘m. Non narhi bir so‘m.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ثَمَنُ الْقَهْوَةِ عَشْرَةُ دَرَاهِمَ",
-    "ثَمَنُ الشَّايِ خَمْسَةُ دَرَاهِمَ",
-    "ثَمَنُ الْحَلْبِ اثْنَانِ دِرْهَمَيْنِ",
-    "ثَمَنُ الْخُبْزِ دِرْهَمٌ وَاحِدٌ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: thamnu al-qahwah ʿasharatu dirhām. Thamnu ash-shāʾi khamsatu dirhām. Thamnu al-ḥalbi ithnāni dirhamayn. Thamnu al-khubzi dirham wāḥid. “Ithnāni dirhamayn” — ikkita so‘m, ikkilik shakl. “Dirham wāḥid” — bir so‘m. Bu shakllar iḍafa ichida. Endi kafeda dialog ko‘ramiz.",
-   "say": "Coffee is ten som. Tea is five som. Milk is two som. Bread is one som.",
-   "say_uz": "Qahva narhi on so‘m. Choy narhi besh so‘m. Sut narhi ikki so‘m. Non narhi bir so‘m.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Birinchi dialog: kafeda",
-   "emotion": "happy",
-   "board": [
-    "نَادِل: أَهْلًا وَسَهْلًا. مَا الَّذِي تُرِيدُ؟",
-    "أَحْمَد: أُرِيدُ قَهْوَةً حَارَّةً، مُنْفَكًّا.",
-    "نَادِل: وَمَاذَا مَعَهَا؟",
-    "أَحْمَد: خُبْزًا وَجُبْنًا، مُنْفَكًّا."
-   ],
-   "examples": [],
-   "say_native": "Birinchi dialog. Nadir ahmo tushadi va “mā alladhī turīdu?” — nima istaysiz? Ahmad “urīdu qahwatan ḥāṣiratan munfaqqan” deb javob beradi: faqat issiq qahva. Nadir “wa mādhā maʿahā?” — u bilan nima? Ahmad “khubzan wa jubnan munfaqqan” — faqat non va panir. “Maʿahā” — u bilan, uning hamda. “Munfaqqan” — faqat, bir xil.",
-   "say": "Welcome. What would you like? I want hot coffee only. What with it? Bread and cheese only.",
-   "say_uz": "Xush kelibsiz. Nima istaysiz? Men issiq qahva istayman, faqat. U bilan nima? Non va panir, faqat.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialog bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ahmad nima istaydi?",
-    "2) Qahva qanday?",
-    "3) Nima bilan?",
-    "4) Faqatmi?"
-   ],
-   "examples": [],
-   "say_native": "To‘rtta savol. Birinchi: Ahmad nima istaydi? Ikkinchi: qahva qanday? Uchinchi: nima bilan? To‘rtinchi: faqatmi? Dialogdan javob bering.",
-   "say": "What does Ahmad want? What kind of coffee? With what? Only?",
-   "say_uz": "Ahmad nima istaydi? Qahva qanday? Nima bilan? Faqatmi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "1) قَهْوَةً حَارَّةً",
-    "2) حَارَّةٌ",
-    "3) خُبْزًا وَجُبْنًا",
-    "4) نَعَمْ، مُنْفَكًّا"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Ahmad qahwatan ḥāṣiratan istaydi. Qahva issiq. U bilan non va panir. Ha, faqat. “Munfaqqan” — faqat, boshqa narsa yo‘q. Bu so‘z kafeda buyurtma berishda juda foydali. Endi ikkinchi dialog ko‘ramiz.",
-   "say": "Hot coffee. Hot. Bread and cheese. Yes, only.",
-   "say_uz": "Issiq qahva. Issiq. Non va panir. Ha, faqat.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Ikkinchi dialog: to‘liq ovqat",
-   "emotion": "happy",
-   "board": [
-    "سَارَة: أُرِيدُ الْفَطُورَ، مُنْفَكًّا.",
-    "نَادِل: وَمَا فِي الْفَطُورِ؟",
-    "سَارَة: خُبْزٌ، جُبْنٌ، بَيْضٌ، وَشَايٌ.",
-    "نَادِل: الثَّمَنُ خَمْسَةُ دَرَاهِمَ.",
-    "سَارَة: هَذَا جَيِّدٌ. هَاكَ الفلوسَ."
-   ],
-   "examples": [],
-   "say_native": "Ikkinchi dialog. Sara nonushtani istaydi. Nadir nonushtada nima borligini so‘raydi. Sara non, panir, tuxum va choy deb javob beradi. Narh besh so‘m. Sara “hādhā jayyid” — bu yaxshi, “hāk al-fulūs” — pulni oling. “Al-fulūs” — pul. “Jayyid” — yaxshi. Buyurtma va to‘lash bir borada.",
-   "say": "I want breakfast only. What is in the breakfast? Bread, cheese, eggs and tea. The price is five som. This is good. Here is the money.",
-   "say_uz": "Men nonushta istayman, faqat. Nonushtada nima bor? Non, panir, tuxum va choy. Narh besh so‘m. Bu yaxshi. Oling pulni.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialog bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Sara nima istaydi?",
-    "2) Nonushtada nima bor?",
-    "3) Narh qancha?",
-    "4) U nima deyadi?"
-   ],
-   "examples": [],
-   "say_native": "To‘rtta savol. Birinchi: Sara nima istaydi? Ikkinchi: nonushtada nima bor? Uchinchi: narh qancha? To‘rtinchi: u nima deyadi? Dialogdan javob bering.",
-   "say": "What does Sara want? What is in the breakfast? How much is it? What does she say?",
-   "say_uz": "Sara nima istaydi? Nonushtada nima bor? Narh qancha? U nima deyadi?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "1) الْفَطُورَ",
-    "2) خُبْزٌ، جُبْنٌ، بَيْضٌ، شَايٌ",
-    "3) خَمْسَةُ دَرَاهِمَ",
-    "4) هَذَا جَيِّدٌ. هَاكَ الفلوسَ."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Sara al-faṭūra istaydi. Nonushtada khubz, jubn, bayḍ, shāʾ bor. Narh khamsatu dirhām. Sara “hādhā jayyid” va “hāk al-fulūs” dedi. “Hāk al-fulūs” — pulni oling. Bu to‘liq buyurtma va to‘lash jarayoni. Endi o‘zingiz buyurtma berasiz.",
-   "say": "Breakfast. Bread, cheese, eggs and tea. Five som. This is good. Here is the money.",
-   "say_uz": "Nonushta. Non, panir, tuxum, choy. Besh so‘m. Bu yaxshi. Oling pulni.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Kafeda buyurtma bering",
-   "emotion": "encouraging",
-   "board": [
-    "1) Men qahva istayman.",
-    "2) Meng choy yaxshi.",
-    "3) Narh qancha?",
-    "4) Oling pulni."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: men qahva istayman. Ikkinchi: menga choy yaxshi. Uchinchi: narh qancha? To‘rtinchi: oling pulni. Buyurtma beruvchi bo‘lib gapiring. “Uridu” va “uḥibbu” ni to‘g‘ri tanlang.",
-   "say": "I want coffee. I like tea. How much is it? Here is the money.",
-   "say_uz": "Men qahva istayman. Meng choy yaxshi. Narh qancha? Oling pulni.",
+   "say_native": "Mashq. Ofitsiant sizdan nima istaysiz, deb so‘raydi. To‘rtta javobni arabcha ayting. Birinchi: erkak ofitsiantga, iltimos, bir piyola qahva. Ikkinchi: ayol ofitsiantga, iltimos, bir shisha suv. Uchinchi: sizlarda apelsin sharbati bormi? To‘rtinchi: bir likop salat istayman.",
+   "say": "تَفَضَّلْ، مَاذَا تُرِيدُ؟",
+   "say_uz": "Marhamat, nima istaysiz?",
    "practice_seconds": 16
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "أُرِيدُ قَهْوَةً",
-    "أُحِبُّ الشَّايَ",
-    "كَمْ الثَّمَنُ؟",
-    "هَاكَ الفلوسَ"
-   ],
+   "board": ["1) أُرِيدُ فِنْجَانَ قَهْوَةٍ مِنْ فَضْلِكَ.", "2) أُرِيدُ زُجَاجَةَ مَاءٍ مِنْ فَضْلِكِ.", "3) هَلْ عِنْدَكُمْ عَصِيرُ بُرْتُقَالٍ؟", "4) أُرِيدُ صَحْنَ سَلَطَةٍ."],
    "examples": [],
-   "say_native": "Javoblar: urīdu qahwatan. Uḥibbu ash-shāya. Kam ath-thamanu? Hāk al-fulūs. “Uridu” bilan obyekt “-an”, “uḥibbu” bilan obyekt “-a”. “Hāk al-fulūs” to‘lash jarayonida. Agar hamma gapni to‘g‘ri aytsangiz, kafeda buyurtma berishingiz mumkin.",
-   "say": "I want coffee. I like tea. How much is it? Here is the money.",
-   "say_uz": "Men qahva istayman. Meng choy yaxshi. Narh qancha? Oling pulni.",
+   "say_native": "Javoblar: “urīdu finjāna qahwatin min faḍlika”. “Urīdu zujājata māʾin min faḍliki” — ayolga “-ki”. “Hal ʿindakum ʿaṣīru burtuqāl?” “Urīdu ṣaḥna salaṭa.” Agar birinchi ikkitasida “urīdu” o‘rniga “awaddu an aṭluba” desangiz ham to‘g‘ri. Asosiysi: iḍāfada birinchi so‘z “-an” olmaydi va “min faḍlik” jinsga mos.",
+   "say": "أُرِيدُ فِنْجَانَ قَهْوَةٍ مِنْ فَضْلِكَ. أُرِيدُ زُجَاجَةَ مَاءٍ مِنْ فَضْلِكِ. هَلْ عِنْدَكُمْ عَصِيرُ بُرْتُقَالٍ؟ أُرِيدُ صَحْنَ سَلَطَةٍ.",
+   "say_uz": "Iltimos, bir piyola qahva istayman. Iltimos, bir shisha suv istayman. Sizlarda apelsin sharbati bormi? Bir likop salat istayman.",
    "practice_seconds": 0
   },
   {
-   "kind": "explain",
-   "title": "Mahsulot turini ajratish",
-   "emotion": "neutral",
-   "board": [
-    "أَحْلَبَ — sut (fe’l)",
-    "حَلْبٌ — sut (ot)",
-    "الْفَطُورُ — nonushta",
-    "الْعَشَاءُ — kechki ovqat"
-   ],
-   "examples": [
-    {
-     "t": "الْفَطُورُ",
-     "uz": "nonushta"
-   },
-   {
-    "t": "الْعَشَاءُ",
-     "uz": "kechki ovqat"
-   }
-  ],
-   "say_native": "Mahsulot turlarini ajratamiz. “Al-faṭūr” — nonushta, “al-ʿashāʾ” — kechki ovqat, “al-ghadāʾ” — tushlik. “Pul” — “al-fulūs”. “Ḥalb” — sut ot, “aḥlaba” — sut chiqardi (fe’l). Bu ikki so‘zni aralashtirmang. “Al-ṭaʿām” — ovqat umuman. Kafeda “al-faṭūr” eng ko‘p ishlatiladi. Endi o‘z ovqat va ichimlikingizni nomlang.",
-   "say": "Breakfast, lunch, dinner, food, money.",
-   "say_uz": "Nonushta, tushlik, kechki ovqat, ovqat, pul.",
+   "kind": "example",
+   "title": "Birinchi dialog: buyurtma",
+   "emotion": "happy",
+   "board": ["النَّادِلُ: أَهْلًا وَسَهْلًا! مَاذَا تُرِيدُ؟", "أَنْوَرُ: أُرِيدُ فِنْجَانَ قَهْوَةٍ مِنْ فَضْلِكَ.", "النَّادِلُ: بِسُكَّرٍ أَمْ بِدُونِ سُكَّرٍ؟", "أَنْوَرُ: بِدُونِ سُكَّرٍ. وَهَلْ عِنْدَكُمْ كَعْكٌ؟"],
+   "examples": [],
+   "say_native": "Birinchi dialogni tinglang. Anvar kafega kiradi. Ofitsiant uni kutib oladi va nima istashini so‘raydi. Anvar bir piyola qahva so‘raydi. Ofitsiant qahva shakar bilanmi yoki shakarsizmi, deb so‘raydi. Anvar javob beradi va yana bir narsa so‘raydi. Yangi so‘zlar: “bi-sukkar” — shakar bilan, “bidūni sukkar” — shakarsiz, “kaʿk” — pishiriq, keks. Diqqat bilan tinglang, keyin savollar bo‘ladi.",
+   "say": "أَهْلًا وَسَهْلًا! مَاذَا تُرِيدُ؟ أُرِيدُ فِنْجَانَ قَهْوَةٍ مِنْ فَضْلِكَ. بِسُكَّرٍ أَمْ بِدُونِ سُكَّرٍ؟ بِدُونِ سُكَّرٍ. وَهَلْ عِنْدَكُمْ كَعْكٌ؟ نَعَمْ، عِنْدَنَا كَعْكٌ لَذِيذٌ. إِذَنْ قِطْعَةَ كَعْكٍ أَيْضًا، شُكْرًا.",
+   "say_uz": "Xush kelibsiz! Nima istaysiz? Iltimos, bir piyola qahva istayman. Shakar bilanmi yoki shakarsizmi? Shakarsiz. Sizlarda pishiriq bormi? Ha, bizda mazali pishiriq bor. Unda bir bo‘lak pishiriq ham, rahmat.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Ovqatni nomlang",
+   "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": [
-    "1) nonushta",
-    "2) kechki ovqat",
-    "3) ovqat",
-    "4) pul"
-   ],
+   "board": ["1) Anvar nima ichadi?", "2) Qahva shakar bilanmi?", "3) Kafeda pishiriq bormi?", "4) Anvar yana nima oladi?"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta so‘zni arabcha ayting: nonushta, kechki ovqat, ovqat, pul. “Al-faṭūr”, “al-ʿashāʾ”, “al-ṭaʿām”, “al-fulūs”. Har birini baland ovozda ayting.",
-   "say": "Say: breakfast, dinner, food, money.",
-   "say_uz": "Ayting: nonushta, kechki ovqat, ovqat, pul.",
-   "practice_seconds": 12
+   "say_native": "To‘rtta savol. Birinchi: Anvar nima ichadi? Ikkinchi: qahvasi shakar bilanmi yoki shakarsizmi? Uchinchi: kafeda pishiriq bormi? To‘rtinchi: Anvar yana nima buyurtma qiladi? Javobni o‘zbekcha yoki arabcha bering. Arabcha javob bersangiz, uchinchi shaxs “ya” prefiksini eslang.",
+   "say": "مَاذَا يَشْرَبُ أَنْوَرُ؟ هَلِ الْقَهْوَةُ بِسُكَّرٍ؟ هَلْ عِنْدَهُمْ كَعْكٌ؟ مَاذَا يَطْلُبُ أَيْضًا؟",
+   "say_uz": "Anvar nima ichadi? Qahva shakar bilanmi? Ularda pishiriq bormi? Yana nima buyurtma qiladi?",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "الْفَطُورُ",
-    "الْعَشَاءُ",
-    "الطَّعَامُ",
-    "الْفُلُوسُ"
-   ],
+   "board": ["1) يَشْرَبُ قَهْوَةً.", "2) لَا، بِدُونِ سُكَّرٍ.", "3) نَعَمْ، عِنْدَهُمْ كَعْكٌ.", "4) قِطْعَةَ كَعْكٍ."],
    "examples": [],
-   "say_native": "Javoblar: al-faṭūr, al-ʿashāʾ, al-ṭaʿām, al-fulūs. “Al-ṭaʿām” da “ṭ” quyosh harfi, shuning uchun “al-ṭaʿām” emas, “aṭ-ṭaʿām” deymiz. “Al-fulūs” da “l” saqlanadi, chunki “f” oy harfi. Bu talaffuz xususiyatlarini eslab qoling. Endi yakuniy mashqga o‘tamiz.",
-   "say": "Breakfast, dinner, food, money.",
-   "say_uz": "Nonushta, kechki ovqat, ovqat, pul.",
+   "say_native": "Javoblar: Anvar qahva ichadi — “yashrabu qahwatan”. Qahva shakarsiz — “bidūni sukkar”. Ha, kafeda pishiriq bor, ofitsiant “ʿindanā kaʿk ladhīdh” — bizda mazali pishiriq bor, dedi. Anvar bir bo‘lak pishiriq oladi: “qiṭʿata kaʿk”. “Qiṭʿa” — bo‘lak, bu ham iḍāfa. Oxirida Anvar “shukran” deb rahmat aytdi, bu ham muhim.",
+   "say": "يَشْرَبُ قَهْوَةً. بِدُونِ سُكَّرٍ. نَعَمْ، عِنْدَهُمْ كَعْكٌ. يَطْلُبُ قِطْعَةَ كَعْكٍ.",
+   "say_uz": "Qahva ichadi. Shakarsiz. Ha, ularda pishiriq bor. Bir bo‘lak pishiriq buyurtma qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Narxni so‘rash",
+   "emotion": "neutral",
+   "board": ["بِكَمْ هَذَا؟ (bikam hādhā) — Bu qancha?", "كَمِ الثَّمَنُ؟ (kami th-thaman) — Narxi qancha?", "رِيَالٌ (riyāl) · دِرْهَمٌ (dirham)"],
+   "examples": [{"t": "بِكَمْ هَذَا؟", "uz": "Bu qancha turadi?"}, {"t": "كَمِ الثَّمَنُ؟", "uz": "Narxi qancha?"}],
+   "say_native": "Narxni so‘rashning ikki usuli bor. “Bikam hādhā?” — bu qancha? So‘zma-so‘z “bu nechaga?” degani, xuddi o‘zbekchadagi “nechpul?” kabi. “Kami th-thaman?” — narxi qancha? “Kam” so‘ziga e’tibor bering: undan keyin “al-” kelsa, ulanish uchun “i” qo‘shiladi: “kami th-thaman”. Pul birligi mamlakatga qarab o‘zgaradi: Saudiyada “riyāl”, Amirliklar va Marokashda “dirham”, Misrda “junayh”.",
+   "say": "بِكَمْ هَذَا؟ كَمِ الثَّمَنُ؟",
+   "say_uz": "Bu qancha? Narxi qancha?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Narxni aytish: o‘nliklar",
+   "emotion": "thinking",
+   "board": ["عِشْرُونَ رِيَالًا — 20 riyol", "ثَلَاثُونَ رِيَالًا — 30 riyol", "أَرْبَعُونَ رِيَالًا — 40 riyol", "خَمْسُونَ رِيَالًا — 50 riyol"],
+   "examples": [{"t": "الْقَهْوَةُ بِعِشْرِينَ رِيَالًا.", "uz": "Qahva yigirma riyol."}, {"t": "الْحِسَابُ خَمْسُونَ رِيَالًا.", "uz": "Hisob ellik riyol."}],
+   "say_native": "Narx aytishda o‘nliklar eng qulay: “ʿishrūna riyālan” — yigirma riyol, “thalāthūna” — o‘ttiz, “arbaʿūna” — qirq, “khamsūna” — ellik. Yaxshi xabar: yigirmadan keyin pul birligi birlikda keladi, xuddi o‘zbekchadagidek. Biz ham “yigirma riyollar” demaymiz. Faqat oxiri “-an” bo‘ladi: “riyālan”. Javob berishda “bi” bilan ham aytiladi: “bi-ʿishrīna riyālan” — yigirma riyolga.",
+   "say": "عِشْرُونَ رِيَالًا. ثَلَاثُونَ رِيَالًا. أَرْبَعُونَ رِيَالًا. خَمْسُونَ رِيَالًا.",
+   "say_uz": "Yigirma riyol. O‘ttiz riyol. Qirq riyol. Ellik riyol.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "5 mahsulot nomlang",
+   "title": "Narxni ayting",
    "emotion": "encouraging",
-   "board": [
-    "5 mahsulot",
-    "Ichimlik va ovqat",
-    "Narh va to‘lash"
-   ],
+   "board": ["1) qahva — 20", "2) choy — 30 (ayting: o‘ttiz)", "3) tovuq va guruch — 50", "4) salat — 40"],
    "examples": [],
-   "say_native": "Endi sizning navbatingiz. Kafedagi 5 mahsulotni nomlang va ularning narhini aytang. Kamida ikkita ichimlik va ikkita ovqat bo‘lsin. “Thamnuhu …” — uning narhi … degani. Buyurtma beruvchi va sotuvchi bo‘lib gapiring.",
-   "say": "Name five products and their prices.",
-   "say_uz": "Besh mahsulotni nomlang va narhini aytang.",
-   "practice_seconds": 24
+   "say_native": "Mashq. Siz ofitsiantsiz. Mijoz narxni so‘raydi, siz doskadagi narxni arabcha aytasiz. Qahva — yigirma riyol, choy — o‘ttiz riyol, tovuq va guruch — ellik riyol, salat — qirq riyol. Pul birligini birlikda va oxirini “-an” bilan ayting.",
+   "say": "بِكَمْ هَذَا؟",
+   "say_uz": "Bu qancha?",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "O‘z-o‘zini tekshirish",
+   "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "“Uridu” bormi?",
-    "Sifat mosmi?",
-    "Narh bormi?",
-    "5 mahsulot bormi?"
-   ],
+   "board": ["1) عِشْرُونَ رِيَالًا", "2) ثَلَاثُونَ رِيَالًا", "3) خَمْسُونَ رِيَالًا", "4) أَرْبَعُونَ رِيَالًا"],
    "examples": [],
-   "say_native": "Tekshiring. Birinchi: buyurtma gapida “urīdu” yoki “uḥibbu” bormi? Ikkinchi: sifat otga moslashganmi? Uchinchi: narh berilganmi? To‘rtinchi: beshta mahsulot nomlanganmi? Har biriga “ha” desangiz, vazifa bajarildi.",
-   "say": "Check uridu, adjective agreement, price and five products.",
-   "say_uz": "“Uridu”, sifat mosligi, narh va beshta mahsulotni tekshiring.",
+   "say_native": "Javoblar: ʿishrūna riyālan, thalāthūna riyālan, khamsūna riyālan, arbaʿūna riyālan. Choyning narxi biroz qimmat chiqdi, lekin mashq uchun mayli. Agar “riyālāt” deb ko‘plikda aytgan bo‘lsangiz, bu xato: yigirma va undan katta sonlardan keyin birlik keladi. Bu qoida o‘zbek tilidagiga o‘xshashligi uchun eslab qolish oson.",
+   "say": "عِشْرُونَ رِيَالًا. ثَلَاثُونَ رِيَالًا. خَمْسُونَ رِيَالًا. أَرْبَعُونَ رِيَالًا.",
+   "say_uz": "Yigirma riyol. O‘ttiz riyol. Ellik riyol. Qirq riyol.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Buyurtma berishda adabiyot",
+   "title": "Hisob va to‘lov",
    "emotion": "neutral",
-   "board": [
-    "مِن فَضْلِكَ — iltimos (erkakka)",
-    "مِن فَضْلِكِ — iltimos (ayolga)",
-    "شُكْرًا — rahmat",
-    "أَفْوَانُ — xush kelibsiz / rica eting"
-   ],
-   "examples": [
-    {
-     "t": "مِن فَضْلِكَ، أُرِيدُ قَهْوَةً",
-     "uz": "Iltimos, bitta qahva olaman"
-    },
-    {
-     "t": "شُكْرًا",
-     "uz": "Rahmat"
-    }
-   ],
-   "say_native": "Kafeda adabiy bo‘lish juda muhim. “Min faḍlika” — iltimos, erkakka aytiladi. “Min faḍhliki” — iltimos, ayolga aytiladi. “Shukran” — rahmat. “Afwan” — xush kelibsiz yoki rica eting, bu sotuvchi javobi. “Min faḍlika, urīdu qahwatan” — iltimos, bitta qahva olaman. O‘zbek tilida “iltimos” har ikkalaga bir xil, arabchada esa suhbatdoshning jinsiga qarab “faḍlika” va “faḍhliki” bo‘linadi. Shukran deb aytganda sotuvchi “afwan” deb javob beradi. Bu oddiy so‘zlar suhbatni nozik va mehribon qiladi.",
-   "say": "Min fadlika means please to a man, min fadhliki to a woman. Shukran is thank you.",
-   "say_uz": "Min fadlika erkakka iltimos, min fadhliki ayolga. Shukran rahmat.",
+   "board": ["الْحِسَابُ مِنْ فَضْلِكَ. — Hisobni bering, iltimos.", "هَلْ يُمْكِنُ الدَّفْعُ بِالْبِطَاقَةِ؟ — Karta bilan to‘lasa bo‘ladimi?", "أَدْفَعُ نَقْدًا. — Naqd to‘layman.", "تَفَضَّلْ / تَفَضَّلِي — Marhamat"],
+   "examples": [{"t": "الْحِسَابُ مِنْ فَضْلِكَ.", "uz": "Hisobni bering, iltimos."}, {"t": "أَدْفَعُ نَقْدًا.", "uz": "Naqd to‘layman."}],
+   "say_native": "Ovqatdan keyin hisob so‘raymiz: “al-ḥisāb min faḍlik” — hisob, iltimos. Fe’l kerak emas, o‘zbekchadagi “hisobni, iltimos” kabi. Karta haqida: “hal yumkinu d-dafʿu bil-biṭāqa?” — karta bilan to‘lasa bo‘ladimi? Naqd to‘lasangiz: “adfaʿu naqdan” — naqd to‘layman. Pulni uzatganda “tafaḍḍal” deysiz, ayolga “tafaḍḍalī”. Bu “marhamat, oling” ma’nosidagi juda ko‘p ishlatiladigan so‘z.",
+   "say": "الْحِسَابُ مِنْ فَضْلِكَ. هَلْ يُمْكِنُ الدَّفْعُ بِالْبِطَاقَةِ؟ أَدْفَعُ نَقْدًا. تَفَضَّلْ.",
+   "say_uz": "Hisob, iltimos. Karta bilan to‘lasa bo‘ladimi? Naqd to‘layman. Marhamat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Narx va hisobdagi xatolar",
+   "emotion": "stern",
+   "board": ["✗ كَمْ الثَّمَنُ؟", "✓ كَمِ الثَّمَنُ؟", "✗ عِشْرُونَ رِيَالَاتٍ", "✓ عِشْرُونَ رِيَالًا"],
+   "examples": [],
+   "say_native": "Ikkita xatoni ko‘ramiz. Birinchisi talaffuzda: “kam al-thaman” deb ikki so‘zni uzib aytish. To‘g‘risi ulab aytish: “kami th-thaman”. “Th” quyosh harfi, shuning uchun “l” eshitilmaydi. Ikkinchisi grammatikada: yigirmadan keyin ko‘plik ishlatish. “ʿIshrūna riyālāt” emas, “ʿishrūna riyālan”. Ikkala xatoni ham tuzatsangiz, nutqingiz ancha tabiiy eshitiladi.",
+   "say": "كَمِ الثَّمَنُ؟ عِشْرُونَ رِيَالًا.",
+   "say_uz": "Narxi qancha? Yigirma riyol.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Hisobni so‘rang",
+   "emotion": "encouraging",
+   "board": ["1) Hisob, iltimos. (erkakka)", "2) Karta bilan to‘lasa bo‘ladimi?", "3) Naqd to‘layman.", "4) Marhamat. (ayolga pul uzatib)"],
+   "examples": [],
+   "say_native": "Mashq. Ofitsiant sizdan yana biror narsa istaysizmi, deb so‘raydi. Siz to‘lamoqchisiz. To‘rtta gapni arabcha ayting. Birinchi: erkak ofitsiantga, hisob, iltimos. Ikkinchi: karta bilan to‘lasa bo‘ladimi? Uchinchi: naqd to‘layman. To‘rtinchi: ayol kassirga pulni uzatib, marhamat.",
+   "say": "هَلْ تُرِيدُ شَيْئًا آخَرَ؟",
+   "say_uz": "Yana biror narsa istaysizmi?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) لَا، شُكْرًا. الْحِسَابُ مِنْ فَضْلِكَ.", "2) هَلْ يُمْكِنُ الدَّفْعُ بِالْبِطَاقَةِ؟", "3) أَدْفَعُ نَقْدًا.", "4) تَفَضَّلِي."],
+   "examples": [],
+   "say_native": "Javoblar: “Lā, shukran. Al-ḥisāb min faḍlik” — yo‘q, rahmat, hisob iltimos. Boshida “lā, shukran” qo‘shish juda tabiiy. “Hal yumkinu d-dafʿu bil-biṭāqa?” “Adfaʿu naqdan.” Va ayolga “tafaḍḍalī”. To‘rtinchi gapda ko‘pchilik erkak shaklini aytib qo‘yadi: “tafaḍḍal”. Ayolga murojaatda oxiridagi “ī” ni unutmang.",
+   "say": "لَا، شُكْرًا. الْحِسَابُ مِنْ فَضْلِكَ. هَلْ يُمْكِنُ الدَّفْعُ بِالْبِطَاقَةِ؟ أَدْفَعُ نَقْدًا. تَفَضَّلِي.",
+   "say_uz": "Yo‘q, rahmat. Hisob, iltimos. Karta bilan to‘lasa bo‘ladimi? Naqd to‘layman. Marhamat.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Adabiy dialog: kafeda",
+   "title": "Ikkinchi dialog: to‘lov",
    "emotion": "happy",
-   "board": [
-    "مِن فَضْلِكَ، أُرِيدُ قَهْوَةً.",
-    "شُكْرًا.",
-    "أَفْوَانُ."
-   ],
+   "board": ["سَارَةُ: لَوْ سَمَحْتَ، الْحِسَابُ.", "النَّادِلُ: تَفَضَّلِي. سَبْعُونَ رِيَالًا.", "سَارَةُ: هَلْ يُمْكِنُ الدَّفْعُ بِالْبِطَاقَةِ؟", "النَّادِلُ: لِلْأَسَفِ لَا، نَقْدًا فَقَطْ."],
    "examples": [],
-   "say_native": "Adabiy dialog. Mushtori: “Min faḍlika, urīdu qahwatan” — iltimos, bitta qahva olaman. Sotuvchi: “Shukran” — rahmat. Mushtori yana: “Shukran” — rahmat. Sotuvchi: “Afwan” — xush kelibsiz. Ikkala tomonda ham “iltimos” va “rahmat” ishlatildi. Bu kafeda buyurtma berishning adabiy shakli. O‘zbek tilida ham “iltimos” va “rahmat” buyurtma bermoqda zarur.",
-   "say": "Please, I would like coffee. Thank you. You are welcome.",
-   "say_uz": "Iltimos, bitta qahva olaman. Rahmat. Xush kelibsiz.",
+   "say_native": "Ikkinchi dialog. Sora tushlikdan keyin hisob so‘raydi. Ofitsiant hisobni beradi va narxni aytadi. Sora karta bilan to‘lamoqchi. Ofitsiantning javobini diqqat bilan tinglang. Yangi so‘zlar: “sabʿūna” — yetmish, “li-l-asaf” — afsuski, “faqaṭ” — faqat, “maʿa s-salāma” — xayr, yo‘lingiz bexatar bo‘lsin. Oxirida kim nima deganini ham eslab qoling.",
+   "say": "لَوْ سَمَحْتَ، الْحِسَابُ. تَفَضَّلِي. سَبْعُونَ رِيَالًا. هَلْ يُمْكِنُ الدَّفْعُ بِالْبِطَاقَةِ؟ لِلْأَسَفِ لَا، نَقْدًا فَقَطْ. لَا مُشْكِلَةَ، أَدْفَعُ نَقْدًا. تَفَضَّلْ. شُكْرًا لَكِ، مَعَ السَّلَامَةِ!",
+   "say_uz": "Kechirasiz, hisob. Marhamat. Yetmish riyol. Karta bilan to‘lasa bo‘ladimi? Afsuski yo‘q, faqat naqd. Muammo yo‘q, naqd to‘layman. Marhamat. Rahmat sizga, xayr!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Iltimos va rahmat",
+   "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": [
-    "1) Iltimos, qahva olaman. (erkakka)",
-    "2) Rahmat.",
-    "3) Iltimos, choy olaman. (ayolga)",
-    "4) Xush kelibsiz."
-   ],
+   "board": ["1) Hisob qancha?", "2) Kafeda karta bilan to‘lasa bo‘ladimi?", "3) Sora qanday to‘laydi?", "4) Ofitsiant oxirida nima deydi?"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: erkakka murojaat qilib, iltimos, bitta qahva olaman. Ikkinchi: rahmat. Uchinchi: ayolga murojaat qilib, iltimos, bitta choy olaman. To‘rtinchi: sotuvchi javobi, xush kelibsiz. “Min faḍlika” va “min faḍhliki” ni to‘g‘ri tanlang.",
-   "say": "Please, I would like coffee. Thank you. Please, I would like tea. You are welcome.",
-   "say_uz": "Iltimos, bitta qahva olaman. Rahmat. Iltimos, bitta choy olaman. Xush kelibsiz.",
+   "say_native": "To‘rtta savol. Birinchi: hisob qancha chiqdi? Ikkinchi: bu kafeda karta bilan to‘lasa bo‘ladimi? Uchinchi: Sora qanday to‘laydi? To‘rtinchi: ofitsiant oxirida nima deydi? Agar eslay olmasangiz, dialogni xayolan yana bir bor takrorlang.",
+   "say": "كَمِ الْحِسَابُ؟ هَلْ يُمْكِنُ الدَّفْعُ بِالْبِطَاقَةِ؟ كَيْفَ تَدْفَعُ سَارَةُ؟ مَاذَا يَقُولُ النَّادِلُ فِي النِّهَايَةِ؟",
+   "say_uz": "Hisob qancha? Karta bilan to‘lasa bo‘ladimi? Sora qanday to‘laydi? Ofitsiant oxirida nima deydi?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) سَبْعُونَ رِيَالًا", "2) لَا، نَقْدًا فَقَطْ", "3) تَدْفَعُ نَقْدًا", "4) شُكْرًا لَكِ، مَعَ السَّلَامَةِ!"],
+   "examples": [],
+   "say_native": "Javoblar: hisob yetmish riyol — “sabʿūna riyālan”. Karta bilan bo‘lmaydi, faqat naqd — “naqdan faqaṭ”. Sora naqd to‘laydi — “tadfaʿu naqdan”, ayol uchun “ta” prefiksi. Ofitsiant “shukran laki, maʿa s-salāma” deydi. E’tibor bering: ofitsiant Soraga “laki” dedi, chunki u ayol. Sora esa ofitsiantga “law samaḥta” va “tafaḍḍal” dedi, chunki u erkak.",
+   "say": "سَبْعُونَ رِيَالًا. لَا، نَقْدًا فَقَطْ. تَدْفَعُ نَقْدًا. شُكْرًا لَكِ، مَعَ السَّلَامَةِ!",
+   "say_uz": "Yetmish riyol. Yo‘q, faqat naqd. Naqd to‘laydi. Rahmat sizga, xayr!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kafe odobi: salom va rahmat",
+   "emotion": "neutral",
+   "board": ["السَّلَامُ عَلَيْكُمْ — Assalomu alaykum", "شُكْرًا — rahmat · عَفْوًا — arzimaydi", "بِالْهَنَاءِ وَالشِّفَاءِ — Yoqimli ishtaha"],
+   "examples": [{"t": "شُكْرًا جَزِيلًا.", "uz": "Katta rahmat."}, {"t": "عَفْوًا.", "uz": "Arzimaydi."}],
+   "say_native": "Endi madaniyat. Kafega kirganda “as-salāmu ʿalaykum” deyish odatiy, javob “wa ʿalaykumu s-salām”. Bu bizga tanish. Har bir xizmat uchun “shukran” yoki “shukran jazīlan” — katta rahmat, deysiz. Ofitsiant “ʿafwan” — arzimaydi, deb javob beradi. Taom keltirilganda ko‘pincha “bil-hanāʾi wa sh-shifāʾ” — yoqimli ishtaha va shifo bo‘lsin, deyishadi. Bunga “shukran” bilan javob berish kifoya.",
+   "say": "السَّلَامُ عَلَيْكُمْ. وَعَلَيْكُمُ السَّلَامُ. شُكْرًا جَزِيلًا. عَفْوًا. بِالْهَنَاءِ وَالشِّفَاءِ!",
+   "say_uz": "Assalomu alaykum. Va alaykum assalom. Katta rahmat. Arzimaydi. Yoqimli ishtaha!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mehmondo‘stlik va hisob",
+   "emotion": "thinking",
+   "board": ["الْحِسَابُ عَلَيَّ. — Hisob mendan.", "لَا، شُكْرًا. — Yo‘q, rahmat.", "بِالْيَدِ الْيُمْنَى — o‘ng qo‘l bilan"],
+   "examples": [{"t": "الْحِسَابُ عَلَيَّ.", "uz": "Hisob mendan."}, {"t": "لَا، شُكْرًا، شَبِعْتُ.", "uz": "Yo‘q, rahmat, to‘ydim."}],
+   "say_native": "Arab madaniyati o‘zbek madaniyatiga ancha yaqin. Do‘stlar bilan kafeda ko‘pincha kim taklif qilgan bo‘lsa, o‘sha to‘laydi va “al-ḥisābu ʿalayya” — hisob mendan, deydi. Ba’zan hisob uchun do‘stona tortishuv ham bo‘ladi, xuddi bizdagidek. Ovqatni o‘ng qo‘l bilan yeyish va uzatish odob hisoblanadi. Qo‘shimcha taklif qilinsa va to‘ygan bo‘lsangiz: “lā, shukran, shabiʿtu” — yo‘q, rahmat, to‘ydim.",
+   "say": "الْحِسَابُ عَلَيَّ. لَا، شُكْرًا، شَبِعْتُ.",
+   "say_uz": "Hisob mendan. Yo‘q, rahmat, to‘ydim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Ayolga erkak shakli",
+   "emotion": "stern",
+   "board": ["✗ (ayolga) مِنْ فَضْلِكَ", "✓ (ayolga) مِنْ فَضْلِكِ", "✗ (ayolga) شُكْرًا لَكَ", "✓ (ayolga) شُكْرًا لَكِ"],
+   "examples": [],
+   "say_native": "Odob iboralarida eng ko‘p xato: ayolga erkak shaklini ishlatish. Ofitsiant ayol bo‘lsa, “min faḍliki”, “law samaḥti”, “shukran laki”, “tafaḍḍalī” deyiladi. O‘zbek tilida “siz” hammaga bir, shuning uchun bu farqni unutish oson. Ayol ofitsiantga erkak shaklida gapirsangiz, sizni tushunishadi, lekin bu e’tiborsizlik kabi eshitilishi mumkin.",
+   "say": "مِنْ فَضْلِكِ. لَوْ سَمَحْتِ. شُكْرًا لَكِ. تَفَضَّلِي.",
+   "say_uz": "Iltimos. Kechirasiz. Rahmat sizga. Marhamat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Vaziyatga mos javob",
+   "emotion": "encouraging",
+   "board": ["1) Kafega kirdingiz.", "2) Ofitsiant: بِالْهَنَاءِ وَالشِّفَاءِ!", "3) Do‘stingiz to‘lamoqchi, lekin siz taklif qilgansiz.", "4) Ofitsiant yana taom taklif qiladi, siz to‘ygansiz."],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta vaziyat, har biriga arabcha javob bering. Birinchi: kafega kirdingiz, nima deysiz? Ikkinchi: ofitsiant taomni qo‘yib, yoqimli ishtaha deydi. Uchinchi: do‘stingiz to‘lamoqchi, lekin siz uni taklif qilgansiz. To‘rtinchi: ofitsiant yana nimadir taklif qiladi, siz esa to‘ygansiz.",
+   "say": "أَهْلًا وَسَهْلًا! بِالْهَنَاءِ وَالشِّفَاءِ! هَلْ تُرِيدُ شَيْئًا آخَرَ؟",
+   "say_uz": "Xush kelibsiz! Yoqimli ishtaha! Yana biror narsa istaysizmi?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) السَّلَامُ عَلَيْكُمْ.", "2) شُكْرًا.", "3) لَا، الْحِسَابُ عَلَيَّ.", "4) لَا، شُكْرًا، شَبِعْتُ."],
+   "examples": [],
+   "say_native": "Javoblar: kirganda “as-salāmu ʿalaykum”. Yoqimli ishtaha deyilganda “shukran” yoki “shukran jazīlan”. Do‘stingizga: “lā, al-ḥisābu ʿalayya” — yo‘q, hisob mendan. To‘yganingizda: “lā, shukran, shabiʿtu”. Bu kichik iboralar sizni chet ellik emas, odobli mehmon sifatida ko‘rsatadi.",
+   "say": "السَّلَامُ عَلَيْكُمْ. شُكْرًا. لَا، الْحِسَابُ عَلَيَّ. لَا، شُكْرًا، شَبِعْتُ.",
+   "say_uz": "Assalomu alaykum. Rahmat. Yo‘q, hisob mendan. Yo‘q, rahmat, to‘ydim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: ق, ح, ع",
+   "emotion": "thinking",
+   "board": ["قَهْوَةٌ — q: tilning orqa qismi", "حَلِيبٌ · الْحِسَابُ — ḥ: tomoqdan hovur", "عَصِيرٌ — ʿ: tomoq siqiladi"],
+   "examples": [{"t": "قَهْوَةٌ وَحَلِيبٌ", "uz": "Qahva va sut"}, {"t": "عَصِيرٌ بَارِدٌ", "uz": "Sovuq sharbat"}],
+   "say_native": "Bugungi so‘zlardagi uch qiyin tovush. “Q” — “qahwa” da. O‘zbek tilida ham “q” bor, shuning uchun bu sizga oson, faqat uni “k” ga aylantirmang. “Ḥ” — “ḥalīb” va “ḥisāb” da. Bu tomoqdan chiqadigan kuchli, lekin xirillamaydigan “h”. “ʿ” — “ʿaṣīr” da, tomoq biroz siqiladi. “Ḥ” ni “x” bilan almashtirsangiz, so‘z ma’nosi o‘zgarishi mumkin, shuning uchun farqlang.",
+   "say": "قَهْوَةٌ. حَلِيبٌ. الْحِسَابُ. عَصِيرٌ.",
+   "say_uz": "Qahva. Sut. Hisob. Sharbat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Baland ovozda takrorlang",
+   "emotion": "encouraging",
+   "board": ["1) قَهْوَةٌ سَاخِنَةٌ", "2) حَلِيبٌ بَارِدٌ", "3) عَصِيرُ بُرْتُقَالٍ", "4) الْحِسَابُ مِنْ فَضْلِكَ"],
+   "examples": [],
+   "say_native": "Mashq. Doskadagi to‘rtta iborani tinglang va har birini ikki marta baland ovozda takrorlang. “Q”, “ḥ” va “ʿ” tovushlariga alohida e’tibor bering. Agar yoningizda ko‘zgu bo‘lsa, og‘zingizga qarab mashq qiling.",
+   "say": "قَهْوَةٌ سَاخِنَةٌ... حَلِيبٌ بَارِدٌ... عَصِيرُ بُرْتُقَالٍ... الْحِسَابُ مِنْ فَضْلِكَ...",
+   "say_uz": "Issiq qahva... sovuq sut... apelsin sharbati... hisob, iltimos...",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
-   "title": "Talaffuz: hamza va shadda",
-   "emotion": "thinking",
-   "board": [
-    "قَهْوَةٌ — qah-vah",
-    "شُكْرًا — shuk-ran",
-    "مِن فَضْلِكَ — min-fad-li-ka",
-    "حَلْبٌ — ḥalb"
-   ],
-   "examples": [
-    {
-     "t": "قَهْوَةٌ",
-     "uz": "qahva"
-    },
-    {
-     "t": "شُكْرًا",
-     "uz": "rahmat"
-    }
-   ],
-   "say_native": "Qahvada hamza harfi bor, uni qafdan keyin aniq ayting: qah-vah. “Shukran” da “k” shadda bilan: shuk-ran, k ikki marta eshitiladi. “Min faḍlika” bo‘g‘inlarga ajratilsin: min-fad-li-ka. “Ḥalb” da “l” oddiy, “b” oxirida. Bu so‘zlarni baland ovozda takrorlang, har bir unli aniq bo‘lsin. Hamza arab tilining xusus harfi, uni o‘tkazib yubormang.",
-   "say": "Qah-va, shuk-ran, min-fad-li-ka. Say the hamza and shadda clearly.",
-   "say_uz": "Qah-va, shuk-ran, min-fad-li-ka. Hamza va shaddani aniq ayting.",
+   "title": "Tekshirib ko‘ring",
+   "emotion": "proud",
+   "board": ["قَهْوَةٌ ≠ كَهْوَةٌ", "حَلِيبٌ ≠ خَلِيبٌ", "عَصِيرٌ ≠ أَصِيرٌ"],
+   "examples": [],
+   "say_native": "O‘zingizni tekshiring. “Qahwa” ni “kahwa” demadingizmi? “Ḥalīb” ni “xalib” demadingizmi? “ʿAṣīr” boshidagi ʿaynni oddiy “a” bilan almashtirmadingizmi? Agar hammasi yaxshi bo‘lsa, barakalla. Bo‘lmasa, sekin, bo‘g‘inlab takrorlang: qah-wa, ḥa-līb, ʿa-ṣīr. Endi yakuniy vazifaga o‘tamiz.",
+   "say": "قَهْوَةٌ. حَلِيبٌ. عَصِيرٌ. أَحْسَنْتَ!",
+   "say_uz": "Qahva. Sut. Sharbat. Barakalla!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Baland ovozda o‘qing",
+   "title": "To‘liq buyurtma",
    "emotion": "encouraging",
-   "board": [
-    "1) MIN فَضْلِكَ، أُرِيدُ قَهْوَةً.",
-    "2) شُكْرًا.",
-    "3) أُرِيدُ شَايًا.",
-    "4) الثَّمَنُ كَمْ؟"
-   ],
+   "board": ["Menyu: قَهْوَةٌ 20 · شَايٌ 20 · دَجَاجٌ وَأَرُزٌّ 50 · سَلَطَةٌ 30", "1) Salom bering va buyurtma qiling", "2) Bitta narsaning narxini so‘rang", "3) Hisobni so‘rab, to‘lang va rahmat ayting"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta iborani baland ovozda o‘qing. Birinchi: iltimos, bitta qahva olaman. Ikkinchi: rahmat. Uchinchi: bitta choy olaman. To‘rtinchi: narh qancha? Har birini ikki marta takrorlang, hamza va shaddaga e’tibor bering.",
-   "say": "Read aloud: please, coffee. Thank you. I would like tea. How much is it?",
-   "say_uz": "Baland o‘qing: iltimos, qahva. Rahmat. Choy olaman. Narh qancha?",
-   "practice_seconds": 14
+   "say_native": "Yakuniy vazifa. Doskadagi menyuga qarang. Siz kafedasiz, ofitsiant erkak. Salom bering, bitta ichimlik va bitta taom buyurtma qiling, ichimlikni issiq yoki sovuq deb aniqlang. Bitta narsaning narxini so‘rang. Keyin hisobni so‘rang, to‘lash usulini ayting va rahmat bilan xayrlashing. Kamida olti gap ayting.",
+   "say": "أَهْلًا وَسَهْلًا! تَفَضَّلْ، مَاذَا تُرِيدُ؟",
+   "say_uz": "Xush kelibsiz! Marhamat, nima istaysiz?",
+   "practice_seconds": 24
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javob",
+   "emotion": "proud",
+   "board": ["السَّلَامُ عَلَيْكُمْ. أُرِيدُ شَايًا سَاخِنًا وَدَجَاجًا وَأَرُزًّا مِنْ فَضْلِكَ.", "بِكَمِ الدَّجَاجُ؟", "الْحِسَابُ مِنْ فَضْلِكَ. أَدْفَعُ نَقْدًا. تَفَضَّلْ.", "شُكْرًا، مَعَ السَّلَامَةِ!"],
+   "examples": [],
+   "say_native": "Namuna javobni tinglang va o‘zingiznikini solishtiring. Salom, issiq choy va tovuq bilan guruch buyurtmasi, “min faḍlik”, narx savoli, hisob, to‘lov usuli va xayrlashuv. E’tibor bering: “urīdu” dan keyin barcha nomlar “-an” bilan: shāyan sākhinan, dajājan wa aruzzan. Sizning javobingiz boshqacha bo‘lishi mumkin, asosiysi qismlar to‘liq bo‘lsin.",
+   "say": "السَّلَامُ عَلَيْكُمْ. أُرِيدُ شَايًا سَاخِنًا وَدَجَاجًا وَأَرُزًّا مِنْ فَضْلِكَ. بِكَمِ الدَّجَاجُ؟ الْحِسَابُ مِنْ فَضْلِكَ. أَدْفَعُ نَقْدًا. تَفَضَّلْ. شُكْرًا، مَعَ السَّلَامَةِ!",
+   "say_uz": "Assalomu alaykum. Iltimos, issiq choy va tovuq bilan guruch istayman. Tovuq qancha? Hisob, iltimos. Naqd to‘layman. Marhamat. Rahmat, xayr!",
+   "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": [
-    "قَهْوَةٌ، شَايٌ، مَاءٌ، خُبْزٌ، لَحْمٌ",
-    "أُرِيدُ قَهْوَةً / أُحِبُّ الْقَهْوَةَ",
-    "كَمْ الثَّمَنُ؟ ثَمَنُهُ خَمْسَةُ دَرَاهِمَ",
-    "مُنْفَكًّا / بِالسُّكَّرِ"
-   ],
+   "board": ["قَهْوَةٌ، شَايٌ، مَاءٌ، خُبْزٌ، دَجَاجٌ", "أُرِيدُ ... مِنْ فَضْلِكَ / مِنْ فَضْلِكِ", "بِكَمْ هَذَا؟ — عِشْرُونَ رِيَالًا", "الْحِسَابُ مِنْ فَضْلِكَ."],
    "examples": [],
-   "say_native": "Xulosa. Ichimlik va ovqat nomlarini o‘rgandik: qahvah, shāʾ, māʾ, khubz, jubn, laḥm. Buyurtma berish: “urīdu” va “uḥibbu”. Obyekt “urīdu” da “-an”, “uḥibbu” da “-a”. Narh: “kam ath-thamanu?”. “Munfaqqan” — faqat, “bi al-sukkari” — shakkar bilan. Eng muhim fikr: jins va kelishik qoidalar bo‘ladi, shuning uchun sifatlarni moslang.",
-   "say": "Food and drink, ordering with uridu and uhibbu, prices and only.",
-   "say_uz": "Ichimlik va ovqat, “uridu” va “uhibbu” bilan buyurtma, narh va faqat.",
+   "say_native": "Xulosa. Ovqat va ichimlik nomlarini o‘rgandik. Sifat otdan keyin keladi va jinsga moslashadi: qahwa sākhina, shāy sākhin. Buyurtma uchun “urīdu” va narsa nomi “-an” bilan, yonida “min faḍlika” yoki ayolga “min faḍliki”. Narx: “bikam hādhā?”, javob “ʿishrūna riyālan”. Hisob: “al-ḥisāb min faḍlik”. Va eng muhimi, salom, rahmat va odob bilan gapirish.",
+   "say": "أُرِيدُ قَهْوَةً سَاخِنَةً مِنْ فَضْلِكَ. بِكَمْ هَذَا؟ عِشْرُونَ رِيَالًا. الْحِسَابُ مِنْ فَضْلِكَ. شُكْرًا!",
+   "say_uz": "Iltimos, issiq qahva istayman. Bu qancha? Yigirma riyol. Hisob, iltimos. Rahmat!",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uy vazifasi",
    "emotion": "encouraging",
-   "board": [
-    "Kafeda buyurtma",
-    "Ovqat + ichimlik + narh",
-    "Muvaffaqiyat: buyurtma va to‘lash"
-   ],
+   "board": ["Rolli o‘yin: to‘liq ovqat buyurtmasi", "ichimlik + taom + narx + hisob", "Muvaffaqiyat: 8 gap, xatosiz “min faḍlik”"],
    "examples": [],
-   "say_native": "Uy vazifasi. Kafeda buyurtma beruvchi dialog yozing va tarjima qiling. Muvaffaqiyat mezoni: kamida ikkita ichimlik, ikkita ovqat, to‘g‘ri narh va to‘lash. Keyingi darsda uy, xonalar va jihozlarni o‘rganamiz.",
-   "say": "Homework: write a café ordering dialogue.",
-   "say_uz": "Uy vazifasi: kafeda buyurtma beruvchi dialog yozing.",
+   "say_native": "Uy vazifasi. Do‘stingiz yoki oila a’zongiz bilan rolli o‘yin qiling: biringiz ofitsiant, biringiz mijoz. To‘liq ovqat buyurtma qiling: ichimlik, asosiy taom va salat, narx so‘rang, hisobni so‘rab to‘lang. Muvaffaqiyat mezoni: kamida sakkiz gap, sifatlar jinsga mos va “min faḍlik” suhbatdoshning jinsiga to‘g‘ri tanlangan. Keyingi darsda uy, xonalar va jihozlar haqida gapirishni o‘rganamiz.",
+   "say": "تَدَرَّبْ عَلَى الطَّلَبِ فِي الْمَقْهَى. إِلَى اللِّقَاءِ!",
+   "say_uz": "Kafeda buyurtma berishni mashq qiling. Ko‘rishguncha!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Kafeda buyurtma beruvchi dialog yozing va tarjima qiling. Muvaffaqiyat mezoni: kamida ikkita ichimlik, ikkita ovqat, to‘g‘ri narh va to‘lash.",
+ "homework_uz": "Do‘stingiz yoki oila a’zongiz bilan rolli o‘yin qiling: biringiz ofitsiant, biringiz mijoz. To‘liq ovqat buyurtma qiling (ichimlik, asosiy taom, salat), narx so‘rang, hisobni so‘rab to‘lang. Muvaffaqiyat mezoni: kamida sakkiz gap, sifatlar jinsga mos, “min faḍlika / min faḍliki” to‘g‘ri tanlangan.",
  "quiz": [
-  {
-   "q": "“Men qahva istayman” arabchada:",
-   "options": [
-    "أُحِبُّ قَهْوَةً",
-    "أُرِيدُ قَهْوَةً",
-    "أُرِيدُ الْقَهْوَةَ",
-    "أُحِبُّ الْقَهْوَةَ"
-   ],
-   "answer": 1,
-   "why_uz": "“Uridu” — istayman, obyekt “-an” bilan: qahwatan."
-  },
-  {
-   "q": "“Menga choy yaxshi”:",
-   "options": [
-    "أُرِيدُ الشَّايَ",
-    "أُحِبُّ الشَّايَ",
-    "أُرِيدُ شَايًا",
-    "أُحِبُّ شَايًا"
-   ],
-   "answer": 1,
-   "why_uz": "“Uḥibbu” — yaxshi ko‘raman, obyekt “-a” bilan: al-shāya."
-  },
-  {
-   "q": "“Sovun choy”:",
-   "options": [
-    "شَايٌ بَارِدٌ",
-    "شَايٌ بَارِدٌ (m.)",
-    "شَايٌ بَارِدَةٌ",
-    "شَايٌ دَافِئٌ"
-   ],
-   "answer": 1,
-   "why_uz": "“Shāʾ” erkak jinsli, shuning uchun “bāridun”."
-  },
-  {
-   "q": "“Narh qancha?”:",
-   "options": [
-    "كَمْ الثَّمَنُ؟",
-    "كَمْ السَّاعَةُ؟",
-    "مَتَى الثَّمَنُ؟",
-    "أَيْنَ الثَّمَنُ؟"
-   ],
-   "answer": 0,
-   "why_uz": "“Kam ath-thamanu?” — narh qancha."
-  },
-  {
-   "q": "“Shakkar bilan qahva”:",
-   "options": [
-    "قَهْوَةٌ مَعَ السُّكَّرِ",
-    "قَهْوَةً بِالسُّكَّرِ",
-    "قَهْوَةٌ سُكَّرٌ",
-    "قَهْوَةً سُكَّرٌ"
-   ],
-   "answer": 1,
-   "why_uz": "“Bi” — bilan: qahwatan bi al-sukkari."
-  },
-  {
-   "q": "“Issiq qahva”:",
-   "options": [
-    "قَهْوَةٌ حَارٌّ",
-    "قَهْوَةٌ حَارَّةٌ",
-    "قَهْوَةً حَارَّةً",
-    "قَهْوَةً حَارٌّ"
-   ],
-   "answer": 1,
-   "why_uz": "Qahva ayol jinsli, sifat “ḥāṣirah”."
-  },
-  {
-   "q": "“Pulni oling”:",
-   "options": [
-    "هَاكَ الفلوسَ",
-    "أُحِبُّ الفلوسَ",
-    "أُرِيدُ الفلوسَ",
-    "كَمْ الفلوسَ"
-   ],
-   "answer": 0,
-   "why_uz": "“Hāk al-fulūs” — pulni oling."
-  },
-  {
-   "q": "“Nonushta”:",
-   "options": [
-    "الْعَشَاءُ",
-    "الْفَطُورُ",
-    "الطَّعَامُ",
-    "الْفُلُوسُ"
-   ],
-   "answer": 1,
-   "why_uz": "“Al-faṭūr” — nonushta."
-  },
-  {
-   "q": "“Munfaqqan” ma’nosi:",
-   "options": [
-    "bilan",
-    "faqat",
-    "narh",
-    "pul"
-   ],
-   "answer": 1,
-   "why_uz": "“Munfaqqan” — faqat, boshqa narsa yo‘q."
-  },
-  {
-   "q": "“Manga non yaxshi”:",
-   "options": [
-    "أُرِيدُ خُبْزًا",
-    "أُحِبُّ الْخُبْزَ",
-    "أُحِبُّ خُبْزًا",
-    "أُرِيدُ الْخُبْزَ"
-   ],
-   "answer": 1,
-   "why_uz": "“Uḥibbu” bilan obyekt “-a” bilan: al-khubza."
-  }
+  {"q": "“Sut” arabchada:", "options": ["حَلِيبٌ", "حَلْبٌ", "خُبْزٌ", "جُبْنٌ"], "answer": 0, "why_uz": "Sut — ḥalīb. Khubz — non, jubn — pishloq."},
+  {"q": "“Issiq qahva”:", "options": ["قَهْوَةٌ سَاخِنٌ", "قَهْوَةٌ سَاخِنَةٌ", "سَاخِنَةٌ قَهْوَةٌ", "قَهْوَةً سَاخِنٌ"], "answer": 1, "why_uz": "Qahwa ayol jinsi, sifat otdan keyin keladi va “-a” oladi: qahwa sākhina."},
+  {"q": "“Issiq choy”:", "options": ["شَايٌ سَاخِنَةٌ", "سَاخِنٌ شَايٌ", "شَايٌ سَاخِنٌ", "شَايَةٌ سَاخِنَةٌ"], "answer": 2, "why_uz": "Shāy erkak jinsi, sifat ham erkak shaklida: shāy sākhin."},
+  {"q": "“Choy istayman”:", "options": ["أُرِيدُ شَايٌ", "أُرِيدُ شَايًا", "شَايٌ أُرِيدُ", "يُرِيدُ شَايًا"], "answer": 1, "why_uz": "“Urīdu” dan keyin narsa nomi “-an” bilan: shāyan."},
+  {"q": "Ayol ofitsiantga “iltimos”:", "options": ["مِنْ فَضْلِكَ", "مِنْ فَضْلِكُمْ", "مِنْ فَضْلِكِ", "شُكْرًا"], "answer": 2, "why_uz": "Ayolga “-ki”: min faḍliki."},
+  {"q": "“Bir piyola qahva istayman”:", "options": ["أُرِيدُ فِنْجَانَ قَهْوَةٍ", "أُرِيدُ فِنْجَانًا قَهْوَةً", "أُرِيدُ الْفِنْجَانُ قَهْوَةٌ", "أُرِيدُ قَهْوَةَ فِنْجَانٍ"], "answer": 0, "why_uz": "Iḍāfada birinchi so‘z “-an” olmaydi: finjāna qahwatin."},
+  {"q": "“Bu qancha?”:", "options": ["مَا هَذَا؟", "بِكَمْ هَذَا؟", "أَيْنَ هَذَا؟", "مَنْ هَذَا؟"], "answer": 1, "why_uz": "Narx so‘rash: bikam hādhā?"},
+  {"q": "“Yigirma riyol”:", "options": ["عِشْرُونَ رِيَالَاتٍ", "عِشْرُونَ رِيَالٌ", "عِشْرُونَ رِيَالًا", "رِيَالٌ عِشْرُونَ"], "answer": 2, "why_uz": "Yigirmadan keyin birlik va “-an”: ʿishrūna riyālan."},
+  {"q": "“Hisob, iltimos”:", "options": ["الْحِسَابُ عَلَيَّ", "أَعْطِنِي الْحِسَابَ!", "الْحِسَابُ مِنْ فَضْلِكَ", "كَمِ الْحِسَابُ عَلَيَّ"], "answer": 2, "why_uz": "Muloyim shakl: al-ḥisāb min faḍlik. “Al-ḥisābu ʿalayya” — hisob mendan degani."},
+  {"q": "Ofitsiant “بِالْهَنَاءِ وَالشِّفَاءِ” desa, siz:", "options": ["عَفْوًا", "شُكْرًا", "مَعَ السَّلَامَةِ", "بِكَمْ هَذَا؟"], "answer": 1, "why_uz": "Yoqimli ishtaha tilashganda “shukran” deb javob beriladi. “ʿAfwan” — rahmatga javob."}
  ]
 }
-

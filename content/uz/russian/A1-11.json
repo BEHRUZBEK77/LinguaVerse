@@ -1,596 +1,996 @@
 {
  "title": "Shaharda yo‘l so‘rash va tushuntirish",
- "goal_uz": "Dars oxirida rus tilida shahardagi joylarni nomlaysiz, «Где находится?», «Как пройти?», «Идите прямо», «Поверните налево» kabi iboralar bilan yo‘l so‘raysiz va tushuntirasiz. Oxirida uyingizdan yaqin do‘kongacha yo‘lni tushuntirib bera olasiz.",
+ "goal_uz": "Dars oxirida rus tilida shahardagi joylar nomlarini «в» yoki «на» bilan to‘g‘ri ishlatasiz, «Извините, вы не подскажете…?» va «Как пройти к…?» bilan muloyim yo‘l so‘raysiz, «идите, поверните, перейдите» buyruqlari bilan yo‘l ko‘rsatasiz, «направо» va «справа» ni farqlaysiz hamda uyingizdan do‘konga yo‘lni besh gapda tushuntirasiz.",
  "vocab": [
-  {"w": "аптека", "uz": "dorixona"},
-  {"w": "банк", "uz": "bank"},
-  {"w": "вокзал", "uz": "vokzal"},
-  {"w": "метро", "uz": "metro"},
-  {"w": "школа", "uz": "maktab"},
-  {"w": "магазин", "uz": "do‘kon"},
-  {"w": "больница", "uz": "kasalxona"},
-  {"w": "библиотека", "uz": "kutubxona"},
-  {"w": "парк", "uz": "bog‘"},
-  {"w": "остановка", "uz": "bekat"}
+  {
+   "w": "аптека",
+   "uz": "dorixona"
+  },
+  {
+   "w": "остановка",
+   "uz": "bekat"
+  },
+  {
+   "w": "перекрёсток",
+   "uz": "chorraha"
+  },
+  {
+   "w": "Как пройти к…?",
+   "uz": "…ga qanday borsa bo‘ladi?"
+  },
+  {
+   "w": "Вы не подскажете…?",
+   "uz": "aytib yubormaysizmi?"
+  },
+  {
+   "w": "направо / налево",
+   "uz": "o‘ngga / chapga"
+  },
+  {
+   "w": "справа / слева",
+   "uz": "o‘ngda / chapda"
+  },
+  {
+   "w": "прямо",
+   "uz": "to‘g‘riga"
+  },
+  {
+   "w": "Поверните / Перейдите",
+   "uz": "buriling / kesib o‘ting"
+  },
+  {
+   "w": "напротив",
+   "uz": "qarshisida"
+  }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "O‘n birinchi dars: yo‘l so‘rash",
+   "title": "O‘n birinchi dars: shaharda yo‘l",
    "emotion": "happy",
-   "board": ["Где находится аптека?", "Как пройти в парк?", "Идите прямо.", "Поверните налево."],
-   "examples": [],
-   "say_native": "Assalomu alaykum! O‘n birinchi darsga xush kelibsiz. O‘tgan darsda uy, xonalar va jihozlarni tasvirlashni o‘rgandik. Bugun shaharda yo‘l so‘rash va tushuntirishni o‘rganamiz. Shahar joylarini, «Где находится?», «Как пройти?» iboralarini va buyruq ohangidagi «Идите», «Поверните» shakllarini mashq qilamiz. Oxirida do‘konga yo‘lni tushuntirib bera olasiz.",
-   "say": "Здравствуйте! Сегодня мы говорим о местах в городе и о том, как спросить дорогу.",
-   "say_uz": "Assalomu alaykum! Bugun shahardagi joylar va yo‘l so‘rash haqida gaplashamiz.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Joylar: birinchi guruh",
-   "emotion": "neutral",
-   "board": ["аптека · банк · вокзал", "Где находится аптека?", "Где находится банк?"],
-   "examples": [
-   {"t": "Где находится аптека?", "uz": "Dorixona qayerda joylashgan?"},
-   {"t": "Где находится банк?", "uz": "Bank qayerda joylashgan?"}
+   "board": [
+    "Извините, где здесь аптека?",
+    "Как пройти к метро?",
+    "Идите прямо, потом поверните налево.",
+    "Банк напротив парка."
    ],
-   "say_native": "Shahar joylarini o‘rganamiz. “Аптека” — dorixona, “банк” — bank, “вокзал” — vokzal. Bu uch joy shaharda eng ko‘p so‘raladi. “Где находится аптека?” — dorixona qayerda joylashgan? “Где находится банк?” — bank qayerda joylashgan? O‘zbek tilidagi “qayerda joylashgan” rus tilida aynan “где находится” deb aytiladi.",
-   "say": "Где находится аптека? Где находится банк? Где находится вокзал?",
-   "say_uz": "Dorixona qayerda joylashgan? Bank qayerda joylashgan? Vokzal qayerda joylashgan?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Joylar: ikkinchi guruh",
-   "emotion": "neutral",
-   "board": ["метро · школа · магазин", "Где находится метро?", "Где находится школа?"],
-   "examples": [
-   {"t": "Где находится метро?", "uz": "Metro qayerda joylashgan?"},
-   {"t": "Где находится магазин?", "uz": "Do‘kon qayerda joylashgan?"}
-   ],
-   "say_native": "Ikkinchi guruh: “метро” — metro, “школа” — maktab, “магазин” — do‘kon. “Где находится метро?” — metro qayerda joylashgan? “Где находится магазин?” — do‘kon qayerda joylashgan? Bu joylar har bir shaharda bo‘ladi, shuning uchun ularning nomini yodlab qolish har kuni yordam beradi. Bu so‘zlar do‘stlar ortasida ham, notanishlarga ham ishlatiladi.",
-   "say": "Где находится метро? Где находится школа? Где находится магазин?",
-   "say_uz": "Metro qayerda joylashgan? Maktab qayerda joylashgan? Do‘kon qayerda joylashgan?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Joylar: uchinchi guruh",
-   "emotion": "neutral",
-   "board": ["больница · библиотека · парк · остановка", "Где находится больница?", "Где находится библиотека?"],
-   "examples": [
-   {"t": "Где находится больница?", "uz": "Kasalxona qayerda joylashgan?"},
-   {"t": "Где находится парк?", "uz": "Bog‘ qayerda joylashgan?"}
-   ],
-   "say_native": "Uchinchi guruh: “больница” — kasalxona, “библиотека” — kutubxona, “парк” — bog‘, “остановка” — bekat. “Где находится больница?” — kasalxona qayerda joylashgan? “Где находится библиотека?” — kutubxona qayerda joylashgan? Bu joylar dorixona va bank kabi zarur bo‘lgan joylardir, shuning uchun ularning nomini aniq yodlang.",
-   "say": "Где находится больница? Где находится библиотека? Где находится парк? Где находится остановка?",
-   "say_uz": "Kasalxona qayerda joylashgan? Kutubxona qayerda joylashgan? Bog‘ qayerda joylashgan? Bekat qayerda joylashgan?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ko‘cha va markaz",
-   "emotion": "neutral",
-   "board": ["улица · центр · площадь", "Где центр?", "Где улица?"],
-   "examples": [
-   {"t": "Где центр?", "uz": "Markaz qayerda?"},
-   {"t": "Где площадь?", "uz": "Maydon qayerda?"}
-   ],
-   "say_native": "Ko‘cha va markaz so‘zlari ham kerak. “Улица” — ko‘cha, “центр” — markaz, “площадь” — maydon. “Где центр?” — markaz qayerda? “Где площадь?” — maydon qayerda? Yo‘lni tushuntirganda “прямо”, “налево”, “направо” kabi so‘zlar ko‘cha bilan bog‘liq bo‘ladi, shuning uchun “улица” so‘zini yaxshi biling. Bu uch so‘z yönni aniqlashda yordam beradi.",
-   "say": "Где центр? Где улица? Где площадь?",
-   "say_uz": "Markaz qayerda? Ko‘cha qayerda? Maydon qayerda?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Joylarni nomlang",
-   "emotion": "encouraging",
-   "board": ["1) аптека  2) банк  3) вокзал  4) метро", "5) школа  6) магазин  7) больница  8) библиотека"],
    "examples": [],
-   "say_native": "Sakkiz joyni “где находится” bilan so‘rab ayting. “Где находится аптека?”, “где находится банк?”, “где находится вокзал?”, “где находится метро?”, “где находится школа?”, “где находится магазин?”, “где находится больница?”, “где находится библиотека?”. Har bir savolni ohang bilan aniq aytib, bir oz to‘xtab, javobni qabul qiling.",
-   "say": "Где находится аптека? Где находится банк? Где находится вокзал? Где находится метро? Где находится школа? Где находится магазин? Где находится больница? Где находится библиотека?",
-   "say_uz": "Dorixona qayerda joylashgan? Bank qayerda joylashgan? Vokzal qayerda joylashgan? Metro qayerda joylashgan? Maktab qayerda joylashgan? Do‘kon qayerda joylashgan? Kasalxona qayerda joylashgan? Kutubxona qayerda joylashgan?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Где находится аптека?", "Где находится банк?", "Где находится вокзал?", "Где находится метро?"],
-   "examples": [],
-   "say_native": "Javoblar: “Где находится аптека?”, “где находится банк?”, “где находится вокзал?”, “где находится метро?”, “где находится школа?”, “где находится магазин?”, “где находится больница?”, “где находится библиотека?”. Har bir savolda “где находится” iborasi bir xil, faqat joy nomi o‘zgaradi. Rus tilida joylashuvni so‘rash shunday oddiy tuzilgan, lekin savol ohangi bilan aniq aytiladi.",
-   "say": "Где находится аптека? Где находится банк? Где находится вокзал? Где находится метро?",
-   "say_uz": "Dorixona qayerda joylashgan? Bank qayerda joylashgan? Vokzal qayerda joylashgan? Metro qayerda joylashgan?",
+   "say_native": "Assalomu alaykum! O‘n birinchi darsga xush kelibsiz. Oldingi darsda uyimizni tasvirladik: “на кухне”, “в шкафу”, “рядом с окном” kabi joy so‘zlarini o‘rgandik. Bugun uydan shaharga chiqamiz. Shahardagi joylar nomlarini, yo‘lni muloyim so‘rashni, “o‘ngga buriling”, “to‘g‘ri yuring” kabi ko‘rsatmalarni va ularni qanday tushunishni o‘rganamiz. Oxirida uyingizdan do‘konga yo‘lni o‘zingiz tushuntirasiz.",
+   "say": "Здравствуйте! Сегодня мы в городе. Мы спрашиваем дорогу и объясняем, как пройти.",
+   "say_uz": "Assalomu alaykum! Bugun biz shahardamiz. Yo‘l so‘raymiz va qanday borishni tushuntiramiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Где ...?",
+   "title": "Shahardagi joylar (1)",
    "emotion": "neutral",
-   "board": ["Где аптека? — Прямо.", "Где банк? — Налево.", "Где парк? — Направо."],
-   "examples": [
-   {"t": "Где аптека? — Прямо.", "uz": "Dorixona qayerda? — To‘g‘ri."},
-   {"t": "Где банк? — Налево.", "uz": "Bank qayerda? — Chapga."}
+   "board": [
+    "банк · апте́ка (dorixona)",
+    "по́чта (pochta) · магази́н (do‘kon)",
+    "ры́нок (bozor) · больни́ца (kasalxona)"
    ],
-   "say_native": "Qisqa javobli “где” savoli ham bor: “Где аптека?” — dorixona qayerda? Javob: “Прямо” — to‘g‘ri yurish kerak. “Где банк?” — bank qayerda? Javob: “Налево” — chapga burilish kerak. “Где парк?” — bog‘ qayerda? Javob: “Направо” — o‘ngga burilish kerak. Bu qisqa javoblar yo‘lni ko‘rsatishda juda ko‘p ishlatiladi.",
-   "say": "Где аптека? Прямо. Где банк? Налево. Где парк? Направо. Где вокзал? Прямо.",
-   "say_uz": "Dorixona qayerda? To‘g‘ri. Bank qayerda? Chapga. Bog‘ qayerda? O‘ngga. Vokzal qayerda? To‘g‘ri.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qayerda deb so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Dorixona", "2) Bank", "3) Bog‘", "4) Vokzal"],
-   "examples": [],
-   "say_native": "To‘rtta joyni “где” bilan so‘rang va qisqa javob bering. “Где аптека? Прямо”, “где банк? налево”, “где парк?направо”, “где вокзал?прямо”. Har bir savol “где” bilan boshlanib, javob birgina so‘z bilan yakunlanadi. Bu shakl shoshilib turganda ham, xushmuomala bo‘lib so‘ralganda ham ishlatiladi.",
-   "say": "Где аптека? Прямо. Где банк? Налево. Где парк? Направо. Где вокзал? Прямо.",
-   "say_uz": "Dorixona qayerda? To‘g‘ri. Bank qayerda? Chapga. Bog‘ qayerda? O‘ngga. Vokzal qayerda? To‘g‘ri.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Где аптека? Прямо.", "Где банк? Налево.", "Где парк? Направо.", "Где вокзал? Прямо."],
-   "examples": [],
-   "say_native": "Javoblar: “Где аптека? Прямо”, “где банк? налево”, “где парк?направо”, “где вокзал?прямо”. Har birida savol “где” bilan, javob esa yo‘nalish so‘zi bilan tugagan. Bu muloqot shaharda yo‘l so‘rashning eng sodda shakli. Endi siz har qanday joyni so‘rab, yo‘nalishni aniqlay olasiz.",
-   "say": "Где аптека? Прямо. Где банк? Налево. Где парк? Направо. Где вокзал? Прямо.",
-   "say_uz": "Dorixona qayerda? To‘g‘ri. Bank qayerda? Chapga. Bog‘ qayerda? O‘ngga. Vokzal qayerda? To‘g‘ri.",
+   "examples": [
+    {
+     "t": "Где здесь аптека?",
+     "uz": "Bu yerda dorixona qayerda?"
+    },
+    {
+     "t": "Рынок недалеко.",
+     "uz": "Bozor uzoq emas."
+    }
+   ],
+   "say_native": "Shahardagi asosiy joylar. “Банк” — bank, “аптека” — dorixona, “почта” — pochta, “магазин” — do‘kon, “рынок” — bozor, “больница” — kasalxona. Urg‘ularga e’tibor bering: “апте́ка”, “по́чта”, “магази́н”, “ры́нок”, “больни́ца”. “Аптека” so‘zini o‘zbekchadagi “apteka” bilan bir xil deb o‘ylamang: rus tilida urg‘u “те” bo‘g‘inida va aniq aytiladi.",
+   "say": "Банк. Аптека. Почта. Магазин. Рынок. Больница.",
+   "say_uz": "Bank. Dorixona. Pochta. Do‘kon. Bozor. Kasalxona.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Как пройти?",
+   "title": "Shahardagi joylar (2)",
+   "emotion": "neutral",
+   "board": [
+    "остано́вка (bekat) · метро́ · вокза́л",
+    "парк · музе́й · гости́ница (mehmonxona)",
+    "кафе · школа · театр"
+   ],
+   "examples": [
+    {
+     "t": "Остановка рядом с парком.",
+     "uz": "Bekat bog‘ yonida."
+    },
+    {
+     "t": "Вокзал далеко.",
+     "uz": "Vokzal uzoqda."
+    }
+   ],
+   "say_native": "Yana joylar. “Остановка” — avtobus bekati, “метро” — metro, “вокзал” — temir yo‘l vokzali, “парк” — bog‘, “музей” — muzey, “гостиница” — mehmonxona, “кафе”, “школа”, “театр”. Diqqat: “гостиница” — sayohatchilar uchun mehmonxona, oldingi darsdagi “гостиная” esa uydagi xona. Bu ikkisi o‘xshash, lekin boshqa so‘zlar.",
+   "say": "Остановка. Метро. Вокзал. Парк. Музей. Гостиница.",
+   "say_uz": "Bekat. Metro. Vokzal. Bog‘. Muzey. Mehmonxona.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ko‘cha so‘zlari",
+   "emotion": "neutral",
+   "board": [
+    "у́лица (ko‘cha) · пло́щадь (maydon)",
+    "перекрёсток (chorraha)",
+    "светофо́р (svetofor) · мост (ko‘prik)",
+    "угол (burchak, muyulish)"
+   ],
+   "examples": [
+    {
+     "t": "Перекрёсток там.",
+     "uz": "Chorraha u yerda."
+    },
+    {
+     "t": "Улица Навои.",
+     "uz": "Navoiy ko‘chasi."
+    }
+   ],
+   "say_native": "Yo‘l tushuntirish uchun ko‘cha so‘zlari kerak. “Улица” — ko‘cha, “площадь” — maydon, “перекрёсток” — chorraha, “светофор” — svetofor, “мост” — ko‘prik, “угол” — burchak, ko‘cha muyulishi. “Площадь” yumshoq belgi bilan tugaydi va ayol jinsi: “большая площадь”. “Перекрёсток” so‘zidagi “ё” doim urg‘uli.",
+   "say": "Улица. Площадь. Перекрёсток. Светофор. Мост. Угол.",
+   "say_uz": "Ko‘cha. Maydon. Chorraha. Svetofor. Ko‘prik. Burchak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Где? Joylar bilan в va на",
    "emotion": "thinking",
-   "board": ["Как пройти ...?", "Как пройти в аптеку?", "Как пройти в парк?", "Как пройти в банк?"],
-   "examples": [
-   {"t": "Как пройти в аптеку?", "uz": "Dorixonaga qanday boriladi?"},
-   {"t": "Как пройти в парк?", "uz": "Bog‘ga qanday boriladi?"}
+   "board": [
+    "в банке · в аптеке · в парке · в музее",
+    "на почте · на рынке · на вокзале · на остановке",
+    "в метро · в кафе (o‘zgarmaydi)"
    ],
-   "say_native": "“Как пройти” — qanday boriladi degan ma’noni bildiradi. Keyin yo‘nalish keladi: “как пройти в аптеку” — dorixonaga qanday boriladi, “как пройти в парк” — bog‘ga qanday boriladi, “как пройти в банк” — bankka qanday boriladi. Bu savol yo‘lni to‘liq tushuntirishni so‘raydi, shuning uchun javobda bir necha qadam aytiladi. O‘zbek tilidagi “qanday boriladi” rus tilida aynan shu shaklda aytiladi.",
-   "say": "Как пройти в аптеку? Как пройти в парк? Как пройти в банк? Как пройти в метро?",
-   "say_uz": "Dorixonaga qanday boriladi? Bog‘ga qanday boriladi? Bankka qanday boriladi? Metrogacha qanday boriladi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qanday boriladi deb so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Dorixona", "2) Bog‘", "3) Bank", "4) Metro"],
-   "examples": [],
-   "say_native": "To‘rtta joyni “как пройти” bilan so‘rang. “Как пройти в аптеку?”, “как пройти в парк?”, “как пройти в банк?”, “как пройти в метро?”. Har bir savol oxirida so‘roq belgisi bo‘ladi va ohang ko‘tariladi. Bu savol yo‘lni to‘liq bilib olishni istaganingizni bildiradi, shuning uchun atrofdagilar uni hurmat bilan qabul qiladi.",
-   "say": "Как пройти в аптеку? Как пройти в парк? Как пройти в банк? Как пройти в метро?",
-   "say_uz": "Dorixonaga qanday boriladi? Bog‘ga qanday boriladi? Bankka qanday boriladi? Metrogacha qanday boriladi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Как пройти в аптеку?", "Как пройти в парк?", "Как пройти в банк?", "Как пройти в метро?"],
-   "examples": [],
-   "say_native": "Javoblar: “Как пройти в аптеку?”, “как пройти в парк?”, “как пройти в банк?”, “как пройти в метро?”. Har bir savolda “как пройти” iborasi bir xil, faqat joy nomi o‘zgaradi. Joy nomi ko‘rsatkich kelasi shaklida keladi: “в аптеку, в парк, в банк”. Buni diqqat bilan yodlang, chunki yo‘l so‘rashda joy nomi aynan shu shaklda ishlatiladi.",
-   "say": "Как пройти в аптеку? Как пройти в парк? Как пройти в банк? Как пройти в метро?",
-   "say_uz": "Dorixonaga qanday boriladi? Bog‘ga qanday boriladi? Bankka qanday boriladi? Metrogacha qanday boriladi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Идите прямо",
-   "emotion": "neutral",
-   "board": ["Идите прямо.", "Идите прямо два квартала.", "Потом поверните налево."],
    "examples": [
-   {"t": "Идите прямо.", "uz": "To‘g‘ri yuring."},
-   {"t": "Идите прямо два квартала.", "uz": "Ikki mavze to‘g‘ri yuring."}
+    {
+     "t": "Мама на рынке.",
+     "uz": "Onam bozorda."
+    },
+    {
+     "t": "Я в аптеке.",
+     "uz": "Men dorixonadaman."
+    }
    ],
-   "say_native": "“Идите прямо” — to‘g‘ri yuring degani. Bu buyruq ohangidagi fe’l, lekin xushmuomala shaklda, “вы” bilan ishlatiladi. “Идите прямо два квартала” — ikki mavze to‘g‘ri yuring. Keyin yo‘nalish o‘zgaradi: “потом поверните налево” — keyin chapga buriling. Bu ikki fe’l yo‘lni tushuntirishda asos bo‘ladi va har bir qadamda ishlatiladi.",
-   "say": "Идите прямо. Идите прямо два квартала. Потом поверните налево.",
-   "say_uz": "To‘g‘ri yuring. Ikki mavze to‘g‘ri yuring. Keyin chapga buriling.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Поверните налево / направо",
-   "emotion": "neutral",
-   "board": ["Поверните налево.", "Поверните направо.", "Потом идите прямо."],
-   "examples": [
-   {"t": "Поверните налево.", "uz": "Chapga buriling."},
-   {"t": "Поверните направо.", "uz": "O‘ngga buriling."}
-   ],
-   "say_native": "“Поверните налево” — chapga buriling, “поверните направо” — o‘ngga buriling. Bu ikki buyruq yo‘lni tushuntirishda eng ko‘p ishlatiladi. “Потом идите прямо” — keyin to‘g‘ri yuring. Masalan: “Идите прямо, потом поверните налево, потом идите прямо” — to‘g‘ri yuring, keyin chapga buriling, keyin to‘g‘ri yuring. Har bir qadam ketma-ket aytiladi.",
-   "say": "Поверните налево. Поверните направо. Потом идите прямо.",
-   "say_uz": "Chapga buriling. O‘ngga buriling. Keyin to‘g‘ri yuring.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yo‘lni tushuntiring",
-   "emotion": "encouraging",
-   "board": ["1) To‘g‘ri yuring.", "2) Chapga buriling.", "3) O‘ngga buriling.", "4) Keyin to‘g‘ri yuring."],
-   "examples": [],
-   "say_native": "To‘rtta buyruqni ketma-ket ayting. “Идите прямо”, “поверните налево”, “поверните направо”, “потом идите прямо”. Har birini “вы” shaklida, ya’ni “идите, поверните” deb ayting. Bu shakl notanishlarga nisbatan hurmatli, shuning uchun shaharda aynan shu shakl ishlatiladi. Buyruq ohangi bilan, lekin xushmuomala bo‘lib ayting.",
-   "say": "Идите прямо. Поверните налево. Поверните направо. Потом идите прямо.",
-   "say_uz": "To‘g‘ri yuring. Chapga buriling. O‘ngga buriling. Keyin to‘g‘ri yuring.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Идите прямо.", "Поверните налево.", "Поверните направо.", "Потом идите прямо."],
-   "examples": [],
-   "say_native": "Javoblar: “Идите прямо”, “поверните налево”, “поверните направо”, “потом идите прямо”. Har biri “вы” shaklidagi buyruq fe’li. “Идите” — to‘g‘ri yuring, “поверните” — buriling. Bu ikki fe’l bilan barcha yo‘lni tushuntirish mumkin. O‘quvchi bu shakllarni yodlab qolsa, har qanday manzilni tushuntirib bera oladi.",
-   "say": "Идите прямо. Поверните налево. Поверните направо. Потом идите прямо.",
-   "say_uz": "To‘g‘ri yuring. Chapga buriling. O‘ngga buriling. Keyin to‘g‘ri yuring.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Рядом, Напротив, Через",
-   "emotion": "thinking",
-   "board": ["рядом с ... · напротив ... · через ...", "Аптека рядом.", "Библиотека напротив."],
-   "examples": [
-   {"t": "Аптека рядом.", "uz": "Dorixona yonida."},
-   {"t": "Библиотека напротив.", "uz": "Kutubxona ro‘parasida."}
-   ],
-   "say_native": "Yo‘nalish so‘zlari: “рядом” — yonida, “напротив” — ro‘parasida, “через” — orqali, narigi tomonida. “Аптека рядом” — dorixona yonida, “библиотека напротив” — kutubxona ro‘parasida, “через дорогу” — yo‘lning narigi tomonida. Bu so‘zlar joyni aniq ko‘rsatib, yo‘lni qisqa tushuntirishga yordam beradi. Har birini misol bilan yodlang.",
-   "say": "Аптека рядом. Библиотека напротив. Парк через дорогу. Магазин рядом.",
-   "say_uz": "Dorixona yonida. Kutubxona ro‘parasida. Bog‘ yo‘lning narigi tomonida. Do‘kon yonida.",
+   "say_native": "Oldingi darsdagi “в” va “на” qoidasi shaharda ham ishlaydi. Ko‘p joylar bilan “в”: “в банке”, “в аптеке”, “в парке”, “в музее”. Ba’zilari bilan esa “на”, ularni yodlang: “на почте”, “на рынке”, “на вокзале”, “на остановке”, “на площади”. “Метро” va “кафе” so‘zlari umuman o‘zgarmaydi: “в метро”, “в кафе”. “Рынок” da “о” tushib qoladi: “на рынке”.",
+   "say": "Мама на рынке. Я в аптеке. Он на вокзале. Мы в метро.",
+   "say_uz": "Onam bozorda. Men dorixonadaman. U vokzalda. Biz metrodamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Иди vs Идите — xato",
+   "title": "В почте, в метре — xato",
    "emotion": "stern",
-   "board": ["✗ Иди прямо.", "✓ Идите прямо.", "✗ Поверни налево.", "✓ Поверните налево."],
-   "examples": [],
-   "say_native": "“Иди прямо” va “поверни налево” do‘stlar orasida aytilishi mumkin, lekin notanishlarga nisbatan bu shakl dag‘al eshitiladi. To‘g‘ri shakl: “идите прямо”, “поверните налево”. “Идите” va “поверните” — “вы” bilan hurmatli shakl. Shaharda notanish odamlarga aynan shu shakl ishlatiladi. Shuning uchun yo‘lni tushuntirganda har doim “вы” shaklini tanlang.",
-   "say": "Идите прямо. Поверните налево. Идите прямо. Поверните направо.",
-   "say_uz": "To‘g‘ri yuring. Chapga buriling. To‘g‘ri yuring. O‘ngga buriling.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Hurmatli shaklda ayting",
-   "emotion": "encouraging",
-   "board": ["1) To‘g‘ri yur.", "2) Chapga buril.", "3) O‘ngga buril.", "4) Keyin to‘g‘ri yur."],
-   "examples": [],
-   "say_native": "To‘rtta buyruqni hurmatli shaklga aylantiring. “Иди прямо” emas, “идите прямо”. “Поверни налево” emas, “поверните налево”. “Поверни направо” emas, “поверните направо”. “Потом иди прямо” emas, “потом идите прямо”. Har bir javobda “вы” shakli ishlangan bo‘lsin, shundagina u notanishlarga nisbatan odobli eshitiladi.",
-   "say": "Идите прямо. Поверните налево. Поверните направо. Потом идите прямо.",
-   "say_uz": "To‘g‘ri yuring. Chapga buriling. O‘ngga buriling. Keyin to‘g‘ri yuring.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Идите прямо.", "Поверните налево.", "Поверните направо.", "Потом идите прямо."],
-   "examples": [],
-   "say_native": "Javoblar: “Идите прямо”, “поверните налево”, “поверните направо”, “потом идите прямо”. Har birida “вы” shakli ishlatilgan, shuning uchun ular notanishlarga nisbatan hurmatli. “Иди” va “поверни” do‘stlar uchun mumkin, lekin shaharda yo‘l so‘rashda aynan “идите, поверните” deyiladi. Bu shaklni har doim eslab turing.",
-   "say": "Идите прямо. Поверните налево. Поверните направо. Потом идите прямо.",
-   "say_uz": "To‘g‘ri yuring. Chapga buriling. O‘ngga buriling. Keyin to‘g‘ri yuring.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Извините, подскажите",
-   "emotion": "neutral",
-   "board": ["Извините, как пройти ...?", "Подскажите, где ...?", "Извините, где ...?"],
-   "examples": [
-   {"t": "Извините, как пройти в парк?", "uz": "Kechirasiz, bog‘ga qanday boriladi?"},
-   {"t": "Подскажите, где аптека?", "uz": "Ayting, dorixona qayerda?"}
+   "board": [
+    "✗ в почте → ✓ на почте",
+    "✗ в рынке → ✓ на рынке",
+    "✗ в метре → ✓ в метро"
    ],
-   "say_native": "Savolni odob bilan boshlang. “Извините, как пройти в парк?” — kechirasiz, bog‘ga qanday boriladi? “Подскажите, где аптека?” — ayting, dorixona qayerda? “Извините, где вокзал?” — kechirasiz, vokzal qayerda? Bu boshlanishlar notanish odamni to‘xtatib, savol berishning eng xushmuomala usuli. Har bir savolni shu bilan boshlashni odat qiling.",
-   "say": "Извините, как пройти в парк? Подскажите, где аптека? Извините, где вокзал?",
-   "say_uz": "Kechirasiz, bog‘ga qanday boriladi? Ayting, dorixona qayerda? Kechirasiz, vokzal qayerda?",
+   "examples": [],
+   "say_native": "Uchta tipik xato. “В почте” emas, “на почте”. “В рынке” emas, “на рынке”, bozor ochiq joy, shuning uchun “на”. “Метро” so‘zini o‘zgartirib “в метре” deyish ham xato, chunki “метро” chet tilidan kirgan va turlanmaydi: “в метро”, “к метро”, “до метро”. “Кафе”, “кино” ham shunday.",
+   "say": "На почте. На рынке. В метро.",
+   "say_uz": "Pochtada. Bozorda. Metroda.",
    "practice_seconds": 0
   },
   {
-   "kind": "explain",
-   "title": "Спасибо, вот там",
-   "emotion": "neutral",
-   "board": ["Спасибо!", "Вот там.", "Прямо, потом налево.", "Наличие: Вот аптека."],
-   "examples": [
-   {"t": "Спасибо!", "uz": "Rahmat!"},
-   {"t": "Вот там.", "uz": "Ana u yerda."}
+   "kind": "practice",
+   "title": "Qayerda? Ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) банк",
+    "2) почта",
+    "3) рынок",
+    "4) аптека",
+    "5) метро",
+    "6) вокзал"
    ],
-   "say_native": "Yo‘lni ko‘rsatgandan keyin “спасибо” deyiladi va “вот там” — ana u yerda so‘zi bilan manzil ko‘rsatiladi. “Вот аптека” — mana dorixona. “Прямо, потом налево” — to‘g‘ri, keyin chapga. Rahmat aytib, manzilni ko‘rsatish muloqotni yakunlaydi. Bu so‘zlar yo‘lni tushuntirishni to‘liq yakunlab, hurmatli muloqotni yakunlaydi.",
-   "say": "Спасибо! Вот там. Прямо, потом налево. Вот аптека.",
-   "say_uz": "Rahmat! Ana u yerda. To‘g‘ri, keyin chapga. Mana dorixona.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Savolni odob bilan bering",
-   "emotion": "encouraging",
-   "board": ["1) Bog‘ qayerda?", "2) Dorixona qayerda?", "3) Vokzal qayerda?", "4) Bank qayerda?"],
    "examples": [],
-   "say_native": "To‘rtta savolni odob bilan boshlab ayting. “Извините, как пройти в парк?”, “подскажите, где аптека?”, “извините, где вокзал?”, “извините, как пройти в банк?”. Har bir savol “извините” yoki “подскажите” bilan boshlangan bo‘lsin. Oxirida “спасибо” ni qo‘shib qo‘ying, shunda muloqot xushmuomala bo‘lib yakunlanadi.",
-   "say": "Извините, как пройти в парк? Подскажите, где аптека? Извините, где вокзал? Спасибо!",
-   "say_uz": "Kechirasiz, bog‘ga qanday boriladi? Ayting, dorixona qayerda? Kechirasiz, vokzal qayerda? Rahmat!",
+   "say_native": "Mashq. Har bir joy uchun “qayerda?” shaklini ayting. To‘g‘ri predlogni tanlang: “в” yoki “на”. So‘z oxirini o‘zgartiring, lekin turlanmaydigan so‘zni o‘zgartirmang. Javoblarni baland ovozda ayting.",
+   "say": "Банк… Почта… Рынок… Аптека… Метро… Вокзал…",
+   "say_uz": "Bank… Pochta… Bozor… Dorixona… Metro… Vokzal…",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Извините, как пройти в парк?", "Подскажите, где аптека?", "Извините, где вокзал? Спасибо!"],
-   "examples": [],
-   "say_native": "Javoblar: “Извините, как пройти в парк?”, “подскажите, где аптека?”, “извините, где вокзал?”, “спасибо!”. Har bir savol odob bilan boshlangan, oxirgi gapda rahmat aytilgan. Bu shakl shaharda yo‘l so‘rashning eng xushmuomala usuli. Har safar savolni shu bilan boshlashingiz sizni xushmuomala inson sifatida tanitadi.",
-   "say": "Извините, как пройти в парк? Подскажите, где аптека? Извините, где вокзал? Спасибо!",
-   "say_uz": "Kechirasiz, bog‘ga qanday boriladi? Ayting, dorixona qayerda? Kechirasiz, vokzal qayerda? Rahmat!",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Dialog 1: dorixonani so‘rash",
-   "emotion": "happy",
-   "board": ["— Извините, как пройти в аптеку?", "— Идите прямо, потом налево.", "— Спасибо!"],
-   "examples": [],
-   "say_native": "Birinchi dialog. Yo‘lovchi dorixonani so‘ramoqda, yo‘lovchi esa yo‘lni tushuntiryoqdi. Tinglab bo‘lgach, yo‘lovchi nimani so‘raganini, yo‘l qanday tushuntirilganini va oxirida nima aytilganini belgilang. “Потом налево” — keyin chapga degani, buni diqqat bilan eshitib turing.",
-   "say": "Извините, как пройти в аптеку? Идите прямо два квартала, потом поверните налево. Вот там аптека. Спасибо! Очень благодарен!",
-   "say_uz": "Kechirasiz, dorixonaga qanday boriladi? Ikki mavze to‘g‘ri yuring, keyin chapga buriling. Mana dorixona. Rahmat! Juda minnatdorman!",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialog bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": ["1) Yo‘lovchi nimani so‘radi?", "2) Yo‘l qanday tushuntirildi?", "3) Oxirida nima aytdi?"],
-   "examples": [],
-   "say_native": "Uchta savol. Yo‘lovchi nimani so‘radi? Yo‘l qanday tushuntirildi? Oxirida rahmat aytdimi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Он спросил, как пройти в аптеку”, “идите прямо, потом налево”, “он сказал спасибо” qoliplaridan foydalaning. Odatiy yo‘l so‘rashda shunday gaplar ishlatiladi.",
-   "say": "Что спросил прохожий? Как объяснили дорогу? Что он сказал в конце?",
-   "say_uz": "Yo‘lovchi nimani so‘radi? Yo‘l qanday tushuntirildi? U oxirida nima aytdi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Он спросил, как пройти в аптеку.", "Идите прямо, потом налево.", "Он сказал спасибо."],
-   "examples": [],
-   "say_native": "Javoblar: “Он спросил, как пройти в аптеку”, “идите прямо, потом налево”, “он сказал спасибо”. Yo‘lovchi dorixonani so‘radi, unga to‘g‘ri yurib, keyin chapga burilish aytildi, oxirida rahmat aytdi. “Спросил” — so‘radi, “объяснили” — tushuntirishdi. Dialogdagi iboralar yo‘l so‘rashda aynan ishlatiladi.",
-   "say": "Он спросил, как пройти в аптеку. Идите прямо, потом налево. Он сказал спасибо.",
-   "say_uz": "U dorixonaga qanday borilishini so‘radi. To‘g‘ri yuring, keyin chapga buriling. U rahmat aytdi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Dialog 2: vokzalga yo‘l",
-   "emotion": "neutral",
-   "board": ["— Подскажите, где вокзал?", "— Идите прямо, потом направо.", "— Спасибо!"],
-   "examples": [],
-   "say_native": "Ikkinchi dialog. Yo‘lovchi vokzalni so‘ramoqda, yo‘l o‘ngga burilishni talab qiladi. Tinglab bo‘lgach, vokzal qayerdaligini, yo‘l qanday tushuntirilganini va yo‘lovchi qanday minnatdorchilik bildirganini ayting. “Вокзал рядом” — vokzal yonida degan ibora ham ishlatilishi mumkin, buni eshitib turing.",
-   "say": "Подскажите, где вокзал? Идите прямо один квартал, потом поверните направо. Вокзал рядом. Спасибо большое!",
-   "say_uz": "Ayting, vokzal qayerda? Bir mavze to‘g‘ri yuring, keyin o‘ngga buriling. Vokzal yonida. Katta rahmat!",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialog bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": ["1) Vokzal qayerda?", "2) Yo‘l qanday tushuntirildi?", "3) Yo‘lovchi nima aytdi?"],
-   "examples": [],
-   "say_native": "Uchta savol. Vokzal qayerda? Yo‘l qanday tushuntirildi? Yo‘lovchi nima aytdi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Вокзал рядом”, “идите прямо, потом направо”, “он сказал спасибо большое” qoliplaridan foydalaning. Yo‘l tushuntirishda “рядом” so‘zi ham ishlatiladi.",
-   "say": "Где вокзал? Как объяснили дорогу? Что сказал прохожий?",
-   "say_uz": "Vokzal qayerda? Yo‘l qanday tushuntirildi? Yo‘lovchi nima aytdi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Вокзал рядом.", "Идите прямо, потом направо.", "Он сказал спасибо большое."],
-   "examples": [],
-   "say_native": "Javoblar: “Вокзал рядом”, “идите прямо, потом направо”, “он сказал спасибо большое”. Vokzal yonida joylashgan, yo‘l to‘g‘ri yurib, keyin o‘ngga burilishni talab qiladi, yo‘lovchi katta rahmat aytdi. “Рядом” — yonida, “большое спасибо” — katta rahmat. Bu iboralar yo‘l so‘rashda aynan ishlatiladi.",
-   "say": "Вокзал рядом. Идите прямо, потом направо. Он сказал спасибо большое.",
-   "say_uz": "Vokzal yonida. To‘g‘ri yuring, keyin o‘ngga buriling. U katta rahmat aytdi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Urg‘u",
-   "emotion": "neutral",
-   "board": ["апте́ка · ба́нк · вокза́л · метро́", "шко́ла · магази́н · больни́ца · библиоте́ка"],
-   "examples": [
-   {"t": "Где аптека?", "uz": "Dorixona qayerda?"},
-   {"t": "Где банк?", "uz": "Bank qayerda?"}
+   "board": [
+    "1) в банке",
+    "2) на почте",
+    "3) на рынке",
+    "4) в аптеке",
+    "5) в метро",
+    "6) на вокзале"
    ],
-   "say_native": "Joy nomlarida urg‘u har xil tushadi. “Апте́ка” — ikkinchi bo‘g‘inda, “ба́нк” — birinchida, “вокза́л” — ikkinchisida, “метро́” — oxirgisida, “шко́ла” — birinchida, “магази́н” — oxirgisida, “больни́ца” — ikkinchisida. Bu so‘zlarni talaffuz qilganda urg‘uni to‘g‘ri qo‘ying, aks holda ular g‘alati eshitiladi.",
-   "say": "Аптека. Банк. Вокзал. Метро. Школа. Магазин. Больница. Библиотека.",
-   "say_uz": "Dorixona. Bank. Vokzal. Metro. Maktab. Do‘kon. Kasalxona. Kutubxona.",
+   "examples": [],
+   "say_native": "Javoblar: “в банке”, “на почте”, “на рынке”, “в аптеке”, “в метро”, “на вокзале”. Uchta javobda “на”: pochta, bozor va vokzal. “Метро” o‘zgarmadi. “Рынок” — “на рынке”, bu yerda “о” harfi tushib qoldi. Bu shakllar keyingi yo‘l so‘rash iboralarida ham kerak bo‘ladi.",
+   "say": "В банке. На почте. На рынке. В аптеке. В метро. На вокзале.",
+   "say_uz": "Bankda. Pochtada. Bozorda. Dorixonada. Metroda. Vokzalda.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Как пройти к ...?",
+   "title": "Muloyim murojaat",
    "emotion": "thinking",
-   "board": ["Как пройти к ...?", "Как пройти к вокзалу?", "Как пройти к парку?", "Как пройти к библиотеке?"],
-   "examples": [
-   {"t": "Как пройти к вокзалу?", "uz": "Vokzalga qanday boriladi?"},
-   {"t": "Как пройти к парку?", "uz": "Bog‘ga qanday boriladi?"}
+   "board": [
+    "Извините, … / Простите, …",
+    "Скажите, пожалуйста, …",
+    "Вы не подскажете, …? (ayta olmaysizmi?)"
    ],
-   "say_native": "“К” predlogi biror nuqtaga yo‘nalishni bildiradi. “Как пройти к вокзалу?” — vokzalga qanday boriladi, “как пройти к парку?” — bog‘ga qanday boriladi, “как пройти к библиотеке?” — kutubxonaga qanday boriladi. Bu shakl “в” dan farqli o‘laroq, nuqtaga borishni bildiradi. Masalan: “в аптеку” — ichiga, “к вокзалу” — yoniga, nuqtasiga.",
-   "say": "Как пройти к вокзалу? Как пройти к парку? Как пройти к библиотеке? Как пройти к остановке?",
-   "say_uz": "Vokzalga qanday boriladi? Bog‘ga qanday boriladi? Kutubxonaga qanday boriladi? Bekatga qanday boriladi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "K bilan so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Vokzal", "2) Bog‘", "3) Kutubxona", "4) Bekat"],
-   "examples": [],
-   "say_native": "To‘rtta joyni “к” bilan so‘rang. “Как пройти к вокзалу?”, “как пройти к парку?”, “как пройти к библиотеке?”, “как пройти к остановке?”. Har bir savolda “к” predlogi ishlatilgan bo‘lsin. Bu shakl joy ichiga emas, nuqtasiga borishni bildiradi, shuning uchun “в” bilan farqini bilish muhim.",
-   "say": "Как пройти к вокзалу? Как пройти к парку? Как пройти к библиотеке? Как пройти к остановке?",
-   "say_uz": "Vokzalga qanday boriladi? Bog‘ga qanday boriladi? Kutubxonaga qanday boriladi? Bekatga qanday boriladi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Как пройти к вокзалу?", "Как пройти к парку?", "Как пройти к библиотеке?", "Как пройти к остановке?"],
-   "examples": [],
-   "say_native": "Javoblar: “Как пройти к вокзалу?”, “как пройти к парку?”, “как пройти к библиотеке?”, “как пройти к остановке?”. Har birida “к” predlogi ishlatilgan va joy nomi ko‘rsatkich shaklida kelgan. “В” ichiga borishni, “к” nuqtasiga borishni bildiradi. Bu farqni bilish yo‘l so‘rashda aniqroq ifodalanishga yordam beradi.",
-   "say": "Как пройти к вокзалу? Как пройти к парку? Как пройти к библиотеке? Как пройти к остановке?",
-   "say_uz": "Vokzalga qanday boriladi? Bog‘ga qanday boriladi? Kutubxonaga qanday boriladi? Bekatga qanday boriladi?",
+   "examples": [
+    {
+     "t": "Извините, вы не подскажете, где банк?",
+     "uz": "Kechirasiz, bank qayerdaligini aytib yubormaysizmi?"
+    }
+   ],
+   "say_native": "Notanish odamga yo‘l so‘rashdan oldin diqqatini torting. “Извините” yoki “Простите” — kechirasiz. Keyin: “Скажите, пожалуйста…” — ayting-chi, iltimos. Eng muloyim va juda keng tarqalgan ibora: “Вы не подскажете…?” Bu yerdagi “не” inkor emas, muloyimlik belgisi, xuddi o‘zbekchadagi “aytib yubormaysizmi?” kabi. Notanish odamga doim “вы” bilan murojaat qiling.",
+   "say": "Извините, вы не подскажете, где банк? Скажите, пожалуйста, где почта?",
+   "say_uz": "Kechirasiz, bank qayerdaligini aytib yubormaysizmi? Ayting-chi, iltimos, pochta qayerda?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Сколько минут?",
+   "title": "Где здесь…? Где находится…?",
    "emotion": "neutral",
-   "board": ["Сколько минут?", "Сколько далеко?", "Пять минут пешком.", "Десять минут."],
-   "examples": [
-   {"t": "Сколько минут?", "uz": "Necha daqiqa?"},
-   {"t": "Пять минут пешком.", "uz": "Piyoda besh daqiqa."}
+   "board": [
+    "Где здесь аптека? (bu yerda … qayerda?)",
+    "Где находится вокзал?",
+    "Здесь есть банк?"
    ],
-   "say_native": "Masofani daqiqa bilan ayting. “Сколько минут?” — necha daqiqa? “Пять минут пешком” — piyoda besh daqiqa, “десять минут” — o‘n daqiqa. “Сколько далеко?” — qancha uzoq? Bu savollar manzilga qancha vaqt borligini aniqlashda ishlatiladi. Javobda daqiqa soni aytilib, piyoda yoki mashinada borilishi ko‘rsatiladi.",
-   "say": "Сколько минут? Пять минут пешком. Десять минут. Сколько далеко?",
-   "say_uz": "Necha daqiqa? Piyoda besh daqiqa. O‘n daqiqa. Qancha uzoq?",
+   "examples": [
+    {
+     "t": "Простите, где здесь аптека?",
+     "uz": "Kechirasiz, bu yerda dorixona qayerda?"
+    },
+    {
+     "t": "Где находится музей?",
+     "uz": "Muzey qayerda joylashgan?"
+    }
+   ],
+   "say_native": "Eng oddiy savol: “Где здесь…?” — bu yerda … qayerda? “Где здесь аптека?” Biroz rasmiyroq: “Где находится…?” — qayerda joylashgan? “Где находится вокзал?” Agar yaqinda biror joy borligini bilmasangiz: “Здесь есть банк?” — bu yerda bank bormi? Bu oldingi darsdagi “есть” qolipi. Hammasining boshiga “Извините” qo‘shsangiz, savol muloyim bo‘ladi.",
+   "say": "Простите, где здесь аптека? Где находится вокзал? Здесь есть банк?",
+   "say_uz": "Kechirasiz, bu yerda dorixona qayerda? Vokzal qayerda joylashgan? Bu yerda bank bormi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Как пройти к…? — qanday borsa bo‘ladi?",
+   "emotion": "thinking",
+   "board": [
+    "к + -у: банк → к банку, вокзал → к вокзалу",
+    "к + -е: аптека → к аптеке, почта → к почте",
+    "к метро · к музею",
+    "Как дойти до вокзала?"
+   ],
+   "examples": [
+    {
+     "t": "Как пройти к метро?",
+     "uz": "Metroga qanday borsa bo‘ladi?"
+    },
+    {
+     "t": "Как пройти к аптеке?",
+     "uz": "Dorixonaga qanday borsa bo‘ladi?"
+    }
+   ],
+   "say_native": "Yo‘lni so‘rashning tayyor qolipi: “Как пройти к…?” — …ga qanday borsa bo‘ladi? “К” — tomonga, undan keyin jo‘nalish kelishigi. Erkak jinsi “-у” oladi: “к банку”, “к вокзалу”, “к рынку”. Ayol jinsi “-е”: “к аптеке”, “к почте”. “Метро” o‘zgarmaydi: “к метро”. Yana bir variant: “Как дойти до вокзала?” — vokzalgacha qanday yetsa bo‘ladi. “До” dan keyin “-а”: “до банка”.",
+   "say": "Как пройти к метро? Как пройти к банку? Как пройти к аптеке? Как дойти до вокзала?",
+   "say_uz": "Metroga qanday borsa bo‘ladi? Bankka qanday borsa bo‘ladi? Dorixonaga qanday borsa bo‘ladi? Vokzalgacha qanday yetsa bo‘ladi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Uzoqmi yoki yaqinmi?",
+   "emotion": "neutral",
+   "board": [
+    "Это далеко? (uzoqmi?)",
+    "Это близко. · Это рядом. (yaqin)",
+    "Пять минут пешком. (piyoda besh daqiqa)"
+   ],
+   "examples": [
+    {
+     "t": "— Это далеко? — Нет, рядом.",
+     "uz": "— Bu uzoqmi? — Yo‘q, yaqin."
+    },
+    {
+     "t": "Десять минут пешком.",
+     "uz": "Piyoda o‘n daqiqa."
+    }
+   ],
+   "say_native": "Yo‘l so‘raganda masofani bilish ham muhim. “Это далеко?” — bu uzoqmi? Javoblar: “далеко” — uzoq, “недалеко” — uzoq emas, “близко” yoki “рядом” — yaqin. Vaqt bilan: “пять минут пешком” — piyoda besh daqiqa. Oldingi darsdagi qoidani eslang: “одна минута”, “две минуты”, “пять минут”. “Пешком” — piyoda.",
+   "say": "Это далеко? Нет, близко. Пять минут пешком.",
+   "say_uz": "Bu uzoqmi? Yo‘q, yaqin. Piyoda besh daqiqa.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Скажи, где банк — qo‘pol",
+   "emotion": "stern",
+   "board": [
+    "✗ Скажи, где банк?",
+    "✓ Скажите, пожалуйста, где банк?",
+    "✗ Как пройти банк?",
+    "✓ Как пройти к банку?"
+   ],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: notanish odamga “ты” shaklida murojaat: “Скажи, где банк?” Bu qo‘pol eshitiladi. To‘g‘risi: “Скажите, пожалуйста”. Ikkinchisi: “к” ni tushirib qoldirish: “Как пройти банк?” O‘zbekchada “bankka” deb bitta qo‘shimcha yetadi, rus tilida esa “к” va so‘z oxiri ikkalasi kerak: “к банку”.",
+   "say": "Скажите, пожалуйста, где банк? Как пройти к банку?",
+   "say_uz": "Ayting-chi, iltimos, bank qayerda? Bankka qanday borsa bo‘ladi?",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Masofani so‘rang",
+   "title": "Yo‘l so‘rang",
    "emotion": "encouraging",
-   "board": ["1) Necha daqiqa?", "2) Qancha uzoq?", "3) Piyoda qancha?"],
+   "board": [
+    "1) Kechirasiz, bu yerda dorixona qayerda?",
+    "2) Vokzalga qanday borsa bo‘ladi?",
+    "3) Bu uzoqmi?",
+    "4) Metroga qanday borishni aytib yubormaysizmi?"
+   ],
    "examples": [],
-   "say_native": "Uchta savolni ketma-ket ayting. “Сколько минут?”, “сколько далеко?”, “сколько минут пешком?”. Har bir savol oxirida so‘roq belgisi bo‘ladi va ohang ko‘tariladi. Masofani bilib olish yo‘lni tanlashda yordam beradi: piyoda bormoqchimisiz yoki transportda — uni daqiqa bilan bilib olish qulay.",
-   "say": "Сколько минут? Сколько далеко? Сколько минут пешком?",
-   "say_uz": "Necha daqiqa? Qancha uzoq? Piyoda qancha daqiqa?",
+   "say_native": "Mashq. To‘rtta savolni ruschaga o‘giring. Muloyim boshlang: “Извините” yoki “Простите”. To‘rtinchisida “Вы не подскажете” iborasini ishlating. “К” dan keyingi so‘z oxiriga e’tibor bering.",
+   "say": "Извините… Как пройти… Это… Вы не подскажете…",
+   "say_uz": "Kechirasiz… Qanday borsa bo‘ladi… Bu… Aytib yubormaysizmi…",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Извините, где здесь аптека?",
+    "2) Как пройти к вокзалу?",
+    "3) Это далеко?",
+    "4) Вы не подскажете, как пройти к метро?"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Извините, где здесь аптека?” “Как пройти к вокзалу?” “Вокзал” erkak jinsi, shuning uchun “-у”. “Это далеко?” — ohang ko‘tariladi. “Вы не подскажете, как пройти к метро?” “Метро” o‘zgarmadi. Agar “Простите” yoki “Скажите, пожалуйста” bilan boshlagan bo‘lsangiz, bu ham to‘g‘ri.",
+   "say": "Извините, где здесь аптека? Как пройти к вокзалу? Это далеко? Вы не подскажете, как пройти к метро?",
+   "say_uz": "Kechirasiz, bu yerda dorixona qayerda? Vokzalga qanday borsa bo‘ladi? Bu uzoqmi? Metroga qanday borishni aytib yubormaysizmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Направо, налево, прямо",
+   "emotion": "neutral",
+   "board": [
+    "напра́во (o‘ngga) · нале́во (chapga)",
+    "пря́мо (to‘g‘riga)",
+    "Идите прямо. · Поверните направо."
+   ],
+   "examples": [
+    {
+     "t": "Идите прямо.",
+     "uz": "To‘g‘riga yuring."
+    },
+    {
+     "t": "Поверните налево.",
+     "uz": "Chapga buriling."
+    }
+   ],
+   "say_native": "Endi ko‘rsatmalar. “Направо” — o‘ngga, “налево” — chapga, “прямо” — to‘g‘riga. Ular bilan ikki asosiy fe’l: “Идите прямо” — to‘g‘riga yuring, “Поверните направо” — o‘ngga buriling, “Поверните налево” — chapga buriling. Talaffuz: urg‘usiz “о” lar “а” ga yaqin: “napravo” emas, “naprava”. Urg‘u “ра” va “ле” da: “напра́во”, “нале́во”.",
+   "say": "Идите прямо. Поверните направо. Поверните налево.",
+   "say_uz": "To‘g‘riga yuring. O‘ngga buriling. Chapga buriling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Направо yoki справа?",
+   "emotion": "thinking",
+   "board": [
+    "направо / налево — qayoqqa? (o‘ngga)",
+    "справа / слева — qayerda? (o‘ngda)",
+    "Поверните направо. Банк справа."
+   ],
+   "examples": [
+    {
+     "t": "Поверните направо. Аптека будет справа.",
+     "uz": "O‘ngga buriling. Dorixona o‘ng tomonda bo‘ladi."
+    }
+   ],
+   "say_native": "Juda muhim farq. “Направо” va “налево” — harakat yo‘nalishi, qayoqqa? O‘zbekcha “o‘ngga”, “chapga”. “Справа” va “слева” — joylashuv, qayerda? O‘zbekcha “o‘ngda”, “chapda”. Oldingi darsda xonani tasvirlaganda “слева диван” degan edik. Demak: “Поверните направо” — o‘ngga buriling, “Банк справа” — bank o‘ng tomonda. O‘zbekchadagi “-ga” va “-da” farqi bilan bir xil.",
+   "say": "Поверните направо. Банк справа. Поверните налево. Почта слева.",
+   "say_uz": "O‘ngga buriling. Bank o‘ng tomonda. Chapga buriling. Pochta chap tomonda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Поверните справа — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Поверните справа.",
+    "✓ Поверните направо.",
+    "✗ Идите право.",
+    "✓ Идите прямо."
+   ],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: harakat bilan “справа” ishlatish. “Поверните справа” emas, “Поверните направо”, chunki burilish — harakat. Ikkinchisi: “прямо” va “право” ni adashtirish. “Прямо” — to‘g‘riga, “право” esa alohida ishlatilmaydi. Har safar o‘zingizdan so‘rang: qayoqqa yoki qayerda?",
+   "say": "Поверните направо. Идите прямо.",
+   "say_uz": "O‘ngga buriling. To‘g‘riga yuring.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Buyruq shakli qanday yasaladi",
+   "emotion": "thinking",
+   "board": [
+    "идут → иди → идите",
+    "повернут → поверни → поверните",
+    "скажут → скажи → скажите",
+    "вы: + -те"
+   ],
+   "examples": [
+    {
+     "t": "Идите прямо.",
+     "uz": "To‘g‘riga yuring."
+    },
+    {
+     "t": "Спросите там.",
+     "uz": "U yerdan so‘rang."
+    }
+   ],
+   "say_native": "Ko‘rsatmalar buyruq shaklida bo‘ladi. Ko‘p fe’llarda shunday yasaladi: “они” shaklidan oxirini olib tashlab, “-и” qo‘shamiz. “Идут” — “иди”, “повернут” — “поверни”, “скажут” — “скажи”, “спросят” — “спроси”. Bu “ты” uchun. “Вы” uchun oxiriga “-те” qo‘shamiz: “идите”, “поверните”, “скажите”, “спросите”. Notanish odamga doim “-те” li shakl. O‘zbekchadagi “yur” va “yuring” farqiga o‘xshaydi.",
+   "say": "Иди — идите. Поверни — поверните. Скажи — скажите. Спроси — спросите.",
+   "say_uz": "Yur — yuring. Buril — buriling. Ayt — ayting. So‘ra — so‘rang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Перейдите, идите до…",
+   "emotion": "neutral",
+   "board": [
+    "Перейдите улицу. (ko‘chani kesib o‘ting)",
+    "Идите до светофора. (svetoforgacha)",
+    "На перекрёстке поверните налево.",
+    "Потом… · Там…"
+   ],
+   "examples": [
+    {
+     "t": "Перейдите улицу и поверните направо.",
+     "uz": "Ko‘chani kesib o‘ting va o‘ngga buriling."
+    },
+    {
+     "t": "Идите до перекрёстка.",
+     "uz": "Chorrahagacha yuring."
+    }
+   ],
+   "say_native": "Yana foydali ko‘rsatmalar. “Перейдите улицу” — ko‘chani kesib o‘ting. “Улица” tushum kelishigida “улицу” bo‘ladi, kafedagi “воду” kabi. “Идите до светофора” — svetoforgacha yuring, “до перекрёстка” — chorrahagacha. “На перекрёстке поверните налево” — chorrahada chapga buriling. Ketma-ketlik uchun “потом” — keyin. “Поверните” va “перейдите” bir martalik ish uchun ishlatiladigan shakllar, ularni hozircha tayyor holda yodlang.",
+   "say": "Идите до светофора. Перейдите улицу. Потом на перекрёстке поверните налево.",
+   "say_uz": "Svetoforgacha yuring. Ko‘chani kesib o‘ting. Keyin chorrahada chapga buriling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Идти прямо, перейдите улица — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Идти прямо. · ✗ Ты иди прямо.",
+    "✓ Идите прямо.",
+    "✗ Перейдите улица.",
+    "✓ Перейдите улицу."
+   ],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: buyruq o‘rniga noaniq shakl “идти” ni ishlatish yoki notanishga “ты иди” deyish. To‘g‘risi: “Идите прямо”. Ikkinchisi: “перейдите” dan keyin so‘zni o‘zgartirmaslik. “Перейдите улица” emas, “перейдите улицу”. Qoida kafedagi bilan bir xil: “-а” — “-у”.",
+   "say": "Идите прямо. Перейдите улицу.",
+   "say_uz": "To‘g‘riga yuring. Ko‘chani kesib o‘ting.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yo‘lni ko‘rsating",
+   "emotion": "encouraging",
+   "board": [
+    "1) To‘g‘riga yuring.",
+    "2) Chapga buriling.",
+    "3) Svetoforgacha yuring.",
+    "4) Ko‘chani kesib o‘ting.",
+    "5) Chorrahada o‘ngga buriling."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Beshta ko‘rsatmani ruschaga o‘giring. “Вы” shaklidagi buyruqni ishlating: “идите”, “поверните”, “перейдите”. Yo‘nalish uchun “направо”, “налево”, “прямо”. “До” va “перейдите” dan keyin so‘z oxirini o‘zgartirishni unutmang.",
+   "say": "Идите… Поверните… Идите до… Перейдите… На перекрёстке…",
+   "say_uz": "Yuring… Buriling… …gacha yuring… Kesib o‘ting… Chorrahada…",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Идите прямо.",
+    "2) Поверните налево.",
+    "3) Идите до светофора.",
+    "4) Перейдите улицу.",
+    "5) На перекрёстке поверните направо."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Идите прямо”. “Поверните налево”. “Идите до светофора” — “светофор” erkak jinsi, “до” dan keyin “-а”. “Перейдите улицу” — “-у”. “На перекрёстке поверните направо” — chorrahada, ya’ni joy, shuning uchun “на” va “-е”. Shu besh ibora bilan deyarli har qanday yo‘lni tushuntirish mumkin.",
+   "say": "Идите прямо. Поверните налево. Идите до светофора. Перейдите улицу. На перекрёстке поверните направо.",
+   "say_uz": "To‘g‘riga yuring. Chapga buriling. Svetoforgacha yuring. Ko‘chani kesib o‘ting. Chorrahada o‘ngga buriling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Напротив, рядом с, за углом",
+   "emotion": "thinking",
+   "board": [
+    "напротив банка (bank qarshisida)",
+    "рядом с аптекой (dorixona yonida)",
+    "за углом (muyulishdan keyin)",
+    "между банком и почтой (orasida)"
+   ],
+   "examples": [
+    {
+     "t": "Кафе напротив парка.",
+     "uz": "Kafe bog‘ qarshisida."
+    },
+    {
+     "t": "Остановка рядом с банком.",
+     "uz": "Bekat bank yonida."
+    }
+   ],
+   "say_native": "Joyni aniqroq aytish uchun. “Напротив” — qarshisida, undan keyin “-а” yoki “-ы”: “напротив банка”, “напротив парка”, “напротив школы”. “Рядом с” — yonida, oldingi darsdagidek “-ом” yoki “-ой”: “рядом с банком”, “рядом с аптекой”. “За углом” — muyulishdan keyin, burchakning narigi tomonida. “Между банком и почтой” — bank va pochta orasida. Bu iboralarni tayyor holda yodlang.",
+   "say": "Кафе напротив парка. Остановка рядом с банком. Аптека за углом.",
+   "say_uz": "Kafe bog‘ qarshisida. Bekat bank yonida. Dorixona muyulishdan keyin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Birinchi, ikkinchi ko‘cha",
+   "emotion": "neutral",
+   "board": [
+    "первая улица (birinchi ko‘cha)",
+    "вторая улица налево",
+    "на первом перекрёстке",
+    "на втором светофоре"
+   ],
+   "examples": [
+    {
+     "t": "Вторая улица направо.",
+     "uz": "Ikkinchi ko‘cha o‘ngda."
+    },
+    {
+     "t": "На первом перекрёстке поверните налево.",
+     "uz": "Birinchi chorrahada chapga buriling."
+    }
+   ],
+   "say_native": "Ko‘pincha tartib sonlar kerak bo‘ladi. “Первая улица” — birinchi ko‘cha, “вторая улица” — ikkinchi ko‘cha, ayol jinsi chunki “улица” ayol jinsi. “Вторая улица направо” — ikkinchi ko‘chadan o‘ngga. Chorraha bilan: “на первом перекрёстке”, “на втором перекрёстке”. Bu shakl oldingi darsdagi “на третьем этаже” bilan bir xil qolipda.",
+   "say": "Вторая улица направо. На первом перекрёстке поверните налево.",
+   "say_uz": "Ikkinchi ko‘chadan o‘ngga. Birinchi chorrahada chapga buriling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Напротив банк — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ напротив банк → ✓ напротив банка",
+    "✗ рядом аптека → ✓ рядом с аптекой",
+    "✗ первый улица → ✓ первая улица"
+   ],
+   "examples": [],
+   "say_native": "Uchta xato. “Напротив банк” emas, “напротив банка”. “Рядом аптека” emas, “рядом с аптекой”: “с” va so‘z oxiri ikkalasi kerak. “Первый улица” emas, “первая улица”, chunki tartib son ham sifat kabi otga moslashadi. O‘zbekchada “bank qarshisida”, “dorixona yonida” deb so‘z o‘zgarmaydi, rus tilida esa har bir predlog o‘z kelishigini talab qiladi.",
+   "say": "Напротив банка. Рядом с аптекой. Первая улица.",
+   "say_uz": "Bank qarshisida. Dorixona yonida. Birinchi ko‘cha.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Joyni ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Dorixona bank qarshisida.",
+    "2) Pochta bog‘ yonida.",
+    "3) Kafe muyulishdan keyin.",
+    "4) Bekat maktab qarshisida."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni ruschaga o‘giring. “Напротив” dan keyin “-а” yoki “-ы”, “рядом с” dan keyin “-ом” yoki “-ой”. “Есть” kerak emas. Gapni joy nomi bilan boshlang.",
+   "say": "Аптека… Почта… Кафе… Остановка…",
+   "say_uz": "Dorixona… Pochta… Kafe… Bekat…",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Сколько минут?", "Сколько далеко?", "Пять минут пешком."],
+   "board": [
+    "1) Аптека напротив банка.",
+    "2) Почта рядом с парком.",
+    "3) Кафе за углом.",
+    "4) Остановка напротив школы."
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Сколько минут?”, “сколько далеко?”, “пять минут пешком”. Har bir savol masofani aniqlashga qaratilgan. “Минут” — daqiqa, “далеко” — uzoq, “пешком” — piyoda. Masofani daqiqa bilan aytilishi rus tilida eng odatiy usul. Shaharda yo‘l so‘rashingizda bu iboralar albatta kerak bo‘ladi.",
-   "say": "Сколько минут? Сколько далеко? Пять минут пешком.",
-   "say_uz": "Necha daqiqa? Qancha uzoq? Piyoda besh daqiqa.",
+   "say_native": "Javoblar: “Аптека напротив банка”. “Почта рядом с парком”. “Кафе за углом”. “Остановка напротив школы”: ayol jinsi “школа” bu yerda “школы” bo‘ladi. Hammasida fe’l yo‘q, rus tilida hozirgi zamonda “bo‘lmoq” tushib qoladi.",
+   "say": "Аптека напротив банка. Почта рядом с парком. Кафе за углом. Остановка напротив школы.",
+   "say_uz": "Dorixona bank qarshisida. Pochta bog‘ yonida. Kafe muyulishdan keyin. Bekat maktab qarshisida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 1: metroga yo‘l",
+   "emotion": "happy",
+   "board": [
+    "Tinglang: qayoqqa? necha daqiqa?",
+    "прямо… налево… справа…"
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog. Jasur Moskvada, u metroga yo‘l so‘rayapti. Diqqat bilan tinglang va eslab qoling: u qanday so‘radi, qayergacha to‘g‘ri yurish kerak, qayoqqa burilish kerak, metro qaysi tomonda va qancha vaqt piyoda yuriladi.",
+   "say": "— Извините, вы не подскажете, как пройти к метро? — Да, конечно. Идите прямо до светофора, потом поверните налево. Метро справа, рядом с банком. — Это далеко? — Нет, близко. Пять минут пешком. — Большое спасибо! — Не за что.",
+   "say_uz": "— Kechirasiz, metroga qanday borishni aytib yubormaysizmi? — Ha, albatta. Svetoforgacha to‘g‘riga yuring, keyin chapga buriling. Metro o‘ng tomonda, bank yonida. — Bu uzoqmi? — Yo‘q, yaqin. Piyoda besh daqiqa. — Katta rahmat! — Arzimaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Yakuniy mashq: yo‘lni tushuntiring",
+   "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) To‘g‘ri yuring.", "2) Chapga buriling.", "3) Do‘kon yonida.", "4) Rahmat ayting."],
+   "board": [
+    "1) До чего идти прямо?",
+    "2) Куда повернуть?",
+    "3) Где метро?",
+    "4) Сколько минут пешком?"
+   ],
    "examples": [],
-   "say_native": "Yakuniy mashq. Uyingizdan yaqin do‘kongacha bo‘lgan yo‘lni to‘liq tushuntiring. “Идите прямо, потом поверните налево, магазин рядом, спасибо!” Har bir qadamda “идите”, “поверните”, “рядом”, “спасибо” so‘zlarini ishlating. Pauza bo‘lganda baland ovozda, ozod talaffuz bilan gapiring.",
-   "say": "Идите прямо. Потом поверните налево. Магазин рядом. Спасибо!",
-   "say_uz": "To‘g‘ri yuring. Keyin chapga buriling. Do‘kon yonida. Rahmat!",
+   "say_native": "To‘rtta savol. Qayergacha to‘g‘ri yurish kerak? Keyin qayoqqa burilish kerak? Metro qayerda, qaysi tomonda va nimaning yonida? Piyoda necha daqiqa? Ruscha qisqa javob bering.",
+   "say": "До чего идти прямо? Куда повернуть? Где метро? Сколько минут пешком?",
+   "say_uz": "Qayergacha to‘g‘ri yurish kerak? Qayoqqa burilish kerak? Metro qayerda? Piyoda necha daqiqa?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) до светофора",
+    "2) налево",
+    "3) справа, рядом с банком",
+    "4) пять минут"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: svetoforgacha — “до светофора”. Keyin chapga — “налево”. Metro o‘ng tomonda, bank yonida — “справа, рядом с банком”. E’tibor bering: burilish uchun “налево”, joy uchun “справа”. Piyoda besh daqiqa. Jasur “Вы не подскажете” bilan boshladi, oxirida “Большое спасибо” dedi, javob esa “Не за что” bo‘ldi.",
+   "say": "До светофора. Налево. Справа, рядом с банком. Пять минут.",
+   "say_uz": "Svetoforgacha. Chapga. O‘ng tomonda, bank yonida. Besh daqiqa.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tushunmasangiz nima deysiz",
+   "emotion": "thinking",
+   "board": [
+    "Повторите, пожалуйста. (qaytaring)",
+    "Говорите медленнее, пожалуйста.",
+    "Покажите на карте, пожалуйста.",
+    "Не знаю, я не местный / не местная."
+   ],
+   "examples": [
+    {
+     "t": "Извините, повторите, пожалуйста.",
+     "uz": "Kechirasiz, qaytaring, iltimos."
+    }
+   ],
+   "say_native": "Yo‘l tushuntirishlari tez aytiladi, shuning uchun bu iboralar juda kerak. “Повторите, пожалуйста” — qaytaring, iltimos. “Говорите медленнее, пожалуйста” — sekinroq gapiring. “Покажите на карте, пожалуйста” — xaritada ko‘rsating. Agar sizdan so‘rashsa va bilmasangiz: “Не знаю, я не местный” — bilmayman, men bu yerlik emasman. Ayol “не местная” deydi. Bularning hammasi ham buyruq shaklida, “-те” bilan.",
+   "say": "Повторите, пожалуйста. Говорите медленнее, пожалуйста. Не знаю, я не местный.",
+   "say_uz": "Qaytaring, iltimos. Sekinroq gapiring, iltimos. Bilmayman, men bu yerlik emasman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Rahmat va madaniyat",
+   "emotion": "happy",
+   "board": [
+    "Спасибо! · Большое спасибо!",
+    "— Спасибо! — Не за что. [не за што]",
+    "Извините / Простите — avval"
+   ],
+   "examples": [
+    {
+     "t": "— Большое спасибо! — Не за что.",
+     "uz": "— Katta rahmat! — Arzimaydi."
+    }
+   ],
+   "say_native": "Yordam uchun rahmat: “Спасибо” yoki “Большое спасибо”. Javob: “Не за что” — arzimaydi, “что” “што” deb o‘qiladi. “Пожалуйста” ham shu ma’noda ishlatiladi. Rossiyada ko‘chada notanishga murojaatni “Извините” bilan boshlash odat. O‘zbekchadagi “aka”, “opa” ni so‘zma-so‘z tarjima qilib, rus tilida qarindoshlik so‘zlarini ishlatmang. “Извините” — har qanday yoshdagi odamga mos.",
+   "say": "Большое спасибо! Не за что. Извините, вы не подскажете?",
+   "say_uz": "Katta rahmat! Arzimaydi. Kechirasiz, aytib yubormaysizmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Nima deysiz?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Gapni tushunmadingiz.",
+    "2) Odam juda tez gapiryapti.",
+    "3) Xaritada ko‘rsatishini so‘rang.",
+    "4) (ayol) Sizdan yo‘l so‘rashdi, bilmaysiz."
+   ],
+   "examples": [],
+   "say_native": "To‘rtta vaziyat. Har biriga ruscha bitta qisqa gap ayting. Birinchi: yo‘l tushuntirishini tushunmadingiz. Ikkinchi: odam juda tez gapiryapti. Uchinchi: xaritada ko‘rsatishini so‘rang. To‘rtinchi: siz ayolsiz, sizdan yo‘l so‘rashdi, lekin bilmaysiz. “Пожалуйста” ni unutmang.",
+   "say": "Повторите… Говорите… Покажите… Не знаю…",
+   "say_uz": "Qaytaring… Gapiring… Ko‘rsating… Bilmayman…",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Повторите, пожалуйста.",
+    "2) Говорите медленнее, пожалуйста.",
+    "3) Покажите на карте, пожалуйста.",
+    "4) Извините, не знаю, я не местная."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Повторите, пожалуйста”. “Говорите медленнее, пожалуйста”. “Покажите на карте, пожалуйста”. To‘rtinchisi: “Извините, не знаю, я не местная”, ayol bo‘lgani uchun “местная”. Bu iboralar sizni har qanday noqulay vaziyatdan chiqaradi va suhbatni muloyim saqlaydi.",
+   "say": "Повторите, пожалуйста. Говорите медленнее, пожалуйста. Покажите на карте, пожалуйста. Извините, не знаю, я не местная.",
+   "say_uz": "Qaytaring, iltimos. Sekinroq gapiring, iltimos. Xaritada ko‘rsating, iltimos. Kechirasiz, bilmayman, men bu yerlik emasman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: urg‘u",
+   "emotion": "thinking",
+   "board": [
+    "напра́во [напра́ва] · нале́во [нале́ва]",
+    "пря́мо · вокза́л · остано́вка [астано́фка]",
+    "иди́те · поверни́те · перейди́те · скажи́те"
+   ],
+   "examples": [],
+   "say_native": "Talaffuz. Ko‘rsatmalarda urg‘u juda muhim, chunki ko‘chada tez gapiriladi. “Напра́во”, “нале́во” — oxiridagi “о” “а” bo‘lib eshitiladi. “Остано́вка” — “astanofka”: boshidagi “о” “а” ga, “в” esa “к” dan oldin “ф” ga aylanadi. Buyruq fe’llarida urg‘u oxiridan oldingi “и” da: “иди́те”, “поверни́те”, “перейди́те”, “скажи́те”. Urg‘uni to‘g‘ri qo‘ysangiz, sizni darhol tushunishadi.",
+   "say": "Направо. Налево. Прямо. Остановка. Идите. Поверните. Скажите.",
+   "say_uz": "O‘ngga. Chapga. To‘g‘riga. Bekat. Yuring. Buriling. Ayting.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Urg‘u bilan takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "Идите прямо до остановки.",
+    "Поверните направо.",
+    "Скажите, пожалуйста, где вокзал?"
+   ],
+   "examples": [],
+   "say_native": "Uchta gapni avval sekin, keyin tabiiy tezlikda takrorlang. Urg‘uli bo‘g‘inni aniqroq va balandroq ayting, urg‘usiz “о” ni “а” ga yaqin qiling. Qaysi bo‘g‘inlar urg‘uli ekanini o‘zingiz belgilashga harakat qiling.",
+   "say": "Идите прямо до остановки. Поверните направо. Скажите, пожалуйста, где вокзал?",
+   "say_uz": "Bekatgacha to‘g‘riga yuring. O‘ngga buriling. Ayting-chi, iltimos, vokzal qayerda?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Tekshiring",
+   "emotion": "proud",
+   "board": [
+    "иди́те пря́мо до остано́вки",
+    "поверни́те напра́во",
+    "скажи́те, пожа́луйста, где вокза́л?"
+   ],
+   "examples": [],
+   "say_native": "Tekshiring. “Иди́те пря́мо до остано́вки”: “до” dan keyin “остановка” — “остановки”. “Поверни́те напра́во”. “Скажи́те, пожа́луйста, где вокза́л?” “Вокзал” da urg‘u oxirgi bo‘g‘inda. Agar urg‘ularni to‘g‘ri qo‘ygan bo‘lsangiz, nutqingiz ancha ravon eshitiladi.",
+   "say": "Идите прямо до остановки. Поверните направо. Скажите, пожалуйста, где вокзал?",
+   "say_uz": "Bekatgacha to‘g‘riga yuring. O‘ngga buriling. Ayting-chi, iltimos, vokzal qayerda?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: pochtaga yo‘l",
+   "emotion": "happy",
+   "board": [
+    "Tinglang: chorrahada qayoqqa?",
+    "Pochta qayerda? Uzoqmi?"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog, uzunroq. Nigora pochtani qidiryapti. Tinglang va eslab qoling: chorrahada qayoqqa burilish kerak, keyin nima qilish kerak, pochta qayerda joylashgan va bu qancha vaqt oladi.",
+   "say": "— Простите, где здесь почта? — Почта? Идите прямо, а на перекрёстке поверните направо. Потом перейдите улицу. Почта напротив парка, рядом с аптекой. — Значит, на перекрёстке направо, а потом перейти улицу? — Да, правильно. — Это далеко? — Нет, минут десять пешком. — Спасибо большое! — Пожалуйста.",
+   "say_uz": "— Kechirasiz, bu yerda pochta qayerda? — Pochtami? To‘g‘riga yuring, chorrahada esa o‘ngga buriling. Keyin ko‘chani kesib o‘ting. Pochta bog‘ qarshisida, dorixona yonida. — Demak, chorrahada o‘ngga, keyin ko‘chani kesib o‘tish kerakmi? — Ha, to‘g‘ri. — Bu uzoqmi? — Yo‘q, piyoda o‘n daqiqacha. — Katta rahmat! — Arzimaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Куда повернуть на перекрёстке?",
+    "2) Что потом?",
+    "3) Где почта?",
+    "4) Это далеко?"
+   ],
+   "examples": [],
+   "say_native": "To‘rtta savol. Chorrahada qayoqqa burilish kerak? Keyin nima qilish kerak? Pochta qayerda, nimaning qarshisida va nimaning yonida? Bu uzoqmi? Javoblarni ruscha bering.",
+   "say": "Куда повернуть на перекрёстке? Что потом? Где почта? Это далеко?",
+   "say_uz": "Chorrahada qayoqqa burilish kerak? Keyin nima? Pochta qayerda? Bu uzoqmi?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) направо",
+    "2) перейти улицу",
+    "3) напротив парка, рядом с аптекой",
+    "4) нет, минут десять пешком"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: chorrahada o‘ngga — “направо”. Keyin ko‘chani kesib o‘tish — “перейти улицу”. Pochta bog‘ qarshisida, dorixona yonida: “напротив парка, рядом с аптекой”. Uzoq emas, piyoda o‘n daqiqacha. “Минут десять” — son otdan keyin kelsa, “taxminan” ma’nosi chiqadi. Nigora yo‘lni qayta aytib tekshirdi, bu juda foydali odat.",
+   "say": "Направо. Перейти улицу. Напротив парка, рядом с аптекой. Минут десять пешком.",
+   "say_uz": "O‘ngga. Ko‘chani kesib o‘tish. Bog‘ qarshisida, dorixona yonida. Piyoda o‘n daqiqacha.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy vazifa: uydan do‘konga",
+   "emotion": "encouraging",
+   "board": [
+    "Идите прямо до…",
+    "Поверните направо / налево.",
+    "Перейдите улицу.",
+    "Магазин напротив… / рядом с… · … минут пешком"
+   ],
+   "examples": [],
+   "say_native": "Eng muhim mashq. Tasavvur qiling, qo‘shningiz sizdan eng yaqin do‘konga yo‘l so‘radi. Uyingizdan do‘konga yo‘lni ruscha tushuntiring. Kamida beshta gap ayting: to‘g‘riga yurish, burilish, ko‘chani kesib o‘tish, do‘kon qayerda joylashgani va qancha vaqt piyoda yurilishi. Buyruqni “-те” bilan ayting.",
+   "say": "Извините, вы не подскажете, как пройти к магазину?",
+   "say_uz": "Kechirasiz, do‘konga qanday borishni aytib yubormaysizmi?",
    "practice_seconds": 20
   },
   {
    "kind": "explain",
-   "title": "Namuna javob",
+   "title": "Namunaviy javob",
    "emotion": "proud",
-   "board": ["Идите прямо два квартала.", "Потом поверните налево.", "Магазин рядом. Спасибо!"],
+   "board": [
+    "Идите прямо до светофора.",
+    "Потом поверните налево.",
+    "Перейдите улицу.",
+    "Магазин справа, напротив школы. Пять минут пешком."
+   ],
    "examples": [],
-   "say_native": "Namuna: “Идите прямо два квартала. Потом поверните налево. Магазин рядом. Спасибо!” Har bir qadam “идите” va “поверните” shaklida, manzil “рядом” bilan ko‘rsatilgan, oxirida rahmat aytilgan. Siz ham shunday ketma-ketlikda yo‘lni tushuntiring, har bir burilish nuqtasini aniq belgilang.",
-   "say": "Идите прямо два квартала. Потом поверните налево. Магазин рядом. Спасибо!",
-   "say_uz": "Ikki mavze to‘g‘ri yuring. Keyin chapga buriling. Do‘kon yonida. Rahmat!",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "O‘zingizni tekshiring",
-   "emotion": "proud",
-   "board": ["Где находится ...?", "Как пройти ...?", "Идите прямо. Поверните налево.", "Рядом · Напротив · Через"],
-   "examples": [],
-   "say_native": "O‘zingizni tekshiring. Joyni “где находится” bilan so‘ra olasizmi? Yo‘lni “как пройти” bilan aniqlay olasizmi? Yo‘lni “идите прямо, поверните налево” deb tushuntirа olasizmi? “Рядом, напротив, через” so‘zlarini to‘g‘ri ishlata olasizmi? Hammasi joyida bo‘lsa, shaharda yo‘l so‘rashga tayyorsiz.",
-   "say": "Где находится аптека? Как пройти в аптеку? Идите прямо. Поверните налево. Рядом.",
-   "say_uz": "Dorixona qayerda joylashgan? Dorixonaga qanday boriladi? To‘g‘ri yuring. Chapga buriling. Yonida.",
+   "say_native": "Namuna bilan solishtiring. “Идите прямо до светофора. Потом поверните налево. Перейдите улицу. Магазин справа, напротив школы. Это близко, пять минут пешком.” Bunda buyruq shakllari, “налево” va “справа” farqi, “до светофора”, “улицу”, “напротив школы” bor. Sizning javobingizda ham shu qismlar bo‘lsa, ajoyib.",
+   "say": "Идите прямо до светофора. Потом поверните налево. Перейдите улицу. Магазин справа, напротив школы. Это близко, пять минут пешком.",
+   "say_uz": "Svetoforgacha to‘g‘riga yuring. Keyin chapga buriling. Ko‘chani kesib o‘ting. Do‘kon o‘ng tomonda, maktab qarshisida. Bu yaqin, piyoda besh daqiqa.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": ["аптека · банк · вокзал · метро", "Где находится? · Как пройти?", "Идите прямо · Поверните налево", "Рядом · Напротив · Через"],
+   "board": [
+    "банк, аптека, почта, рынок, остановка, метро",
+    "Извините, вы не подскажете…? · Как пройти к банку?",
+    "Идите прямо · Поверните направо / налево · Перейдите улицу",
+    "справа / слева · напротив банка · рядом с аптекой"
+   ],
    "examples": [],
-   "say_native": "Xulosa. Shahar joylarini o‘rgandik: “аптека, банк, вокзал, метро, школа, магазин, больница, библиотека, парк, остановка”. Yo‘l so‘rash iboralarini o‘rgandik: “где находится, как пройти, как пройти к”. Yo‘lni tushuntirishni o‘rgandik: “идите прямо, поверните налево, поверните направо, рядом, напротив, через”. Endi shaharda bemalol yo‘l so‘rab, tushuntirib bera olasiz.",
-   "say": "Отлично! Теперь вы умеете спросить и объяснить дорогу в городе.",
-   "say_uz": "Ajoyib! Endi shaharda yo‘l so‘rab, tushuntirib bera olasiz.",
+   "say_native": "Xulosa. Shahardagi joylar nomlarini va ular bilan “в” yoki “на” ni o‘rgandik: “в аптеке”, “на почте”. Muloyim so‘rash: “Извините, вы не подскажете…?”, “Как пройти к банку?”, “Это далеко?”. Ko‘rsatmalar: “идите прямо”, “поверните направо”, “перейдите улицу”. “Направо” — qayoqqa, “справа” — qayerda. Joy: “напротив банка”, “рядом с аптекой”, “за углом”.",
+   "say": "Отлично! Теперь вы можете спросить дорогу и объяснить, как пройти.",
+   "say_uz": "Ajoyib! Endi yo‘l so‘rab, qanday borishni tushuntira olasiz.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uyga vazifa",
    "emotion": "encouraging",
-   "board": ["Uyingizdan do‘kongacha yo‘l: 8 gap", "Где · Как пройти · Идите · Спасибо", "Keyingi dars: ranglar, kiyim va do‘kon"],
+   "board": [
+    "Uyingizdan yaqin do‘konga yo‘l",
+    "kamida 3 buyruq: идите, поверните, перейдите",
+    "направо/налево + справа/слева · напротив / рядом с"
+   ],
    "examples": [],
-   "say_native": "Uyga vazifa. Uyingizdan yaqin do‘kongacha bo‘lgan yo‘lni sakkiz gap yozib tushuntiring. Har bir gapda “идите”, “поверните”, “рядом”, “спасибо” so‘zlarini ishlating. Mezon: har bir gap rus tilida, buyruq “вы” shaklida, manzil aniq ko‘rsatilgan. Keyingi darsda ranglar, kiyim va do‘konda xaridni o‘rganamiz. Ko‘rishguncha!",
-   "say": "До свидания! До встречи на следующем уроке. Мы будем говорить о цветах и одежде.",
-   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz. Biz ranglar va kiyim haqida gaplashamiz.",
+   "say_native": "Uyga vazifa. Uyingizdan eng yaqin do‘konga yo‘lni ruscha yozing va ovoz chiqarib ayting. Mezon: kamida beshta gap, kamida uchta “-те” li buyruq, “направо” yoki “налево” to‘g‘ri ishlatilgan, do‘kon joyi “справа”, “слева”, “напротив” yoki “рядом с” bilan aytilgan va masofa “… минут пешком” bilan berilgan. Keyingi darsda ranglar, kiyim va do‘konda xarid qilishni o‘rganamiz. Ko‘rishguncha!",
+   "say": "До свидания! До встречи на следующем уроке.",
+   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Uyingizdan yaqin do‘kongacha bo‘lgan yo‘lni sakkiz gap yozib tushuntiring. Mezon: har bir gap rus tilida, buyruq “вы” shaklida (идите, поверните), “рядом” yoki “напротив” bilan manzil ko‘rsatilgan, oxirida “спасибо” aytilgan.",
+ "homework_uz": "Uyingizdan eng yaqin do‘konga yo‘lni ruscha yozing va ovoz chiqarib ayting. Mezon: kamida 5 gap, kamida 3 ta «-те» li buyruq (идите, поверните, перейдите), «направо/налево» to‘g‘ri, do‘kon joyi «справа/слева», «напротив» yoki «рядом с» bilan aytilgan, masofa «… минут пешком» bilan berilgan.",
  "quiz": [
   {
-   "q": "How do you ask ‘Where is the pharmacy?’",
-   "options": ["Где находится аптека?", "Как аптека?", "Что аптека?", "Аптека где стоит?"],
-   "answer": 0,
-   "why_uz": "Где находится аптека? — dorixona qayerda joylashgan?"
+   "q": "Choose the polite question.",
+   "options": [
+    "Скажи, где банк?",
+    "Где банк, эй?",
+    "Извините, вы не подскажете, где банк?",
+    "Банк где ты знаешь?"
+   ],
+   "answer": 2,
+   "why_uz": "Notanishga «вы» va «Извините»: вы не подскажете, где банк?"
   },
   {
-   "q": "How do you ask ‘How do I get to the park?’",
-   "options": ["Как пройти в парк?", "Как парк?", "Что парк?", "Парк как?"],
-   "answer": 0,
-   "why_uz": "Как пройти в парк? — bog‘ga qanday boriladi?"
+   "q": "Complete: «Как пройти к …?» (bank)",
+   "options": [
+    "банк",
+    "банку",
+    "банка",
+    "банке"
+   ],
+   "answer": 1,
+   "why_uz": "К dan keyin erkak jinsi -у: к банку."
   },
   {
-   "q": "How do you say ‘Go straight’ politely?",
-   "options": ["Идите прямо.", "Иди прямо.", "Прямо иди.", "Иди прямо ты."],
-   "answer": 0,
-   "why_uz": "Идите прямо — hurmatli shakl, sizga nisbatan."
+   "q": "Choose the correct form: «Мама на …»",
+   "options": [
+    "почта",
+    "почте",
+    "почту",
+    "почты"
+   ],
+   "answer": 1,
+   "why_uz": "Почта bilan на + -е: на почте."
   },
   {
-   "q": "How do you say ‘Turn left’?",
-   "options": ["Поверните налево.", "Поверни налево.", "Налево поверни.", "Поверни влево."],
-   "answer": 0,
-   "why_uz": "Поверните налево — chapga buriling, hurmatli shakl."
+   "q": "‘Turn right.’",
+   "options": [
+    "Поверните справа.",
+    "Поверните направо.",
+    "Повернуть право.",
+    "Поверни справа."
+   ],
+   "answer": 1,
+   "why_uz": "Harakat yo‘nalishi — направо: поверните направо."
   },
   {
-   "q": "Which word means ‘next to, nearby’?",
-   "options": ["рядом", "далеко", "внутри", "сзади"],
-   "answer": 0,
-   "why_uz": "Рядом — yonida."
+   "q": "‘The bank is on the left.’",
+   "options": [
+    "Банк налево.",
+    "Банк слева.",
+    "Банк на лево.",
+    "Банк левый."
+   ],
+   "answer": 1,
+   "why_uz": "Joylashuv — слева: банк слева."
   },
   {
-   "q": "Which word means ‘opposite’?",
-   "options": ["напротив", "вместе", "около", "внутри"],
-   "answer": 0,
-   "why_uz": "Напротив — ro‘parasida."
+   "q": "Choose the correct imperative for a stranger.",
+   "options": [
+    "Иди прямо.",
+    "Идти прямо.",
+    "Идите прямо.",
+    "Идёте прямо."
+   ],
+   "answer": 2,
+   "why_uz": "Notanishga -те bilan: идите прямо."
   },
   {
-   "q": "How do you say ‘Excuse me, how do I get to the station?’",
-   "options": ["Извините, как пройти к вокзалу?", "Эй, вокзал!", "Вокзал давай.", "Как вокзал?"],
-   "answer": 0,
-   "why_uz": "Извините — kechirasiz, xushmuomala boshlanish."
+   "q": "‘Cross the street.’",
+   "options": [
+    "Перейдите улица.",
+    "Перейдите улицу.",
+    "Перейдите улице.",
+    "Перейдите улицы."
+   ],
+   "answer": 1,
+   "why_uz": "Tushum kelishigi: улица → улицу."
   },
   {
-   "q": "Which word means ‘pharmacy’?",
-   "options": ["аптека", "больница", "школа", "библиотека"],
-   "answer": 0,
-   "why_uz": "Аптека — dorixona."
+   "q": "‘The pharmacy is opposite the bank.’",
+   "options": [
+    "Аптека напротив банк.",
+    "Аптека напротив банка.",
+    "Аптека напротив банком.",
+    "Аптека напротив банку."
+   ],
+   "answer": 1,
+   "why_uz": "Напротив dan keyin -а: напротив банка."
   },
   {
-   "q": "How do you say ‘It is five minutes on foot’?",
-   "options": ["Пять минут пешком.", "Пять минут машина.", "Пять минут далеко.", "Пять минут быстро."],
-   "answer": 0,
-   "why_uz": "Пять минут пешком — piyoda besh daqiqa."
+   "q": "Choose the correct form: «Мы в …»",
+   "options": [
+    "метре",
+    "метра",
+    "метро",
+    "метром"
+   ],
+   "answer": 2,
+   "why_uz": "Метро turlanmaydi: в метро."
   },
   {
-   "q": "Which preposition means ‘to a point’?",
-   "options": ["к", "в", "на", "о"],
+   "q": "Someone says «Большое спасибо!». What do you answer?",
+   "options": [
+    "Не за что.",
+    "Извините.",
+    "До свидания.",
+    "Повторите."
+   ],
    "answer": 0,
-   "why_uz": "К — nuqtaga borishni bildiradi, masalan к вокзалу."
+   "why_uz": "Rahmatga javob: не за что — arzimaydi."
   }
  ]
 }

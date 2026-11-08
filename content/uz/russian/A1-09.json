@@ -1,590 +1,1051 @@
 {
  "title": "Ovqat, ichimlik va kafeda buyurtma berish",
- "goal_uz": "Dars oxirida rus tilida kafeda ovqat va ichimlik buyurtma berasiz, «Можно мне?», «Мне, пожалуйста», «Я бы хотел» kabi xushmuomala shakllardan foydalanasiz, narxni so‘raysiz va hisobni to‘laysiz. Oxirida to‘liq taom buyurtma qilib, hisobni so‘rab, rahmat aytib bera olasiz.",
+ "goal_uz": "Dars oxirida rus tilida o‘nlab ovqat va ichimlik nomlarini jinsi bilan ishlatasiz, «я бы хотел(а)», «можно», «мне, пожалуйста» bilan muloyim buyurtma berasiz, «хочу/буду» dan keyin «-а» ni «-у» ga aylantirasiz, narxni so‘rab «рубль, рубля, рублей» ni to‘g‘ri aytasiz va hisobni so‘rab to‘laysiz.",
  "vocab": [
-  {"w": "вода", "uz": "suv"},
-  {"w": "чай", "uz": "choy"},
-  {"w": "кофе", "uz": "qahva"},
-  {"w": "сок", "uz": "sharbat"},
-  {"w": "молоко", "uz": "sut"},
-  {"w": "суп", "uz": "sho‘rva"},
-  {"w": "салат", "uz": "salat"},
-  {"w": "хлеб", "uz": "non"},
-  {"w": "меню", "uz": "meny"},
-  {"w": "счёт", "uz": "hisob"}
+  {
+   "w": "чай",
+   "uz": "choy"
+  },
+  {
+   "w": "кофе",
+   "uz": "qahva"
+  },
+  {
+   "w": "вода — воду",
+   "uz": "suv"
+  },
+  {
+   "w": "суп",
+   "uz": "sho‘rva"
+  },
+  {
+   "w": "рыба — рыбу",
+   "uz": "baliq"
+  },
+  {
+   "w": "я бы хотел(а)",
+   "uz": "xohlardim"
+  },
+  {
+   "w": "Можно…?",
+   "uz": "mumkinmi?"
+  },
+  {
+   "w": "Сколько стоит?",
+   "uz": "qancha turadi?"
+  },
+  {
+   "w": "счёт",
+   "uz": "hisob"
+  },
+  {
+   "w": "картой / наличными",
+   "uz": "karta bilan / naqd"
+  }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "To‘qqizinchi dars: kafeda buyurtma",
+   "title": "To‘qqizinchi dars: kafeda",
    "emotion": "happy",
-   "board": ["Здравствуйте! Можно мне меню?", "Мне чай, пожалуйста.", "Сколько стоит суп?", "Счёт, пожалуйста."],
+   "board": [
+    "Мне, пожалуйста, чай с лимоном.",
+    "Я бы хотела суп.",
+    "Сколько стоит кофе?",
+    "Счёт, пожалуйста!"
+   ],
    "examples": [],
-   "say_native": "Assalomu alaykum! To‘qqizinchi darsga xush kelibsiz. O‘tgan darsda odatlar va kundalik ishlari haqida gaplashishni o‘rgandik. Bugun ovqat, ichimlik va kafeda buyurtma berishni o‘rganamiz. Menyuni so‘rash, xushmuomala shakllar, narxni so‘rash va hisobni to‘lashni mashq qilamiz. Oxirida to‘liq taom buyurtma qilib bera olasiz deb umid qilaman.",
-   "say": "Здравствуйте! Сегодня мы говорим о еде, напитках и заказе в кафе.",
-   "say_uz": "Assalomu alaykum! Bugun ovqat, ichimlik va kafeda buyurtma haqida gaplashamiz.",
+   "say_native": "Assalomu alaykum! To‘qqizinchi darsga xush kelibsiz. Oldingi darsda hozirgi zamon fe’llarini tusladik va odatlar haqida gapirdik: “Я обычно пью чай утром”. Ovqat va ichimlik nomlarini, muloyim buyurtma berishni, narx so‘rashni, hisobni so‘rab to‘lashni o‘rganamiz. Dars oxirida kafeda boshidan oxirigacha o‘zingiz buyurtma berasiz va to‘laysiz.",
+   "say": "Здравствуйте! Сегодня мы в кафе. Мы заказываем еду и напитки и платим.",
+   "say_uz": "Assalomu alaykum! Bugun biz kafedamiz. Ovqat va ichimlik buyurtma qilamiz va to‘laymiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
    "title": "Ichimliklar",
    "emotion": "neutral",
-   "board": ["вода · чай · кофе · сок · молоко", "Мне воду. Мне чай.", "Мне кофе, пожалуйста."],
-   "examples": [
-   {"t": "Мне воду, пожалуйста.", "uz": "Menga suv, iltimos."},
-   {"t": "Мне чай.", "uz": "Menga choy."}
+   "board": [
+    "чай (choy) · кофе (qahva)",
+    "вода́ (suv) · сок (sharbat)",
+    "молоко́ (sut) [малако́]"
    ],
-   "say_native": "Ichimlik so‘zlarini avval eslab oling. “Вода” — suv, “чай” — choy, “кофе” — qahva, “сок” — sharbat, “молоко” — sut. Bu besh so‘z kafeda eng ko‘p so‘raladi. “Мне воду” — menga suv, “мне чай” — menga choy. “Мне” so‘zi sizga murojaat etganda ishlatiladi va har bir buyurtma shu bilan boshlanishi tabiiy.",
-   "say": "Мне воду. Мне чай. Мне кофе. Мне сок. Мне молоко.",
-   "say_uz": "Menga suv. Menga choy. Menga qahva. Menga sharbat. Menga sut.",
+   "examples": [
+    {
+     "t": "Я пью чай.",
+     "uz": "Men choy ichaman."
+    },
+    {
+     "t": "Он пьёт кофе.",
+     "uz": "U qahva ichadi."
+    }
+   ],
+   "say_native": "Avval ichimliklar. “Чай” — choy, “кофе” — qahva, “вода” — suv, “сок” — sharbat, “молоко” — sut. Talaffuzga e’tibor bering: “молоко” so‘zida urg‘u oxirgi bo‘g‘inda, urg‘usiz “о” harflari “a” ga yaqin eshitiladi: “malako”. “Вода” ham “vada” deb aytiladi. “Кофе” so‘zida urg‘u birinchi bo‘g‘inda: “kofe”.",
+   "say": "Чай. Кофе. Вода. Сок. Молоко. Я пью чай. Он пьёт кофе.",
+   "say_uz": "Choy. Qahva. Suv. Sharbat. Sut. Men choy ichaman. U qahva ichadi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Taomlar",
-   "emotion": "thinking",
-   "board": ["суп · салат · хлеб · рис · пирог", "Мне суп. Мне салат.", "Мне хлеб, пожалуйста."],
-   "examples": [
-   {"t": "Мне суп и салат.", "uz": "Menga sho‘rva va salat."},
-   {"t": "Мне хлеб, пожалуйста.", "uz": "Menga non, iltimos."}
-   ],
-   "say_native": "Taom nomlari ham xuddi shunday. “Суп” — sho‘rva, “салат” — salat, “хлеб” — non, “рис” — guruch, “пирог” — pirog. Buyurtma berishda “мне суп” yoki “мне салат” deysiz. Agar non kerak bo‘lsa, “мне хлеб, пожалуйста” deb qo‘shasiz. Bu so‘zlarni yodlab qolsangiz, menyuni ko‘rib buyurtma bera olasiz.",
-   "say": "Мне суп. Мне салат. Мне хлеб. Мне рис. Мне пирог.",
-   "say_uz": "Menga sho‘rva. Menga salat. Menga non. Menga guruch. Menga pirog.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Shirinliklar va yeguliklar",
+   "title": "Ovqatlar",
    "emotion": "neutral",
-   "board": ["торт · мороженое · булочка", "Мне торт, пожалуйста.", "Мне мороженое."],
-   "examples": [
-   {"t": "Мне пирог, пожалуйста.", "uz": "Menga pirog, iltimos."},
-   {"t": "Мне мороженое.", "uz": "Menga muzqaymoq."}
+   "board": [
+    "суп (sho‘rva) · салат (salat)",
+    "хлеб [хлеп] (non) · рис (guruch)",
+    "плов (palov) · лепёшка (patir non)"
    ],
-   "say_native": "Shirinlik so‘zlari ham kerak. “Торт” — tort, “мороженое” — muzqaymoq, “булочка” — bulochka. Agar asosiy taomdan keyin shirinlik xohlasangiz, “мне пирог, пожалуйста” yoki “мне мороженое” deysiz. Bu so‘zlar ayol jinsidagi otlar, lekin buyurtmada “мне” bilan birga ishlatiladi va shakli o‘zgarmaydi.",
-   "say": "Мне торт. Мне мороженое. Мне булочку.",
-   "say_uz": "Menga tort. Menga muzqaymoq. Menga bulochka.",
+   "examples": [
+    {
+     "t": "Я хочу суп.",
+     "uz": "Men sho‘rva xohlayman."
+    },
+    {
+     "t": "Здесь вкусный плов.",
+     "uz": "Bu yerda palov mazali."
+    }
+   ],
+   "say_native": "Endi ovqatlar. “Суп” — sho‘rva, “салат” — salat, “хлеб” — non, “рис” — guruch, “плов” — palov, “лепёшка” — bizning yumaloq non, patir. “Хлеб” so‘zining oxiridagi “б” jarangsizlanib “п” bo‘lib eshitiladi: “xlep”. Bu qoida ko‘p so‘zlarda bor: so‘z oxirida jarangli undosh jarangsizga aylanadi. “Лепёшка” so‘zidagi “ё” doim urg‘uli.",
+   "say": "Суп. Салат. Хлеб. Рис. Плов. Лепёшка. Здесь вкусный плов.",
+   "say_uz": "Sho‘rva. Salat. Non. Guruch. Palov. Patir non. Bu yerda palov mazali.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Go‘sht, baliq va shirinlik",
+   "emotion": "neutral",
+   "board": [
+    "мя́со (go‘sht) · ку́рица (tovuq)",
+    "ры́ба (baliq) · пирожо́к (pirojki)",
+    "торт (tort) · моро́женое (muzqaymoq)"
+   ],
+   "examples": [
+    {
+     "t": "Я не ем мясо.",
+     "uz": "Men go‘sht yemayman."
+    },
+    {
+     "t": "Дети любят мороженое.",
+     "uz": "Bolalar muzqaymoqni yaxshi ko‘radi."
+    }
+   ],
+   "say_native": "Yana bir guruh so‘z. “Мясо” — go‘sht, “курица” — tovuq, ham parranda, ham uning go‘shti. “Рыба” — baliq. “Пирожок” — ichida go‘sht yoki kartoshka bo‘lgan kichik pishiriq, ko‘plikda “пирожки”. Shirinliklar: “торт” — tort, “мороженое” — muzqaymoq. “Я не ем мясо” — go‘sht yemayman.",
+   "say": "Мясо. Курица. Рыба. Пирожок. Торт. Мороженое. Я не ем мясо.",
+   "say_uz": "Go‘sht. Tovuq. Baliq. Pirojki. Tort. Muzqaymoq. Men go‘sht yemayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Taomlar ham jinsga ega",
+   "emotion": "thinking",
+   "board": [
+    "он: чай, суп, хлеб, сок, кофе",
+    "она: вода, рыба, курица",
+    "оно: молоко, мясо, мороженое"
+   ],
+   "examples": [
+    {
+     "t": "горячий чай · горячая вода",
+     "uz": "issiq choy · issiq suv"
+    },
+    {
+     "t": "вкусное мясо",
+     "uz": "mazali go‘sht"
+    }
+   ],
+   "say_native": "Rus tilida har bir ot uch jinsdan biriga kiradi va sifat unga moslashadi. Undosh bilan tugagan “чай, суп, хлеб” — erkak jinsi: “горячий чай”. “-а” bilan tugagan “вода, рыба” — ayol jinsi: “горячая вода”. “-о, -е” bilan tugagan “молоко, мясо” — o‘rta jins: “вкусное мясо”. Bitta istisno: “кофе” “-е” bilan tugasa ham adabiy me’yorda erkak jinsi: “чёрный кофе”. O‘zbek tilida jins yo‘q, shuning uchun bu yerda ko‘p xato qilinadi.",
+   "say": "Горячий чай. Горячая вода. Вкусное мясо. Чёрный кофе.",
+   "say_uz": "Issiq choy. Issiq suv. Mazali go‘sht. Qora qahva.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Холодный вода — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ холодный вода → ✓ холодная вода",
+    "✗ вкусный мясо → ✓ вкусное мясо",
+    "✗ вкусная плов → ✓ вкусный плов"
+   ],
+   "examples": [],
+   "say_native": "Tipik xato: sifatni doim bir xil shaklda ishlatish. “Холодный вода” emas, “холодная вода”, chunki “вода” ayol jinsi. “Вкусный мясо” emas, “вкусное мясо”, chunki “мясо” o‘rta jins. “Плов” esa erkak jinsi: “вкусный плов”. Qoida oddiy: avval otning oxiriga qarang, keyin sifat oxirini tanlang: “-ый”, “-ая”, “-ое”.",
+   "say": "Холодная вода. Вкусное мясо. Вкусный плов.",
+   "say_uz": "Sovuq suv. Mazali go‘sht. Mazali palov.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Idishlar: чашка, стакан",
+   "emotion": "neutral",
+   "board": [
+    "чашка чая / кофе (bir chashka)",
+    "стакан воды / сока (bir stakan)",
+    "бутылка воды · кусок торта",
+    "тарелка супа (bir tovoq)"
+   ],
+   "examples": [
+    {
+     "t": "Стакан воды, пожалуйста.",
+     "uz": "Bir stakan suv, iltimos."
+    },
+    {
+     "t": "Кусок торта, пожалуйста.",
+     "uz": "Bir bo‘lak tort, iltimos."
+    }
+   ],
+   "say_native": "Kafeda ko‘pincha idish bilan aytamiz. “Чашка чая” — bir chashka choy, “стакан воды” — bir stakan suv, “бутылка воды” — bir shisha suv, “кусок торта” — bir bo‘lak tort, “тарелка супа” — bir tovoq sho‘rva. Idishdan keyin ot o‘zgaradi: “вода” — “воды”, “чай” — “чая”, “торт” — “торта”. “Кофе” esa o‘zgarmaydi: “чашка кофе”.",
+   "say": "Чашка чая. Стакан воды. Бутылка воды. Кусок торта. Тарелка супа.",
+   "say_uz": "Bir chashka choy. Bir stakan suv. Bir shisha suv. Bir bo‘lak tort. Bir tovoq sho‘rva.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "С va без: limonli, shakarsiz",
+   "emotion": "thinking",
+   "board": [
+    "чай с лимоном (limonli)",
+    "кофе с молоком (sutli)",
+    "чай с сахаром / без сахара",
+    "без молока (sutsiz)"
+   ],
+   "examples": [
+    {
+     "t": "Мне чай с лимоном.",
+     "uz": "Menga limonli choy."
+    },
+    {
+     "t": "Кофе без сахара, пожалуйста.",
+     "uz": "Shakarsiz qahva, iltimos."
+    }
+   ],
+   "say_native": "O‘zbekchada “limonli choy”, “sutsiz qahva” deymiz, ya’ni “-li” va “-siz” qo‘shimchalari. Rus tilida buning o‘rniga ikki kichik so‘z bor: “с” — bilan, va “без” — siz. “Чай с лимоном” — limonli choy, “кофе с молоком” — sutli qahva, “без сахара” — shakarsiz, “без молока” — sutsiz. Bu so‘zlardan keyin ham ot o‘zgaradi, shuning uchun hozircha bularni tayyor ibora sifatida yodlang.",
+   "say": "Чай с лимоном. Кофе с молоком. Чай без сахара. Кофе без молока.",
+   "say_uz": "Limonli choy. Sutli qahva. Shakarsiz choy. Sutsiz qahva.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ruscha ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) bir stakan suv",
+    "2) bir chashka qahva",
+    "3) bir bo‘lak tort",
+    "4) limonli choy",
+    "5) shakarsiz qahva"
+   ],
+   "examples": [],
+   "say_native": "Endi siz ayting. Beshta ibora bor. Idish so‘zini va tayyor shaklni eslang: “стакан”, “чашка”, “кусок”, “с”, “без”. Diqqat: “кофе” hech qachon o‘zgarmaydi. Har bir iborani to‘liq va aniq talaffuz qiling.",
+   "say": "Стакан… Чашка… Кусок… С лимоном… Без сахара…",
+   "say_uz": "Stakan… Chashka… Bo‘lak… Limonli… Shakarsiz…",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) стакан воды",
+    "2) чашка кофе",
+    "3) кусок торта",
+    "4) чай с лимоном",
+    "5) кофе без сахара"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “стакан воды”, “чашка кофе”, “кусок торта”, “чай с лимоном”, “кофе без сахара”. Ikkinchi javobda “кофе” o‘zgarmadi, chunki u turlanmaydigan so‘z. Birinchi javobda “вода” emas, “воды” dedik. Agar “стакан вода” desangiz, ma’no tushunarli, lekin xato eshitiladi.",
+   "say": "Стакан воды. Чашка кофе. Кусок торта. Чай с лимоном. Кофе без сахара.",
+   "say_uz": "Bir stakan suv. Bir chashka qahva. Bir bo‘lak tort. Limonli choy. Shakarsiz qahva.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Я хочу + nima? Tushum kelishigi",
+   "emotion": "thinking",
+   "board": [
+    "хотеть: я хочу · ты хочешь · вы хотите",
+    "вода → воду · рыба → рыбу",
+    "курица → курицу · лепёшка → лепёшку",
+    "чай, суп, молоко — o‘zgarmaydi"
+   ],
+   "examples": [
+    {
+     "t": "Я хочу воду.",
+     "uz": "Men suv xohlayman."
+    },
+    {
+     "t": "Я хочу рыбу и салат.",
+     "uz": "Men baliq va salat xohlayman."
+    }
+   ],
+   "say_native": "Endi birinchi kelishik qoidasi. “Хотеть” — xohlamoq: “я хочу”, “ты хочешь”, “вы хотите”. Undan keyingi narsa tushum kelishigida turadi. Ayol jinsidagi “-а” bilan tugagan so‘zlar “-у” oladi: “вода” — “воду”, “рыба” — “рыбу”, “курица” — “курицу”. Jonsiz erkak jinsi va o‘rta jins so‘zlar o‘zgarmaydi: “Я хочу чай”, “я хочу суп”, “я хочу молоко”. Demak, eng ko‘p o‘zgaradigan narsa — “-а” oxiri.",
+   "say": "Я хочу воду. Я хочу рыбу. Я хочу курицу. Я хочу чай и суп.",
+   "say_uz": "Men suv xohlayman. Men baliq xohlayman. Men tovuq xohlayman. Men choy va sho‘rva xohlayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘zbekchadagi “-ni” bilan solishtiring",
+   "emotion": "neutral",
+   "board": [
+    "suvni ichaman → пью воду",
+    "вода́ → во́ду (urg‘u ko‘chadi!)",
+    "Я пью воду. · Я ем курицу."
+   ],
+   "examples": [
+    {
+     "t": "Я пью воду.",
+     "uz": "Men suv ichaman."
+    },
+    {
+     "t": "Он ест курицу.",
+     "uz": "U tovuq yeyapti."
+    }
+   ],
+   "say_native": "O‘zbek tilida ham tushum kelishigi bor: “suvni ichaman”, “palovni yeyman”. Rus tilida bu vazifani “-у” oxiri bajaradi: “пью воду”, “ем курицу”. Farqi shundaki, o‘zbekchada “suv ichaman” deb “-ni” siz ham aytamiz, rus tilida esa oxir doim o‘zgaradi. Yana bir nozik joy: “вода” so‘zida urg‘u oxirida, “воду” da esa boshida: “во́ду”. Rus tilida urg‘u kelishik bilan ko‘chishi mumkin, shuning uchun yangi shaklni urg‘usi bilan birga yodlang.",
+   "say": "Вода. Воду. Я пью воду. Он ест курицу.",
+   "say_uz": "Suv. Suvni. Men suv ichaman. U tovuq yeyapti.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
    "title": "Я хочу вода — xato",
    "emotion": "stern",
-   "board": ["✗ Я хочу вода.", "✓ Мне воду.", "✗ Я хочу чай.", "✓ Мне чай, пожалуйста."],
+   "board": [
+    "✗ Я хочу вода.",
+    "✓ Я хочу воду.",
+    "✗ Дайте рыба.",
+    "✓ Дайте рыбу."
+   ],
    "examples": [],
-   "say_native": "Buyurtmada “я хочу” ni to‘g‘ridan to‘g‘ri ishlatish odobga zid va grammatik jihatdan ham noqulay bo‘lishi mumkin. “Я хочу вода” emas, “мне воду” deyiladi. “Я хочу чай” ham dag‘al eshitiladi. Kafeda xushmuomala shakl — “мне” bilan boshlanadi. O‘zbek tilida “menga choy bering” deymiz, rus tilida ham xuddi shu mantiq ishlaydi.",
-   "say": "Мне воду. Мне чай. Мне суп. Мне хлеб, пожалуйста.",
-   "say_uz": "Menga suv. Menga choy. Menga sho‘rva. Menga non, iltimos.",
+   "say_native": "Bu o‘zbekzabonlar orasida eng ko‘p uchraydigan xato: so‘zni lug‘atdagi shaklida qoldirish. “Я хочу вода” emas, “я хочу воду”. “Дайте рыба” emas, “дайте рыбу”. Ofitsiant sizni tushunadi, lekin gap noto‘g‘ri eshitiladi. Odat qiling: “хочу”, “дайте”, “буду” so‘zlaridan keyin “-а” ni “-у” ga almashtiring.",
+   "say": "Я хочу воду. Дайте рыбу, пожалуйста.",
+   "say_uz": "Men suv xohlayman. Baliq bering, iltimos.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Taom va ichimlik nomlarini ayting",
+   "title": "Я хочу… deb ayting",
    "emotion": "encouraging",
-   "board": ["1) вода  2) чай  3) суп  4) салат", "5) хлеб  6) кофе  7) торт  8) меню"],
+   "board": [
+    "1) вода",
+    "2) суп",
+    "3) курица",
+    "4) молоко",
+    "5) лепёшка"
+   ],
    "examples": [],
-   "say_native": "Sakkiz so‘z berilgan. Har birini “мне” bilan birga, to‘liq buyurtma sifatida ayting. Masalan, “мне воду”, “мне чай”, “мне суп”, “мне салат”, “мне хлеб”, “мне кофе”, “мне торт”, “мне меню”. Oxirgi so‘z “мне меню” menyuni so‘rashni bildiradi. Jawoblarni sekin talaffuz qiling.",
-   "say": "Мне воду. Мне чай. Мне суп. Мне салат. Мне хлеб. Мне кофе. Мне торт. Мне меню.",
-   "say_uz": "Menga suv. Menga choy. Menga sho‘rva. Menga salat. Menga non. Menga qahva. Menga tort. Menga meny.",
+   "say_native": "Mashq. Har bir so‘z bilan “Я хочу…” gapini tuzing. Avval so‘zning oxiriga qarang. “-а” bo‘lsa, “-у” ga o‘zgartiring. Undosh yoki “-о” bo‘lsa, o‘zgartirmang. “Воду” da urg‘uni unutmang: “во́ду”.",
+   "say": "Я хочу… Я хочу… Я хочу… Я хочу… Я хочу…",
+   "say_uz": "Men xohlayman… Men xohlayman… Men xohlayman… Men xohlayman… Men xohlayman…",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Мне воду.", "Мне чай.", "Мне суп.", "Мне салат.", "Мне хлеб.", "Мне кофе."],
+   "board": [
+    "1) Я хочу воду.",
+    "2) Я хочу суп.",
+    "3) Я хочу курицу.",
+    "4) Я хочу молоко.",
+    "5) Я хочу лепёшку."
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Мне воду”, “мне чай”, “мне суп”, “мне салат”, “мне хлеб”, “мне кофе”, “мне торт”, “мне меню”. Hamma gaplarda “мне” dan keyin ot ko‘rsatkich shaklida keldi. Bu buyurtma shakli kafeda eng xushmuomala va tabiiy. Endi siz har bir buyurtmani bir so‘z bilan boshlay olasiz.",
-   "say": "Мне воду. Мне чай. Мне суп. Мне салат. Мне хлеб. Мне кофе. Мне торт. Мне меню.",
-   "say_uz": "Menga suv. Menga choy. Menga sho‘rva. Menga salat. Menga non. Menga qahva. Menga tort. Menga meny.",
+   "say_native": "Javoblar: “Я хочу воду”, “я хочу суп”, “я хочу курицу”, “я хочу молоко”, “я хочу лепёшку”. Uchta so‘z o‘zgardi: “воду”, “курицу”, “лепёшку”. “Суп” va “молоко” o‘zgarmadi. Agar beshtasini ham to‘g‘ri aytgan bo‘lsangiz, siz rus kelishiklarining birinchi qadamini bosdingiz.",
+   "say": "Я хочу воду. Я хочу суп. Я хочу курицу. Я хочу молоко. Я хочу лепёшку.",
+   "say_uz": "Men suv xohlayman. Men sho‘rva xohlayman. Men tovuq xohlayman. Men sut xohlayman. Men patir non xohlayman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Menyu va ofitsiant",
+   "title": "Я бы хотел / хотела",
    "emotion": "neutral",
-   "board": ["меню · официант · заказ", "Можно мне меню?", "Меню, пожалуйста."],
-   "examples": [
-   {"t": "Можно мне меню?", "uz": "Menga menyu bering, iltimos."},
-   {"t": "Официант, меню, пожалуйста.", "uz": "Ofitsiant, menyu, iltimos."}
+   "board": [
+    "erkak: Я бы хотел…",
+    "ayol: Я бы хотела…",
+    "Я бы хотела чай с лимоном."
    ],
-   "say_native": "Kafeda birinchi navbatda menyu kerak. “Меню” — menyu, o‘zbek tilida ham shu so‘z ishlatiladi. “Официант” — ofitsiant, buyurtmani qabul qiluvchi odam. “Заказ” — buyurtma. Menyuni so‘rashning ikki usuli bor: “Можно мне меню?” va “Меню, пожалуйста”. Har ikkalasi xushmuomala, ikkinchisi qisqaroq va tez-tez ishlatiladi.",
-   "say": "Можно мне меню? Меню, пожалуйста. Официант! Меню, пожалуйста.",
-   "say_uz": "Menga menyu bering, iltimos? Menyu, iltimos. Ofitsiant! Menyu, iltimos.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Можно мне?",
-   "emotion": "thinking",
-   "board": ["Можно мне ...?", "Можно мне воду?", "Можно мне меню?", "Можно мне счёт?"],
    "examples": [
-   {"t": "Можно мне воду?", "uz": "Menga suv bering, iltimos."},
-   {"t": "Можно мне меню?", "uz": "Menga menyu bering, iltimos."}
+    {
+     "t": "Я бы хотел суп и салат.",
+     "uz": "Men sho‘rva va salat xohlardim."
+    },
+    {
+     "t": "Я бы хотела рыбу.",
+     "uz": "Men baliq xohlardim."
+    }
    ],
-   "say_native": "“Можно мне” — menga mumkinmi, iltimos, degan ma’noni bildiradi. Keyin buyurtma nomi keladi: “можно мне воду”, “можно мне меню”, “можно мне счёт”. Bu shakli rus tilidagi eng xushmuomala buyurtma shakli. Agar o‘tirmoqchi bo‘lsangiz, “можно мне сесть здесь” ham ayta olasiz, lekin kafeda odatiy hollarda ichimlik va hisob so‘raladi.",
-   "say": "Можно мне воду? Можно мне чай. Можно мне меню. Можно мне счёт?",
-   "say_uz": "Menga suv bering, iltimos? Menga choy bering, iltimos. Menga menyu bering, iltimos. Menga hisob bering, iltimos.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Xushmuomala so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Menga suv bering.", "2) Menga menyu bering.", "3) Menga hisob bering.", "4) Menga choy bering."],
-   "examples": [],
-   "say_native": "To‘rtta buyurtmani “можно мне” bilan ayting. “Можно мне воду?”, “можно мне меню?”, “можно мне счёт?”, “можно мне чай?”. Har birida ohangni ko‘taring, lekin xushmuomala bo‘ling. Bu shakl do‘kondor va ofitsiantga nisbatan ayniqsa hurmatli va xavfsiz eshitiladi.",
-   "say": "Можно мне воду? Можно мне меню? Можно мне счёт? Можно мне чай?",
-   "say_uz": "Menga suv bering, iltimos? Menga menyu bering, iltimos? Menga hisob bering, iltimos? Menga choy bering, iltimos?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Можно мне воду?", "Можно мне меню?", "Можно мне счёт?", "Можно мне чай?"],
-   "examples": [],
-   "say_native": "Javoblar: “Можно мне воду?”, “можно мне меню?”, “можно мне счёт?”, “можно мне чай?”. Har birida “можно мне” dan keyin buyurtma nomi kelgan. Bu shakl “мне воду” dan ko‘ra biroz rasmiyroq, lekin xavfsiz va har qanday vaziyatda mos. Kafeda aynan shunday aytish odobga sezilarli daraja beradi.",
-   "say": "Можно мне воду? Можно мне меню? Можно мне счёт? Можно мне чай?",
-   "say_uz": "Menga suv bering, iltimos? Menga menyu bering, iltimos? Menga hisob bering, iltimos? Menga choy bering, iltimos?",
+   "say_native": "“Я бы хотел” — eng muloyim shakl, o‘zbekchadagi “xohlardim” ga juda yaqin. Lekin bu yerda gapiruvchining jinsi muhim: erkak “я бы хотел”, ayol esa “я бы хотела” deydi. Bu o‘tgan zamon shakli, unda rus fe’li jinsga qarab o‘zgaradi. Undan keyin yana tushum kelishigi: “Я бы хотела рыбу”, “я бы хотел курицу”. “Бы” so‘zi qisqa va urg‘usiz aytiladi.",
+   "say": "Я бы хотел суп и салат. Я бы хотела рыбу.",
+   "say_uz": "Men sho‘rva va salat xohlardim. Men baliq xohlardim.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Мне, пожалуйста",
+   "title": "Можно…? — mumkinmi?",
    "emotion": "neutral",
-   "board": ["Мне ..., пожалуйста.", "Мне суп, пожалуйста.", "Мне чай, пожалуйста.", "Мне хлеб, пожалуйста."],
-   "examples": [
-   {"t": "Мне суп, пожалуйста.", "uz": "Menga sho‘rva, iltimos."},
-   {"t": "Мне чай, пожалуйста.", "uz": "Menga choy, iltimos."}
+   "board": [
+    "Можно меню?",
+    "Можно стакан воды?",
+    "Можно чашку чая?",
+    "чашка → чашку"
    ],
-   "say_native": "Eng ko‘p ishlatiladigan shakl — “мне ..., пожалуйста”. “Мне суп, пожалуйста” — menga sho‘rva, iltimos. “Мне чай, пожалуйста” — menga choy, iltimos. “Пожалуйста” so‘zi buyurtmani yumshatadi va xushmuomala qiladi. Bu bir so‘z bo‘lmasa ham, buyurtma deyarli har doim shu so‘z bilan tugaydi. Shuning uchun har bir buyurtmada “пожалуйста” ni qo‘shing.",
-   "say": "Мне суп, пожалуйста. Мне чай, пожалуйста. Мне хлеб, пожалуйста. Мне воду, пожалуйста.",
-   "say_uz": "Menga sho‘rva, iltimos. Menga choy, iltimos. Menga non, iltimos. Menga suv, iltimos.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Iltimos qo‘shib buyurtma qiling",
-   "emotion": "encouraging",
-   "board": ["1) Sho‘rva", "2) Choy", "3) Non", "4) Suv", "5) Qahva"],
-   "examples": [],
-   "say_native": "Besh buyurtmani “мне ..., пожалуйста” shaklida ayting. “Мне суп, пожалуйста”, “мне чай, пожалуйста”, “мне хлеб, пожалуйста”, “мне воду, пожалуйста”, “мне кофе, пожалуйста”. Har birida oxirida “пожалуйста” bo‘lishi shart. Ofitsiant javob berganda ham mantiqan shunday aytish odatga aylangan.",
-   "say": "Мне суп, пожалуйста. Мне чай, пожалуйста. Мне хлеб, пожалуйста. Мне воду, пожалуйста. Мне кофе, пожалуйста.",
-   "say_uz": "Menga sho‘rva, iltimos. Menga choy, iltimos. Menga non, iltimos. Menga suv, iltimos. Menga qahva, iltimos.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Мне суп, пожалуйста.", "Мне чай, пожалуйста.", "Мне хлеб, пожалуйста.", "Мне воду, пожалуйста."],
-   "examples": [],
-   "say_native": "Javoblar: “Мне суп, пожалуйста”, “мне чай, пожалуйста”, “мне хлеб, пожалуйста”, “мне воду, пожалуйста”, “мне кофе, пожалуйста”. Hamma buyurtmalarda “пожалуйста” bor, shuning uchun ular xushmuomala eshitiladi. Agar bu so‘z bo‘lmasa, buyurtma dag‘alroq eshitilishi mumkin. Bu bir so‘z butun muloqot ohangini o‘zgartiradi.",
-   "say": "Мне суп, пожалуйста. Мне чай, пожалуйста. Мне хлеб, пожалуйста. Мне воду, пожалуйста. Мне кофе, пожалуйста.",
-   "say_uz": "Menga sho‘rva, iltimos. Menga choy, iltimos. Menga non, iltimos. Menga suv, iltimos. Menga qahva, iltimos.",
+   "examples": [
+    {
+     "t": "Можно меню, пожалуйста?",
+     "uz": "Menyu bersangiz bo‘ladimi?"
+    },
+    {
+     "t": "Можно чашку кофе?",
+     "uz": "Bir chashka qahva mumkinmi?"
+    }
+   ],
+   "say_native": "“Можно” — mumkin, ruxsat. Savol ohangida aytilsa, juda qulay so‘rov bo‘ladi: “Можно меню?” — menyuni bersangiz. “Можно стакан воды?” — bir stakan suv mumkinmi? Bu yerda ham tushum kelishigi ishlaydi: “чашка” so‘zi “чашку” bo‘ladi: “Можно чашку кофе?” “Стакан” esa erkak jinsi, o‘zgarmaydi. Ohangni oxirida ko‘taring, shunda savol muloyim eshitiladi.",
+   "say": "Можно меню? Можно стакан воды? Можно чашку кофе?",
+   "say_uz": "Menyu mumkinmi? Bir stakan suv mumkinmi? Bir chashka qahva mumkinmi?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Я бы хотел / Я бы хотела",
+   "title": "Мне, пожалуйста… va Я буду…",
+   "emotion": "neutral",
+   "board": [
+    "Мне, пожалуйста, плов.",
+    "А мне рыбу и салат.",
+    "Я буду суп. (men sho‘rva olaman)"
+   ],
+   "examples": [
+    {
+     "t": "Мне, пожалуйста, плов.",
+     "uz": "Menga, iltimos, palov."
+    },
+    {
+     "t": "Я буду курицу с рисом.",
+     "uz": "Men guruchli tovuq olaman."
+    }
+   ],
+   "say_native": "Kafeda eng ko‘p eshitiladigan ikki ibora. Birinchisi: “Мне, пожалуйста…” — so‘zma-so‘z “menga, iltimos”. “Мне, пожалуйста, плов”. Do‘stingizdan keyin buyurtma bersangiz: “А мне рыбу”. Ikkinchisi: “Я буду…” — men … olaman. “Я буду суп”. Bu kelasi zamon shakli, lekin buyurtmada juda tabiiy. Ikkalasidan keyin ham tushum kelishigi: “рыбу”, “курицу”. Tuslanishi: “я буду”, “вы будете”.",
+   "say": "Мне, пожалуйста, плов. А мне рыбу и салат. Я буду суп.",
+   "say_uz": "Menga, iltimos, palov. Menga esa baliq va salat. Men sho‘rva olaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Дайте va Принесите: buyruq ham muloyim",
    "emotion": "thinking",
-   "board": ["Я бы хотел ...", "Я бы хотела ...", "хотел (erkak) · хотела (ayol)", "Мне бы хотелось ..."],
-   "examples": [
-   {"t": "Я бы хотел суп.", "uz": "Men sho‘rva xohlagan bo‘lardim."},
-   {"t": "Я бы хотела чай.", "uz": "Men choy xohlagan bo‘lardim."}
+   "board": [
+    "Дайте, пожалуйста, меню.",
+    "Принесите, пожалуйста, воду.",
+    "вы-shakl + пожалуйста = muloyim"
    ],
-   "say_native": "“Я бы хотел” — erkaklar uchun, “я бы хотела” — ayollar uchun. Bu shakl rus tilida xushmuomala buyurtmaning rasmiy shakli. Masalan: “Я бы хотел суп” — erkak kishi sho‘rva xohlaydi, “я бы хотела чай” — ayol kishi choy xohlaydi. Jinsni adashtirmang, chunki ofitsiant sizni jinsingiz orqali tanaydi va shunga qarab javob beradi.",
-   "say": "Я бы хотел суп. Я бы хотела чай. Я бы хотел кофе. Я бы хотела салат.",
-   "say_uz": "Men sho‘rva xohlagan bo‘lardim. Men choy xohlagan bo‘lardim. Men qahva xohlagan bo‘lardim. Men salat xohlagan bo‘lardim.",
+   "examples": [
+    {
+     "t": "Принесите, пожалуйста, счёт.",
+     "uz": "Hisobni olib keling, iltimos."
+    }
+   ],
+   "say_native": "Ingliz tilida “Give me” qo‘pol eshitiladi, lekin rus tilida “Дайте, пожалуйста” yoki “Принесите, пожалуйста” mutlaqo normal va muloyim. Bu o‘zbekchadagi “Bering, iltimos” ga o‘xshaydi. Ikki shart bor: “вы” shakli, ya’ni oxirida “-те”, va “пожалуйста”. “Дайте” — bering, “принесите” — olib keling. Faqat “пожалуйста” ni tashlab, keskin ohangda aytmang.",
+   "say": "Дайте, пожалуйста, меню. Принесите, пожалуйста, воду.",
+   "say_uz": "Menyuni bering, iltimos. Suv olib keling, iltimos.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Я хочу — dag‘al",
+   "title": "Дай чай — qo‘pol",
    "emotion": "stern",
-   "board": ["✗ Я хочу вода.", "✓ Я бы хотел воду.", "✗ Я хочу чай.", "✓ Я бы хотела чай."],
+   "board": [
+    "✗ Дай чай!",
+    "✓ Дайте, пожалуйста, чай.",
+    "✗ (ayol) Я бы хотел…",
+    "✓ (ayol) Я бы хотела…"
+   ],
    "examples": [],
-   "say_native": "“Я хочу” ni buyurtmada ishlatish o‘zbek tilidagi “xohlayman” ga to‘g‘ri keladi, lekin kafeda bu ibora bir oz buyruqdek eshitiladi. Rus tilidagi xushmuomala shakl — “я бы хотел” yoki “я бы хотела”. “Я хочу” ni ishlatgan odam dag‘al eshitiladi, chunki u “xohlayman” ni buyruq ohangida aytadi. Shuning uchun buyurtmada “мне” yoki “я бы хотел” ni afzal ko‘ring.",
-   "say": "Я бы хотел воду. Я бы хотела чай. Я бы хотел суп. Я бы хотела кофе.",
-   "say_uz": "Men suv xohlagan bo‘lardim. Men choy xohlagan bo‘lardim. Men sho‘rva xohlagan bo‘lardim. Men qahva xohlagan bo‘lardim.",
+   "say_native": "Ikki xato. Birinchisi: notanish odamga “ты” shaklida murojaat: “Дай чай!” Bu juda qo‘pol yoki haddan tashqari yaqin eshitiladi. Ofitsiantga doim “вы”: “Дайте, пожалуйста”. O‘zbekchada ham ofitsiantga “ber” emas, “bering” deymiz. Ikkinchisi: ayollar ko‘pincha darslikdagi “я бы хотел” ni o‘zgartirmay aytadi. Ayol “я бы хотела” deydi.",
+   "say": "Дайте, пожалуйста, чай. Я бы хотела чай.",
+   "say_uz": "Choy bering, iltimos. Men choy xohlardim.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Jinsga moslab ayting",
+   "title": "Muloyim qiling",
    "emotion": "encouraging",
-   "board": ["1) Erkak: sho‘rva.", "2) Ayol: choy.", "3) Erkak: qahva.", "4) Ayol: salat."],
+   "board": [
+    "1) Дай воду!",
+    "2) Хочу меню.",
+    "3) (ayol) Sho‘rva xohlardim.",
+    "4) Menga, iltimos, qahva."
+   ],
    "examples": [],
-   "say_native": "To‘rtta buyurtmani jinsga qarab ayting. Erkak uchun “я бы хотел”, ayol uchun “я бы хотела” ishlatiladi. “Я бы хотел суп”, “я бы хотела чай”, “я бы хотел кофе”, “я бы хотела салат”. Agar jinsni adashtirsangiz, gap g‘alati eshitiladi. To‘g‘ri jins shaklini tanlang.",
-   "say": "Я бы хотел суп. Я бы хотела чай. Я бы хотел кофе. Я бы хотела салат.",
-   "say_uz": "Men sho‘rva xohlagan bo‘lardim. Men choy xohlagan bo‘lardim. Men qahva xohlagan bo‘lardim. Men salat xohlagan bo‘lardim.",
+   "say_native": "Mashq. Birinchi ikki gap qo‘pol yoki keskin, ularni muloyim qiling. Uchinchi va to‘rtinchisini o‘zbekchadan ruschaga o‘giring. Uchinchisida gapiruvchi ayol ekanini unutmang. Qaysi iborani tanlasangiz ham, “пожалуйста” qo‘shing.",
+   "say": "Дайте… Можно… Я бы хотела… Мне, пожалуйста…",
+   "say_uz": "Bering… Mumkinmi… Xohlardim… Menga, iltimos…",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Я бы хотел суп.", "Я бы хотела чай.", "Я бы хотел кофе.", "Я бы хотела салат."],
+   "board": [
+    "1) Дайте, пожалуйста, воду.",
+    "2) Можно меню, пожалуйста?",
+    "3) Я бы хотела суп.",
+    "4) Мне, пожалуйста, кофе."
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Я бы хотел суп”, “я бы хотела чай”, “я бы хотел кофе”, “я бы хотела салат”. Erkak va ayol shakllari farq qiladi, shuning uchun jinsga diqqat qiling. “Хотел” erkaklar uchun, “хотела” ayollar uchun. Bu ikki so‘z kafeda buyurtma berishning eng hurmatli shakllaridan biri.",
-   "say": "Я бы хотел суп. Я бы хотела чай. Я бы хотел кофе. Я бы хотела салат.",
-   "say_uz": "Men sho‘rva xohlagan bo‘lardim. Men choy xohlagan bo‘lardim. Men qahva xohlagan bo‘lardim. Men salat xohlagan bo‘lardim.",
+   "say_native": "Javoblar: “Дайте, пожалуйста, воду” yoki “Можно стакан воды?” Ikkinchisi: “Можно меню, пожалуйста?” Uchinchisi: “Я бы хотела суп”. Ayol bo‘lgani uchun “хотела”. To‘rtinchisi: “Мне, пожалуйста, кофе”. Boshqa muloyim variant aytgan bo‘lsangiz, masalan “Я буду кофе”, bu ham to‘g‘ri.",
+   "say": "Дайте, пожалуйста, воду. Можно меню? Я бы хотела суп. Мне, пожалуйста, кофе.",
+   "say_uz": "Suv bering, iltimos. Menyu mumkinmi? Men sho‘rva xohlardim. Menga, iltimos, qahva.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Сколько стоит?",
+   "title": "Ofitsiant nima deydi?",
    "emotion": "neutral",
-   "board": ["Сколько стоит ...?", "Сколько стоит суп?", "Сколько стоит чай?", "Сколько стоит пирог?"],
-   "examples": [
-   {"t": "Сколько стоит суп?", "uz": "Sho‘rva qancha turadi?"},
-   {"t": "Сколько стоит чай?", "uz": "Choy qancha turadi?"}
+   "board": [
+    "Что будете заказывать? (nima buyurasiz?)",
+    "Что будете пить? (nima ichasiz?)",
+    "Что-нибудь ещё? (yana biror narsa?)",
+    "Здесь или с собой? → Здесь. / С собой."
    ],
-   "say_native": "Narxni so‘rash uchun “сколько стоит” iborasi ishlatiladi. “Сколько стоит суп?” — sho‘rva qancha turadi? “Сколько стоит чай?” — choy qancha turadi? “Сколько стоит пирог?” — pirog qancha turadi? Bu savolda ot o‘z asl shaklida qoladi, qo‘shimcha o‘zgarmaydi. Narx raqam bilan aytiladi: “Суп стоит двести рублей”.",
-   "say": "Сколько стоит суп? Сколько стоит чай? Сколько стоит пирог? Сколько стоит хлеб?",
-   "say_uz": "Sho‘rva qancha turadi? Choy qancha turadi? Pirog qancha turadi? Non qancha turadi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Narxni so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Sho‘rva", "2) Choy", "3) Pirog", "4) Non", "5) Qahva"],
-   "examples": [],
-   "say_native": "Besh buyurtma narxini so‘rang. “Сколько стоит суп?”, “сколько стоит чай?”, “сколько стоит пирог?”, “сколько стоит хлеб?”, “сколько стоит кофе?”. Har bir savol oxirida so‘roq belgisi bo‘ladi va ohang ko‘tariladi. Narxni aniq bilib olish buyurtmadan keyin tushunmovchilikni oldini oladi.",
-   "say": "Сколько стоит суп? Сколько стоит чай? Сколько стоит пирог? Сколько стоит хлеб? Сколько стоит кофе?",
-   "say_uz": "Sho‘rva qancha turadi? Choy qancha turadi? Pirog qancha turadi? Non qancha turadi? Qahva qancha turadi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Сколько стоит суп?", "Сколько стоит чай?", "Сколько стоит пирог?", "Сколько стоит хлеб?"],
-   "examples": [],
-   "say_native": "Javoblar: “Сколько стоит суп?”, “сколько стоит чай?”, “сколько стоит пирог?”, “сколько стоит хлеб?”, “сколько стоит кофе?”. Har bir savol bir xil tuzilgan, faqat ot o‘zgaradi. Rus tilida narxni so‘rash shunday oddiy, lekin savol ohangi bilan aniq aytiladi. Ofitsiant ko‘pincha narxni raqam bilan javob beradi.",
-   "say": "Сколько стоит суп? Сколько стоит чай? Сколько стоит пирог? Сколько стоит хлеб?",
-   "say_uz": "Sho‘rva qancha turadi? Choy qancha turadi? Pirog qancha turadi? Non qancha turadi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Чек, пожалуйста",
-   "emotion": "neutral",
-   "board": ["Счёт, пожалуйста.", "Чек, пожалуйста.", "Можно мне счёт?", "Спасибо."],
    "examples": [
-   {"t": "Счёт, пожалуйста.", "uz": "Hisob, iltimos."},
-   {"t": "Можно мне счёт?", "uz": "Menga hisob bering, iltimos."}
+    {
+     "t": "— Что-нибудь ещё? — Нет, это всё.",
+     "uz": "— Yana biror narsa? — Yo‘q, shu xolos."
+    }
    ],
-   "say_native": "Hisobni so‘rashning ikki shakli bor: “счёт, пожалуйста” va “чек, пожалуйста”. Ikkalasi ham tushunarli, ikkinchisi ko‘proq savdo nuqtalarida ishlatiladi. “Можно мне счёт?” — biroz rasmiyroq shakl. Hisob so‘ralgandan keyin to‘lov usuli aniqlanadi: “наличными или картой?” — naqd yoki karta orqali. Siz xohlagan usulni aytib, bir oz kutasiz.",
-   "say": "Счёт, пожалуйста. Чек, пожалуйста. Можно мне счёт? Спасибо.",
-   "say_uz": "Hisob, iltimos. Chek, iltimos. Menga hisob bering, iltimos? Rahmat.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Hisobni so‘rang",
-   "emotion": "encouraging",
-   "board": ["1) Hisob, iltimos.", "2) Chek, iltimos.", "3) Menga hisob bering."],
-   "examples": [],
-   "say_native": "Uch xil shaklni ketma-ket ayting. “Счёт, пожалуйста”, “чек, пожалуйста”, “можно мне счёт?”. Har birida ohang xushmuomala bo‘lsin. Hisob so‘ralgach, ofitsiant hisobni olib keladi. Siz uni olib, to‘lov usulini bildirib, pulni uzatasiz va rahmat aytasiz.",
-   "say": "Счёт, пожалуйста. Чек, пожалуйста. Можно мне счёт?",
-   "say_uz": "Hisob, iltimos. Chek, iltimos. Menga hisob bering, iltimos?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Счёт, пожалуйста.", "Чек, пожалуйста.", "Можно мне счёт?"],
-   "examples": [],
-   "say_native": "Javoblar: “Счёт, пожалуйста”, “чек, пожалуйста”, “можно мне счёт?”. Har biri hisobni so‘rash usuli. “Счёт” va “чек” ikkalasi ham hisob varog‘ini bildiradi. Kafeda “счёт” so‘zi, do‘konda “чек” so‘zi ko‘proq ishlatiladi, lekin ikkalasi ham tushunarli va to‘g‘ri.",
-   "say": "Счёт, пожалуйста. Чек, пожалуйста. Можно мне счёт?",
-   "say_uz": "Hisob, iltimos. Chek, iltimos. Menga hisob bering, iltimos?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Спасибо, Извините",
-   "emotion": "thinking",
-   "board": ["Спасибо.", "Извините, ...", "Будьте добры, ...", "Пожалуйста."],
-   "examples": [
-   {"t": "Спасибо, очень вкусно.", "uz": "Rahmat, juda mazali."},
-   {"t": "Извините, счёт, пожалуйста.", "uz": "Kechirasiz, hisob, iltimos."}
-   ],
-   "say_native": "Madaniyat nuqtai nazaridan uch so‘z juda muhim: “спасибо” — rahmat, “извините” — kechirasiz, “будьте добры” — iltimos. Ofitsiantni chaqirganda “извините” deb boshlaysiz, buyurtma berishda “будьте добры” mantiqan emas, “пожалуйста” ishlatiladi, ovqatni maqtaganingizda “спасибо, очень вкусно” deysiz. Bu uch so‘z muloqotni juda yumshatadi va sizni xushmuomala inson sifatida tanitadi.",
-   "say": "Спасибо. Спасибо, очень вкусно. Извините, счёт, пожалуйста. Будьте добры.",
-   "say_uz": "Rahmat. Rahmat, juda mazali. Kechirasiz, hisob, iltimos. Iltimos.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "mistake",
-   "title": "Давай чай — dag‘al",
-   "emotion": "stern",
-   "board": ["✗ Давай чай.", "✓ Мне чай, пожалуйста.", "✗ Чек.", "✓ Счёт, пожалуйста."],
-   "examples": [],
-   "say_native": "“Давай чай” yoki “чек” kabi qisqa buyruqlar rus tilida dag‘al eshitiladi. “Давай” do‘stlar orasida mumkin, lekin kafeda ofitsiantga aytish odobga zid. To‘g‘ri shakl — “мне чай, пожалуйста” va “счёт, пожалуйста”. O‘zbek tilida ham “choy ber” degan ibora do‘stga aytiladi, lekin notanish odamga “choy bering, iltimos” deyiladi. Rus tilida ham xuddi shunday farq bor.",
-   "say": "Мне чай, пожалуйста. Счёт, пожалуйста. Спасибо. Извините.",
-   "say_uz": "Menga choy, iltimos. Hisob, iltimos. Rahmat. Kechirasiz.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Odob bilan ayting",
-   "emotion": "encouraging",
-   "board": ["1) Choy ber.", "2) Hisob ber.", "3) Menyu ber.", "4) Non ber."],
-   "examples": [],
-   "say_native": "To‘rtta buyruqni xushmuomala shaklga aylantiring. “Давай чай” emas, “мне чай, пожалуйста”. “Чек” emas, “счёт, пожалуйста”. “Меню” emas, “можно мне меню?”. “Хлеб” emas, “мне хлеб, пожалуйста”. Har bir javobda “пожалуйста” yoki “можно мне” bo‘lishi shart. Shundagina buyurtma odobli eshitiladi.",
-   "say": "Мне чай, пожалуйста. Счёт, пожалуйста. Можно мне меню? Мне хлеб, пожалуйста.",
-   "say_uz": "Menga choy, iltimos. Hisob, iltimos. Menga menyu bering, iltimos? Menga non, iltimos.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Мне чай, пожалуйста.", "Счёт, пожалуйста.", "Можно мне меню?", "Мне хлеб, пожалуйста."],
-   "examples": [],
-   "say_native": "Javoblar: “Мне чай, пожалуйста”, “счёт, пожалуйста”, “можно мне меню?”, “мне хлеб, пожалуйста”. Har birida xushmuomala shakl ishlangan. “Давай чай” kabi buyruqlar do‘stlarga aytilishi mumkin, lekin kafeda bunday shakl odobsiz eshitiladi. “Пожалуйста” va “можно мне” buyurtmani yumshatadi.",
-   "say": "Мне чай, пожалуйста. Счёт, пожалуйста. Можно мне меню? Мне хлеб, пожалуйста.",
-   "say_uz": "Menga choy, iltimos. Hisob, iltimos. Menga menyu bering, iltimos? Menga non, iltimos.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Urg‘u",
-   "emotion": "neutral",
-   "board": ["вода́ · кофе́ · су́п · сала́т", "хле́б · меню́ · чай"],
-   "examples": [
-   {"t": "Мне воду.", "uz": "Menga suv."},
-   {"t": "Мне суп.", "uz": "Menga sho‘rva."}
-   ],
-   "say_native": "Rus tilida urg‘u so‘zning ma’nosini o‘zgartirishi mumkin, uni to‘g‘ri qo‘yish muhim. “Вода́” — suv, urg‘u oxirgi bo‘g‘inda, “кофе́” — qahva, “су́п” — birinchi bo‘g‘inda, “сала́т” — oxirgi bo‘g‘inda, “хле́б” — birinchi bo‘g‘inda, “меню́” — oxirgi bo‘g‘inda. O‘zbek tilida urg‘u deyarli har doim oxirgi bo‘g‘inda, rus tilida esa har xil bo‘ladi.",
-   "say": "Воду. Кофе. Суп. Салат. Хлеб. Меню.",
-   "say_uz": "Suv. Qahva. Sho‘rva. Salat. Non. Menyu.",
+   "say_native": "Ofitsiant yoki kassirning savollarini tushunish ham muhim. “Что будете заказывать?” — nima buyurtma qilasiz? “Что будете пить?” — nima ichasiz? “Что-нибудь ещё?” — yana biror narsa? Javob: “Нет, это всё” — yo‘q, shu xolos. Tez ovqat joyida: “Здесь или с собой?” — shu yerdami yoki olib ketasizmi? Javob: “Здесь” yoki “С собой”.",
+   "say": "Что будете заказывать? Что будете пить? Что-нибудь ещё? Здесь или с собой?",
+   "say_uz": "Nima buyurtma qilasiz? Nima ichasiz? Yana biror narsa? Shu yerdami yoki olib ketasizmi?",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 1: buyurtma berish",
+   "title": "Dialog 1: kafe kassasida",
    "emotion": "happy",
-   "board": ["— Добрый день! Можно мне меню?", "— Вот, пожалуйста.", "— Мне суп, пожалуйста."],
+   "board": [
+    "Tinglang: ichimlik? ovqat? hajmi?",
+    "Здесь или с собой?"
+   ],
    "examples": [],
-   "say_native": "Birinchi dialog. Ikki mijoz kafega kirib, menyuni so‘rab, buyurtma berishadi. Tinglab bo‘lgach, har bir mijoz nima buyurtma qilganini ayting, ofitsiant menyuni qanday berishini va mijozlar nima ichishini belgilang. “Вот, пожалуйста” — o‘zbek tilida “marhamat” degani, ofitsiant menyuni uzatayotganda aytiladi.",
-   "say": "Добрый день! Можно мне меню? Вот, пожалуйста. Мне суп, пожалуйста. Мне салат. Мне воду. И мне чай, пожалуйста. Спасибо! Очень вкусно!",
-   "say_uz": "Xayrli kun! Menga menyu bering, iltimos? Marhamat. Menga sho‘rva, iltimos. Menga salat. Menga suv. Va menga choy, iltimos. Rahmat! Juda mazali!",
+   "say_native": "Birinchi dialog. Malika Moskvadagi kichik kafeda kassada buyurtma beryapti. Diqqat bilan tinglang va to‘rt narsani eslab qoling: u qanday ichimlik oldi, qanday ovqat oldi, ichimlik katta yoki kichikmi, va u shu yerda yeydimi yoki olib ketadimi.",
+   "say": "— Здравствуйте! Что будете заказывать? — Здравствуйте. Мне, пожалуйста, кофе с молоком и кусок торта. — Кофе большой или маленький? — Маленький. — Что-нибудь ещё? — Нет, это всё. — Здесь или с собой? — С собой.",
+   "say_uz": "— Assalomu alaykum! Nima buyurtma qilasiz? — Assalomu alaykum. Menga, iltimos, sutli qahva va bir bo‘lak tort. — Qahva kattami yoki kichik? — Kichik. — Yana biror narsa? — Yo‘q, shu xolos. — Shu yerdami yoki olib ketasizmi? — Olib ketaman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Birinchi mijoz nima buyurtma qildi?", "2) Ikkinchi mijoz nima ichdi?", "3) Ofitsiant menyuni qanday berdi?"],
+   "board": [
+    "1) Ichimlik qanday?",
+    "2) Ovqat nima?",
+    "3) Katta yoki kichik?",
+    "4) Здесь или с собой?"
+   ],
    "examples": [],
-   "say_native": "Uchta savol. Birinchi mijoz nima buyurtma qildi? Ikkinchi mijoz nima ichdi? Ofitsiant menyuni qanday berdi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Он заказал суп...”, “она заказала чай...”, “он сказал: вот, пожалуйста” qoliplaridan foydalaning. Odatiy buyurtma nutqida shunday gaplar ishlatiladi.",
-   "say": "Что заказал первый гость? Что пила вторая гостья? Как официант дал меню?",
-   "say_uz": "Birinchi mehmon nima buyurtma qildi? Ikkinchi mehmon nima ichdi? Ofitsiant menyuni qanday berdi?",
+   "say_native": "To‘rtta savolga ruscha qisqa javob bering. Malika qanday ichimlik oldi? Qanday ovqat oldi? Qahva katta edimi yoki kichik? U kafeda qoldimi yoki olib ketdimi? Dialogdagi aniq iboralarni eslashga harakat qiling.",
+   "say": "Какой напиток? Какая еда? Большой или маленький? Здесь или с собой?",
+   "say_uz": "Qanday ichimlik? Qanday ovqat? Kattami yoki kichik? Shu yerdami yoki olib ketasizmi?",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Первый заказал суп и салат.", "Вторая пила воду и чай.", "Он сказал: Вот, пожалуйста."],
+   "board": [
+    "1) кофе с молоком",
+    "2) кусок торта",
+    "3) маленький",
+    "4) с собой"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Первый заказал суп и салат”, “вторая пила воду и чай”, “он сказал: вот, пожалуйста”. “Заказал” — buyurtma qildi, “пила” — ichdi. Birinchi mijoz sho‘rva va salat, ikkinchisi suv va choy buyurtma qildi. Ofitsiant menyuni “вот, пожалуйста” deb uzatdi. Dialogdagi so‘zlar qolip sifatida yodlab qolinsa, keyingi buyurtmada oson ishlatiladi.",
-   "say": "Первый заказал суп и салат. Вторая пила воду и чай. Он сказал: Вот, пожалуйста.",
-   "say_uz": "Birinchi mehmon sho‘rva va salat buyurtma qildi. Ikkinchi mehmon suv va choy ichdi. U: Marhamat, dedi.",
+   "say_native": "Javoblar: Malika sutli qahva oldi — “кофе с молоком”. Ovqatga bir bo‘lak tort — “кусок торта”. Qahva kichik — “маленький”. E’tibor bering, “кофе” erkak jinsi, shuning uchun “маленький”. U olib ketdi — “с собой”. Malika “Мне, пожалуйста” bilan boshladi va “Нет, это всё” bilan tugatdi, bu juda tabiiy.",
+   "say": "Кофе с молоком. Кусок торта. Маленький. С собой.",
+   "say_uz": "Sutli qahva. Bir bo‘lak tort. Kichik. Olib ketadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Narxni so‘rash: Сколько стоит?",
+   "emotion": "thinking",
+   "board": [
+    "Сколько сто́ит кофе? (bitta)",
+    "Сколько сто́ят пирожки? (ko‘plik)",
+    "Сколько это стоит?",
+    "сто́ит (turadi, narx) ≠ стои́т (turibdi)"
+   ],
+   "examples": [
+    {
+     "t": "Сколько стоит чай?",
+     "uz": "Choy qancha turadi?"
+    },
+    {
+     "t": "Сколько стоят пирожки?",
+     "uz": "Pirojkilar qancha turadi?"
+    }
+   ],
+   "say_native": "Narx so‘rash: “Сколько стоит…?” — necha pul turadi? Bitta narsa uchun “стоит”: “Сколько стоит кофе?” Ko‘plikdagi narsa uchun “стоят”: “Сколько стоят пирожки?” Umumiy savol: “Сколько это стоит?” — bu qancha? Urg‘uga diqqat: narx ma’nosida “сто́ит”, urg‘u birinchi bo‘g‘inda. Agar “стои́т” desangiz, bu “turibdi” degan boshqa fe’l bo‘ladi.",
+   "say": "Сколько стоит чай? Сколько стоят пирожки? Сколько это стоит?",
+   "say_uz": "Choy qancha turadi? Pirojkilar qancha turadi? Bu qancha turadi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Рубль, рубля, рублей",
+   "emotion": "thinking",
+   "board": [
+    "1, 21, 31 → рубль",
+    "2, 3, 4 (22, 33…) → рубля́",
+    "5–20, 25, 100… → рубле́й",
+    "сто · двести · триста · пятьсот · тысяча"
+   ],
+   "examples": [
+    {
+     "t": "Чай стоит сто рублей.",
+     "uz": "Choy yuz rubl turadi."
+    },
+    {
+     "t": "Это стоит двадцать два рубля.",
+     "uz": "Bu yigirma ikki rubl turadi."
+    }
+   ],
+   "say_native": "Oxiri bir bo‘lsa, masalan 1, 21, 31: “рубль”. Oxiri 2, 3, 4 bo‘lsa: “рубля”. 5 dan 20 gacha va oxiri 5 dan 9 gacha yoki 0 bo‘lsa: “рублей”. O‘zbekchada “besh so‘m”, “yuz so‘m” deb so‘z o‘zgarmaydi, rus tilida esa uch shakl bor. Katta sonlar: “сто” — yuz, “двести” — ikki yuz, “триста” — uch yuz, “пятьсот” — besh yuz, “тысяча” — ming. “Сто рублей”, “двести рублей”.",
+   "say": "Один рубль. Два рубля. Пять рублей. Сто рублей. Двадцать два рубля.",
+   "say_uz": "Bir rubl. Ikki rubl. Besh rubl. Yuz rubl. Yigirma ikki rubl.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Сколько стоит пирожки — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ Сколько стоит пирожки?",
+    "✓ Сколько стоят пирожки?",
+    "✗ пять рубль · ✗ два рублей",
+    "✓ пять рублей · ✓ два рубля"
+   ],
+   "examples": [],
+   "say_native": "Ikki keng tarqalgan xato. Birinchisi: ko‘plik bilan “стоит” ishlatish. “Пирожки” — ko‘plik, shuning uchun “стоят”. Bu oldingi darsdagi “он работает” va “они работают” farqi bilan bir xil. Ikkinchisi: sondan keyin “рубль” ni o‘zgartirmaslik. “Пять рубль” emas, “пять рублей”. “Два рублей” emas, “два рубля”.",
+   "say": "Сколько стоят пирожки? Пять рублей. Два рубля.",
+   "say_uz": "Pirojkilar qancha turadi? Besh rubl. Ikki rubl.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Narxni so‘rang va ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) торт → ?",
+    "2) пирожки → ?",
+    "3) 3 ₽",
+    "4) 21 ₽",
+    "5) 150 ₽"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Birinchi ikkitasida narxni so‘rang: torting narxini, keyin pirojkilarning narxini. Diqqat, pirojkilar ko‘plikda. Qolgan uchtasida narxni ovoz chiqarib o‘qing: uch rubl, yigirma bir rubl, bir yuz ellik rubl. To‘g‘ri shaklni tanlash uchun oxirgi raqamga qarang.",
+   "say": "Сколько стоит… Сколько стоят… Три… Двадцать один… Сто пятьдесят…",
+   "say_uz": "Qancha turadi… Qancha turadi… Uch… Yigirma bir… Bir yuz ellik…",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Сколько стоит торт?",
+    "2) Сколько стоят пирожки?",
+    "3) три рубля",
+    "4) двадцать один рубль",
+    "5) сто пятьдесят рублей"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Сколько стоит торт?” — bitta narsa. “Сколько стоят пирожки?” — ko‘plik. “Три рубля”, chunki oxiri uch. “Двадцать один рубль”, chunki oxiri bir. “Сто пятьдесят рублей”, chunki oxiri nol.",
+   "say": "Сколько стоит торт? Сколько стоят пирожки? Три рубля. Двадцать один рубль. Сто пятьдесят рублей.",
+   "say_uz": "Tort qancha turadi? Pirojkilar qancha turadi? Uch rubl. Yigirma bir rubl. Bir yuz ellik rubl.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hisobni so‘rash",
+   "emotion": "neutral",
+   "board": [
+    "Счёт, пожалуйста! [щёт]",
+    "Можно счёт?",
+    "Сколько с меня? (men qancha to‘layman?)",
+    "С вас пятьсот рублей."
+   ],
+   "examples": [
+    {
+     "t": "Принесите, пожалуйста, счёт.",
+     "uz": "Hisobni olib keling, iltimos."
+    },
+    {
+     "t": "— Сколько с меня? — С вас триста рублей.",
+     "uz": "— Men qancha to‘layman? — Siz uch yuz rubl to‘laysiz."
+    }
+   ],
+   "say_native": "Ovqatdan keyin hisobni so‘raymiz. Eng qisqa usul: “Счёт, пожалуйста!” “Счёт” “shyot” emas, yumshoq va cho‘ziq “щёт” deb aytiladi. Kassada esa “Сколько с меня?” — mendan qancha? Javob: “С вас пятьсот рублей” — sizdan besh yuz rubl. Bu ikki ibora juft bo‘lib keladi: “с меня” — mendan, “с вас” — sizdan.",
+   "say": "Счёт, пожалуйста! Сколько с меня? С вас пятьсот рублей.",
+   "say_uz": "Hisob, iltimos! Men qancha to‘layman? Siz besh yuz rubl to‘laysiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "To‘lov: karta yoki naqd",
+   "emotion": "neutral",
+   "board": [
+    "Можно оплатить картой?",
+    "Наличными или картой? → Картой.",
+    "Вот, пожалуйста. (mana)",
+    "Сдачи не надо. (qaytim kerak emas)"
+   ],
+   "examples": [
+    {
+     "t": "— Наличными или картой? — Картой.",
+     "uz": "— Naqdmi yoki kartami? — Karta bilan."
+    },
+    {
+     "t": "Вот, пожалуйста. Сдачи не надо.",
+     "uz": "Mana, oling. Qaytim kerak emas."
+    }
+   ],
+   "say_native": "To‘lov iboralari. “Можно оплатить картой?” — karta bilan to‘lasa bo‘ladimi? Kassir so‘raydi: “Наличными или картой?” — naqdmi yoki kartami? Javob bitta so‘z: “Картой” yoki “Наличными”. Pulni berayotganda: “Вот, пожалуйста” — mana, oling. Qaytimni olmasangiz: “Сдачи не надо”.",
+   "say": "Можно оплатить картой? Наличными или картой? Картой. Вот, пожалуйста. Сдачи не надо.",
+   "say_uz": "Karta bilan to‘lasa bo‘ladimi? Naqdmi yoki kartami? Karta bilan. Mana, oling. Qaytim kerak emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Счёт va чек",
+   "emotion": "stern",
+   "board": [
+    "счёт — to‘lovdan oldin (hisob)",
+    "чек — to‘lovdan keyin (kvitansiya)",
+    "✗ Сколько стоит с меня?",
+    "✓ Сколько с меня?"
+   ],
+   "examples": [],
+   "say_native": "Ikki chalkashlik. Birinchisi: “счёт” va “чек”. “Счёт” — to‘lashdan oldin keltiriladigan hisob. “Чек” — to‘lagandan keyin beriladigan kvitansiya. Ovqatdan keyin “Принесите чек” emas, “Принесите счёт” deysiz. Ikkinchisi: ikki iborani aralashtirish. “Сколько стоит с меня?” noto‘g‘ri. Yo “Сколько стоит?”, yo “Сколько с меня?”.",
+   "say": "Принесите, пожалуйста, счёт. Сколько с меня?",
+   "say_uz": "Hisobni olib keling, iltimos. Men qancha to‘layman?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Nima deysiz?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Hisobni so‘rang.",
+    "2) Karta bilan to‘lash mumkinmi?",
+    "3) Kassada: mendan qancha?",
+    "4) Qaytim kerak emas."
+   ],
+   "examples": [],
+   "say_native": "To‘rtta vaziyat. Birinchi: restoranda ofitsiantdan hisobni so‘rang. Ikkinchi: karta bilan to‘lash mumkinligini so‘rang. Uchinchi: kassada qancha to‘lashingizni so‘rang. To‘rtinchi: pulni berib, qaytim kerak emasligini ayting. Har biriga ruscha bitta qisqa gap yetarli.",
+   "say": "Счёт… Можно… Сколько… Сдачи…",
+   "say_uz": "Hisob… Mumkinmi… Qancha… Qaytim…",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) Счёт, пожалуйста! / Можно счёт?",
+    "2) Можно оплатить картой?",
+    "3) Сколько с меня?",
+    "4) Вот, пожалуйста. Сдачи не надо."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “Счёт, пожалуйста!” yoki “Можно счёт?” Ikkinchisi: “Можно оплатить картой?” yoki qisqaroq “Можно картой?” Uchinchisi: “Сколько с меня?” To‘rtinchisi: “Вот, пожалуйста. Сдачи не надо.”",
+   "say": "Счёт, пожалуйста! Можно оплатить картой? Сколько с меня? Вот, пожалуйста. Сдачи не надо.",
+   "say_uz": "Hisob, iltimos! Karta bilan to‘lasa bo‘ladimi? Men qancha to‘layman? Mana, oling. Qaytim kerak emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Madaniyat: ofitsiantga murojaat",
+   "emotion": "thinking",
+   "board": [
+    "Извините! · Будьте добры!",
+    "Девушка! · Молодой человек! (so‘zlashuv)",
+    "ofitsiantga doim «вы»"
+   ],
+   "examples": [
+    {
+     "t": "Извините, можно меню?",
+     "uz": "Kechirasiz, menyu mumkinmi?"
+    },
+    {
+     "t": "Будьте добры, стакан воды.",
+     "uz": "Iltimos, bir stakan suv."
+    }
+   ],
+   "say_native": "Ofitsiantni qanday chaqirish kerak? Eng xavfsiz usul: unga qarab, “Извините!” deyish. Juda muloyim variant: “Будьте добры…” — marhamat qilib. Rossiyada so‘zlashuvda “Девушка!” va “Молодой человек!” ham keng ishlatiladi, bu bizdagi “singlim”, “uka” ga o‘xshaydi, lekin rasmiy emas. Har qanday holatda ofitsiantga “вы” bilan gapiring, yoshi sizdan kichik bo‘lsa ham.",
+   "say": "Извините, можно меню? Будьте добры, стакан воды.",
+   "say_uz": "Kechirasiz, menyu mumkinmi? Iltimos, bir stakan suv.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Пожалуйста, спасибо, приятного аппетита",
+   "emotion": "happy",
+   "board": [
+    "пожалуйста = iltimos / arzimaydi / mana",
+    "Спасибо, было очень вкусно!",
+    "Приятного аппетита! (yoqimli ishtaha)",
+    "чаевые (choy puli) — ixtiyoriy"
+   ],
+   "examples": [
+    {
+     "t": "— Спасибо! — Пожалуйста!",
+     "uz": "— Rahmat! — Arzimaydi!"
+    },
+    {
+     "t": "Приятного аппетита!",
+     "uz": "Yoqimli ishtaha!"
+    }
+   ],
+   "say_native": "“Пожалуйста” uch ma’noda ishlatiladi: iltimos, arzimaydi va narsani berayotganda mana. “Приятного аппетита!” — yoqimli ishtaha, ofitsiant taom keltirganda aytadi. Ketayotganda “Спасибо, было очень вкусно!” — rahmat, juda mazali edi, deyish yoqimli. Choy puli “чаевые” deyiladi, u majburiy emas; restoranlarda ko‘pincha hisobning taxminan o‘n foizi qoldiriladi.",
+   "say": "Приятного аппетита! Спасибо, было очень вкусно!",
+   "say_uz": "Yoqimli ishtaha! Rahmat, juda mazali edi!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: пожалуйста, что, счёт",
+   "emotion": "thinking",
+   "board": [
+    "пожа́луйста → [пажа́лста]",
+    "что → [што]",
+    "счёт → [щёт]",
+    "хлеб → [хлеп] · молоко́ → [малако́]"
+   ],
+   "examples": [],
+   "say_native": "Tabiiy talaffuz. “Пожалуйста” so‘zi tez nutqda “pajalsta” bo‘lib eshitiladi, “у” va “й” deyarli yo‘qoladi. “Что” — “shto”. “Счёт” — “shyot” ga yaqin, lekin yumshoq va cho‘ziq “щ” bilan. “Хлеб” — oxiri “п”. “Молоко” — urg‘usiz “o” lar “a” bo‘ladi.",
+   "say": "Пожалуйста. Что? Счёт. Хлеб. Молоко.",
+   "say_uz": "Iltimos. Nima? Hisob. Non. Sut.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 2: narx va hisob",
-   "emotion": "neutral",
-   "board": ["— Сколько стоит пирог?", "— Двести рублей.", "— Счёт, пожалуйста."],
+   "title": "Dialog 2: restoranda",
+   "emotion": "happy",
+   "board": [
+    "Tinglang: kim nima oldi?",
+    "Ichimliklar? Hisob qancha? Qanday to‘laydi?"
+   ],
    "examples": [],
-   "say_native": "Ikkinchi dialog. Mijoz narxni so‘rab, hisobni to‘lamoqchi. Tinglab bo‘lgach, pirog qancha turganini, mijoz hisobni qanday so‘raganini va to‘lov qanday bo‘lganini ayting. “Двести рублей” — narxning rus tilida aytilishi, o‘zbek tilida “ikki yuz so‘m” ga teng. “Наличными или картой?” — to‘lov usuli so‘ralishi.",
-   "say": "Сколько стоит пирог? Двести рублей. Спасибо! Счёт, пожалуйста! Наличными или картой? Картой, пожалуйста. Вот, пожалуйста. Спасибо! До свидания!",
-   "say_uz": "Pirog qancha turadi? Ikki yuz so‘m. Rahmat! Hisob, iltimos! Naqd yoki karta orqali? Karta orqali, iltimos. Marhamat. Rahmat! Xayr!",
+   "say_native": "Ikkinchi dialog, uzunroq. Aziz va uning do‘sti Olga restoranda kechki ovqat qilyapti. Tinglang va to‘rt narsani eslab qoling: Aziz nima oldi, Olga nima oldi, ular nima ichdi, hisob qancha bo‘ldi va qanday to‘lashdi.",
+   "say": "— Добрый вечер! Вы готовы заказать? — Да. Мне, пожалуйста, суп и плов. — А я буду салат и рыбу. — Что будете пить? — Чай с лимоном. — А мне стакан воды. … — Извините, счёт, пожалуйста. — Пожалуйста. С вас девятьсот рублей. — Можно картой? — Конечно. — Спасибо, было очень вкусно!",
+   "say_uz": "— Xayrli kech! Buyurtma berishga tayyormisiz? — Ha. Menga, iltimos, sho‘rva va palov. — Men esa salat va baliq olaman. — Nima ichasiz? — Limonli choy. — Menga esa bir stakan suv. … — Kechirasiz, hisob, iltimos. — Marhamat. Sizdan to‘qqiz yuz rubl. — Karta bilan mumkinmi? — Albatta. — Rahmat, juda mazali edi!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": ["1) Pirog qancha turdi?", "2) Mijoz hisobni qanday so‘radi?", "3) To‘lov qanday bo‘ldi?"],
-   "examples": [],
-   "say_native": "Uchta savol. Pirog qancha turdi? Mijoz hisobni qanday so‘radi? To‘lov qanday bo‘ldi? Javoblarni rus tilida, to‘liq gap bilan ayting. “Пирог стоит двести рублей”, “он сказал: счёт, пожалуйста”, “он заплатил картой” qoliplarini ishlating. To‘lov usuli aniq ko‘rsatilgan.",
-   "say": "Сколько стоит пирог? Как гость попросил счёт? Как он заплатил?",
-   "say_uz": "Pirog qancha turadi? Mehmon hisobni qanday so‘radi? U qanday to‘ladi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": ["Пирог стоит двести рублей.", "Он сказал: Счёт, пожалуйста.", "Он заплатил картой."],
-   "examples": [],
-   "say_native": "Javoblar: “Пирог стоит двести рублей”, “он сказал: счёт, пожалуйста”, “он заплатил картой”. Pirog ikki yuz rubl turdi, mijoz hisobni “счёт, пожалуйста” deb so‘radi va kartada to‘ladi. “Заплатил” — to‘ladi degani, “картой” orqali to‘lashni bildiradi. Hisob so‘rash va to‘lash ikkalasi ham xushmuomala shaklda bajarildi.",
-   "say": "Пирог стоит двести рублей. Он сказал: Счёт, пожалуйста. Он заплатил картой.",
-   "say_uz": "Pirog ikki yuz so‘m turadi. U: Hisob, iltimos, dedi. U karta orqali to‘ladi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Мне суп — qisqa shakl",
-   "emotion": "thinking",
-   "board": ["Мне суп.", "Мне чай.", "Мне хлеб.", "«Мне» + ot"],
-   "examples": [
-   {"t": "Мне суп.", "uz": "Menga sho‘rva."},
-   {"t": "Мне суп, пожалуйста.", "uz": "Menga sho‘rva, iltimos."}
+   "board": [
+    "1) Что берёт Азиз?",
+    "2) Что берёт Ольга?",
+    "3) Что они пьют?",
+    "4) Сколько стоит ужин? Как они платят?"
    ],
-   "say_native": "“Мне” dan keyin ot ko‘rsatkich shaklida keladi va fe’l kerak bo‘lmaydi. “Мне суп” — menga sho‘rva, “мне чай” — menga choy, “мне хлеб” — menga non. Bu yerda rus tilida “есть” so‘zi ishlatilmaydi, chunki buyurtma kontekst ichida aniq. O‘zbek tilida esa “menga sho‘rva kerak” deymiz. Farqni eslab qolsangiz, gaplaringiz tabiiyroq eshitiladi.",
-   "say": "Мне суп. Мне чай. Мне хлеб. Мне салат.",
-   "say_uz": "Menga sho‘rva. Menga choy. Menga non. Menga salat.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Fe’lsiz buyurtma qiling",
-   "emotion": "encouraging",
-   "board": ["1) Sho‘rva", "2) Choy", "3) Non", "4) Salat", "5) Qahva"],
    "examples": [],
-   "say_native": "Besh buyurtmani fe’lsiz, faqat “мне” bilan ayting. “Мне суп”, “мне чай”, “мне хлеб”, “мне салат”, “мне кофе”. Bu shakl kafeda eng tez va tabiiy. Agar har bir gapga fe’l qo‘shsangiz, u sun’iy eshitiladi. “Мне суп” — to‘liq buyurtma, oxirida “пожалуйста” ni qo‘shib qo‘ysangiz, u yanada xushmuomala bo‘ladi.",
-   "say": "Мне суп. Мне чай. Мне хлеб. Мне салат. Мне кофе.",
-   "say_uz": "Menga sho‘rva. Menga choy. Menga non. Menga salat. Menga qahva.",
+   "say_native": "To‘rtta savol. Aziz qanday taomlar buyurdi? Olga nima oldi? Ular qanday ichimlik so‘radi? Hisob qancha chiqdi va ular naqd to‘ladimi yoki karta bilanmi? Javoblarni ruscha qisqa iboralar bilan ayting.",
+   "say": "Что берёт Азиз? Что берёт Ольга? Что они пьют? Сколько стоит ужин? Как они платят?",
+   "say_uz": "Aziz nima oladi? Olga nima oladi? Ular nima ichadi? Kechki ovqat qancha turadi? Ular qanday to‘laydi?",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": ["Мне суп.", "Мне чай.", "Мне хлеб.", "Мне салат.", "Мне кофе."],
+   "board": [
+    "1) суп и плов",
+    "2) салат и рыбу",
+    "3) чай с лимоном, стакан воды",
+    "4) девятьсот рублей, картой"
+   ],
    "examples": [],
-   "say_native": "Javoblar: “Мне суп”, “мне чай”, “мне хлеб”, “мне салат”, “мне кофе”. Har birida fe’l yo‘q, lekin buyurtma aniq tushunarli. Bu shakl rus tilidagi kafeda buyurtma berishning eng sodda va tabiiy usuli. Agar xushmuomala qilmoqchi bo‘lsangiz, oxirida “пожалуйста” ni qo‘shing.",
-   "say": "Мне суп. Мне чай. Мне хлеб. Мне салат. Мне кофе.",
-   "say_uz": "Menga sho‘rva. Menga choy. Menga non. Menga salat. Menga qahva.",
+   "say_native": "Javoblar: Aziz sho‘rva va palov oldi — “суп и плов”. Olga salat va baliq oldi: u “я буду салат и рыбу” dedi, “рыба” emas, “рыбу”. Ichimliklar: limonli choy va bir stakan suv. Hisob to‘qqiz yuz rubl, oxiri nol, shuning uchun “рублей”. Ular karta bilan to‘ladi: “Можно картой?” — “Конечно”.",
+   "say": "Суп и плов. Салат и рыбу. Чай с лимоном и стакан воды. Девятьсот рублей, картой.",
+   "say_uz": "Sho‘rva va palov. Salat va baliq. Limonli choy va bir stakan suv. To‘qqiz yuz rubl, karta bilan.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Yakuniy mashq: to‘liq buyurtma",
+   "title": "Yakuniy vazifa: to‘liq buyurtma",
    "emotion": "encouraging",
-   "board": ["1) Menyu", "2) Sho‘rva", "3) Choy", "4) Narx", "5) Hisob", "6) Rahmat"],
+   "board": [
+    "Извините! → меню",
+    "напиток → еда (2 блюда)",
+    "Сколько стоит…? → Счёт",
+    "Картой / Наличными → Спасибо!"
+   ],
    "examples": [],
-   "say_native": "Yakuniy mashq. To‘liq muloqotni birga ayting: menyuni so‘rang, sho‘rvani buyurtma qiling, choy buyurtma qiling, narxni so‘rang, hisobni so‘rang va rahmat aytib chiqib keting. Har bir qadam xushmuomala shaklda bo‘lsin. Pauza bo‘lganda baland ovozda, ozod talaffuz bilan gapiring.",
-   "say": "Здравствуйте! Можно мне меню? Мне суп, пожалуйста. Мне чай. Сколько стоит суп? Счёт, пожалуйста! Спасибо!",
-   "say_uz": "Assalomu alaykum! Menga menyu bering, iltimos? Menga sho‘rva, iltimos. Menga choy. Sho‘rva qancha turadi? Hisob, iltimos! Rahmat!",
-   "practice_seconds": 20
+   "say_native": "Eng muhim mashq. Siz kafedasiz, men ofitsiantman. Ekrandagi rejaga qarab, butun suhbatni o‘zingiz ayting: ofitsiantni chaqiring, menyuni so‘rang, ichimlik va ikki taom buyuring, bitta narxni so‘rang, hisobni so‘rang, to‘lov usulini ayting va rahmat deng. Kamida ikki xil muloyim iborani ishlating.",
+   "say": "Добрый день! Что будете заказывать?",
+   "say_uz": "Xayrli kun! Nima buyurtma qilasiz?",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
-   "title": "Namuna javob",
+   "title": "Namunaviy javob",
    "emotion": "proud",
-   "board": ["Здравствуйте! Можно мне меню?", "Мне суп, пожалуйста.", "Мне чай и хлеб.", "Счёт, пожалуйста. Спасибо!"],
+   "board": [
+    "Извините, можно меню?",
+    "Я бы хотел чай с лимоном.",
+    "Мне, пожалуйста, суп и курицу с рисом.",
+    "Сколько стоит торт? · Счёт, пожалуйста. · Картой."
+   ],
    "examples": [],
-   "say_native": "Namuna: “Здравствуйте! Можно мне меню?” Ofitsiant menyuni beradi. “Мне суп, пожалуйста. Мне чай и хлеб”. Narx so‘raladi: “Сколько стоит суп?” Hisob so‘raladi: “Счёт, пожалуйста. Спасибо!” Har bir qadam xushmuomala shaklda bajarildi. “Пожалуйста” ikki marta ishlatildi, “можно мне” orqali menyu so‘raldi, narx aniq so‘raldi.",
-   "say": "Здравствуйте! Можно мне меню? Мне суп, пожалуйста. Мне чай и хлеб. Сколько стоит суп? Счёт, пожалуйста! Спасибо!",
-   "say_uz": "Assalomu alaykum! Menga menyu bering, iltimos? Menga sho‘rva, iltimos. Menga choy va non. Sho‘rva qancha turadi? Hisob, iltimos! Rahmat!",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "O‘zingizni tekshiring",
-   "emotion": "proud",
-   "board": ["Мне ..., пожалуйста", "Можно мне ...?", "Сколько стоит ...?", "Счёт, пожалуйста"],
-   "examples": [],
-   "say_native": "O‘zingizni tekshiring. Buyurtmani “мне ..., пожалуйста” shaklida bera olasizmi? Menyuni “можно мне меню?” deb so‘ra olasizmi? Narxni “сколько стоит” deb aniq so‘ra olasizmi? Hisobni “счёт, пожалуйста” deb so‘ra olasizmi? Jinsga mos “я бы хотел” yoki “я бы хотела” ni to‘g‘ri tanlaysizmi? Hammasi joyida bo‘lsa, kafeda muloqot siz uchun tayyor.",
-   "say": "Мне суп, пожалуйста. Можно мне меню? Сколько стоит суп? Счёт, пожалуйста! Спасибо!",
-   "say_uz": "Menga sho‘rva, iltimos. Menga menyu bering, iltimos? Sho‘rva qancha turadi? Hisob, iltimos! Rahmat!",
+   "say_native": "Namuna bilan solishtiring. “Извините, можно меню?” “Я бы хотел чай с лимоном”, ayol bo‘lsangiz “хотела”. “Мне, пожалуйста, суп и курицу с рисом”, “курица” emas, “курицу”. “Сколько стоит торт?” Keyin: “Счёт, пожалуйста”. “Можно картой?” Oxirida: “Спасибо, было очень вкусно!”",
+   "say": "Извините, можно меню? Я бы хотел чай с лимоном. Мне, пожалуйста, суп и курицу с рисом. Счёт, пожалуйста. Можно картой? Спасибо, было очень вкусно!",
+   "say_uz": "Kechirasiz, menyu mumkinmi? Men limonli choy xohlardim. Menga, iltimos, sho‘rva va guruchli tovuq. Hisob, iltimos. Karta bilan mumkinmi? Rahmat, juda mazali edi!",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": ["вода · чай · суп · салат · хлеб", "Мне ..., пожалуйста · Можно мне ...?", "Сколько стоит ...? · Счёт, пожалуйста.", "Спасибо · Извините · Пожалуйста"],
+   "board": [
+    "чай, кофе, вода, суп, плов, рыба, мясо…",
+    "Я хочу / буду + воду, рыбу (-а → -у)",
+    "Я бы хотел(а)… · Можно…? · Мне, пожалуйста…",
+    "Сколько стоит/стоят? · рубль/рубля/рублей · Счёт, пожалуйста!"
+   ],
    "examples": [],
-   "say_native": "Xulosa. Ovqat va ichimlik nomlarini o‘rgandik: “вода, чай, кофе, суп, салат, хлеб, пирог, меню, счёт”. Xushmuomala buyurtma shakllarini o‘rgandik: “мне ..., пожалуйста”, “можно мне ...?”, “я бы хотел / хотела”. Narxni so‘rash va hisobni to‘lashni o‘rgandik: “сколько стоит”, “счёт, пожалуйста”. Endi kafeda bemalol buyurtma berib, hisobni to‘laysiz.",
-   "say": "Отлично! Теперь вы умеете заказывать еду и напитки в кафе.",
-   "say_uz": "Ajoyib! Endi kafeda ovqat va ichimlik buyurtma bera olasiz.",
+   "say_native": "Xulosa. Ovqat va ichimlik nomlarini, ularning jinsini va idish iboralarini o‘rgandik: “стакан воды”, “чашка чая”. “Хочу”, “буду”, “дайте” dan keyin “-а” oxiri “-у” ga aylanadi: “воду, рыбу”. Muloyim buyurtma uchun “я бы хотел” yoki “хотела”, “можно”, “мне, пожалуйста”. Narx uchun “сколько стоит” va “стоят”, “рубль, рубля, рублей”. Hisob: “Счёт, пожалуйста”. Ofitsiantga doim “вы”.",
+   "say": "Отлично! Теперь вы можете заказать еду и заплатить в кафе.",
+   "say_uz": "Ajoyib! Endi kafeda ovqat buyurtma qilib, to‘lay olasiz.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uyga vazifa",
    "emotion": "encouraging",
-   "board": ["To‘liq buyurtma: menyu → sho‘rva → choy → narx → hisob", "8 gap yozing", "Keyingi dars: uy, xonalar va jihozlar"],
+   "board": [
+    "Rolli o‘yin: to‘liq ovqat + to‘lov",
+    "ichimlik · 2 taom · narx · hisob · to‘lov",
+    "kamida 3 ta tushum kelishigi (-у)"
+   ],
    "examples": [],
-   "say_native": "Uyga vazifa. Kafeda to‘liq muloqotni yozib, ustiga kamida to‘rt xushmuomala iborani ishlating: “можно мне меню”, “мне суп, пожалуйста”, “сколько стоит”, “счёт, пожалуйста”. Mezon: har bir gap rus tilida, ohang xushmuomala, narx va hisob aniq ko‘rsatilgan. Keyingi darsda uy, xonalar va jihozlarni o‘rganamiz. Ko‘rishguncha!",
-   "say": "До свидания! До встречи на следующем уроке. Мы будем говорить о доме и комнатах.",
-   "say_uz": "Xayr! Keyingi darsda ko‘rishamiz. Biz uy va xonalar haqida gaplashamiz.",
+   "say_native": "Uyga vazifa. Kafeda to‘liq ovqatlanishni rolli o‘yin qilib bajaring. Mezon: ichimlik va ikki taom buyurtma qilingan, kamida bitta narx so‘ralgan, hisob so‘ralgan va to‘lov usuli aytilgan, kamida uchta so‘z “-у” bilan to‘g‘ri ishlatilgan va ofitsiantga faqat “вы” bilan murojaat qilingan. Keyingi darsda uy, xonalar va jihozlarni o‘rganamiz. Ko‘rishguncha!",
+   "say": "До свидания! Приятного аппетита и до встречи!",
+   "say_uz": "Xayr! Yoqimli ishtaha va ko‘rishguncha!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Kafeda to‘liq buyurtma yozing: menyuni so‘rang, sho‘rva va choy buyurtma qiling, narxni so‘rang, hisobni so‘rab, rahmat aytib, chiqib keting. Mezon: kamida to‘rt xushmuomala ibora (можно мне меню, мне суп пожалуйста, сколько стоит, счёт пожалуйста) ishlatilgan, hamma gap rus tilida.",
+ "homework_uz": "Kafeda to‘liq ovqatlanishni rolli o‘yin qilib bajaring (sherik bilan yoki ikkala rolni o‘zingiz o‘ynab, ovozingizni yozib oling). Mezon: ichimlik va ikki taom buyurtma qilingan, kamida bitta narx so‘ralgan («Сколько стоит/стоят…?»), hisob so‘ralgan va to‘lov usuli aytilgan, kamida uchta so‘z tushum kelishigida (-у) to‘g‘ri, ofitsiantga faqat «вы» bilan murojaat qilingan.",
  "quiz": [
   {
-   "q": "How do you say ‘Can I have the menu?’",
-   "options": ["Можно мне меню?", "Давай меню.", "Меню!", "Я хочу меню."],
-   "answer": 0,
-   "why_uz": "Xushmuomala shakl: Можно мне меню?"
+   "q": "Choose the correct form: «Я хочу …»",
+   "options": [
+    "вода",
+    "воду",
+    "воды",
+    "водой"
+   ],
+   "answer": 1,
+   "why_uz": "Хочу dan keyin tushum kelishigi: вода → воду."
   },
   {
-   "q": "Choose the polite order for ‘I would like soup, please’",
-   "options": ["Мне суп, пожалуйста.", "Суп!", "Давай суп.", "Я хочу суп."],
-   "answer": 0,
-   "why_uz": "Мне суп, пожалуйста — xushmuomala buyurtma."
+   "q": "Which phrase is the most polite way to order?",
+   "options": [
+    "Дай чай!",
+    "Чай!",
+    "Я бы хотел чай, пожалуйста.",
+    "Слушай, чай."
+   ],
+   "answer": 2,
+   "why_uz": "Я бы хотел + пожалуйста — eng muloyim shakl. Дай va слушай — ты-shakl, qo‘pol."
   },
   {
-   "q": "How do you ask ‘How much is the soup?’",
-   "options": ["Сколько стоит суп?", "Сколько суп?", "Что суп?", "Суп сколько?"],
-   "answer": 0,
-   "why_uz": "Сколько стоит — narx so‘rash iborasi."
+   "q": "A woman orders. Choose the correct form.",
+   "options": [
+    "Я бы хотел суп.",
+    "Я бы хотела суп.",
+    "Я бы хотеть суп.",
+    "Я бы хочу суп."
+   ],
+   "answer": 1,
+   "why_uz": "Ayol gapirganda: я бы хотела."
   },
   {
-   "q": "Choose the correct phrase for ‘The bill, please’",
-   "options": ["Счёт, пожалуйста.", "Чек!", "Деньги!", "Счёт, давай."],
-   "answer": 0,
-   "why_uz": "Счёт, пожалуйста — hisobni so‘rash."
+   "q": "Choose the correct question: «Сколько … пирожки?»",
+   "options": [
+    "стоит",
+    "стоят",
+    "стою",
+    "стоишь"
+   ],
+   "answer": 1,
+   "why_uz": "Пирожки — ko‘plik, shuning uchun стоят."
   },
   {
-   "q": "A man says ‘I would like tea’. He says:",
-   "options": ["Я бы хотел чай.", "Я бы хотела чай.", "Я хотел чай.", "Я бы хотели чай."],
-   "answer": 0,
-   "why_uz": "Erkak uchun Я бы хотел."
+   "q": "How do you say ‘5 roubles’?",
+   "options": [
+    "пять рубль",
+    "пять рубля",
+    "пять рублей",
+    "пять рублю"
+   ],
+   "answer": 2,
+   "why_uz": "5–20 dan keyin рублей: пять рублей."
   },
   {
-   "q": "A woman says ‘I would like coffee’. She says:",
-   "options": ["Я бы хотела кофе.", "Я бы хотел кофе.", "Я хотела кофе.", "Я бы хотела кофее."],
-   "answer": 0,
-   "why_uz": "Ayol uchun Я бы хотела."
+   "q": "Choose the correct phrase for ‘a glass of water’.",
+   "options": [
+    "стакан вода",
+    "стакан воду",
+    "стакан воды",
+    "стакан водой"
+   ],
+   "answer": 2,
+   "why_uz": "Idishdan keyin: стакан воды."
   },
   {
-   "q": "Which word means ‘thank you’?",
-   "options": ["Спасибо", "Пожалуйста", "Извините", "Здравствуйте"],
-   "answer": 0,
-   "why_uz": "Спасибо — rahmat."
+   "q": "Choose the correct adjective: «… вода»",
+   "options": [
+    "холодный",
+    "холодная",
+    "холодное",
+    "холодные"
+   ],
+   "answer": 1,
+   "why_uz": "Вода — ayol jinsi: холодная вода."
   },
   {
-   "q": "Why is ‘Давай чай’ impolite in a café?",
-   "options": ["It is a command to a friend, not a polite request.", "It is grammatically wrong.", "It is too long.", "It means ‘give me water’."],
-   "answer": 0,
-   "why_uz": "Давай — do‘stga aytiladigan buyruq, kafeda xushmuomala shakl kerak."
+   "q": "What do you say to ask for the bill before paying?",
+   "options": [
+    "Чек, пожалуйста.",
+    "Счёт, пожалуйста.",
+    "Сдачи не надо.",
+    "Приятного аппетита."
+   ],
+   "answer": 1,
+   "why_uz": "To‘lashdan oldin — счёт. Чек — to‘lovdan keyingi kvitansiya."
   },
   {
-   "q": "How do you say ‘Excuse me, the bill please’?",
-   "options": ["Извините, счёт, пожалуйста.", "Эй, счёт!", "Чек давай.", "Счёт, ты."],
-   "answer": 0,
-   "why_uz": "Извините — kechirasiz, xushmuomala shakl."
+   "q": "The cashier asks «Наличными или картой?». What does it mean?",
+   "options": [
+    "Here or to go?",
+    "Cash or card?",
+    "Anything else?",
+    "Are you ready to order?"
+   ],
+   "answer": 1,
+   "why_uz": "Наличными или картой? — naqdmi yoki kartami?"
   },
   {
-   "q": "Which sentence is a correct order without a verb?",
-   "options": ["Мне суп.", "Я суп.", "Суп мне есть.", "Мне есть суп."],
-   "answer": 0,
-   "why_uz": "Мне суп — buyurtma fe’lsiz, rus tilida tabiiy."
+   "q": "How do you say ‘tea with lemon’?",
+   "options": [
+    "чай без лимона",
+    "чай с лимоном",
+    "лимон чай",
+    "чай лимон"
+   ],
+   "answer": 1,
+   "why_uz": "С — bilan: чай с лимоном. Без — siz."
   }
  ]
 }

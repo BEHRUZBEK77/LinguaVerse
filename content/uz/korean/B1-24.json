@@ -1,6 +1,6 @@
 {
  "title": "Muammo va yechim haqida gapirish",
- "goal_uz": "Dars oxirida muammoni aytib, yechim taklif qila olasiz: muammo tili, yechim taklif qilish, variantlarni baholash va tavsiya berish.",
+ "goal_uz": "Dars oxirida muammoni aytib, uning sababini ko‘rsatib, bir nechta yechim taklif qilib, ularni baholab va eng yaxshisini tavsiya qila olasiz.",
  "vocab": [
   {
    "w": "문제 (munje)",
@@ -8,11 +8,15 @@
   },
   {
    "w": "해결 (haegyeol)",
-   "uz": "yechim / hal qilish"
+   "uz": "hal qilish / yechim"
+  },
+  {
+   "w": "원인 (won‘in)",
+   "uz": "sabab"
   },
   {
    "w": "해결책 (haegyeolchaek)",
-   "uz": "yechim"
+   "uz": "yechim chora"
   },
   {
    "w": "교통 체증 (gyotong chejeung)",
@@ -24,11 +28,11 @@
   },
   {
    "w": "~면 어떨까요?",
-   "uz": "… bo‘lsa, yaxshi bo‘larmi?"
+   "uz": "… bo‘lsa, qanday bo‘lardi?"
   },
   {
    "w": "~는 게 좋겠어요",
-   "uz": "… yaxshi bo‘ladi"
+   "uz": "… yaxshi bo‘lardi"
   },
   {
    "w": "장점 (jangjeom)",
@@ -41,6 +45,10 @@
   {
    "w": "추천 (chucheon)",
    "uz": "tavsiya"
+  },
+  {
+   "w": "현실적이다 (hyeonsiljeongida)",
+   "uz": "real / amalga oshirish mumkin"
   }
  ],
  "scenes": [
@@ -50,424 +58,641 @@
    "emotion": "happy",
    "board": [
     "Muammo va yechim haqida gapirish",
-    "Bugun: muammo tili, yechimlar, tavsiya"
+    "Bugun: muammo tili, yechim taklifi, baholash, tavsiya"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! B1 yigirma to‘rtinchi darsga xush kelibsiz. Oldingi darsda hikoya qilish texnikasini o‘rgandik. Bugun muammo va yechim haqida gapirishni o‘rganamiz: muammo tili, yechim taklif qilish, variantlarni baholash va tavsiya berish. Dars oxirida shahringizdagi muammo va 3 ta yechimini tasvirlay olasiz.",
-   "say": "안녕하세요! 오늘은 문제와 해결책을 배워요.",
-   "say_uz": "Assalomu alaykum! Bugun muammo va yechimni o‘rganamiz.",
+   "say_native": "Assalomu alaykum! B1 yigirma to‘rtinchi darsga xush kelibsiz. Oldingi darsda hikoya qilish texnikasini o‘rgandik: voqeani kirish, to‘qnashuv va eng yuqori nuqta bilan tuzish. Bugun esa amaliy mavzuga o‘tamiz — muammo va yechim haqida gapirish. Dars oxirida siz muammoni aniq nomlay olasiz, uning sababini ko‘rsatasiz, kamida ikkita yechim taklif qilasiz, ularning afzallik va kamchiliklarini solishtirib, eng yaxshisini tavsiya qilishni bilasiz. Bu ko‘nikma TOPIK nutq imtihonida juda foydali, chunki u yerda deyarli har bir savol “shunday vaziyatda nima qilish kerak?” tipida bo‘ladi. Bugun har bir qadamni bosqichma-bosqich o‘rganamiz, ikkita jonli dialog eshitamiz va oxirida o‘zingiz kichik nutq tayyorlaysiz.",
+   "say": "안녕하세요! 오늘은 문제와 해결책에 대해 이야기해요.",
+   "say_uz": "Assalomu alaykum! Bugun muammo va yechim haqida gaplashamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Muammo tili: ≪문제가 있어요≫",
+   "title": "Muammoni nomlash",
    "emotion": "neutral",
    "board": [
     "문제 (munje) — muammo",
-    "문제가 있어요",
-    "— muammo bor",
-    "교통 체증이 심해요",
-    "— tirbandlik kuchli"
+    "문제가 있다 — muammo bor",
+    "문제가 생기다 — muammo paydo bo‘ldi",
+    "문제가 발생하다 — muammo yuz berdi (rasmiy)"
    ],
    "examples": [
     {
-     "t": "문제가 있어요.",
-     "uz": "muammo bor."
+     "t": "요즘 우리 동네에 주차 문제가 심각해요.",
+     "uz": "Hozir mahallamizda parkovka muammosi jiddiy."
+    },
+    {
+     "t": "어제 회사에서 큰 문제가 생겼어요.",
+     "uz": "Kecha kompaniyada katta muammo paydo bo‘ldi."
     }
    ],
-   "say_native": "Muammo tili: “문제가 있어요” — muammo bor. “교통 체증이 심해요” — tirbandlik kuchli. “주차 공간이 부족해요” — to‘xtash joyi yetarli emas. “소음이 심해요” — shovqin kuchli. “공기가 오염되었어요” — havo ifloslangan. “쓰레기가 많아요” — axlat ko‘p.",
-   "say": "문제가 있어요. 교통 체증이 심해요. 주차 공간이 부족해요.",
-   "say_uz": "muammo bor. tirbandlik kuchli. to‘xtash joyi yetarli emas.",
-   "practice_seconds": 33
+   "say_native": "Birinchi qadam — muammoni to‘g‘ri nomlash. Koreyschada “문제” — muammo degani. Lekin bitta so‘z uchta turli vaziyatga ishlatiladi. “문제가 있다” — hozirda muammo mavjud ekanini bildiradi: “요즘 주차 문제가 심각해요” — hozir parkovka muammosi jiddiy. “문제가 생기다” — muammo yangi paydo bo‘lganini aytadi: “어제 회사에서 문제가 생겼어요” — kecha kompaniyada muammo paydo bo‘ldi. “문제가 발생하다” esa rasmiy hujjat va yangiliklar tilida ishlatiladigan variant: “사고가 발생했습니다” — noxush hodisa yuz berdi. O‘zbek tilida biz hammasini “muammo bor” bilan aytsak bo‘ladi, lekin koreyschada bu uchlikni bilish nutqingizni ikki daraja yuqoriga ko‘taradi. Yana ikkita foydali so‘z: “심각하다” — jiddiy bo‘lmoq — muammoning og‘irligini bildiradi, “악화되다” — yomonlashmoq — muammo kuchayib borayotganini aytadi, masalan “상황이 악화되고 있어요” — vaziyat yomonlashib bormoqda.",
+   "say": "문제. 요즘 우리 동네에 주차 문제가 심각해요. 어제 회사에서 문제가 생겼어요.",
+   "say_uz": "muammo. Hozir mahallamizda parkovka muammosi jiddiy. Kecha kompaniyada muammo paydo bo‘ldi.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Muammo gaplarini o‘qiy",
+   "title": "Muammo gaplarini o‘qing",
    "emotion": "encouraging",
    "board": [
-    "문제가 있어요",
-    "교통 체증이 심해요",
-    "주차 공간이 부족해요"
+    "문제가 심각해요",
+    "문제가 생겼어요",
+    "문제가 발생했습니다",
+    "상황이 악화되고 있어요"
    ],
    "examples": [],
-   "say_native": "Gaplarni koreyscha o‘qing: “문제가 있어요”, “교통 체증이 심해요”, “주차 공간이 부족해요”. Har birini sekin ayting.",
-   "say": "문제가 있어요. 교통 체증이 심해요. 주차 공간이 부족해요.",
-   "say_uz": "muammo bor. tirbandlik kuchli. to‘xtash joyi yetarli emas.",
-   "practice_seconds": 55
+   "say_native": "Quyidagi gaplarni koreyscha o‘qing: “요즘 우리 동네에 주차 문제가 심각해요”, “어제 회사에서 큰 문제가 생겼어요”, “지난주에 교통 사고가 발생했습니다”, “상황이 악화되고 있어요”. Har bir gapli niyatida pauza qilib, oxirigacha ayting. Keyin o‘ylab ko‘ring: qaysi gap rasmiy, qaysi norasmiy? “발생하다” rasmiy uslubga, “생기다” va “심각해요” esa kundalik nutqqa oid. Agar bironta so‘zni tushunmay qolsangiz, uni ikki marta takrorlab o‘qing — bu so‘z boyligingizni mustahkamlaydi.",
+   "say": "요즘 우리 동네에 주차 문제가 심각해요. 어제 회사에서 큰 문제가 생겼어요. 상황이 악화되고 있어요.",
+   "say_uz": "Hozir mahallamizda parkovka muammosi jiddiy. Kecha kompaniyada katta muammo paydo bo‘ldi. Vaziyat yomonlashib bormoqda.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
    "board": [
-    "문제가 있어요 — muammo bor"
+    "심각해요 — hozirgi jiddiy holat",
+    "생겼어요 — yangi paydo bo‘ldi",
+    "발생했습니다 — rasmiy xabar"
    ],
    "examples": [],
-   "say_native": "Javoblar: 문제가 있어요 — muammo bor. Endi yechim taklif qilishga o‘tamiz.",
-   "say": "문제가 있어요.",
-   "say_uz": "muammo bor.",
-   "practice_seconds": 33
+   "say_native": "Javoblar: “심각해요” — hozirgi jiddiy holatni, “생겼어요” — yangi paydo bo‘lgan muammoni, “발생했습니다” — rasmiy ravishda yuz bergan hodisani bildiradi. Eng ko‘p uchraydigan xato — rasmiy hujjatda “생겼어요” deb yozish; rasmiy uslubda “발생했습니다” deb yozing. Endi muammoning sababini aytishni o‘rganamiz.",
+   "say": "심각해요, 생겼어요, 발생했습니다.",
+   "say_uz": "jiddiy, paydo bo‘ldi, yuz berdi.",
+   "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Yechim taklif qilish: ≪~면 어떨까요?≫",
+   "title": "Sababni ifodalash",
    "emotion": "neutral",
+   "board": [
+    "~ 때문에 — sababli (har qanday)",
+    "명사 + 로 인해 — tufayli (rasmiy)",
+    "동사 + 기 때문에 — ...gani uchun",
+    "~ 탓에 — aybi bilan (salbiy)",
+    "~ 덕분에 — sharofati bilan (ijobiy)"
+   ],
+   "examples": [
+    {
+     "t": "교통 체증 때문에 출근이 늦었어요.",
+     "uz": "Tirbandlik sababli ishga kechikdim."
+    },
+    {
+     "t": "버스 노선 부족으로 인해 불편이 큽니다.",
+     "uz": "Avtobus yo‘nalishlari yetishmasligi sababli noxulqlik katta."
+    },
+    {
+     "t": "늦게 일어난 탓에 버스를 놓쳤어요.",
+     "uz": "Kech turgani tufayli avtobusni o‘tkazib yubordim."
+    }
+   ],
+   "say_native": "Muammoni emas, uning sababini ham aytish kerak — aks holda nutq yetishmas. Koreyschada besh xil sabab tuzilishi bor. Eng universal biri “~때문에” — “sababli” degani: “교통 체증 때문에 늦었어요” — tirbandlik sababli kechikdim. U otga ham, fe’lga ham qo‘shiladi, lekin fe’l bilan “-기 때문에” shaklini oladi: “늦게 일어나기 때문에” — kech turgani uchun. Ikkinchi, rasmiy variant — “명사 + 로 인해”: “버스 노선 부족으로 인해 불편이 큽니다” — avtobus yo‘nalishlari yetishmasligi sababli noqulaylik katta; bu shaklni hisobot va rasmiy xatlarda ishlating. Uchinchi — “~탓에”: faqat salbiy natija va aybni bildiradi: “늦게 일어난 탓에” — kech turgan aybi tufayli. To‘rtinchi — “~덕분에”: faqat ijobiy natija va minnatdorchilik: “여러분의 도움 덕분에 해결됐어요” — barchangizning yordami sharofati bilan hal bo‘ldi. O‘zbek tilida “sababli” bitta so‘z, lekin koreyschada bu farqlar nutqning ohangini belgilaydi.",
+   "say": "교통 체증 때문에 늦었어요. 버스 노선 부족으로 인해 불편이 큽니다. 늦게 일어난 탓에 버스를 놓쳤어요.",
+   "say_uz": "Tirbandlik sababli kechikdim. Avtobus yo‘nalishlari yetishmasligi sababli noqulaylik katta. Kech turgan tufayli avtobusni o‘tkazib yubordim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sabab gaplarini o‘qing",
+   "emotion": "encouraging",
+   "board": [
+    "사고로 인해 길이 막혀요",
+    "늦잠을 잔 탓에 지각했어요",
+    "여러분의 도움 덕분에 성공했어요",
+    "비가 오기 때문에 모임이 취소됐어요"
+   ],
+   "examples": [],
+   "say_native": "Gaplarni o‘qing: “사고로 인해 길이 막혀요”, “늦잠을 잔 탓에 지각했어요”, “여러분의 도움 덕분에 성공했어요”, “비가 오기 때문에 모임이 취소됐어요”. Har gapli niyatingizda pauza qiling. Endi o‘ylab ko‘ring: har bir gapda sabab qanday ohangda — neytral, ijobiy yoki salbiy? “인해” bilan “때문에” rasmiy-norasmiy farqini ham qayd eting: “인해” — hisobot uslubi, “때문에” — kundalik nutq.",
+   "say": "사고로 인해 길이 막혀요. 늦잠을 잔 탓에 지각했어요. 여러분의 도움 덕분에 성공했어요.",
+   "say_uz": "Baxtsiz hodisa tufayli yo‘l berk. Kech uyg‘onganim tufayli ishga kechikdim. Hammaga rahmat, yordamingiz tufayli muvaffaqiyatga erishdim.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "인해 — rasmiy, neytral",
+    "탓에 — salbiy, ayb",
+    "덕분에 — ijobiy, minnatdorchilik",
+    "때문에 — har qanday"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “사고로 인해” — rasmiy, neytral sabab; “탓에” — salbiy natija va ayb; “덕분에” — ijobiy natija va minnatdorchilik; “때문에” — neytral, universal. Esda tuting: “덕분에” ni salbiy gapda ishlatish — kulgili eshitiladi. “비 덕분에 늦었어요” deyishingiz kerak emas — demak, “비 때문에 늦었어요” deb ayting. Endi keng tarqalgan xatolarni ko‘rib chiqamiz.",
+   "say": "인해는 공식적, 탓에는 부정적, 덕분에는 긍정적, 때문에 중립적이에요.",
+   "say_uz": "인해 rasmiy, 탓에 salbiy, 덕분에 ijobiy, 때문에 neytral.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "덕분에 va 탓에 chalkashligi",
+   "emotion": "disappointed",
+   "board": [
+    "✖ 비 덕분에 늦었어요.",
+    "○ 비 때문에 늦었어요.",
+    "✖ 게으른 덕분에 실패했어요.",
+    "○ 게으른 탓에 실패했어요."
+   ],
+   "examples": [
+    {
+     "t": "게으른 탓에 시험에 떨어졌어요.",
+     "uz": "Yalqovligim tufayli imtihonda yiqildim."
+    }
+   ],
+   "say_native": "Eng ko‘p uchraydigan xatolardan biri — “덕분에” va “탓에” ni almashib ishlatish. O‘zbek tilida “tufayli” ijobiy ham, salbiy ham bo‘ladi, shuning uchun tarjima qilayotganda chalkashib qolasiz. Ammo koreyschada “덕분에” faqat yaxshi narsaga, “탓에” faqat yomon narsaga ishlatiladi. Noto‘g‘ri: “비 덕분에 늦었어요” — yomg‘ir sharofati bilan kechikdim? To‘g‘risi: “비 때문에 늦었어요”. Noto‘g‘ri: “게으른 덕분에 실패했어요” — To‘g‘risi: “게으른 탓에 실패했어요” — dangasaligim tufayli muvaffaqiyatsizlikka uchradim. Qoida sodda: gap salbiy bo‘lsa “탓에”, ijobiy bo‘lsa “덕분에”, noaniq bo‘lsa “때문에” ni tanlang.",
+   "say": "비 때문에 늦었어요. 게으른 탓에 시험에 떨어졌어요.",
+   "say_uz": "Yomg‘ir sababli kechikdim. Dangasaligim tufayli imtihondan yiqildim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Xatolarni tuzatish",
+   "emotion": "proud",
+   "board": [
+    "salbiy → 탓에",
+    "ijobiy → 덕분에",
+    "noaniq → 때문에"
+   ],
+   "examples": [],
+   "say_native": "Xatolarni tuzating: “사고 덕분에 늦었어요” — “사고 때문에 늦었어요” ga aylanadi. “도움 탓에 성공했어요” — “도움 덕분에 성공했어요” ga aylanadi. “인해” ni esa faqat rasmiy yozma uslubda ishlating — kundalik suhbatda “인해” deyishingiz sizni juda rasmiy bo‘lganingizdek ko‘rsatadi. Qisqa mashq: o‘zingizga uchta gap ayting — birini salbiy, birini ijobiy, birini neytral natija bilan. Har birida to‘g‘ri sabab tuzilishini tanlang. Bu uchlik nutqning aniqligini sezilarli oshiradi.",
+   "say": "사고 때문에 늦었어요. 도움 덕분에 성공했어요.",
+   "say_uz": "Baxtsiz hodisa sababli kechikdim. Yordam tufayli muvaffaqiyatga erishdim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yechim taklif qilish",
+   "emotion": "neutral",
+   "board": [
+    "제안하다 (jeanhada) — taklif qilmoq",
+    "~면 어떨까요? — … bo‘lsa, qanday bo‘lardi?",
+    "~는 게 어때요? — … qanday bo‘ladi?",
+    "~도록 합시다 — … qilaylik (rasmiy)",
+    "~(으)ㄹ까요? — … qilaylikmi?"
+   ],
+   "examples": [
+    {
+     "t": "버스 노선을 늘리면 어떨까요?",
+     "uz": "Avtobus yo‘nalishlarini ko‘paytirsak, qanday bo‘lardi?"
+    },
+    {
+     "t": "지하철 시간표를 조정하는 게 어때요?",
+     "uz": "Metro vaqtini rostlash qanday bo‘ladi?"
+    },
+    {
+     "t": "회의를 매주 월요일에 하도록 합시다.",
+     "uz": "Har dushanba majlis o‘tkazaylik."
+    }
+   ],
+   "say_native": "Muammoni nomlay olgach, yechimni yumshoq tarzda taklif qilishni o‘rganamiz. “제안하다” — taklif qilmoq — eng universal fe’l: “제가 한 가지 제안이 있습니다” — men bir taklifim bor. “~면 어떨까요?” — “~sa, qanday bo‘lardi?” degani: “버스 노선을 늘리면 어떨까요?” — avtobus yo‘nalishlarini ko‘paytirsak, qanday bo‘lardi? Bu eng yumshoq va hurmatli taklif shakli — yig‘ilish va suhbatlarda tabiiy ishlatiladi. “~는 게 어때요?” — “~qilish qanday bo‘ladi?” — bir oz faolroq, lekin hamon muloyim: “지하철 시간표를 조정하는 게 어때요?” — Metro vaqtini rostlash qanday bo‘ladi? “~도록 합시다” esa rasmiy majlis uslubi: “회의를 매주 하도록 합시다” — har haftada majlis o‘tkazaylik. “~(으)ㄹ까요?” — “~qilaylikmi?” degan savol shakli — guruh bilan kelishishda ishlatiladi. O‘zbek tilida “shunday qilsak yaxshi bo‘ladi” deymiz, koreyschada esa aynan “어떨까요” va “어때요” eng tabiiy tanlovdir.",
+   "say": "버스 노선을 늘리면 어떨까요? 지하철 시간표를 조정하는 게 어때요? 회의를 매주 하도록 합시다.",
+   "say_uz": "Avtobus yo‘nalishlarini ko‘paytirsak, qanday bo‘lardi? Metro vaqtini rostlash qanday bo‘ladi? Har haftada majlis o‘tkazaylik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yechim takliflarini o‘qing",
+   "emotion": "encouraging",
    "board": [
     "~면 어떨까요?",
-    "— … bo‘lsa, yaxshi bo‘larmi?",
-    "지하철을 확장하면 어떨까요?",
-    "— metro kengaytirilsa, yaxshi bo‘larmi?"
-   ],
-   "examples": [
-    {
-     "t": "지하철을 확장하면 어떨까요?",
-     "uz": "metro kengaytirilsa, yaxshi bo‘larmi?"
-    }
-   ],
-   "say_native": "Yechim taklif qilish: “~면 어떨까요?” — … bo‘lsa, yaxshi bo‘larmi? “지하철을 확장하면 어떨까요?” — metro kengaytirilsa, yaxshi bo‘larmi? “주차장을 만들면 어떨까요?” — to‘xtash joyi qurilsa, yaxshi bo‘larmi? “버스를 늘리면 어떨까요?” — avtobuslar ko‘paytirilsa, yaxshi bo‘larmi?",
-   "say": "지하철을 확장하면 어떨까요? 주차장을 만들면 어떨까요? 버스를 늘리면 어떨까요?",
-   "say_uz": "metro kengaytirilsa, yaxshi bo‘larmi? to‘xtash joyi qurilsa, yaxshi bo‘larmi? avtobuslar ko‘paytirilsa, yaxshi bo‘larmi?",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "practice",
-   "title": "Yechim takliflarini o‘qiy",
-   "emotion": "encouraging",
-   "board": [
-    "지하철을 확장하면 어떨까요?",
-    "주차장을 만들면 어떨까요?"
+    "~는 게 어때요?",
+    "~도록 합시다",
+    "~(으)ㄹ까요?"
    ],
    "examples": [],
-   "say_native": "Gaplarni koreyscha o‘qing: “지하철을 확장하면 어떨까요?”, “주차장을 만들면 어떨까요?”, “버스를 늘리면 어떨까요?”. Har birini sekin ayting.",
-   "say": "지하철을 확장하면 어떨까요?",
-   "say_uz": "metro kengaytirilsa, yaxshi bo‘larmi?",
-   "practice_seconds": 55
+   "say_native": "Gaplarni o‘qing: “주차 공간을 늘리면 어떨까요?”, “홍보를 늘리는 게 어때요?”, “청소를 매일 하도록 합시다”, “지금 바로 시작할까요?”. Har taklif shaklini ovoz chiqarib ayting va uni uch xil vaziyatda tasavvur qiling: do‘stingiz bilan, hamkasbingiz bilan, rasmiy yig‘ilishda. Qaysi shakl qaysi vaziyatga mos kelishini o‘ylab ko‘ring — “어떨까요” hamma joyda xavfsiz, “도록 합시다” faqat majlisda tabiiy.",
+   "say": "주차 공간을 늘리면 어떨까요? 홍보를 늘리는 게 어때요? 청소를 매일 하도록 합시다.",
+   "say_uz": "Parkovka joyini ko‘paytirsak, qanday bo‘lardi? Tashviqotni oshirish qanday bo‘ladi? Har kuni tozalash o‘tkazaylik.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
    "board": [
-    "~면 어떨까요? — taklif"
+    "어떨까요 — yumshoq taklif",
+    "어때요 — faolroq taklif",
+    "도록 합시다 — rasmiy majlis",
+    "을까요 — guruh kelishuvi"
    ],
    "examples": [],
-   "say_native": "Javoblar: ~면 어떨까요? — taklif. Endi ~는 게 좋겠어요ga o‘tamiz.",
-   "say": "~면 어떨까요?",
-   "say_uz": "taklif.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "explain",
-   "title": "≪~는 게 좋겠어요≫ — tavsiya",
-   "emotion": "thinking",
-   "board": [
-    "~는 게 좋겠어요",
-    "— … yaxshi bo‘ladi",
-    "재활용을 하는 게 좋겠어요",
-    "— qayta ishlash yaxshi bo‘ladi"
-   ],
-   "examples": [
-    {
-     "t": "재활용을 하는 게 좋겠어요",
-     "uz": "qayta ishlash yaxshi bo‘ladi"
-    }
-   ],
-   "say_native": "≪~는 게 좋겠어요≫ — … yaxshi bo‘ladi: tavsiya. “재활용을 하는 게 좋겠어요” — qayta ishlash yaxshi bo‘ladi. “대중교통을 이용하는 게 좋겠어요” — jamoat transportidan foydalanish yaxshi bo‘ladi. “나무를 심는 게 좋겠어요” — daraxt ekish yaxshi bo‘ladi.",
-   "say": "재활용을 하는 게 좋겠어요. 대중교통을 이용하는 게 좋겠어요.",
-   "say_uz": "qayta ishlash yaxshi bo‘ladi. jamoat transportidan foydalanish yaxshi bo‘ladi.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "practice",
-   "title": "≪~는 게 좋겠어요≫ bilan gaplarni o‘qiy",
-   "emotion": "encouraging",
-   "board": [
-    "재활용을 하는 게 좋겠어요",
-    "대중교통을 이용하는 게 좋겠어요"
-   ],
-   "examples": [],
-   "say_native": "Gaplarni koreyscha o‘qing: “재활용을 하는 게 좋겠어요”, “대중교통을 이용하는 게 좋겠어요”, “나무를 심는 게 좋겠어요”. Har birini sekin ayting.",
-   "say": "재활용을 하는 게 좋겠어요. 대중교통을 이용하는 게 좋겠어요.",
-   "say_uz": "qayta ishlash yaxshi bo‘ladi. jamoat transportidan foydalanish yaxshi bo‘ladi.",
-   "practice_seconds": 55
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "~는 게 좋겠어요 — tavsiya"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ~는 게 좋겠어요 — tavsiya. Endi variantlarni baholashga o‘tamiz.",
-   "say": "~는 게 좋겠어요.",
-   "say_uz": "tavsiya.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "explain",
-   "title": "Variantlarni baholash: afzallik va kamchilik",
-   "emotion": "thinking",
-   "board": [
-    "장점 (jangjeom) — afzallik",
-    "단점 (danjeom) — kamchilik",
-    "~는 장점이 있어요",
-    "— … afzalligi bor"
-   ],
-   "examples": [
-    {
-     "t": "지하철을 확장하면 장점이 있어요",
-     "uz": "metro kengaytirishning afzalligi bor"
-    }
-   ],
-   "say_native": "Variantlarni baholash: “~는 장점이 있어요” — … afzalligi bor, “~는 단점이 있어요” — … kamchiligi bor. “지하철을 확장하면 장점이 있어요. 왜냐하면 빠르기 때문이에요” — metro kengaytirishning afzalligi bor. Chunki tez. “비용이 많이 드는 단점이 있어요” — ko‘p xarajat talab qilish kamchiligi bor.",
-   "say": "지하철을 확장하면 장점이 있어요. 비용이 많이 드는 단점이 있어요.",
-   "say_uz": "metro kengaytirishning afzalligi bor. ko‘p xarajat talab qilish kamchiligi bor.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "practice",
-   "title": "Baholash gaplarini o‘qiy",
-   "emotion": "encouraging",
-   "board": [
-    "지하철을 확장하면 장점이 있어요",
-    "비용이 많이 드는 단점이 있어요"
-   ],
-   "examples": [],
-   "say_native": "Gaplarni koreyscha o‘qing: “지하철을 확장하면 장점이 있어요”, “비용이 많이 드는 단점이 있어요”. Har birini sekin ayting.",
-   "say": "지하철을 확장하면 장점이 있어요. 비용이 많이 드는 단점이 있어요.",
-   "say_uz": "metro kengaytirishning afzalligi bor. ko‘p xarajat talab qilish kamchiligi bor.",
-   "practice_seconds": 55
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "장점 — afzallik",
-    "단점 — kamchilik"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: variantlarni baholash. Endi tavsiya berishga o‘tamiz.",
-   "say": "장점. 단점.",
-   "say_uz": "afzallik. kamchilik.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "explain",
-   "title": "Tavsiya berish: ≪추천≫",
-   "emotion": "neutral",
-   "board": [
-    "추천 (chucheon) — tavsiya",
-    "~을/를 추천합니다",
-    "— … tavsiya qilaman"
-   ],
-   "examples": [
-    {
-     "t": "지하철 확장을 추천합니다",
-     "uz": "metro kengaytirishni tavsiya qilaman"
-    }
-   ],
-   "say_native": "Tavsiya berish: “~을/를 추천합니다” — … tavsiya qilaman. “지하철 확장을 추천합니다” — metro kengaytirishni tavsiya qilaman. “왜냐하면 빠르고 효율적이기 때문입니다” — chunki tez va samarali. “결론적으로, 지하철을 확장하는 게 좋겠어요” — xulosa qilib, metro kengaytirish yaxshi bo‘ladi.",
-   "say": "지하철 확장을 추천합니다. 왜냐하면 빠르고 효율적이기 때문입니다.",
-   "say_uz": "metro kengaytirishni tavsiya qilaman. chunki tez va samarali.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "practice",
-   "title": "Tavsiya gaplarini o‘qiy",
-   "emotion": "encouraging",
-   "board": [
-    "지하철 확장을 추천합니다",
-    "왜냐하면 빠르고 효율적이기 때문입니다"
-   ],
-   "examples": [],
-   "say_native": "Gaplarni koreyscha o‘qing: “지하철 확장을 추천합니다”, “왜냐하면 빠르고 효율적이기 때문입니다”, “결론적으로, 지하철을 확장하는 게 좋겠어요”. Har birini sekin ayting.",
-   "say": "지하철 확장을 추천합니다. 왜냐하면 빠르고 효율적이기 때문입니다.",
-   "say_uz": "metro kengaytirishni tavsiya qilaman. chunki tez va samarali.",
-   "practice_seconds": 55
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "추천 — tavsiya"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 추천 — tavsiya. Endi dialoglarga o‘tamiz.",
-   "say": "추천.",
-   "say_uz": "tavsiya.",
-   "practice_seconds": 33
+   "say_native": "Javoblar: “어떨까요” — eng yumshoq va hurmatli taklif; “어때요” — faolroq va bevosita; “도록 합시다” — rasmiy yig‘ilish qarori; “을까요” — guruh bilan kelishish savoli. Eslab qoling: tanish-bilish suhbatida “어때요”, rasmiy yig‘ilishda “도록 합시다” yoki “어떻습니까?” ni tanlang. Endi jonli dialog bilan bu shakllarni harakatda ko‘ramiz.",
+   "say": "어떨까요, 어때요, 도록 합시다, 을까요.",
+   "say_uz": "어떨까요, 어때요, 도록 합시다, 을까요.",
+   "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 1: tirbandlik",
+   "title": "Dialog 1: tirbandlik muammosi",
    "emotion": "happy",
    "board": [
-    "A: 도시의 문제는 뭐예요?",
-    "B: 교통 체증이 심해요.",
-    "A: 어떻게 해결할까요?",
-    "B: 지하철을 확장하면 어떨까요?"
+    "민수: 요즘 저희 동네 교통 체증이 너무 심하지 않아요?",
+    "서연: 맞아요. 출근 시간에 버스가 안 와요.",
+    "민수: 원인은 버스 노선이 적기 때문이에요.",
+    "서연: 노선을 늘리는 게 어떨까요?",
+    "민수: 비용은 들지만 효과적일 거예요."
    ],
    "examples": [
     {
-     "t": "교통 체증이 심해요.",
-     "uz": "tirbandlik kuchli."
+     "t": "노선을 늘리는 게 어떨까요?",
+     "uz": "Yo‘nalishlarni ko‘paytirsak bo‘ladimi?"
     }
    ],
-   "say_native": "Birinchi dialog: tirbandlik. “도시의 문제는 뭐예요?” — shaharning muammosi nima? “교통 체증이 심해요.” — tirbandlik kuchli. “어떻게 해결할까요?” — qanday hal qilamiz? “지하철을 확장하면 어떨까요?” — metro kengaytirilsa, yaxshi bo‘larmi?",
-   "say": "도시의 문제는 뭐예요? 교통 체증이 심해요. 지하철을 확장하면 어떨까요?",
-   "say_uz": "shaharning muammosi nima? tirbandlik kuchli. metro kengaytirilsa, yaxshi bo‘larmi?",
-   "practice_seconds": 34
+   "say_native": "Birinchi dialog: tirbandlik muammosi. “요즘 저희 동네 교통 체증이 너무 심하지 않아요?” — hozir mahallamizdagi tirbandlik juda jiddiy emasmi? “맞아요. 출근 시간에 버스가 안 와요.” — to‘g‘ri, ishga borish vaqtida avtobus kelmaydi. “원인은 버스 노선이 적기 때문이에요.” — sababi: avtobus yo‘nalishlari kam. “노선을 늘리는 게 어떨까요?” — yo‘nalishlarni ko‘paytirsak, qanday bo‘lardi? “비용은 들지만 효과적일 거예요.” — xarajat bo‘ladi, lekin samarali bo‘ladi. E’tibor bering: dialogda muammo nomlanadi, sabab ko‘rsatiladi, yechim taklif qilinadi va darhol baholanadi — bu TOPIK nutqining to‘liq tsikli bitta qisqa suhbatda.",
+   "say": "민수: 요즘 저희 동네 교통 체증이 너무 심하지 않아요? 서연: 맞아요. 출근 시간에 버스가 안 와요. 민수: 원인은 버스 노선이 적기 때문이에요. 서연: 노선을 늘리는 게 어떨까요? 민수: 비용은 들지만 효과적일 거예요.",
+   "say_uz": "Minsu: Hozir mahallamizdagi tirbandlik juda jiddiy emasmi? So‘yon: To‘g‘ri, ishga borish vaqtida avtobus kelmaydi. Minsu: Sababi avtobus yo‘nalishlari kamligi. So‘yon: Yo‘nalishlarni ko‘paytirsak, qanday bo‘lardi? Minsu: Xarajat bo‘ladi, lekin samarali bo‘ladi.",
+   "practice_seconds": 30
   },
   {
    "kind": "practice",
    "title": "Dialog 1 ni tushunish",
    "emotion": "encouraging",
    "board": [
-    "1) Shahar muammosi?",
-    "2) Yechim?"
+    "무슨 문제?",
+    "원인은?",
+    "제안한 해결책은?",
+    "민수 씨의 평가는?"
    ],
    "examples": [],
-   "say_native": "Savollar: shahar muammosi? yechim? “교통 체증이 심해요.” — tirbandlik kuchli. “지하철을 확장하면 어떨까요?” — metro kengaytirilsa, yaxshi bo‘larmi?",
-   "say": "교통 체증이 심해요. 지하철을 확장하면 어떨까요?",
-   "say_uz": "tirbandlik kuchli. metro kengaytirilsa, yaxshi bo‘larmi?",
-   "practice_seconds": 55
+   "say_native": "Dialog asosida to‘rtta savol: birinchi, qanday muammo haqida gapirishmoqda? Ikkinchi, muammoning sababi nima? Uchinchi, qanday yechim taklif qilindi? To‘rtinchi, Minsu bu yechimni qanday baholadi? Boshqotirma: javoblarni koreyscha so‘zlar bilan aytishga harakat qiling — “교통 체증”, “노선 부족”, “노선을 늘리다”, “비용은 들지만 효과적”. Bu to‘rtta ibora TOPIK nutqida aynan kerak bo‘ladigan tayyor kallitlar.",
+   "say": "무슨 문제예요? 원인은 뭐예요? 어떤 해결책을 제안했어요? 민수 씨는 어떻게 평가했어요?",
+   "say_uz": "Qanday muammo? Sababi nima? Qanday yechim taklif qilindi? Minsu qanday baholadi?",
+   "practice_seconds": 20
   },
   {
    "kind": "explain",
    "title": "Javoblar: dialog 1",
    "emotion": "proud",
    "board": [
-    "교통 체증이 심해요 — tirbandlik kuchli",
-    "지하철을 확장하면 어떨까요? — metro kengaytirilsa, yaxshi bo‘larmi?"
+    "교통 체증 — tirbandlik",
+    "노선 부족 — yo‘nalish yetishmasligi",
+    "노선을 늘리자 — yo‘nalishni ko‘paytiring",
+    "비용↑, 효과↑ — xarajat bor, samarasi katta"
    ],
    "examples": [],
-   "say_native": "Javoblar: dialog 1. Endi ikkinchi dialogga o‘tamiz.",
-   "say": "교통 체증이 심해요.",
-   "say_uz": "tirbandlik kuchli.",
-   "practice_seconds": 33
+   "say_native": "Javoblar: muammo — “교통 체증” — tirbandlik; sabab — “노선 부족” — avtobus yo‘nalishlari yetishmasligi; taklif — “노선을 늘리는 게 어떨까요?”; baholash — “비용은 들지만 효과적일 거예요”. E’tibor bering: dialogning hech bir gapida “문제” so‘zi takrorlanmaydi — muammo kontekstdan tushuniladi. Bu tabiiy koreys suhbatining belgisi: har bir gapda “문제” deb takrorlamang. Endi yechimlarni solishtirish va baholashni o‘rganamiz.",
+   "say": "교통 체증, 노선 부족, 노선을 늘리자, 비용은 들지만 효과적.",
+   "say_uz": "tirbandlik, yo‘nalish yetishmasligi, yo‘nalishni ko‘paytirish, xarajat bor lekin samarali.",
+   "practice_seconds": 0
   },
   {
-   "kind": "example",
-   "title": "Dialog 2: baholash",
-   "emotion": "happy",
+   "kind": "explain",
+   "title": "Variantlarni baholash",
+   "emotion": "neutral",
    "board": [
-    "A: 어떤 해결책이 좋아요?",
-    "B: 지하철 확장이 좋아요.",
-    "A: 왜요?",
-    "B: 빠르고 효율적이기 때문이에요."
+    "장점 (jangjeom) — afzallik",
+    "단점 (danjeom) — kamchilik",
+    "비용이 들다 — xarajat bo‘lmoq",
+    "효과적이다 — samarali",
+    "현실적이다 — real / amalga oshirish mumkin",
+    "~에 비해 — …ga nisbatan",
+    "반면에 — aksincha",
+    "~는 편이다 — … turdagiga kiradi"
    ],
    "examples": [
     {
-     "t": "지하철 확장이 좋아요.",
-     "uz": "metro kengaytirish yaxshi."
+     "t": "지하철은 비용이 많이 들어요.",
+     "uz": "Metro ko‘p xarajat talab qiladi."
+    },
+    {
+     "t": "버스 노선이 지하철에 비해 빨라요.",
+     "uz": "Avtobus yo‘nalishlari metroga nisbatan tezroq."
+    },
+    {
+     "t": "홍보는 비용이 적은 반면에 효과도 작아요.",
+     "uz": "Tashviqotning xarajati kam, aksincha samarasi ham kichik."
     }
    ],
-   "say_native": "Ikkinchi dialog: baholash. “어떤 해결책이 좋아요?” — qaysi yechim yaxshi? “지하철 확장이 좋아요.” — metro kengaytirish yaxshi. “왜요?” — nega? “빠르고 효율적이기 때문이에요.” — chunki tez va samarali.",
-   "say": "어떤 해결책이 좋아요? 지하철 확장이 좋아요. 빠르고 효율적이기 때문이에요.",
-   "say_uz": "qaysi yechim yaxshi? metro kengaytirish yaxshi. chunki tez va samarali.",
-   "practice_seconds": 34
+   "say_native": "Yechim taklif qildik — endi ularni baholash kerak, chunki TOPIK nutqida “어떤 해결책이 제일 좋은가요?” degan savol muqarrar. “장점” — afzallik, “단점” — kamchilik: har bir yechim uchun kamida bittadan ayting. “비용이 들다” — xarajat bo‘lmoq — moliyaviy tomonni, “효과적이다” — samarali — natijani, “현실적이다” — real — amalga oshirish mumkinligini bildiradi. Taqqoslash tuzilmalari: “명사 + 에 비해” — “…ga nisbatan”: “버스가 지하철에 비해 빨라요” — avtobus metroga nisbatan tezroq. “반면에” — “aksincha”: ikki yechimni yonma-yon qo‘yadi: “홍보는 비용이 적은 반면에 효과도 작아요” — tashviqotning xarajati kam, aksincha samarasi ham kichik. “~는 편이다” — “…turdagiga kiradi”: yumshoq baho beradi: “이 방법은 현실적인 편이에요” — bu yo‘l real turdagiga kiradi. O‘zbek tilida “nisbatan” bir so‘z, lekin koreyschada “에 비해” norasmiy “보다” dan ko‘ra boyroq variant hisoblanadi.",
+   "say": "장점은 효과, 단점은 비용이에요. 홍보는 비용이 적은 반면에 효과도 작아요.",
+   "say_uz": "Afzallik samaradorlik, kamchilik xarajat. Tashviqotning xarajati kam, aksincha samarasi ham kichik.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Dialog 2 ni tushunish",
+   "title": "Baholash gaplarini o‘qing",
    "emotion": "encouraging",
    "board": [
-    "1) Qaysi yechim yaxshi?",
-    "2) Nega?"
+    "비용이 많이 들어요",
+    "효과적이지만 시간이 걸려요",
+    "홍보는 싼 반면에 느려요",
+    "지하철에 비해 버스가 싸요"
    ],
    "examples": [],
-   "say_native": "Savollar: qaysi yechim yaxshi? nega? “지하철 확장이 좋아요.” — metro kengaytirish yaxshi. “빠르고 효율적이기 때문이에요.” — chunki tez va samarali.",
-   "say": "지하철 확장이 좋아요. 빠르고 효율적이기 때문이에요.",
-   "say_uz": "metro kengaytirish yaxshi. chunki tez va samarali.",
-   "practice_seconds": 55
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: dialog 2",
-   "emotion": "proud",
-   "board": [
-    "지하철 확장이 좋아요 — metro kengaytirish yaxshi",
-    "빠르고 효율적이기 때문이에요 — chunki tez va samarali"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: dialog 2. Endi yakuniy topshiriqqa o‘tamiz.",
-   "say": "지하철 확장이 좋아요.",
-   "say_uz": "metro kengaytirish yaxshi.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "practice",
-   "title": "Yakuniy topshiriq",
-   "emotion": "encouraging",
-   "board": [
-    "Shahringizdagi muammo va 3 ta yechimini tasvirlang",
-    "문제 · ~면 어떨까요? · 추천"
-   ],
-   "examples": [],
-   "say_native": "Yakuniy topshiriq: shahringizdagi muammo va 3 ta yechimini tasvirlang: muammoni ayting (“교통 체증이 심해요”), 3 ta yechim taklif qiling (“지하철을 확장하면 어떨까요?”, “대중교통을 늘리면 어떨까요?”, “주차장을 만들면 어떨까요?”), afzalliklarini ayting, eng yaxshisini tavsiya qiling. Har birini sekin, aniq ayting.",
-   "say": "교통 체증이 심해요. 지하철을 확장하면 어떨까요? 대중교통을 늘리면 어떨까요? 지하철 확장을 추천합니다.",
-   "say_uz": "tirbandlik kuchli. metro kengaytirilsa, yaxshi bo‘larmi? jamoat transportini ko‘paytirilsa, yaxshi bo‘larmi? metro kengaytirishni tavsiya qilaman.",
-   "practice_seconds": 55
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: yakuniy topshiriq",
-   "emotion": "proud",
-   "board": [
-    "교통 체증이 심해요 — tirbandlik kuchli",
-    "지하철 확장을 추천합니다 — metro kengaytirishni tavsiya qilaman"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: shahringizdagi muammo va 3 ta yechimini tasvirlay olasiz. Endi xulosaga o‘tamiz.",
-   "say": "교통 체증이 심해요.",
-   "say_uz": "tirbandlik kuchli.",
-   "practice_seconds": 33
-  },
-  {
-   "kind": "practice",
-   "title": "Barcha muammo va yechim shakllarini takrorlang",
-   "emotion": "encouraging",
-   "board": [
-    "문제 · ~면 어떨까요?",
-    "~는 게 좋겠어요 · 추천"
-   ],
-   "examples": [],
-   "say_native": "Barcha shakllarni birga ayting: 문제가 있어요, ~면 어떨까요?, ~는 게 좋겠어요, 추천, 장점, 단점. Har birini sekin aytng.",
-   "say": "문제가 있어요. ~면 어떨까요? ~는 게 좋겠어요. 추천합니다.",
-   "say_uz": "muammo bor. taklif. tavsiya. tavsiya qilaman.",
-   "practice_seconds": 55
+   "say_native": "Gaplarni o‘qing: “비용이 많이 들어요”, “효과적이지만 시간이 걸려요”, “홍보는 싼 반면에 느려요”, “지하철에 비해 버스가 싸요”. Keyin o‘zingizga savol bering: qaysi yechim arzon, qaysi tez, qaysi samarali? Har biriga bittadan koreys gapli tuzing. Agarda “비용” so‘zini yodingizda saqlashga qiynalsangiz, “돈이 들다” deb oddiyroq ayting — ma’nosi bir xil: pul ketmoq.",
+   "say": "비용이 많이 들어요. 효과적이지만 시간이 걸려요. 홍보는 싼 반면에 느려요.",
+   "say_uz": "Xarajati ko‘p. Samarali, lekin vaqt talab qiladi. Tashviqot arzon, aksincha sekin.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
    "board": [
-    "문제가 있어요 — muammo bor",
-    "~면 어떨까요? — taklif",
-    "추천 — tavsiya"
+    "비해 — taqqoslash",
+    "반면에 — ziddiyat",
+    "편이다 — yumshoq baho"
    ],
    "examples": [],
-   "say_native": "Javoblar: 문제가 있어요, ~면 어떨까요?, ~는 게 좋겠어요, 추천. Bularni yodda tuting.",
-   "say": "문제가 있어요. ~면 어떨까요? ~는 게 좋겠어요.",
-   "say_uz": "muammo bor. taklif. tavsiya.",
-   "practice_seconds": 33
+   "say_native": "Javoblar: “에 비해” — ikki narsani taqqoslaydi, “반면에” — ziddiyatni ko‘rsatadi, “는 편이다” — yumshoq va ehtiyot baho beradi. Eng ko‘p uchraydigan xato: “반면에” ni fe’ldan keyin ishlatish — u faqat to‘liq gaplar orasidagi ziddiyatni bog‘laydi. Endi tavsiya berishni — baholashingizning yakuniy bosqichini o‘rganamiz.",
+   "say": "에 비해는 비교, 반면에는 대조, 편이에는 부드러운 평가예요.",
+   "say_uz": "에 비해 taqqoslash, 반면에 ziddiyat, 편이다 yumshoq baho.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tavsiya berish",
+   "emotion": "neutral",
+   "board": [
+    "~는 게 좋겠어요 — yaxshi bo‘lardi",
+    "~를 추천합니다 — tavsiya qilaman",
+    "강력히 추천해요 — qat‘iy tavsiya qilaman",
+    "~가 최선이다 — eng yaxshi yo‘l",
+    "~는 게 낫겠어요 — … a‘loroq"
+   ],
+   "examples": [
+    {
+     "t": "노선을 늘리는 게 좋겠어요.",
+     "uz": "Yo‘nalishlarni ko‘paytirish yaxshi bo‘lardi."
+    },
+    {
+     "t": "이 방법을 강력히 추천합니다.",
+     "uz": "Bu usulni qat‘iy tavsiya qilaman."
+    },
+    {
+     "t": "홍보보다 벌금이 낫겠어요.",
+     "uz": "Tashviqotdan ko‘ra jarima a‘loroq."
+    }
+   ],
+   "say_native": "Baholagandan keyin tavsiya kerak. Eng nozik shakl — “~는 게 좋겠어요”: “좋겠어요” dagi “겠” yumshoqlik va ehtiyotlilik ohangini beradi — go‘yo “yaxshi bo‘lardi, menimcha” degan taassurot. “~를 추천합니다” — to‘g‘ridan-to‘g‘ri tavsiya, rasmiy yozishmalar va nutqda tabiiy. Agar fikringiz kuchli bo‘lsa, “강력히 추천해요” — qat‘iy tavsiya qilaman — yoki “적극 추천합니다” — faol tavsiya qilaman — deb ayting. “~가 최선이다” — “bu eng yaxshi yo‘ldir” — to‘liq ishonchni bildiradi; undan oqilona foydalaning. “~는 게 낫겠어요” esa ikki variant orasidan yaxshisini tanlaydi: “홍보보다 벌금이 낫겠어요” — tashviqotdan ko‘ra jarima a‘loroq. O‘zbek tilida “yaxshi bo‘ladi” deymiz, lekin koreyschada “겠” siz aytilgan “좋아요” faqat fakt sifatida eshitiladi — tavsiya emas.",
+   "say": "노선을 늘리는 게 좋겠어요. 이 방법을 강력히 추천합니다. 홍보보다 벌금이 낫겠어요.",
+   "say_uz": "Yo‘nalishlarni ko‘paytirish yaxshi bo‘lardi. Bu usulni qat‘iy tavsiya qilaman. Tashviqotdan ko‘ra jarima a‘loroq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tavsiya gaplarini o‘qing",
+   "emotion": "encouraging",
+   "board": [
+    "~는 게 좋겠어요",
+    "~를 추천합니다",
+    "강력히 추천해요",
+    "~는 게 낫겠어요"
+   ],
+   "examples": [],
+   "say_native": "Gaplarni o‘qing: “주차 공간을 늘리는 게 좋겠어요”, “이 버스 노선을 추천합니다”, “지하철 개통을 강력히 추천해요”, “벌금보다 홍보가 낫겠어요”. Har bir gapni o‘qigandan keyin o‘zingizga ayting: bu yumshoq taklifmi, kuchli tavsiyami yoki ikki variantdan tanlovmi? Bu farqni sezish TOPIK nutqining eng muhim nozikliklaridan biri.",
+   "say": "주차 공간을 늘리는 게 좋겠어요. 이 버스 노선을 추천합니다. 지하철 개통을 강력히 추천해요.",
+   "say_uz": "Parkovka joyini ko‘paytirish yaxshi bo‘lardi. Bu avtobus yo‘nalishini tavsiya qilaman. Metro ochilishini qat‘iy tavsiya qilaman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "좋겠어요 — yumshoq",
+    "추천합니다 — bevosita",
+    "강력히 추천 — kuchli",
+    "낫겠어요 — ikki variantdan tanlov"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “좋겠어요” — yumshoq tavsiya, do‘stona va muloyim; “추천합니다” — bevosita, ishonchli tavsiya; “강력히 추천” — kuchli va qat‘iy; “낫겠어요” — ikki variant orasidan yaxshisini tanlash. Esda tuting: qaror e’lon qilayotganda “최선이다”, maslahat berayotganda “좋겠어요”, ikki narsani taqqoslaganda “낫겠어요” ishlating. Endi talaffuz nozikligini — tez nutqda “것” qanday eshitilishini ko‘rib chiqamiz.",
+   "say": "좋겠어요 부드럽게, 추천합니다 직접적으로, 강력히 추천 강하게, 낫겠어요 선택이에요.",
+   "say_uz": "좋겠어요 — yumshoq, 추천합니다 — bevosita, 강력히 추천 — kuchli, 낫겠어요 — tanlov.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: “것” → “거”",
+   "emotion": "thinking",
+   "board": [
+    "~는 것이 → ~는 게",
+    "것 (geot) → 거 (geo)",
+    "좋겠어요 → [조게써요]",
+    "괜찮아요 → [괜차나요]"
+   ],
+   "examples": [
+    {
+     "t": "노선을 늘리는 게 어때요?",
+     "uz": "Yo‘nalishlarni ko‘paytirish qanday bo‘ladi?"
+    }
+   ],
+   "say_native": "Talaffuzga e’tibor: koreyschada “것” — “narsa” so‘zi kundalik nutqda qisqaradi. “~는 것이” — “~는 게” ga, “~는 것이다” esa “~는 거예요” ga aylanadi: “노선을 늘리는 것이 어때요?” emas, “노선을 늘리는 게 어때요?” deb ayting. “것” so‘zining o‘zi tez nutqda “거” deb eshitiladi. Shu qoidaga ko‘ra “~는 게 좋겠어요” ham tabiiy “~는 게 조게써요” kabi aytiladi — “겠어요” qo‘shimchasi [게써요] kabi yumshoq bilan tugaydi. Shuningdek “괜찮아요” — “hadeganda, ho‘p” — [괜차나요] deb o‘qiladi. Bu tovush o‘zgarishlarini o‘zlashtirganingiz sari nutqingiz ona tilli koreys kabi yumshoq va tabiiy eshitiladi.",
+   "say": "노선을 늘리는 게 어때요? 이 방법이 제일 좋겠어요. 괜찮아요.",
+   "say_uz": "Yo‘nalishlarni ko‘paytirish qanday bo‘ladi? Bu usul eng yaxshi bo‘lardi. Mayli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Talaffuz mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "~는 게 좋겠어요",
+    "~는 거예요",
+    "괜찮아요"
+   ],
+   "examples": [],
+   "say_native": "Quyidagilarni ovoz chiqarib, besh marta takrorlang: “노선을 늘리는 게 좋겠어요”, “그게 제일 좋은 거예요”, “괜찮아요, 걱정 마세요”. “게” va “거” ni qisqa va yumshoq ayting, “겠어요” ni to‘liq [겟써요] emas, [게써요] kabi talaffuz qiling. Har takrorda tezroq va tabiiyroq o‘qing — nutq tabiiyligi aynan shu qisqartirishlarda yashiringan.",
+   "say": "노선을 늘리는 게 좋겠어요. 그게 제일 좋은 거예요. 괜찮아요.",
+   "say_uz": "Yo‘nalishlarni ko‘paytirish yaxshi bo‘lardi. Shu eng yaxshi narsa. Mayli.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "것은 → 건 / 게",
+    "것이다 → 거예요",
+    "겠어요 → [게써요]"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: “것은” — “건” yoki “게”, “것이다” — “거예요”, “겠어요” — yumshoq [게써요] talaffuz qilinadi. Agar “것” ni to‘liq [geot] deb aytsangiz, nutqingiz o‘qilgan matndek eshitiladi; qisqartirsangiz — jonli nutqdek eshitiladi. Endi tez-tez uchraydigan ohang xatolarini ko‘rib chiqamiz.",
+   "say": "것은 건, 것이다 거예요, 겠어요 게써요.",
+   "say_uz": "것은 — 건, 것이다 — 거예요, 겠어요 — 게써요.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Taklifni buyruqdek eshittirish",
+   "emotion": "disappointed",
+   "board": [
+    "✖ 노선을 늘리십시오!",
+    "○ 노선을 늘리면 어떨까요?",
+    "✖ 미세하게: 이 방법이 좋아요",
+    "○ 이 방법이 좋을 것 같아요"
+   ],
+   "examples": [
+    {
+     "t": "노선을 늘리면 어떨까요?",
+     "uz": "Yo‘nalishlarni ko‘paytirsak, qanday bo‘lardi?"
+    }
+   ],
+   "say_native": "Ikki xato bir yerda to‘planadi. Birinchi xato: taklifni buyruq qilib qo‘yish — “노선을 늘리십시오!” — bu buyruq, taklif emas; koreyschada bunday gap qarshi tomonni e’tirozga majbur qiladi. Ikkinchi xato: tavsiyani faktdek qo‘yish — “이 방법이 좋아요” — bu “bu usul yaxshi (demak, haqiqat)” degan qattiq bayonot. To‘g‘ri shakllar: yumshoq taklif uchun “~면 어떨까요?”, yumshoq tavsiya uchun “~을 것 같아요” yoki “좋겠어요”. O‘zbek tilida “shunday qiling” tabiiy buyruq bo‘ladi, lekin koreyschada xushmuomalalik darajasi bu yerda juda nozik — har doim “겠” yoki “것 같” yumshatgichini qo‘shing.",
+   "say": "노선을 늘리면 어떨까요? 이 방법이 좋을 것 같아요.",
+   "say_uz": "Yo‘nalishlarni ko‘paytirsak, qanday bo‘lardi? Bu usul yaxshi bo‘lsam kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Xatolarni tuzatish",
+   "emotion": "proud",
+   "board": [
+    "buyruq → taklif: ~면 어떨까요?",
+    "fakt → ehtiyot: ~을 것 같아요",
+    "겠 = yumshoqlik"
+   ],
+   "examples": [],
+   "say_native": "Xatolarni tuzating: “지금 출발하십시오” ni taklifga aylantiring — “지금 출발하면 어떨까요?” “이 안이 최선입니다” ni yumshating — “이 안이 최선일 것 같습니다”. Eslab qoling: “겠” va “것 같” — sizning ifodangizga eshik qoldiradigan ikki yumshatgich; ular koreyschada “menimcha” ohangini beradi. Endi ikkinchi dialogni eshitamiz — u yerda uchta yechim solishtirilib, eng yaxshisi tanlanadi.",
+   "say": "지금 출발하면 어떨까요? 이 안이 최선일 것 같습니다.",
+   "say_uz": "Hozir jo‘nasak, qanday bo‘lardi? Shu reja eng yaxshisi bo‘lsa kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: mahalla yig‘ilishi",
+   "emotion": "happy",
+   "board": [
+    "선생님: 회의를 시작하겠습니다.",
+    "이 씨: 분리수거를 안 하는 분이 많아요.",
+    "박 씨: 안내문을 나눠 주는 게 어때요?",
+    "이 씨: 벌금을 부과하는 게 낫겠어요.",
+    "선생님: 우선 홍보하고, 다음에 벌금을 검토합시다."
+   ],
+   "examples": [
+    {
+     "t": "우선 홍보하고, 다음에 벌금을 검토합시다.",
+     "uz": "Avval tashviqot qilaylik, keyin jarimani ko‘rib chiqaylik."
+    }
+   ],
+   "say_native": "Ikkinchi dialog: mahalla yig‘ilishida chiqishni boshqaradi. “회의를 시작하겠습니다” — majlis boshlanadi. “분리수거를 안 하는 분이 많아요” — chiqindilarni ajratmasdan tashlaydiganlar ko‘p. Ba’zi a’zolar “안내문을 나눠 주는 게 어때요?” — e’lon varaqalarini tarqatish qanday bo‘ladi? — deb taklif qiladi. Boshqa a’zo esa “벌금을 부과하는 게 낫겠어요” — jarima solish a‘loroq — deb qarshi taklif beradi. Nihoyat, yig‘ilishni boshqaruvchi “우선 홍보하고, 다음에 벌금을 검토합시다” — avval tashviqot qilaylik, keyin jarimani ko‘rib chiqaylik — deb bosqichli yechimni tavsiya qiladi. E’tibor bering: uchta yechimdan hech biri rad etilmaydi — ular navbatga qo‘yiladi. Bu yig‘ilish madaniyatida eng professional yechim: “우선~, 다음에~” — “avval…, keyin…” modeli.",
+   "say": "선생님: 회의를 시작하겠습니다. 이 씨: 분리수거를 안 하는 분이 많아요. 박 씨: 안내문을 나눠 주는 게 어때요? 이 씨: 벌금을 부과하는 게 낫겠어요. 선생님: 우선 홍보하고, 다음에 벌금을 검토합시다.",
+   "say_uz": "O‘qituvchi: Majlis boshlanadi. I janob: chiqindini ajratmasdan tashlaydiganlar ko‘p. Pak janob: E’lon tarqatish qanday bo‘ladi? I janob: Jarima solish a‘loroq. O‘qituvchi: Avval tashviqot qilaylik, keyin jarimani ko‘rib chiqaylik.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog 2 ni tushunish",
+   "emotion": "encouraging",
+   "board": [
+    "어떤 문제인가?",
+    "첫 번째 제안은?",
+    "두 번째 제안은?",
+    "최종 결정은?"
+   ],
+   "examples": [],
+   "say_native": "Dialog asosida to‘rtta savol: birinchi, qanday muammo muhokama qilinmoqda? Ikkinchi, birinchi yechim nima edi? Uchinchi, ikkinchi yechim nima edi? To‘rtinchi, yakuniy qaror qanday bo‘ldi? Javoblarni koreyscha shakllantiring: “분리수거 문제”, “안내문을 나눠 주다”, “벌금을 부과하다”, “우선 홍보, 다음에 벌금”. Bu to‘rtlik yig‘ilishda gapirishning tayyor kalliti.",
+   "say": "어떤 문제예요? 첫 번째 안은 뭐예요? 두 번째 안은 뭐예요? 최종 결정은 뭐예요?",
+   "say_uz": "Qanday muammo? Birinchi taklif qaysi? Ikkinchi taklif qaysi? Yakuniy qaror qaysi?",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: dialog 2",
+   "emotion": "proud",
+   "board": [
+    "분리수거 — chiqindini ajratish",
+    "안내문 — e’lon varaqasi",
+    "벌금 — jarima",
+    "우선~ 다음에~ — avval~ keyin~"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: muammo — “분리수거” — chiqindini ajratish; birinchi taklif — “안내문을 나눠 주는 것” — e’lon varaqalarini tarqatish; ikkinchi taklif — “벌금을 부과하는 것” — jarima solish; yakuniy qaror — “우선 홍보하고, 다음에 벌금을 검토합시다”. Shu yig‘ilishdagi “우선~, 다음에~” modeli TOPIK nutqida ikki bosqichli reja taqdim etmoqchi bo‘lganingizda ideal: u qarshi tomonning fikrlari inobatga olinganini ham ko‘rsatadi. Endi butun strukturani bitta nutq formuliga jamlaymiz.",
+   "say": "분리수거, 안내문, 벌금, 우선 홍보하고 다음에 벌금.",
+   "say_uz": "chiqindini ajratish, e’lon varaqasi, jarima, avval tashviqot keyin jarima.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nutq formuli: muammodan tavsiyagacha",
+   "emotion": "thinking",
+   "board": [
+    "① Muammo: 요즘 ~ 문제가 심각합니다",
+    "② Sabab: ~기 때문에 / ~로 인해",
+    "③ Yechim: 첫째, 둘째, 셋째",
+    "④ Baholash: 장점과 단점",
+    "⑤ Tavsiya: 저는 ~를 추천합니다"
+   ],
+   "examples": [],
+   "say_native": "Endi hammasini bitta TOPIK nutqi formulasiga yig‘amiz. Birinchi qadam — muammoni nomlang: “요즘 우리 동네에 주차 문제가 심각합니다” — hozir mahallamizda parkovka muammosi jiddiy. Ikkinchi qadam — sababni ko‘rsating: “차량이 계속 늘어나기 때문에” — avtomobillar soni to‘xtovsiz ko‘payib borgani sababli. Uchinchi qadam — uchta yechim sanang: “첫째, 주차 공간을 늘리는 것; 둘째, 공유 주차를 도입하는 것; 셋째, 대중교통을 장려하는 것” — birinchidan parkovka joyini ko‘paytirish; ikkinchidan jamoa parkovkasini joriy qilish; uchinchidan jamoat transportini rag‘batlantirish. To‘rtinchi qadam — har birining afzallik va kamchiligini ayting. Beshinchi qadam — tavsiyangizni qiling: “저는 세 번째 방법을 추천합니다” — men uchinchi usulni tavsiya qilaman. “첫째, 둘째, 셋째” — bu “birinchidan, ikkinchidan, uchinchidan” degani va rasmiy nutqni juda tartibli ko‘rsatadi.",
+   "say": "첫째, 주차 공간을 늘리는 것. 둘째, 공유 주차를 도입하는 것. 셋째, 대중교통을 장려하는 것. 저는 세 번째 방법을 추천합니다.",
+   "say_uz": "Birinchidan, parkovka joyini ko‘paytirish. Ikkinchidan, jamoa parkovkasini joriy qilish. Uchinchidan, jamoat transportini rag‘batlantirish. Men uchinchi usulni tavsiya qilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Rol mashqi: yig‘ilishni boshqaring",
+   "emotion": "encouraging",
+   "board": [
+    "A boshlovchi: muammoni aytadi",
+    "B: sabab va yechim taklif qiladi",
+    "A: yechimlarni baholaydi",
+    "B: yakuniy tavsiyani beradi"
+   ],
+   "examples": [],
+   "say_native": "Rol mashqi: A rolini siz o‘ynang — yig‘ilishni oching va muammoni ayting. B rolini ham o‘zingiz o‘ynang — sababni ko‘rsating, bitta yechim taklif qiling, u yechimning afzallik va kamchiligini ayting, so‘ng tavsiya bering. “요즘 ~ 문제가 심각합니다. ~기 때문에 그렇습니다. ~면 어떨까요? 장점은 ~, 단점은 ~입니다. 저는 ~를 추천합니다.” kabi shablonni ovoz chiqarib o‘qing. Har bosqichni sekin va aniq ayting — tezlik emas, tuzilish muhim.",
+   "say": "요즘 문제가 심각합니다. 기 때문에 그렇습니다. 면 어떨까요? 장점은 비용, 단점은 시간입니다. 저는 이 방법을 추천합니다.",
+   "say_uz": "Hozir muammo jiddiy. Sababi shu. …sak, qanday bo‘lardi? Afzalligi xarajat, kamchiligi vaqt. Men bu usulni tavsiya qilaman.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: namuna nutq",
+   "emotion": "proud",
+   "board": [
+    "Muammo → Sabab → Yechim → Baholash → Tavsiya"
+   ],
+   "examples": [],
+   "say_native": "Namuna nutq: “요즘 우리 동네에 주차 문제가 심각합니다. 차량이 계속 늘어나기 때문에 그렇습니다. 첫째, 주차 공간을 늘리면 어떨까요? 둘째, 공유 주차를 도입하면 어떨까요? 셋째, 대중교통을 장려하는 건 어떨까요? 첫 번째는 효과적이지만 비용이 많이 듭니다. 두 번째는 현실적인 편입니다. 세 번째는 시간이 걸리지만 가장 지속 가능합니다. 저는 두 번째 방법을 추천합니다.” E’tibor bering: hech bir gapli mukammal emas, lekin tuzilish to‘liq — TOPIK baholovchilar aynan shu tartibni qidiradi.",
+   "say": "요즘 우리 동네에 주차 문제가 심각합니다. 저는 두 번째 방법을 추천합니다.",
+   "say_uz": "Hozir mahallamizda parkovka muammosi jiddiy. Men ikkinchi usulni tavsiya qilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy topshiriq: shahringizdagi muammo",
+   "emotion": "impressed",
+   "board": [
+    "Shahringizdagi 1 ta muammo",
+    "3 ta yechim",
+    "Har yechimning afzalligi/kamchiligi",
+    "Yakuniy tavsiya"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy topshiriq: shahringizdagi bitta muammoni tanlang — parkovka, chiqindilar, tirbandlik yoki shovqin, farqi yo‘q. So‘ngra 2 daqiqalik koreyscha nutq tuzing: avval muammoni eng bilan nomlang, sababini ko‘rsating, uchta yechim taklif qiling, har birini afzallik va kamchilik bilan baholang va eng yaxshisini tavsiya qiling. “문제가 심각합니다”, “기 때문에”, “첫째, 둘째, 셋째”, “장점은”, “단점은”, “추천합니다” so‘zlarini albatta ishlating. Nutqingizni ovoz chiqarib yozib oling va o‘zingiz tinglang.",
+   "say": "여러분 동네의 문제를 골라 보세요. 해결책을 셋 제안하세요. 장점과 단점을 말하세요. 마지막에 추천하세요.",
+   "say_uz": "Mahallangizdagi muammoni tanlang. Uchta yechim taklif qiling. Afzallik va kamchiliklarni ayting. Oxirida tavsiya qiling.",
+   "practice_seconds": 45
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javob",
+   "emotion": "proud",
+   "board": [
+    "muammo + sabab + 3 yechim + baholash + tavsiya"
+   ],
+   "examples": [],
+   "say_native": "Namuna javob: “우리 동네는 쓰레기 문제가 심각합니다. 분리수거를 안 하는 주민이 늘어나기 때문에 그렇습니다. 첫째, 안내문을 나눠 주는 게 어떨까요? 비용은 적게 들지만 효과는 천천히 나타납니다. 둘째, 분리수거함을 늘리면 어떨까요? 비용은 들지만 효과는 빠릅니다. 셋째, 위반 시 벌금을 부과하면 어떨까요? 효과는 가장 크지만 주민들의 반발이 있을 수 있습니다. 저는 세 가지를 함께 쓰는 걸 추천합니다.” Ko‘rib turganingizdek, har yechim bitta afzallik va bitta kamchilik bilan baholanadi — bu baholovchilarning ko‘zida to‘liq va yetuk javobning belgisi. Sizning nutqingiz ham shu beshta elementga ega bo‘lsin.",
+   "say": "첫째, 안내문을 나눠 주는 게 어떨까요? 둘째, 분리수거함을 늘리면 어떨까요? 셋째, 벌금을 부과하면 어떨까요? 저는 세 가지를 함께 쓰는 걸 추천합니다.",
+   "say_uz": "Birinchidan, e’lon tarqatish qanday bo‘lardi? Ikkinchidan, ajratish qutilarini ko‘paytirsak? Uchinchidan, jarima solsak? Men uchalasini birga ishlatishni tavsiya qilaman.",
+   "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
-   "emotion": "proud",
+   "emotion": "impressed",
    "board": [
-    "문제 · ~면 어떨까요?",
-    "~는 게 좋겠어요 · 추천",
-    "장점 · 단점"
+    "문제 표현: 있다, 생기다, 발생하다, 심각하다",
+    "Sabab: 때문에, 인해, 탓에, 덕분에",
+    "Taklif: 어떨까요?, 도록 합시다",
+    "Baholash: 장점, 단점, 비해, 반면에",
+    "Tavsiya: 좋겠어요, 추천합니다, 낫겠어요"
    ],
    "examples": [],
-   "say_native": "Xulosa. Muammo tili, yechim taklif qilish (~면 어떨까요?), variantlarni baholash va tavsiya berish (추천) o‘rgandik. Endi siz shahringizdagi muammo va yechimlarni tasvirlay olasiz.",
-   "say": "잘 하셨어요! 이제 문제와 해결책을 말할 수 있어요.",
-   "say_uz": "Barakalla! Endi muammo va yechimni ayta olasiz.",
+   "say_native": "Bugun nimani o‘rgandik: muammoni nomlash uchun “문제가 있다, 생기다, 발생하다, 심각하다”; sabab uchun “때문에, 기 때문에, 인해, 탓에, 덕분에”; taklif uchun “면 어떨까요?, 게 어때요?, 도록 합시다”; baholash uchun “장점, 단점, 에 비해, 반면에, 는 편이다”; tavsiya uchun “는 게 좋겠어요, 추천합니다, 강력히 추천, 는 게 낫겠어요”. Ikki dialog tingladingiz — tirbandlik va chiqindi muammosi — va shahringizdagi muammo uchun nutq tayyorladingiz. Bu besh qadam TOPIK nutq imtihonining deyarli har bir “vaziyatda yechim taklif qiling” topshirig‘ining asosidir.",
+   "say": "문제 표현, 원인 표현, 제안 표현, 평가 표현, 추천 표현을 다 배웠어요.",
+   "say_uz": "Muammo, sabab, taklif, baholash va tavsiya ifodalarini o‘rgandingiz.",
    "practice_seconds": 0
   },
   {
@@ -475,127 +700,126 @@
    "title": "Uyga vazifa",
    "emotion": "encouraging",
    "board": [
-    "Shahringizdagi muammo va 3 ta yechimini tasvirlang",
-    "문제 · ~면 어떨까요? · 추천"
+    "1 ta muammo + 3 ta yechim + tavsiya"
    ],
    "examples": [],
-   "say_native": "Uyga vazifa. Shahringizdagi muammo va 3 ta yechimini tasvirlang. Keyingi darsda B1 yakuniy imtihonini o‘rganamiz.",
-   "say": "다음 시간에 만나요. 안녕히 계세요!",
-   "say_uz": "Keyingi darsda ko‘rishamiz. Salomat qoling!",
+   "say_native": "Uyga vazifa: shahringizdagi bitta muammoni tanlang va uchta yechimini koreyscha tasvirlang. “문제가 심각합니다”, “기 때문에”, “첫째, 둘째, 셋째”, “장점은”, “단점은”, “면 어떨까요?”, “추천합니다” iboralari ishlatilishi shart. Har yechim uchun kamida bitta afzallik va bitta kamchilik ayting, oxirida bitta yechimni tavsiya qiling. Muvaffaqiyat mezoni: nutq 1-2 daqiqa uzunligida bo‘lsin va beshta elementning hammasi — muammo, sabab, yechim, baholash, tavsiya — qamrab olinsin. Keyingi dars: B1 yakuniy imtihon — butun B1 darajasi bo‘yicha takrorlash va 15 savolli test bilan imtihondan oldin oxirgi tayyorgarlik.",
+   "say": "숙제예요. 여러분 동네의 문제와 해결책 셋을 2분 동안 말해 보세요.",
+   "say_uz": "Uyga vazifa. Mahallangizdagi muammo va uchta yechimni 2 daqiqa davomida ayting.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Shahringizdagi muammo va 3 ta yechimini tasvirlang. “~면 어떨까요?” va “추천” ishlatilishi kerak.",
+ "homework_uz": "Shahringizdagi bitta muammoni va uning 3 ta yechimini tasvirlab, 2 daqiqalik nutq yozing. “문제가 심각합니다”, “기 때문에”, “첫째, 둘째, 셋째”, “면 어떨까요?”, “장점은”, “단점은”, “추천합니다” ishlatilishi kerak; har yechim uchun kamida bitta afzallik va bitta kamchilik ayting va oxirida bittasini tavsiya qiling. Keyingi dars: B1 yakuniy imtihon.",
  "quiz": [
   {
    "q": "How do you say “There is a problem”?",
    "options": [
-    "문제가 없어요.",
-    "문제가 있어요.",
-    "문제가 많아요.",
-    "문제가 좋아요."
+    "해결이 있습니다",
+    "문제가 있습니다",
+    "문제가 아닙니다",
+    "원인이 많습니다"
    ],
    "answer": 1,
-   "why_uz": "muammo bor — “문제가 있어요”."
+   "why_uz": "“문제가 있습니다” — “muammo bor” degani; “해결” — yechim, “원인” — sabab."
   },
   {
-   "q": "How do you propose “How about expanding the subway?”?",
+   "q": "Which sentence gently proposes a solution?",
    "options": [
-    "지하철을 확장하면 어떨까요?",
-    "지하철을 확장하세요.",
-    "지하철을 확장할 거예요.",
-    "지하철을 확장했어요."
-   ],
-   "answer": 0,
-   "why_uz": "metro kengaytirilsa, yaxshi bo‘larmi? — “지하철을 확장하면 어떨까요?”."
-  },
-  {
-   "q": "What does “교통 체증” mean?",
-   "options": [
-    "pollution",
-    "traffic jam",
-    "parking",
-    "noise"
+    "노선을 늘리십시오!",
+    "노선을 늘리면 어떨까요?",
+    "노선을 늘렸습니다",
+    "노선을 늘려라"
    ],
    "answer": 1,
-   "why_uz": "교통 체증 — tirbandlik."
-  },
-  {
-   "q": "How do you say “Recycling would be good”?",
-   "options": [
-    "재활용을 하는 게 좋겠어요.",
-    "재활용을 하면 안 돼요.",
-    "재활용을 했어요.",
-    "재활용을 해요."
-   ],
-   "answer": 0,
-   "why_uz": "qayta ishlash yaxshi bo‘ladi — “재활용을 하는 게 좋겠어요”."
+   "why_uz": "“~면 어떨까요?” — yumshoq taklif; “늘리십시오/늘려라” buyruqdir."
   },
   {
    "q": "What does “장점” mean?",
    "options": [
-    "disadvantage",
-    "advantage",
-    "problem",
-    "solution"
+    "kamchilik",
+    "afzallik",
+    "xulosa",
+    "xarajat"
    ],
    "answer": 1,
-   "why_uz": "장점 — afzallik."
+   "why_uz": "“장점” — afzallik; “단점” — kamchilik."
   },
   {
    "q": "What does “단점” mean?",
    "options": [
-    "advantage",
-    "disadvantage",
-    "recommendation",
-    "solution"
+    "afzallik",
+    "yechim",
+    "kamchilik",
+    "sabab"
+   ],
+   "answer": 2,
+   "why_uz": "“단점” — kamchilik; baholashda “장점” bilan juft ishlatiladi."
+  },
+  {
+   "q": "Which sentence is a gentle recommendation?",
+   "options": [
+    "이 방법이 좋아요.",
+    "이 방법이 좋을 것 같아요.",
+    "이 방법이 최선입니다.",
+    "이 방법을 쓰세요."
    ],
    "answer": 1,
-   "why_uz": "단점 — kamchilik."
+   "why_uz": "“것 같아요” — “menimcha” ohangini beradi; “좋아요” faqat fakt, “최선입니다” qattiq bayonot."
   },
   {
-   "q": "How do you recommend “I recommend expanding the subway”?",
+   "q": "“Because of heavy traffic” (neutral) in Korean?",
    "options": [
-    "지하철 확장을 추천합니다.",
-    "지하철 확장을 해요.",
-    "지하철 확장을 원해요.",
-    "지하철 확장을 싫어해요."
+    "교통 체증 덕분에",
+    "교통 체증 탓에",
+    "교통 체증 때문에",
+    "교통 체증 인해"
    ],
-   "answer": 0,
-   "why_uz": "metro kengaytirishni tavsiya qilaman — “지하철 확장을 추천합니다”."
+   "answer": 2,
+   "why_uz": "“때문에” — neytral sabab; “덕분에” ijobiy, “탓에” salbiy, “인해” rasmiy uslub."
   },
   {
-   "q": "Which ending proposes a solution gently?",
+   "q": "Blame something negative: “Because of bad planning…”?",
    "options": [
-    "~면 어떨까요?",
-    "~아/어야 해요",
-    "~면 안 돼요",
-    "~겠어요"
-   ],
-   "answer": 0,
-   "why_uz": "~면 어떨까요? — … bo‘lsa, yaxshi bo‘larmi?"
-  },
-  {
-   "q": "How do you say “Because it is fast and efficient”?",
-   "options": [
-    "왜냐하면 빠르고 효율적이기 때문이에요.",
-    "왜냐하면 빠르고 효율적이에요.",
-    "왜냐하면 빠르고 효율적일 거예요.",
-    "왜냐하면 빠르고 효율적이었어요."
-   ],
-   "answer": 0,
-   "why_uz": "chunki tez va samarali — “왜냐하면 빠르고 효율적이기 때문이에요”."
-  },
-  {
-   "q": "How do you say “There is a lack of parking space”?",
-   "options": [
-    "주차 공간이 많아요.",
-    "주차 공간이 부족해요.",
-    "주차 공간이 없어요.",
-    "주차 공간이 좋아요."
+    "계획 덕분에",
+    "계획 탓에",
+    "계획 때문에",
+    "계획 인해"
    ],
    "answer": 1,
-   "why_uz": "to‘xtash joyi yetarli emas — “주차 공간이 부족해요”."
+   "why_uz": "“탓에” faqat salbiy natijada aybni bildiradi; ijobiy uchun “덕분에”."
+  },
+  {
+   "q": "“It is effective, but expensive”?",
+   "options": [
+    "효과적이지만 비용이 많이 들어요.",
+    "효과적이면서 싸요.",
+    "비용이 적게 드니까 효과적이에요.",
+    "효과적이지 않지만 비용이 들어요."
+   ],
+   "answer": 0,
+   "why_uz": "“-지만” ziddiyatni bog‘laydi: samarali, lekin xarajati ko‘p."
+  },
+  {
+   "q": "How to recommend “I strongly recommend this”?",
+   "options": [
+    "강력히 반대합니다",
+    "강력히 추천합니다",
+    "약하게 추천합니다",
+    "추천하지 않습니다"
+   ],
+   "answer": 1,
+   "why_uz": "“강력히 추천합니다” — qat‘iy tavsiya qilaman; “반대” — qarshi."
+  },
+  {
+   "q": "What is the correct order for a problem–solution talk?",
+   "options": [
+    "Yechim, muammo, tavsiya, baholash",
+    "Muammo, sabab, yechim, baholash, tavsiya",
+    "Tavsiya, yechim, muammo, sabab",
+    "Baholash, tavsiya, muammo, sabab"
+   ],
+   "answer": 1,
+   "why_uz": "Muammoni nomlaysiz, sababini ko‘rsatasiz, yechimlarni taklif qilib baholaysiz va tavsiya bilan tugatasiz."
   }
  ]
 }

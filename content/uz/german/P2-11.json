@@ -1,0 +1,912 @@
+{
+ "title": "IT va texnologiya tili",
+ "goal_uz": "Dars oxirida siz nemis IT-sektorida professional muloqot qila olasiz: dasturiy va texnik ta‘minot lug‘atini bilasiz, jarayon va xatolarni (Bug-Report) tasvirlaysiz, stand-up yig‘ilishlarida qatnashasiz, chipta (Ticket) yozasiz va texnik bo‘lmagan odamlarga texnologiyani oddiy tilda tushuntirasiz.",
+ "vocab": [
+  {
+   "w": "die Software",
+   "uz": "dasturiy ta‘minot"
+  },
+  {
+   "w": "die Hardware",
+   "uz": "apparat ta‘minot"
+  },
+  {
+   "w": "das Betriebssystem",
+   "uz": "operatsion tizim"
+  },
+  {
+   "w": "die Anwendung",
+   "uz": "ilova, dastur"
+  },
+  {
+   "w": "die Datenbank",
+   "uz": "ma‘lumotlar bazasi"
+  },
+  {
+   "w": "der Server",
+   "uz": "server"
+  },
+  {
+   "w": "die Schnittstelle",
+   "uz": "interfeys (API)"
+  },
+  {
+   "w": "der Quellcode",
+   "uz": "manba kodi"
+  },
+  {
+   "w": "der Fehler (Bug)",
+   "uz": "xato, nuqson"
+  },
+  {
+   "w": "das Ticket",
+   "uz": "chipta so‘rovi"
+  },
+  {
+   "w": "die Anforderung",
+   "uz": "talab"
+  },
+  {
+   "w": "das Deployment",
+   "uz": "joylashtirish (deploy)"
+  },
+  {
+   "w": "die Wartung",
+   "uz": "texnik xizmat ko‘rsatish"
+  },
+  {
+   "w": "der Release",
+   "uz": "chiqarilish, versiya"
+  }
+ ],
+ "scenes": [
+  {
+   "kind": "intro",
+   "title": "IT va texnologiya tili",
+   "emotion": "proud",
+   "board": [
+    "PRO 36/50",
+    "IT va texnologiya tili"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Bu PRO 2 modulining o‘n birinchi darsi — IT va texnologiya tili. Bugun siz nemis IT-sektorida professional muloqot qilishni o‘rganasiz: dasturiy va apparat ta‘minot lug‘ati, jarayon va xatolarni tasvirlash, stand-up yig‘ilishlari, chipta yozish hamda texnik bo‘lmagan odamlarga texnologiyani oddiy tushuntirish. IT — tili tez o‘zgaradi, shuning uchun lug‘at aniq va amaliy bo‘lishi kerak.",
+   "say": "Willkommen zur PRO-2-Lektion über IT und Technologiesprache!",
+   "say_uz": "IT va texnologiya tili haqidagi PRO 2 darsiga xush kelibsiz!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Software va Hardware: asosiy lug‘at",
+   "emotion": "neutral",
+   "board": [
+    "die Software — dasturiy ta‘minot",
+    "die Hardware — apparat ta‘minot",
+    "das Betriebssystem — operatsion tizim",
+    "der Browser — brauzer"
+   ],
+   "examples": [
+    {
+     "t": "Diese Anwendung läuft nur unter Windows.",
+     "uz": "Bu ilova faqat Windows ostida ishlaydi."
+    },
+    {
+     "t": "Die Hardware des Servers ist fünf Jahre alt.",
+     "uz": "Serverning apparati besh yoshda."
+    }
+   ],
+   "say_native": "IT lug‘atining poydevori — ikkita so‘z. „die Software“ — dasturiy ta‘minot: kod, dastur, ilova. „die Hardware“ — apparat ta‘minot: ekran, klaviatura, protsessor, disk. „das Betriebssystem“ — operatsion tizim — Windows, Linux, macOS. „die Anwendung“ — ilova, ko‘pincha „die App“ deb ham aytiladi. „der Browser“ — brauzer — Chrome, Firefox, Edge. Artikllarni unutmang: Software va Hardware — die, Betriebssystem — das.",
+   "say": "Software, Hardware, Betriebssystem, Browser, Anwendung — das sind die Grundbegriffe der IT-Welt.",
+   "say_uz": "Dasturiy ta‘minot, apparat ta‘minot, operatsion tizim, brauzer, ilova — IT dunyosining asosiy atamalari.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Software va Hardware mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) Software — misol",
+    "2) Hardware — misol",
+    "3) Betriebssystem nima?"
+   ],
+   "examples": [],
+   "say_native": "Uchta tezkor savol. Birinchi: bitta dasturiy ta‘minot misolini nemischa ayting — masalan, der Browser yoki die Anwendung. Ikkinchi: bitta apparat ta‘minot misolini ayting — masalan, der Bildschirm yoki die Tastatur. Uchinchi: „das Betriebssystem“ nima ekanligini bir jumla bilan tushuntiring. Har bir misolga artiklini ham qo‘shib ayting — nemis IT-hujjatlarida artikl muhim.",
+   "say": "Nennen Sie ein Beispiel für Software und eines für Hardware. Was ist ein Betriebssystem?",
+   "say_uz": "Dasturiy ta‘minot uchun bitta va apparat ta‘minot uchun bitta misol keltiring. Operatsion tizim nima?",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Ma‘lumotlar bazasi, server va bulut",
+   "emotion": "neutral",
+   "board": [
+    "die Datenbank — ma‘lumotlar bazasi",
+    "der Server — server",
+    "der Client — mijoz kompyuter",
+    "die Cloud — bulut"
+   ],
+   "examples": [
+    {
+     "t": "Die Daten liegen in einer zentralen Datenbank.",
+     "uz": "Ma‘lumotlar markaziy bazada saqlanadi."
+    },
+    {
+     "t": "Der Client fragt den Server nach neuen Daten.",
+     "uz": "Mijoz kompyuter serverdan yangi ma‘lumotlarni so‘raydi."
+    }
+   ],
+   "say_native": "Zamonaviy IT-tizim — uchta qism. Birinchi, „die Datenbank“ — ma‘lumotlar bazasi: jadvallar, yozuvlar, so‘rovlar. Ikkinchi, „der Server“ — server: bazani boshqaradigan kuchli kompyuter. Uchinchi, „der Client“ — mijoz: foydalanuvchining kompyuteri yoki telefoni. Server va Client o‘rtasida so‘rovlar doimo bor. „die Cloud“ — bulut: boshqalarning serverlarini ijaraga olish — AWS, Azure. Xavfsizlik har doim muhokama qilinadi.",
+   "say": "Die Datenbank speichert die Daten, der Server verwaltet sie, der Client fragt sie ab. Alles läuft oft in der Cloud.",
+   "say_uz": "Ma‘lumotlar bazasi ma‘lumotlarni saqlaydi, server ularni boshqaradi, mijoz so‘rov yuboradi. Ko‘pincha hammasi bulutda ishlaydi.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Server va baza mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) ma‘lumot saqlovchi",
+    "2) so‘rov yuboruvchi",
+    "3) bulut nima?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: ma‘lumotlar qayerda saqlanadi — „die Datenbank“ deb ayting. Ikkinchi: so‘rovni kim yuboradi — „der Client“. Uchinchi: „die Cloud“ nima — oddiy tilda tushuntiring: boshqa kompaniyaning serverlarida ishlash. Har bir javobda artiklni to‘g‘ri ayting va bitta to‘liq jumla tuzing.",
+   "say": "Wo werden die Daten gespeichert? Wer schickt die Anfrage? Was verstehen Sie unter Cloud?",
+   "say_uz": "Ma‘lumotlar qayerda saqlanadi? So‘rovni kim yuboradi? Bulut deganda nimani tushunasiz?",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Deployment jarayoni: build, test, freigeben",
+   "emotion": "thinking",
+   "board": [
+    "1) Code schreiben",
+    "2) Build — yig‘ish",
+    "3) Tests — sinovlar",
+    "4) Freigabe — chiqarish"
+   ],
+   "examples": [
+    {
+     "t": "Nach dem Build laufen alle automatischen Tests.",
+     "uz": "Yig‘ishdan keyin barcha avtomatik testlar ishga tushadi."
+    },
+    {
+     "t": "Die Freigabe erfolgt erst nach grünen Tests.",
+     "uz": "Chiqarish faqat testlar yashil bo‘lgandan keyin amalga oshadi."
+    }
+   ],
+   "say_native": "Kod yozilgandan keyin nima bo‘ladi? Nemis jamoalarda „die Pipeline“ — konveyerli jarayon. Birinchi, „der Build“ — yig‘ish: kod birlashtirilib ishlaydigan dasturga aylanadi. Ikkinchi, „die Tests“ — sinovlar: avtomatik tekshiruvlar — ular „rot“ yoki „grün“ bo‘ladi. Uchinchi, „die Freigabe“ — chiqarish ruxsati: yashil testlardan keyin reliz tayyor. To‘rtinchi, „das Deployment“ — joylashtirish: yangi versiya serverga yuklanadi. Bu jarayon CI/CD deyiladi.",
+   "say": "Zuerst kommt der Build, dann die Tests, dann die Freigabe und am Ende das Deployment — alles automatisch in der Pipeline.",
+   "say_uz": "Avval yig‘ish, keyin testlar, keyin chiqarish ruxsati va oxirida joylashtirish — hammasi konveyerda avtomatik.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Pipeline mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) Build nima?",
+    "2) Tests qachon?",
+    "3) Freigabe sharti?"
+   ],
+   "examples": [],
+   "say_native": "Pipeline bosqichlarini tartiblang va javob bering. Birinchi: „der Build“ nima qiladi — kodni yig‘adi. Ikkinchi: testlar qachon ishga tushadi — builddan keyin. Uchinchi: chiqarish ruxsati nima bilan beriladi — faqat yashil testlar bilan. To‘rt bosqichni nemischa: „Build, Tests, Freigabe, Deployment“ — baland ovozda beshta marta ayting.",
+   "say": "Erklären Sie die vier Schritte der Pipeline mit eigenen Worten: Build, Tests, Freigabe, Deployment.",
+   "say_uz": "Konveyerning to‘rt bosqichini o‘z so‘zlaringiz bilan tushuntiring: yig‘ish, testlar, chiqarish, joylashtirish.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Bug-Report anatomiyasi",
+   "emotion": "neutral",
+   "board": [
+    "Zusammenfassung — qisqacha",
+    "Schritte zur Reproduktion — qadamlar",
+    "Erwartetes Ergebnis — kutilgan",
+    "Tatsächliches Ergebnis — haqiqiy"
+   ],
+   "examples": [
+    {
+     "t": "Der Button reagiert nicht auf Klicks.",
+     "uz": "Tugma bosishga javob bermaydi."
+    },
+    {
+     "t": "Erwartet: die Seite lädt. Tatsächlich: Fehler 500.",
+     "uz": "Kutilgan: sahifa yuklanadi. Haqiqiy: 500 xatosi."
+    }
+   ],
+   "say_native": "Yaxshi Bug-Report — muammoning to‘liq tavsifi. Birinchi, „die Zusammenfassung“ — qisqa sarlavha: bir jumlada muammo nima. Masalan: „Der Login-Button reagiert nicht“. Ikkinchi, „die Schritte zur Reproduktion“ — takrorlash qadamlari: 1) ilovani oching, 2) login tugmasini bosing, 3) natijani kuzating. Uchinchi, „das erwartete Ergebnis“ — kutilgan natija: login muvaffaqiyatli. To‘rtinchi, „das tatsächliche Ergebnis“ — haqiqiy: hech narsa bo‘lmaydi yoki xato chiqadi. Qo‘shimcha: „die Umgebung“ — muhit: brauzer, versiya, operatsion tizim. Bu besh qismsiz Bug-Report to‘liq emas.",
+   "say": "Ein guter Bug-Report besteht aus: Zusammenfassung, Schritten zur Reproduktion, erwartetem und tatsächlichem Ergebnis sowie der Umgebung.",
+   "say_uz": "Yaxshi xato hisoboti quyidagilardan iborat: qisqa tavsif, takrorlash qadamlari, kutilgan va haqiqiy natija hamda muhit.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Bug-Report yozish mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) Zusammenfassung",
+    "2) Schritte",
+    "3) Erwartet / Tatsächlich"
+   ],
+   "examples": [],
+   "say_native": "Bug-Report yozing. Muammo: foydalanuvchi to‘g‘ri parol kiritadi, lekin ilova „Falsches Passwort“ deb yozadi. Nemis tilida besh qismni to‘ldiring: „Zusammenfassung“ — sarlavha; „Schritte“ — uch qadam; „Erwartetes Ergebnis“ — kirish muvaffaqiyatli; „Tatsächliches Ergebnis“ — xato xabari; „Umgebung“ — Chrome 120, Windows 11. Har bir qism bir-ikki jumla bo‘lsin.",
+   "say": "Schreiben Sie einen vollständigen Bug-Report: Zusammenfassung, Schritte, erwartetes und tatsächliches Ergebnis, Umgebung.",
+   "say_uz": "To‘liq xato hisobotini yozing: sarlavha, qadamlar, kutilgan va haqiqiy natija, muhit.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "example",
+   "title": "ESCUCHA 1: stand-up yig‘ilishi",
+   "emotion": "happy",
+   "board": [
+    "Max: gestern Login getestet.",
+    "Anna: heute API-Tests schreiben.",
+    "Jonas: blockiert bei der Migration.",
+    "Team: kurze Updates, 15 Minuten."
+   ],
+   "examples": [],
+   "say_native": "Birinchi suhbatni tinglang — kunlik stand-up. Ikkita dasturchi va bir QA muhandisi gaplashadi. Max kecha nima qilganini aytadi, Anna bugun nima qilishini, Jonas esa nimada to‘xtab qolganini aytadi. Diqqat qiling: hech kim uzun gapirmaydi, hammasi qisqa va aniq. Savollar: kim nima qilgani, kim nimada to‘xtab qolgani va yig‘ilish qancha davom etishi kerakligi.",
+   "say": "Max: Ich habe gestern das Login-Modul getestet — alles grün. Anna: Heute schreibe ich die Tests für die API. Jonas: Ich bin bei der Datenbankmigration blockiert — ich brauche Zugriff auf den Staging-Server. Anna: Ich helfe dir nach dem Meeting. Max: Gut, dann sind wir nach 15 Minuten durch.",
+   "say_uz": "Max: Men kecha kirish modulini test qildim — hammasi yashil. Anna: Bugun API uchun testlar yozaman. Jonas: Ma‘lumotlar bazasi migratsiyasida to‘xtab qoldim — Staging-serverga kirishim kerak. Anna: Yig‘ilishdan keyin senga yordam beraman. Max: Yaxshi, demak 15 daqiqada tugatamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "ESCUCHA 1 bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Max kecha nima qildi?",
+    "2) Anna bugun nima qiladi?",
+    "3) Jonas nimada to‘xtab qoldi?",
+    "4) Yig‘ilish qancha davom etadi?"
+   ],
+   "examples": [],
+   "say_native": "To‘rtta savol. Birinchi: Max kecha nimani test qildi — kirish modulini. Ikkinchi: Anna bugun nimani yozadi — API uchun testlarni. Uchinchi: Jonas nimada to‘xtab qoldi — ma‘lumotlar bazasi migratsiyasida va Staging-serverga kirishi kerak. To‘rtinchi: yig‘ilish qancha davom etadi — 15 daqiqa. Javoblarni nemischa kalit so‘zlar bilan ayting.",
+   "say": "Was hat Max gestern getestet? Was macht Anna heute? Wo ist Jonas blockiert? Wie lange dauert das Meeting?",
+   "say_uz": "Max kecha nimani test qildi? Anna bugun nima qiladi? Jonas nimada to‘xtab qoldi? Yig‘ilish qancha davom etadi?",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: ESCUCHA 1",
+   "emotion": "proud",
+   "board": [
+    "Max: Login getestet",
+    "Anna: API-Tests heute",
+    "Jonas: Staging-Zugriff nötig",
+    "15 daqiqa"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Max kecha kirish modulini test qildi — natija yashil. Anna bugun API uchun testlar yozadi. Jonas migratsiyada to‘xtab qoldi — unga Staging-serveriga kirish kerak, Anna yordam beradi. Yig‘ilish 15 daqiqada tugaydi. Stand-up — uzun hisobot emas, balki to‘siqlarni tez topish vositasi. Har bir a‘zo uch savolga qisqa javob beradi: kecha nima qildim, bugun nima qilaman, nimada to‘xtab qoldim.",
+   "say": "Max testete das Login-Modul, Anna schreibt heute API-Tests, Jonas braucht Staging-Zugriff. Stand-up dauert 15 Minuten.",
+   "say_uz": "Max kirish modulini test qildi, Anna bugun API-testlar yozadi, Jonasga Staging kirishi kerak. Stand-up 15 daqiqa davom etadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Stand-up qoidalari: uch savol, 15 daqiqa",
+   "emotion": "neutral",
+   "board": [
+    "Was habe ich gestern gemacht?",
+    "Was mache ich heute?",
+    "Wo bin ich blockiert?"
+   ],
+   "examples": [
+    {
+     "t": "Gestern habe ich die Pipeline repariert.",
+     "uz": "Kecha konveyerni tuzatdim."
+    },
+    {
+     "t": "Ich bin blockiert — ich warte auf das Design.",
+     "uz": "To‘xtab qoldim — dizaynni kutyapman."
+    }
+   ],
+   "say_native": "Stand-up — har kuni bir vaqtda, 15 daqiqa, turib o‘tkaziladi. Uchta majburiy savol. Birinchi: „Was habe ich gestern gemacht?“ — kecha nima qildim. Ikkinchi: „Was mache ich heute?“ — bugun nima qilaman. Uchinchi: „Wo bin ich blockiert?“ — nimada to‘xtab qoldim. Qoidalar: har kim faqat o‘z ishini aytadi; murakkab texnik muhokama yig‘ilishdan keyin; vaqt belgilangan — cho‘zilib ketmasin; bloklovchilar darhol ko‘rinadi. Nemis jamoalarda bu marosim „das Daily“ ham deyiladi.",
+   "say": "Drei Fragen: Was habe ich gestern gemacht? Was mache ich heute? Wo bin ich blockiert? Mehr nicht — maximal 15 Minuten.",
+   "say_uz": "Uch savol: Kecha nima qildim? Bugun nima qilaman? Nimada to‘xtab qoldim? Boshqa hech narsa — ko‘pi bilan 15 daqiqa.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Stand-up roli mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) gestern",
+    "2) heute",
+    "3) blockiert"
+   ],
+   "examples": [],
+   "say_native": "O‘zingizni stand-up ishtirokchisi qilib tasavvur qiling. Nemis tilida uchta javob yozing: „Gestern habe ich …“ — kecha nima qilganingiz; „Heute mache ich …“ — bugungi rejangiz; „Ich bin blockiert bei …“ — nima to‘siq. Keyin sherigingizga ayting. Jumlalar qisqa bo‘lsin — har biri ikki-uch soniya. Ohang — ishonchli va tinch.",
+   "say": "Gestern habe ich die Pipeline repariert. Heute mache ich den Code Review. Ich bin blockiert — ich warte auf das Design.",
+   "say_uz": "Kecha konveyerni tuzatdim. Bugun kodni ko‘rib chiqaman. To‘xtab qoldim — dizaynni kutyapman.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Ticket yozish: Jira",
+   "emotion": "neutral",
+   "board": [
+    "Summary — sarlavha",
+    "Beschreibung — tavsif",
+    "Priorität — Blocker bis Niedrig",
+    "Schritte — qadamlar"
+   ],
+   "examples": [
+    {
+     "t": "Priorität: Hoch — der Login schlägt fehl.",
+     "uz": "Ustuvorlik: yuqori — kirish ishlamayapti."
+    },
+    {
+     "t": "Dieses Ticket ist ein Blocker für den Release.",
+     "uz": "Bu chipta chiqarilish uchun to‘siqdir."
+    }
+   ],
+   "say_native": "Nemis jamoalarda ish — „Jira“ chipta tizimida boshqariladi. Har bir chipta to‘rtta maydondan iborat. Birinchi, „die Zusammenfassung“ — sarlavha: muammo bir jumlada. Ikkinchi, „die Beschreibung“ — batafsil tavsif: nima sodir bo‘ldi, nima kutilgan. Uchinchi, „die Priorität“ — daraja: „Blocker“ — hammasini to‘xtatadi; „Kritisch“ — jiddiy; „Hoch“ — yuqori; „Mittel“ — o‘rta; „Niedrig“ — past. To‘rtinchi, „die Schritte zur Reproduktion“ — takrorlash qadamlari. Chipta yaxshi yozilgan bo‘lsa, jamoa darhol ishlay oladi.",
+   "say": "Jedes Ticket braucht: Zusammenfassung, Beschreibung, Priorität und Schritte zur Reproduktion — vollständig und präzise.",
+   "say_uz": "Har bir chiptaga kerak: sarlavha, tavsif, ustuvorlik va takrorlash qadamlari — to‘liq va aniq.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Chipta yozish mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) Summary",
+    "2) Priorität: Hoch",
+    "3) Schritte"
+   ],
+   "examples": [],
+   "say_native": "Chipta yozing. Muammo: ilova yangilanganda, eski sozlamalar o‘chib ketadi. Sarlavha — „Einstellungen gehen beim Update verloren“. Tavsif — ikki jumla. Ustuvorlik — „Hoch“. Qadamlar — uchta. Nemis tilida hammasini yozing. Oxirida chiptaga „Label“ qo‘shing — masalan, „Bug“ yoki „Regression“. Chipta o‘qilsa, jamoa savolsiz tushunishi kerak.",
+   "say": "Schreiben Sie ein Jira-Ticket: Zusammenfassung, Beschreibung, Priorität Hoch, drei Schritte zur Reproduktion, Label Bug.",
+   "say_uz": "Jira chiptasini yozing: sarlavha, tavsif, yuqori ustuvorlik, uchta takrorlash qadamlari, Bug yorlig‘i.",
+   "practice_seconds": 11
+  },
+  {
+   "kind": "example",
+   "title": "ESCUCHA 2: qo‘llab-quvvatlash xizmati",
+   "emotion": "happy",
+   "board": [
+    "A: Guten Tag, Support, Lena am Apparat.",
+    "B: Meine App stürzt beim Start ab.",
+    "A: Welche Version haben Sie?",
+    "B: Die neueste, 4.2."
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi suhbatni tinglang — telefon qo‘llab-quvvatlash xizmati. Lena — texnik qo‘llab-quvvatlash xodimi, Herr Demir — mijoz. Herr Demirning ilovasi ishga tushganda yopiladi. Diqqat qiling: Lena avval versiyasini va xatolik xabarini so‘raydi, keyin ma‘lumot yig‘adi, keyin chipta yaratadi. Savollar: mijozning muammosi nima, Lena qanday ma‘lumot so‘raydi va muammo qanday hal qilinadi.",
+   "say": "Lena: Guten Tag, Support, Lena am Apparat. Demir: Meine App stürzt beim Start ab. Lena: Welche Version nutzen Sie? Demir: Die neueste — 4.2. Lena: Bekommen Sie eine Fehlermeldung? Demir: Ja — „App wurde unerwartet beendet“. Lena: Okay, ich lege ein Ticket an — Priorität Hoch. Bitte deinstallieren und neu installieren Sie die App. Demir: Mache ich jetzt.",
+   "say_uz": "Lena: Xayrli kun, qo‘llab-quvvatlash, telefonda Lena. Demir: Ilovam ishga tushganda yopiladi. Lena: Qaysi versiyadan foydalanasiz? Demir: Eng yangisidan — 4.2. Lena: Xatolik xabari chiqdimi? Demir: Ha — „Ilova kutilmaganda to‘xtatildi“. Lena: Yaxshi, chipta ochaman — ustuvorlik yuqori. Iltimos ilovani olib tashlab qayta o‘rnating. Demir: Hozir qilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "ESCUCHA 2 bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) muammo nima?",
+    "2) versiya qancha?",
+    "3) qanday xato?",
+    "4) Lena nima qiladi?"
+   ],
+   "examples": [],
+   "say_native": "To‘rtta savol. Birinchi: mijozning muammosi nima — ilova ishga tushganda yopiladi. Ikkinchi: qaysi versiya — 4.2, eng yangi. Uchinchi: qanday xatolik xabari — „App wurde unerwartet beendet“. To‘rtinchi: Lena nima qiladi — yuqori ustuvorlik bilan chipta ochadi va qayta o‘rnatishni tavsiya qiladi. Javoblarni nemischa so‘zlar bilan ayting.",
+   "say": "Welches Problem hat der Kunde? Welche Version nutzt er? Welche Fehlermeldung erscheint? Was unternimmt Lena?",
+   "say_uz": "Mijozning muammosi nima? U qaysi versiyadan foydalanadi? Qanday xatolik xabari chiqadi? Lena nima qiladi?",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: ESCUCHA 2",
+   "emotion": "proud",
+   "board": [
+    "Ilova yopiladi (startda)",
+    "Versiya 4.2",
+    "„Unerwartet beendet“",
+    "Chipta: Hoch + qayta o‘rnatish"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Muammo — ilova versiya 4.2 da ishga tushganda yopiladi. Xabari — „App wurde unerwartet beendet“. Lena to‘g‘ri ish qildi: avval versiya va xabar so‘raldi, keyin yuqori ustuvorlik bilan chipta ochildi, keyin mijozga oddiy yechim — qayta o‘rnatish tavsiya qilindi. Yaxshi qo‘llab-quvvatlash — avval ma‘lumot yig‘ish, keyin chipta, keyin yechim. Hech qachon shoshilib tashxis qo‘ymang.",
+   "say": "Der Kunde nutzt Version 4.2, die App stürzt beim Start ab. Lena legt ein Ticket mit Priorität Hoch an und empfiehlt eine Neuinstallation.",
+   "say_uz": "Mijoz 4.2 versiyadan foydalanadi, ilova ishga tushganda yopiladi. Lena yuqori ustuvorlik bilan chipta ochadi va qayta o‘rnatishni tavsiya qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "IT-fe‘llar: ajraladigan qo‘shimchalar",
+   "emotion": "thinking",
+   "board": [
+    "einspielen — joylashtirish",
+    "abstürzen — yiqilish",
+    "hochfahren — ishga tushish",
+    "herunterfahren — o‘chish"
+   ],
+   "examples": [
+    {
+     "t": "Wir spielen das Update morgen Nacht ein.",
+     "uz": "Biz yangilanishni ertaga tunda joylashtiramiz."
+    },
+    {
+     "t": "Der Server stürzt bei hoher Last ab.",
+     "uz": "Server yuqori yuklamada yiqiladi."
+    }
+   ],
+   "say_native": "IT-fe‘llarning ko‘pi ajraladigan fe‘llar. „einspielen“ — joylashtirish: „Wir spielen das Update ein“ — biz yangilanishni joylashtiramiz. „abstürzen“ — yiqilish: „Die App stürzt ab“. „hochfahren“ — ishga tushish — server yoki tizim uchun: „Der Server fährt hoch“. „herunterfahren“ — xavfsiz o‘chish: „Fahren Sie den Server herunter“. Qoida: ajraladigan qo‘shimcha gap oxiriga ketadi — „fährt … hoch“. Perfektda ular birga yoziladi: „ist abgestürzt“. Prezenhda — alohida: „stürzt … ab“.",
+   "say": "Wir spielen das Update ein. Die App stürzt ab. Der Server fährt hoch. Bitte fahren Sie den Server herunter.",
+   "say_uz": "Biz yangilanishni joylashtiramiz. Ilova yiqiladi. Server ishga tushadi. Iltimos, serverni xavfsiz o‘chiring.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "IT-fe‘llar mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) abstürzen — Perfekt",
+    "2) einspielen — Presens",
+    "3) hochfahren — Perfekt"
+   ],
+   "examples": [],
+   "say_native": "Fe‘llarni tuslang. Birinchi: „abstürzen“ — Perfekt — „ist abgestürzt“. Ikkinchi: „einspielen“ — Prezens, „er“ shakli — „er spielt ein“. Uchinchi: „hochfahren“ — Perfekt — „ist hochgefahren“. To‘rtinchi: „herunterfahren“ — buyruq — „Fahren Sie herunter!“. Har bir fe‘l bilan bitta to‘liq jumla tuzing — IT-mavzu bo‘lsin.",
+   "say": "Die App ist gestern abgestürzt. Er spielt das Update heute ein. Der Server ist hochgefahren. Fahren Sie den Server herunter!",
+   "say_uz": "Ilova kecha yiqilgan. U yangilanishni bugun joylashtiradi. Server ishga tushgan. Serverni o‘chiring!",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Root-Cause-tahlil: 5 Why",
+   "emotion": "thinking",
+   "board": [
+    "1) belgi — was ist passiert?",
+    "2) nega? — 5 marta",
+    "3) asosiy sabab",
+    "4) takrorlanmasligi"
+   ],
+   "examples": [
+    {
+     "t": "Warum war der Server down? — Weil die Festplatte voll war.",
+     "uz": "Nega server ishlamayapti edi? — Diska to‘lib qolgani uchun."
+    },
+    {
+     "t": "Der Root Cause war fehlende Überwachung.",
+     "uz": "Asosiy sabab kuzatuvning yo‘qligi edi."
+    }
+   ],
+   "say_native": "Muammo takrorlanmasligi uchun asosiy sababni topish kerak — buni „Root Cause Analysis“ deyiladi. „5 Why“ usuli: besh marta „nega“ deb so‘rash. Misol: Server ishlamay qoldi. Nega? Diska to‘lib qoldi. Nega? Loglar tozalanmagan. Nega? Avtomatik tozalash sozlanmagan. Nega? Monitoring yo‘q edi. Nega? Byudjetda rejalashtirilmagan. Asosiy sabab — jarayon yetishmasligi, disk emas. Natija „Post-Mortem“ hujjatida yoziladi — aybdorni qidirish emas, tizimni yaxshilash.",
+   "say": "Warum war der Server down? Weil die Festplatte voll war. Warum? Die Logs wurden nicht bereinigt. Warum? Es gab kein Monitoring. Root Cause: fehlendes Monitoring.",
+   "say_uz": "Nega server ishlamayapti edi? Diska to‘lib qolgani uchun. Nega? Loglar tozalanmagan. Nega? Monitoring yo‘q edi. Asosiy sabab: monitoringning yetishmasligi.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "5 Why mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "muammo: juma kuni sayt yiqiladi",
+    "5 × nega?",
+    "asosiy sabab"
+   ],
+   "examples": [],
+   "say_native": "5 Why tizimini o‘zingiz qo‘llang. Muammo: sayt har juma kuni peshin payt yiqiladi. Besh marta „nega“ deb so‘rang va asosiy sababni yozing. Ehtimoliy zanjir: juma kuni yangilanishlar qo‘yiladi — yangilanish sinovsiz chiqadi — testlar yo‘q — vaqt yo‘q — jarayon yo‘q. Sizning listingiz boshqacha bo‘lishi mumkin — muhimi, sabab odam emas, jarayon bo‘lsin. Nemis tilida yozib chiqing.",
+   "say": "Der Shop stürzt jeden Freitag ab. Warum? Weil freitags ein Update kommt. Warum? Weil die Tests fehlen. Root Cause: fehlender Testprozess.",
+   "say_uz": "Do‘kon har juma kuni yiqiladi. Nega? Juma kuni yangilanish qo‘yilgani uchun. Nega? Testlar yetishmagani uchun. Asosiy sabab: test jarayonining yetishmasligi.",
+   "practice_seconds": 11
+  },
+  {
+   "kind": "explain",
+   "title": "Xatolar: rahbarlar bilan IT-muloqot",
+   "emotion": "stern",
+   "board": [
+    "Akrominlarsiz gapiring",
+    "Vaqt va pulni tilga oling",
+    "„Auf meinem Rechner geht es“ — yo‘q"
+   ],
+   "examples": [
+    {
+     "t": "Der Fehler kostet uns zwei Tage Arbeit.",
+     "uz": "Xato bizga ikki kun ish vaqti oladi."
+    },
+    {
+     "t": "Ohne Budget ist das Risiko zu groß.",
+     "uz": "Byudjetsiz xavf juda katta."
+    }
+   ],
+   "say_native": "Dasturchilar rahbarlar bilan gaplashganda uchta xato qiladi. Birinchi: akrominlar — „CI, CD, SLA, KPI“ — rahbar bilmaydi, ular asab buzadigan narsaga aylanadi. Ikkinchi: texnik detallar — batafsil loglar emas, natija kerak: „Bu xato ikki kun va 5000 yevro oladi“. Uchinchi: „Es funktioniert auf meinem Rechner“ — „mening kompyuterimda ishlaydi“ — rahbar uchun bu javob emas. To‘g‘ri: ta‘sirni ayting — vaqt, pul, mijoz. Nemis biznes madaniyati — qisqa va natijaga yo‘naltirilgan.",
+   "say": "Sprechen Sie mit dem Management über Zeit und Geld, nicht über Logs und Stacktraces. Keine Abkürzungen ohne Erklärung.",
+   "say_uz": "Rahbariyat bilan loglar va staktreyslardan emas, vaqt va pul haqida gaplashing. Tushuntirishsiz qisqartmalar ishlatmang.",
+   "practice_seconds": 11
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: IT-muloqot xatolari",
+   "emotion": "proud",
+   "board": [
+    "Akrominsiz",
+    "Vaqt-pul tili",
+    "„Mening kompyuterimda“ — yo‘q"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Akrominlar — faqat tushuntirilganda ishlatiladi. Vaqt va pul — rahbar tushunadigan til: „ikki kun devorchi ishi“, „mijozlarga ta‘siri“. „Mening kompyuterimda ishlaydi“ o‘rniga: „muhitdagi farqni tekshiramiz — versiya, konfiguratsiya, ma‘lumotlar“. Xulosa: tinglovchiga moslash. Germaniyada IT-loyihalarida muvaffaqiyat texnikadan ko‘ra muloqotga bog‘liq — bu tajriba takrorlaydi.",
+   "say": "Anpassen an den Zuhörer: für das Management Zeit und Geld, für Entwickler Details. Immer klar und ehrlich kommunizieren.",
+   "say_uz": "Tinglovchiga moslashing: rahbarga vaqt va pul, dasturchilarga tafsilotlar. Har doim aniq va halol muloqot qiling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Texnik bo‘lmagan odamlarga tushuntirish",
+   "emotion": "neutral",
+   "board": [
+    "die Datenbank = kutubxona",
+    "der Server = oshxona",
+    "die API = ofitsiant"
+   ],
+   "examples": [
+    {
+     "t": "Stellen Sie sich die Datenbank wie eine Bibliothek vor.",
+     "uz": "Ma‘lumotlar bazasini kutubxonadek tasavvur qiling."
+    },
+    {
+     "t": "Die API ist wie ein Kellner — sie bringt die Bestellung.",
+     "uz": "API ofitsiantdek — u buyurtmani keltiradi."
+    }
+   ],
+   "say_native": "Murakkab texnologiyani oddiy qilib tushuntirish — eng qimmatli ko‘nikma. Metaforalar eng yaxshi vosita. Ma‘lumotlar bazasi — „die Bibliothek“ — kutubxona: hamma kitoblar tartibda, xohlaganingizni topasiz. Server — „die Küche“ — oshxona: buyurtmangizni tayyorlaydi. API — „der Kellner“ — ofitsiant: buyurtmani oshxonaga yetkazadi va natijani sizga olib keladi. Kesh — „der Kühlschrank“ — muzlatgich: tez-tez kerak bo‘lgan narsalar yaqin. Nemis tilida: „Stellen Sie sich … wie … vor“ — tasavvur qiling. Bu qolip prezentatsiyalarda eng ko‘p ishlatiladi.",
+   "say": "Stellen Sie sich die Datenbank wie eine Bibliothek vor. Der Server ist die Küche, die API der Kellner. So versteht jeder die Technik.",
+   "say_uz": "Ma‘lumotlar bazasini kutubxonadek tasavvur qiling. Server — oshxona, API — ofitsiant. Shunday har kim texnologiyani tushunadi.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Metafora topish mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) kesh = ?",
+    "2) xavfsizlik devori = ?",
+    "3) versiya nazorati = ?"
+   ],
+   "examples": [],
+   "say_native": "Uchta tushuncha uchun metafora toping. Birinchi: kesh — tez-tez ishlatiladigan narsalarni yaqin joyda saqlash — nimaga o‘xshaydi? „Der Kühlschrank“ — muzlatgich. Ikkinchi: xavfsizlik devori — „die Firewall“ — uyni himoya qiladigan darvoza — „das Tor“. Uchinchi: versiya nazorati — Git — hujjatning har bir yangilanishi saqlanadigan arxiv — „das Archiv“. Nemis tilida metaforalarni ayting.",
+   "say": "Der Cache ist wie ein Kühlschrank. Die Firewall ist wie ein Tor. Git ist wie ein Archiv, das jede Version aufbewahrt.",
+   "say_uz": "Kesh — muzlatgichdek. Xavfsizlik devori — darvoza. Git — har bir versiyani saqlaydigan arxivdek.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "IT-nemis tilidagi Anglizizmlar",
+   "emotion": "neutral",
+   "board": [
+    "der Bug — xato",
+    "das Feature — imkoniyat",
+    "der Sprint — sprint",
+    "das Backlog — vazifalar ro‘yxati",
+    "das Deployment — joylashtirish"
+   ],
+   "examples": [
+    {
+     "t": "Das neue Feature ging gestern live.",
+     "uz": "Yangi imkoniyat kecha ishga tushdi."
+    },
+    {
+     "t": "Der Bug wurde im letzten Sprint gefunden.",
+     "uz": "Xato oxirgi sprintda topilgan."
+    }
+   ],
+   "say_native": "IT-nemis tili inglizcha so‘zlarga to‘la — „Anglizismen“. Jins qoidasi: ko‘pincha „das“ — „das Feature“, „das Ticket“, „das Deployment“, „das Backlog“, „das Dashboard“. Ammo istisnolar: „der Bug“, „der Sprint“, „der Release“ yoki „das Release“ — ikkalasi ham ishlatiladi. „die Deadline“ — ayol jinsli. Nemis jamoalari odatda „der Bug“, „das Feature“, „der Sprint“, „das Dashboard“ deydi. Yangi so‘z eshitganingizda artiklini ham birga yodlang — lug‘atsiz IT-muloqot qiyin.",
+   "say": "Der Bug, das Feature, der Sprint, das Deployment, das Dashboard — lernen Sie jeden Anglizismus mit seinem Artikel.",
+   "say_uz": "Xato, imkoniyat, sprint, joylashtirish, boshqaruv paneli — har bir Anglizizmni artikli bilan yodlang.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Anglizizmlar jinslari mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) ___ Feature",
+    "2) ___ Ticket",
+    "3) ___ Sprint",
+    "4) ___ Deadline"
+   ],
+   "examples": [],
+   "say_native": "Artikllarni qo‘ying: Feature, Ticket, Sprint, Deadline, Bug, Deployment, Dashboard, Backlog. „Das Feature, das Ticket, der Sprint, die Deadline, der Bug, das Deployment, das Dashboard, das Backlog“. Sakkizta Anglizizmni artikli bilan besh marta ayting. Keyin har biri uchun bitta nemis jumla tuzing — IT-mavzu bo‘lsin.",
+   "say": "Das Feature, das Ticket, der Sprint, die Deadline — fünfmal hintereinander mit Artikel, dann je ein Satz.",
+   "say_uz": "Imkoniyat, chipta, sprint, muddat — besh marta artikli bilan, keyin har biriga bitta jumla.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "IT-hujjatlar: Lastenheft va Pflichtenheft",
+   "emotion": "neutral",
+   "board": [
+    "das Lastenheft — buyurtmachi talablari",
+    "das Pflichtenheft — ijrochi yechimi",
+    "die Dokumentation — hujjatlar"
+   ],
+   "examples": [
+    {
+     "t": "Im Lastenheft steht, was der Kunde will.",
+     "uz": "Lastenheftda mijozning xohishi yozilgan."
+    },
+    {
+     "t": "Das Pflichtenheft beschreibt die technische Lösung.",
+     "uz": "Pflichtenheft texnik yechimni tasvirlaydi."
+    }
+   ],
+   "say_native": "Nemis IT-loyihalarida ikki asosiy hujjat bor. „das Lastenheft“ — buyurtmachi talablari kitobi: mijoz nima xohlaydi — funksiyalar, muddatlar, byudjet, biznes talablar. „das Pflichtenheft“ — ijrochi yechimi: yetkazib beruvchi qanday qiladi — texnologiya, arxitektura, muddatlar. Farqi: Lastenheft — „nima“ kerak, Pflichtenheft — „qanday“ qilinadi. „die Dokumentation“ — uzluksiz hujjatlar: o‘rnatish, foydalanish, API-tavsif. Bu hujjatlarsiz IT-loyiha qabul qilinmaydi.",
+   "say": "Das Lastenheft beschreibt das Was — das Pflichtenheft das Wie. Beide Dokumente sind vor Projektstart Pflicht.",
+   "say_uz": "Lastenheft — nima kerakligini, Pflichtenheft — qanday qilinishini tasvirlaydi. Ikkalasi ham loyiha boshlanishidan oldin majburiy.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Hujjatlar mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) nima kerak? → ?",
+    "2) qanday qilinadi? → ?",
+    "3) API tavsifi → ?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: buyurtmachi xohishini qaysi hujjatga yozadi — „das Lastenheft“. Ikkinchi: ijrochi texnik yechimini qayerga yozadi — „das Pflichtenheft“. Uchinchi: API tavsifi qayerga kiradi — „die Dokumentation“. Farqni o‘zbek tilida tushuntiring va nemis tilida bitta to‘liq jumla tuzing.",
+   "say": "Was der Kunde will, steht im Lastenheft. Wie wir es bauen, steht im Pflichtenheft. Die API-Beschreibung gehört in die Dokumentation.",
+   "say_uz": "Mijozning xohishi Lastenheftda yoziladi. Uni qanday qilishimiz Pflichtenheftda yoziladi. API tavsifi hujjatlarga kiradi.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "explain",
+   "title": "Release va Rollback: versiyalash",
+   "emotion": "thinking",
+   "board": [
+    "Version 1.0 — birinchi chiqarish",
+    "1.1 — mayda tuzatishlar",
+    "2.0 — katta o‘zgarishlar",
+    "der Rollback — ortga qaytish"
+   ],
+   "examples": [
+    {
+     "t": "Wir haben auf Version 1.9 zurückgerollt.",
+     "uz": "Biz 1.9 versiyaga qaytdik."
+    },
+    {
+     "t": "Der Release ist für Freitag geplant.",
+     "uz": "Chiqarish juma kuniga rejalashtirilgan."
+    }
+   ],
+   "say_native": "Nemis jamoalarda „die semantische Versionierung“ — semantic versiyalash. „1.0.0“ — birinchi raqam katta o‘zgarish — „Major“; ikkinchi — ya‘ni — yangi imkoniyat — „Minor“; uchinchi — tuzatish — „Patch“. „der Release“ — chiqarilish — versiya mijozlarga beriladi. „der Rollback“ — ortga qaytish — agar yangi versiya jiddiy xato bersa, darhol eski versiyaga qaytiladi: „zurückrollen“. Release-dan oldin „Code Freeze“ — kodni muzlatish — faqat muhim tuzatishlar ruxsat etiladi. Bu so‘zlarni bilsangiz, release yig‘ilishlarida erkin gaplashasiz.",
+   "say": "Version 1.0, dann 1.1, jetzt 2.0. Wenn etwas schiefgeht, rollen wir zurück — der Rollback rettet den Release.",
+   "say_uz": "1.0 versiya, keyin 1.1, endi 2.0. Agar nimadir buzilsa, ortga qaytamiz — Rollback chiqarishni qutqaradi.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Versiyalash mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) Major / Minor / Patch",
+    "2) Rollback qachon?",
+    "3) Code Freeze nima?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: „2.4.1“ da raqamlar nimani anglatadi — Major 2 (katta o‘zgarish), Minor 4 (yangi imkoniyatlar), Patch 1 (tuzatish). Ikkinchi: Rollback qachon qo‘llaniladi — yangi versiya jiddiy xato bersa. Uchinchi: „Code Freeze“ nima — release oldidan kodni muzlatish. Javoblarni nemischa ayting.",
+   "say": "2.4.1 bedeutet: Major 2, Minor 4, Patch 1. Ein Rollback passiert bei schweren Fehlern. Code Freeze stoppt alle Änderungen vor dem Release.",
+   "say_uz": "2.4.1 degani: katta 2, kichik 4, tuzatish 1. Rollback jiddiy xatolarda bo‘ladi. Code Freeze — chiqarishdan oldin barcha o‘zgarishlarni to‘xtatadi.",
+   "practice_seconds": 11
+  },
+  {
+   "kind": "explain",
+   "title": "Imtihonlar: Goethe C1 va IT-muloqot",
+   "emotion": "thinking",
+   "board": [
+    "Goethe C1 — umumiy",
+    "telc Deutsch C1",
+    "TestDaF — universitet"
+   ],
+   "examples": [
+    {
+     "t": "Im Beruf zählt klare und präzise Kommunikation.",
+     "uz": "Kasbda aniq va tushunarli muloqot hisoblanadi."
+    }
+   ],
+   "say_native": "IT-mutaxassislar uchun alohida nemis imtihoni yo‘q, lekin Goethe C1, telc Deutsch C1 va TestDaF — umumiy, kasbiy mavzular ham uchraydi: grafiklar, maqolalar, rezyume. Scrum Alliance va PSM sertifikatlari — kasbiy, til imtihoni emas. Amaliy tayyorgarlik: har kuni bitta nemis IT-maqolasini o‘qing — Heise, t3n, Spiegel Netzwelt; har hafta bitta texnik qo‘ng‘iroqni ovoz yozuvida sinab ko‘ring; haftada bir marta inglizcha texnik matnni nemischaga qayta hikoya qiling.",
+   "say": "Lesen Sie täglich deutsche IT-Zeitungen und üben Sie wöchentlich technische Telefonate — Goethe C1 prüft keine Fachkenntnisse, sondern Sprache.",
+   "say_uz": "Har kuni nemis IT-gazetalarini o‘qing va haftalik texnik telefon suhbatlarini mashq qiling — Goethe C1 mutaxassislikni emas, tilni tekshiradi.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Imtihon simulyatsiyasi: qisqa IT-xat",
+   "emotion": "encouraging",
+   "board": [
+    "2 daqiqa",
+    "mijozga xat: xato + yechim",
+    "rasmiy ohang"
+   ],
+   "examples": [],
+   "say_native": "Imtihon simulyatsiyasi. Ikki daqiqada rahbarga nemis tilida qisqa xat yozing: server juma kuni tushda ishlamay qolganini, sabab monitoring yetishmaganligini, enda nima qilinganligini — yangi monitoring qo‘shilganini — va bundan keyingi chorasini yozing. Rasmiy ohang, „Sehr geehrter Herr …“, imzo — ism va lavozim. Xat 80-100 so‘z bo‘lsin.",
+   "say": "Schreiben Sie in zwei Minuten eine E-Mail an den Chef: Serverausfall am Freitag, Ursache fehlendes Monitoring, Lösung bereits umgesetzt — formell, mit Grußformel.",
+   "say_uz": "Ikki daqiqada boshliqqa xat yozing: juma kunidagi server uzilishi, sabab — monitoring yetishmasligi, yechim allaqachon amalga oshirilgan — rasmiy, xayrlashuv bilan.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "IT-rollar: kim, nima qiladi",
+   "emotion": "neutral",
+   "board": [
+    "der Backend-Entwickler — server",
+    "der Frontend-Entwickler — interfeys",
+    "der DevOps — infratuzilma",
+    "der QA-Ingenieur — testlar",
+    "der Product Owner — talablar"
+   ],
+   "examples": [
+    {
+     "t": "Der Backend-Entwickler baut die API.",
+     "uz": "Backend-dasturchi API ni quradi."
+    },
+    {
+     "t": "Der Product Owner priorisiert das Backlog.",
+     "uz": "Mahsulot egasi vazifalar ro‘yxatini ustuvorlashtiradi."
+    }
+   ],
+   "say_native": "Nemis jamoalarda besh asosiy rol bor. „der Backend-Entwickler“ — server tomon: bazalar, API, biznes logika. „der Frontend-Entwickler“ — foydalanuvchi interfeysi: tugmalar, sahifalar, dizaynni kodga aylantirish. „der DevOps-Ingenieur“ — infratuzilma: serverlar, konveyer, deploy. „der QA-Ingenieur“ — sifat: avtomatik va qo‘lda testlar. „der Product Owner“ — talablar: mijoz bilan gaplashadi, Backlog‘ni boshqaradi. Rolni to‘g‘ri nomlash — chipta yozishda va stand-up‘da kerak.",
+   "say": "Backend baut die API, Frontend gestaltet die Oberfläche, DevOps betreut die Infrastruktur, QA testet, der Product Owner priorisiert das Backlog.",
+   "say_uz": "Backend API ni quradi, Frontend interfeysni shakllantiradi, DevOps infratuzilmaga qaraydi, QA test qiladi, mahsulot egasi vazifalar ro‘yxatini ustuvorlashtiradi.",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "practice",
+   "title": "Rollar mashqi",
+   "emotion": "encouraging",
+   "board": [
+    "1) API kim quradi?",
+    "2) testlar kimniki?",
+    "3) Backlog kim boshqaradi?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: API ni kim quradi — „der Backend-Entwickler“. Ikkinchi: testlar kimniki — „der QA-Ingenieur“. Uchinchi: Backlog‘ni kim boshqaradi — „der Product Owner“. To‘rtinchi: o‘zingiz qaysi rolli bo‘lishni xohlaysiz va nega — nemis tilida bir-ikki jumla. Ohang — ishonchli.",
+   "say": "Die API baut der Backend-Entwickler. Tests gehören dem QA-Ingenieur. Das Backlog verwaltet der Product Owner. Welche Rolle passt zu Ihnen?",
+   "say_uz": "API ni backend-dasturchi quradi. Testlar QA-muhandisniki. Backlog‘ni mahsulot egasi boshqaradi. Qaysi rol sizga mos keladi?",
+   "practice_seconds": 7
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "IT-lug‘at: Software, Hardware, Datenbank",
+    "Bug-Report va Ticket",
+    "Stand-up va rollar",
+    "Oddiy tushuntirish"
+   ],
+   "examples": [],
+   "say_native": "Bugun nimani o‘rgandik? IT-lug‘atni — Software, Hardware, Betriebssystem, Datenbank, Server, Cloud. Jarayonni — Build, Tests, Freigabe, Deployment. Bug-Reportni — Zusammenfassung, Schritte, erwartet, tatsächlich. Stand-up qoidalarini — kecha, bugun, to‘siq. Ticket yozishni, Anglizizmlarni, Lastenheft va Pflichtenheftni, metafora bilan tushuntirishni. Bularning hammasi — nemis IT-jamoalarining kundalik vositalari.",
+   "say": "Heute haben Sie die IT-Fachsprache gelernt: Grundbegriffe, Bug-Reports, Tickets, Stand-ups und verständliche Erklärungen.",
+   "say_uz": "Bugun siz IT-mutaxassislik tilini o‘rgandingiz: asosiy atamalar, xato hisobotlari, chiptalar, stand-up va tushunarli tushuntirishlar.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "1) Bug-Report yozing",
+    "2) Oddiy tushuntirish",
+    "Keyingi dars: P2-12 Moliya va iqtisod tili"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. Birinchi: haqiqiy xato haqida to‘liq Bug-Report yozing — Zusammenfassung, Schritte, erwartetes und tatsächliches Ergebnis, Umgebung — nemis tilida. Ikkinchi: o‘sha xatoni texnik bo‘lmagan tanishingizga metafora bilan uch jumla bilan tushuntiring. Bonus: stand-up‘dagi uch savolga o‘zingiz uchun javob yozing. Keyingi dars: P2-12 Moliya va iqtisod tili. Auf Wiedersehen!",
+   "say": "Hausaufgabe: Schreiben Sie einen vollständigen Bug-Report und erklären Sie das Problem einem Laien in drei Sätzen. Bis zur nächsten Lektion!",
+   "say_uz": "Uyga vazifa: to‘liq xato hisobotini yozing va muammoni uch jumlada oddiy odamga tushuntiring. Keyingi darsgacha!",
+   "practice_seconds": 0
+  }
+ ],
+ "homework_uz": "To‘liq Bug-Report yozing: Zusammenfassung, Schritte zur Reproduktion, erwartetes und tatsächliches Ergebnis, Umgebung — nemis tilida. Keyin xatoni texnik bo‘lmagan odamga metafora bilan uch jumlada tushuntiring. Keyingi dars: P2-12 Moliya va iqtisod tili.",
+ "quiz": [
+  {
+   "q": "„die Software“ nima?",
+   "options": [
+    "apparat ta‘minot",
+    "dasturiy ta‘minot",
+    "operatsion tizim",
+    "modem"
+   ],
+   "answer": 1,
+   "why_uz": "Software — kod va dasturlar."
+  },
+  {
+   "q": "„das Betriebssystem“ nima?",
+   "options": [
+    "ekran",
+    "operatsion tizim",
+    "printer",
+    "klaviatura"
+   ],
+   "answer": 1,
+   "why_uz": "Windows, Linux, macOS — operatsion tizimlar."
+  },
+  {
+   "q": "Ma‘lumotlar qayerda saqlanadi?",
+   "options": [
+    "der Client",
+    "die Datenbank",
+    "der Browser",
+    "die Pipeline"
+   ],
+   "answer": 1,
+   "why_uz": "Ma‘lumotlar bazasi — uzluksiz saqlash joyi."
+  },
+  {
+   "q": "Bug-Reportning qaysi qismi muammoni bir jumlada beradi?",
+   "options": [
+    "Schritte",
+    "Zusammenfassung",
+    "Umgebung",
+    "Label"
+   ],
+   "answer": 1,
+   "why_uz": "Zusammenfassung — qisqa sarlavha."
+  },
+  {
+   "q": "„Erwartetes Ergebnis“ nimani anglatadi?",
+   "options": [
+    "haqiqiy natija",
+    "kutilgan natija",
+    "xato",
+    "test"
+   ],
+   "answer": 1,
+   "why_uz": "Erwartet — kutilgan; tatsächlich — haqiqiy."
+  },
+  {
+   "q": "Stand-up‘da uchinchi savol nima?",
+   "options": [
+    "Kecha nima qildim?",
+    "Bugun nima qilaman?",
+    "Nimada to‘xtab qoldim?",
+    "Qancha vaqt sarfladim?"
+   ],
+   "answer": 2,
+   "why_uz": "Uchinchi savol — to‘siqlar haqida."
+  },
+  {
+   "q": "Chipta ustuvorligida eng yuqori daraja?",
+   "options": [
+    "Hoch",
+    "Kritisch",
+    "Blocker",
+    "Mittel"
+   ],
+   "answer": 2,
+   "why_uz": "Blocker — hammani to‘xtatadi."
+  },
+  {
+   "q": "„einspielen“ nimani bildiradi?",
+   "options": [
+    "o‘ynash",
+    "joylashtirish (deploy)",
+    "yiqilish",
+    "o‘chirish"
+   ],
+   "answer": 1,
+   "why_uz": "Wir spielen das Update ein — yangilanishni joylashtiramiz."
+  },
+  {
+   "q": "„der Rollback“ nima?",
+   "options": [
+    "yangi versiya chiqarish",
+    "eski versiyaga qaytish",
+    "test",
+    "kodni muzlatish"
+   ],
+   "answer": 1,
+   "why_uz": "Rollback — ortga qaytish."
+  },
+  {
+   "q": "„das Lastenheft“ kimning hujjati?",
+   "options": [
+    "ijrochi",
+    "buyurtmachi",
+    "QA",
+    "DevOps"
+   ],
+   "answer": 1,
+   "why_uz": "Lastenheft — buyurtmachi talablari; Pflichtenheft — ijrochi yechimi."
+  }
+ ]
+}

@@ -39,6 +39,20 @@ for (const f of process.argv.slice(2)) {
       const share = says.filter(t => rx.test(t)).length / Math.max(1, says.length);
       if (share < min) throw new Error(`say qatorlarida ${lang} harflari (${list}) deyarli yo'q (${Math.round(share * 100)}%) — so'zlarni to'g'ri imlo bilan yozing (Kac emas Kaç, Uc emas Üç)`);
     }
+    // Sifat: o'zbekcha tushuntirish yetarli bo'lsin va boshqa darslardan ko'chirilmagan bo'lsin
+    const natives = (L.scenes || []).map(s => s.say_native || '');
+    const uzWords = natives.join(' ').split(/\s+/).filter(Boolean).length;
+    if (uzWords < 1300) throw new Error(`o'zbekcha tushuntirish juda kam (${uzWords} so'z, kamida 1300). Sahnalarni mayda bo'lmang — har birida qoidani misollar bilan to'liq tushuntiring`);
+    const long = natives.filter(n => n.length > 60);
+    if (long.length && new Set(long).size / long.length < 0.9) throw new Error(`bir xil tushuntirish shu darsda takrorlangan — har sahna o'z mazmuniga ega bo'lsin`);
+    const dir = path.dirname(path.resolve(f)), me = path.basename(f);
+    const others = new Set();
+    for (const g of fs.readdirSync(dir)) {
+      if (g === me || !/^[ABC][12]-\d\d\.json$/.test(g)) continue;
+      try { for (const s of JSON.parse(fs.readFileSync(path.join(dir, g), 'utf8')).scenes || []) if ((s.say_native || '').length > 60) others.add(s.say_native); } catch {}
+    }
+    const copied = long.filter(n => others.has(n)).length;
+    if (copied > 2) throw new Error(`${copied} ta tushuntirish boshqa darslardan so'zma-so'z ko'chirilgan — har darsni o'z mavzusi bo'yicha yangidan yozing (qolip ishlatmang)`);
     // Ko'rinmas/boshqaruv belgilari
     const ctl = raw.match(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u200B-\u200F\u2028\u2029\uFEFF]/);
     if (ctl) throw new Error(`ko'rinmas belgi U+${ctl[0].charCodeAt(0).toString(16).padStart(4, '0')} — olib tashlang`);

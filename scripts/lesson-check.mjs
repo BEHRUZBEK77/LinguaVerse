@@ -22,6 +22,15 @@ for (const f of process.argv.slice(2)) {
     const uz = [L.goal_uz, L.homework_uz, ...(L.scenes || []).flatMap(s => [s.say_native, s.say_uz]), ...(L.quiz || []).map(q => q.why_uz)].filter(Boolean).join('\n');
     const apo = uz.match(/[oOgG]['`ʻʼ](?=[a-z])(?!clock)/);
     if (apo) throw new Error(`o‘zbekcha matnda "${apo[0]}" — o‘ va g‘ ni faqat ‘ belgisi bilan yozing (o‘, g‘). Faylni UTF-8 da qayta yozing`);
+    // `say` — o'qiladigan til: o'sha tilning o'z yozuvida, transliteratsiya yoki inglizcha emas
+    const lang = path.basename(path.dirname(path.resolve(f)));
+    const SCRIPT = { russian: /[\u0400-\u04FF]/, arabic: /[\u0600-\u06FF]/, chinese: /[\u4E00-\u9FFF]/, korean: /[\uAC00-\uD7AF]/ };
+    const ENG = /\b(the|this|that|these|with|repeat|match|correct|sentences?|answers?|listen|say)\b/gi;
+    (L.scenes || []).forEach((s, i) => {
+      if (!s.say) return;
+      if (SCRIPT[lang] && !SCRIPT[lang].test(s.say)) throw new Error(`#${i + 1} say "${s.say.slice(0, 40)}" — ${lang} yozuvida emas. say o'sha tilning o'z yozuvida bo'lsin (transliteratsiya emas)`);
+      if (lang !== 'english' && (s.say.match(ENG) || []).length >= 2) throw new Error(`#${i + 1} say "${s.say.slice(0, 40)}" — inglizcha. say faqat ${lang} tilida bo'lsin`);
+    });
     // Ko'rinmas/boshqaruv belgilari
     const ctl = raw.match(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u200B-\u200F\u2028\u2029\uFEFF]/);
     if (ctl) throw new Error(`ko'rinmas belgi U+${ctl[0].charCodeAt(0).toString(16).padStart(4, '0')} — olib tashlang`);

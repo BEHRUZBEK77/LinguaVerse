@@ -45,6 +45,9 @@ named lesson files, re-run `lesson-check` until ✅, and commit again. Never use
 - `say_native` (teacher's explanation) is **Uzbek in Latin script** with correct
   oʻ/gʻ written with the ‘ character (U+2018), exactly as existing lessons do: o‘, g‘. Natural,
   spoken Uzbek — not a word-for-word translation from English.
+- `say` and `examples[].t` are read aloud by a native voice: write them ONLY in the target
+  language and its own script (Arabic script with harakat, Cyrillic, Hanzi, Hangul) —
+  never transliteration, never English or Uzbek instructions. Instructions go in `say_native`.
 - Accuracy over volume: if unsure about a grammar fact, leave it out.
 - Run `git pull --rebase` before pushing; another agent may be writing other lessons.
   Never work on the same language as another agent at the same time.

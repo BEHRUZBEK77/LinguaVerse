@@ -31,6 +31,14 @@ for (const f of process.argv.slice(2)) {
       if (SCRIPT[lang] && !SCRIPT[lang].test(s.say)) throw new Error(`#${i + 1} say "${s.say.slice(0, 40)}" — ${lang} yozuvida emas. say o'sha tilning o'z yozuvida bo'lsin (transliteratsiya emas)`);
       if (lang !== 'english' && (s.say.match(ENG) || []).length >= 2) throw new Error(`#${i + 1} say "${s.say.slice(0, 40)}" — inglizcha. say faqat ${lang} tilida bo'lsin`);
     });
+    // Lotin yozuvli tillarda maxsus harflar tushib qolmasin (Kac → Kaç, Uc → Üç)
+    const LETTERS = { turkish: [/[çğıİöşüÇĞŞÖÜ]/, 0.4, 'ç ğ ı İ ö ş ü'], german: [/[äöüßÄÖÜ]/, 0.08, 'ä ö ü ß'], spanish: [/[ñáéíóúü¿¡ÁÉÍÓÚÑ]/, 0.1, 'ñ á é í ó ú ¿ ¡'] };
+    if (LETTERS[lang]) {
+      const [rx, min, list] = LETTERS[lang];
+      const says = (L.scenes || []).map(s => s.say).filter(Boolean);
+      const share = says.filter(t => rx.test(t)).length / Math.max(1, says.length);
+      if (share < min) throw new Error(`say qatorlarida ${lang} harflari (${list}) deyarli yo'q (${Math.round(share * 100)}%) — so'zlarni to'g'ri imlo bilan yozing (Kac emas Kaç, Uc emas Üç)`);
+    }
     // Ko'rinmas/boshqaruv belgilari
     const ctl = raw.match(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u200B-\u200F\u2028\u2029\uFEFF]/);
     if (ctl) throw new Error(`ko'rinmas belgi U+${ctl[0].charCodeAt(0).toString(16).padStart(4, '0')} — olib tashlang`);

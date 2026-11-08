@@ -1,1031 +1,728 @@
 {
  "title": "Oddiy matnni o‘qish va tinglash",
- "goal_uz": "Dars oxirida oddiy matnni o‘qib tushunishni, tinglab asosiy g‘oyani topishni, isim raqam joylarni ajratishni va savolga javob berishni o‘rgasiz.",
+ "goal_uz": "Dars oxirida qisqa matn va dialogni tushunishni, bosh g‘oyani, ism raqam joyni topishni va savollarga javob berishni o‘rgasiz.",
  "vocab": [
-  {
-   "w": "kitob",
-   "uz": "kitob"
-  },
-  {
-   "w": "Ali",
-   "uz": "Ali"
-  },
-  {
-   "w": "Istanbul",
-   "uz": "Istanbul"
-  },
-  {
-   "w": "matn",
-   "uz": "matn"
-  },
-  {
-   "w": "savol",
-   "uz": "savol"
-  },
-  {
-   "w": "fikr",
-   "uz": "fikr"
-  },
-  {
-   "w": "ism",
-   "uz": "ism"
-  },
-  {
-   "w": "raqam",
-   "uz": "raqam"
-  },
-  {
-   "w": "joy",
-   "uz": "joy"
-  },
-  {
-   "w": "tushunish",
-   "uz": "tushunish"
-  }
+  { "w": "matn", "uz": "matn" },
+  { "w": "fikr", "uz": "fikr" },
+  { "w": "sarlavha", "uz": "sarlavha" },
+  { "w": "javob", "uz": "javob" },
+  { "w": "ism", "uz": "ism" },
+  { "w": "raqam", "uz": "raqam" },
+  { "w": "joy", "uz": "joy" },
+  { "w": "savol", "uz": "savol" },
+  { "w": "tushunish", "uz": "tushunish" },
+  { "w": "so‘z", "uz": "so‘z" }
  ],
  "scenes": [
   {
    "kind": "intro",
    "title": "Bugun nima qilamiz?",
    "emotion": "happy",
-   "board": [
-    "24-dars: Oddiy matnni o‘qish va tinglash",
-    "matn · fikr · savol",
-    "ism · raqam · joy"
-   ],
+   "board": ["Bugun matn va suhbat", "bosh g‘oya · ism · raqam · joy", "savolga javob"],
    "examples": [],
-   "say_native": "Assalomu alaykum! Yigirma to‘rtinchi darsga xush kelibsiz. O‘tgan darsda transport va chipta olishni o‘rgandik. Bugun oddiy matnni o‘qish va tinglashni o‘rgamiz. Matnni avval umumiy fikr uchun o‘qiladi, keyin mayda tafsilotlar topiladi. Ism, raqam, joy so‘zlari matn ichida topiladi. Bugun shu ko‘nikmani o‘rgamiz.",
-   "say": "Merhaba! Bugün metin okumayı öğreneceğiz.",
-   "say_uz": "Salom! Bugun matn o‘qish o‘rgamiz.",
+   "say_native": "Salom, o‘quvchilar! O‘tgan darsda transportda chipta olishni o‘rgandik. Bugun qisqa matnni o‘qib tushunishni va suhbatni tinglash ko‘nikmasini o‘rgamiz. Matnni avval umumiy mazmuni uchun o‘qiladi, keyin kichik tafsilotlar izlanadi. Ism, raqam va joyni topsh mavzularni bilish bunga yordam beradi. Tinglashda diqqatni jamlang, har bir so‘zni eshitishga harakat qiling.",
+   "say": "Merhaba! Bugün kısa bir metni ve konuşmayı anlamayı öğreneceğiz.",
+   "say_uz": "Salom! Bugun qisqa matn va suhbatni tushunishni o‘rgamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Matnni o‘qish usuli",
+   "title": "Bosh g‘oyani topish",
    "emotion": "neutral",
-   "board": [
-    "fikr",
-    "savol",
-    "matn",
-    "o‘qish",
-    "tushunish",
-    "javob"
-   ],
+   "board": ["Bosh g‘oya", "Sarlavha + 1-jumlalar", "Butun matn bitta rejada"],
    "examples": [],
-   "say_native": "Matnni o‘qish usuli: avval matnni umumiy fikr uchun o‘qing, keyin savollarga javob bering. Fikr so‘zi asosiy mazmunni bildiradi. Matnni sekin o‘qish tushunishni oshiradi. Savol matn mazmuni bilan bog‘liq bo‘ladi. Javob matndan topiladi. Har bir matnni ikki marta o‘qish foydali.",
-   "say": "Metni oku. Soruya cevap ver.",
-   "say_uz": "Matnni o‘qi. Savolga javob ber.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "fikr",
-    "savol",
-    "matn",
-    "o‘qish",
-    "tushunish",
-    "javob"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: fikr, savol, matn, o‘qish, tushunish, javob. Olti so‘z matnni o‘qish bilan bog‘liq. Har bir so‘z matn o‘qishda ishlatiladi.",
-   "say": "Metni oku. Soruya cevap ver.",
-   "say_uz": "Matnni o‘qi. Savolga javob ber.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Matn so‘zlarini ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) matn",
-    "2) fikr",
-    "3) savol",
-    "4) javob",
-    "5) tushunish",
-    "6) ism",
-    "7) raqam",
-    "8) joy"
-   ],
-   "examples": [],
-   "say_native": "Sakkiz so‘z matn o‘qish bilan bog‘liq. Birinchi: matn. Ikkinchi: fikr. Uchinchi: savol. To‘rtinchi: javob. Beshinchi: tushunish. Oltinchi: ism. Yettinchi: raqam. Sakkizinchi: joy. Har birini bitta gapda ayting.",
-   "say": "Metin. Fikir. Soru. Cevap.",
-   "say_uz": "Matn. Fikr. Savol. Javob.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "matn",
-    "fikr",
-    "savol",
-    "javob",
-    "tushunish",
-    "ism",
-    "raqam",
-    "joy"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: matn, fikr, savol, javob, tushunish, ism, raqam, joy. Sakkiz so‘z yodlandi. Har biri matn o‘qishda ishlatiladi.",
-   "say": "Metin. Fikir. Soru. Cevap.",
-   "say_uz": "Matn. Fikr. Savol. Javob.",
+   "say_native": "Bosh g‘oya matnning eng asosiy mazmunidir. Uni topish uchun avval sarlavhani o‘qing, keyin birinchi va oxirgi gaplarga e’tibor qiling. Ko‘pincha bosh g‘oya shu gaplarda yashirinadi. Matnni bir marta tez o‘qish, keyin ikkinchi marta sekin o‘qish ham yordam beradi. Butun matn bitta rejada seziladi. Har kuni qisqa matn o‘qib bu ko‘nikmani oshirib boring.",
+   "say": "Ana fikri bulmak için önce başlığı okuyun, sonra ilk ve son cümlelere bakın.",
+   "say_uz": "Bosh g‘oyani topish uchun avval sarlavhani o‘qing, keyin birinchi va oxirgi gaplarga qarang.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Tinglang: matn",
+   "title": "Matnni tinglang",
    "emotion": "neutral",
-   "board": [
-    "Ali kitob o‘qiydi.",
-    "U Istanbulda yashaydi.",
-    "U har kuni kitob o‘qiydi.",
-    "U yaxshi o‘quvchi."
-   ],
+   "board": ["Jasur Istanbulda · uch soat · Aziza · kino"],
    "examples": [],
-   "say_native": "Tinglang. Ali kitob o‘qiydi. U Istanbulda yashaydi. U har kuni kitob o‘qiydi. U yaxshi o‘quvchi. Har bir gap matn mazmunini bildiradi. Matnning asosiy fikri — Ali kitob o‘qiydi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Hozir qisqa matnni tinglaysiz. Matnning mazmuniga e’tibor qiling. Kim, qayerda, nima qilgani va nechta ekani mavzularini yodda tuting. Matn ikki marta aytiladi. Birinchi tinglashda umumiy mazmunni, ikkinchisida tafsilotlarni tinglang.",
+   "say": "Jasur İstanbul'da okuyor. Bugün kütüphanede üç saat çalıştı. Arkadaşı Aziza dün mektup gönderdi. Yarın ikisi sinemaya gidecek.",
+   "say_uz": "Jasur Istanbulda o‘qiydi. Bugun kutubxonada uch soat ishladi. Do‘sti Aziza kecha xat yubordi. Ertaga ikkalasi kinoga boradi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Matn savollariga javob bering",
+   "title": "Matn mazmunini ayting",
    "emotion": "encouraging",
-   "board": [
-    "1) Ali nima qiladi?",
-    "2) Ali qayerda yashaydi?",
-    "3) Ali qanday o‘quvchi?",
-    "4) Ali har kuni nima qiladi?"
-   ],
+   "board": ["1) Kim qayerda o‘qiydi?", "2) Bugun qancha ishladi?", "3) Do‘sti kim?", "4) Ertaga nima qilishadi?"],
    "examples": [],
-   "say_native": "To‘rtta savolga javob bering. Birinchi: Ali nima qiladi? Kitob o‘qiydi. Ikkinchi: Ali qayerda yashaydi? Istanbulda yashaydi. Uchinchi: Ali qanday o‘quvchi? Yaxshi o‘quvchi. To‘rtinchi: Ali har kuni nima qiladi? Kitob o‘qiydi. Har bir javobni to‘liq gapda ayting.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "To‘rtta savolga matn asosida javob bering. Javoblaringizni matndagi so‘zlar bilan solishtiring. Agar bir so‘z esingizda qolmasa, matnni yana tinglang.",
+   "say": "Metnin ne anlattığını kendi cümlelerinizle söyleyin.",
+   "say_uz": "Matn nima haqida ekanini o‘z gaplaringiz bilan ayting.",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Kitob o‘qiydi",
-    "Istanbulda yashaydi",
-    "Yaxshi o‘quvchi",
-    "Kitob o‘qiydi"
-   ],
+   "board": ["Jasur Istanbulda", "Uch soat", "Aziza", "Kinoga borishadi"],
    "examples": [],
-   "say_native": "Javoblar: Kitob o‘qiydi, Istanbulda yashaydi, Yaxshi o‘quvchi, Kitob o‘qiydi. Har bir savolga mos javob berildi. Javob matndan topildi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Javoblar: Jasur Istanbulda o‘qiydi. Bugun uch soat ishladi. Do‘sti Aziza. Ertaga ikkalasi kinoga borishadi. Javoblaringizni matndagi so‘zlar bilan solishtiring. Har bir qismini tekshiring.",
+   "say": "Jasur İstanbul'da okuyor. Üç saat çalıştı. Arkadaşı Aziza. Yarın sinemaya gidecekler.",
+   "say_uz": "Jasur Istanbulda o‘qiydi. Uch soat ishladi. Do‘sti Aziza. Ertaga kinoga borishadi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Kalit so‘zlar",
+   "title": "Kalit so‘zlar strategiyasi",
    "emotion": "thinking",
-   "board": [
-    "ism",
-    "raqam",
-    "joy",
-    "sana",
-    "narsa",
-    "kishi",
-    "amal",
-    "holat"
-   ],
+   "board": ["Kalit so‘zlar", "Ism → kim?", "Raqam → qancha?", "Joy → qayerda?"],
    "examples": [],
-   "say_native": "Kalit so‘zlar matnni tushunishda yordam beradi. Ism — kishi nomi, raqam — soni, joy — o‘rni. Sana — kuni, narsa — buyum, kishi — odam. Amal — harakati, holat — vaziyati. Har bir kalit so‘z matn mazmunini aniqlaydi. Matnda kalit so‘zlarni toping.",
-   "say": "İsim. Sayı. Yer. Tarih.",
-   "say_uz": "Ism. Raqam. Joy. Sana.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Kalit so‘zlarni toping",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ali",
-    "2) kitob",
-    "3) Istanbul",
-    "4) har kuni",
-    "5) yaxshi"
-   ],
-   "examples": [],
-   "say_native": "Besh kalit so‘z matndan topildi. Birinchi: Ali. Ikkinchi: kitob. Uchinchi: Istanbul. To‘rtinchi: har kuni. Beshinchi: yaxshi. Har bir so‘z matn mazmunini aniqlaydi. Kalit so‘zlarni topish savolga javob berishda yordam beradi.",
-   "say": "Ali. Kitap. İstanbul. Her gün.",
-   "say_uz": "Ali. Kitob. Istanbul. Har kuni.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Ali",
-    "kitob",
-    "Istanbul",
-    "har kuni",
-    "yaxshi"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Ali, kitob, Istanbul, har kuni, yaxshi. Besh kalit so‘z topildi. Har bir so‘z matn mazmunini aniqlaydi. Kalit so‘zlar savolga javob berishda yordam beradi.",
-   "say": "Ali. Kitap. İstanbul. Her gün.",
-   "say_uz": "Ali. Kitob. Istanbul. Har kuni.",
+   "say_native": "Kalit so‘zlar matnni tez tushunishga yordam beradi. Ism so‘zi kishilarni, raqam sonini, joy so‘zi o‘rinni ko‘rsatadi. Savol kelganda avval kalit so‘zlarga qarang. Masalan, “kim?” savoli ismni, “qancha?” raqamni, “qayerda?” joyni so‘raydi. Matnni o‘qiganda shu so‘zlarni belgilab qo‘ying. Har bir kalit so‘z yoniga belgini qo‘yib qo‘ying.",
+   "say": "Anahtar kelimeler metni hızlı anlamamızı kolaylaştırır. İsim, sayı ve yer sözleri önemlidir.",
+   "say_uz": "Kalit so‘zlar matnni tez tushunishga yordam beradi. Ism, raqam va joy so‘zlari muhimdir.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Tinglang: dialog",
+   "title": "Suhbatni tinglang",
    "emotion": "neutral",
-   "board": [
-    "Salom, isming nima?",
-    "Mening ismim Jasur.",
-    "Sen qayerdansan?",
-    "Istanbuldanman."
-   ],
+   "board": ["Bugun necha kishi? → 23", "Nechta bog‘da? → 7", "Qiz: Farg‘ona"],
    "examples": [],
-   "say_native": "Tinglang. Salom, isming nima? Mening ismim Jasur. Sen qayerdansan? Istanbuldanman. Har bir savolga mos javob berildi. Dialogning asosiy fikri — tanishuv.",
-   "say": "Selam, ismin ne? İstanbul'danım.",
-   "say_uz": "Salom, isming nima? Istanbuldanman.",
+   "say_native": "Hazir qisqa suhbatni tinglaysiz. Suhbatdan joy, odam va raqamlarni yodlab oling. Har bir xabarni diqqat bilan eshiting. Suhbat ikki marta aytiladi.",
+   "say": "Bugün kaç kişiyiz? Yirmi üç kişiyiz. Yedi kişi bahçede oturuyor. Siz nerelisiniz? Fergana'danım.",
+   "say_uz": "Bugun necha kishimiz? Yigirma uch kishimiz. Yetti kishi bog‘da o‘tiribdi. Siz qayerdansiz? Farg‘onadanman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Dialogni qayta ayt",
+   "title": "Suhbat mazmunini ayting",
    "emotion": "encouraging",
-   "board": [
-    "1) Jasur ismli",
-    "2) Istanbuldan",
-    "3) Tanishuv",
-    "4) Savol javob"
-   ],
+   "board": ["1) Necha kishi?", "2) Nechta o‘tiribdi?", "3) Qayerdansiz?", "4) Bugun qayerda?"],
    "examples": [],
-   "say_native": "To‘rt gapda dialogni qayta ayting. Birinchi: Jasur ismli yigit Istanbuldan. Ikkinchi: U tanishuvda so‘raldi. Uchinchi: Javob berildi. To‘rtinchi: Dialog tugadi. Har bir gapni to‘liq ayting. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
+   "say_native": "To‘rtta savolga suhbat asosida javob bering. Savollarni diqqat bilan eshitib, javoblarni qisqa gapda ayting. Suhbatni tinglashda qatnashgan so‘zlarni takrorlang.",
+   "say": "Konuşmanın içeriğini söyleyin.",
+   "say_uz": "Suhbatning mazmunini ayting.",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Jasur ismli",
-    "Istanbuldan",
-    "Tanishuv",
-    "Savol javob"
-   ],
+   "board": ["23 kishi", "7 tasi", "Farg‘ona", "Bog‘da"],
    "examples": [],
-   "say_native": "Javoblar: Jasur ismli, Istanbuldan, Tanishuv, Savol javob. Dialog to‘rt gapda qayta aytiladi. Har bir gap dialog mazmunini aniqlaydi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
+   "say_native": "Javoblar: Yigirma uch kishi. Yetti tasi bog‘da o‘tiribdi. Qiz Farg‘onadan. Bugun bog‘da uchrashishadi. Javob kattaroq gaplarni yodlab olishga yordam beradi.",
+   "say": "Yirmi üç kişiyiz. Yedi kişi bahçede oturuyor. Fergana'danım. Bahçede buluşacağız.",
+   "say_uz": "Yigirma uch kishimiz. Yetti kishi bog‘da o‘tiribdi. Farg‘onadanman. Bog‘da uchrashamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Tushunish xatosi",
+   "title": "Chalg‘ash xatosi",
    "emotion": "stern",
-   "board": [
-    "✗ Ali qiziqarli",
-    "✓ Ali kitob o‘qiydi",
-    "✗ Ali Istanbulga boradi",
-    "✓ Ali Istanbulda yashaydi",
-    "✗ Ali har kuni o‘ynaydi"
-   ],
+   "board": ["✗ Bog‘da emas", "✓ Bog‘da", "✗ 17 tasi emas", "✓ 7 tasi", "✗ Anqarada emas"],
    "examples": [],
-   "say_native": "Uchta xato. Birinchi: Ali qiziqarli emas — Ali kitob o‘qiydi deb aytiladi. Ikkinchi: Ali Istanbulga boradi emas — Ali Istanbulda yashaydi deb aytiladi. Uchinchi: Ali har kuni o‘ynaydi emas — Ali har kuni kitob o‘qiydi deb aytiladi. Tushunish matnga asoslanadi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Tinglashda uchta keng tarqalgan xato bor. Birinchisi: joyni noto‘g‘ri eshitish. Ikkinchisi: raqamni adashtirish. Uchinchi: ismni adashtirish. Har birini matn bilan solishtirib tekshiring.",
+   "say": "Bahçede. Yedi kişi. Ankara değil.",
+   "say_uz": "Bog‘da. Yetti kishi. Ankara emas.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Xatolarni tuzating",
    "emotion": "encouraging",
-   "board": [
-    "1) Ali qiziqarli",
-    "2) Ali Istanbulga boradi",
-    "3) Ali har kuni o‘ynaydi",
-    "4) Ali yomon o‘quvchi"
-   ],
+   "board": ["1) Bog‘da emas", "2) 17 tasi emas", "3) Anqarada emas"],
    "examples": [],
-   "say_native": "To‘rtta xatoni tuzating. Birinchi: Ali qiziqarli — Ali kitob o‘qiydi. Ikkinchi: Ali Istanbulga boradi — Ali Istanbulda yashaydi. Uchinchi: Ali har kuni o‘ynaydi — Ali har kuni kitob o‘qiydi. To‘rtinchi: Ali yomon o‘quvchi — Ali yaxshi o‘quvchi. Har birini to‘g‘ri ayting.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 16
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Ali kitob o‘qiydi",
-    "Ali Istanbulda yashaydi",
-    "Ali har kuni kitob o‘qiydi",
-    "Ali yaxshi o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Ali kitob o‘qiydi, Ali Istanbulda yashaydi, Ali har kuni kitob o‘qiydi, Ali yaxshi o‘quvchi. To‘rt xato tuzatildi. Har bir javob matnga asoslandi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa: matnni o‘qish",
-   "emotion": "proud",
-   "board": [
-    "fikr",
-    "savol",
-    "javob",
-    "ism",
-    "raqam",
-    "joy",
-    "kalit so‘z"
-   ],
-   "examples": [],
-   "say_native": "Xulosa. Matnni o‘qish: avval umumiy fikr uchun o‘qiladi, keyin savollarga javob beriladi. Kalit so‘zlar matn mazmunini aniqlaydi. Ism, raqam, joy so‘zlari matnda topiladi. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Metni oku. Soruya cevap ver.",
-   "say_uz": "Matnni o‘qi. Savolga javob ber.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Kalit so‘z strategiyasi",
-   "emotion": "thinking",
-   "board": [
-    "ism",
-    "raqam",
-    "joy",
-    "sana",
-    "narsa",
-    "kishi",
-    "amal",
-    "holat"
-   ],
-   "examples": [],
-   "say_native": "Kalit so‘zlar matnni tushunishda yordam beradi. Ism — kishi nomi, raqam — soni, joy — o‘rni. Sana — kuni, narsa — buyum, kishi — odam. Amal — harakati, holat — vaziyati. Har bir kalit so‘z matn mazmunini aniqlaydi. Matnda kalit so‘zlarni topish savolga javob berishda yordam beradi.",
-   "say": "İsim. Sayı. Yer. Tarih.",
-   "say_uz": "Ism. Raqam. Joy. Sana.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Kalit so‘zlarni toping 2",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ali",
-    "2) kitob",
-    "3) Istanbul",
-    "4) har kuni",
-    "5) yaxshi"
-   ],
-   "examples": [],
-   "say_native": "Besh kalit so‘z matndan topildi. Birinchi: Ali. Ikkinchi: kitob. Uchinchi: Istanbul. To‘rtinchi: har kuni. Beshinchi: yaxshi. Har bir so‘z matn mazmunini aniqlaydi. Kalit so‘zlarni topish savolga javob berishda yordam beradi.",
-   "say": "Ali. Kitap. İstanbul. Her gün.",
-   "say_uz": "Ali. Kitob. Istanbul. Har kuni.",
+   "say_native": "Uch xatoni tuzating. Har bir xatoga to‘g‘ri javob bering. Javobni matndagi so‘zlar asosida yozing. Har bir javobni to‘liq gapda ayting.",
+   "say": "Bahçede. Yedi kişi.",
+   "say_uz": "Bog‘da. Yetti kishi.",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Ali",
-    "kitob",
-    "Istanbul",
-    "har kuni",
-    "yaxshi"
-   ],
+   "board": ["Bog‘da", "7 tasi", "Istanbul emas"],
    "examples": [],
-   "say_native": "Javoblar: Ali, kitob, Istanbul, har kuni, yaxshi. Besh kalit so‘z topildi. Har bir so‘z matn mazmunini aniqlaydi.",
-   "say": "Ali. Kitap. İstanbul. Her gün.",
-   "say_uz": "Ali. Kitob. Istanbul. Har kuni.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Matn savollariga javob bering 2",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ali nima qiladi?",
-    "2) Ali qayerda yashaydi?",
-    "3) Ali qanday o‘quvchi?",
-    "4) Ali har kuni nima qiladi?"
-   ],
-   "examples": [],
-   "say_native": "To‘rtta savolga javob bering. Birinchi: Ali nima qiladi? Kitob o‘qiydi. Ikkinchi: Ali qayerda yashaydi? Istanbulda yashaydi. Uchinchi: Ali qanday o‘quvchi? Yaxshi o‘quvchi. To‘rtinchi: Ali har kuni nima qiladi? Kitob o‘qiydi. Har bir javobni to‘liq gapda ayting.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Kitob o‘qiydi",
-    "Istanbulda yashaydi",
-    "Yaxshi o‘quvchi",
-    "Kitob o‘qiydi"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Kitob o‘qiydi, Istanbulda yashaydi, Yaxshi o‘quvchi, Kitob o‘qiydi. Har bir savolga mos javob berildi. Javob matndan topildi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Javoblar: Bog‘da. Yetti tasi. Yig‘il emas — Istanbulda. Xatolar matn bilan solishtirilib tuzatildi. Har bir javob matnga asoslanadi.",
+   "say": "Bahçede. Yedi kişi.",
+   "say_uz": "Bog‘da. Yetti kishi.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Tinglang: matn 2",
+   "title": "Matnni tinglang 2",
    "emotion": "neutral",
-   "board": [
-    "Ali kitob o‘qiydi.",
-    "U Istanbulda yashaydi.",
-    "U har kuni kitob o‘qiydi.",
-    "U yaxshi o‘quvchi."
-   ],
+   "board": ["Bugun 5-aprel juma", "Ertaga Istanbulga uch kishi", "Jo‘nash 10:30"],
    "examples": [],
-   "say_native": "Tinglang. Ali kitob o‘qiydi. U Istanbulda yashaydi. U har kuni kitob o‘qiydi. U yaxshi o‘quvchi. Har bir gap matn mazmunini bildiradi. Matnning asosiy fikri — Ali kitob o‘qiydi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Ikkinchi matnni tinglaysiz. Matn sana, joy va vaqtni o‘z ichiga oladi. Sana, joy va vaqtni ajratib tinglashga harakat qiling. Sana shakli kun-oy-yil tartibida aytiladi.",
+   "say": "Bugün 5 Nisan Cuma. Yarın İstanbul'a üç kişi gidecek. Kalkış saat onda buçuk.",
+   "say_uz": "Bugun 5-aprel juma. Ertaga Istanbulga uch kishi boradi. Jo‘nash soat o‘n yarimda.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Dialogni qayta ayt 2",
+   "title": "Sana joy vaqtni ayting",
    "emotion": "encouraging",
-   "board": [
-    "1) Jasur ismli",
-    "2) Istanbuldan",
-    "3) Tanishuv",
-    "4) Savol javob"
-   ],
+   "board": ["1) Bugun qaysi sana?", "2) Ertaga qayerda?", "3) Nechta kishi?", "4) Soat nechada?"],
    "examples": [],
-   "say_native": "To‘rt gapda dialogni qayta ayting. Birinchi: Jasur ismli yigit Istanbuldan. Ikkinchi: U tanishuvda so‘raldi. Uchinchi: Javob berildi. To‘rtinchi: Dialog tugadi. Har bir gapni to‘liq ayting. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
+   "say_native": "To‘rtta savolga matn asosida javob bering. Sana, joy, raqam va vaqtni o‘z ichiga olgan javoblarni to‘liq ayting. Har bir javobni qatorga yozing.",
+   "say": "Tarihi, yeri, sayıyı ve saati söyleyin.",
+   "say_uz": "Sanani, joyni, raqamni va vaqtni ayting.",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Jasur ismli",
-    "Istanbuldan",
-    "Tanishuv",
-    "Savol javob"
-   ],
+   "board": ["5-aprel juma", "Istanbulga", "Uch kishi", "10:30"],
    "examples": [],
-   "say_native": "Javoblar: Jasur ismli, Istanbuldan, Tanishuv, Savol javob. Dialog to‘rt gapda qayta aytiladi. Har bir gap dialog mazmunini aniqlaydi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
+   "say_native": "Javoblar: Bugun 5-aprel, juma. Ertaga Istanbulga. Uch kishi boradi. Jo‘nash soat o‘n yarimda. Javoblaringizni matn bilan solishtiring.",
+   "say": "Bugün 5 Nisan Cuma. Yarın İstanbul'a üç kişi. Saat onda buçuk.",
+   "say_uz": "Bugun 5-aprel juma. Ertaga Istanbulga uch kishi. Soat o‘n yarimda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Raqamlarni farqlash",
+   "emotion": "thinking",
+   "board": ["Raqlamlar", "15 → o‘n besh", "50 → ellik", "ayotgan so‘zlar farqi"],
+   "examples": [],
+   "say_native": "Raqamlarni tinglashda farqni aniqlash muhim. O‘n besh (15) va ellik (50) o‘xshash eshitiladi. Raqamni yozib tekshirish tavsiya etiladi. Raqamdan keyingi so‘z raqam kongruyentligini ko‘rsatadi. Har bir raqamni yozib belgilab qo‘ying va matn bilan solishtirib tekshiring.",
+   "say": "On beş ile elli farklı duyulur: on beş 15, elli 50.",
+   "say_uz": "O‘n besh bilan ellik farqli eshitiladi: o‘n besh 15, ellik 50.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Raqamni eshitib yozing",
+   "emotion": "encouraging",
+   "board": ["25", "15", "50", "40"],
+   "examples": [],
+   "say_native": "Raqamlarni eshitib yozing. Raqamlarni raqam bilan yozing. Har bir raqamni ikki marta takrorlang. Raqamdan keyingi so‘z raqam kongruyentligini ko‘rsatadi.",
+   "say": "Yirmi beş, on beş, elli, kırk.",
+   "say_uz": "Yigirma besh, o‘n besh, ellik, qirq.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["25", "15", "50", "40"],
+   "examples": [],
+   "say_native": "Javoblar: yigirma besh (25), o‘n besh (15), ellik (50), qirq (40). Raqamlarni yozib tekshiring. Raqamdan keyingi so‘z raqam kongruyentligini ko‘rsatadi.",
+   "say": "Yirmi beş 25, on beş 15, elli 50, kırk 40.",
+   "say_uz": "Yigirma besh 25, o‘n besh 15, ellik 50, qirq 40.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Suhbatni tinglang 2",
+   "emotion": "neutral",
+   "board": ["Bugun nima qilasiz? → Kutubxonaga", "Kitob olasanmi? → Ha, ikki", "O‘qiysanmi? → Yo‘q"],
+   "examples": [],
+   "say_native": "Ikkinchi suhbatni tinglaysiz. Suhbat savol va javoblar orqali boradi. Har bir javobni diqqat bilan eshiting. Raqam, joy va amal so‘zlarini ajratib oling.",
+   "say": "Bugün ne yapıyorsun? Kütüphaneye gidiyorum. Kitap alacak mısın? Evet, iki kitap alacağım. Kitap okuyacak mısın? Hayır, okuyacağım.",
+   "say_uz": "Bugun nima qilasiz? Kutubxonaga boryapman. Kitob olasanmi? Ha, ikki kitob olaman. Kitob o‘qiysanmi? Yo‘q, o‘qiyman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Suhbat savollariga javob bering",
+   "emotion": "encouraging",
+   "board": ["1) Bugun nima qilasiz?", "2) Kitob olasanmi?", "3) Nechta kitob?", "4) O‘qiysanmi?"],
+   "examples": [],
+   "say_native": "To‘rtta savolga suhbat asosida javob bering. Har bir savolga bitta qisqa javob yozing. Javoblaringizni suhbatda aytilgan so‘zlar bilan solishtiring.",
+   "say": "Konuşmadan cevap verin.",
+   "say_uz": "Suhbatdan javob bering.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Kutubxonaga", "Ha, olaman", "Ikki", "Yo‘q"],
+   "examples": [],
+   "say_native": "Javoblar: Kutubxonaga boryapman. Ha, ikki kitob olaman. Ikki kitob. Yo‘q, o‘qiyman. Javoblarning har birini suhbatda eshitilgan so‘zlar bilan solishtiring.",
+   "say": "Kütüphaneye gidiyorum. Evet, iki kitap alacağım. İki. Hayır, okuyacağım.",
+   "say_uz": "Kutubxonaga boryapman. Ha, ikki kitob olaman. Ikki. Yo‘q, o‘qiyman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Raqam chalkashligi",
+   "emotion": "stern",
+   "board": ["✗ o‘n besh (50)", "✓ o‘n besh (15)", "✗ ellik (15)", "✓ ellik (50)"],
+   "examples": [],
+   "say_native": "Raqam chalkashligi tinglashda keng tarqalgan xato. O‘n besh (15) va ellik (50) o‘xshash eshitiladi. Raqamni yozib tekshirish tavsiya etiladi. Raqamdan keyingi so‘z raqam kongruyentligini ko‘rsatadi.",
+   "say": "On beş 15, elli 50.",
+   "say_uz": "O‘n besh 15, ellik 50.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Raqamlarni aniqlang",
+   "emotion": "encouraging",
+   "board": ["15", "50", "25", "40"],
+   "examples": [],
+   "say_native": "Raqamlarni yozib aniqlang. Har bir raqamni ikki marta takrorlang. Raqamdan keyingi so‘z raqam kongruyentligini ko‘rsatadi.",
+   "say": "Yirmi beş, on beş, elli, kırk.",
+   "say_uz": "Yigirma besh, o‘n besh, ellik, qirq.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["15", "50", "25", "40"],
+   "examples": [],
+   "say_native": "Javoblar: o‘n besh (15), ellik (50), yigirma besh (25), qirq (40). Raqamlarni yozib tekshiring. Raqamdan keyingi so‘z raqam kongruyentligini ko‘rsatadi.",
+   "say": "On beş 15, elli 50, yirmi beş 25, kırk 40.",
+   "say_uz": "O‘n besh 15, ellik 50, yigirma besh 25, qirq 40.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Savol so‘zlari turkumlari",
+   "emotion": "thinking",
+   "board": ["Kim? → ism", "Necha? → raqam", "Qayerda? → joy", "Qachon? → vaqt"],
+   "examples": [],
+   "say_native": "Savol so‘zlari turkumlari savolni aniq javoblashga yordam beradi. Kim so‘zi ismni, necha so‘zi raqamni, qayerda so‘zi joyni, qachon so‘zi vaqtni so‘raydi.",
+   "say": "Kim? İsim. Kaç? Sayı. Nerede? Yer. Ne zaman? Zaman.",
+   "say_uz": "Kim? Ism. Necha? Raqam. Qayerda? Joy. Qachon? Vaqt.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savollarni yozing",
+   "emotion": "encouraging",
+   "board": ["1) Kim?", "2) Necha?", "3) Qayerda?", "4) Qachon?"],
+   "examples": [],
+   "say_native": "To‘rtta savol yozing. Har bir savolga bitta javob bo‘lishi kerak. Savollarni matndagi kalit so‘zlar asosida tuzing.",
+   "say": "Soruları yazın.",
+   "say_uz": "Savollarni yozing.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Kim?", "Necha?", "Qayerda?", "Qachon?"],
+   "examples": [],
+   "say_native": "Javoblar: Kim, Necha, Qayerda, Qachon. Savollar matndagi kalit so‘zlar asosida yozildi. Har bir savol javobga ega.",
+   "say": "Sorular yazıldı.",
+   "say_uz": "Savollar yozildi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Matnni tinglang 3",
+   "emotion": "neutral",
+   "board": ["Anqarada kitob yarmarkasi", "Imzo chekmoqda", "Qo‘shiq kuylamoqda"],
+   "examples": [],
+   "say_native": "Uchinchi matnni tinglaysiz. Matn kitob yarmarkasi mazmunini bildiradi. Ismlar va manzillarni diqqat bilan eshiting. Matnning bosh g‘oyasini topishga harakat qiling.",
+   "say": "Ankara'da kitap fuarı var. Fuarda okurlar kitaplarına imza atıyor. Müzik grubu şarkılar söylüyor.",
+   "say_uz": "Anqarada kitob yarmarkasi bor. Yarmarkada o‘quvchilar kitoblariga imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Matn mazmunini ayting 3",
+   "emotion": "encouraging",
+   "board": ["1) Yarmarka qayerda?", "2) Kim imzo chekmoqda?", "3) Guruh nima qilmoqda?", "4) Bosh g‘oyasi?"],
+   "examples": [],
+   "say_native": "To‘rtta savolga matn asosida javob bering. Har bir javobni to‘liq gapda ayting. Javoblaringizni matndagi so‘zlar bilan solishtiring.",
+   "say": "Metnin ne anlattığını söyleyin.",
+   "say_uz": "Matn nima haqida ekanini ayting.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Anqarada", "O‘quvchilar", "Qo‘shiq kuylamoqda", "Kitob yarmarkasi"],
+   "examples": [],
+   "say_native": "Javoblar: Anqarada kitob yarmarkasi bor. O‘quvchilar kitoblariga imzo chekmoqda. Musiqa guruhi qo‘shiqlar kuylamoqda. Bosh g‘oya — kitob yarmarkasi.",
+   "say": "Ankara'da kitap fuarı var. Okurlar imza atıyor. Müzik grubu şarkılar söylüyor.",
+   "say_uz": "Anqarada kitob yarmarkasi bor. O‘quvchilar imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Tushunish chalkashligi",
+   "emotion": "stern",
+   "board": ["✗ Yarmarka Anqarada emas", "✓ Anqarada", "✗ Imzo chekmaydi", "✓ Imzo chekmoqda", "✗ Yarmarka emas"],
+   "examples": [],
+   "say_native": "Tinglashda tushunish chalkashligi keng tarqalgan xato. Joyni noto‘g‘ri eshitish, amalni adashtirish, mavzuni topa olmaslik. Har bir xatoni matn bilan solishtirib tekshiring.",
+   "say": "Ankara'da. İmza atıyor.",
+   "say_uz": "Anqarada. Imzo chekmoqda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Chalkashlikni tuzating",
+   "emotion": "encouraging",
+   "board": ["1) Anqarada emas", "2) Imzo chekmaydi", "3) Yarmarka emas", "4) kitob emas"],
+   "examples": [],
+   "say_native": "To‘rt chalkashlikni tuzating. Har biriga to‘g‘ri javob bering. Javobni matndagi so‘zlar asosida yozing. Har bir javobni to‘liq gapda ayting.",
+   "say": "Ankara'da. İmza atıyor.",
+   "say_uz": "Anqarada. Imzo chekmoqda.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Anqarada", "Imzo chekmoqda", "Yarmarka", "kitob"],
+   "examples": [],
+   "say_native": "Javoblar: Anqarada. Imzo chekmoqda. Yarmarka. Kitob. Chalkashliklar matn bilan solishtirilib tuzatildi. Har bir javob matnga asoslanadi.",
+   "say": "Ankara'da. İmza atıyor. Fuar. Kitap.",
+   "say_uz": "Anqarada. Imzo chekmoqda. Yarmarka. Kitob.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tarkibiy qismlar",
+   "emotion": "thinking",
+   "board": ["Kirish", "Asosiy qism", "Xulosa", "Har biri o‘z vazifasiga ega"],
+   "examples": [],
+   "say_native": "Har qanday matn kirish, asosiy qism va xulosadan iborat bo‘ladi. Kirish mavzuni tanishtiradi, asosiy qism tafsilotlarni beradi, xulosa mazmunni yakunlaydi. Har bir qismni ajratib uni o‘qish oson bo‘ladi.",
+   "say": "Giriş, gelişme, sonuç. Her bölümün ayrı görevi vardır.",
+   "say_uz": "Kirish, rivojlanish, xulosa. Har bir bo‘limning alohida vazifasi bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Matnni to‘liq ayting",
+   "emotion": "encouraging",
+   "board": ["1) Anqarada yarmarka", "2) Imzo chekmoqda", "3) Qo‘shiq kuylamoqda", "4) Bosh g‘oyasi"],
+   "examples": [],
+   "say_native": "Matnni to‘liq gaplarda ayting. Har bir gap matnning bir qismini bildirsin. Matnning bosh g‘oyasini oxirida ayting. Gaplarni ketma-ketlikda yozing.",
+   "say": "Ankara'da kitap fuarı var. Okurlar imza atıyor. Müzik grubu şarkılar söylüyor. Ana fikir: kitap fuarı.",
+   "say_uz": "Anqarada kitob yarmarkasi bor. O‘quvchilar imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda. Bosh g‘oya: kitob yarmarkasi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Anqarada yarmarka", "Imzo chekmoqda", "Qo‘shiq kuylamoqda", "Bosh g‘oyasi: yarmarka"],
+   "examples": [],
+   "say_native": "Javoblar: Anqarada kitob yarmarkasi bor. O‘quvchilar imzo chekmoqda. Musiqa guruhi qo‘shiqlar kuylamoqda. Bosh g‘oya: kitob yarmarkasi. Matn to‘liq gaplarda aytiladi.",
+   "say": "Ankara'da kitap fuarı var. Okurlar imza atıyor. Müzik grubu şarkılar söylüyor. Ana fikir: kitap fuarı.",
+   "say_uz": "Anqarada kitob yarmarkasi bor. O‘quvchilar imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda. Bosh g‘oya: kitob yarmarkasi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Suhbatni tinglang 3",
+   "emotion": "neutral",
+   "board": ["Bugun kunda yuringanmi? → Ha, aylanib chiqdim", "Kitob olganmi? → Ha, ikki", "Qaysi kitob? → She’riyat"],
+   "examples": [],
+   "say_native": "Uchinchi suhbatni tinglaysiz. Suhbatda kelajak rejalari so‘zlanadi. Har bir savol va javobni diqqat bilan eshiting. Raqam va kitob nomlarini yozib qo‘ying.",
+   "say": "Bugün kütüphaneye gittin mi? Evet, dolaştım. Kitap aldın mı? Evet, iki kitap aldım. Hangi kitaplar? Şiir ve edebiyat.",
+   "say_uz": "Bugun kutubxonaga bordingmi? Ha, aylanib chiqdim. Kitob olganmi? Ha, ikki kitob olaman. Qaysi kitob? She’riyat va adabiyot.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Suhbat savollariga javob bering 3",
+   "emotion": "encouraging",
+   "board": ["1) Bugun kunda yuringanmi?", "2) Kitob olganmi?", "3) Nechta kitob?", "4) Qaysi kitob?"],
+   "examples": [],
+   "say_native": "To‘rtta savolga suhbat asosida javob bering. Har bir savolga bitta qisqa javob yozing. Javoblaringizni suhbatda aytilgan so‘zlar bilan solishtiring.",
+   "say": "Konuşmadan cevap verin.",
+   "say_uz": "Suhbatdan javob bering.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Ha, aylanib chiqdim", "Ha, olaman", "Ikki", "She’riyat va adabiyot"],
+   "examples": [],
+   "say_native": "Javoblar: Ha, aylanib chiqdim. Ha, ikki kitob olaman. Ikki kitob. She’riyat va adabiyot. Javoblarning har birini suhbatda eshitilgan so‘zlar bilan solishtiring.",
+   "say": "Evet, dolaştım. Evet, iki kitap aldım. İki. Şiir ve edebiyat.",
+   "say_uz": "Ha, aylanib chiqdim. Ha, ikki kitob olaman. Ikki. She’riyat va adabiyot.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kalit so‘zlarni ajratish",
+   "emotion": "thinking",
+   "board": ["Ism: Jasur", "Raqam: uch soat", "Joy: Istanbul", "Vaqt: ertaga"],
+   "examples": [],
+   "say_native": "Kalit so‘zlarni ajratish alohida ko‘nikma. Ism kishini, raqam miqdorni, joy o‘rinni, vaqt paytni bildiradi. Matnni o‘qiganda shu so‘zlarni belgilang. Tavsiya: har bir kalit so‘z yoniga belgini qo‘yib qo‘ying.",
+   "say": "İsim: Jasur. Sayı: üç saat. Yer: İstanbul. Zaman: yarın.",
+   "say_uz": "Ism: Jasur. Raqam: uch soat. Joy: Istanbul. Vaqt: ertaga.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Kalit so‘zlarni belgilang",
+   "emotion": "encouraging",
+   "board": ["1) Jasur", "2) uch", "3) Istanbul", "4) ertaga"],
+   "examples": [],
+   "say_native": "Matndagi ism, raqam, joy va vaqt so‘zlarini yozing. Har bir kalit so‘zni yonida belgilang. Matnning bosh g‘oyasini ham yozing. Har bir qismini tekshiring.",
+   "say": "Anahtar kelimeleri işaretleyin.",
+   "say_uz": "Kalit so‘zlarni belgilang.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Jasur", "uch", "Istanbul", "ertaga"],
+   "examples": [],
+   "say_native": "Javoblar: Jasur (ism), uch (raqam), Istanbul (joy), ertaga (vaqt). Kalit so‘zlar matndan topildi. Har bir qismini tekshiring.",
+   "say": "Jasur isim, üç sayı, İstanbul yer, yarın zaman.",
+   "say_uz": "Jasur ism, uch raqam, Istanbul joy, ertaga vaqt.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Matnni tinglang 4",
+   "emotion": "neutral",
+   "board": ["Talabalar kutubxonada", "Bugun uch soat ishlashadi", "Imtihon soat o‘nda"],
+   "examples": [],
+   "say_native": "To‘rtinchi matnni tinglaysiz. Matn ish kuni tartibi so‘zlarini o‘z ichiga oladi. Dars-vaqt-so‘zlarini ajratib tinglashga harakat qiling. Har bir raqam va soatni yozib qo‘ying.",
+   "say": "Öğrenciler kütüphanede çalışıyor. Bugün üç saat ders çalışacaklar. Öğretmen yarın sınav yapacak. Sınav saat onda başlayacak.",
+   "say_uz": "Talabalar kutubxonada ishlayapti. Bugun uch soat dars ishlashadi. O‘qituvchi ertaga imtihon qiladi. Imtihon soat o‘nda boshlanadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Matn mazmunini ayting 4",
+   "emotion": "encouraging",
+   "board": ["1) Talabalar qayerda?", "2) Bugun qancha?", "3) O‘qituvchi nima?", "4) Imtihon qachon?"],
+   "examples": [],
+   "say_native": "To‘rtta savolga matn asosida javob bering. Har bir javobni to‘liq gapda ayting. Javoblaringizni matndagi so‘zlar bilan solishtiring.",
+   "say": "Metnin içeriğini söyleyin.",
+   "say_uz": "Matnning mazmunini ayting.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["Kutubxonada", "Uch soat", "Imtihon qiladi", "Erta soat o‘nda"],
+   "examples": [],
+   "say_native": "Javoblar: Talabalar kutubxonada ishlayapti. Bugun uch soat ishlashadi. O‘qituvchi ertaga imtihon qiladi. Imtihon soat o‘nda boshlanadi. Javoblarni matn bilan solishtiring.",
+   "say": "Öğrenciler kütüphanede çalışıyor. Üç saat çalışacaklar. Öğretmen sınav yapacak. Saat onda başlayacak.",
+   "say_uz": "Talabalar kutubxonada ishlayapti. Uch soat ishlashadi. O‘qituvchi imtihon qiladi. Soat o‘nda boshlanadi.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
    "title": "Tushunish xatosi 2",
    "emotion": "stern",
-   "board": [
-    "✗ Ali qiziqarli",
-    "✓ Ali kitob o‘qiydi",
-    "✗ Ali Istanbulga boradi",
-    "✓ Ali Istanbulda yashaydi",
-    "✗ Ali har kuni o‘ynaydi"
-   ],
+   "board": ["✗ Talabalar sinfxonada emas", "✓ Kutubxonada", "✗ Uch soat emas", "✓ Uch soat", "✗ Imtihon qilmaydi"],
    "examples": [],
-   "say_native": "Uchta xato. Birinchi: Ali qiziqarli emas — Ali kitob o‘qiydi deb aytiladi. Ikkinchi: Ali Istanbulga boradi emas — Ali Istanbulda yashaydi deb aytiladi. Uchinchi: Ali har kuni o‘ynaydi emas — Ali har kuni kitob o‘qiydi deb aytiladi. Tushunish matnga asoslanadi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Tushunishda uchta keng tarqalgan xato bor. Birinchisi: joyni noto‘g‘ri eshitish. Ikkinchisi: raqamni adashtirish. Uchinchi: amalni noto‘g‘ri eshitish. Har bir xatoni matn bilan solishtirib tekshiring.",
+   "say": "Kütüphanede. Üç saat. Sınav yapacak.",
+   "say_uz": "Kutubxonada. Uch soat. Imtihon qiladi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatolarni tuzating 2",
+   "title": "Chalkashlikni tuzating 2",
    "emotion": "encouraging",
-   "board": [
-    "1) Ali qiziqarli",
-    "2) Ali Istanbulga boradi",
-    "3) Ali har kuni o‘ynaydi",
-    "4) Ali yomon o‘quvchi"
-   ],
+   "board": ["1) Talabalar sinfxonada emas", "2) Uch soat emas", "3) Imtihon qilmaydi", "4) soat o‘nda emas"],
    "examples": [],
-   "say_native": "To‘rtta xatoni tuzating. Birinchi: Ali qiziqarli — Ali kitob o‘qiydi. Ikkinchi: Ali Istanbulga boradi — Ali Istanbulda yashaydi. Uchinchi: Ali har kuni o‘ynaydi — Ali har kuni kitob o‘qiydi. To‘rtinchi: Ali yomon o‘quvchi — Ali yaxshi o‘quvchi. Har birini to‘g‘ri ayting.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 16
+   "say_native": "To‘rt chalkashlikni tuzating. Har biriga to‘g‘ri javob bering. Javobni matndagi so‘zlar asosida yozing. Har bir javobni to‘liq gapda ayting.",
+   "say": "Kütüphanede. Üç saat.",
+   "say_uz": "Kutubxonada. Uch soat.",
+   "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Ali kitob o‘qiydi",
-    "Ali Istanbulda yashaydi",
-    "Ali har kuni kitob o‘qiydi",
-    "Ali yaxshi o‘quvchi"
-   ],
+   "board": ["Kutubxonada", "Uch soat", "Imtihon qiladi", "Soat o‘nda"],
    "examples": [],
-   "say_native": "Javoblar: Ali kitob o‘qiydi, Ali Istanbulda yashaydi, Ali har kuni kitob o‘qiydi, Ali yaxshi o‘quvchi. To‘rt xato tuzatildi. Har bir javob matnga asoslandi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa: matnni o‘qish 2",
-   "emotion": "proud",
-   "board": [
-    "fikr",
-    "savol",
-    "javob",
-    "ism",
-    "raqam",
-    "joy",
-    "kalit so‘z"
-   ],
-   "examples": [],
-   "say_native": "Xulosa. Matnni o‘qish: avval umumiy fikr uchun o‘qiladi, keyin savollarga javob beriladi. Kalit so‘zlar matn mazmunini aniqlaydi. Ism, raqam, joy so‘zlari matnda topiladi. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Metni oku. Soruya cevap ver.",
-   "say_uz": "Matnni o‘qi. Savolga javob ber.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Matnni ikki marta o‘qing",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ali kitob o‘qiydi",
-    "2) U Istanbulda yashaydi",
-    "3) U har kuni kitob o‘qiydi",
-    "4) U yaxshi o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Matnni izchil o‘qing. Birinchi: Ali kitob o‘qiydi. Ikkinchi: U Istanbulda yashaydi. Uchinchi: U har kuni kitob o‘qiydi. To‘rtinchi: U yaxshi o‘quvchi. Har bir gapni to‘liq ayting. Matnni har kuni ikki marta o‘qish tushunishni oshiradi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Ali kitob o‘qiydi",
-    "U Istanbulda yashaydi",
-    "U har kuni kitob o‘qiydi",
-    "U yaxshi o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Ali kitob o‘qiydi, U Istanbulda yashaydi, U har kuni kitob o‘qiydi, U yaxshi o‘quvchi. Matn izchil o‘qildi. Har bir gap matn mazmunini bildiradi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Javoblar: Kutubxonada. Uch soat. Imtihon qiladi. Soat o‘nda. Chalkashliklar matn bilan solishtirilib tuzatildi. Har bir javob matnga asoslanadi.",
+   "say": "Kütüphanede. Üç saat.",
+   "say_uz": "Kutubxonada. Uch soat.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Tinglang: matn 3",
+   "title": "Suhbatni tinglang 4",
    "emotion": "neutral",
-   "board": [
-    "Ali kitob o‘qiydi.",
-    "U Istanbulda yashaydi.",
-    "U har kuni kitob o‘qiydi.",
-    "U yaxshi o‘quvchi."
-   ],
+   "board": ["Dars qachon boshlanadi? → Soat to‘qqizda", "Nechta shogird? → Yigirma", "Ro‘yxatlarni oldingmi? → Ha"],
    "examples": [],
-   "say_native": "Tinglang. Ali kitob o‘qiydi. U Istanbulda yashaydi. U har kuni kitob o‘qiydi. U yaxshi o‘quvchi. Har bir gap matn mazmunini bildiradi. Matnning asosiy fikri — Ali kitob o‘qiydi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "To‘rtinchi suhbatni tinglaysiz. Suhbatda ish kuni darsi mazmuni so‘zlanadi. Har bir savol va javobni diqqat bilan eshiting. Raqam, vaqt va joyni yozib qo‘ying.",
+   "say": "Ders ne zaman başlıyor? Saat dokuzda. Kaç öğrenci geldi? Yirmi öğrenci geldi. Listeleri aldın mı? Evet, aldım.",
+   "say_uz": "Dars qachon boshlanadi? Soat to‘qqizda. Nechta shogird keldi? Yigirma shogird keldi. Ro‘yxatlarni oldingmi? Ha, oldim.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Matn savollariga javob bering 3",
+   "title": "Suhbat savollariga javob bering 4",
    "emotion": "encouraging",
-   "board": [
-    "1) Ali nima qiladi?",
-    "2) Ali qayerda yashaydi?",
-    "3) Ali qanday o‘quvchi?",
-    "4) Ali har kuni nima qiladi?"
-   ],
+   "board": ["1) Dars qachon boshlanadi?", "2) Nechta shogird keldi?", "3) Ro‘yxatlarni oldingmi?", "4) Soat nechada?"],
    "examples": [],
-   "say_native": "To‘rtta savolga javob bering. Birinchi: Ali nima qiladi? Kitob o‘qiydi. Ikkinchi: Ali qayerda yashaydi? Istanbulda yashaydi. Uchinchi: Ali qanday o‘quvchi? Yaxshi o‘quvchi. To‘rtinchi: Ali har kuni nima qiladi? Kitob o‘qiydi. Har bir javobni to‘liq gapda ayting.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "To‘rtta savolga suhbat asosida javob bering. Har bir savolga bitta qisqa javob yozing. Javoblaringizni suhbatda aytilgan so‘zlar bilan solishtiring.",
+   "say": "Konuşmadan cevap verin.",
+   "say_uz": "Suhbatdan javob bering.",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Kitob o‘qiydi",
-    "Istanbulda yashaydi",
-    "Yaxshi o‘quvchi",
-    "Kitob o‘qiydi"
-   ],
+   "board": ["Soat to‘qqizda", "Yigirma", "Ha, oldim", "To‘qqizda"],
    "examples": [],
-   "say_native": "Javoblar: Kitob o‘qiydi, Istanbulda yashaydi, Yaxshi o‘quvchi, Kitob o‘qiydi. Har bir savolga mos javob berildi. Javob matndan topildi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Javoblar: Soat to‘qqizda. Yigirma shogird keldi. Ha, ro‘yxatlarni oldim. Soat to‘qqizda. Javoblarning har birini suhbatda eshitilgan so‘zlar bilan solishtiring.",
+   "say": "Ders dokuzda başlıyor. Yirmi öğrenci geldi. Evet, aldım.",
+   "say_uz": "Dars to‘qqizda boshlanadi. Yigirma shogird keldi. Ha, oldim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Savollarni yozish 2",
+   "emotion": "thinking",
+   "board": ["Savol yozish", "Kalit so‘z asosida", "Savol → Javob", "Matn bilan solishtirish"],
+   "examples": [],
+   "say_native": "Savollarni yozish matndagi kalit so‘zlar asosida bo‘ladi. Matndan kalit so‘zlarni toping, so‘ng savol tuzing. Har bir savol javobga ega bo‘lishi kerak. Savollarni yozib, matn bilan solishtiring.",
+   "say": "Soruları anahtar kelimelerle yazın.",
+   "say_uz": "Savollarni kalit so‘zlar bilan yozing.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Dialogni qayta ayt 3",
+   "title": "Savollarni yozing 3",
    "emotion": "encouraging",
-   "board": [
-    "1) Jasur ismli",
-    "2) Istanbuldan",
-    "3) Tanishuv",
-    "4) Savol javob"
-   ],
+   "board": ["1) Kim?", "2) Qayerda?", "3) Qachon?", "4) Nechta?"],
    "examples": [],
-   "say_native": "To‘rt gapda dialogni qayta ayting. Birinchi: Jasur ismli yigit Istanbuldan. Ikkinchi: U tanishuvda so‘raldi. Uchinchi: Javob berildi. To‘rtinchi: Dialog tugadi. Har bir gapni to‘liq ayting. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
-   "practice_seconds": 14
+   "say_native": "To‘rtta savol yozing. Har bir savolga bitta javob bo‘lishi kerak. Savollarni matndagi kalit so‘zlar asosida tuzing. Har bir savolni to‘liq gapda yozing.",
+   "say": "Soruları yazın.",
+   "say_uz": "Savollarni yozing.",
+   "practice_seconds": 12
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Jasur ismli",
-    "Istanbuldan",
-    "Tanishuv",
-    "Savol javob"
-   ],
+   "board": ["Kim?", "Qayerda?", "Qachon?", "Nechta?"],
    "examples": [],
-   "say_native": "Javoblar: Jasur ismli, Istanbuldan, Tanishuv, Savol javob. Dialog to‘rt gapda qayta aytiladi. Har bir gap dialog mazmunini aniqlaydi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "mistake",
-   "title": "Tushunish xatosi 3",
-   "emotion": "stern",
-   "board": [
-    "✗ Ali qiziqarli",
-    "✓ Ali kitob o‘qiydi",
-    "✗ Ali Istanbulga boradi",
-    "✓ Ali Istanbulda yashaydi",
-    "✗ Ali har kuni o‘ynaydi"
-   ],
-   "examples": [],
-   "say_native": "Uchta xato. Birinchi: Ali qiziqarli emas — Ali kitob o‘qiydi deb aytiladi. Ikkinchi: Ali Istanbulga boradi emas — Ali Istanbulda yashaydi deb aytiladi. Uchinchi: Ali har kuni o‘ynaydi emas — Ali har kuni kitob o‘qiydi deb aytiladi. Tushunish matnga asoslanadi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa: matnni o‘qish 3",
-   "emotion": "proud",
-   "board": [
-    "fikr",
-    "savol",
-    "javob",
-    "ism",
-    "raqam",
-    "joy",
-    "kalit so‘z"
-   ],
-   "examples": [],
-   "say_native": "Xulosa. Matnni o‘qish: avval umumiy fikr uchun o‘qiladi, keyin savollarga javob beriladi. Kalit so‘zlar matn mazmunini aniqlaydi. Ism, raqam, joy so‘zlari matnda topiladi. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Metni oku. Soruya cevap ver.",
-   "say_uz": "Matnni o‘qi. Savolga javob ber.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Matnni har kuni o‘qing",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ali kitob o‘qiydi",
-    "2) U Istanbulda yashaydi",
-    "3) U har kuni kitob o‘qiydi",
-    "4) U yaxshi o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Matnni har kuni izchil o‘qing. Birinchi: Ali kitob o‘qiydi. Ikkinchi: U Istanbulda yashaydi. Uchinchi: U har kuni kitob o‘qiydi. To‘rtinchi: U yaxshi o‘quvchi. Har bir gapni to‘liq ayting. Matnni har kuni ikki marta o‘qish tushunishni oshiradi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Ali kitob o‘qiydi",
-    "U Istanbulda yashaydi",
-    "U har kuni kitob o‘qiydi",
-    "U yaxshi o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Ali kitob o‘qiydi, U Istanbulda yashaydi, U har kuni kitob o‘qiydi, U yaxshi o‘quvchi. Matn izchil o‘qildi. Har bir gap matn mazmunini bildiradi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Javoblar: Kim, Qayerda, Qachon, Nechta. Savollar matndagi kalit so‘zlar asosida yozildi. Har bir savol javobga ega.",
+   "say": "Sorular yazıldı.",
+   "say_uz": "Savollar yozildi.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Tinglang: matn 4",
+   "title": "Matnni tinglang 5",
    "emotion": "neutral",
-   "board": [
-    "Ali kitob o‘qiydi.",
-    "U Istanbulda yashaydi.",
-    "U har kuni kitob o‘qiydi.",
-    "U yaxshi o‘quvchi."
-   ],
+   "board": ["Anqarada kitob yarmarkasi bor", "O‘quvchilar kitoblariga imzo chekmoqda", "Musiqa guruhi qo‘shiq kuylamoqda"],
    "examples": [],
-   "say_native": "Tinglang. Ali kitob o‘qiydi. U Istanbulda yashaydi. U har kuni kitob o‘qiydi. U yaxshi o‘quvchi. Har bir gap matn mazmunini bildiradi. Matnning asosiy fikri — Ali kitob o‘qiydi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Beshinchi matnni tinglaysiz. Matn kitob yarmarkasi mazmunini bildiradi. Ismlar va manzillarni diqqat bilan eshiting. Matnning bosh g‘oyasini topishga harakat qiling.",
+   "say": "Ankara'da kitap fuarı var. Fuarda okurlar kitaplarına imza atıyor. Müzik grubu şarkılar söylüyor.",
+   "say_uz": "Anqarada kitob yarmarkasi bor. Yarmarkada o‘quvchilar kitoblariga imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Matn savollariga javob bering 4",
+   "title": "Matn mazmunini ayting 5",
    "emotion": "encouraging",
-   "board": [
-    "1) Ali nima qiladi?",
-    "2) Ali qayerda yashaydi?",
-    "3) Ali qanday o‘quvchi?",
-    "4) Ali har kuni nima qiladi?"
-   ],
+   "board": ["1) Yarmarka qayerda?", "2) Kim imzo chekmoqda?", "3) Guruh nima qilmoqda?", "4) Bosh g‘oyasi?"],
    "examples": [],
-   "say_native": "To‘rtta savolga javob bering. Birinchi: Ali nima qiladi? Kitob o‘qiydi. Ikkinchi: Ali qayerda yashaydi? Istanbulda yashaydi. Uchinchi: Ali qanday o‘quvchi? Yaxshi o‘quvchi. To‘rtinchi: Ali har kuni nima qiladi? Kitob o‘qiydi. Har bir javobni to‘liq gapda ayting.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "To‘rtta savolga matn asosida javob bering. Har bir javobni to‘liq gapda ayting. Javoblaringizni matndagi so‘zlar bilan solishtiring.",
+   "say": "Metnin ne anlattığını söyleyin.",
+   "say_uz": "Matn nima haqida ekanini ayting.",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "Kitob o‘qiydi",
-    "Istanbulda yashaydi",
-    "Yaxshi o‘quvchi",
-    "Kitob o‘qiydi"
-   ],
+   "board": ["Anqarada", "O‘quvchilar", "Qo‘shiq kuylamoqda", "Kitob yarmarkasi"],
    "examples": [],
-   "say_native": "Javoblar: Kitob o‘qiydi, Istanbulda yashaydi, Yaxshi o‘quvchi, Kitob o‘qiydi. Har bir savolga mos javob berildi. Javob matndan topildi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialogni qayta ayt 4",
-   "emotion": "encouraging",
-   "board": [
-    "1) Jasur ismli",
-    "2) Istanbuldan",
-    "3) Tanishuv",
-    "4) Savol javob"
-   ],
-   "examples": [],
-   "say_native": "To‘rt gapda dialogni qayta ayting. Birinchi: Jasur ismli yigit Istanbuldan. Ikkinchi: U tanishuvda so‘raldi. Uchinchi: Javob berildi. To‘rtinchi: Dialog tugadi. Har bir gapni to‘liq ayting. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Jasur ismli",
-    "Istanbuldan",
-    "Tanishuv",
-    "Savol javob"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Jasur ismli, Istanbuldan, Tanishuv, Savol javob. Dialog to‘rt gapda qayta aytiladi. Har bir gap dialog mazmunini aniqlaydi.",
-   "say": "Jasur isminde. İstanbul'dan.",
-   "say_uz": "Jasur ismli yigit Istanbuldan.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "mistake",
-   "title": "Tushunish xatosi 4",
-   "emotion": "stern",
-   "board": [
-    "✗ Ali qiziqarli",
-    "✓ Ali kitob o‘qiydi",
-    "✗ Ali Istanbulga boradi",
-    "✓ Ali Istanbulda yashaydi",
-    "✗ Ali har kuni o‘ynaydi"
-   ],
-   "examples": [],
-   "say_native": "Uchta xato. Birinchi: Ali qiziqarli emas — Ali kitob o‘qiydi deb aytiladi. Ikkinchi: Ali Istanbulga boradi emas — Ali Istanbulda yashaydi deb aytiladi. Uchinchi: Ali har kuni o‘ynaydi emas — Ali har kuni kitob o‘qiydi deb aytiladi. Tushunish matnga asoslanadi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
+   "say_native": "Javoblar: Anqarada kitob yarmarkasi bor. O‘quvchilar kitoblariga imzo chekmoqda. Musiqa guruhi qo‘shiqlar kuylamoqda. Bosh g‘oya — kitob yarmarkasi. Javoblarning har birini matn bilan solishtiring.",
+   "say": "Ankara'da kitap fuarı var. Okurlar imza atıyor. Müzik grubu şarkılar söylüyor.",
+   "say_uz": "Anqarada kitob yarmarkasi bor. O‘quvchilar imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Xulosa: matnni o‘qish 4",
+  "title": "Xulosa: matn tinglash",
    "emotion": "proud",
-   "board": [
-    "fikr",
-    "savol",
-    "javob",
-    "ism",
-    "raqam",
-    "joy",
-    "kalit so‘z"
-   ],
+   "board": ["fikr", "savol", "javob", "ism", "raqam", "joy"],
    "examples": [],
-   "say_native": "Xulosa. Matnni o‘qish: avval umumiy fikr uchun o‘qiladi, keyin savollarga javob beriladi. Kalit so‘zlar matn mazmunini aniqlaydi. Ism, raqam, joy so‘zlari matnda topiladi. Dialogni qayta aytish tushunishni oshiradi.",
-   "say": "Metni oku. Soruya cevap ver.",
-   "say_uz": "Matnni o‘qi. Savolga javob ber.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Matnni takrorlang",
-   "emotion": "encouraging",
-   "board": [
-    "1) Ali kitob o‘qiydi",
-    "2) U Istanbulda yashaydi",
-    "3) U har kuni kitob o‘qiydi",
-    "4) U yaxshi o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Matnni takror ayting. Birinchi: Ali kitob o‘qiydi. Ikkinchi: U Istanbulda yashaydi. Uchinchi: U har kuni kitob o‘qiydi. To‘rtinchi: U yaxshi o‘quvchi. Har bir gapni to‘liq ayting. Matnni har kuni takrorlash tushunishni oshiradi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Ali kitob o‘qiydi",
-    "U Istanbulda yashaydi",
-    "U har kuni kitob o‘qiydi",
-    "U yaxshi o‘quvchi"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Ali kitob o‘qiydi, U Istanbulda yashaydi, U har kuni kitob o‘qiydi, U yaxshi o‘quvchi. Matn takrorlandi. Har bir gap matn mazmunini bildiradi.",
-   "say": "Ali kitap okur. İstanbul'da yaşasın.",
-   "say_uz": "Ali kitob o‘qiydi. Istanbulda yashaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Matn xulosasi",
-   "emotion": "happy",
-   "board": [
-    "fikr",
-    "savol",
-    "javob",
-    "ism",
-    "raqam",
-    "joy"
-   ],
-   "examples": [],
-   "say_native": "Matn xulosasi. Fikr so‘zi asosiy mazmunni bildiradi. Savol matn savoli, javob matn javobi. Ism, raqam, joy so‘zlari matnda topiladi. Har bir so‘z matn o‘qishda ishlatiladi. Matnni har kuni o‘qish tushunishni oshiradi.",
+   "say_native": "Xulosa. Matnni o‘qish va tinglash: avval bosh g‘oyani topiladi, keyin kalit so‘zlar belgilanadi, savollarga matn asosida javob beriladi. Har bir ko‘nikmani har kuni mashq qiling.",
    "say": "Metni oku. Soruya cevap ver.",
    "say_uz": "Matnni o‘qi. Savolga javob ber.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
+  "title": "Uyga vazifa",
    "emotion": "encouraging",
-   "board": [
-    "dialog",
-    "to‘rt gap",
-    "qayta aytish"
-   ],
+   "board": ["matn", "to‘rt gap", "qayta aytish"],
    "examples": [],
-   "say_native": "Uyga vazifa. Qisqa dialogni to‘rt gapda qayta ayting. Masalan: Ali va Jasur tanishdi. Jasur Istanbuldan. Ular savol berishdi. Javob berishdi. Har bir gap dialog mazmunini aniqlaydi.",
+   "say_native": "Uyga vazifa. Qisqa matnni to‘rt gapda qayta ayting. Masalan: Anqarada kitob yarmarkasi bor. O‘quvchilar imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda. Bosh g‘oya: kitob yarmarkasi. Har bir gapni to‘liq ayting.",
    "say": "Görüşürüz! Hoşça kalın!",
    "say_uz": "Ko‘risisuncha! Xayr!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Qisqa dialogni to‘rt gapda qayta ayting. Masalan: Ali va Jasur tanishdi. Jasur Istanbuldan. Ular savol berishdi. Javob berishdi. Har bir gap dialog mazmunini aniqlaydi.",
+ "homework_uz": "Qisqa matnni to‘rt gapda qayta ayting. Masalan: Anqarada kitob yarmarkasi bor. O‘quvchilar imzo chekmoqda. Musiqa guruhi qo‘shiq kuylamoqda. Bosh g‘oya: kitob yarmarkasi. Har bir gapni to‘liq ayting.",
  "quiz": [
   {
    "q": "“Matn” Türkçe nasıl?",
-   "options": [
-    "Metin",
-    "Kitap",
-    "Soru",
-    "Cevap"
-   ],
+   "options": ["Metin", "Kitap", "Soru", "Cevap"],
    "answer": 0,
    "why_uz": "Matn — metin. O‘qish material."
   },
   {
    "q": "“Ali kitob o‘qiydi” Türkçe nasıl?",
-   "options": [
-    "Ali kitap okur",
-    "Ali kitap okumaz",
-    "Ali okur kitap",
-    "Kitap Ali okur"
-   ],
+   "options": ["Ali kitap okur", "Ali kitap okumaz", "Ali okur kitap", "Kitap Ali okur"],
    "answer": 0,
    "why_uz": "Matn mazmuni."
   },
   {
    "q": "“Ali Istanbulda yashaydi” Türkçe nasıl?",
-   "options": [
-    "Ali Istanbulda yasasin",
-    "Ali Istanbulda yasamaz",
-    "Ali Istanbul",
-    "Istanbul Ali yasasin"
-   ],
+   "options": ["Ali İstanbul'da yaşasın", "Ali İstanbul'da yaşamaz", "Ali İstanbul", "İstanbul Ali yaşasın"],
    "answer": 0,
    "why_uz": "Joy bilan bog‘liq matn."
   },
   {
    "q": "“Ali yaxshi o‘quvchi” Türkçe nasıl?",
-   "options": [
-    "Ali iyi ogrenci",
-    "Ali ogrenci iyi",
-    "Ali kotu ogrenci",
-    "Iyi ogrenci Ali"
-   ],
+   "options": ["Ali iyi öğrenci", "Ali öğrenci iyi", "Ali kötü öğrenci", "İyi öğrenci Ali"],
    "answer": 0,
    "why_uz": "Sifat kesim bo‘ladi."
   },
   {
    "q": "“Savol” Türkçe nasıl?",
-   "options": [
-    "Soru",
-    "Cevap",
-    "Metin",
-    "Fikir"
-   ],
+   "options": ["Soru", "Cevap", "Metin", "Fikir"],
    "answer": 0,
    "why_uz": "Savol — soru. Matn savoli."
   },
   {
    "q": "“Javob” Türkçe nasıl?",
-   "options": [
-    "Cevap",
-    "Soru",
-    "Metin",
-    "Fikir"
-   ],
+   "options": ["Cevap", "Soru", "Metin", "Fikir"],
    "answer": 0,
    "why_uz": "Javob — cevap. Savol javobi."
   },
   {
    "q": "“Ism” Türkçe nasıl?",
-   "options": [
-    "Isim",
-    "Sayi",
-    "Yer",
-    "Tarih"
-   ],
+   "options": ["İsim", "Sayı", "Yer", "Tarih"],
    "answer": 0,
    "why_uz": "Ism — isim. Kishi nomi."
   },
   {
    "q": "“Raqam” Türkçe nasıl?",
-   "options": [
-    "Sayi",
-    "Isim",
-    "Yer",
-    "Tarih"
-   ],
+   "options": ["Sayı", "İsim", "Yer", "Tarih"],
    "answer": 0,
-   "why_uz": "Raqam — sayi. Soni."
+   "why_uz": "Raqam — sayı. Soni."
   },
   {
    "q": "“Joy” Türkçe nasıl?",
-   "options": [
-    "Yer",
-    "Isim",
-    "Sayi",
-    "Tarih"
-   ],
+   "options": ["Yer", "İsim", "Sayı", "Tarih"],
    "answer": 0,
    "why_uz": "Joy — yer. O‘rni."
   },
   {
    "q": "“Tushunish” Türkçe nasıl?",
-   "options": [
-    "Anlama",
-    "Okuma",
-    "Yazma",
-    "Dinleme"
-   ],
+   "options": ["Anlama", "Okuma", "Yazma", "Dinleme"],
    "answer": 0,
    "why_uz": "Tushunish — anlama. Matn tushunishi."
   }

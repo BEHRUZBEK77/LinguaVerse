@@ -1,631 +1,1078 @@
 {
-  "title": "Restoranda: menyu va hisob",
-  "goal_uz": "Dars oxirida menuni o‘qishni, buyurtma berishni va hisob to‘lashni o‘rgasiz.",
-  "vocab": [
-    { "w": "menyu", "uz": "menyu" },
-    { "w": "buyurtma", "uz": "buyurtma" },
-    { "w": "hisob", "uz": "hisob" },
-    { "w": "to‘lash", "uz": "to‘lash" },
-    { "w": "shikoyat", "uz": "shikoyat" },
-    { "w": "keltiring", "uz": "keltiring" },
-    { "w": "ichimlik", "uz": "ichimlik" },
-    { "w": "taom", "uz": "taom" },
-    { "w": "som", "uz": "som" },
-    { "w": "qoldiq", "uz": "qoldiq" }
-  ],
-  "scenes": [
-    {
-      "kind": "intro",
-      "title": "Bugun nima qilamiz?",
-      "emotion": "happy",
-      "board": ["39-dars: Restoranda: menyu va hisob", "menyu · buyurtma · hisob", "to‘lash · shikoyat · ichimlik"],
-      "examples": [],
-      "say_native": "Assalomu alaykum! A2 darajasining o‘n to‘rtinchi darsiga xush kelibsiz. O‘tgan darsda bayramlarni o‘rgandik. Bugun restoranda gaplashamiz. Menuni o‘qish, buyurtma berish, hisob to‘lash — bularning har biri alohida so‘z bilan aytiladi. Menyu, buyurtma, hisob, to‘lash so‘zlarini bugun o‘rgamiz.",
-      "say": "Merhaba! Bugün restoranda konuşmayı öğreneceğiz.",
-      "say_uz": "Salom! Bugun restoranda gaplashishni o‘rgamiz.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "explain",
-      "title": "Restoran lug‘ati",
-      "emotion": "neutral",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "keltiring", "ichimlik", "taom", "som", "qoldiq"],
-      "examples": [],
-      "say_native": "Restoran lug‘ati: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. Har bir so‘z restoran bilan bog‘liq. Menyu — menyu, buyurtma — buyurtma. Hisob — hisob, to‘lash — to‘lash. Shikoyat — shikoyat, keltiring — keltiring. Ichimlik — ichimlik, taom — taom. Som — som, qoldiq — qoldiq. Har bir so‘zga gap tuzing.",
-      "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "keltiring", "ichimlik", "taom", "som", "qoldiq"],
-      "examples": [],
-      "say_native": "Javoblar: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. O‘n restoran so‘zi yodlandi. Har biri restoran bilan bog‘liq.",
-      "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran so‘zlarini ayting",
-      "emotion": "encouraging",
-      "board": ["1) menyu", "2) buyurtma", "3) hisob", "4) to‘lash", "5) shikoyat", "6) keltiring", "7) ichimlik", "8) taom", "9) som", "10) qoldiq"],
-      "examples": [],
-      "say_native": "O‘n restoran so‘zini ketma-ket ayting. Birinchi: menyu. Ikkinchi: buyurtma. Uchinchi: hisob. To‘rtinchi: to‘lash. Beshinchi: shikoyat. Oltinchi: keltiring. Yettinchi: ichimlik. Sakkizinchi: taom. To‘qqizinchi: som. O‘ninchi: qoldiq. Har birini bitta gapda ayting.",
-      "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "keltiring", "ichimlik", "taom", "som", "qoldiq"],
-      "examples": [],
-      "say_native": "Javoblar: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. O‘n restoran so‘zi yodlandi. Endi buyurtmaga o‘tamiz.",
-      "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "explain",
-      "title": "Buyurtma berish",
-      "emotion": "thinking",
-      "board": ["buyurtma", "buyurtma beraman", "keltiring", "ichimlik", "taom", "som"],
-      "examples": [],
-      "say_native": "Buyurtma berish — buyurtma beraman so‘zi bilan aytiladi. Keltiring — keltiring, ichimlik — ichimlik, taom — taom. Buyurtma berish menyuni o‘qigach bo‘ladi. Masalan: Menyu kelganda buyurtma beraman. Har bir gapni to‘liq ayting.",
-      "say": "Sipariş veriyorum. Getirin. İçecek. Yemek.",
-      "say_uz": "Buyurtma beraman. Keltiring. Ichimlik. Taom.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Buyurtmani ayting",
-      "emotion": "encouraging",
-      "board": ["1) Buyurtma beraman", "2) Keltiring", "3) Ichimlik", "4) Taom", "5) Som"],
-      "examples": [],
-      "say_native": "Besh buyurtma gapini ayting. Birinchi: Buyurtma beraman. Ikkinchi: Keltiring. Uchinchi: Ichimlik. To‘rtinchi: Taom. Beshinchi: Som. Har bir gap buyurtma bilan bog‘liq aytiladi.",
-      "say": "Sipariş veriyorum. Getirin. İçecek. Yemek.",
-      "say_uz": "Buyurtma beraman. Keltiring. Ichimlik. Taom.",
-      "practice_seconds": 12
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Buyurtma beraman", "Keltiring", "Ichimlik", "Taom", "Som"],
-      "examples": [],
-      "say_native": "Javoblar: Buyurtma beraman, Keltiring, Ichimlik, Taom, Som. Besh buyurtma gapi aytiladi. Har bir gap buyurtma bilan bog‘liq aytiladi.",
-      "say": "Sipariş veriyorum. Getirin. İçecek. Yemek.",
-      "say_uz": "Buyurtma beraman. Keltiring. Ichimlik. Taom.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "example",
-      "title": "Tinglang: restoranda",
-      "emotion": "neutral",
-      "board": ["Menyuni bering.", "Menyu keldi.", "Buyurtma beraman.", "Yaxshi.", "Ichimlik keltiring.", "Hisobni keltiring."],
-      "examples": [],
-      "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Hisobni keltiring. Har bir savolga mos javob berildi. Ro‘yxatdan o‘tish shu tartibda bo‘ladi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran suhbatini takrorlang",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Menyu keldi", "3) Buyurtma beraman", "4) Yaxshi", "5) Ichimlik keltiring", "6) Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Olti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Hisobni keltiring. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Menyu keldi", "Buyurtma beraman", "Yaxshi", "Ichimlik keltiring", "Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Hisobni keltiring. Olti gap takrorlandi. Har bir gap suhbatning qismini bildiradi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "mistake",
-      "title": "Buyurtma xatosi",
-      "emotion": "stern",
-      "board": ["✗ menyuni bering emas", "✓ menyuni bering", "✗ buyurtma beraman emas", "✓ buyurtma beraman", "✗ hisobni keltiring emas"],
-      "examples": [],
-      "say_native": "Uchta xato. Birinchi: menyuni bering emas — menyuni bering deb aytiladi. Ikkinchi: buyurtma beraman emas — buyurtma beraman deb aytiladi. Uchinchi: hisobni keltiring emas — hisobni keltiring deb aytiladi. Buyurtma to‘g‘ri shaklda aytiladi.",
-      "say": "Menüyü verin. Sipariş veriyorum. Hesabı getirin.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. Hisobni keltiring.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Buyurtma xatolarini tuzating",
-      "emotion": "encouraging",
-      "board": ["1) menyuni bering emas", "2) buyurtma beraman emas", "3) hisobni keltiring emas", "4) ichimlik keltiring emas"],
-      "examples": [],
-      "say_native": "To‘rtta xatoni tuzating. Birinchi: menyuni bering emas — menyuni bering. Ikkinchi: buyurtma beraman emas — buyurtma beraman. Uchinchi: hisobni keltiring emas — hisobni keltiring. To‘rtinchi: ichimlik keltiring emas — ichimlik keltiring. Har birini to‘g‘ri ayting.",
-      "say": "Menüyü verin. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Buyurtma beraman.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["menyuni bering", "buyurtma beraman", "hisobni keltiring", "ichimlik keltiring"],
-      "examples": [],
-      "say_native": "Javoblar: menyuni bering, buyurtma beraman, hisobni keltiring, ichimlik keltiring. To‘rt buyurtma to‘g‘ri shaklda aytiladi. Har bir gap buyurtma bilan bog‘liq aytiladi.",
-      "say": "Menüyü verin. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "To‘liq tashrifni ayting",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Buyurtma beraman", "3) Ichimlik keltiring", "4) Shikoyat qilaman", "5) Hisobni keltiring", "6) To‘ladim"],
-      "examples": [],
-      "say_native": "Olti gap bilan to‘liq tashrifni ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Buyurtma beraman", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring", "To‘ladim"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni tasvirlaydi.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "example",
-      "title": "Tinglang: restoran suhbat",
-      "emotion": "neutral",
-      "board": ["Menyuni bering.", "Menyu keldi.", "Buyurtma beraman.", "Yaxshi.", "Ichimlik keltiring.", "Shikoyat qilaman.", "Hisobni keltiring."],
-      "examples": [],
-      "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran suhbatini takrorlang",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Menyu keldi", "3) Buyurtma beraman", "4) Yaxshi", "5) Ichimlik keltiring", "6) Shikoyat qilaman", "7) Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 18
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Menyu keldi", "Buyurtma beraman", "Yaxshi", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "recap",
-      "title": "Xulosa: restoran",
-      "emotion": "proud",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "keltiring"],
-      "examples": [],
-      "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi.",
-      "say": "Menü. Sipariş. Hesap. Ödeme.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "explain",
-      "title": "Buyurtma turlari",
-      "emotion": "neutral",
-      "board": ["taom", "ichimlik", "buyurtma", "som", "qoldiq"],
-      "examples": [],
-      "say_native": "Buyurtma turlari: taom, ichimlik, buyurtma, som, qoldiq. Har bir tur alohida so‘zi bilan aytiladi. Taom — taom, ichimlik — ichimlik. Buyurtma — buyurtma, som — pul, qoldiq — qoldiq. Har bir turga gap tuzing.",
-      "say": "Yemek. İçecek. Sipariş. Para. Bahşiş.",
-      "say_uz": "Taom. Ichimlik. Buyurtma. Pul. Qoldiq.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Buyurtma turini ayting",
-      "emotion": "encouraging",
-      "board": ["1) Taom", "2) Ichimlik", "3) Buyurtma", "4) Som", "5) Qoldiq"],
-      "examples": [],
-      "say_native": "Besh buyurtma turini ayting. Birinchi: Taom. Ikkinchi: Ichimlik. Uchinchi: Buyurtma. To‘rtinchi: Som. Beshinchi: Qoldiq. Har birini bitta gapda ayting.",
-      "say": "Yemek. İçecek. Sipariş. Para. Bahşiş.",
-      "say_uz": "Taom. Ichimlik. Buyurtma. Pul. Qoldiq.",
-      "practice_seconds": 12
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Taom", "Ichimlik", "Buyurtma", "Som", "Qoldiq"],
-      "examples": [],
-      "say_native": "Javoblar: Taom, Ichimlik, Buyurtma, Som, Qoldiq. Besh buyurtma turi yodlandi. Har biri alohida so‘zi bilan aytiladi.",
-      "say": "Yemek. İçecek. Sipariş. Para. Bahşiş.",
-      "say_uz": "Taom. Ichimlik. Buyurtma. Pul. Qoldiq.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "To‘liq tashrifni takrorlang",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Buyurtma beraman", "3) Ichimlik keltiring", "4) Shikoyat qilaman", "5) Hisobni keltiring", "6) To‘ladim"],
-      "examples": [],
-      "say_native": "Olti gap bilan to‘liq tashrifni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Buyurtma beraman", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring", "To‘ladim"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni takrorlaydi.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "example",
-      "title": "Tinglang: restoran suhbat 2",
-      "emotion": "neutral",
-      "board": ["Menyuni bering.", "Menyu keldi.", "Buyurtma beraman.", "Yaxshi.", "Ichimlik keltiring.", "Shikoyat qilaman.", "Hisobni keltiring."],
-      "examples": [],
-      "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran suhbatini takrorlang 2",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Menyu keldi", "3) Buyurtma beraman", "4) Yaxshi", "5) Ichimlik keltiring", "6) Shikoyat qilaman", "7) Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 18
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Menyu keldi", "Buyurtma beraman", "Yaxshi", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "mistake",
-      "title": "Buyurtma xatosi 2",
-      "emotion": "stern",
-      "board": ["✗ menyuni bering emas", "✓ menyuni bering", "✗ buyurtma beraman emas", "✓ buyurtma beraman", "✗ hisobni keltiring emas"],
-      "examples": [],
-      "say_native": "Uchta xato. Birinchi: menyuni bering emas — menyuni bering deb aytiladi. Ikkinchi: buyurtma beraman emas — buyurtma beraman deb aytiladi. Uchinchi: hisobni keltiring emas — hisobni keltiring deb aytiladi. Buyurtma to‘g‘ri shaklda aytiladi.",
-      "say": "Menüyü verin. Sipariş veriyorum. Hesabı getirin.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. Hisobni keltiring.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Buyurtma xatolarini tuzating 2",
-      "emotion": "encouraging",
-      "board": ["1) menyuni bering emas", "2) buyurtma beraman emas", "3) hisobni keltiring emas", "4) ichimlik keltiring emas"],
-      "examples": [],
-      "say_native": "To‘rtta xatoni tuzating. Birinchi: menyuni bering emas — menyuni bering. Ikkinchi: buyurtma beraman emas — buyurtma beraman. Uchinchi: hisobni keltiring emas — hisobni keltiring. To‘rtinchi: ichimlik keltiring emas — ichimlik keltiring. Har birini to‘g‘ri ayting.",
-      "say": "Menüyü verin. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Buyurtma beraman.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["menyuni bering", "buyurtma beraman", "hisobni keltiring", "ichimlik keltiring"],
-      "examples": [],
-      "say_native": "Javoblar: menyuni bering, buyurtma beraman, hisobni keltiring, ichimlik keltiring. To‘rt buyurtma to‘g‘ri shaklda aytiladi. Har bir gap buyurtma bilan bog‘liq aytiladi.",
-      "say": "Menüyü verin. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "To‘liq tashrifni takrorlang",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Buyurtma beraman", "3) Ichimlik keltiring", "4) Shikoyat qilaman", "5) Hisobni keltiring", "6) To‘ladim"],
-      "examples": [],
-      "say_native": "Olti gap bilan to‘liq tashrifni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Buyurtma beraman", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring", "To‘ladim"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni takrorlaydi.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "example",
-      "title": "Tinglang: restoran suhbat 3",
-      "emotion": "neutral",
-      "board": ["Menyuni bering.", "Menyu keldi.", "Buyurtma beraman.", "Yaxshi.", "Ichimlik keltiring.", "Shikoyat qilaman.", "Hisobni keltiring."],
-      "examples": [],
-      "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran suhbatini takrorlang 3",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Menyu keldi", "3) Buyurtma beraman", "4) Yaxshi", "5) Ichimlik keltiring", "6) Shikoyat qilaman", "7) Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 18
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Menyu keldi", "Buyurtma beraman", "Yaxshi", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "recap",
-      "title": "Xulosa: restoran 2",
-      "emotion": "proud",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "keltiring"],
-      "examples": [],
-      "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi.",
-      "say": "Menü. Sipariş. Hesap. Ödeme.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "To‘liq tashrifni ikki marta ayting",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Buyurtma beraman", "3) Ichimlik keltiring", "4) Shikoyat qilaman", "5) Hisobni keltiring", "6) To‘ladim"],
-      "examples": [],
-      "say_native": "Olti gap bilan to‘liq tashrifni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 16
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Buyurtma beraman", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring", "To‘ladim"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni takrorlaydi.",
-      "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "example",
-      "title": "Tinglang: restoran suhbat 4",
-      "emotion": "neutral",
-      "board": ["Menyuni bering.", "Menyu keldi.", "Buyurtma beraman.", "Yaxshi.", "Ichimlik keltiring.", "Shikoyat qilaman.", "Hisobni keltiring."],
-      "examples": [],
-      "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran suhbatini takrorlang 4",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Menyu keldi", "3) Buyurtma beraman", "4) Yaxshi", "5) Ichimlik keltiring", "6) Shikoyat qilaman", "7) Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 18
-    },
-    {
-      "kind": "explain",
-      "title": "Javoblar",
-      "emotion": "proud",
-      "board": ["Menyuni bering", "Menyu keldi", "Buyurtma beraman", "Yaxshi", "Ichimlik keltiring", "Shikoyat qilaman", "Hisobni keltiring"],
-      "examples": [],
-      "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "recap",
-      "title": "Xulosa: restoran 3",
-      "emotion": "proud",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "keltiring"],
-      "examples": [],
-      "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi.",
-      "say": "Menü. Sipariş. Hesap. Ödeme.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "example",
-      "title": "Tinglang: restoran suhbat 5",
-      "emotion": "neutral",
-      "board": ["Menyuni bering.", "Menyu keldi.", "Buyurtma beraman.", "Yaxshi.", "Ichimlik keltiring.", "Shikoyat qilaman.", "Hisobni keltiring.", "To‘ladim."],
-      "examples": [],
-      "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran suhbatini takrorlang 5",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Menyu keldi", "3) Buyurtma beraman", "4) Yaxshi", "5) Ichimlik keltiring", "6) Shikoyat qilaman", "7) Hisobni keltiring", "8) To‘ladim"],
-      "examples": [],
-      "say_native": "Sakkiz gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Sakkizinchi: To‘ladim. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim.",
-      "practice_seconds": 18
-    },
-    {
-      "kind": "recap",
-      "title": "Xulosa: restoran 4",
-      "emotion": "proud",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "keltiring"],
-      "examples": [],
-      "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi.",
-      "say": "Menü. Sipariş. Hesap. Ödeme.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "example",
-      "title": "Tinglang: restoran suhbat 6",
-      "emotion": "neutral",
-      "board": ["Menyuni bering.", "Menyu keldi.", "Buyurtma beraman.", "Yaxshi.", "Ichimlik keltiring.", "Shikoyat qilaman.", "Hisobni keltiring.", "To‘ladim.", "Rahmat."],
-      "examples": [],
-      "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Rahmat. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim. Teşekkür ederim.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim. Rahmat.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "practice",
-      "title": "Restoran suhbatini to‘liq ayting",
-      "emotion": "encouraging",
-      "board": ["1) Menyuni bering", "2) Menyu keldi", "3) Buyurtma beraman", "4) Yaxshi", "5) Ichimlik keltiring", "6) Shikoyat qilaman", "7) Hisobni keltiring", "8) To‘ladim", "9) Rahmat"],
-      "examples": [],
-      "say_native": "To‘qqiz gapni ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Sakkizinchi: To‘ladim. To‘qqizinchi: Rahmat. Har bir gapni to‘liq ayting.",
-      "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim. Teşekkür ederim.",
-      "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim. Rahmat.",
-      "practice_seconds": 20
-    },
-    {
-      "kind": "explain",
-      "title": "Restoran xulosasi",
-      "emotion": "happy",
-      "board": ["menyu", "buyurtma", "hisob", "to‘lash", "shikoyat", "ichimlik"],
-      "examples": [],
-      "say_native": "Restoran xulosasi. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi.",
-      "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
-      "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat. Ichimlik.",
-      "practice_seconds": 0
-    },
-    {
-      "kind": "recap",
-      "title": "Uyga vazifa",
-      "emotion": "encouraging",
-      "board": ["rol o‘ynash", "to‘liq tashrif", "bitta shikoyat"],
-      "examples": [],
-      "say_native": "Uyga vazifa. To‘liq restoran tashrifini bitta shikoyat bilan rol o‘ynashda qiling. Masalan: Menyuni bering. Buyurtma beraman. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Har bir gapni to‘liq ayting.",
-      "say": "Görüşürüz! Hoşça kalın!",
-      "say_uz": "Ko‘risisuncha! Xayr!",
-      "practice_seconds": 0
-    }
-  ],
-  "homework_uz": "To‘liq restoran tashrifini bitta shikoyat bilan rol o‘ynashda qiling. Masalan: Menyuni bering. Buyurtma beraman. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Har bir gapni to‘liq ayting.",
-  "quiz": [
-    {
-      "q": "“Menyu” Türkçe nasıl?",
-      "options": ["Menü", "Sipariş", "Hesap", "Ödeme"],
-      "answer": 0,
-      "why_uz": "Menyu — menü."
-    },
-    {
-      "q": "“Buyurtma” Türkçe nasıl?",
-      "options": ["Sipariş", "Menü", "Hesap", "Ödeme"],
-      "answer": 0,
-      "why_uz": "Buyurtma — sipariş."
-    },
-    {
-      "q": "“Hisob” Türkçe nasıl?",
-      "options": ["Hesap", "Menü", "Sipariş", "Ödeme"],
-      "answer": 0,
-      "why_uz": "Hisob — hesap."
-    },
-    {
-      "q": "“Menyuni bering” Türkçe nasıl?",
-      "options": ["Menüyü verin", "Menüyü ver", "Menü verin", "Menü ver"],
-      "answer": 0,
-      "why_uz": "Menyuni bering — menüyü verin."
-    },
-    {
-      "q": "“Buyurtma beraman” Türkçe nasıl?",
-      "options": ["Sipariş veriyorum", "Sipariş ver", "Sipariş verin", "Sipariş"],
-      "answer": 0,
-      "why_uz": "Buyurtma beraman — sipariş veriyorum."
-    },
-    {
-      "q": "“Ichimlik keltiring” Türkçe nasıl?",
-      "options": ["İçecek getirin", "İçecek verin", "İçecek getir", "İçecek"],
-      "answer": 0,
-      "why_uz": "Ichimlik keltiring — içecek getirin."
-    },
-    {
-      "q": "“Hisobni keltiring” Türkçe nasıl?",
-      "options": ["Hesabı getirin", "Hesabı getir", "Hesap getirin", "Hesap"],
-      "answer": 0,
-      "why_uz": "Hisobni keltiring — hesabı getirin."
-    },
-    {
-      "q": "“Shikoyat qilaman” Türkçe nasıl?",
-      "options": ["Şikayet ediyorum", "Şikayet et", "Şikayet edin", "Şikayet"],
-      "answer": 0,
-      "why_uz": "Shikoyat qilaman — şikayet ediyorum."
-    },
-    {
-      "q": "“To‘ladim” Türkçe nasıl?",
-      "options": ["Ödedim", "Ödüyorum", "Ödeyeceğim", "Öderim"],
-      "answer": 0,
-      "why_uz": "To‘ladim — ödedim."
-    },
-    {
-      "q": "“Som” Türkçe nasıl?",
-      "options": ["Som", "Lira", "Para", "Kuruş"],
-      "answer": 0,
-      "why_uz": "Som — som."
-    }
-  ]
+ "title": "Restoranda: menyu va hisob",
+ "goal_uz": "Dars oxirida menuni o‘qishni, buyurtma berishni va hisob to‘lashni o‘rgasiz.",
+ "vocab": [
+  {
+   "w": "menyu",
+   "uz": "menyu"
+  },
+  {
+   "w": "buyurtma",
+   "uz": "buyurtma"
+  },
+  {
+   "w": "hisob",
+   "uz": "hisob"
+  },
+  {
+   "w": "to‘lash",
+   "uz": "to‘lash"
+  },
+  {
+   "w": "shikoyat",
+   "uz": "shikoyat"
+  },
+  {
+   "w": "keltiring",
+   "uz": "keltiring"
+  },
+  {
+   "w": "ichimlik",
+   "uz": "ichimlik"
+  },
+  {
+   "w": "taom",
+   "uz": "taom"
+  },
+  {
+   "w": "som",
+   "uz": "som"
+  },
+  {
+   "w": "qoldiq",
+   "uz": "qoldiq"
+  }
+ ],
+ "scenes": [
+  {
+   "kind": "intro",
+   "title": "Bugun nima qilamiz?",
+   "emotion": "happy",
+   "board": [
+    "39-dars: Restoranda: menyu va hisob",
+    "menyu · buyurtma · hisob",
+    "to‘lash · shikoyat · ichimlik"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! A2 darajasining o‘n to‘rtinchi darsiga xush kelibsiz. O‘tgan darsda bayramlarni o‘rgandik. Bugun restoranda gaplashamiz. Menuni o‘qish, buyurtma berish, hisob to‘lash — bularning har biri alohida so‘z bilan aytiladi. Menyu, buyurtma, hisob, to‘lash so‘zlarini bugun o‘rgamiz.",
+   "say": "Merhaba! Bugün restoranda konuşmayı öğreneceğiz.",
+   "say_uz": "Salom! Bugun restoranda gaplashishni o‘rgamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Restoran lug‘ati",
+   "emotion": "neutral",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "keltiring",
+    "ichimlik",
+    "taom",
+    "som",
+    "qoldiq"
+   ],
+   "examples": [],
+   "say_native": "Restoran lug‘ati: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. Har bir so‘z restoran bilan bog‘liq. Menyu — menyu, buyurtma — buyurtma. Hisob — hisob, to‘lash — to‘lash. Shikoyat — shikoyat, keltiring — keltiring. Ichimlik — ichimlik, taom — taom. Som — som, qoldiq — qoldiq. Har bir so‘zga gap tuzing.",
+   "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "keltiring",
+    "ichimlik",
+    "taom",
+    "som",
+    "qoldiq"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. O‘n restoran so‘zi yodlandi. Har biri restoran bilan bog‘liq.",
+   "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran so‘zlarini ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) menyu",
+    "2) buyurtma",
+    "3) hisob",
+    "4) to‘lash",
+    "5) shikoyat",
+    "6) keltiring",
+    "7) ichimlik",
+    "8) taom",
+    "9) som",
+    "10) qoldiq"
+   ],
+   "examples": [],
+   "say_native": "O‘n restoran so‘zini ketma-ket ayting. Birinchi: menyu. Ikkinchi: buyurtma. Uchinchi: hisob. To‘rtinchi: to‘lash. Beshinchi: shikoyat. Oltinchi: keltiring. Yettinchi: ichimlik. Sakkizinchi: taom. To‘qqizinchi: som. O‘ninchi: qoldiq. Har birini bitta gapda ayting.",
+   "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "keltiring",
+    "ichimlik",
+    "taom",
+    "som",
+    "qoldiq"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. O‘n restoran so‘zi yodlandi. Endi buyurtmaga o‘tamiz.",
+   "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Buyurtma berish",
+   "emotion": "thinking",
+   "board": [
+    "buyurtma",
+    "buyurtma beraman",
+    "keltiring",
+    "ichimlik",
+    "taom",
+    "som"
+   ],
+   "examples": [],
+   "say_native": "Buyurtma berish — buyurtma beraman so‘zi bilan aytiladi. Keltiring — keltiring, ichimlik — ichimlik, taom — taom. Buyurtma berish menyuni o‘qigach bo‘ladi. Masalan: Menyu kelganda buyurtma beraman. Har bir gapni to‘liq ayting.",
+   "say": "Sipariş veriyorum. Getirin. İçecek. Yemek.",
+   "say_uz": "Buyurtma beraman. Keltiring. Ichimlik. Taom.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Buyurtmani ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Buyurtma beraman",
+    "2) Keltiring",
+    "3) Ichimlik",
+    "4) Taom",
+    "5) Som"
+   ],
+   "examples": [],
+   "say_native": "Besh buyurtma gapini ayting. Birinchi: Buyurtma beraman. Ikkinchi: Keltiring. Uchinchi: Ichimlik. To‘rtinchi: Taom. Beshinchi: Som. Har bir gap buyurtma bilan bog‘liq aytiladi.",
+   "say": "Sipariş veriyorum. Getirin. İçecek. Yemek.",
+   "say_uz": "Buyurtma beraman. Keltiring. Ichimlik. Taom.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Buyurtma beraman",
+    "Keltiring",
+    "Ichimlik",
+    "Taom",
+    "Som"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Buyurtma beraman, Keltiring, Ichimlik, Taom, Som. Besh buyurtma gapi aytiladi. Har bir gap buyurtma bilan bog‘liq aytiladi.",
+   "say": "Sipariş veriyorum. Getirin. İçecek. Yemek.",
+   "say_uz": "Buyurtma beraman. Keltiring. Ichimlik. Taom.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: restoranda",
+   "emotion": "neutral",
+   "board": [
+    "Menyuni bering.",
+    "Menyu keldi.",
+    "Buyurtma beraman.",
+    "Yaxshi.",
+    "Ichimlik keltiring.",
+    "Hisobni keltiring."
+   ],
+   "examples": [],
+   "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Hisobni keltiring. Har bir savolga mos javob berildi. Ro‘yxatdan o‘tish shu tartibda bo‘ladi.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran suhbatini takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Menyu keldi",
+    "3) Buyurtma beraman",
+    "4) Yaxshi",
+    "5) Ichimlik keltiring",
+    "6) Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Olti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Hisobni keltiring. Har bir gapni to‘liq ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Menyu keldi",
+    "Buyurtma beraman",
+    "Yaxshi",
+    "Ichimlik keltiring",
+    "Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Hisobni keltiring. Olti gap takrorlandi. Har bir gap suhbatning qismini bildiradi.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Buyurtma xatosi",
+   "emotion": "stern",
+   "board": [
+    "✗ menyuni bering emas",
+    "✓ menyuni bering",
+    "✗ buyurtma beraman emas",
+    "✓ buyurtma beraman",
+    "✗ hisobni keltiring emas"
+   ],
+   "examples": [],
+   "say_native": "Uchta xato. Birinchi: menyuni bering emas — menyuni bering deb aytiladi. Ikkinchi: buyurtma beraman emas — buyurtma beraman deb aytiladi. Uchinchi: hisobni keltiring emas — hisobni keltiring deb aytiladi. Buyurtma to‘g‘ri shaklda aytiladi.",
+   "say": "Menüyü verin. Sipariş veriyorum. Hesabı getirin.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. Hisobni keltiring.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Buyurtma xatolarini tuzating",
+   "emotion": "encouraging",
+   "board": [
+    "1) menyuni bering emas",
+    "2) buyurtma beraman emas",
+    "3) hisobni keltiring emas",
+    "4) ichimlik keltiring emas"
+   ],
+   "examples": [],
+   "say_native": "To‘rtta xatoni tuzating. Birinchi: menyuni bering emas — menyuni bering. Ikkinchi: buyurtma beraman emas — buyurtma beraman. Uchinchi: hisobni keltiring emas — hisobni keltiring. To‘rtinchi: ichimlik keltiring emas — ichimlik keltiring. Har birini to‘g‘ri ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Buyurtma beraman.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "menyuni bering",
+    "buyurtma beraman",
+    "hisobni keltiring",
+    "ichimlik keltiring"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: menyuni bering, buyurtma beraman, hisobni keltiring, ichimlik keltiring. To‘rt buyurtma to‘g‘ri shaklda aytiladi. Har bir gap buyurtma bilan bog‘liq aytiladi.",
+   "say": "Menüyü verin. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘liq tashrifni ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Buyurtma beraman",
+    "3) Ichimlik keltiring",
+    "4) Shikoyat qilaman",
+    "5) Hisobni keltiring",
+    "6) To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Olti gap bilan to‘liq tashrifni ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Buyurtma beraman",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring",
+    "To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni tasvirlaydi.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: restoran suhbat",
+   "emotion": "neutral",
+   "board": [
+    "Menyuni bering.",
+    "Menyu keldi.",
+    "Buyurtma beraman.",
+    "Yaxshi.",
+    "Ichimlik keltiring.",
+    "Shikoyat qilaman.",
+    "Hisobni keltiring."
+   ],
+   "examples": [],
+   "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran suhbatini takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Menyu keldi",
+    "3) Buyurtma beraman",
+    "4) Yaxshi",
+    "5) Ichimlik keltiring",
+    "6) Shikoyat qilaman",
+    "7) Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Menyu keldi",
+    "Buyurtma beraman",
+    "Yaxshi",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Xulosa: restoran",
+   "emotion": "proud",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "keltiring"
+   ],
+   "examples": [],
+   "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi.",
+   "say": "Menü. Sipariş. Hesap. Ödeme.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Buyurtma turlari",
+   "emotion": "neutral",
+   "board": [
+    "taom",
+    "ichimlik",
+    "buyurtma",
+    "som",
+    "qoldiq"
+   ],
+   "examples": [],
+   "say_native": "Buyurtma turlari: taom, ichimlik, buyurtma, som, qoldiq. Har bir tur alohida so‘zi bilan aytiladi. Taom — taom, ichimlik — ichimlik. Buyurtma — buyurtma, som — pul, qoldiq — qoldiq. Har bir turga gap tuzing.",
+   "say": "Yemek. İçecek. Sipariş. Para. Bahşiş.",
+   "say_uz": "Taom. Ichimlik. Buyurtma. Pul. Qoldiq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Buyurtma turini ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Taom",
+    "2) Ichimlik",
+    "3) Buyurtma",
+    "4) Som",
+    "5) Qoldiq"
+   ],
+   "examples": [],
+   "say_native": "Besh buyurtma turini ayting. Birinchi: Taom. Ikkinchi: Ichimlik. Uchinchi: Buyurtma. To‘rtinchi: Som. Beshinchi: Qoldiq. Har birini bitta gapda ayting.",
+   "say": "Yemek. İçecek. Sipariş. Para. Bahşiş.",
+   "say_uz": "Taom. Ichimlik. Buyurtma. Pul. Qoldiq.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Taom",
+    "Ichimlik",
+    "Buyurtma",
+    "Som",
+    "Qoldiq"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Taom, Ichimlik, Buyurtma, Som, Qoldiq. Besh buyurtma turi yodlandi. Har biri alohida so‘zi bilan aytiladi.",
+   "say": "Yemek. İçecek. Sipariş. Para. Bahşiş.",
+   "say_uz": "Taom. Ichimlik. Buyurtma. Pul. Qoldiq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘liq tashrifni takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Buyurtma beraman",
+    "3) Ichimlik keltiring",
+    "4) Shikoyat qilaman",
+    "5) Hisobni keltiring",
+    "6) To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Olti gap bilan to‘liq tashrifni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Buyurtma beraman",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring",
+    "To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni takrorlaydi.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: restoran suhbat 2",
+   "emotion": "neutral",
+   "board": [
+    "Menyuni bering.",
+    "Menyu keldi.",
+    "Buyurtma beraman.",
+    "Yaxshi.",
+    "Ichimlik keltiring.",
+    "Shikoyat qilaman.",
+    "Hisobni keltiring."
+   ],
+   "examples": [],
+   "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi. Bu sahna — \"Tinglang: restoran suhbat 2\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran suhbatini takrorlang 2",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Menyu keldi",
+    "3) Buyurtma beraman",
+    "4) Yaxshi",
+    "5) Ichimlik keltiring",
+    "6) Shikoyat qilaman",
+    "7) Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting. Bu sahna — \"Restoran suhbatini takrorlang 2\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Menyu keldi",
+    "Buyurtma beraman",
+    "Yaxshi",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi. Bu sahna — \"Javoblar\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Buyurtma xatosi 2",
+   "emotion": "stern",
+   "board": [
+    "✗ menyuni bering emas",
+    "✓ menyuni bering",
+    "✗ buyurtma beraman emas",
+    "✓ buyurtma beraman",
+    "✗ hisobni keltiring emas"
+   ],
+   "examples": [],
+   "say_native": "Uchta xato. Birinchi: menyuni bering emas — menyuni bering deb aytiladi. Ikkinchi: buyurtma beraman emas — buyurtma beraman deb aytiladi. Uchinchi: hisobni keltiring emas — hisobni keltiring deb aytiladi. Buyurtma to‘g‘ri shaklda aytiladi. Bu sahna — \"Buyurtma xatosi 2\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum. Hesabı getirin.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. Hisobni keltiring.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Buyurtma xatolarini tuzating 2",
+   "emotion": "encouraging",
+   "board": [
+    "1) menyuni bering emas",
+    "2) buyurtma beraman emas",
+    "3) hisobni keltiring emas",
+    "4) ichimlik keltiring emas"
+   ],
+   "examples": [],
+   "say_native": "To‘rtta xatoni tuzating. Birinchi: menyuni bering emas — menyuni bering. Ikkinchi: buyurtma beraman emas — buyurtma beraman. Uchinchi: hisobni keltiring emas — hisobni keltiring. To‘rtinchi: ichimlik keltiring emas — ichimlik keltiring. Har birini to‘g‘ri ayting. Bu sahna — \"Buyurtma xatolarini tuzating 2\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Buyurtma beraman.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "menyuni bering",
+    "buyurtma beraman",
+    "hisobni keltiring",
+    "ichimlik keltiring"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: menyuni bering, buyurtma beraman, hisobni keltiring, ichimlik keltiring. To‘rt buyurtma to‘g‘ri shaklda aytiladi. Har bir gap buyurtma bilan bog‘liq aytiladi. Bu sahna — \"Javoblar\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘liq tashrifni takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Buyurtma beraman",
+    "3) Ichimlik keltiring",
+    "4) Shikoyat qilaman",
+    "5) Hisobni keltiring",
+    "6) To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Olti gap bilan to‘liq tashrifni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting. Bu sahna — \"To‘liq tashrifni takrorlang\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Buyurtma beraman",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring",
+    "To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni takrorlaydi. Bu sahna — \"Javoblar\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: restoran suhbat 3",
+   "emotion": "neutral",
+   "board": [
+    "Menyuni bering.",
+    "Menyu keldi.",
+    "Buyurtma beraman.",
+    "Yaxshi.",
+    "Ichimlik keltiring.",
+    "Shikoyat qilaman.",
+    "Hisobni keltiring."
+   ],
+   "examples": [],
+   "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi. Bu sahna — \"Tinglang: restoran suhbat 3\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran suhbatini takrorlang 3",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Menyu keldi",
+    "3) Buyurtma beraman",
+    "4) Yaxshi",
+    "5) Ichimlik keltiring",
+    "6) Shikoyat qilaman",
+    "7) Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting. Bu sahna — \"Restoran suhbatini takrorlang 3\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Menyu keldi",
+    "Buyurtma beraman",
+    "Yaxshi",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi. Bu sahna — \"Javoblar\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Xulosa: restoran 2",
+   "emotion": "proud",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "keltiring"
+   ],
+   "examples": [],
+   "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi. Bu sahna — \"Xulosa: restoran 2\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menü. Sipariş. Hesap. Ödeme.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘liq tashrifni ikki marta ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Buyurtma beraman",
+    "3) Ichimlik keltiring",
+    "4) Shikoyat qilaman",
+    "5) Hisobni keltiring",
+    "6) To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Olti gap bilan to‘liq tashrifni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Buyurtma beraman. Uchinchi: Ichimlik keltiring. To‘rtinchi: Shikoyat qilaman. Beshinchi: Hisobni keltiring. Oltinchi: To‘ladim. Har bir gapni to‘liq ayting. Bu sahna — \"To‘liq tashrifni ikki marta ayting\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Buyurtma beraman",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring",
+    "To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Buyurtma beraman, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring, To‘ladim. Olti gap to‘liq tashrifni takrorlaydi. Bu sahna — \"Javoblar\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: restoran suhbat 4",
+   "emotion": "neutral",
+   "board": [
+    "Menyuni bering.",
+    "Menyu keldi.",
+    "Buyurtma beraman.",
+    "Yaxshi.",
+    "Ichimlik keltiring.",
+    "Shikoyat qilaman.",
+    "Hisobni keltiring."
+   ],
+   "examples": [],
+   "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi. Bu sahna — \"Tinglang: restoran suhbat 4\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran suhbatini takrorlang 4",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Menyu keldi",
+    "3) Buyurtma beraman",
+    "4) Yaxshi",
+    "5) Ichimlik keltiring",
+    "6) Shikoyat qilaman",
+    "7) Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Yetti gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Har bir gapni to‘liq ayting. Bu sahna — \"Restoran suhbatini takrorlang 4\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Menyuni bering",
+    "Menyu keldi",
+    "Buyurtma beraman",
+    "Yaxshi",
+    "Ichimlik keltiring",
+    "Shikoyat qilaman",
+    "Hisobni keltiring"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Menyuni bering, Menyu keldi, Buyurtma beraman, Yaxshi, Ichimlik keltiring, Shikoyat qilaman, Hisobni keltiring. Yetti gap takrorlandi. Har bir gap suhbatning qismini bildiradi. Bu sahna — \"Javoblar\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Xulosa: restoran 3",
+   "emotion": "proud",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "keltiring"
+   ],
+   "examples": [],
+   "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi. Bu sahna — \"Xulosa: restoran 3\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menü. Sipariş. Hesap. Ödeme.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: restoran suhbat 5",
+   "emotion": "neutral",
+   "board": [
+    "Menyuni bering.",
+    "Menyu keldi.",
+    "Buyurtma beraman.",
+    "Yaxshi.",
+    "Ichimlik keltiring.",
+    "Shikoyat qilaman.",
+    "Hisobni keltiring.",
+    "To‘ladim."
+   ],
+   "examples": [],
+   "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran suhbatini takrorlang 5",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Menyu keldi",
+    "3) Buyurtma beraman",
+    "4) Yaxshi",
+    "5) Ichimlik keltiring",
+    "6) Shikoyat qilaman",
+    "7) Hisobni keltiring",
+    "8) To‘ladim"
+   ],
+   "examples": [],
+   "say_native": "Sakkiz gapni takror ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Sakkizinchi: To‘ladim. Har bir gapni to‘liq ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "recap",
+   "title": "Xulosa: restoran 4",
+   "emotion": "proud",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "keltiring"
+   ],
+   "examples": [],
+   "say_native": "Xulosa. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi. Bu sahna — \"Xulosa: restoran 4\" ga oid: uni diqqat bilan o‘qing va takrorlab ayting.",
+   "say": "Menü. Sipariş. Hesap. Ödeme.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: restoran suhbat 6",
+   "emotion": "neutral",
+   "board": [
+    "Menyuni bering.",
+    "Menyu keldi.",
+    "Buyurtma beraman.",
+    "Yaxshi.",
+    "Ichimlik keltiring.",
+    "Shikoyat qilaman.",
+    "Hisobni keltiring.",
+    "To‘ladim.",
+    "Rahmat."
+   ],
+   "examples": [],
+   "say_native": "Tinglang. Menyuni bering. Menyu keldi. Buyurtma beraman. Yaxshi. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Rahmat. Har bir savolga mos javob berildi. To‘liq tashrif shu tartibda bo‘ladi.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim. Teşekkür ederim.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim. Rahmat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Restoran suhbatini to‘liq ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyuni bering",
+    "2) Menyu keldi",
+    "3) Buyurtma beraman",
+    "4) Yaxshi",
+    "5) Ichimlik keltiring",
+    "6) Shikoyat qilaman",
+    "7) Hisobni keltiring",
+    "8) To‘ladim",
+    "9) Rahmat"
+   ],
+   "examples": [],
+   "say_native": "To‘qqiz gapni ayting. Birinchi: Menyuni bering. Ikkinchi: Menyu keldi. Uchinchi: Buyurtma beraman. To‘rtinchi: Yaxshi. Beshinchi: Ichimlik keltiring. Oltinchi: Shikoyat qilaman. Yettinchi: Hisobni keltiring. Sakkizinchi: To‘ladim. To‘qqizinchi: Rahmat. Har bir gapni to‘liq ayting.",
+   "say": "Menüyü verin. Menü geldi. Sipariş veriyorum. Ödedim. Teşekkür ederim.",
+   "say_uz": "Menyuni bering. Menyu keldi. Buyurtma beraman. To‘ladim. Rahmat.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Restoran xulosasi",
+   "emotion": "happy",
+   "board": [
+    "menyu",
+    "buyurtma",
+    "hisob",
+    "to‘lash",
+    "shikoyat",
+    "ichimlik"
+   ],
+   "examples": [],
+   "say_native": "Restoran xulosasi. Restoran so‘zlari: menyu, buyurtma, hisob, to‘lash, shikoyat, keltiring, ichimlik, taom, som, qoldiq. Ro‘yxatdan o‘tish: menyuni bering, buyurtma beraman, hisobni keltiring. Shikoyat muloyimlik bilan aytiladi.",
+   "say": "Menü. Sipariş. Hesap. Ödeme. Şikayet. İçecek.",
+   "say_uz": "Menyu. Buyurtma. Hisob. To‘lash. Shikoyat. Ichimlik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "rol o‘ynash",
+    "to‘liq tashrif",
+    "bitta shikoyat"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. To‘liq restoran tashrifini bitta shikoyat bilan rol o‘ynashda qiling. Masalan: Menyuni bering. Buyurtma beraman. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Har bir gapni to‘liq ayting.",
+   "say": "Görüşürüz! Hoşça kalın!",
+   "say_uz": "Ko‘risisuncha! Xayr!",
+   "practice_seconds": 0
+  }
+ ],
+ "homework_uz": "To‘liq restoran tashrifini bitta shikoyat bilan rol o‘ynashda qiling. Masalan: Menyuni bering. Buyurtma beraman. Ichimlik keltiring. Shikoyat qilaman. Hisobni keltiring. To‘ladim. Har bir gapni to‘liq ayting.",
+ "quiz": [
+  {
+   "q": "“Menyu” Türkçe nasıl?",
+   "options": [
+    "Menü",
+    "Sipariş",
+    "Hesap",
+    "Ödeme"
+   ],
+   "answer": 0,
+   "why_uz": "Menyu — menü."
+  },
+  {
+   "q": "“Buyurtma” Türkçe nasıl?",
+   "options": [
+    "Sipariş",
+    "Menü",
+    "Hesap",
+    "Ödeme"
+   ],
+   "answer": 0,
+   "why_uz": "Buyurtma — sipariş."
+  },
+  {
+   "q": "“Hisob” Türkçe nasıl?",
+   "options": [
+    "Hesap",
+    "Menü",
+    "Sipariş",
+    "Ödeme"
+   ],
+   "answer": 0,
+   "why_uz": "Hisob — hesap."
+  },
+  {
+   "q": "“Menyuni bering” Türkçe nasıl?",
+   "options": [
+    "Menüyü verin",
+    "Menüyü ver",
+    "Menü verin",
+    "Menü ver"
+   ],
+   "answer": 0,
+   "why_uz": "Menyuni bering — menüyü verin."
+  },
+  {
+   "q": "“Buyurtma beraman” Türkçe nasıl?",
+   "options": [
+    "Sipariş veriyorum",
+    "Sipariş ver",
+    "Sipariş verin",
+    "Sipariş"
+   ],
+   "answer": 0,
+   "why_uz": "Buyurtma beraman — sipariş veriyorum."
+  },
+  {
+   "q": "“Ichimlik keltiring” Türkçe nasıl?",
+   "options": [
+    "İçecek getirin",
+    "İçecek verin",
+    "İçecek getir",
+    "İçecek"
+   ],
+   "answer": 0,
+   "why_uz": "Ichimlik keltiring — içecek getirin."
+  },
+  {
+   "q": "“Hisobni keltiring” Türkçe nasıl?",
+   "options": [
+    "Hesabı getirin",
+    "Hesabı getir",
+    "Hesap getirin",
+    "Hesap"
+   ],
+   "answer": 0,
+   "why_uz": "Hisobni keltiring — hesabı getirin."
+  },
+  {
+   "q": "“Shikoyat qilaman” Türkçe nasıl?",
+   "options": [
+    "Şikayet ediyorum",
+    "Şikayet et",
+    "Şikayet edin",
+    "Şikayet"
+   ],
+   "answer": 0,
+   "why_uz": "Shikoyat qilaman — şikayet ediyorum."
+  },
+  {
+   "q": "“To‘ladim” Türkçe nasıl?",
+   "options": [
+    "Ödedim",
+    "Ödüyorum",
+    "Ödeyeceğim",
+    "Öderim"
+   ],
+   "answer": 0,
+   "why_uz": "To‘ladim — ödedim."
+  },
+  {
+   "q": "“Som” Türkçe nasıl?",
+   "options": [
+    "Som",
+    "Lira",
+    "Para",
+    "Kuruş"
+   ],
+   "answer": 0,
+   "why_uz": "Som — som."
+  }
+ ]
 }

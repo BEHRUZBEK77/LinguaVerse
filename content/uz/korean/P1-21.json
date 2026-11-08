@@ -1,440 +1,667 @@
 {
  "title": "Eng ko‘p uchraydigan 30 xato",
- "goal_uz": "Dars oxirida koreys tilini o‘rganayotgan o‘zbek so‘zlashishuvchilarning eng ko‘p uchraydigan 30 xatosini taniy otasiz: so‘z tartibi va moslashuv, particle xatolari, zamon xatolari, hurmat shakli, soxta do‘stlar, ikkita inkor.",
+ "goal_uz": "O‘zbek tili so‘zlovchilari koreyschada eng ko‘p qiladigan 30 ta xatoni to‘rtta guruhga bo‘lib o‘rganing va ularni suhbat va yozuvda yo‘qotishni o‘rganing: so‘z tartibi, yolg‘on do‘stlar, kelishik-predlog xatolari hamda zamon va ko‘rinish xatolari.",
  "vocab": [
-  { "w": "주어", "uz": "ega" },
-  { "w": "목적어", "uz": "to‘ldiruvchi" },
-  { "w": "서술어", "uz": "kesim" },
-  { "w": "조사", "uz": "particle, ko‘makchi" },
-  { "w": "어순", "uz": "so‘z tartibi" },
-  { "w": "존댓말", "uz": "hurmat shakli" },
-  { "w": "반말", "uz": "norasmiy nutq" },
-  { "w": "시제", "uz": "zamon" },
-  { "w": "거짓 친구", "uz": "soxta do‘st" },
-  { "w": "연어", "uz": "so‘z birikmasi" },
-  { "w": "맞춤법", "uz": "imlo" },
-  { "w": "이중 부정", "uz": "ikkita inkor" },
-  { "w": "오류", "uz": "xato" },
-  { "w": "축약", "uz": "qisqartma" }
+  {
+   "w": "실수 (silsu)",
+   "uz": "xato"
+  },
+  {
+   "w": "어순 (eosun)",
+   "uz": "so‘z tartibi"
+  },
+  {
+   "w": "조사 (josa)",
+   "uz": "bog‘lovchi qo‘shimcha (partikula)"
+  },
+  {
+   "w": "존댓말 (jondaenmal)",
+   "uz": "hurmatli nutq, rasmiy nutq"
+  },
+  {
+   "w": "주어 (jueo)",
+   "uz": "ega"
+  },
+  {
+   "w": "목적어 (mokjeogeo)",
+   "uz": "to‘ldiruvchi (obyekt)"
+  },
+  {
+   "w": "시제 (sije)",
+   "uz": "zamon"
+  },
+  {
+   "w": "부정 (bujeong)",
+   "uz": "inkor"
+  },
+  {
+   "w": "경험 (gyeongheom)",
+   "uz": "tajriba"
+  },
+  {
+   "w": "교정 (gyojeong)",
+   "uz": "tuzatish"
+  }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Eng ko‘p uchraydigan 30 xato",
+   "title": "30 ta xato, bitta dars",
    "emotion": "happy",
    "board": [
-    "PRO 1 dars 21/50",
-    "Eng ko‘p uchraydigan 30 xato"
+    "30 ta tipik xato — 4 guruh",
+    "Bugun: tartib · yolg‘on do‘stlar",
+    "kelishiklar · zamon va ko‘rinish"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! Oldingi darsda talaffuz klinikasi o‘tdik. Bugun koreys tilini o‘rganayotgan o‘zbek so‘zlashishuvchilarning eng ko‘p uchraydigan 30 xatosini birma-bir tuzatamiz: so‘z tartibi, particle, zamon, hurmat shakli, soxta do‘stlar va ikkita inkor. Dars oxirida 10 ta xato gapni o‘zingiz tuzatasiz. Har bir xato — bir kalit — men sizga birma-bir ko‘rsataman.",
-   "say": "스물한 번째 PRO 1 수업에 오신 것을 환영합니다! 오늘은 우즈베키스탄어 화자가 가장 많이 하는 서른 가지 오류를 바로잡겠습니다.",
-   "say_uz": "21-chi PRO 1 darsiga xush kelibsiz! Bugun o‘zbek so‘zlashishuvchilarning eng ko‘p uchraydigan o‘ttiz xatosini tuzalamiz.",
+   "say_native": "Assalomu alaykum! Oldingi darslarda talaffuz klinikasini yakunladik. Bugun esa til bilishning eng amaliy qismiga o‘tamiz: o‘zbek tili so‘zlovchilari koreyschada eng ko‘p takrorlaydigan o‘ttiz xatoni bitta darsda ko‘rib chiqamiz. Bu ro‘yxat haqiqiy sinov emas, haqiqiy amaliyot tuzilgan: o‘n yillik tajribali o‘qituvchilar to‘plagan xato chastotasi asosida. Xatolar to‘rt guruhga bo‘linadi: birinchi guruh — so‘z tartibi va kelishik xatolari, ikkinchi — yolg‘on do‘stlar, ya’ni o‘xshash tovushli, lekin ma’nosi boshqa so‘zlar, uchinchi — koreyschada predlog o‘rniga qo‘shimcha bilan ifodalanadigan kelishiklar, to‘rtinchi — zamon va ko‘rinish xatolari. Dars oxirida siz xatoni eshita olasiz va uni mustaqil tuzata olasiz.",
+   "say": "안녕하세요! 오늘은 가장 흔한 30가지 실수를 배워요.",
+   "say_uz": "Assalomu alaykum! Bugun eng ko‘p uchraydigan 30 ta xatoni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Guruh 1: so‘z tartibi — S-O-V",
-   "emotion": "neutral",
+   "title": "Xatolar xaritasi: 4 guruh",
+   "emotion": "thinking",
    "board": [
-    "주어 — ega",
-    "목적어 — to‘ldiruvchi",
-    "서술어 — oxirida"
+    "1-guruh: 1–8 tartib va kelishik",
+    "2-guruh: 9–14 yolg‘on do‘stlar",
+    "3-guruh: 15–20 predlog va kelishiklar",
+    "4-guruh: 21–30 zamon va ko‘rinish"
    ],
    "examples": [
-    { "t": "저는 사과를 먹습니다.", "uz": "Men olma yeyman." },
-    { "t": "저는 먹습니다 사과를.", "uz": "Xato: kesim oldinga keldi." }
+    {
+     "t": "한국어는 주어-목적어-동사 순서예요.",
+     "uz": "Koreyschada tartib — ega, to‘ldiruvchi, fe’l."
+    },
+    {
+     "t": "틀린 문장을 고치는 연습을 해요.",
+     "uz": "Xato jumlalarni tuzatishni mashq qiling."
+    }
    ],
-   "say_native": "Koreys tilida so‘z tartibi — har doim 주어, 목적어, 서술어 — ega, to‘ldiruvchi, fe‘l. „저는 사과를 먹습니다“ — men olma yeyman — men — ega — sone olma — to‘ldiruvchi — yeyman — kesim oxirida. Bu o‘zbek tilidagi tartibga o‘xshaydi, lekin rus yoki ingliz tilidan farq qiladi. Eng ko‘p uchraydigan xato: fe‘lni o‘rtaga qo‘yish — „저는 먹습니다 사과를“ — bu noto‘g‘ri. Koreys tilida kesim har doim oxirida — „서술어는 문장의 끝에“ — kesim gapning oxirida. Eslab qoling: 1) ega 2) to‘ldiruvchi 3) fe‘l. Bu uchta qoidaga har doim amal qiling — koreys tilida SOV yetarli emas, balki kesim albatta oxirida bo‘lishi kerak.",
-   "say": "저는 사과를 먹습니다. 주어는 앞에, 목적어는 중간에, 서술어는 문장 끝에 옵니다. 저는 먹습니다 사과를 — 이것은 잘못된 어순입니다. 서술어는 항상 문장 끝에 위치합니다.",
-   "say_uz": "Men olma yeyman. Ega old — to‘ldiruvchi o‘rta — kesim gap oxirida. Men yeyman olmani — bu xato tartib. Kesim har doim gap oxirida turadi.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "practice",
-   "title": "So‘z tartibi mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) S-O-V tartibini qo‘ying",
-    "2) fe‘l oxirida",
-    "3) particle bilan"
-   ],
-   "examples": [],
-   "say_native": "Uchta gap tuzing. Birinchi: „저는 밥을 먹습니다“ — men ovqat yeyman. Ikkinchi: „저는 책을 읽습니다“ — men kitob o‘qiyman. Uchinchi: „저는 학교에 갑니다“ — men maktabga boraman. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "저는 밥을 먹습니다. 저는 책을 읽습니다. 저는 학교에 갑니다. 주어 — 목적어 — 서술어 순서로 말해 보세요.",
-   "say_uz": "Men ovqat yeyman. Men kitob o‘qiyman. Men maktabga boraman. Ega — to‘ldiruvchi — kesim tartibida aytib ko‘ring.",
-   "practice_seconds": 30
+   "say_native": "Avval butun darsning xaritasini chizamiz. Bitdan sakkizgacha bo‘lgan xatolar — so‘z tartibi va kelishik sohasiga tegishli: koreyschada fe’l doim gap oxirida turadi, sifat otdan oldin keladi, mavzuli qo‘shimcha 은/는 bilan ega qo‘shimchasi 이/가 turli vazifalarni bajaradi, ko‘plik qo‘shimchasi -들 haddan tashqari ko‘p ishlatiladi va hurmat shaklida ega bilan fe’l moslashishi kerak bo‘ladi. To‘qqizdan o‘nto‘rtgacha — yolg‘on do‘stlar: o‘zbekcha yoki ruscha so‘zga o‘xshab eshitiladigan, ammo boshqa ma’no anglatadigan koreyscha so‘zlar. O‘ndan o‘nyergacha — kelishiklar: koreyschada predlog yo‘q, uning vazifasini qo‘shimchalar bajaradi. Yigirma birdan o‘ttizgacha — zamon va ko‘rinish: o‘tgan, hozirgi, kelajak zamonlari hamda tugallangan va davom etayotgan harakatni ajratish. Har bir guruhni alohida ko‘ramiz.",
+   "say": "실수를 네 그룹으로 나누어서 배워요.",
+   "say_uz": "Xatolarni to‘rt guruhga bo‘lib o‘rganamiz.",
+   "practice_seconds": 10
   },
   {
    "kind": "explain",
-   "title": "Guruh 2: particle — 은/는, 이/가",
+   "title": "Xato 1–4: so‘z tartibi asoslari",
    "emotion": "neutral",
    "board": [
-    "은/는 — mavzu",
-    "이/가 — ega",
-    "을/를 — to‘ldiruvchi"
+    "1) FE’L doim gap oxirida",
+    "2) Savolda ham tartib o‘zgarmaydi",
+    "3) Sifat otdan OLDIN keladi",
+    "4) Vaqt → joy → tarzda → fe’l"
    ],
    "examples": [
-    { "t": "저는 학생입니다.", "uz": "Men — o‘quvchiman (mavzu)." },
-    { "t": "비가 옵니다.", "uz": "Yomg‘ir yog‘moqda (yangi ma‘lumot)." }
+    {
+     "t": "저는 어제 집에서 저녁을 먹었어요.",
+     "uz": "Men kecha uyda kechki ovqat yedim."
+    },
+    {
+     "t": "뭐 드세요?",
+     "uz": "Nima yeysiz? (tartib o‘zgarmaydi)"
+    }
    ],
-   "say_native": "Koreys particlelari — o‘zbekchada bunday narsa yo‘q — shuning uchun eng ko‘p xato shu yerda. „은/는“ — mavzuni belgilaydi — „저는 학생입니다“ — men — o‘quvchiman — mavzu. „이/가“ — yangi yoki konkret ega — „비가 옵니다“ — yomg‘ir yog‘moqda — yangi fakt. „을/를“ — to‘ldiruvchi — „저는 사과를 먹습니다“ — men olma yeyman — olma — to‘ldiruvchi. Qoidalar: 1) unli bilan tugasa — 는/가/를; 2) undosh bilan tugasa — 은/이/을. Eng ko‘p uchraydigan xato: „저는 밥을 먹습니다“ ni „저는 밥이 먹습니다“ deb aytish — 이/가 to‘ldiruvchida ishlatilmaydi. Eslab qoling: ega — 이/가 yoki 은/는; to‘ldiruvchi — 을/를 — hech qachon 이/가 emas.",
-   "say": "저는 학생입니다. 비가 옵니다. 저는 사과를 먹습니다. 은/는은 주제, 이/가는 새로운 주어, 을/를은 목적어를 표시합니다. 목적어에 이/가를 쓰면 안 됩니다.",
-   "say_uz": "Men o‘quvchiman. Yomg‘ir yog‘moqda. Men olma yeyman. 은/는 — mavzu, 이/가 — yangi ega, 을/를 — to‘ldiruvchi belgilaydi. To‘ldiruvchida 이/가 ishlatilmaydi.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "practice",
-   "title": "Particle mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) 은/는 yoki 이/가",
-    "2) 을/를",
-    "3) ulangan"
-   ],
-   "examples": [],
-   "say_native": "Uchta particle gapi tuzing. Birinchi: „저는 학생입니다“ — mavzu — 은/는. Ikkinchi: „비가 옵니다“ — yangi ega — 이/가. Uchinchi: „저는 책을 읽습니다“ — to‘ldiruvchi — 을/를. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "저는 학생입니다. 비가 옵니다. 저는 책을 읽습니다. 은/는 — 주제, 이/가 — 새로운 주어, 을/를 — 목적어. 다시 말해 보세요.",
-   "say_uz": "Men o‘quvchiman. Yomg‘ir yog‘moqda. Men kitob o‘qiyman. 은/는 — mavzu, 이/가 — yangi ega, 을/를 — to‘ldiruvchi. Yana aytib ko‘ring.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "explain",
-   "title": "Guruh 3: zamon — hozirgi, o‘tgan, kelasjak",
-   "emotion": "neutral",
-   "board": [
-    "-습니다/-ㅂ니다",
-    "-았/었습니다",
-    "-겠습니다"
-   ],
-   "examples": [
-    { "t": "어제 영화를 봤습니다.", "uz": "Kecha film ko‘rdim." },
-    { "t": "내일 만나겠습니다.", "uz": "Ertaga uchrashamiz." }
-   ],
-   "say_native": "Koreys zamonlari — oddiy, lekin o‘zbek tilida bundan farq qiladi. Hozirgi oddiy: „-습니다/-ㅂ니다“ — rasmiy shakli — „매일 운동합니다“ — har kuni mashq qilaman. O‘tgan: „-았/었습니다“ — „어제 영화를 봤습니다“ — kecha film ko‘rdim — 았 va 었 har doim fe‘l oxirida. Kelasjak: „-겠습니다“ — „내일 만나겠습니다“ — ertaga uchrashamiz. Eng ko‘p uchraydigan xato: o‘tgan zamonni oddiy shaklda aytish — „어제 영화를 보다“ — noto‘g‘ri — „봤습니다“ bo‘lishi kerak. Eslab qoling: 1) hozirgi — -습니다; 2) o‘tgan — -았/었습니다; 3) kelasjak — -겠습니다 yoki -ㄹ 겁니다. Zamon chalkashmasin — har bir fe‘l aniq zamonda.",
-   "say": "매일 운동합니다. 어제 영화를 봤습니다. 내일 만나겠습니다. 현재는 -습니다, 과거는 -았/었습니다, 미래는 -겠습니다입니다. 시제를 정확히 써야 합니다.",
-   "say_uz": "Har kuni mashq qilaman. Kecha film ko‘rdim. Ertaga uchrashamiz. Hozirgi — -습니다, o‘tgan — -았/었습니다, kelasjak — -겠습니다. Zamonni aniq ishlatishingiz kerak.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "practice",
-   "title": "Zamon mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) hozirgi — -습니다",
-    "2) o‘tgan — -았/었습니다",
-    "3) kelasjak — -겠습니다"
-   ],
-   "examples": [],
-   "say_native": "Uchta zamon gapi tuzing. Birinchi: „매일 운동합니다“ — hozirgi. Ikkinchi: „어제 영화를 봤습니다“ — o‘tgan. Uchinchi: „내일 만나겠습니다“ — kelasjak. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "매일 운동합니다. 어제 영화를 봤습니다. 내일 만나겠습니다. 현재, 과거, 미래 순서대로 말해 보세요.",
-   "say_uz": "Har kuni mashq qilaman. Kecha film ko‘rdim. Ertaga uchrashamiz. Hozirgi, o‘tgan, kelasjak tartibida aytib ko‘ring.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "explain",
-   "title": "Guruh 4: hurmat shakli — 존댓말 va 반말",
-   "emotion": "neutral",
-   "board": [
-    "존댓말 — hurmatli",
-    "반말 — norasmiy",
-    "-시- — hurmat qo‘shimchasi"
-   ],
-   "examples": [
-    { "t": "선생님께서 오십니다.", "uz": "Ustoz keladilar (hurmat)." },
-    { "t": "친구가 와.", "uz": "Do‘stim keladi (norasmiy)." }
-   ],
-   "say_native": "Koreys tilida hurmat shakli — 존댓말 — va norasmiy — 반말 — ikkita butunlay boshqa tizim. 존댓말: rasmiy va hurmatli — kattalarga, notanish odamlarga, rahbarlaringizga — „선생님께서 오십니다“ — ustoz keladilar — -시- hurmat qo‘shimchasi — -습니다 oxiri. 반말: do‘stlar va yoshlarga — „친구가 와“ — do‘stim keladi — -아/어요 yoki oddiy -어. Eng ko‘p uchraydigan xato: kattaga 반말 ishlatish — yoki notanish odamga — bu hurmatsizlik hisoblanadi. Eslab qoling: 1) notanish/katta — 존댓말; 2) do‘st/yosh — 반말; 3) har doim -시- qo‘shing hurmat uchun. O‘z taxminingizni „아마도“ deb ayting — „아마도 오실 겁니다“ — ehtimol keladilar.",
-   "say": "선생님께서 오십니다. 친구가 와. 존댓말은 어른과 모르는 사람에게, 반말은 친구와 어린이에게 씁니다. 존댓말에는 -시-를 꼭 붙이세요.",
-   "say_uz": "Ustoz keladilar. Do‘stim keladi. Hurmat shakli kattalarga va notanish odamlarga, norasmiy shakl do‘stlar va yoshlarga ishlatiladi. Hurmat shakliga -시- ni albatta qo‘shing.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "practice",
-   "title": "Hurmat shakli mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) 존댓말 — kattaga",
-    "2) 반말 — do‘stga",
-    "3) -시-"
-   ],
-   "examples": [],
-   "say_native": "Uchta hurmat shakli gapi tuzing. Birinchi: „선생님께서 오십니다“ — kattaga. Ikkinchi: „친구가 와“ — do‘stga. Uchinchi: „아버지께서 오십니다“ — otaga — -시- bilan. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "선생님께서 오십니다. 친구가 와. 아버지께서 오십니다. 누구에게 어떤 말을 하는지 생각해 보세요.",
-   "say_uz": "Ustoz keladilar. Do‘stim keladi. Ota keladilar. Kimga qanday gap aytayotganingizni o‘ylab ko‘ring.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "explain",
-   "title": "Guruh 5: soxta do‘stlar — rus va o‘zbek ta‘siri",
-   "emotion": "neutral",
-   "board": [
-    "магазин → 가게",
-    "библиотека → 도서관",
-    "анкета → 신청서"
-   ],
-   "examples": [
-    { "t": "저는 가게에 갑니다.", "uz": "Men do‘konga boraman." },
-    { "t": "도서관에서 책을 읽어요.", "uz": "Kutubxonada kitob o‘qiyman." }
-   ],
-   "say_native": "O‘zbek tili xalq orasida rus tilidan ko‘p so‘z olgan — lekin koreys tilida bu so‘zlar yo‘q. „магазин“ — rus tilida do‘kon — koreyscha „가게“ yoki „매장“ — „저는 가게에 갑니다“ — men do‘konga boraman. „библиотека“ — kutubxona — koreyscha „도서관“ — „도서관에서 책을 읽어요“ — kutubxonada kitob o‘qiyman. „анкета“ — anket — koreyscha „신청서“ — „신청서를 작성해 주세요“ — anketni to‘ldirib bering. Eng ko‘p uchraydigan xato: ruscha so‘zning koreyschaga so‘zma-so‘z o‘tishi — „마가진에 가요“ — bu noto‘g‘ri — „가게에 가요“ to‘g‘ri. Eslab qoling: 1) ruscha-o‘zbekcha so‘zlar koreyschada yo‘q — har doim koreyscha so‘z ishlating; 2) „problema“ — koreyscha „문제“ — „문제가 있어요“ — muammo bor; 3) „student“ — koreyscha „학생“ — „저는 학생입니다“.",
-   "say": "저는 가게에 갑니다. 도서관에서 책을 읽어요. 신청서를 작성해 주세요. 가게, 도서관, 신청서 — 이 세 단어를 꼭 외우세요. 러시아어 단어를 한국어에 그대로 쓰면 안 됩니다.",
-   "say_uz": "Men do‘konga boraman. Kutubxonada kitob o‘qiyman. Anketni to‘ldirib bering. 가게, 도서관, 신청서 — bu uchta so‘zni albatta yodlang. Ruscha so‘zlarni koreyschaga to‘g‘ridan-to‘g‘ri ishlatib bo‘lmaydi.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "practice",
-   "title": "Soxta do‘stlar mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) 가게",
-    "2) 도서관",
-    "3) 신청서"
-   ],
-   "examples": [],
-   "say_native": "Uchta to‘g‘ri gap tuzing. Birinchi: „저는 가게에 갑니다“ — do‘kon. Ikkinchi: „도서관에서 책을 읽어요“ — kutubxona. Uchinchi: „신청서를 작성해 주세요“ — anket. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "저는 가게에 갑니다. 도서관에서 책을 읽어요. 신청서를 작성해 주세요. 가게, 도서관, 신청서를 다시 말해 보세요.",
-   "say_uz": "Men do‘konga boraman. Kutubxonada kitob o‘qiyman. Anketni to‘ldirib bering. 가게, 도서관, 신청서ni yana aytib ko‘ring.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "explain",
-   "title": "Guruh 6: ikkita inkor va to‘g‘ri birikmalar",
-   "emotion": "neutral",
-   "board": [
-    "이중 부정 — ikkita inkor",
-    "-지 않다 + 안 — bitta inkor",
-    "연어 — so‘z birikmalari"
-   ],
-   "examples": [
-    { "t": "저는 안 갑니다.", "uz": "Men bormayman (bitta inkor)." },
-    { "t": "저는 안 가지 않습니다.", "uz": "Xato: ikkita inkor." }
-   ],
-   "say_native": "Koreys tilida ikkita inkor — 이중 부정 — qoidaga zid. „저는 안 갑니다“ — men bormayman — bitta inkor — to‘g‘ri. „저는 안 가지 않습니다“ — ikkita inkor — 이중 부정 — noto‘g‘ri — koreyscha grammatikada bu xato. Faqat bitta inkor ishlating: „안 + fe‘l“ yoki „-지 않다“. Eslab qoling: 1) „안 가요“ yoki „가지 않아요“ — ikkalasi ham to‘g‘ri — biri yetadi; 2) ikkalasini birga — 안 va -지 않다 — hech qachon. Ikkinchi — so‘z birikmalari — 연어: „사과를 먹어요“ to‘g‘ri, „사과를 드세요“ — ham to‘g‘ri, lekin „사과를 해요“ — noto‘g‘ri — fe‘lni so‘zga moslang. Eng ko‘p uchraydigan xato: „공부를 해요“ — to‘g‘ri; „공부를 가요“ — noto‘g‘ri.",
-   "say": "저는 안 갑니다. 저는 가지 않습니다. 안 가요와 가지 않아요는 둘 다 맞습니다. 안 가지 않아요는 이중 부정이라 틀립니다. 연어도 정확히 써야 합니다.",
-   "say_uz": "Men bormayman. Men bormayman. 안 가요 va 가지 않아요 — ikkalasi to‘g‘ri. 안 가지 않아요 — ikkita inkor, xato. So‘z birikmalarini ham aniq ishlating.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "practice",
-   "title": "Ikkita inkor mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) bitta inkor",
-    "2) -지 않다",
-    "3) 연어"
-   ],
-   "examples": [],
-   "say_native": "Uchta to‘g‘ri gap tuzing. Birinchi: „저는 안 갑니다“ — bitta inkor. Ikkinchi: „저는 가지 않습니다“ — -지 않다. Uchinchi: „저는 공부를 해요“ — so‘z birikmasi to‘g‘ri. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "저는 안 갑니다. 저는 가지 않습니다. 저는 공부를 해요. 이중 부정은 안 되고, 연어는 정확해야 합니다. 다시 말해 보세요.",
-   "say_uz": "Men bormayman. Men bormayman. Men dars qilaman. Ikkita inkor bo‘lmaydi, so‘z birikmasi aniq bo‘lishi kerak. Yana aytib ko‘ring.",
-   "practice_seconds": 30
+   "say_native": "Birinchi xato: fe’lni gap o‘rtasiga qo‘yish. O‘zbekchada ham fe’l oxirida turadi, shuning uchun bu xato kamroq uchraydi, ammo ruscha ta’sirida ba’zilar fe’lni oldinga tortadi. To‘g‘risi: 저는 어제 집에서 저녁을 먹었어요 — ega, vaqt, joy, to‘ldiruvchi, fe’l. Ikkinchi xato: savolda fe’lni oldinga olib kelish. Koreyschada savol tartibi oddiy gap tartibi bilan bir xil: 뭐 드세요? — hech qachon *드세요 뭐? emas. Uchinchi xato: sifatni otdan keyin ishlatish. Sifat doim otdan oldin: 예쁜 꽃 — chiroyli gul, emas *꽃이 예쁜이. To‘rtinchi xato: vaqt va joy tartibini aralashtirish. Vaqt avval, joy keyin: 어제 학교에서 — kecha maktabda. Tartib: kim, qachon, qayerda, qanday, nima, fe’l.",
+   "say": "저는 어제 집에서 한국어 뉴스를 읽었어요.",
+   "say_uz": "Men kecha uyda koreyscha yangiliklarni o‘qidim.",
+   "practice_seconds": 10
   },
   {
    "kind": "example",
-   "title": "ESCUCHA 1: suhbatda besh xatoni toping",
-   "emotion": "happy",
+   "title": "Dialog: tartib xatosi tuzatish",
+   "emotion": "neutral",
    "board": [
-    "A: 저는 가게에 가요… xato tartib",
-    "B: 응, 비가 오이… xato particle",
-    "A: 영화를 보어요… xato zamon",
-    "B: 선생님께 반말… xato shakl",
-    "A: 안 가지 않아요… ikkita inkor"
+    "Noto‘g‘ri: 먹었어요 저는 밥",
+    "To‘g‘ri: 저는 밥을 먹었어요"
    ],
    "examples": [],
-   "say_native": "Birinchi suhbatni tinglang va besh ta xatoni toping. A: „가게에 저는 가요“ — so‘z tartibi xato — to‘g‘risi „저는 가게에 가요“. B: „비가 오이“ — particle xato — to‘g‘risi „비가 와요“. A: „영화를 보어요“ — -어가 yo‘q — to‘g‘risi „영화를 봤어요“ yoki „영화를 봐요“. B: kattaga 반말 — „너 어디 가니“ — kattaga bunday gapirmaydi — to‘g‘risi „선생님께서 어디 가세요?“ A: „안 가지 않아요“ — ikkita inkor — to‘g‘risi „안 가요“. Savollar: besh xatoning har birini ayting.",
-   "say": "저는 가게에 가요. 비가 와요. 영화를 봐요. 선생님께서 어디 가세요? 안 가요. 다섯 가지 오류를 찾아 보세요.",
-   "say_uz": "Men do‘konga boraman. Yomg‘ir yog‘moqda. Film ko‘raman. Ustoz qayerga borasiz? Bormayman. Besh xatoni topib ko‘ring.",
-   "practice_seconds": 0
+   "say_native": "Diqqat bilan eshiting. Bu dialogda o‘quvchi uchta tartib xatosini qiladi va o‘qituvchi ularni bittama-bitta tuzatadi. Birinchidan, fe’l oxirida bo‘lishi kerak. Ikkinchidan, sifat otdan oldin keladi. Uchinchidan, vaqt belgisi joy belgisidan oldin turadi. Xatolarni ovoz chiqarib takrorlab, o‘zingiz ham tuzatishga harakat qiling. Bunday mashq miyangizga to‘g‘ri tartibni avtomatik holatga keltiradi.",
+   "say": "학생: 먹었어요 저는 어제 밥을 맛있는. 선생님: 아니에요. 저는 어제 맛있는 밥을 먹었어요. 라고 말해야 해요. 맛있는 밥, 저는 어제, 먹었어요. 순서를 기억하세요.",
+   "say_uz": "O‘quvchi: yedim men kecha ovqatni mazali. O‘qituvchi: yo‘q. Men kecha mazali ovqatni yedim deb aytish kerak. Mazali ovqat, men kecha, yedim. Tartibni eslab qoling.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Xato 5: 은/는 va 이/가",
+   "emotion": "thinking",
+   "board": [
+    "은/는 — mavzu, solishtirish, eski ma’lumot",
+    "이/가 — yangi ma’lumot, ta’kid",
+    "누구예요? → 이/가"
+   ],
+   "examples": [
+    {
+     "t": "저는 의사예요.",
+     "uz": "Men shifokorman. (mavzu — men)"
+    },
+    {
+     "t": "누가 왔어요? — 지민이가 왔어요.",
+     "uz": "Kim keldi? — Jimin keldi. (yangi ma’lumot)"
+    },
+    {
+     "t": "저는 커피는 마셔요. 차는 안 마셔요.",
+     "uz": "Men qahvani ichaman, choyni yo‘q. (solishtirish)"
+    }
+   ],
+   "say_native": "Beshinchi xato — eng mashhuri: 은/는 bilan 이/가 ni bir xil deb o‘ylash. 은/는 mavzuni belgilaydi va solishtirish yoki eski ma’lumot uchun ishlatiladi: 저는 의사예요 — men haqimda gap ketmoqda. 이/가 yangi ma’lumotni yoki kim yoki nima degan savolga javobni belgilaydi: 누가 왔어요? — 지민이가 왔어요. Qoidani soddalashtirsangiz: kim yoki nima degan savolga javob 이/가 oladi, qolganlari 은/는. Solishtirishda ham 은/는: 저는 커피는 마셔요, 차는 안 마셔요 — qahva ichaman, choy ichmayman. Bu farqni tushunsangiz, koreyscha nutqingiz tabiiyroq eshitiladi.",
+   "say": "누가 전화했어요? — 부장님이 전화하셨어요.",
+   "say_uz": "Kim qo‘ng‘iroq qildi? — Bo‘lim boshlig‘i qo‘ng‘iroq qiladilar.",
+   "practice_seconds": 15
   },
   {
    "kind": "practice",
-   "title": "Suhbat 1 bo‘yicha savollar",
-   "emotion": "encouraging",
+   "title": "Mashq: 은/는 yoki 이/가?",
+   "emotion": "thinking",
    "board": [
-    "1) so‘z tartibi",
-    "2) particle",
-    "3) zamon",
-    "4) hurmat shakli",
-    "5) ikkita inkor"
+    "1) 저___ 학생이에요",
+    "2) 뭐___ 맛있어요?",
+    "3) 사과___ 좋아해요, 배___ 안 좋아해요"
    ],
    "examples": [],
-   "say_native": "Suhbat bo‘yicha beshta savolga javob bering. Birinchi: „가게에 저는 가요“ nima xato — so‘z tartibi. Ikkinchi: „비가 오이“ nima xato — particle. Uchinchi: „영화를 보어요“ nima xato — zamon va qo‘shimcha. To‘rtinchi: kattaga qanday gapirish kerak — hurmat shakli. Beshinchi: „안 가지 않아요“ nima xato — ikkita inkor. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "첫 번째, 어순이 뭐가 잘못됐어요? 두 번째, 조사가 뭐가 잘못됐어요? 세 번째, 시제가 뭐가 잘못됐어요? 네 번째, 어른에게는 어떻게 말해요? 다섯 번째, 이중 부정은 왜 안 돼요?",
-   "say_uz": "Birinchi: so‘z tartibining nimasi noto‘g‘ri? Ikkinchi: particle nimasi noto‘g‘ri? Uchinchi: zamonning nimasi noto‘g‘ri? To‘rtinchi: kattaga qanday gapiriladi? Beshinchi: ikkita inkor nega bo‘lmaydi?",
+   "say_native": "Endi o‘zingiz sinab ko‘ring. Birinchi jumla: 저___ 학생이에요 — mavzu men, shuning uchun 은: 저는 학생이에요. Ikkinchi jumla: 뭐___ 맛있어요? — nima degan savolning javobi, shuning uchun 가: 뭐가 맛있어요? Uchinchi jumla: solishtirish bor — 사과는 좋아해요, 배는 안 좋아해요: olmani yoqtiraman, nokni yo‘q. To‘rtinchi jumla: yangi ma’lumot — 오늘 누가 왔어요? — 민수가 왔어요. Beshinchi: eski ma’lumot davomi — 저는 한국에 살아요. 서울에 살아요. Kassada yoki ko‘chada eshitgan gaplaringizni shu qolipga solib tahlil qilib boring.",
+   "say": "저는 학생이에요. 뭐가 맛있어요? 사과는 좋아해요.",
+   "say_uz": "Men talabaman. Nima mazali? Olmani yoqtiraman.",
    "practice_seconds": 25
   },
   {
    "kind": "explain",
-   "title": "Javoblar: suhbat 1",
-   "emotion": "proud",
+   "title": "Xato 6–7: 을/를 va ko‘plik -들",
+   "emotion": "neutral",
    "board": [
-    "저는 가게에 가요",
-    "비가 와요",
-    "영화를 봐요",
-    "선생님께서 어디 가세요?",
-    "안 가요"
+    "6) 을/를 — yozuvda majburiy, nutqda tushadi",
+    "7) -들 har otga emas — faqat kerak bo‘lsa",
+    "학생들 ok · *물은들 xato"
    ],
-   "examples": [],
-   "say_native": "Javoblar. Bir — „저는 가게에 가요“ — ega — to‘ldiruvchi — fe‘l. Ikki — „비가 와요“ — particle to‘g‘ri. Uch — „영화를 봐요“ yoki „봤어요“ — o‘tgan zamon aniq. To‘rt — „선생님께서 어디 가세요?“ — -시- hurmat qo‘shimchasi. Besh — „안 가요“ — bitta inkor. Eslab qoling: har bir xato sizning shaxsiy xato demak emas, balki umumiy koreys tili qonuniyati. Muntazam mashq qiling — har kuni koreyscha gapiring.",
-   "say": "저는 가게에 가요. 비가 와요. 영화를 봐요. 선생님께서 어디 가세요? 안 가요. 다섯 가지 오류를 모두 바로잡았습니다. 매일 한국어로 말하는 연습을 하세요.",
-   "say_uz": "Men do‘konga boraman. Yomg‘ir yog‘moqda. Film ko‘raman. Ustoz qayerga borasiz? Bormayman. Besh xatoning hammasini tuzattirdik. Har kuni koreyscha gaplashishni mashq qiling.",
-   "practice_seconds": 0
+   "examples": [
+    {
+     "t": "밥을 먹어요.",
+     "uz": "Ovqatni yeyman."
+    },
+    {
+     "t": "학생들이 왔어요.",
+     "uz": "Talabalar keldilar."
+    }
+   ],
+   "say_native": "Oltinchi xato: 을/를 qo‘shimchasini yozuvda tushirib qoldirish. Koreyscha nutqda bu qo‘shimcha ko‘pincha tushib qoladi — 밥 먹었어요 deyish tabiiy, lekin rasmiy yozuvda va imtihonda 밥을 먹었어요 to‘g‘ri. Yozma ishingizda har doim to‘ldiruvchini belgilang. Yettinchi xato: ko‘plik qo‘shimchasi -들 ni har bir otga qo‘shish. Rus tilida ko‘plik majburiy, shuning uchun o‘zbek so‘zlovchilar ham har otga -들 qo‘shadi. Koreyschada ko‘plik kontekstdan tushuniladi: 학생 와요 deb ham aytish mumkin, lekin aniq ko‘plik kerak bo‘lsa 학생들이 왔어요 to‘g‘ri. Jonsiz otlar va sanalmaydigan otlarga -들 umuman qo‘shilmaydi.",
+   "say": "회의에서 서류를 준비했어요. 직원들이 모두 왔어요.",
+   "say_uz": "Majlisda hujjatlarni tayyorladim. Xodimlar hammasi keldilar.",
+   "practice_seconds": 10
   },
   {
    "kind": "explain",
-   "title": "Guruh 7: imlo va to‘g‘ri birikmalar",
+   "title": "Xato 8: hurmat kelishuvi",
    "emotion": "neutral",
    "board": [
-    "-는데/-어서",
-    "-도 ikki marta",
-    "연어: 먹다, 하다, 보다"
+    "께서 + -시- birga yuradi",
+    "할아버지께서 오셨어요",
+    "선생님이 오셨어요 (mehribon)"
    ],
    "examples": [
-    { "t": "배고픈데 밥을 먹어요.", "uz": "Qorning och, oling ovqat yeyman." },
-    { "t": "사과도 배도 먹어요.", "uz": "Olma ham, nok ham yeyman." }
+    {
+     "t": "사장님께서 말씀하셨어요.",
+     "uz": "Direktor aytdilar."
+    },
+    {
+     "t": "아버지께서 가셨어요.",
+     "uz": "Otam ketdilar."
+    }
    ],
-   "say_native": "Koreys imlosida uchta tuzoq. Birinchisi — „-는데“ va „-어서“: „배고픈데 밥을 먹어요“ — qorning ochiq, shu sababli ovqat yeyman — holat + sabab. „-어서“ — sabab — „늦어서 죄송합니다“ — kech qolgani uchun kechirasiz. Ikkinchisi — „-도“ ikki marta: „사과도 배도 먹어요“ — olma ham, nok ham yeyman — har ikkala so‘zga -도 qo‘shiladi — bu to‘g‘ri. Uchinchisi — fe‘lni so‘zga moslash: „밥을 먹어요“ to‘g‘ri; „밥을 해요“ — noto‘g‘ri; „운동을 해요“ to‘g‘ri; „운동을 먹어요“ — noto‘g‘ri. Eng ko‘p uchraydigan xato: „공부를 먹어요“ — noto‘g‘ri — fe‘l so‘zga moslangani muhim. Eslab qoling: 연어 — so‘z birikmasi — har doim shunday.",
-   "say": "배고픈데 밥을 먹어요. 늦어서 죄송합니다. 사과도 배도 먹어요. 밥을 먹어요 — 맞습니다. 공부를 먹어요 — 틀립니다. 연어를 정확히 쓰세요.",
-   "say_uz": "Qorning ochiq, ovqat yeyman. Kech qolgani uchun kechirasiz. Olma ham, nok ham yeyman. Ovqat yeyman — to‘g‘ri. Darsni yeyman — xato. So‘z birikmalarini aniq ishlating.",
-   "practice_seconds": 30
-  },
-  {
-   "kind": "practice",
-   "title": "Imlo mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) -는데",
-    "2) -어서",
-    "3) 연어"
-   ],
-   "examples": [],
-   "say_native": "Uchta to‘g‘ri gap tuzing. Birinchi: „배고픈데 밥을 먹어요“ — holat va sabab. Ikkinchi: „늦어서 죄송합니다“ — -어서. Uchinchi: „밥을 먹어요“ — so‘z birikmasi to‘g‘ri. Javoblaringizni koreys tilida baland ovozda ayting.",
-   "say": "배고픈데 밥을 먹어요. 늦어서 죄송합니다. 밥을 먹어요. 공부를 해요는 맞지만, 공부를 먹어요는 틀립니다.",
-   "say_uz": "Qorning ochiq, ovqat yeyman. Kech qolgani uchun kechirasiz. Ovqat yeyman. Dars qilaman to‘g‘ri, darsni yeyman xato.",
-   "practice_seconds": 30
+   "say_native": "Sakkizinchi xato: hurmat shaklida ega bilan fe’lning moslashmasligi. Koreyschada hurmatli odam haqida gapirganda ega 께서 oladi va fe’l -시- qo‘shimchasini oladi: 할아버지께서 오셨어요 — bobom keldi. Ota, ona, buvim, ustoz, direktor — hammasi shu qolipga tushadi. Agar egani 께서 bilan belgilab, fe’lga -시- qo‘ymasangiz, yarmi hurmat, yarmi oddiy — nomukammal chiqadi: *할아버지께서 왔어요 xato. Shuningdek, hurmatli odamga nisbatan 말하다 o‘rniga 말씀하시다, 먹다 o‘rniga 드시다 ishlatiladi. 회사에서 bu farqni bilmaslik juda qo‘pol ko‘rinadi, shuning uchun ofisda har doim to‘liq hurmat formasini qo‘llang.",
+   "say": "사장님께서 내일 오신다고 말씀하셨어요.",
+   "say_uz": "Direktor ertaga kelishini aytdilar.",
+   "practice_seconds": 10
   },
   {
    "kind": "example",
-   "title": "ESCUCHA 2: telefon suhbatida xatolar",
-   "emotion": "happy",
+   "title": "Dialog: ofisda hurmat",
+   "emotion": "neutral",
    "board": [
-    "A: 내일 회의는요?",
-    "B: 네, 내일 회의를 갑니다…",
-    "A: 3시에 학교에서…",
-    "B: 선생님이 회의를 할 거예요…"
+    "Noto‘g‘ri: 부장님이 왔어요",
+    "To‘g‘ri: 부장님께서 오셨어요"
    ],
    "examples": [],
-   "say_native": "Ikkinchi suhbatni tinglang va xatolarni toping. A: „내일 회의는요?“ — ertaga yig‘ilish bo‘ladimi? B: „네, 내일 회의를 갑니다“ — noto‘g‘ri — „회의에 갑니다“ yoki „회의를 참석합니다“ — to‘g‘ri. A: „3시에 학교에서 만나요“ — to‘g‘ri. B: „선생님이 회의를 할 거예요“ — to‘g‘ri, lekin katta bilan hurmat shakli ishlating: „선생님께서 회의를 하실 거예요“. Savollar: ikkita xatoni va tuzatishni ayting.",
-   "say": "내일 회의는요? 네, 내일 회의에 갑니다. 세 시에 학교에서 만나요. 선생님께서 회의를 하실 거예요. 두 가지 오류를 찾아 보세요.",
-   "say_uz": "Ertaga yig‘ilish bormi? Ha, ertaga yig‘ilishga boraman. Soat uchda maktabda uchrashaylik. Ustoz yig‘ilishni tashkil etadigan bo‘ladilar. Ikki xatoni topib ko‘ring.",
-   "practice_seconds": 0
+   "say_native": "Bu dialogda yosh xodim bo‘lim boshlig‘i haqida oddiy shaklda gapiradi va katta xodim uni tuzatadi. E’tibor bering: ikki joyda hurmat shakli ishlatilishi kerak edi — ega 께서 bilan va fe’l -시- bilan. Ofisda bunday xatolar kichik narsa emas, ular sizning madaniyat darajangizni ko‘rsatadi. Koreyalik hamkasblaringiz sizni to‘g‘ridan-to‘g‘ri tuzatishmaydi, shuning uchun o‘zingiz bilib tayyor bo‘lishingiz kerak.",
+   "say": "신입: 부장님이 아까 왔어요. 선배: 부장님께서 아까 오셨어요. 라고 해야죠. 그리고 부장님이 뭐라고 했어요? 가 아니라 부장님께서 뭐라고 말씀하셨어요? 라고 물어보세요.",
+   "say_uz": "Yangi xodim: Bo‘lim boshlig‘i hozirgina keldi. Katta xodim: Bo‘lim boshlig‘i hozirgina keldilar deyish kerak. Yana, bo‘lim boshlig‘i nima dedi emas, bo‘lim boshlig‘i nima dedilar deb so‘rang.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Xato 9–11: yolg‘on do‘stlar I",
+   "emotion": "thinking",
+   "board": [
+    "9) 바보 = ahmoq (bobo emas!)",
+    "10) 호박 = oshqovoq (habar emas!)",
+    "11) 사과 = olma / uzr (ikki ma’no)"
+   ],
+   "examples": [
+    {
+     "t": "바보같이 굴지 마세요.",
+     "uz": "Ahmoqona tutmang."
+    },
+    {
+     "t": "사과 주스를 마셨어요.",
+     "uz": "Olma sharlatini ichdim."
+    },
+    {
+     "t": "제가 사과드립니다.",
+     "uz": "Men uzr so‘rayman."
+    }
+   ],
+   "say_native": "Ikkinchi guruh — yolg‘on do‘stlar. To‘qqizinchi xato: 바보 — bu ahmoq degani, o‘zbekcha bobo bilan hech qanday aloqasi yo‘q. 바보라고 부르면 haqorat bo‘ladi. O‘ninchi xato: 호박 — oshqovoq yoki qovoqcha, o‘zbekcha habar — yangilik degani bilan chalkashtirilmasin. O‘n birinchi xato: 사과 so‘zining ikki ma’nosi bor — olma va uzr. 사과를 먹었어요 — olma yedim. 사과드립니다 — uzr so‘rayman. Bu ikki jumla bir xil so‘z bilan qurilgan, ma’no faqat kontekstdan aniqlanadi. Koreyscha o‘rganayotganingizda bunday ikki ma’noli so‘zlarga alohida e’tibor bering va lug‘atingizda ikki ma’noni birga yozing.",
+   "say": "호박죽을 먹어 봤어요. 그리고 실수했을 때는 진심으로 사과드려요.",
+   "say_uz": "Qovoq bo‘tqasini tatib ko‘rdim. Va xato qilganimda samimiy uzr so‘rayman.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Xato 12–14: yolg‘on do‘stlar II",
+   "emotion": "thinking",
+   "board": [
+    "12) 배 = qorin / nok / kema",
+    "13) 서비스 = bepul qo‘shimcha",
+    "14) 시장 = bozor / hokim"
+   ],
+   "examples": [
+    {
+     "t": "배가 아파요.",
+     "uz": "Qornim og‘riyapti."
+    },
+    {
+     "t": "이건 서비스예요.",
+     "uz": "Bu bepul qo‘shimcha."
+    },
+    {
+     "t": "시장님이 오셨어요.",
+     "uz": "Hokim keldilar."
+    }
+   ],
+   "say_native": "O‘n ikkinchi xato: 배 so‘zi uch ma’noda ishlatiladi — qorin, nok va kema. 배가 고파요 — qornim och, 배를 타고 갔어요 — kemaga minib ketdim. O‘n uchinchi xato: 서비스 — Koreyada ko‘pincha xizmat emas, balki sotib olingan narsaga qo‘shib beriladigan bepul narsa: 커피를 시키면 쿠키를 서비스로 줘요 — qahva buyurtma qilsangiz, pechenye bepul qo‘shiladi. Restoranda 서비스 주세요 deb so‘rash madaniyatsiz emas, ammo hamma joyda ishlamaydi. O‘n to‘rtinchi xato: 시장 — bozor ham, hokim ham: 시장에 갔어요 — bozorga bordim, 시장님이 연설하셨어요 — hokim nutq so‘zladilar. Kontekst hal qiladi.",
+   "say": "식당에서 서비스로 과일을 받았어요. 시장에서 배를 샀어요.",
+   "say_uz": "Restoranda bepul meva oldim. Bozordan nok sotib oldim.",
+   "practice_seconds": 10
   },
   {
    "kind": "practice",
-   "title": "Suhbat 2 bo‘yicha savollar",
-   "emotion": "encouraging",
+   "title": "Mashq: qaysi ma’no?",
+   "emotion": "thinking",
    "board": [
-    "1) 회의에 갑니다",
-    "2) 참석합니다",
-    "3) 선생님께서",
-    "4) -시-"
+    "1) 배가 불러요 → ?",
+    "2) 사과 한 박스 → ?",
+    "3) 서비스 있나요? → ?"
    ],
    "examples": [],
-   "say_native": "Suhbat bo‘yicha to‘rtta savolga javob bering. Birinchi: „회의를 갑니다“ nima xato — 회의ga particle kerak — „회의에 갑니다“. Ikkinchi: yana bir to‘g‘ri variant — „회의를 참석합니다“ — yig‘ilishga qatnashish. Uchinchi: katta bilan qanday gapirish kerak — „선생님께서“ — hurmat shakli. To‘rtinchi: -시- nimani bildiradi — hurmatni. Javoblaringizni koreys tilida ayting.",
-   "say": "회의에 갑니다가 맞아요. 회의를 참석합니다도 맞아요. 선생님께서는 존댓말입니다. -시-는 존칭을 나타냅니다.",
-   "say_uz": "회의에 갑니다 to‘g‘ri. 회의를 참석합니다 ham to‘g‘ri. 선생님께서 — hurmatli shakl. -시- — hurmatni bildiradi.",
+   "say_native": "Endi yolg‘on do‘stlarni mustahkamlaymiz. Birinchi jumla: 배가 불러요 — qornim to‘q. Ikkinchi: 사과 한 박스 — bir quti olma. Uchinchi: 서비스 있나요? — bepul qo‘shimcha bormi, deb so‘rash. To‘rtinchi: 시장에서 만나요 — bozorda ko‘rishamiz. Beshinchi: 바보라고 하지 마세요 — menga ahmoq demang. Oltinchi: 호박 요리를 먹었어요 — qovoq taomini yedim. Har birini ovoz chiqarib o‘qing va ikki ma’noli so‘zlarni ikki xil gapda ishlatib ko‘ring. Yana bir maslahat: yolg‘on do‘stlar ro‘yxatini telefoningizdagi eslatmaga yozib qo‘ying va har kuni takrorlang.",
+   "say": "배가 불러요. 사과 한 박스 주세요. 이건 서비스예요.",
+   "say_uz": "Qornim to‘q. Bir quti olma bering. Bu bepul qo‘shimcha.",
    "practice_seconds": 25
   },
   {
    "kind": "explain",
-   "title": "Javoblar: suhbat 2",
-   "emotion": "proud",
+   "title": "Xato 15–17: 에, 에서, 로/으로, 에게",
+   "emotion": "neutral",
    "board": [
-    "회의에 갑니다",
-    "회의를 참석합니다",
-    "선생님께서 회의를 하실 거예요"
+    "15) 에 — yo‘nalish/joy · 에서 — faoliyat joyi",
+    "16) 로/으로 — vosita va yo‘nalish",
+    "17) 에게/한테 — jonli kishiga"
    ],
-   "examples": [],
-   "say_native": "Javoblar. Bir — „회의에 갑니다“ — yig‘ilishga borish — particle -에. Ikki — „회의를 참석합니다“ — yig‘ilishga qatnashish — rasmiy. Uch — „선생님께서 회의를 하실 거예요“ — -시- bilan hurmat. Koreys tilida har bir gapda ega, particle, fe‘l moslashishi aniq bo‘lishi kerak. Muntazam mashq qiling — har kuni koreyscha gapiring.",
-   "say": "회의에 갑니다. 회의를 참석합니다. 선생님께서 회의를 하실 거예요. 세 가지 표현을 모두 기억해 두세요.",
-   "say_uz": "Yig‘ilishga boraman. Yig‘ilishga qatnashaman. Ustoz yig‘ilishni tashkil etadigan bo‘ladilar. Bu uchta ifodani ham eslab qoling.",
-   "practice_seconds": 0
+   "examples": [
+    {
+     "t": "학교에 가요. 학교에서 공부해요.",
+     "uz": "Maktabga boraman. Maktabda o‘qiyman."
+    },
+    {
+     "t": "지하철로 왔어요.",
+     "uz": "Metroda keldim."
+    },
+    {
+     "t": "친구에게 선물을 줬어요.",
+     "uz": "Do‘stimga sovg‘a berdim."
+    }
+   ],
+   "say_native": "Uchinchi guruh — kelishiklar. Koreyschada predlog yo‘q, vazifani qo‘shimchalar bajaradi va bu o‘zbek tili so‘zlovchilar uchun eng qiyin joy. O‘n beshinchi xato: 에 bilan 에서 ning farqi. 에 — harakat yo‘nalishi yoki joylashuv: 학교에 가요, 서울에 살아요. 에서 — faoliyat bajariladigan joy: 학교에서 공부해요, 회사에서 일해요. Agar maktabda o‘qiyman desangiz, 학교에 공부해요 deb aytmang — bu xato. O‘n oltinchi xato: 로/으로 — vosita yoki yo‘nalish: 지하철로 왔어요 — metroda keldim, 버스로 가요. O‘n yettinchi xato: jonli kishiga 에게 yoki 한테 ishlatiladi, 에 emas: *친구에 줬어요 xato, 친구에게 줬어요 to‘g‘ri. 에 faqat joyga tegishli.",
+   "say": "내일 회사에서 회의해요. 지하철로 출근해요. 팀장님에게 보고했어요.",
+   "say_uz": "Ertaga kompaniyada majlis qilamiz. Metrda ishga boraman. Jamoa rahbariga hisobot berdim.",
+   "practice_seconds": 10
   },
   {
-   "kind": "practice",
-   "title": "Yakuniy topshiriq: 10 ta xato gapni tuzating",
-   "emotion": "encouraging",
+   "kind": "example",
+   "title": "Dialog: yo‘l so‘rash",
+   "emotion": "neutral",
    "board": [
-    "10 ta xato gap",
-    "tuzatish mezonlari",
-    "Mezon: tabiiy koreys tili"
+    "신촌역에 어떻게 가요?",
+    "2호선으로 가세요"
    ],
    "examples": [],
-   "say_native": "Yakuniy topshiriq. Quyidagi 10 ta xatoni tuzing va to‘g‘ri shaklini yozing: 1) 가게에 저는 가요; 2) 비가 오이; 3) 영화를 보어요; 4) 어제 영화를 보어요; 5) 선생님께 반말; 6) 안 가지 않아요; 7) 밥을 해요; 8) 신청서를 작성해 주세요 — bu to‘g‘ri; 9) 회의를 갑니다; 10) 공부를 먹어요. Javoblaringizni ikkilamchi tilga o‘giring va baland ovozda ayting.",
-   "say": "열 개의 오류를 모두 고쳐 보세요. 어순, 조사, 시제, 존댓말, 이중 부정, 연어 — 배운 것을 모두 사용하세요.",
-   "say_uz": "O‘nta xatoning hammasini tuzating. So‘z tartibi, particle, zamon, hurmat, ikkita inkor, so‘z birikmalari — o‘rgangan hamma narsangizni ishlating.",
-   "practice_seconds": 120
+   "say_native": "Bu dialog ko‘chadan yo‘l so‘rash vaziyatidir. E’tibor bering: yo‘nalish 에 bilan, vosita 으로 bilan, joy 에서 bilan belgilangan. Bu uchta qo‘shimcha har bir yo‘l so‘rash dialogida qatnashadi, shuning uchun ularni bir to‘plam sifatida yodlang. Koreyaliklar yo‘l ko‘rsatganda ham aynan shu shakllarni ishlatadi: 2호선으로 가세요 — 2-liniyaga o‘ting. Dialogdagi jumlalarni ikki marta ovoz chiqarib o‘qing va qo‘shimchalarni alohida ta’kidlang.",
+   "say": "가: 실례합니다. 신촌역에 어떻게 가요? 나: 2호선으로 가시면 돼요. 이 길로 쭉 가세요. 사거리에서 오른쪽으로 가세요. 5분 걸려요. 가: 감사합니다.",
+   "say_uz": "A: Kechirasiz. Shinchon bekatiga qanday boraman? B: 2-liniyada borsangiz bo‘ladi. Shu yo‘ldan to‘g‘ri yuring. Chorrahada o‘ngga buraling. 5 daqiqa oladi. A: Rahmat.",
+   "practice_seconds": 15
   },
   {
    "kind": "explain",
-   "title": "Namuna tuzatishlar",
-   "emotion": "proud",
+   "title": "Xato 18–20: 의, 까지/동안, 보다",
+   "emotion": "neutral",
    "board": [
-    "저는 가게에 가요",
-    "비가 와요",
-    "영화를 봤어요",
-    "안 가요"
+    "18) 의 — egalik; nutqda ko‘pincha tushadi",
+    "19) 까지 = gacha · 동안 = davomida",
+    "20) 보다 — solishtirish: A보다 B가 더…"
+   ],
+   "examples": [
+    {
+     "t": "친구의 가방이에요.",
+     "uz": "Do‘stimning sumkasi."
+    },
+    {
+     "t": "세 시간 동안 기다렸어요.",
+     "uz": "Uch soat davomida kutdim."
+    },
+    {
+     "t": "이것보다 저것이 좋아요.",
+     "uz": "Bundan ko‘ra u yaxshi."
+    }
+   ],
+   "say_native": "O‘n sakkizinchi xato: 의 qo‘shimchasi egalikni bildiradi va yozuvda majburiy: 친구의 가방 — do‘stimning sumkasi. Lekin kundalik nutqda uni ko‘pincha tushirib qoldiradilar: 우리 집 — bizning uy, emas 우리의 집 deb aytish shart emas. O‘n to‘qqizinchi xato: 까지 va 동안 ni chalkashtirish. 까지 — gacha: 서울까지 — Seulgacha, 5시까지 — soat 5 gacha. 동안 — davomida: 세 시간 동안 — uch soat davomida. *세 시간까지 기다렸어요 xato; to‘g‘risi 세 시간 동안 기다렸어요. Yigirmanchi xato: solishtirishda 보다 — A보다 B가 더… qolipi: 이것보다 저것이 좋아요. O‘zbekcha tartibga solmang, koreyscha qolipni saqlang.",
+   "say": "오늘 5시까지 일했어요. 두 시간 동안 회의했어요. 이메일보다 전화가 빨라요.",
+   "say_uz": "Bugun soat 5 gacha ishladim. Ikki soat davomida majlis qildik. Elektron xatdan ko‘ra telefon tezroq.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Xato 21–24: zamon asoslari",
+   "emotion": "neutral",
+   "board": [
+    "21) -았/었- faqat bitta o‘zakka",
+    "22) unli uyg‘unligi: ㅏ,ㅗ → 았 · qolgani → 었",
+    "23) -고 있다 harakat · -아/어 있다 holat",
+    "24) hozirgi zamon = odat / yaqin kelajak"
+   ],
+   "examples": [
+    {
+     "t": "먹었어요 (먹+었). 예외: 했어요.",
+     "uz": "Yedim. Istisno: qildim."
+    },
+    {
+     "t": "문이 열려 있어요.",
+     "uz": "Eshik ochiq turibdi. (holat)"
+    },
+    {
+     "t": "동생이 자고 있어요.",
+     "uz": "Ukam uxlayapti. (harakat)"
+    }
+   ],
+   "say_native": "To‘rtinchi guruh — zamon va ko‘rinish. Yigirma birinchi xato: o‘tgan zamon qo‘shimchasini ikki marta qo‘llash. O‘zbekchada ham bor bunday qurilma, lekin koreyschada oddiy o‘tgan zamon bitta -았/었- bilan: 먹었어요. *먹었었어요 faqat uzoq o‘tmishdagi takroriy tajriba uchun ishlatiladi. Yigirma ikkinchi xato: unli uyg‘unligini buzish. O‘zak unlisi ㅏ yoki ㅗ bo‘lsa 았: 갔어요, 봤어요, 좋았어요. Boshqa unlilarda 었: 먹었어요, 마셨어요, 읽었어요. Istisnolar: 했다, 됐다. Yigirma uchinchi xato: -고 있다 bilan -아/어 있다 ni chalkashtirish. -고 있다 — davom etayotgan harakat: 동생이 자고 있어요. -아/어 있다 — tugallangan harakat natijasida hosil bo‘lgan holat: 문이 열려 있어요 — eshik ochiq turibdi. Yigirma to‘rtinchi xato: hozirgi zamonni faqat hozirgi payt deb tushunish. Koreyschada hozirgi zamon odat va yaqin kelajakni ham bildiradi: 내일 가요 — ertaga boraman.",
+   "say": "어제 친구를 만났어요. 지금 회의하고 있어요. 내일 서울에 가요.",
+   "say_uz": "Kecha do‘stim bilan uchrashdim. Hozir majlis qilyapmiz. Ertaga Seulga boraman.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Xato 25–27: kelajak va tajriba",
+   "emotion": "thinking",
+   "board": [
+    "25) -(으)ㄹ 거예요 reja · -겠어요 ixtiyor",
+    "26) 갔었다 = borib kelgan (uzoq o‘tmish)",
+    "27) -아/어 보다 = tajriba: 가 봤어요"
+   ],
+   "examples": [
+    {
+     "t": "내일 갈 거예요.",
+     "uz": "Ertaga boraman. (reja)"
+    },
+    {
+     "t": "제가 하겠습니다.",
+     "uz": "Men qilaman. (ixtiyor, rasmiy)"
+    },
+    {
+     "t": "부산에 가 봤어요.",
+     "uz": "Pusanga borib ko‘rganman. (tajriba)"
+    }
+   ],
+   "say_native": "Yigirma beshinchi xato: ikki xil kelajak. -(으)ㄹ 거예요 — rejalashtirilgan kelajak: 내일 갈 거예요. -겠어요 — ixtiyor yoki taxmin, rasmiy vaziyatlarda: 제가 하겠습니다 — men qilaman. Ofisda zimmangizga vazifa olayotganda -겠어요 ishlatiladi. Yigirma oltinchi xato: 갔어요 bilan 갔었어요 farqi. 갔어요 — bordi. 갔었어요 — borib kelgan, allaqachon qaytib kelgan, uzoq o‘tmishdagi tajriba: 작년에 부산에 갔었어요 — o‘tgan yili Pusanga borib keldim. Yigirma yettinchi xato: tajriba ifodalashda -아/어 보다. 가 봤어요 — borib ko‘rganman. Bu shaklsiz *갔어요 deyish faqat borgan faktini bildiradi, tajribani emas. 먹어 봤어요, 읽어 봤어요, 들어 봤어요 — hammasi shu qolipda.",
+   "say": "한국에 가 봤어요. 내년에 다시 갈 거예요. 제가 보고서를 쓰겠습니다.",
+   "say_uz": "Koreyaga borib ko‘rganman. Keyingi yili yana boraman. Men hisobotni yozaman.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Xato 28–30: inkor va keraklik",
+   "emotion": "thinking",
+   "board": [
+    "28) -(으)ㄴ 지 ~ 됐어요 — qancha vaqt bo‘ldi",
+    "29) 안 = xohlamayman · 못 = qila olmayman",
+    "30) -아/어야 하다 = kerak · -(으)면 되다 = yetarli"
+   ],
+   "examples": [
+    {
+     "t": "한국에 온 지 2년 됐어요.",
+     "uz": "Koreyaga kelganimga 2 yil bo‘ldi."
+    },
+    {
+     "t": "안 가요. / 못 가요.",
+     "uz": "Bormayman. / Bora olmayman."
+    },
+    {
+     "t": "사인만 하면 돼요.",
+     "uz": "Faqat imzo qo‘ysangiz bo‘ladi."
+    }
+   ],
+   "say_native": "Yigirma sakkizinchi xato: -(으)ㄴ 지 qo‘shimchasi qancha vaqt o‘tganini bildiradi va 뒤에 됐어요 keladi: 한국에 온 지 2년 됐어요 — Koreyaga kelganimga ikki yil bo‘ldi. O‘zbekcha tartibni koreyschaga ko‘chirmang. Yigirma to‘qqizinchi xato: 안 va 못 ning farqi. 안 — oddiy inkor yoki xohish yo‘qligi: 안 가요 — bormayman. 못 — qila olmaslik, imkoniyat yo‘qligi: 못 가요 — bora olmayman. Ofisda 못 가요 deyish muhim: bu uzr, xohishsizlik emas. O‘ttizinchi xato: -아/어야 하다 — majburiyat: 사인해야 해요 — imzo qo‘yishingiz kerak. -(으)면 되다 — yetarlilik: 사인만 하면 돼요 — faqat imzo qo‘ysangiz kifoya. Bu ikki qolipni almashtirsangiz, ma’no butunlay o‘zgaradi.",
+   "say": "이 회사에서 일한 지 3년 됐어요. 오늘은 못 가요. 사인만 하면 돼요.",
+   "say_uz": "Bu kompaniyada ishlaganimga 3 yil bo‘ldi. Bugun bora olmayman. Faqat imzo qo‘ysangiz kifoya.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq: xatoni toping",
+   "emotion": "thinking",
+   "board": [
+    "1) *먹었었어요 → ?",
+    "2) *학교에 공부해요 → ?",
+    "3) *친구에 줬어요 → ?",
+    "4) *세 시간까지 기다렸어요 → ?"
    ],
    "examples": [],
-   "say_native": "Namuna tuzatishlar. 1) „저는 가게에 가요“; 2) „비가 와요“; 3) „영화를 봐요“ yoki „봤어요“; 4) „선생님께서 어디 가세요?“; 5) „안 가요“; 6) „밥을 먹어요“; 7) „회의에 갑니다“; 8) „신청서를 작성해 주세요“ — to‘g‘ri edi; 9) „공부를 해요“; 10) „선생님께서 회의를 하실 거예요“. Koreys tili — ham grammatika, ham madaniyat — har bir gapda hurmat muhim. Muntazam mashq qiling.",
-   "say": "저는 가게에 가요. 비가 와요. 영화를 봐요. 선생님께서 어디 가세요? 안 가요. 밥을 먹어요. 회의에 갑니다. 공부를 해요. 매일 연습하면 실수가 줄어듭니다.",
-   "say_uz": "Men do‘konga boraman. Yomg‘ir yog‘moqda. Film ko‘raman. Ustoz qayerga borasiz? Bormayman. Ovqat yeyman. Yig‘ilishga boraman. Dars qilaman. Har kuni mashq qilsangiz, xatolarni o‘zingiz tuzatib borasiz.",
-   "practice_seconds": 0
+   "say_native": "Endi xatolarni o‘zingiz topasiz. Birinchi: *먹었었어요 oddiy o‘tgan zamonda xato — to‘g‘risi 먹었어요. Ikkinchi: *학교에 공부해요 — faoliyat joyi 에서 bo‘ladi: 학교에서 공부해요. Uchinchi: *친구에 줬어요 — jonli kishiga 에게: 친구에게 줬어요. To‘rtinchi: *세 시간까지 기다렸어요 — davomiylik 동안 bilan, 세 시간 동안 기다렸어요. Beshinchi: *부장님이 오셨어요 — hurmat 께서 + -시-: 부장님께서 오셨어요. Oltinchi: *안 갈 수 있어요 — imkonsizlik 못 bilan: 못 갈 수 있어요 yoki tabiiyroq 못 가요. Har birini ikki marta yozib, to‘g‘risini yodlang.",
+   "say": "학교에서 공부해요. 친구에게 줬어요. 세 시간 동안 기다렸어요.",
+   "say_uz": "Maktabda o‘qiyman. Do‘stimga berdim. Uch soat davomida kutdim.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: to‘liq tuzatish sessiyasi",
+   "emotion": "proud",
+   "board": [
+    "학생 4 xato qiladi",
+    "O‘qituvchi har birini tuzatadi"
+   ],
+   "examples": [],
+   "say_native": "Bu yakuniy dialogda o‘quvchi bitta hikoya ichida to‘rtta xatoni qiladi — tartib, kelishik, hurmat va zamon — va o‘qituvchi ularni tartib bilan tuzatadi. Bu darsning eng muhim lahzasi: endi siz xatoni eshitishingiz kerak. Har bir tuzatishdan keyin to‘g‘ri variantni ovoz chiqarib takrorlang. Shu uslubni o‘zingizning xatolaringizga ham qo‘llaysiz: xato qilganingizni sezganingiz zahoti tuzatib, to‘g‘ri shaklni takrorlang.",
+   "say": "학생: 어제 저는 친구를 만나요. 그리고 영화를 같이 봤어요. 선생님: 어제 만났어요. past zamon이죠. 학생: 네, 어제 친구를 만났어요. 선생님: 잘했어요. 그리고 무엇을 했어요? 학생: 영화가 재미있었어요. 선생님: 그래요? 무슨 영화였어요?",
+   "say_uz": "O‘quvchi: Kecha men do‘stim bilan uchrashaman. Va kinoni birga ko‘rdim. O‘qituvchi: Kecha uchrashdim. O‘tgan zamon edi. O‘quvchi: Ha, kecha do‘stim bilan uchrashdim. O‘qituvchi: Yaxshi. Yana nima qildingiz? O‘quvchi: Kino qiziqarli edi. O‘qituvchi: Shundaymi? Qaysi kino edi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Xato kundaligi: o‘rganish tizimi",
+   "emotion": "encouraging",
+   "board": [
+    "Daftarda 3 bo‘lim: xato · to‘g‘ri · izoh",
+    "Har kuni 5 daqiqa takrorlash",
+    "2 haftada xato kamayadi"
+   ],
+   "examples": [
+    {
+     "t": "틀린 문장을 적어 두세요.",
+     "uz": "Xato jumlalarni yozib qo‘ying."
+    }
+   ],
+   "say_native": "Endi bu bilimni doimiy qiluvchi tizim haqida. Xato kundaligi oching va unga har bir qilgan xatoni uch ustunda yozing: xato jumla, to‘g‘ri jumla, qisqa izoh. Masalan: *학교에 공부해요 — 학교에서 공부해요 — faoliyat joyi 에서 bilan. Har kuni besh daqiqa ana shu daftarni takrorlang va eski xatolaringizni ovoz chiqarib o‘qing. Ikki haftadan keyin ko‘p xatolar avtomatik ravishda kamayadi, chunki miya to‘g‘ri qolipni mustahkamlaydi. Koreyscha o‘rganuvchilar orasida eng tez natija beradigan usul aynan shu oddiy daftar. Shuningdek, TOPIK II yozish bo‘limida shu kundalikdagi tuzatishlaringiz bevosita foyda beradi.",
+   "say": "틀린 문장을 노트에 적어 두세요. 매일 5분씩 복습해요.",
+   "say_uz": "Xato jumlalarni daftarga yozib qo‘ying. Har kuni 5 daqiqa takrorlang.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq: 10 ta tezkor xato",
+   "emotion": "thinking",
+   "board": [
+    "O‘zingiz ayting: to‘g‘ri yoki xato?",
+    "1) 저는 어제 학교에 공부했어요",
+    "2) 친구에게 이메일을 보냈어요"
+   ],
+   "examples": [],
+   "say_native": "Tezkor tekshiruv. Bir: 저는 어제 학교에 공부했어요 — xato, 에서 bo‘lishi kerak: 학교에서 공부했어요. Ikki: 친구에게 이메일을 보냈어요 — to‘g‘ri. Uch: 할아버지께서 오셨어요 — to‘g‘ri. To‘rt: 밥을 먹었었어요 — oddiy o‘tgan zamonda xato: 먹었어요. Besh: 문이 열려 있어요 — to‘g‘ri holat ifodasi. Oltinch: 서비스예요, 돈을 안 내도 돼요 — to‘g‘ri. Yetti: 세 시간 동안 기다렸어요 — to‘g‘ri. Sakkiz: *바보는 아버지라는 뜻이에요 — xato, 바보 ahmoq. To‘qqiz: 사과를 먹었어요 — to‘g‘ri (olma). O‘n: *안 갈 수 있어요 — xato, 못 가요 to‘g‘ri.",
+   "say": "학교에서 공부했어요. 친구에게 보냈어요. 못 가요.",
+   "say_uz": "Maktabda o‘qidim. Do‘stimga yubordim. Bora olmayman.",
+   "practice_seconds": 30
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
    "board": [
-    "so‘z tartibi S-O-V",
-    "particle 은/는, 이/가, 을/를",
-    "zamon va hurmat shakli",
-    "30 xato"
+    "4 guruh · 30 xato",
+    "Tartib · yolg‘on do‘stlar",
+    "Kelishiklar · zamon va ko‘rinish",
+    "Xato kundaligi"
    ],
    "examples": [],
-   "say_native": "Bugun nimani o‘rgandik? O‘zbek so‘zlashishuvchilarning koreys tilida eng ko‘p uchraydigan 30 xatosini tuzatdik: so‘z tartibi — S-O-V; particlelar — 은/는, 이/가, 을/를; zamonlar; hurmat shakli — 존댓말 va 반말; soxta do‘stlar; ikkita inkor; imlo va so‘z birikmalari. Endi har kuni koreyscha gapiring — xatolar kamayadi.",
-   "say": "오늘은 우즈베키스탄어 화자가 가장 많이 하는 서른 가지 한국어 오류를 바로잡았습니다. 이제 매일 한국어로 말해 보세요.",
-   "say_uz": "Bugun o‘zbek so‘zlashishuvchilarning koreys tilida eng ko‘p uchraydigan o‘ttiz xatosini tuzatdik. Endi har kuni koreyscha gaplashib turing.",
+   "say_native": "Bugungi darsni yakunlaymiz. Siz endi o‘ttiz tipik xatoni to‘rt guruh bo‘yicha bila olasiz: so‘z tartibi va kelishik, yolg‘on do‘stlar, predlog vazifasidagi kelishik qo‘shimchalari hamda zamon va ko‘rinish. Shuningdek xato kundaligi tizimini oldingiz: xato, to‘g‘ri, izoh — uch bo‘lim, har kuni besh daqiqa takrorlash. Bu dars sizning koreyschani professional darajada ishlatishingiz uchun poydevor. Esingizda tuting: ona tilingizdagi tartib va ruschadan qolgan odatlar eng kuchli xato manbai, shuning uchun har bir yangi gapni ovoz chiqarib, tuzilishiga e’tibor berib quring.",
+   "say": "오늘 배운 30가지 실수를 꼭 기억하세요. 화이팅!",
+   "say_uz": "Bugun o‘rgangan 30 ta xatoni albatta eslab qoling. Omad!",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
+   "title": "Uyga vazifa va keyingi dars",
    "emotion": "encouraging",
    "board": [
-    "10 ta xatoni tuzating",
-    "Har kuni koreyscha 5 gap",
-    "Keyingi dars: Hikoya qilish va tajriba"
+    "15 ta xato jumlani tuzatish",
+    "Xato kundaligini boshlang",
+    "Keyingi: Hikoya qilish va tajriba"
    ],
    "examples": [],
-   "say_native": "Uyga vazifa. 10 ta xato gapni tuzing va to‘g‘risini yozing — so‘z tartibi, particle, zamon, hurmat, inkor bilan. Har kuni koreys tilida 5 ta gap yozing. Keyingi darsda hikoya qilish va tajriba haqida gapirishni o‘rganamiz.",
-   "say": "열 개의 오류 문장을 고쳐 쓰고, 매일 한국어 문장 다섯 개를 적어 보세요. 다음 수업에서 뵙겠습니다!",
-   "say_uz": "O‘nta xato gapni tuzating va har kuni besh koreyscha gap yozib turing. Keyingi darsda ko‘rishguncha!",
+   "say_native": "Uyga vazifa: o‘n besh ta xato jumlalar ro‘yxati beriladi — har birida aynan bugun o‘rgangan xatolardan biri bor. Ularni topib, to‘g‘ri ko‘rinishini daftaringizga yozing va har biriga bir qator izoh qo‘shing. So‘ng xato kundaligingizni oching va birinchi besh xatoni yozib qo‘ying. Keyingi darsda hikoya qilish va tajriba haqida gaplashamiz: qanday qilib qiziqarli hikoya qurish, o‘tgan zamon ketma-ketligini to‘g‘ri ishlatish va tinglovchining hissiyotlarini boshqarishni o‘rganamiz.",
+   "say": "숙제는 틀린 문장 15개를 고치는 거예요. 다음 시간에는 경험을 이야기하는 법을 배워요.",
+   "say_uz": "Uy vazifasi — 15 ta xato jumlani tuzatish. Keyingi darsda tajriba haqida hikoya qilishni o‘rganamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "30 xato ro‘yxatidan 10 tasini tanlab, har biri uchun to‘g‘ri koreyscha gap yozing — particle, zamon, hurmat shakli, so‘z tartibi bilan. Keyingi dars: Hikoya qilish va tajriba.",
+ "homework_uz": "15 ta tipik xato jumlani topib, ularni to‘g‘ri ko‘rinishga keltiring: har biriga bir qator izoh yozing va xato kundaligingizning birinchi bo‘limiga yozib qo‘ying. So‘ng har bir to‘g‘ri jumlani uch marta ovoz chiqarib o‘qing.",
  "quiz": [
-  { "q": "Koreys tilida so‘z tartibi?", "options": ["S-V-O", "S-O-V", "V-O-S", "O-S-V"], "answer": 1, "why_uz": "Koreys tilida S-O-V — ega, to‘ldiruvchi, kesim." },
-  { "q": "„은/는“ nimani belgilaydi?", "options": ["ega yangi", "to‘ldiruvchi", "mavzu", "kasblar"], "answer": 2, "why_uz": "은/는 — mavzu belgisi." },
-  { "q": "„비가 옵니다“ qaysi particle?", "options": ["은/는", "이/가", "을/를", "의"], "answer": 1, "why_uz": "Yangi ega — 이/가." },
-  { "q": "„저는 사과를 ___“ to‘g‘ri particle?", "options": ["이", "가", "을", "은"], "answer": 2, "why_uz": "To‘ldiruvchi — 을/를." },
-  { "q": "„어제 영화를 ___“ to‘g‘risi?", "options": ["보다", "봤습니다", "보겠습니다", "봅니다"], "answer": 1, "why_uz": "O‘tgan zamon — -았/었." },
-  { "q": "„선생님께서“ qanday shakl?", "options": ["반말", "존댓말", "사투리", "금지형"], "answer": 1, "why_uz": "존댓말 — hurmat shakli." },
-  { "q": "„친구가 와“ qanday shakl?", "options": ["존댓말", "반말", "명령문", "의문문"], "answer": 1, "why_uz": "반말 — norasmiy." },
-  { "q": "Hozirgi zamon rasmiy shakli?", "options": ["-았/었", "-겠", "-습니다", "-겠네"], "answer": 2, "why_uz": "-습니다 — hozirgi rasmiy." },
-  { "q": "To‘ldiruvchida ishlatiladigan particle?", "options": ["이/가", "은/는", "을/를", "의"], "answer": 2, "why_uz": "을/를 — to‘ldiruvchi." },
-  { "q": "Zamon chalkashganda qaysi?", "options": ["-습니다 / -았습니다 / -겠", "-는데 / -어서", "연어 / 조사", "맞춤법 / 축약"], "answer": 0, "why_uz": "-습니다 — hozirgi, -았습니다 — o‘tgan, -겠 — kelasjak." }
+  {
+   "q": "Which sentence order is correct in Korean?",
+   "options": [
+    "Subject – object – verb",
+    "Subject – verb – object",
+    "Verb – subject – object",
+    "Object – verb – subject"
+   ],
+   "answer": 0,
+   "why_uz": "Koreyschada fe’l doim gap oxirida turadi: ega – to‘ldiruvchi – fe’l, masalan 저는 밥을 먹었어요."
+  },
+  {
+   "q": "What does 바보 mean?",
+   "options": [
+    "Grandfather",
+    "Fool",
+    "Market",
+    "Pumpkin"
+   ],
+   "answer": 1,
+   "why_uz": "바보 — ahmoq, tentak. O‘zbekcha bobo bilan hech qanday aloqasi yo‘q, bu klassik yolg‘on do‘st."
+  },
+  {
+   "q": "Which particle marks the location where an action happens?",
+   "options": [
+    "에",
+    "에서",
+    "에게",
+    "의"
+   ],
+   "answer": 1,
+   "why_uz": "에서 faoliyat bajariladigan joyni bildiradi: 학교에서 공부해요. 에 — yo‘nalish yoki joylashuv."
+  },
+  {
+   "q": "How do you give something TO a person in Korean?",
+   "options": [
+    "친구에 줬어요",
+    "친구가 줬어요",
+    "친구에게 줬어요",
+    "친구를 줬어요"
+   ],
+   "answer": 2,
+   "why_uz": "Jonli kishiga 에게 yoki 한테 ishlatiladi; 에 faqat joyga tegishli, shuning uchun *친구에 xato."
+  },
+  {
+   "q": "What is 서비스 in a Korean restaurant or cafe?",
+   "options": [
+    "The bill",
+    "A free extra item",
+    "The menu",
+    "A complaint"
+   ],
+   "answer": 1,
+   "why_uz": "Koreyada 서비스 ko‘pincha xaridga qo‘shib beriladigan bepul narsa: 쿠키를 서비스로 줘요."
+  },
+  {
+   "q": "Choose the correct past tense of 가다 (to go).",
+   "options": [
+    "가았어요",
+    "갔어요",
+    "가었어요",
+    "갔었어요 (always correct)"
+   ],
+   "answer": 1,
+   "why_uz": "가 + 았어요 → 갔어요. 갔었어요 faqat uzoq o‘tmishdagi, qaytib kelgan tajriba uchun ishlatiladi."
+  },
+  {
+   "q": "What does -고 있다 express?",
+   "options": [
+    "A completed state",
+    "An ongoing action",
+    "A future plan",
+    "A past habit"
+   ],
+   "answer": 1,
+   "why_uz": "-고 있다 — davom etayotgan harakat: 자고 있어요. Holat uchun -아/어 있다: 문이 열려 있어요."
+  },
+  {
+   "q": "What is the difference between 안 가요 and 못 가요?",
+   "options": [
+    "No difference",
+    "안 가요 = don't go (choice), 못 가요 = can't go (unable)",
+    "안 가요 = can't go, 못 가요 = don't go",
+    "Both mean 'never go'"
+   ],
+   "answer": 1,
+   "why_uz": "안 — xohishsizlikni, 못 — imkonsizlik yoki qila olmaslikni bildiradi."
+  },
+  {
+   "q": "Which sentence is fully correct?",
+   "options": [
+    "할아버지이 오셨어요",
+    "할아버지께서 오셨어요",
+    "할아버지가 오셨어요",
+    "할아버지께서 왔어요"
+   ],
+   "answer": 1,
+   "why_uz": "Hurmat shaklida ega 께서 va fe’l -시- birgalikda ishlatiladi: 할아버지께서 오셨어요."
+  },
+  {
+   "q": "How do you say 'It has been 2 years since I came to Korea'?",
+   "options": [
+    "한국에 2년 왔어요",
+    "한국에 온 지 2년 됐어요",
+    "한국에 오기 2년 갔어요",
+    "한국에 2년에 왔어요"
+   ],
+   "answer": 1,
+   "why_uz": "-(으)ㄴ 지 ~ 됐어요 — biror ish qilingandan beri qancha vaqt o‘tganini bildiradi."
+  }
  ]
 }

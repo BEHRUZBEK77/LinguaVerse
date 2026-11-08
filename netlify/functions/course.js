@@ -479,6 +479,33 @@ async function factoryStatus(uid, body = {}) {
   };
 }
 
+// Admin: bitta til bo'yicha barcha darslar va ularning MP4 videolari (admin panel → Video darslar)
+async function adminVideos(uid, body = {}) {
+  await requireAdmin(uid);
+  const native = learning.normalize(body.nativeLang);
+  const lang = String(body.lang || 'english');
+  const docs = await fsdb.queryList('courseLessons', [
+    { field: 'nativeLang', op: 'EQUAL', value: native },
+    { field: 'lang', op: 'EQUAL', value: lang }
+  ], null, 400).catch(() => []);
+  const storage = require('./_storage.js');
+  const CEFR = { b2: ['A1', 'A2', 'B1', 'B2'], c2: ['C1', 'C2'] };
+  const lessons = docs.filter(d => CEFR[d.level] && Number.isInteger(Number(d.n))).map(d => {
+    const n = Number(d.n);
+    let title = '';
+    try { title = JSON.parse(d.core || '{}').title || ''; } catch {}
+    const id = `${CEFR[d.level][Math.floor(n / 25)]}-${String(n % 25 + 1).padStart(2, '0')}`;
+    return {
+      id, level: d.level, n, title,
+      minutes: d.videoDuration ? Math.round(d.videoDuration / 60) : d.estSeconds ? Math.round(d.estSeconds / 60) : null,
+      video: d.videoPath ? storage.signedUrl(d.videoPath) : null,
+      videoAt: d.videoUpdatedAt instanceof Date ? d.videoUpdatedAt.toISOString() : null,
+      error: d.videoError || null
+    };
+  }).sort((x, y) => x.id.localeCompare(y.id));
+  return { lang, total: 150, lessons, withVideo: lessons.filter(l => l.video).length };
+}
+
 // ───────────────────────────────────────────────────────────────────────────
 // YOUTUBE DARSLAR — 60 ta asosiy darsdan tashqari 90 tasida AI YouTube'dan
 // shu mavzu bo'yicha eng yaxshi video darslarni topadi: biri o'quvchining
@@ -631,6 +658,7 @@ exports.handler = async function (event) {
       case 'quiz':   return json(200, await gradeQuiz(auth.uid, auth.email, auth.name, body));
       case 'factory-status': return json(200, await factoryStatus(auth.uid, body));
       case 'factory-run':    return json(200, await factoryRun(auth.uid, body));
+      case 'admin-videos':   return json(200, await adminVideos(auth.uid, body));
       default:       return json(400, { error: "Noma'lum action: " + body.action });
     }
   } catch (e) {

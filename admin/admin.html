@@ -2185,6 +2185,8 @@
           id="pendingBadge">0</span></div>
       <div class="sidebar-item" onclick="showPage('online')" data-page="online"><span class="icon"><i
             class="fa-solid fa-credit-card"></i></span> Onlayn to'lovlar (inPAY)</div>
+      <div class="sidebar-item" onclick="showPage('videos')" data-page="videos"><span class="icon"><i
+            class="fa-solid fa-circle-play"></i></span> Video darslar</div>
       <div class="sidebar-item" onclick="showPage('factory')" data-page="factory"><span class="icon"><i
             class="fa-solid fa-film"></i></span> Video fabrika</div>
       <div class="sidebar-item" onclick="showPage('receipts')" data-page="receipts"><span class="icon"><i
@@ -2406,6 +2408,27 @@
       <select id="factoryNative" onchange="loadFactory()" style="margin-left:10px;padding:8px;border-radius:8px;background:#182136;color:white">
         <option value="uz">O‘zbekcha</option><option value="en">English</option><option value="ru">Русский</option><option value="es">Español</option><option value="de">Deutsch</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="ko">한국어</option><option value="zh">中文</option>
       </select></label><div id="factoryBox"><div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div></div>
+      </div>
+
+      <!-- VIDEO DARSLAR -->
+      <div class="page-sec" id="page-videos">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-circle-play" style="color:#38bdf8;font-size:1rem"></i> Video darslar</div>
+          <div class="page-actions">
+            <select id="vidLang" onchange="loadVideos()" style="padding:8px;border-radius:8px;background:#182136;color:white">
+              <option value="english">🇬🇧 Ingliz tili</option><option value="russian">🇷🇺 Rus tili</option><option value="turkish">🇹🇷 Turk tili</option><option value="german">🇩🇪 Nemis tili</option><option value="spanish">🇪🇸 Ispan tili</option><option value="arabic">🇸🇦 Arab tili</option><option value="chinese">🇨🇳 Xitoy tili</option><option value="korean">🇰🇷 Koreys tili</option>
+            </select>
+            <button class="filter-btn ab" onclick="loadVideos()"><i class="fa-solid fa-rotate-right"></i> Yangilash</button>
+          </div>
+        </div>
+        <div id="vidPlayerWrap" hidden style="margin-bottom:16px;background:#0b1120;border:1px solid rgba(56,189,248,.25);border-radius:12px;padding:12px">
+          <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
+            <div id="vidNow" style="font-weight:600"></div>
+            <a id="vidOpen" href="#" target="_blank" rel="noopener" class="filter-btn ab" style="text-decoration:none"><i class="fa-solid fa-up-right-from-square"></i> Alohida ochish</a>
+          </div>
+          <video id="vidPlayer" controls preload="metadata" playsinline style="width:100%;max-height:70vh;border-radius:8px;background:#000"></video>
+        </div>
+        <div id="vidBox"><div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div></div>
       </div>
 
       <!-- PAYOUTS PAGE -->
@@ -3071,6 +3094,7 @@
       if (page === 'payouts') loadPayouts();
       if (page === 'online') loadOnline();
       if (page === 'factory') loadFactory();
+      if (page === 'videos') loadVideos();
       if (page === 'apikeys') window.loadApikeys();
       if (page === 'ai') loadAdminAIStatus();
     };
@@ -3404,6 +3428,50 @@ ${o.status === 'pending' ? `
         toast(`Avto-to'lov: tekshirildi ${d.checked || 0}, yechildi ${d.charged || 0}, xato ${d.failed || 0}`, 'success', 'fa-check-circle');
         loadOnline();
       } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
+    // ── VIDEO DARSLAR (admin ko'radi) ─────────────────
+    window.loadVideos = async function () {
+      const box = document.getElementById('vidBox');
+      const lang = document.getElementById('vidLang').value;
+      box.innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      try {
+        const d = await courseApi('admin-videos', { lang, nativeLang: 'uz' });
+        const byId = Object.fromEntries(d.lessons.map(l => [l.id, l]));
+        const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+        const pct = Math.round(d.withVideo / d.total * 100);
+        let html = `<div class="op-grant-sub" style="margin-bottom:12px">Videosi tayyor: <b>${d.withVideo}</b> / ${d.total} (${pct}%) · yozilgan darslar: <b>${d.lessons.length}</b> / ${d.total}. Kulrang — dars hali yozilmagan, sariq — dars bor, video navbatda.</div>`;
+        for (const lv of levels) {
+          const cells = [];
+          let ready = 0;
+          for (let i = 1; i <= 25; i++) {
+            const id = `${lv}-${String(i).padStart(2, '0')}`, l = byId[id];
+            if (l?.video) ready++;
+            const st = !l ? 'none' : l.video ? 'ok' : 'wait';
+            const bg = st === 'ok' ? 'rgba(52,211,153,.14)' : st === 'wait' ? 'rgba(251,191,36,.12)' : 'rgba(148,163,184,.06)';
+            const bd = st === 'ok' ? 'rgba(52,211,153,.4)' : st === 'wait' ? 'rgba(251,191,36,.35)' : 'rgba(148,163,184,.15)';
+            const tip = l ? esc(l.title || id) + (l.minutes ? ` · ${l.minutes} daq` : '') + (st === 'wait' ? ' · video navbatda' : '') + (l.error ? ' · xato: ' + esc(l.error) : '') : 'hali yozilmagan';
+            cells.push(`<button type="button" ${st === 'ok' ? `onclick="playVideo('${id}')"` : 'disabled'} title="${tip}" style="text-align:left;padding:8px 10px;border-radius:8px;border:1px solid ${bd};background:${bg};color:inherit;cursor:${st === 'ok' ? 'pointer' : 'default'};min-width:0">
+              <div style="font-size:.75rem;opacity:.75">${st === 'ok' ? '▶ ' : ''}${id}</div>
+              <div style="font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${l ? esc(l.title || '—') : '<span style="opacity:.45">—</span>'}</div>
+            </button>`);
+          }
+          html += `<div style="margin:14px 0 6px;font-weight:600">${lv} <span style="opacity:.6;font-weight:400">· video ${ready}/25</span></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px">${cells.join('')}</div>`;
+        }
+        box.innerHTML = html;
+        window._vidLessons = byId;
+      } catch (e) { box.innerHTML = '<div class="op-grant-sub">Xato: ' + esc(e.message) + '</div>'; }
+    };
+    window.playVideo = function (id) {
+      const l = (window._vidLessons || {})[id];
+      if (!l?.video) return;
+      const wrap = document.getElementById('vidPlayerWrap'), v = document.getElementById('vidPlayer');
+      const langName = document.getElementById('vidLang').selectedOptions[0].textContent;
+      document.getElementById('vidNow').textContent = `${langName} · ${id} · ${l.title || ''}`;
+      document.getElementById('vidOpen').href = l.video;
+      v.src = l.video; wrap.hidden = false; v.play().catch(() => {});
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
     // ── VIDEO FABRIKA ─────────────────────────────────

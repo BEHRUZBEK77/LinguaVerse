@@ -1,939 +1,471 @@
 {
  "title": "So‘roq gaplar tuzish",
- "goal_uz": "Dars oxirida ha/yo‘q savollarini to‘g‘ri tuzasiz, kim/nima/qayerda/qachon/nima uchun/qanday/necha degan so‘roq so‘zlarini ishlatasiz, so‘roq so‘zini gap boshida joylashtirasiz va savol ohangini to‘g‘ri berasiz.",
+ "goal_uz": "Dars oxirida “هَلْ” bilan ha/yo‘q savollarini tuzasiz, مَنْ، مَا، مَاذَا، أَيْنَ، مَتَى، لِمَاذَا، كَيْفَ، كَمْ so‘roq so‘zlarini to‘g‘ri ishlatasiz, so‘roq so‘zini gap boshiga qo‘yasiz, savol ohangini to‘g‘ri berasiz va yangi do‘stingizga o‘nta savol yozasiz.",
  "vocab": [
-  {
-   "w": "مَنْ",
-   "uz": "kim"
-  },
-  {
-   "w": "مَا",
-   "uz": "nima"
-  },
-  {
-   "w": "أَيْنَ",
-   "uz": "qayerda"
-  },
-  {
-   "w": "مَتَى",
-   "uz": "qachon"
-  },
-  {
-   "w": "لِمَاذَا",
-   "uz": "nima uchun"
-  },
-  {
-   "w": "كَيْفَ",
-   "uz": "qanday"
-  },
-  {
-   "w": "كَمْ",
-   "uz": "necha"
-  },
-  {
-   "w": "هَلْ",
-   "uz": "ha/yo‘q savoli"
-  },
-  {
-   "w": "اسْمُكَ",
-   "uz": "ismingiz"
-  },
-  {
-   "w": "عَمَلُكَ",
-   "uz": "ishingiz"
-  }
+  {"w": "هَلْ", "uz": "…mi? (ha/yo‘q savoli)"},
+  {"w": "مَنْ", "uz": "kim"},
+  {"w": "مَا / مَاذَا", "uz": "nima"},
+  {"w": "أَيْنَ", "uz": "qayerda, qayer"},
+  {"w": "مَتَى", "uz": "qachon"},
+  {"w": "لِمَاذَا", "uz": "nima uchun, nega"},
+  {"w": "كَيْفَ", "uz": "qanday, qanaqa"},
+  {"w": "كَمْ", "uz": "nechta, qancha"},
+  {"w": "لِأَنَّ", "uz": "chunki"},
+  {"w": "مِنْ أَيْنَ", "uz": "qayerdan"}
  ],
  "scenes": [
   {
    "kind": "intro",
    "title": "O‘n uchinchi dars: savollar",
    "emotion": "happy",
-   "board": [
-    "الدَّرْسُ الثَّالِثُ عَشَرَ (13-dars)",
-    "So‘roq gaplar"
-   ],
-   "examples": [
-    {
-     "t": "مَنْ أَنْتَ؟",
-     "uz": "Siz kim?"
-   }
-   ],
-   "say_native": "Assalomu alaykum! O‘n uchinchi darsga xush kelibsiz. O‘tgan darsda ranglar, kiyim va do‘konda xaridni o‘rgandik. Bugun so‘roq gaplar tuzishni o‘rganamiz: ha/yo‘q savollar, kim, nima, qayerda, qachon, nima uchun, qanday, necha degan so‘zlar, so‘roq so‘zini boshida joylash va savol ohangi. Dars oxirida yangi do‘stingizga 10 ta savol yozasiz. Boshlaymiz.",
-   "say": "Welcome to lesson thirteen. Today we learn how to form questions.",
-   "say_uz": "O‘n uchinchi darsga xush kelibsiz. Bugun so‘roq gaplar tuzishni o‘rganamiz.",
+   "board": ["الدَّرْسُ الثَّالِثَ عَشَرَ (13-dars)", "مَا اسْمُكَ؟ مِنْ أَيْنَ أَنْتَ؟", "So‘roq gaplar"],
+   "examples": [{"t": "مَا اسْمُكَ؟", "uz": "Ismingiz nima?"}],
+   "say_native": "Assalomu alaykum! O‘n uchinchi darsga xush kelibsiz. Oldingi darsda ranglar va kiyimlarni o‘rgandik va do‘konda xarid qildik. U yerda ham ko‘p savol berdik: “bikam?”, “hal yumkinu?”. Bugun savollarni tizimli o‘rganamiz: ha/yo‘q savollari, sakkizta asosiy so‘roq so‘zi, so‘z tartibi va savol ohangi. Dars oxirida yangi tanishgan do‘stingizga o‘nta savol tuzasiz.",
+   "say": "أَهْلًا وَسَهْلًا! مَا اسْمُكَ؟ مِنْ أَيْنَ أَنْتَ؟ هَلْ تَتَكَلَّمُ الْعَرَبِيَّةَ؟",
+   "say_uz": "Xush kelibsiz! Ismingiz nima? Qayerdansiz? Arabcha gapirasizmi?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ha/yo‘q savoli: hal",
-   "emotion": "neutral",
-   "board": [
-    "هَلْ تَعْرِفُنِي؟ — meni bilasizmi?",
-    "هَلْ هَذَا كِتَابٌ؟ — bu kitobmi?",
-    "هَلْ هُوَ هُنَاكَ؟ — u u erda?"
-   ],
-   "examples": [
-    {
-     "t": "هَلْ تَعْرِفُنِي؟",
-     "uz": "Meni bilasizmi?"
-    },
-    {
-     "t": "هَلْ هَذَا كِتَابٌ؟",
-     "uz": "Bu kitobmi?"
-   }
-   ],
-   "say_native": "Ha/yo‘q savoli uchun “hal” belgisi gap boshida turadi. “Hal taʿrifūnī?” — meni bilasizmi? “Hal hādhā kitābun?” — bu kitobmi? “Hal huwa hunāka?” — u u erda? “Hal” fe’l emas, faqat savol belgisi. “Hal” keyin fe’l yoki ism keladi. Javob: “naʿam” — ha, “lā” — yo‘q. O‘zbek tilida “mi” qo‘shimchasi bor, arabchada esa “hal” alohida so‘z, boshida turadi.",
-   "say": "Hal ta'rifuni? Do you know me? Hal hadha kitab? Is this a book?",
-   "say_uz": "Hal ta'rifuni? Meni bilasizmi? Hal hadha kitab? Bu kitobmi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Hal savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) Siz talaba misiz?",
-    "2) Bu kitobmi?",
-    "3) U u erda?",
-    "4) Siz ishlaganmisiz?"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta hal savolini arabcha ayting. Birinchi: siz talaba misiz? Ikkinchi: bu kitobmi? Uchinchi: u u erda? To‘rtinchi: siz ishlaganmisiz? “Hal anta talibun?”, “Hal hādhā kitābun?”, “Hal huwa hunāka?”, “Hal anta taʿmil?”.",
-   "say": "Are you a student? Is this a book? Is he there? Did you work?",
-   "say_uz": "Siz talaba misiz? Bu kitobmi? U u erda? Siz ishlaganmisiz?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "هَلْ أَنْتَ طَالِبٌ؟",
-    "هَلْ هَذَا كِتَابٌ؟",
-    "هَلْ هُوَ هُنَاكَ؟",
-    "هَلْ تَعْمَلُ؟"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: hal anta talibun? Hal hādhā kitābun? Hal huwa hunāka? Hal taʿmalu? Barcha savollar “hal” bilan boshlanadi. Javob “naʿam” yoki “lā”. Endi so‘roq so‘zlarini o‘rganamiz.",
-   "say": "Are you a student? Is this a book? Is he there? Do you work?",
-   "say_uz": "Siz talaba misiz? Bu kitobmi? U u erda? Siz ishlaydizmi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Kim va nima",
-   "emotion": "neutral",
-   "board": [
-    "مَنْ هَذَا؟ — bu kim?",
-    "مَا هَذَا؟ — bu nima?",
-    "مَنْ اسْمُكَ؟ — ismingiz nima?"
-   ],
-   "examples": [
-    {
-     "t": "مَنْ هَذَا؟",
-     "uz": "Bu kim?"
-    },
-    {
-     "t": "مَا هَذَا؟",
-     "uz": "Bu nima?"
-   }
-   ],
-   "say_native": "“Man” — kim, “mā” — nima. “Man hādhā?” — bu kim? “Mā hādhā?” — bu nima? “Man ismuka?” — ismingiz nima? Odam uchun “man”, narsa uchun “mā”. “Man anta?” — siz kim? “Mā hādhā?” — bu nima? Bu ikki so‘zni aralashtirmang: odamga “mā” desangiz hurmatsizlik bo‘ladi.",
-   "say": "Man hadha? Who is this? Ma hadha? What is this? Man ismuka? What is your name?",
-   "say_uz": "Man hadha? Bu kim? Ma hadha? Bu nima? Man ismuka? Ismingiz nima?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Qayerda va qachon",
-   "emotion": "neutral",
-   "board": [
-    "أَيْنَ الْمَسْجِدُ؟ — masjid qayerda?",
-    "مَتَى تَأْتِي؟ — qachon kelsiz?",
-    "أَيْنَ تَسْكُنُ؟ — qayerda yashaysiz?"
-  ],
-   "examples": [
-    {
-     "t": "أَيْنَ الْمَسْجِدُ؟",
-     "uz": "Masjid qayerda?"
-    },
-    {
-     "t": "مَتَى تَأْتِي؟",
-     "uz": "Qachon kelsiz?"
-   }
-  ],
-   "say_native": "“Ayna” — qayerda, “matā” — qachon. “Ayna al-masjidu?” — masjid qayerda? “Ayna taskunu?” — qayerda yashaysiz? “Matā taʾtī?” — qachon kelsiz? “Ayna” joyni, “matā” vaqtni so‘raydi. “Ayna as-sūqu?” — bozor qayerda? “Matā qada ma huwa?” — qachon kirdingiz? Endi “nima uchun” va “qanday” ni o‘rganamiz.",
-   "say": "Ayna al-masjid? Where is the mosque? Mata ta'ti? When do you come?",
-   "say_uz": "Ayna al-masjid? Masjid qayerda? Mata ta'ti? Qachon kelsiz?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qayerda va qachon",
-   "emotion": "encouraging",
-   "board": [
-    "1) Kitob qayerda?",
-    "2) Siz qachon kelsiz?",
-    "3) Bozor qayerda?",
-    "4) U qachon keldi?"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta savolni arabcha ayting. Birinchi: kitob qayerda? Ikkinchi: siz qachon kelsiz? Uchinchi: bozor qayerda? To‘rtinchi: u qachon keldi? “Ayna al-kitābu?”, “Matā taʾtī anta?”, “Ayna as-sūqu?”, “Matā qada ma huwa?”.",
-   "say": "Where is the book? When do you come? Where is the market? When did he come?",
-   "say_uz": "Kitob qayerda? Siz qachon kelsiz? Bozor qayerda? U qachon keldi?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "أَيْنَ الْكِتَابُ؟",
-    "مَتَى تَأْتِي أَنْتَ؟",
-    "أَيْنَ السُّوقُ؟",
-    "مَتَى قَدِمَ هُوَ؟"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ayna al-kitābu? Matā taʾtī anta? Ayna as-sūqu? Matā qada ma huwa? Har birida “ayna” yoki “matā” boshida. “Qada ma” — keldi (erkak). Endi “nima uchun” va “qanday” ni o‘rganamiz.",
-   "say": "Where is the book? When do you come? Where is the market? When did he come?",
-   "say_uz": "Kitob qayerda? Siz qachon kelsiz? Bozor qayerda? U qachon keldi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Nima uchun va qanday",
-   "emotion": "neutral",
-   "board": [
-    "لِمَاذَا تَأْتِي؟ — nima uchun kelsiz?",
-    "كَيْفَ أَنْتَ؟ — qanday siz? / qalaysiz?",
-    "كَيْفَ تَذْهَبُ؟ — qanday borasiz?"
-   ],
-   "examples": [
-    {
-     "t": "لِمَاذَا تَأْتِي؟",
-     "uz": "Nima uchun kelsiz?"
-    },
-    {
-     "t": "كَيْفَ أَنْتَ؟",
-     "uz": "Qalaysiz?"
-   }
-  ],
-   "say_native": "“Limādhā” — nima uchun, “kayfa” — qanday. “Limādhā taʾtī?” — nima uchun kelsiz? “Kayfa anta?” — qalaysiz? “Kayfa tadhhabu?” — qanday borasiz? “Kayfa ḥāluka?” — qalaysiz (sog‘ligingiz yaxshimi?). “Limādhā” sababni, “kayfa” usulni yoki holatni so‘raydi. “Kayfa anta?” — “qalaysiz” degani, “kayfa ḥāluka?” — “sog‘ligingiz yaxshimi”.",
-   "say": "Limadha ta'ti? Why do you come? Kayfa anta? How are you? Kayfa tadhhab? How do you go?",
-   "say_uz": "Limadha ta'ti? Nima uchun kelsiz? Kayfa anta? Qalaysiz. Kayfa tadhhab? Qanday borasiz?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Nima uchun va qanday",
-   "emotion": "encouraging",
-   "board": [
-    "1) Nima uchun kelsiz?",
-    "2) Qalaysiz?",
-    "3) Qanday borasiz?",
-    "4) Nima uchun xarid qilasiz?"
-  ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta savolni arabcha ayting. Birinchi: nima uchun kelsiz? Ikkinchi: qalaysiz? Uchinchi: qanday borasiz? To‘rtinchi: nima uchun xarid qilasiz? “Limādhā taʾtī?”, “Kayfa ḥāluka?”, “Kayfa tadhhabu?”, “Limādhā turīdu al-shirāʾ?”.",
-   "say": "Why do you come? How are you? How do you go? Why do you want to buy?",
-   "say_uz": "Nima uchun kelsiz? Qalaysiz? Qanday borasiz? Nima uchun xarid qilasiz?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لِمَاذَا تَأْتِي؟",
-    "كَيْفَ أَنْتَ؟",
-    "كَيْفَ تَذْهَبُ؟",
-    "لِمَاذَا تُرِيدُ الشِّرَاءَ؟"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: limādhā taʾtī? Kayfa anta? Kayfa tadhhabu? Limādhā turīdu al-shirāʾ? “Turīdu al-shirāʾ” — xarid qilmoqchiman. “Limādhā” sabab, “kayfa” usul. Endi “necha” ni o‘rganamiz.",
-   "say": "Why do you come? How are you? How do you go? Why do you want to buy?",
-   "say_uz": "Nima uchun kelsiz? Qalaysiz? Qanday borasiz? Nima uchun xarid qilmoqchiman?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Necha",
-   "emotion": "neutral",
-   "board": [
-    "كَمْ كِتَابٍ عِنْدَكَ؟ — necha kitobingiz bor?",
-    "كَمْ سَاعَةً؟ — necha soat?",
-    "كَمْ ثَمَنُهُ؟ — narhi qancha?"
-   ],
-   "examples": [
-    {
-     "t": "كَمْ كِتَابٍ عِنْدَكَ؟",
-     "uz": "Necha kitobingiz bor?"
-    },
-    {
-     "t": "كَمْ ثَمَنُهُ؟",
-     "uz": "Narhi qancha?"
-   }
-  ],
-   "say_native": "“Kam” — necha. “Kam kitābin ʿindaka?” — necha kitobingiz bor? “Kam sāʿatan?” — necha soat? “Kam thamanuhu?” — narhi qancha? “Kam” noaniq miqdorni so‘raydi. “Kam dirham?” — necha so‘m? Endi barcha so‘roq so‘zlarini takrorlaymiz.",
-   "say": "Kam kitabin indaka? How many books do you have? Kam thamanu hu? What is the price?",
-   "say_uz": "Kam kitabin indaka? Necha kitobingiz bor? Kam thamanu hu? Narhi qancha?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Necha",
-   "emotion": "encouraging",
-   "board": [
-    "1) Necha kitob bor?",
-    "2) Necha soat?",
-    "3) Narhi qancha?",
-    "4) Necha kishi bor?"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta savolni arabcha ayting. Birinchi: necha kitob bor? Ikkinchi: necha soat? Uchinchi: narhi qancha? To‘rtinchi: necha kishi bor? “Kam kitāb?”, “Kam sāʿa?”, “Kam thaman?”, “Kam nās?”.",
-   "say": "How many books? How many hours? What is the price? How many people?",
-   "say_uz": "Necha kitob? Necha soat? Narhi qancha? Necha kishi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "كَمْ كِتَابٍ؟",
-    "كَمْ سَاعَةً؟",
-    "كَمْ ثَمَنُهُ؟",
-    "كَمْ نَاسٍ؟"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: kam kitāb? Kam sāʿa? Kam thamanuhu? Kam nās? “Nās” — kishi. “Kam” barcha savolarda boshida. Endi so‘roq so‘zini boshida joylashni qo‘llaymiz.",
-   "say": "How many books? How many hours? What is the price? How many people?",
-   "say_uz": "Necha kitob? Necha soat? Narhi qancha? Necha kishi?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "So‘roq so‘zi boshida",
+   "title": "Ha/yo‘q savoli: هَلْ",
    "emotion": "thinking",
-   "board": [
-    "مَنْ هَذَا؟ (kim bu, shu yerda kim)",
-    "مَا هَذَا؟ (nima bu)",
-    "أَيْنَ تَدْرسُ؟ (qayerda o‘qiysiz)",
-    "مَتَى تَأْتِي؟ (qachon kelsiz)"
-   ],
-   "examples": [
-    {
-     "t": "مَنْ هَذَا؟",
-     "uz": "Bu kim?"
-    },
-    {
-     "t": "أَيْنَ تَدْرسُ؟",
-     "uz": "Qayerda o‘qiysiz?"
-   }
-  ],
-   "say_native": "Barcha so‘roq so‘zlari gap boshida turadi: “man hādhā?”, “mā hādhā?”, “ayna tadrisu?”, “matā taʾtī?”. O‘zbek tilida ham “kim bu?”, “nima bu?”, “qayerda o‘qiysiz?” — so‘roq so‘zi boshida. Arabicda ham shunday. Fe’l so‘roq so‘zidan keyin keladi: “tadrisu” — o‘qiysiz, “taʾtī” — kelsiz. Endi intonatsiyani o‘rganamiz.",
-   "say": "Man hadha? Ma hadha? Ayna tadrisu? Mata ta'ti?",
-   "say_uz": "Man hadha? Bu kim? Ma hadha? Bu nima? Ayna tadrisu? Qayerda o‘qiysiz? Mata ta'ti? Qachon kelsiz?",
+   "board": ["أَنْتَ طَالِبٌ. — Siz talabasiz.", "هَلْ أَنْتَ طَالِبٌ؟ — Siz talabamisiz?", "نَعَمْ — ha · لَا — yo‘q"],
+   "examples": [{"t": "هَلْ أَنْتَ طَالِبٌ؟", "uz": "Siz talabamisiz?"}, {"t": "نَعَمْ، أَنَا طَالِبٌ.", "uz": "Ha, men talabaman."}],
+   "say_native": "Ha yoki yo‘q javobli savol eng oson tuziladi: oddiy gapning boshiga “hal” qo‘yiladi. “Anta ṭālib” — siz talabasiz. “Hal anta ṭālib?” — siz talabamisiz? Boshqa hech narsa o‘zgarmaydi. O‘zbek tilida “-mi” yuklamasi so‘z oxiriga qo‘shiladi, arab tilida esa “hal” alohida so‘z bo‘lib, gapning eng boshida turadi. Javob: “naʿam” — ha, “lā” — yo‘q.",
+   "say": "أَنْتَ طَالِبٌ. هَلْ أَنْتَ طَالِبٌ؟ نَعَمْ، أَنَا طَالِبٌ.",
+   "say_uz": "Siz talabasiz. Siz talabamisiz? Ha, men talabaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "هَلْ fe’l bilan",
+   "emotion": "neutral",
+   "board": ["هَلْ تَتَكَلَّمُ الْعَرَبِيَّةَ؟ — Arabcha gapirasizmi?", "هَلْ تَسْكُنُ هُنَا؟ — Shu yerda yashaysizmi?", "هَلِ الْمَطْعَمُ مَفْتُوحٌ؟ — Restoran ochiqmi?"],
+   "examples": [{"t": "هَلْ تَسْكُنُ هُنَا؟", "uz": "Shu yerda yashaysizmi?"}, {"t": "لَا، أَسْكُنُ فِي طَشْقَنْدَ.", "uz": "Yo‘q, Toshkentda yashayman."}],
+   "say_native": "“Hal” fe’lli gaplar bilan ham ishlaydi: “hal tatakallamu l-ʿarabiyya?” — arabcha gapirasizmi? “Tatakallamu” — gapirasiz. “Hal taskunu hunā?” — shu yerda yashaysizmi? Agar “hal” dan keyin “al-” li so‘z kelsa, ulash uchun “i” qo‘shiladi: “hali l-maṭʿamu maftūḥ?” — restoran ochiqmi? Bu oldingi darslardagi “hali l-banku qarīb?” bilan bir xil. “Maftūḥ” — ochiq.",
+   "say": "هَلْ تَتَكَلَّمُ الْعَرَبِيَّةَ؟ هَلْ تَسْكُنُ هُنَا؟ لَا، أَسْكُنُ فِي طَشْقَنْدَ. هَلِ الْمَطْعَمُ مَفْتُوحٌ؟",
+   "say_uz": "Arabcha gapirasizmi? Shu yerda yashaysizmi? Yo‘q, Toshkentda yashayman. Restoran ochiqmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "أَ va faqat ohang",
+   "emotion": "thinking",
+   "board": ["أَأَنْتَ طَالِبٌ؟ = هَلْ أَنْتَ طَالِبٌ؟", "أَتَتَكَلَّمُ الْعَرَبِيَّةَ؟", "أَنْتَ طَالِبٌ؟ ↗ (so‘zlashuvda)"],
+   "examples": [{"t": "أَتَتَكَلَّمُ الْعَرَبِيَّةَ؟", "uz": "Arabcha gapirasizmi?"}, {"t": "أَنْتَ طَالِبٌ؟", "uz": "Talabamisiz? (ohang bilan)"}],
+   "say_native": "“Hal” ning sinonimi bor: so‘z boshiga qo‘shiladigan “a-”. “A-anta ṭālib?” — talabamisiz? “A-tatakallamu l-ʿarabiyya?” — arabcha gapirasizmi? Bu shakl kitoblarda va Qur’onda ko‘p uchraydi. Kundalik so‘zlashuvda esa arablar ko‘pincha “hal” ni ham tushirib, faqat ohang bilan so‘rashadi: “anta ṭālib?” — oxirida ovoz ko‘tariladi. O‘zbekchada ham “Talabasiz?” deb ohang bilan so‘rash mumkin. Siz avval “hal” ni puxta o‘rganing.",
+   "say": "أَأَنْتَ طَالِبٌ؟ أَتَتَكَلَّمُ الْعَرَبِيَّةَ؟ أَنْتَ طَالِبٌ؟",
+   "say_uz": "Talabamisiz? Arabcha gapirasizmi? Talabamisiz?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "هَلْ bilan so‘rang",
+   "emotion": "encouraging",
+   "board": ["1) Siz o‘qituvchimisiz?", "2) Inglizcha gapirasizmi?", "3) Bozor ochiqmi?", "4) U (erkak) shu yerda ishlaydimi?"],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta savolni “hal” bilan arabcha tuzing. Birinchi: siz o‘qituvchimisiz? O‘qituvchi — “mudarris”. Ikkinchi: inglizcha gapirasizmi? Inglizcha — “al-injilīziyya”. Uchinchi: bozor ochiqmi? To‘rtinchi: u erkak shu yerda ishlaydimi? Uchinchi savolda “hal” va “al-” ning ulanishini unutmang.",
+   "say": "هَلْ... هَلْ... هَلِ... هَلْ...",
+   "say_uz": "…mi? …mi? …mi? …mi?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) هَلْ أَنْتَ مُدَرِّسٌ؟", "2) هَلْ تَتَكَلَّمُ الْإِنْجِلِيزِيَّةَ؟", "3) هَلِ السُّوقُ مَفْتُوحٌ؟", "4) هَلْ يَعْمَلُ هُنَا؟"],
+   "examples": [],
+   "say_native": "Javoblar: “hal anta mudarris?” “Hal tatakallamu l-injilīziyya?” “Hali s-sūqu maftūḥ?” “Hal yaʿmalu hunā?” To‘rtinchisida “huwa” ni aytish shart emas, “ya” prefiksi “u” ekanini bildiradi. Javob berishda to‘liq javob odobliroq: “naʿam, aʿmalu hunā” yoki “lā, aʿmalu fī l-bank”. Bir so‘zli “naʿam” ham to‘g‘ri, lekin biroz quruq.",
+   "say": "هَلْ أَنْتَ مُدَرِّسٌ؟ هَلْ تَتَكَلَّمُ الْإِنْجِلِيزِيَّةَ؟ هَلِ السُّوقُ مَفْتُوحٌ؟ هَلْ يَعْمَلُ هُنَا؟",
+   "say_uz": "Siz o‘qituvchimisiz? Inglizcha gapirasizmi? Bozor ochiqmi? U shu yerda ishlaydimi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kim va nima: مَنْ، مَا",
+   "emotion": "neutral",
+   "board": ["مَنْ هَذَا؟ — Bu kim?", "مَا هَذَا؟ — Bu nima?", "مَا اسْمُكَ؟ — Ismingiz nima?"],
+   "examples": [{"t": "مَنْ هَذِهِ؟ هَذِهِ أُخْتِي.", "uz": "Bu kim? Bu mening opam (singlim)."}, {"t": "مَا هَذَا؟ هَذَا كِتَابٌ.", "uz": "Bu nima? Bu kitob."}],
+   "say_native": "Endi so‘roq so‘zlari. “Man” — kim, faqat odamlar uchun: “man hādhā?” — bu kim? Ayolga ishora qilsak, “man hādhihi?”. “Mā” — nima, narsalar uchun: “mā hādhā?” — bu nima? Ism so‘rash ham “mā” bilan: “mā smuka?” — ismingiz nima? Ayolga “mā smuki?”. Bu yerda “ism” narsa sifatida qaraladi, shuning uchun “man” emas, “mā”.",
+   "say": "مَنْ هَذَا؟ مَنْ هَذِهِ؟ هَذِهِ أُخْتِي. مَا هَذَا؟ هَذَا كِتَابٌ. مَا اسْمُكَ؟",
+   "say_uz": "Bu kim? Bu kim (ayol)? Bu mening opam. Bu nima? Bu kitob. Ismingiz nima?",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "So‘roq so‘zi joyi",
+   "title": "Ism so‘rashdagi xato",
    "emotion": "stern",
-   "board": [
-    "✗ هَذَا مَنْ؟",
-    "✓ مَنْ هَذَا؟",
-    "✗ هَذَا مَا؟",
-    "✓ مَا هَذَا؟"
-   ],
+   "board": ["✗ مَنِ اسْمُكَ؟", "✗ كَيْفَ اسْمُكَ؟", "✓ مَا اسْمُكَ؟"],
    "examples": [],
-   "say_native": "Ikki xato. Birinchisi: “hādhā man?” noto‘g‘ri, “man hādhā?” to‘g‘ri. Ikkinchisi: “hādhā mā?” noto‘g‘ri, “mā hādhā?” to‘g‘ri. So‘roq so‘zi hammada boshida turadi, oxirida emas. O‘zbek tilida “bu kim?”, “bu nima?” — so‘roq so‘zi boshida. Arabicda ham shunday. “Man hādhā”, “mā hādhā”.",
-   "say": "Man hadha, not hadha man. Ma hadha, not hadha ma.",
-   "say_uz": "Man hadha, hadha man emas. Ma hadha, hadha ma emas.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "So‘roq so‘zini boshida joylashtir",
-   "emotion": "encouraging",
-   "board": [
-    "1) Bu kim? -> مَنْ هَذَا؟",
-    "2) Bu nima? -> مَا هَذَا؟",
-    "3) Qayerda o‘qiysiz? -> أَيْنَ تَدْرسُ؟",
-    "4) Qachon kelsiz? -> مَتَى تَأْتِي؟"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta o‘zbekcha savolni arabcha aytlang. Birinchi: bu kim? Ikkinchi: bu nima? Uchinchi: qayerda o‘qiysiz? To‘rtinchi: qachon kelsiz? So‘roq so‘zini boshida joylang.",
-   "say": "Who is this? What is this? Where do you study? When do you come?",
-   "say_uz": "Bu kim? Bu nima? Qayerda o‘qiysiz? Qachon kelsiz?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "مَنْ هَذَا؟",
-    "مَا هَذَا؟",
-    "أَيْنَ تَدْرسُ؟",
-    "مَتَى تَأْتِي؟"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: man hādhā? Mā hādhā? Ayna tadrisu? Matā taʾtī? Barcha savollar so‘roq so‘zi bilan boshlanadi. Endi savol ohangi (intonatsiya) ni o‘rganamiz.",
-   "say": "Who is this? What is this? Where do you study? When do you come?",
-   "say_uz": "Bu kim? Bu nima? Qayerda o‘qiysiz? Qachon kelsiz?",
+   "say_native": "Ism so‘rashda ikki tipik xato. Birinchisi: o‘zbekcha so‘zlashuvdagi “ismi kim?” ta’sirida “man ismuka?” deyish. Arab tilida ism — narsa, demak “mā”. Ikkinchisi: rus tilidagi “как тебя зовут” ta’sirida “kayfa ismuka?” deyish. “Kayfa” — qanday, holat yoki usul uchun. To‘g‘risi yagona: “mā smuk?” Bu iborani bir necha marta takrorlab, tilingizga o‘rnashtiring.",
+   "say": "مَا اسْمُكَ؟ مَا اسْمُكِ؟ مَا اسْمُهُ؟",
+   "say_uz": "Ismingiz nima? Ismingiz nima (ayolga)? Uning ismi nima?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Savol ohangi",
+   "title": "مَاذَا fe’l bilan",
    "emotion": "thinking",
-   "board": [
-    "هَلْ تَعْرِفُنِي؟ (ohang yuqori)",
-    "مَنْ هَذَا؟ (ohang past)",
-    "أَيْنَ السُّوقُ؟ (ohang past)"
-   ],
-   "examples": [],
-   "say_native": "Savol ohangi. “Hal” savolida ohang yuqori: “hal taʿrifūnī?”. So‘roq so‘zli savolda ohang past: “man hādhā?”, “ayna as-sūqu?”. Ohang past bo‘lib tugashi kerak. O‘zbek tilida ham savolda ohang yuqori yoki past bo‘ladi. Arabicda “hal” savoli yuqori, so‘roq so‘zli savol past. To‘g‘ri ohang suhbatdoshga savol ekanligini ko‘rsatadi.",
-   "say": "Hal ta'rifuni? Rising intonation. Man hadha? Falling intonation.",
-   "say_uz": "Hal ta'rifuni? Ohang yuqori. Man hadha? Ohang past.",
+   "board": ["مَا + ot: مَا هَذَا؟", "مَاذَا + fe’l: مَاذَا تَدْرُسُ؟ — Nima o‘qiysiz?", "مَاذَا تَشْرَبُ؟ — Nima ichasiz?"],
+   "examples": [{"t": "مَاذَا تَدْرُسُ؟ أَدْرُسُ الطِّبَّ.", "uz": "Nima o‘qiysiz? Tibbiyot o‘qiyman."}, {"t": "مَاذَا تَشْرَبُ؟", "uz": "Nima ichasiz?"}],
+   "say_native": "“Nima” ning ikkinchi shakli — “mādhā”. Qoida oddiy: fe’ldan oldin “mādhā”, ot yoki olmoshdan oldin “mā”. “Mādhā tadrusu?” — nima o‘qiysiz? “Mādhā tashrabu?” — nima ichasiz? “Mā hādhā?” — bu nima? Bu savollarni odatlar va kafe darslarida eshitgansiz: “mādhā tafʿalu kulla yawm?”. O‘zbek tilida “nima” bitta, arab tilida esa keyingi so‘zga qarab tanlaymiz.",
+   "say": "مَا هَذَا؟ مَاذَا تَدْرُسُ؟ أَدْرُسُ الطِّبَّ. مَاذَا تَشْرَبُ؟ أَشْرَبُ شَايًا.",
+   "say_uz": "Bu nima? Nima o‘qiysiz? Tibbiyot o‘qiyman. Nima ichasiz? Choy ichaman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Ohang",
+   "title": "Kim yoki nima?",
    "emotion": "encouraging",
-   "board": [
-    "1) Hal anta talibun? (yuqori)",
-    "2) Man hādhā? (past)",
-    "3) Ayna as-sūqu? (past)",
-    "4) Hal huwa hunāka? (yuqori)"
-   ],
+   "board": ["1) Bu (ayol) kim?", "2) Uning (erkak) ismi nima?", "3) Nima yeysiz?", "4) Bu nima? · 5) Ertalab nima qilasiz?"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta savolni to‘g‘ri ohang bilan ayting. Birinchi: hal anta talibun? (yuqori ohang). Ikkinchi: man hādhā? (past ohang). Uchinchi: ayna as-sūqu? (past ohang). To‘rtinchi: hal huwa hunāka? (yuqori ohang). “Hal” savolda yuqori, so‘roq so‘zli savolda past.",
-   "say": "Are you a student? (rising). Who is this? (falling). Where is the market? (falling). Is he there? (rising).",
-   "say_uz": "Hal anta talibun? Yuqori ohang. Man hadha? Past ohang.",
-   "practice_seconds": 12
+   "say_native": "Mashq. Beshta savolni arabcha tuzing. Birinchi: bu ayol kim? Ikkinchi: uning ismi nima, erkak haqida. Uchinchi: nima yeysiz? To‘rtinchi: bu nima? Beshinchi: ertalab nima qilasiz? Har safar o‘ylang: odammi yoki narsami, keyin fe’lmi yoki otmi?",
+   "say": "مَنْ... مَا... مَاذَا...",
+   "say_uz": "Kim... nima... nima...",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "هَلْ أَنْتَ طَالِبٌ؟",
-    "مَنْ هَذَا؟",
-    "أَيْنَ السُّوقُ؟",
-    "هَلْ هُوَ هُنَاكَ؟"
-   ],
+   "board": ["1) مَنْ هَذِهِ؟  2) مَا اسْمُهُ؟", "3) مَاذَا تَأْكُلُ؟", "4) مَا هَذَا؟", "5) مَاذَا تَفْعَلُ فِي الصَّبَاحِ؟"],
    "examples": [],
-   "say_native": "Javoblar: hal anta talibun? Man hādhā? Ayna as-sūqu? Hal huwa hunāka? “Hal” savolda ohang yuqori, so‘roq so‘zli savolda ohang past. Endi yangi do‘stga 10 ta savol yozamiz.",
-   "say": "Are you a student? Who is this? Where is the market? Is he there?",
-   "say_uz": "Siz talaba misiz? Bu kim? Bozor qayerda? U u erda?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "10 ta savol: yangi do‘st",
-   "emotion": "encouraging",
-   "board": [
-    "10 ta savol",
-    "Ism, kasb, joy, vaqt",
-    "Hal va so‘roq so‘zi"
-   ],
-   "examples": [],
-   "say_native": "Endi sizning navbatingiz. Yangi do‘stingizga 10 ta arabcha savol yozing. Har birida “hal” yoki so‘roq so‘zi (man, mā, ayna, matā, limādhā, kayfa, kam) bo‘lsin. Ism, kasb, joy, vaqt, nima uchun, qanday, necha bo‘lsa ham bo‘ladi. Sekin va aniq gapiring.",
-   "say": "Write 10 questions to ask a new friend.",
-   "say_uz": "Yangi do‘stingizga 10 ta savol yozing.",
-   "practice_seconds": 24
-  },
-  {
-   "kind": "explain",
-   "title": "O‘z-o‘zini tekshirish",
-   "emotion": "proud",
-   "board": [
-    "Hal bormi yoki so‘roq so‘zi bormi?",
-    "So‘roq so‘zi boshidami?",
-    "Ohang to‘g‘rimi?",
-    "10 ta savol bormi?"
-   ],
-   "examples": [],
-   "say_native": "Tekshiring. Birinchi: har savolda “hal” yoki so‘roq so‘zi bormi? Ikkinchi: so‘roq so‘zi boshidami? Uchinchi: ohang to‘g‘rimi (“hal” yuqori, so‘roq so‘zi past)? To‘rtinchi: 10 ta savol yozdingizmi? Har biriga “ha” desangiz, vazifa bajarildi.",
-   "say": "Check hal or question word, question word first, intonation and 10 questions.",
-   "say_uz": "Hal yoki so‘roq so‘zi, so‘roq so‘zi boshida, ohang va 10 ta savolni tekshiring.",
+   "say_native": "Javoblar: “man hādhihi?” “Mā smuhu?” — “-hu”, uning, erkak. “Mādhā taʾkulu?” — fe’l oldidan “mādhā”. “Mā hādhā?” — ot oldidan “mā”. “Mādhā tafʿalu fiṣ-ṣabāḥ?” Agar uchinchi yoki beshinchisida “mā” desangiz, katta xato emas, ba’zan shunday ham aytiladi, lekin “mādhā” aniqroq va adabiy tilda me’yor.",
+   "say": "مَنْ هَذِهِ؟ مَا اسْمُهُ؟ مَاذَا تَأْكُلُ؟ مَا هَذَا؟ مَاذَا تَفْعَلُ فِي الصَّبَاحِ؟",
+   "say_uz": "Bu kim? Uning ismi nima? Nima yeysiz? Bu nima? Ertalab nima qilasiz?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Yana hal savollari",
+   "title": "Qayerda: أَيْنَ va uning oilasi",
    "emotion": "neutral",
-   "board": [
-    "هَلْ أَنْتَ مُعَلِّمٌ؟ — siz o‘qituvchi misiz?",
-    "هَلْ هَذَا قَلَمٌ؟ — bu qalammi?",
-    "هَلْ هُنَا كِتَابٌ؟ — u erda kitob bormi?",
-    "هَلْ تَشْرَبُ قَهْوَةً؟ — qahva ichadimizmi?"
-   ],
-   "examples": [
-    {
-     "t": "هَلْ أَنْتَ مُعَلِّمٌ؟",
-     "uz": "Siz o‘qituvchi misiz?"
-    },
-    {
-     "t": "هَلْ تَشْرَبُ قَهْوَةً؟",
-     "uz": "Qahva ichadimizmi?"
-   }
-  ],
-   "say_native": "Yana to‘rtta hal savoli. “Hal anta muʿallimun?” — siz o‘qituvchi misiz? “Hal hādhā qalamun?” — bu qalammi? “Hal huna kitābun?” — u erda kitob bormi? “Hal tashrabu qahwatan?” — qahva ichadimizmi? “Hal” har bir savol boshida. “Anta” — siz, “muʿallimun” — o‘qituvchi. “Hādhā” — bu, “qalamun” — qalam. “Huna” — erda, “kitābun” — kitob. “Tashrabu” — ichadimiz, “qahwatan” — qahva. Endi javoblarni “naʿam” va “lā” bilan beramiz.",
-   "say": "Hal anta mu'allim? Hal hadha qalam? Hal huna kitab? Hal tashrabu qahwa?",
-   "say_uz": "Hal anta mu'allim? Hal hadha qalam? Hal huna kitab? Hal tashrabu qahwa?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Hal savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) Siz o‘qituvchi misiz?",
-    "2) Bu qalammi?",
-    "3) U erda kitob bormi?",
-    "4) Siz qahva ichadimizmi?"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta hal savolini arabcha ayting. Birinchi: siz o‘qituvchi misiz? Ikkinchi: bu qalammi? Uchinchi: u erda kitob bormi? To‘rtinchi: siz qahva ichadimizmi? “Hal” bilan boshlang.",
-   "say": "Are you a teacher? Is this a pen? Is there a book here? Do you drink coffee?",
-   "say_uz": "Siz o‘qituvchi misiz? Bu qalammi? U erda kitob bormi? Siz qahva ichadimizmi?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "هَلْ أَنْتَ مُعَلِّمٌ؟",
-    "هَلْ هَذَا قَلَمٌ؟",
-    "هَلْ هُنَا كِتَابٌ؟",
-    "هَلْ تَشْرَبُ قَهْوَةً؟"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: hal anta muʿallimun. Hal hādhā qalamun. Hal huna kitābun. Hal tashrabu qahwatan. Javob “naʿam” (ha) yoki “lā” (yo‘q). “Naʿam, anta muʿallimun” — ha, siz o‘qituvchisiz. “Lā, lā tashrabu qahwatan” — yo‘q, qahva ichmaymiz. Endi “qaysi” va “qanday yoshda” ni o‘rganamiz.",
-   "say": "Are you a teacher? Is this a pen? Is there a book here? Do you drink coffee?",
-   "say_uz": "Siz o‘qituvchi misiz? Bu qalammi? U erda kitob bormi? Siz qahva ichadimizmi?",
+   "board": ["أَيْنَ تَسْكُنُ؟ — Qayerda yashaysiz?", "مِنْ أَيْنَ أَنْتَ؟ — Qayerdansiz?", "إِلَى أَيْنَ تَذْهَبُ؟ — Qayerga ketyapsiz?"],
+   "examples": [{"t": "مِنْ أَيْنَ أَنْتَ؟ أَنَا مِنْ أُوزْبَكِسْتَانَ.", "uz": "Qayerdansiz? Men O‘zbekistondanman."}, {"t": "إِلَى أَيْنَ تَذْهَبُ؟", "uz": "Qayerga ketyapsiz?"}],
+   "say_native": "“Ayna” — qayerda. “Ayna taskun?” — qayerda yashaysiz? Old so‘z qo‘shsak, yangi ma’nolar chiqadi: “min ayna?” — qayerdan? “Ilā ayna?” — qayerga? Qiziq: o‘zbek tilida “qayer” so‘ziga “-da, -dan, -ga” qo‘shimchalari qo‘shiladi, arab tilida esa “min” va “ilā” so‘zlari oldinga qo‘yiladi. Tanishuvda eng ko‘p so‘raladigan savol: “min ayna anta?” — qayerdansiz? Ayolga “min ayna anti?”.",
+   "say": "أَيْنَ تَسْكُنُ؟ مِنْ أَيْنَ أَنْتَ؟ أَنَا مِنْ أُوزْبَكِسْتَانَ. إِلَى أَيْنَ تَذْهَبُ؟",
+   "say_uz": "Qayerda yashaysiz? Qayerdansiz? Men O‘zbekistondanman. Qayerga ketyapsiz?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Qaysi va necha yosh",
+   "title": "Qachon: مَتَى",
    "emotion": "neutral",
-   "board": [
-    "أَيُّ كِتَابٍ؟ — qaysi kitob?",
-    "كَمْ عُمْرُكَ؟ — necha yoshda siz?",
-    "عُمْرِي عِشْرُونَ سَنَةً — men 20 yoshdaman"
-   ],
-   "examples": [
-    {
-     "t": "أَيُّ كِتَابٍ؟",
-     "uz": "Qaysi kitob?"
-    },
-    {
-     "t": "كَمْ عُمْرُكَ؟",
-     "uz": "Necha yoshda siz?"
-   }
-  ],
-   "say_native": "“Ayya” — qaysi, “ʿumruk?” — necha yoshda. “Ayya kitābin?” — qaysi kitob? “Kam ʿumruka?” — necha yoshda siz? “ʿUmrī ʿishrūna sanatān” — men 20 yoshdaman. “ʿIshrūna” — yigirmi, “sanatān” — yil. “Ayya” tanlovni so‘raydi, “kam” miqdorni yoki yoshni so‘raydi. Endi “qayerdan” (qaysi davlatdan) ni o‘rganamiz.",
-   "say": "Ayya kitab? Which book? Kam umruka? How old are you?",
-   "say_uz": "Ayya kitob? Qaysi kitob? Kam umruka? Necha yoshda siz?",
+   "board": ["مَتَى تَسْتَيْقِظُ؟ — Qachon uyg‘onasiz?", "مَتَى يَبْدَأُ الدَّرْسُ؟ — Dars qachon boshlanadi?", "فِي السَّاعَةِ التَّاسِعَةِ — soat to‘qqizda"],
+   "examples": [{"t": "مَتَى يَبْدَأُ الدَّرْسُ؟", "uz": "Dars qachon boshlanadi?"}, {"t": "يَبْدَأُ فِي السَّاعَةِ التَّاسِعَةِ.", "uz": "Soat to‘qqizda boshlanadi."}],
+   "say_native": "“Matā” — qachon. “Matā tastayqiẓ?” — qachon uyg‘onasiz? “Matā yabdaʾu d-dars?” — dars qachon boshlanadi? Javobda soat darsidagi iboralar kerak bo‘ladi: “fis-sāʿati t-tāsiʿa” — soat to‘qqizda. E’tibor bering, ikkinchi savolda fe’l egadan oldin keldi: “yabdaʾu d-dars”, so‘zma-so‘z “boshlanadi dars”. Bu arab tilidagi tabiiy tartib, keyinroq batafsil ko‘ramiz.",
+   "say": "مَتَى تَسْتَيْقِظُ؟ أَسْتَيْقِظُ فِي السَّاعَةِ السَّابِعَةِ. مَتَى يَبْدَأُ الدَّرْسُ؟ يَبْدَأُ فِي السَّاعَةِ التَّاسِعَةِ.",
+   "say_uz": "Qachon uyg‘onasiz? Soat yettida uyg‘onaman. Dars qachon boshlanadi? Soat to‘qqizda boshlanadi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qaysi va yosh",
+   "title": "Qayerda va qachon",
    "emotion": "encouraging",
-   "board": [
-    "1) Qaysi kitob?",
-    "2) Necha yoshda siz?",
-    "3) Qaysi shahar?",
-    "4) Men 25 yoshdaman."
-   ],
+   "board": ["1) Qayerda ishlaysiz?", "2) (ayolga) Qayerdansiz?", "3) Qachon uxlaysiz?", "4) Qayerga ketyapsiz?"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta savolni arabcha ayting. Birinchi: qaysi kitob? Ikkinchi: necha yoshda siz? Uchinchi: qaysi shahar? To‘rtinchi: men 25 yoshdaman. “Ayya kitābin?”, “Kam ʿumruka?”, “Ayya madinah?”, “ʿUmrī khamsa wa ʿishrūna sanatān.”.",
-   "say": "Which book? How old are you? Which city? I am 25 years old.",
-   "say_uz": "Qaysi kitob? Necha yoshda siz? Qaysi shahar? Men 25 yoshdaman.",
+   "say_native": "Mashq. To‘rtta savolni arabcha tuzing. Birinchi: qayerda ishlaysiz? Ikkinchi: ayolga, qayerdansiz? Uchinchi: qachon uxlaysiz? To‘rtinchi: qayerga ketyapsiz? So‘roq so‘zini gapning boshiga qo‘ying, kerak bo‘lsa oldiga “min” yoki “ilā” qo‘shing.",
+   "say": "أَيْنَ... مِنْ أَيْنَ... مَتَى... إِلَى أَيْنَ...",
+   "say_uz": "Qayerda... qayerdan... qachon... qayerga...",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "أَيُّ كِتَابٍ؟",
-    "كَمْ عُمْرُكَ؟",
-    "أَيُّ مَدِينَةٍ؟",
-    "عُمْرِي خَمْسَةٌ وَعِشْرُونَ سَنَةً"
-   ],
+   "board": ["1) أَيْنَ تَعْمَلُ؟", "2) مِنْ أَيْنَ أَنْتِ؟", "3) مَتَى تَنَامُ؟", "4) إِلَى أَيْنَ تَذْهَبُ؟"],
    "examples": [],
-   "say_native": "Javoblar: ayya kitābin? Kam ʿumruka? Ayya madinah? ʿUmrī khamsa wa ʿishrūna sanatān. “Khamsa wa ʿishrūna” — yigirmi besh. “Madinah” — shahar. Endi “qayerdan” ni o‘rganamiz.",
-   "say": "Which book? How old are you? Which city? I am 25 years old.",
-   "say_uz": "Qaysi kitob? Necha yoshda siz? Qaysi shahar? Men 25 yoshdaman.",
+   "say_native": "Javoblar: “ayna taʿmal?” “Min ayna anti?” — ayolga “anti”. “Matā tanām?” “Ilā ayna tadhhab?” Ko‘rib turibsiz, so‘roq so‘zidan keyin oddiy fe’l keladi, hech qanday qo‘shimcha so‘z kerak emas. Ikkinchi savolda fe’l yo‘q, chunki arab tilida “siz … dansiz” degan gapga fe’l kerak emas, xuddi “al-baytu kabīr” kabi.",
+   "say": "أَيْنَ تَعْمَلُ؟ مِنْ أَيْنَ أَنْتِ؟ مَتَى تَنَامُ؟ إِلَى أَيْنَ تَذْهَبُ؟",
+   "say_uz": "Qayerda ishlaysiz? Qayerdansiz? Qachon uxlaysiz? Qayerga ketyapsiz?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Qayerdan (davlat)",
+   "title": "Nega: لِمَاذَا va لِأَنَّ",
+   "emotion": "thinking",
+   "board": ["لِمَاذَا تَدْرُسُ الْعَرَبِيَّةَ؟ — Nega arab tilini o‘qiysiz?", "لِأَنِّي أُحِبُّ اللُّغَةَ الْعَرَبِيَّةَ. — Chunki men arab tilini yaxshi ko‘raman.", "لِأَنَّ ... — chunki ..."],
+   "examples": [{"t": "لِمَاذَا تَدْرُسُ الْعَرَبِيَّةَ؟", "uz": "Nega arab tilini o‘qiysiz?"}, {"t": "لِأَنِّي أُحِبُّ الْقُرْآنَ.", "uz": "Chunki men Qur’onni yaxshi ko‘raman."}],
+   "say_native": "“Limādhā” — nega, nima uchun. U “li” — uchun va “mādhā” — nima, so‘zlaridan tuzilgan, xuddi o‘zbekcha “nima uchun” kabi! Javob “li-anna” — chunki, bilan boshlanadi. “Men” bilan u “li-annī” bo‘ladi: “li-annī uḥibbu l-lughata l-ʿarabiyya” — chunki men arab tilini yaxshi ko‘raman. Keyin oddiy gap keladi. “Li-anna” ni hozircha “li-annī” — chunki men, shaklida yodlang.",
+   "say": "لِمَاذَا تَدْرُسُ الْعَرَبِيَّةَ؟ لِأَنِّي أُحِبُّ اللُّغَةَ الْعَرَبِيَّةَ.",
+   "say_uz": "Nega arab tilini o‘qiysiz? Chunki men arab tilini yaxshi ko‘raman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qanday: كَيْفَ",
    "emotion": "neutral",
-   "board": [
-    "مِنْ أَيْنَ أَنْتَ؟ — qaysi davlatdan siz?",
-    "أَنَا مِنْ أُوزْبَكِسْتَانَ — men O‘zbekistondanman",
-    "هُوَ مِنْ مِصْرَ — u Misrdan"
-   ],
-   "examples": [
-    {
-     "t": "مِنْ أَيْنَ أَنْتَ؟",
-     "uz": "Qaysi davlatdan siz?"
-    },
-    {
-     "t": "أَنَا مِنْ أُوزْبَكِسْتَانَ",
-     "uz": "Men O‘zbekistondanman"
-   }
-  ],
-   "say_native": "“Min ayna anta?” — qaysi davlatdan siz? “Ana min Uzbakistana” — men O‘zbekistondanman. “Huwa min Miṣra” — u Misrdan (Misrdan). “Min” — dan/dan, “ayna” — qayerda/qaysi. “Uzbakistana” — O‘zbekistondan, “Miṣra” — Misrdan. Bu so‘roq so‘zi “min ayna” bilan birga keladi. Endi “qaysi tilni gapirasiz” ni o‘rganamiz.",
-   "say": "Min ayna anta? Where are you from? Ana min Uzbakistana. I am from Uzbekistan.",
-   "say_uz": "Min ayna anta? Qaysi davlatdan siz? Ana min Uzbakistana. Men O‘zbekistondanman.",
+   "board": ["كَيْفَ حَالُكَ؟ — Ahvolingiz qanday?", "كَيْفَ تَذْهَبُ إِلَى الْعَمَلِ؟ — Ishga qanday borasiz?", "بِالْحَافِلَةِ — avtobusda · مَشْيًا — piyoda"],
+   "examples": [{"t": "كَيْفَ تَذْهَبُ إِلَى الْعَمَلِ؟", "uz": "Ishga qanday borasiz?"}, {"t": "أَذْهَبُ بِالْحَافِلَةِ.", "uz": "Avtobusda boraman."}],
+   "say_native": "“Kayfa” — qanday. U holatni so‘raydi: “kayfa ḥāluk?” — ahvolingiz qanday? Yoki usulni: “kayfa tadhhabu ilā l-ʿamal?” — ishga qanday borasiz? Javob: “bil-ḥāfila” — avtobusda, “bis-sayyāra” — mashinada, “mashyan” — piyoda. Bu “bi” — bilan, vosita bildiradi. “Kayfa” ni oldingi darsdagi “kayfa adhhabu ilā …?” savolidan ham bilasiz.",
+   "say": "كَيْفَ حَالُكَ؟ بِخَيْرٍ، الْحَمْدُ لِلَّهِ. كَيْفَ تَذْهَبُ إِلَى الْعَمَلِ؟ أَذْهَبُ بِالْحَافِلَةِ.",
+   "say_uz": "Ahvolingiz qanday? Yaxshi, Allohga hamd. Ishga qanday borasiz? Avtobusda boraman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qayerdan",
+   "title": "Nega va qanday",
    "emotion": "encouraging",
-   "board": [
-    "1) Qaysi davlatdan siz?",
-    "2) Men O‘zbekistondanman.",
-    "3) U Misrdan.",
-    "4) Siz qaysi davlatdan?"
-   ],
+   "board": ["1) Nega shu yerda yashaysiz?", "2) Universitetga qanday borasiz?", "3) Javob bering: Chunki men shu yerda ishlayman.", "4) Javob bering: Piyoda boraman."],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: qaysi davlatdan siz? Ikkinchi: men O‘zbekistondanman. Uchinchi: u Misrdan. To‘rtinchi: siz qaysi davlatdan? “Min ayna anta?”, “Ana min Uzbakistana”, “Huwa min Miṣra”, “Anta min ayna?”.",
-   "say": "Which country are you from? I am from Uzbekistan. He is from Egypt. Which country are you from?",
-   "say_uz": "Qaysi davlatdan siz? Men O‘zbekistondanman. U Misrdan. Siz qaysi davlatdan?",
+   "say_native": "Mashq. Avval ikkita savol tuzing, keyin ularga javob bering. Birinchi: nega shu yerda yashaysiz? Ikkinchi: universitetga qanday borasiz? Uchinchi: birinchi savolga javob: chunki men shu yerda ishlayman. To‘rtinchi: ikkinchi savolga javob: piyoda boraman.",
+   "say": "لِمَاذَا... كَيْفَ... لِأَنِّي...",
+   "say_uz": "Nega... qanday... chunki men...",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) لِمَاذَا تَسْكُنُ هُنَا؟", "2) كَيْفَ تَذْهَبُ إِلَى الْجَامِعَةِ؟", "3) لِأَنِّي أَعْمَلُ هُنَا.", "4) أَذْهَبُ مَشْيًا."],
+   "examples": [],
+   "say_native": "Javoblar: “limādhā taskunu hunā?” “Kayfa tadhhabu ilā l-jāmiʿa?” “Li-annī aʿmalu hunā.” “Adhhabu mashyan.” Uchinchi javobda “li-annī” dan keyin oddiy fe’l: “aʿmalu”. Agar “li-anna aʿmalu” desangiz, bu xato: “men” ma’nosi “li-annī” ichida bo‘lishi kerak. To‘rtinchida “bil-ḥāfila” yoki “bis-sayyāra” desangiz ham to‘g‘ri.",
+   "say": "لِمَاذَا تَسْكُنُ هُنَا؟ لِأَنِّي أَعْمَلُ هُنَا. كَيْفَ تَذْهَبُ إِلَى الْجَامِعَةِ؟ أَذْهَبُ مَشْيًا.",
+   "say_uz": "Nega shu yerda yashaysiz? Chunki men shu yerda ishlayman. Universitetga qanday borasiz? Piyoda boraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nechta: كَمْ",
+   "emotion": "thinking",
+   "board": ["كَمْ أَخًا عِنْدَكَ؟ — Nechta akangiz/ukangiz bor?", "كَمْ سَاعَةً تَعْمَلُ؟ — Necha soat ishlaysiz?", "كَمْ عُمْرُكَ؟ — Yoshingiz nechada?", "بِكَمْ هَذَا؟ — Bu qancha turadi?"],
+   "examples": [{"t": "كَمْ أَخًا عِنْدَكَ؟", "uz": "Nechta aka-ukangiz bor?"}, {"t": "كَمْ عُمْرُكَ؟ عُمْرِي عِشْرُونَ سَنَةً.", "uz": "Yoshingiz nechada? Yigirma yoshdaman."}],
+   "say_native": "“Kam” — nechta, qancha. Qoida: “kam” dan keyin ot birlikda va “-an” bilan keladi: “kam akhan ʿindak?” — nechta aka-ukangiz bor? “Kam sāʿatan taʿmal?” — necha soat ishlaysiz? Bu o‘zbek tiliga o‘xshaydi: “nechta aka”, “akalar” emas. Yosh so‘rash: “kam ʿumruk?” — so‘zma-so‘z “umringiz qancha?”. Narx esa “bikam” bilan, buni bilasiz.",
+   "say": "كَمْ أَخًا عِنْدَكَ؟ كَمْ سَاعَةً تَعْمَلُ؟ كَمْ عُمْرُكَ؟ عُمْرِي عِشْرُونَ سَنَةً.",
+   "say_uz": "Nechta aka-ukangiz bor? Necha soat ishlaysiz? Yoshingiz nechada? Yigirma yoshdaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "كَمْ dan keyin ko‘plik",
+   "emotion": "stern",
+   "board": ["✗ كَمْ كُتُبٌ عِنْدَكَ؟", "✓ كَمْ كِتَابًا عِنْدَكَ؟", "✗ كَمْ سَاعَاتٍ؟", "✓ كَمْ سَاعَةً؟"],
+   "examples": [],
+   "say_native": "Tipik xato: “kam” dan keyin ko‘plik ishlatish, ayniqsa rus tilini biladiganlar uchun, chunki ruschada “сколько книг” ko‘plikda. Arab tilida esa o‘zbekchadagidek birlik: “kam kitāban?” — nechta kitob? “Kutub” — kitoblar emas. Oxiri ham muhim: “-an”, ya’ni “kitāban”, “sāʿatan”. Yaxshi xabar: siz o‘zbek tilida allaqachon to‘g‘ri o‘ylaysiz, faqat ruscha odatni chetga qo‘ying.",
+   "say": "كَمْ كِتَابًا عِنْدَكَ؟ كَمْ سَاعَةً تَدْرُسُ؟",
+   "say_uz": "Nechta kitobingiz bor? Necha soat o‘qiysiz?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "كَمْ bilan so‘rang",
+   "emotion": "encouraging",
+   "board": ["1) Nechta opa-singlingiz bor? (أُخْتٌ)", "2) Necha soat uxlaysiz?", "3) (ayolga) Yoshingiz nechada?", "4) Bu kurtka qancha turadi?"],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta savol tuzing. Birinchi: nechta opa-singlingiz bor? “Ukht” — opa yoki singil. Ikkinchi: necha soat uxlaysiz? Uchinchi: ayolga, yoshingiz nechada? To‘rtinchi: bu kurtka qancha turadi? “Kam” dan keyin otni birlikda va “-an” bilan ayting. Narx uchun “bikam” ni eslang.",
+   "say": "كَمْ... كَمْ... كَمْ... بِكَمْ...",
+   "say_uz": "Nechta... necha... necha... qancha...",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "مِنْ أَيْنَ أَنْتَ؟",
-    "أَنَا مِنْ أُوزْبَكِسْتَانَ",
-    "هُوَ مِنْ مِصْرَ",
-    "أَنْتَ مِنْ أَيْنَ؟"
-   ],
+   "board": ["1) كَمْ أُخْتًا عِنْدَكَ؟", "2) كَمْ سَاعَةً تَنَامُ؟", "3) كَمْ عُمْرُكِ؟", "4) بِكَمْ هَذِهِ السُّتْرَةُ؟"],
    "examples": [],
-   "say_native": "Javoblar: min ayna anta? Ana min Uzbakistana. Huwa min Miṣra. Anta min ayna? “Min ayna” — qaysi davlatdan. “Anta min ayna?” — siz qaysi davlatdan? Endi “qaysi tilni gapirasiz” ni o‘rganamiz.",
-   "say": "Where are you from? I am from Uzbekistan. He is from Egypt. Which country are you from?",
-   "say_uz": "Qaysi davlatdan siz? Men O‘zbekistondanman. U Misrdan. Siz qaysi davlatdan?",
+   "say_native": "Javoblar: “kam ukhtan ʿindak?” “Kam sāʿatan tanām?” “Kam ʿumruki?” — ayolga “-ki”. “Bikam hādhihi s-sutra?” — sutra ayol jinsi, shuning uchun “hādhihi”. Bir madaniy eslatma: ko‘p madaniyatlarda bo‘lgani kabi, arab dunyosida ham kattalardan, ayniqsa ayollardan yoshini so‘rash odobsizlik hisoblanishi mumkin. Bu savolni tengdoshlar bilan ishlating.",
+   "say": "كَمْ أُخْتًا عِنْدَكَ؟ كَمْ سَاعَةً تَنَامُ؟ كَمْ عُمْرُكِ؟ بِكَمْ هَذِهِ السُّتْرَةُ؟",
+   "say_uz": "Nechta opa-singlingiz bor? Necha soat uxlaysiz? Yoshingiz nechada? Bu kurtka qancha?",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Qaysi tilni gapirasiz?",
-   "emotion": "neutral",
-   "board": [
-    "أَيُّ لُغَةٍ تَتَكَلَّمُ؟ — qaysi tilni gapirasiz?",
-    "أَتَكَلَّمُ الْعَرَبِيَّةَ — men arab tilini gapiraman",
-    "أَتَكَلَّمُ الْأُوزْبَكِيَّةَ — men o‘zbek tilini gapiraman"
-   ],
-   "examples": [
-    {
-     "t": "أَيُّ لُغَةٍ تَتَكَلَّمُ؟",
-     "uz": "Qaysi tilni gapirasiz?"
-    },
-    {
-     "t": "أَتَكَلَّمُ الْعَرَبِيَّةَ",
-     "uz": "Men arab tilini gapiraman"
-   }
-  ],
-   "say_native": "“Ayya lughatan tatakallamu?” — qaysi tilni gapirasiz? “Ana tatakallamu al-ʿarabiyya” — men arab tilini gapiraman. “Ana tatakallamu al-ʿuzbakiyya” — men o‘zbek tilini gapiraman. “Tatakallamu” — gapiraman, “lughah” — til. “Al-ʿarabiyya” — arab tili, “al-ʿuzbakiyya” — o‘zbek tili. Endi dialog ko‘ramiz.",
-   "say": "Ayya lughatan tatakallamu? What language do you speak? Ana tatakallamu al-arabiyya.",
-   "say_uz": "Ayya lughatan tatakallamu? Qaysi tilni gapirasiz? Ana tatakallamu al-arabiyya. Men arab tilini gapiraman.",
+   "title": "So‘z tartibi",
+   "emotion": "thinking",
+   "board": ["O‘zbekcha: Ahmad qayerda yashaydi?", "Arabcha: أَيْنَ يَسْكُنُ أَحْمَدُ؟ (qayerda — yashaydi — Ahmad)", "مَاذَا تَدْرُسُ لَيْلَى؟ — Layli nima o‘qiydi?"],
+   "examples": [{"t": "أَيْنَ يَسْكُنُ أَحْمَدُ؟", "uz": "Ahmad qayerda yashaydi?"}, {"t": "مَتَى تَعُودُ سَارَةُ؟", "uz": "Sora qachon qaytadi?"}],
+   "say_native": "Tartib qoidasi. Adabiy arab tilida so‘roq so‘zi doim birinchi o‘rinda. Keyin fe’l, keyin ega: “ayna yaskunu Aḥmad?” — so‘zma-so‘z “qayerda yashaydi Ahmad?” O‘zbek tilida esa ega boshida, so‘roq so‘zi o‘rtada, fe’l oxirida: “Ahmad qayerda yashaydi?” Bu farqqa e’tibor bering. Ba’zi arab shevalarida so‘roq so‘zi oxirda ham keladi, lekin adabiy tilda u boshda.",
+   "say": "أَيْنَ يَسْكُنُ أَحْمَدُ؟ مَاذَا تَدْرُسُ لَيْلَى؟ مَتَى تَعُودُ سَارَةُ؟",
+   "say_uz": "Ahmad qayerda yashaydi? Layli nima o‘qiydi? Sora qachon qaytadi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Tartib xatolari",
+   "emotion": "stern",
+   "board": ["✗ أَحْمَدُ يَسْكُنُ أَيْنَ؟", "✓ أَيْنَ يَسْكُنُ أَحْمَدُ؟", "✗ هَلْ مِنْ أَيْنَ أَنْتَ؟", "✓ مِنْ أَيْنَ أَنْتَ؟"],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: o‘zbekcha tartibni ko‘chirish, so‘roq so‘zini oxirga yoki o‘rtaga qo‘yish: “Aḥmadu yaskunu ayna?” Adabiy tilda to‘g‘risi: “ayna yaskunu Aḥmad?” Ikkinchisi: “hal” ni so‘roq so‘zi bilan birga ishlatish. “Hal” faqat ha/yo‘q savollari uchun. Agar gapda “ayna”, “man”, “matā” kabi so‘z bo‘lsa, “hal” kerak emas, chunki savol allaqachon bor.",
+   "say": "أَيْنَ يَسْكُنُ أَحْمَدُ؟ مِنْ أَيْنَ أَنْتَ؟",
+   "say_uz": "Ahmad qayerda yashaydi? Qayerdansiz?",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Til",
+   "title": "Tartibni tiklang",
    "emotion": "encouraging",
-   "board": [
-    "1) Qaysi tilni gapirasiz?",
-    "2) Men arab tilini gapiraman.",
-    "3) U o‘zbek tilini gapiradi.",
-    "4) Siz qaysi tilni gapirasiz?"
-   ],
+   "board": ["1) يَعْمَلُ / أَيْنَ / كَرِيمٌ", "2) سَارَةُ / مَاذَا / تَشْرَبُ", "3) يَبْدَأُ / مَتَى / الْفِيلْمُ", "4) أَنْتِ / أَيْنَ / مِنْ"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: qaysi tilni gapirasiz? Ikkinchi: men arab tilini gapiraman. Uchinchi: u o‘zbek tilini gapiradi. To‘rtinchi: siz qaysi tilni gapirasiz? “Ayya lughatan tatakallamu?”, “Ana tatakallamu al-ʿarabiyya”, “Huwa tatakallamu al-ʿuzbakiyya”, “Anta ayya lughatan tatakallamu?”.",
-   "say": "Which language do you speak? I speak Arabic. He speaks Uzbek. Which language do you speak?",
-   "say_uz": "Qaysi tilni gapirasiz? Men arab tilini gapiraman. U o‘zbek tilini gapiradi. Siz qaysi tilni gapirasiz?",
-   "practice_seconds": 14
+   "say_native": "Mashq. Doskada to‘rtta savolning so‘zlari aralashib ketgan. Ularni to‘g‘ri tartibda ayting: avval so‘roq so‘zi, keyin fe’l, keyin ega. Uchinchisida “al-film” — film. To‘rtinchisida fe’l yo‘q, oldingi qism “min ayna” birga turadi. Har birini o‘zbekchaga ham tarjima qiling.",
+   "say": "أَيْنَ... مَاذَا... مَتَى... مِنْ أَيْنَ...",
+   "say_uz": "Qayerda... nima... qachon... qayerdan...",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "أَيُّ لُغَةٍ تَتَكَلَّمُ؟",
-    "أَتَكَلَّمُ الْعَرَبِيَّةَ",
-    "هُوَ يَتَكَلَّمُ الْأُوزْبَكِيَّةَ",
-    "أَنْتَ أَيُّ لُغَةٍ تَتَكَلَّمُ؟"
-   ],
+   "board": ["1) أَيْنَ يَعْمَلُ كَرِيمٌ؟", "2) مَاذَا تَشْرَبُ سَارَةُ؟", "3) مَتَى يَبْدَأُ الْفِيلْمُ؟", "4) مِنْ أَيْنَ أَنْتِ؟"],
    "examples": [],
-   "say_native": "Javoblar: ayya lughatan tatakallamu? Ana tatakallamu al-ʿarabiyya. Huwa yatakallamu al-ʿuzbakiyya. Anta ayya lughatan tatakallamu? “Yatakallamu” — u gapiradi. Endi yangi do‘st bilan dialog ko‘ramiz.",
-   "say": "Which language do you speak? I speak Arabic. He speaks Uzbek. Which language do you speak?",
-   "say_uz": "Qaysi tilni gapirasiz? Men arab tilini gapiraman. U o‘zbek tilini gapiradi. Siz qaysi tilni gapirasiz?",
+   "say_native": "Javoblar: “ayna yaʿmalu Karīm?” — Karim qayerda ishlaydi? “Mādhā tashrabu Sāra?” — Sora nima ichadi? Fe’l “ta” bilan, chunki Sora ayol. “Matā yabdaʾu l-film?” — film qachon boshlanadi? “Min ayna anti?” — qayerdansiz? Ko‘rib turibsiz, fe’l egadan oldin kelganda ham ega jinsiga mos: Sora uchun “tashrabu”, Karim uchun “yaʿmalu”.",
+   "say": "أَيْنَ يَعْمَلُ كَرِيمٌ؟ مَاذَا تَشْرَبُ سَارَةُ؟ مَتَى يَبْدَأُ الْفِيلْمُ؟ مِنْ أَيْنَ أَنْتِ؟",
+   "say_uz": "Karim qayerda ishlaydi? Sora nima ichadi? Film qachon boshlanadi? Qayerdansiz?",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog: yangi do‘st",
+   "title": "Birinchi dialog: universitetda tanishuv",
    "emotion": "happy",
-   "board": [
-    "أَحْمَد: مَنْ أَنْتَ؟",
-    "سَامِي: أَنَا سَامِي، وَأَنَا مِنْ مِصْرَ.",
-    "أَحْمَد: كَمْ عُمْرُكَ؟",
-    "سَامِي: عُمْرِي ثَلَاثُونَ سَنَةً."
-   ],
+   "board": ["تَيْمُورُ: مَرْحَبًا! مَا اسْمُكَ؟ — كَرِيمٌ: اسْمِي كَرِيمٌ. وَأَنْتَ؟", "تَيْمُورُ: أَنَا تَيْمُورُ. مِنْ أَيْنَ أَنْتَ يَا كَرِيمُ؟", "كَرِيمٌ: مِنَ الْأُرْدُنِّ. هَلْ أَنْتَ مِنْ أُوزْبَكِسْتَانَ؟", "كَرِيمٌ: لِمَاذَا تَدْرُسُ الْعَرَبِيَّةَ؟"],
    "examples": [],
-   "say_native": "Dialog. Ahmad “man anta?” — siz kim? Sami “ana Sami, wa ana min Miṣra” — men Sami, men Misrdanman. Ahmad “kam ʿumruka?” — necha yoshda siz? Sami “ʿumrī thalāthūna sanatān” — men 30 yoshdaman. “Thalāthūna” — ottiz. Bu tanishish jarayoni. Endi o‘zingiz 10 ta savol yozasiz.",
-   "say": "Who are you? I am Sami, I am from Egypt. How old are you? I am 30 years old.",
-   "say_uz": "Siz kim? Men Sami, men Misrdanman. Necha yoshda siz? Men 30 yoshdaman.",
+   "say_native": "Birinchi dialog. Temur Ammandagi universitetda yangi kursdoshi Karim bilan tanishadi. Ular bir-biridan ism, qayerdanligi, nima o‘qishi va nega arab tilini o‘rganayotganini so‘rashadi. Yangi so‘zlar: “al-Urdun” — Iordaniya, “aṭ-ṭibb” — tibbiyot, “al-ʾān” — hozir. Har bir savolda qaysi so‘roq so‘zi ishlatilganini kuzating.",
+   "say": "مَرْحَبًا! مَا اسْمُكَ؟ اسْمِي كَرِيمٌ. وَأَنْتَ؟ أَنَا تَيْمُورُ. مِنْ أَيْنَ أَنْتَ يَا كَرِيمُ؟ مِنَ الْأُرْدُنِّ. هَلْ أَنْتَ مِنْ أُوزْبَكِسْتَانَ؟ نَعَمْ، مِنْ سَمَرْقَنْدَ. مَاذَا تَدْرُسُ هُنَا؟ أَدْرُسُ الطِّبَّ. وَلِمَاذَا تَدْرُسُ الْعَرَبِيَّةَ؟ لِأَنِّي أَسْكُنُ هُنَا الْآنَ.",
+   "say_uz": "Salom! Ismingiz nima? Ismim Karim. Sizniki-chi? Men Temurman. Qayerdansiz, Karim? Iordaniyadan. Siz O‘zbekistondanmisiz? Ha, Samarqanddan. Bu yerda nima o‘qiysiz? Tibbiyot o‘qiyman. Nega arab tilini o‘rganyapsiz? Chunki hozir shu yerda yashayman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": [
-    "1) Sami kim?",
-    "2) U qaysi davlatdan?",
-    "3) U necha yoshda?",
-    "4) Ahmad nima so‘radi?"
-   ],
+   "board": ["1) Karim qayerdan?", "2) Temur qaysi shahardan?", "3) Temur nima o‘qiydi?", "4) Nega u arab tilini o‘rganadi?"],
    "examples": [],
-   "say_native": "To‘rtta savol. Birinchi: Sami kim? Ikkinchi: u qaysi davlatdan? Uchinchi: u necha yoshda? To‘rtinchi: Ahmad nima so‘radi? Dialogdan javob bering.",
-   "say": "Who is Sami? Which country is he from? How old is he? What did Ahmad ask?",
-   "say_uz": "Sami kim? U qaysi davlatdan? U necha yoshda? Ahmad nima so‘radi?",
+   "say_native": "To‘rtta savol, bu safar uchinchi shaxsda. Birinchi: Karim qayerdan? Ikkinchi: Temur qaysi shahardan? Uchinchi: Temur nima o‘qiydi? To‘rtinchi: nega u arab tilini o‘rganadi? Javobni arabcha bering: “huwa min …”, “yadrusu …”, “li-annahu …” — chunki u.",
+   "say": "مِنْ أَيْنَ كَرِيمٌ؟ مِنْ أَيِّ مَدِينَةٍ تَيْمُورُ؟ مَاذَا يَدْرُسُ تَيْمُورُ؟ لِمَاذَا يَدْرُسُ الْعَرَبِيَّةَ؟",
+   "say_uz": "Karim qayerdan? Temur qaysi shahardan? Temur nima o‘qiydi? Nega u arab tilini o‘rganadi?",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "1) سَامِي",
-    "2) هُوَ مِنْ مِصْرَ",
-    "3) عُمْرِي ثَلَاثُونَ سَنَةً",
-    "4) كَمْ عُمْرُكَ؟"
-   ],
+   "board": ["1) هُوَ مِنَ الْأُرْدُنِّ.", "2) مِنْ سَمَرْقَنْدَ.", "3) يَدْرُسُ الطِّبَّ.", "4) لِأَنَّهُ يَسْكُنُ هُنَاكَ الْآنَ."],
    "examples": [],
-   "say_native": "Javoblar: Sami. Huwa min Miṣra. ʿUmrī thalāthūna sanatān. Kam ʿumruka? “Thalāthūna” — ottiz. Endi intonatsiyani yana bir marta takrorlaymiz.",
-   "say": "Sami. He is from Egypt. I am 30 years old. How old are you?",
-   "say_uz": "Sami. U Misrdan. Men 30 yoshdaman. Necha yoshda siz?",
+   "say_native": "Javoblar: Karim Iordaniyadan — “huwa mina l-Urdun”. Temur Samarqanddan. U tibbiyot o‘qiydi — “yadrusu ṭ-ṭibb”. U arab tilini o‘rganadi, chunki hozir o‘sha yerda yashaydi — “li-annahu yaskunu hunāka l-ān”. “Li-annahu” — chunki u, “li-annī” — chunki men. Savoldagi “min ayyi madīna?” — qaysi shahardan? “Ayy” — qaysi, bu ham foydali so‘roq so‘zi.",
+   "say": "هُوَ مِنَ الْأُرْدُنِّ. تَيْمُورُ مِنْ سَمَرْقَنْدَ. يَدْرُسُ الطِّبَّ. لِأَنَّهُ يَسْكُنُ هُنَاكَ الْآنَ.",
+   "say_uz": "U Iordaniyadan. Temur Samarqanddan. Tibbiyot o‘qiydi. Chunki u hozir o‘sha yerda yashaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Yana so‘roq so‘zlari",
-   "emotion": "neutral",
-   "board": [
-    "مَتَى تَأْتِي؟ — qachon kelsiz?",
-    "أَيْنَ تَسْكُنُ؟ — qayerda yashaysiz?",
-    "كَمْ عُمْرُكَ؟ — necha yoshda siz?"
-   ],
-   "examples": [
-    {
-     "t": "مَتَى تَأْتِي؟",
-     "uz": "Qachon kelsiz?"
-    },
-    {
-     "t": "أَيْنَ تَسْكُنُ؟",
-     "uz": "Qayerda yashaysiz?"
-   }
-  ],
-   "say_native": "Yana so‘roq so‘zlari takrorlash. “Matā taʾtī?” — qachon kelsiz? “Ayna taskunu?” — qayerda yashaysiz? “Kam ʿumruka?” — necha yoshda siz? Barcha so‘roq so‘zlari boshida turadi, fe’l keyin. “Taskunu” — yashaysiz, “taʾtī” — kelsiz. Endi ohangni takrorlaymiz.",
-   "say": "Mata ta'ti? Ayna taskunu? Kam umruka?",
-   "say_uz": "Mata ta'ti? Qachon kelsiz? Ayna taskunu? Qayerda yashaysiz? Kam umruka? Necha yoshda siz?",
+   "title": "Savol ohangi",
+   "emotion": "thinking",
+   "board": ["هَلْ أَنْتَ طَالِبٌ؟ ↗ — oxirida ovoz ko‘tariladi", "أَيْنَ تَسْكُنُ؟ ↘ — so‘roq so‘zi urg‘uli, oxiri pasayadi", "أَنْتَ طَالِبٌ؟ ↗ — faqat ohang bilan savol"],
+   "examples": [{"t": "هَلْ أَنْتَ طَالِبٌ؟", "uz": "Talabamisiz? (ovoz ko‘tariladi)"}, {"t": "أَيْنَ تَسْكُنُ؟", "uz": "Qayerda yashaysiz? (ovoz pasayadi)"}],
+   "say_native": "Ohang. Ha/yo‘q savollarida gap oxirida ovoz ko‘tariladi: “hal anta ṭālib?” ↗. So‘roq so‘zli savollarda esa so‘roq so‘zi kuchli aytiladi, oxirida ovoz pasayadi: “ayna taskun?” ↘. O‘zbek tilida ham shunga o‘xshash: “Talabamisiz?” — oxiri ko‘tariladi, “Qayerda yashaysiz?” — “qayerda” urg‘uli. So‘zlashuvda “hal” siz savol berilsa, faqat ko‘tarilgan ohang uni savolga aylantiradi.",
+   "say": "هَلْ أَنْتَ طَالِبٌ؟ أَيْنَ تَسْكُنُ؟ أَنْتَ طَالِبٌ؟ أَنْتَ طَالِبٌ.",
+   "say_uz": "Talabamisiz? Qayerda yashaysiz? Talabamisiz? Siz talabasiz.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Takrorlash",
+   "title": "Ohang bilan o‘qing",
    "emotion": "encouraging",
-   "board": [
-    "1) Qachon kelsiz?",
-    "2) Qayerda yashaysiz?",
-    "3) Necha yoshda siz?",
-    "4) Qaysi tilni gapirasiz?"
-   ],
+   "board": ["1) هَلْ تَتَكَلَّمُ الْعَرَبِيَّةَ؟ ↗", "2) مَاذَا تَدْرُسُ؟ ↘", "3) أَنْتَ مِنْ سَمَرْقَنْدَ؟ ↗", "4) أَنْتَ مِنْ سَمَرْقَنْدَ. ↘"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta savolni arabcha ayting. Birinchi: qachon kelsiz? Ikkinchi: qayerda yashaysiz? Uchinchi: necha yoshda siz? To‘rtinchi: qaysi tilni gapirasiz? “Matā taʾtī?”, “Ayna taskunu?”, “Kam ʿumruka?”, “Ayya lughatan tatakallamu?”.",
-   "say": "When do you come? Where do you live? How old are you? Which language do you speak?",
-   "say_uz": "Qachon kelsiz? Qayerda yashaysiz? Necha yoshda siz? Qaysi tilni gapirasiz?",
+   "say_native": "Mashq. To‘rtta gapni tinglang va o‘qituvchidan keyin to‘g‘ri ohang bilan takrorlang. Birinchisida oxiri ko‘tariladi. Ikkinchisida “mādhā” urg‘uli, oxiri pasayadi. Uchinchi va to‘rtinchisi bir xil so‘zlardan iborat, lekin biri savol, biri darak gap: farq faqat ohangda.",
+   "say": "هَلْ تَتَكَلَّمُ الْعَرَبِيَّةَ؟ مَاذَا تَدْرُسُ؟ أَنْتَ مِنْ سَمَرْقَنْدَ؟ أَنْتَ مِنْ سَمَرْقَنْدَ.",
+   "say_uz": "Arabcha gapirasizmi? Nima o‘qiysiz? Samarqanddanmisiz? Siz Samarqanddansiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Tekshirib ko‘ring",
+   "emotion": "proud",
+   "board": ["↗ هَلْ ...؟", "↘ مَنْ، مَا، أَيْنَ، مَتَى، لِمَاذَا، كَيْفَ، كَمْ", "↗ / ↘ — savol yoki darak gap"],
+   "examples": [],
+   "say_native": "O‘zingizni tekshiring. “Hal” li savolda oxirgi so‘zda ovozingiz ko‘tarildimi? “Mādhā tadrus?” da birinchi so‘z kuchli aytilib, oxiri pasaydimi? Oxirgi ikki gapni bir-biridan farqladingizmi? Agar ohang bir xil chiqsa, savolingiz darak gapdek eshitiladi va suhbatdoshingiz javob bermasligi mumkin. Ohangni ataylab biroz bo‘rttirib mashq qiling.",
+   "say": "هَلْ أَنْتَ مُسْتَعِدٌّ؟ نَعَمْ! أَحْسَنْتَ!",
+   "say_uz": "Tayyormisiz? Ha! Barakalla!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ikkinchi dialog: suratdagi kim?",
+   "emotion": "happy",
+   "board": ["سَارَةُ: مَنْ هَذَا فِي الصُّورَةِ؟ — لَيْلَى: هَذَا أَخِي.", "سَارَةُ: مَا اسْمُهُ؟ كَمْ عُمْرُهُ؟ — لَيْلَى: عُمَرُ، عِشْرُونَ سَنَةً.", "سَارَةُ: أَيْنَ يَسْكُنُ؟ — لَيْلَى: فِي دُبَيّ، يَعْمَلُ هُنَاكَ.", "سَارَةُ: مَتَى يَزُورُكُمْ؟ — لَيْلَى: عَادَةً فِي الصَّيْفِ."],
+   "examples": [],
+   "say_native": "Ikkinchi dialog. Sora dugonasi Laylining telefonidagi suratni ko‘rib, unda kim borligini so‘raydi. Layli akasi haqida gapiradi. Yangi so‘zlar: “ṣūra” — surat, “akhī” — akam yoki ukam, “yazūrukum” — sizlarni ziyorat qiladi, ya’ni oldingizga keladi, “aṣ-ṣayf” — yoz. E’tibor bering: ism “ʿUmar” va “ʿumr” — yosh, ikki xil so‘z.",
+   "say": "مَنْ هَذَا فِي الصُّورَةِ؟ هَذَا أَخِي. مَا اسْمُهُ؟ اسْمُهُ عُمَرُ. كَمْ عُمْرُهُ؟ عِشْرُونَ سَنَةً. أَيْنَ يَسْكُنُ؟ يَسْكُنُ فِي دُبَيّ، وَيَعْمَلُ هُنَاكَ. وَمَتَى يَزُورُكُمْ؟ عَادَةً فِي الصَّيْفِ.",
+   "say_uz": "Suratdagi bu kim? Bu akam. Ismi nima? Ismi Umar. Yoshi nechada? Yigirma yoshda. Qayerda yashaydi? Dubayda yashaydi va o‘sha yerda ishlaydi. Sizlarni qachon ko‘rgani keladi? Odatda yozda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": ["1) Suratda kim bor?", "2) U necha yoshda?", "3) Nega u Dubayda yashaydi?", "4) U qachon oilasini ko‘rgani keladi?"],
+   "examples": [],
+   "say_native": "To‘rtta savol. Birinchi: suratda kim bor? Ikkinchi: u necha yoshda? Uchinchi: nega u Dubayda yashaydi? To‘rtinchi: u qachon oilasini ko‘rgani keladi? Javoblarni arabcha qisqa bering, uchinchisida “li-annahu” ni ishlating.",
+   "say": "مَنْ فِي الصُّورَةِ؟ كَمْ عُمْرُهُ؟ لِمَاذَا يَسْكُنُ فِي دُبَيّ؟ مَتَى يَزُورُ أُسْرَتَهُ؟",
+   "say_uz": "Suratda kim bor? Yoshi nechada? Nega Dubayda yashaydi? Oilasini qachon ko‘rgani keladi?",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "مَتَى تَأْتِي؟",
-    "أَيْنَ تَسْكُنُ؟",
-    "كَمْ عُمْرُكَ؟",
-    "أَيُّ لُغَةٍ تَتَكَلَّمُ؟"
-   ],
+   "board": ["1) أَخُو لَيْلَى، عُمَرُ", "2) عِشْرُونَ سَنَةً", "3) لِأَنَّهُ يَعْمَلُ هُنَاكَ", "4) عَادَةً فِي الصَّيْفِ"],
    "examples": [],
-   "say_native": "Javoblar: matā taʾtī? Ayna taskunu? Kam ʿumruka? Ayya lughatan tatakallamu? Barcha savollar so‘roq so‘zi bilan boshlanadi. Ohang past. Endi dars yakunlanadi.",
-   "say": "When do you come? Where do you live? How old are you? Which language do you speak?",
-   "say_uz": "Qachon kelsiz? Qayerda yashaysiz? Necha yoshda siz? Qaysi tilni gapirasiz?",
+   "say_native": "Javoblar: suratda Laylining akasi Umar — “akhū Laylā”. U yigirma yoshda. U Dubayda yashaydi, chunki o‘sha yerda ishlaydi — “li-annahu yaʿmalu hunāk”. U odatda yozda keladi. Sora qanday savollar berganiga qayta qarang: “man”, “mā”, “kam”, “ayna”, “matā” — bitta qisqa suhbatda beshta so‘roq so‘zi. Tanishuv suhbati aynan shunday ko‘rinadi.",
+   "say": "فِي الصُّورَةِ أَخُو لَيْلَى، عُمَرُ. عُمْرُهُ عِشْرُونَ سَنَةً. لِأَنَّهُ يَعْمَلُ هُنَاكَ. عَادَةً فِي الصَّيْفِ.",
+   "say_uz": "Suratda Laylining akasi Umar. U yigirma yoshda. Chunki u o‘sha yerda ishlaydi. Odatda yozda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yangi do‘stga o‘nta savol",
+   "emotion": "encouraging",
+   "board": ["هَلْ ... ؟ (2 ta)", "مَا / مَاذَا / مَنْ ... ؟", "أَيْنَ / مِنْ أَيْنَ / مَتَى ... ؟", "لِمَاذَا / كَيْفَ / كَمْ ... ؟"],
+   "examples": [],
+   "say_native": "Yakuniy vazifa. Tasavvur qiling, yangi arab do‘st bilan tanishdingiz. Unga o‘nta savol bering: ikkitasi “hal” bilan, qolganlarida turli so‘roq so‘zlari: ism, qayerdanligi, qayerda yashashi, nima ish qilishi, qachon uyg‘onishi, nega arab tilini bilishi, ishga qanday borishi, nechta aka-ukasi borligi. So‘roq so‘zini boshga qo‘ying va ohangni to‘g‘ri bering.",
+   "say": "أَنَا صَدِيقُكَ الْجَدِيدُ. اِسْأَلْنِي!",
+   "say_uz": "Men sizning yangi do‘stingizman. Mendan so‘rang!",
+   "practice_seconds": 26
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna savollar",
+   "emotion": "proud",
+   "board": ["مَا اسْمُكَ؟ · مِنْ أَيْنَ أَنْتَ؟ · أَيْنَ تَسْكُنُ؟", "هَلْ تَعْمَلُ أَمْ تَدْرُسُ؟ · مَاذَا تَدْرُسُ؟", "مَتَى تَسْتَيْقِظُ؟ · كَيْفَ تَذْهَبُ إِلَى الْجَامِعَةِ؟", "كَمْ أَخًا عِنْدَكَ؟ · لِمَاذَا تُحِبُّ طَشْقَنْدَ؟"],
+   "examples": [],
+   "say_native": "Namuna savollarni tinglang. E’tibor bering: “hal taʿmalu am tadrus?” — ishlaysizmi yoki o‘qiysizmi? “Am” — yoki, faqat savolda ishlatiladi, ikki variantdan birini tanlashni so‘raydi. O‘z savollaringizni solishtiring: “mā” va “mādhā” to‘g‘ri tanlanganmi, “kam” dan keyin birlik va “-an” bormi, so‘roq so‘zi boshdami?",
+   "say": "مَا اسْمُكَ؟ مِنْ أَيْنَ أَنْتَ؟ أَيْنَ تَسْكُنُ؟ هَلْ تَعْمَلُ أَمْ تَدْرُسُ؟ مَاذَا تَدْرُسُ؟ مَتَى تَسْتَيْقِظُ؟ كَيْفَ تَذْهَبُ إِلَى الْجَامِعَةِ؟ كَمْ أَخًا عِنْدَكَ؟ لِمَاذَا تُحِبُّ طَشْقَنْدَ؟",
+   "say_uz": "Ismingiz nima? Qayerdansiz? Qayerda yashaysiz? Ishlaysizmi yoki o‘qiysizmi? Nima o‘qiysiz? Qachon uyg‘onasiz? Universitetga qanday borasiz? Nechta aka-ukangiz bor? Nega Toshkentni yaxshi ko‘rasiz?",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": [
-    "هَلْ، مَنْ، مَا، أَيْنَ، مَتَى، لِمَاذَا، كَيْفَ، كَمْ",
-    "مَنْ هَذَا؟ / مَا هَذَا؟",
-    "أَيْنَ تَدْرسُ؟ / مَتَى تَأْتِي؟",
-    "هَلْ تَعْرِفُنِي؟"
-   ],
+   "board": ["هَلْ + gap ↗ — نَعَمْ / لَا", "مَنْ (kim) · مَا + ot / مَاذَا + fe’l (nima)", "أَيْنَ · مَتَى · لِمَاذَا ← لِأَنِّي · كَيْفَ · كَمْ + birlik -an", "So‘roq so‘zi + fe’l + ega"],
    "examples": [],
-   "say_native": "Xulosa. So‘roq so‘zlarini o‘rgandik: man, mā, ayna, matā, limādhā, kayfa, kam. “Hal” ha/yo‘q savoli. Barcha so‘roq so‘zlari boshida turadi. Ohang: “hal” yuqori, so‘roq so‘zli savol past. Eng muhim fikr: so‘roq so‘zi boshida, fe’l keyin.",
-   "say": "Hal, who, what, where, when, why, how, how much.",
-   "say_uz": "Hal, kim, nima, qayerda, qachon, nima uchun, qanday, necha.",
+   "say_native": "Xulosa. Ha/yo‘q savoli: gap boshiga “hal”, oxirida ovoz ko‘tariladi. So‘roq so‘zlari: “man” — kim, “mā” ot oldidan va “mādhā” fe’l oldidan — nima, “ayna” — qayerda, “matā” — qachon, “limādhā” — nega, javobi “li-annī”, “kayfa” — qanday, “kam” — nechta, keyin birlik va “-an”. Ism “mā smuk?” bilan so‘raladi. So‘roq so‘zi doim boshda, “hal” bilan birga ishlatilmaydi.",
+   "say": "هَلْ أَنْتَ طَالِبٌ؟ مَا اسْمُكَ؟ مَاذَا تَدْرُسُ؟ أَيْنَ تَسْكُنُ؟ كَمْ عُمْرُكَ؟",
+   "say_uz": "Talabamisiz? Ismingiz nima? Nima o‘qiysiz? Qayerda yashaysiz? Yoshingiz nechada?",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uy vazifasi",
    "emotion": "encouraging",
-   "board": [
-    "10 ta savol",
-    "Yangi do‘st",
-    "Muvaffaqiyat: 10 ta savol"
-   ],
+   "board": ["Yangi do‘stga 10 ta savol yozing", "kamida 2 ta هَلْ + 6 xil so‘roq so‘zi", "Muvaffaqiyat: so‘roq so‘zi boshda, مَا/مَاذَا to‘g‘ri, كَمْ + birlik"],
    "examples": [],
-   "say_native": "Uy vazifasi. Yangi do‘stingizga 10 ta arabcha savol yozing va tarjima qiling. Muvaffaqiyat mezoni: 10 ta savol, har birida “hal” yoki so‘roq so‘zi, so‘roq so‘zi boshida, to‘g‘ri ohang. Keyingi darsda inkor gaplarni o‘rganamiz.",
-   "say": "Homework: write 10 questions to ask a new friend.",
-   "say_uz": "Uy vazifasi: yangi do‘stingizga 10 ta savol yozing.",
+   "say_native": "Uy vazifasi. Yangi do‘stingizga beradigan o‘nta savolni arabcha yozing. Muvaffaqiyat mezoni: kamida ikkita “hal” li savol, kamida oltita turli so‘roq so‘zi, har bir so‘roq so‘zi gap boshida, “mā” va “mādhā” to‘g‘ri tanlangan, “kam” dan keyin birlik. Keyin savollarni to‘g‘ri ohang bilan baland ovozda o‘qing. Keyingi darsda inkor gaplarni, ya’ni “yo‘q, emas, -ma-” ni arabcha aytishni o‘rganamiz.",
+   "say": "اُكْتُبْ عَشَرَةَ أَسْئِلَةٍ لِصَدِيقٍ جَدِيدٍ. إِلَى اللِّقَاءِ!",
+   "say_uz": "Yangi do‘st uchun o‘nta savol yozing. Ko‘rishguncha!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Yangi do‘stingizga 10 ta arabcha savol yozing va tarjima qiling. Muvaffaqiyat mezoni: 10 ta savol, har birida “hal” yoki so‘roq so‘zi, so‘roq so‘zi boshida, to‘g‘ri ohang.",
+ "homework_uz": "Yangi do‘stingizga beradigan o‘nta savolni arabcha yozing va to‘g‘ri ohang bilan baland ovozda o‘qing. Muvaffaqiyat mezoni: kamida ikkita “hal” li savol, kamida oltita turli so‘roq so‘zi (man, mā/mādhā, ayna, matā, limādhā, kayfa, kam), so‘roq so‘zi gap boshida, “kam” dan keyin birlik.",
  "quiz": [
-  {
-   "q": "“Siz kim?” arabchada:",
-   "options": [
-    "مَنْ أَنْتَ؟",
-    "مَا أَنْتَ؟",
-    "أَيْنَ أَنْتَ؟",
-    "مَتَى أَنْتَ؟"
-   ],
-   "answer": 0,
-   "why_uz": "Kim uchun “man”: man anta."
-  },
-  {
-   "q": "“Bu nima?” arabchada:",
-   "options": [
-    "مَنْ هَذَا؟",
-    "مَا هَذَا؟",
-    "أَيْنَ هَذَا؟",
-    "مَتَى هَذَا؟"
-   ],
-   "answer": 1,
-   "why_uz": "Nima uchun “mā”: mā hādhā."
-  },
-  {
-   "q": "“Qayerda masjid?” arabchada:",
-   "options": [
-    "مَتَى الْمَسْجِدُ؟",
-    "أَيْنَ الْمَسْجِدُ؟",
-    "كَمْ الْمَسْجِدُ؟",
-    "لِمَاذَا الْمَسْجِدُ؟"
-   ],
-   "answer": 1,
-   "why_uz": "Qayerda uchun “ayna”: ayna al-masjid."
-  },
-  {
-   "q": "“Qachon kelsiz?” arabchada:",
-   "options": [
-    "مَتَى تَأْتِي؟",
-    "كَيْفَ تَأْتِي؟",
-    "أَيْنَ تَأْتِي؟",
-    "لِمَاذَا تَأْتِي؟"
-   ],
-   "answer": 0,
-   "why_uz": "Qachon uchun “matā”: mata ta'ti."
-  },
-  {
-   "q": "“Nima uchun kelsiz?” arabchada:",
-   "options": [
-    "كَيْفَ تَأْتِي؟",
-    "لِمَاذَا تَأْتِي؟",
-    "أَيْنَ تَأْتِي؟",
-    "مَتَى تَأْتِي؟"
-   ],
-   "answer": 1,
-   "why_uz": "Nima uchun uchun “limādhā”: limadha ta'ti."
-  },
-  {
-   "q": "“Qalaysiz?” arabchada:",
-   "options": [
-    "كَيْفَ أَنْتَ؟",
-    "مَا أَنْتَ؟",
-    "أَيْنَ أَنْتَ؟",
-    "مَتَى أَنْتَ؟"
-   ],
-   "answer": 0,
-   "why_uz": "Qanday uchun “kayfa”: kayfa anta."
-  },
-  {
-   "q": "“Necha kitob?” arabchada:",
-   "options": [
-    "كَمْ كِتَابٍ؟",
-    "مَنْ كِتَابٍ؟",
-    "أَيْنَ كِتَابٍ؟",
-    "مَتَى كِتَابٍ؟"
-   ],
-   "answer": 0,
-   "why_uz": "Necha uchun “kam”: kam kitāb."
-  },
-  {
-   "q": "So‘roq so‘zi hammada qayerda turadi?",
-   "options": [
-    "Gap boshida",
-    "Gap oxirida",
-    "Gap o‘rtasida",
-    "Har doim oxirida"
-   ],
-   "answer": 0,
-   "why_uz": "So‘roq so‘zi gap boshida turadi."
-  },
-  {
-   "q": "“Hal” savolida ohang:",
-   "options": [
-    "Yuqori",
-    "Past",
-    "To‘g‘ri",
-    "O‘chirilgan"
-   ],
-   "answer": 0,
-   "why_uz": "“Hal” savolida ohang yuqori."
-  },
-  {
-   "q": "“Meni bilasizmi?” arabchada:",
-   "options": [
-    "هَلْ تَعْرِفُنِي؟",
-    "مَنْ تَعْرِفُنِي؟",
-    "أَيْنَ تَعْرِفُنِي؟",
-    "مَتَى تَعْرِفُنِي؟"
-   ],
-   "answer": 0,
-   "why_uz": "Ha/yo‘q savoli “hal” bilan: hal ta'rifuni?"
-  }
+  {"q": "“Siz talabamisiz?”:", "options": ["أَنْتَ طَالِبٌ هَلْ؟", "هَلْ أَنْتَ طَالِبٌ؟", "مَنْ أَنْتَ طَالِبٌ؟", "مَا أَنْتَ طَالِبٌ؟"], "answer": 1, "why_uz": "“Hal” gapning boshida turadi."},
+  {"q": "“Ismingiz nima?”:", "options": ["مَنِ اسْمُكَ؟", "كَيْفَ اسْمُكَ؟", "مَاذَا اسْمُكَ؟", "مَا اسْمُكَ؟"], "answer": 3, "why_uz": "Ism “mā” bilan so‘raladi: mā smuk?"},
+  {"q": "“Nima o‘qiysiz?”:", "options": ["مَاذَا تَدْرُسُ؟", "مَنْ تَدْرُسُ؟", "هَلْ تَدْرُسُ؟", "أَيْنَ تَدْرُسُ؟"], "answer": 0, "why_uz": "Fe’l oldidan “mādhā”."},
+  {"q": "“Qayerdansiz?” (erkakka):", "options": ["أَيْنَ أَنْتَ مِنْ؟", "هَلْ مِنْ أَيْنَ أَنْتَ؟", "مِنْ أَيْنَ أَنْتَ؟", "إِلَى أَيْنَ أَنْتَ؟"], "answer": 2, "why_uz": "Min ayna anta? “Hal” so‘roq so‘zi bilan ishlatilmaydi."},
+  {"q": "“Nechta kitobingiz bor?”:", "options": ["كَمْ كُتُبٌ عِنْدَكَ؟", "كَمْ كِتَابًا عِنْدَكَ؟", "كَمْ كِتَابٌ عِنْدَكَ؟", "كَمْ الْكُتُبُ عِنْدَكَ؟"], "answer": 1, "why_uz": "“Kam” dan keyin birlik va “-an”: kitāban."},
+  {"q": "“Nega?” arabchada:", "options": ["كَيْفَ", "مَتَى", "لِمَاذَا", "أَيْنَ"], "answer": 2, "why_uz": "Limādhā = li (uchun) + mādhā (nima)."},
+  {"q": "“Chunki men shu yerda ishlayman”:", "options": ["لِأَنِّي أَعْمَلُ هُنَا", "لِمَاذَا أَعْمَلُ هُنَا", "لِأَنَّ أَعْمَلُ هُنَا", "هَلْ أَعْمَلُ هُنَا"], "answer": 0, "why_uz": "“Chunki men” — li-annī, keyin oddiy fe’l."},
+  {"q": "“Ahmad qayerda yashaydi?”:", "options": ["أَحْمَدُ يَسْكُنُ أَيْنَ؟", "أَيْنَ يَسْكُنُ أَحْمَدُ؟", "يَسْكُنُ أَيْنَ أَحْمَدُ؟", "هَلْ أَيْنَ يَسْكُنُ أَحْمَدُ؟"], "answer": 1, "why_uz": "So‘roq so‘zi + fe’l + ega."},
+  {"q": "“Ishga qanday borasiz?”:", "options": ["مَتَى تَذْهَبُ إِلَى الْعَمَلِ؟", "كَيْفَ تَذْهَبُ إِلَى الْعَمَلِ؟", "لِمَاذَا تَذْهَبُ إِلَى الْعَمَلِ؟", "كَمْ تَذْهَبُ إِلَى الْعَمَلِ؟"], "answer": 1, "why_uz": "Kayfa — usulni so‘raydi."},
+  {"q": "“هَلْ” li savolning ohangi:", "options": ["Oxirida ovoz ko‘tariladi", "Oxirida ovoz pasayadi", "Ohang ahamiyatsiz", "Faqat birinchi so‘z urg‘uli"], "answer": 0, "why_uz": "Ha/yo‘q savollarida oxiri ko‘tariladi; so‘roq so‘zli savollarda pasayadi."}
  ]
 }

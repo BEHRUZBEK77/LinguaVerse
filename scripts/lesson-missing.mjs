@@ -31,7 +31,7 @@ const [lang, count, flag] = process.argv.slice(2);
 if (lang) {
   if (!LANGS.includes(lang)) { console.error(`Til: ${LANGS.join(', ')}`); process.exit(1); }
   const q = queue(lang).slice(0, Number(count) || 150);
-  console.log(flag === '--why' ? q.map(x => `${x.id}  ${x.why}`).join('\n') : q.map(x => x.id).join(' '));
+  console.log(flag === '--json' ? JSON.stringify(q) : flag === '--why' ? q.map(x => `${x.id}  ${x.why}`).join('\n') : q.map(x => x.id).join(' '));
 } else {
   for (const l of LANGS) {
     const q = queue(l), miss = q.filter(x => x.why === 'yozilmagan').length, fix = q.length - miss;

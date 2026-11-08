@@ -37,6 +37,14 @@ named lesson files, re-run `lesson-check` until ✅, and commit again. Never use
    `git add content/uz/<lang>/<IDs>.json && git commit -m "<lang>: <IDs>" && git push`
    Pushing to `main` publishes them to the site and queues their videos.
 
+## Never-idle mode (OpenCode tabs)
+
+`node scripts/lesson-next.mjs <your_language>` prints exactly ONE task:
+`<lang> <ID> <yozilmagan | QAYTA YOZING: reason>`. It gives your own language first;
+when that is finished it hands you lessons of OTHER languages (from the end of their
+queue). Always work on the language it prints, not your tab's language. When it prints
+`HAMMASI TUGADI`, everything is done — stop and report.
+
 ## Hard rules
 
 - Never push a lesson that does not print ✅ in `lesson-check`. ⚠️ (too short/long) is NOT ✅.

@@ -1,926 +1,471 @@
 {
  "title": "Shaharda yo‘l so‘rash va tushuntirish",
- "goal_uz": "Dars oxirida shahar joylarining nomlarini aytasiz, yo‘l so‘raysiz va berasiz, chap/o‘ngga burilish, to‘g‘ri yurish, “tashqari/yonimda” va “keyin” kabi joylashuv so‘zlarini ishlatasiz va buyruq shaklida yo‘l ko‘rsatishingiz mumkin bo‘ladi.",
+ "goal_uz": "Dars oxirida o‘nta shahar joyini nomlaysiz, “لَوْ سَمَحْتَ، كَيْفَ أَذْهَبُ إِلَى …؟” kabi muloyim savollar bilan yo‘l so‘raysiz, buyruq shaklida “to‘g‘ri yuring, o‘ngga/chapga buriling, ko‘chani kesib o‘ting” deysiz va “qarshisida, yonida, orasida” so‘zlari bilan uyingizdan do‘kongacha yo‘l tushuntirasiz.",
  "vocab": [
-  {
-   "w": "السُّوقُ",
-   "uz": "bozor"
-  },
-  {
-   "w": "الْمَدْرَسَةُ",
-   "uz": "maktab"
-  },
-  {
-   "w": "الْمَسْجِدُ",
-   "uz": "masjid"
-  },
-  {
-   "w": "الْفُنْدُقُ",
-   "uz": "mehmonxona"
-  },
-  {
-   "w": "الْبَيْتُ الْبَيْضَاءُ",
-   "uz": "oq uy"
-  },
-  {
-   "w": "الْيَمِينُ",
-   "uz": "o‘ng"
-  },
-  {
-   "w": "الشِّمَالُ",
-   "uz": "chap"
-  },
-  {
-   "w": "مُسْتَقِيمًا",
-   "uz": "to‘g‘ri"
-  },
-  {
-   "w": "مُقابِلًا",
-   "uz": "tashqari / munosib"
-  },
-  {
-   "w": "بِجَانِبِ",
-   "uz": "yanada"
-  }
+  {"w": "شَارِعٌ", "uz": "ko‘cha"},
+  {"w": "مَسْجِدٌ", "uz": "masjid"},
+  {"w": "صَيْدَلِيَّةٌ", "uz": "dorixona"},
+  {"w": "مُسْتَشْفًى", "uz": "kasalxona"},
+  {"w": "مَحَطَّةٌ", "uz": "bekat, stansiya"},
+  {"w": "يَمِينًا", "uz": "o‘ngga"},
+  {"w": "يَسَارًا", "uz": "chapga"},
+  {"w": "مُسْتَقِيمًا", "uz": "to‘g‘riga"},
+  {"w": "مُقَابِلَ", "uz": "qarshisida"},
+  {"w": "اِنْعَطِفْ", "uz": "buriling (erkakka)"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "O‘n birinchi dars: shaharda yo‘l",
+   "title": "O‘n birinchi dars: shaharda",
    "emotion": "happy",
-   "board": [
-    "الدَّرْسُ الْحَادِي عَشَرَ (11-dars)",
-    "Yo‘l so‘rash va berish"
-   ],
-   "examples": [
-    {
-     "t": "أَيْنَ السُّوقُ؟",
-     "uz": "Bozor qayerda?"
-    }
-   ],
-   "say_native": "Assalomu alaykum! O‘n birinchi darsga xush kelibsiz. O‘tgan darsda uy, xonalar va jihozlarni o‘rgandik. Bugun shaharda yo‘l so‘rash va berishni o‘rganamiz: joylarning nomlari, chap-o‘ngga burilish, to‘g‘ri yurish, “tashqari” va “yanada”, hamda buyruq shaklida yo‘l ko‘rsatish. Dars oxirida uyingizdan yaqin do‘konga yo‘l ko‘rsatishingiz mumkin bo‘ladi. Boshlaymiz.",
-   "say": "Welcome to lesson eleven. Today we ask for and give directions in the city.",
-   "say_uz": "O‘n birinchi darsga xush kelibsiz. Bugun shaharda yo‘l so‘rash va berishni o‘rganamiz.",
+   "board": ["الدَّرْسُ الْحَادِي عَشَرَ (11-dars)", "لَوْ سَمَحْتَ، أَيْنَ الْمَسْجِدُ؟", "Yo‘l so‘rash va tushuntirish"],
+   "examples": [{"t": "لَوْ سَمَحْتَ، أَيْنَ الْمَسْجِدُ؟", "uz": "Kechirasiz, masjid qayerda?"}],
+   "say_native": "Assalomu alaykum! O‘n birinchi darsga xush kelibsiz. Oldingi darsda uy, xonalar va jihozlarni tasvirladik, “ustida, tagida, yonida” kabi joy so‘zlarini o‘rgandik. Bugun uydan chiqib, shaharga boramiz. Shahar joylarini nomlaysiz, yo‘lni muloyim so‘raysiz va o‘zingiz yo‘l ko‘rsatasiz: to‘g‘ri yuring, o‘ngga buriling, ko‘chani kesib o‘ting. Dars oxirida uyingizdan eng yaqin do‘kongacha yo‘l tushuntirasiz.",
+   "say": "أَهْلًا وَسَهْلًا! لَوْ سَمَحْتَ، أَيْنَ الْمَسْجِدُ؟ اِذْهَبْ مُسْتَقِيمًا.",
+   "say_uz": "Xush kelibsiz! Kechirasiz, masjid qayerda? To‘g‘ri boring.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Shahar joylarining nomlari",
+   "title": "Shahar joylari: birinchi qism",
    "emotion": "neutral",
-   "board": [
-    "السُّوقُ — bozor",
-    "الْمَدْرَسَةُ — maktab",
-    "الْمَسْجِدُ — masjid",
-    "الْفُنْدُقُ — mehmonxona"
-   ],
-   "examples": [
-    {
-     "t": "السُّوقُ",
-     "uz": "bozor"
-    },
-    {
-     "t": "الْمَسْجِدُ",
-     "uz": "masjid"
-   }
-   ],
-   "say_native": "Avval shahar joylari. “As-sūqu” — bozor, “al-madrasatu” — maktab, “al-masjidu” — masjid, “al-funduqu” — mehmonxona. Bu so‘zlar barcha “al” bilan aniq, chunki shaharda aniq joylar. “Al-masjidu” da “s” quyosh harfi, shuning uchun “al-masjidu” emas, “as-masjidu” deymiz, “l” “s” ga qo‘shilib ketadi. “Al-funduqu” da “l” saqlanadi, chunki “f” oy harfi. Bu farqni qulog‘ingiz bilan ilg‘ang.",
-   "say": "As-suq, al-madrasa, as-masjid, al-funduq. Market, school, mosque, hotel.",
-   "say_uz": "As-suq, al-madrasa, as-masjid, al-funduq. Bozor, maktab, masjid, mehmonxona.",
+   "board": ["مَسْجِدٌ (masjid) — masjid", "سُوقٌ (sūq) — bozor", "دُكَّانٌ (dukkān) — do‘kon", "مَطْعَمٌ (maṭʿam) — restoran"],
+   "examples": [{"t": "الْمَسْجِدُ قَرِيبٌ.", "uz": "Masjid yaqin."}, {"t": "الدُّكَّانُ صَغِيرٌ.", "uz": "Do‘kon kichik."}],
+   "say_native": "Shahar joylaridan boshlaymiz. Ko‘pi sizga tanish bo‘ladi. “Masjid” — masjid, o‘zbek tilida ham shunday. “Sūq” — bozor; “suq” so‘zini eshitgandirsiz. “Dukkān” — do‘kon, bizning “do‘kon” so‘zimiz aynan shundan, faqat arabchada “kk” ikkilangan. “Maṭʿam” — restoran, “ṭaʿām” — ovqat so‘zidan, ya’ni ovqatlanadigan joy. Ko‘ryapsizmi, arabcha lug‘atning bir qismini siz allaqachon bilasiz.",
+   "say": "مَسْجِدٌ. سُوقٌ. دُكَّانٌ. مَطْعَمٌ.",
+   "say_uz": "Masjid. Bozor. Do‘kon. Restoran.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Yana joylar",
-   "emotion": "impressed",
-   "board": [
-    "الْمَطْعَمُ — restoran",
-    "الْبَانِكُ — bank",
-    "الْحَدِيقَةُ — bog‘",
-    "الْجَامِعَةُ — universitet"
-   ],
-   "examples": [
-    {
-     "t": "الْبَانِكُ",
-     "uz": "bank"
-    },
-    {
-     "t": "الْحَدِيقَةُ",
-     "uz": "bog‘"
-   }
-   ],
-   "say_native": "Yana to‘rtta joy. “Al-maṭʿamu” — restoran, “al-bānku” — bank, “al-ḥadīqatu” — bog‘, “al-jāmiʿatu” — universitet. “Al-bānku” da “l” saqlanadi, chunki “b” oy harfi. “Al-ḥadīqatu” da “l” “ḥ” ga saqlanadi, chunki “ḥ” oy harfi. “Al-jāmiʿatu” da “l” “j” ga saqlanadi. “Al-maṭʿamu” — restoran. Bu joylarni yaxshi yodlab oling, ular yo‘l berishda kerak bo‘ladi.",
-   "say": "Al-matam, al-bank, al-hadiqa, al-jamia. Restaurant, bank, park, university.",
-   "say_uz": "Al-maṭʿam, al-bank, al-ḥadīqa, al-jāmiʿa. Restoran, bank, bog‘, universitet.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Joy nomlang",
-   "emotion": "encouraging",
-   "board": [
-    "1) bozor",
-    "2) maktab",
-    "3) masjid",
-    "4) mehmonxona",
-    "5) restoran"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Beshta joyni arabcha ayting: bozor, maktab, masjid, mehmonxona, restoran. Quyosh harflarda “l” ni qo‘shlab ketishni unutmang.",
-   "say": "Say the Arabic words for market, school, mosque, hotel and restaurant.",
-   "say_uz": "Arabcha ayting: bozor, maktab, masjid, mehmonxona, restoran.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "1) السُّوقُ",
-    "2) الْمَدْرَسَةُ",
-    "3) الْمَسْجِدُ",
-    "4) الْفُنْدُقُ",
-    "5) الْمَطْعَمُ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: as-sūqu. Al-madrasatu. As-masjidu. Al-funduqu. Al-maṭʿamu. Birinchi va uchinchida “l” “s” ga qo‘shilib ketadi: as-sūq, as-masjid. Qolganlarida “l” saqlanadi. Endi yo‘l berish so‘zlarini o‘rganamiz.",
-   "say": "As-suq, al-madrasa, as-masjid, al-funduq, al-matam.",
-   "say_uz": "As-suq, al-madrasa, as-masjid, al-funduq, al-maṭʿam.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Yo‘l berish: chap, o‘ng, to‘g‘ri",
+   "title": "Shahar joylari: ikkinchi qism",
    "emotion": "neutral",
-   "board": [
-    "انْعَكِفْ إلى الْيَمِينِ — o‘ngga buril",
-    "انْعَكِفْ إلى الشِّمَالِ — chapga buril",
-    "اذْهَبْ مُسْتَقِيمًا — to‘g‘ri yur",
-    "اعْبُرِ الشَّارِعَ — ko‘chaga o‘t"
-   ],
-   "examples": [
-    {
-     "t": "انْعَكِفْ إلى الْيَمِينِ",
-     "uz": "O‘ngga buril"
-    },
-    {
-     "t": "اذْهَبْ مُسْتَقِيمًا",
-     "uz": "To‘g‘ri yur"
-   }
-   ],
-   "say_native": "Yo‘l berish uchun buyruq shakli (imperativ) ishlatiladi. “In‘akif ilā al-yamīn” — o‘ngga buril. “In‘akif ilā al-shimāl” — chapga buril. “Adhhab mustaqīman” — to‘g‘ri yur. “Ishburī al-shāriʿa” — ko‘chaga o‘t. “Al-yamīn” — o‘ng, “al-shimāl” — chap. “Mustaqīman” — to‘g‘ri. Bu shakllar “anta” (siz) uchun buyruq, shuning uchun ungina biror bir narsa buyirmoqchi bo‘lsangiz ishlatiladi. “Ilā” — ga, tomon. “Al-yamīn” da “l” saqlanadi, chunki “y” oy harfi.",
-   "say": "In‘akif ila al-yamin, in‘akif ila al-shimal, adhhab mustaqiman. Turn right, turn left, go straight.",
-   "say_uz": "In‘akif ila al-yamin o‘ngga, in‘akif ila al-shimal chapga, adhhab mustaqiman to‘g‘ri yur.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Buyruq shaklli",
-   "emotion": "encouraging",
-   "board": [
-    "1) O‘ngga buril.",
-    "2) Chapga buril.",
-    "3) To‘g‘ri yur.",
-    "4) Ko‘chaga o‘t."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta buyruqni arabcha ayting. Birinchi: o‘ngga buril. Ikkinchi: chapga buril. Uchinchi: to‘g‘ri yur. To‘rtinchi: ko‘chaga o‘t. Buyruq shaklini ishlating.",
-   "say": "Turn right. Turn left. Go straight. Cross the street.",
-   "say_uz": "O‘ngga buril. Chapga buril. To‘g‘ri yur. Ko‘chaga o‘t.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "انْعَكِفْ إلى الْيَمِينِ",
-    "انْعَكِفْ إلى الشِّمَالِ",
-    "اذْهَبْ مُسْتَقِيمًا",
-    "اعْبُرِ الشَّارِعَ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: in‘akif ilā al-yamīn. In‘akif ilā al-shimāl. Adhhab mustaqīman. Ishburī al-shāriʿa. Ushbu buyruq shakllar “siz” (erkak yoki umuman) uchun. “Ishburī” da “sh” quyosh harfi, shuning uchun “al-shāriʿa”. Endi joylashuv so‘zlarini o‘rganamiz.",
-   "say": "Turn right. Turn left. Go straight. Cross the street.",
-   "say_uz": "O‘ngga buril. Chapga buril. To‘g‘ri yur. Ko‘chaga o‘t.",
+   "board": ["مُسْتَشْفًى (mustashfā) — kasalxona", "صَيْدَلِيَّةٌ (ṣaydaliyya) — dorixona", "بَنْكٌ (bank) — bank", "فُنْدُقٌ (funduq) — mehmonxona"],
+   "examples": [{"t": "الصَّيْدَلِيَّةُ بِجَانِبِ الْمُسْتَشْفَى.", "uz": "Dorixona kasalxona yonida."}, {"t": "الْفُنْدُقُ كَبِيرٌ.", "uz": "Mehmonxona katta."}],
+   "say_native": "Yana to‘rtta joy. “Mustashfā” — kasalxona, “shifo” so‘zi bilan bir o‘zakdan: shifo topiladigan joy. “Ṣaydaliyya” — dorixona; boshidagi “ṣ” qalin “s”. “Bank” — bank, xalqaro so‘z. “Funduq” — mehmonxona. E’tibor bering: o‘zbekcha “mehmonxona” ikki ma’noda ishlatiladi, uydagi xona va otel. Oldingi darsdagi uy xonasi “ghurfatu l-julūs”, otel esa “funduq”.",
+   "say": "مُسْتَشْفًى. صَيْدَلِيَّةٌ. بَنْكٌ. فُنْدُقٌ.",
+   "say_uz": "Kasalxona. Dorixona. Bank. Mehmonxona.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Joylashuv: tashqari, yanada, yaqin",
-   "emotion": "thinking",
-   "board": [
-    "مُقابِلًا — tashqari / munosib",
-    "بِجَانِبِ — yanada",
-    "قَرِيبًا — yaqin",
-    "بَعِيدًا — qanqar"
-  ],
-   "examples": [
-    {
-     "t": "الْمَسْجِدُ مُقابِلَ السُّوقِ",
-     "uz": "Masjid bozorga tashqari"
-    },
-    {
-     "t": "الْفُنْدُقُ بِجَانِبِ الْمَدْرَسَةِ",
-     "uz": "Mehmonxona maktabning yanada"
-   }
-   ],
-   "say_native": "Joylashuv so‘zlari: “muqābalan” — tashqari/munosib, “bijānibi” — yanada, “qarībā” — yaqin, “baʿīdan” — qanqar. “Al-masjidu muqābalan as-sūq” — masjid bozorga tashqari. “Al-funduqu bijānibi al-madrasati” — mehmonxona maktabning yanada. “Bijānibi” va “muqābalan” dan keyingi ot majrūr bo‘ladi: as-sūq, al-madrasati. “Qarībā” — yaqin, “baʿīdan” — far. Bu so‘zlar yo‘l berishda juda muhim.",
-   "say": "Muqabalan, bijanibi, qariban, baidan. Opposite, next to, near, far.",
-   "say_uz": "Muqabalan tashqari, bijanibi yanada, qariban yaqin, baidan qanqar.",
+   "title": "Shahar joylari: uchinchi qism",
+   "emotion": "neutral",
+   "board": ["مَحَطَّةُ الْحَافِلَاتِ — avtobus bekati", "مَكْتَبُ الْبَرِيدِ — pochta", "حَدِيقَةٌ (ḥadīqa) — bog‘, park", "شَارِعٌ (shāriʿ) — ko‘cha · الْإِشَارَةُ — svetofor"],
+   "examples": [{"t": "مَحَطَّةُ الْحَافِلَاتِ فِي هَذَا الشَّارِعِ.", "uz": "Avtobus bekati shu ko‘chada."}, {"t": "مَكْتَبُ الْبَرِيدِ مُغْلَقٌ.", "uz": "Pochta yopiq."}],
+   "say_native": "Uchinchi guruh. “Maḥaṭṭatu l-ḥāfilāt” — avtobus bekati; “maḥaṭṭa” — bekat, “ḥāfila” — avtobus. “Maktabu l-barīd” — pochta, so‘zma-so‘z “pochta idorasi”. “Ḥadīqa” — bog‘ yoki park. “Shāriʿ” — ko‘cha. Yo‘l tushuntirishda “al-ishāra” so‘zi ham ko‘p kerak bo‘ladi: u “belgi” degani, shaharda esa svetofor ma’nosida ishlatiladi. Bular ham iḍāfa: avval asosiy so‘z, keyin aniqlovchi.",
+   "say": "مَحَطَّةُ الْحَافِلَاتِ. مَكْتَبُ الْبَرِيدِ. حَدِيقَةٌ. شَارِعٌ. الْإِشَارَةُ.",
+   "say_uz": "Avtobus bekati. Pochta. Bog‘. Ko‘cha. Svetofor.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Joylashuvni ayting",
+   "title": "Joyni nomlang",
    "emotion": "encouraging",
-   "board": [
-    "1) Masjid bozorga tashqari.",
-    "2) Mehmonxona maktabning yanada.",
-    "3) Bazar yaqin.",
-    "4) Bank qanqar."
-   ],
+   "board": ["1) dorixona  2) bozor", "3) kasalxona  4) avtobus bekati", "5) do‘kon  6) pochta"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: masjid bozorga tashqari. Ikkinchi: mehmonxona maktabning yanada. Uchinchi: bazar yaqin. To‘rtinchi: bank qanqar. “Muqābalan” va “bijānibi” ni to‘g‘ri ishlating.",
-   "say": "The mosque is opposite the market. The hotel is next to the school. The market is near. The bank is far.",
-   "say_uz": "Masjid bozorga tashqari. Mehmonxona maktabning yanada. Bazar yaqin. Bank qanqar.",
+   "say_native": "Mashq. Oltita joyni arabcha ayting, har birini “al-” bilan: dorixona, bozor, kasalxona, avtobus bekati, do‘kon, pochta. Quyosh harflarini eslang: ular bilan “al-” dagi “l” eshitilmaydi va keyingi harf ikkilanadi.",
+   "say": "مَا اسْمُ هَذَا الْمَكَانِ؟",
+   "say_uz": "Bu joyning nomi nima?",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "الْمَسْجِدُ مُقابِلَ السُّوقِ",
-    "الْفُنْدُقُ بِجَانِبِ الْمَدْرَسَةِ",
-    "السُّوقُ قَرِيبًا",
-    "الْبَانِكُ بَعِيدًا"
-  ],
+   "board": ["1) الصَّيْدَلِيَّةُ (aṣ-ṣaydaliyya)  2) السُّوقُ (as-sūq)", "3) الْمُسْتَشْفَى (al-mustashfā)  4) مَحَطَّةُ الْحَافِلَاتِ", "5) الدُّكَّانُ (ad-dukkān)  6) مَكْتَبُ الْبَرِيدِ"],
    "examples": [],
-   "say_native": "Javoblar: al-masjidu muqābalan as-sūq. Al-funduqu bijānibi al-madrasati. As-sūqu qarībā. Al-bānku baʿīdan. To‘rtinchida “al-bānku” — bank, “l” saqlanadi, chunki “b” oy harfi. Endi savol berishni o‘rganamiz.",
-   "say": "The mosque is opposite the market. The hotel is next to the school. The market is near. The bank is far.",
-   "say_uz": "Masjid bozorga tashqari. Mehmonxona maktabning yanada. Bazar yaqin. Bank qanqar.",
+   "say_native": "Javoblar: aṣ-ṣaydaliyya, as-sūq, al-mustashfā, maḥaṭṭatu l-ḥāfilāt, ad-dukkān, maktabu l-barīd. “Ṣ”, “s”, “d” quyosh harflari, shuning uchun “aṣ-ṣaydaliyya”, “as-sūq”, “ad-dukkān”: “l” eshitilmaydi. “M” va “b” oy harflari: “al-mustashfā”, “al-barīd”. To‘rtinchi va oltinchisida “al-” birinchi so‘zga emas, ikkinchi so‘zga qo‘shildi, chunki bu iḍāfa.",
+   "say": "الصَّيْدَلِيَّةُ. السُّوقُ. الْمُسْتَشْفَى. مَحَطَّةُ الْحَافِلَاتِ. الدُّكَّانُ. مَكْتَبُ الْبَرِيدِ.",
+   "say_uz": "Dorixona. Bozor. Kasalxona. Avtobus bekati. Do‘kon. Pochta.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Savol berish: ayna, hal",
+   "title": "Qarshisida, yonida, orasida",
+   "emotion": "thinking",
+   "board": ["مُقَابِلَ (muqābila) — qarshisida", "بِجَانِبِ (bi-jānibi) — yonida", "بَيْنَ ... وَ ... — … bilan … orasida", "قَرِيبٌ مِنْ — … ga yaqin · بَعِيدٌ عَنْ — … dan uzoq"],
+   "examples": [{"t": "الْبَنْكُ مُقَابِلَ الْمَسْجِدِ.", "uz": "Bank masjid qarshisida."}, {"t": "السُّوقُ قَرِيبٌ مِنْ هُنَا.", "uz": "Bozor bu yerga yaqin."}],
+   "say_native": "Shaharda joy ko‘rsatish uchun yangi so‘zlar. “Muqābila” — qarshisida, ko‘chaning narigi tomonida. “Bi-jānibi” — yonida, buni oldingi darsdan bilasiz. “Bayna … wa …” — orasida. “Qarībun min” — … ga yaqin, “baʿīdun ʿan” — … dan uzoq. Qiziq: o‘zbek tilida “yaqin” bilan “-ga”, “uzoq” bilan “-dan” ishlatamiz, arabchada ham “qarīb” bilan “min”, “baʿīd” bilan “ʿan” keladi. Joy so‘zidan keyin ot yana “-i” bilan tugaydi.",
+   "say": "الْبَنْكُ مُقَابِلَ الْمَسْجِدِ. الصَّيْدَلِيَّةُ بِجَانِبِ الْبَنْكِ. السُّوقُ قَرِيبٌ مِنْ هُنَا. الْمُسْتَشْفَى بَعِيدٌ عَنْ هُنَا.",
+   "say_uz": "Bank masjid qarshisida. Dorixona bank yonida. Bozor bu yerga yaqin. Kasalxona bu yerdan uzoq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Xaritaga qarang",
+   "emotion": "encouraging",
+   "board": ["Ko‘chaning bir tomoni: dorixona — bank — masjid", "Narigi tomoni: restoran (bankning qarshisida)", "1) Bank qayerda? (orasida)", "2) Restoran qayerda? 3) Dorixona qayerda?"],
+   "examples": [],
+   "say_native": "Mashq. Doskadagi xaritani tasavvur qiling. Ko‘chaning bir tomonida ketma-ket dorixona, bank va masjid turibdi. Narigi tomonda, bankning ro‘parasida restoran. Uchta savolga arabcha javob bering. Birinchi: bank qayerda? “Orasida” so‘zini ishlating. Ikkinchi: restoran qayerda? Uchinchi: dorixona qayerda?",
+   "say": "أَيْنَ الْبَنْكُ؟ أَيْنَ الْمَطْعَمُ؟ أَيْنَ الصَّيْدَلِيَّةُ؟",
+   "say_uz": "Bank qayerda? Restoran qayerda? Dorixona qayerda?",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) الْبَنْكُ بَيْنَ الصَّيْدَلِيَّةِ وَالْمَسْجِدِ.", "2) الْمَطْعَمُ مُقَابِلَ الْبَنْكِ.", "3) الصَّيْدَلِيَّةُ بِجَانِبِ الْبَنْكِ."],
+   "examples": [],
+   "say_native": "Javoblar: “al-banku bayna ṣ-ṣaydaliyyati wal-masjid” — bank dorixona bilan masjid orasida. “Al-maṭʿamu muqābila l-bank” — restoran bank qarshisida. “Aṣ-ṣaydaliyyatu bi-jānibi l-bank” — dorixona bank yonida. Birinchi gapda “wa” dan keyingi “al-masjid” ham “-i” bilan tugaydi. Agar “restoran bankning yonida” degan bo‘lsangiz, xato: u ko‘chaning narigi tomonida, ya’ni qarshisida.",
+   "say": "الْبَنْكُ بَيْنَ الصَّيْدَلِيَّةِ وَالْمَسْجِدِ. الْمَطْعَمُ مُقَابِلَ الْبَنْكِ. الصَّيْدَلِيَّةُ بِجَانِبِ الْبَنْكِ.",
+   "say_uz": "Bank dorixona bilan masjid orasida. Restoran bank qarshisida. Dorixona bank yonida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Muloyim yo‘l so‘rash",
    "emotion": "neutral",
-   "board": [
-    "أَيْنَ ...؟ — ... qayerda?",
-    "هَلْ تَعْرِفُ ...؟ — ... ni bilasizmi?",
-    "أَيْنَ الْفُنْدُقُ؟ — mehmonxona qayerda?"
-   ],
-   "examples": [
-    {
-     "t": "أَيْنَ الْفُنْدُقُ؟",
-     "uz": "Mehmonxona qayerda?"
-    },
-    {
-     "t": "أَيْنَ السُّوقُ؟",
-     "uz": "Bozor qayerda?"
-   }
-   ],
-   "say_native": "“Qayerda?” — “ayna”. “Ayna al-funduqu?” — mehmonxona qayerda? “Ayna as-sūqu?” — bozor qayerda? “Hal taʿrifu ...?” — ... ni bilasizmi? Savol berish uchun “ayna” joyni, “hal” ha/yo‘qni so‘raydi. “Hal taʿrifu al-funduqa?” — mehmonxonani bilasizmi? Javob: “naʿam, aʿrifu” — ha, bilaman, yoki “lā, lā aʿrifu” — yo‘q, bilmayman. Endi yo‘l so‘rashni birga ko‘ramiz.",
-   "say": "Ayna al-funduq? Where is the hotel? Hal ta'rifu? Do you know?",
-   "say_uz": "Ayna al-funduq? Mehmonxona qayerda? Hal ta'rifu? Bilasizmi?",
+   "board": ["لَوْ سَمَحْتَ / لَوْ سَمَحْتِ — Kechirasiz", "أَيْنَ ...؟ — … qayerda?", "كَيْفَ أَذْهَبُ إِلَى ...؟ — … ga qanday borsam bo‘ladi?"],
+   "examples": [{"t": "لَوْ سَمَحْتَ، أَيْنَ مَحَطَّةُ الْحَافِلَاتِ؟", "uz": "Kechirasiz, avtobus bekati qayerda?"}, {"t": "كَيْفَ أَذْهَبُ إِلَى الْمُسْتَشْفَى؟", "uz": "Kasalxonaga qanday borsam bo‘ladi?"}],
+   "say_native": "Notanish odamga murojaat “law samaḥta” bilan boshlanadi, ayolga “law samaḥti”. Buni oldingi darsdan bilasiz. Keyin oddiy savol: “ayna …?” — … qayerda? Yoki “kayfa adhhabu ilā …?” — … ga qanday boraman? Bu oldingi darslardagi “adhhabu” — boraman fe’li. “Ilā” — … ga. O‘zbek tilida “kasalxonaga” deb qo‘shimcha qo‘shamiz, arab tilida esa “ilā” so‘zi otdan oldin keladi va ot “-i” bilan tugaydi.",
+   "say": "لَوْ سَمَحْتَ، أَيْنَ مَحَطَّةُ الْحَافِلَاتِ؟ كَيْفَ أَذْهَبُ إِلَى الْمُسْتَشْفَى؟",
+   "say_uz": "Kechirasiz, avtobus bekati qayerda? Kasalxonaga qanday borsam bo‘ladi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yaqin-atrofda bormi?",
+   "emotion": "thinking",
+   "board": ["هَلِ الْبَنْكُ قَرِيبٌ مِنْ هُنَا؟ — Bank bu yerga yaqinmi?", "هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟ — Yaqin-atrofda dorixona bormi?", "آسِفٌ، لَا أَعْرِفُ. — Kechirasiz, bilmayman."],
+   "examples": [{"t": "هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟", "uz": "Yaqin-atrofda dorixona bormi?"}, {"t": "آسِفٌ، لَا أَعْرِفُ.", "uz": "Kechirasiz, bilmayman."}],
+   "say_native": "Yana ikki foydali savol. “Hali l-banku qarībun min hunā?” — bank bu yerga yaqinmi? “Hal” dan keyin “al-” kelsa, ulash uchun “i” qo‘shiladi: “hali l-bank”. “Hal hunāka ṣaydaliyyatun qarība?” — yaqinda dorixona bormi? “Hunāka” ni oldingi darsda ko‘rgandik. Javob bilmasa, odam “āsif, lā aʿrif” deydi — kechirasiz, bilmayman. Ayol “āsifa” deydi. Oxirida albatta “shukran” deng.",
+   "say": "هَلِ الْبَنْكُ قَرِيبٌ مِنْ هُنَا؟ هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟ آسِفٌ، لَا أَعْرِفُ.",
+   "say_uz": "Bank bu yerga yaqinmi? Yaqin-atrofda dorixona bormi? Kechirasiz, bilmayman.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Yo‘l so‘rash xatosi",
+   "title": "“ga” va murojaat xatosi",
    "emotion": "stern",
-   "board": [
-    "✗ أَنْتَ أَيْنَ الْفُنْدُقُ؟",
-    "✓ أَيْنَ الْفُنْدُقُ؟",
-    "✗ هَلْ الْفُنْدُقُ هُنَاكَ؟",
-    "✓ هَلْ الْفُنْدُقُ هُنَاكَ؟ (to‘g‘ri, lekin oddiy)"
-   ],
+   "board": ["✗ كَيْفَ أَذْهَبُ الْمَحَطَّةَ؟", "✓ كَيْفَ أَذْهَبُ إِلَى الْمَحَطَّةِ؟", "✗ (ayolga) لَوْ سَمَحْتَ", "✓ (ayolga) لَوْ سَمَحْتِ"],
    "examples": [],
-   "say_native": "Ikki nozik nuqta. Birinchisi: “anta ayna al-funduqu?” — “siz” qo‘shilmasligi kerak, chunki “ayna” allaqachon savol so‘zi. “Ayna al-funduqu?” to‘g‘ri. Ikkinchisi: “hal al-funduqu hunāka?” — bank/mehmonxona u yerda? Bu to‘g‘ri, lekin oddiy. Yo‘l so‘rashda “ayna” aniqroq. “Anta” qo‘shilganda gap o‘chadi. “Ayna” savol boshida turadi.",
-   "say": "Say ayna al-funduq, not anta ayna al-funduq.",
-   "say_uz": "Ayna al-funduq deng, anta ayna al-funduq emas.",
+   "say_native": "Ikki xato. Birinchisi: “ilā” ni tushirib qoldirish. O‘zbekchada “bekatga” bitta so‘z, shuning uchun o‘quvchi arabchada “-ga” ni unutadi: “kayfa adhhabu l-maḥaṭṭa?” To‘g‘risi: “kayfa adhhabu ilā l-maḥaṭṭa?” “Adhhabu” fe’li yo‘nalish uchun doim “ilā” talab qiladi. Ikkinchisi: ayolga erkak shaklida murojaat. Ayolga “law samaḥti”, oxiri “-ti”.",
+   "say": "كَيْفَ أَذْهَبُ إِلَى الْمَحَطَّةِ؟ لَوْ سَمَحْتِ.",
+   "say_uz": "Bekatga qanday borsam bo‘ladi? Kechirasiz (ayolga).",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Yo‘l so‘rang",
    "emotion": "encouraging",
-   "board": [
-    "1) Mehmonxona qayerda?",
-    "2) Bazaar qayerda?",
-    "3) Universitet qayerda?",
-    "4) Hammom qayerda?"
-   ],
+   "board": ["1) (erkakka) Kechirasiz, avtobus bekati qayerda?", "2) Kasalxonaga qanday borsam bo‘ladi?", "3) Bank bu yerga yaqinmi?", "4) (ayolga) Kechirasiz, yaqinda dorixona bormi?"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta joyni so‘rang: mehmonxona, bozor, universitet, hammom. Har birida “ayna” bilan boshlang. “Ayna al-funduqu?”, “Ayna as-sūqu?”, “Ayna al-jāmiʿatu?”, “Ayna al-ḥammāmu?”.",
-   "say": "Where is the hotel? Where is the market? Where is the university? Where is the bathroom?",
-   "say_uz": "Mehmonxona qayerda? Bozor qayerda? Universitet qayerda? Hammom qayerda?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "أَيْنَ الْفُنْدُقُ؟",
-    "أَيْنَ السُّوقُ؟",
-    "أَيْنَ الْجَامِعَةُ؟",
-    "أَيْنَ الْحَمَّامُ؟"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ayna al-funduqu? Ayna as-sūqu? Ayna al-jāmiʿatu? Ayna al-ḥammāmu? “Al-ḥammāmu” da “l” “ḥ” ga saqlanadi, chunki “ḥ” oy harfi. Endi javob berishni, ya‘ni yo‘l berishni o‘rganamiz.",
-   "say": "Where is the hotel? Where is the market? Where is the university? Where is the bathroom?",
-   "say_uz": "Mehmonxona qayerda? Bozor qayerda? Universitet qayerda? Hammom qayerda?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Yo‘l berish: namuna",
-   "emotion": "happy",
-   "board": [
-    "اذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَكِفْ إلى الْيَمِينِ.",
-    "الْفُنْدُقُ بِجَانِبِ الْمَسْجِدِ.",
-    "هُنَاكَ. — u yerda."
-   ],
-   "examples": [],
-   "say_native": "Yo‘l berish namuna. “Adhhab mustaqīman, thumma in‘akif ilā al-yamīn” — to‘g‘ri yur, keyin o‘ngga buril. “Al-funduqu bijānibi al-masjidi” — mehmonxona masjidning yanada. “Hunāka” — u yerda. “Thumma” — keyin, so‘ng. Bu to‘liq yo‘l ko‘rsatish. Endi o‘zingiz yo‘l ko‘rsatishingiz mumkin.",
-   "say": "Go straight, then turn right. The hotel is next to the mosque. There.",
-   "say_uz": "To‘g‘ri yur, keyin o‘ngga buril. Mehmonxona masjidning yanada. U yerda.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yo‘l bering",
-   "emotion": "encouraging",
-   "board": [
-    "1) To‘g‘ri yur, keyin chapga buril.",
-    "2) Bozor masjidning yanada.",
-    "3) Mehmonxona u yerda.",
-    "4) Ko‘chaga o‘t, keyin o‘ngga buril."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta yo‘lni arabcha bering. Birinchi: to‘g‘ri yur, keyin chapga buril. Ikkinchi: bozor masjidning yanada. Uchinchi: mehmonxona u yerda. To‘rtinchi: ko‘chaga o‘t, keyin o‘ngga buril. Buyruq shakl va joylashuv so‘zini ishlating.",
-   "say": "Go straight, then turn left. The market is next to the mosque. The hotel is there. Cross the street, then turn right.",
-   "say_uz": "To‘g‘ri yur, keyin chapga buril. Bozor masjidning yanada. Mehmonxona u yerda. Ko‘chaga o‘t, keyin o‘ngga buril.",
+   "say_native": "Mashq. To‘rtta savolni arabcha bering. Birinchi: erkakka, kechirasiz, avtobus bekati qayerda? Ikkinchi: kasalxonaga qanday borsam bo‘ladi? Uchinchi: bank bu yerga yaqinmi? To‘rtinchi: ayolga, kechirasiz, yaqin-atrofda dorixona bormi? Murojaat shaklini suhbatdoshga moslang.",
+   "say": "تَفَضَّلْ، كَيْفَ أُسَاعِدُكَ؟",
+   "say_uz": "Marhamat, sizga qanday yordam beray?",
    "practice_seconds": 16
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "اذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَكِفْ إلى الشِّمَالِ.",
-    "السُّوقُ بِجَانِبِ الْمَسْجِدِ.",
-    "الْفُنْدُقُ هُنَاكَ.",
-    "اعْبُرِ الشَّارِعَ، ثُمَّ انْعَكِفْ إلى الْيَمِينِ."
-   ],
+   "board": ["1) لَوْ سَمَحْتَ، أَيْنَ مَحَطَّةُ الْحَافِلَاتِ؟", "2) كَيْفَ أَذْهَبُ إِلَى الْمُسْتَشْفَى؟", "3) هَلِ الْبَنْكُ قَرِيبٌ مِنْ هُنَا؟", "4) لَوْ سَمَحْتِ، هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟"],
    "examples": [],
-   "say_native": "Javoblar: adhhab mustaqīman, thumma in‘akif ilā al-shimāl. As-sūqu bijānibi al-masjidi. Al-funduqu hunāka. Ishburī al-shāriʿa, thumma in‘akif ilā al-yamīn. Uchinchida “hunāka” — u yerda. To‘rtinchida “al-shāriʿa” — ko‘cha, “l” “sh” ga qo‘shilib ketadi. Endi dialog ko‘ramiz.",
-   "say": "Go straight, then turn left. The market is next to the mosque. The hotel is there. Cross the street, then turn right.",
-   "say_uz": "To‘g‘ri yur, keyin chapga buril. Bozor masjidning yanada. Mehmonxona u yerda. Ko‘chaga o‘t, keyin o‘ngga buril.",
+   "say_native": "Javoblar: “Law samaḥta, ayna maḥaṭṭatu l-ḥāfilāt?” “Kayfa adhhabu ilā l-mustashfā?” “Hali l-banku qarībun min hunā?” “Law samaḥti, hal hunāka ṣaydaliyyatun qarība?” To‘rtinchi gapda “qarība” ayol shaklida, chunki ṣaydaliyya ayol jinsi. Sizdan so‘ragan kishi “kayfa usāʿiduka?” — sizga qanday yordam beray, dedi. Bu ham foydali ibora.",
+   "say": "لَوْ سَمَحْتَ، أَيْنَ مَحَطَّةُ الْحَافِلَاتِ؟ كَيْفَ أَذْهَبُ إِلَى الْمُسْتَشْفَى؟ هَلِ الْبَنْكُ قَرِيبٌ مِنْ هُنَا؟ لَوْ سَمَحْتِ، هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟",
+   "say_uz": "Kechirasiz, avtobus bekati qayerda? Kasalxonaga qanday borsam bo‘ladi? Bank bu yerga yaqinmi? Kechirasiz, yaqinda dorixona bormi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Buyruq shakli qanday yasaladi",
+   "emotion": "thinking",
+   "board": ["تَذْهَبُ → اِذْهَبْ (idh-hab) — boring", "تَنْعَطِفُ → اِنْعَطِفْ (inʿaṭif) — buriling", "تَعْبُرُ → اُعْبُرْ (uʿbur) — kesib o‘ting", "تَمْشِي → اِمْشِ (imshi) — yuring"],
+   "examples": [{"t": "اِذْهَبْ!", "uz": "Boring!"}, {"t": "اُعْبُرِ الشَّارِعَ.", "uz": "Ko‘chani kesib o‘ting."}],
+   "say_native": "Yo‘l ko‘rsatish uchun buyruq kerak. U “siz” shaklidan yasaladi. “Tadhhabu” — borasiz. Boshidagi “ta” tushadi, oxiridagi “u” ham tushadi, boshiga esa “i” qo‘shiladi: “idhhab” — boring. “Tanʿaṭifu” dan “inʿaṭif” — buriling. Agar fe’l o‘rtasida “u” bo‘lsa, boshiga ham “u” qo‘shiladi: “taʿburu” dan “uʿbur” — kesib o‘ting. “Tamshī” dan “imshi” — yuring. Har birini tayyor shakl sifatida yodlab oling.",
+   "say": "اِذْهَبْ. اِنْعَطِفْ. اُعْبُرْ. اِمْشِ.",
+   "say_uz": "Boring. Buriling. Kesib o‘ting. Yuring.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yo‘nalish iboralari",
+   "emotion": "neutral",
+   "board": ["اِذْهَبْ مُسْتَقِيمًا — to‘g‘riga boring", "اِنْعَطِفْ يَمِينًا — o‘ngga buriling", "اِنْعَطِفْ يَسَارًا — chapga buriling", "اُعْبُرِ الشَّارِعَ — ko‘chani kesib o‘ting"],
+   "examples": [{"t": "اِذْهَبْ مُسْتَقِيمًا.", "uz": "To‘g‘riga boring."}, {"t": "اِنْعَطِفْ يَسَارًا عِنْدَ الْإِشَارَةِ.", "uz": "Svetoforda chapga buriling."}],
+   "say_native": "Asosiy iboralar. “Idhhab mustaqīman” — to‘g‘riga boring. “Inʿaṭif yamīnan” — o‘ngga buriling. “Inʿaṭif yasāran” — chapga buriling. “Yamīn” — o‘ng, “yasār” — chap; oxiridagi “-an” “… ga” ma’nosini beradi. “Uʿburi sh-shāriʿ” — ko‘chani kesib o‘ting. “ʿInda” — … da, oldida: “ʿinda l-ishāra” — svetoforda. “ʿInda” ni “ʿindī” — menda so‘zidan bilasiz, bu yerda u joyni bildiradi.",
+   "say": "اِذْهَبْ مُسْتَقِيمًا. اِنْعَطِفْ يَمِينًا. اِنْعَطِفْ يَسَارًا عِنْدَ الْإِشَارَةِ. اُعْبُرِ الشَّارِعَ.",
+   "say_uz": "To‘g‘riga boring. O‘ngga buriling. Svetoforda chapga buriling. Ko‘chani kesib o‘ting.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ayolga buyruq",
+   "emotion": "thinking",
+   "board": ["اِذْهَبْ → اِذْهَبِي", "اِنْعَطِفْ → اِنْعَطِفِي", "اُعْبُرْ → اُعْبُرِي", "اِمْشِ → اِمْشِي"],
+   "examples": [{"t": "اِنْعَطِفِي يَمِينًا.", "uz": "O‘ngga buriling (ayolga)."}, {"t": "اِمْشِي مُسْتَقِيمًا.", "uz": "To‘g‘riga yuring (ayolga)."}],
+   "say_native": "Ayolga gapirganda buyruq oxiriga “-ī” qo‘shiladi: “idhhabī”, “inʿaṭifī”, “uʿburī”, “imshī”. Bu oldingi darslardagi “anti taktubīna” dagi “ī” ga o‘xshaydi. O‘zbek tilida “boring” hammaga bir xil, arabchada esa jins farqlanadi. Bir guruh odamga esa “-ū” qo‘shiladi: “idhhabū” — boringlar. Hozircha erkak va ayol shakllarini puxta o‘rganing.",
+   "say": "اِذْهَبِي مُسْتَقِيمًا. اِنْعَطِفِي يَمِينًا. اُعْبُرِي الشَّارِعَ.",
+   "say_uz": "To‘g‘riga boring. O‘ngga buriling. Ko‘chani kesib o‘ting (ayolga).",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Buyruq xatolari",
+   "emotion": "stern",
+   "board": ["✗ (ayolga) اِنْعَطِفْ يَمِينًا", "✓ (ayolga) اِنْعَطِفِي يَمِينًا", "✗ اِعْبُرِ الشَّارِعَ", "✓ اُعْبُرِ الشَّارِعَ"],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: ayolga erkak shaklidagi buyruq. “Inʿaṭif” ayolga noto‘g‘ri, “inʿaṭifī” kerak. Ikkinchisi: hamma buyruqni “i” bilan boshlash. “Taʿburu” fe’lining o‘rtasida “u” bor, shuning uchun buyruq “uʿbur”, “iʿbur” emas. Yaxshi usul: buyruqni doim “siz” shakli bilan birga yodlang: taʿburu — uʿbur, tadhhabu — idhhab.",
+   "say": "اِنْعَطِفِي يَمِينًا. اُعْبُرِ الشَّارِعَ.",
+   "say_uz": "O‘ngga buriling (ayolga). Ko‘chani kesib o‘ting.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yo‘l ko‘rsating",
+   "emotion": "encouraging",
+   "board": ["1) (erkakka) To‘g‘riga boring.", "2) (erkakka) Svetoforda chapga buriling.", "3) (ayolga) Ko‘chani kesib o‘ting.", "4) (ayolga) O‘ngga buriling."],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta buyruqni arabcha ayting. Birinchi: erkakka, to‘g‘riga boring. Ikkinchi: erkakka, svetoforda chapga buriling. Uchinchi: ayolga, ko‘chani kesib o‘ting. To‘rtinchi: ayolga, o‘ngga buriling. Ayol shakllarida oxirgi “-ī” ni aniq ayting.",
+   "say": "مُسْتَقِيمًا... يَسَارًا... الشَّارِعَ... يَمِينًا...",
+   "say_uz": "To‘g‘riga... chapga... ko‘chani... o‘ngga...",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) اِذْهَبْ مُسْتَقِيمًا.", "2) اِنْعَطِفْ يَسَارًا عِنْدَ الْإِشَارَةِ.", "3) اُعْبُرِي الشَّارِعَ.", "4) اِنْعَطِفِي يَمِينًا."],
+   "examples": [],
+   "say_native": "Javoblar: “idhhab mustaqīman”. “Inʿaṭif yasāran ʿinda l-ishāra”. “Uʿburī sh-shāriʿ” — ayolga, boshida “u”, oxirida “ī”. “Inʿaṭifī yamīnan”. Agar “imshi mustaqīman” — to‘g‘riga yuring, degan bo‘lsangiz, bu ham to‘g‘ri. Ikkala fe’l ham yo‘l ko‘rsatishda ishlatiladi.",
+   "say": "اِذْهَبْ مُسْتَقِيمًا. اِنْعَطِفْ يَسَارًا عِنْدَ الْإِشَارَةِ. اُعْبُرِي الشَّارِعَ. اِنْعَطِفِي يَمِينًا.",
+   "say_uz": "To‘g‘riga boring. Svetoforda chapga buriling. Ko‘chani kesib o‘ting. O‘ngga buriling.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ketma-ketlik: ثُمَّ va حَتَّى",
+   "emotion": "neutral",
+   "board": ["ثُمَّ (thumma) — keyin", "حَتَّى (ḥattā) — … gacha", "خُذِ الشَّارِعَ الْأَوَّلَ — birinchi ko‘chaga buriling", "عَلَى يَمِينِكَ / عَلَى يَسَارِكِ — o‘ng / chap tomoningizda"],
+   "examples": [{"t": "اِمْشِ حَتَّى الْإِشَارَةِ، ثُمَّ انْعَطِفْ يَمِينًا.", "uz": "Svetoforgacha yuring, keyin o‘ngga buriling."}, {"t": "الْبَنْكُ عَلَى يَسَارِكَ.", "uz": "Bank chap tomoningizda."}],
+   "say_native": "Yo‘lni bosqichma-bosqich tushuntiramiz. “Thumma” — keyin, buni odatlar darsidan bilasiz. “Ḥattā” — … gacha: “imshi ḥattā l-ishāra” — svetoforgacha yuring. “Khudh” — oling, bu tartibsiz buyruq: “khudhi sh-shāriʿa l-awwal” — birinchi ko‘chaga buriling. Oxirida manzil: “ʿalā yamīnika” — o‘ng tomoningizda, ayolga “ʿalā yamīniki”. Yozuvda “thumma” dan keyingi buyruq boshidagi “i” o‘qilmaydi: “thumma nʿaṭif”.",
+   "say": "اِمْشِ حَتَّى الْإِشَارَةِ، ثُمَّ انْعَطِفْ يَمِينًا. خُذِ الشَّارِعَ الْأَوَّلَ. الْبَنْكُ عَلَى يَسَارِكَ.",
+   "say_uz": "Svetoforgacha yuring, keyin o‘ngga buriling. Birinchi ko‘chaga buriling. Bank chap tomoningizda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yo‘lni ulang",
+   "emotion": "encouraging",
+   "board": ["Erkakka: svetoforgacha yuring →", "keyin chapga buriling →", "ko‘chani kesib o‘ting →", "masjid o‘ng tomoningizda."],
+   "examples": [],
+   "say_native": "Mashq. Erkak kishiga masjidgacha yo‘l tushuntiring. To‘rt qism: svetoforgacha yuring, keyin chapga buriling, ko‘chani kesib o‘ting, masjid o‘ng tomoningizda. Qismlarni “thumma” bilan bog‘lang va bitta silliq javob qilib ayting.",
+   "say": "لَوْ سَمَحْتَ، كَيْفَ أَذْهَبُ إِلَى الْمَسْجِدِ؟",
+   "say_uz": "Kechirasiz, masjidga qanday borsam bo‘ladi?",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["اِمْشِ حَتَّى الْإِشَارَةِ،", "ثُمَّ انْعَطِفْ يَسَارًا،", "ثُمَّ اعْبُرِ الشَّارِعَ.", "الْمَسْجِدُ عَلَى يَمِينِكَ."],
+   "examples": [],
+   "say_native": "Javob: “Imshi ḥattā l-ishāra, thumma nʿaṭif yasāran, thumma ʿburi sh-shāriʿ. Al-masjidu ʿalā yamīnik.” E’tibor bering: “thumma” dan keyin buyruq boshidagi unli o‘qilmaydi va yozuvda ham harakatsiz alif qoladi. “Imshi” o‘rniga “idhhab” desangiz ham to‘g‘ri. Agar “wa” — va bilan bog‘lagan bo‘lsangiz, bu ham xato emas.",
+   "say": "اِمْشِ حَتَّى الْإِشَارَةِ، ثُمَّ انْعَطِفْ يَسَارًا، ثُمَّ اعْبُرِ الشَّارِعَ. الْمَسْجِدُ عَلَى يَمِينِكَ.",
+   "say_uz": "Svetoforgacha yuring, keyin chapga buriling, keyin ko‘chani kesib o‘ting. Masjid o‘ng tomoningizda.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Birinchi dialog: bozorga yo‘l",
+   "title": "Birinchi dialog: dorixona qayerda?",
    "emotion": "happy",
-   "board": [
-    "أَحْمَد: أَيْنَ السُّوقُ، مِنْ فَضْلِكَ؟",
-    "سَامِي: اذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَكِفْ إلى الْيَمِينِ. السُّوقُ بِجَانِبِ الْمَسْجِدِ.",
-    "أَحْمَد: شُكْرًا.",
-    "سَامِي: أَهْلًا، أَفْوَانُ."
-   ],
+   "board": ["سَائِحٌ: لَوْ سَمَحْتَ، هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟", "رَجُلٌ: نَعَمْ. اِذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَطِفْ يَمِينًا عِنْدَ الْإِشَارَةِ.", "رَجُلٌ: الصَّيْدَلِيَّةُ بِجَانِبِ الْبَنْكِ، مُقَابِلَ الْمَسْجِدِ.", "سَائِحٌ: شُكْرًا جَزِيلًا! — رَجُلٌ: عَفْوًا."],
    "examples": [],
-   "say_native": "Birinchi dialog. Ahmad “ayna as-sūqu, min faḍlika?” — bozor qayerda, iltimos? deb so‘raydi. Sami “adhhab mustaqīman, thumma in‘akif ilā al-yamīn. As-sūqu bijānibi al-masjidi” — to‘g‘ri yur, keyin o‘ngga buril. Bozor masjidning yanada. — deb javob beradi. Ahmad “shukran” — rahmat. Sami “ahlan, afwan” — xush kelibsiz, rica eting. Bu to‘liq yo‘l so‘rash va berish jarayoni.",
-   "say": "Where is the market, please? Go straight, then turn right. The market is next to the mosque. Thank you. You are welcome.",
-   "say_uz": "Bozor qayerda, iltimos? To‘g‘ri yur, keyin o‘ngga buril. Bozor masjidning yanada. Rahmat. Xush kelibsiz.",
+   "say_native": "Birinchi dialog. Bir sayyoh ko‘chada bir kishidan yaqin-atrofda dorixona bor-yo‘qligini so‘raydi. U kishi yo‘l tushuntiradi va dorixona aynan qayerda ekanini, qaysi binolar yonida turganini aytadi. “Sāʾiḥ” — sayyoh, “rajul” — erkak kishi. Diqqat bilan tinglang: yo‘nalish, burilish joyi va dorixonaning o‘rni.",
+   "say": "لَوْ سَمَحْتَ، هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟ نَعَمْ. اِذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَطِفْ يَمِينًا عِنْدَ الْإِشَارَةِ. الصَّيْدَلِيَّةُ بِجَانِبِ الْبَنْكِ، مُقَابِلَ الْمَسْجِدِ. شُكْرًا جَزِيلًا! عَفْوًا.",
+   "say_uz": "Kechirasiz, yaqinda dorixona bormi? Ha. To‘g‘riga boring, keyin svetoforda o‘ngga buriling. Dorixona bank yonida, masjid qarshisida. Katta rahmat! Arzimaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": [
-    "1) Ahmad nima so‘rayapti?",
-    "2) Sami qanday yo‘l beradi?",
-    "3) Bozor qayerda?",
-    "4) Ahmad nima deyadi?"
-   ],
+   "board": ["1) Sayyoh nimani qidiryapti?", "2) Qayerda buriladi?", "3) Qaysi tomonga buriladi?", "4) Dorixona qayerda?"],
    "examples": [],
-   "say_native": "To‘rtta savol. Birinchi: Ahmad nima so‘rayapti? Ikkinchi: Sami qanday yo‘l beradi? Uchinchi: bozor qayerda? To‘rtinchi: Ahmad nima deyadi? Dialogdan javob bering.",
-   "say": "What is Ahmad asking? What directions does Sami give? Where is the market? What does Ahmad say?",
-   "say_uz": "Ahmad nima so‘rayapti? Sami qanday yo‘l beradi? Bozor qayerda? Ahmad nima deyadi?",
+   "say_native": "To‘rtta savol. Birinchi: sayyoh nimani qidiryapti? Ikkinchi: u qayerda burilishi kerak? Uchinchi: qaysi tomonga buriladi, o‘ngga yoki chapga? To‘rtinchi: dorixona aynan qayerda? Ikkita joy so‘zi bor edi.",
+   "say": "مَاذَا يَبْحَثُ عَنْهُ السَّائِحُ؟ أَيْنَ يَنْعَطِفُ؟ يَمِينًا أَمْ يَسَارًا؟ أَيْنَ الصَّيْدَلِيَّةُ؟",
+   "say_uz": "Sayyoh nimani qidiryapti? Qayerda buriladi? O‘ngga yoki chapga? Dorixona qayerda?",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "1) السُّوقُ",
-    "2) اذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَكِفْ إلى الْيَمِينِ",
-    "3) بِجَانِبِ الْمَسْجِدِ",
-    "4) شُكْرًا"
-   ],
+   "board": ["1) صَيْدَلِيَّةً", "2) عِنْدَ الْإِشَارَةِ", "3) يَمِينًا", "4) بِجَانِبِ الْبَنْكِ، مُقَابِلَ الْمَسْجِدِ"],
    "examples": [],
-   "say_native": "Javoblar: Ahmad as-sūqni so‘rayapti — bozorni so‘rayapti. Sami “adhhab mustaqīman, thumma in‘akif ilā al-yamīn” deb yo‘l beradi. Bozor “bijānibi al-masjidi” — masjidning yanada. Ahmad “shukran” dedi — rahmat. Endi o‘zingizning uyingizdan yaqin do‘konga yo‘l ko‘rsataymiz.",
-   "say": "The market. Go straight, then turn right. Next to the mosque. Thank you.",
-   "say_uz": "Bozor. To‘g‘ri yur, keyin o‘ngga buril. Masjidning yanada. Rahmat.",
+   "say_native": "Javoblar: sayyoh dorixona qidiryapti. U svetoforda buriladi — “ʿinda l-ishāra”. O‘ngga buriladi — “yamīnan”. Dorixona bank yonida va masjid qarshisida — “bi-jānibi l-bank, muqābila l-masjid”. Savoldagi “yabḥathu ʿan” — … ni qidiradi, foydali fe’l. Agar ikkita joy so‘zidan birini eshitmagan bo‘lsangiz, dialogni qayta tinglang.",
+   "say": "يَبْحَثُ عَنْ صَيْدَلِيَّةٍ. يَنْعَطِفُ عِنْدَ الْإِشَارَةِ. يَمِينًا. الصَّيْدَلِيَّةُ بِجَانِبِ الْبَنْكِ، مُقَابِلَ الْمَسْجِدِ.",
+   "say_uz": "Dorixona qidiryapti. Svetoforda buriladi. O‘ngga. Dorixona bank yonida, masjid qarshisida.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Talaffuz: buyruq shaklli",
+   "title": "Yumshoqroq usul: hozirgi zamon",
    "emotion": "thinking",
-   "board": [
-    "انْعَكِفْ — in-‘a-kif",
-    "اذْهَبْ — adh-hab",
-    "اعْبُرِ — ish-bur",
-    "مُسْتَقِيمًا — mus-ta-qii-man"
-   ],
-   "examples": [
-    {
-     "t": "انْعَكِفْ",
-     "uz": "buril"
-    },
-    {
-     "t": "اذْهَبْ",
-     "uz": "yur"
-   }
-   ],
-   "say_native": "Buyruq shaklli talaffuz. “In‘akif” — in-‘a-kif, hamza bor, aniq. “Adhhab” — adh-hab, “dh” yumshoq. “Ishburī” — ish-bur, “sh” aniq. “Mustaqīman” — mus-ta-qii-man, uzun “ī”. Har birini ikki marta baland ovozda takrorlang. Buyruq shaklli tez va aniq bo‘ladi.",
-   "say": "In‘akif, adhhab, ishburi, mustaqiman.",
-   "say_uz": "In‘akif, adhhab, ishburi, mustaqiman.",
+   "board": ["اِذْهَبْ مُسْتَقِيمًا → تَذْهَبُ مُسْتَقِيمًا", "اِنْعَطِفْ يَسَارًا → تَنْعَطِفُ يَسَارًا", "(ayolga) تَمْشِينَ ... ثُمَّ تَنْعَطِفِينَ ..."],
+   "examples": [{"t": "تَذْهَبُ مُسْتَقِيمًا، ثُمَّ تَنْعَطِفُ يَسَارًا.", "uz": "To‘g‘riga borasiz, keyin chapga burilasiz."}, {"t": "تَمْشِينَ حَتَّى الْإِشَارَةِ.", "uz": "Svetoforgacha yurasiz (ayolga)."}],
+   "say_native": "Arablar yo‘l tushuntirganda ko‘pincha buyruq o‘rniga hozirgi zamonni ishlatishadi: “tadhhabu mustaqīman, thumma tanʿaṭifu yasāran” — to‘g‘riga borasiz, keyin chapga burilasiz. Bu yumshoqroq eshitiladi. O‘zbek tilida ham aynan shunday qilamiz: “to‘g‘ri borasiz, keyin chapga burilasiz”. Ayolga esa “-īna” qo‘shiladi: “tamshīna”, “tanʿaṭifīna”. Buni oldingi darslardagi “taktubīna” dan bilasiz.",
+   "say": "تَذْهَبُ مُسْتَقِيمًا، ثُمَّ تَنْعَطِفُ يَسَارًا. تَمْشِينَ حَتَّى الْإِشَارَةِ، ثُمَّ تَنْعَطِفِينَ يَمِينًا.",
+   "say_uz": "To‘g‘riga borasiz, keyin chapga burilasiz. Svetoforgacha yurasiz, keyin o‘ngga burilasiz (ayolga).",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Baland ovozda takrorlang",
+   "title": "Buyruqni yumshating",
    "emotion": "encouraging",
-   "board": [
-    "1) انْعَكِفْ إلى الْيَمِينِ",
-    "2) اذْهَبْ مُسْتَقِيمًا",
-    "3) اعْبُرِ الشَّارِعَ",
-    "4) مُقابِلًا / بِجَانِبِ"
-   ],
+   "board": ["1) اِذْهَبْ مُسْتَقِيمًا. →", "2) اُعْبُرِ الشَّارِعَ. →", "3) اِنْعَطِفِي يَمِينًا. →", "4) اِمْشِي حَتَّى الْبَنْكِ. →"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta iborani baland ovozda takrorlang. Birinchi: o‘ngga buril. Ikkinchi: to‘g‘ri yur. Uchinchi: ko‘chaga o‘t. To‘rtinchi: tashqari / yanada. Har birini ikki marta ayting.",
-   "say": "Repeat: turn right. Go straight. Cross the street. Opposite / next to.",
-   "say_uz": "Takrorlang: o‘ngga buril. To‘g‘ri yur. Ko‘chaga o‘t. Tashqari / yanada.",
-   "practice_seconds": 12
+   "say_native": "Mashq. Doskadagi to‘rtta buyruqni hozirgi zamonga o‘tkazing. Birinchi va ikkinchisi erkakka, uchinchi va to‘rtinchisi ayolga. Erkak uchun “ta … u”, ayol uchun “ta … īna” qolipini eslang. To‘rtinchisida “imshī” dan “tamshīna” hosil bo‘ladi.",
+   "say": "اِذْهَبْ مُسْتَقِيمًا. اُعْبُرِ الشَّارِعَ. اِنْعَطِفِي يَمِينًا. اِمْشِي حَتَّى الْبَنْكِ.",
+   "say_uz": "To‘g‘riga boring. Ko‘chani kesib o‘ting. O‘ngga buriling. Bankkacha yuring.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "انْعَكِفْ إلى الْيَمِينِ",
-    "اذْهَبْ مُسْتَقِيمًا",
-    "اعْبُرِ الشَّارِعَ",
-    "مُقابِلًا / بِجَانِبِ"
-   ],
+   "board": ["1) تَذْهَبُ مُسْتَقِيمًا.", "2) تَعْبُرُ الشَّارِعَ.", "3) تَنْعَطِفِينَ يَمِينًا.", "4) تَمْشِينَ حَتَّى الْبَنْكِ."],
    "examples": [],
-   "say_native": "Javoblar to‘g‘ri. “In‘akif ilā al-yamīn”, “adhhab mustaqīman”, “ishburī al-shāriʿa”, “muqābalan / bijānibi”. Endi o‘zingizning uyingizdan yaqin do‘konga yo‘l ko‘rsatishingiz mumkin.",
-   "say": "Turn right. Go straight. Cross the street. Opposite / next to.",
-   "say_uz": "O‘ngga buril. To‘g‘ri yur. Ko‘chaga o‘t. Tashqari / yanada.",
+   "say_native": "Javoblar: “tadhhabu mustaqīman”, “taʿburu sh-shāriʿ”, “tanʿaṭifīna yamīnan”, “tamshīna ḥattā l-bank”. Ko‘rib turibsiz, bu yo‘nalishda ish osonroq: “siz” shaklini bilsangiz, tayyor. Ikkala usul ham to‘g‘ri, notanish odamga hozirgi zamon biroz muloyimroq, xaritada qisqa ko‘rsatmada esa buyruq qulayroq.",
+   "say": "تَذْهَبُ مُسْتَقِيمًا. تَعْبُرُ الشَّارِعَ. تَنْعَطِفِينَ يَمِينًا. تَمْشِينَ حَتَّى الْبَنْكِ.",
+   "say_uz": "To‘g‘riga borasiz. Ko‘chani kesib o‘tasiz. O‘ngga burilasiz. Bankkacha yurasiz.",
    "practice_seconds": 0
   },
   {
-   "kind": "explain",
-   "title": "Yana shahar joylari",
-   "emotion": "neutral",
-   "board": [
-    "الْبَانِكُ — bank",
-    "الْحَدِيقَةُ — bog‘",
-    "الْمُسْتَشْفَى — kasalxona",
-    "صَيْدَلِيَّةٌ — dorixona"
-   ],
-   "examples": [
-    {
-     "t": "الْبَانِكُ",
-     "uz": "bank"
-    },
-    {
-     "t": "صَيْدَلِيَّةٌ",
-     "uz": "dorixona"
-    }
-   ],
-   "say_native": "Yana to‘rtta joy. “Al-bānku” — bank, “al-ḥadīqatu” — bog‘, “al-mustashfa” — kasalxona, “ṣaydalīyah” — dorixona. “Al-mustashfa” — kasalxona, “l” saqlanadi, chunki “m” oy harfi. “Ṣaydalīyah” — dorixona, ayol jinsli ta marbuta bilan. “Al-bānku” — bank, erkak. Endi bu joylarni yana bir marta takrorlaymiz.",
-   "say": "Al-bank, al-hadiqa, al-mustashfa, saydaliya.",
-   "say_uz": "Al-bank, al-ḥadīqa, al-mustashfa, ṣaydalīya.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yana joylar",
-   "emotion": "encouraging",
-   "board": [
-    "1) bank",
-    "2) bog‘",
-    "3) kasalxona",
-    "4) dorixona",
-    "5) pochtakhona"
-   ],
-   "examples": [],
-   "say_native": "Mashq. Beshta joyni arabcha ayting: bank, bog‘, kasalxona, dorixona, pochtakhona. “Pochtakhona” — “barīd”. Har birini baland ovozda ayting.",
-   "say": "Say bank, park, hospital, pharmacy and post office.",
-   "say_uz": "Arabcha ayting: bank, bog‘, kasalxona, dorixona, pochtakhona.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "1) الْبَانِكُ",
-    "2) الْحَدِيقَةُ",
-    "3) الْمُسْتَشْفَى",
-    "4) صَيْدَلِيَّةٌ",
-    "5) الْبَرِيدُ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: al-bānku. Al-ḥadīqatu. Al-mustashfa. Ṣaydalīyah. Al-barīdu — pochtakhona. “Al-barīdu” da “l” “b” ga saqlanadi, oy harf. Bu beshta joyni yaxshi yodlab oling. Endi “iltimos” va “kechirasiz” ni o‘rganamiz.",
-   "say": "Bank, park, hospital, pharmacy, post office.",
-   "say_uz": "Bank, bog‘, kasalxona, dorixona, pochtakhona.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Iltimos va kechirasiz",
+   "kind": "example",
+   "title": "Ikkinchi dialog: pochta",
    "emotion": "happy",
-   "board": [
-    "مِن فَضْلِكَ — iltimos (erkakka)",
-    "مِن فَضْلِكِ — iltimos (ayolga)",
-    "لَوْ سَمَحْتَ — kechirasiz / iltimos",
-    "عَفْوًا — xush kelibsiz / rica eting"
-   ],
-   "examples": [
-    {
-     "t": "مِن فَضْلِكَ",
-     "uz": "iltimos"
-    },
-    {
-     "t": "عَفْوًا",
-     "uz": "xush kelibsiz"
-    }
-   ],
-   "say_native": "Yo‘l so‘rashda adabiyot muhim. “Min faḍlika” — iltimos, erkakka. “Min faḍhliki” — iltimos, ayolga. “Law samḥta” — kechirasiz/iltimos, ertaksi. “Afwan” — xush kelibsiz/rica eting. “Law samḥta, ayna al-ṣaydalīyah?” — kechirasiz, dorixona qayerda? Bu shakllar suhbatni nozik qiladi. “Faḍlika” va “faḍhliki” farqi suhbatdoshning jinsida.",
-   "say": "Min fadlika, min fadhliki, law samih ta, afwan.",
-   "say_uz": "Min fadlika erkakka, min fadhliki ayolga. Law samihta kechirasiz. Afwan xush kelibsiz.",
+   "board": ["مَرْيَمُ: لَوْ سَمَحْتَ، كَيْفَ أَذْهَبُ إِلَى مَكْتَبِ الْبَرِيدِ؟", "شَابٌّ: تَمْشِينَ مُسْتَقِيمًا حَتَّى نِهَايَةِ الشَّارِعِ، ثُمَّ تَنْعَطِفِينَ يَسَارًا.", "مَرْيَمُ: هَلْ هُوَ بَعِيدٌ؟", "شَابٌّ: لَا، خَمْسُ دَقَائِقَ مَشْيًا. هُوَ بَيْنَ الْفُنْدُقِ وَالْمَطْعَمِ."],
+   "examples": [],
+   "say_native": "Ikkinchi dialog. Maryam bir yigitdan pochtaga qanday borishni so‘raydi. Yigit hozirgi zamon bilan, muloyim tarzda tushuntiradi. Yangi so‘zlar: “nihāya” — oxir, “nihāyatu sh-shāriʿ” — ko‘chaning oxiri; “khamsu daqāʾiq” — besh daqiqa; “mashyan” — piyoda. Masofa va pochtaning o‘rnini eslab qoling.",
+   "say": "لَوْ سَمَحْتَ، كَيْفَ أَذْهَبُ إِلَى مَكْتَبِ الْبَرِيدِ؟ تَمْشِينَ مُسْتَقِيمًا حَتَّى نِهَايَةِ الشَّارِعِ، ثُمَّ تَنْعَطِفِينَ يَسَارًا. هَلْ هُوَ بَعِيدٌ؟ لَا، خَمْسُ دَقَائِقَ مَشْيًا. هُوَ بَيْنَ الْفُنْدُقِ وَالْمَطْعَمِ. شُكْرًا لَكَ!",
+   "say_uz": "Kechirasiz, pochtaga qanday borsam bo‘ladi? Ko‘chaning oxirigacha to‘g‘riga yurasiz, keyin chapga burilasiz. Uzoqmi? Yo‘q, piyoda besh daqiqa. U mehmonxona bilan restoran orasida. Rahmat sizga!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Iltimos va kechirasiz",
+   "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": [
-    "1) Kechirasiz, dorixona qayerda? (erkakka)",
-    "2) Iltimos, bozor qayerda? (ayolga)",
-    "3) Xush kelibsiz.",
-    "4) Rica eting."
-   ],
+   "board": ["1) Maryam qayerga bormoqchi?", "2) Qayergacha to‘g‘ri yuradi?", "3) Pochta uzoqmi?", "4) Pochta qayerda?"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: erkakka murojaat qilib, kechirasiz, dorixona qayerda? Ikkinchi: ayolga murojaat qilib, iltimos, bozor qayerda? Uchinchi: xush kelibsiz. To‘rtinchi: rica eting. “Min faḍlika” va “min faḍhliki” ni to‘g‘ri tanlang.",
-   "say": "Excuse me, where is the pharmacy? Please, where is the market? You are welcome.",
-   "say_uz": "Kechirasiz, dorixona qayerda? Iltimos, bozor qayerda? Xush kelibsiz.",
+   "say_native": "To‘rtta savol. Birinchi: Maryam qayerga bormoqchi? Ikkinchi: u qayergacha to‘g‘ri yurishi kerak? Uchinchi: pochta uzoqmi, necha daqiqa? To‘rtinchi: pochta qaysi ikki bino orasida? Javoblarni arabcha qisqa ayting.",
+   "say": "إِلَى أَيْنَ تَذْهَبُ مَرْيَمُ؟ حَتَّى أَيْنَ تَمْشِي؟ هَلْ مَكْتَبُ الْبَرِيدِ بَعِيدٌ؟ أَيْنَ هُوَ؟",
+   "say_uz": "Maryam qayerga boryapti? Qayergacha yuradi? Pochta uzoqmi? U qayerda?",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "لَوْ سَمَحْتَ، أَيْنَ الصَّيْدَلِيَّةُ؟",
-    "مِن فَضْلِكِ، أَيْنَ السُّوقُ؟",
-    "عَفْوًا.",
-    "أَهْلًا."
-   ],
+   "board": ["1) إِلَى مَكْتَبِ الْبَرِيدِ", "2) حَتَّى نِهَايَةِ الشَّارِعِ", "3) لَا، خَمْسُ دَقَائِقَ مَشْيًا", "4) بَيْنَ الْفُنْدُقِ وَالْمَطْعَمِ"],
    "examples": [],
-   "say_native": "Javoblar: law samḥta, ayna al-ṣaydalīyah? Min faḍhliki, ayna as-sūqu? Afwan. Ahlan. Uchinchi va to‘rtinchida “afwan” va “ahlan” — sotuvchi va mehmonga javob. “Ayna” savol boshida. Endi “o‘ng yon” va “chap yon” ni o‘rganamiz.",
-   "say": "Law samihta, ayna as saydaliya? Min fadhli ki, ayna as suq? Afwan. Ahlan.",
-   "say_uz": "Kechirasiz, dorixona qayerda? Iltimos, bozor qayerda? Afwan. Ahlan.",
+   "say_native": "Javoblar: Maryam pochtaga boryapti — “ilā maktabi l-barīd”. Ko‘chaning oxirigacha yuradi — “ḥattā nihāyati sh-shāriʿ”. Pochta uzoq emas, piyoda besh daqiqa. U mehmonxona bilan restoran orasida. E’tibor bering: yigit Maryamga ayol shakllarida gapirdi: “tamshīna”, “tanʿaṭifīna”. Maryam esa yigitga “law samaḥta” va “shukran laka” dedi.",
+   "say": "إِلَى مَكْتَبِ الْبَرِيدِ. حَتَّى نِهَايَةِ الشَّارِعِ. لَا، خَمْسُ دَقَائِقَ مَشْيًا. بَيْنَ الْفُنْدُقِ وَالْمَطْعَمِ.",
+   "say_uz": "Pochtaga. Ko‘chaning oxirigacha. Yo‘q, piyoda besh daqiqa. Mehmonxona bilan restoran orasida.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "O‘ng va chap yon",
+   "title": "Madaniyat: mo‘ljal bilan tushuntirish",
    "emotion": "neutral",
-   "board": [
-    "فِي الْيَمِينِ — o‘ngda",
-    "فِي الشِّمَالِ — chapda",
-    "عَلَى الْيَمِينِ — o‘ng tomondan",
-    "عَلَى الشِّمَالِ — chap tomondan"
-  ],
-   "examples": [
-    {
-     "t": "فِي الْيَمِينِ",
-     "uz": "o‘ngda"
-    },
-    {
-     "t": "فِي الشِّمَالِ",
-     "uz": "chapda"
-   }
-   ],
-   "say_native": "“Fī al-yamīn” — o‘ngda, “fī al-shimāl” — chapda. “ʿAlā al-yamīn” — o‘ng tomondan, “ʿalā al-shimāl” — chap tomondan. “Fī” — ichida/da, “ʿalā” — ustida/tomondan. “Al-masjidu fī al-yamīn” — masjid o‘ngda. “As-sūqu ʿalā al-shimāl” — bozor chap tomonda. “Fī” va “ʿalā” dan keyingi ot majrūr bo‘ladi. Endi bu so‘zlarni yo‘l berishda ishlatamiz.",
-   "say": "Fi al-yamin, fi al-shimal, ala al-yamin, ala al-shimal.",
-   "say_uz": "Fi al-yamin o‘ngda. Fi al-shimal chapda. Ala al-yamin o‘ng tomondan. Ala al-shimal chap tomondan.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "O‘ng va chap",
-   "emotion": "encouraging",
-   "board": [
-    "1) Masjid o‘ngda.",
-    "2) Bozor chap tomonda.",
-    "3) Bank o‘ng tomondan.",
-    "4) Dorixona chapda."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: masjid o‘ngda. Ikkinchi: bozor chap tomonda. Uchinchi: bank o‘ng tomondan. To‘rtinchi: dorixona chapda. “Fī” va “ʿalā” ni to‘g‘ri ishlating.",
-   "say": "The mosque is on the right. The market is on the left side. The bank is on the right side. The pharmacy is on the left.",
-   "say_uz": "Masjid o‘ngda. Bozor chap tomonda. Bank o‘ng tomondan. Dorixona chapda.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "الْمَسْجِدُ فِي الْيَمِينِ",
-    "السُّوقُ عَلَى الشِّمَالِ",
-    "الْبَانِكُ عَلَى الْيَمِينِ",
-    "الصَّيْدَلِيَّةُ فِي الشِّمَالِ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: al-masjidu fī al-yamīn. As-sūqu ʿalā al-shimāl. Al-bānku ʿalā al-yamīn. Al-ṣaydalīyatu fī al-shimāl. “Al-ṣaydalīyatu” da “l” “ṣ” ga qo‘shilib ketadi, quyosh harf. “Al-bānku” da “l” saqlanadi. Endi “yaqin” va “qanqar” ni birga ishlatamiz.",
-   "say": "The mosque is on the right. The market is on the left side. The bank is on the right side. The pharmacy is on the left.",
-   "say_uz": "Masjid o‘ngda. Bozor chap tomonda. Bank o‘ng tomondan. Dorixona chapda.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yo‘l berish mashqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) Kechirasiz, dorixona qayerda?",
-    "2) To‘g‘ri yur, keyin chapga buril.",
-    "3) Dorixona masjidning yanada.",
-    "4) Rahmat, iltimos."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: kechirasiz, dorixona qayerda? Ikkinchi: to‘g‘ri yur, keyin chapga buril. Uchinchi: dorixona masjidning yanada. To‘rtinchi: rahmat, iltimos. Buyruq, joylashuv va adabiyotni birga ishlating.",
-   "say": "Excuse me, where is the pharmacy? Go straight, then turn left. The pharmacy is next to the mosque. Thank you, please.",
-   "say_uz": "Kechirasiz, dorixona qayerda? To‘g‘ri yur, keyin chapga buril. Dorixona masjidning yanada. Rahmat, iltimos.",
-   "practice_seconds": 16
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لَوْ سَمَحْتَ، أَيْنَ الصَّيْدَلِيَّةُ؟",
-    "اذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَكِفْ إلى الشِّمَالِ.",
-    "الصَّيْدَلِيَّةُ بِجَانِبِ الْمَسْجِدِ.",
-    "شُكْرًا، تَفَضَّلْ."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: law samḥta, ayna al-ṣaydalīyah? Adhhab mustaqīman, thumma in‘akif ilā al-shimāl. Al-ṣaydalīyatu bijānibi al-masjidi. Shukran, tafḍal. “Tafḍal” — iltimos/qayting, buyurtma yoki yo‘l berishda. Endi o‘zingizning uyingizdan dorixonaga yo‘l ko‘rsataymiz.",
-   "say": "Excuse me, where is the pharmacy? Go straight, then turn left. The pharmacy is next to the mosque. Thank you, please.",
-   "say_uz": "Kechirasiz, dorixona qayerda? To‘g‘ri yur, keyin chapga buril. Dorixona masjidning yanada. Rahmat.",
+   "board": ["بِجَانِبِ الْمَسْجِدِ — masjid yonida", "بَعْدَ الصَّيْدَلِيَّةِ — dorixonadan keyin", "شُكْرًا جَزِيلًا، جَزَاكَ اللَّهُ خَيْرًا"],
+   "examples": [{"t": "الْفُنْدُقُ بَعْدَ الصَّيْدَلِيَّةِ.", "uz": "Mehmonxona dorixonadan keyin."}, {"t": "جَزَاكَ اللَّهُ خَيْرًا.", "uz": "Alloh sizni yaxshilik bilan mukofotlasin."}],
+   "say_native": "Ko‘p arab shaharlarida, xuddi bizning mahallalardagidek, yo‘l ko‘pincha ko‘cha nomi bilan emas, mo‘ljal bilan tushuntiriladi: masjid, dorixona, katta do‘kon. Shuning uchun “baʿda” — … dan keyin, “qabla” — … dan oldin so‘zlari foydali. Odamlar yordam berishga tayyor, ba’zan sizni o‘zlari kuzatib qo‘yishadi. Minnatdorchilik uchun “shukran jazīlan” yoki diniy ibora “jazāka llāhu khayran” deyiladi, javobi “wa iyyāk”.",
+   "say": "الْفُنْدُقُ بَعْدَ الصَّيْدَلِيَّةِ. الْبَنْكُ قَبْلَ الْمَسْجِدِ. جَزَاكَ اللَّهُ خَيْرًا. وَإِيَّاكَ.",
+   "say_uz": "Mehmonxona dorixonadan keyin. Bank masjiddan oldin. Alloh sizni yaxshilik bilan mukofotlasin. Sizni ham.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Talaffuz: dh va th",
+   "title": "Talaffuz: shadda",
    "emotion": "thinking",
-   "board": [
-    "اذْهَبْ — adh-hab",
-    "ثُمَّ — thum-ma",
-    "طَرِيقٌ — tarīq",
-    "dh — yumshoq d, th — yumshoq t"
-   ],
-   "examples": [
-    {
-     "t": "اذْهَبْ",
-     "uz": "yur"
-    },
-    {
-     "t": "ثُمَّ",
-     "uz": "keyin"
-   }
-  ],
-   "say_native": "“Dh” va “th” tovushlari. “Adhhab” — adh-hab, “dh” yumshoq d. “Thumma” — thum-ma, “th” yumshoq t. “Tarīq” — yo‘l, “t” oddiy. Bu tovushlar o‘zbek tilida yo‘q, shuning uchun mashq kerak. “Dh” — tilni tishlarga quyib, ovoz yumshoq. “Th” — tilni tishlariga chuqur yozib, havo chiqadi. Har birini ikki marta baland ovozda ayting.",
-   "say": "Adhhab, thumma, tariq.",
-   "say_uz": "Adhhab, thumma, tariq.",
+   "board": ["دُكَّانٌ — duk-kān", "مَحَطَّةٌ — ma-ḥaṭ-ṭa", "صَيْدَلِيَّةٌ — ṣay-da-liy-ya", "ثُمَّ — thum-ma"],
+   "examples": [{"t": "ثُمَّ انْعَطِفْ يَمِينًا.", "uz": "Keyin o‘ngga buriling."}, {"t": "الْمَحَطَّةُ قَرِيبَةٌ.", "uz": "Bekat yaqin."}],
+   "say_native": "Talaffuz: shadda, ya’ni ikkilangan undosh. Bugungi so‘zlarning ko‘pida shadda bor: “dukkān”, “maḥaṭṭa”, “ṣaydaliyya”, “thumma”. Ikkilangan undoshni biroz ushlab turing, xuddi o‘zbekcha “katta”, “ikki” so‘zlaridagidek. Shaddani tushirib qoldirsangiz, so‘z boshqacha eshitiladi yoki umuman tushunilmaydi. “Thuma” emas, “thumma”; “mahata” emas, “maḥaṭṭa”.",
+   "say": "دُكَّانٌ. مَحَطَّةٌ. صَيْدَلِيَّةٌ. ثُمَّ.",
+   "say_uz": "Do‘kon. Bekat. Dorixona. Keyin.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Baland ovozda takrorlang",
    "emotion": "encouraging",
-   "board": [
-    "1) اذْهَبْ مُسْتَقِيمًا",
-    "2) ثُمَّ انْعَكِفْ إلى الْيَمِينِ",
-    "3) الْمَسْجِدُ بِجَانِبِ السُّوقِ",
-    "4) لَوْ سَمَحْتَ، أَيْنَ السُّوقُ؟"
-   ],
+   "board": ["1) الدُّكَّانُ بِجَانِبِ الْمَحَطَّةِ", "2) ثُمَّ انْعَطِفْ يَسَارًا", "3) الصَّيْدَلِيَّةُ مُقَابِلَ الْمَسْجِدِ", "4) اُعْبُرِ الشَّارِعَ"],
    "examples": [],
-   "say_native": "Mashq. To‘rtta iborani baland ovozda takrorlang. Birinchi: to‘g‘ri yur. Ikkinchi: keyin o‘ngga buril. Uchinchi: masjid bozoring yanada. To‘rtinchi: iltimos, bozor qayerda? Har birini ikki marta ayting.",
-   "say": "Repeat: go straight. Then turn right. The mosque is next to the market. Excuse me, where is the market?",
-   "say_uz": "Takrorlang: to‘g‘ri yur. Keyin o‘ngga buril. Masjid bozoring yanada. Iltimos, bozor qayerda?",
+   "say_native": "Mashq. To‘rtta iborani tinglang va har birini ikki marta takrorlang. Shaddalarni ushlab turing, quyosh harflaridagi ikkilanishni ham eshitilarli qiling: “ad-dukkān”, “aṣ-ṣaydaliyya”, “ash-shāriʿ”.",
+   "say": "الدُّكَّانُ بِجَانِبِ الْمَحَطَّةِ... ثُمَّ انْعَطِفْ يَسَارًا... الصَّيْدَلِيَّةُ مُقَابِلَ الْمَسْجِدِ... اُعْبُرِ الشَّارِعَ...",
+   "say_uz": "Do‘kon bekat yonida... keyin chapga buriling... dorixona masjid qarshisida... ko‘chani kesib o‘ting...",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Tekshirib ko‘ring",
    "emotion": "proud",
-   "board": [
-    "اذْهَبْ مُسْتَقِيمًا",
-    "ثُمَّ انْعَكِفْ إلى الْيَمِينِ",
-    "الْمَسْجِدُ بِجَانِبِ السُّوقِ",
-    "لَوْ سَمَحْتَ، أَيْنَ السُّوقُ؟"
-   ],
+   "board": ["ثُمَّ ≠ ثُمَ", "مَحَطَّةٌ ≠ مَحَطَةٌ", "الدُّكَّانُ = ad-dukkān"],
    "examples": [],
-   "say_native": "Javoblar to‘g‘ri. “Adhhab mustaqīman”, “thumma in‘akif ilā al-yamīn”, “al-masjidu bijānibi as-sūq”, “law samḥta, ayna as-sūq?”. Endi o‘zingizning uyingizdan yaqin do‘konga yo‘l ko‘rsatishingiz mumkin.",
-   "say": "Go straight. Then turn right. The mosque is next to the market. Excuse me, where is the market?",
-   "say_uz": "To‘g‘ri yur. Keyin o‘ngga buril. Masjid bozoring yanada. Iltimos, bozor qayerda?",
+   "say_native": "O‘zingizni tekshiring. “Thumma” da ikkita “m” eshitildimi? “Maḥaṭṭa” da qalin va ikkilangan “ṭ” bormi? “Ad-dukkān” da “l” o‘rniga ikkilangan “d” va so‘z ichida ikkilangan “k” bormi? Agar hammasi bo‘lsa, barakalla. Endi bugungi hamma narsani bitta yo‘l tushuntirishda birlashtiramiz.",
+   "say": "ثُمَّ. مَحَطَّةٌ. الدُّكَّانُ. أَحْسَنْتَ!",
+   "say_uz": "Keyin. Bekat. Do‘kon. Barakalla!",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Uyingizdan do‘konga yo‘l",
+   "title": "Uyingizdan do‘kongacha",
    "emotion": "encouraging",
-   "board": [
-    "Uyingizdan yaqin do‘kon",
-    "3-5 buyruq",
-    "Joylashuv so‘zi"
-   ],
+   "board": ["1) اُخْرُجْ مِنَ الْبَيْتِ (uydan chiqing)", "2) yo‘nalish: مُسْتَقِيمًا / يَمِينًا / يَسَارًا", "3) mo‘ljal: حَتَّى، عِنْدَ، بَعْدَ", "4) manzil: الدُّكَّانُ عَلَى يَمِينِكَ / مُقَابِلَ ..."],
    "examples": [],
-   "say_native": "Endi sizning navbatingiz. Uyingizdan yaqin bir do‘kon yoki bozorga yo‘l ko‘rsatng. Kamida 3-5 ta buyruq so‘zi (to‘g‘ri yur, chapga buril, o‘ngga buril, yanada, tashqari) ishlating. “Adhhab ... thumma in‘akif ...” shaklida gapiring. Sekin va aniq.",
-   "say": "Give directions from your home to a nearby shop.",
-   "say_uz": "Uyingizdan yaqin do‘konga yo‘l ko‘rsatng.",
+   "say_native": "Yakuniy vazifa. Mehmon sizdan uyingizdan eng yaqin do‘kongacha yo‘l so‘rayapti. Kamida beshta qadamda tushuntiring. Boshlanish: “ukhruj mina l-bayt” — uydan chiqing. Keyin yo‘nalishlar, burilishlar va mo‘ljallar. Oxirida do‘konning aniq o‘rnini “ʿalā yamīnika”, “muqābila” yoki “bi-jānibi” bilan ayting. Qadamlarni “thumma” bilan bog‘lang.",
+   "say": "لَوْ سَمَحْتَ، كَيْفَ أَذْهَبُ إِلَى الدُّكَّانِ مِنْ بَيْتِكَ؟",
+   "say_uz": "Kechirasiz, uyingizdan do‘konga qanday borsam bo‘ladi?",
    "practice_seconds": 24
   },
   {
    "kind": "explain",
-   "title": "O‘z-o‘zini tekshirish",
+   "title": "Namuna javob",
    "emotion": "proud",
-   "board": [
-    "Buyruq shakli bormi?",
-    "Joylashuv so‘zi bormi?",
-    "Ayna savoli bormi?",
-    "3-5 buyruq bormi?"
-   ],
+   "board": ["اُخْرُجْ مِنَ الْبَيْتِ وَانْعَطِفْ يَسَارًا.", "اِمْشِ مُسْتَقِيمًا حَتَّى الْمَسْجِدِ.", "ثُمَّ اعْبُرِ الشَّارِعَ وَانْعَطِفْ يَمِينًا.", "الدُّكَّانُ عَلَى يَسَارِكَ، بِجَانِبِ الصَّيْدَلِيَّةِ."],
    "examples": [],
-   "say_native": "Tekshiring. Birinchi: buyruq shakli (adhhab, in‘akif) bormi? Ikkinchi: joylashuv so‘zi (bijānibi, muqābalan, fawqa) bormi? Uchinchi: “ayna” savoli bormi? To‘rtinchi: 3-5 ta buyruq aytdingizmi? Har biriga “ha” desangiz, vazifa bajarildi.",
-   "say": "Check imperative, location words, ayna question and 3-5 directions.",
-   "say_uz": "Buyruq shakli, joylashuv so‘zi, ayna savoli va 3-5 buyruqni tekshiring.",
+   "say_native": "Namuna javob: uydan chiqib chapga burilish, masjidgacha to‘g‘riga yurish, ko‘chani kesib o‘tib o‘ngga burilish va do‘konning chap tomonda, dorixona yonida ekanligi. Javobingizni solishtiring: buyruqlar to‘g‘ri yasalganmi, “ilā”, “ḥattā” dan keyin otlar “-i” bilan tugadimi? Masofa qo‘shsangiz, yanada yaxshi: “khamsu daqāʾiq mashyan”.",
+   "say": "اُخْرُجْ مِنَ الْبَيْتِ وَانْعَطِفْ يَسَارًا. اِمْشِ مُسْتَقِيمًا حَتَّى الْمَسْجِدِ. ثُمَّ اعْبُرِ الشَّارِعَ وَانْعَطِفْ يَمِينًا. الدُّكَّانُ عَلَى يَسَارِكَ، بِجَانِبِ الصَّيْدَلِيَّةِ.",
+   "say_uz": "Uydan chiqing va chapga buriling. Masjidgacha to‘g‘riga yuring. Keyin ko‘chani kesib o‘ting va o‘ngga buriling. Do‘kon chap tomoningizda, dorixona yonida.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": [
-    "السُّوقُ، الْمَدْرَسَةُ، الْمَسْجِدُ، الْفُنْدُقُ",
-    "انْعَكِفْ إلى الْيَمِينِ / إلى الشِّمَالِ",
-    "اذْهَبْ مُسْتَقِيمًا",
-    "مُقابِلًا / بِجَانِبِ"
-   ],
+   "board": ["مَسْجِدٌ، دُكَّانٌ، صَيْدَلِيَّةٌ، مُسْتَشْفًى، مَحَطَّةٌ", "لَوْ سَمَحْتَ، كَيْفَ أَذْهَبُ إِلَى ...؟", "اِذْهَبْ مُسْتَقِيمًا · اِنْعَطِفْ يَمِينًا / يَسَارًا · اُعْبُرِ الشَّارِعَ", "مُقَابِلَ، بِجَانِبِ، بَيْنَ، قَرِيبٌ مِنْ"],
    "examples": [],
-   "say_native": "Xulosa. Shahar joylarini o‘rgandik: as-sūq, al-madrasa, as-masjid, al-funduq, al-maṭʿam, al-bank. Buyruq: in‘akif ilā al-yamīn, in‘akif ilā al-shimāl, adhhab mustaqīman. Joylashuv: muqābalan, bijānibi, qarībā, baʿīdan. Savol: “ayna”. Eng muhim fikr: buyruq shakli “siz” uchun, tez va aniq bo‘ladi.",
-   "say": "City places, directions, turn right/left, go straight, opposite/next to, where questions.",
-   "say_uz": "Shahar joylari, yo‘l berish, o‘ngga-chapga burilish, to‘g‘ri yurish, tashqari/yanada, ayna savoli.",
+   "say_native": "Xulosa. Shahar joylarini o‘rgandik, ularning ko‘pi o‘zbek tilida ham bor: masjid, do‘kon, bozor. Yo‘l so‘rash: “law samaḥta”, “ayna …?”, “kayfa adhhabu ilā …?”. Yo‘l ko‘rsatish: buyruq “idhhab, inʿaṭif, uʿbur, imshi”, ayolga oxiriga “-ī”. Yumshoqroq usul — hozirgi zamon: “tadhhabu, tanʿaṭifu”. Joy: “muqābila, bi-jānibi, bayna, qarīb min”. Qadamlar “thumma” bilan bog‘lanadi.",
+   "say": "لَوْ سَمَحْتَ، كَيْفَ أَذْهَبُ إِلَى الْمَحَطَّةِ؟ اِذْهَبْ مُسْتَقِيمًا، ثُمَّ انْعَطِفْ يَمِينًا. الْمَحَطَّةُ مُقَابِلَ الْبَنْكِ.",
+   "say_uz": "Kechirasiz, bekatga qanday borsam bo‘ladi? To‘g‘riga boring, keyin o‘ngga buriling. Bekat bank qarshisida.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uy vazifasi",
    "emotion": "encouraging",
-   "board": [
-    "Uydan do‘konga yo‘l",
-    "3-5 buyruq",
-    "Muvaffaqiyat: yo‘l berish"
-   ],
+   "board": ["Uyingizdan yaqin do‘kongacha yo‘l", "kamida 5 qadam + 2 joy so‘zi", "Muvaffaqiyat: buyruqlar to‘g‘ri, ثُمَّ bilan bog‘langan"],
    "examples": [],
-   "say_native": "Uy vazifasi. Uyingizdan yaqin bir do‘kongacha yoki bozorgacha yo‘l ko‘rsatishni arabcha yozing va tarjima qiling. Muvaffaqiyat mezoni: kamida 3-5 ta buyruq, bitta joylashuv so‘zi, “ayna” savoli va to‘g‘ri tarjima. Keyingi darsda ranglar, kiyim va do‘konda xaridni o‘rganamiz.",
-   "say": "Homework: give directions from your home to a nearby shop.",
-   "say_uz": "Uy vazifasi: uydan yaqin do‘konga yo‘l ko‘rsatng.",
+   "say_native": "Uy vazifasi. Uyingizdan eng yaqin do‘kongacha bo‘lgan yo‘lni arabcha yozing va baland ovozda o‘qing. Muvaffaqiyat mezoni: kamida besh qadam, kamida ikkita joy so‘zi, masalan “muqābila” yoki “bi-jānibi”, buyruqlar to‘g‘ri yasalgan va qadamlar “thumma” bilan bog‘langan. Xohlasangiz, xuddi shu yo‘lni ayolga ham ayting. Keyingi darsda ranglar, kiyimlar va do‘konda xarid qilishni o‘rganamiz.",
+   "say": "صِفِ الطَّرِيقَ مِنْ بَيْتِكَ إِلَى الدُّكَّانِ. إِلَى اللِّقَاءِ!",
+   "say_uz": "Uyingizdan do‘kongacha yo‘lni tasvirlang. Ko‘rishguncha!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Uyingizdan yaqin bir do‘kongacha yoki bozorgacha yo‘l ko‘rsatishni arabcha yozing va tarjima qiling. Muvaffaqiyat mezoni: kamida 3-5 ta buyruq, bitta joylashuv so‘zi, “ayna” savoli va to‘g‘ri tarjima.",
+ "homework_uz": "Uyingizdan eng yaqin do‘kongacha bo‘lgan yo‘lni arabcha yozing va baland ovozda o‘qing. Muvaffaqiyat mezoni: kamida besh qadam, kamida ikkita joy so‘zi (muqābila, bi-jānibi, bayna, qarīb min), buyruqlar to‘g‘ri yasalgan va qadamlar “thumma” bilan bog‘langan.",
  "quiz": [
-  {
-   "q": "“Bozor” arabchada:",
-   "options": [
-    "السُّوقُ",
-    "الْمَدْرَسَةُ",
-    "الْمَسْجِدُ",
-    "الْفُنْدُقُ"
-   ],
-   "answer": 0,
-   "why_uz": "“As-sūq” — bozor."
-  },
-  {
-   "q": "“O‘ngga buril”:",
-   "options": [
-    "انْعَكِفْ إلى الشِّمَالِ",
-    "انْعَكِفْ إلى الْيَمِينِ",
-    "اذْهَبْ مُسْتَقِيمًا",
-    "اعْبُرِ الشَّارِعَ"
-   ],
-   "answer": 1,
-   "why_uz": "“In‘akif ilā al-yamīn” — o‘ngga buril."
-  },
-  {
-   "q": "“Chapga buril”:",
-   "options": [
-    "انْعَكِفْ إلى الْيَمِينِ",
-    "انْعَكِفْ إلى الشِّمَالِ",
-    "اذْهَبْ مُسْتَقِيمًا",
-    "اعْبُرِ الشَّارِعَ"
-   ],
-   "answer": 1,
-   "why_uz": "“In‘akif ilā al-shimāl” — chapga buril."
-  },
-  {
-   "q": "“To‘g‘ri yur”:",
-   "options": [
-    "انْعَكِفْ إلى الْيَمِينِ",
-    "اذْهَبْ مُسْتَقِيمًا",
-    "اعْبُرِ الشَّارِعَ",
-    "مُقابِلًا"
-   ],
-   "answer": 1,
-   "why_uz": "“Adhhab mustaqīman” — to‘g‘ri yur."
-  },
-  {
-   "q": "“Qayerda?” arabchada:",
-   "options": [
-    "أَيْنَ",
-    "كَيْفَ",
-    "مَتَى",
-    "هَلْ"
-   ],
-   "answer": 0,
-   "why_uz": "“Ayna” — qayerda."
-  },
-  {
-   "q": "“Masjid bozorga tashqari”:",
-   "options": [
-    "الْمَسْجِدُ بِجَانِبِ السُّوقِ",
-    "الْمَسْجِدُ مُقابِلَ السُّوقِ",
-    "الْمَسْجِدُ قَرِيبًا",
-    "الْمَسْجِدُ بَعِيدًا"
-   ],
-   "answer": 1,
-   "why_uz": "“Muqābalan” — tashqari/munosib."
-  },
-  {
-   "q": "“Mehmonxona maktabning yanada”:",
-   "options": [
-    "الْفُنْدُقُ مُقابِلَ الْمَدْرَسَةِ",
-    "الْفُنْدُقُ بِجَانِبِ الْمَدْرَسَةِ",
-    "الْفُنْدُقُ قَرِيبًا",
-    "الْفُنْدُقُ بَعِيدًا"
-   ],
-   "answer": 1,
-   "why_uz": "“Bijānibi” — yanada."
-  },
-  {
-   "q": "“Bank qanqar”:",
-   "options": [
-    "الْبَانِكُ قَرِيبًا",
-    "الْبَانِكُ بَعِيدًا",
-    "الْبَانِكُ مُقابِلًا",
-    "الْبَانِكُ بِجَانِبِ"
-   ],
-   "answer": 1,
-   "why_uz": "“Baʿīdan” — qanqar."
-  },
-  {
-   "q": "“Ko‘chaga o‘t”:",
-   "options": [
-    "انْعَكِفْ إلى الْيَمِينِ",
-    "اذْهَبْ مُسْتَقِيمًا",
-    "اعْبُرِ الشَّارِعَ",
-    "مُقابِلًا"
-   ],
-   "answer": 2,
-   "why_uz": "“Ishburī al-shāriʿa” — ko‘chaga o‘t."
-  },
-  {
-   "q": "“Hunāka” ma’nosi:",
-   "options": [
-    "shuning uchun",
-    "u yerda",
-    "qayerda",
-    "iltimos"
-   ],
-   "answer": 1,
-   "why_uz": "“Hunāka” — u yerda."
-  }
+  {"q": "“Dorixona” arabchada:", "options": ["مُسْتَشْفًى", "صَيْدَلِيَّةٌ", "دُكَّانٌ", "مَطْعَمٌ"], "answer": 1, "why_uz": "Ṣaydaliyya — dorixona. Mustashfā — kasalxona."},
+  {"q": "“Bank masjid qarshisida”:", "options": ["الْبَنْكُ بِجَانِبِ الْمَسْجِدِ", "الْبَنْكُ مُقَابِلَ الْمَسْجِدِ", "الْبَنْكُ تَحْتَ الْمَسْجِدِ", "الْبَنْكُ الْمَسْجِدِ مُقَابِلَ"], "answer": 1, "why_uz": "Muqābila — qarshisida, otdan oldin keladi."},
+  {"q": "“Kasalxonaga qanday borsam bo‘ladi?”:", "options": ["كَيْفَ أَذْهَبُ الْمُسْتَشْفَى؟", "أَيْنَ أَذْهَبُ الْمُسْتَشْفَى؟", "كَيْفَ أَذْهَبُ إِلَى الْمُسْتَشْفَى؟", "كَيْفَ تَذْهَبُ مُسْتَشْفًى؟"], "answer": 2, "why_uz": "Yo‘nalish uchun “ilā” kerak: kayfa adhhabu ilā l-mustashfā?"},
+  {"q": "Erkakka “o‘ngga buriling”:", "options": ["اِنْعَطِفْ يَمِينًا", "اِنْعَطِفِي يَمِينًا", "اِنْعَطِفْ يَسَارًا", "تَنْعَطِفِينَ يَمِينًا"], "answer": 0, "why_uz": "Erkakka inʿaṭif, yamīnan — o‘ngga."},
+  {"q": "Ayolga “ko‘chani kesib o‘ting”:", "options": ["اِعْبُرِي الشَّارِعَ", "اُعْبُرِي الشَّارِعَ", "اُعْبُرِ الشَّارِعَ", "تَعْبُرُ الشَّارِعَ"], "answer": 1, "why_uz": "Taʿburu o‘rtasida “u”, shuning uchun uʿbur; ayolga oxiriga -ī: uʿburī."},
+  {"q": "“Chapga” arabchada:", "options": ["يَمِينًا", "مُسْتَقِيمًا", "يَسَارًا", "مُقَابِلَ"], "answer": 2, "why_uz": "Yasāran — chapga, yamīnan — o‘ngga."},
+  {"q": "“Svetoforgacha yuring”:", "options": ["اِمْشِ حَتَّى الْإِشَارَةِ", "اِمْشِ الْإِشَارَةُ حَتَّى", "اِمْشِ عَلَى الْإِشَارَةِ", "اِمْشِ مُقَابِلَ الْإِشَارَةِ"], "answer": 0, "why_uz": "Ḥattā — … gacha, otdan oldin keladi va ot “-i” bilan tugaydi."},
+  {"q": "Ayolga yumshoq usulda “to‘g‘riga yurasiz”:", "options": ["تَمْشِي مُسْتَقِيمًا", "تَمْشِينَ مُسْتَقِيمًا", "اِمْشِ مُسْتَقِيمًا", "يَمْشِي مُسْتَقِيمًا"], "answer": 1, "why_uz": "Ayolga hozirgi zamon “-īna” bilan: tamshīna."},
+  {"q": "“Yaqin-atrofda dorixona bormi?”:", "options": ["هَلْ هُنَاكَ صَيْدَلِيَّةٌ قَرِيبَةٌ؟", "أَيْنَ صَيْدَلِيَّةٌ؟", "هَلْ صَيْدَلِيَّةٌ قَرِيبٌ؟", "كَيْفَ صَيْدَلِيَّةٌ؟"], "answer": 0, "why_uz": "Hal hunāka … qarība? Sifat ayol jinsiga moslashgan."},
+  {"q": "“Uydan chiqing” (erkakka):", "options": ["اُخْرُجْ مِنَ الْبَيْتِ", "اِخْرُجْ الْبَيْتَ", "تَخْرُجِينَ مِنَ الْبَيْتِ", "اُخْرُجِي إِلَى الْبَيْتِ"], "answer": 0, "why_uz": "Takhruju o‘rtasida “u”, buyruq ukhruj; “… dan” — min."}
  ]
 }

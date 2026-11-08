@@ -1,0 +1,729 @@
+{
+ "title": "Sayohat: aeroport va mehmonxona",
+ "goal_uz": "Sayohatdagi haqiqiy muammolarni koreyschada hal qilishni o‘rganing: aeroportda check-in, xavfsizlik tekshiruvi va boardingdan tortib yo‘qolgan yuk va kechikishlargacha, shuningdek mehmonxonada bron qilish, shikoyat qilish va pul qaytarishni so‘rashgacha.",
+ "vocab": [
+  {
+   "w": "여권 (yeokkwon)",
+   "uz": "pasport"
+  },
+  {
+   "w": "탑승 수속 (tapseung susok)",
+   "uz": "check-in, ro‘yxatdan o‘tish"
+  },
+  {
+   "w": "수하물 (suhamul)",
+   "uz": "yuk, bagaj"
+  },
+  {
+   "w": "탑승구 (tapseung gu)",
+   "uz": "chiqish eshigi, boarding gate"
+  },
+  {
+   "w": "연착 (yeonchak)",
+   "uz": "kechikish (reys)"
+  },
+  {
+   "w": "분실 (bunsil)",
+   "uz": "yo‘qolish, yo‘qotish"
+  },
+  {
+   "w": "예약 (yeyak)",
+   "uz": "bron, buyurtma"
+  },
+  {
+   "w": "환불 (hwanbul)",
+   "uz": "pul qaytarish"
+  },
+  {
+   "w": "위약금 (wiyakgeum)",
+   "uz": "bekor qilish jarimasi"
+  },
+  {
+   "w": "교환 (gyohwan)",
+   "uz": "almashtirish"
+  }
+ ],
+ "scenes": [
+  {
+   "kind": "intro",
+   "title": "Muzokaradan sayohatga",
+   "emotion": "happy",
+   "board": [
+    "공항 · 호텔",
+    "Bugun: check-in · xavfsizlik · yuk · kechikish · 환불",
+    "Maqsad: sayohat muammolarini o‘zingiz hal qiling"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda biznes muzokarasini — ehtiyoj, taklif, qarshi taklif va yakunlashni o‘rgandik. Bugun sayohatga, Koreyada real vaziyatlarga — aeroport va mehmonxona muammolariga o‘tamiz. Ish yoki ta’til safarida stress odatda aynan shu ikki joyda boshlanadi: navbatlar, yuk, kechikishlar, bron tushunmovchiliklari. Dars oxirida siz check-in, xavfsizlik tekshiruvi, boarding, yo‘qolgan yuk, kechikishlar, mehmonxona shikoyati va 환불 so‘rashni o‘zingiz hal qila olasiz. Esingizda bo‘lsin: “죄송합니다만” bilan boshlangan muammo koreyschada deyarli har doim yechiladi — faqat aniq gapirish kerak.",
+   "say": "안녕하세요! 오늘은 여행 중 생기는 문제를 한국어로 해결해 봐요.",
+   "say_uz": "Assalomu alaykum! Bugun sayohat paytida yuzaga keladigan muammolarni koreyschada hal qilamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Check-in: ro‘yxatdan o‘tish",
+   "emotion": "neutral",
+   "board": [
+    "여권 주세요",
+    "창가 좌석 / 복도 좌석",
+    "위탁 수하물 23kg 이내"
+   ],
+   "examples": [
+    {
+     "t": "여권과 예약 확인서를 보여 주시겠습니까?",
+     "uz": "Pasportingiz va bron tasdiqini ko‘rsating, iltimos."
+    },
+    {
+     "t": "창가 좌석으로 해 주세요.",
+     "uz": "Deraza tomonidagi o‘rindiq qiling, iltimos."
+    }
+   ],
+   "say_native": "Koreyscha check-in — 탑승 수속, uch qadam: hujjatlar, o‘rindiq, yuk. 여권 (jeokkwon) va 예약 확인서 (bron tasdiqi) tayyorlang. O‘rindiq: 창가 좌석 (deraza) yoki 복도 좌석 (yo‘lak); 비상구 좌석 faqat kattalarga. Yuk: 위탁 수하물 odatda 23 kilogrammgacha — 무게를 재 주세요. Qo‘l yuki — 휴대 수하물 — suyuqliklar 100ml dan oshmasin, 1 litrli shaffof paketda. Xodim “여권 주세요” — “pasport bering” — deydi; bu qo‘pol emas, standart — “네, 여기 있습니다” deb javob bering.",
+   "say": "여권 주세요. 창가 좌석으로 해 주세요. 위탁 수하물은 23kg까지 가능합니다.",
+   "say_uz": "Pasport bering. Deraza tomoni o‘rindiq qiling. Yuk 23 kilogrammgacha mumkin.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 1: Incheonda check-in",
+   "emotion": "neutral",
+   "board": [
+    "직원: 여권과 예약 확인서",
+    "여행객: 창가 좌석 + 23kg 수하물"
+   ],
+   "examples": [],
+   "say_native": "Diqqat qiling: xodim ish jarayonini qanday bosqichma-bosqich olib boryapti — hujjat, o‘rindiq, yuk, so‘ng 탑승 시간 va 게이트 e’loni. Koreyschada bu ma’lumotlar har doim deyarli bir xil tartibda aytiladi va siz ham shu tartibda javob bersangiz, jarayon silliq o‘tadi. Dialogni ikki marta eshiting va so‘ng o‘zingizning check-iningizni tasavvur qiling.",
+   "say": "직원: 여권과 예약 확인서를 보여 주시겠습니까? 여행객: 네, 여기 있습니다. 직원: 감사합니다. 좌석은 창가 좌석으로 해 드릴까요, 복도 좌석으로 해 드릴까요? 여행객: 창가 좌석으로 해 주세요. 직원: 네. 수하물을 올려 주세요. … 네, 21kg입니다. 탑승구는 24번이고, 탑승 시간은 오전 9시 40분입니다. 즐거운 여행 되세요.",
+   "say_uz": "Xodim: Pasport va bron tasdiqini ko‘rsating, iltimos. Sayohatchi: Ha, mana shunda. Xodim: Rahmat. Deraza tomoni o‘rindiq qilaymi yoki yo‘lak tomoni? Sayohatchi: Deraza tomoni qiling. Xodim: Ha. Yukni qo‘ying. … Ha, 21 kilogramm. Chiqish eshigi 24-raqam, boarding vaqti soat 9:40. Yo‘lingiz oq bo‘lsin.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Xavfsizlik tekshiruvi: nimalarni eslash kerak",
+   "emotion": "thinking",
+   "board": [
+    "벨트와 금속 제품을 풀어 주세요",
+    "노트북은 따로 꺼내 주세요",
+    "액체류 100ml 이하"
+   ],
+   "examples": [
+    {
+     "t": "노트북과 액체류를 따로 꺼내 주세요.",
+     "uz": "Noutbuk va suyuqliklarni alohida chiqarib qo‘ying."
+    }
+   ],
+   "say_native": "Koreyscha aeroport xavfsizlik tekshiruvi — 보안 검색 — uch so‘zga qisqaradi: yechish, ajratish, paketlash. 벨트와 금속 제품을 풀어 주세요 — “kamar va metall buyumlarni yeching”; soat, tanga, kamar — hammasi trayga. 노트북은 따로 꺼내 주세요 — “noutbukni alohida chiqarib qo‘ying”. 액체류ga: 100ml dan oshmasin va 1 litrli shaffof paketda solinsin; 200ml lik shampunni ham ololmaysiz. Unutsangiz, xodim “이것도 꺼내 주세요” — “bunisini ham chiqarib qo‘ying” — deydi; aynan shunday eshiting va bajaring. Ehtiyot bo‘lsangiz, Incheon kabi aeroportlarda 5 daqiqada o‘tasiz.",
+   "say": "벨트와 금속 제품을 풀어 주세요. 노트북은 따로 꺼내 주세요. 액체류는 100ml 이하만 가능합니다.",
+   "say_uz": "Kamar va metall buyumlarni yeching. Noutbukni alohida chiqarib qo‘ying. Suyuqliklar faqat 100 ml gacha mumkin.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Boarding: chiqish eshigi va o‘rindiq",
+   "emotion": "neutral",
+   "board": [
+    "탑승구가 변경되었습니다",
+    "탑승을 시작합니다",
+    "우선 탑승: 임산부 · 유아 동반"
+   ],
+   "examples": [
+    {
+     "t": "탑승구가 24번에서 18번으로 변경되었습니다.",
+     "uz": "Chiqish eshigi 24-raqamdan 18-raqamga o‘zgardi."
+    },
+    {
+     "t": "지금부터 탑승을 시작합니다. 탑승권을 보여 주세요.",
+     "uz": "Hozirdan boarding boshlanadi. Bording kartasini ko‘rsating."
+    }
+   ],
+   "say_native": "Boarding paytida eng muhim narsa — 탑승구 (gate) yangilanishlarini tinglash. E’lonlar ikki marta takrorlanadi: avval koreys, keyin ingliz. 탑승구가 24번에서 18번으로 변경되었습니다 — “chiqish eshigi 18-raqamga o‘zgardi”; gatelar aeroportning boshqa qismida bo‘lishi mumkin, raqamni tinglang. Boarding boshlanadi: 지금부터 탑승을 시작합니다. 탑승권을 보여 주세요 — “bording kartasini ko‘rsating”. 우선 탑승 — 임산부 (homilador), 장애인 (nogiron) va 유아 동반 승객; keyin guruhlar tartibi. Guruhingizni tushunmasangiz: 제 탑승 그룹이 어디인가요? — “mening guruhim qayerda?”. Pasport va bording kartasi doimo qo‘lda bo‘lsin.",
+   "say": "탑승구가 18번으로 변경되었습니다. 지금부터 탑승을 시작합니다. 임산부와 유아 동반 승객이 먼저 탑승합니다.",
+   "say_uz": "Chiqish eshigi 18-raqamga o‘zgardi. Hozirdan boarding boshlanadi. Homilador va go‘dakli yo‘lovchilar birinchi o‘tiradi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Check-in va boardingni o‘ynang",
+   "emotion": "thinking",
+   "board": [
+    "1) Check-in: o‘rindiq + yuk",
+    "2) Xavfsizlikda: nimalarni yechasiz",
+    "3) Boardingda: 제 탑승 그룹?"
+   ],
+   "examples": [],
+   "say_native": "Uch lavhani ketma-ket o‘ynang, ovoz chiqarib. Birinchi, check-in: siz xodimsiz va misol uchun sayohatchi — 여권을 내밀고, 창가 좌석을 부탁하고, 수하물 21kgni qoldiring. Ikkinchi, xavfsizlik tekshiruvi: nimalarni yechishingiz kerakligini koreyscha ayting — 벨트, 시계, 노트북, 100ml suyuqliklar. Uchinchi, boardingda: 탑승권ingizni ko‘rsating va xodimdan 제 탑승 그룹이 어디인가요? deb so‘rang. Har bir lavha 30-40 soniya bo‘lsin; yozuvni eshitib, 합쇼체 bilan -습니다 shakli izchilligini tekshiring.",
+   "say": "체크인부터 탑승까지 역할을 나눠 연습해 보세요. 각 장면 40초씩 말하세요.",
+   "say_uz": "Check-indan boardinggacha rollarga bo‘linib mashq qiling. Har bir lavha 40 soniyadan gapiring.",
+   "practice_seconds": 35
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: uch lavhaning namunalari",
+   "emotion": "encouraging",
+   "board": [
+    "여권과 예약 확인서 먼저",
+    "벨트 · 시계 · 노트북 분리",
+    "제 탑승 그룹이 어디인가요?"
+   ],
+   "examples": [
+    {
+     "t": "제 탑승 그룹은 어디인가요?",
+     "uz": "Mening boarding guruhim qayerda?"
+    }
+   ],
+   "say_native": "Namunaviy javoblar: check-in — 네, 여권입니다. 창가 좌석으로 부탁드립니다. 수하물은 22kg입니다; xavfsizlik — 벨트와 시계를 풀고, 노트북을 따로 꺼내고, 액체류는 100ml 이하인지 확인; boarding — 네, 탑승권입니다. 제 탑승 그룹은 어디인가요? Uchalasida ham bitta prinsip: xodim ishoriga javob bering, o‘zingiz ko‘rsatma bermang — koreyscha xizmatda xodim yetaklaydi, mijoz ergashib javob beradi. Va doimo “감사합니다” bilan tugating — koreyschada minnatdorchilik oddiy, lekin kuchli.",
+   "say": "좋아요. 이제 수하물과 지연 문제로 넘어갑시다.",
+   "say_uz": "Yaxshi. Endi yuk va kechikish muammolariga o‘tamiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Yo‘qolgan yoki shikastlangan yuk",
+   "emotion": "thinking",
+   "board": [
+    "제 수하물이 나오지 않았습니다",
+    "분실 신고를 하고 싶습니다",
+    "수하물 태그를 보여 주세요"
+   ],
+   "examples": [
+    {
+     "t": "제 수하물이 나오지 않았습니다. 분실 신고를 하고 싶습니다.",
+     "uz": "Yukim chiqmadi. Yo‘qolish haqida ariza bermoqchiman."
+    },
+    {
+     "t": "수하물 태그를 보여 주시겠습니까?",
+     "uz": "Yuk yorlig‘ini ko‘rsating, iltimos."
+    }
+   ],
+   "say_native": "Yuk yo‘qolishi kamdan-kam bo‘ladi, lekin jarayon aniq: avval yordam stoliga — 수하물 문의 (lost & found) ga boring. Iboringiz: 제 수하물이 나오지 않았습니다 — “yukim chiqmadi”. Keyin: 분실 신고를 하고 싶습니다 — “yo‘qolish haqida ariza bermoqchiman”. Xodim so‘raydi: 수하물 태그를 보여 주시겠습니까? — “yorliqni ko‘rsating?”; shuni bering, yorliqsiz ariza sekin ko‘riladi. Yuk kech yetsa, bu 지연 수하물; mehmonxonaga yetkazib berishni so‘ring. Yuk shikastlangan bo‘lsa — 수하물이 파손되었습니다 — darhol ariza bering; tushgandan keyingi 7 kun ichida qabul qilinadi. Hech qachon shikastni e’tiyorsiz qoldirmang.",
+   "say": "제 수하물이 나오지 않았습니다. 분실 신고를 하고 싶습니다. 수하물 태그는 여기 있습니다.",
+   "say_uz": "Yukim chiqmadi. Yo‘qolish haqida ariza bermoqchiman. Yuk yorlig‘i mana shunda.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: Yuk stolida — ariza berish",
+   "emotion": "thinking",
+   "board": [
+    "여행객: 수하물이 안 나왔어요",
+    "직원: 태그 확인 → 신고서 작성 → 배송"
+   ],
+   "examples": [],
+   "say_native": "Diqqat qiling: sayohatchi muammoni aniq aytadi, xodim uchta savol beradi — qaysi reys, yuk qanday ko‘rinishda, yorliq qayerda — va oxirida ikkita yechim taklif qiladi: topilgach mehmonxonaga yetkazib berish yoki kompensatsiya. Koreyscha xizmatda yechim har doim amaliy va yozma tasdiq bilan yakunlanadi — ariza nusxasini olishni unutmang.",
+   "say": "여행객: 제 수하물이 아직 나오지 않았습니다. 분실 신고를 하고 싶습니다. 직원: 네, 어느 항공편으로 오셨나요? 여행객: OZ 123편으로 서울에서 방금 도착했어요. 직원: 수하물 태그를 보여 주시겠습니까? … 네, 확인했습니다. 검은색 28인치 캐리어시군요. 이 신고서를 작성해 주세요. 연락처와 호텔 주소를 알려 주세요. 수하물을 찾으면 호텔로 배송해 드리겠습니다. 여행객: 네, 알겠습니다. 신고서 사본도 주시겠어요? 직원: 네, 여기 있습니다. 정말 죄송합니다.",
+   "say_uz": "Sayohatchi: Yukim hali chiqmadi. Yo‘qolish haqida ariza bermoqchiman. Xodim: Ha, qaysi reys bilan keldingiz? Sayohatchi: OZ 123 bilan Seuldan hozirgina yetib keldim. Xodim: Yuk yorlig‘ini ko‘rsating, iltimos. … Ha, tekshirdim. Qora 28 dyuymli chamadon ekan. Bu arizani to‘ldiring. Aloqa raqami va mehmonxona manzilini bering. Yuk topilsa, mehmonxonaga yetkazib beramiz. Sayohatchi: Ha, tushundim. Ariza nusxasini ham bersangiz bo‘ladimi? Xodim: Ha, mana. Chin dildan uzr.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Yuk muammosini o‘ynang",
+   "emotion": "thinking",
+   "board": [
+    "Vaziyat: Toshkent—Seul reysidan keyin yuk chiqmadi",
+    "안내 문구 4 qatlam"
+   ],
+   "examples": [],
+   "say_native": "Tasavvur qiling: siz Incheon’da yuk stolidasiz va chamadoningiz baggage carousel da chiqmadi. Ovozingizni yozib oling va to‘rt qatlamda gapiring: birinchi, muammoni ayting — 제 수하물이 나오지 않았습니다; ikkinchi, arizani so‘rang — 분실 신고를 하고 싶습니다; uchinchi, yorliqni uzating — 수하물 태그는 여기 있습니다; to‘rtinchi, yechimni so‘rang — 찾으면 호텔로 배송해 주실 수 있나요? 45 soniya ichida to‘rt qatlamni ham ayting; yozuvni eshitib, 합쇼체 izchilligini tekshiring.",
+   "say": "지금 수하물 문의 데스크에서 말해 보세요. 문제, 요청, 태그, 해결책 순서를 지키세요.",
+   "say_uz": "Hozir yuk yordam stolida gapirib bering. Muammo, talab, yorliq, yechim tartibiga rioya qiling.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: yuk arizasi",
+   "emotion": "encouraging",
+   "board": [
+    "수하물이 나오지 않았습니다",
+    "분실 신고를 하고 싶습니다",
+    "찾으면 배송 요청"
+   ],
+   "examples": [
+    {
+     "t": "수하물을 찾으면 제 호텔로 배송해 주세요.",
+     "uz": "Yuk topilsa, mehmonxonamga yetkazib bering."
+    }
+   ],
+   "say_native": "Namunaviy javob: 제 수하물이 나오지 않았습니다. 서울에서 OZ 123편으로 도착했습니다. 분실 신고를 하고 싶습니다. 수하물 태그는 여기 있습니다. 찾으면 제 호텔로 배송해 주실 수 있나요? Ariza nusxasini ham so‘rang — 신고서 사본을 받을 수 있을까요? — bu kelajakdagi kompensatsiya arizasi uchun kerak. Va esingizda bo‘lsin: yuk 21 kun ichida topilmasa, u rasman yo‘qolgan hisoblanadi va 항공사에 보상 신청 qila olasiz — lekin buning uchun arizangiz va yorlig‘ingiz bo‘lishi shart; shuning uchun har doim ariza nusxasini oling.",
+   "say": "좋아요. 이제 항공편 지연과 결항 문제를 배워 봅시다.",
+   "say_uz": "Yaxshi. Endi reys kechikishi va bekor qilinishi muammolarini o‘rganamiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Kechikish, 연착 va 결항",
+   "emotion": "neutral",
+   "board": [
+    "연착 = kechikish",
+    "결항 = bekor qilish",
+    "얼마나 지연되나요?"
+   ],
+   "examples": [
+    {
+     "t": "항공편이 약 2시간 지연될 예정입니다.",
+     "uz": "Reys taxminan 2 soatga kechikadi."
+    },
+    {
+     "t": "사전 안내 없이 결항되었습니다.",
+     "uz": "Oldindan ogohlantirilmasdan bekor qilindi."
+    }
+   ],
+   "say_native": "Koreyschada uch atama bor va ularni chalkashtirmang. 연착 (yeonchak) — reysning kechikishi; 지연 (jiyeon) — umumiy “kechikish”, 지연되다 — “kechikmoq”; 결항 (gyeolhang) — reysning bekor qilinishi. Xodimga savollar: 얼마나 지연되나요? — “qancha kechikadi?”; 다음 항공편은 언제인가요?; 식사나 숙박은 제공되나요? 4 soatdan ortiq kechikishda 항공사는 ovqat, tunash yoki 마일리지 berishga majbur — so‘rang: 보상은 어떻게 되나요? Koreyscha aviakompaniyalar odatda kechikishda kupon yoki bepul ovqat beradi; so‘ramasangiz, bermasligi mumkin.",
+   "say": "항공편이 2시간 지연된다고 합니다. 다음 항공편은 언제인가요? 식사는 제공되나요?",
+   "say_uz": "Reys 2 soat kechikadi deyishyapti. Keyingi reys qachon? Ovqat beriladimi?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 3: Darvozada kechikish",
+   "emotion": "thinking",
+   "board": [
+    "방송: 2시간 지연",
+    "여행객: 보상 문의 + 식사 요청"
+   ],
+   "examples": [],
+   "say_native": "Diqqat qiling: sayohatchi kechikish e’lonini eshitgach, darhol uchta savol beradi — qancha vaqt, sabab, kompensatsiya. Koreyschada to‘g‘ri tartib shu: avval fakt, keyin sabab, keyin huquqingiz. Xodimning “확인해 보겠습니다” javobi normal — u bilan bahslashmang, kuting va keyin aniq javobni qayta so‘rang.",
+   "say": "방송: 승객 여러분께 안내 말씀드립니다. OZ 123편은 기상 상황으로 약 2시간 지연될 예정입니다. 여행객: 실례합니다. 얼마나 지연되나요? 게이트 직원: 약 2시간입니다. 기상 상황 때문에 그렇습니다. 여행객: 식사나 쿠폰은 제공되나요? 게이트 직원: 4시간 이상 지연 시 식사가 제공됩니다. 지금은 대기해 주세요. 여행객: 네, 알겠습니다. 지연이 길어지면 다시 문의해도 될까요? 게이트 직원: 네, 언제든지 물어보세요.",
+   "say_uz": "E’lon: Yo‘lovchilar, e’tiboringizga. OZ 123 reys ob-havo tufayli taxminan 2 soatga kechikadi. Sayohatchi: Uzr. Qancha kechikadi? Gate xodimi: Taxminan 2 soat. Ob-havo tufayli. Sayohatchi: Ovqat yoki kupon beriladimi? Gate xodimi: 4 soatdan ortiq kechiksa, ovqat beriladi. Hozircha kutib turing. Sayohatchi: Ha, tushundim. Kechikish uzaysa, yana so‘rasam bo‘ladimi? Gate xodimi: Ha, istalgan payt so‘rang.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Kechikish savollarini so‘rang",
+   "emotion": "thinking",
+   "board": [
+    "Vaziyat: reys 5 soat kechikdi",
+    "얼마나? → 왜? → 보상?"
+   ],
+   "examples": [],
+   "say_native": "Tasavvur qiling: sizning reysingiz besh soatga kechikdi va siz darvozada turibsiz. Ovozingizni yozib oling va to‘rt savol bering: birinchi, qancha kechikadi — 얼마나 지연되나요?; ikkinchi, sababi nima — 왜 지연되나요?; uchinchi, ovqat yoki tunash beriladimi — 식사나 숙박은 제공되나요?; to‘rtinchi, keyingi reysga almashtirish mumkinmi — 다음 항공편으로 변경할 수 있나요? Har bir savol alohida va muloyim bo‘lsin; yozuvni eshitib, “왜” o‘rniga -시- hurmat shakli ishlatilganiga yoki neytral ekaniga e’tibor bering.",
+   "say": "지금 게이트에서 질문해 보세요. 지연 시간, 이유, 보상, 대체 항공편 순서를 지키세요.",
+   "say_uz": "Hozir chiqish eshigida savollaringizni bering. Kechikish vaqti, sabab, kompensatsiya, muqobil reys tartibiga rioya qiling.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: kechikish savollari",
+   "emotion": "encouraging",
+   "board": [
+    "얼마나 지연되나요?",
+    "왜 지연되나요?",
+    "식사/숙박은 제공되나요?",
+    "다음 항공편으로 변경 가능?"
+   ],
+   "examples": [
+    {
+     "t": "5시간 지연이면 숙박은 어떻게 되나요?",
+     "uz": "5 soat kechikishda tunash qanday bo‘ladi?"
+    }
+   ],
+   "say_native": "Namunaviy savollar: 얼마나 지연되나요? — eng muhim; javob “2시간” bo‘lsa ham, 예정 (reja) ekanini unutmang. 왜 지연되나요? — sabab huquqingizni belgilaydi: ob-havo odatda kompensatsiyasiz, texnik nosozlik esa 보상 bilan tugaydi. 식사나 숙박은 제공되나요? — 4 soatdan ortiq kechikishda ovqat, tunash kerak bo‘lsa mehmonxona so‘rang. 다음 항공편으로 변경할 수 있나요? — agar kechikish 8 soatdan oshsa, reysni almashtirish yoki pulni qaytarishni so‘rash huquqingiz bor: 환불해 주세요 deb ayta olasiz. Koreyscha e’tibor qiling: aviakompaniya dastlab o‘z majburiyatlarini to‘liq aytmaydi — so‘rash sizning vazifangiz.",
+   "say": "정답입니다. 지연이 길어지면 보상을 꼭 문의하세요.",
+   "say_uz": "To‘g‘ri. Kechikish uzaysa, kompensatsiya haqida albatta so‘rang.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Mehmonxona: bron va shikoyat",
+   "emotion": "neutral",
+   "board": [
+    "체크인하려고 합니다",
+    "예약 번호는 …입니다",
+    "방에 문제가 있습니다"
+   ],
+   "examples": [
+    {
+     "t": "예약을 확인하고 싶습니다. 예약 번호는 12345입니다.",
+     "uz": "Bronni tasdiqlatmoqchiman. Bron raqami 12345."
+    },
+    {
+     "t": "방에 문제가 있습니다. 에어컨이 작동하지 않습니다.",
+     "uz": "Xonada muammo bor. Konditsioner ishlamayapti."
+    }
+   ],
+   "say_native": "Mehmonxonada ikki vaziyat ko‘p uchraydi. Bron: 체크인하려고 합니다 — “bron qilmoqchiman”. Xodim so‘raydi: 예약 번호 (bron raqami) va 이름입니다; 본인 확인 uchun pasport kerak. Shikoyatda esa ketma-ketlik muhim: avval muammoni aniq ayting — 방에 문제가 있습니다; nima buzilganini ayting — 에어컨이 작동하지 않습니다 (konditsioner ishlamayapti), 와이파이가 안 됩니다, 소음이 심합니다; keyin yechim so‘rang — 방을 바꿔 주실 수 있나요? yoki 환불해 주세요. Koreyscha mehmonxona xodimi muammoni odatda tez hal qiladi — faqat aniq gapiring va pasportingizni tayyor tuting.",
+   "say": "체크인하려고 합니다. 예약 번호는 12345입니다. 방에 문제가 있는데, 에어컨이 작동하지 않습니다.",
+   "say_uz": "Bron qilmoqchiman. Bron raqami 12345. Xonada muammo bor, konditsioner ishlamayapti.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 4: Mehmonxonada shikoyat va xonani almashtirish",
+   "emotion": "thinking",
+   "board": [
+    "손님: 에어컨 고장 + 소음",
+    "프런트: 사과 → 방 교체"
+   ],
+   "examples": [],
+   "say_native": "Diqqat qiling: xodim avval tan oladi va uzr aytadi — “불편을 드려 죄송합니다” — keyin muammoni o‘zi tekshiradi va yechim taklif qiladi: 방을 다른 방으로 바꿔 드리겠습니다. Agar xonani almashtirish imkonsiz bo‘lsa, chegirma yoki kompensatsiya taklif qiladi. Sayohatchi esa o‘z talabini aniq aytadi va oxirida “감사합니다” deb tugatadi — bu koreyscha mehmonxona madaniyatida hamma uchun yaxshi yakun.",
+   "say": "손님: 프런트에 문의 드립니다. 방에 문제가 있습니다. 에어컨이 작동하지 않고, 옆방 소음이 심합니다. 직원: 불편을 드려 죄송합니다. 언제부터 그랬나요? 손님: 체크인하고 30분 정도 됐습니다. 직원: 네, 확인해 보겠습니다. … 맞습니다. 다른 방으로 바로 옮겨 드리겠습니다. 조용한 고층 객실로 해 드릴까요? 손님: 네, 부탁드립니다. 감사합니다. 직원: 짐은 저희가 옮겨 드리겠습니다. 정말 죄송합니다.",
+   "say_uz": "Mehmon: Qabulxonaga murojaat. Xonada muammo bor. Konditsioner ishlamayapti va yon xona shovqini kuchli. Xodim: Noqulaylik uchun uzr. Qachondan shunday? Mehmon: Bron qilganimdan 30 daqiqa bo‘ldi. Xodim: Ha, tekshirib ko‘raman. … To‘g‘ri. Darhol boshqa xonaga o‘tkazib beraman. Sokin yuqori qavat xonasi bo‘ladimi? Mehmon: Ha, iltimos. Rahmat. Xodim: Yukingizni biz ko‘taramiz. Chin dildan uzr.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Mehmonxona shikoyatini o‘ynang",
+   "emotion": "thinking",
+   "board": [
+    "Vaziyat: 와이파이 3 kun ishlamadi",
+    "muammo → talab → yechim"
+   ],
+   "examples": [],
+   "say_native": "Tasavvur qiling: uch kun Wi-Fi ishlamadi va siz mehmonxonaning qabulxonasidasiz, ketishingizga bir kun qoldi. Ovozingizni yozib oling va gapiring: birinchi, muammoni ayting — 와이파이가 3일째 안 됩니다; ikkinchi, kutishingizni ayting — 재택근무를 해야 해서 인터넷이 꼭 필요합니다; uchinchi, yechim so‘rang — 방을 바꿔 주시거나, 환불을 해 주실 수 있나요? 45 soniya ichida aytib chiqing; yozuvni eshitib, ovozning sokin va aniq bo‘lishini tekshiring — koreyscha mehmonxonada juda baland ovoz zarar qiladi.",
+   "say": "지금 프런트에서 문제를 말해 보세요. 문제, 영향, 요구하는 해결책 순서를 지키세요.",
+   "say_uz": "Hozir qabulxonada muammoni aytib bering. Muammo, ta’siri, talab qilayotgan yechim tartibiga rioya qiling.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: mehmonxona shikoyati",
+   "emotion": "encouraging",
+   "board": [
+    "와이파이가 3일째 안 됩니다",
+    "방을 바꿔 주시거나",
+    "환불을 해 주실 수 있나요?"
+   ],
+   "examples": [
+    {
+     "t": "인터넷이 안 되면 업무를 할 수 없습니다. 방을 바꿔 주세요.",
+     "uz": "Internet bo‘lmasa, ishlay olmayman. Xonamni almashtiring."
+    }
+   ],
+   "say_native": "Namunaviy javob: 실례합니다. 와이파이가 3일째 안 됩니다. 재택근무 중이라 인터넷이 꼭 필요한데, 방을 바꿔 주실 수 있나요? 여의치 않으면 환불을 해 주실 수 있을까요? E’tibor bering: koreyscha shikoyatda “여의치 않으면” — “imkoni bo‘lmasa” — degan ibora yumshoqlik beradi va yechimga joy qoldiradi; qattiq “환불해 주세요” o‘rniga yaxshi ishlaydi. Va mehmonxonadagi har bir shikoyat oxirida “감사합니다” deb tugating — bu sizning arizaingizga xodimning tez javob qilishini ta’minlaydi.",
+   "say": "좋아요. 이제 환불 요청을 자세히 배워 봅시다.",
+   "say_uz": "Yaxshi. Endi pul qaytarish talabini batafsil o‘rganamiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Pul qaytarishni so‘rash: 환불",
+   "emotion": "neutral",
+   "board": [
+    "환불해 주세요",
+    "환불 규정이 어떻게 되나요?",
+    "전액 환불 / 부분 환불 / 위약금"
+   ],
+   "examples": [
+    {
+     "t": "환불 규정이 어떻게 되나요?",
+     "uz": "Qaytarish tartibi qanday?"
+    },
+    {
+     "t": "전액 환불해 주세요.",
+     "uz": "To‘liq qaytarib bering."
+    }
+   ],
+   "say_native": "환불 (hwanbul) — pul qaytarish; u koreyschada qat’iy qoidalar bilan ishlaydi. Birinchi savolingiz har doim: 환불 규정이 어떻게 되나요? — “qaytarish tartibi qanday?”; qoidasiz talab jarima bilan tugaydi. Iboralar: 전액 환불 (to‘liq), 부분 환불 (qisman), 위약금 (bekor qilish jarimasi), 환불 불가 (mumkin emas). Xizmat sifatsiz bo‘lsa, sababni ayting: 에어컨이 고장 난 방을 사용했기 때문에 환불을 요청합니다. Koreyscha mehmonxonalar odatda 50 foiz yoki 1 kecha bepul taklif qiladi; to‘liq qaytarish kamroq — rozi bo‘ling yoki e’tirozingizni yozma arizada qayd qiling. Butun iborani koreyschada ayting.",
+   "say": "환불 규정이 어떻게 되나요? 전액 환불은 어렵다면 부분 환불이라도 부탁드립니다.",
+   "say_uz": "Qaytarish tartibi qanday? To‘liq qaytarish qiyin bo‘lsa, qisman qaytarsangiz ham bo‘ladi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 5: 환불 talabi — to‘liq qaytarish",
+   "emotion": "thinking",
+   "board": [
+    "손님: 서비스 불량 → 전액 환불",
+    "프런트: 규정 확인 → 50% 제안"
+   ],
+   "examples": [],
+   "say_native": "Diqqat qiling: sayohatchi to‘liq qaytarish so‘raydi, xodim qoidalarga murojaat qiladi, keyin murosay yechimi — 50 foiz qaytarish yoki bir kecha bepul — taklif qiladi. Sayohatchi o‘z nuqtai nazarini yozma arizada qayd qilishni so‘raydi — bu koreyscha biznesda eng yaxshi muzokara usuli: faktlar qog‘ozga tushsa, muomala jiddiyroq ko‘riladi.",
+   "say": "손님: 환불을 요청하고 싶습니다. 제 방은 3일 동안 에어컨이 고장 나 있었고, 와이파이도 안 됐습니다. 전액 환불을 부탁드립니다. 프런트: 불편을 드려 죄송합니다. 저희 규정상 전액 환불은 어렵고, 2박 요금의 50%를 환불해 드릴 수 있습니다. 손님: 전액은 아니더라도 제 의견을 기록으로 남기고 싶습니다. 프런트: 네, 이 양식에 작성해 주세요. 그리고 1박 무료 숙박 쿠폰도 드리겠습니다. 손님: 네, 감사합니다. 그렇게 해 주세요.",
+   "say_uz": "Mehmon: Qaytarishni so‘ramoqchiman. Xonamda uch kun konditsioner buzilgan edi va Wi-Fi ham ishlamadi. To‘liq qaytarishni so‘rayman. Qabulxona: Noqulaylik uchun uzr. Qoidamizga ko‘ra to‘liq qaytarish qiyin, 2 tun narxining 50 foizi qaytarilishi mumkin. Mehmon: To‘liq bo‘lmasa ham, fikrimni yozma qaydga olishni xohlayman. Qabulxona: Ha, shu shaklni to‘ldiring. Va bir tunlik bepul mehmonxona kuponi beraman. Mehmon: Ha, rahmat. Shunday qiling.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "환불 talabini o‘ynang",
+   "emotion": "thinking",
+   "board": [
+    "Vaziyat: reys 8 soat kechikdi",
+    "환불 요청 + 규정 질문"
+   ],
+   "examples": [],
+   "say_native": "Tasavvur qiling: reysingiz 8 soat kechikdi va mehmonxonadagi broningizni bekor qilmoqchisiz. Ovozingizni yozib oling va gapiring: birinchi, muammoni ayting — 항공편이 8시간 지연되었습니다; ikkinchi, 환불 talabini ayting — 예약을 취소하고 환불해 주세요; uchinchi, qoidalarni so‘rang — 위약금이 있나요?; to‘rtinchi, yozma tasdiqni so‘rang — 취소 확인서를 보내 주세요. 40 soniya ichida aytib chiqing; yozuvni eshitib, -습니다 shakli va muloyim ohang izchilligini tekshiring.",
+   "say": "지금 환불 요청을 말해 보세요. 문제, 취소 요청, 위약금 질문, 확인서 요청 순서를 지키세요.",
+   "say_uz": "Hozir qaytarish talabingizni ayting. Muammo, bekor qilish talabi, jarima savoli, tasdiq so‘rash tartibiga rioya qiling.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: 환불 arizasi namunasi",
+   "emotion": "encouraging",
+   "board": [
+    "항공편이 8시간 지연",
+    "취소하고 환불해 주세요",
+    "위약금은 얼마인가요?",
+    "취소 확인서 부탁드립니다"
+   ],
+   "examples": [
+    {
+     "t": "위약금은 얼마인가요? 취소 확인서를 이메일로 보내 주세요.",
+     "uz": "Jarima qancha? Bekor qilish tasdig‘ini elektron xatga yuboring."
+    }
+   ],
+   "say_native": "Namunaviy javob: 실례합니다. 항공편이 8시간 지연되었습니다. 그래서 내일 예약을 취소하고 환불을 받고 싶습니다. 위약금이 있나요? 그리고 취소 확인서를 이메일로 보내 주시겠어요? Diqqat qiling: 환불 so‘rashda har doim zarar sababini ayting — koreyscha xizmat tizimi “nega”ga qaraydi; sababsiz 환불 odatda rad etiladi. Va yozma tasdiq — 취소 확인서 — sizning kelajakdagi barcha bahslardagi himoyangiz; uni albatta so‘rang, 물어보는 것을 부끄러워하지 마세요 — so‘rashdan uyalmang.",
+   "say": "정답입니다. 이유와 함께 요청하면 환불이 훨씬 수월해집니다.",
+   "say_uz": "To‘g‘ri. Sabab bilan birga so‘rangiz — qaytarish ancha osonlashadi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 6: To‘liq sayohat kun — aeroportdan mehmonxonagacha",
+   "emotion": "proud",
+   "board": [
+    "체크인 → 지연 → 호텔 불만"
+   ],
+   "examples": [],
+   "say_native": "Endi butun sayohat kunini bitta ssenariyda eshiting: check-in, kechikish, mehmonxonadagi noqulayliklar va oxirida 환불 talabi. Bu to‘liq oqim — uyga vazifangizdagi uchta rolli o‘yinning modeli. Ikki marta eshiting: birinchi marta mazmun, ikkinchi marta so‘z boyligi uchun. E’tibor bering: har bir lavhada sayohatchi avval o‘z muammosini aniq aytadi, keyin yechim so‘raydi — xuddi shu tartibni o‘zingizda ham qo‘llang.",
+   "say": "직원: 여권 주세요. 창가 좌석으로 해 드릴까요? 여행객: 네, 부탁드립니다. … 여행객: 실례합니다. 항공편이 4시간 지연된다고 하는데, 식사는 제공되나요? 게이트 직원: 4시간 이상 지연 시 식사가 제공됩니다. … 손님: 안녕하세요. 와이파이가 안 되는데요. 직원: 불편을 드려 죄송합니다. 바로 확인해 드리겠습니다. … 프런트: 그럼 1박 무료 쿠폰을 드리겠습니다. 손님: 네, 감사합니다.",
+   "say_uz": "Xodim: Pasport bering. Deraza tomoni o‘rindiq qilaymi? Sayohatchi: Ha, iltimos. … Sayohatchi: Uzr. Reys 4 soat kechikadi deyishyapti, ovqat beriladimi? Gate xodimi: 4 soatdan ortiq kechiksa, ovqat beriladi. … Mehmon: Assalomu alaykum. Wi-Fi ishlamayapti. Xodim: Noqulaylik uchun uzr. Darhol tekshirib beraman. … Qabulxona: Demak, bir tunlik bepul kupon beraman. Mehmon: Ha, rahmat.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Sayohatni tushunish",
+   "emotion": "thinking",
+   "board": [
+    "1) Reys necha soat kechikdi?",
+    "2) 4 soatdan keyin nima beriladi?",
+    "3) Wi-Fi bo‘lmasa, nima berildi?"
+   ],
+   "examples": [],
+   "say_native": "O‘tgan to‘liq suhbatni esga olib uch savolga javob bering. Birinchi, reys necha soat kechikdi va nima sababdan? Ikkinchi, 4 soatdan ortiq kechikishda yo‘lovchilarga nima beriladi? Uchinchi, Wi-Fi ishlamagani uchun mehmonxona nima taklif qildi? Javoblarni to‘liq koreyscha jumlalar bilan ayting: …시간 지연되었습니다, …이 제공됩니다, …을 무료로 드리겠습니다. Keyingi saxifada javoblarni tekshirasiz.",
+   "say": "질문 세 가지에 한국어 완전한 문장으로 답해 보세요.",
+   "say_uz": "Uch savolga koreyscha to‘liq jumlalar bilan javob bering.",
+   "practice_seconds": 35
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: sayohatni tushunish",
+   "emotion": "proud",
+   "board": [
+    "4시간 지연",
+    "4시간 이상 → 식사 제공",
+    "1박 무료 숙박 쿠폰"
+   ],
+   "examples": [
+    {
+     "t": "4시간 이상 지연 시 식사가 제공됩니다.",
+     "uz": "4 soatdan ortiq kechikishda ovqat beriladi."
+    }
+   ],
+   "say_native": "Javoblar: birinchi, reys 4 soat kechikdi — qisqa javob ham shu; sababi kechikish e’lonida berilmagan, lekin koreyscha kechikishlarda sabab so‘rash huquqingiz. Ikkinchi, 4 soatdan ortiq kechikishda ovqat yoki to‘lov kuponi beriladi — bu aviakompaniyaning majburiyati. Uchinchi, Wi-Fi ishlamagani uchun mehmonxona bir tunlik bepul kupon taklif qildi — mehmonxonalar odatda to‘liq qaytarish o‘rniga shunday murosay yechimini beradi. Agar biror savolga qiyin bo‘lgan bo‘lsangiz, dialogni qayta eshiting; har bir detal aeroport va mehmonxona xizmatida haqiqiy qoida sifatida ishlatiladi.",
+   "say": "정답입니다. 이제 여러분도 여행 문제를 혼자 해결할 수 있어요.",
+   "say_uz": "To‘g‘ri. Endi siz ham sayohat muammolarini yakka o‘zingiz hal qila olasiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Keng tarqalgan 5 ta xato",
+   "emotion": "stern",
+   "board": [
+    "1) Xodimga 반말",
+    "2) Sababsiz 환불 talabi",
+    "3) 예약 번호ni unutish",
+    "4) Baland ovozda shikoyat",
+    "5) 신고서 사본ni olmaslik"
+   ],
+   "examples": [],
+   "say_native": "Sayohatdagi beshta klassik xato. Birinchi, 반말 bilan murojaat — “여권 줘” yoki “빨리요”; har doim -습니다 yoki -요 bilan gapiring, xodim hamma holatda hurmatga loyiq. Ikkinchi, sababsiz 환불 talabi — “환불해 주세요” deganingizda ariza tizimi “nega?” deb so‘raydi; sababni ayting: 에어컨이 고장 나서…. Uchinchi, bron raqami yoki yorliqni esdan chiqarish — daftarga yoki telefoningizga yozib qo‘ying; busiz arizangiz sekin ko‘riladi. To‘rtinchi, baland ovoz yoki g‘azab — koreyscha xizmat tizimida baland ovoz sizni e’tiborsiz qoldiradi; sokin, aniq va qat’iy gapiring. Beshinchi, ariza nusxasi yoki tasdiq olgmaslik — har bir şikoyat, almashtirish va qaytarishdan keyin yozma tasdiq oling; bahsli vaziyatlarda qog‘oz hamma narsadan kuchli.",
+   "say": "이 다섯 가지만 피하면 여행 중 문제도 쉽게 해결할 수 있어요.",
+   "say_uz": "Shu beshta xatodan qochsangiz, sayohat paytidagi muammolarni ham oson hal qilasiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Xatolarni tuzating",
+   "emotion": "thinking",
+   "board": [
+    "“여권 줘요!” → ?",
+    "“그냥 환불해 주세요.” → ?",
+    "“신고서 필요 없어요.” → ?"
+   ],
+   "examples": [],
+   "say_native": "Uch jumlani professional koreyschaga tuzating. Birinchi: “여권 줘요!” — bu buyruq ohangi; uni xushmuomalalik bilan ayting: 여권을 보여 주시겠습니까? Ikkinchi: “그냥 환불해 주세요” — sababsiz talab; sabab bilan birga ayting: 에어컨이 3일 동안 고장 나서 환불을 요청합니다. Uchinchi: “신고서 필요 없어요” — ariza nusxasi juda kerak; uni so‘rab oling: 신고서 사본을 받을 수 있을까요? Ovoz chiqarib ayting, so‘ng keyingi saxifada namunalar bilan solishtiring.",
+   "say": "이 문장 세 개를 정중한 한국어로 바꿔 보세요.",
+   "say_uz": "Shu uchta jumlani muloyim koreyschaga aylantirib ko‘ring.",
+   "practice_seconds": 35
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: to‘g‘ri shakllar",
+   "emotion": "proud",
+   "board": [
+    "여권을 보여 주시겠습니까?",
+    "이유 + 환불 요청",
+    "신고서 사본 요청"
+   ],
+   "examples": [
+    {
+     "t": "에어컨이 3일 동안 고장 나서 환불을 요청합니다.",
+     "uz": "Konditsioner uch kun buzilgani uchun qaytarish talab qilaman."
+    }
+   ],
+   "say_native": "To‘g‘ri javoblar: birinchi, 여권을 보여 주시겠습니까? — savol shaklidagi muloyim so‘rov; koreyscha -시- hurmat qo‘shimchasi va -겠습니까 rasmiy savol endingi. Ikkinchi, 에어컨이 3일 동안 고장 나서 환불을 요청합니다 — sabab + talab, ikkalasi bir jumlada. Uchinchi, 신고서 사본을 받을 수 있을까요? — “ariza nusxasini olsam bo‘ladimi?”; bu koreyscha eng universal muloyim so‘rash shakli va xizmat vaziyatlarida juda kuchli. Uchalasi ham bir qoidaga amal qiladi: aniq sabab, hurmatli shakl, yozma iz.",
+   "say": "그 표현들을 쓰면 어디서든 신뢰받는 여행자가 될 수 있어요.",
+   "say_uz": "Bu iboralarni ishlatsangiz, qayerda bo‘lsangiz ham, hurmatli sayohatchi bo‘lasiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Uchta sayohat dialogini rejalashtiring",
+   "emotion": "thinking",
+   "board": [
+    "1) 분실 수하물",
+    "2) 지연/결항 + 보상",
+    "3) 호텔 불만 + 환불"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifangiz — uchta sayohat muammosi dialogini yozib, ovoz chiqarib o‘ynash. Ularni hozir rejalashtiring. Birinchi dialog: Toshkent—Seul reysidan keyin yuk chiqmaydi — 제 수하물이 나오지 않았습니다, yorliq, yetkazib berish arizasi. Ikkinchi dialog: reys 6 soat kechikadi — 보상 so‘rash, 식사/숙박, keyingi reysga almashtirish. Uchinchi dialog: mehmonxonada konditsioner 3 kun buzilgan — 환불 yoki xonani almashtirish talabi. Har bir dialogda besh qatlam bo‘lsin: muammo, sabab, talab, yechim, tasdiq. Jami 5-7 daqiqa hajmida yozing; o‘zingizni ikki rolda ham tasavvur qilib o‘ynang va yozib oling.",
+   "say": "역할극 세 가지를 계획해 보세요. 각 대화는 5단계 구조를 가지면 좋아요.",
+   "say_uz": "Uchta rolli o‘yinni rejalashtiring. Har bir dialog besh bosqichli tuzilishga ega bo‘lsa yaxshi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "체크인: 여권 · 창가 좌석 · 수하물",
+    "분실: 제 수하물이 나오지 않았습니다",
+    "지연: 얼마나 지연되나요?",
+    "환불: 이유 + 요청 + 확인서"
+   ],
+   "examples": [],
+   "say_native": "Bugungi darsni yakunlaymiz. Siz endi koreyscha sayohatning to‘liq siklini o‘zingiz boshqara olasiz: check-in — hujjatlar, o‘rindiq, yuk va 게이트 e’lonlari; xavfsizlik tekshiruvi — yechish, ajratish, paketlash; boarding — guruh tartibi va pasport; yo‘qolgan yuk — ariza va yorliq; kechikish va 결항 — fakt, sabab, kompensatsiya; mehmonxona — bron, shikoyat va xonani almashtirish; va 환불 — sababli talab hamda yozma tasdiq. Bu ko‘nikmalar nafaqat sayohatda, Koreyadagi har qanday xizmat vaziyatida ham ishlaydi: bank, shifoxona, agentlik.",
+   "say": "오늘도 수고 많으셨어요. 이제 여행 중 문제도 한국어로 해결할 수 있어요.",
+   "say_uz": "Bugun ham rahmat. Endi sayohatdagi muammolarni ham koreyschada hal qila olasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa va keyingi dars",
+   "emotion": "encouraging",
+   "board": [
+    "3 ta sayohat dialogini yozib oling",
+    "분실 · 지연 · 환불",
+    "Keyingi: Shifokor va dorixona"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa: uchta sayohat muammosi dialogini yozib oling — yo‘qolgan yuk, reys kechikishi hamda mehmonxona shikoyati bilan pul qaytarish. Har bir dialogda besh qatlam bo‘lsin: muammo, sabab, talab, yechim, tasdiq; ikkita rolni ham o‘zingiz o‘ynang va yozuvni ikki marta eshiting. Jami uch dialog 5-7 daqiqadan oshmasin. Keyingi darsda shifokor va dorixona mavzusini o‘rganamiz — doktor qabulida nimalarni aytish, alomatlar va dori nomlarini koreyschada ifodalash, retseptni tushunish va dorixona xodimidan maslahat so‘rash; ya’ni Koreyada tibbiy yordam olish uchun kerakli barcha asosiy iboralar.",
+   "say": "숙제는 여행 문제 대화 세 개를 녹음하는 거예요. 다음 시간에는 병원과 약국을 배워요.",
+   "say_uz": "Uyga vazifa — sayohat muammosi dialogini uchta yozib olish. Keyingi darsda shifoxona va dorixonani o‘rganamiz.",
+   "practice_seconds": 0
+  }
+ ],
+ "homework_uz": "Uchta sayohat muammosi dialogini yozib oling: yo‘qolgan yuk, reys kechikishi hamda mehmonxona shikoyati bilan 환불 talabi. Har bir dialogda besh qatlam — muammo, sabab, talab, yechim, tasdiq — bo‘lsin; ikki rolni ham o‘ynang va yozuvlarni eshitib tekshiring.",
+ "quiz": [
+  {
+   "q": "What does “탑승 수속” mean?",
+   "options": [
+    "Boarding the plane",
+    "Check-in procedures",
+    "Security screening",
+    "Baggage claim"
+   ],
+   "answer": 1,
+   "why_uz": "탑승 수속 — check-in; 탑승 esa samolyotga chiqish (boarding) jarayoni."
+  },
+  {
+   "q": "How do you say “my baggage didn’t come out” in Korean?",
+   "options": [
+    "“제 수하물이 나오지 않았습니다.”",
+    "“제 짐이 없어요.”",
+    "“수하물이 나왔어요.”",
+    "“제 가방이 없습니다.”"
+   ],
+   "answer": 0,
+   "why_uz": "제 수하물이 나오지 않았습니다 — baggage claim’da rasmiy muammo bayon qilishning standart shakli."
+  },
+  {
+   "q": "What does “연착” mean?",
+   "options": [
+    "Cancellation",
+    "Delay (of a flight)",
+    "Overbooking",
+    "Early departure"
+   ],
+   "answer": 1,
+   "why_uz": "연착 — reys kechikishi; 결항 esa bekor qilish (cancellation)."
+  },
+  {
+   "q": "Which documents are needed for check-in in Korea?",
+   "options": [
+    "Only a phone",
+    "Passport and booking confirmation",
+    "Only a ticket",
+    "ID card only"
+   ],
+   "answer": 1,
+   "why_uz": "여권 va 예약 확인서 — koreyscha check-inda xodim albatta so‘raydigan ikkita hujjat."
+  },
+  {
+   "q": "Liquids in carry-on baggage must be:",
+   "options": [
+    "Up to 500 ml each",
+    "Up to 100 ml each in a transparent 1-liter bag",
+    "Unlimited if sealed",
+    "Only water is allowed"
+   ],
+   "answer": 1,
+   "why_uz": "Suyuqliklar 100ml dan oshmasligi va 1 litrli shaffof paketga solinishi shart."
+  },
+  {
+   "q": "How do you politely ask how long a delay is?",
+   "options": [
+    "“얼마나 지연되나요?”",
+    "“빨리 가요!”",
+    "“언제 출발해요?”",
+    "“지연됐어요?”"
+   ],
+   "answer": 0,
+   "why_uz": "얼마나 지연되나요? — “qancha kechikadi?”, rasmiy va muloyim savol."
+  },
+  {
+   "q": "At the hotel, how do you report a broken air conditioner?",
+   "options": [
+    "“에어컨 고쳐 주세요.”",
+    "“방에 문제가 있습니다. 에어컨이 작동하지 않습니다.”",
+    "“더워요.”",
+    "“방을 바꿔요.”"
+   ],
+   "answer": 1,
+   "why_uz": "방에 문제가 있습니다 + aniq muammo — mehmonxona shikoyatining standart tuzilishi."
+  },
+  {
+   "q": "Which phrase asks about refund rules?",
+   "options": [
+    "“돈 돌려주세요.”",
+    "“환불 규정이 어떻게 되나요?”",
+    "“환불 안 돼요?”",
+    "“위약금 없어요?”"
+   ],
+   "answer": 1,
+   "why_uz": "환불 규정이 어떻게 되나요? — “qaytarish tartibi qanday?”; 환불 so‘rashda birinchi savol."
+  },
+  {
+   "q": "What does “위약금” mean?",
+   "options": [
+    "A deposit",
+    "A cancellation fee",
+    "A late checkout fee",
+    "A service charge"
+   ],
+   "answer": 1,
+   "why_uz": "위약금 — bekor qilish jarimasi; bronni bekor qilganda olinishi mumkin bo‘lgan to‘lov."
+  },
+  {
+   "q": "Why should you always take a written confirmation?",
+   "options": [
+    "It is a souvenir",
+    "It protects you in later disputes",
+    "It speeds up check-out",
+    "Airlines require it"
+   ],
+   "answer": 1,
+   "why_uz": "Yozma tasdiq (취소 확인서, 신고서 사본) — bahsli vaziyatlarda eng kuchli himoya."
+  }
+ ]
+}

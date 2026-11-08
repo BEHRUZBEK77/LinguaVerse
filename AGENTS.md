@@ -18,7 +18,12 @@ named lesson files, re-run `lesson-check` until ✅, and commit again. Never use
    complete specification (format, length, quality and language rules, and the section
    "Other target languages"). Follow it exactly.
 2. Find what to write: `node scripts/lesson-missing.mjs` (all languages) or
-   `node scripts/lesson-missing.mjs <lang> 5` (next 5 IDs for one language).
+   `node scripts/lesson-missing.mjs <lang> 5 --why` (next 5 IDs for one language).
+   The queue has two kinds of lessons, in course order:
+   - "yozilmagan" — not written yet: write it.
+   - "QAYTA YOZING: <reason>" — the file exists but fails the quality check
+     (copied/template explanations, too thin, missing letters…). REWRITE IT FULLY from
+     the brief — do not patch it, do not copy from other lessons.
    Languages: english, russian, turkish, german, spanish, arabic, chinese, korean.
 3. For each lesson ID, in order (lessons build on each other):
    - `node scripts/lesson-brief.mjs <lang> <ID>` — topic, vocabulary, grammar and what
@@ -41,7 +46,7 @@ named lesson files, re-run `lesson-check` until ✅, and commit again. Never use
 - Do not leave helper scripts (fix.mjs, debug.js, …) in the repo; never commit them.
 - Run `lesson-check` again on every file right before `git add`.
 - Do not edit files outside `content/uz/` unless the user explicitly asks.
-- Do not rewrite or "improve" existing lessons unless asked.
+- Do not rewrite existing lessons unless lesson-missing lists them as "QAYTA YOZING".
 - `say_native` (teacher's explanation) is **Uzbek in Latin script** with correct
   oʻ/gʻ written with the ‘ character (U+2018), exactly as existing lessons do: o‘, g‘. Natural,
   spoken Uzbek — not a word-for-word translation from English.

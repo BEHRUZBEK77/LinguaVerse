@@ -41,6 +41,8 @@ if (fs.existsSync(dir)) {
     console.log(`  ${D}${lines.at(-1)}${X}`);
   }
 }
+const q = sh(`"${process.execPath}" scripts/lesson-missing.mjs`);
+if (q) console.log(`\nNavbat (yozilmagan / sifat tekshiruvidan o'tmagan — qayta yoziladi):\n${q.split('\n').map(l => '  ' + l).join('\n')}`);
 const local = sh('git status --porcelain content/').split('\n').filter(Boolean);
 if (local.length) console.log(`\n${Y}Kompyuterda GitHub'ga yuklanmagan ${local.length} ta dars fayli bor${X} (OpenCode hali yozyapti yoki tekshiruvdan o'tmagan).`);
 console.log('');

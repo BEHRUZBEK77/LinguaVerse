@@ -1,0 +1,646 @@
+{
+ "title": "Mijozlar bilan ishlash",
+ "goal_uz": "Mijozlarga koreyschada xizmat ko‘rsatishni o‘rganing: salomlashuv va yordam taklif qilish, mahsulot hamda narxlarni tushuntirish, shikoyatlarni hal qilish hamda muloyim rad etib muqobil variant taklif qilish.",
+ "vocab": [
+  {
+   "w": "손님 (sonnim)",
+   "uz": "mijoz, mehmon"
+  },
+  {
+   "w": "어서 오세요 (eoseo oseyo)",
+   "uz": "xush kelibsiz (do‘konda)"
+  },
+  {
+   "w": "도와드리다 (dowa-deurida)",
+   "uz": "yordam bermoq (hurmatli shakl)"
+  },
+  {
+   "w": "할인 (harin)",
+   "uz": "chegirma"
+  },
+  {
+   "w": "재고 (jaego)",
+   "uz": "ombor qoldig‘i, zaxira"
+  },
+  {
+   "w": "영수증 (yeongsujeung)",
+   "uz": "chek, kvitansiya"
+  },
+  {
+   "w": "교환 (gyohwan)",
+   "uz": "almashtirish"
+  },
+  {
+   "w": "환불 (hwanbul)",
+   "uz": "pul qaytarish"
+  },
+  {
+   "w": "불만 (bulman)",
+   "uz": "shikoyat, norozilik"
+  },
+  {
+   "w": "대안 (daean)",
+   "uz": "muqobil variant, alternativa"
+  }
+ ],
+ "scenes": [
+  {
+   "kind": "intro",
+   "title": "Taqdimotdan xizmatga",
+   "emotion": "happy",
+   "board": [
+    "손님 = mijoz",
+    "Bugun: salomlashuv · narxlar · shikoyatlar · rad etish",
+    "Maqsad: mijozga koreyschada xizmat ko‘rsatish"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda uch daqiqalik koreyscha taqdimot qilishni o‘rgandik: ochilish, signpostlar, vizuallar, savol-javob va yakun. Bugun esa boshqa bir muhim kasbiy maydonga — mijozlar bilan ishlashga o‘tamiz. Koreyada do‘kon, telekom salon, mehmonxona yoki bank — qayerda ishlamasin, mijoz bilan muomala koreys tilida bo‘ladi va mijoz har doim “손님”, ya’ni “mehmon” deb ataladi; bu atama o‘ziyoq hurmat ko‘rsatish vositasi. Bugungi dars oxirida siz do‘konga kirgan mijozni salomlay olasiz, mahsulot va narxni tushuntira olasiz, shikoyatni hal qila olasiz hamda muloyim rad etib muqobil taklif qila olasiz. Esingizda bo‘lsin: koreyscha xizmatda mijoz emas, xizmatkor odatda xato qiladi — shuning uchun “불편을 드려 죄송합니다” birinchi jumla bo‘lishi kerak.",
+   "say": "안녕하세요! 오늘은 고객을 응대하는 한국어를 배워요.",
+   "say_uz": "Assalomu alaykum! Bugun mijozlarga xizmat ko‘rsatish koreyschasini o‘rganamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Salomlashuv va mijozga murojaat",
+   "emotion": "neutral",
+   "board": [
+    "어서 오세요",
+    "무엇을 도와드릴까요?",
+    "손님 vs 고객님"
+   ],
+   "examples": [
+    {
+     "t": "어서 오세요. 무엇을 도와드릴까요?",
+     "uz": "Xush kelibsiz. Nima bilan yordam bera olaman?"
+    },
+    {
+     "t": "찾으시는 제품이 있으신가요?",
+     "uz": "Izlayotgan mahsulotingiz bormi?"
+    }
+   ],
+   "say_native": "Koreyada mijoz do‘konga kirgan zahoti eshitadigan jumla — 어서 오세요, “tezroq kiring, xush kelibsiz”. Bu shunchaki salom emas, xizmatni boshlash signalidir; koreys savdo do‘konlarida uni odatda butun jamoa baland ovoz bilan aytadi. Mijozga ikki xil murojaat bor: 손님 — universal, do‘kon va kafeda; 고객님 — bank, telekom va rasmiy xizmatlarda, biroz yuqoriroq daraja. Yordam taklif qilishning standart formulasi: 무엇을 도와드릴까요? — “nima bilan yordam beray?”; 도와드리다 “yordam bermoq”ning hurmatli shakli. Agar nima kerakligini bilmasangiz: 찾으시는 제품이 있으신가요? — “izlayayotgan mahsulotingiz bormi?”; 있으신가요 -시- hurmat qo‘shimchasi bilan keladi. Mijoz hali ko‘rib chiqayotgan bo‘lsa, shoshirmang: 천천히 둘러보세요 — “shoshilmasdan ko‘rib chiqing”; bu ibora mijozning bo‘sh vaqtini hurmat qiladi. O‘zbekcha “marhamat” yoki ruscha “чем могу помочь”ning muqobili aynan shu konstruktsiyalar.",
+   "say": "어서 오세요. 무엇을 도와드릴까요? 천천히 둘러보세요.",
+   "say_uz": "Xush kelibsiz. Nima bilan yordam bera olaman? Shoshilmasdan ko‘rib chiqing.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 1: Mijoz do‘konga kiradi",
+   "emotion": "neutral",
+   "board": [
+    "직원: 어서 오세요",
+    "손님: 무선 이어폰 찾는데요"
+   ],
+   "examples": [],
+   "say_native": "Diqqat bilan eshiting: xodim mijozni qanday salomlayapti, nima deya savol beryapti va mijoz noaniq izoh berganda qanday yo‘naltiryapti. Koreyscha xizmatda mijoz ko‘pincha “그냥 좀 보려고요” — “shunchaki ko‘rmoqchiman” deydi; xodim buni qabul qilib, 천천히 둘러보세요 deb javob beradi. Bu kichik lavha, lekin professionallikning asli shunda.",
+   "say": "직원: 어서 오세요! 무엇을 도와드릴까요? 손님: 무선 이어폰을 좀 보고 싶어서요. 직원: 네, 이쪽으로 와 주세요. 최신 모델과 인기 모델이 이쪽에 있습니다. 천천히 둘러보시고 궁금한 점이 있으시면 말씀해 주세요. 손님: 아, 그냥 좀 보려고요. 직원: 네, 편하게 보세요. 필요하시면 언제든지 말씀해 주세요.",
+   "say_uz": "Xodim: Xush kelibsiz! Nima bilan yordam bera olaman? Mijoz: Simsiz quloqchinni ko‘rmoqchi edim. Xodim: Ha, bu tomonga keling. Yangi va mashhur modellar mana bu yoqda. Shoshilmasdan ko‘rib chiqing, savollaringiz bo‘lsa gapiring. Mijoz: A, shunchaki ko‘rmoqchiman. Xodim: Ha, bemalol ko‘ring. Kerak bo‘lsa, istalgan payt ayting.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Yordam taklif qilish — to‘liq arsenal",
+   "emotion": "neutral",
+   "board": [
+    "무엇을 도와드릴까요?",
+    "어떤 걸 찾으세요?",
+    "천천히 둘러보세요",
+    "궁금한 점이 있으시면 말씀해 주세요"
+   ],
+   "examples": [
+    {
+     "t": "어떤 색상을 찾으세요?",
+     "uz": "Qaysi rangni izlayapsiz?"
+    },
+    {
+     "t": "궁금한 점이 있으시면 언제든지 말씀해 주세요.",
+     "uz": "Savollaringiz bo‘lsa, istalgan payt ayting."
+    }
+   ],
+   "say_native": "Yordam taklif qilishning to‘rtta asosiy varianti bor va ularni vaziyatga qarab almashtirasiz. Birinchi, ochiq savol: 무엇을 도와드릴까요? — mijozning ehtiyojini o‘zi aytishiga imkon beradi. Ikkinchi, tor savol: 어떤 걸 찾으세요? yoki 어떤 색상을 찾으세요? — mijoz allaqachon nima izlayotganini bilsa, rang, o‘lcham, model bilan toraytirasiz. Uchinchi, bo‘sh joy berish: 천천히 둘러보세요 — mijoz o‘ylashga muhtoj bo‘lsa. To‘rtinchi, ochiq eshik: 궁금한 점이 있으시면 말씀해 주세요 — “savollaringiz bo‘lsa, istalgan payt ayting”; bu ibora xodimning har doim yaqinda ekanini bildiradi. Diqqat: “뭘 원하세요?” to‘g‘rimi, lekin dag‘alroq; koreyscha xizmatda 원하다 o‘rniga 도와드리다 va 찾으시다 afzal. Mijoz jim bo‘lib qolsa, 2-3 daqiqadan keyin bir marta muloyimlik bilan qayta yaqinlashing.",
+   "say": "어떤 걸 찾으세요? 색상은 블랙하고 화이트가 있습니다.",
+   "say_uz": "Nimani izlayapsiz? Rangdan qora va oq bor.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Mijozni salomlang va yordam taklif qiling",
+   "emotion": "thinking",
+   "board": [
+    "Vaziyat: telefon do‘koniga kirdi",
+    "인사 → 질문 → 추천 한 줄"
+   ],
+   "examples": [],
+   "say_native": "Tasavvur qiling: siz telefon do‘konida xodimsiz, mijoz kirib keldi, hali nima kerakligini bilmaydi. Ovozingizni yozib oling va to‘rt bosqichni ayting: birinchi, 어서 오세요 bilan salomlang; ikkinchi, 무엇을 도와드릴까요? yoki 찾으시는 제품이 있으신가요? bilan savol bering; uchinchi, agar mijoz “shunchaki ko‘rmoqchiman” desa, 천천히 둘러보세요 deb javob bering va ochiq eshik jumlasini qo‘shing: 궁금한 점이 있으시면 말씀해 주세요. To‘rtinchi, agar mijoz aniq mahsulot so‘rasa, bitta tavsiya bilan javob bering — 이쪽이 인기 상품이에요. 45 soniya ichida to‘rttasini ayting; yozuvni eshitib, -요 yoki -습니다 shakli izchilligini tekshiring.",
+   "say": "지금 손님을 맞이하는 대화를 말해 보세요. 인사, 질문, 안내, 열린 문장 순서를 지키세요.",
+   "say_uz": "Hozir mijozni kutib olish dialogini ayting. Salomlashuv, savol, yo‘naltirish, ochiq jumla tartibiga rioya qiling.",
+   "practice_seconds": 40
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: mijozni kutib olish",
+   "emotion": "encouraging",
+   "board": [
+    "어서 오세요 → 질문 → 기다림",
+    "-습니다 yoki -요 bir xil izchil"
+   ],
+   "examples": [
+    {
+     "t": "어서 오세요. 천천히 둘러보시고, 궁금한 점이 있으시면 말씀해 주세요.",
+     "uz": "Xush kelibsiz. Shoshilmasdan ko‘ring, savollaringiz bo‘lsa ayting."
+    }
+   ],
+   "say_native": "Namunaviy javob: 어서 오세요! 무엇을 도와드릴까요? — mijoz: 그냥 좀 보려고요. — siz: 네, 편하게 보세요. 이쪽에 인기 상품이 있습니다. 궁금한 점이 있으시면 언제든지 말씀해 주세요. Yodda saqlang: xizmatda ohang va ishonchli pauza so‘z boyligidan muhimroq; shoshilmang, mijozning pauzasiga ruxsat bering. Xato qilgan joylar odatda — “어서 오세요”ni 반말 ohangda aytish yoki mijozga birinchi soniyalarda uchta savol yog‘dirish. Ikkisi ham koreyscha xizmat madaniyatida salbiy taassurot qoldiradi.",
+   "say": "잘 하셨어요. 이제 제품과 가격을 설명하는 법을 연습해 봅시다.",
+   "say_uz": "Zo‘r. Endi mahsulot va narxni tushuntirishni mashq qilamiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Mahsulot va narxlarni tushuntirish",
+   "emotion": "neutral",
+   "board": [
+    "이 제품은 …입니다",
+    "~원이고, 부가세 포함이에요",
+    "지금 할인 중입니다 / 재고가 있습니다"
+   ],
+   "examples": [
+    {
+     "t": "이 제품은 지금 10% 할인 중입니다.",
+     "uz": "Bu mahsulot hozir 10 foiz chegirma bilan."
+    },
+    {
+     "t": "가격은 39만 원이고, 부가세가 포함되어 있습니다.",
+     "uz": "Narxi 390 000 von, qo‘shimcha soliq kiritilgan."
+    }
+   ],
+   "say_native": "Mahsulotni tushuntirishda koreyscha mijozlar uchta ma’lumotni kutiladi: nima, qancha, nima uchun. Birinchi, nima: 이 제품은 …입니다 — xususiyatlarni sanash emas, eng muhim ikkita xususiyatni ayting. Ikkinchi, qancha: narxni 저격 bilan ayting — koreyschada narx odatda ~만 원 bilan aytiladi: 39만 원 — “o‘ttiz to‘qqiz ming von” emas, “o‘ttiz to‘qqiz man von” eshitish uchun; 부가세 포함 여부 — soliq narxga kiritilganmi, buni albatta ayting. Uchinchi, nima uchun: 이건 인기 상품이에요 — “bu mashhur mahsulot”, yoki 지금 가장 잘 나가는 모델입니다 — “hozir eng ko‘p sotilayotgan model”. Chegirma haqida: 지금 10% 할인 중입니다; agar chegirm bo‘lmasa, halol ayting: 할인은 없습니다만, 무이자 할부가 가능합니다 — “chegirma yo‘q, lekin foizsiz bo‘lib-bo‘lib to‘lash mumkin”. Zaxira: 재고가 있습니다 / 품절입니다 / 다음 주에 입고됩니다 — “keyingi hafta keladi”.",
+   "say": "이 모델은 39만 원이고, 지금 10% 할인 중입니다. 인기 상품이에요.",
+   "say_uz": "Bu model 390 000 von, hozir 10 foiz chegirma bilan. Mashhur mahsulot.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: Narx va chegirmani tushuntirish",
+   "emotion": "thinking",
+   "board": [
+    "손님: 이거 얼마예요?",
+    "직원: 39만 원, 10% 할인, 재고 있음"
+   ],
+   "examples": [],
+   "say_native": "Diqqat qiling: mijoz oddiy savol beradi, xodim esa to‘rt ma’lumotni bir nafasda beradi — narx, chegirma, soliq holati va zaxira. Bu koreyscha xizmatning oltin standarti: mijoz ikki marta so‘ramasin. Mijozning keyingi savoliga, ya’ni “bo‘lib-bo‘lib to‘lasa bo‘ladimi?”ga ham xodim tayyor javob beradi.",
+   "say": "손님: 이거 얼마예요? 직원: 이 모델은 39만 원이고, 부가세 포함입니다. 지금 10% 할인 중이라 35만 1천 원에 구매하실 수 있습니다. 손님: 그럼 무이자 할부도 되나요? 직원: 네, 6개월 무이자 할부가 가능합니다. 재고도 충분히 있습니다. 이 모델은 요즘 가장 인기 있는 제품이에요.",
+   "say_uz": "Mijoz: Bu qancha turadi? Xodim: Bu model 390 000 von, soliq kiritilgan. Hozir 10 foiz chegirma bilan 351 000 vonga olishingiz mumkin. Mijoz: Bo‘lib-bo‘lib to‘lash ham bo‘ladimi? Xodim: Ha, 6 oylik foizsiz bo‘lib to‘lash mumkin. Zaxira ham yetarli. Bu model hozir eng mashhur mahsulot.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Mahsulot va narxni tushuntiring",
+   "emotion": "thinking",
+   "board": [
+    "Mahsulot: quloqchin · 15만 원 · 20% chegirma",
+    "nima → qancha → nima uchun"
+   ],
+   "examples": [],
+   "say_native": "Tasavvur qiling: mijoz sizga simsiz quloqchinni ko‘rsatib so‘radi. Ovozingizni yozib oling va to‘rt ma’lumotni bering: bu nima va nega yaxshi — masalan shovqinni kamaytiradi; narxi — 15만 원, soliq kiritilganligi; hozirgi chegirma — 20 foiz, ya’ni 12만 원; zaxira holati va bitta tavsiya — 이건 인기 상품이에요. Oxirida mijozga savol qaytaring: 다른 색상도 보시겠어요? Yozuvni eshitib, narxni to‘g‘ri koreyscha aytganingizni — 만 원 birligi bilan — tekshiring.",
+   "say": "지금 이 제품을 설명해 보세요. 특징, 가격, 할인, 재고, 마지막 질문을 넣으세요.",
+   "say_uz": "Hozir shu mahsulotni tushuntirib bering. Xususiyat, narx, chegirma, zaxira va oxirgi savolni kiriting.",
+   "practice_seconds": 40
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: mahsulotni tushuntirish",
+   "emotion": "encouraging",
+   "board": [
+    "특징 2개 → 가격(부가세 포함)",
+    "할인 가격 명확히",
+    "재고 + 인기 멘트 + 질문"
+   ],
+   "examples": [
+    {
+     "t": "이 제품은 15만 원이고, 20% 할인하면 12만 원입니다.",
+     "uz": "Bu mahsulot 150 000 von, 20 foiz chegirma bilan 120 000 von."
+    }
+   ],
+   "say_native": "Namunaviy javob: 이 제품은 노이즈 캔슬링이 되는 인기 무선 이어폰입니다. 가격은 15만 원이고, 부가세가 포함되어 있습니다. 지금 20% 할인 중이라 12만 원에 구매하실 수 있습니다. 재고는 충분합니다. 다른 색상도 보시겠어요? E’tibor bering: narxni ikki marta — to‘liq va chegirmali — aytish koreyscha xizmatda standart, chunki mijoz chegirmali narxni eslab qoladi, to‘liq narxini emas. Agar chegirmani hisoblashda xato qilsangiz, halol bo‘ling: 계산해 드릴게요 — “hisoblab beraman” — va kassada aniq ko‘rsating.",
+   "say": "좋아요. 이제 불만을 처리하는 방법을 배워 봅시다.",
+   "say_uz": "Yaxshi. Endi shikoyatlarni hal qilishni o‘rganamiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Shikoyat bilan ishlash: birinchi qadamlar",
+   "emotion": "neutral",
+   "board": [
+    "불편을 드려 죄송합니다",
+    "말씀하신 대로 확인해 보겠습니다",
+    "바로 처리해 드리겠습니다"
+   ],
+   "examples": [
+    {
+     "t": "불편을 드려 정말 죄송합니다. 바로 확인해 드리겠습니다.",
+     "uz": "Noqulaylik uchun chin dildan uzr. Darhol tekshirib beraman."
+    }
+   ],
+   "say_native": "Koreyschada shikoyatga javob berish qat’iy tartibga ega va bu tartibni buzish — eng katta xato. Birinchi qadam — uzr; mazmunni baholamasdan oldin: 불편을 드려 죄송합니다 — “noqulaylik keltirganimiz uchun uzr”. Bu jumlani har doim aytasiz, mijoz haq bo‘ladimi, yo‘qmi — chunki bu mijozga emas, vaziyatga uzr. Ikkinchi qadam — tan olish va tekshirish: 말씀하신 대로 확인해 보겠습니다 — “aytganlaringizga ko‘ra tekshirib ko‘raman”; 말씀하시도 -시- hurmat. Uchinchi qadam — tez harakat: 바로 처리해 드리겠습니다 — “darhol ko‘rib beraman”; 드리다 “qilmoq”ning hurmatli shakli. Diqqat: mijoz gapirayotganda uni to‘xtatmang, bahslashmang va gapni “하지만” bilan boshlamang. Koreyscha xizmatda mijozning his-tuyg‘usi faktdan oldin turadi — avval tuyg‘uni tinchlantiring, keyin faktni hal qiling.",
+   "say": "불편을 드려 죄송합니다. 말씀하신 대로 바로 확인해 보겠습니다.",
+   "say_uz": "Noqulaylik uchun uzr. Aytganlaringizga ko‘ra darhol tekshirib ko‘raman.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 3: Shikoyat — quloqchin ishlamayapti",
+   "emotion": "thinking",
+   "board": [
+    "손님: 어제 산 이어폰이 안 돼요",
+    "직원: uzr → tekshirish → 교환"
+   ],
+   "examples": [],
+   "say_native": "Dialogda to‘liq shikoyat siklini eshiting: mijoz kirishda darhol uzr eshitadi, keyin xodim muammoni tekshiradi, 영수증ni so‘raydi, so‘ng ikkita yechim taklif qiladi — 교환 yoki 환불. Diqqat qiling: xodim hech qachon “lekin siz noto‘g‘ri ishlatgansiz” demaydi — aksincha, “확인해 보겠습니다” deb muammoni o‘z zimmasiga oladi. Shu tuzilishni keyingi mashqlarda o‘zingiz qo‘llaysiz.",
+   "say": "손님: 어제 산 이어폰이 소리가 안 나요. 직원: 불편을 드려 정말 죄송합니다. 언제부터 그런 증상이 있었나요? 손님: 오늘 아침부터요. 직원: 네, 말씀하신 대로 확인해 보겠습니다. 영수증 있으신가요? 손님: 네, 여기요. 직원: 확인해 보니 제품 불량이 맞습니다. 교환해 드리거나 환불해 드릴 수 있습니다. 어느 쪽으로 도와드릴까요? 손님: 같은 모델로 교환해 주세요. 직원: 네, 지금 바로 처리해 드리겠습니다. 정말 죄송합니다.",
+   "say_uz": "Mijoz: Kecha olgan quloqchinning ovozi chiqmayapti. Xodim: Noqulaylik uchun chin dildan uzr. Qachondan shunday? Mijoz: Bugun ertalabdan. Xodim: Ha, aytganlaringizga ko‘ra tekshirib ko‘raman. Chekingiz bormi? Mijoz: Ha, mana. Xodim: Tekshirib ko‘rdim, mahsulot haqiqatan nuqsonli. Almashtirish yoki pul qaytarish mumkin. Qaysi biri ma’qul? Mijoz: Shu model bilan almashtiring. Xodim: Ha, hozir darhol bajaraman. Chin dildan uzr.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Shikoyatlarga javob bering",
+   "emotion": "thinking",
+   "board": [
+    "1) Yetib kelmagan buyurtma",
+    "2) Noto‘g‘ri mahsulot keldi",
+    "3) Xizmat sekin"
+   ],
+   "examples": [],
+   "say_native": "Uch shikoyatga koreyscha javob bering. Birinchi: mijoz onlayn buyurtmasi uch kun kechikkan — uzr ayting, buyurtma raqamini so‘rang, tekshirib berishingizni ayting. Ikkinchi: mijoz qora o‘rniga oq mahsulot olgan — uzr, tasdiqlash uchun rasm yoki chek so‘rang, almashtirishni taklif qiling. Uchinchi: mijoz navbatda 20 daqiqa kutgan — uzr, sababini qisqacha ayting, kichik kompensatsiya yoki keyingi tashrif uchun chegirma taklif qiling. Har uchalasi uchun ham bir xil iskelet: uzr → tekshirish → yechim. Ovoz chiqarib ayting va yozuvda “하지만” bilan boshlanmaganingizni tekshiring.",
+   "say": "불만 세 가지에 각각 답해 보세요. 사과, 확인, 해결 순서를 지키세요.",
+   "say_uz": "Uch shikoyatga javob bering. Uzr, tekshirish, yechim tartibiga rioya qiling.",
+   "practice_seconds": 45
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: shikoyat javoblari",
+   "emotion": "encouraging",
+   "board": [
+    "사과 → 확인 → 해결",
+    "영수증 / 주문번호 so‘rang",
+    "Ikki yechim taklif qiling"
+   ],
+   "examples": [
+    {
+     "t": "불편을 드려 죄송합니다. 주문번호를 알려 주시겠어요?",
+     "uz": "Noqulaylik uchun uzr. Buyurtma raqamingizni aytib bersangiz bo‘ladimi?"
+    }
+   ],
+   "say_native": "Namunaviy javoblar: kechikkan buyurtma uchun — 불편을 드려 죄송합니다. 주문번호를 알려 주시겠어요? 바로 확인해 드리겠습니다 — uzr va harakat. Noto‘g‘ri mahsulot uchun — 불편을 드려 죄송합니다. 확인을 위해 영수증과 상품 사진을 보여 주시겠어요? 바로 교환해 드리겠습니다 — aniqlik va yechim. Sekin xizmat uchun — 오래 기다리게 해서 정말 죄송합니다. 오늘은 주문이 몰려서 그랬습니다. 다음 방문 때 쓸 수 있는 10% 할인 쿠폰을 드리겠습니다 — tan olish, sabab, kompensatsiya. Uchalasida ham “lekin” yo‘q — avval tan olish, keyin yechim. Bu koreyscha xizmatning asosiy qonuni.",
+   "say": "사과 → 확인 → 해결, 이 순서를 기억하세요.",
+   "say_uz": "Uzr → tekshirish → yechim — shu tartibni esda tuting.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Muloyim rad etish va muqobil taklif",
+   "emotion": "neutral",
+   "board": [
+    "죄송합니다만, …은 어려울 것 같습니다",
+    "대신 …은 어떠세요?",
+    "이런 방법은 어떠신가요?"
+   ],
+   "examples": [
+    {
+     "t": "죄송합니다만, 추가 할인은 어려울 것 같습니다.",
+     "uz": "Uzr, qo‘shimcha chegirma berish qiyin bo‘lsa kerak."
+    },
+    {
+     "t": "대신 액세서리를 할인해 드릴 수 있습니다.",
+     "uz": "Buning o‘rniga, aksessuarlarga chegirma qilib beraman."
+    }
+   ],
+   "say_native": "Mijozga “yo‘q” deyish koreyschada eng nozik san’atlardan biri. To‘g‘ri rad etish uch qatlamda quriladi. Birinchi, tan olish: 죄송합니다만 yoki 말씀하신 내용은 이해했습니다 — “gapingizni tushundim”. Ikkinchi, sababli yumshoq rad: …은 어려울 것 같습니다 — “… qiyin bo‘lsa kerak”; -(으)ㄹ 것 같습니다 yumshoq Taxmin ohangini beradi, to‘g‘ridan-to‘g‘ri “안 됩니다” esa o‘tkir. Sababni qo‘shing: 저희 규정상 — “bizning qoidamiz bo‘yicha”. Uchinchi, muqobil: 대신 ~은 어떠세요? — “buning o‘rniga … qanday?”; 이런 방법은 어떠신가요? — “bunday usul qanday?”. Alternativ aynan rad javobining yumshoqligi bilan kuchini yo‘qotmaydi — mijoz baribir qandaydir tanlov oladi. Hech qachon “안 돼요” yoki “불가능합니다” bilan yakunlamang; koreyscha xizmatda rad javob doimo qapka bilan beriladi — qopqoq ochilgan qutining ichida muqobil bo‘ladi.",
+   "say": "죄송합니다만, 반품은 7일 이내 가능합니다. 대신 수리 서비스는 어떠세요?",
+   "say_uz": "Uzr, lekin qaytarish faqat 7 kun ichida mumkin. Buning o‘rniga, ta’mirlash xizmati qanday?",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 4: Chegirma imkonsiz — muqobil taklif",
+   "emotion": "thinking",
+   "board": [
+    "손님: 50% 할인해 주세요",
+    "직원: rad + 무이자 할부 muqobili"
+   ],
+   "examples": [],
+   "say_native": "Dialogda mijoz haddan tashqari chegirma so‘raydi, xodim esa madaniyat bilan rad etadi, lekin ikkita muqobil taklif qiladi: foizsiz bo‘lib to‘lash va aksessuar chegirmasi. Mijoz oxirida norozi bo‘lmaydi — chunki rad javob unga tanlov berib yakunlandi. Ohangni va alternativ strukturaga e’tibor bering.",
+   "say": "손님: 다른 데서는 50% 할인해 준대요. 여기도 가능하죠? 직원: 죄송합니다만, 저희 매장에서는 추가 할인이 어려울 것 같습니다. 다만 말씀하신 대로 다른 혜택을 제안해 드릴 수 있습니다. 첫째, 6개월 무이자 할부가 가능합니다. 둘째, 케이스와 보호필름을 20% 할인해 드리겠습니다. 손님: 그럼 46만 원에 가능한 거네요. 직원: 네, 맞습니다. 두 가지 다 적용해 드리겠습니다. 이 정도면 충분히 매력적인 조건이라고 생각합니다.",
+   "say_uz": "Mijoz: Boshqa joyda 50 foiz chegirma berishar ekan. Bu yerda ham bo‘ladi-ku? Xodim: Uzr, bizning do‘konda qo‘shimcha chegirma qiyin bo‘lsa kerak. Lekin sizningcha, boshqa imtiyozlar taklif qila olaman. Birinchi, 6 oylik foizsiz bo‘lib to‘lash mumkin. Ikkinchi, korpus va himoya plyonkasiga 20 foiz chegirma beraman. Mijoz: Demak, 460 000 vonga bo‘ladimi? Xodim: Ha, to‘g‘ri. Ikkalasini ham qo‘llayman. Bu yetarlicha jozibali shartlar deb o‘ylayman.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Muloyim rad eting va muqobil taklif qiling",
+   "emotion": "thinking",
+   "board": [
+    "1) Chegirma so‘raldi, chegirma yo‘q",
+    "2) 8 kunlik qaytarish so‘raldi, 7 kunlik qoida",
+    "3) Qora ranglar tugagan"
+   ],
+   "examples": [],
+   "say_native": "Uch vaziyatga muloyim rad javob va muqobil taklif tayyorlang. Birinchi: mijoz chegirmada yo‘q mahsulotga 30 foiz chegirma so‘raydi — rad eting va foizsiz bo‘lib to‘lashni taklif qiling. Ikkinchi: mijoz 8 kun oldin olgan mahsulotni qaytarmoqchi, qoida 7 kun — rad eting va ta’mirlash yoki almashishni taklif qiling. Uchinchi: mijozning xohlagan qora rangi tugagan — rad eting va ikki alternativ: zaxiraga qo‘yish yoki o‘xshash modelni taklif qiling. Har birida uch qatlam: tan olish → yumshoq rad (-(으)ㄹ 것 같습니다) → muqobil (대신 ~는 어떠세요?). Ovoz chiqarib ayting.",
+   "say": "거절과 대안 세 쌍을 만들어 보세요. 사과, 완곡한 거절, 대안 순서를 지키세요.",
+   "say_uz": "Rad javob va muqobilning uch juftligini tuzing. Uzr, yumshoq rad, muqobil tartibiga rioya qiling.",
+   "practice_seconds": 45
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: rad javob va muqobil namunalari",
+   "emotion": "encouraging",
+   "board": [
+    "죄송합니다만 + 규정상",
+    "-(으)ㄹ 것 같습니다",
+    "대신 ~는 어떠세요?"
+   ],
+   "examples": [
+    {
+     "t": "죄송합니다만, 반품은 7일 이내만 가능합니다. 대신 수리는 어떠세요?",
+     "uz": "Uzr, qaytarish faqat 7 kun ichida mumkin. O‘rniga ta’mirlash qanday?"
+    }
+   ],
+   "say_native": "Namunaviy javoblar: chegirma — 죄송합니다만, 이 제품은 할인 대상이 아닙니다. 대신 무이자 할부는 어떠세요? 6개월까지 가능합니다. Qaytarish — 죄송합니다만, 저희 규정상 반품은 구매일로부터 7일 이내입니다. 대신 무상 수리나 교환은 가능합니다. 이런 방법은 어떠신가요? Qora rang — 죄송합니다만, 블랙 색상은 품절되었습니다. 대신 그레이 색상은 인기 모델이고, 다음 주 화요일에 블랙이 입고됩니다. 예약해 드리면 어떠세요? Uchalasida ham — tan olish, sabab, ikkita muqobil. Bu uch qatlam mijozni ranjitmasdan “yo‘q” deyishning koreyscha kaliti.",
+   "say": "이렇게 말하면 손님도 기분 나쁘지 않게 대안을 선택할 수 있어요.",
+   "say_uz": "Shunday gapirsangiz, mijoz ham ranjimasdan muqobilni tanlay oladi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 5: To‘liq suhbat — kirishdan yakungacha",
+   "emotion": "proud",
+   "board": [
+    "인사 → 상품 설명 → 불만 처리 → 정중한 거절"
+   ],
+   "examples": [],
+   "say_native": "Endi butun mijoz suhbatini bitta ssenariyda eshiting: salomlashuv, narxni tushuntirish, kichik shikoyatni hal qilish va chegirma so‘rovini muloyim rad etish — to‘rttasi bir suhbatda. Ikki marta eshiting: birinchi marta oqimini, ikkinchi marta har bir bosqichdagi iboralarni. Bu dialog — sizning uy vazifangizdagi rolli o‘yinlarning modeli.",
+   "say": "직원: 어서 오세요! 무엇을 도와드릴까요? 손님: 이 태블릿 얼마예요? 직원: 이 모델은 59만 원이고, 부가세 포함입니다. 지금 10% 할인 중이라 53만 1천 원입니다. 손님: 어제 산 케이스가 깨졌는데 교환되나요? 직원: 불편을 드려 죄송합니다. 영수증 있으신가요? 바로 교환해 드리겠습니다. 손님: 그리고 태블릿 20% 할인은 안 되나요? 직원: 죄송합니다만, 이 모델은 추가 할인이 어려울 것 같습니다. 대신 보호필름을 무료로 드리겠습니다. 손님: 좋네요. 그렇게 해 주세요. 직원: 네, 알겠습니다. 포장하시면서 기다려 주세요. 감사합니다!",
+   "say_uz": "Xodim: Xush kelibsiz! Nima bilan yordam bera olaman? Mijoz: Bu planshet qancha turadi? Xodim: Bu model 590 000 von, soliq kiritilgan. Hozir 10 foiz chegirma bilan 531 000 von. Mijoz: Kecha olgan korpusim sinibdi, almashtirish mumkinmi? Xodim: Noqulaylik uchun uzr. Chekingiz bormi? Darhol almashtirib beraman. Mijoz: Va planshetga 20 foiz chegirma bo‘lmaydimi? Xodim: Uzr, bu modelga qo‘shimcha chegirma qiyin bo‘lsa kerak. O‘rniga himoya plyonkasini bepul beraman. Mijoz: Zo‘r. Shunday qiling. Xodim: Ha, tushundim. Qadoqlanishini kutib turing. Rahmat!",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Suhbatni tushunish",
+   "emotion": "thinking",
+   "board": [
+    "1) Planshet chegirmali narxi?",
+    "2) Mijoz nima almashtirdi?",
+    "3) Xodim qanday muqobil taklif qildi?"
+   ],
+   "examples": [],
+   "say_native": "O‘tgan to‘liq suhbatni esga olib uch savolga javob bering. Birinchi: planshet chegirmali narxi qancha edi va asl narxi qancha? Ikkinchi: mijoz nimani almashtirmoqchi? Uchinchi: planshetcha chegirma rad etilgach, xodim qanday muqobil taklif qildi? Javoblarni to‘liq koreyscha jumlalar bilan ayting: …원입니다, …를 교환했습니다, 대신 …을 무료로 드리겠습니다. Keyingi saxifada javoblarni tekshirasiz.",
+   "say": "질문 세 가지에 한국어로 완전한 문장으로 답해 보세요.",
+   "say_uz": "Uch savolga koreyscha to‘liq jumlalar bilan javob bering.",
+   "practice_seconds": 35
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: suhbatni tushunish",
+   "emotion": "proud",
+   "board": [
+    "59만 → 53만 1천 원",
+    "케이스 교환",
+    "보호필름 무료 제공"
+   ],
+   "examples": [
+    {
+     "t": "대신 보호필름을 무료로 드리겠습니다.",
+     "uz": "O‘rniga himoya plyonkasini bepul beraman."
+    }
+   ],
+   "say_native": "Javoblar: birinchi, asl narx 59만 원, 10 foiz chegirma bilan 53만 1천 원. Ikkinchi, mijoz kecha olgan korpusni almashtirmoqchi — bu shikoyat lavhasi edi. Uchinchi, planshetcha 20 foiz chegirma rad etilgach, xodim bepul himoya plyonkasini taklif qildi — bu muloyim rad va muqobilning ideal namunasi. Agar shu uchala savolga javob bera olgan bo‘lsangiz, dialogni oqilona kuzatgansiz. 15만 원, 53만 1천 원 kabi koreyscha narx aytishni mashq qiling — 큰수가 hata qilinadigan joy.",
+   "say": "정답입니다. 숫자를 정확히 말하는 연습이 중요해요.",
+   "say_uz": "To‘g‘ri. Raqamlarni aniq aytish mashqi muhim.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Keng tarqalgan 5 ta xato",
+   "emotion": "stern",
+   "board": [
+    "1) 반말 bilan javob",
+    "2) “안 돼요” deyish",
+    "3) Shikoyatga bahslashish",
+    "4) Uzr aytmaslik",
+    "5) Chek so‘ramaslik"
+   ],
+   "examples": [],
+   "say_native": "Koreyscha xizmatda beshta klassik xato. Birinchi, mijozga 반말 bilan javob — “응, 알았어” yoki “그래요”; har doim -요 yoki -습니다. Ikkinchi, to‘g‘ridan-to‘g‘ri rad — “안 돼요” yoki “불가능합니다”; o‘rniga 죄송합니다만 …은 어려울 것 같습니다. Uchinchi, shikoyatda bahslashish — “하지만 고객님이 잘못 쓰신 거예요”; mijoz har doim birinchi haq deb taxmin qiling, kamida asabi sizning ustingizda. To‘rtinchi, uzr aytmaslik — shikoyat lavhasida “불편을 드려 죄송합니다” bo‘lishi shart; uzr hech narsani tan olish emas, vaziyatga hurmatdir. Beshinchi, xizmatdan oldin chek so‘ramaslik — 교환 va 환불 uchun doimo 영수증 yoki 주문번호 so‘rang; busiz keyingi bahs o‘zingizga qarshi ishlaydi.",
+   "say": "이 다섯 가지만 지키면 손님에게 신뢰받는 직원이 될 수 있어요.",
+   "say_uz": "Shu beshta narsaga amal qilsangiz, mijozlar ishonadigan xodim bo‘lasiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "practice",
+   "title": "Xatolarni tuzating",
+   "emotion": "thinking",
+   "board": [
+    "“응, 알았어.” → ?",
+    "“안 돼요.” → ?",
+    "“영수증 없으면 안 됩니다.” → ?"
+   ],
+   "examples": [],
+   "say_native": "Uch jumlani professional koreyschaga tuzating. Birinchi: “응, 알았어” — 반말; uni rasmiy tasdiq javobiga aylantiring. Ikkinchi: “안 돼요” — to‘g‘ri rad; uni yumshoq rad va muqobil bilan yozing. Uchinchi: “영수증 없으면 안 됩니다” — qoida sifatida to‘g‘ri, lekin xizmat ohangida juda sovituvchi; uzr va yechim bilan aytib bering: 영수증이 없으시면 교환은 어려우실 것 같습니다만, 대신 수리는 도와드릴 수 있습니다. Ovoz chiqarib ayting, so‘ng keyingi saxifada namunalar bilan solishtiring.",
+   "say": "이 문장 세 개를 서비스 한국어로 바꿔 보세요.",
+   "say_uz": "Shu uchta jumlani xizmat koreyschasiga aylantirib ko‘ring.",
+   "practice_seconds": 35
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: to‘g‘ri xizmat shakllari",
+   "emotion": "proud",
+   "board": [
+    "네, 알겠습니다.",
+    "죄송합니다만 … 대신 …",
+    "영수증 없으면 수리 가능"
+   ],
+   "examples": [
+    {
+     "t": "네, 알겠습니다. 바로 처리해 드리겠습니다.",
+     "uz": "Ha, tushundim. Darhol bajaraman."
+    }
+   ],
+   "say_native": "To‘g‘ri javoblar: birinchi, 네, 알겠습니다 — qisqa, rasmiy, ishonchli. Ikkinchi, 죄송합니다만, 그건 어려울 것 같습니다. 대신 …은 어떠세요? — tan olish, yumshoq rad, muqobil. Uchinchi, 영수증이 없으시면 교환은 어려우실 것 같습니다. 대신 수리는 무상으로 도와드릴 수 있습니다 — qoidaga qattiq turib, lekin xizmat ohangini saqlash. Uchalasida ham umumiy qonun: 반말 yo‘q, “안 돼요” yo‘q, uzr bor, muqobil bor. Koreyscha xizmatda professionallikning formulasi aynan shu.",
+   "say": "이 표현들을 외워 두면 실제 매장에서도 바로 쓸 수 있어요.",
+   "say_uz": "Bu iboralarni yodlab olsangiz, haqiqiy do‘konda ham darhol ishlatasiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Uchta rolli o‘yinni rejalashtiring",
+   "emotion": "thinking",
+   "board": [
+    "1) Mahsulot + narx suhbati",
+    "2) Shikoyat (교환/환불)",
+    "3) Rad javob + muqobil"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifangiz — uchta mijoz suhbatini rolli o‘ynash. Ularni hozir rejalashtiring. Birinchi o‘yin: do‘konga yangi mijoz kiradi, mahsulot va narxni so‘raydi — siz xodim sifatida to‘rt ma’lumotni bering: nima, qancha, chegirm, zaxira. Ikkinchi o‘yin: mijoz nuqsonli mahsulot olib keladi — uzr, chek, 교환 yoki 환불 taklifi. Uchinchi o‘yin: mijoz imkonsiz narsa so‘raydi — ortiqcha chegirma yoki 8 kunlik qaytarish — rad eting va muqobil taklif qiling. Har bir suhbat 2-3 daqiqadan oshmasin; yozib oling va o‘zingiz tinglang. Eng yaxshi tayyorgarlik — ovoz chiqarib takrorlash, shu yerda hozir bitta rolli o‘yin o‘ynaysiz.",
+   "say": "역할극 세 가지를 미리 계획해 보세요. 각각 2~3분 분량이에요.",
+   "say_uz": "Uchta rolli o‘yinni oldindan rejalashtiring. Har biri 2-3 daqiqa hajmida.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "practice",
+   "title": "Bitta rolli o‘yinni hozir o‘ynang",
+   "emotion": "thinking",
+   "board": [
+    "Vaziyat: shikoyat — kechikkan buyurtma",
+    "uzr → 확인 → 해결"
+   ],
+   "examples": [],
+   "say_native": "Endi bitta rolli o‘yinni hozir o‘ynang: mijoz onlayn buyurtmasi 5 kun kechikkan deb do‘konga shikoyat bilan kiradi. Ovozingizni yozib oling va xodim rolida to‘liq suhbatni o‘ynang: salomlashuv, uzr, buyurtma raqamini so‘rash, vaziyatni tekshirish, yechim taklif — tezlashtirish yoki qaytarish, va yakunda minnatdorchilik. 2 daqiqadan oshmang. Yozuvni eshitib, uch bosqich — uzr, tekshirish, yechim — izchilligini tekshiring.",
+   "say": "지금 역할극 하나를 연기해 보세요. 손님 역할도 함께 상상하면서 말하세요.",
+   "say_uz": "Hozir bitta rolli o‘yinni o‘ynab ko‘ring. Mijoz rolini ham tasavvur qilib gapiring.",
+   "practice_seconds": 45
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "어서 오세요 · 무엇을 도와드릴까요?",
+    "이 제품은 ~입니다 · ~원입니다",
+    "불편을 드려 죄송합니다",
+    "죄송합니다만 + 대신 ~는 어떠세요?"
+   ],
+   "examples": [],
+   "say_native": "Bugungi darsni yakunlaymiz. Siz endi koreyscha mijoz xizmatining to‘liq siklini bilasiz: mijozni 어서 오세요 bilan kutib olish va yordam taklif qilish; mahsulotni tushuntirib narxni 만 원 birligida, soliq kiritilganligi bilan aytish; chegirma va zaxira holatini halol ifodalash; shikoyatga uzr — tekshirish — yechim tartibi bilan javob berish; rad etishda tan olish, yumshoq -(으)ㄹ 것 같습니다 va muqobil variant taklif qilish; va besh klassik xatodan uzoq turish. Bu ko‘nikmalar TOPIK II faqat emas, real koreyscha ish hayotida ham har kuni ishlatiladi.",
+   "say": "오늘도 수고 많으셨어요. 이제 손님 응대를 자신 있게 할 수 있어요.",
+   "say_uz": "Bugun ham rahmat. Endi mijozlarga xizmatni ishonch bilan ko‘rsata olasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa va keyingi dars",
+   "emotion": "encouraging",
+   "board": [
+    "3 ta mijoz suhbatini yozib oling",
+    "Salomlashuv · shikoyat · rad javob",
+    "Keyingi: Savdo va muzokara asoslari"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa: uchta mijoz suhbatini yozib oling — salomlashuv va narx tushuntirish, shikoyatni hal qilish (교환 yoki 환불), muloyim rad etish va muqobil taklif. Har bir suhbat 2-3 daqiqadan oshmasin; o‘zingizni mijoz rolida ham tasavvur qilib, ikkalasini ovozsiz dialog sifatida o‘ynang. Yozuvni ikki marta tinglang: birinchi marta tuzilish uchun, ikkinchi marta ohang uchun. Keyingi darsda savdo va muzokara asoslarini o‘rganamiz — ehtiyoj va chegaralarni bildirish, taklif va qarshi taklif, shartli takliflar hamda kelishuvni yakunlash; ya’ni biznes muzokaralar tomon bir qadam.",
+   "say": "숙제는 역할극 세 개를 녹음하는 거예요. 다음 시간에는 영업과 협상을 배워요.",
+   "say_uz": "Uyga vazifa — uchta rolli o‘yinni yozib olish. Keyingi darsda savdo va muzokarani o‘rganamiz.",
+   "practice_seconds": 0
+  }
+ ],
+ "homework_uz": "Uchta mijoz suhbatini yozib oling: mahsulot va narx tushuntirish, shikoyatni hal qilish (교환 yoki 환불), muloyim rad etish va muqobil taklif. Har bir suhbat 2-3 daqiqa; uzr — tekshirish — yechim tartibiga rioya qiling va ovozni orqaga eshitib tekshiring.",
+ "quiz": [
+  {
+   "q": "What does “손님” mean?",
+   "options": [
+    "A staff member",
+    "A customer or guest",
+    "A manager",
+    "A supplier"
+   ],
+   "answer": 1,
+   "why_uz": "손님 — do‘konda mijoz, restoranda mehmon; uning hurmatli turi — 고객님."
+  },
+  {
+   "q": "Which greeting do Korean stores use when a customer enters?",
+   "options": [
+    "잘 가요",
+    "어서 오세요",
+    "또 오세요",
+    "안녕히 가세요"
+   ],
+   "answer": 1,
+   "why_uz": "어서 오세요 — “xush kelibsiz” (do‘konga kirishda); 잘 가요 va 안녕히 가세요 xayrlashish."
+  },
+  {
+   "q": "How do you offer help formally?",
+   "options": [
+    "“뭘 원해요?”",
+    "“뭐 필요해?”",
+    "“무엇을 도와드릴까요?”",
+    "“말해 봐요.”"
+   ],
+   "answer": 2,
+   "why_uz": "무엇을 도와드릴까요? — 도와드리다 hurmatli shakli bilan standart yordam taklifi."
+  },
+  {
+   "q": "How is a price of 390,000 won usually said in Korean service speech?",
+   "options": [
+    "삼십구만 원",
+    "삼백구십만 원",
+    "구만 원",
+    "삼천구백만 원"
+   ],
+   "answer": 0,
+   "why_uz": "Koreyschada 10 000 birlik = 만; 390 000 = 39만 원 — 삼십구만 원."
+  },
+  {
+   "q": "What is the first thing you should say to a complaining customer?",
+   "options": [
+    "“하지만 고객님이 잘못 쓰셨어요.”",
+    "“불편을 드려 죄송합니다.”",
+    "“규정이 그래요.”",
+    "“잠깐만요.”"
+   ],
+   "answer": 1,
+   "why_uz": "불편을 드려 죄송합니다 — avval uzr; uzr mijozga emas, vaziyatga hurmat."
+  },
+  {
+   "q": "Which is the correct order for handling a complaint?",
+   "options": [
+    "해결 → 사과 → 확인",
+    "확인 → 사과 → 해결",
+    "사과 → 확인 → 해결",
+    "해결 → 확인 → 사과"
+   ],
+   "answer": 2,
+   "why_uz": "사과 → 확인 → 해결: uzr, tekshirish, yechim — koreyscha xizmatning standart tartibi."
+  },
+  {
+   "q": "How do you politely refuse a request?",
+   "options": [
+    "“안 돼요.”",
+    "“불가능합니다.”",
+    "“죄송합니다만, …은 어려울 것 같습니다.”",
+    "“그건 안 됩니다.”"
+   ],
+   "answer": 2,
+   "why_uz": "죄송합니다만 + -(으)ㄹ 것 같습니다 — yumshoq taxmin ohangi bilan muloyim rad."
+  },
+  {
+   "q": "After refusing, what should you do?",
+   "options": [
+    "End the conversation",
+    "Offer an alternative with “대신 ~는 어떠세요?”",
+    "Repeat the refusal firmly",
+    "Call the manager immediately"
+   ],
+   "answer": 1,
+   "why_uz": "Muqobil taklif — rad javobning qopqog‘i: 대신 ~는 어떠세요? bilan mijozga tanlov bering."
+  },
+  {
+   "q": "What does “영수증” mean?",
+   "options": [
+    "A product manual",
+    "A receipt",
+    "A warranty card",
+    "A delivery slip"
+   ],
+   "answer": 1,
+   "why_uz": "영수증 — chek; 교환 va 환불 shikoyatlarida xizmatdan oldin so‘raladi."
+  },
+  {
+   "q": "Which phrase correctly offers an exchange?",
+   "options": [
+    "“교환해 드리겠습니다.”",
+    "“교환은 안 돼요.”",
+    "“바꿔 드릴게요.” (to a senior)",
+    "“교환 불가입니다.”"
+   ],
+   "answer": 0,
+   "why_uz": "교환해 드리겠습니다 — 드리다 hurmat shakl bilan muloyim xizmat taklifi."
+  }
+ ]
+}

@@ -1,14 +1,14 @@
 {
  "title": "Rasmiy elektron xat",
- "goal_uz": "Koreyschada aniq va hurmatli rasmiy elektron xatlar yozishni o‘rganing: mavzu qatori va salomlashuv, xat tuzilishi (maqsad, tafsilot, so‘rov), rasmiy bog‘lovchilar va yopilish hamda imzo formulalari.",
+ "goal_uz": "Koreyschada aniq va hurmatli rasmiy elektron xatlar yozishni o‘rganing: mavzu qatori va salomlashuv, xat tuzilishi (maqsad, tafsilot, so‘rov), rasmiy bog‘lovchilar hamda yopilish va imzo formulalari.",
  "vocab": [
   {
-   "w": "이메일 (i-meil)",
+   "w": "이메일 (imeil)",
    "uz": "elektron xat"
   },
   {
    "w": "제목 (jemok)",
-   "uz": "xat mavzusi, subject"
+   "uz": "xat mavzusi qatori, subject"
   },
   {
    "w": "본문 (bonmun)",
@@ -20,42 +20,50 @@
   },
   {
    "w": "회신 (hoesin)",
-   "uz": "javob xat"
+   "uz": "javob xat, qaytarilgan xat"
   },
   {
-   "w": "리마인더 (rimaindeo)",
-   "uz": "eslatma"
+   "w": "요청 (yocheong)",
+   "uz": "so‘rov, iltimosnoma"
   },
   {
    "w": "서명 (seomyeong)",
    "uz": "imzo"
   },
   {
-   "w": "요청 (yocheong)",
-   "uz": "so‘rov, iltimos"
+   "w": "참조 (chamjo)",
+   "uz": "nusxa, CC"
   },
   {
    "w": "안내 (annae)",
    "uz": "ma’lumot berish, e’lon qilish"
   },
   {
-   "w": "확인 (hwagin)",
-   "uz": "tasdiqlash, tekshirish"
+   "w": "확인하다 (hwagin-hada)",
+   "uz": "tasdiqlamoq, tekshirmoq"
+  },
+  {
+   "w": "부탁드리다 (butak-deurida)",
+   "uz": "iltimos qilmoq (hurmatli shakl)"
+  },
+  {
+   "w": "말씀드리다 (malsseum-deurida)",
+   "uz": "aytib bermoq (hurmatli shakl)"
   }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Xat — sizning yozma yuzingiz",
+   "title": "Yozma so‘z — sizning ish yuzingiz",
    "emotion": "happy",
    "board": [
     "Rasmiy elektron xat — 이메일",
-    "Bugun: 제목 · 본문 tuzilishi · bog‘lovchilar · imzo"
+    "Bugun: 제목 · 구조 · 연결어 · 마무리"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! Oldingi darsda telefon va video qo‘ng‘iroqlar odobini o‘rgandik. Bugun esa yozma muloqotning eng muhim shakliga — rasmiy elektron xatga o‘tamiz. Korean ish muhitida xat — sizning birinchi taassurotingiz: noaniq mavzu yoki qo‘pol yakun ishonchni yo‘qotadi. Bugungi dars oxirida siz mavzu qatorini formulalar bilan yoza olasiz, xatni maqsad-tafsilot-so‘rov tuzilishida qura olasiz, rasmiy bog‘lovchilarni to‘g‘ri ishlata olasiz va yopilish hamda imzoni joyiga qo‘ya olasiz. Oxirida uchta to‘liq xat — so‘rov, javob va eslatma — yozasiz.",
-   "say": "안녕하세요! 오늘은 비즈니스 이메일을 써 봐요.",
-   "say_uz": "Assalomu alaykum! Bugun rasmiy elektron xat yozamiz.",
+   "say_native": "Assalomu alaykum! Oldingi darslarda telefon va video qo‘ng‘iroqlar odobini o‘rgandik. Bugun esa yozma muloqotning eng muhim janriga — rasmiy elektron xatga o‘tamiz. Koreya ish muhitida xat sizning tashrif qog‘ozingiz: noaniq mavzu yoki qo‘pol yopilish ishonchni yo‘qotadi. Bugun siz mavzu qatorlarini formulalar bilan yozishni, xatni maqsad-tafsilot-iltimos tartibida qurishni, rasmiy bog‘lovchilarni to‘g‘ri ishlatishni va yopilish hamda imzoni joyiga qo‘yishni o‘rganasiz. Yakunda uchta to‘liq xat — so‘rov, javob va eslatma — yozasiz.",
+   "say": "안녕하세요! 오늘은 공손한 업무 이메일을 함께 써 봐요.",
+   "say_uz": "Assalomu alaykum! Bugun hurmatli ish xatini birga yozamiz.",
    "practice_seconds": 0
   },
   {
@@ -63,476 +71,665 @@
    "title": "Rasmiy xatning umumiy tuzilishi",
    "emotion": "neutral",
    "board": [
-    "받는 사람 · 참조 · 제목",
-    "인사말 → 본문 → 맺음말 → 서명"
+    "수신 → 참조 → 제목",
+    "인사말 → 본문 → 마무리 → 서명"
    ],
    "examples": [
     {
-     "t": "받는 사람: 김민준 대리님",
-     "uz": "Qabul qiluvchi: Kim Minjun xodim"
+     "t": "수신: 경영지원팀 김민준 님께",
+     "uz": "Qabul qiluvchi: boshqaruv yordam bo‘limi Kim Minjunga"
     },
     {
      "t": "참조: 팀장님",
-     "uz": "Nusxa: bo‘lim boshlig‘i"
+     "uz": "Nusxa: bo‘lim boshlig‘iga"
     }
    ],
-   "say_native": "Koreyscha rasmiy xatning yetti qismi: birinchi, 받는 사람 — kimga; ikkinchi, 참조 — nusxa, agar rahbar nusxa olishi kerak bo‘lsa; uchinchi, 제목 — mavzu qatori; to‘rtinchi, 인사말 — salomlashuv; beshinchi, 본문 — asosiy matn; oltinchi, 맺음말 — yakun jumlasi; yettinchi, 서명 — ism, lavozim, kompaniya, telefon. Xat uzun bo‘lmasligi kerak: o‘rtacha beshta-oltita jumla; har bir jumla bitta ish bajarsin. Biriktirilgan fayl bo‘lsa, 본문 ichida eslatib o‘ting: “첨부파일 확인 부탁드립니다” — ilovadagi faylni tekshirib bering. Xat yozib bo‘lgach, yuborishdan oldin uchta tekshiruv: manzil to‘g‘rimi, mavzu bormi, imlo tozami.",
-   "say": "받는 사람, 참조, 제목, 인사말, 본문, 맺음말, 서명.",
-   "say_uz": "Qabul qiluvchi, nusxa, mavzu, salomlashuv, matn, yakun, imzo.",
-   "practice_seconds": 14
+   "say_native": "Koreyscha rasmiy xat to‘qqiz qismdan iborat. Birinchi, 수신 — xat kimgakingligi. Ikkinchi, 참조 — nusxa, agar rahbar yoki hamkasbingiz nusxa olishi kerak bo‘lsa. Uchinchi, 제목 — mavzu qatori. To‘rtinchi, 인사말 — salomlashuv. Beshinchi, 본문 — asosiy matn. Oltinchi, 마무리 — yakun. Yettinchi, 서명 — ism, lavozim, kompaniya va telefon. Xat uzun bo‘lmasligi kerak: besh-olti jumla yetadi. Agar ilova bo‘lsa, matn ichida eslatib o‘ting. Yuborishdan oldin uchta tekshiruv qiling: manzil to‘g‘rimi, mavzu bormi, imlo tozami.",
+   "say": "수신, 참조, 제목, 인사말, 본문, 마무리, 서명 순서로 씁니다.",
+   "say_uz": "수신, 참조, 제목, 인사말, 본문, 마무리, 서명 tartibida yoziladi.",
+   "practice_seconds": 8
   },
   {
    "kind": "explain",
-   "title": "1-qism: 제목 — mavzu qatori formulalari",
-   "emotion": "neutral",
+   "title": "제목 — mavzu qatori formulalari",
+   "emotion": "thinking",
    "board": [
-    "[요청] …",
-    "[회신] …",
-    "…의 건 · …안내 · …요청"
+    "[요청] …부탁드립니다",
+    "[회신] …확인의 건",
+    "~에 대한 안내 / ~의 건"
    ],
    "examples": [
     {
-     "t": "[요청] 견적서 확인 부탁드립니다",
+     "t": "[요청] 견적서 검토 부탁드립니다",
      "uz": "[So‘rov] Narx taklifini tekshirib bering"
     },
     {
      "t": "[회신] 납기일 확인의 건",
-     "uz": "[Javob] Yetkazib berish sanasi tasdig‘i haqida"
+     "uz": "[Javob] Yetkazib berish sanasini tasdiqlash haqida"
     },
     {
      "t": "회의 일정 변경 안내",
-     "uz": "Yig‘ilish sanasi o‘zgarishi haqida ma’lumot"
+     "uz": "Yig‘ilish jadvali o‘zgarishi haqida ma’lumot"
     }
    ],
-   "say_native": "Mavzu qatori xatning eng muhim qismi — kimdir uni o‘qiydimi yoki yo‘qligini hal qiladi. Korean ish xatlarida ikkita asosiy shakl bor. Birinchi: kvadrat qavs ichida maqsad belgisi — [요청] so‘rov, [회신] javob, [리마인더] eslatma, [안내] ma’lumot, keyin qisqa mazmun: [요청] 견적서 확인 부탁드립니다. Ikkinchi: klassik ibora — “~의 건”, uning ma’nosi “… haqida”; masalan “납기일 확인의 건” — yetkazib berish sanasini tasdiqlash haqida. Yana “~안내” — ma’lumot, va “~요청” — so‘rov — ham ko‘p uchraydi. Mavzu har doim 25 belgidan qisqa, fe’l bilan tugaydi yoki ot bilan. “확인 부탁드립니다” emas, “견적서 확인 부탁드립니다” — ob’ektni aniq yozing.",
-   "say": "제목은 [요청], [회신], [리마인더]로 시작하거나 ~의 건으로 쓰세요.",
-   "say_uz": "Mavzu [So‘rov], [Javob], [Eslatma] bilan boshlansin yoki “…haqida” iborasi bilan yozilsin.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Namuna: so‘rov xati namunasi",
-   "emotion": "neutral",
-   "board": [
-    "[요청] 견적서 확인 부탁드립니다",
-    "인사 → 용건 → 부탁 → 맺음"
-   ],
-   "examples": [],
-   "say": "안녕하세요, 김민준 대리님. 바쁘신 중에 죄송하지만, 견적서 확인을 요청드립니다. 오늘 오전에 보내 드린 견적서의 납기일이 다음 달 15일로 기재되어 있습니다. 혹시 변경이 필요하시면 말씀해 주세요. 확인 후 회신 부탁드립니다. 감사합니다. 이서준 드림",
-   "say_uz": "Assalomu alaykum, xodim Kim Minjun. Band ekaningizni bilaman, uzr, narx taklifini tekshirib berishingizni so‘rardim. Bugun tongda yuborgan narx taklifimizda yetkazib berish sanasi keyingi oyning 15-kuni deb ko‘rsatilgan. Agar o‘zgartirish kerak bo‘lsa, aytib qo‘ying. Tekshirgach, javob berishingizni so‘rardim. Rahmat. Li Seojun.",
-   "say_native": "Ushbu xatni to‘rtta qatlamga bo‘ling. Birinchi: salomlashuv va hurmatli kirish — “바쁘신 중에 죄송하지만” — band vaqtingizda uzr — bu koreyscha ish xatlarining eng tabiiy boshlanishi. Ikkinchi: maqsad — “견적서 확인을 요청드립니다”. Uchinchi: tafsilot — qaysi hujjat, qaysi sana, nimani tekshirish kerak. To‘rtinchi: so‘rov — “확인 후 회신 부탁드립니다”. Imzo — “이서준 드림” — “…dan salom bilan” matosi. Sizning xatingiz ham shu besh qatlamdan iborat bo‘lsin: salomlashuv, kirish, maqsad, tafsilot, so‘rov.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Salomlashuv formulalari: 인사말",
-   "emotion": "neutral",
-   "board": [
-    "“안녕하세요, ○○ 님.”",
-    "“김민준 대리님, 안녕하세요.”",
-    "“바쁘신 중에 죄송하지만…”"
-   ],
-   "examples": [
-    {
-     "t": "김민준 대리님, 안녕하세요.",
-     "uz": "Xodim Kim Minjun, assalomu alaykum."
-    },
-    {
-     "t": "수고 많으십니다.",
-     "uz": "Mehnatingiz ko‘p bo‘ladi (rahmat)."
-    }
-   ],
-   "say_native": "Salomlashuvning uchta shakli. Birinchi, eng universal: “안녕하세요, ○○ 님.” — assalomu alaykum, …; lavozim qo‘shsangiz yanada hurmatli — “안녕하세요, 김민준 대리님.” Ikkinchi, ismdan boshlash: “김민준 대리님, 안녕하세요.” — bu koreys ish xatlarida juda tabiiy. Uchinchi, oldindan minnatdorlik yoki uzr bilan: “바쁘신 중에 죄송하지만…” yoki “수고 많으십니다” — “mehnatingiz ko‘p bo‘lsin” — tengdoshlar va rahbarlarga minnatdorlik. Rahbarga yuqori rasmiylik: “안녕하십니까, 팀장님.” — “Assalomu alaykum, bo‘lim boshlig‘i” — bu eng yuqori registr. Uzbek tilidagi “salom” odatda bitta so‘z, lekin koreyschada salomlashuv — butunbir marosim; uni qisqartirmang.",
-   "say": "안녕하세요 ○○ 님. 김민준 대리님, 안녕하세요. 안녕하십니까.",
-   "say_uz": "Assalomu alaykum … . Xodim Kim Minjun, assalomu alaykum. Assalomu alaykum (yuqori rasmiylik).",
-   "practice_seconds": 14
+   "say_native": "Mavzu qatori xatning eng ko‘zga tashlanadigan qismi — uni algoritmga ham, insonga ham ko‘rinadigan qiladi. Koreya ish xatlarida ikkita asosiy shakl bor. Birinchi: kvadrat qavs ichidagi maqsad belgisi — [요청] so‘rov, [회신] javob, [리마인더] eslatma, [안내] ma’lumot — keyin qisqa mazmun: [요청] 견적서 검토 부탁드립니다. Ikkinchi: klassik formula — ~의 건, ya’ni «…haqida»; masalan 납기일 확인의 건. Yana ~에 대한 안내 — ma’lumot, ~에 대한 문의 — so‘rash. Mavzu har doim qisqa va fe’l yoki ot bilan tugaydi; ob’ektni aniq yozing.",
+   "say": "제목은 [요청], [회신], [안내]로 시작하거나 ~의 건으로 씁니다.",
+   "say_uz": "Mavzu [요청], [회신], [안내] bilan boshlanadi yoki ~의 건 formulasi bilan yoziladi.",
+   "practice_seconds": 8
   },
   {
    "kind": "practice",
-   "title": "제목 va 인사 yozing",
+   "title": "제목 yozing",
    "emotion": "thinking",
    "board": [
-    "Yig‘ilishni o‘zgartirish bo‘yicha xat",
-    "제목 + 인사말"
+    "Xat turi: shartnoma imzolash",
+    "Mavzu belgisi + qisqa mazmun"
    ],
    "examples": [],
-   "say_native": "Yig‘ilish vaqtini o‘zgartirish haqida xat uchun mavzu belgisi va salomlashuvni yozing. Mavzu uchun “[안내] 회의 일정 변경 안내” yoki “회의 일정 변경 안내의 건” mos keladi. Salomlashuv uchun jamoa a’zosi bo‘lsangiz — “안녕하세요, 마케팅팀 여러분.”, bitta kishiga — “안녕하세요, 김민준 대리님.” Salomlashuvdan keyin “안내 말씀 드립니다” — ma’lumot beraman — ko‘prik jumlasini qo‘shishni unutmang.",
-   "say": "회의 시간을 바꾼다는 메일을 쓴다고 생각하고, 제목과 인사말을 적어 보세요.",
-   "say_uz": "Yig‘ilish vaqtini o‘zgartirish haqida xat yozayotgandek o‘ylab, mavzu qatori va salomlashuvni yozing.",
-   "practice_seconds": 30
+   "say_native": "Shartnoma imzolash haqidagi xat uchun mavzu qatorini yozing. Ikki variant sinab ko‘ring: birinchi, kvadrat qavsli shakl — [요청] 계약서 서명 부탁드립니다; ikkinchi, klassik formula — 계약서 서명의 건. Ikkisi ham Koreya ish xatlarida tabiiy. Mavzu yigirma besh belgidan oshmasin va xatni ochmasdan turib nima haqida ekanligi aniq bilinsin. Ohangni ham belgilang: agar xat shoshilinch bo‘lsa, [긴급] belgisini qo‘shish mumkin, lekin uni faqat haqiqatan shoshilinch xatlarda ishlating — har xatga qo‘yilsa, ta’siri yo‘qoladi.",
+   "say": "계약서 서명에 관한 이메일의 제목을 두 가지 방식으로 써 보세요.",
+   "say_uz": "Shartnoma imzolash haqidagi xatning mavzusini ikki usulda yozib ko‘ring.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "encouraging",
    "board": [
-    "제목: “회의 일정 변경 안내”",
-    "인사: “안녕하세요, 김민준 대리님.”"
+    "[요청] 계약서 서명 부탁드립니다",
+    "계약서 서명의 건"
    ],
    "examples": [
     {
-     "t": "회의 일정 변경 안내",
-     "uz": "Yig‘ilish vaqti o‘zgarishi haqida ma’lumot"
+     "t": "[요청] 계약서 서명 부탁드립니다",
+     "uz": "[So‘rov] Shartnomaga imzo qo‘yishingizni so‘rayman"
     }
    ],
-   "say_native": "Javoblar. Mavzu uchun ikkita kuchli variant: “[안내] 회의 일정 변경 안내” yoki “회의 일정 변경 안내의 건”. Ikkalasi ham Korean ish xatlarida tabiiy. Salomlashuv: “안녕하세요, 김민준 대리님.” — assalomu alaykum, xodim Kim Minjun. Agar xatni butun jamoaga yuborsangiz: “안녕하세요, 마케팅팀 여러분.” — assalomu alaykum, marketing bo‘limi. Diqqat qiling: salomlashuvdan keyin ishga to‘g‘ri o‘tmang — “바쁘신 중에 죄송하지만” yoki “안내 말씀 드립니다” — ma’lumot beraman — kabi ko‘prik jumla qo‘shing; bu xatni muloyim qiladi.",
-   "say": "회의 일정 변경 안내. 안녕하세요, 김민준 대리님.",
-   "say_uz": "Yig‘ilish vaqti o‘zgarishi haqida. Assalomu alaykum, xodim Kim Minjun.",
-   "practice_seconds": 14
+   "say_native": "Javoblar. Birinchi variant: [요청] 계약서 서명 부탁드립니다 — kwadrat qavsli belgi va fe’l bilan tugagan mazmun; ikkinchi variant: 계약서 서명의 건 — klassik «…haqida» formulasi. Agar xat javob xati bo‘lsa, [회신] 계약서 서명의 건; agar ma’lumot berayotgan bo‘lsangiz, [안내] 계약서 서명 일정 안내. Diqqat qiling: mavzu hech qachon «안녕» yoki «문의» kabi noaniq bo‘lmaydi — har doim ob’ektni ko‘rsating. Mavzu to‘g‘ri bo‘lsa, xatning yarmiga tayyor, chunki oluvchi uni o‘qishga qaror qilgan.",
+   "say": "[요청] 계약서 서명 부탁드립니다. 계약서 서명의 건. 둘 다 자연스러워요.",
+   "say_uz": "[요청] 계약서 서명 부탁드립니다. 계약서 서명의 건. Ikkalasi ham tabiiy.",
+   "practice_seconds": 8
   },
   {
    "kind": "explain",
-   "title": "2-qism: Xat tuzilishi — maqsad → tafsilot → so‘rov",
+   "title": "인사말 — salomlashuv formulalari",
    "emotion": "neutral",
    "board": [
-    "1. Nima uchun yozyapman (purpose)",
-    "2. Tafsilotlar (details)",
-    "3. Nima kerak (action)"
+    "안녕하십니까 + 성함/직급님",
+    "바쁘신 중에 실례합니다",
+    "수고가 많으십니다"
    ],
    "examples": [
     {
-     "t": "견적서 확인을 요청드립니다.",
-     "uz": "Narx taklifini tekshirib berishingizni so‘rardim."
+     "t": "안녕하십니까, 경영지원팀 김민준입니다.",
+     "uz": "Assalomu alaykum, men boshqaruv yordam bo‘limidan Kim Minjunman."
     },
     {
-     "t": "납기일은 다음 달 15일입니다.",
-     "uz": "Yetkazib berish sanasi keyingi oyning 15-kuni."
+     "t": "바쁘신 중에 실례합니다.",
+     "uz": "Band vaqtingizda uzr so‘rayman."
+    },
+    {
+     "t": "수고가 많으십니다.",
+     "uz": "Mehnatingiz ko‘p bo‘lsin (rahmat belgisi)."
     }
    ],
-   "say_native": "Asosiy matn — 본문 — uch bosqichda quriladi. Birinchi bosqich, maqsad: xat nega yozilayotgani bir jumlada — “견적서 확인을 요청드립니다” — narx taklifini tekshirib berish so‘rovi. Ikkinchi bosqich, tafsilotlar: aniq dalillar — qaysi hujjat, qaysi sana, qaysi raqam; ilovasi bor bo‘lsa — “첨부파일을 확인해 주세요”. Uchinchi bosqich, so‘rov: nima, qachongacha kerak — “확인 후 금요일까지 회신 부탁드립니다” — tekshirib, jumagacha javob bering. Korean ish xatida har bosqich alohida xat boshi bo‘lishi mumkin; paragraf uzunligi uch-to‘rt jumladan oshmasligi kerak. Bu tuzilish sizning xatingizni har doim tushunarli qiladi.",
-   "say": "목적, 세부, 부탁 — 이 순서로 쓰세요.",
-   "say_uz": "Maqsad, tafsilotlar, so‘rov — shu tartibda yozing.",
-   "practice_seconds": 14
+   "say_native": "Salomlashuvning uchta shakli bor. Birinchisi, eng universal: 안녕하십니까 — assalomu alaykum; ism yoki lavozim qo‘shsangiz hurmatli: 안녕하십니까, 경영지원팀 김민준 님. Ikkinchisi, uzr bilan: 바쁘신 중에 실례합니다 — band vaqtingizda uzr; bu Koreya ish xatining eng tabiiy kirish jumlasi. Uchinchisi, minnatdorlik: 수고가 많으십니다 — «mehnatingiz ko‘p bo‘lsin». Rahbarga eng yuqori registr: 안녕하십니까, 팀장님. Uzbektilida salomlashuv bitta so‘z, koreyschada esa butun marosim — uni qisqartirmang; xatning birinchi ikki jumlasi oluvchining munosabatini belgilaydi.",
+   "say": "안녕하십니까, 바쁘신 중에 실례합니다, 수고가 많으십니다.",
+   "say_uz": "Assalomu alaykum, band vaqtingizda uzr, mehnatingiz ko‘p bo‘lsin.",
+   "practice_seconds": 8
   },
   {
    "kind": "example",
-   "title": "Namuna: tafsilotli so‘rov xati",
+   "title": "Dialog 1: xatni birga tuzamiz",
    "emotion": "neutral",
    "board": [
-    "목적: 요청",
-    "세부: 납기일 · 수량 · 첨부",
-    "부탁: 금요일까지"
+    "대리와 과장의 대화",
+    "요청 메일을 어떻게 쓸까?"
    ],
    "examples": [],
-   "say": "안녕하세요, 김민준 대리님. 바쁘신 중에 죄송하지만, 아래 세 가지를 확인 요청드립니다. 첫째, 납기일인 다음 달 15일이 맞는지요. 둘째, 수량은 300개로 기재되어 있는데 변경 사항이 있는지요. 셋째, 첨부된 견적서의 단가가 맞는지 확인 부탁드립니다. 금요일 오후 5시까지 회신 주시면 수정 후 발주를 진행하겠습니다. 감사합니다. 이서준 드림",
-   "say_uz": "Assalomu alaykum, xodim Kim Minjun. Band ekaningizni bilaman, quyidagi uchtasini tasdiqlashingizni so‘rardim. Birinchi, yetkazib berish sanasi — keyingi oyning 15-kuni to‘g‘rimi. Ikkinchi, miqdor 300 dona deb ko‘rsatilgan, o‘zgarish bormi. Uchinchi, ilovadagi narx taklifidagi birlik narxi to‘g‘ri ekanini tasdiqlang. Juma kuni soat beshgacha javob bersangiz, tuzatib buyurtmani rasmiylashtiramiz. Rahmat. Li Seojun.",
-   "say_native": "Ushbu xat uchlik tuzilishini aniq ko‘rsatadi. Maqsad: birinchi jumlada — “세 가지를 확인 요청드립니다”. Tafsilotlar: uchta raqamlangan savol — 납기일, 수량, 단가 — hech bir taxmin qoldirmaydi. So‘rov: aniq muddat — “금요일 오후 5시까지 회신 주시면” — agar javob kechiksa, keyingi qadam nima ekanini ham aytiladi — “수정 후 발주를 진행하겠습니다”. Bu xat o‘n soniyada o‘qiladi va hech qanday qayta savolga muhtoj emas — professional xatning eng yaxshi sinovi shu: qayta savol yo‘q.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Rasmiy bog‘lovchilar: 먼저 · 다음으로 · 또한 · 따라서 · 다만 · 혹시",
-   "emotion": "neutral",
-   "board": [
-    "먼저 — avval",
-    "다음으로 — keyin",
-    "또한 — shuningdek",
-    "따라서 — shuning uchun",
-    "다만 — ammo · 혹시 — agar"
-   ],
-   "examples": [
-    {
-     "t": "먼저 일정을 확인해 주세요.",
-     "uz": "Avval jadvalni tekshirib bering."
-    },
-    {
-     "t": "또한 첨부파일을 확인 부탁드립니다.",
-     "uz": "Shuningdek, ilovadagi faylni tekshirib bering."
-    },
-    {
-     "t": "다만, 예산 범위 내에서만 가능합니다.",
-     "uz": "Ammo, byudjet doirasidagina mumkin."
-    }
-   ],
-   "say_native": "Koreyscha ish xatida fikrni bog‘lab turadigan rasmiy bog‘lovchilar bor. 먼저 — avval: “먼저 일정을 확인해 주세요”. 다음으로 yoki 두 번째로 — keyin/ikkinchidan. 또한 — shuningdek: yangi nuqta qo‘shish. 따라서 — shuning uchun: sababdan xulosaga o‘tish. 다만 — ammo: rezervak yoki cheklov. 혹시 — agar — so‘rovni yumshatadi: “혹시 가능하시면…”. 아울러 — birga: “아울러 첨부파일도 확인 부탁드립니다”. 참고로 — ma’lumot uchun: “참고로 지난달 보고서를 첨부합니다”. Shu so‘zlar xatni robot emas, professional qilib ko‘rsatadi; ularni o‘rnida ishlatish — Korean ish yozma nutqining belgisi.",
-   "say": "먼저, 다음으로, 또한, 따라서, 다만, 혹시, 참고로.",
-   "say_uz": "Avval, keyin, shuningdek, shuning uchun, ammo, agar, ma’lumot uchun.",
-   "practice_seconds": 14
+   "say_native": "Diqqat qiling, u xatni o‘zi yozmaydi — tuzilishini aytadi: avval kimga, keyin maqsad, muddat, oxirida uzr va rahmat. Koreyschada mehnatni to‘g‘ridan-to‘g‘ri topshirish o‘rniga «…해 주시겠어요?» bilan murojaat qilinadi. Dialogni ikki ovozda o‘qib chiqing, keyin savollarga javob toping.",
+   "say": "과장: 이번 견적서 검토 요청 메일 좀 써 주시겠어요? 대리: 네, 과장님. 어떻게 시작할까요? 과장: 수신은 박 대리님, 제목에 [요청]을 넣고, 첫 문장에 목적을 말하세요. 대리: 네, 그럼 첫 문장은 견적서 검토를 부탁드린다고 쓰면 될까요? 과장: 맞아요. 그다음에 마감일을 명확히 적고, 끝에는 바쁘신 중에 실례한다고 쓰면 좋아요. 대리: 네, 알겠습니다. 지금 바로 작성해서 보여 드리겠습니다. 과장: 네, 잘 부탁드려요.",
+   "say_uz": "Bo‘lim boshlig‘i: Bu narx taklifini tekshirish xatini yozib berasizmi? Xodim: Ha, bo‘lim boshlig‘i. Qanday boshlayman? Bo‘lim boshlig‘i: Qabul qiluvchi — Pak xodim; mavzuda [요청] belgisini qo‘ying; birinchi jumlada maqsadni ayting. Xodim: Ha, unda birinchi jumlani narx taklifini tekshirishni so‘rayman deb yozamanmi? Bo‘lim boshlig‘i: To‘g‘ri. Keyin muddatni aniq yozing, oxiriga band vaqtingizda uzr deb qo‘shing. Xodim: Ha, tushundim. Hozir yozib ko‘rsataman. Bo‘lim boshlig‘i: Ha, iltimos.",
+   "practice_seconds": 8
   },
   {
    "kind": "practice",
-   "title": "Bog‘lovchilarni to‘g‘ri joyga qo‘ying",
+   "title": "Dialog 1 savollari",
    "emotion": "thinking",
    "board": [
-    "먼저 · 또한 · 다만 · 따라서",
+    "1. 누가 누구에게 쓰나요?",
+    "2. 제목에 무엇을 넣나요?",
+    "3. 첫 문장에 무엇을 말하나요?",
+    "4. 마감일은 어떻게 하나요?"
+   ],
+   "examples": [],
+   "say_native": "Dialogni ikki-uch marta eshiting va to‘rtta savolga javob toping: xatni kim kimga yozadi; mavzu qatoriga nima qo‘yiladi; birinchi jumlada nima aytiladi; muddat qanday ko‘rsatiladi; va oxiriga nima qo‘shiladi. Agar javobni topolmasangiz, dialodagi «제목에 [요청]을 넣고» va «마감일을 명확히 적고» degan qismlarni diqqat bilan eshiting.",
+   "say": "대화 내용을 바탕으로 네 가지 질문에 답해 보세요.",
+   "say_uz": "Dialog mazmuni asosida to‘rtta savolga javob bering.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: Dialog 1",
+   "emotion": "encouraging",
+   "board": [
+    "제목에 [요청] 넣기",
+    "첫 문장 = 목적",
+    "마감일 명확히"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: xat — Pak xodimga, ya’ni yetkazib beruvchilardan biri bo‘lmish tashqi hamkorga. Ikkinchi: mavzu qatorida [요청] belgisi bo‘lishi shart. Uchinchi: birinchi jumlada maqsad — «견적서 검토를 부탁드린다», ya’ni narx taklifini tekshirishni so‘rashdir. To‘rtinchi: muddat aniq ko‘rsatilishi kerak, noaniq «tez orada» degan so‘z ishlatilmaydi. Beshinchi: xat oxiriga band vaqtingizda uzr va rahmat jumlasi qo‘shiladi. Shu besh nuqta Koreya ish xatining standart karkasidir — ularni yodda saqlang.",
+   "say": "제목은 [요청], 첫 문장은 목적, 마감일은 명확하게, 끝은 실례 인사.",
+   "say_uz": "Mavzu — [요청], birinchi jumla — maqsad, muddat — aniq, yakun — uzr salomlashuvi.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "explain",
+   "title": "본문 1-qadam: maqsadni darhol ayting",
+   "emotion": "neutral",
+   "board": [
+    "~을/를 요청드립니다",
+    "~에 대해 문의드립니다",
+    "~을/를 알려 드립니다"
+   ],
+   "examples": [
+    {
+     "t": "견적서 검토를 요청드립니다.",
+     "uz": "Narx taklifini tekshirishni so‘rayman."
+    },
+    {
+     "t": "배송 일정에 대해 문의드립니다.",
+     "uz": "Yetkazib berish muddati haqida so‘ramoqchiman."
+    },
+    {
+     "t": "계약 체결 일정을 알려 드립니다.",
+     "uz": "Shartnoma tuzilish vaqti haqida xabar beraman."
+    }
+   ],
+   "say_native": "본문 — asosiy matn — uch bosqichdan turadi, birinchisi maqsad. Koreya ish xatida maqsad birinchi jumlada aytiladi, kirish gaplarsiz. Uch asosiy formula: ~을/를 요청드립니다 — «…ni so‘rayman»; ~에 대해 문의드립니다 — «…haqida so‘rayman», ma’lumot so‘rash; ~을/를 알려 드립니다 — «…ni xabar beraman». «다름이 아니라» — «boshqa gap emas, balki…» — ham maqsadga o‘tishning klassik kirish formulasidir. Uzbektilida bunday formulalar yo‘q — biz «sizga yozyapman…» deb boshlaymiz; koreyschada formulaga to‘g‘ridan-to‘g‘ri o‘tish tabiiy va kutiladi.",
+   "say": "목적은 첫 문장에 ~을 요청드립니다, ~에 대해 문의드립니다, ~을 알려 드립니다로 씁니다.",
+   "say_uz": "Maqsad birinchi jumlada: ~을 요청드립니다, ~에 대해 문의드립니다, ~을 알려 드립니다 deb yoziladi.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "explain",
+   "title": "본문 2-qadam: tafsilotlar — sana, vaqt, raqam",
+   "emotion": "thinking",
+   "board": [
+    "구체적 날짜와 수치",
+    "첨부 파일 언급",
+    "불필요한 맥락 금지"
+   ],
+   "examples": [
+    {
+     "t": "납기일은 다음 달 15일로 기재되어 있습니다.",
+     "uz": "Yetkazib berish sanasi keyingi oyning 15-kuni deb ko‘rsatilgan."
+    },
+    {
+     "t": "수량은 300개로 적혀 있습니다.",
+     "uz": "Miqdor 300 dona deb yozilgan."
+    },
+    {
+     "t": "첨부 파일의 견적서를 확인해 주세요.",
+     "uz": "Ilovadagi narx taklifini tekshirib bering."
+    }
+   ],
+   "say_native": "Ikkinchi bosqich — tafsilotlar. Koreya ish xatida tafsilotlar hech qachon taxminiy yozilmaydi: «tez orada» o‘rniga «다음 달 15일» — keyingi oyning 15-kuni, «ko‘p miqdorda» o‘rniga «300개» — 300 dona, «ilova bor» o‘rniga «첨부 파일의 견적서를 확인해 주세요» — ilovadagi taklifni tekshiring. Har bir raqam va sana xatni ish hujjatiga aylantiradi — keyinchalik nizoda ham dalil bo‘ladi. Ortiqcha tarixiy kirish, kim bilan gaplashganini aytish, shaxsiy izohlar — bularning hammasini kesing. O‘quvchi faqat uch narsani bilishi kerak: nima bo‘ldi, nima kerak va qachongacha.",
+   "say": "날짜, 수량, 금액은 구체적인 숫자로 쓰고, 첨부 파일은 본문에서 꼭 언급하세요.",
+   "say_uz": "Sana, miqdor va summani aniq raqamlar bilan yozing; ilova faylni matnda albatta tilga oling.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "explain",
+   "title": "본문 3-qadam: iltimos + aniq muddat",
+   "emotion": "neutral",
+   "board": [
+    "~해 주시기 바랍니다",
+    "~까지 회신 부탁드립니다",
+    "다음 단계 예고"
+   ],
+   "examples": [
+    {
+     "t": "확인 후 금요일까지 회신 부탁드립니다.",
+     "uz": "Tekshirib, jumagacha javob berishingizni so‘rayman."
+    },
+    {
+     "t": "검토해 주시면 감사하겠습니다.",
+     "uz": "Tekshirib bersangiz, minnatdor bo‘lardim."
+    }
+   ],
+   "say_native": "Uchinchi bosqich — nima kerak va qachongacha. Koreya ish xatida iltimos har doim fe’l bilan tugaydi va muddat bilan birga keladi: ~해 주시기 바랍니다 — «…qilib berishingizni tilayman» (yuqori rasmiylik), ~부탁드립니다 — so‘rashning eng yumshoq shakli, ~해 주시면 감사하겠습니다. «언제까지» har doim sana bilan: 금요일까지 — jumagacha, 3월 15일까지 — 15-martgacha. Javob kechiksa nima bo‘lishini ham ayting: «만약 금요일까지 회신이 어려우시면 알려 주세요» — agar jumagacha javob qiyin bo‘lsa, xabar bering. Bu so‘rashni buyruqdan suhbatga aylantiradi.",
+   "say": "~해 주시기 바랍니다, ~까지 회신 부탁드립니다처럼 부탁과 마감일을 함께 쓰세요.",
+   "say_uz": "~해 주시기 바랍니다, ~까지 회신 부탁드립니다 kabi iltimos va muddatni birga yozing.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: to‘liq rasmiy xat",
+   "emotion": "neutral",
+   "board": [
+    "요청 이메일 전문",
+    "제목 → 인사 → 목적 → 세부 → 요청"
+   ],
+   "examples": [],
+   "say_native": "Ushbu xatni boshdan oxirigacha tinglang va besh qatlamga ajrating: mavzu belgisi, salomlashuv, maqsad, tafsilotlar va muddat bilan yakunlangan iltimos. Har bir jumlani ketma-ket kuzatib boring: kim yozyapti, kimga, nima haqida va qachongacha javob kerak. Oylik xat javobi kechiksa nima qilish kerakligini ham aytib o‘tilgan — bu Koreya ish madaniyatida juda odatiy. Dialogni ikki-uch marta tinglab, keyin savollarga javob bering.",
+   "say": "제목: [요청] 견적서 검토 부탁드립니다 안녕하세요, 박 과장님. 바쁘신 중에 실례합니다. 다름이 아니라, 오늘 아침에 보내 드린 견적서의 납기일 확인을 요청드리고자 합니다. 납기일은 다음 달 15일로 기재되어 있고, 수량은 300개, 단가는 기존과 동일하게 적혀 있습니다. 첨부 파일의 견적서를 확인하신 후, 금요일까지 회신 부탁드립니다. 만약 금요일까지 검토가 어려우시면 미리 알려 주시면 감사하겠습니다. 검토 결과에 따라 주문을 진행하도록 하겠습니다. 감사합니다. 이서준 드림",
+   "say_uz": "Mavzu: [So‘rov] Narx taklifini tekshirib bering. Assalomu alaykum, Pak bo‘lim boshlig‘i. Band vaqtingizda uzr. Boshqa gap emas, bugun tongda sizga yuborilgan narx taklifining yetkazib berish sanasini tasdiqlashingizni so‘rayman. Yetkazib berish sanasi keyingi oyning 15-kuni ko‘rsatilgan, miqdor 300 dona, birlik narxi avvalgidek yozilgan. Ilovadagi narx taklifini tekshirib chiqqach, jumagacha javob berishingizni so‘rayman. Agar jumagacha tekshirish qiyin bo‘lsa, oldindan xabar bersangiz minnatdor bo‘lardim. Tekshiruv natijasiga qarab buyurtmani rasmiylashtiramiz. Rahmat. Li Seojun.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog 2 savollari",
+   "emotion": "thinking",
+   "board": [
+    "1. 보낸 사람은 누구인가요?",
+    "2. 납기일은 언제인가요?",
+    "3. 수량은 몇 개인가요?",
+    "4. 회신 기한과 연락 방법은?"
+   ],
+   "examples": [],
+   "say_native": "Xatni ikki-uch marta tinglang va to‘rtta savolga javob toping: kimdan kimga yuborilgan; yetkazib berish sanasi qachon; miqdor qancha; javob muddati qachon va tekshirish qiyin bo‘lsa nima qilish kerak. Javoblarni dialogdagi «납기일은 다음 달 15일», «수량은 300개», «금요일까지 회신 부탁드립니다» qismlaridan topasiz.",
+   "say": "이메일을 다시 듣고 네 가지 질문에 답해 보세요.",
+   "say_uz": "Xatni qayta tinglab, to‘rtta savolga javob bering.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: Dialog 2",
+   "emotion": "encouraging",
+   "board": [
+    "보낸 사람: 이서준",
+    "납기일: 다음 달 15일",
+    "수량: 300개",
+    "회신: 금요일까지"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: xatni Li Seojun Pak bo‘lim boshlig‘iga yuborgan. Ikkinchi: yetkazib berish sanasi — keyingi oyning 15-kuni. Uchinchi: miqdor — 300 dona. To‘rtinchi: jumagacha javob berish so‘ralgan; agar tekshirish qiyin bo‘lsa, oldindan xabar berish kerak. Beshinchi: imzo «이서준 드림» — koreyschada «…(dan)» degan hurmatli yakun formulasi. Ko‘rib turganingizdek, xatda ortiqcha so‘z yo‘q: mavzu belgisi, salomlashuv, maqsad, uchta raqam va aniq muddat — Koreya ish xatining ideali.",
+   "say": "보낸 사람은 이서준, 납기일은 다음 달 15일, 수량은 300개, 회신은 금요일까지입니다.",
+   "say_uz": "Yuboruvchi — Li Seojun, yetkazib berish sanasi — keyingi oyning 15-kuni, miqdor — 300 dona, javob — jumagacha.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "explain",
+   "title": "Rasmiy bog‘lovchilar: 또한 · 따라서 · 그런데 · 하지만 · 그러므로",
+   "emotion": "neutral",
+   "board": [
+    "또한 — shuningdek",
+    "따라서 / 그러므로 — shuning uchun",
+    "그런데 / 하지만 — ammo",
+    "그리고 — va (norasmiy)"
+   ],
+   "examples": [
+    {
+     "t": "또한 첨부 파일을 확인해 주세요.",
+     "uz": "Shuningdek, ilova faylni tekshirib bering."
+    },
+    {
+     "t": "따라서 금요일까지 회신 부탁드립니다.",
+     "uz": "Shuning uchun jumagacha javob berishingizni so‘rayman."
+    },
+    {
+     "t": "다만 예산 범위 내에서만 가능합니다.",
+     "uz": "Ammo bu faqat byudjet doirasida mumkin."
+    }
+   ],
+   "say_native": "Koreyscha ish xatida fikrlarni bog‘laydigan rasmiy bog‘lovchilar kerak. 또한 — shuningdek, yangi nuqta qo‘shish. 따라서 yoki 그러므로 — shuning uchun, sababdan xulosaga o‘tish. 그런데 yoki 하지만 — ammo; yumshoqroq variant — 다만. 그리고 — va, xatda biroz norasmiy hisoblanadi — uning o‘rniga 또한 ishlating. 만약 — agar, so‘rovni yumshatish: 만약 어려우시면. 이에 — «shu munosabat bilan»: 이에 검토를 요청드립니다. Bu bog‘lovchilar xatni mantiqiy zanjir qiladi va o‘quvchiga yo‘nalish beradi.",
+   "say": "또한, 따라서, 그러므로, 다만, 만약, 이에. 그리고 대신 또한을 쓰세요.",
+   "say_uz": "Shuningdek, shuning uchun, ammo, agar. 그리고 o‘rniga 또한 ishlating.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "practice",
+   "title": "Bog‘lovchilarni joylashtiring",
+   "emotion": "thinking",
+   "board": [
+    "또한 / 따라서 / 다만 / 만약",
     "4 ta gapni bog‘lang"
    ],
    "examples": [],
-   "say_native": "To‘rtta gapni “먼저 → 또한 → 다만 → 따라서” tartibida bog‘lang. Masalan: “먼저 양식을 확인해 주세요” — avval; “또한 첨부파일을 참고해 주세요” — shuningdek; “다만 예산 범위 내에서만 가능합니다” — ammo; “따라서 승인 후 진행하겠습니다” — shuning uchun. Har bir bog‘lovchi yangi gap boshida turadi va avvalgi fikr bilan mantiqiy bog‘lanadi. Tugatgach, bog‘lovchisiz ham o‘qib ko‘ring — agar matn tushunilsa, bog‘lovchilar to‘g‘ri joyda; o‘qilmasa, qayta tartiblang.",
-   "say": "다음 네 문장을 순서에 맞게 연결해 보세요. 먼저, 또한, 다만, 따라서를 사용하세요.",
-   "say_uz": "Quyidagi to‘rtta gapni tartib bilan bog‘lang. “먼저”, “또한”, “다만”, “따라서”dan foydalaning.",
-   "practice_seconds": 30
+   "say_native": "To‘rtta gapni o‘qib, har biriga to‘g‘ri bog‘lovchini tanlang: shuningdek ma’nosida 또한, xulosa ma’nosida 따라서, rezervak ma’nosida 다만, shart ma’nosida 만약. Masalan: «납기일은 다음 달 15일입니다. ___ 금요일까지 회신 부탁드립니다» — bu yerda xulosa bog‘lovchisi kerak: 따라서. «첨부 파일이 있습니다. ___ 파일을 꼭 확인해 주세요» — qo‘shimcha nuqta: 또한. «예산이 적습니다. ___ 범위 내에서만 가능합니다» — rezervak: 다만. Har bir bog‘lovchi yangi gap boshida kelishini esda tuting.",
+   "say": "또한, 따라서, 다만, 만약 중에서 알맞은 연결어를 고르세요.",
+   "say_uz": "또한, 따라서, 다만, 만약 dan mos bog‘lovchini tanlang.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "encouraging",
    "board": [
-    "먼저 → 또한 → 다만 → 따라서"
+    "또한 — qo‘shimcha nuqta",
+    "따라서 — xulosa",
+    "다만 — rezervak",
+    "만약 — shart"
    ],
    "examples": [
     {
-     "t": "먼저 양식을 확인해 주세요. 또한 첨부를 참고하세요.",
-     "uz": "Avval shaklni tekshiring. Shuningdek, ilovani ko‘ring."
+     "t": "납기일은 다음 달 15일입니다. 따라서 금요일까지 회신 부탁드립니다.",
+     "uz": "Yetkazib berish sanasi keyingi oyning 15-kuni. Shuning uchun jumagacha javob bering."
     }
    ],
-   "say_native": "Javoblar: “먼저 양식을 확인해 주세요. 또한 첨부파일을 참고해 주세요. 다만 예산 범위 내에서만 가능합니다. 따라서 승인 후 진행하겠습니다.” — avval shaklni tekshiring, shuningdek ilovani ko‘ring, ammo byudjet doirasigina mumkin, shuning uchun tasdiqdan keyin amalga oshiramiz. Bog‘lovchilar xatning mantiqiy oqimini ko‘rsatadi; ular xato joyda tursa, xat o‘qilmaydi. Har bir bog‘lovchini alohida gap boshida qo‘llang va lupa bilan tekshiring: bu jumla avvalgisini xulosa qiladimi yoki yangi fikr ochadimi?",
-   "say": "먼저, 또한, 다만, 따라서 — 이 순서가 논리적인 흐름이에요.",
-   "say_uz": "Avval, shuningdek, ammo, shuning uchun — shu tartib mantiqiy oqimdir.",
-   "practice_seconds": 14
+   "say_native": "Javoblar: qo‘shimcha nuqta — 또한, xulosa — 따라서 yoki 그러므로, rezervak — 다만 yoki 하지만, shart — 만약. Bog‘lovchining xato joyda turishi jumlaning ma’nosini o‘zgartiradi: «만약 금요일까지 어려우시면» — agar jumagacha qiyin bo‘lsa — shu yerda shart bog‘lovchisi kerak; uni 다만 bilan almashtirsangiz, ma’no buziladi. Har bir bog‘lovchini qo‘llashdan oldin o‘zingizdan so‘rang: bu jumla avvalgi fikrni xulosa qiladimi, qo‘shimcha qiladimi yoki cheklaydimi? Javobni topgach, bog‘lovchini tanlang.",
+   "say": "추가는 또한, 결론은 따라서, 단서는 다만, 조건은 만약입니다.",
+   "say_uz": "Qo‘shimcha — 또한, xulosa — 따라서, rezervak — 다만, shart — 만약.",
+   "practice_seconds": 8
   },
   {
    "kind": "explain",
-   "title": "3-qism: Yakun formulalari va imzo",
+   "title": "마무리 — yakun formulalari",
    "emotion": "neutral",
    "board": [
-    "“감사합니다.” / “감사드립니다.”",
-    "“회신 부탁드립니다.”",
-    "“이서준 드림” — imzo"
+    "감사합니다 / 감사하겠습니다",
+    "회신 부탁드립니다",
+    "좋은 하루 되세요",
+    "좋은 주말 보내세요"
    ],
    "examples": [
     {
-     "t": "회신 부탁드립니다. 감사합니다.",
-     "uz": "Javob kutaman. Rahmat."
+     "t": "감사합니다. 좋은 하루 되세요.",
+     "uz": "Rahmat. Yaxshi kun bo‘lsin."
     },
     {
-     "t": "이서준 드림",
-     "uz": "Li Seojun (dan)"
+     "t": "검토 후 회신 부탁드립니다.",
+     "uz": "Tekshirgandan keyin javob berishingizni so‘rayman."
     }
    ],
-   "say_native": "Yakunning uch shakli: birinchi, eng universal — “감사합니다” yoki yuqori rasmiylikda “감사드립니다”. Ikkinchi, harakatga chaqiriq bilan: “회신 부탁드립니다” — javobingizni kutaman yoki “확인 후 연락 부탁드립니다” — tekshirib, bog‘lanib turing. Uchinchi, warm yopilish: “좋은 하루 되세요” — yaxshi kun bo‘lsin — tengdoshlarga va mijozlarga. Illo, imzo: “이서준 드림” — “…dan” — Korean ish xatlarining standart yakuni; “이서준 올림” ham yuqori rasmiylikda. Imzo ostida to‘liq ma’lumot: ism, lavozim, kompaniya, telefon, email. Korean ish xatida imzo — bezak emas, majburiy qism; uning yo‘qligi xatni chala qilib ko‘rsatadi.",
-   "say": "감사합니다. 회신 부탁드립니다. 이서준 드림.",
-   "say_uz": "Rahmat. Javob kutaman. Li Seojun.",
-   "practice_seconds": 14
+   "say_native": "Yopilish formulalari to‘rtta asosiy turga bo‘linadi. Birinchi, neytral minnatdorlik: 감사합니다 — rahmat; xatning eng xavfsiz yakuni. Ikkinchi: 감사하겠습니다 — «minnatdor bo‘lardim», iltimos bilan birga. Uchinchi, javobni kutish: 회신 부탁드립니다 — javobingizni kutaman; so‘rovning standart yakuni. To‘rtinchi, iliq yopilish: 좋은 하루 되세요 — yaxshi kun bo‘lsin. Rahbarga eng rasmiy yakun: 안녕히 계십시오. Koreyschada «드림» — imzo formulasi: «이서준 드림». Yopilishni ortiqcha cho‘zmang — bir-ikki jumla yetadi.",
+   "say": "감사합니다, 감사하겠습니다, 회신 부탁드립니다, 좋은 하루 되세요.",
+   "say_uz": "Rahmat, minnatdor bo‘lardim, javobingizni kutaman, yaxshi kun bo‘lsin.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "explain",
+   "title": "서명 — imzo va kontakt ma’lumotlari",
+   "emotion": "neutral",
+   "board": [
+    "이름 · 직급 · 부서",
+    "회사 · 전화번호 · 이메일",
+    "이서준 드림 / 올림"
+   ],
+   "examples": [
+    {
+     "t": "이서준 과장 | 경영지원팀 | 02-1234-5678",
+     "uz": "Li Seojun bo‘lim boshlig‘i | boshqaruv yordam bo‘limi | 02-1234-5678"
+    }
+   ],
+   "say_native": "Koreya ish xatining oxirgi qismi — imzo bloki. U quyidagi tartibda yoziladi: ism va lavozim — 이서준 과장, bo‘lim — 경영지원팀, kompaniya — ㈜한국테크, telefon — 02-1234-5678, elektron manzil. Imzo belgisi sifatida «드림» — «dan» — yoki yuqori rasmiylikda «올림»: «이서준 드림». Uzbektilida bunday formula yo‘q — biz «Hurmat bilan» deb yozamiz; koreyschada imzo ostidagi to‘liq blok o‘sha vazifani bajaradi. Imzo blokini har xatda avtomatik qo‘yadigan qilib sozlash xatoni kamaytiradi. Telefon raqamsiz xatni oluvchi qo‘ng‘iroq qila olmaydi.",
+   "say": "서명은 이름, 직급, 부서, 회사, 전화번호, 이메일 순서로 쓰고, 이서준 드림으로 끝맺습니다.",
+   "say_uz": "Imzo — ism, lavozim, bo‘lim, kompaniya, telefon, email tartibida yoziladi va «이서준 드림» bilan tugaydi.",
+   "practice_seconds": 8
   },
   {
    "kind": "example",
-   "title": "Namuna: javob xati — 회신",
+   "title": "Dialog 3: eslatma xat",
    "emotion": "neutral",
    "board": [
-    "[회신] 납기일 확인의 건",
-    "인사 → 답장 → 확인 → 맺음"
+    "답장이 없을 때",
+    "정중한 리마인더"
    ],
    "examples": [],
-   "say": "안녕하세요, 이서준 님. 회신이 늦어져 죄송합니다. 납기일은 다음 달 15일이 맞습니다. 수량 300개와 단가도 확인했습니다. 계약서 초안을 내일까지 보내 드리겠습니다. 추가 문의 사항이 있으시면 언제든지 연락 주세요. 감사합니다. 김민준 드림",
-   "say_uz": "Assalomu alaykum, Li Seojun. Javob kechikkani uchun uzr. Yetkazib berish sanasi keyingi oyning 15-kuni to‘g‘ri. 300 dona miqdor va birlik narxi ham tasdiqlandi. Shartnoma loyihasini ertaga yuboraman. Qo‘shimcha savollaringiz bo‘lsa, istalgan vaqtda bog‘laning. Rahmat. Kim Minjun.",
-   "say_native": "Javob xati namunasi uchta narsani ko‘rsatadi. Birinchi: kechikish uchun uzr — “회신이 늦어져 죄송합니다” — javobning kechikkani uchun uzr; Korean ish xatida kechikish har doim tan olinadi. Ikkinchi: tasdiqlangan faktlar birma-bir — 납기일, 수량, 단가. Uchinchi: keyingi qadam — “계약서 초안을 내일까지 보내 드리겠습니다”. “언제든지 연락 주세요” — istalgan vaqtda bog‘laning — yakundagi ochiq eshik. Javob xati hech qachon “네” bilan tugamaydi; u har doim keyingi qadam bilan tugaydi.",
-   "practice_seconds": 14
+   "say_native": "Ushbu dialogni tinglang: birinchi xat yuborilgan, javob kelmagan va bo‘lim boshlig‘i eslatma xatini qanday yozilishini tushuntiradi. Diqqat qilinadigan nuqtalar: avvalgi xatga sana bilan havola qilinadi; so‘rov yumshoq shubha bilan ifodalanadi — «보셨는지 모르겠습니다»; uzr aniq aytiladi — «바쁘신 중에 다시 연락드려 죄송합니다»; va muddat takrorlanadi. Koreya ish madaniyatida eslatma hech qachon ayblov bilan yozilmaydi. Savollarga javob berishga tayyor turing.",
+   "say": "과장: 지난주에 보낸 견적서 요청 메일에 답장이 아직 없네요. 리마인더 메일을 좀 써 주시겠어요? 대리: 네. 어떻게 시작하면 좋을까요? 과장: 지난주 금요일에 보낸 메일을 언급하고, 확인하셨는지 모르겠다고 정중하게 물어보세요. 대리: 네, 그리고 회신 기한도 다시 알려 드리면 되겠죠? 과장: 맞아요. 금요일까지 회신 부탁드린다고 쓰고, 바쁘신 중에 다시 연락드려 죄송합니다라고 마무리하세요. 대리: 알겠습니다. 지금 바로 작성하겠습니다.",
+   "say_uz": "Bo‘lim boshlig‘i: O‘tgan hafta yuborilgan narx taklifi xatiga hali javob yo‘q. Eslatma xatini yozib berasizmi? Xodim: Ha. Qanday boshlayman? Bo‘lim boshlig‘i: O‘tgan hafta juma kuni yuborilgan xatni tilga oling, ko‘rdingizmi yoki yo‘qligini muloyim so‘rang. Xodim: Ha, va javob muddatini ham qaytarib aytaman, to‘g‘rimi? Bo‘lim boshlig‘i: To‘g‘ri. Jumagacha javob berishingizni so‘rayman deb yozing, band vaqtingizda yana murojaat qilganim uchun uzr deya yoping. Xodim: Tushundim. Hozir yozaman.",
+   "practice_seconds": 8
   },
   {
    "kind": "practice",
-   "title": "Javob xatini yozing",
+   "title": "Dialog 3 savollari",
    "emotion": "thinking",
    "board": [
-    "So‘rovga javob: 면접 일정 확정",
-    "인사 → 답장 → 다음 단계 → 맺음"
+    "1. 왜 리마인더를 쓰나요?",
+    "2. 첫 문장에 무엇을 언급하나요?",
+    "3. 어떻게 정중하게 물어보나요?",
+    "4. 마무리에 무엇을 쓰나요?"
    ],
    "examples": [],
-   "say_native": "Intervyu sanasini tasdiqlovchi javob xatini yozing. Tuzilishi: salomlashuv — “안녕하세요, …”; javob — sanoq va vaqt; joy — qayerda; nima olib kelish kerakligi; yakun — “감사합니다” va “… 드림”. Yangi ma’lumot sifatida joy va vaqtni qo‘shish xatni qimmatli qiladi; shunchaki “네” yozgan odam javob bermagan bilan barobar. Har bir jumla alohida xat boshi bo‘lsin.",
-   "say": "면접 일정을 확정한다는 답장을 쓰세요. 인사, 답장, 다음 단계, 마무리를 포함하세요.",
-   "say_uz": "Intervyu sanasini tasdiqlovchi javob xati yozing. Salomlashuv, javob, keyingi qadam va yakunni qo‘shing.",
-   "practice_seconds": 40
+   "say_native": "Dialogni tinglab to‘rtta savolga javob bering: nega eslatma yozilmoqda; birinchi jumlada nima tilga olinadi; qanday muloyim so‘roq formulasi ishlatiladi; yopilishda nima aytiladi. Dialodagi «보셨는지 모르겠습니다» — «ko‘rdingizmi, bilmayman» — va «바쁘신 중에 다시 연락드려 죄송합니다» — «band vaqtingizda yana murojaat qilganim uchun uzr» — qismlariga alohida e’tibor bering.",
+   "say": "대화를 듣고 리마인더 이메일의 네 가지 요소를 찾아보세요.",
+   "say_uz": "Dialogni tinglab, eslatma xatining to‘rtta elementini toping.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: Dialog 3",
    "emotion": "encouraging",
    "board": [
-    "“안녕하세요, …”",
-    "“면접 일정은 다음 주 화요일입니다”",
-    "“감사합니다. … 드림”"
+    "지난주 금요일 메일 언급",
+    "보셨는지 모르겠습니다",
+    "금요일까지 회신",
+    "바쁘신 중에 죄송합니다"
    ],
-   "examples": [
-    {
-     "t": "면접 일정은 다음 주 화요일 10시로 확정되었습니다.",
-     "uz": "Intervyu sanasi — kelasi hafta seshanba kuni soat 10 ga tasdiqlandi."
-    }
-   ],
-   "say_native": "Namuna javob: “안녕하세요, 이서준 님. 면접 일정은 다음 주 화요일 오전 10시로 확정되었습니다. 장소는 본사 3층 회의실입니다. 이력서를 지참해 주세요. 감사합니다. 김민준 드림” — assalomu alaykum, Li Seojun; intervyu sanasi — kelasi hafta seshanba kuni soat 10 ga tasdiqlandi; joy — bosh ofis, 3-qavat, yig‘ilish xonasi; rezyumeni olib keling; rahmat. Diqqat qiling: javobda yangi ma’lumot beriladi — joy, vaqt, olib kelinadigan narsalar; bu javobni qimmatli qiladi.",
-   "say": "답장에는 새 정보인 일정, 장소, 지참 사항을 넣으세요.",
-   "say_uz": "Javob xatiga yangi ma’lumot — sana, joy, olib kelinadigan narsalarni qo‘shing.",
-   "practice_seconds": 14
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: eslatma — avvalgi xatga javob kelmagani uchun yoziladi. Ikkinchi: birinchi jumlada o‘tgan juma kuni yuborilgan xat tilga olinadi — sana bilan havola qilish xatni aniq qiladi. Uchinchi: so‘roq yumshoq shubha bilan — «보셨는지 모르겠습니다» — «ko‘rdingizmi, bilmayman»; bu ayblovni istisno qiladi. To‘rtinchi: muddat takrorlanadi — jumagacha; yopilishda uzr — «바쁘신 중에 다시 연락드려 죄송합니다». Shu to‘rt element bo‘lmasa, eslatma xati ishlamaydi — oluvchi uni o‘qimaydi yoki xafa bo‘ladi.",
+   "say": "지난주 금요일 메일 언급, 보셨는지 모르겠습니다, 금요일까지 회신, 다시 연락드려 죄송합니다.",
+   "say_uz": "O‘tgan juma xatini tilga olish, «ko‘rdingizmi bilmayman», jumagacha javob, uzr so‘rash.",
+   "practice_seconds": 8
   },
   {
    "kind": "explain",
-   "title": "4-qism: Eslatma xat — 리마인더",
+   "title": "Uch xat turi: 요청 · 회신 · 안내",
    "emotion": "neutral",
    "board": [
-    "“리마인더드립니다 / 확인 요청드립니다”",
-    "Ichki deadline + yumshoq uzr",
-    "“혹시 확인하셨는지요?”"
+    "요청 — so‘rov: [요청] + 마감",
+    "회신 — javob: [회신] + 다음 단계",
+    "안내 — ma’lumot: [안내] + 상세"
    ],
    "examples": [
     {
-     "t": "혹시 확인하셨는지요?",
-     "uz": "Tasdiqlab ko‘rdingizmi, bilmayman."
+     "t": "[안내] 회의 일정 변경 안내",
+     "uz": "[Ma’lumot] Yig‘ilish jadvali o‘zgarishi"
     },
     {
-     "t": "다시 한번 확인 요청드립니다.",
-     "uz": "Yana bir bor tasdiqlashingizni so‘rardim."
+     "t": "[회신] 계약서 확인의 건",
+     "uz": "[Javob] Shartnomani tasdiqlash haqida"
     }
    ],
-   "say_native": "Javob kelmasa, eslatma xati — 리마인더 — yoziladi. Bunda muloyimlik eng yuqori darajada bo‘lishi kerak, chunki bu, ehtimol, ikkinchi urinish. Tuzilishi: birinchi, avvalgi xatga havola — “지난주에 보내 드린 메일 관련하여” — o‘tgan hafta yuborgan xat bo‘yicha; ikkinchi, yumshoq so‘rov — “혹시 확인하셨는지요?” — tasdiqlab ko‘rdingizmi, bilmayman; uchinchi, muddat — “이번 주 금요일까지 회신 부탁드립니다”; to‘rtinchi, uzr va ochik eshik — “바쁘신 중에 다시 연락드려 죄송합니다” — band vaqtingizda yana murojaat qilganim uchun uzr. Hech qachon “Nega javob bermadingiz?” deb yozmang — Korean ish madaniyatida bu hurmatsizlik.",
-   "say": "리마인더는 부드럽게. 혹시 확인하셨는지요? 바쁘신 중에 다시 연락드려 죄송합니다.",
-   "say_uz": "Eslatmani muloyim yozing. Ko‘rib chiqdingizmi? Band vaqtingizda yana yozganim uchun uzr.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Namuna: eslatma xati — 리마인더",
-   "emotion": "neutral",
-   "board": [
-    "[리마인더] 견적서 확인 요청의 건",
-    "이전 메일 참조 → 부탁 → 감사"
-   ],
-   "examples": [],
-   "say": "안녕하세요, 이서준 님. 지난주 화요일에 보내 드린 견적서 확인 요청 메일 관련하여 리마인더드립니다. 혹시 확인하셨는지요? 바쁘신 중에 다시 연락드려 죄송합니다. 금요일 오후 5시까지 회신 주시면 발주 절차를 진행할 수 있습니다. 감사합니다. 김민준 드림",
-   "say_uz": "Assalomu alaykum, Li Seojun. O‘tgan hafta seshanba kuni yuborgan narx taklifi tasdiqlashi yuzasidan eslatma. Ko‘rib chiqdingizmi, bilmayman. Band vaqtingizda yana murojaat qilganim uchun uzr. Juma kuni soat beshgacha javob bersangiz, buyurtma jarayonini boshlay olamiz. Rahmat. Kim Minjun.",
-   "say_native": "Ushbu xat Korean ish dunyosining namunali eslatmasi. Oldingi xat sanaga havola qiladi — “지난주 화요일에 보내 드린” — o‘tgan hafta seshanba; yumshoq so‘rov — “혹시 확인하셨는지요?”; uzr — “바쁘신 중에 다시 연락드려 죄송합니다”; aniq muddat — “금요일 오후 5시까지”; va keyingi qadam — “발주 절차를 진행할 수 있습니다”. Diqqat qiling: hech qanday ayblov yo‘q — hatto “아직 회신이 없어서” — hali javob yo‘q — deyilmaydi; o‘rni bosilgan befarqlik yaxshi ish joyi madaniyatining belgisi.",
-   "practice_seconds": 14
+   "say_native": "Koreya ish xatlarining uchta asosiy turi bor. Birinchi, 요청 — so‘rov: belgisi [요청], maqsad bir jumlada, tafsilotlar raqam bilan, oxirida muddat va iltimos. Ikkinchi, 회신 — javob: belgisi [회신], birinchi jumlada avvalgi xatga havola — «지난주 금요일에 보내 주신 견적서 관련하여» — keyin tasdiqlangan faktlar, oxirida keyingi qadam. Uchinchi, 안내 — ma’lumot: belgisi [안내] yoki [공지], maqsad — xabar berish, tafsilotlar to‘liq, oxirida aloqa ma’lumotlari, javob kutilmaydi. Har bir tur o‘z karkasiga ega — xat yozishdan oldin turini aniqlang, shunda tuzilish o‘zi keladi.",
+   "say": "요청, 회신, 안내 — 세 가지 유형은 각각 [요청], [회신], [안내] 표지를 씁니다.",
+   "say_uz": "요청, 회신, 안내 — uch tur mos ravishda [요청], [회신], [안내] belgilarini ishlatadi.",
+   "practice_seconds": 8
   },
   {
    "kind": "practice",
-   "title": "Yakuniy vazifa: 3 ta xat yozing",
+   "title": "Xat bo‘laklarini tartiblang",
    "emotion": "thinking",
    "board": [
-    "1. So‘rov xati",
-    "2. Javob xati",
-    "3. Eslatma xati"
+    "제목 → 인사 → 목적",
+    "세부 → 요청 → 마무리 → 서명"
    ],
    "examples": [],
-   "say_native": "Uchta xatni ketma-ket yozing — so‘rov, javob, eslatma — har birini 4-5 jumla ichida. So‘rovda: [요청] belgisi, maqsad, tafsilotlar, muddat. Javobda: [회신] belgisi, tasdiqlangan faktlar, keyingi qadam. Eslatmada: [리마인더] belgisi, avvalgi xatga havola, yumshoq so‘rov. Uchala xatni o‘zingizga yuborishga tayyorgarlik sifatida yozing; tugatgach, har birini olti bandli ro‘yxat bilan tekshiring.",
-   "say": "이메일 세 통을 쓰세요. 첫째 요청, 둘째 답장, 셋째 리마인더예요. 각각 다섯 문장 안으로 쓰세요.",
-   "say_uz": "Uchta xat yozing: birinchi — so‘rov, ikkinchi — javob, uchinchi — eslatma. Har biri besh jumladan oshmasin.",
-   "practice_seconds": 50
+   "say_native": "Aralashib ketgan xat bo‘laklarini to‘g‘ri tartibga qo‘ying: mavzu belgisi, salomlashuv, maqsad jumlasi, tafsilotlar, muddatli iltimos, yopilish va imzo bloki. Tartib quyidagicha: 제목, 수신, 인사말, 본문의 목적, 세부 내용, 요청과 마감일, 마무리 인사, 서명. Har bir bo‘lakni alohida qog‘ozga yozib, stol ustiga yoysangiz, tartibni mustahkam yodda saqlab qolasiz. Xato tartib — eng ko‘p uchraydigan chala xat sababidir.",
+   "say": "이메일 조각들을 제목, 인사, 목적, 세부, 요청, 마무리, 서명 순서로 배열해 보세요.",
+   "say_uz": "Xat bo‘laklarini mavzu, salomlashuv, maqsad, tafsilot, iltimos, yopilish, imzo tartibida joylashtiring.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
-   "title": "Javoblar: uch xatning mezonlari",
+   "title": "Javoblar: bo‘laklar tartibi",
    "emotion": "encouraging",
    "board": [
-    "제목 표기: [요청] / [회신] / [리마인더]",
-    "인사 → 목적 → 세부 → 부탁 → 맺음"
+    "1. 제목 2. 인사 3. 목적",
+    "4. 세부 5. 요청 6. 마무리 7. 서명"
    ],
    "examples": [],
-   "say_native": "Uchala xatni shu mezonlar bilan tekshiring: birinchi, mavzu qatorida maqsad belgisi — [요청], [회신] yoki [리마인더]. Ikkinchi, salomlashuvdan keyin ko‘prik jumla — “바쁘신 중에 죄송하지만”. Uchinchi, maqsad bir jumlada. To‘rtinchi, tafsilotlar raqamlar bilan. Beshinchi, aniq muddat va keyingi qadam. Oltinchi, imzo — ism, lavozim, kompaniya. Agar uchala xat ham shu besh mezonni bajari, siz Korean ish xatlarini to‘liq o‘zlashtirdingiz — eng ko‘p ishlatiladigan yozma janr endi sizning qo‘lingizda.",
-   "say": "제목, 인사, 목적, 세부, 부탁, 서명 — 여섯 가지를 확인하세요.",
-   "say_uz": "Mavzu, salomlashuv, maqsad, tafsilot, so‘rov, imzo — oltasini tekshiring.",
-   "practice_seconds": 14
+   "say_native": "To‘g‘ri tartib: birinchi — mavzu belgisi va mavzu qatori; ikkinchi — qabul qiluvchi va nusxa; uchinchi — salomlashuv; to‘rtinchi — maqsad jumlasi; beshinchi — tafsilotlar (sana, raqam, ilova); oltinchi — muddatli iltimos; yettinchi — yopilish va imzo. Agar salomlashuvdan oldin maqsad yozsangiz, xat hurmatsiz ko‘rinadi; agar iltimosdan keyin tafsilot qo‘shsangiz, o‘quvchi nima uchun o‘qiyotganini unutadi. Tartib — xatning logikasi; uni buzmang.",
+   "say": "제목, 수신, 인사말, 목적, 세부, 요청, 마무리, 서명 순서입니다.",
+   "say_uz": "Tartib: mavzu, qabul qiluvchi, salomlashuv, maqsad, tafsilot, iltimos, yopilish, imzo.",
+   "practice_seconds": 8
   },
   {
    "kind": "explain",
-   "title": "Rasmiy xatdagi keng tarqalgan xatolar",
-   "emotion": "thinking",
+   "title": "Keng tarqalgan 5 ta xato",
+   "emotion": "stern",
    "board": [
-    "1. Mavzusiz xat",
-    "2. 반말 yoki ortiqcha yumshoqlik",
-    "3. Uzun paragraflar",
-    "4. Biriktirilgan faylni aytmaslik",
-    "5. Imzoning yo‘qligi"
+    "1. 제목 없음",
+    "2. 반말과 이모티콘",
+    "3. 긴 문단",
+    "4. 첨부 파일 언급 누락",
+    "5. 서명 누락"
    ],
    "examples": [
     {
-     "t": "(제목 없음) → [요청] 견적서 확인 부탁드립니다",
+     "t": "(제목 없음) → [요청] 견적서 검토 부탁드립니다",
      "uz": "Mavzusiz → [So‘rov] Narx taklifini tekshirib bering"
     }
    ],
-   "say_native": "Besh odatiy xato. Birinchi: mavzusiz xat — “제목 없음” bosma yoki random mavzu; har bir xatda [요청]/[회신]/[리마인더] belgisi bo‘lsin. Ikkinchi: ohang — 반말 yoki “ㅋㅋ” kabi norasmiy elementlar; Korean ish xati har doim 합쇼체 yoki “~입니다” uslubida. Uchinchi: uzun paragraflar — besh qator matn bitta paragrafda o‘qilmaydi; uch-to‘rt jumla bo‘yicha bo‘ling. To‘rtinchi: ilovani aytmaslik — “첨부파일 확인 부탁드립니다” har doim eslatib o‘ting. Beshinchi: imzosiz xat — ism, lavozim, telefon har doim oxirida. Shu besh xatodan qochsangiz, xatingiz har doim professional ko‘rinadi.",
-   "say": "제목 필수, 합쇼체, 짧은 단락, 첨부 언급, 서명 포함.",
-   "say_uz": "Majburiy mavzu, 합쇼체, qisqa paragraflar, ilova haqida eslatish, imzo.",
-   "practice_seconds": 14
+   "say_native": "Koreya ish xatlarida eng ko‘p uchraydigan besh xato. Birinchi: mavzusiz yuborish — oluvchi ochmaydi. Ikkinchi: yarim rasmiy ohang — «수고하세요» yoki kulgu ifodalari; ish xati har doim 합쇼체 uslubida bo‘ladi. Uchinchi: uzun paragraflar — besh qatorli yagona blok o‘qilmaydi, uch-to‘rt jumla bo‘yicha bo‘ling. To‘rtinchi: ilova faylni tilga olmaslik — «첨부 파일 확인해 주세요» jumlasi majburiy. Beshinchi: imzosiz xat — ism, lavozim va telefon bo‘lmasa, javob berish qiyin.",
+   "say": "제목 없음, 반말과 이모티콘, 긴 문단, 첨부 언급 누락, 서명 누락을 피하세요.",
+   "say_uz": "Mavzusizlik, 반말 va kulgu ifodalari, uzun paragraf, ilova eslatmasining yo‘qligi va imzosizlikni oldini oling.",
+   "practice_seconds": 8
   },
   {
    "kind": "practice",
    "title": "Xato xatni tuzating",
    "emotion": "thinking",
    "board": [
-    "Mavzusiz va uzun xat berildi",
-    "Uni professional shaklga keltiring"
+    "제목 없음 + 반말",
+    "professional shaklga keltiring"
    ],
    "examples": [],
-   "say_native": "Berilgan xatni bosqichma-bosqich tuzatib yozing: avval mavzu belgisi qo‘shing — “[요청] 보고서 제출 건”; keyin salomlashuv — “안녕하세요, 김민준 대리님.”; keyin maqsadni birinchi jumlaga ko‘chiring; keyin tafsilotlarni raqam va sanalar bilan aniqlang; yakuniy muddatni ko‘rsating; oxirida imzo — “이서준 드림”. Har bir tuzatishdan keyin qayta o‘qing: xat qisqa, aniq va hurmatli bo‘lishi kerak.",
-   "say": "주어진 엉성한 이메일을 제목, 인사, 구조, 서명이 있는 전문적인 이메일로 고쳐 쓰세요.",
-   "say_uz": "Berilgan chala xatni mavzu, salomlashuv, tuzilish va imzoli professional xatga aylantiring.",
-   "practice_seconds": 30
+   "say_native": "Berilgan xatni bosqichma-bosqich professional shaklga keltiring: avval mavzu belgisi qo‘shing — [요청]; keyin salomlashuv — 안녕하십니까, 이름 님; keyin maqsadni birinchi jumlaga ko‘chiring; keyin tafsilotlarni raqam va sana bilan yozing; oxirida muddatli iltimos — 금요일까지 회신 부탁드립니다; yakunida rahmat va to‘liq imzo bloki. Har bir qadamdan keyin qayta o‘qib chiqing: xat qisqa, aniq, hurmatli bo‘lishi kerak.",
+   "say": "주어진 이메일을 제목, 인사, 목적, 세부, 요청, 서명이 있는 형태로 고쳐 보세요.",
+   "say_uz": "Berilgan xatni mavzu, salomlashuv, maqsad, tafsilot, iltimos va imzoli shaklga keltiring.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: tuzatish namunasi",
    "emotion": "encouraging",
    "board": [
-    "제목: [요청] …",
-    "인사 → 목적 → 부탁 → 맺음 → 서명"
+    "[요청] + 안녕하십니까",
+    "목적 첫 문장",
+    "금요일까지 회신",
+    "이서준 드림"
    ],
    "examples": [
     {
      "t": "[요청] 보고서 제출 부탁드립니다",
-     "uz": "[So‘rov] Hisobotni topshirib bering"
+     "uz": "[So‘rov] Hisobotni topshiring, iltimos"
     }
    ],
-   "say_native": "Tuzatish namunasi: “제목: [요청] 보고서 제출 건 / 안녕하세요, 김민준 대리님. 바쁘신 중에 죄송하지만, 월간 보고서를 확인 부탁드립니다. 완성본을 금요일 오후 5시까지 회신 주시면 검토 후 결재를 진행하겠습니다. 감사합니다. 이서준 드림” — barcha bandlar joyida: mavzu belgisi, salomlashuv, maqsad, muddat, imzo. Xatni tuzatganda har bir jumlani alohida tekshiring: bu jumla xatning qaysi bosqichiga xizmat qiladi? Agar javob yo‘q bo‘lsa, jumla ortiqcha — o‘chiring.",
-   "say": "제목, 인사, 목적, 마감, 서명 — 다섯 요소를 넣으세요.",
-   "say_uz": "Mavzu, salomlashuv, maqsad, muddat, imzo — besh bandni qo‘shing.",
-   "practice_seconds": 14
+   "say_native": "Tuzatish namunasi: «제목: [요청] 보고서 제출 부탁드립니다. 안녕하십니까, 김민준 님. 바쁘신 중에 실례합니다. 다름이 아니라, 월간 보고서의 제출을 요청드리고자 합니다. 제출 기한은 금요일 오후 5시까지이며, 보고서 양식은 첨부 파일을 확인해 주세요. 금요일까지 회신 부탁드립니다. 감사합니다. 이서준 드림.» Ushbu xatda har bir band joyida: mavzu belgisi, salomlashuv, ko‘prik jumla, maqsad, tafsilot, muddat, yopilish va imzo. Xatni tuzatganda har jumlani alohida savol bilan tekshiring: bu jumla xatning qaysi bosqichiga xizmat qiladi?",
+   "say": "[요청] 표지, 인사, 목적, 마감, 서명 — 다섯 가지를 모두 넣으세요.",
+   "say_uz": "[요청] belgisi, salomlashuv, maqsad, muddat, imzo — beshalasini qo‘shing.",
+   "practice_seconds": 8
   },
   {
    "kind": "example",
-   "title": "Namuna: to‘liq xat almashinuvi — so‘rov va javob",
+   "title": "Dialog 4: javob xat — to‘liq almashinuv",
    "emotion": "neutral",
    "board": [
-    "[요청] → [회신]",
-    "Bir xat davri"
+    "[요청] → [회신] → 확인",
+    "한 번의 이메일 주기"
    ],
    "examples": [],
-   "say": "이서준: [요청] 견적서 확인 부탁드립니다. 안녕하세요, 김민준 대리님. 오늘 보내 드린 견적서의 납기일을 확인 부탁드립니다. 감사합니다. 이서준 드림. 김민준: [회신] 납기일 확인의 건. 안녕하세요, 이서준 님. 납기일은 다음 달 15일이 맞습니다. 추가 문의는 언제든지 연락 주세요. 김민준 드림. 이서준: 확인해 주셔서 감사합니다.",
-   "say_uz": "Li Seojun: [So‘rov] Narx taklifini tekshirib bering. Assalomu alaykum, xodim Kim Minjun. Bugun yuborilgan narx taklifining yetkazib berish sanasini tasdiqlashingizni so‘rardim. Rahmat. Li Seojun. Kim Minjun: [Javob] Yetkazib berish sanasi haqida. Assalomu alaykum, Li Seojun. Yetkazib berish sanasi keyingi oyning 15-kuni to‘g‘ri. Qo‘shimcha savollaringiz bo‘lsa, istalgan vaqtda bog‘laning. Kim Minjun. Li Seojun: Tasdiqlaganingiz uchun rahmat.",
-   "say_native": "Ushbu almashinuv xat yozishning to‘liq sikli: Li Seojun [요청] xati yuboradi, Kim Minjun [회신] xati bilan aniq javob beradi, va Li Seojun uchinchi xat bilan yopadi — “확인해 주셔서 감사합니다” — tasdiqlaganingiz uchun rahmat. Diqqat qiling: har bir xatning o‘z maqsad belgisi bor, uzatma ikki jumladan oshmaydi, imzolar to‘liq. Agar xatlaringiz shunday qisqa va aniq bo‘lsa, Korean ish muhitida sizga hech qachon “nimani yozgansiz?” deb so‘ralmaydi — xatingiz o‘zi tushunarli bo‘ladi.",
-   "practice_seconds": 14
+   "say_native": "Ushbu almashinuvni tinglang: Li Seojun so‘rov xati yuboradi, Kim Minjun javob xati bilan faktlarini tasdiqlaydi, Li Seojun yakuniy rahmat xati bilan yopadi. Har bir xatning o‘z maqsad belgisi bor, maqsad birinchi jumlada, muddatlar aniq va imzolar to‘liq. Shu uch xat — Koreya ish yozishmasining eng odatiy namunasi. Dialogni tinglang va har bir xatning vazifasini aniqlang.",
+   "say": "이서준: [요청] 견적서 검토 부탁드립니다. 안녕하십니까, 김민준 님. 오늘 보내 드린 견적서의 납기일 확인을 요청드립니다. 감사합니다. 이서준 드림. 김민준: [회신] 납기일 확인의 건. 안녕하십니까, 이서준 님. 납기일은 다음 달 15일이 맞습니다. 수량 300개도 확인했습니다. 계약서 초안은 내일 보내 드리겠습니다. 김민준 드림. 이서준: 확인해 주셔서 감사합니다. 잘 부탁드립니다.",
+   "say_uz": "Li Seojun: [So‘rov] Narx taklifini tekshirib bering. Assalomu alaykum, Kim Minjun. Bugun yuborilgan narx taklifining yetkazib berish sanasini tasdiqlashingizni so‘rayman. Rahmat. Li Seojun. Kim Minjun: [Javob] Yetkazib berish sanasini tasdiqlash haqida. Assalomu alaykum, Li Seojun. Yetkazib berish sanasi keyingi oyning 15-kuni to‘g‘ri. Miqdor 300 dona ham tasdiqlandi. Shartnoma loyihasini ertaga yuboraman. Kim Minjun. Li Seojun: Tasdiqlaganingiz uchun rahmat. Yaxshilab qabul qiling.",
+   "practice_seconds": 8
   },
   {
    "kind": "practice",
-   "title": "O‘z 3 xatingizni yuborishga tayyorlang",
+   "title": "Dialog 4 savollari",
    "emotion": "thinking",
    "board": [
-    "So‘rov · javob · eslatma",
-    "Har biri besh-to‘rt jumla"
+    "1. 첫 번째 메일의 표지는?",
+    "2. 회신에서 확인된 내용은?",
+    "3. 계약서 초안은 언제 보내나요?",
+    "4. 마지막 메일의 목적은?"
    ],
    "examples": [],
-   "say_native": "Uch uchta xatni endi yuborishga tayyorlang: har birini olti bandli ro‘yxat bilan tekshiring — mavzu belgisi, salomlashuv, maqsad bir jumlada, tafsilotlar raqam bilan, muddat va to‘liq imzo. Agar bitta band yetishmasa, xatni qayta ko‘ring. Shu ro‘yxat bilan yozilgan xat Korean ish muhitida hech qachon qaytarilmaydi yoki qayta so‘ralmaydi — u birinchi urinishda o‘qiladi va bajariladi.",
-   "say": "지금까지 배운 형식으로 세 통의 메일을 완성하세요. 제목, 인사, 목적, 세부, 부탁, 서명을 모두 포함하세요.",
-   "say_uz": "Hozirgacha o‘rgangan shaklingiz bilan uchta xatni to‘ldiring. Mavzu, salomlashuv, maqsad, tafsilot, so‘rov va imzoni qo‘shing.",
-   "practice_seconds": 50
+   "say_native": "Almashinuvni tinglab to‘rtta savolga javob bering: birinchi xatning belgisi nima; javob xatida qaysi faktlar tasdiqlangan; shartnoma loyihasi qachon yuboriladi; yakuniy xatning maqsadi nima. Bu savollar Koreya ish yozishmalarida eng ko‘p uchraydigan vaziyatni sinaydi — siz xatlar zanjirini o‘qishni va har bir halqaning vazifasini tushunishni o‘rganasiz.",
+   "say": "세 통의 이메일을 듣고 각각의 역할을 답해 보세요.",
+   "say_uz": "Uchta xatni tinglab, har birining vazifasini javobi bilan keltiring.",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
-   "title": "Javoblar: yuborishdan oldingi tekshiruv ro‘yxati",
+   "title": "Javoblar: Dialog 4",
    "emotion": "encouraging",
    "board": [
-    "1. 제목 belgisi",
-    "2. 인사말",
-    "3. 목적 bir jumlada",
-    "4. 마감 + 서명"
+    "[요청] → [회신] → 확인",
+    "납기일·수량 확인",
+    "계약서 초안: 내일"
    ],
    "examples": [],
-   "say_native": "Yuborishdan oldingi yakuniy ro‘yxat: birinchi, mavzu qatorida [요청], [회신] yoki [리마인더] bormi; ikkinchi, salomlashuv ism yoki lavozim bilanmi; uchinchi, maqsad birinchi jumlada aytilganmi; to‘rtinchi, tafsilotlar raqam va sanalar bilanmi; beshinchi, muddat ko‘rsatilganmi; oltinchi, imzo to‘liqmi — ism, lavozim, kompaniya, telefon. Agar oltita bandning hammasi bajarilsa, xat yuborishga tayyor. Uch xatingizni shu ro‘yxat bilan tekshirib chiqing.",
-   "say": "제목, 인사, 목적, 세부, 마감, 서명 — 여섯 가지를 점검하세요.",
-   "say_uz": "Mavzu, salomlashuv, maqsad, tafsilot, muddat, imzo — oltasini tekshiring.",
-   "practice_seconds": 14
+   "say_native": "Javoblar. Birinchi: birinchi xat — [요청] belgisi bilan, narx taklifini tekshirish so‘rovi. Ikkinchi: javob xatida yetkazib berish sanasi — keyingi oyning 15-kuni — va miqdor — 300 dona — tasdiqlangan. Uchinchi: shartnoma loyihasi ertaga yuboriladi. To‘rtinchi: yakuniy xat — qisqa rahmat va «잘 부탁드립니다», ya’ni minnatdorlik bilan yopish. Ko‘rib turganingizdek, har bir xat o‘z vazifasini bajaradi va zanjir uzmuvchan emas — hech bir halqada savol qolmaydi.",
+   "say": "[요청], [회신], 확인 — 세 통의 이메일은 각각 요청, 확인, 감사 역할입니다.",
+   "say_uz": "[요청], [회신], tasdiqlash — uch xat mos ravishda so‘rov, tekshiruv va rahmat vazifalarini bajaradi.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "explain",
+   "title": "Grammatik fokus: -고자 합니다 · -기 바랍니다 · -아/어 주시기 바랍니다",
+   "emotion": "thinking",
+   "board": [
+    "~하고자 합니다 — niyat",
+    "~기 바랍니다 — tilak",
+    "~해 주시기 바랍니다 — iltimos"
+   ],
+   "examples": [
+    {
+     "t": "검토를 요청하고자 합니다.",
+     "uz": "Tekshirishingizni so‘ramoqchiman."
+    },
+    {
+     "t": "확인해 주시기 바랍니다.",
+     "uz": "Tekshirib berishingizni tilayman."
+    },
+    {
+     "t": "회신 주시면 감사하겠습니다.",
+     "uz": "Javob bersangiz, minnatdor bo‘lardim."
+    }
+   ],
+   "say_native": "Ushbu uch formula Koreya ish xatining grammatik asosi. Birinchi — ~고자 합니다: «…moqchiman», niyatning eng rasmiy shakli; bu shaxsiy istak emas, balki rasmiy reja. Ikkinchi — ~기 바랍니다: «…tilayman», tilak bildirish — «원활한 진행이 되기 바랍니다». Uchinchi — ~아/어 주시기 바랍니다: «…qilib berishingizni tilayman» — iltimosning eng yuqori rasmiylikidagi shakli; «주시» — berishning hurmat ildizi. Agar xatda hurmatni kuchaytirmoqchi bo‘lsangiz, fe’l ildiziga «주시» qo‘shing: 확인해 주세요 — neytral, 확인해 주시기 바랍니다 — yuqori rasmiy. Bu farq Koreya yozma nutqining eng nozik jihatidir.",
+   "say": "~고자 합니다, ~기 바랍니다, ~아/어 주시기 바랍니다. 격식체 표현입니다.",
+   "say_uz": "~고자 합니다, ~기 바랍니다, ~아/어 주시기 바랍니다 — rasmiy uslubdagi ifodalar.",
+   "practice_seconds": 8
+  },
+  {
+   "kind": "practice",
+   "title": "So‘rov xatingizni yozing",
+   "emotion": "thinking",
+   "board": [
+    "[요청] + 안녕하십니까",
+    "목적 · 세부 · 마감 · 서명"
+   ],
+   "examples": [],
+   "say_native": "O‘zingizning so‘rov xatingizni yozing: masalan, hisobot namunasi so‘rash yoki yig‘ilish vaqtini ko‘chirish. Beshta qatlamga amal qiling — mavzu belgisi, salomlashuv, maqsad bir jumlada, tafsilotlar raqam bilan, muddatli iltimos — va imzo blokini ilova qiling. Xatni oltita bandli ro‘yxat bilan tekshiring. Agar har bir qatlam joyida bo‘lsa, xatingiz Koreya ish muhitida hech qanday qayta savol tug‘dirmaydi.",
+   "say": "자신의 요청 이메일을 써 보세요. 제목, 인사, 목적, 세부, 마감, 서명을 모두 넣으세요.",
+   "say_uz": "O‘z so‘rov xatingizni yozing: mavzu, salomlashuv, maqsad, tafsilot, muddat va imzoni qo‘shing.",
+   "practice_seconds": 40
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: so‘rov xati namunasi",
+   "emotion": "encouraging",
+   "board": [
+    "[요청] + 이름 님",
+    "다름이 아니라 + 목적",
+    "첨부 확인 + 금요일까지",
+    "감사합니다 + 드림"
+   ],
+   "examples": [],
+   "say_native": "Tegishli namuna: «제목: [요청] 월간 보고서 양식 요청의 건. 안녕하십니까, 김민준 님. 바쁘신 중에 실례합니다. 다름이 아니라, 월간 보고서 양식을 요청드리고자 합니다. 양식은 첨부 파일로 보내 주시면 감사하겠습니다. 제출 기한은 다음 주 월요일까지입니다. 검토 후 회신 부탁드립니다. 감사합니다. 이서준 드림.» Ushbu xat besh qatlamni ham bajaradi: mavzu, salomlashuv, ko‘prik-maqsad, tafsilot-muddat-iltimos, yopilish-imzo. Sizning xatingiz ham shu qolipli bo‘lsin.",
+   "say": "[요청] 표지, 안녕하십니까, 다름이 아니라, 첨부 확인, 금요일까지, 감사합니다, 드림.",
+   "say_uz": "[요청] belgisi, salomlashuv, «boshqa gap emas», ilova eslatmasi, muddat, rahmat, imzo.",
+   "practice_seconds": 8
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
    "board": [
-    "제목 · 인사말",
-    "목적 → 세부 → 부탁",
-    "먼저 · 또한 · 다만 · 따라서",
-    "감사합니다. 이서준 드림"
+    "제목 · 인사말 · 본문",
+    "또한 · 따라서 · 다만 · 만약",
+    "감사합니다 · 회신 부탁드립니다",
+    "서명 블록"
    ],
    "examples": [],
-   "say_native": "Bugun Korean rasmiy elektron xatining to‘liq tizimi bilan tanishdingiz: mavzu belgilari — [요청], [회신], [리마인더], “…의 건”; salomlashuv formulalari; maqsad-tafsilot-so‘rov tuzilishi; rasmiy bog‘lovchilar — “먼저”, “또한”, “따라서”, “다만”, “혹시”; yakun formulalari — “감사합니다”, “회신 부탁드립니다”, “이서준 드림”. Hozir har bir xatingizni ish beruvchiga yuborishdan oldin olti bandli ro‘yxat bilan tekshirib chiqishingiz mumkin.",
-   "say": "잘 하셨습니다! 이제 정중한 비즈니스 이메일을 쓸 수 있어요.",
-   "say_uz": "Ajoyib! Endi hurmatli rasmiy elektron xat yoza olasiz.",
+   "say_native": "Bugun siz Koreya rasmiy elektron xatining to‘liq tizimini o‘rgandingiz: mavzu belgilari — [요청], [회신], [안내], ~의 건; salomlashuv formulalari — 안녕하십니까, 바쁘신 중에 실례합니다, 수고가 많으십니다; uch bosqichli 본문 — maqsad, tafsilot, muddatli iltimos; rasmiy bog‘lovchilar — 또한, 따라서, 다만, 만약; yopilish formulalari — 감사합니다, 회신 부탁드립니다; va imzo bloki — ism, lavozim, kontakt. Endi har bir xatingizni oltita bandli tekshiruv ro‘yxatidan o‘tkazib, ishonch bilan yuborishingiz mumkin.",
+   "say": "잘하셨습니다! 이제 프로페셔널한 이메일을 쓸 수 있어요.",
+   "say_uz": "Ajoyib! Endi professional xat yoza olasiz.",
    "practice_seconds": 0
   },
   {
@@ -540,128 +737,128 @@
    "title": "Uyga vazifa va keyingi dars",
    "emotion": "encouraging",
    "board": [
-    "3 ta xat yozib oling",
-    "So‘rov · javob · eslatma",
+    "3 ta xat yozing",
+    "요청 · 회신 · 리마인더",
     "Keyingi: Uchrashuv va yig‘ilish"
    ],
    "examples": [],
-   "say_native": "Uyga vazifa: uchta xat yozing — so‘rov, javob va eslatma — har biri besh jumladan oshmasin. So‘rovda maqsad va muddat, javobda tasdiqlangan faktlar va keyingi qadam, eslatmada avvalgi xatga havola bo‘lishi kerak. Uchala xatni ham 6 bandli tekshiruv ro‘yxatidan o‘tkazing. Keyingi darsda uchrashuv va yig‘ilish — kun tartibi, taklif qilish, fikrlarni bildirish va qaror qabul qilishni o‘rganamiz.",
+   "say_native": "Uyga vazifa: uchta xat yozing — so‘rov, javob va eslatma — har biri besh jumladan oshmasin. So‘rovda [요청] belgisi, maqsad, tafsilotlar va muddat bo‘lsin; javobda [회신] belgisi, tasdiqlangan faktlar va keyingi qadam bo‘lsin; eslatmada [리마인더] belgisi, avvalgi xatga sana bilan havola va yumshoq iltimos bo‘lsin. Uchala xatni ham oltita bandli ro‘yxat bilan tekshiring. Keyingi darsda uchrashuv va yig‘ilish — kun tartibi, fikrlarni aytish va qaror qabul qilishni o‘rganamiz.",
    "say": "다음 시간에는 회의와 미팅을 배워요. 안녕히 계세요!",
    "say_uz": "Keyingi darsda uchrashuv va yig‘ilishni o‘rganamiz. Salomat qoling!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Uchta elektron xat yozing: so‘rov xati, javob xati va eslatma xati. Har birida mavzu belgisi ([요청]/[회신]/[리마인더]), salomlashuv, maqsad, tafsilotlar, aniq muddat va to‘liq imzo bo‘lsin; yuborishdan oldingi 6 bandli ro‘yxat bilan tekshiring.",
+ "homework_uz": "Uchta elektron xat yozing: so‘rov xati, javob xati va eslatma xati. Har birida mavzu belgisi ([요청]/[회신]/[리마인더]), salomlashuv, birinchi jumlada maqsad, raqamli tafsilotlar, aniq muddat va to‘liq imzo bloki bo‘lsin; yuborishdan oldingi 6 bandli ro‘yxat bilan tekshiring. Keyingi dars: Uchrashuv va yig‘ilish",
  "quiz": [
   {
-   "q": "What is the standard way to mark the subject line of a request e-mail?",
+   "q": "What is the correct marker for a request e-mail's subject line in Korean?",
    "options": [
-    "[부탁] …",
-    "[요청] …",
-    "[소원] …",
+    "[회신]",
+    "[요청]",
+    "[안내]",
     "No marker needed"
    ],
    "answer": 1,
-   "why_uz": "Koreys ish xatlarida maqsad belgisi [요청] so‘rov, [회신] javob, [리마인더] eslatma."
+   "why_uz": "Koreya ish xatlarida [요청] so‘rov, [회신] javob, [안내] ma’lumot xatini belgilaydi."
   },
   {
-   "q": "How do you greet a manager in a Korean business e-mail?",
-   "options": [
-    "“안녕, 민준아”",
-    "“안녕하세요, 김민준 대리님.”",
-    "“야, 들어와”",
-    "No greeting needed"
-   ],
-   "answer": 1,
-   "why_uz": "Ism yoki lavozim + 님 — “안녕하세요, 김민준 대리님.” — standart munofiq salomlashuv."
-  },
-  {
-   "q": "What is the correct order of the body (본문) of a Korean business e-mail?",
+   "q": "How should the body (본문) of a Korean business e-mail be ordered?",
    "options": [
     "Details → greeting → request",
     "Request → details → greeting",
-    "Purpose → details → requested action",
+    "Purpose → details → requested action with deadline",
     "Signature → purpose → details"
    ],
    "answer": 2,
-   "why_uz": "Maqsad — nima uchun yoziladi; tafsilot — dalillar; so‘rov — nima va qachongacha kerak."
+   "why_uz": "Maqsad birinchi jumlada, keyin tafsilotlar, oxirida muddatli iltimos — Koreya xat tuzilishining asosi."
   },
   {
-   "q": "Which connector means “in addition / also”?",
+   "q": "Which connector means “in addition / also” in a formal Korean e-mail?",
    "options": [
-    "먼저",
+    "또한",
     "따라서",
     "다만",
-    "또한"
-   ],
-   "answer": 3,
-   "why_uz": "“또한” — shuningdek; “먼저” — avval, “따라서” — shuning uchun, “다만” — ammo."
-  },
-  {
-   "q": "Which connector should you use to soften a request with “if by any chance”?",
-   "options": [
-    "혹시",
-    "따라서",
-    "먼저",
-    "다만"
+    "만약"
    ],
    "answer": 0,
-   "why_uz": "“혹시” so‘rovni yumshatadi: “혹시 가능하시면…” — agar iloji bo‘lsa…"
+   "why_uz": "또한 — shuningdek; 따라서 — shuning uchun; 다만 — ammo; 만약 — agar."
   },
   {
-   "q": "What is the standard signature line in a Korean business e-mail?",
+   "q": "Which is the best opening line for a formal Korean business e-mail?",
    "options": [
-    "“끝.”",
-    "“이서준 드림”",
-    "“拜拜”",
-    "No signature needed"
+    "안녕, 잘 지냈어?",
+    "바쁘신 중에 실례합니다.",
+    "하이, 뭐 해?",
+    "왜 답장이 없어?"
    ],
    "answer": 1,
-   "why_uz": "“이서준 드림” — “Li Seojun (dan)” — yoki yuqori rasmiylikda “올림”; imzo ostida to‘liq ma’lumot beriladi."
+   "why_uz": "«Band vaqtingizda uzr» — Koreya ish xatining eng tabiiy va hurmatli kirishi."
   },
   {
-   "q": "Which closing phrase asks the recipient for a reply?",
+   "q": "Where does the deadline belong in a request e-mail?",
    "options": [
-    "“잘 자요.”",
-    "“회신 부탁드립니다.”",
-    "“알겠어요.”",
-    "“네.”"
-   ],
-   "answer": 1,
-   "why_uz": "“회신 부탁드립니다” — javobingizni kutaman — eng ko‘p ishlatiladigan yakuniy so‘rov."
-  },
-  {
-   "q": "How should a reminder e-mail open?",
-   "options": [
-    "“왜 아직 답이 없어요?”",
-    "“지난주에 보낸 메일 관련하여 리마인더드립니다.”",
-    "“급합니다, 빨리 주세요.”",
-    "“바보같이 잊어버리셨군요.”"
-   ],
-   "answer": 1,
-   "why_uz": "Eslatma har doim avvalgi xatga havola + yumshoq so‘rov + uzr bilan yoziladi; ayblov taqiqlangan."
-  },
-  {
-   "q": "What must you do when your e-mail includes an attachment?",
-   "options": [
-    "Nothing special",
-    "Mention it in the body: “첨부파일 확인 부탁드립니다.”",
-    "Send it as a separate e-mail",
-    "Only hard copies count"
-   ],
-   "answer": 1,
-   "why_uz": "“Ilovadagi faylni tekshirib bering” — ilova har doim matnda eslatib o‘tiladi."
-  },
-  {
-   "q": "Which of these is NOT acceptable in a Korean business e-mail?",
-   "options": [
-    "합쇼체 with “~입니다”",
-    "Subject line with [요청] marker",
-    "반말 and emojis like “ㅋㅋ”",
-    "Signature with name, role and phone number"
+    "In the subject line only",
+    "At the very top, before the greeting",
+    "In the requested action, together with the verb",
+    "In the signature block"
    ],
    "answer": 2,
-   "why_uz": "Koreyscha ish xatida 반말 va kulgu ifodalari mutlaqo mumkin emas; uslub har doim “~입니다”."
+   "why_uz": "Muddat fe’l bilan birga keladi: «금요일까지 회신 부탁드립니다» — aniq sana bilan."
+  },
+  {
+   "q": "Which phrase politely asks the recipient for a reply?",
+   "options": [
+    "좋은 하루 되세요",
+    "회신 부탁드립니다",
+    "수고하세요",
+    "잘 부탁드립니다"
+   ],
+   "answer": 1,
+   "why_uz": "회신 부탁드립니다 — javobingizni kutaman; so‘rovning eng tarqalgan yakuni."
+  },
+  {
+   "q": "How should a reminder e-mail refer to the previous message?",
+   "options": [
+    "Ignore it completely",
+    "Mention it with its date: 지난주 금요일에 보낸 메일",
+    "Say the recipient is lazy",
+    "Resend the whole original e-mail without comment"
+   ],
+   "answer": 1,
+   "why_uz": "Eslatma har doim avvalgi xatga sana bilan havola qilishdan boshlanadi — bu muloyim va aniq."
+  },
+  {
+   "q": "What does “다름이 아니라” introduce in a Korean business e-mail?",
+   "options": [
+    "A new topic unrelated to work",
+    "The purpose of the e-mail",
+    "An apology for a mistake",
+    "The signature block"
+   ],
+   "answer": 1,
+   "why_uz": "«Boshqa gap emas, balki…» — maqsadga o‘tishning klassik formulasi."
+  },
+  {
+   "q": "Which subject line is the best for a data-change notification e-mail?",
+   "options": [
+    "안녕",
+    "문의",
+    "[안내] 서버 점검 일정 안내",
+    "급함!!!"
+   ],
+   "answer": 2,
+   "why_uz": "[안내] belgisi + aniq mazmun — oluvchi xatni ochmasdan turib nima haqida ekanini biladi."
+  },
+  {
+   "q": "What must a Korean business e-mail signature block include?",
+   "options": [
+    "Only the sender's first name",
+    "Name, job title, department, company, phone number",
+    "A personal quote",
+    "Nothing — signatures are optional"
+   ],
+   "answer": 1,
+   "why_uz": "Koreyscha ish xatida imzo bloki majburiy: ism, lavozim, bo‘lim, kompaniya va telefon."
   }
  ]
 }

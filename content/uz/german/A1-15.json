@@ -1,17 +1,47 @@
 {
  "title": "Hafta kunlari, oylar va sanalar",
- "goal_uz": "Dars oxirida hafta kunlari va oylarni to‘g‘ri nomlaysiz, buyruq sonlar (ordinal) bilan sanani aytasiz, “am Montag” va “im Mai” kabi vor-sloflarini ishlatasiz, tug‘ilgan kuningiz va joriy yildagi 3 muhim sanani aytib bera olasiz.",
+ "goal_uz": "Dars oxirida hafta kunlari va oylarni aytasiz, “am Montag”, “im Mai”, “am ersten Mai” kabi to‘g‘ri predlog bilan ishlatasiz, tartib sonlar yordamida sanani o‘qiysiz va yozasiz, tug‘ilgan kuningizni va bu yilgi uchta muhim sanani aytasiz, oddiy uchrashuv vaqtini kelishasiz.",
  "vocab": [
-  { "w": "der Montag", "uz": "dushanba" },
-  { "w": "der Dienstag", "uz": "seshamba" },
-  { "w": "der Mittwoch", "uz": "chorshanba" },
-  { "w": "der Donnerstag", "uz": "payshanba" },
-  { "w": "der Freitag", "uz": "juma" },
-  { "w": "der Samstag", "uz": "shanba" },
-  { "w": "der Sonntag", "uz": "yakshanba" },
-  { "w": "der Januar", "uz": "yanvar" },
-  { "w": "der Mai", "uz": "may" },
-  { "w": "Wann hast du Geburtstag?", "uz": "Tug‘ilgan kuning qachon?" }
+  {
+   "w": "der Montag",
+   "uz": "dushanba"
+  },
+  {
+   "w": "das Wochenende",
+   "uz": "dam olish kunlari (shanba-yakshanba)"
+  },
+  {
+   "w": "der Monat",
+   "uz": "oy"
+  },
+  {
+   "w": "das Datum",
+   "uz": "sana"
+  },
+  {
+   "w": "der erste / der dritte",
+   "uz": "birinchi / uchinchi"
+  },
+  {
+   "w": "am Freitag",
+   "uz": "juma kuni"
+  },
+  {
+   "w": "im März",
+   "uz": "martda"
+  },
+  {
+   "w": "der Geburtstag",
+   "uz": "tug‘ilgan kun"
+  },
+  {
+   "w": "der Termin",
+   "uz": "belgilangan uchrashuv, qabul vaqti"
+  },
+  {
+   "w": "Der Wievielte ist heute?",
+   "uz": "Bugun nechanchi sana?"
+  }
  ],
  "scenes": [
   {
@@ -19,13 +49,13 @@
    "title": "O‘n beshinchi darsga xush kelibsiz",
    "emotion": "happy",
    "board": [
-    "Lektion 15: Wochentage, Monate und Daten",
+    "Lektion 15: Tage, Monate, Daten",
     "(Hafta kunlari, oylar va sanalar)"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! O‘n beshinchi darsga xush kelibsiz. O‘tgan darsda inkor gaplarni o‘rgandik: nicht, kein, nichts, niemand, nie, nirgends. Bugun hafta kunlari, oylar va sanalar haqida gapiramiz: buyruq sonlar bilan sanani aytish, \"am Montag\" va \"im Mai\" kabi vor-sloflarni ishlatish, tug‘ilgan kuningizni aytish. Dars oxirida tug‘ilgan kuningiz va joriy yildagi 3 muhim sanani aytib bera olasiz.",
-   "say": "Hallo und willkommen zur fünfzehnten Lektion! Heute lernen wir Wochentage, Monate und Daten.",
-   "say_uz": "Salom va o‘n beshinchi darsga xush kelibsiz! Bugun hafta kunlari, oylar va sanalar haqida gaplashamiz.",
+   "say_native": "Assalomu alaykum! O‘n beshinchi darsga xush kelibsiz. Oldingi darsda inkor gaplarni o‘rgandik: “Ich habe heute keine Zeit” — bugun vaqtim yo‘q. Xo‘sh, qachon vaqtingiz bor? Bugun shuni aytishni o‘rganamiz: hafta kunlari, oylar, tartib sonlar va sanalar. Dars oxirida tug‘ilgan kuningizni, bu yilgi muhim sanalarni ayta olasiz va uchrashuv vaqtini kelisha olasiz.",
+   "say": "Hallo und willkommen zur fünfzehnten Lektion! Heute lernen wir Wochentage, Monate und das Datum.",
+   "say_uz": "Salom, o‘n beshinchi darsga xush kelibsiz! Bugun hafta kunlari, oylar va sanani o‘rganamiz.",
    "practice_seconds": 0
   },
   {
@@ -33,112 +63,267 @@
    "title": "Hafta kunlari",
    "emotion": "neutral",
    "board": [
-    "der Montag · der Dienstag · der Mittwoch",
-    "der Donnerstag · der Freitag · der Samstag · der Sonntag",
-    "Barcha hafta kunlari erkak jinsida: der"
+    "Montag · Dienstag · Mittwoch · Donnerstag",
+    "Freitag · Samstag · Sonntag",
+    "hammasi: der (der Montag)",
+    "Mittwoch = haftaning o‘rtasi"
    ],
    "examples": [
-    { "t": "der Montag", "uz": "dushanba" },
-    { "t": "der Freitag", "uz": "juma" },
-    { "t": "der Sonntag", "uz": "yakshanba" }
+    {
+     "t": "Heute ist Montag.",
+     "uz": "Bugun dushanba."
+    },
+    {
+     "t": "Morgen ist Dienstag.",
+     "uz": "Ertaga seshanba."
+    }
    ],
-   "say_native": "Hafta kunlari. Montag — dushanba: der Montag. Dienstag — seshamba: der Dienstag. Mittwoch — chorshanba: der Mittwoch. Donnerstag — payshanba: der Donnerstag. Freitag — juma: der Freitag. Samstag — shanba: der Samstag. Sonntag — yakshanba: der Sonntag. E'tibor bering: barcha hafta kunlari erkak jinsida, shuning uchun bir xil artikl — der. O‘zbek tilida hafta kunlarini aytsakda artikli yo‘q, nemis tilida esa artikl shart.",
-   "say": "Der Montag, der Dienstag, der Mittwoch, der Donnerstag, der Freitag, der Samstag, der Sonntag.",
-   "say_uz": "Dushanba, seshamba, chorshanba, payshanba, juma, shanba, yakshanba.",
+   "say_native": "Hafta kunlari: Montag — dushanba, Dienstag — seshanba, Mittwoch — chorshanba, Donnerstag — payshanba, Freitag — juma, Samstag — shanba, Sonntag — yakshanba. Ko‘pchiligi -tag bilan tugaydi, der Tag — kun. Mittwoch esa “hafta o‘rtasi” degani. Yaxshi xabar: hamma kunlar erkak jinsida, der Montag. Nemis haftasi ham dushanbadan boshlanadi, xuddi bizdagidek.",
+   "say": "Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag. Heute ist Montag. Morgen ist Dienstag.",
+   "say_uz": "dushanba, seshanba, chorshanba, payshanba, juma, shanba, yakshanba. Bugun dushanba. Ertaga seshanba.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Oy nomlari",
-   "emotion": "neutral",
-   "board": [
-    "der Januar · der Februar · der März · der April",
-    "der Mai · der Juni · der Juli · der August",
-    "der September · der Oktober · der November · der Dezember",
-    "Barcha oilarga erkak jins: der"
-   ],
-   "examples": [
-    { "t": "der Januar", "uz": "yanvar" },
-    { "t": "der Mai", "uz": "may" },
-    { "t": "der Dezember", "uz": "dekabr" }
-   ],
-   "say_native": "Oy nomlari. Januar — yanvar: der Januar. Februar — fevral: der Februar. März — mart: der März. April — aprel: der April. Mai — may: der Mai. Juni — iyun: der Juni. Juli — iyul: der Juli. August — avgust: der August. September — sentyabr: der September. Oktober — oktabr: der Oktober. November — noyabr: der November. Dezember — dekabr: der Dezember. Barcha oilarga erkak jins, shuning uchun der bilan. Har birini yodlang.",
-   "say": "Der Januar, der Mai, der Juli, der September, der Dezember.",
-   "say_uz": "Yanvar, may, iyul, sentyabr, dekabr.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Buyruq sonlar: ordinal raqamlar",
-   "emotion": "neutral",
-   "board": [
-    "der erste · der zweite · der dritte",
-    "der vierte · der fünfte · der zehnte",
-    "der zwanzigste · der einunddreißigste",
-    "Sanani aytishda kerak bo‘ladi"
-   ],
-   "examples": [
-    { "t": "der erste Mai", "uz": "1-may" },
-    { "t": "der dritte Oktober", "uz": "3-oktabr" }
-   ],
-   "say_native": "Buyruq sonlar (Ordinalzahlen). Erster — birinchis, zweiter — ikkinchisi, dritter — uchinchisi, vierte — to‘rtinchisi, fünfte — beshinchisi, zehnte — o‘ninchisi, zwanzigste — yigirmainchisi, einunddreißigste — yigirma birinchisi. Nemis tilida sanani aytishda buyruq son kerak: der erste Mai — 1-may. Bunga -te yoki -ste qo‘shimcha qo‘shiladi. Har birini yodlang.",
-   "say": "der erste Mai, der dritte Oktober, der zehnte Januar, der zwanzigste Dezember.",
-   "say_uz": "1-may, 3-oktabr, 10-yanvar, 20-dekabr.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Vor-slof: am va im",
+   "title": "am Montag, montags, am Wochenende",
    "emotion": "thinking",
    "board": [
     "am Montag — dushanba kuni",
-    "im Mai — may oyida",
-    "am = an + dem · im = in + dem",
-    "Sanadan oldin shart"
+    "montags — har dushanbada",
+    "am Wochenende — dam olish kunlari",
+    "am = an + dem"
    ],
    "examples": [
-    { "t": "am Montag", "uz": "dushanba kuni" },
-    { "t": "im Mai", "uz": "may oyida" }
+    {
+     "t": "Am Freitag habe ich keine Zeit.",
+     "uz": "Juma kuni vaqtim yo‘q."
+    },
+    {
+     "t": "Montags arbeite ich bis sechs Uhr.",
+     "uz": "Har dushanba soat oltigacha ishlayman."
+    }
    ],
-   "say_native": "Sanadan oldin vor-slof kerak. Hafta kunidan oldin am Montag — dushanba kuni (an + dem = am). Oyidan oldin im Mai — may oyida (in + dem = im). Am ersten Mai — 1-mayda. O‘zbek tilida sanadan oldin vor-slof ishlatilmaydi, nemis tilida esa shart. Bu ikkalasini butunlay yodlang.",
-   "say": "am Montag, im Mai, am ersten Mai, im dritten Oktober.",
-   "say_uz": "dushanba kuni, may oyida, 1-mayda, 3-oktabrda.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Sanani aytish",
-   "emotion": "neutral",
-   "board": [
-    "Heute ist der erste Mai.",
-    "Morgen ist der dritte Oktober.",
-    "Gestern war der zweite Januar.",
-    "Tag · Monat · Yil"
-   ],
-   "examples": [
-    { "t": "Heute ist der erste Mai.", "uz": "Bugun 1-may." },
-    { "t": "Morgen ist der dritte Oktober.", "uz": "Ertaga 3-oktabr." }
-   ],
-   "say_native": "Sanani aytish. Heute ist der erste Mai. — bugun 1-may. Morgen ist der dritte Oktober. — ertaga 3-oktabr. Gestern war der zweite Januar. — kecha 2-yanvar edi. Nemis tilida sanadan oldin buyruq son va artikl keladi: der erste, der zweite. E'tibor bering: Gestern war — kecha edi (Präteritum, keyingi darsda). Bunday gaplarni doim yodlang.",
-   "say": "Heute ist der erste Mai. Morgen ist der dritte Oktober. Gestern war der zweite Januar.",
-   "say_uz": "Bugun 1-may. Ertaga 3-oktabr. Kecha 2-yanvar edi.",
+   "say_native": "“Dushanba kuni” deyish uchun am qo‘shamiz: am Montag, am Freitag. Am — bu an va dem birlashgani. Agar biror ish har hafta takrorlansa, kun nomiga -s qo‘shiladi va kichik harf bilan yoziladi: montags — har dushanbada. Das Wochenende — dam olish kunlari, am Wochenende. Diqqat: am Freitag bilan gap boshlansa, fe’l ikkinchi o‘rinda: “Am Freitag habe ich keine Zeit.”",
+   "say": "Am Freitag habe ich keine Zeit. Montags arbeite ich bis sechs Uhr. Am Wochenende besuche ich meine Eltern.",
+   "say_uz": "Juma kuni vaqtim yo‘q. Har dushanba soat oltigacha ishlayman. Dam olish kunlari ota-onamni ko‘rgani boraman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Sanani aytng",
+   "title": "Qaysi kun?",
    "emotion": "encouraging",
    "board": [
-    "1) 5-mart",
-    "2) 12-avqust",
-    "3) 31-dekabr",
-    "4) 7-aprel",
-    "5) 23-noyabr"
+    "1) Bugun seshanba. Ertaga …?",
+    "2) juma kuni",
+    "3) har yakshanba",
+    "4) dam olish kunlari"
    ],
    "examples": [],
-   "say_native": "Beshhta sanani nemischa aytng. Birinchi: 5-mart. Ikkinchi: 12-avqust. Uchinchi: 31-dekabr. To‘rtinchi: 7-aprel. Beshinchi: 23-noyabr. der fünfte März, der zwölfte August, der einunddreißigste Dezember, der siebte April, der dreiundzwanzigste November deb aytng.",
-   "say": "der fünfte März, der zwölfte August, der einunddreißigste Dezember, der siebte April, der dreiundzwanzigste November.",
-   "say_uz": "5-mart, 12-avqust, 31-dekabr, 7-aprel, 23-noyabr.",
+   "say_native": "To‘rtta topshiriq. Birinchi: bugun seshanba bo‘lsa, ertaga qaysi kun? “Morgen ist…” deb javob bering. Ikkinchi: “juma kuni” nemischa qanday? Uchinchi: “har yakshanba” — kichik harf va -s ni eslang. To‘rtinchi: dam olish kunlari. Baland ovozda ayting.",
+   "say": "Heute ist Dienstag. Und morgen?",
+   "say_uz": "Bugun seshanba. Ertaga-chi?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: kunlar",
+   "emotion": "proud",
+   "board": [
+    "1) Morgen ist Mittwoch.",
+    "2) am Freitag",
+    "3) sonntags",
+    "4) am Wochenende"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. “Morgen ist Mittwoch.” “Am Freitag” — juma kuni. “Sonntags” — har yakshanbada. “Am Wochenende” — dam olish kunlari. Bir qiziq ma’lumot: Germaniyaning shimolida shanba kunini ba’zan Sonnabend deyishadi. Tinglaganda tanib olsangiz kifoya, o‘zingiz Samstag deyavering.",
+   "say": "Morgen ist Mittwoch. Am Freitag. Sonntags. Am Wochenende.",
+   "say_uz": "Ertaga chorshanba. Juma kuni. Har yakshanba. Dam olish kunlari.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Oylar",
+   "emotion": "neutral",
+   "board": [
+    "Januar · Februar · März · April",
+    "Mai · Juni · Juli · August",
+    "September · Oktober · November · Dezember",
+    "hammasi: der (der Mai)"
+   ],
+   "examples": [
+    {
+     "t": "Der Mai ist schön.",
+     "uz": "May oyi chiroyli."
+    },
+    {
+     "t": "Der Dezember ist kalt.",
+     "uz": "Dekabr sovuq."
+    }
+   ],
+   "say_native": "Oylar o‘zbekchadagiga juda o‘xshaydi, chunki ikkalasi ham lotin nomlaridan kelgan. Lekin talaffuzda farqlar bor. März — merts, ä e kabi, z esa ts. Mai — may. Juni va Juli — yuni va yuli, j harfi y deb o‘qiladi. Dezember — detsember, z yana ts. Oylar ham hammasi erkak jinsida: der Januar, der Mai.",
+   "say": "Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember.",
+   "say_uz": "yanvar, fevral, mart, aprel, may, iyun, iyul, avgust, sentyabr, oktyabr, noyabr, dekabr.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "im Mai — may oyida",
+   "emotion": "thinking",
+   "board": [
+    "im Mai — mayda · im Dezember — dekabrda",
+    "im = in + dem",
+    "kun → am · oy → im",
+    "1998 geboren / im Jahr 1998 (✗ in 1998)"
+   ],
+   "examples": [
+    {
+     "t": "Im August fahre ich nach Samarkand.",
+     "uz": "Avgustda Samarqandga boraman."
+    },
+    {
+     "t": "Ich bin 1998 geboren.",
+     "uz": "Men 1998-yilda tug‘ilganman."
+    }
+   ],
+   "say_native": "Oy bilan esa im: im Mai — mayda, im Dezember — dekabrda. Im — in va dem birlashgani. Qoidani bunday eslang: kun — am, oy — im. Yil bilan predlog ishlatilmaydi: “Ich bin 1998 geboren” — 1998-yilda tug‘ilganman. Yoki “im Jahr 1998”. Ingliz tilidagidek “in 1998” deyish xato. Yil o‘qilishi: neunzehnhundertachtundneunzig, ya’ni “o‘n to‘qqiz yuz to‘qson sakkiz”.",
+   "say": "Im August fahre ich nach Samarkand. Ich bin neunzehnhundertachtundneunzig geboren. Das war im Jahr zweitausendzwanzig.",
+   "say_uz": "Avgustda Samarqandga boraman. Men 1998-yilda tug‘ilganman. Bu 2020-yilda edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "am yoki im?",
+   "emotion": "stern",
+   "board": [
+    "✗ in Montag → ✓ am Montag",
+    "✗ am Mai → ✓ im Mai",
+    "✗ in 2025 → ✓ 2025 / im Jahr 2025",
+    "✗ die Montag → ✓ der Montag"
+   ],
+   "examples": [],
+   "say_native": "Tipik xatolar. Birinchi: kun bilan in ishlatish, “in Montag”. To‘g‘risi am Montag. Ikkinchi: oy bilan am, “am Mai”. To‘g‘risi im Mai. Uchinchi: ingliz tilidagidek “in 2025”. Nemischada yil yolg‘iz turadi yoki “im Jahr 2025”. To‘rtinchi: kunlar va oylarning artikli doim der. Bu to‘rt qoida mustahkam bo‘lsa, sanalar bilan muammo bo‘lmaydi.",
+   "say": "am Montag, im Mai, im Jahr zweitausendfünfundzwanzig, der Montag.",
+   "say_uz": "dushanba kuni, mayda, 2025-yilda, dushanba.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "am yoki im?",
+   "emotion": "encouraging",
+   "board": [
+    "1) ___ Sonntag · 2) ___ Juli",
+    "3) ___ Wochenende · 4) ___ Oktober",
+    "5) ___ Mittwoch · 6) Ich bin ___ 2001 geboren."
+   ],
+   "examples": [],
+   "say_native": "Oltita bo‘sh joy. Har biriga am, im yoki hech narsa qo‘ying. Avval o‘ylang: bu kunmi, oymi yoki yilmi? Wochenende ham kun kabi am bilan ishlatiladi. Oxirgi gapni diqqat bilan tekshiring, u boshqalaridan farq qiladi. Ovoz chiqarib, har bir ibora bilan to‘liq ayting.",
+   "say": "Sonntag? Juli? Wochenende? Oktober? Mittwoch? Zweitausendeins?",
+   "say_uz": "Yakshanba? Iyul? Dam olish kunlari? Oktyabr? Chorshanba? 2001?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: am, im",
+   "emotion": "proud",
+   "board": [
+    "1) am Sonntag · 2) im Juli",
+    "3) am Wochenende · 4) im Oktober",
+    "5) am Mittwoch · 6) Ich bin 2001 geboren. (predlogsiz)"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Am Sonntag, im Juli, am Wochenende, im Oktober, am Mittwoch. Oxirgi gap: “Ich bin zweitausendeins geboren” — predlogsiz. Agar oxirgisiga in qo‘ygan bo‘lsangiz, bu ingliz tilining ta’siri. Nemischada yil oldida predlog yo‘q, uni bir necha marta takrorlab mustahkamlang.",
+   "say": "am Sonntag, im Juli, am Wochenende, im Oktober, am Mittwoch. Ich bin zweitausendeins geboren.",
+   "say_uz": "yakshanba kuni, iyulda, dam olish kunlari, oktyabrda, chorshanba kuni. Men 2001-yilda tug‘ilganman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tartib sonlar 1–19: -te",
+   "emotion": "thinking",
+   "board": [
+    "zwei → der zweite · vier → der vierte · zehn → der zehnte",
+    "eins → der erste (!)",
+    "drei → der dritte (!) · sieben → der siebte (!)",
+    "acht → der achte (bitta t)"
+   ],
+   "examples": [
+    {
+     "t": "der erste Mai",
+     "uz": "1-may"
+    },
+    {
+     "t": "der dritte Oktober",
+     "uz": "3-oktyabr"
+    }
+   ],
+   "say_native": "Sana uchun tartib son kerak: birinchi, ikkinchi. O‘zbekchada -inchi qo‘shamiz, nemischada 1 dan 19 gacha -te: zwei — zweite, vier — vierte, zehn — zehnte. Uchta istisno bor: eins — erste, drei — dritte, sieben — siebte. Acht — achte, bu yerda t ikkinchi marta qo‘shilmaydi. Shu to‘rttasini alohida yodlang, qolganlari qoidaga bo‘ysunadi.",
+   "say": "der erste, der zweite, der dritte, der vierte, der fünfte, der sechste, der siebte, der achte, der neunte, der zehnte.",
+   "say_uz": "birinchi, ikkinchi, uchinchi, to‘rtinchi, beshinchi, oltinchi, yettinchi, sakkizinchi, to‘qqizinchi, o‘ninchi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tartib sonlar 20 dan: -ste",
+   "emotion": "neutral",
+   "board": [
+    "zwanzig → der zwanzigste",
+    "einundzwanzig → der einundzwanzigste",
+    "dreißig → der dreißigste",
+    "einunddreißig → der einunddreißigste"
+   ],
+   "examples": [
+    {
+     "t": "der einundzwanzigste März",
+     "uz": "21-mart"
+    },
+    {
+     "t": "der einunddreißigste Dezember",
+     "uz": "31-dekabr"
+    }
+   ],
+   "say_native": "Yigirmadan boshlab qo‘shimcha -ste bo‘ladi: zwanzigste — yigirmanchi, dreißigste — o‘ttizinchi. Murakkab sonlarda ham oxiriga -ste qo‘shiladi: einundzwanzigste — yigirma birinchi. Diqqat: bu yerda “ein” o‘zgarmaydi, erste bo‘lmaydi, chunki qo‘shimcha butun songa qo‘shiladi. 21-mart — Navro‘z: der einundzwanzigste März.",
+   "say": "der zwanzigste, der einundzwanzigste, der dreißigste, der einunddreißigste. Der einundzwanzigste März ist Nouruz.",
+   "say_uz": "yigirmanchi, yigirma birinchi, o‘ttizinchi, o‘ttiz birinchi. 21-mart — Navro‘z.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sana yozilishi: nuqta bilan",
+   "emotion": "impressed",
+   "board": [
+    "3. Oktober = der dritte Oktober",
+    "03.10.2025 — kun . oy . yil",
+    "o‘zbekcha: 3-oktyabr (chiziqcha)",
+    "Heute ist der 8. November."
+   ],
+   "examples": [
+    {
+     "t": "Heute ist der 8. November.",
+     "uz": "Bugun 8-noyabr."
+    },
+    {
+     "t": "Heute ist Samstag, der 8. November.",
+     "uz": "Bugun shanba, 8-noyabr."
+    }
+   ],
+   "say_native": "Yozuvda nemislar tartib sonni nuqta bilan belgilaydi: “3. Oktober” — der dritte Oktober deb o‘qiladi. O‘zbekchada esa chiziqcha qo‘yamiz: 3-oktyabr. Raqamli sana tartibi o‘zbekchadagidek: kun, oy, yil — 03.10.2025. Bunday sanani og‘zaki “der dritte Zehnte” deb ham o‘qish mumkin. Nuqtani ko‘rsangiz, darhol tartib sonni ayting.",
+   "say": "Heute ist der achte November. Heute ist Samstag, der achte November. Der dritte Oktober ist ein Feiertag in Deutschland.",
+   "say_uz": "Bugun 8-noyabr. Bugun shanba, 8-noyabr. 3-oktyabr Germaniyada bayram kuni.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sanani o‘qing",
+   "emotion": "encouraging",
+   "board": [
+    "1) 1. Januar · 2) 8. März",
+    "3) 21. März · 4) 1. September",
+    "5) 31. Dezember"
+   ],
+   "examples": [],
+   "say_native": "Beshta sanani nemischa “der …” bilan o‘qing. Eslang: erste, dritte, siebte, achte — istisnolar. Yigirmadan keyin -ste. Bu sanalar sizga tanish: Yangi yil, Xotin-qizlar kuni, Navro‘z, Mustaqillik kuni va yil oxiri. Nuqtani ko‘rsangiz, tartib son kerakligini eslang. Baland ovozda ayting.",
+   "say": "Der Wievielte?",
+   "say_uz": "Nechanchi sana?",
    "practice_seconds": 16
   },
   {
@@ -146,479 +331,40 @@
    "title": "Javoblar: sanalar",
    "emotion": "proud",
    "board": [
-    "1) der fünfte März",
-    "2) der zwölfte August",
-    "3) der einunddreißigste Dezember",
-    "4) der siebte April",
-    "5) der dreiundzwanzigste November"
+    "1) der erste Januar · 2) der achte März",
+    "3) der einundzwanzigste März",
+    "4) der erste September",
+    "5) der einunddreißigste Dezember"
    ],
    "examples": [],
-   "say_native": "Javoblar. der fünfte März, der zwölfte August, der einunddreißigste Dezember, der siebte April, der dreiundzwanzigste November. E'tibor bering: einunddreißig — yigirma bir, dreiundzwanzig — yigirma uch. Buyruq sonning oxiri -ste yoki -te bilan tugaydi. Barchasini yanada bir marta tekshiring.",
-   "say": "der fünfte März. Der zwölfte August. Der einunddreißigste Dezember.",
-   "say_uz": "5-mart. 12-avqust. 31-dekabr.",
+   "say_native": "Javoblar. Der erste Januar — Yangi yil, nemischa Neujahr. Der achte März — Xotin-qizlar kuni. Der einundzwanzigste März — Navro‘z. Der erste September — O‘zbekistonda Mustaqillik kuni. Der einunddreißigste Dezember — Germaniyada bu kech Silvester deb ataladi. Uzun sonlarda birlik avval aytiladi: einund-dreißig.",
+   "say": "Der erste Januar. Der achte März. Der einundzwanzigste März. Der erste September. Der einunddreißigste Dezember.",
+   "say_uz": "1-yanvar. 8-mart. 21-mart. 1-sentyabr. 31-dekabr.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Tug‘ilgan kun: Geburtstag",
-   "emotion": "neutral",
-   "board": [
-    "Wann hast du Geburtstag?",
-    "Ich habe am fünften Mai Geburtstag.",
-    "Ich habe am ersten Januar Geburtstag.",
-    "Geburtstag — tug‘ilgan kun"
-   ],
-   "examples": [
-    { "t": "Wann hast du Geburtstag?", "uz": "Tug‘ilgan kuning qachon?" },
-    { "t": "Ich habe am fünften Mai Geburtstag.", "uz": "Mening tug‘ilgan kuning 5-mayda." }
-   ],
-   "say_native": "Tug‘ildan kuningizni so‘ramiz: Wann hast du Geburtstag? — tug‘ilangan kuningiz qachon? Javob: Ich habe am fünften Mai Geburtstag. — mening tug‘ilgan kuning 5-mayda. Ich habe am ersten Januar Geburtstag. — mening tug‘ilgan kuning 1-yanvarda. E'tibor bering: am bilan, chunki hafta kuni yoki kun bo‘lsa am, oy bilan im — lekin am ersten Mai deb buyruq son bilan birga am ishlatiladi. Bu farqni eslab qoling.",
-   "say": "Wann hast du Geburtstag? Ich habe am fünften Mai Geburtstag. Ich habe am ersten Januar Geburtstag.",
-   "say_uz": "Tug‘ilgan kuningiz qachon? Mening tug‘ilgan kuning 5-mayda. Mening tug‘ilgan kuning 1-yanvarda.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tug‘ilgan kuningizni aytng",
-   "emotion": "encouraging",
-   "board": [
-    "1) 10-martda",
-    "2) 25-dekabrda",
-    "3) 18-mayda",
-    "4) 3-avgustda"
-   ],
-   "examples": [],
-   "say_native": "To‘rtta sanani nemischa aytng. Birinchi: 10-martda. Ikkinchi: 25-dekabrda. Uchinchi: 18-mayda. To‘rtinchi: 3-avgustda. am zehnten März, am fünfundzwanzigsten Dezember, am achtzehnten Mai, am dritten August deb aytng.",
-   "say": "am zehnten März, am fünfundzwanzigsten Dezember, am achtzehnten Mai, am dritten August.",
-   "say_uz": "10-martda, 25-dekabrda, 18-mayda, 3-avgustda.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: tug‘ilgan kun",
-   "emotion": "proud",
-   "board": [
-    "1) am zehnten März",
-    "2) am fünfundzwanzigsten Dezember",
-    "3) am achtzehnten Mai",
-    "4) am dritten August"
-   ],
-   "examples": [],
-   "say_native": "Javoblar. am zehnten März, am fünfundzwanzigsten Dezember, am achtzehnten Mai, am dritten August. Ko‘rib turganingizdek, kundan oldin ham am ishlatiladi. Xatolik uchun im zehnten März deb aytilmaydi, chunki bu kunda bo‘lish — am. Bu nuqtani yodlang.",
-   "say": "am zehnten März, am fünfundzwanzigsten Dezember.",
-   "say_uz": "10-martda, 25-dekabrda.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Muhim sanalar: joriy yil",
-   "emotion": "neutral",
-   "board": [
-    "Der erste Januar ist Neujahr.",
-    "Der fünfundzwanzigste Dezember ist Weihnachten.",
-    "Der achtzehnte Juni ist bayram.",
-    "Joriy yil sanalari"
-   ],
-   "examples": [
-    { "t": "Der fünfundzwanzigste Dezember ist Weihnachten.", "uz": "25-dekabr — Rizvo (Weihnachten)." },
-    { "t": "Der erste Januar ist Neujahr.", "uz": "1-yanvar — Yangi yil." }
-   ],
-   "say_native": "Joriy yilda muhim sanalar. Der erste Januar ist Neujahr. — 1-yanvar Yangi yil. Der achtzehnte Juni ist bayram. — 18-iyun bayram. Der fünfundzwanzigste Dezember ist Weihnachten. — 25-dekabr Rizvo (Weihnachten). Weihnachten — Rizvo, bu nemis tilida juda muhim tatil. Bunday sanalar bilan tanish bo‘lish kerak.",
-   "say": "Der erste Januar ist Neujahr. Der fünfundzwanzigste Dezember ist Weihnachten.",
-   "say_uz": "1-yanvar Yangi yil. 25-dekabr Rizvo.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "3 muhim sanani aytng",
-   "emotion": "encouraging",
-   "board": [
-    "Joriy yilda 3 muhim sana",
-    "am … · im …",
-    "Mezon: buyruq son + vor-slof"
-   ],
-   "examples": [],
-   "say_native": "Joriy yilda sizga muhim bo‘lgan 3 ta sanani nemischa aytng. Masalan: am zehnten März ist mein Geburtstag, im Mai ist der Urlaub, am ersten Januar ist Neujahr. Har birida buyruq son va vor-slof bo‘lsin. Tayyor bo‘lsangiz, aytng.",
-   "say": "am zehnten März ist mein Geburtstag. Im Mai ist der Urlaub. Am ersten Januar ist Neujahr.",
-   "say_uz": "10-martda mening tug‘ilgan kuning. May oyida dam olish. 1-yanvarda Yangi yil.",
-   "practice_seconds": 18
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: muhim sanalar",
-   "emotion": "proud",
-   "board": [
-    "1) am zehnten März ist mein Geburtstag",
-    "2) im Mai ist der Urlaub",
-    "3) am ersten Januar ist Neujahr"
-   ],
-   "examples": [],
-   "say_native": "Javoblar. am zehnten März ist mein Geburtstag, im Mai ist der Urlaub, am ersten Januar ist Neujahr. E'tibor bering: kundada am, oydan oldin im. Bu uch gap ham shu ikki vor-slofni to‘g‘ri ishlatadi. Endi talaffuzga o‘tamiz.",
-   "say": "am zehnten März ist mein Geburtstag. Im Mai ist der Urlaub.",
-   "say_uz": "10-martda tug‘ilgan kuning. May oyida dam olish.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Talaffuz: hafta kunlari va oylar",
+   "title": "Wann? — Am ersten Mai.",
    "emotion": "thinking",
    "board": [
-    "Montag [ˈmɔntaːk] · Sonntag [ˈzɔnˌtaːk]",
-    "Januar [jaˈnu̯aːɐ̯] · Mai [maɪ̯]",
-    "erster [ˈɛɐ̯stɐ] · zehnte [ˈt͡sɛn̩tə]",
-    "am [am] · im [ɪm]"
+    "Der Wievielte ist heute? — Heute ist der erste Mai.",
+    "Wann …? — Am ersten Mai. (-en)",
+    "der dritte → am dritten · der zwanzigste → am zwanzigsten",
+    "Am 21. März feiern wir Nouruz."
    ],
    "examples": [
-    { "t": "der Montag", "uz": "dushanba" },
-    { "t": "der Januar", "uz": "yanvar" }
+    {
+     "t": "Wann ist Nouruz? — Am einundzwanzigsten März.",
+     "uz": "Navro‘z qachon? — 21-martda."
+    },
+    {
+     "t": "Der Wievielte ist heute?",
+     "uz": "Bugun nechanchi sana?"
+    }
    ],
-   "say_native": "Talaffuz. Montag — montak, oxiri k. Sonntag — zontak, oxiri k. Januar — janu-a, boshida ja. Mai — mai, oxiri i. Erster — erst-a, oxiri a. Zehnte — zent-a, oxiri e. Am — am, qisqa. Im — im, qisqa. Har bir so‘zni sekin ayting.",
-   "say": "Montag, Sonntag, Januar, Mai, erster, zehnte.",
-   "say_uz": "Dushanba, yakshanba, yanvar, may, birinchi, o‘ninchi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Talaffuzni takrorlang",
-   "emotion": "encouraging",
-   "board": [
-    "Montag",
-    "Mai",
-    "erster",
-    "im"
-   ],
-   "examples": [],
-   "say_native": "To‘rtta so‘zni takrorlang: Montag, Mai, erster, im. Montag da oxiri k, Mai da oxiri i, erster da oxiri a, im da oxiri m. Sekin ayting, keyin tezlashtiring.",
-   "say": "Montag, Mai, erster, im.",
-   "say_uz": "Dushanba, may, birinchi, im.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: talaffuz",
-   "emotion": "proud",
-   "board": [
-    "Mon-tag",
-    "Mai",
-    "Ers-ter",
-    "Im"
-   ],
-   "examples": [],
-   "say_native": "Tekshiramiz. Montag — Mon-tag. Mai — mai. Erster — Erst-er. Im — im. Bu so‘zlarni to‘g‘ri aytsangiz, sanalar bilan bog‘liq gaplaringiz ancha tushuniladi. Endi yakuniy topshiriqqa o‘tamiz.",
-   "say": "Montag, Mai, erster, im.",
-   "say_uz": "Dushanba, may, birinchi, im.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tug‘ilgan kuningiz va 3 muhim sana",
-   "emotion": "encouraging",
-   "board": [
-    "Tug‘ilgan kun + 3 sana",
-    "am … · im …",
-    "Mezon: buyruq son + vor-slof",
-    "Keyingi dars: ob-havo va fasllar"
-   ],
-   "examples": [],
-   "say_native": "Yakuniy topshiriq. Tug‘ilgan kuningizni va joriy yildagi 3 muhim sanani nemischa aytng. Har birida buyruq son va to‘g‘ri vor-slof bo‘lsin. Masalan: Ich habe am zehnten Juni Geburtstag. Am fünften August ist der Urlaub. Im Dezember ist Weihnachten. Tayyor bo‘lsangiz, aytng.",
-   "say": "Erzählen Sie von Ihrem Geburtstag und drei wichtigen Tagen.",
-   "say_uz": "Tug‘ilgan kuningiz va 3 muhim sanani aytng.",
-   "practice_seconds": 40
-  },
-  {
-   "kind": "explain",
-   "title": "Namuna javob",
-   "emotion": "proud",
-   "board": [
-    "Ich habe am zehnten Juni Geburtstag.",
-    "Am fünften August ist der Urlaub.",
-    "Im Dezember ist Weihnachten."
-   ],
-   "examples": [],
-   "say_native": "Namuna. Ich habe am zehnten Juni Geburtstag. Am fünften August ist der Urlaub. Im Dezember ist Weihnachten. Tekshiring: tug‘ilgan kunda am, dam olishda am, oydan oldin im. Sizning javobingiz ham shu qolipda bo‘lsin. Endi darsni yakunlaymiz.",
-   "say": "Ich habe am zehnten Juni Geburtstag. Am fünften August ist der Urlaub.",
-   "say_uz": "Mening tug‘ilgan kuning 10-iyunda. 5-avqustda dam olish.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Hafta kunlarini ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) dushanba",
-    "2) chorshanba",
-    "3) juma",
-    "4) yakshanba"
-   ],
-   "examples": [],
-   "say_native": "To‘rtta hafta kunini nemischa aytng. Birinchi: dushanba. Ikkinchi: chorshanba. Uchinchi: juma. To‘rtinchi: yakshanba. der Montag, der Mittwoch, der Freitag, der Sonntag deb aytng.",
-   "say": "der Montag, der Mittwoch, der Freitag, der Sonntag.",
-   "say_uz": "dushanba, chorshanba, juma, yakshanba.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: hafta kunlari",
-   "emotion": "proud",
-   "board": [
-    "1) der Montag",
-    "2) der Mittwoch",
-    "3) der Freitag",
-    "4) der Sonntag"
-   ],
-   "examples": [],
-   "say_native": "Javoblar. der Montag, der Mittwoch, der Freitag, der Sonntag. Barchasi erkak jinsida, shuning uchun der bilan. 'am' bilan birga — am Montag, am Mittwoch, am Freitag, am Sonntag.",
-   "say": "Der Montag. Der Mittwoch. Der Freitag. Der Sonntag.",
-   "say_uz": "Dushanba. Chorshanba. Juma. Yakshanba.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Oylarni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) yanvar",
-    "2) mart",
-    "3) may",
-    "4) sentyabr",
-    "5) dekabr"
-   ],
-   "examples": [],
-   "say_native": "Beshhta oyni nemischa aytng. Birinchi: yanvar. Ikkinchi: mart. Uchinchi: may. To‘rtinchi: sentyabr. Beshinchi: dekabr. der Januar, der März, der Mai, der September, der Dezember deb aytng.",
-   "say": "der Januar, der März, der Mai, der September, der Dezember.",
-   "say_uz": "yanvar, mart, may, sentyabr, dekabr.",
-   "practice_seconds": 16
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: oilarga",
-   "emotion": "proud",
-   "board": [
-    "1) der Januar",
-    "2) der März",
-    "3) der Mai",
-    "4) der September",
-    "5) der Dezember"
-   ],
-   "examples": [],
-   "say_native": "Javoblar. der Januar, der März, der Mai, der September, der Dezember. Barchasi erkak jinsida, der bilan. 'im' bilan birga — im Januar, im März, im Mai, im September, im Dezember.",
-   "say": "Der Januar. Der März. Der Mai. Der September. Der Dezember.",
-   "say_uz": "Yanvar. Mart. May. Sentyabr. Dekabr.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Buyruq sonlar: 4 dan 12 gacha",
-   "emotion": "neutral",
-   "board": [
-    "der vierte · der fünfte · der sechste",
-    "der siebte · der achte · der neunte",
-    "der zehnte · der elfte · der zwölfte"
-   ],
-   "examples": [
-    { "t": "der vierte Januar", "uz": "4-yanvar" },
-    { "t": "der zwölfte Mai", "uz": "12-may" }
-   ],
-   "say_native": "Buyruq sonlar 4 dan 12 gacha. der vierte — to‘rtinchi, der fünfte — beshinchi, der sechhte — oltinchi, der siebte — yettinchi, der achte — sakkinchisi, der neunte — to‘qqizinchisi, der zehnte — o‘ninchisi, der elfte — o‘n birinchi, der zwölfte — o‘n ikkinchisi. '-te' qo‘shimchasi bo‘ladi: vierte, fünfte, zehnte, zwölfte.",
-   "say": "der vierte Januar, der fünfte März, der zehnte Mai, der zwölfte Dezember.",
-   "say_uz": "4-yanvar, 5-mart, 10-may, 12-dekabr.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Buyruq sonlar: 13 dan 31 gacha",
-   "emotion": "neutral",
-   "board": [
-    "der dreizehnte · der vierzehnte · der zwanzigste",
-    "der einundzwanzigste · der dreißigste · der einunddreißigste",
-    "-zehnte · -ste · -ster (erster)"
-   ],
-   "examples": [
-    { "t": "der einunddreißigste Dezember", "uz": "31-dekabr" },
-    { "t": "der dreizehnte Februar", "uz": "13-fevral" }
-   ],
-   "say_native": "Buyruq sonlar 13 dan 31 gacha. der dreizehnte — 13inchi, der vierzehnte — 14inchi, der zwanzigste — 20inchi, der einundzwanzigste — 21inchi, der dreißigste — 30inchi, der einunddreißigste — 31inchi. Birinchi 'erster' — afsus, ular bevosita shakl, qolganlar -te yoki -ste bilan. 'und' bilan birgalikda: einundzwanzig, dreiundzwanzig.",
-   "say": "der dreizehnte Februar, der zwanzigste Mai, der einunddreißigste Dezember.",
-   "say_uz": "13-fevral, 20-may, 31-dekabr.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Sanani aytng (birlik)",
-   "emotion": "encouraging",
-   "board": [
-    "1) 4-mart",
-    "2) 11-iyul",
-    "3) 16-oktabr",
-    "4) 21-dekabr",
-    "5) 30-aprel"
-   ],
-   "examples": [],
-   "say_native": "Beshhta sanani nemischa aytng. Birinchi: 4-mart. Ikkinchi: 11-iyul. Uchinchi: 16-oktabr. To‘rtinchi: 21-dekabr. Beshinchi: 30-aprel. der vierte März, der elfte Juli, der sechzehnte Oktober, der einundzwanzigste Dezember, der dreißigste April deb aytng.",
-   "say": "der vierte März, der elfte Juli, der sechzehnte Oktober, der einundzwanzigste Dezember, der dreißigste April.",
-   "say_uz": "4-mart, 11-iyul, 16-oktabr, 21-dekabr, 30-aprel.",
-   "practice_seconds": 18
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: sanalar (birlik)",
-   "emotion": "proud",
-   "board": [
-    "1) der vierte März",
-    "2) der elfte Juli",
-    "3) der sechzehnte Oktober",
-    "4) der einundzwanzigste Dezember",
-    "5) der dreißigste April"
-   ],
-   "examples": [],
-   "say_native": "Javoblar. der vierte März, der elfte Juli, der sechzehnte Oktober, der einundzwanzigste Dezember, der dreißigste April. E'tibor bering: elfte — o‘n birinchi (t-ni saqlaydi), einundzwanzigste — 21inchi (und bilan). Bu sonlarni yodlang.",
-   "say": "Der vierte März. Der elfte Juli. Der einundzwanzigste Dezember.",
-   "say_uz": "4-mart. 11-iyul. 21-dekabr.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Sana bilan gap: am ... ist / im ... ist",
-   "emotion": "neutral",
-   "board": [
-    "Am zehnten Juni ist der Termin.",
-    "Im Mai sind die Ferien.",
-    "Am ersten Januar ist Neujahr.",
-    "am/kun, im/oy"
-   ],
-   "examples": [
-    { "t": "Am zehnten Juni ist der Termin.", "uz": "10-iyunda muloqot bor." },
-    { "t": "Im Mai sind die Ferien.", "uz": "May oyida dam olish bor." }
-   ],
-   "say_native": "Sana bilan gap. Am zehnten Juni ist der Termin. — 10-iyunda muloqot bor. Im Mai sind die Ferien. — may ayında dam olish bor. Am ersten Januar ist Neujahr. — 1-yanvarda Yangi yil. 'am' — kun uchun, 'im' — oylar uchun. Fe'l 'ist' bzw. 'sind' keyin keladi.",
-   "say": "Am zehnten Juni ist der Termin. Im Mai sind die Ferien.",
-   "say_uz": "10-iyunda muloqot bor. May oyida dam olish bor.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Sana bilan gap tuzing",
-   "emotion": "encouraging",
-   "board": [
-    "1) 5-martda dars bor",
-    "2) 20-avgustda tatil bor",
-    "3) im iyunda yosh bor"
-   ],
-   "examples": [],
-   "say_native": "Uchta gapni nemischa aytng. Birinchi: 5-martda dars bor. Ikkinchi: 20-avgustda tatil bor. Uchinchi: im iyunda yosh bor. Am fünften März ist der Unterricht. Am zwanzigsten August sind die Ferien. Im Juni ist der Urlaub deb aytng.",
-   "say": "Am fünften März ist der Unterricht. Am zwanzigsten August sind die Ferien. Im Juni ist der Urlaub.",
-   "say_uz": "5-martda dars bor. 20-avgustda tatil bor. Iyunda dam olish bor.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: sana bilan gap",
-   "emotion": "proud",
-   "board": [
-    "1) Am fünften März ist der Unterricht.",
-    "2) Am zwanzigsten August sind die Ferien.",
-    "3) Im Juni ist der Urlaub."
-   ],
-   "examples": [],
-   "say_native": "Javoblar. Am fünften März ist der Unterricht. Am zwanzigsten August sind die Ferien. Im Juni ist der Urlaub. 'am' — kun (5-martda), 'im' — oy (iyunda). 'ist' — birlik uchun, 'sind' — koplik uchun (die Ferien). Bu qoidani yodlang.",
-   "say": "Am fünften März ist der Unterricht. Im Juni ist der Urlaub.",
-   "say_uz": "5-martda dars bor. Iyunda dam olish bor.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Wann ist ...? savoli",
-   "emotion": "neutral",
-   "board": [
-    "Wann ist der Termin?",
-    "Wann ist Weihnachten?",
-    "Wann ist der Urlaub?",
-    "Wann — qachon"
-   ],
-   "examples": [
-    { "t": "Wann ist der Termin?", "uz": "Muloqot qachon?" },
-    { "t": "Wann ist Weihnachten?", "uz": "Rizvo qachon?" }
-   ],
-   "say_native": "'Wann ist ...?' — qachon? savoli. Wann ist der Termin? — muloqot qachon? Wann ist Weihnachten? — Rizvo qachon? Wann ist der Urlaub? — dam olish qachon? Fe'l 'ist' ikkinchi o‘rinida, V2 qoidasiga to‘g‘ri. Javob: 'Am zehnten Juni.', 'Im Dezember.'",
-   "say": "Wann ist der Termin? Wann ist Weihnachten? Wann ist der Urlaub?",
-   "say_uz": "Muloqot qachon? Rizvo qachon? Dam olish qachon?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Wann ist ...? bo‘yicha savol",
-   "emotion": "encouraging",
-   "board": [
-    "1) Rizvo qachon?",
-    "2) Yangi yil qachon?",
-    "3) Dastur qachon?"
-   ],
-   "examples": [],
-   "say_native": "Uchta savolni nemischa aytng. Birinchi: Rizvo qachon? Ikkinchi: Yangi yil qachon? Uchinchi: Dastur qachon? Wann ist Weihnachten? Wann ist Neujahr? Wann ist der Termin? deb aytng.",
-   "say": "Wann ist Weihnachten? Wann ist Neujahr? Wann ist der Termin?",
-   "say_uz": "Rizvo qachon? Yangi yil qachon? Muloqot qachon?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: Wann ist ...?",
-   "emotion": "proud",
-   "board": [
-    "1) Im Dezember ist Weihnachten.",
-    "2) Am ersten Januar ist Neujahr.",
-    "3) Am zehnten Juni ist der Termin."
-   ],
-   "examples": [],
-   "say_native": "Javoblar. Im Dezember ist Weihnachten. Am ersten Januar ist Neujahr. Am zehnten Juni ist der Termin. Rizvo — im Dezember, Yangi yil — am ersten Januar, muloqot — am zehnten Juni. Bu uchi ham to‘g‘ri vor-slof bilan. Endi dialogga o‘tamiz.",
-   "say": "Im Dezember ist Weihnachten. Am ersten Januar ist Neujahr.",
-   "say_uz": "Rizvo — dekabrda. Yangi yil — 1-yanvarda.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Dialog: muloqot sanasi",
-   "emotion": "happy",
-   "board": [
-    "A: Wann ist der Termin?",
-    "B: Am zehnten Juni, um zehn Uhr.",
-    "A: Und der Geburtstag?",
-    "B: Am ersten Mai.",
-    "A: Vielen Dank."
-   ],
-   "examples": [],
-   "say_native": "Dialog: ikki odam muloqot sanasi haqida gaplashadi. A: Wann ist der Termin? — muloqot qachon? B: Am zehnten Juni, um zehn Uhr. — 10-iyunda, soat 10da. A: Und der Geburtstag? — va tug‘ilgan kun? B: Am ersten Mai. — 1-mayda. A: Vielen Dank. — katta rahmat. 'um zehn Uhr' — soat 10da (vaqt qo‘shildi).",
-   "say": "Wann ist der Termin? Am zehnten Juni, um zehn Uhr. Und der Geburtstag? Am ersten Mai. Vielen Dank.",
-   "say_uz": "Muloqot qachon? 10-iyunda, soat 10da. Va tug‘ilgan kun? 1-mayda. Katta rahmat.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialog bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Muloqot qachon?",
-    "2) Necha soatda?",
-    "3) Tug‘ilgan kun qachon?"
-   ],
-   "examples": [],
-   "say_native": "Uchta savol. Birinchi: muloqot qachon? Ikkinchi: necha soatda? Uchinchi: tug‘ilgan kun qachon? Javobni to‘liq gap bilan bering: Am zehnten Juni, um zehn Uhr. Am ersten Mai.",
-   "say": "Wann ist der Termin? Um wie viel Uhr? Wann ist der Geburtstag?",
-   "say_uz": "Muloqot qachon? Necha soatda? Tug‘ilgan kun qachon?",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: dialog",
-   "emotion": "proud",
-   "board": [
-    "1) Am zehnten Juni.",
-    "2) Um zehn Uhr.",
-    "3) Am ersten Mai."
-   ],
-   "examples": [],
-   "say_native": "Javoblar. Muloqot qachon? — Am zehnten Juni. Necha soatda? — Um zehn Uhr. Tug‘ilgan kun qachon? — Am ersten Mai. 'um zehn Uhr' — soat 10da, vaqt uchun 'um' vor-slofi. Bu 'am'/'im' bilan farqli, e'tibor bering.",
-   "say": "Am zehnten Juni. Um zehn Uhr. Am ersten Mai.",
-   "say_uz": "10-iyunda. Soat 10da. 1-mayda.",
+   "say_native": "Endi ikki xil savol. “Der Wievielte ist heute?” — bugun nechanchi sana? Javob: “Heute ist der erste Mai.” Bu yerda tartib son -e bilan. “Wann?” — qachon? Javob am bilan va tartib son -en oladi: “Am ersten Mai.” Der dritte — am dritten, der zwanzigste — am zwanzigsten. O‘zbekchada bu -da qo‘shimchasiga to‘g‘ri keladi: 1-mayda. Demak: “qachon?” — am …-en.",
+   "say": "Der Wievielte ist heute? Heute ist der erste Mai. Wann ist Nouruz? Am einundzwanzigsten März. Am einundzwanzigsten März feiern wir Nouruz.",
+   "say_uz": "Bugun nechanchi sana? Bugun 1-may. Navro‘z qachon? 21-martda. 21-martda Navro‘zni nishonlaymiz.",
    "practice_seconds": 0
   },
   {
@@ -626,97 +372,294 @@
    "title": "Sanadagi xatolar",
    "emotion": "stern",
    "board": [
-    "✗ im Montag   ✓ am Montag",
-    "✗ am Mai   ✓ im Mai",
-    "✗ der erste Mai ist   ✗ fe'lin xato joyida",
-    "✗ elfte (yozishi)   ✓ elfte (to‘g‘ri)"
+    "✗ am erste Mai → ✓ am ersten Mai",
+    "✗ Heute ist am achten Mai. → ✓ Heute ist der achte Mai.",
+    "✗ der zwei Mai → ✓ der zweite Mai",
+    "✗ der dreite / der einste → ✓ der dritte / der erste"
    ],
    "examples": [],
-   "say_native": "To‘rtta xato. Birinchi: 'im Montag‘ xato, hafta kunda 'am' kerak: am Montag. Ikkinchi: 'am Mai' xato, oyda 'im' kerak: im Mai. Uchinchi: fe'lin joyini saqlang. To‘rtinchi: 'elfte' — to‘g‘ri yozilishi, '11inchi'. Bu xatolarni eslab qoling.",
-   "say": "am Montag. im Mai. Elfte.",
-   "say_uz": "dushanba kuni. may oyida. o‘n birinchi.",
+   "say_native": "Tipik xatolar. Birinchi: am dan keyin -en ni unutish, “am erste Mai”. Ikkinchi: “Heute ist” dan keyin am qo‘yish. “Bugun 8-may” — “Heute ist der achte Mai”, bu yerda am kerak emas. Uchinchi: oddiy sonni ishlatish, “der zwei Mai”. Sana uchun doim tartib son. To‘rtinchi: istisnolarni qoidaga solish, “dreite”, “einste”. To‘g‘risi: dritte, erste.",
+   "say": "am ersten Mai. Heute ist der achte Mai. der zweite Mai. der dritte, der erste.",
+   "say_uz": "1-mayda. Bugun 8-may. 2-may. uchinchi, birinchi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatoni toping",
+   "title": "Qachon?",
    "emotion": "encouraging",
    "board": [
-    "1) im Montag",
-    "2) am Dezember",
-    "3) der elft Januar",
-    "4) Gestern am ersten Januar"
+    "1) Wann ist Nouruz? (21.3.)",
+    "2) Wann ist der Tag der Unabhängigkeit? (1.9.)",
+    "3) Wann ist Weihnachten? (25.12.)",
+    "4) Der Wievielte ist heute? (8.11.)"
    ],
    "examples": [],
-   "say_native": "To‘rtta jarayonda xato bor. Birinchi: 'im Montag‘ — hafta kunda 'am' kerak. Ikkinchi: 'am Dezember' — oydan oldin 'im' kerak. Uchinchi: 'der elft Januar' — buyruq son 'elfte' bo‘lishi kerak. To‘rtinchi: 'Gestern am ersten Januar' — kechada 'am' emas, 'war' fe'li bilan. Har birini to‘g‘rilang.",
-   "say": "im Montag. am Dezember. der elft Januar. Gestern am ersten Januar.",
-   "say_uz": "dushanba kuni (xato). dekabrda (xato). 11-yanvar (xato). kecha 1-yanvarda (xato).",
-   "practice_seconds": 16
+   "say_native": "To‘rtta savol. Birinchi uchtasi “qachon?” — am va -en bilan javob bering. Der Tag der Unabhängigkeit — Mustaqillik kuni. Weihnachten — Rojdestvo, Germaniyadagi eng katta bayram. To‘rtinchi savol esa “nechanchi sana?” — “Heute ist der …” bilan javob bering. Farqni sezing.",
+   "say": "Wann ist Nouruz? Wann ist der Tag der Unabhängigkeit? Wann ist Weihnachten? Der Wievielte ist heute?",
+   "say_uz": "Navro‘z qachon? Mustaqillik kuni qachon? Rojdestvo qachon? Bugun nechanchi sana?",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
-   "title": "Javoblar: xatolar",
+   "title": "Javoblar: qachon",
    "emotion": "proud",
    "board": [
-    "1) am Montag",
-    "2) im Dezember",
-    "3) der elfte Januar",
-    "4) Gestern war der erste Januar."
+    "1) Am einundzwanzigsten März.",
+    "2) Am ersten September.",
+    "3) Am fünfundzwanzigsten Dezember.",
+    "4) Heute ist der achte November."
    ],
    "examples": [],
-   "say_native": "Javoblar. am Montag. im Dezember. der elfte Januar. Gestern war der erste Januar. Hafta kunda 'am', oydan oldin 'im', buyruq son 'elfte' (t bilan), kechada 'war'. Har birini yanada bir marta tekshiring.",
-   "say": "am Montag. Im Dezember. Der elfte Januar.",
-   "say_uz": "dushanba kuni. dekabrda. 11-yanvar.",
+   "say_native": "Javoblar. “Am einundzwanzigsten März.” “Am ersten September.” “Am fünfundzwanzigsten Dezember.” Uchalasida am va -en. To‘rtinchisi: “Heute ist der achte November” — am yo‘q, -e. Agar shu ikki qolipni farqlay olsangiz, siz nemis sanalarining asosiy qiyinchiligini yengdingiz.",
+   "say": "Am einundzwanzigsten März. Am ersten September. Am fünfundzwanzigsten Dezember. Heute ist der achte November.",
+   "say_uz": "21-martda. 1-sentyabrda. 25-dekabrda. Bugun 8-noyabr.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Talaffuz: sanalar",
-   "emotion": "thinking",
+   "title": "Tug‘ilgan kun",
+   "emotion": "happy",
    "board": [
-    "erster [ˈɛɐ̯stɐ] · zehnte [ˈt͡sɛn̩tə]",
-    "zwölfte [ˈt͡svɛlftə] · einunddreißig [ˌaɪ̯nʊntˈdʁaɪ̯zɪç]",
-    "am [am] · im [ɪm] · um zehn Uhr [ʊm t͡sɛn uːʁ]"
+    "Wann hast du Geburtstag?",
+    "Ich habe am 5. Mai Geburtstag.",
+    "Mein Geburtstag ist am 5. Mai.",
+    "Alles Gute zum Geburtstag!"
    ],
    "examples": [
-    { "t": "der erste", "uz": "birinchi" },
-    { "t": "am zehnten Juni", "uz": "10-iyunda" }
+    {
+     "t": "Wann hast du Geburtstag? — Am fünften Mai.",
+     "uz": "Tug‘ilgan kuning qachon? — 5-mayda."
+    },
+    {
+     "t": "Alles Gute zum Geburtstag!",
+     "uz": "Tug‘ilgan kuning bilan!"
+    }
    ],
-   "say_native": "Talaffuz. erster — erst-a, 'st' yumshoq. zehnte — zent-a. zwölfte — zvel-te, oxiri e. einunddreißig — ay-nund-dray-zich. am — am, qisqa. im — im, qisqa. um zehn Uhr — um tsenn uur. Har bir so‘zni sekin ayting.",
-   "say": "erster, zehnte, zwölfte, einunddreißig, am, im.",
-   "say_uz": "birinchi, o‘ninchi, o‘n ikkinchi, yigirma bir, am, im.",
+   "say_native": "Tug‘ilgan kun — der Geburtstag. Nemislar qiziq tarzda so‘raydi: “Wann hast du Geburtstag?” — so‘zma-so‘z “tug‘ilgan kuning qachon bor?” Javob: “Ich habe am fünften Mai Geburtstag” yoki “Mein Geburtstag ist am fünften Mai.” Tabriklash: “Alles Gute zum Geburtstag!” yoki “Herzlichen Glückwunsch zum Geburtstag!” Germaniyada tug‘ilgan kundan oldin tabriklash yomon belgi hisoblanadi.",
+   "say": "Wann hast du Geburtstag? Ich habe am fünften Mai Geburtstag. Mein Geburtstag ist am fünften Mai. Alles Gute zum Geburtstag!",
+   "say_uz": "Tug‘ilgan kuning qachon? Tug‘ilgan kunim 5-mayda. Tug‘ilgan kunim 5-mayda. Tug‘ilgan kuning bilan!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sana xat va anketada",
+   "emotion": "neutral",
+   "board": [
+    "Taschkent, den 8. November 2025",
+    "Geburtsdatum: 03.04.1999 — tug‘ilgan sana",
+    "Datum / Unterschrift — sana / imzo",
+    "Mein Geburtsdatum ist der 3. April 1999."
+   ],
+   "examples": [
+    {
+     "t": "Mein Geburtsdatum ist der dritte April neunzehnhundertneunundneunzig.",
+     "uz": "Tug‘ilgan sanam 1999-yil 3-aprel."
+    }
+   ],
+   "say_native": "Rasmiy hujjatlarda sana boshqacha ko‘rinadi. Xat boshida: “Taschkent, den 8. November 2025” — shahar, keyin den va sana. Anketada esa Geburtsdatum — tug‘ilgan sana, odatda raqamlar bilan: 03.04.1999. Datum — sana, Unterschrift — imzo. Germaniyada viza yoki kursga yozilish uchun anketa to‘ldirasiz, shuning uchun bu so‘zlarni hozirdan tanib oling. Og‘zaki: “Mein Geburtsdatum ist der dritte April neunzehnhundertneunundneunzig.”",
+   "say": "Taschkent, den achten November zweitausendfünfundzwanzig. Mein Geburtsdatum ist der dritte April neunzehnhundertneunundneunzig.",
+   "say_uz": "Toshkent, 2025-yil 8-noyabr. Tug‘ilgan sanam 1999-yil 3-aprel.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Termin: uchrashuv vaqti",
+   "emotion": "neutral",
+   "board": [
+    "der Termin — qabul / uchrashuv vaqti",
+    "Ich habe am Dienstag um 10 Uhr einen Termin.",
+    "vom 3. bis zum 28. März — 3-dan 28-martgacha",
+    "diese Woche · nächste Woche"
+   ],
+   "examples": [
+    {
+     "t": "Ich habe am Dienstag um zehn Uhr einen Termin beim Arzt.",
+     "uz": "Seshanba kuni soat o‘nda shifokor qabulida bo‘laman."
+    },
+    {
+     "t": "Der Kurs ist vom dritten bis zum achtundzwanzigsten März.",
+     "uz": "Kurs 3-martdan 28-martgacha."
+    }
+   ],
+   "say_native": "Germaniyada ko‘p narsa oldindan belgilanadi: shifokor, idora, sartarosh. Belgilangan vaqt — der Termin. “Ich habe am Dienstag um zehn Uhr einen Termin.” Tartib: kun, keyin soat. Muddat uchun: vom … bis zum — …dan …gacha: “vom dritten bis zum achtundzwanzigsten März.” Yana foydali: diese Woche — shu hafta, nächste Woche — keyingi hafta.",
+   "say": "Ich habe am Dienstag um zehn Uhr einen Termin beim Arzt. Der Kurs ist vom dritten bis zum achtundzwanzigsten März. Nächste Woche habe ich Urlaub.",
+   "say_uz": "Seshanba kuni soat o‘nda shifokor qabulida bo‘laman. Kurs 3-martdan 28-martgacha. Keyingi hafta ta’tildaman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Talaffuzni takrorlang",
+   "title": "Nemischa ayting",
    "emotion": "encouraging",
    "board": [
-    "erster",
-    "zwölfte",
-    "am",
-    "um zehn Uhr"
+    "1) Tug‘ilgan kunim 12-iyulda.",
+    "2) Payshanba kuni soat to‘qqizda qabulim bor.",
+    "3) Ta’til 1-avgustdan 20-avgustgacha.",
+    "(der Urlaub — ta’til)"
    ],
    "examples": [],
-   "say_native": "To‘rtta so‘zni takrorlang: erster, zwölfte, am, um zehn Uhr. erster da 'st', zwölfte da oxiri 'e', am da oxiri 'm', um zehn Uhr da 'uhr'. Sekin ayting, keyin tezlashtiring.",
-   "say": "erster, zwölfte, am, um zehn Uhr.",
-   "say_uz": "birinchi, o‘n ikkinchi, am, soat 10da.",
-   "practice_seconds": 12
+   "say_native": "Uchta gapni nemischa ayting. Birinchi gapda am va -en ni unutmang. Ikkinchi gapda tartib: am Donnerstag, keyin um neun Uhr, oxirida einen Termin. Uchinchi gapda vom … bis zum, ikkala son ham -en bilan tugaydi. Der Urlaub — ta’til. Gaplarni avval sekin, keyin tabiiy tezlikda ayting.",
+   "say": "Geburtstag? Termin? Urlaub?",
+   "say_uz": "Tug‘ilgan kun? Qabul? Ta’til?",
+   "practice_seconds": 18
   },
   {
    "kind": "explain",
-   "title": "Javoblar: talaffuz",
+   "title": "Javoblar: tug‘ilgan kun va termin",
    "emotion": "proud",
    "board": [
-    "erster — erst-ter",
-    "zwölfte — zvel-te",
-    "am — am",
-    "um zehn Uhr — um tsenn uur"
+    "1) Ich habe am zwölften Juli Geburtstag.",
+    "2) Ich habe am Donnerstag um neun Uhr einen Termin.",
+    "3) Der Urlaub ist vom ersten bis zum zwanzigsten August."
    ],
    "examples": [],
-   "say_native": "Tekshiramiz. erster — erst-ter. zwölfte — zvel-te. am — am. um zehn Uhr — um tsenn uur. Bu so‘zlarni to‘g‘ri aytsangiz, sanalar bilan bog‘liq gaplaringiz ancha tushuniladi. Endi yakuniy topshiriqqa o‘tamiz.",
-   "say": "erster, zwölfte, am, um zehn Uhr.",
-   "say_uz": "birinchi, o‘n ikkinchi, am, soat 10da.",
+   "say_native": "Javoblar. “Ich habe am zwölften Juli Geburtstag” yoki “Mein Geburtstag ist am zwölften Juli.” “Ich habe am Donnerstag um neun Uhr einen Termin.” “Der Urlaub ist vom ersten bis zum zwanzigsten August.” Vom — von va dem, zum — zu va dem, shuning uchun sonlar -en bilan tugaydi, xuddi am dan keyingidek.",
+   "say": "Ich habe am zwölften Juli Geburtstag. Ich habe am Donnerstag um neun Uhr einen Termin. Der Urlaub ist vom ersten bis zum zwanzigsten August.",
+   "say_uz": "Tug‘ilgan kunim 12-iyulda. Payshanba kuni soat to‘qqizda qabulim bor. Ta’til 1-avgustdan 20-avgustgacha.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: tug‘ilgan kunga taklif",
+   "emotion": "happy",
+   "board": [
+    "A: Wann hast du Geburtstag? — B: Am vierzehnten Juni.",
+    "A: Das ist ja nächste Woche! Machst du eine Party?",
+    "B: Ja, am Samstag, am siebzehnten Juni. Kommst du?",
+    "A: Am Samstag? Ja, gern!"
+   ],
+   "examples": [],
+   "say_native": "Birinchi tinglash dialogi. Ikki do‘st, Sardor va Julia, gaplashyapti. Die Party — ziyofat. Tinglang va uchta narsani eslab qoling: Sardorning tug‘ilgan kuni qachon, ziyofat qaysi kuni va qaysi sanada, va Julia keladimi? Dialogda hafta kuni ham, sana ham birga keladi, ikkalasida ham am ishlatilganiga e’tibor bering.",
+   "say": "Sardor, wann hast du Geburtstag? Am vierzehnten Juni. Das ist ja nächste Woche! Machst du eine Party? Ja, am Samstag, am siebzehnten Juni. Kommst du? Am Samstag? Ja, gern! Ich komme.",
+   "say_uz": "Sardor, tug‘ilgan kuning qachon? 14-iyunda. Bu keyingi hafta-ku! Ziyofat qilasanmi? Ha, shanba kuni, 17-iyunda. Kelasanmi? Shanba kunimi? Ha, mamnuniyat bilan! Kelaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Wann hat Sardor Geburtstag?",
+    "2) Wann ist die Party?",
+    "3) Kommt Julia?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: Sardorning tug‘ilgan kuni qachon? Ikkinchi: ziyofat qachon — kun va sanani ayting. Uchinchi: Julia keladimi? Javoblarda am va tartib sonning -en qo‘shimchasini ishlating. Sanalarni sekin, aniq ayting. Uchinchi savolga Julia haqida, sie bilan javob bering.",
+   "say": "Wann hat Sardor Geburtstag? Wann ist die Party? Kommt Julia?",
+   "say_uz": "Sardorning tug‘ilgan kuni qachon? Ziyofat qachon? Julia keladimi?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: ziyofat",
+   "emotion": "proud",
+   "board": [
+    "1) Am vierzehnten Juni.",
+    "2) Am Samstag, am siebzehnten Juni.",
+    "3) Ja, sie kommt."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. “Am vierzehnten Juni.” “Am Samstag, am siebzehnten Juni” — siebzehn ning tartib soni siebzehnte, sieben dan farqli o‘laroq qisqarmaydi. “Ja, sie kommt.” Dialogdagi “Das ist ja nächste Woche!” — bu keyingi hafta-ku! Ja bu yerda hayratni bildiradi, “ha” degani emas.",
+   "say": "Am vierzehnten Juni. Am Samstag, am siebzehnten Juni. Ja, sie kommt.",
+   "say_uz": "14-iyunda. Shanba kuni, 17-iyunda. Ha, u keladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: shifokorga yozilish",
+   "emotion": "neutral",
+   "board": [
+    "A: Ich brauche einen Termin, bitte.",
+    "B: Geht es am Donnerstag um neun Uhr?",
+    "A: Am Donnerstag kann ich leider nicht. Geht es am Freitag?",
+    "B: Ja, am Freitag, den 15. November, um elf Uhr."
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog, rasmiy. Malika shifokor qabuliga telefon qilyapti. Die Praxis — shifokor xonasi, klinika. “Geht es…?” — … to‘g‘ri keladimi? Tinglang: birinchi taklif qilingan kun Malikaga nega to‘g‘ri kelmaydi, oxirida qaysi kun, sana va soat kelishildi?",
+   "say": "Praxis Doktor Weber, guten Tag. Guten Tag, hier ist Malika Karimova. Ich brauche einen Termin, bitte. Geht es am Donnerstag um neun Uhr? Am Donnerstag kann ich leider nicht. Geht es auch am Freitag? Ja, am Freitag, den fünfzehnten November, um elf Uhr. Perfekt, vielen Dank!",
+   "say_uz": "Doktor Veber klinikasi, assalomu alaykum. Assalomu alaykum, bu Malika Karimova. Menga qabul vaqti kerak edi. Payshanba soat to‘qqiz to‘g‘ri keladimi? Payshanba kuni afsuski kelolmayman. Juma kuni ham bo‘ladimi? Ha, juma, 15-noyabr, soat o‘n birda. Ajoyib, katta rahmat!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Kann Malika am Donnerstag?",
+    "2) Wann ist der Termin?",
+    "3) Um wie viel Uhr?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: Malika payshanba kuni kela oladimi? Bu yerda inkor javob kerak, oldingi darsni eslang. Ikkinchi: qabul qachon — kun va sanani ayting. Uchinchi: soat nechada? Qisqa, aniq javob bering. Soatni um bilan, kunni am bilan aytishni unutmang, bu ikkalasi tez-tez aralashib ketadi.",
+   "say": "Kann Malika am Donnerstag? Wann ist der Termin? Um wie viel Uhr?",
+   "say_uz": "Malika payshanba kuni kela oladimi? Qabul qachon? Soat nechada?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: qabul",
+   "emotion": "proud",
+   "board": [
+    "1) Nein, am Donnerstag kann sie nicht.",
+    "2) Am Freitag, den fünfzehnten November.",
+    "3) Um elf Uhr."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. “Nein, am Donnerstag kann sie nicht.” “Am Freitag, den fünfzehnten November.” “Um elf Uhr.” Diqqat: kun va sana birga aytilganda nemislar “am Freitag, den fünfzehnten November” deydi. Den shakli shu iborada keladi, uni tayyor qolip sifatida yodlang. Rasmiy xatlarda ham sanani aynan shunday yozishadi.",
+   "say": "Nein, am Donnerstag kann sie nicht. Am Freitag, den fünfzehnten November. Um elf Uhr.",
+   "say_uz": "Yo‘q, payshanba kuni kela olmaydi. Juma, 15-noyabrda. Soat o‘n birda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: Juni yoki Juli?",
+   "emotion": "thinking",
+   "board": [
+    "Juni [ˈjuːni] · Juli [ˈjuːli] — telefonda: Juno · Julei",
+    "März [mɛʁts] · Dezember [deˈtsɛmbɐ] — z = ts",
+    "Dienstag [ˈdiːnstaːk] — ie cho‘ziq, g = k",
+    "dritte · siebte · achte"
+   ],
+   "examples": [
+    {
+     "t": "im Juni, im Juli",
+     "uz": "iyunda, iyulda"
+    }
+   ],
+   "say_native": "Talaffuz. Juni va Juli juda o‘xshash, shuning uchun nemislar telefonda ularni “Juno” va “Julei” deb aniq farqlaydi. Siz ham tushunmasangiz, so‘rab oling. März va Dezember da z — ts: merts, detsember. Dienstag da ie cho‘ziq i, oxiridagi g esa k deb eshitiladi: dinstak. Montag va Freitag ham shunday: montak, fraytak.",
+   "say": "Juni, Juli, März, Dezember, Dienstag, Montag, Freitag.",
+   "say_uz": "iyun, iyul, mart, dekabr, seshanba, dushanba, juma.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy topshiriq",
+   "emotion": "encouraging",
+   "board": [
+    "Ich habe am … Geburtstag.",
+    "3 ta muhim sana: Am … ist …",
+    "1 ta termin: Ich habe am … um … Uhr einen Termin.",
+    "Heute ist der …"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy topshiriq. Avval bugungi sanani ayting. Keyin tug‘ilgan kuningizni ayting. So‘ng bu yildagi siz uchun muhim uchta sanani ayting: bayram, imtihon, sayohat yoki yaqinlaringizning tug‘ilgan kuni. Oxirida bitta termin haqida gapiring. Am va -en ni, kun va oyni to‘g‘ri ishlating. Boshlang!",
+   "say": "Wann haben Sie Geburtstag? Welche Tage sind für Sie wichtig?",
+   "say_uz": "Tug‘ilgan kuningiz qachon? Siz uchun qaysi kunlar muhim?",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javob",
+   "emotion": "proud",
+   "board": [
+    "Heute ist der achte November. Ich habe am 3. April Geburtstag.",
+    "Am 21. März feiern wir Nouruz.",
+    "Am 10. Juni habe ich eine Prüfung. Im August fahre ich nach Berlin.",
+    "Am Montag habe ich um 9 Uhr einen Termin."
+   ],
+   "examples": [],
+   "say_native": "Namuna. “Heute ist der achte November. Ich habe am dritten April Geburtstag. Am einundzwanzigsten März feiern wir Nouruz. Am zehnten Juni habe ich eine Prüfung” — imtihonim bor. “Im August fahre ich nach Berlin. Am Montag habe ich um neun Uhr einen Termin.” Tekshiring: am bilan boshlangan gapda fe’l ikkinchi o‘rinda.",
+   "say": "Heute ist der achte November. Ich habe am dritten April Geburtstag. Am einundzwanzigsten März feiern wir Nouruz. Am zehnten Juni habe ich eine Prüfung. Im August fahre ich nach Berlin. Am Montag habe ich um neun Uhr einen Termin.",
+   "say_uz": "Bugun 8-noyabr. Tug‘ilgan kunim 3-aprelda. 21-martda Navro‘zni nishonlaymiz. 10-iyunda imtihonim bor. Avgustda Berlinga boraman. Dushanba kuni soat to‘qqizda qabulim bor.",
    "practice_seconds": 0
   },
   {
@@ -724,15 +667,15 @@
    "title": "Darsni yakunlaymiz",
    "emotion": "proud",
    "board": [
-    "der Montag · der Sonntag · der Januar · der Dezember",
-    "der erste · der zweite · der zehnte",
-    "am Montag · im Mai · am ersten Mai",
-    "Wann hast du Geburtstag?"
+    "am Montag · montags · am Wochenende · im Mai · 1998",
+    "der erste, dritte, siebte, achte · der zwanzigste",
+    "Heute ist der 8. November. · Wann? — Am 8. November.",
+    "Ich habe am … Geburtstag. · einen Termin"
    ],
    "examples": [],
-   "say_native": "Xulosa. Birinchi: hafta kunlari va oilarga erkak jinsida: der. Ikkinchi: buyruq sonlar — erster, zweiter, zehnte. Uchinchi: hafta kundi am, oyda im, am ersten Mai kabi. To‘rtinchi: Wann hast du Geburtstag? bilan tug‘ilgan kuningizni so‘raymiz. Juda yaxshi!",
-   "say": "Heute haben Sie Wochentage, Monate und Daten gelernt. Sehr gut!",
-   "say_uz": "Bugun hafta kunlari, oylar va sanalarni o‘rgandingiz. Juda yaxshi!",
+   "say_native": "Xulosa. Birinchi: hafta kunlari va oylar, hammasi der. Ikkinchi: kun — am, oy — im, yil — predlogsiz. Uchinchi: tartib son 19 gacha -te, 20 dan -ste, istisnolar erste, dritte, siebte, achte. To‘rtinchi: “Heute ist der achte”, lekin “qachon?” savoliga “am achten”. Beshinchi: tug‘ilgan kun va termin. Juda yaxshi ishladingiz!",
+   "say": "Heute haben Sie Wochentage, Monate und das Datum gelernt. Sehr gut!",
+   "say_uz": "Bugun hafta kunlari, oylar va sanani o‘rgandingiz. Juda yaxshi!",
    "practice_seconds": 0
   },
   {
@@ -740,28 +683,128 @@
    "title": "Uyga vazifa",
    "emotion": "encouraging",
    "board": [
-    "Tug‘ilgan kuningiz + 3 muhim sana",
-    "Mezon: buyruq son + am/im",
-    "Keyingi dars: ob-havo va fasllar"
+    "Tug‘ilgan kuningiz + bu yilgi 3 ta muhim sana",
+    "ovoz chiqarib ayting va yozing",
+    "Mezon: am …-en, im, tartib son to‘g‘ri"
    ],
    "examples": [],
-   "say_native": "Uyga vazifa. Tug‘ilgan kuningizni va joriy yildagi 3 muhim sanani nemischa yozing. Har birida buyruq son va am/im bo‘lsin. Muvaffaqiyat mezoni: 4 ta sana, to‘g‘ri buyruq son va vor-slof. Keyingi darsda ob-havo va fasllarni o‘rganamiz. Auf Wiedersehen!",
-   "say": "Schreiben Sie Ihren Geburtstag und drei wichtige Tage auf. Bis zur nächsten Lektion!",
-   "say_uz": "Tug‘ilgan kuningiz va 3 muhim sanani yozing. Keyingi darsgacha!",
+   "say_native": "Uyga vazifa. Tug‘ilgan kuningizni va bu yilgi uchta muhim sanani nemischa yozing va ovoz chiqarib ayting. Har bir sana uchun nima bo‘lishini ham qo‘shing. Muvaffaqiyat mezoni: to‘rtta gap, har birida am va tartib sonning -en shakli to‘g‘ri, kamida bittasida im bilan oy bor. Keyingi darsda ob-havo va fasllar haqida gaplashamiz. Auf Wiedersehen!",
+   "say": "Sagen Sie Ihren Geburtstag und drei wichtige Daten. Bis zur nächsten Lektion!",
+   "say_uz": "Tug‘ilgan kuningizni va uchta muhim sanani ayting. Keyingi darsgacha!",
    "practice_seconds": 0
- }
+  }
  ],
- "homework_uz": "Tug‘ilgan kuningizni va joriy yildagi 3 muhim sanani nemischa yozing. Har birida buyruq son va am/im bo‘lsin. Muvaffaqiyat mezoni: 4 ta sana, to‘g‘ri buyruq son va vor-slof.",
+ "homework_uz": "Tug‘ilgan kuningizni va bu yilgi uchta muhim sanani nemischa yozing va ovoz chiqarib ayting (masalan: Ich habe am dritten April Geburtstag. Am einundzwanzigsten März feiern wir Nouruz.). Mezon: to‘rtta gap, “am” va tartib sonning -en shakli to‘g‘ri, kamida bittasida “im” bilan oy bor.",
  "quiz": [
-  { "q": "Dushanba qanday ataladi?", "options": ["der Montag", "der Dienstag", "der Sonntag", "der Freitag"], "answer": 0, "why_uz": "Dushanba — der Montag." },
-  { "q": "Yanvar qanday ataladi?", "options": ["der Januar", "der Februar", "der März", "der Mai"], "answer": 0, "why_uz": "Yanvar — der Januar." },
-  { "q": "1-may qanday ataladi?", "options": ["der erste Mai", "der erste Mai", "der erste Mai", "der erste Mai"], "answer": 0, "why_uz": "1-may — der erste Mai." },
-  { "q": "“dushanba kuni” qanday ataladi?", "options": ["am Montag", "im Montag", "in dem Montag", "an dem Montag"], "answer": 0, "why_uz": "Dushanba kuni — am Montag." },
-  { "q": "“may oyida” qanday ataladi?", "options": ["im Mai", "am Mai", "in dem Mai", "an dem Mai"], "answer": 0, "why_uz": "May oyida — im Mai." },
-  { "q": "Qaysi gap xato?", "options": ["Heute ist der erste Mai.", "Im Mai ist der Urlaub.", "am zehnten März ist mein Geburtstag.", "im zehnten März ist mein Geburtstag."], "answer": 3, "why_uz": "Kunda am: am zehnten März, im emas." },
-  { "q": "31-dekabr qanday ataladi?", "options": ["der einunddreißigste Dezember", "der dreiunddreißigste Dezember", "der dreißigste Dezember", "der einunddreißigste Januar"], "answer": 0, "why_uz": "31-dekabr — der einunddreißigste Dezember." },
-  { "q": "“Tug‘ilgan kuning qachon?” qanday so‘raladi?", "options": ["Wann hast du Geburtstag?", "Wo hast du Geburtstag?", "Wer hat Geburtstag?", "Wann ist dein Geburtstag?"], "answer": 0, "why_uz": "Tug‘ilgan kuning qachon — Wann hast du Geburtstag?" },
-  { "q": "25-dekabr — Weihnachten nima?", "options": ["Yangi yil", "Rizvo", "Bayram", "Dam olish kuni"], "answer": 1, "why_uz": "Weihnachten — Rizvo (25-dekabr)." },
-  { "q": "“Ich habe am fünften Mai Geburtstag” nimani bildiradi?", "options": ["Mening tug‘ilgan kuning 5-mayda.", "Mening tug‘ilgan kuning 5-iyunda.", "Mening tug‘ilgan kuning 5-avgustda.", "Mening tug‘ilgan kuning 5-dekabrda."], "answer": 0, "why_uz": "Mai — may: 5-mayda." }
+  {
+   "q": "___ Freitag habe ich keine Zeit.",
+   "options": [
+    "Am",
+    "Im",
+    "In",
+    "Um"
+   ],
+   "answer": 0,
+   "why_uz": "Hafta kunlari bilan am: am Freitag."
+  },
+  {
+   "q": "___ August fahre ich nach Samarkand.",
+   "options": [
+    "Im",
+    "Am",
+    "Um",
+    "An"
+   ],
+   "answer": 0,
+   "why_uz": "Oylar bilan im: im August."
+  },
+  {
+   "q": "“Men 1998-yilda tug‘ilganman.”",
+   "options": [
+    "Ich bin 1998 geboren.",
+    "Ich bin in 1998 geboren.",
+    "Ich bin am 1998 geboren.",
+    "Ich bin im 1998 geboren."
+   ],
+   "answer": 0,
+   "why_uz": "Yil oldida predlog ishlatilmaydi (yoki: im Jahr 1998)."
+  },
+  {
+   "q": "3. Oktober qanday o‘qiladi?",
+   "options": [
+    "der dritte Oktober",
+    "der drei Oktober",
+    "der dreite Oktober",
+    "der dritten Oktober"
+   ],
+   "answer": 0,
+   "why_uz": "drei → dritte (istisno); “Heute ist” kabi holatda der dritte."
+  },
+  {
+   "q": "Wann ist Nouruz? — ___ März.",
+   "options": [
+    "Am einundzwanzigsten",
+    "Am einundzwanzigste",
+    "Der einundzwanzigsten",
+    "Im einundzwanzigsten"
+   ],
+   "answer": 0,
+   "why_uz": "“Qachon?” savoliga am + tartib son -en: am einundzwanzigsten."
+  },
+  {
+   "q": "Der Wievielte ist heute?",
+   "options": [
+    "Heute ist der achte Mai.",
+    "Heute ist am achten Mai.",
+    "Heute ist acht Mai.",
+    "Heute ist im achten Mai."
+   ],
+   "answer": 0,
+   "why_uz": "“Heute ist” dan keyin der + tartib son -e, am kerak emas."
+  },
+  {
+   "q": "Qaysi tartib son to‘g‘ri yozilgan?",
+   "options": [
+    "der siebte",
+    "der siebete",
+    "der siebste",
+    "der sieben"
+   ],
+   "answer": 0,
+   "why_uz": "sieben → siebte (qisqaradi)."
+  },
+  {
+   "q": "“Har dushanbada” qanday aytiladi?",
+   "options": [
+    "montags",
+    "am Montags",
+    "im Montag",
+    "Montage"
+   ],
+   "answer": 0,
+   "why_uz": "Takrorlanadigan kun: -s qo‘shiladi va kichik harf bilan yoziladi: montags."
+  },
+  {
+   "q": "“Tug‘ilgan kunim 5-mayda.”",
+   "options": [
+    "Ich habe am fünften Mai Geburtstag.",
+    "Ich habe im fünften Mai Geburtstag.",
+    "Ich bin am fünf Mai Geburtstag.",
+    "Ich habe am fünfte Mai Geburtstag."
+   ],
+   "answer": 0,
+   "why_uz": "am + tartib son -en: am fünften Mai; fe’l haben."
+  },
+  {
+   "q": "“Kurs 3-dan 28-martgacha.”",
+   "options": [
+    "Der Kurs ist vom dritten bis zum achtundzwanzigsten März.",
+    "Der Kurs ist von drei bis achtundzwanzig März.",
+    "Der Kurs ist am dritten bis am achtundzwanzigsten März.",
+    "Der Kurs ist im dritten bis im achtundzwanzigsten März."
+   ],
+   "answer": 0,
+   "why_uz": "Muddat: vom … bis zum …, tartib sonlar -en bilan."
+  }
  ]
 }

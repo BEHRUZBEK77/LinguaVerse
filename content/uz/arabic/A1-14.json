@@ -1,927 +1,449 @@
 {
  "title": "Inkor gaplar",
- "goal_uz": "Dars oxirida ismiy gaplarni «laysa» bilan, fe’llarni «lā» bilan inkor qila olasiz, «lan», «lam», «mā» bilan mustaqbal va o‘tgan zamonni inkor qila olasiz, «lā ... abadan» bilan «hech qachon» deyasiz va qisqa inkor javob berasiz.",
+ "goal_uz": "Dars oxirida fe’lsiz gaplarni “لَيْسَ” va uning shaxs shakllari (لَسْتُ، لَسْتَ، لَيْسَتْ …) bilan, fe’lli gaplarni “لَا” bilan inkor qilasiz, “hech kim, hech narsa, hech qachon” ni to‘g‘ri ishlatasiz, savollarga qisqa va muloyim inkor javob berasiz va o‘zingiz haqingizda sakkizta haqiqiy inkor gap yozasiz.",
  "vocab": [
-  {
-   "w": "لَيْسَ",
-   "uz": "emas (ismiy gap)"
-  },
-  {
-   "w": "لَا",
-   "uz": "emas (fe’lli gap)"
-  },
-  {
-   "w": "لَنْ",
-   "uz": "hech qachon ... olmaydi (mustaqbal)"
-  },
-  {
-   "w": "لَمْ",
-   "uz": "...ligini qildi (o‘tgan)"
-  },
-  {
-   "w": "مَا",
-   "uz": "...ligini qildi (o‘tgan)"
-  },
-  {
-   "w": "أَبَدًا",
-   "uz": "hech qachon"
-  },
-  {
-   "w": "غَيْرُ",
-   "uz": "boshqa / emas"
-  },
-  {
-   "w": "لَا شَيْءَ",
-   "uz": "hech narsa"
-  },
-  {
-   "w": "لَا أَحَدَ",
-   "uz": "hech kim"
-  },
-  {
-   "w": "كَلَّا",
-   "uz": "yo‘q / inkor"
-  }
+  {"w": "لَيْسَ / لَيْسَتْ", "uz": "emas (u, erkak / ayol)"},
+  {"w": "لَسْتُ", "uz": "men … emasman"},
+  {"w": "لَا", "uz": "yo‘q; fe’l oldida: -ma-"},
+  {"w": "أَحَدٌ", "uz": "biror kishi (inkorda: hech kim)"},
+  {"w": "شَيْءٌ", "uz": "narsa (inkorda: hech narsa)"},
+  {"w": "أَبَدًا", "uz": "hech qachon (inkor bilan)"},
+  {"w": "لِلْأَسَفِ", "uz": "afsuski"},
+  {"w": "لَا مُشْكِلَةَ", "uz": "muammo yo‘q"},
+  {"w": "وَقْتٌ", "uz": "vaqt"},
+  {"w": "طَبْعًا", "uz": "albatta"}
  ],
  "scenes": [
   {
    "kind": "intro",
    "title": "O‘n to‘rtinchi dars: inkor",
    "emotion": "happy",
-   "board": [
-    "الدَّرْسُ الرَّابِعُ عَشَرَ (14-dars)",
-    "Inkor gaplar"
-   ],
-   "examples": [
-    {
-     "t": "لَيْسَ هَذَا كِتَابٌ.",
-     "uz": "Bu kitob emas"
-   }
-  ],
-   "say_native": "Assalomu alaykum! O‘n to‘rtinchi darsga xush kelibsiz. O‘tgan darsda so‘roq gaplar tuzishni o‘rgandik. Bugun inkor gaplarni o‘rganamiz: ismiy gaplarni «laysa» bilan, fe’llarni «lā» bilan, mustaqbal va o‘tgan zamonlarni «lan», «lam», «mā» bilan, «hech qachon» degan «lā ... abadan» va qisqa inkor javoblarni. Dars oxirida o‘zingiz haqida sakkizta inkor gap yozasiz. Boshlaymiz.",
-   "say": "Welcome to lesson fourteen. Today we learn how to make negative sentences.",
-   "say_uz": "O‘n to‘rtinchi darsga xush kelibsiz. Bugun inkor gaplarni o‘rganamiz.",
+   "board": ["الدَّرْسُ الرَّابِعَ عَشَرَ (14-dars)", "لَسْتُ طَالِبًا. — Men talaba emasman.", "لَا أَعْمَلُ. — Men ishlamayman."],
+   "examples": [{"t": "لَسْتُ طَالِبًا.", "uz": "Men talaba emasman."}],
+   "say_native": "Assalomu alaykum! O‘n to‘rtinchi darsga xush kelibsiz. Oldingi darsda savol tuzishni o‘rgandik: “hal”, “man”, “mā”, “ayna” va boshqalar. Endi savollarga “yo‘q” deb javob berishni o‘rganamiz. Bugun inkor gaplar: “emas” va “-ma-” ning arabcha shakllari, “hech kim, hech narsa, hech qachon”, qisqa va muloyim inkor javoblar. Dars oxirida o‘zingiz haqingizda sakkizta haqiqiy inkor gap aytasiz.",
+   "say": "أَهْلًا وَسَهْلًا! هَلْ أَنْتَ طَالِبٌ؟ لَا، لَسْتُ طَالِبًا. هَلْ تَعْمَلُ؟ لَا، لَا أَعْمَلُ.",
+   "say_uz": "Xush kelibsiz! Siz talabamisiz? Yo‘q, talaba emasman. Ishlaysizmi? Yo‘q, ishlamayman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ismiy gaplarni inkor: laysa",
-   "emotion": "neutral",
-   "board": [
-    "لَيْسَ هَذَا كِتَابٌ — bu kitob emas",
-    "لَيْسَ الْبَيْتُ كَبِيرًا — uy katta emas",
-    "لَيْسَتْ هِيَ طَالِبَةً — u (ayol) talaba emas"
-   ],
-   "examples": [
-    {
-     "t": "لَيْسَ هَذَا كِتَابٌ",
-     "uz": "Bu kitob emas"
-    },
-    {
-     "t": "لَيْسَ الْبَيْتُ كَبِيرًا",
-     "uz": "Uy katta emas"
-   }
-  ],
-   "say_native": "Ismiy gaplarni inkor qilish uchun «laysa» ishlatiladi. «Laysa hādhā kitābun» — bu kitob emas. «Laysa al-baytu kabīran» — uy katta emas. «Laysat hiya ṭālibatan» — u (ayol) talaba emas. «Laysa» gap boshida turadi, ism nominativ («al-baytu»), xabar esa accusative («kabīran», oxiri «-a»). O‘zbek tilida «emas» alohida so‘z, arabchada esa «laysa» gap boshida. Endi shu qoidani mustahkamlaymiz.",
-   "say": "Laysa hadha kitab. This is not a book. Laysa al-baytu kabiran. The house is not big.",
-   "say_uz": "Laysa hadha kitob — bu kitob emas. Laysa al-baytu kabiran — uy katta emas.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Laysa bilan inkor",
-   "emotion": "encouraging",
-   "board": [
-    "1) Bu kitob emas.",
-    "2) Uy katta emas.",
-    "3) U (ayol) talaba emas.",
-    "4) Bu qalam emas."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha inkor shaklda ayting. Birinchi: bu kitob emas. Ikkinchi: uy katta emas. Uchinchi: u (ayol) talaba emas. To‘rtinchi: bu qalam emas. «Laysa» bilan boshlang, xabar «-a» bilan tugaysin.",
-   "say": "This is not a book. The house is not big. She is not a student. This is not a pen.",
-   "say_uz": "Bu kitob emas. Uy katta emas. U talaba emas. Bu qalam emas.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لَيْسَ هَذَا كِتَابٌ",
-    "لَيْسَ الْبَيْتُ كَبِيرًا",
-    "لَيْسَتْ هِيَ طَالِبَةً",
-    "لَيْسَ هَذَا قَلَمًا"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: laysa hādhā kitābun. Laysa al-baytu kabīran. Laysat hiya ṭālibatan. Laysa hādhā qalamān. Uchinchida «laysat» — ayol uchun, xabar «ṭālibatan». To‘rtinchida «qalamān» — qalam, accusative. Har birida «laysa» boshida, xabar «-a» bilan. Endi fe’lli inkorni o‘rganamiz.",
-   "say": "This is not a book. The house is not big. She is not a student. This is not a pen.",
-   "say_uz": "Bu kitob emas. Uy katta emas. U talaba emas. Bu qalam emas.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Fe’lli inkor: lā + fe’l",
-   "emotion": "neutral",
-   "board": [
-    "لَا أَعْمَلُ — men ishlamayman",
-    "لَا تَعْمَلُ — siz ishlamaysiz",
-    "لَا يَعْمَلُ — u ishlamaydi",
-    "لَا نَعْمَلُ — biz ishlamaymiz"
-   ],
-   "examples": [
-    {
-     "t": "لَا أَعْمَلُ",
-     "uz": "Men ishlamayman"
-    },
-    {
-     "t": "لَا يَعْمَلُ",
-     "uz": "U ishlamaydi"
-   }
-  ],
-   "say_native": "Fe’lli gaplarni inkor qilish uchun «lā» fe’l oldiga qo‘yiladi. «Lā aʿmalu» — men ishlamayman. «Lā taʿmalu» — siz ishlamaysiz. «Lā yaʿmalu» — u ishlamaydi. «Lā naʿmalu» — biz ishlamaymiz. «Lā» fe’lning shaklini o‘zgarmaydi, faqat oldiga qo‘yiladi. O‘zbek tilida «-mayman/-maydi» qo‘shimchasi bor, arabchada esa «lā» alohida so‘z, fe’ldan oldin. Endi shu qoidani amalda tekshiramiz.",
-   "say": "La a'malu. I do not work. La ya'malu. He does not work.",
-   "say_uz": "La a’malu — men ishlamayman. La ya’malu — u ishlamaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "La bilan inkor",
-   "emotion": "encouraging",
-   "board": [
-    "1) Men o‘qiymayman.",
-    "2) U oqiymaydi.",
-    "3) Biz bormaymiz.",
-    "4) Siz ichmaymisiz?"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha inkor shaklda ayting. Birinchi: men o‘qiymayman. Ikkinchi: u oqiymaydi. Uchinchi: biz bormaymiz. To‘rtinchi: siz ichmaymisiz? «Lā adrusu», «lā yadhhabu», «lā nadhhabu», «lā tashrabu». «Lā» bilan boshlang.",
-   "say": "I do not read. He does not go. We do not go. Do you not drink?",
-   "say_uz": "Men o‘qiymayman. U bormaydi. Biz bormaymiz. Siz ichmaymisiz?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لَا أَدْرُسُ",
-    "لَا يَذْهَبُ",
-    "لَا نَذْهَبُ",
-    "لَا تَشْرَبُ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: lā adrusu. Lā yadhhabu. Lā nadhhabu. Lā tashrabu. Har birida «lā» fe’ldan oldin. «Nadhhabu» — biz bormaymiz, «tashrabu» — siz ichmaymisiz (savolda). Endi «lan» (mustaqbal inkor) ni o‘rganamiz.",
-   "say": "I do not read. He does not go. We do not go. Do you not drink?",
-   "say_uz": "Men o‘qiymayman. U bormaydi. Biz bormaymiz. Siz ichmaymisiz?",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Mustaqbal inkor: lan",
+   "title": "Ikki xil inkor",
    "emotion": "thinking",
-   "board": [
-    "لَنْ أَذْهَبَ — men bormayman",
-    "لَنْ تَدْرسَ — siz o‘qiymaysiz",
-    "لَنْ يَكُونَ — u bo‘lmaydi"
-   ],
-   "examples": [
-    {
-     "t": "لَنْ أَذْهَبَ",
-     "uz": "Men bormayman"
-    },
-    {
-     "t": "لَنْ يَكُونَ",
-     "uz": "U bo‘lmaydi"
-   }
-  ],
-   "say_native": "Mustaqbal zamonni inkor qilish uchun «lan» ishlatiladi. «Lan adhhaba» — men bormayman. «Lan tardusa» — siz o‘qiymaysiz. «Lan yakūna» — u bo‘lmaydi. «Lan» mustaqbal fe’lini inkor qiladi, fe’l «-a» bilan tugaydi (manṣūb). «Lan adhhaba» — bormayman. Endi «lam» (o‘tgan zamon inkor) ni o‘rganamiz.",
-   "say": "Lan adhaba. I will not go. Lan yakuna. He will not be.",
-   "say_uz": "Lan adhaba — men bormayman. Lan yakuna — u bo‘lmaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Lan va lam",
-   "emotion": "encouraging",
-   "board": [
-    "1) Men bormayman.",
-    "2) U oqiymadi.",
-    "3) Siz kelmaydiz.",
-    "4) U bo‘lmadi."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha inkor shaklda ayting. Birinchi: men bormayman. Ikkinchi: u oqiymadi. Uchinchi: siz kelmaydiz. To‘rtinchi: u bo‘lmadi. Mustaqbal uchun «lan», o‘tgan uchun «lam». «Lan adhhaba», «lam qad adrata», «lan taʾti», «lam yakun».",
-   "say": "I will not go. He did not read. You will not come. He was not.",
-   "say_uz": "Men bormayman. U oqiymadi. Siz kelmaydiz. U bo‘lmadi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لَنْ أَذْهَبَ",
-    "لَمْ تَدْرسَ",
-    "لَنْ تَأْتِيَ",
-    "لَمْ يَكُنْ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: lan adhhaba. Lam qad adrata? Durust: lam adrita. Lan taʾtiya. Lam yakun. «Lam» o‘tgan zamon inkor, «lan» mustaqbal inkor. Fe’llar «-a» bilan tugaydi. Endi «mā» (o‘tgan zamon inkor, boshqa shakl) ni o‘rganamiz.",
-   "say": "I will not go. He did not read. You will not come. He was not.",
-   "say_uz": "Men bormayman. U oqiymadi. Siz kelmaydiz. U bo‘lmadi.",
+   "board": ["“emas” → لَيْسَ (fe’lsiz gap)", "“-ma-” → لَا + hozirgi zamon fe’li", "الْبَيْتُ كَبِيرٌ → الْبَيْتُ لَيْسَ كَبِيرًا", "أَعْمَلُ → لَا أَعْمَلُ"],
+   "examples": [{"t": "الْبَيْتُ لَيْسَ كَبِيرًا.", "uz": "Uy katta emas."}, {"t": "لَا أَعْمَلُ.", "uz": "Ishlamayman."}],
+   "say_native": "O‘zbek tilida inkorning ikki asosiy usuli bor: “emas” — “uy katta emas”, va fe’l ichidagi “-ma-” — “ishla-ma-yman”. Arab tilida ham xuddi shunday ikki yo‘l bor. Fe’lsiz gaplar, ya’ni “uy katta”, “men talabaman” kabi gaplar “laysa” bilan inkor qilinadi. Fe’lli gaplar esa fe’l oldiga “lā” qo‘yish bilan, buni odatlar darsida ko‘rgansiz. Asosiy savol har doim: gapda fe’l bormi?",
+   "say": "الْبَيْتُ كَبِيرٌ. الْبَيْتُ لَيْسَ كَبِيرًا. أَعْمَلُ. لَا أَعْمَلُ.",
+   "say_uz": "Uy katta. Uy katta emas. Ishlayman. Ishlamayman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "O‘tgan zamon inkor: mā",
-   "emotion": "neutral",
-   "board": [
-    "مَا ذَهَبَ — u bormadi",
-    "مَا كَتَبَ — u yozmadi",
-    "مَا رَأَيْتُ — men ko‘rmadim"
-   ],
-   "examples": [
-    {
-     "t": "مَا ذَهَبَ",
-     "uz": "U bormadi"
-    },
-    {
-     "t": "مَا رَأَيْتُ",
-     "uz": "Men ko‘rmadim"
-   }
-  ],
-   "say_native": "O‘tgan zamonni inkor qilish uchun «mā» ham ishlatiladi. «Mā dhahaba» — u bormadi. «Mā kataba» — u yozmadi. «Mā raʾaytu» — men ko‘rmadim. «Mā» o‘tgan zamon fe’lini inkor qiladi. «Lam» va «mā» ikkalaasi o‘tgan zamon inkor, lekin «lam» fe’lning oxirini «-a» qiladi, «mā» esa o‘zgarmaydi. Endi «lā ... abadan» (hech qachon) ni o‘rganamiz.",
-   "say": "Ma dhahaba. He did not go. Ma kataba. He did not write.",
-   "say_uz": "Ma dzahaba — u bormadi. Ma kataba — u yozmadi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Mā bilan inkor",
-   "emotion": "encouraging",
-   "board": [
-    "1) U bormadi.",
-    "2) Men ko‘rmadim.",
-    "3) U yozmadi.",
-    "4) Siz kelmadingiz."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha inkor shaklda ayting. Birinchi: u bormadi. Ikkinchi: men ko‘rmadim. Uchinchi: u yozmadi. To‘rtinchi: siz kelmadingiz? «Mā dhahaba», «mā raʾaytu», «mā kataba», «mā taʾti». «Mā» bilan boshlang.",
-   "say": "He did not go. I did not see. He did not write. You did not come.",
-   "say_uz": "U bormadi. Men ko‘rmadim. U yozmadi. Siz kelmadingiz.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "مَا ذَهَبَ",
-    "مَا رَأَيْتُ",
-    "مَا كَتَبَ",
-    "مَا جِئْتُ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: mā dhahaba. Mā raʾaytu. Mā kataba. Mā jiʾtu. «Jiʾtu» — keldim, «mā jiʾtu» — kelmadim. Har birida «mā» fe’ldan oldin. Endi «lā ... abadan» (hech qachon) ni o‘rganamiz.",
-   "say": "He did not go. I did not see. He did not write. I did not come.",
-   "say_uz": "U bormadi. Men ko‘rmadim. U yozmadi. Men kelmadim.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Hech qachon: lā ... abadan",
+   "title": "لَيْسَ va “-an”",
    "emotion": "thinking",
-   "board": [
-    "لَا آكُلُ أَبَدًا — men hech qachon yemayman",
-    "لَا يَذْهَبُ أَبَدًا — u hech qachon bormaydi",
-    "لَا تَنْسَى أَبَدًا — siz hech qachon unutmasangiz?"
-   ],
-   "examples": [
-    {
-     "t": "لَا آكُلُ أَبَدًا",
-     "uz": "Men hech qachon yemayman"
-    },
-    {
-     "t": "لَا يَذْهَبُ أَبَدًا",
-     "uz": "U hech qachon bormaydi"
-   }
-  ],
-   "say_native": "«Hech qachon» uchun «lā ... abadan» ishlatiladi. «Lā ākulu abadan» — men hech qachon yemayman. «Lā yadhhabu abadan» — u hech qachon bormaydi. «Lā tantasā abadan» — siz hech qachon unutmasangiz? «Abadan» — hech qachon, faqat inkor bilan. «Lā» fe’l oldiga, «abadan» oxiriga. Endi qisqa inkor javoblarni o‘rganamiz.",
-   "say": "La akulu abadan. I never eat. La yadhabu abadan. He never goes.",
-   "say_uz": "La akulu abadan — men hech qachon yemayman. La yadhabu abadan — u hech qachon bormaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Hech qachon",
-   "emotion": "encouraging",
-   "board": [
-    "1) Men hech qachon ichmayman.",
-    "2) U hech qachon kelmaydi.",
-    "3) Siz hech qachon unutmasangiz?",
-    "4) Biz hech qachon bormaymiz."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: men hech qachon ichmayman. Ikkinchi: u hech qachon kelmaydi. Uchinchi: siz hech qachon unutmasangiz? To‘rtinchi: biz hech qachon bormaymiz. «Lā ... abadan» bilan ayting.",
-   "say": "I never drink. He never comes. Do you never forget? We never go.",
-   "say_uz": "Men hech qachon ichmayman. U hech qachon kelmaydi. Siz hech qachon unutmasangiz? Biz hech qachon bormaymiz.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لَا أَشْرَبُ أَبَدًا",
-    "لَا يَأْتِي أَبَدًا",
-    "لَا تَنْسَى أَبَدًا",
-    "لَا نَذْهَبُ أَبَدًا"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: lā ashrabu abadan. Lā yaʾti abadan. Lā tantasā abadan. Lā nadhhabu abadan. «Lā» fe’ldan oldin, «abadan» oxirida. Hech qachon — inkor bilan. Endi qisqa inkor javoblarni o‘rganamiz.",
-   "say": "I never drink. He never comes. Do you never forget? We never go.",
-   "say_uz": "Men hech qachon ichmayman. U hech qachon kelmaydi. Siz hech qachon unutmasangiz? Biz hech qachon bormaymiz.",
+   "board": ["الْقَهْوَةُ سَاخِنَةٌ → الْقَهْوَةُ لَيْسَتْ سَاخِنَةً", "الْمَطْعَمُ مَفْتُوحٌ → الْمَطْعَمُ لَيْسَ مَفْتُوحًا", "لَيْسَ الْمَطْعَمُ مَفْتُوحًا (ham to‘g‘ri)"],
+   "examples": [{"t": "الْمَطْعَمُ لَيْسَ مَفْتُوحًا.", "uz": "Restoran ochiq emas."}, {"t": "الْقَهْوَةُ لَيْسَتْ سَاخِنَةً.", "uz": "Qahva issiq emas."}],
+   "say_native": "“Laysa” bilan bitta grammatik o‘zgarish bor: undan keyingi sifat yoki ot “-an” bilan tugaydi. “Al-maṭʿamu maftūḥ” — restoran ochiq. “Al-maṭʿamu laysa maftūḥan” — restoran ochiq emas. Ega ayol jinsi bo‘lsa, “laysat”: “al-qahwatu laysat sākhinatan” — qahva issiq emas. “Laysa” ni gap boshiga ham qo‘yish mumkin: “laysa l-maṭʿamu maftūḥan”. Ikkala tartib ham to‘g‘ri.",
+   "say": "الْمَطْعَمُ مَفْتُوحٌ. الْمَطْعَمُ لَيْسَ مَفْتُوحًا. الْقَهْوَةُ لَيْسَتْ سَاخِنَةً.",
+   "say_uz": "Restoran ochiq. Restoran ochiq emas. Qahva issiq emas.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Qisqa inkor javob: lā",
+   "title": "لَيْسَ shaxslar bo‘yicha",
    "emotion": "neutral",
-   "board": [
-    "هَلْ تَعْرِفُنِي؟ — لَا.",
-    "هَلْ هَذَا كِتَابٌ؟ — لَا.",
-    "أَتَأْتِي؟ — لَا، لَنْ آتِيَ."
-   ],
-   "examples": [
-    {
-     "t": "لَا",
-     "uz": "yo‘q"
-   },
-   {
-     "t": "لَا، لَنْ آتِيَ.",
-     "uz": "yo‘q, kelmayman"
-   }
-  ],
-   "say_native": "Qisqa inkor javob uchun «lā» ishlatiladi. «Hal taʿrifūnī?» — «lā.» (yo‘q). «Hal hādhā kitābun?» — «lā.» (yo‘q). «ATAʾti?» — «lā, lan atī» (yo‘q, kelmayman). «Lā» bir nota bilan qisqa javob. O‘zbek tilida «yo‘q» deysak, arabchada «lā» deysak yetarli. Endi «ghayr» (boshqa/emas) ni o‘rganamiz.",
-   "say": "La. No. La, lan ati. No, I will not come.",
-   "say_uz": "La — yo‘q. La, lan ati — yo‘q, kelmayman.",
+   "board": ["لَسْتُ — men … emasman · لَسْنَا — biz … emasmiz", "لَسْتَ / لَسْتِ — siz … emassiz (m / f)", "لَيْسَ / لَيْسَتْ — u … emas (m / f)"],
+   "examples": [{"t": "لَسْتُ مُدَرِّسًا.", "uz": "Men o‘qituvchi emasman."}, {"t": "هِيَ لَيْسَتْ مُتْعَبَةً.", "uz": "U (ayol) charchagan emas."}],
+   "say_native": "“Laysa” fe’lga o‘xshab shaxs bo‘yicha o‘zgaradi. “Lastu” — men … emasman: “lastu mudarrisan” — men o‘qituvchi emasman. “Lasta” — siz emassiz, erkakka; “lasti” — ayolga. “Laysa” — u emas, erkak; “laysat” — ayol. “Lasnā” — biz emasmiz. O‘zbek tilidagi “emasman, emassiz, emas, emasmiz” bilan solishtiring: ikkalasida ham shaxs so‘z oxirida ko‘rinadi. Shuning uchun “anā” ni qo‘shish shart emas.",
+   "say": "لَسْتُ مُدَرِّسًا. أَنْتَ لَسْتَ طَالِبًا. أَنْتِ لَسْتِ طَالِبَةً. هُوَ لَيْسَ هُنَا. هِيَ لَيْسَتْ مُتْعَبَةً. لَسْنَا مِنْ مِصْرَ.",
+   "say_uz": "Men o‘qituvchi emasman. Siz talaba emassiz. Siz (ayol) talaba emassiz. U bu yerda emas. U (ayol) charchagan emas. Biz Misrdan emasmiz.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qisqa inkor",
+   "title": "“Emas” deng",
    "emotion": "encouraging",
-   "board": [
-    "1) Siz talaba misiz? — لَا.",
-    "2) Bu kitobmi? — لَا.",
-    "3) Kelasizmi? — لَا.",
-    "4) U o‘qimoqchi? — لَا."
-   ],
+   "board": ["1) Men shifokor emasman. (طَبِيبٌ)", "2) U (ayol) charchagan emas.", "3) Biz band emasmiz. (مَشْغُولٌ → مَشْغُولُونَ)", "4) Bu choy issiq emas."],
    "examples": [],
-   "say_native": "Mashq. To‘rtta savolga «lā» bilan qisqa javob bering. Birinchi: siz talaba misiz? Ikkinchi: bu kitobmi? Uchinchi: kelasizmi? To‘rtinchi: u o‘qimoqchi? Har birida «lā».",
-   "say": "Are you a student? No. Is this a book? No. Are you coming? No. Does he want to read? No.",
-   "say_uz": "Siz talaba misiz? Yo‘q. Bu kitobmi? Yo‘q. Kelasizmi? Yo‘q. U o‘qimoqchi? Yo‘q.",
-   "practice_seconds": 12
+   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: men shifokor emasman, shifokor — “ṭabīb”. Ikkinchi: u ayol charchagan emas. Uchinchi: biz band emasmiz, “band” ko‘plikda — “mashghūlūn”, “laysa” dan keyin “mashghūlīn” bo‘ladi. To‘rtinchi: bu choy issiq emas. “Laysa” ning to‘g‘ri shaklini tanlang va keyingi so‘zni “-an” bilan tugating.",
+   "say": "لَسْتُ... لَيْسَتْ... لَسْنَا... لَيْسَ...",
+   "say_uz": "Emasman... emas (ayol)... emasmiz... emas...",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "هَلْ أَنْتَ طَالِبٌ؟ — لَا",
-    "هَلْ هَذَا كِتَابٌ؟ — لَا",
-    "أَتَأْتِي؟ — لَا",
-    "أَيُرِيدُ أَنْ يَقْرَأَ؟ — لَا"
-   ],
+   "board": ["1) لَسْتُ طَبِيبًا.", "2) هِيَ لَيْسَتْ مُتْعَبَةً.", "3) لَسْنَا مَشْغُولِينَ.", "4) هَذَا الشَّايُ لَيْسَ سَاخِنًا."],
    "examples": [],
-   "say_native": "Javoblar: hal anta talibun? Lā. Hal hādhā kitābun? Lā. ATAʾti? Lā. Ayurīdu an yaqraʾa? Lā. Har bir javob «lā» bilan. Endi «ghayr» (boshqa/emas) ni o‘rganamiz.",
-   "say": "Are you a student? No. Is this a book? No. Are you coming? Does he want to read? No.",
-   "say_uz": "Siz talaba misiz? Yo‘q. Bu kitobmi? Yo‘q. Kelasizmi? Yo‘q. U o‘qimoqchi? Yo‘q.",
+   "say_native": "Javoblar: “lastu ṭabīban”. “Hiya laysat mutʿabatan”. “Lasnā mashghūlīn” — ko‘plikdagi “-ūna” “laysa” dan keyin “-īna” ga aylanadi. Bu qismni hozir yodlashingiz shart emas, birlik shakllari muhimroq. “Hādhā sh-shāyu laysa sākhinan” — oldingi darsdagidek, “hādhā sh-shāy” — bu choy. Har bir javobda ikkinchi so‘z “-an” yoki “-īna” bilan tugadi.",
+   "say": "لَسْتُ طَبِيبًا. هِيَ لَيْسَتْ مُتْعَبَةً. لَسْنَا مَشْغُولِينَ. هَذَا الشَّايُ لَيْسَ سَاخِنًا.",
+   "say_uz": "Men shifokor emasman. U charchagan emas. Biz band emasmiz. Bu choy issiq emas.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Boshqa / emas: ghayr",
+   "title": "لَيْسَ joy va kelib chiqish bilan",
    "emotion": "neutral",
-   "board": [
-    "هُوَ غَيْرُ طَالِبٍ — u taloba emas",
-    "هَذَا غَيْرُ صَحِيحٍ — bu to‘g‘ri emas",
-    "غَيْرُ بَعِيدٍ — qanqar emas"
-   ],
-   "examples": [
-    {
-     "t": "هُوَ غَيْرُ طَالِبٍ",
-     "uz": "U taloba emas"
-    },
-    {
-     "t": "هَذَا غَيْرُ صَحِيحٍ",
-     "uz": "Bu to‘g‘ri emas"
-   }
-  ],
-   "say_native": "«Ghayr» — boshqa/emas. «Huwa ghayra ṭālibin» — u taloba emas. «Hādhā ghayra ṣaḥīḥin» — bu to‘g‘ri emas. «Ghayra baʿīdin» — qanqar emas. «Ghayr» ismning keyin, accusative («-in»). Endi «lā shayʾ» (hech narsa) va «lā aḥad» (hech kim) ni o‘rganamiz.",
-   "say": "Huwa ghayra talib. He is not a student. Hatha ghayra sahih. This is not correct.",
-   "say_uz": "Huwa ghayra talib — u taloba emas. Hatha ghayra sahih — bu to‘g‘ri emas.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Ghayr va hech",
-   "emotion": "encouraging",
-   "board": [
-    "1) U taloba emas.",
-    "2) Bu to‘g‘ri emas.",
-    "3) Hech narsa yo‘q.",
-    "4) Hech kim kelmadi."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: u taloba emas. Ikkinchi: bu to‘g‘ri emas. Uchinchi: hech narsa yo‘q. To‘rtinchi: hech kim kelmadi. «Huwa ghayra ṭālibin», «hādhā ghayra ṣaḥīḥin», «lā shayʾ», «lā aḥadan jaʾa».",
-   "say": "He is not a student. This is not correct. There is nothing. Nobody came.",
-   "say_uz": "U taloba emas. Bu to‘g‘ri emas. Hech narsa yo‘q. Hech kim kelmadi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "هُوَ غَيْرُ طَالِبٍ",
-    "هَذَا غَيْرُ صَحِيحٍ",
-    "لَا شَيْءَ",
-    "لَا أَحَدَ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: huwa ghayra ṭālibin. Hādhā ghayra ṣaḥīḥin. Lā shayʾ. Lā aḥad. «Lā shayʾ» — hech narsa, «lā aḥad» — hech kim. Endi xatolarga e‘tibor beramiz.",
-   "say": "He is not a student. This is not correct. There is nothing. Nobody.",
-   "say_uz": "U taloba emas. Bu to‘g‘ri emas. Hech narsa. Hech kim.",
+   "board": ["أَحْمَدُ لَيْسَ فِي الْبَيْتِ. — Ahmad uyda emas.", "لَسْتُ مِنْ مِصْرَ. — Men Misrdan emasman.", "“fī, min” dan keyin “-an” yo‘q"],
+   "examples": [{"t": "أَحْمَدُ لَيْسَ فِي الْبَيْتِ.", "uz": "Ahmad uyda emas."}, {"t": "لَسْتُ مِنْ مِصْرَ، أَنَا مِنْ أُوزْبَكِسْتَانَ.", "uz": "Men Misrdan emasman, men O‘zbekistondanman."}],
+   "say_native": "Agar “laysa” dan keyin joy yoki kelib chiqish kelsa, ya’ni “fī” yoki “min” bilan, “-an” qo‘shilmaydi, chunki bu so‘zlardan keyin ot baribir “-i” bilan tugaydi. “Aḥmadu laysa fil-bayt” — Ahmad uyda emas. “Lastu min Miṣr” — men Misrdan emasman. Bu telefon suhbatlarida juda kerak: “hal Aḥmadu hunā?” — “lā, huwa laysa hunā” — yo‘q, u bu yerda emas. “Hunā” — bu yerda, u ham o‘zgarmaydi.",
+   "say": "هَلْ أَحْمَدُ هُنَا؟ لَا، هُوَ لَيْسَ هُنَا. هُوَ لَيْسَ فِي الْبَيْتِ. لَسْتُ مِنْ مِصْرَ.",
+   "say_uz": "Ahmad shu yerdami? Yo‘q, u bu yerda emas. U uyda emas. Men Misrdan emasman.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Laysa va lā farqi",
+   "title": "لَيْسَ xatolari",
    "emotion": "stern",
-   "board": [
-    "✗ لَا هَذَا كِتَابٌ",
-    "✓ لَيْسَ هَذَا كِتَابٌ",
-    "✗ لَيْسَ أَعْمَلُ",
-    "✓ لَا أَعْمَلُ"
-   ],
+   "board": ["✗ لَا أَنَا طَالِبٌ", "✓ لَسْتُ طَالِبًا", "✗ لَسْتُ طَالِبٌ", "✓ لَسْتُ طَالِبًا"],
    "examples": [],
-   "say_native": "Ikki xato. Birinchisi: «lā hādhā kitābun» noto‘g‘ri, «laysa hādhā kitābun» to‘g‘ri. Ismiy gap uchun «laysa». Ikkinchisi: «laysa aʿmalu» noto‘g‘ri, «lā aʿmalu» to‘g‘ri. Fe’lli gap uchun «lā». O‘zbek tilida «emas» hammada, arabchada esa «laysa» (ismi) va «lā» (fe’l) farqlanadi. Endi talaffuzni o‘rganamiz.",
-   "say": "Laysa hadha kitab, not la hadha kitab. La a'malu, not laysa a'malu.",
-   "say_uz": "Laysa hadha kitob, la hadha kitob emas. La a’malu, laysa a’malu emas.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Laysa va lā farqi",
-   "emotion": "encouraging",
-   "board": [
-    "1) Bu kitob emas (ismi).",
-    "2) Men ishlamayman (fe’l).",
-    "3) U taloba emas (ismi).",
-    "4) U bormaydi (fe’l)."
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: bu kitob emas (ismi). Ikkinchi: men ishlamayman (fe’l). Uchinchi: u taloba emas (ismi). To‘rtinchi: u bormaydi (fe’l). «Laysa» va «lā» ni to‘g‘ri tanlang.",
-   "say": "This is not a book. I do not work. He is not a student. He does not go.",
-   "say_uz": "Bu kitob emas. Men ishlamayman. U taloba emas. U bormaydi.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لَيْسَ هَذَا كِتَابٌ",
-    "لَا أَعْمَلُ",
-    "لَيْسَتْ هِيَ طَالِبَةً",
-    "لَا يَعْمَلُ"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: laysa hādhā kitābun. Lā aʿmalu. Laysat hiya ṭālibatan. Lā yaʿmalu. Ismiy uchun «laysa», fe’lli uchun «lā». Endi dialog ko‘ramiz.",
-   "say": "This is not a book. I do not work. She is not a student. He does not go.",
-   "say_uz": "Bu kitob emas. Men ishlamayman. U taloba emas. U bormaydi.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Dialog: inkor",
-   "emotion": "happy",
-   "board": [
-    "أَحْمَد: هَلْ هَذَا كِتَابُكَ؟",
-    "سَامِي: لَا، لَيْسَ هَذَا كِتَابِي.",
-    "أَحْمَد: هَلْ تَقْرَأُ؟",
-    "سَامِي: لَا، لَا أَقْرَأُ أَبَدًا."
-   ],
-   "examples": [],
-   "say_native": "Dialog. Ahmad «hal hādhā kitābuka?» — bu sizning kitobingizmi? Sami «lā, laysa hādhā kitābī» — yo‘q, bu mening kitobim emas. Ahmad «hal taqraʾu?» — siz oqiysizmi? Sami «lā, lā aqraʾu abadan» — yo‘q, men hech qachon oqiymayman. «Abadan» — hech qachon. Endi o‘zingiz 8 ta inkor gap yozasiz.",
-   "say": "Is this your book? No, this is not my book. Do you read? No, I never read.",
-   "say_uz": "Bu sizning kitobingizmi? Yo‘q, bu mening kitobim emas. Siz oqiysizmi? Yo‘q, men hech qachon oqiymayman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Dialog bo‘yicha savollar",
-   "emotion": "encouraging",
-   "board": [
-    "1) Bu kitob sizningmi?",
-    "2) U kitob emasmi?",
-    "3) Siz oqiysizmi?",
-    "4) U hech qachon oqiymaydi?"
-   ],
-   "examples": [],
-   "say_native": "To‘rtta savol. Birinchi: bu kitob sizningmi? Ikkinchi: u kitob emasmi? Uchinchi: siz oqiysizmi? To‘rtinchi: u hech qachon oqiymaydi? Dialogdan javob bering.",
-   "say": "Is this your book? Is it not a book? Do you read? Does he never read?",
-   "say_uz": "Bu sizning kitobingizmi? U kitob emasmi? Siz oqiysizmi? U hech qachon oqiymaydi?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "1) لَا، لَيْسَ هَذَا كِتَابِي.",
-    "2) لَا، هَذَا كِتَابٌ.",
-    "3) لَا، لَا أَقْرَأُ.",
-    "4) لَا، لَا يَقْرَأُ أَبَدًا."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: lā, laysa hādhā kitābī. Lā, hādhā kitābun. Lā, lā aqraʾu. Lā, lā yaqraʾu abadan. «Kitābī» — mening kitobim. «Yaqraʾu» — u oqiydi. Endi o‘zingizning 8 ta inkor gaplaringizni yozing.",
-   "say": "No, this is not my book. No, this is a book. No, I do not read. No, he never reads.",
-   "say_uz": "Yo‘q, bu mening kitobim emas. Yo‘q, bu kitob. Men oqiymayman. U hech qachon oqiymaydi.",
+   "say_native": "Ikki tipik xato. Birinchisi: fe’lsiz gapni “lā” bilan inkor qilish: “lā anā ṭālib”. Arab qulog‘iga bu juda g‘alati eshitiladi. Fe’l yo‘q bo‘lsa, “laysa” kerak: “lastu ṭāliban”. Ikkinchisi: “laysa” dan keyin “-an” ni unutish: “lastu ṭālibun”. So‘zlashuvda oxirgi unli ko‘pincha tushib qolgani uchun bu sezilmasligi mumkin, lekin yozuvda va aniq nutqda “ṭāliban” bo‘lishi shart.",
+   "say": "لَسْتُ طَالِبًا. لَسْتُ مُدَرِّسًا.",
+   "say_uz": "Men talaba emasman. Men o‘qituvchi emasman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Talaffuz: inkor belgilari",
-   "emotion": "thinking",
-   "board": [
-    "لَيْسَ — laysa",
-    "لَا — lā",
-    "لَنْ — lan",
-    "أَبَدًا — a-ba-dan"
-   ],
-   "examples": [
-    {
-     "t": "لَيْسَ",
-     "uz": "emas"
-    },
-    {
-     "t": "أَبَدًا",
-     "uz": "hech qachon"
-   }
-  ],
-   "say_native": "Inkor belgilari talaffuzi. «Laysa» — lay-sa, «lā» — la, «lan» — lan, «abadan» — a-ba-dan. «Laysa» da «s» va «a» aniq. «Abadan» da «d» va «n» aniq. Har birini ikki marta baland ovozda takrorlang. Endi dars yakunlanadi.",
-   "say": "Laysa, la, lan, abadan.",
-   "say_uz": "Laysa, la, lan, abadan.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Baland ovozda takrorlang",
-   "emotion": "encouraging",
-   "board": [
-    "1) لَيْسَ هَذَا كِتَابٌ",
-    "2) لَا أَعْمَلُ",
-    "3) لَنْ أَذْهَبَ",
-    "4) لَا آكُلُ أَبَدًا"
-   ],
-   "examples": [],
-   "say_native": "Mashq. To‘rtta gapni baland ovozda takrorlang. Birinchi: laysa hādhā kitābun. Ikkinchi: lā aʿmalu. Uchinchi: lan adhhaba. To‘rtinchi: lā ākulu abadan. Har birini ikki marta ayting.",
-   "say": "This is not a book. I do not work. I will not go. I never eat.",
-   "say_uz": "Bu kitob emas. Men ishlamayman. Men bormayman. Men hech qachon yemayman.",
-   "practice_seconds": 12
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "لَيْسَ هَذَا كِتَابٌ",
-    "لَا أَعْمَلُ",
-    "لَنْ أَذْهَبَ",
-    "لَا آكُلُ أَبَدًا"
-   ],
-   "examples": [],
-   "say_native": "Javoblar to‘g‘ri. Laysa hādhā kitābun. Lā aʿmalu. Lan adhhaba. Lā ākulu abadan. Endi o‘zingizning 8 ta inkor gaplaringizni yozing.",
-   "say": "This is not a book. I do not work. I will not go. I never eat.",
-   "say_uz": "Bu kitob emas. Men ishlamayman. Men bormayman. Men hech qachon yemayman.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "8 ta inkor gap: o‘zingiz haqingizda",
-   "emotion": "encouraging",
-   "board": [
-    "8 ta gap",
-    "Laysa, lā, lan, lam, mā",
-    "Abadan"
-   ],
-   "examples": [],
-   "say_native": "Endi sizning navbatingiz. O‘zingiz haqida sakkizta inkor arabcha gap yozing. Har birida «laysa», «lā», «lan», «lam», «mā» yoki «abadan» bo‘lsin. Ism, kasb, joy, vaqt bo‘lsa ham bo‘ladi. Sekin va aniq gapiring.",
-   "say": "Write 8 negative sentences about yourself.",
-   "say_uz": "O‘zingiz haqida sakkizta inkor gap yozing.",
-   "practice_seconds": 24
-  },
-  {
-   "kind": "explain",
-   "title": "O‘z-o‘zini tekshirish",
-   "emotion": "proud",
-   "board": [
-    "Laysa / lā to‘g‘rimi?",
-    "Lan / lam / mā to‘g‘rimi?",
-    "Abadan inkor bilanmi?",
-    "8 ta gap bormi?"
-   ],
-   "examples": [],
-   "say_native": "Tekshiring. Birinchi: ismiy gap uchun «laysa», fe’lli uchun «lā» to‘g‘rimi? Ikkinchi: mustaqbal uchun «lan», o‘tgan uchun «lam» yoki «mā» to‘g‘rimi? Uchinchi: «abadan» inkor bilanmi? To‘rtinchi: sakkizta gap yozdingizmi? Har biriga «ha» desangiz, vazifa bajarildi.",
-   "say": "Check laysa/la, lan/lam/ma, abadan and 8 sentences.",
-   "say_uz": "Laysa va lā, lan va lam/mā, abadan va 8 ta gapni tekshiring.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Hech narsa va hech kim",
+   "title": "لَا + fe’l: takrorlash",
    "emotion": "neutral",
-   "board": [
-    "لَا شَيْءَ عِنْدِي — hech narsa yo‘q",
-    "لَا أَحَدَ هُنَاكَ — hech kim u erda yo‘q",
-    "لَا أَعْرِفُ أَحَدًا — hech kimni bilmayman"
-   ],
-   "examples": [
-    {
-     "t": "لَا شَيْءَ عِنْدِي",
-     "uz": "Hech narsa yo‘q"
-    },
-    {
-     "t": "لَا أَحَدَ هُنَاكَ",
-     "uz": "Hech kim u erda yo‘q"
-   }
-  ],
-   "say_native": "«Lā shayʾ» — hech narsa, «lā aḥad» — hech kim. «Lā shayʾun ʿindī» — hech narsa yo‘q (meningda). «Lā aḥadan hunāka» — hech kim u erda yo‘q. «Lā aʿrifa aḥadan» — hech kimni bilmayman. «Shayʾ» — narsa, «aḥad» — kishi. Bu ikki so‘z ham inkor bilan («lā» bilan) ishlatiladi. O‘zbek tilida «hech narsa», «hech kim» deymiz, arabchada «lā shayʾ», «lā aḥad». Endi shu so‘zlarni amalda tekshiramiz.",
-   "say": "La shay. Nothing. La ahad. Nobody.",
-   "say_uz": "La shay — hech narsa. La ahad — hech kim.",
+   "board": ["لَا أَعْرِفُ — bilmayman", "لَا تَفْهَمُ — tushunmaysiz / u (ayol) tushunmaydi", "لَا يُدَخِّنُ — u chekmaydi", "لَا نَأْكُلُ اللَّحْمَ — go‘sht yemaymiz"],
+   "examples": [{"t": "لَا أَعْرِفُ.", "uz": "Bilmayman."}, {"t": "هُوَ لَا يُدَخِّنُ.", "uz": "U chekmaydi."}],
+   "say_native": "Fe’lli gaplar. Odatlar darsida ko‘rganimizdek, hozirgi zamon fe’li oldiga “lā” qo‘yiladi va fe’l o‘zgarmaydi. “Aʿrifu” — bilaman, “lā aʿrifu” — bilmayman. Bu eng foydali iboralardan biri. “Lā tafhamu” — tushunmaysiz. “Lā yudakhkhinu” — u chekmaydi. “Lā naʾkulu l-laḥm” — go‘sht yemaymiz. O‘zbek tilida “-ma-” fe’lning ichida, arab tilida “lā” fe’ldan oldin alohida so‘z sifatida turadi.",
+   "say": "لَا أَعْرِفُ. لَا تَفْهَمُ. هُوَ لَا يُدَخِّنُ. لَا نَأْكُلُ اللَّحْمَ.",
+   "say_uz": "Bilmayman. Tushunmaysiz. U chekmaydi. Biz go‘sht yemaymiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Savolga fe’l bilan javob",
+   "emotion": "thinking",
+   "board": ["هَلْ تَتَكَلَّمُ الْفَرَنْسِيَّةَ؟ — لَا، لَا أَتَكَلَّمُ الْفَرَنْسِيَّةَ.", "هَلْ تُدَخِّنُ؟ — لَا، لَا أُدَخِّنُ.", "لَا، ... — birinchi “lā” = yo‘q; ikkinchisi = -ma-"],
+   "examples": [{"t": "لَا، لَا أُدَخِّنُ.", "uz": "Yo‘q, chekmayman."}, {"t": "لَا، لَا أَتَكَلَّمُ الْفَرَنْسِيَّةَ.", "uz": "Yo‘q, fransuzcha gapirmayman."}],
+   "say_native": "Qiziq holat: “lā” ikki vazifada keladi. Savolga javob boshida “lā” — “yo‘q” degani. Fe’l oldida esa “-ma-”. Shuning uchun to‘liq javobda ikkita “lā” ketma-ket kelishi mumkin: “hal tudakhkhin? — lā, lā udakhkhin” — chekasizmi? — yo‘q, chekmayman. O‘zbekchada ham “yo‘q” va “-ma-” birga keladi. Savoldagi “ta” javobda “a” ga aylanishini unutmang: tudakhkhinu — udakhkhinu.",
+   "say": "هَلْ تَتَكَلَّمُ الْفَرَنْسِيَّةَ؟ لَا، لَا أَتَكَلَّمُ الْفَرَنْسِيَّةَ. هَلْ تُدَخِّنُ؟ لَا، لَا أُدَخِّنُ.",
+   "say_uz": "Fransuzcha gapirasizmi? Yo‘q, fransuzcha gapirmayman. Chekasizmi? Yo‘q, chekmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "لَيْسَ fe’l bilan",
+   "emotion": "stern",
+   "board": ["✗ لَيْسَ أَعْمَلُ", "✓ لَا أَعْمَلُ", "✗ أَعْمَلُ لَا", "✓ لَا أَعْمَلُ"],
+   "examples": [],
+   "say_native": "Teskari xato: fe’lli gapni “laysa” bilan inkor qilish: “laysa aʿmalu”. Adabiy tilda bunday ishlatilmaydi. Hozirgi zamon fe’li bo‘lsa — faqat “lā”. Ikkinchi xato o‘zbekcha tartibdan keladi: “-ma-” fe’lning oxiriga yaqin turgani uchun ba’zilar “lā” ni fe’ldan keyin qo‘yadi. Arab tilida “lā” doim fe’ldan oldin turadi. Eslatma: gapda fe’l bormi — “lā”, yo‘qmi — “laysa”.",
+   "say": "لَا أَعْمَلُ. لَا أَعْرِفُ. لَسْتُ مَشْغُولًا.",
+   "say_uz": "Ishlamayman. Bilmayman. Band emasman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Hech narsa va hech kim",
+   "title": "لَيْسَ yoki لَا?",
    "emotion": "encouraging",
-   "board": [
-    "1) Hech narsa yo‘q.",
-    "2) Hech kim kelmadi.",
-    "3) Men hech kimni bilmayman.",
-    "4) U hech narsa qilmadi."
-   ],
+   "board": ["1) Men tushunmayman.", "2) Men band emasman.", "3) U (erkak) qahva ichmaydi.", "4) Do‘kon ochiq emas. · 5) U (ayol) bu yerda emas."],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: hech narsa yo‘q. Ikkinchi: hech kim kelmadi. Uchinchi: men hech kimni bilmayman. To‘rtinchi: u hech narsa qilmadi. «Lā shayʾ», «lā aḥadan jaʾa», «lā aʿrifa aḥadan», «lā qāla shayʾ».",
-   "say": "There is nothing. Nobody came. I know nobody. He did nothing.",
-   "say_uz": "Hech narsa yo‘q. Hech kim kelmadi. Men hech kimni bilmayman. U hech narsa qilmadi.",
+   "say_native": "Mashq. Beshta gapni arabcha inkor shaklda ayting. Har birida avval o‘ylang: fe’l bormi? Birinchi: men tushunmayman. Ikkinchi: men band emasman. Uchinchi: u erkak qahva ichmaydi. To‘rtinchi: do‘kon ochiq emas. Beshinchi: u ayol bu yerda emas.",
+   "say": "لَا... أَمْ لَيْسَ؟",
+   "say_uz": "“Lā” mi yoki “laysa” mi?",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) لَا أَفْهَمُ.  2) لَسْتُ مَشْغُولًا.", "3) هُوَ لَا يَشْرَبُ الْقَهْوَةَ.", "4) الدُّكَّانُ لَيْسَ مَفْتُوحًا.", "5) هِيَ لَيْسَتْ هُنَا."],
+   "examples": [],
+   "say_native": "Javoblar: “lā afham” — fe’l bor, demak “lā”. “Lastu mashghūlan” — fe’l yo‘q. “Huwa lā yashrabu l-qahwa” — fe’l bor. “Ad-dukkānu laysa maftūḥan” — fe’l yo‘q, sifat “-an” bilan. “Hiya laysat hunā” — fe’l yo‘q, ayol uchun “laysat”, “hunā” o‘zgarmaydi. Agar ikkinchi gapni ayol aytsa: “lastu mashghūlatan”.",
+   "say": "لَا أَفْهَمُ. لَسْتُ مَشْغُولًا. هُوَ لَا يَشْرَبُ الْقَهْوَةَ. الدُّكَّانُ لَيْسَ مَفْتُوحًا. هِيَ لَيْسَتْ هُنَا.",
+   "say_uz": "Tushunmayman. Band emasman. U qahva ichmaydi. Do‘kon ochiq emas. U bu yerda emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "“Yo‘q” — mavjud emas",
+   "emotion": "neutral",
+   "board": ["لَيْسَ عِنْدِي سَيَّارَةٌ. — Mening mashinam yo‘q.", "لَيْسَ فِي الْبَيْتِ مِصْعَدٌ. — Uyda lift yo‘q.", "لَا يُوجَدُ بَنْكٌ هُنَا. — Bu yerda bank yo‘q.", "لَا مُشْكِلَةَ. — Muammo yo‘q."],
+   "examples": [{"t": "لَيْسَ عِنْدِي وَقْتٌ.", "uz": "Vaqtim yo‘q."}, {"t": "لَا يُوجَدُ بَنْكٌ هُنَا.", "uz": "Bu yerda bank yo‘q."}],
+   "say_native": "O‘zbekcha “yo‘q” — mavjud emas ma’nosida. Uy darsidan bilasiz: “laysa ʿindī sayyāra” — mening mashinam yo‘q, “laysa fil-bayti miṣʿad” — uyda lift yo‘q. E’tibor bering: bu yerda ot “-un” bilan qoladi, “-an” emas, chunki u gapning egasi. Yana bir shakl: “lā yūjadu …” — … yo‘q, mavjud emas: “lā yūjadu bankun hunā”. Va tayyor ibora: “lā mushkila” — muammo yo‘q.",
+   "say": "لَيْسَ عِنْدِي وَقْتٌ. لَيْسَ فِي الْبَيْتِ مِصْعَدٌ. لَا يُوجَدُ بَنْكٌ هُنَا. لَا مُشْكِلَةَ.",
+   "say_uz": "Vaqtim yo‘q. Uyda lift yo‘q. Bu yerda bank yo‘q. Muammo yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yo‘q deng",
+   "emotion": "encouraging",
+   "board": ["1) Mening akam yo‘q.", "2) Bugun vaqtim yo‘q.", "3) Shaharda metro yo‘q. (مِتْرُو)", "4) Muammo yo‘q!"],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: mening akam yo‘q, aka — “akh”. Ikkinchi: bugun vaqtim yo‘q, bugun — “al-yawm”. Uchinchi: shaharda metro yo‘q. To‘rtinchi: muammo yo‘q! Egalik uchun “ʿindī”, joy uchun “fī” yoki “lā yūjadu” ni tanlang.",
+   "say": "لَيْسَ عِنْدِي... لَا يُوجَدُ...",
+   "say_uz": "Menda yo‘q... mavjud emas...",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "لَا شَيْءَ",
-    "لَا أَحَدَ جَاءَ",
-    "لَا أَعْرِفُ أَحَدًا",
-    "لَا فَعَلَ شَيْئًا"
-   ],
+   "board": ["1) لَيْسَ عِنْدِي أَخٌ.", "2) لَيْسَ عِنْدِي وَقْتٌ الْيَوْمَ.", "3) لَيْسَ فِي الْمَدِينَةِ مِتْرُو. / لَا يُوجَدُ مِتْرُو فِي الْمَدِينَةِ.", "4) لَا مُشْكِلَةَ!"],
    "examples": [],
-   "say_native": "Javoblar: lā shayʾ. Lā aḥadan jaʾa. Lā aʿrifa aḥadan. Lā faʿala shayʾan. «Lā aḥadan jaʾa» — hech kim kelmadi. «Lā aʿrifa aḥadan» — hech kimni bilmayman. «Lā faʿala shayʾan» — hech narsa qilmadi. Endi dialog ko‘ramiz.",
-   "say": "There is nothing. Nobody came. I know nobody. He did nothing.",
-   "say_uz": "Hech narsa yo‘q. Hech kim kelmadi. Men hech kimni bilmayman. U hech narsa qilmadi.",
+   "say_native": "Javoblar: “laysa ʿindī akh”. “Laysa ʿindī waqtun l-yawm”. “Laysa fil-madīnati mitrū” yoki “lā yūjadu mitrū fil-madīna” — ikkalasi ham to‘g‘ri. “Lā mushkila!” Bu iborani arab dunyosida har kuni eshitasiz, xuddi bizdagi “hech gap emas” kabi. Birinchi gapda “akh” ning “-an” olmaganiga e’tibor bering: u “bor/yo‘q” gapining egasi.",
+   "say": "لَيْسَ عِنْدِي أَخٌ. لَيْسَ عِنْدِي وَقْتٌ الْيَوْمَ. لَا يُوجَدُ مِتْرُو فِي الْمَدِينَةِ. لَا مُشْكِلَةَ!",
+   "say_uz": "Mening akam yo‘q. Bugun vaqtim yo‘q. Shaharda metro yo‘q. Muammo yo‘q!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hech kim, hech narsa, hech qachon",
+   "emotion": "thinking",
+   "board": ["لَا أَعْرِفُ أَحَدًا. — Hech kimni tanimayman.", "لَا أَفْهَمُ شَيْئًا. — Hech narsa tushunmayapman.", "لَا أَشْرَبُ الْقَهْوَةَ أَبَدًا. — Hech qachon qahva ichmayman."],
+   "examples": [{"t": "لَا أَعْرِفُ أَحَدًا هُنَا.", "uz": "Bu yerda hech kimni tanimayman."}, {"t": "لَا أَفْهَمُ شَيْئًا.", "uz": "Hech narsa tushunmayapman."}],
+   "say_native": "Endi qo‘sh inkor. Ingliz tilida “nobody” bilan fe’l inkor bo‘lmaydi. Arab tilida esa, xuddi o‘zbek tilidagidek, fe’l inkor bo‘ladi va yoniga “hech” so‘zi qo‘shiladi. “Lā aʿrifu aḥadan” — hech kimni tanimayman, so‘zma-so‘z “biror kishini tanimayman”. “Lā afhamu shayʾan” — hech narsa tushunmayapman. “Lā … abadan” — hech qachon, buni odatlar darsidan bilasiz. O‘zbek tilida fikrlasangiz, to‘g‘ri chiqadi!",
+   "say": "لَا أَعْرِفُ أَحَدًا هُنَا. لَا أَفْهَمُ شَيْئًا. لَا أَشْرَبُ الْقَهْوَةَ أَبَدًا.",
+   "say_uz": "Bu yerda hech kimni tanimayman. Hech narsa tushunmayapman. Hech qachon qahva ichmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Inglizcha mantiq xatosi",
+   "emotion": "stern",
+   "board": ["✗ أَعْرِفُ لَا أَحَدَ", "✓ لَا أَعْرِفُ أَحَدًا", "✗ أَفْهَمُ شَيْئًا (hech narsa ma’nosida)", "✓ لَا أَفْهَمُ شَيْئًا"],
+   "examples": [],
+   "say_native": "Ingliz yoki rus tilini o‘rgangan bo‘lsangiz, ehtiyot bo‘ling. Inglizcha “I know nobody” ni so‘zma-so‘z ko‘chirib, “aʿrifu lā aḥad” deyish xato. Fe’l albatta inkor bo‘lishi kerak: “lā aʿrifu aḥadan”. Yana bir xato: “lā” ni tushirib, faqat “shayʾan” deyish. “Afhamu shayʾan” — “bir narsani tushunaman” degan ijobiy gap bo‘lib qoladi. Qoida: “lā” fe’l oldida, “aḥadan, shayʾan, abadan” keyinda.",
+   "say": "لَا أَعْرِفُ أَحَدًا. لَا أَفْهَمُ شَيْئًا.",
+   "say_uz": "Hech kimni tanimayman. Hech narsa tushunmayapman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qo‘sh inkor",
+   "emotion": "encouraging",
+   "board": ["1) Hech narsa yemayman.", "2) U (erkak) hech kimni tanimaydi.", "3) Biz hech qachon kech qolmaymiz. (نَتَأَخَّرُ)", "4) Hech narsa istamayman. (أُرِيدُ)"],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapni arabcha ayting. Birinchi: hech narsa yemayman. Ikkinchi: u erkak hech kimni tanimaydi. Uchinchi: biz hech qachon kech qolmaymiz, “nataʾakhkhar” — kech qolamiz. To‘rtinchi: hech narsa istamayman. Har birida fe’l oldida “lā” va keyin “hech” so‘zi bo‘lsin.",
+   "say": "أَحَدًا... شَيْئًا... أَبَدًا...",
+   "say_uz": "Hech kim... hech narsa... hech qachon...",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) لَا آكُلُ شَيْئًا.", "2) هُوَ لَا يَعْرِفُ أَحَدًا.", "3) لَا نَتَأَخَّرُ أَبَدًا.", "4) لَا أُرِيدُ شَيْئًا."],
+   "examples": [],
+   "say_native": "Javoblar: “lā ākulu shayʾan”. “Huwa lā yaʿrifu aḥadan”. “Lā nataʾakhkharu abadan”. “Lā urīdu shayʾan”. To‘rtinchi gap kafeda juda foydali: ofitsiant “hal turīdu shayʾan ākhar?” — yana biror narsa istaysizmi, desa, “lā, shukran, lā urīdu shayʾan” deysiz. “Shayʾan” va “aḥadan” oxiridagi “-an” ni aniq ayting.",
+   "say": "لَا آكُلُ شَيْئًا. هُوَ لَا يَعْرِفُ أَحَدًا. لَا نَتَأَخَّرُ أَبَدًا. لَا أُرِيدُ شَيْئًا.",
+   "say_uz": "Hech narsa yemayman. U hech kimni tanimaydi. Biz hech qachon kech qolmaymiz. Hech narsa istamayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qisqa inkor javoblar",
+   "emotion": "neutral",
+   "board": ["لَا. · لَا، شُكْرًا. — Yo‘q, rahmat.", "لِلْأَسَفِ لَا. — Afsuski, yo‘q.", "طَبْعًا لَا! — Albatta yo‘q!", "لَا أَظُنُّ. — Menimcha, yo‘q."],
+   "examples": [{"t": "هَلْ تُرِيدُ شَايًا؟ لَا، شُكْرًا.", "uz": "Choy istaysizmi? Yo‘q, rahmat."}, {"t": "هَلِ الْمَطْعَمُ مَفْتُوحٌ؟ لِلْأَسَفِ لَا.", "uz": "Restoran ochiqmi? Afsuski, yo‘q."}],
+   "say_native": "Har doim to‘liq gap kerak emas. Qisqa javoblar: “lā” — yo‘q. Taklifga muloyim rad: “lā, shukran” — yo‘q, rahmat. Yomon xabar uchun: “li-l-asaf lā” — afsuski, yo‘q. Kuchli inkor: “ṭabʿan lā!” — albatta yo‘q! Ishonchsiz bo‘lsangiz: “lā aẓunnu” — menimcha, yo‘q, so‘zma-so‘z “o‘ylamayman”. Bu javoblar suhbatni tabiiy va jonli qiladi.",
+   "say": "هَلْ تُرِيدُ شَايًا؟ لَا، شُكْرًا. هَلِ الْمَطْعَمُ مَفْتُوحٌ؟ لِلْأَسَفِ لَا. هَلْ أَنْتَ مُتْعَبٌ؟ طَبْعًا لَا! هَلْ هُوَ فِي الْبَيْتِ؟ لَا أَظُنُّ.",
+   "say_uz": "Choy istaysizmi? Yo‘q, rahmat. Restoran ochiqmi? Afsuski, yo‘q. Charchadingizmi? Albatta yo‘q! U uydami? Menimcha, yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Madaniyat: “yo‘q” ni yumshatish",
+   "emotion": "thinking",
+   "board": ["لَا، شُكْرًا، شَبِعْتُ. — Yo‘q, rahmat, to‘ydim.", "آسِفٌ، لَيْسَ عِنْدِي وَقْتٌ. — Kechirasiz, vaqtim yo‘q.", "إِنْ شَاءَ اللَّهُ — Xudo xohlasa"],
+   "examples": [{"t": "آسِفٌ، لَيْسَ عِنْدِي وَقْتٌ الْيَوْمَ.", "uz": "Kechirasiz, bugun vaqtim yo‘q."}, {"t": "رُبَّمَا غَدًا، إِنْ شَاءَ اللَّهُ.", "uz": "Balki ertaga, xudo xohlasa."}],
+   "say_native": "Arab madaniyatida, xuddi o‘zbek madaniyatida bo‘lgani kabi, quruq “yo‘q” biroz qo‘pol eshitilishi mumkin, ayniqsa mehmondorchilikda. Shuning uchun rad javobini sabab yoki minnatdorchilik bilan yumshatishadi: “lā, shukran, shabiʿtu”, “āsif, laysa ʿindī waqt”. Kelajak rejalari haqida esa ko‘pincha “in shāʾa llāh” deyiladi. Bu ibora ba’zan aniq “ha” emas, “iloji bo‘lsa” ma’nosini ham beradi.",
+   "say": "لَا، شُكْرًا، شَبِعْتُ. آسِفٌ، لَيْسَ عِنْدِي وَقْتٌ الْيَوْمَ. رُبَّمَا غَدًا، إِنْ شَاءَ اللَّهُ.",
+   "say_uz": "Yo‘q, rahmat, to‘ydim. Kechirasiz, bugun vaqtim yo‘q. Balki ertaga, xudo xohlasa.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qisqa javob bering",
+   "emotion": "encouraging",
+   "board": ["1) هَلْ تُرِيدُ قَهْوَةً؟ (rad eting, muloyim)", "2) هَلْ أَنْتَ مِنْ مِصْرَ؟ (yo‘q + to‘liq gap)", "3) هَلْ تَتَكَلَّمُ الصِّينِيَّةَ؟ (yo‘q + to‘liq gap)", "4) هَلْ عِنْدَكَ سَيَّارَةٌ؟ (afsuski yo‘q)"],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta savolni tinglang va inkor javob bering. Birinchi: qahva istaysizmi? Muloyim rad eting. Ikkinchi: Misrdanmisiz? “Yo‘q” va to‘liq gap. Uchinchi: xitoycha gapirasizmi? “Yo‘q” va to‘liq gap. To‘rtinchi: mashinangiz bormi? “Afsuski” bilan javob bering. Qaysi javobga “laysa”, qaysisiga “lā” kerakligini o‘ylang.",
+   "say": "هَلْ تُرِيدُ قَهْوَةً؟ هَلْ أَنْتَ مِنْ مِصْرَ؟ هَلْ تَتَكَلَّمُ الصِّينِيَّةَ؟ هَلْ عِنْدَكَ سَيَّارَةٌ؟",
+   "say_uz": "Qahva istaysizmi? Misrdanmisiz? Xitoycha gapirasizmi? Mashinangiz bormi?",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) لَا، شُكْرًا.", "2) لَا، لَسْتُ مِنْ مِصْرَ.", "3) لَا، لَا أَتَكَلَّمُ الصِّينِيَّةَ.", "4) لِلْأَسَفِ لَا، لَيْسَ عِنْدِي سَيَّارَةٌ."],
+   "examples": [],
+   "say_native": "Javoblar: “lā, shukran”. “Lā, lastu min Miṣr” — fe’l yo‘q, demak “lastu”. “Lā, lā atakallamu ṣ-ṣīniyya” — fe’l bor, demak ikkinchi “lā”. “Li-l-asaf lā, laysa ʿindī sayyāra” — egalikning inkori. Ko‘rib turibsiz, bitta qisqa “lā” dan keyin to‘liq gap qo‘shish javobni ancha tabiiy va hurmatli qiladi.",
+   "say": "لَا، شُكْرًا. لَا، لَسْتُ مِنْ مِصْرَ. لَا، لَا أَتَكَلَّمُ الصِّينِيَّةَ. لِلْأَسَفِ لَا، لَيْسَ عِنْدِي سَيَّارَةٌ.",
+   "say_uz": "Yo‘q, rahmat. Yo‘q, men Misrdan emasman. Yo‘q, xitoycha gapirmayman. Afsuski yo‘q, mashinam yo‘q.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog: inkor suhbat",
+   "title": "Birinchi dialog: yangi qo‘shni",
    "emotion": "happy",
-   "board": [
-    "أَحْمَد: هَلْ عِنْدَكَ شَيْءٌ؟",
-    "سَامِي: لَا، لَا شَيْءَ عِنْدِي.",
-    "أَحْمَد: هَلْ أَحَدٌ هُنَاكَ؟",
-    "سَامِي: لَا، لَا أَحَدَ هُنَاكَ."
-   ],
+   "board": ["يُوسُفُ: هَلْ أَنْتَ جَارِي الْجَدِيدُ؟ — أَنْوَرُ: نَعَمْ، لَكِنِّي لَسْتُ عَرَبِيًّا.", "يُوسُفُ: هَلْ عِنْدَكَ سَيَّارَةٌ؟ — أَنْوَرُ: لَا، لَيْسَ عِنْدِي سَيَّارَةٌ.", "يُوسُفُ: هَلْ تَعْرِفُ أَحَدًا هُنَا؟ — أَنْوَرُ: لَا، لَا أَعْرِفُ أَحَدًا.", "يُوسُفُ: لَا مُشْكِلَةَ! الْآنَ تَعْرِفُنِي."],
    "examples": [],
-   "say_native": "Dialog. Ahmad «hal ʿindaka shayʾun?» — sizda narsa bormi? Sami «lā, lā shayʾun ʿindī» — yo‘q, hech narsa yo‘q. Ahmad «hal aḥadun hunāka?» — u erda kim bor? Sami «lā, lā aḥadan hunāka» — yo‘q, hech kim u erda yo‘q. Endi o‘zingiz 8 ta inkor gap yozasiz.",
-   "say": "Is there anything? No, there is nothing. Is anyone there? No, nobody is there.",
-   "say_uz": "Sizda narsa bormi? Yo‘q, hech narsa yo‘q. U erda kim bor? Yo‘q, hech kim u erda yo‘q.",
+   "say_native": "Birinchi dialog. Anvar yangi kvartiraga ko‘chib keldi. Qo‘shnisi Yusuf u bilan tanishadi va savollar beradi. Anvarning javoblari asosan inkor. Yangi so‘zlar: “jār” — qo‘shni, “jārī” — qo‘shnim, “lākinnī” — lekin men, “ʿarabiyy” — arab. Oxirida Yusuf qanday samimiy gap aytishiga e’tibor bering.",
+   "say": "مَرْحَبًا! هَلْ أَنْتَ جَارِي الْجَدِيدُ؟ نَعَمْ، أَنَا أَنْوَرُ، لَكِنِّي لَسْتُ عَرَبِيًّا. أَنَا مِنْ أُوزْبَكِسْتَانَ. أَهْلًا! هَلْ عِنْدَكَ سَيَّارَةٌ؟ لَا، لَيْسَ عِنْدِي سَيَّارَةٌ. هَلْ تَعْرِفُ أَحَدًا هُنَا؟ لَا، لَا أَعْرِفُ أَحَدًا. لَا مُشْكِلَةَ! الْآنَ تَعْرِفُنِي.",
+   "say_uz": "Salom! Siz yangi qo‘shnimmisiz? Ha, men Anvarman, lekin arab emasman. O‘zbekistondanman. Xush kelibsiz! Mashinangiz bormi? Yo‘q, mashinam yo‘q. Bu yerda biror kishini taniysizmi? Yo‘q, hech kimni tanimayman. Muammo yo‘q! Endi meni taniysiz.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Dialog bo‘yicha savollar",
    "emotion": "encouraging",
-   "board": [
-    "1) Sizda narsa bormi?",
-    "2) U erda kim bor?",
-    "3) Sami nima deyadi?",
-    "4) Hech narsa yo‘qmi?"
-   ],
+   "board": ["1) Anvar arabmi?", "2) Uning mashinasi bormi?", "3) U bu yerda kimnidir taniydimi?", "4) Yusuf oxirida nima deydi?"],
    "examples": [],
-   "say_native": "To‘rtta savol. Birinchi: sizda narsa bormi? Ikkinchi: u erda kim bor? Uchinchi: Sami nima deyadi? To‘rtinchi: hech narsa yo‘qmi? Dialogdan javob bering.",
-   "say": "Is there anything? Is anyone there? What does Sami say? Is there nothing?",
-   "say_uz": "Sizda narsa bormi? U erda kim bor? Sami nima deyadi? Hech narsa yo‘qmi?",
+   "say_native": "To‘rtta savol. Birinchi: Anvar arabmi? Ikkinchi: uning mashinasi bormi? Uchinchi: u bu yerda biror kishini taniydimi? To‘rtinchi: Yusuf oxirida nima deydi? Javoblarni uchinchi shaxsda, inkor shaklda arabcha bering: “huwa laysa …”, “laysa ʿindahu …”, “lā yaʿrifu …”.",
+   "say": "هَلْ أَنْوَرُ عَرَبِيٌّ؟ هَلْ عِنْدَهُ سَيَّارَةٌ؟ هَلْ يَعْرِفُ أَحَدًا هُنَا؟ مَاذَا يَقُولُ يُوسُفُ فِي النِّهَايَةِ؟",
+   "say_uz": "Anvar arabmi? Uning mashinasi bormi? U bu yerda biror kishini taniydimi? Yusuf oxirida nima deydi?",
    "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar",
    "emotion": "proud",
-   "board": [
-    "1) لَا، لَا شَيْءَ عِنْدِي.",
-    "2) لَا، لَا أَحَدَ هُنَاكَ.",
-    "3) لَا، لَا شَيْءَ.",
-    "4) لَا، لَا أَحَدَ هُنَاكَ."
-   ],
+   "board": ["1) لَا، هُوَ لَيْسَ عَرَبِيًّا.", "2) لَا، لَيْسَ عِنْدَهُ سَيَّارَةٌ.", "3) لَا، لَا يَعْرِفُ أَحَدًا.", "4) لَا مُشْكِلَةَ! الْآنَ تَعْرِفُنِي."],
    "examples": [],
-   "say_native": "Javoblar: lā, lā shayʾun ʿindī. Lā, lā aḥadan hunāka. Lā, lā shayʾ. Lā, lā aḥadan hunāka. Har bir javob «lā» bilan boshlanadi. Endi o‘zingizning 8 ta inkor gaplaringizni yozing.",
-   "say": "No, there is nothing. No, nobody is there.",
-   "say_uz": "Yo‘q, hech narsa yo‘q. Yo‘q, hech kim u erda yo‘q.",
+   "say_native": "Javoblar: “lā, huwa laysa ʿarabiyyan” — u arab emas, O‘zbekistondan. “Lā, laysa ʿindahu sayyāra” — “ʿindahu” — unda. “Lā, lā yaʿrifu aḥadan” — qo‘sh inkor, xuddi o‘zbekchadagidek. Yusuf “lā mushkila! al-ʾān taʿrifunī” — muammo yo‘q, endi meni taniysiz, dedi. Bu arab mehmondo‘stligining yaxshi namunasi.",
+   "say": "لَا، هُوَ لَيْسَ عَرَبِيًّا. لَا، لَيْسَ عِنْدَهُ سَيَّارَةٌ. لَا، لَا يَعْرِفُ أَحَدًا. يَقُولُ: لَا مُشْكِلَةَ! الْآنَ تَعْرِفُنِي.",
+   "say_uz": "Yo‘q, u arab emas. Yo‘q, uning mashinasi yo‘q. Yo‘q, u hech kimni tanimaydi. U: muammo yo‘q, endi meni taniysiz, deydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ikkinchi dialog: taklif",
+   "emotion": "happy",
+   "board": ["لَيْلَى: هَلْ تَذْهَبِينَ مَعِي إِلَى السُّوقِ الْيَوْمَ؟", "سَارَةُ: لِلْأَسَفِ لَا، لَيْسَ عِنْدِي وَقْتٌ الْيَوْمَ.", "لَيْلَى: وَغَدًا؟ — سَارَةُ: غَدًا لَا أَعْمَلُ. نَعَمْ، إِنْ شَاءَ اللَّهُ!", "لَيْلَى: نَأْكُلُ السَّمَكَ بَعْدَ السُّوقِ؟ — سَارَةُ: لَا، لَا آكُلُ السَّمَكَ أَبَدًا!"],
+   "examples": [],
+   "say_native": "Ikkinchi dialog. Layli dugonasi Sorani bozorga taklif qiladi. Sora bugun bora olmaydi va sababini aytadi. Keyin ular ertangi kunni kelishishadi. Oxirida ovqat haqida gap boradi. Yangi so‘zlar: “maʿī” — men bilan, “ghadan” — ertaga, “lākin” — lekin. Sora qanday qilib “yo‘q” ni yumshatganiga va oxirida qanday kuchli inkor ishlatganiga e’tibor bering.",
+   "say": "هَلْ تَذْهَبِينَ مَعِي إِلَى السُّوقِ الْيَوْمَ؟ لِلْأَسَفِ لَا، لَيْسَ عِنْدِي وَقْتٌ الْيَوْمَ. وَغَدًا؟ غَدًا لَا أَعْمَلُ. نَعَمْ، إِنْ شَاءَ اللَّهُ! نَأْكُلُ السَّمَكَ بَعْدَ السُّوقِ؟ لَا، لَا آكُلُ السَّمَكَ أَبَدًا! لَكِنِّي أُحِبُّ الدَّجَاجَ.",
+   "say_uz": "Bugun men bilan bozorga borasanmi? Afsuski yo‘q, bugun vaqtim yo‘q. Ertaga-chi? Ertaga ishlamayman. Ha, xudo xohlasa! Bozordan keyin baliq yeymizmi? Yo‘q, men hech qachon baliq yemayman! Lekin tovuqni yaxshi ko‘raman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": ["1) Sora bugun bozorga boradimi?", "2) Nega?", "3) Ertaga u ishlaydimi?", "4) Sora baliq yeydimi?"],
+   "examples": [],
+   "say_native": "To‘rtta savol. Birinchi: Sora bugun bozorga boradimi? Ikkinchi: nega? Uchinchi: ertaga u ishlaydimi? To‘rtinchi: Sora baliq yeydimi? Javoblarni arabcha bering. Sora ayol, shuning uchun uchinchi shaxs fe’llarida “ta” prefiksi kerak: “tadhhabu”, “taʿmalu”, “taʾkulu”.",
+   "say": "هَلْ تَذْهَبُ سَارَةُ إِلَى السُّوقِ الْيَوْمَ؟ لِمَاذَا؟ هَلْ تَعْمَلُ غَدًا؟ هَلْ تَأْكُلُ السَّمَكَ؟",
+   "say_uz": "Sora bugun bozorga boradimi? Nega? Ertaga ishlaydimi? Baliq yeydimi?",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": ["1) لَا، لَا تَذْهَبُ الْيَوْمَ.", "2) لِأَنَّهُ لَيْسَ عِنْدَهَا وَقْتٌ.", "3) لَا، لَا تَعْمَلُ غَدًا.", "4) لَا، لَا تَأْكُلُ السَّمَكَ أَبَدًا."],
+   "examples": [],
+   "say_native": "Javoblar: “lā, lā tadhhabu l-yawm”. Sababi: uning vaqti yo‘q — “li-annahu laysa ʿindahā waqt”. “ʿIndahā” — unda, ayol. Ertaga u ishlamaydi — “lā taʿmalu ghadan”, shuning uchun ertaga boradi. Baliq: “lā taʾkulu s-samaka abadan” — hech qachon baliq yemaydi. Sora rad javobini “li-l-asaf” va sabab bilan yumshatdi, lekin baliq haqida “abadan” bilan qat’iy gapirdi.",
+   "say": "لَا، لَا تَذْهَبُ الْيَوْمَ. لِأَنَّهُ لَيْسَ عِنْدَهَا وَقْتٌ. لَا، لَا تَعْمَلُ غَدًا. لَا، لَا تَأْكُلُ السَّمَكَ أَبَدًا.",
+   "say_uz": "Yo‘q, bugun bormaydi. Chunki uning vaqti yo‘q. Yo‘q, ertaga ishlamaydi. Yo‘q, u hech qachon baliq yemaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Talaffuz: inkor belgilari",
+   "title": "Kelajakka nazar: لَنْ va لَمْ",
    "emotion": "thinking",
-   "board": [
-    "لَيْسَ — laysa",
-    "لَا — lā",
-    "لَنْ — lan",
-    "أَبَدًا — a-ba-dan"
-   ],
-   "examples": [
-    {
-     "t": "لَيْسَ",
-     "uz": "emas"
-    },
-    {
-     "t": "أَبَدًا",
-     "uz": "hech qachon"
-   }
-  ],
-   "say_native": "Inkor belgilari talaffuzi. «Laysa» — lay-sa, «lā» — la, «lan» — lan, «abadan» — a-ba-dan. «Laysa» da «s» va «a» aniq. «Abadan» da «d» va «n» aniq. Har birini ikki marta baland ovozda takrorlang. Endi dars yakunlanadi.",
-   "say": "Laysa, la, lan, abadan.",
-   "say_uz": "Laysa, la, lan, abadan.",
+   "board": ["لَا أَذْهَبُ — bormayman (odatda, hozir)", "لَنْ أَذْهَبَ — bormayman (kelajakda)", "لَمْ أَذْهَبْ — bormadim (o‘tgan zamon)"],
+   "examples": [{"t": "لَا أَذْهَبُ إِلَى السُّوقِ.", "uz": "Bozorga bormayman."}, {"t": "لَنْ أَذْهَبَ غَدًا.", "uz": "Ertaga bormayman."}],
+   "say_native": "Kichik bir oldindan ko‘rish. Arab tilida zamonga qarab boshqa inkor so‘zlari ham bor. Kelasi zamon uchun “lan”: “lan adhhaba” — bormayman, kelajakda. O‘tgan zamon uchun “lam”: “lam adhhab” — bormadim. Ikkalasi ham fe’l oxirini biroz o‘zgartiradi. Bularni o‘tgan va kelasi zamonni o‘rganganimizda batafsil ko‘ramiz. Hozircha hozirgi zamon uchun “lā” va fe’lsiz gaplar uchun “laysa” ni mukammal o‘zlashtiring.",
+   "say": "لَا أَذْهَبُ. لَنْ أَذْهَبَ. لَمْ أَذْهَبْ.",
+   "say_uz": "Bormayman. Bormayman (kelajakda). Bormadim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: لَا va لَيْسَ",
+   "emotion": "thinking",
+   "board": ["لَا — lā: uzun “ā”", "لَيْسَ — lay-sa: “ay” diftongi", "لَسْتُ — las-tu: qisqa “a”, diftong yo‘q"],
+   "examples": [{"t": "لَا، لَا أَعْرِفُ.", "uz": "Yo‘q, bilmayman."}, {"t": "لَسْتُ مُتْعَبًا.", "uz": "Charchagan emasman."}],
+   "say_native": "Talaffuz. “Lā” da “ā” uzun, uni cho‘zib ayting. Qisqa “la” boshqa ma’noga ega bo‘lishi mumkin, shuning uchun inkorni aniq cho‘zing. “Laysa” da “ay” diftongi bor: lay-sa, xuddi o‘zbekcha “say” so‘zidagidek. Ammo “lastu, lasta, lasnā” da diftong yo‘q, faqat qisqa “a”: las-tu. Ko‘p o‘quvchilar “laystu” deydi, bu xato.",
+   "say": "لَا. لَيْسَ. لَيْسَتْ. لَسْتُ. لَسْنَا.",
+   "say_uz": "Yo‘q. Emas. Emas (ayol). Emasman. Emasmiz.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
    "title": "Baland ovozda takrorlang",
    "emotion": "encouraging",
-   "board": [
-    "1) لَيْسَ هَذَا كِتَابٌ",
-    "2) لَا أَعْمَلُ",
-    "3) لَنْ أَذْهَبَ",
-    "4) لَا آكُلُ أَبَدًا"
-   ],
+   "board": ["1) لَا، لَا أَعْرِفُ.", "2) لَسْتُ مَشْغُولًا.", "3) هِيَ لَيْسَتْ هُنَا.", "4) لَا أَفْهَمُ شَيْئًا."],
    "examples": [],
-   "say_native": "Mashq. To‘rtta gapni baland ovozda takrorlang. Birinchi: laysa hādhā kitābun. Ikkinchi: lā aʿmalu. Uchinchi: lan adhhaba. To‘rtinchi: lā ākulu abadan. Har birini ikki marta ayting.",
-   "say": "This is not a book. I do not work. I will not go. I never eat.",
-   "say_uz": "Bu kitob emas. Men ishlamayman. Men bormayman. Men hech qachon yemayman.",
+   "say_native": "Mashq. To‘rtta iborani tinglang va har birini ikki marta takrorlang. “Lā” ni cho‘zing, “laysat” da diftongni, “lastu” da esa qisqa “a” ni aniq ayting. Bu iboralar hayotda juda ko‘p kerak bo‘ladi, ularni tayyor holda yodlab oling.",
+   "say": "لَا، لَا أَعْرِفُ... لَسْتُ مَشْغُولًا... هِيَ لَيْسَتْ هُنَا... لَا أَفْهَمُ شَيْئًا...",
+   "say_uz": "Yo‘q, bilmayman... band emasman... u bu yerda emas... hech narsa tushunmayapman...",
    "practice_seconds": 12
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Tekshirib ko‘ring",
    "emotion": "proud",
-   "board": [
-    "لَيْسَ هَذَا كِتَابٌ",
-    "لَا أَعْمَلُ",
-    "لَنْ أَذْهَبَ",
-    "لَا آكُلُ أَبَدًا"
-   ],
+   "board": ["لَا ✓ (lā, uzun)", "لَسْتُ ✓ (lastu) · ✗ laystu", "لَيْسَتْ ✓ (laysat)"],
    "examples": [],
-   "say_native": "Javoblar to‘g‘ri. Laysa hādhā kitābun. Lā aʿmalu. Lan adhhaba. Lā ākulu abadan. Endi o‘zingizning 8 ta inkor gaplaringizni yozing.",
-   "say": "This is not a book. I do not work. I will not go. I never eat.",
-   "say_uz": "Bu kitob emas. Men ishlamayman. Men bormayman. Men hech qachon yemayman.",
+   "say_native": "O‘zingizni tekshiring. “Lā” uzun chiqdimi? “Lastu” ni “laystu” demadingizmi? “Laysat” oxiridagi “t” eshitildimi? Agar hammasi to‘g‘ri bo‘lsa, barakalla. Endi bugun o‘rganganlarimizni o‘z hayotingizga qo‘llaysiz: o‘zingiz haqingizda haqiqiy inkor gaplar tuzasiz.",
+   "say": "لَسْتُ مُتْعَبًا. لَا أَفْهَمُ شَيْئًا؟ لَا، أَفْهَمُ كُلَّ شَيْءٍ! أَحْسَنْتَ!",
+   "say_uz": "Charchagan emasman. Hech narsa tushunmayapmanmi? Yo‘q, hammasini tushunaman! Barakalla!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "O‘zingiz haqingizda: 8 inkor gap",
+   "emotion": "encouraging",
+   "board": ["لَسْتُ ... (2 ta)", "لَا + fe’l (3 ta)", "لَيْسَ عِنْدِي ... (1 ta)", "لَا ... أَحَدًا / شَيْئًا / أَبَدًا (2 ta)"],
+   "examples": [],
+   "say_native": "Yakuniy vazifa. O‘zingiz haqingizda sakkizta haqiqiy inkor gap ayting. Ikkitasi “lastu” bilan: kim emassiz, qayerdan emassiz. Uchtasi “lā” va fe’l bilan: nima qilmaysiz. Bittasi “laysa ʿindī” bilan: nimangiz yo‘q. Ikkitasi “hech kim, hech narsa yoki hech qachon” bilan. Gaplar haqiqiy bo‘lsin, shunda ular xotirada yaxshi qoladi.",
+   "say": "حَدِّثْنِي عَنْ نَفْسِكَ. مَاذَا لَا تَفْعَلُ؟",
+   "say_uz": "O‘zingiz haqingizda gapirib bering. Nima qilmaysiz?",
+   "practice_seconds": 26
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javob",
+   "emotion": "proud",
+   "board": ["لَسْتُ طَالِبًا. لَسْتُ مِنْ بُخَارَى.", "لَا أُدَخِّنُ. لَا أَشْرَبُ الْقَهْوَةَ. لَا أَتَكَلَّمُ الْفَرَنْسِيَّةَ.", "لَيْسَ عِنْدِي سَيَّارَةٌ.", "لَا أَعْرِفُ أَحَدًا فِي مِصْرَ. لَا أَتَأَخَّرُ أَبَدًا."],
+   "examples": [],
+   "say_native": "Namuna javobni tinglang: talaba emasman, Buxorodan emasman; chekmayman, qahva ichmayman, fransuzcha gapirmayman; mashinam yo‘q; Misrda hech kimni tanimayman, hech qachon kech qolmayman. O‘z gaplaringizni tekshiring: fe’lsiz gaplarda “lastu” va “-an”, fe’lli gaplarda “lā”, “hech” so‘zlari bilan fe’l ham inkor. Ayol bo‘lsangiz: “lastu ṭālibatan”.",
+   "say": "لَسْتُ طَالِبًا. لَسْتُ مِنْ بُخَارَى. لَا أُدَخِّنُ. لَا أَشْرَبُ الْقَهْوَةَ. لَا أَتَكَلَّمُ الْفَرَنْسِيَّةَ. لَيْسَ عِنْدِي سَيَّارَةٌ. لَا أَعْرِفُ أَحَدًا فِي مِصْرَ. لَا أَتَأَخَّرُ أَبَدًا.",
+   "say_uz": "Talaba emasman. Buxorodan emasman. Chekmayman. Qahva ichmayman. Fransuzcha gapirmayman. Mashinam yo‘q. Misrda hech kimni tanimayman. Hech qachon kech qolmayman.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
-   "board": [
-    "لَيْسَ، لَا، لَنْ، لَمْ، مَا",
-    "لَا ... أَبَدًا — hech qachon",
-    "لَا شَيْءَ / لَا أَحَدَ",
-    "هَلْ ... لَا"
-   ],
+   "board": ["Fe’l yo‘q → لَيْسَ (لَسْتُ، لَسْتَ، لَسْتِ، لَيْسَتْ، لَسْنَا) + -an", "Fe’l bor → لَا + hozirgi zamon", "لَا ... أَحَدًا / شَيْئًا / أَبَدًا", "لَا، شُكْرًا · لِلْأَسَفِ لَا · طَبْعًا لَا"],
    "examples": [],
-   "say_native": "Xulosa. Inkorni o‘rgandik: «laysa» (ismi), «lā» (fe’l), «lan» (mustaqbal), «lam» va «mā» (o‘tgan). «Lā ... abadan» — hech qachon. «Lā shayʾ» — hech narsa, «lā aḥad» — hech kim. Qisqa javob «lā». Eng muhim fikr: ismiy va fe’lli inkorni farqlang.",
-   "say": "Laysa, la, lan, lam, ma. Never, nothing, nobody, no.",
-   "say_uz": "Laysa, la, lan, lam, ma. Hech qachon, hech narsa, hech kim, yo‘q.",
+   "say_native": "Xulosa. Inkorning ikki yo‘li: fe’lsiz gapda “laysa”, u shaxsga qarab o‘zgaradi: lastu, lasta, lasti, laysa, laysat, lasnā, va keyingi so‘z “-an” oladi. Fe’lli gapda “lā” fe’ldan oldin. “Yo‘q” — mavjud emas: “laysa ʿindī”, “lā yūjadu”. Qo‘sh inkor o‘zbekchadagidek: “lā aʿrifu aḥadan”. Qisqa javoblar: “lā, shukran”, “li-l-asaf lā”, “ṭabʿan lā”, “lā aẓunnu”.",
+   "say": "لَسْتُ مُتْعَبًا. لَا أَعْرِفُ أَحَدًا. لَيْسَ عِنْدِي وَقْتٌ. لَا، شُكْرًا.",
+   "say_uz": "Charchagan emasman. Hech kimni tanimayman. Vaqtim yo‘q. Yo‘q, rahmat.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Uy vazifasi",
    "emotion": "encouraging",
-   "board": [
-    "8 ta inkor gap",
-    "O‘zingiz haqingizda",
-    "Muvaffaqiyat: 8 ta gap"
-   ],
+   "board": ["O‘zingiz haqingizda 8 ta haqiqiy inkor gap", "لَسْتُ ×2 · لَا + fe’l ×3 · لَيْسَ عِنْدِي ×1 · “hech” ×2", "Muvaffaqiyat: لَيْسَ/لَا to‘g‘ri tanlangan, -an bor"],
    "examples": [],
-   "say_native": "Uy vazifasi. O‘zingiz haqida sakkizta inkor arabcha gap yozing. Muvaffaqiyat mezoni: sakkizta gap, to‘g‘ri inkor belgisi (laysa/lā/lan/lam/mā), kamida bitta «abadan». Keyingi darsda hafta kunlari, oylar va sanalarni o‘rganamiz.",
-   "say": "Homework: write 8 true negative sentences about yourself.",
-   "say_uz": "Uy vazifasi: o‘zingiz haqida sakkizta inkor gap yozing.",
+   "say_native": "Uy vazifasi. O‘zingiz haqingizda sakkizta haqiqiy inkor gapni arabcha yozing va baland ovozda o‘qing. Muvaffaqiyat mezoni: ikkita gap “lastu” bilan, uchta “lā” va fe’l bilan, bittasi “laysa ʿindī” bilan, ikkitasi “aḥadan, shayʾan yoki abadan” bilan; “laysa” dan keyingi so‘z “-an” bilan tugagan. Keyingi darsda hafta kunlari, oylar va sanalarni o‘rganamiz.",
+   "say": "اُكْتُبْ ثَمَانِيَ جُمَلٍ مَنْفِيَّةٍ عَنْ نَفْسِكَ. إِلَى اللِّقَاءِ!",
+   "say_uz": "O‘zingiz haqingizda sakkizta inkor gap yozing. Ko‘rishguncha!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "O‘zingiz haqida sakkizta inkor arabcha gap yozing. Muvaffaqiyat mezoni: sakkizta gap, to‘g‘ri inkor belgisi (laysa/lā/lan/lam/mā), kamida bitta «abadan».",
+ "homework_uz": "O‘zingiz haqingizda sakkizta haqiqiy inkor gapni arabcha yozing va baland ovozda o‘qing. Muvaffaqiyat mezoni: ikkita gap “lastu” bilan, uchta “lā” + fe’l bilan, bittasi “laysa ʿindī” bilan, ikkitasi “aḥadan / shayʾan / abadan” bilan; “laysa” dan keyingi so‘z “-an” bilan tugagan.",
  "quiz": [
-  {
-   "q": "«Bu kitob emas» arabchada:",
-   "options": [
-    "لَا هَذَا كِتَابٌ",
-    "لَيْسَ هَذَا كِتَابٌ",
-    "لَمْ هَذَا كِتَابٌ",
-    "مَا هَذَا كِتَابٌ"
-   ],
-   "answer": 1,
-   "why_uz": "Ismiy inkor uchun «laysa»: laysa hādhā kitābun."
-  },
-  {
-   "q": "«Men ishlamayman» arabchada:",
-   "options": [
-    "لَيْسَ أَعْمَلُ",
-    "لَا أَعْمَلُ",
-    "لَنْ أَعْمَلَ",
-    "مَا أَعْمَلُ"
-   ],
-   "answer": 1,
-   "why_uz": "Fe’lli inkor uchun «lā»: lā aʿmalu."
-  },
-  {
-   "q": "«Men bormayman» (mustaqbal):",
-   "options": [
-    "لَا أَذْهَبُ",
-    "لَنْ أَذْهَبَ",
-    "لَمْ أَذْهَبْ",
-    "مَا أَذْهَبْتُ"
-   ],
-   "answer": 1,
-   "why_uz": "Mustaqbal inkor uchun «lan»: lan adhhaba."
-  },
-  {
-   "q": "«U bormadi» (o‘tgan):",
-   "options": [
-    "لَا ذَهَبَ",
-    "لَنْ يَذْهَبَ",
-    "لَمْ يَذْهَبْ",
-    "مَا ذَهَبَ"
-   ],
-   "answer": 2,
-   "why_uz": "O‘tgan inkor uchun «lam»: lam dhabiha? To‘g‘risi lam dhahaba."
-  },
-  {
-   "q": "«Men hech qachon yemayman»:",
-   "options": [
-    "لَا آكُلُ",
-    "لَا آكُلُ أَبَدًا",
-    "لَنْ آكُلَ",
-    "لَمْ آكُلْ"
-   ],
-   "answer": 1,
-   "why_uz": "Hech qachon uchun «lā ... abadan»: lā ākulu abadan."
-  },
-  {
-   "q": "«U taloba emas»:",
-   "options": [
-    "لَا هُوَ طَالِبٌ",
-    "لَيْسَ هُوَ طَالِبًا",
-    "لَمْ يَكُنْ طَالِبًا",
-    "مَا هُوَ طَالِبٌ"
-   ],
-   "answer": 1,
-   "why_uz": "Ismiy inkor uchun «laysa»: laysa huwa ṭāliban."
-  },
-  {
-   "q": "Qisqa inkor javob:",
-   "options": [
-    "نَعَمْ",
-    "لَا",
-    "أَيْنَ",
-    "كَمْ"
-   ],
-   "answer": 1,
-   "why_uz": "Qisqa inkor javobi «lā» (yo‘q)."
-  },
-  {
-   "q": "«Hech narsa»:",
-   "options": [
-    "لَا أَحَدَ",
-    "لَا شَيْءَ",
-    "أَبَدًا",
-    "غَيْرُ"
-   ],
-   "answer": 1,
-   "why_uz": "Hech narsa uchun «lā shayʾ»."
-  }
+  {"q": "“Men talaba emasman”:", "options": ["لَا أَنَا طَالِبٌ", "لَسْتُ طَالِبًا", "لَيْسَ أَنَا طَالِبٌ", "أَنَا طَالِبٌ لَا"], "answer": 1, "why_uz": "Fe’lsiz gap — laysa; “men” uchun lastu, keyin “-an”: ṭāliban."},
+  {"q": "“Men ishlamayman”:", "options": ["لَيْسَ أَعْمَلُ", "أَعْمَلُ لَا", "لَا أَعْمَلُ", "لَسْتُ أَعْمَلُ"], "answer": 2, "why_uz": "Fe’lli gap — “lā” fe’ldan oldin."},
+  {"q": "“Qahva issiq emas”:", "options": ["الْقَهْوَةُ لَيْسَتْ سَاخِنَةً", "الْقَهْوَةُ لَيْسَ سَاخِنَةٌ", "الْقَهْوَةُ لَا سَاخِنَةٌ", "لَا الْقَهْوَةُ سَاخِنَةٌ"], "answer": 0, "why_uz": "Qahwa ayol jinsi — laysat, sifat “-an” bilan: sākhinatan."},
+  {"q": "“U (ayol) bu yerda emas”:", "options": ["هِيَ لَيْسَ هُنَا", "هِيَ لَيْسَتْ هُنَا", "هِيَ لَا هُنَا", "هِيَ لَسْتِ هُنَا"], "answer": 1, "why_uz": "Ayol uchun laysat; “hunā” o‘zgarmaydi."},
+  {"q": "“Mening mashinam yo‘q”:", "options": ["لَا عِنْدِي سَيَّارَةٌ", "لَيْسَ عِنْدِي سَيَّارَةٌ", "لَسْتُ سَيَّارَةً", "عِنْدِي لَا سَيَّارَةٌ"], "answer": 1, "why_uz": "Egalik inkori: laysa ʿindī …"},
+  {"q": "“Hech kimni tanimayman”:", "options": ["أَعْرِفُ لَا أَحَدَ", "أَعْرِفُ أَحَدًا", "لَا أَعْرِفُ أَحَدًا", "لَسْتُ أَعْرِفُ أَحَدًا"], "answer": 2, "why_uz": "Fe’l inkor + aḥadan, xuddi o‘zbekchadagi qo‘sh inkor kabi."},
+  {"q": "“Hech narsa tushunmayapman”:", "options": ["لَا أَفْهَمُ شَيْئًا", "أَفْهَمُ شَيْئًا", "لَيْسَ أَفْهَمُ شَيْئًا", "لَا شَيْءَ أَفْهَمُ"], "answer": 0, "why_uz": "Lā afhamu shayʾan."},
+  {"q": "Choy taklifini muloyim rad etish:", "options": ["لَا!", "طَبْعًا لَا!", "لَا، شُكْرًا.", "لَسْتُ شَايًا."], "answer": 2, "why_uz": "Taklifga eng muloyim javob: lā, shukran."},
+  {"q": "“هَلْ تُدَخِّنُ؟” savoliga to‘liq inkor javob:", "options": ["لَا، لَسْتُ أُدَخِّنُ.", "لَا، لَا أُدَخِّنُ.", "لَا، لَا تُدَخِّنُ.", "لَا، لَيْسَ أُدَخِّنُ."], "answer": 1, "why_uz": "Birinchi “lā” — yo‘q, ikkinchisi fe’l inkori; “ta” → “a”: udakhkhinu."},
+  {"q": "“لَسْتُ” qanday o‘qiladi?", "options": ["laystu", "lastu", "lāstu", "lasatu"], "answer": 1, "why_uz": "Lastu — qisqa “a”, diftong yo‘q."}
  ]
 }

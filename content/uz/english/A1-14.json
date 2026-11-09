@@ -2,298 +2,1047 @@
  "title": "Inkor gaplar",
  "goal_uz": "Dars oxirida “be” fe’li va boshqa fe’llar bilan inkor gaplar tuzasiz, not, no, never, nothing, nobody so‘zlarini to‘g‘ri ishlatasiz, ikki inkor xatosiga yo‘l qo‘ymaysiz va savollarga qisqa inkor javob berasiz.",
  "vocab": [
-  { "w": "not", "uz": "emas, -ma-" },
-  { "w": "don't (do not)", "uz": "-ma- (I, you, we, they bilan)" },
-  { "w": "doesn't (does not)", "uz": "-ma- (he, she, it bilan)" },
-  { "w": "isn't (is not)", "uz": "emas (he, she, it bilan)" },
-  { "w": "aren't (are not)", "uz": "emas (we, you, they bilan)" },
-  { "w": "no", "uz": "yo‘q; hech qanday" },
-  { "w": "never", "uz": "hech qachon" },
-  { "w": "nothing", "uz": "hech narsa" },
-  { "w": "nobody / no one", "uz": "hech kim" },
-  { "w": "anything / anybody", "uz": "hech narsa / hech kim (inkor gapda)" }
+  {
+   "w": "not",
+   "uz": "emas, -ma-"
+  },
+  {
+   "w": "don't (do not)",
+   "uz": "-ma- (I, you, we, they bilan)"
+  },
+  {
+   "w": "doesn't (does not)",
+   "uz": "-ma- (he, she, it bilan)"
+  },
+  {
+   "w": "isn't (is not)",
+   "uz": "emas (he, she, it bilan)"
+  },
+  {
+   "w": "aren't (are not)",
+   "uz": "emas (we, you, they bilan)"
+  },
+  {
+   "w": "no",
+   "uz": "yo‘q; hech qanday"
+  },
+  {
+   "w": "never",
+   "uz": "hech qachon"
+  },
+  {
+   "w": "nothing",
+   "uz": "hech narsa"
+  },
+  {
+   "w": "nobody / no one",
+   "uz": "hech kim"
+  },
+  {
+   "w": "anything / anybody",
+   "uz": "hech narsa / hech kim (inkor gapda)"
+  }
  ],
  "scenes": [
-  { "kind": "intro", "title": "Inkor gaplar darsiga xush kelibsiz", "emotion": "happy",
-    "board": ["Negative sentences", "(Inkor gaplar)"], "examples": [],
-    "say_native": "Assalomu alaykum! Yangi darsga xush kelibsiz. Oldingi darsda so‘roq gaplar tuzishni o‘rgandik: “Are you…?”, “Do you…?”, “Does she…?” Bugun esa ularning juftini, ya’ni inkor gaplarni o‘rganamiz. Dars oxirida “emas”, “-ma-” va “hech” ma’nolarini ingliz tilida to‘g‘ri ifodalaysiz, savollarga qisqa inkor javob berasiz va o‘zingiz haqingizda sakkizta haqiqiy inkor gap ayta olasiz.",
-    "say": "Hello! Today we will learn to say no. I'm not tired. I don't eat meat. I never drink coffee.",
-    "say_uz": "Salom! Bugun “yo‘q” deyishni o‘rganamiz. Men charchagan emasman. Men go‘sht yemayman. Men hech qachon qahva ichmayman.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Inkorning uchta yo‘li", "emotion": "thinking",
-    "board": ["1) be + not → I'm not, he isn't", "2) don't / doesn't + verb → I don't know", "3) no, never, nothing, nobody"], "examples": [],
-    "say_native": "Avval umumiy rasmni ko‘raylik. Ingliz tilida inkor gap uch xil yo‘l bilan tuziladi. Birinchisi: “am, is, are” fe’lidan keyin “not” qo‘yamiz. Ikkinchisi: boshqa barcha fe’llar oldidan “don’t” yoki “doesn’t” yordamchisini qo‘yamiz. Uchinchisi: “no”, “never”, “nothing”, “nobody” kabi o‘zi inkor ma’nosini beradigan so‘zlar. Bugun uchalasini ham birma-bir ko‘rib chiqamiz va qachon qaysi biri ishlatilishini aniq bilib olasiz.",
-    "say": "I am not a teacher. I don't speak Chinese. I have no car.",
-    "say_uz": "Men o‘qituvchi emasman. Men xitoycha gapirmayman. Mening mashinam yo‘q.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "To be + not", "emotion": "neutral",
-    "board": ["I am not", "he / she / it is not", "we / you / they are not"],
-    "examples": [{ "t": "I am not hungry.", "uz": "Men och emasman." }, { "t": "She is not at home.", "uz": "U uyda emas." }, { "t": "They are not students.", "uz": "Ular talaba emas." }],
-    "say_native": "Birinchi qoida “to be” fe’li, ya’ni “am, is, are” haqida. Bu fe’l bilan inkor juda oson: fe’ldan keyin “not” so‘zini qo‘yasiz, boshqa hech narsa kerak emas. “I am” — “I am not”, “she is” — “she is not”, “they are” — “they are not”. Fe’lning shakli o‘zgarmaydi, so‘z tartibi ham o‘sha-o‘sha qoladi. “Not” xuddi o‘zbekchadagi “emas” kabi ishlaydi, faqat u gap oxirida emas, fe’ldan keyin, sifat yoki otdan oldin turadi.",
-    "say": "I am not hungry. She is not at home. They are not students.",
-    "say_uz": "Men och emasman. U uyda emas. Ular talaba emas.", "practice_seconds": 0 },
-  { "kind": "example", "title": "Qisqa shakllar", "emotion": "neutral",
-    "board": ["I am not → I'm not", "is not → isn't / 's not", "are not → aren't / 're not"],
-    "examples": [{ "t": "He isn't late. = He's not late.", "uz": "U kechikmagan." }, { "t": "We aren't ready. = We're not ready.", "uz": "Biz tayyor emasmiz." }],
-    "say_native": "Og‘zaki nutqda to‘liq shakl kam ishlatiladi, deyarli doim qisqa shakl aytiladi. “Is not” — “isn’t”, “are not” — “aren’t”. Bundan tashqari ikkinchi usul ham bor: olmoshni qisqartirish: “he’s not”, “we’re not”. “He isn’t” va “he’s not” — ikkalasi ham to‘g‘ri, ma’nosi bir xil. Lekin “I” bilan faqat bitta yo‘l bor: “I’m not”. To‘liq shakl “I am not” esa rasmiy yozuvda yoki “not” so‘zini kuchli ta’kidlamoqchi bo‘lganda ishlatiladi.",
-    "say": "He isn't late. He's not late. We aren't ready. We're not ready. I'm not sure.",
-    "say_uz": "U kechikmagan. U kechikmagan. Biz tayyor emasmiz. Biz tayyor emasmiz. Men ishonchim komil emas.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "O‘zbek va rus tili bilan solishtiramiz", "emotion": "thinking",
-    "board": ["Men talaba emasman.", "Я не студент.", "I'm not a student."], "examples": [],
-    "say_native": "Solishtiramiz. O‘zbekchada “Men talaba emasman” deymiz: “emas” so‘zi oxirida keladi. Rus tilida “Я не студент” — umuman fe’l yo‘q. Ingliz tilida esa fe’l majburiy: avval “I”, keyin “am”, keyin “not”, keyin “a student”. Shuning uchun gapni o‘zbekcha tartibda qurmang. Yana e’tibor bering: kasb oldidagi “a” artikli inkor gapda ham saqlanadi: “I’m not a student”, “She isn’t a doctor”. Ya’ni inkor gap tasdiq gapdan faqat bitta “not” bilan farq qiladi.",
-    "say": "I'm not a student. I'm a teacher. She isn't a doctor. She's a nurse.",
-    "say_uz": "Men talaba emasman. Men o‘qituvchiman. U shifokor emas. U hamshira.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "I not va amn't — xato", "emotion": "stern",
-    "board": ["✗ I not student.", "✗ I amn't tired.", "✓ I'm not a student.", "✓ I'm not tired."], "examples": [],
-    "say_native": "Ikki xato juda ko‘p uchraydi. Birinchisi: fe’lni tashlab yuborish: “I not student”. Bu rus tilidan ta’sir, ingliz tilida “am” bo‘lishi shart, artikl ham kerak. Ikkinchisi: “isn’t” va “aren’t” ga o‘xshatib “amn’t” yasash. Standart ingliz tilida “amn’t” degan shakl ishlatilmaydi, faqat “I’m not” deyiladi. Bu ikki xatoni hozirdanoq tuzatib olsangiz, nutqingiz ancha toza eshitiladi.",
-    "say": "Not: I not student. Not: I amn't tired. Say: I'm not a student. I'm not tired.",
-    "say_uz": "“I not student” emas. “I amn't tired” emas. “I'm not a student. I'm not tired” deng.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Inkor qiling", "emotion": "encouraging",
-    "board": ["1) I'm tired.", "2) She's from Russia.", "3) They're at home.", "4) It's expensive."], "examples": [],
-    "say_native": "Mashq. To‘rtta tasdiq gapni inkor gapga aylantiring va qisqa shakldan foydalaning. Birinchi: “I’m tired.” Ikkinchi: “She’s from Russia.” Uchinchi: “They’re at home.” To‘rtinchi: “It’s expensive.” Har birini baland ovozda ayting. “Am, is, are” fe’lini tushirib qoldirmang va “not” ni aynan shu fe’ldan keyin qo‘ying.",
-    "say": "Make them negative. I'm tired. She's from Russia. They're at home. It's expensive.",
-    "say_uz": "Ularni inkor qiling. Men charchadim. U Rossiyadan. Ular uyda. Bu qimmat.", "practice_seconds": 15 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) I'm not tired.", "2) She isn't / She's not from Russia.", "3) They aren't / They're not at home.", "4) It isn't / It's not expensive."], "examples": [],
-    "say_native": "Javoblar. Birinchi: “I’m not tired.” Ikkinchi: “She isn’t from Russia” yoki “She’s not from Russia”. Uchinchi: “They aren’t at home” yoki “They’re not at home”. To‘rtinchi: “It isn’t expensive” yoki “It’s not expensive”. Ikki variantning ikkalasi ham to‘g‘ri. Agar “I amn’t” yoki “She not” deb aytgan bo‘lsangiz, qoidani yana bir bor takrorlab oling.",
-    "say": "I'm not tired. She isn't from Russia. They aren't at home. It isn't expensive.",
-    "say_uz": "Men charchagan emasman. U Rossiyadan emas. Ular uyda emas. Bu qimmat emas.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Boshqa fe’llar: don't", "emotion": "neutral",
-    "board": ["I / you / we / they + don't + verb", "don't = do not"],
-    "examples": [{ "t": "I don't like tea.", "uz": "Men choyni yoqtirmayman." }, { "t": "We don't live in Tashkent.", "uz": "Biz Toshkentda yashamaymiz." }, { "t": "They don't watch TV.", "uz": "Ular televizor ko‘rmaydi." }],
-    "say_native": "Endi boshqa fe’llar: “like”, “work”, “live”, “speak” va hokazo. Ularning oldiga to‘g‘ridan-to‘g‘ri “not” qo‘yib bo‘lmaydi. Buning uchun yordamchi fe’l kerak: “do”. “I, you, we, they” bilan “do not” ishlatiladi, qisqasi “don’t”. Undan keyin fe’l lug‘atdagi asosiy shaklda keladi. Oldingi darsda savol uchun “do” ishlatgan edik: “Do you like tea?” Inkorda ham xuddi shu yordamchi ishlaydi, faqat “not” qo‘shiladi.",
-    "say": "I don't like tea. We don't live in Tashkent. They don't watch TV.",
-    "say_uz": "Men choyni yoqtirmayman. Biz Toshkentda yashamaymiz. Ular televizor ko‘rmaydi.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "He, she, it: doesn't", "emotion": "neutral",
-    "board": ["he / she / it + doesn't + verb", "doesn't = does not", "She works. → She doesn't work."],
-    "examples": [{ "t": "He doesn't eat fish.", "uz": "U baliq yemaydi." }, { "t": "My phone doesn't work.", "uz": "Telefonim ishlamayapti." }],
-    "say_native": "“He, she, it” bilan yordamchi fe’l “does” bo‘ladi, inkorda “does not”, qisqasi “doesn’t”. Eng muhim nuqta: tasdiq gapdagi “-s” qo‘shimchasi endi “doesn’t” ga o‘tadi, asosiy fe’l esa “-s” siz qoladi. “She works” — “She doesn’t work”. “He eats” — “He doesn’t eat”. Ya’ni “-s” gapda faqat bir marta bo‘ladi. Narsalar haqida ham shunday: buzilgan telefon haqida “It doesn’t work” — u ishlamayapti, deymiz.",
-    "say": "She works. She doesn't work. He eats fish. He doesn't eat fish. My phone doesn't work.",
-    "say_uz": "U ishlaydi. U ishlamaydi. U baliq yeydi. U baliq yemaydi. Telefonim ishlamayapti.", "practice_seconds": 0 },
-  { "kind": "example", "title": "Ko‘proq misollar", "emotion": "happy",
-    "board": ["I don't drive.", "My brother doesn't smoke.", "We don't have a dog.", "My parents don't speak English."], "examples": [],
-    "say_native": "Ko‘proq misollarni tinglang va har birida qaysi yordamchi ishlatilganiga e’tibor bering. “I don’t drive” — men mashina haydamayman. “My brother doesn’t smoke” — akam chekmaydi: “my brother” bu “he”, shuning uchun “doesn’t”. “We don’t have a dog” — bizda it yo‘q. “My parents don’t speak English” — ota-onam ko‘plik, ya’ni “they”, shuning uchun “don’t”. Ism, “my mother”, “the teacher” kabi so‘zlar birlikda bo‘lsa, “doesn’t” oladi.",
-    "say": "I don't drive. My brother doesn't smoke. We don't have a dog. Ali doesn't speak French. My parents don't speak English.",
-    "say_uz": "Men mashina haydamayman. Akam chekmaydi. Bizda it yo‘q. Ali fransuzcha gapirmaydi. Ota-onam inglizcha gapirmaydi.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Have: don't have va haven't got", "emotion": "thinking",
-    "board": ["I don't have a car. (UK + US)", "I haven't got a car. (UK, og‘zaki)", "She doesn't have / hasn't got a sister."], "examples": [],
-    "say_native": "“Have” fe’li bilan ehtiyot bo‘ling. Uni ham oddiy fe’ldek inkor qilamiz: “I don’t have a car”, “She doesn’t have a sister”. Bu shakl Britaniyada ham, Amerikada ham ishlatiladi. Britaniya so‘zlashuvida yana bir shakl bor: “I haven’t got a car”, “She hasn’t got a sister”. Ma’nosi bir xil. Lekin “I haven’t a car” shaklini ishlatmang, u eskirgan va bugun juda kam uchraydi. Hozircha eng ishonchli tanlov — “don’t have”.",
-    "say": "I don't have a car. She doesn't have a sister. In British English you also hear: I haven't got a car.",
-    "say_uz": "Mening mashinam yo‘q. Uning opa-singlisi yo‘q. Britaniya inglizchasida bunday ham eshitasiz: I haven't got a car.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "-ma- qo‘shimchasi va don't", "emotion": "thinking",
-    "board": ["ishla-ma-yman → I don't work", "ishla-ma-ydi → she doesn't work", "я не работаю → I don't work"], "examples": [],
-    "say_native": "O‘zbek tilida inkor fe’lning ichida yashaydi: “ishlayman” — “ishlamayman”, “-ma-” qo‘shimchasi o‘zakka qo‘shiladi. Ingliz tilida esa inkor alohida so‘z bo‘lib, fe’ldan oldin keladi: “I don’t work”. Rus tilida ham “не” fe’ldan oldin turadi: “я не работаю”, shuning uchun rus tilini biladiganlar uchun bu tartib tanish. Faqat inglizchada “не” ning o‘rnida bitta emas, ikki qism bor: “do” yordamchisi va “not”. Fe’lning o‘zi esa o‘zgarmaydi.",
-    "say": "I work. I don't work. She works. She doesn't work.",
-    "say_uz": "Men ishlayman. Men ishlamayman. U ishlaydi. U ishlamaydi.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "Doesn't + fe’l -s siz", "emotion": "stern",
-    "board": ["✗ He doesn't works.", "✗ She don't like milk.", "✗ I not like milk.", "✓ He doesn't work. ✓ She doesn't like milk."], "examples": [],
-    "say_native": "Uchta klassik xato. Birinchi: “He doesn’t works” — “-s” ikki marta takrorlanib qoldi. “Doesn’t” dan keyin fe’l doim oddiy shaklda. Ikkinchi: “She don’t like milk” — buni filmlarda va qo‘shiqlarda eshitishingiz mumkin, lekin bu standart emas va imtihonda xato hisoblanadi. Uchinchi: “I not like milk” — yordamchi fe’l tushib qolgan. To‘g‘risi: “I don’t like milk”, “She doesn’t like milk”.",
-    "say": "He doesn't work here. She doesn't like milk. I don't like milk.",
-    "say_uz": "U bu yerda ishlamaydi. U sutni yoqtirmaydi. Men sutni yoqtirmayman.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Be yoki do?", "emotion": "thinking",
-    "board": ["hungry, tired, at home, a doctor → be + not", "eat, go, like, work → don't / doesn't"],
-    "examples": [{ "t": "I'm not hungry.", "uz": "Men och emasman." }, { "t": "I don't eat in the morning.", "uz": "Men ertalab ovqatlanmayman." }],
-    "say_native": "Eng muhim savol: qachon “not”, qachon “don’t”? Qoida oddiy. Gapda harakat fe’li bo‘lmasa, ya’ni holat, sifat, kasb yoki joy haqida gapirayotgan bo‘lsangiz, “am, is, are” va “not” ishlatasiz: “I’m not hungry”, “He isn’t at school”. Gapda harakat yoki odat bildiruvchi fe’l bo‘lsa, “don’t” yoki “doesn’t” ishlatasiz: “I don’t eat”, “He doesn’t go to school”. Bir gapda ikkala tizim aralashtirilmaydi.",
-    "say": "I'm not hungry. I don't eat in the morning. He isn't at school. He doesn't go to school on Sundays.",
-    "say_uz": "Men och emasman. Men ertalab ovqatlanmayman. U maktabda emas. U yakshanba kunlari maktabga bormaydi.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "Ikki tizimni aralashtirmang", "emotion": "stern",
-    "board": ["✗ I don't hungry. → ✓ I'm not hungry.", "✗ I'm not like coffee. → ✓ I don't like coffee.", "✗ He doesn't be at home. → ✓ He isn't at home."], "examples": [],
-    "say_native": "O‘zbek o‘quvchilari bu ikki tizimni ko‘p aralashtiradi. “I don’t hungry” — xato, chunki “hungry” fe’l emas, sifat, unga “am” kerak: “I’m not hungry”. “I’m not like coffee” — xato, chunki “like” fe’l, unga “don’t” kerak: “I don’t like coffee”. “He doesn’t be at home” ham xato: “He isn’t at home”. Esda tuting: “be” fe’li o‘z inkorini o‘zi yasaydi, unga “do” yordamchisi kerak emas.",
-    "say": "I'm not hungry. I don't like coffee. He isn't at home.",
-    "say_uz": "Men och emasman. Men qahvani yoqtirmayman. U uyda emas.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Be yoki do: tanlang", "emotion": "encouraging",
-    "board": ["1) He ___ a doctor.  2) He ___ work on Sundays.", "3) We ___ live here.", "4) I ___ ready.", "5) They ___ at school."], "examples": [],
-    "say_native": "Mashq. Bo‘sh joyga to‘g‘ri inkor shaklni qo‘ying: “isn’t”, “aren’t”, “am not”, “don’t” yoki “doesn’t”. Avval o‘ylang: gapda harakat fe’li bormi yoki yo‘qmi? Agar fe’l bo‘lmasa, “be” kerak. Agar fe’l bo‘lsa, “do” yordamchisi kerak. Keyin egaga qarang: “he” bo‘lsa “isn’t” yoki “doesn’t”, “we” va “they” bo‘lsa “aren’t” yoki “don’t”. Javoblarni baland ovozda ayting.",
-    "say": "Fill in the gaps. Use isn't, aren't, am not, don't or doesn't.",
-    "say_uz": "Bo‘sh joylarni to‘ldiring. isn't, aren't, am not, don't yoki doesn't ishlating.", "practice_seconds": 18 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) isn't  2) doesn't  3) don't", "4) 'm not (I'm not ready.)", "5) aren't"], "examples": [],
-    "say_native": "Javoblar. Birinchi: “He isn’t a doctor” — kasb, harakat fe’li yo‘q, demak “be”. Ikkinchi: “He doesn’t work on Sundays” — “work” fe’l va ega “he”, demak “doesn’t”. Uchinchi: “We don’t live here”. To‘rtinchi: “I’m not ready”. Beshinchi: “They aren’t at school” — joy, fe’l yo‘q. Beshtadan to‘rt yoki beshtasi to‘g‘ri bo‘lsa, siz bu qoidani yaxshi tushundingiz.",
-    "say": "He isn't a doctor. He doesn't work on Sundays. We don't live here. I'm not ready. They aren't at school.",
-    "say_uz": "U shifokor emas. U yakshanba kunlari ishlamaydi. Biz bu yerda yashamaymiz. Men tayyor emasman. Ular maktabda emas.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Buyruq gapda: Don't…!", "emotion": "neutral",
-    "board": ["Don't worry!", "Don't touch!", "Don't be late!", "Don't + verb (hamma uchun bir xil)"], "examples": [],
-    "say_native": "Yana bir muhim shakl: buyruq yoki maslahat. Birovga biror ishni qilmaslikni aytmoqchi bo‘lsangiz, gapni “Don’t” bilan boshlaysiz: “Don’t worry!” — xavotir olmang. “Don’t touch!” — tegmang. Bu yerda ega yo‘q va har doim “don’t” ishlatiladi, “doesn’t” emas. Qiziq jihati: buyruqda “be” bilan ham “don’t” ishlatiladi: “Don’t be late!” — kechikmang. Bu to‘g‘ri, lekin faqat buyruqda. Oddiy gapda “He doesn’t be late” deyilmaydi.",
-    "say": "Don't worry! Don't touch that! Don't be late!",
-    "say_uz": "Xavotir olmang! Bunga tegmang! Kechikmang!", "practice_seconds": 0 },
-  { "kind": "explain", "title": "There isn't / there aren't", "emotion": "neutral",
-    "board": ["There isn't a bank near here.", "There aren't any shops.", "(… yo‘q)"], "examples": [],
-    "say_native": "Biror joyda narsaning yo‘qligini aytish uchun “there is” va “there are” iborasini inkor qilamiz: “There isn’t a bank near here” — bu yerga yaqin bank yo‘q. Ko‘plikda: “There aren’t any shops” — hech qanday do‘kon yo‘q. Bu ham “be” fe’li, shuning uchun “do” kerak emas. O‘zbekchada bunday gaplarda “yo‘q” so‘zi ishlatiladi. Ingliz tilida “yo‘q” uchun alohida fe’l yo‘q, shuning uchun “there isn’t” yoki “there aren’t” deb aytasiz.",
-    "say": "There isn't a bank near here. There aren't any shops in this street.",
-    "say_uz": "Bu yerga yaqin bank yo‘q. Bu ko‘chada hech qanday do‘kon yo‘q.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Not va no", "emotion": "thinking",
-    "board": ["not → fe'l / sifat bilan: I'm not, I don't", "no + ot: I have no time.", "No. → savolga javob"],
-    "examples": [{ "t": "I have no time.", "uz": "Vaqtim yo‘q." }, { "t": "There's no milk.", "uz": "Sut yo‘q." }, { "t": "No problem!", "uz": "Muammo yo‘q!" }],
-    "say_native": "Endi inkor so‘zlarni ko‘ramiz. “Not” va “no” — ikki xil so‘z. “Not” fe’l bilan ishlaydi: “I’m not”, “don’t”. “No” esa otdan oldin keladi va “hech qanday” yoki “yo‘q” ma’nosini beradi: “I have no time” — vaqtim yo‘q. “There’s no milk” — sut yo‘q. “No problem!” — muammo yo‘q. “No” dan keyin “a” yoki “the” qo‘yilmaydi. Va albatta, “No” savolga javob ham bo‘ladi: “Are you busy? No.”",
-    "say": "I have no time. There's no milk. No problem!",
-    "say_uz": "Vaqtim yo‘q. Sut yo‘q. Muammo yo‘q!", "practice_seconds": 0 },
-  { "kind": "explain", "title": "No = not any", "emotion": "neutral",
-    "board": ["I have no brothers. = I don't have any brothers.", "There's no sugar. = There isn't any sugar."], "examples": [],
-    "say_native": "“No” bilan aytilgan gapni boshqacha ham aytish mumkin: “not” va “any” bilan. “I have no brothers” va “I don’t have any brothers” — ikkalasi ham “mening aka-ukam yo‘q” degani. “There’s no sugar” va “There isn’t any sugar” ham bir xil. So‘zlashuvda “don’t have any” shakli ko‘proq eshitiladi, “no” esa biroz qat’iyroq eshitiladi. “Any” inkor gapda “hech qanday” ma’nosini beradi, lekin o‘zi inkor so‘z emas. Inkorni “don’t” yoki “isn’t” beradi.",
-    "say": "I have no brothers. I don't have any brothers. There's no sugar. There isn't any sugar.",
-    "say_uz": "Aka-ukam yo‘q. Aka-ukam yo‘q. Shakar yo‘q. Shakar yo‘q.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Never — hech qachon", "emotion": "neutral",
-    "board": ["never = hech qachon", "never + fe'l: I never drink coffee.", "be + never: He is never late."],
-    "examples": [{ "t": "I never drink coffee.", "uz": "Men hech qachon qahva ichmayman." }, { "t": "She never watches TV.", "uz": "U hech qachon televizor ko‘rmaydi." }, { "t": "He is never late.", "uz": "U hech qachon kechikmaydi." }],
-    "say_native": "“Never” — hech qachon. U o‘zi inkor so‘z, shuning uchun fe’l tasdiq shaklda qoladi: “I never drink coffee”. “He” va “she” bilan fe’l “-s” ni saqlaydi: “She never watches TV”. Joylashuvi: “never” asosiy fe’ldan oldin, lekin “am, is, are” dan keyin turadi: “He is never late” — u hech qachon kechikmaydi. O‘zbekchada “hech qachon” bilan birga fe’l ham inkor bo‘ladi, inglizchada esa yo‘q. Bu haqda hozir batafsil gaplashamiz.",
-    "say": "I never drink coffee. She never watches TV. He is never late.",
-    "say_uz": "Men hech qachon qahva ichmayman. U hech qachon televizor ko‘rmaydi. U hech qachon kechikmaydi.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Nothing, nobody, nowhere", "emotion": "neutral",
-    "board": ["nothing — hech narsa", "nobody / no one — hech kim", "nowhere — hech qayer"],
-    "examples": [{ "t": "Nobody knows.", "uz": "Hech kim bilmaydi." }, { "t": "There's nothing in the fridge.", "uz": "Muzlatgichda hech narsa yo‘q." }],
-    "say_native": "Yana uchta inkor so‘z: “nothing” — hech narsa, “nobody” yoki “no one” — hech kim, “nowhere” — hech qayer. Ular ham o‘zida inkor ma’nosini olib yuradi. “Nobody knows” — hech kim bilmaydi. Diqqat: “nobody” birlik hisoblanadi, shuning uchun fe’l “-s” oladi: “knows”. “There’s nothing in the fridge” — muzlatgichda hech narsa yo‘q. Bu so‘zlarning “any” bilan boshlanadigan juftlari ham bor: “anything”, “anybody”, “anywhere”.",
-    "say": "Nobody knows. There's nothing in the fridge. I know nothing about cars.",
-    "say_uz": "Hech kim bilmaydi. Muzlatgichda hech narsa yo‘q. Men mashinalar haqida hech narsa bilmayman.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "Not va no ni aralashtirmang", "emotion": "stern",
-    "board": ["✗ I have not money. → ✓ I have no money.", "✗ Not problem! → ✓ No problem!", "✗ I'm no tired. → ✓ I'm not tired."], "examples": [],
-    "say_native": "Bu yerda ham tipik xatolar bor. “I have not money” — xato. Zamonaviy ingliz tilida “have” ni bunday inkor qilmaymiz, “I have no money” yoki “I don’t have any money” deymiz. “Not problem” — xato, ot oldidan “no” keladi: “No problem”. Teskari xato ham bor: “I’m no tired” — sifat oldidan “not” keladi: “I’m not tired”. Qisqasi: ot oldida “no”, fe’l va sifat bilan “not”.",
-    "say": "I have no money. I don't have any money. No problem! I'm not tired.",
-    "say_uz": "Pulim yo‘q. Pulim yo‘q. Muammo yo‘q! Men charchagan emasman.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Not yoki no?", "emotion": "encouraging",
-    "board": ["1) I have ___ time.  2) She is ___ here.", "3) ___ problem!", "4) We do ___ eat meat.", "5) There are ___ chairs."], "examples": [],
-    "say_native": "Mashq. “Not” yoki “no” — qaysi biri? Esingizda bo‘lsin: ot oldidan “no”, fe’l, sifat yoki joy bilan “not”. Birinchi: “I have … time.” Ikkinchi: “She is … here.” Uchinchi: “… problem!” To‘rtinchi: “We do … eat meat.” Beshinchi: “There are … chairs.” Har bir gapda bo‘sh joydan keyingi so‘zga qarang: u ot yoki boshqa narsa? Javobni ayting.",
-    "say": "Not or no? Choose the right word for each sentence.",
-    "say_uz": "Not yoki no? Har bir gap uchun to‘g‘ri so‘zni tanlang.", "practice_seconds": 15 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) no  2) not  3) No", "4) not (We don't eat meat.)", "5) no"], "examples": [],
-    "say_native": "Javoblar. “I have no time” — “time” ot. “She is not here” — “here” joy, “be” fe’li bilan “not”. “No problem!” “We do not eat meat” — og‘zaki nutqda qisqartirib “We don’t eat meat” deymiz. “There are no chairs” — stullar yo‘q. Buni “There aren’t any chairs” deb ham aytish mumkin edi. Agar beshtasi ham to‘g‘ri bo‘lsa, ajoyib!",
-    "say": "I have no time. She is not here. No problem! We don't eat meat. There are no chairs.",
-    "say_uz": "Vaqtim yo‘q. U bu yerda emas. Muammo yo‘q! Biz go‘sht yemaymiz. Stullar yo‘q.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Bitta gapda bitta inkor", "emotion": "thinking",
-    "board": ["Standard English: 1 negative per clause", "✓ I don't know anything.", "✓ I know nothing."], "examples": [],
-    "say_native": "Endi darsning eng qiziq qismi. Standart ingliz tilida bitta sodda gapda faqat bitta inkor so‘z bo‘ladi. Agar fe’l inkor bo‘lsa, ya’ni “don’t” yoki “isn’t” bo‘lsa, keyin “any”, “anything”, “anybody” kabi so‘zlar keladi: “I don’t know anything”. Agar inkor so‘z “nothing”, “nobody” yoki “never” bo‘lsa, fe’l tasdiq shaklda qoladi: “I know nothing”. Ikkalasi bir vaqtda ishlatilmaydi.",
-    "say": "I don't know anything. I know nothing. I don't see anybody. I see nobody.",
-    "say_uz": "Men hech narsa bilmayman. Men hech narsa bilmayman. Men hech kimni ko‘rmayapman. Men hech kimni ko‘rmayapman.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "O‘zbek va rus tilida esa…", "emotion": "thinking",
-    "board": ["Hech kim bilmaydi. (2 inkor)", "Никто не знает. (2 inkor)", "Nobody knows. (1 inkor)"], "examples": [],
-    "say_native": "Nima uchun bu biz uchun qiyin? Chunki o‘zbek tilida ikki inkor odatiy hol: “Hech kim bilmaydi” — bu yerda “hech kim” ham, “-ma-” ham inkor. “Hech narsa bilmayman” ham shunday. Rus tilida ham: “Никто не знает”, “Я ничего не знаю”. Ingliz tilida esa “Nobody knows” — bitta inkor yetarli. Agar o‘zbekchadan so‘zma-so‘z tarjima qilsangiz, ikki inkor chiqadi va bu xato. Shuning uchun inglizcha gapirganda inkorlarni sanang: bitta bo‘lishi kerak.",
-    "say": "Nobody knows. I don't know anything. I know nothing.",
-    "say_uz": "Hech kim bilmaydi. Men hech narsa bilmayman. Men hech narsa bilmayman.", "practice_seconds": 0 },
-  { "kind": "example", "title": "Ikki yo‘l, bitta ma’no", "emotion": "neutral",
-    "board": ["I don't need anything. = I need nothing.", "She doesn't go anywhere. = She goes nowhere.", "There isn't anybody here. = There's nobody here."], "examples": [],
-    "say_native": "Ko‘pincha bitta fikrni ikki xil aytish mumkin. “I don’t need anything” yoki “I need nothing” — menga hech narsa kerak emas. “She doesn’t go anywhere” yoki “She goes nowhere” — u hech qayerga bormaydi. “There isn’t anybody here” yoki “There’s nobody here” — bu yerda hech kim yo‘q. So‘zlashuvda birinchi variant, ya’ni “don’t … anything” ko‘proq ishlatiladi va tabiiyroq eshitiladi. Asosiysi: ikkala variantda ham inkor faqat bitta.",
-    "say": "I don't need anything. I need nothing. There isn't anybody here. There's nobody here.",
-    "say_uz": "Menga hech narsa kerak emas. Menga hech narsa kerak emas. Bu yerda hech kim yo‘q. Bu yerda hech kim yo‘q.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "Ikki inkor — xato", "emotion": "stern",
-    "board": ["✗ I don't know nothing.", "✗ Nobody doesn't know.", "✗ I never don't eat meat.", "✓ I don't know anything. ✓ Nobody knows. ✓ I never eat meat."], "examples": [],
-    "say_native": "Mana o‘sha xatolar. “I don’t know nothing” — ikki inkor, xato. To‘g‘risi: “I don’t know anything” yoki “I know nothing”. “Nobody doesn’t know” — bu ham ikki inkor; to‘g‘risi “Nobody knows”. “I never don’t eat meat” — “never” o‘zi inkor, “don’t” ortiqcha: “I never eat meat”. Qo‘shiq va filmlarda “I don’t know nothing” kabi gaplarni eshitishingiz mumkin, bu ayrim lahjalarda uchraydi, lekin standart emas. O‘qishda, ishda va imtihonda faqat bitta inkor ishlating.",
-    "say": "I don't know anything. Nobody knows. I never eat meat.",
-    "say_uz": "Men hech narsa bilmayman. Hech kim bilmaydi. Men hech qachon go‘sht yemayman.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Ikki inkorni tuzating", "emotion": "encouraging",
-    "board": ["1) I don't see nobody.", "2) She doesn't eat nothing.", "3) Nobody doesn't live here.", "4) We don't go nowhere on Sundays."], "examples": [],
-    "say_native": "Mashq. To‘rtta gapda ikki inkor bor. Har birini tuzating. Imkon bo‘lsa, ikki xil variantda ayting: biri “don’t” va “any” bilan, ikkinchisi “no” bilan boshlanadigan so‘zlar bilan. Birinchi: “I don’t see nobody.” Ikkinchi: “She doesn’t eat nothing.” Uchinchi: “Nobody doesn’t live here.” To‘rtinchi: “We don’t go nowhere on Sundays.” “Doesn’t” olib tashlansa, fe’lga nima bo‘lishini ham o‘ylang.",
-    "say": "Correct the sentences. Use only one negative in each sentence.",
-    "say_uz": "Gaplarni tuzating. Har bir gapda faqat bitta inkor ishlating.", "practice_seconds": 20 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) I don't see anybody. / I see nobody.", "2) She doesn't eat anything. / She eats nothing.", "3) Nobody lives here.", "4) We don't go anywhere on Sundays."], "examples": [],
-    "say_native": "Javoblar. Birinchi: “I don’t see anybody” yoki “I see nobody”. Ikkinchi: “She doesn’t eat anything” yoki “She eats nothing” — e’tibor bering, “doesn’t” ketgach, “eat” yana “-s” oladi: “eats”. Uchinchi: “Nobody lives here” — “nobody” birlik, shuning uchun “lives”. To‘rtinchi: “We don’t go anywhere on Sundays” yoki “We go nowhere on Sundays”. Birinchi variantlar so‘zlashuvda ko‘proq ishlatiladi.",
-    "say": "I don't see anybody. She doesn't eat anything. Nobody lives here. We don't go anywhere on Sundays.",
-    "say_uz": "Men hech kimni ko‘rmayapman. U hech narsa yemaydi. Bu yerda hech kim yashamaydi. Biz yakshanba kunlari hech qayerga bormaymiz.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Qisqa inkor javob: be bilan", "emotion": "neutral",
-    "board": ["Are you tired? — No, I'm not.", "Is Anna at home? — No, she isn't. / No, she's not.", "Are they students? — No, they aren't."], "examples": [],
-    "say_native": "Oldingi darsda “ha” yoki “yo‘q” javobli savollarni o‘rgandik. Endi ularga qisqa inkor javob beramiz. Qoida: “No”, vergul, ega olmoshi va savoldagi fe’l inkor shaklda. Savol “Are you…?” bo‘lsa, javob “No, I’m not”. “Is she…?” bo‘lsa, “No, she isn’t” yoki “No, she’s not”. “Are they…?” bo‘lsa, “No, they aren’t”. Javobda ism emas, olmosh ishlatiladi: “Is Anna at home? No, she isn’t.”",
-    "say": "Are you tired? No, I'm not. Is Anna at home? No, she isn't. Are they students? No, they aren't.",
-    "say_uz": "Charchadingizmi? Yo‘q. Anna uydami? Yo‘q, uyda emas. Ular talabami? Yo‘q, talaba emas.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Qisqa inkor javob: do va does bilan", "emotion": "neutral",
-    "board": ["Do you smoke? — No, I don't.", "Does he drive? — No, he doesn't.", "Is there a bank? — No, there isn't."], "examples": [],
-    "say_native": "Savol “do” yoki “does” bilan bo‘lsa, javobda ham shu yordamchi qaytadi: “Do you smoke? No, I don’t.” “Does he drive? No, he doesn’t.” Asosiy fe’l, ya’ni “smoke” yoki “drive” qisqa javobda takrorlanmaydi. “There is” savoliga ham qisqa javob bor: “Is there a bank near here? No, there isn’t.” Qoida bitta: savolni qaysi yordamchi so‘z boshlagan bo‘lsa, qisqa javob o‘sha so‘z bilan tugaydi.",
-    "say": "Do you smoke? No, I don't. Does he drive? No, he doesn't. Is there a bank near here? No, there isn't.",
-    "say_uz": "Chekasizmi? Yo‘q. U mashina haydaydimi? Yo‘q. Bu yerga yaqin bank bormi? Yo‘q.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Faqat “No” yetarlimi?", "emotion": "thinking",
-    "board": ["No. (juda qisqa)", "No, I don't. (tabiiy, xushmuomala)", "No, I don't. I drink tea. (+ ma'lumot)"], "examples": [],
-    "say_native": "O‘zbekchada ko‘pincha bitta “yo‘q” deymiz yoki fe’lni takrorlaymiz: “Yo‘q, chekmayman.” Ingliz tilida yolg‘iz “No” ba’zan juda quruq, hatto qo‘pol eshitilishi mumkin. Shuning uchun qisqa javob ishlatiladi: “No, I don’t.” Suhbatni davom ettirish uchun yana bitta gap qo‘shsangiz, yanada yaxshi: “Do you drink coffee? No, I don’t. I drink tea.” Bu suhbatdoshga e’tibor ko‘rsatadi va suhbatni jonli qiladi.",
-    "say": "Do you drink coffee? No, I don't. I drink tea. Are you from Tashkent? No, I'm not. I'm from Andijan.",
-    "say_uz": "Qahva ichasizmi? Yo‘q. Men choy ichaman. Toshkentdanmisiz? Yo‘q. Men Andijondanman.", "practice_seconds": 0 },
-  { "kind": "mistake", "title": "Qisqa javobdagi xatolar", "emotion": "stern",
-    "board": ["✗ No, I amn't. ✗ No, I not.", "Do you like tea? ✗ No, I'm not.", "✗ No, I don't like.", "✓ No, I don't. / No, I don't like tea."], "examples": [],
-    "say_native": "Qisqa javobdagi xatolar. “No, I amn’t” — bunday shakl yo‘q, “No, I’m not” deyiladi. “No, I not” — fe’l tushib qolgan. Eng ko‘p uchraydigani: savol “do” bilan, javob esa “be” bilan: “Do you like tea? No, I’m not.” Bu xato, javob “No, I don’t” bo‘ladi. Yana bir xato: “No, I don’t like” deb gapni chala qoldirish. “Like” dan keyin nimadir kerak. Yo “No, I don’t”, yo to‘liq gap: “No, I don’t like tea.”",
-    "say": "Do you like tea? No, I don't. Or: No, I don't like tea. Are you hungry? No, I'm not.",
-    "say_uz": "Choyni yoqtirasizmi? Yo‘q. Yoki: Yo‘q, choyni yoqtirmayman. Ochmisiz? Yo‘q.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "No bilan javob bering", "emotion": "encouraging",
-    "board": ["1) Are you Chinese?", "2) Do you live in London?", "3) Is your teacher Russian?  4) Does your friend play golf?", "5) Are your parents twenty?"], "examples": [],
-    "say_native": "Mashq. Men beshta savol beraman, siz hammasiga qisqa inkor javob bering. Qaysi yordamchi fe’l kerakligini savolning birinchi so‘ziga qarab aniqlang. Ega olmoshini ham to‘g‘ri tanlang: “your teacher” — “he” yoki “she”, “your parents” — “they”. Imkon bo‘lsa, qisqa javobdan keyin yana bitta haqiqiy gap qo‘shing, masalan qayerda yashashingizni ayting.",
-    "say": "Answer with No. Are you Chinese? Do you live in London? Is your teacher Russian? Does your friend play golf? Are your parents twenty?",
-    "say_uz": "No bilan javob bering. Xitoylikmisiz? Londonda yashaysizmi? O‘qituvchingiz rusmi? Do‘stingiz golf o‘ynaydimi? Ota-onangiz yigirma yoshdami?", "practice_seconds": 18 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) No, I'm not.  2) No, I don't.", "3) No, he isn't. / No, she isn't.", "4) No, he doesn't. / No, she doesn't.", "5) No, they aren't."], "examples": [],
-    "say_native": "Javoblar. “Are you Chinese? No, I’m not. I’m Uzbek.” “Do you live in London? No, I don’t. I live in Namangan”, masalan. “Is your teacher Russian? No, she isn’t” yoki “No, he isn’t”. “Does your friend play golf? No, he doesn’t” yoki “No, she doesn’t”. “Are your parents twenty? No, they aren’t.” Agar “Do you…?” savoliga “No, I’m not” degan bo‘lsangiz, yordamchi fe’lni yana bir bor tekshiring.",
-    "say": "No, I'm not. I'm Uzbek. No, I don't. No, she isn't. No, he doesn't. No, they aren't.",
-    "say_uz": "Yo‘q. Men o‘zbekman. Yo‘q. Yo‘q, u rus emas. Yo‘q, o‘ynamaydi. Yo‘q, unday emas.", "practice_seconds": 0 },
-  { "kind": "explain", "title": "Talaffuz: qisqa shakllar", "emotion": "impressed",
-    "board": ["don't /dəʊnt/ ≠ do /duː/", "doesn't /ˈdʌznt/", "isn't /ˈɪznt/", "aren't /ɑːnt/ (UK)"], "examples": [],
-    "say_native": "Talaffuzga e’tibor bering. “Don’t” — “dount” deb aytiladi, uni “do” — “du” bilan aralashtirmang, aks holda ma’no teskari bo‘lib qoladi. “Doesn’t” — “dazənt”, oxiridagi “t” yengil, ba’zan deyarli eshitilmaydi. “Isn’t” — “izənt”. “Aren’t” Britaniya talaffuzida “a:nt”, “r” aytilmaydi; Amerika talaffuzida “r” eshitiladi. Inkor gapda “don’t” va “isn’t” odatda urg‘u oladi, chunki aynan ular ma’noni o‘zgartiradi.",
-    "say": "I don't know. She doesn't know. It isn't easy. We aren't late.",
-    "say_uz": "Men bilmayman. U bilmaydi. Bu oson emas. Biz kechikmaganmiz.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Takrorlang", "emotion": "encouraging",
-    "board": ["I don't know.", "She doesn't eat meat.", "It isn't my bag.", "We aren't ready."], "examples": [],
-    "say_native": "Takrorlang. Har bir gapni avval sekin, keyin tabiiy tezlikda ayting. “Don’t” va “isn’t” so‘zlariga ozgina kuch bering, chunki ular gapning eng muhim qismi. “Doesn’t” va “isn’t” dagi tovushga e’tibor bering: u “s” emas, jarangli “z”. Sekin: “She… doesn’t… eat… meat.” Endi tezroq, so‘zlar orasida to‘xtamasdan, bitta oqimda ayting.",
-    "say": "I don't know. She doesn't eat meat. It isn't my bag. We aren't ready.",
-    "say_uz": "Men bilmayman. U go‘sht yemaydi. Bu mening sumkam emas. Biz tayyor emasmiz.", "practice_seconds": 12 },
-  { "kind": "explain", "title": "Tekshiring: urg‘u va ulanish", "emotion": "proud",
-    "board": ["I DON'T know.", "She DOESN'T eat meat.", "It ISN'T my bag. → [i-tizənt]", "We AREN'T ready."], "examples": [],
-    "say_native": "Tekshiring. Katta harflar bilan yozilgan so‘zlar urg‘u oladi: “I don’t know”, “She doesn’t eat meat”. Tez nutqda “I don’t know” ko‘pincha juda qisqarib eshitiladi. Filmlarda va ko‘chada buni ko‘p uchratasiz, tushunishingiz uchun bilib qo‘ying, lekin o‘zingiz hozircha aniq aytishga harakat qiling. “It isn’t” da esa “it” va “isn’t” bir-biriga qo‘shilib ketadi: “i-tizənt”. Sizning talaffuzingiz shunga yaqin bo‘lsa, a’lo.",
-    "say": "I don't know. She doesn't eat meat. It isn't my bag. We aren't ready.",
-    "say_uz": "Men bilmayman. U go‘sht yemaydi. Bu mening sumkam emas. Biz tayyor emasmiz.", "practice_seconds": 0 },
-  { "kind": "example", "title": "Tinglang: yangi kvartira", "emotion": "happy",
-    "board": ["Listen. (Tinglang)", "Kate and Jasur — flatmates?", "smoke? student? meat? milk?"], "examples": [],
-    "say_native": "Endi birinchi dialogni tinglang. Jasur Londonda o‘qiydi va kvartirasi uchun sherik qidiryapti. Kate ismli qiz kvartirani ko‘rgani keldi. Ular bir-birlariga savollar berishadi va ko‘p inkor javoblar eshitiladi. Diqqat bilan tinglang, keyin to‘rtta savolga javob berasiz: Kate chekadimi, u talabami, go‘sht yeydimi va uyda sut bormi?",
-    "say": "Hi, I'm Kate. Hi, Kate. I'm Jasur. Come in. So, are you a student? No, I'm not. I'm a nurse. I work at night. Do you smoke? No, I don't. Good. I don't smoke either. Do you cook? Yes, but I don't eat meat. That's fine. Would you like some tea? Yes, please. With milk? Oh, sorry, there isn't any milk. No problem!",
-    "say_uz": "Salom, men Keytman. Salom, Keyt. Men Jasurman. Kiring. Xo‘sh, talabamisiz? Yo‘q. Men hamshiraman. Kechasi ishlayman. Chekasizmi? Yo‘q. Yaxshi. Men ham chekmayman. Ovqat pishirasizmi? Ha, lekin go‘sht yemayman. Mayli. Choy ichasizmi? Ha, iltimos. Sut bilanmi? Voy, kechirasiz, sut yo‘q. Muammo yo‘q!", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Savollarga javob bering", "emotion": "encouraging",
-    "board": ["1) Does Kate smoke?", "2) Is she a student?", "3) Does she eat meat?", "4) Is there any milk?"], "examples": [],
-    "say_native": "Savollarga qisqa javob bering. Bugun o‘rgangan qisqa inkor javoblardan foydalaning, bitta “No” bilan cheklanmang. Birinchi: “Does Kate smoke?” Ikkinchi: “Is she a student?” Bu savolga javobdan keyin uning kasbini ham ayting. Uchinchi: “Does she eat meat?” To‘rtinchi: “Is there any milk?” Kerak bo‘lsa, dialogni yana bir marta eslang.",
-    "say": "Does Kate smoke? Is she a student? Does she eat meat? Is there any milk?",
-    "say_uz": "Keyt chekadimi? U talabami? U go‘sht yeydimi? Sut bormi?", "practice_seconds": 15 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) No, she doesn't.", "2) No, she isn't. She's a nurse.", "3) No, she doesn't.", "4) No, there isn't."], "examples": [],
-    "say_native": "Javoblar. “Does Kate smoke? No, she doesn’t.” “Is she a student? No, she isn’t. She’s a nurse.” “Does she eat meat? No, she doesn’t.” “Is there any milk? No, there isn’t.” Dialogda yana bitta foydali ibora bor edi: “I don’t smoke either” — men ham chekmayman. Inkor gapga qo‘shilganda oxirida “too” emas, “either” ishlatiladi. Bu haqda keyingi darslarda batafsil gaplashamiz.",
-    "say": "No, she doesn't. No, she isn't. She's a nurse. No, she doesn't. No, there isn't.",
-    "say_uz": "Yo‘q, chekmaydi. Yo‘q, talaba emas. U hamshira. Yo‘q, yemaydi. Yo‘q, sut yo‘q.", "practice_seconds": 0 },
-  { "kind": "example", "title": "Tinglang: shanba kungi ziyofat", "emotion": "happy",
-    "board": ["Listen. (Tinglang)", "Malika and Tom — a party on Saturday"], "examples": [],
-    "say_native": "Ikkinchi dialog. Ikki do‘st, Malika va Tom, telefonda gaplashyapti. Tom Malikani shanba kuni uyidagi ziyofatga taklif qiladi, lekin Malika biroz ikkilanyapti. Tinglang va to‘rtta narsani aniqlang: Malika shanba kunlari ishlaydimi, u Tomning do‘stlarini taniydimi, u raqsga tushadimi va Tomning ziyofatlarida kim raqsga tushadi?",
-    "say": "Malika, are you free on Saturday? There's a party at my house. Saturday? I don't work on Saturdays, so I'm free. But I don't know your friends. Nobody knows me there. Don't worry! My friends aren't scary. And my sister is there. You know her. But I don't dance! That's OK. Nobody dances at my parties. We just eat and talk.",
-    "say_uz": "Malika, shanba kuni bo‘shmisan? Uyimda ziyofat bor. Shanba? Men shanba kunlari ishlamayman, demak bo‘shman. Lekin men do‘stlaringni tanimayman. U yerda meni hech kim tanimaydi. Xavotir olma! Do‘stlarim qo‘rqinchli emas. Singlim ham u yerda bo‘ladi. Uni taniysan. Lekin men raqsga tushmayman! Mayli. Mening ziyofatlarimda hech kim raqsga tushmaydi. Shunchaki ovqatlanamiz va gaplashamiz.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Savollarga javob bering", "emotion": "encouraging",
-    "board": ["1) Does Malika work on Saturdays?", "2) Does she know Tom's friends?", "3) Does she dance?", "4) Who dances at Tom's parties?"], "examples": [],
-    "say_native": "To‘rtta savol. Birinchi uchtasiga qisqa inkor javob bering: “No, she…” va to‘g‘ri yordamchi fe’l. To‘rtinchi savol “who” bilan boshlanadi, unga bitta so‘z bilan javob berish mumkin, keyin esa to‘liq gap ayting. Dialogda Tom aynan shu so‘zni ishlatdi. Shoshilmang, har bir javobni baland ovozda ayting.",
-    "say": "Does Malika work on Saturdays? Does she know Tom's friends? Does she dance? Who dances at Tom's parties?",
-    "say_uz": "Malika shanba kunlari ishlaydimi? U Tomning do‘stlarini taniydimi? U raqsga tushadimi? Tomning ziyofatlarida kim raqsga tushadi?", "practice_seconds": 15 },
-  { "kind": "explain", "title": "Javoblar", "emotion": "proud",
-    "board": ["1) No, she doesn't. She's free.", "2) No, she doesn't.", "3) No, she doesn't.", "4) Nobody. Nobody dances."], "examples": [],
-    "say_native": "Javoblar. “Does Malika work on Saturdays? No, she doesn’t. She’s free.” “Does she know Tom’s friends? No, she doesn’t.” “Does she dance? No, she doesn’t.” “Who dances at Tom’s parties? Nobody.” To‘liq gap: “Nobody dances at Tom’s parties.” E’tibor bering: “nobody” bilan fe’l tasdiq shaklda va “-s” bilan: “dances”. Dialogdagi “Don’t worry!” buyrug‘ini ham eslab qoling.",
-    "say": "No, she doesn't. She's free. No, she doesn't. No, she doesn't. Nobody. Nobody dances at Tom's parties.",
-    "say_uz": "Yo‘q, ishlamaydi. U bo‘sh. Yo‘q, tanimaydi. Yo‘q, raqsga tushmaydi. Hech kim. Tomning ziyofatlarida hech kim raqsga tushmaydi.", "practice_seconds": 0 },
-  { "kind": "practice", "title": "Yakuniy topshiriq: men haqimda", "emotion": "encouraging",
-    "board": ["2 × I'm not …   2 × I don't …", "2 × My … doesn't …", "1 × I never …", "1 × I have no … / There isn't …"], "examples": [],
-    "say_native": "Yakuniy topshiriq. O‘zingiz haqingizda sakkizta haqiqiy inkor gap ayting. Ekrandagi reja bo‘yicha: “I’m not” bilan ikkita, “I don’t” bilan ikkita, oila a’zoingiz yoki do‘stingiz haqida “doesn’t” bilan ikkita, “never” bilan bitta va “no” yoki “there isn’t” bilan bitta gap. Har bir gapda faqat bitta inkor bo‘lsin. Baland ovozda, shoshilmay gapiring.",
-    "say": "Now it's your turn. Say eight true negative sentences about you and your family. Start!",
-    "say_uz": "Endi navbat sizga. O‘zingiz va oilangiz haqida sakkizta haqiqiy inkor gap ayting. Boshlang!", "practice_seconds": 20 },
-  { "kind": "explain", "title": "Namuna javob", "emotion": "impressed",
-    "board": ["I'm not a student. I'm not from Tashkent.", "I don't drink coffee. I don't have a car.", "My brother doesn't smoke. My mum doesn't drive.", "I never watch TV. There isn't a park near my house."], "examples": [],
-    "say_native": "Namuna javobni tinglang va o‘zingiznikini solishtiring. Endi gaplaringizni tekshiring. “Doesn’t” dan keyin fe’lda “-s” yo‘qmi? “Never” bilan “don’t” birga kelib qolmadimi? “Hungry”, “tired”, “from Tashkent” kabi so‘zlar bilan “don’t” emas, “not” ishlatdingizmi? Agar uchala savolga “ha” desangiz, siz inkor gaplarni yaxshi o‘zlashtirdingiz.",
-    "say": "I'm not a student. I'm not from Tashkent. I don't drink coffee. I don't have a car. My brother doesn't smoke. My mum doesn't drive. I never watch TV. There isn't a park near my house.",
-    "say_uz": "Men talaba emasman. Men Toshkentdan emasman. Men qahva ichmayman. Mening mashinam yo‘q. Akam chekmaydi. Onam mashina haydamaydi. Men hech qachon televizor ko‘rmayman. Uyim yaqinida bog‘ yo‘q.", "practice_seconds": 0 },
-  { "kind": "recap", "title": "Bugun nimani o‘rgandik", "emotion": "proud",
-    "board": ["be + not: I'm not, isn't, aren't", "don't / doesn't + verb (no -s)", "no + noun · never · nothing · nobody", "1 negative only! · No, I'm not. / No, I don't."], "examples": [],
-    "say_native": "Xulosa. “Am, is, are” bilan inkor uchun “not” qo‘shamiz: “I’m not”, “isn’t”, “aren’t”. Boshqa fe’llar bilan “don’t” yoki “doesn’t”, undan keyin fe’l “-s” siz. Ot oldidan “no”, fe’l bilan “not”. “Never”, “nothing”, “nobody” o‘zi inkor, shuning uchun gapda boshqa inkor bo‘lmaydi. Qisqa javobda savoldagi yordamchi qaytariladi: “No, I’m not”, “No, I don’t”. Va buyruqda: “Don’t worry!”",
-    "say": "Great work! Now you can say what is not true, and answer with No, I'm not and No, I don't.",
-    "say_uz": "Zo‘r ish! Endi nima to‘g‘ri emasligini ayta olasiz va No, I'm not, No, I don't deb javob bera olasiz.", "practice_seconds": 0 },
-  { "kind": "recap", "title": "Uyga vazifa", "emotion": "encouraging",
-    "board": ["Write 8 true negative sentences about yourself.", "2 × I'm not · 2 × I don't · 2 × doesn't", "1 × never · 1 × no / there isn't"], "examples": [],
-    "say_native": "Uyga vazifa. O‘zingiz haqingizda sakkizta haqiqiy inkor gap yozing: ikkitasi “I’m not”, ikkitasi “I don’t”, oila a’zolaringiz haqida ikkitasi “doesn’t”, bittasi “never” va bittasi “no” yoki “there isn’t” bilan. Muvaffaqiyat mezoni: har bir gapda faqat bitta inkor bor, “doesn’t” dan keyin fe’l “-s” siz va sifatlar bilan “not” ishlatilgan. Keyingi darsda hafta kunlari, oylar va sanalarni o‘rganamiz. Ko‘rishguncha!",
-    "say": "Write eight true negative sentences about yourself. See you next time. Bye!",
-    "say_uz": "O‘zingiz haqingizda sakkizta haqiqiy inkor gap yozing. Keyingi darsda ko‘rishamiz. Xayr!", "practice_seconds": 0 }
+  {
+   "kind": "intro",
+   "title": "Inkor gaplar darsiga xush kelibsiz",
+   "emotion": "happy",
+   "board": [
+    "Negative sentences",
+    "(Inkor gaplar)"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Yangi darsga xush kelibsiz. Oldingi darsda so‘roq gaplar tuzishni o‘rgandik: “Are you…?” , “Do you…?” , “Does she…?” Bugun esa ularning juftini, ya’ni inkor gaplarni o‘rganamiz.",
+   "say": "Hello! Today we will learn to say no. I'm not tired. I don't eat meat. I never drink coffee.",
+   "say_uz": "Salom! Bugun “yo‘q” deyishni o‘rganamiz. Men charchagan emasman. Men go‘sht yemayman. Men hech qachon qahva ichmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Inkorning uchta yo‘li",
+   "emotion": "thinking",
+   "board": [
+    "1) be + not → I'm not, he isn't",
+    "2) don't / doesn't + verb → I don't know",
+    "3) no, never, nothing, nobody"
+   ],
+   "examples": [],
+   "say_native": "Avval umumiy rasmni ko‘raylik. Ingliz tilida inkor gap uch xil yo‘l bilan tuziladi. Birinchisi: “am, is, are” fe’lidan keyin “not” qo‘yamiz. Ikkinchisi: boshqa barcha fe’llar oldidan “don’t” yoki “doesn’t” yordamchisini qo‘yamiz.",
+   "say": "I am not a teacher. I don't speak Chinese. I have no car.",
+   "say_uz": "Men o‘qituvchi emasman. Men xitoycha gapirmayman. Mening mashinam yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "To be + not",
+   "emotion": "neutral",
+   "board": [
+    "I am not",
+    "he / she / it is not",
+    "we / you / they are not"
+   ],
+   "examples": [
+    {
+     "t": "I am not hungry.",
+     "uz": "Men och emasman."
+    },
+    {
+     "t": "She is not at home.",
+     "uz": "U uyda emas."
+    },
+    {
+     "t": "They are not students.",
+     "uz": "Ular talaba emas."
+    }
+   ],
+   "say_native": "Birinchi qoida “to be” fe’li, ya’ni “am, is, are” haqida. Bu fe’l bilan inkor juda oson: fe’ldan keyin “not” so‘zini qo‘yasiz, boshqa hech narsa kerak emas. “I am” — “I am not”, “she is” — “she is not”, “they are” — “they are not”. Fe’lning shakli o‘zgarmaydi, so‘z tartibi ham o‘sha-o‘sha qoladi.",
+   "say": "I am not hungry. She is not at home. They are not students.",
+   "say_uz": "Men och emasman. U uyda emas. Ular talaba emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Qisqa shakllar",
+   "emotion": "neutral",
+   "board": [
+    "I am not → I'm not",
+    "is not → isn't / 's not",
+    "are not → aren't / 're not"
+   ],
+   "examples": [
+    {
+     "t": "He isn't late. = He's not late.",
+     "uz": "U kechikmagan."
+    },
+    {
+     "t": "We aren't ready. = We're not ready.",
+     "uz": "Biz tayyor emasmiz."
+    }
+   ],
+   "say_native": "Og‘zaki nutqda to‘liq shakl kam ishlatiladi, deyarli doim qisqa shakl aytiladi. “Is not” — “isn’t”, “are not” — “aren’t”. Bundan tashqari ikkinchi usul ham bor: olmoshni qisqartirish: “he’s not”, “we’re not”. “He isn’t” va “he’s not” — ikkalasi ham to‘g‘ri, ma’nosi bir xil.",
+   "say": "He isn't late. He's not late. We aren't ready. We're not ready. I'm not sure.",
+   "say_uz": "U kechikmagan. U kechikmagan. Biz tayyor emasmiz. Biz tayyor emasmiz. Men ishonchim komil emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘zbek va rus tili bilan solishtiramiz",
+   "emotion": "thinking",
+   "board": [
+    "Men talaba emasman.",
+    "Я не студент.",
+    "I'm not a student."
+   ],
+   "examples": [],
+   "say_native": "Solishtiramiz. O‘zbekchada “Men talaba emasman” deymiz: “emas” so‘zi oxirida keladi. Rus tilida “Я не студент” — umuman fe’l yo‘q. Ingliz tilida esa fe’l majburiy: avval “I”, keyin “am”, keyin “not”, keyin “a student”. Shuning uchun gapni o‘zbekcha tartibda qurmang.",
+   "say": "I'm not a student. I'm a teacher. She isn't a doctor. She's a nurse.",
+   "say_uz": "Men talaba emasman. Men o‘qituvchiman. U shifokor emas. U hamshira.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "I not va amn't — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ I not student.",
+    "✗ I amn't tired.",
+    "✓ I'm not a student.",
+    "✓ I'm not tired."
+   ],
+   "examples": [],
+   "say_native": "Ikki xato juda ko‘p uchraydi. Birinchisi: fe’lni tashlab yuborish: “I not student”. Bu rus tilidan ta’sir, ingliz tilida “am” bo‘lishi shart, artikl ham kerak. Ikkinchisi: “isn’t” va “aren’t” ga o‘xshatib “amn’t” yasash. Standart ingliz tilida “amn’t” degan shakl ishlatilmaydi, faqat “I’m not” deyiladi.",
+   "say": "Not: I not student. Not: I amn't tired. Say: I'm not a student. I'm not tired.",
+   "say_uz": "“I not student” emas. “I amn't tired” emas. “I'm not a student. I'm not tired” deng.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Inkor qiling",
+   "emotion": "encouraging",
+   "board": [
+    "1) I'm tired.",
+    "2) She's from Russia.",
+    "3) They're at home.",
+    "4) It's expensive."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta tasdiq gapni inkor gapga aylantiring va qisqa shakldan foydalaning. Birinchi: “I’m tired.” Ikkinchi: “She’s from Russia.” Uchinchi: “They’re at home.” To‘rtinchi: “It’s expensive.” Har birini baland ovozda ayting. “Am, is, are” fe’lini tushirib qoldirmang va “not” ni aynan shu fe’ldan keyin qo‘ying.",
+   "say": "Make them negative. I'm tired. She's from Russia. They're at home. It's expensive.",
+   "say_uz": "Ularni inkor qiling. Men charchadim. U Rossiyadan. Ular uyda. Bu qimmat.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) I'm not tired.",
+    "2) She isn't / She's not from Russia.",
+    "3) They aren't / They're not at home.",
+    "4) It isn't / It's not expensive."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: “I’m not tired.” Ikkinchi: “She isn’t from Russia” yoki “She’s not from Russia”. Uchinchi: “They aren’t at home” yoki “They’re not at home”. To‘rtinchi: “It isn’t expensive” yoki “It’s not expensive”. Ikki variantning ikkalasi ham to‘g‘ri.",
+   "say": "I'm not tired. She isn't from Russia. They aren't at home. It isn't expensive.",
+   "say_uz": "Men charchagan emasman. U Rossiyadan emas. Ular uyda emas. Bu qimmat emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Boshqa fe’llar: don't",
+   "emotion": "neutral",
+   "board": [
+    "I / you / we / they + don't + verb",
+    "don't = do not"
+   ],
+   "examples": [
+    {
+     "t": "I don't like tea.",
+     "uz": "Men choyni yoqtirmayman."
+    },
+    {
+     "t": "We don't live in Tashkent.",
+     "uz": "Biz Toshkentda yashamaymiz."
+    },
+    {
+     "t": "They don't watch TV.",
+     "uz": "Ular televizor ko‘rmaydi."
+    }
+   ],
+   "say_native": "Endi boshqa fe’llar: “like”, “work”, “live”, “speak” va hokazo. Ularning oldiga to‘g‘ridan-to‘g‘ri “not” qo‘yib bo‘lmaydi. Buning uchun yordamchi fe’l kerak: “do”. “I, you, we, they” bilan “do not” ishlatiladi, qisqasi “don’t”. Undan keyin fe’l lug‘atdagi asosiy shaklda keladi.",
+   "say": "I don't like tea. We don't live in Tashkent. They don't watch TV.",
+   "say_uz": "Men choyni yoqtirmayman. Biz Toshkentda yashamaymiz. Ular televizor ko‘rmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "He, she, it: doesn't",
+   "emotion": "neutral",
+   "board": [
+    "he / she / it + doesn't + verb",
+    "doesn't = does not",
+    "She works. → She doesn't work."
+   ],
+   "examples": [
+    {
+     "t": "He doesn't eat fish.",
+     "uz": "U baliq yemaydi."
+    },
+    {
+     "t": "My phone doesn't work.",
+     "uz": "Telefonim ishlamayapti."
+    }
+   ],
+   "say_native": "“He, she, it” bilan yordamchi fe’l “does” bo‘ladi, inkorda “does not”, qisqasi “doesn’t”. Eng muhim nuqta: tasdiq gapdagi “-s” qo‘shimchasi endi “doesn’t” ga o‘tadi, asosiy fe’l esa “-s” siz qoladi. “She works” — “She doesn’t work”. “He eats” — “He doesn’t eat”. Ya’ni “-s” gapda faqat bir marta bo‘ladi.",
+   "say": "She works. She doesn't work. He eats fish. He doesn't eat fish. My phone doesn't work.",
+   "say_uz": "U ishlaydi. U ishlamaydi. U baliq yeydi. U baliq yemaydi. Telefonim ishlamayapti.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ko‘proq misollar",
+   "emotion": "happy",
+   "board": [
+    "I don't drive.",
+    "My brother doesn't smoke.",
+    "We don't have a dog.",
+    "My parents don't speak English."
+   ],
+   "examples": [],
+   "say_native": "Ko‘proq misollarni tinglang va har birida qaysi yordamchi ishlatilganiga e’tibor bering. “I don’t drive” — men mashina haydamayman. “My brother doesn’t smoke” — akam chekmaydi: “my brother” bu “he”, shuning uchun “doesn’t”. “We don’t have a dog” — bizda it yo‘q.",
+   "say": "I don't drive. My brother doesn't smoke. We don't have a dog. Ali doesn't speak French. My parents don't speak English.",
+   "say_uz": "Men mashina haydamayman. Akam chekmaydi. Bizda it yo‘q. Ali fransuzcha gapirmaydi. Ota-onam inglizcha gapirmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Have: don't have va haven't got",
+   "emotion": "thinking",
+   "board": [
+    "I don't have a car. (UK + US)",
+    "I haven't got a car. (UK, og‘zaki)",
+    "She doesn't have / hasn't got a sister."
+   ],
+   "examples": [],
+   "say_native": "“Have” fe’li bilan ehtiyot bo‘ling. Uni ham oddiy fe’ldek inkor qilamiz: “I don’t have a car”, “She doesn’t have a sister”. Bu shakl Britaniyada ham, Amerikada ham ishlatiladi. Britaniya so‘zlashuvida yana bir shakl bor: “I haven’t got a car”, “She hasn’t got a sister”. Ma’nosi bir xil.",
+   "say": "I don't have a car. She doesn't have a sister. In British English you also hear: I haven't got a car.",
+   "say_uz": "Mening mashinam yo‘q. Uning opa-singlisi yo‘q. Britaniya inglizchasida bunday ham eshitasiz: I haven't got a car.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "-ma- qo‘shimchasi va don't",
+   "emotion": "thinking",
+   "board": [
+    "ishla-ma-yman → I don't work",
+    "ishla-ma-ydi → she doesn't work",
+    "я не работаю → I don't work"
+   ],
+   "examples": [],
+   "say_native": "O‘zbek tilida inkor fe’lning ichida yashaydi: “ishlayman” — “ishlamayman”, “-ma-” qo‘shimchasi o‘zakka qo‘shiladi. Ingliz tilida esa inkor alohida so‘z bo‘lib, fe’ldan oldin keladi: “I don’t work”. Rus tilida ham “не” fe’ldan oldin turadi: “я не работаю”, shuning uchun rus tilini biladiganlar uchun bu tartib tanish.",
+   "say": "I work. I don't work. She works. She doesn't work.",
+   "say_uz": "Men ishlayman. Men ishlamayman. U ishlaydi. U ishlamaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Doesn't + fe’l -s siz",
+   "emotion": "stern",
+   "board": [
+    "✗ He doesn't works.",
+    "✗ She don't like milk.",
+    "✗ I not like milk.",
+    "✓ He doesn't work. ✓ She doesn't like milk."
+   ],
+   "examples": [],
+   "say_native": "Uchta klassik xato. Birinchi: “He doesn’t works” — “-s” ikki marta takrorlanib qoldi. “Doesn’t” dan keyin fe’l doim oddiy shaklda. Ikkinchi: “She don’t like milk” — buni filmlarda va qo‘shiqlarda eshitishingiz mumkin, lekin bu standart emas va imtihonda xato hisoblanadi.",
+   "say": "He doesn't work here. She doesn't like milk. I don't like milk.",
+   "say_uz": "U bu yerda ishlamaydi. U sutni yoqtirmaydi. Men sutni yoqtirmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Be yoki do?",
+   "emotion": "thinking",
+   "board": [
+    "hungry, tired, at home, a doctor → be + not",
+    "eat, go, like, work → don't / doesn't"
+   ],
+   "examples": [
+    {
+     "t": "I'm not hungry.",
+     "uz": "Men och emasman."
+    },
+    {
+     "t": "I don't eat in the morning.",
+     "uz": "Men ertalab ovqatlanmayman."
+    }
+   ],
+   "say_native": "Eng muhim savol: qachon “not”, qachon “don’t”? Qoida oddiy. Gapda harakat fe’li bo‘lmasa, ya’ni holat, sifat, kasb yoki joy haqida gapirayotgan bo‘lsangiz, “am, is, are” va “not” ishlatasiz: “I’m not hungry”, “He isn’t at school”.",
+   "say": "I'm not hungry. I don't eat in the morning. He isn't at school. He doesn't go to school on Sundays.",
+   "say_uz": "Men och emasman. Men ertalab ovqatlanmayman. U maktabda emas. U yakshanba kunlari maktabga bormaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Ikki tizimni aralashtirmang",
+   "emotion": "stern",
+   "board": [
+    "✗ I don't hungry. → ✓ I'm not hungry.",
+    "✗ I'm not like coffee. → ✓ I don't like coffee.",
+    "✗ He doesn't be at home. → ✓ He isn't at home."
+   ],
+   "examples": [],
+   "say_native": "O‘zbek o‘quvchilari bu ikki tizimni ko‘p aralashtiradi. “I don’t hungry” — xato, chunki “hungry” fe’l emas, sifat, unga “am” kerak: “I’m not hungry”. “I’m not like coffee” — xato, chunki “like” fe’l, unga “don’t” kerak: “I don’t like coffee”. “He doesn’t be at home” ham xato: “He isn’t at home”.",
+   "say": "I'm not hungry. I don't like coffee. He isn't at home.",
+   "say_uz": "Men och emasman. Men qahvani yoqtirmayman. U uyda emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Be yoki do: tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) He ___ a doctor.  2) He ___ work on Sundays.",
+    "3) We ___ live here.",
+    "4) I ___ ready.",
+    "5) They ___ at school."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Bo‘sh joyga to‘g‘ri inkor shaklni qo‘ying: “isn’t”, “aren’t”, “am not”, “don’t” yoki “doesn’t”. Avval o‘ylang: gapda harakat fe’li bormi yoki yo‘qmi? Agar fe’l bo‘lmasa, “be” kerak. Agar fe’l bo‘lsa, “do” yordamchisi kerak. Keyin egaga qarang: “he” bo‘lsa “isn’t” yoki “doesn’t”, “we” va “they” bo‘lsa “aren’t” yoki “don’t”. Javoblarni baland ovozda ayting.",
+   "say": "Fill in the gaps. Use isn't, aren't, am not, don't or doesn't.",
+   "say_uz": "Bo‘sh joylarni to‘ldiring. isn't, aren't, am not, don't yoki doesn't ishlating.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) isn't  2) doesn't  3) don't",
+    "4) 'm not (I'm not ready.)",
+    "5) aren't"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: “He isn’t a doctor” — kasb, harakat fe’li yo‘q, demak “be”. Ikkinchi: “He doesn’t work on Sundays” — “work” fe’l va ega “he”, demak “doesn’t”. Uchinchi: “We don’t live here”. To‘rtinchi: “I’m not ready”. Beshinchi: “They aren’t at school” — joy, fe’l yo‘q.",
+   "say": "He isn't a doctor. He doesn't work on Sundays. We don't live here. I'm not ready. They aren't at school.",
+   "say_uz": "U shifokor emas. U yakshanba kunlari ishlamaydi. Biz bu yerda yashamaymiz. Men tayyor emasman. Ular maktabda emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Buyruq gapda: Don't…!",
+   "emotion": "neutral",
+   "board": [
+    "Don't worry!",
+    "Don't touch!",
+    "Don't be late!",
+    "Don't + verb (hamma uchun bir xil)"
+   ],
+   "examples": [],
+   "say_native": "Yana bir muhim shakl: buyruq yoki maslahat. Birovga biror ishni qilmaslikni aytmoqchi bo‘lsangiz, gapni “Don’t” bilan boshlaysiz: “Don’t worry!” — xavotir olmang. “Don’t touch!” — tegmang. Bu yerda ega yo‘q va har doim “don’t” ishlatiladi, “doesn’t” emas.",
+   "say": "Don't worry! Don't touch that! Don't be late!",
+   "say_uz": "Xavotir olmang! Bunga tegmang! Kechikmang!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "There isn't / there aren't",
+   "emotion": "neutral",
+   "board": [
+    "There isn't a bank near here.",
+    "There aren't any shops.",
+    "(… yo‘q)"
+   ],
+   "examples": [],
+   "say_native": "Biror joyda narsaning yo‘qligini aytish uchun “there is” va “there are” iborasini inkor qilamiz: “There isn’t a bank near here” — bu yerga yaqin bank yo‘q. Ko‘plikda: “There aren’t any shops” — hech qanday do‘kon yo‘q. Bu ham “be” fe’li, shuning uchun “do” kerak emas.",
+   "say": "There isn't a bank near here. There aren't any shops in this street.",
+   "say_uz": "Bu yerga yaqin bank yo‘q. Bu ko‘chada hech qanday do‘kon yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Not va no",
+   "emotion": "thinking",
+   "board": [
+    "not → fe'l / sifat bilan: I'm not, I don't",
+    "no + ot: I have no time.",
+    "No. → savolga javob"
+   ],
+   "examples": [
+    {
+     "t": "I have no time.",
+     "uz": "Vaqtim yo‘q."
+    },
+    {
+     "t": "There's no milk.",
+     "uz": "Sut yo‘q."
+    },
+    {
+     "t": "No problem!",
+     "uz": "Muammo yo‘q!"
+    }
+   ],
+   "say_native": "Endi inkor so‘zlarni ko‘ramiz. “Not” va “no” — ikki xil so‘z. “Not” fe’l bilan ishlaydi: “I’m not”, “don’t”. “No” esa otdan oldin keladi va “hech qanday” yoki “yo‘q” ma’nosini beradi: “I have no time” — vaqtim yo‘q. “There’s no milk” — sut yo‘q. “No problem!” — muammo yo‘q. “No” dan keyin “a” yoki “the” qo‘yilmaydi.",
+   "say": "I have no time. There's no milk. No problem!",
+   "say_uz": "Vaqtim yo‘q. Sut yo‘q. Muammo yo‘q!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "No = not any",
+   "emotion": "neutral",
+   "board": [
+    "I have no brothers. = I don't have any brothers.",
+    "There's no sugar. = There isn't any sugar."
+   ],
+   "examples": [],
+   "say_native": "“No” bilan aytilgan gapni boshqacha ham aytish mumkin: “not” va “any” bilan. “I have no brothers” va “I don’t have any brothers” — ikkalasi ham “mening aka-ukam yo‘q” degani. “There’s no sugar” va “There isn’t any sugar” ham bir xil.",
+   "say": "I have no brothers. I don't have any brothers. There's no sugar. There isn't any sugar.",
+   "say_uz": "Aka-ukam yo‘q. Aka-ukam yo‘q. Shakar yo‘q. Shakar yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Never — hech qachon",
+   "emotion": "neutral",
+   "board": [
+    "never = hech qachon",
+    "never + fe'l: I never drink coffee.",
+    "be + never: He is never late."
+   ],
+   "examples": [
+    {
+     "t": "I never drink coffee.",
+     "uz": "Men hech qachon qahva ichmayman."
+    },
+    {
+     "t": "She never watches TV.",
+     "uz": "U hech qachon televizor ko‘rmaydi."
+    },
+    {
+     "t": "He is never late.",
+     "uz": "U hech qachon kechikmaydi."
+    }
+   ],
+   "say_native": "“Never” — hech qachon. U o‘zi inkor so‘z, shuning uchun fe’l tasdiq shaklda qoladi: “I never drink coffee”. “He” va “she” bilan fe’l “-s” ni saqlaydi: “She never watches TV”. Joylashuvi: “never” asosiy fe’ldan oldin, lekin “am, is, are” dan keyin turadi: “He is never late” — u hech qachon kechikmaydi.",
+   "say": "I never drink coffee. She never watches TV. He is never late.",
+   "say_uz": "Men hech qachon qahva ichmayman. U hech qachon televizor ko‘rmaydi. U hech qachon kechikmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nothing, nobody, nowhere",
+   "emotion": "neutral",
+   "board": [
+    "nothing — hech narsa",
+    "nobody / no one — hech kim",
+    "nowhere — hech qayer"
+   ],
+   "examples": [
+    {
+     "t": "Nobody knows.",
+     "uz": "Hech kim bilmaydi."
+    },
+    {
+     "t": "There's nothing in the fridge.",
+     "uz": "Muzlatgichda hech narsa yo‘q."
+    }
+   ],
+   "say_native": "Yana uchta inkor so‘z: “nothing” — hech narsa, “nobody” yoki “no one” — hech kim, “nowhere” — hech qayer. Ular ham o‘zida inkor ma’nosini olib yuradi. “Nobody knows” — hech kim bilmaydi. Diqqat: “nobody” birlik hisoblanadi, shuning uchun fe’l “-s” oladi: “knows”.",
+   "say": "Nobody knows. There's nothing in the fridge. I know nothing about cars.",
+   "say_uz": "Hech kim bilmaydi. Muzlatgichda hech narsa yo‘q. Men mashinalar haqida hech narsa bilmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Not va no ni aralashtirmang",
+   "emotion": "stern",
+   "board": [
+    "✗ I have not money. → ✓ I have no money.",
+    "✗ Not problem! → ✓ No problem!",
+    "✗ I'm no tired. → ✓ I'm not tired."
+   ],
+   "examples": [],
+   "say_native": "Bu yerda ham tipik xatolar bor. “I have not money” — xato. Zamonaviy ingliz tilida “have” ni bunday inkor qilmaymiz, “I have no money” yoki “I don’t have any money” deymiz. “Not problem” — xato, ot oldidan “no” keladi: “No problem”. Teskari xato ham bor: “I’m no tired” — sifat oldidan “not” keladi: “I’m not tired”.",
+   "say": "I have no money. I don't have any money. No problem! I'm not tired.",
+   "say_uz": "Pulim yo‘q. Pulim yo‘q. Muammo yo‘q! Men charchagan emasman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Not yoki no?",
+   "emotion": "encouraging",
+   "board": [
+    "1) I have ___ time.  2) She is ___ here.",
+    "3) ___ problem!",
+    "4) We do ___ eat meat.",
+    "5) There are ___ chairs."
+   ],
+   "examples": [],
+   "say_native": "Mashq. “Not” yoki “no” — qaysi biri? Esingizda bo‘lsin: ot oldidan “no”, fe’l, sifat yoki joy bilan “not”. Birinchi: “I have … time.” Ikkinchi: “She is … here.” Uchinchi: “… problem!” To‘rtinchi: “We do … eat meat.” Beshinchi: “There are … chairs.” Har bir gapda bo‘sh joydan keyingi so‘zga qarang: u ot yoki boshqa narsa? Javobni ayting.",
+   "say": "Not or no? Choose the right word for each sentence.",
+   "say_uz": "Not yoki no? Har bir gap uchun to‘g‘ri so‘zni tanlang.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) no  2) not  3) No",
+    "4) not (We don't eat meat.)",
+    "5) no"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. “I have no time” — “time” ot. “She is not here” — “here” joy, “be” fe’li bilan “not”. “No problem!” “We do not eat meat” — og‘zaki nutqda qisqartirib “We don’t eat meat” deymiz. “There are no chairs” — stullar yo‘q. Buni “There aren’t any chairs” deb ham aytish mumkin edi.",
+   "say": "I have no time. She is not here. No problem! We don't eat meat. There are no chairs.",
+   "say_uz": "Vaqtim yo‘q. U bu yerda emas. Muammo yo‘q! Biz go‘sht yemaymiz. Stullar yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Bitta gapda bitta inkor",
+   "emotion": "thinking",
+   "board": [
+    "Standard English: 1 negative per clause",
+    "✓ I don't know anything.",
+    "✓ I know nothing."
+   ],
+   "examples": [],
+   "say_native": "Endi darsning eng qiziq qismi. Standart ingliz tilida bitta sodda gapda faqat bitta inkor so‘z bo‘ladi. Agar fe’l inkor bo‘lsa, ya’ni “don’t” yoki “isn’t” bo‘lsa, keyin “any”, “anything”, “anybody” kabi so‘zlar keladi: “I don’t know anything”.",
+   "say": "I don't know anything. I know nothing. I don't see anybody. I see nobody.",
+   "say_uz": "Men hech narsa bilmayman. Men hech narsa bilmayman. Men hech kimni ko‘rmayapman. Men hech kimni ko‘rmayapman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘zbek va rus tilida esa…",
+   "emotion": "thinking",
+   "board": [
+    "Hech kim bilmaydi. (2 inkor)",
+    "Никто не знает. (2 inkor)",
+    "Nobody knows. (1 inkor)"
+   ],
+   "examples": [],
+   "say_native": "Nima uchun bu biz uchun qiyin? Chunki o‘zbek tilida ikki inkor odatiy hol: “Hech kim bilmaydi” — bu yerda “hech kim” ham, “-ma-” ham inkor. “Hech narsa bilmayman” ham shunday. Rus tilida ham: “Никто не знает”, “Я ничего не знаю”. Ingliz tilida esa “Nobody knows” — bitta inkor yetarli.",
+   "say": "Nobody knows. I don't know anything. I know nothing.",
+   "say_uz": "Hech kim bilmaydi. Men hech narsa bilmayman. Men hech narsa bilmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ikki yo‘l, bitta ma’no",
+   "emotion": "neutral",
+   "board": [
+    "I don't need anything. = I need nothing.",
+    "She doesn't go anywhere. = She goes nowhere.",
+    "There isn't anybody here. = There's nobody here."
+   ],
+   "examples": [],
+   "say_native": "Ko‘pincha bitta fikrni ikki xil aytish mumkin. “I don’t need anything” yoki “I need nothing” — menga hech narsa kerak emas. “She doesn’t go anywhere” yoki “She goes nowhere” — u hech qayerga bormaydi. “There isn’t anybody here” yoki “There’s nobody here” — bu yerda hech kim yo‘q.",
+   "say": "I don't need anything. I need nothing. There isn't anybody here. There's nobody here.",
+   "say_uz": "Menga hech narsa kerak emas. Menga hech narsa kerak emas. Bu yerda hech kim yo‘q. Bu yerda hech kim yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Ikki inkor — xato",
+   "emotion": "stern",
+   "board": [
+    "✗ I don't know nothing.",
+    "✗ Nobody doesn't know.",
+    "✗ I never don't eat meat.",
+    "✓ I don't know anything. ✓ Nobody knows. ✓ I never eat meat."
+   ],
+   "examples": [],
+   "say_native": "Mana o‘sha xatolar. “I don’t know nothing” — ikki inkor, xato. To‘g‘risi: “I don’t know anything” yoki “I know nothing”. “Nobody doesn’t know” — bu ham ikki inkor; to‘g‘risi “Nobody knows”. “I never don’t eat meat” — “never” o‘zi inkor, “don’t” ortiqcha: “I never eat meat”.",
+   "say": "I don't know anything. Nobody knows. I never eat meat.",
+   "say_uz": "Men hech narsa bilmayman. Hech kim bilmaydi. Men hech qachon go‘sht yemayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikki inkorni tuzating",
+   "emotion": "encouraging",
+   "board": [
+    "1) I don't see nobody.",
+    "2) She doesn't eat nothing.",
+    "3) Nobody doesn't live here.",
+    "4) We don't go nowhere on Sundays."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapda ikki inkor bor. Har birini tuzating. Imkon bo‘lsa, ikki xil variantda ayting: biri “don’t” va “any” bilan, ikkinchisi “no” bilan boshlanadigan so‘zlar bilan. Birinchi: “I don’t see nobody.” Ikkinchi: “She doesn’t eat nothing.” Uchinchi: “Nobody doesn’t live here.” To‘rtinchi: “We don’t go nowhere on Sundays.” “Doesn’t” olib tashlansa, fe’lga nima bo‘lishini ham o‘ylang.",
+   "say": "Correct the sentences. Use only one negative in each sentence.",
+   "say_uz": "Gaplarni tuzating. Har bir gapda faqat bitta inkor ishlating.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) I don't see anybody. / I see nobody.",
+    "2) She doesn't eat anything. / She eats nothing.",
+    "3) Nobody lives here.",
+    "4) We don't go anywhere on Sundays."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: “I don’t see anybody” yoki “I see nobody”. Ikkinchi: “She doesn’t eat anything” yoki “She eats nothing” — e’tibor bering, “doesn’t” ketgach, “eat” yana “-s” oladi: “eats”. Uchinchi: “Nobody lives here” — “nobody” birlik, shuning uchun “lives”.",
+   "say": "I don't see anybody. She doesn't eat anything. Nobody lives here. We don't go anywhere on Sundays.",
+   "say_uz": "Men hech kimni ko‘rmayapman. U hech narsa yemaydi. Bu yerda hech kim yashamaydi. Biz yakshanba kunlari hech qayerga bormaymiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qisqa inkor javob: be bilan",
+   "emotion": "neutral",
+   "board": [
+    "Are you tired? — No, I'm not.",
+    "Is Anna at home? — No, she isn't. / No, she's not.",
+    "Are they students? — No, they aren't."
+   ],
+   "examples": [],
+   "say_native": "Oldingi darsda “ha” yoki “yo‘q” javobli savollarni o‘rgandik. Endi ularga qisqa inkor javob beramiz. Qoida: “No”, vergul, ega olmoshi va savoldagi fe’l inkor shaklda. Savol “Are you…?” bo‘lsa, javob “No, I’m not”. “Is she…?” bo‘lsa, “No, she isn’t” yoki “No, she’s not”. “Are they…?” bo‘lsa, “No, they aren’t”.",
+   "say": "Are you tired? No, I'm not. Is Anna at home? No, she isn't. Are they students? No, they aren't.",
+   "say_uz": "Charchadingizmi? Yo‘q. Anna uydami? Yo‘q, uyda emas. Ular talabami? Yo‘q, talaba emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qisqa inkor javob: do va does bilan",
+   "emotion": "neutral",
+   "board": [
+    "Do you smoke? — No, I don't.",
+    "Does he drive? — No, he doesn't.",
+    "Is there a bank? — No, there isn't."
+   ],
+   "examples": [],
+   "say_native": "Savol “do” yoki “does” bilan bo‘lsa, javobda ham shu yordamchi qaytadi: “Do you smoke? No, I don’t.” “Does he drive? No, he doesn’t.” Asosiy fe’l, ya’ni “smoke” yoki “drive” qisqa javobda takrorlanmaydi. “There is” savoliga ham qisqa javob bor: “Is there a bank near here? No, there isn’t.”",
+   "say": "Do you smoke? No, I don't. Does he drive? No, he doesn't. Is there a bank near here? No, there isn't.",
+   "say_uz": "Chekasizmi? Yo‘q. U mashina haydaydimi? Yo‘q. Bu yerga yaqin bank bormi? Yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Faqat “No” yetarlimi?",
+   "emotion": "thinking",
+   "board": [
+    "No. (juda qisqa)",
+    "No, I don't. (tabiiy, xushmuomala)",
+    "No, I don't. I drink tea. (+ ma'lumot)"
+   ],
+   "examples": [],
+   "say_native": "O‘zbekchada ko‘pincha bitta “yo‘q” deymiz yoki fe’lni takrorlaymiz: “Yo‘q, chekmayman.” Ingliz tilida yolg‘iz “No” ba’zan juda quruq, hatto qo‘pol eshitilishi mumkin. Shuning uchun qisqa javob ishlatiladi: “No, I don’t.” Suhbatni davom ettirish uchun yana bitta gap qo‘shsangiz, yanada yaxshi: “Do you drink coffee?",
+   "say": "Do you drink coffee? No, I don't. I drink tea. Are you from Tashkent? No, I'm not. I'm from Andijan.",
+   "say_uz": "Qahva ichasizmi? Yo‘q. Men choy ichaman. Toshkentdanmisiz? Yo‘q. Men Andijondanman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Qisqa javobdagi xatolar",
+   "emotion": "stern",
+   "board": [
+    "✗ No, I amn't. ✗ No, I not.",
+    "Do you like tea? ✗ No, I'm not.",
+    "✗ No, I don't like.",
+    "✓ No, I don't. / No, I don't like tea."
+   ],
+   "examples": [],
+   "say_native": "Qisqa javobdagi xatolar. “No, I amn’t” — bunday shakl yo‘q, “No, I’m not” deyiladi. “No, I not” — fe’l tushib qolgan. Eng ko‘p uchraydigani: savol “do” bilan, javob esa “be” bilan: “Do you like tea? No, I’m not.” Bu xato, javob “No, I don’t” bo‘ladi. Yana bir xato: “No, I don’t like” deb gapni chala qoldirish.",
+   "say": "Do you like tea? No, I don't. Or: No, I don't like tea. Are you hungry? No, I'm not.",
+   "say_uz": "Choyni yoqtirasizmi? Yo‘q. Yoki: Yo‘q, choyni yoqtirmayman. Ochmisiz? Yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "No bilan javob bering",
+   "emotion": "encouraging",
+   "board": [
+    "1) Are you Chinese?",
+    "2) Do you live in London?",
+    "3) Is your teacher Russian?  4) Does your friend play golf?",
+    "5) Are your parents twenty?"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Men beshta savol beraman, siz hammasiga qisqa inkor javob bering. Qaysi yordamchi fe’l kerakligini savolning birinchi so‘ziga qarab aniqlang. Ega olmoshini ham to‘g‘ri tanlang: “your teacher” — “he” yoki “she”, “your parents” — “they”. Imkon bo‘lsa, qisqa javobdan keyin yana bitta haqiqiy gap qo‘shing, masalan qayerda yashashingizni ayting.",
+   "say": "Answer with No. Are you Chinese? Do you live in London? Is your teacher Russian? Does your friend play golf? Are your parents twenty?",
+   "say_uz": "No bilan javob bering. Xitoylikmisiz? Londonda yashaysizmi? O‘qituvchingiz rusmi? Do‘stingiz golf o‘ynaydimi? Ota-onangiz yigirma yoshdami?",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) No, I'm not.  2) No, I don't.",
+    "3) No, he isn't. / No, she isn't.",
+    "4) No, he doesn't. / No, she doesn't.",
+    "5) No, they aren't."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. “Are you Chinese? No, I’m not. I’m Uzbek.” “Do you live in London? No, I don’t. I live in Namangan”, masalan. “Is your teacher Russian? No, she isn’t” yoki “No, he isn’t”. “Does your friend play golf? No, he doesn’t” yoki “No, she doesn’t”. “Are your parents twenty? No, they aren’t.” Agar “Do you…?”",
+   "say": "No, I'm not. I'm Uzbek. No, I don't. No, she isn't. No, he doesn't. No, they aren't.",
+   "say_uz": "Yo‘q. Men o‘zbekman. Yo‘q. Yo‘q, u rus emas. Yo‘q, o‘ynamaydi. Yo‘q, unday emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: qisqa shakllar",
+   "emotion": "impressed",
+   "board": [
+    "don't /dəʊnt/ ≠ do /duː/",
+    "doesn't /ˈdʌznt/",
+    "isn't /ˈɪznt/",
+    "aren't /ɑːnt/ (UK)"
+   ],
+   "examples": [],
+   "say_native": "Talaffuzga e’tibor bering. “Don’t” — “dount” deb aytiladi, uni “do” — “du” bilan aralashtirmang, aks holda ma’no teskari bo‘lib qoladi. “Doesn’t” — “dazənt”, oxiridagi “t” yengil, ba’zan deyarli eshitilmaydi. “Isn’t” — “izənt”.",
+   "say": "I don't know. She doesn't know. It isn't easy. We aren't late.",
+   "say_uz": "Men bilmayman. U bilmaydi. Bu oson emas. Biz kechikmaganmiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Takrorlang",
+   "emotion": "encouraging",
+   "board": [
+    "I don't know.",
+    "She doesn't eat meat.",
+    "It isn't my bag.",
+    "We aren't ready."
+   ],
+   "examples": [],
+   "say_native": "Takrorlang. Har bir gapni avval sekin, keyin tabiiy tezlikda ayting. “Don’t” va “isn’t” so‘zlariga ozgina kuch bering, chunki ular gapning eng muhim qismi. “Doesn’t” va “isn’t” dagi tovushga e’tibor bering: u “s” emas, jarangli “z”. Sekin: “She… doesn’t… eat… meat.” Endi tezroq, so‘zlar orasida to‘xtamasdan, bitta oqimda ayting.",
+   "say": "I don't know. She doesn't eat meat. It isn't my bag. We aren't ready.",
+   "say_uz": "Men bilmayman. U go‘sht yemaydi. Bu mening sumkam emas. Biz tayyor emasmiz.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Tekshiring: urg‘u va ulanish",
+   "emotion": "proud",
+   "board": [
+    "I DON'T know.",
+    "She DOESN'T eat meat.",
+    "It ISN'T my bag. → [i-tizənt]",
+    "We AREN'T ready."
+   ],
+   "examples": [],
+   "say_native": "Tekshiring. Katta harflar bilan yozilgan so‘zlar urg‘u oladi: “I don’t know”, “She doesn’t eat meat”. Tez nutqda “I don’t know” ko‘pincha juda qisqarib eshitiladi. Filmlarda va ko‘chada buni ko‘p uchratasiz, tushunishingiz uchun bilib qo‘ying, lekin o‘zingiz hozircha aniq aytishga harakat qiling.",
+   "say": "I don't know. She doesn't eat meat. It isn't my bag. We aren't ready.",
+   "say_uz": "Men bilmayman. U go‘sht yemaydi. Bu mening sumkam emas. Biz tayyor emasmiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: yangi kvartira",
+   "emotion": "happy",
+   "board": [
+    "Listen. (Tinglang)",
+    "Kate and Jasur — flatmates?",
+    "smoke? student? meat? milk?"
+   ],
+   "examples": [],
+   "say_native": "Endi birinchi dialogni tinglang. Jasur Londonda o‘qiydi va kvartirasi uchun sherik qidiryapti. Kate ismli qiz kvartirani ko‘rgani keldi. Ular bir-birlariga savollar berishadi va ko‘p inkor javoblar eshitiladi.",
+   "say": "Hi, I'm Kate. Hi, Kate. I'm Jasur. Come in. So, are you a student? No, I'm not. I'm a nurse. I work at night. Do you smoke? No, I don't. Good. I don't smoke either. Do you cook? Yes, but I don't eat meat. That's fine. Would you like some tea? Yes, please. With milk? Oh, sorry, there isn't any milk. No problem!",
+   "say_uz": "Salom, men Keytman. Salom, Keyt. Men Jasurman. Kiring. Xo‘sh, talabamisiz? Yo‘q. Men hamshiraman. Kechasi ishlayman. Chekasizmi? Yo‘q. Yaxshi. Men ham chekmayman. Ovqat pishirasizmi? Ha, lekin go‘sht yemayman. Mayli. Choy ichasizmi? Ha, iltimos. Sut bilanmi? Voy, kechirasiz, sut yo‘q. Muammo yo‘q!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savollarga javob bering",
+   "emotion": "encouraging",
+   "board": [
+    "1) Does Kate smoke?",
+    "2) Is she a student?",
+    "3) Does she eat meat?",
+    "4) Is there any milk?"
+   ],
+   "examples": [],
+   "say_native": "Savollarga qisqa javob bering. Bugun o‘rgangan qisqa inkor javoblardan foydalaning, bitta “No” bilan cheklanmang. Birinchi: “Does Kate smoke?” Ikkinchi: “Is she a student?” Bu savolga javobdan keyin uning kasbini ham ayting. Uchinchi: “Does she eat meat?” To‘rtinchi: “Is there any milk?” Kerak bo‘lsa, dialogni yana bir marta eslang.",
+   "say": "Does Kate smoke? Is she a student? Does she eat meat? Is there any milk?",
+   "say_uz": "Keyt chekadimi? U talabami? U go‘sht yeydimi? Sut bormi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) No, she doesn't.",
+    "2) No, she isn't. She's a nurse.",
+    "3) No, she doesn't.",
+    "4) No, there isn't."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. “Does Kate smoke? No, she doesn’t.” “Is she a student? No, she isn’t. She’s a nurse.” “Does she eat meat? No, she doesn’t.” “Is there any milk? No, there isn’t.” Dialogda yana bitta foydali ibora bor edi: “I don’t smoke either” — men ham chekmayman.",
+   "say": "No, she doesn't. No, she isn't. She's a nurse. No, she doesn't. No, there isn't.",
+   "say_uz": "Yo‘q, chekmaydi. Yo‘q, talaba emas. U hamshira. Yo‘q, yemaydi. Yo‘q, sut yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglang: shanba kungi ziyofat",
+   "emotion": "happy",
+   "board": [
+    "Listen. (Tinglang)",
+    "Malika and Tom — a party on Saturday"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog. Ikki do‘st, Malika va Tom, telefonda gaplashyapti. Tom Malikani shanba kuni uyidagi ziyofatga taklif qiladi, lekin Malika biroz ikkilanyapti.",
+   "say": "Malika, are you free on Saturday? There's a party at my house. Saturday? I don't work on Saturdays, so I'm free. But I don't know your friends. Nobody knows me there. Don't worry! My friends aren't scary. And my sister is there. You know her. But I don't dance! That's OK. Nobody dances at my parties. We just eat and talk.",
+   "say_uz": "Malika, shanba kuni bo‘shmisan? Uyimda ziyofat bor. Shanba? Men shanba kunlari ishlamayman, demak bo‘shman. Lekin men do‘stlaringni tanimayman. U yerda meni hech kim tanimaydi. Xavotir olma! Do‘stlarim qo‘rqinchli emas. Singlim ham u yerda bo‘ladi. Uni taniysan. Lekin men raqsga tushmayman! Mayli. Mening ziyofatlarimda hech kim raqsga tushmaydi. Shunchaki ovqatlanamiz va gaplashamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savollarga javob bering",
+   "emotion": "encouraging",
+   "board": [
+    "1) Does Malika work on Saturdays?",
+    "2) Does she know Tom's friends?",
+    "3) Does she dance?",
+    "4) Who dances at Tom's parties?"
+   ],
+   "examples": [],
+   "say_native": "To‘rtta savol. Birinchi uchtasiga qisqa inkor javob bering: “No, she…” va to‘g‘ri yordamchi fe’l. To‘rtinchi savol “who” bilan boshlanadi, unga bitta so‘z bilan javob berish mumkin, keyin esa to‘liq gap ayting. Dialogda Tom aynan shu so‘zni ishlatdi. Shoshilmang, har bir javobni baland ovozda ayting.",
+   "say": "Does Malika work on Saturdays? Does she know Tom's friends? Does she dance? Who dances at Tom's parties?",
+   "say_uz": "Malika shanba kunlari ishlaydimi? U Tomning do‘stlarini taniydimi? U raqsga tushadimi? Tomning ziyofatlarida kim raqsga tushadi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1) No, she doesn't. She's free.",
+    "2) No, she doesn't.",
+    "3) No, she doesn't.",
+    "4) Nobody. Nobody dances."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. “Does Malika work on Saturdays? No, she doesn’t. She’s free.” “Does she know Tom’s friends? No, she doesn’t.” “Does she dance? No, she doesn’t.” “Who dances at Tom’s parties? Nobody.” To‘liq gap: “Nobody dances at Tom’s parties.” E’tibor bering: “nobody” bilan fe’l tasdiq shaklda va “-s” bilan: “dances”.",
+   "say": "No, she doesn't. She's free. No, she doesn't. No, she doesn't. Nobody. Nobody dances at Tom's parties.",
+   "say_uz": "Yo‘q, ishlamaydi. U bo‘sh. Yo‘q, tanimaydi. Yo‘q, raqsga tushmaydi. Hech kim. Tomning ziyofatlarida hech kim raqsga tushmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy topshiriq: men haqimda",
+   "emotion": "encouraging",
+   "board": [
+    "2 × I'm not …   2 × I don't …",
+    "2 × My … doesn't …",
+    "1 × I never …",
+    "1 × I have no … / There isn't …"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy topshiriq. O‘zingiz haqingizda sakkizta haqiqiy inkor gap ayting. Ekrandagi reja bo‘yicha: “I’m not” bilan ikkita, “I don’t” bilan ikkita, oila a’zoingiz yoki do‘stingiz haqida “doesn’t” bilan ikkita, “never” bilan bitta va “no” yoki “there isn’t” bilan bitta gap. Har bir gapda faqat bitta inkor bo‘lsin. Baland ovozda, shoshilmay gapiring.",
+   "say": "Now it's your turn. Say eight true negative sentences about you and your family. Start!",
+   "say_uz": "Endi navbat sizga. O‘zingiz va oilangiz haqida sakkizta haqiqiy inkor gap ayting. Boshlang!",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javob",
+   "emotion": "impressed",
+   "board": [
+    "I'm not a student. I'm not from Tashkent.",
+    "I don't drink coffee. I don't have a car.",
+    "My brother doesn't smoke. My mum doesn't drive.",
+    "I never watch TV. There isn't a park near my house."
+   ],
+   "examples": [],
+   "say_native": "Namuna javobni tinglang va o‘zingiznikini solishtiring. Endi gaplaringizni tekshiring. “Doesn’t” dan keyin fe’lda “-s” yo‘qmi? “Never” bilan “don’t” birga kelib qolmadimi? “Hungry”, “tired”, “from Tashkent” kabi so‘zlar bilan “don’t” emas, “not” ishlatdingizmi?",
+   "say": "I'm not a student. I'm not from Tashkent. I don't drink coffee. I don't have a car. My brother doesn't smoke. My mum doesn't drive. I never watch TV. There isn't a park near my house.",
+   "say_uz": "Men talaba emasman. Men Toshkentdan emasman. Men qahva ichmayman. Mening mashinam yo‘q. Akam chekmaydi. Onam mashina haydamaydi. Men hech qachon televizor ko‘rmayman. Uyim yaqinida bog‘ yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "be + not: I'm not, isn't, aren't",
+    "don't / doesn't + verb (no -s)",
+    "no + noun · never · nothing · nobody",
+    "1 negative only! · No, I'm not. / No, I don't."
+   ],
+   "examples": [],
+   "say_native": "Xulosa. “Am, is, are” bilan inkor uchun “not” qo‘shamiz: “I’m not”, “isn’t”, “aren’t”. Boshqa fe’llar bilan “don’t” yoki “doesn’t”, undan keyin fe’l “-s” siz. Ot oldidan “no”, fe’l bilan “not”. “Never”, “nothing”, “nobody” o‘zi inkor, shuning uchun gapda boshqa inkor bo‘lmaydi.",
+   "say": "Great work! Now you can say what is not true, and answer with No, I'm not and No, I don't.",
+   "say_uz": "Zo‘r ish! Endi nima to‘g‘ri emasligini ayta olasiz va No, I'm not, No, I don't deb javob bera olasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "Write 8 true negative sentences about yourself.",
+    "2 × I'm not · 2 × I don't · 2 × doesn't",
+    "1 × never · 1 × no / there isn't"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. O‘zingiz haqingizda sakkizta haqiqiy inkor gap yozing: ikkitasi “I’m not”, ikkitasi “I don’t”, oila a’zolaringiz haqida ikkitasi “doesn’t”, bittasi “never” va bittasi “no” yoki “there isn’t” bilan.",
+   "say": "Write eight true negative sentences about yourself. See you next time. Bye!",
+   "say_uz": "O‘zingiz haqingizda sakkizta haqiqiy inkor gap yozing. Keyingi darsda ko‘rishamiz. Xayr!",
+   "practice_seconds": 0
+  }
  ],
  "homework_uz": "O‘zingiz haqingizda 8 ta haqiqiy inkor gap yozing: 2 tasi I'm not, 2 tasi I don't, oila a’zolaringiz haqida 2 tasi doesn't, 1 tasi never va 1 tasi no yoki there isn't bilan. Mezon: har bir gapda faqat bitta inkor (I don't know nothing emas), doesn't dan keyin fe’l -s siz, sifat va joy bilan not ishlatilgan (I don't hungry emas).",
  "quiz": [
-  { "q": "I ___ a student. I'm a teacher.", "options": ["am not", "don't", "not", "amn't"], "answer": 0, "why_uz": "Kasb haqida — be fe’li: I am not (I'm not). “amn't” standart emas." },
-  { "q": "My sister ___ coffee.", "options": ["don't like", "doesn't likes", "not like", "doesn't like"], "answer": 3, "why_uz": "My sister = she → doesn't, keyin fe’l -s siz: doesn't like." },
-  { "q": "Choose the correct sentence.", "options": ["I don't hungry.", "I not hungry.", "I'm not hungry.", "I doesn't hungry."], "answer": 2, "why_uz": "Hungry — sifat, unga be fe’li kerak: I'm not hungry." },
-  { "q": "Choose the correct sentence.", "options": ["I don't know nothing.", "I don't know anything.", "I not know anything.", "I know not nothing."], "answer": 1, "why_uz": "Ingliz tilida bitta inkor: I don't know anything yoki I know nothing." },
-  { "q": "Nobody ___ his address.", "options": ["knows", "doesn't know", "don't know", "know"], "answer": 0, "why_uz": "Nobody o‘zi inkor va birlik: Nobody knows. “doesn't know” ikki inkor bo‘lib qoladi." },
-  { "q": "“Do you speak Russian?” — a short negative answer:", "options": ["No, I'm not.", "No, I not.", "No, I don't speak.", "No, I don't."], "answer": 3, "why_uz": "Savol do bilan → javob ham do bilan: No, I don't." },
-  { "q": "“Is your brother a doctor?” — “___”", "options": ["No, he doesn't.", "No, he isn't.", "No, he not.", "No, he don't."], "answer": 1, "why_uz": "Savol is bilan → No, he isn't." },
-  { "q": "There's ___ milk in the fridge.", "options": ["not", "any", "no", "nothing"], "answer": 2, "why_uz": "Ot oldidan no: There's no milk = There isn't any milk." },
-  { "q": "He ___ late. He's always on time.", "options": ["never is", "doesn't never be", "not is", "is never"], "answer": 3, "why_uz": "Never be fe’lidan keyin turadi: He is never late." },
-  { "q": "___ worry! Everything is OK.", "options": ["Not", "Don't", "No", "Doesn't"], "answer": 1, "why_uz": "Inkor buyruq: Don't + fe’l. Doesn't buyruqda ishlatilmaydi." }
+  {
+   "q": "I ___ a student. I'm a teacher.",
+   "options": [
+    "am not",
+    "don't",
+    "not",
+    "amn't"
+   ],
+   "answer": 0,
+   "why_uz": "Kasb haqida — be fe’li: I am not (I'm not). “amn't” standart emas."
+  },
+  {
+   "q": "My sister ___ coffee.",
+   "options": [
+    "don't like",
+    "doesn't likes",
+    "not like",
+    "doesn't like"
+   ],
+   "answer": 3,
+   "why_uz": "My sister = she → doesn't, keyin fe’l -s siz: doesn't like."
+  },
+  {
+   "q": "Choose the correct sentence.",
+   "options": [
+    "I don't hungry.",
+    "I not hungry.",
+    "I'm not hungry.",
+    "I doesn't hungry."
+   ],
+   "answer": 2,
+   "why_uz": "Hungry — sifat, unga be fe’li kerak: I'm not hungry."
+  },
+  {
+   "q": "Choose the correct sentence.",
+   "options": [
+    "I don't know nothing.",
+    "I don't know anything.",
+    "I not know anything.",
+    "I know not nothing."
+   ],
+   "answer": 1,
+   "why_uz": "Ingliz tilida bitta inkor: I don't know anything yoki I know nothing."
+  },
+  {
+   "q": "Nobody ___ his address.",
+   "options": [
+    "knows",
+    "doesn't know",
+    "don't know",
+    "know"
+   ],
+   "answer": 0,
+   "why_uz": "Nobody o‘zi inkor va birlik: Nobody knows. “doesn't know” ikki inkor bo‘lib qoladi."
+  },
+  {
+   "q": "“Do you speak Russian?” — a short negative answer:",
+   "options": [
+    "No, I'm not.",
+    "No, I not.",
+    "No, I don't speak.",
+    "No, I don't."
+   ],
+   "answer": 3,
+   "why_uz": "Savol do bilan → javob ham do bilan: No, I don't."
+  },
+  {
+   "q": "“Is your brother a doctor?” — “___”",
+   "options": [
+    "No, he doesn't.",
+    "No, he isn't.",
+    "No, he not.",
+    "No, he don't."
+   ],
+   "answer": 1,
+   "why_uz": "Savol is bilan → No, he isn't."
+  },
+  {
+   "q": "There's ___ milk in the fridge.",
+   "options": [
+    "not",
+    "any",
+    "no",
+    "nothing"
+   ],
+   "answer": 2,
+   "why_uz": "Ot oldidan no: There's no milk = There isn't any milk."
+  },
+  {
+   "q": "He ___ late. He's always on time.",
+   "options": [
+    "never is",
+    "doesn't never be",
+    "not is",
+    "is never"
+   ],
+   "answer": 3,
+   "why_uz": "Never be fe’lidan keyin turadi: He is never late."
+  },
+  {
+   "q": "___ worry! Everything is OK.",
+   "options": [
+    "Not",
+    "Don't",
+    "No",
+    "Doesn't"
+   ],
+   "answer": 1,
+   "why_uz": "Inkor buyruq: Don't + fe’l. Doesn't buyruqda ishlatilmaydi."
+  }
  ]
 }

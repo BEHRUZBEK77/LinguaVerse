@@ -222,6 +222,14 @@ export const PLANS = {
       'PREMIUM ning barcha imkoniyatlari, limitlar 1.5x, Speaking 300 daqiqa/kun'
     ]
   },
+  youtuber: {
+    id: 'youtuber', name: 'YOUTUBER', tagline: 'LinguaVerse rasmiy kontent hamkori',
+    icon: '<i class="fa-solid fa-video"></i>', fa: 'fa-video', color: '#1ed3c2', accent: '#8efbe8',
+    price: 0, priceLabel: 'Avtomatik tasdiqlanadi', order: 5,
+    badge: 'Creator', models: ['nova','pro','mega','proplus','premium','megaplus','ultra'],
+    perks: ['Har tilda 150 ta asosiy dars', 'Barcha AI modellar belgilangan limit bilan',
+      'YouTube: 1000 / Instagram: 10000 obunachi', 'Avval 5 ta, so‘ng har 30 kunda kamida 3 ta yangi video']
+  },
   ultra: {
     id: 'ultra',
     name: 'ULTRA',
@@ -246,7 +254,7 @@ export const PLANS = {
   }
 };
 
-export const PLAN_ORDER = ['free', 'nova', 'mega', 'premium', 'ielts', 'ultra'];
+export const PLAN_ORDER = ['free', 'nova', 'mega', 'premium', 'ultra']; // SERTIFIKAT PRO retired from new sales
 
 // ULTRA rejasi uchun "cheksiz" limit (amalda hech qachon tugamaydi)
 export const UNLIMITED = 1e9;
@@ -429,6 +437,15 @@ export const LIMITS = {
     ultra:     [30, 210, 900]
   },
 
+  // ── YOUTUBER — not for sale, granted automatically by authenticated provider checks.
+  youtuber: {
+    nova:[250,1250,3750], pro:[100,500,1500], mega:[120,600,1800],
+    proplus:[50,250,750], premium:[75,375,1125], megaplus:[30,150,450],
+    ultra:[12,60,180], speak_min:[90,450,1350], writing:[60,300,900],
+    lesson:[60,300,900], coach:[35,175,525], vocab_ai:[90,450,1350],
+    translate:[1500,7500,22500]
+  },
+
   // ── ULTRA — 350 000 so'm. Hamma narsa cheksiz (UNLIMITED).
   ultra: Object.fromEntries(['nova', 'pro', 'mega', 'proplus', 'premium', 'megaplus', 'ultra', 'speak_min', 'writing', 'lesson', 'coach', 'vocab_ai', 'translate']
     .map(r => [r, [1e9, 1e9, 1e9]]))
@@ -512,12 +529,14 @@ function emit() {
 function resolvePlan(profile) {
   if (!profile) return 'free';
   const p = profile.plan || 'free';
-  if (!PLANS[p]) return 'free';
-  if (p === 'free') return 'free';
   const exp = profile.planExpiry?.toDate ? profile.planExpiry.toDate()
-            : (profile.planExpiry ? new Date(profile.planExpiry) : null);
-  if (exp && exp.getTime() < Date.now()) return 'free';
-  return p;
+            : (profile.planExpiry ? new Date(profile.planExpiry.$t || profile.planExpiry) : null);
+  const paid = p !== 'free' && PLANS[p] && (!exp || exp.getTime() > Date.now());
+  if (p === 'ultra' && paid) return 'ultra';
+  const activeUntil = profile.creator?.activeUntil;
+  const creatorExpiry = activeUntil?.toDate ? activeUntil.toDate() : new Date(activeUntil?.$t || activeUntil || 0);
+  if (profile.creator?.status === 'active' && creatorExpiry.getTime() > Date.now()) return 'youtuber';
+  return paid ? p : 'free';
 }
 
 async function loadProfile(uid) {
@@ -636,7 +655,7 @@ export const LV = {
 
   // ── Rejaga oid yordamchilar ────────────────────────────────────────────
   planInfo(id = state.plan) { return PLANS[id] || PLANS.free; },
-  planRank(id = state.plan) { const i = PLAN_ORDER.indexOf(id); return i < 0 ? 0 : i; },
+  planRank(id = state.plan) { const i = PLAN_ORDER.indexOf(id); return id === 'youtuber' ? PLAN_ORDER.length - 1 : i < 0 ? 0 : i; },
 
   hasModel(modelId, planId = state.plan) {
     return !!(PLANS[planId] || PLANS.free).models.includes(modelId);
@@ -1183,7 +1202,7 @@ export function buildSystemPrompt(o = {}) {
   const ob = profile.onboarding || {};
 
   // Daraja: prompt sifati rejaga qarab tanlanadi
-  const tier = (plan === 'premium' || plan === 'ielts' || plan === 'ultra') ? 'expert'
+  const tier = (plan === 'premium' || plan === 'ielts' || plan === 'ultra' || plan === 'youtuber') ? 'expert'
              : (plan === 'mega') ? 'standard'
              : 'basic';
 

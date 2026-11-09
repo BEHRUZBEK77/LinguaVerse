@@ -144,13 +144,14 @@
       nav .links a.hide-m { display: none; }
     }
   </style>
+  <link rel="icon" type="image/webp" href="/media/linguaverse-mark.webp">
   <link rel="stylesheet" href="../css/lv-theme.css">
   <script src="/js/learning-language.js"></script>
   <script type="module" src="/js/site-language.mjs"></script>
 </head>
 <body>
   <nav>
-    <a class="logo" href="../index.html">Lingua<span>Verse</span></a>
+    <a class="logo" href="../index.html"><img src="/media/linguaverse-mark.webp" alt="" width="32" height="32" style="border-radius:50%;vertical-align:middle;margin-right:7px">Lingua<span>Verse</span></a>
     <div class="links">
       <a class="hide-m" href="./ielts-examiner.html">IELTS imtihonchi</a>
       <a class="hide-m" href="./ielts-prep.html">IELTS tayyorlov</a>
@@ -173,10 +174,10 @@
 
     <div class="sub-ad">
       <div>
-        <b style="font-family:var(--font-head);font-size:1.05rem"><i class="fa-solid fa-graduation-cap" style="color:#fb7185"></i> SERTIFIKAT PRO — oyiga 200 000 so'm</b>
-        <div class="muted" style="font-size:.86rem">8 tilda sertifikatga tayyorlov: cheksiz imtihonchi (IELTS, TOPIK, HSK, DELE, Goethe...), ULTRA AI kuniga 30 ta, qattiq AI ustoz. Avto-to'lov bilan.</div>
+        <b style="font-family:var(--font-head);font-size:1.05rem"><i class="fa-solid fa-handshake" style="color:#fb7185"></i> LinguaVerse hamkorlik va YOUTUBER</b>
+        <div class="muted" style="font-size:.86rem">Brend va kontent yaratuvchilar uchun avtomatik hamkorlik. YouTube 1000+ yoki Instagram 10000+ obunachi bilan YOUTUBER imkoniyatlari.</div>
       </div>
-      <a class="btn red" href="../order.html?plan=ielts">Obuna bo'lish</a>
+      <a class="btn red" href="./partners.html">Hamkorlikka qo‘shilish</a>
     </div>
   </main>
 
@@ -256,7 +257,7 @@
     $('btnNativeAudio').setAttribute('aria-label',t('nativeAudio'));
     $('sampleVideo').onplay = () => { if (!$('player').classList.contains('hidden')) closePlayer(); };
     const params = new URLSearchParams(location.search);
-    const S = { lang: params.get('lang') || pref.targetLang, level: params.get('level') || null, user: null, mine: { owned: [], progress: {} }, buy: null };
+    const S = { lang: params.get('lang') || pref.targetLang, level: params.get('level') || null, user: null, mine: { owned: [], progress: {}, plan: 'free', videoLimit: 10 }, buy: null };
 
     async function api(action, payload = {}) {
       if (!S.user) throw Object.assign(new Error('Tizimga kiring'), { code: 'auth' });
@@ -301,7 +302,7 @@
             ${own
               ? `<button class="btn" onclick="openCourse('${lv}')"><i class="fa-solid fa-circle-play"></i> Darslarga o'tish</button>`
               : `<button class="btn red" onclick="buy('${lv}')"><i class="fa-solid fa-cart-shopping"></i> Sotib olish</button>
-                 <button class="btn ghost" onclick="openCourse('${lv}')"><i class="fa-solid fa-play"></i> 1-dars bepul</button>`}
+                 <button class="btn ghost" onclick="openCourse('${lv}')"><i class="fa-solid fa-play"></i> Rejadagi darslarni ko‘rish</button>`}
           </div>
         </div>`;
       }).join('');
@@ -320,11 +321,12 @@
         C.lessons.map((l, i) => {
           const head = (i === 0 || C.lessons[i - 1].cefr !== l.cefr)
             ? `<div class="cefr-head" id="cefr-${l.cefr}"><b>${l.cefr}</b> daraja · ${C.lessons.filter(x => x.cefr === l.cefr).length} ta dars</div>` : '';
-          const locked = !own && i >= FREE_PREVIEW_LESSONS;
+          const mainIndex = lv === 'c2' ? 100 + i : lv === 'b2' ? i : -1;
+           const locked = !own && (mainIndex < 0 || mainIndex >= (Number(S.mine.videoLimit) || 10));
           const done = pr[i]?.passed;
           return head + `<div data-cefr="${l.cefr}" class="ls ${locked ? 'locked' : ''} ${done ? 'done' : ''}" onclick="${locked ? `buy('${lv}')` : `play(${i})`}">
             <div class="num">${done ? '<i class="fa-solid fa-check"></i>' : locked ? '<i class="fa-solid fa-lock"></i>' : i + 1}</div>
-            <div><div class="t">${esc(l.t)}</div>${pr[i] ? `<div class="muted" style="font-size:.76rem">Test: ${Math.round(pr[i].score * 100)}%</div>` : (i === 0 && !own ? '<div class="muted" style="font-size:.76rem">Bepul</div>' : '')}</div>
+            <div><div class="t">${esc(l.t)}</div>${pr[i] ? `<div class="muted" style="font-size:.76rem">Test: ${Math.round(pr[i].score * 100)}%</div>` : (!locked && !own ? '<div class="muted" style="font-size:.76rem">Tarifingizda ochiq</div>' : '')}</div>
             <span class="tag ${l.core ? 'mp4tag' : 'yttag'}">${l.core ? 'MP4' : 'YouTube'}</span><span class="tag">${esc(l.skill)}</span>
           </div>`;
         }).join('');

@@ -1,4 +1,5 @@
 import { handlers, scheduledHandlers } from '../out/handlers.mjs';
+import { privateVideo } from './private-video.mjs';
 
 const security = {
   'X-Content-Type-Options': 'nosniff',
@@ -36,6 +37,7 @@ export function toResponse(result, method) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/.netlify/functions/private-video') return privateVideo(request, env);
     const match = /^\/\.netlify\/functions\/([^/]+)(?:\/.*)?$/.exec(url.pathname);
     if (match) {
       const handler = Object.hasOwn(handlers, match[1]) ? handlers[match[1]] : null;
@@ -58,6 +60,12 @@ export default {
     return env.ASSETS.fetch(request);
   },
   async scheduled(controller, env, ctx) {
+    if (controller.cron === '15 3 * * *') {
+      const h = scheduledHandlers.partnership;
+      if (typeof h !== 'function' || !env.PARTNERSHIP_CRON_SECRET) throw new Error('Partner cron configuration missing');
+      ctx.waitUntil(h({httpMethod:'POST',headers:{authorization:'Bearer '+env.PARTNERSHIP_CRON_SECRET},body:JSON.stringify({action:'cron'})}));
+      return;
+    }
     const name = controller.cron === '0 5 * * *' ? 'renew-subscriptions'
       : controller.cron === '*/15 * * * *' ? 'update-leaderboard' : null;
     if (!name) throw new Error('Unknown schedule');

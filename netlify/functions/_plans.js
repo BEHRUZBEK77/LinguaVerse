@@ -96,7 +96,7 @@ function planPrice(planId, duration = 'monthly') {
 /** Reja mavjud va pullikmi? duration bo'lsa — shu davr uchun narx/days qaytaradi. */
 function paidPlan(id, duration) {
   const p = PLANS[id];
-  if (!p || p.price <= 0) return null;
+  if (id === 'ielts' || !p || p.price <= 0) return null;
   const dur = DURATIONS[duration] || DURATIONS.monthly;
   return { ...p, duration: dur.key, durationLabel: dur.label, days: dur.days, price: planPrice(id, dur.key) };
 }

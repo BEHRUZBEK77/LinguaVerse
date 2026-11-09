@@ -8,7 +8,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const output = path.join(root, 'out');
 await fs.mkdir(output, { recursive:true });
 const names = (await fs.readdir(path.join(root,'netlify/functions'))).filter(x => x.endsWith('.js') && !x.startsWith('_')).map(x => x.slice(0,-3));
-const scheduled = new Set(['renew-subscriptions','update-leaderboard']);
+const scheduled = new Set(['renew-subscriptions','update-leaderboard','partnership']);
 await fs.writeFile(path.join(output,'handlers.mjs'), names.map((n,i)=>`import h${i} from '../netlify/functions/${n}.js';`).join('\n') + '\n' +
   ['handlers','scheduledHandlers'].map((group)=>`export const ${group} = {${names.map((n,i)=>({n,i})).filter(({n})=>scheduled.has(n)===(group==='scheduledHandlers')).map(({n,i})=>`${JSON.stringify(n)}:h${i}.handler`).join(',')}};`).join('\n'));
 await build({entryPoints:[path.join(root,'cloudflare/worker.mjs')], outfile:path.join(output,'worker.mjs'), bundle:true, format:'esm', platform:'node', target:'es2022',

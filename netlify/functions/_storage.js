@@ -104,6 +104,11 @@ function signedUrl(storedPath, ttlSec = 3 * 3600) {
   if (where === 'gh') {
     const hash = name.indexOf('#');
     const [tag, obj] = hash > 0 ? [name.slice(0, hash), name.slice(hash + 1)] : [GH_TAG, name];
+    if (process.env.VIDEO_SIGNING_SECRET && process.env.VIDEO_PROXY_URL) {
+      const expires = String(Math.floor(Date.now() / 1000) + Math.max(1, Math.min(ttlSec, 10800)));
+      const sig = crypto.createHmac('sha256', process.env.VIDEO_SIGNING_SECRET).update(`${expires}\n${storedPath}`).digest('hex');
+      return `${process.env.VIDEO_PROXY_URL}?path=${encodeURIComponent(storedPath)}&expires=${expires}&sig=${sig}`;
+    }
     return `https://github.com/${ghRepo()}/releases/download/${tag}/${ghName(obj)}`;
   }
   const c = r2();

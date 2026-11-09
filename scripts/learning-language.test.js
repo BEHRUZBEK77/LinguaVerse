@@ -282,6 +282,6 @@ test('ULTRA plan: 350 000 so\'m, every video course unlocked while active, all l
     paths.forEach((p, i) => { if (saved[i]) require.cache[p] = saved[i]; else delete require.cache[p]; });
   }
   const src = require('node:fs').readFileSync(require('node:path').join(__dirname, '../js/lv-core.js'), 'utf8');
-  assert.match(src, /PLAN_ORDER = \['free', 'nova', 'mega', 'premium', 'ielts', 'ultra'\]/);
+  assert.match(src, /PLAN_ORDER = \['free', 'nova', 'mega', 'premium', 'ultra'\]/); // SERTIFIKAT PRO retired from new sales
   assert.match(require('node:fs').readFileSync(require('node:path').join(__dirname, '../netlify/functions/teacher.js'), 'utf8'), /PREMIUM_PLANS = new Set\(\['ielts', 'premium', 'ultra'\]\)/);
 });

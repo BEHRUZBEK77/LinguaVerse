@@ -27,6 +27,7 @@ const keys = require('./_keys.js');
 const { think, extractJson } = require('./_brain.js');
 const { verifyIdToken } = require('./_auth.js');
 const { courseProduct, ultraActive, COURSE_LANGS } = require('./_plans.js');
+const { canWatch, videoLimit, effectivePlan } = require('./_video-entitlements.js');
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -75,8 +76,8 @@ async function access(uid, lang, level, n) {
   // ULTRA rejasida hamma video kurslar ochiq (8 til, B2 + C2)
   const has = !!owned[product.key] || (level === 'b2' && !!owned[`${lang}_c2`]) || ultraActive(user);
   const isAdmin = !has && !!(await fsdb.getDoc(`admins/${uid}`).catch(() => null));
-  if (!has && !isAdmin && idx >= cat.FREE_PREVIEW_LESSONS) {
-    throw httpErr(402, `Bu dars ${product.name} kursida. Kursni sotib oling — birinchi dars bepul.`, { buy: { lang, level, price: product.price } });
+  if (!has && !isAdmin && !canWatch(user, lang, level, idx)) {
+    throw httpErr(402, `Bu dars ${product.name} kursida. Rejangizning bepul video limiti tugadi. Kursni yoki yuqoriroq tarifni oching.`, { buy: { lang, level, price: product.price } });
   }
   return { product, lesson: lessons[idx], total: lessons.length, idx, owned: has || isAdmin, user };
 }
@@ -613,7 +614,7 @@ async function mine(uid) {
     const p = await fsdb.getDoc(progressPath(uid, k)).catch(() => null);
     if (p) progress[k] = { passedCount: p.passedCount || 0, total: p.total || 0, certificateId: p.certificateId || null, lessons: Object.fromEntries(Object.entries(p.lessons || {}).map(([i, v]) => [i, { score: v.score, passed: v.passed }])) };
   }
-  return { owned: keysOwned, progress, plan: user?.plan || 'free' };
+  return { owned: keysOwned, progress, plan: effectivePlan(user), videoLimit: videoLimit(user) };
 }
 
 // ───────────────────────────────────────────────────────────────────────────

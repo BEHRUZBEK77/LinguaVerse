@@ -19,11 +19,10 @@ test('course products are priced on the server: B2 200k, C2 400k, C2 also unlock
   assert.equal(plans.courseProduct('english', 'c1'), null);
 });
 
-test('IELTS PRO is a 200 000 som monthly subscription that works with autopay durations', () => {
-  const p = plans.paidPlan('ielts', 'monthly');
-  assert.equal(p.price, 200000);
-  assert.equal(p.days, 30);
-  assert.equal(plans.paidPlan('ielts', 'yearly').price, 1920000);
+test('IELTS/SERTIFIKAT PRO is retired from new sales but plan data is preserved for existing subscribers', () => {
+  assert.equal(plans.PLANS.ielts.price, 200000);
+  assert.equal(plans.paidPlan('ielts', 'monthly'), null); // yangi sotuvdan olingan
+  assert.equal(plans.paidPlan('ielts', 'yearly'), null);
 });
 
 test('IELTS overall band follows official rounding', () => {

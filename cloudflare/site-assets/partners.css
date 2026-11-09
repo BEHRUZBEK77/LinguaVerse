@@ -1,0 +1,70 @@
+/* LinguaVerse Cloudflare-only partners studio v2. Inherits the same site-wide theme. */
+body.lv-partner-page {
+  background: radial-gradient(circle at 65% 0%, rgba(60,195,176,.09), transparent 34%), var(--bg, #0f1a33);
+  color: var(--text, #f2ecdd);
+  min-width: 300px;
+}
+body.lv-partner-page header, body.lv-partner-page main, body.lv-partner-page footer { max-width: 1200px; }
+body.lv-partner-page header { min-height: 76px; border-bottom: 1px solid var(--border, #33425e); }
+body.lv-partner-page .logo { display: inline-flex; align-items: center; gap: 7px; }
+body.lv-partner-page .hero { padding: 72px 0 36px; }
+body.lv-partner-page .hero h1 { letter-spacing: -1.5px; line-height: 1.16; }
+body.lv-partner-page .eyebrow { color: var(--accent, #3cc3b0); }
+body.lv-partner-page .hero h1 span { color: var(--accent, #3cc3b0) !important; }
+body.lv-partner-page .panel {
+  background: linear-gradient(145deg, var(--bg2, #152447), var(--bg, #0f1a33));
+  border-color: var(--border2, rgba(196,210,255,.2));
+  border-radius: 22px;
+}
+body.lv-partner-page .chip.active {background:var(--accent,#3cc3b0);border-color:var(--accent,#3cc3b0);color:#082c2f}
+body.lv-partner-page .chip {transition: background .18s ease,transform .18s ease;white-space:normal}
+body.lv-partner-page .chip:hover { transform:translateY(-2px); }
+body.lv-partner-page .chips {gap:9px;margin:24px 0 29px;}
+body.lv-partner-page button.primary { background:var(--accent,#3cc3b0); }
+body.lv-partner-page .panel input:focus,body.lv-partner-page .panel textarea:focus {border-color:var(--accent,#3cc3b0);}
+body.lv-partner-page .layout {grid-template-columns:minmax(0, 1fr) minmax(260px,360px);align-items:start;}
+body.lv-partner-page .layout>aside {min-width:0;}
+body.lv-partner-page .facts .fact b {color:var(--accent,#3cc3b0)}
+body.lv-partner-page .notice {background:rgba(60,195,176,.08);border-color:rgba(60,195,176,.34)}
+.lv-p-card,.lv-p-strip {
+  border:1px solid var(--border2, rgba(196,210,255,.16));
+  border-radius:18px;
+  background:rgba(28,46,87,.47);
+  padding:22px;
+}
+.lv-p-strip {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:14px;margin: 8px 0 32px;background:rgba(21,36,71,.66)}
+.lv-p-stat {padding:15px;border-radius:12px;background:rgba(255,255,255,.025);text-align:center}
+.lv-p-stat strong {display:block;color:var(--accent,#3cc3b0);font:800 25px/1.3 var(--font-head,system-ui)}
+.lv-p-stat small {display:block;color:var(--muted,#9aa6c4);line-height:1.6;margin-top:5px}
+.lv-p-title {display:flex;align-items:start;justify-content:space-between;gap:14px;margin:0 0 17px}
+.lv-p-title h2 {font:800 clamp(22px,3vw,29px)/1.3 var(--font-head,system-ui);margin:0}
+.lv-p-title p,.lv-p-card p {color:var(--muted,#aab6cd)}
+.lv-p-intro {margin: 0 0 18px;}
+.lv-p-badge {display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#89e5d2;background:rgba(60,195,176,.09);padding:6px 10px;border:1px solid rgba(60,195,176,.35);border-radius:999px;white-space:nowrap}
+.lv-p-benefits {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin-bottom:31px}
+.lv-p-benefit {padding:19px;background:linear-gradient(155deg,rgba(31,54,88,.8),rgba(18,31,57,.92));border:1px solid var(--border2,rgba(196,210,255,.16));border-radius:18px;min-width:0}
+.lv-p-benefit .i {font-size:25px;margin:0 0 10px}
+.lv-p-benefit h3 {font:800 16px/1.4 var(--font-head,system-ui);margin:0 0 8px}
+.lv-p-benefit p {font-size:13px;line-height:1.65;margin:0;color:var(--muted,#aab6cd)}
+.lv-p-tools {display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:32px 0}
+.lv-p-card h3 {font:800 20px/1.35 var(--font-head,system-ui);margin:0 0 9px}
+.lv-p-card label {display:block;font-size:13px;margin:14px 0 7px;color:var(--text2,#cad4e8)}
+.lv-p-card select,.lv-p-card input {width:100%;background:var(--bg,#0f1a33);border:1px solid var(--border2, #45536b);border-radius:11px;color:var(--text,#fff);font:inherit;padding:11px 13px}
+.lv-p-card button {border:1px solid rgba(60,195,176,.5);border-radius:10px;background:rgba(60,195,176,.13);color:var(--text,#fff);padding:12px 16px;font-weight:800;cursor:pointer;min-height:42px;margin-top:12px}
+.lv-p-card button:hover {background:rgba(60,195,176,.23)}
+.lv-p-output {margin-top:15px;padding:15px;background:rgba(60,195,176,.06);border:1px solid rgba(60,195,176,.2);border-radius:13px;overflow-wrap:anywhere;}
+.lv-p-amount {color:var(--accent,#3cc3b0);font:800 clamp(21px,3vw,30px)/1.5 var(--font-head,system-ui)}
+.lv-p-note {font-size:12px !important;line-height:1.6;color:var(--muted,#aab6cd)}
+.lv-p-statusbox {margin:24px 0 20px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
+.lv-p-statusbox h3 {margin:0}
+.lv-p-statusbox button {margin:0}
+.lv-p-statusline {grid-column:1 / -1;color:var(--muted,#9aa6c4);font-size:14px;white-space:pre-wrap}
+.lv-p-steps {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:15px 0 26px}
+.lv-p-step {font-size:13px;color:var(--muted,#aab6cd);padding:15px;background:rgba(196,210,255,.04);border:1px solid var(--border,rgba(196,210,255,.14));border-radius:13px;}
+.lv-p-step b {display:block;color:var(--text,#fff);margin-bottom:6px}
+.lv-p-step .n {font-weight:900;color:var(--accent,#3cc3b0)}
+.lv-p-two-fields {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:1000px){.lv-p-benefits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){body.lv-partner-page .layout{grid-template-columns:1fr} .lv-p-tools{grid-template-columns:1fr}body.lv-partner-page header{gap:12px;flex-wrap:wrap}body.lv-partner-page nav{display:flex;flex-wrap:wrap;gap:8px}body.lv-partner-page nav a{margin-left:0;padding:7px}}
+@media(max-width:570px){body.lv-partner-page .hero{padding:44px 0 24px}body.lv-partner-page .hero h1{letter-spacing:-1px} .lv-p-strip{grid-template-columns:repeat(2,1fr);gap:4px}.lv-p-benefits{grid-template-columns:1fr}.lv-p-steps{grid-template-columns:1fr} .lv-p-statusbox{grid-template-columns:1fr} .lv-p-two-fields{grid-template-columns:1fr} .lv-p-card{padding:17px}body.lv-partner-page header,body.lv-partner-page main,body.lv-partner-page footer{padding-left:16px;padding-right:16px}body.lv-partner-page .chips{overflow-x:auto;display:flex;flex-wrap:nowrap;padding-bottom:9px}body.lv-partner-page .chips .chip{white-space:nowrap;flex:0 0 auto}}
+@media (prefers-reduced-motion: reduce){body.lv-partner-page .chip{transition:none}}

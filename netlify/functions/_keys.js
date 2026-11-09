@@ -30,7 +30,8 @@ function dataFile() {
 }
 
 function isEphemeralRuntime() {
-  return process.env.NETLIFY === 'true'
+  return process.env.CLOUDFLARE_WORKER === 'true'
+    || process.env.NETLIFY === 'true'
     || process.env.AWS_LAMBDA_FUNCTION_NAME != null
     || process.env.LAMBDA_TASK_ROOT != null;
 }

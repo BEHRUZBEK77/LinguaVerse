@@ -39,16 +39,8 @@ const CORS = {
 let CATALOG = null;
 async function catalog() {
   if (CATALOG) return CATALOG;
-  const path = require('path');
-  const { pathToFileURL } = require('url');
-  const candidates = [
-    path.join(__dirname, '..', '..', 'js', 'course-catalog.mjs'),
-    path.join(process.cwd(), 'js', 'course-catalog.mjs')
-  ];
-  for (const p of candidates) {
-    try { CATALOG = await import(pathToFileURL(p).href); return CATALOG; } catch {}
-  }
-  throw new Error('Kurs katalogi topilmadi');
+  CATALOG = await import('../../js/course-catalog.mjs');
+  return CATALOG;
 }
 
 const LANG_INFO = {

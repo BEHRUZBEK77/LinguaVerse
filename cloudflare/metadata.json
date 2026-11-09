@@ -1,0 +1,70 @@
+{
+  "main_module": "worker.mjs",
+  "compatibility_date": "2026-11-09",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "bindings": [
+    {
+      "type": "assets",
+      "name": "ASSETS"
+    },
+    {
+      "type": "plain_text",
+      "name": "CLOUDFLARE_WORKER",
+      "text": "true"
+    },
+    {
+      "type": "plain_text",
+      "name": "CONTEXT",
+      "text": "production"
+    },
+    {
+      "type": "plain_text",
+      "name": "NODE_ENV",
+      "text": "production"
+    },
+    {
+      "type": "plain_text",
+      "name": "URL",
+      "text": "https://linguaverse.akromovbehruz7.workers.dev"
+    },
+    {
+      "type": "plain_text",
+      "name": "VIDEO_STORE",
+      "text": "github"
+    },
+    {
+      "type": "plain_text",
+      "name": "GITHUB_VIDEO_REPO",
+      "text": "BEHRUZBEK77/LinguaVerse"
+    }
+  ],
+  "assets": {
+    "config": {
+      "html_handling": "auto-trailing-slash",
+      "not_found_handling": "none",
+      "run_worker_first": [
+        "/.netlify/functions/*",
+        "/admin",
+        "/languages-html/ai-coach.html"
+      ],
+      "_headers": "/*\n  X-Content-Type-Options: nosniff\n  X-Frame-Options: DENY\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: geolocation=(), camera=(), payment=(), usb=()\n  Cache-Control: public, max-age=0, must-revalidate"
+    }
+  },
+  "observability": {
+    "enabled": true,
+    "redact_query_string": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.1
+    }
+  },
+  "keep_bindings": [
+    "secret_text"
+  ]
+}

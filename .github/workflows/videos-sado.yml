@@ -130,19 +130,20 @@ jobs:
           VIDEO_REPO: ${{ secrets.VIDEO_REPO_TOKEN != '' && 'BEHRUZBEK77/LinguaVerse-videos' || '' }}
           VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
           SADO_MODELS: /home/runner/.sado-models
-        # Har serverda 2 ta jarayon parallel (4 yadroli runner): 40 bo'lak × 2 = 80 qism.
+        # TEZKOR rejim (5x): 720p, 10 kadr/s, har serverda 3 ta jarayon parallel → 40 × 3 = 120 qism.
+        # Sifatni 1080p/15 ga qaytarish: VIDEO_HD=true, VIDEO_FPS=15, PROCS=2.
         run: |
+          VIDEO_HD=false; export VIDEO_FPS=10; PROCS=3; TOTAL=$(( 40 * PROCS ))
           run() { node scripts/render-lesson-video.mjs \
             --course "${{ github.event.inputs.course || 'all' }}" \
-            --shard "$1/80" --preset veryfast \
+            --shard "$1/$TOTAL" --preset veryfast --hd $VIDEO_HD \
             --tts sado --native uz --no-recording \
             ${{ github.event.inputs.force == 'true' && '--force' || '' }} \
             --out "out/videos/p$1" 2>&1 | sed -u "s/^/[$1] /"; return ${PIPESTATUS[0]}; }
-          A=$(( ${{ matrix.shard }} * 2 )); B=$(( A + 1 ))
-          run $A & pa=$!
-          sleep 20; run $B & pb=$!
-          ra=0; rb=0; wait $pa || ra=$?; wait $pb || rb=$?
-          echo "jarayonlar: $ra $rb"; [ $ra -eq 0 ] && [ $rb -eq 0 ]
+          pids=()
+          for j in $(seq 0 $(( PROCS - 1 ))); do run $(( ${{ matrix.shard }} * PROCS + j )) & pids+=($!); sleep 20; done
+          fail=0; for p in "${pids[@]}"; do wait $p || fail=1; done
+          echo "jarayonlar tugadi, xato: $fail"; [ $fail -eq 0 ]
 
       # Yuklash yiqilsa ham yasalgan video yo'qolmasin: 7 kun Actions'da saqlanadi
       - name: Yuklanmagan videolarni saqlab qo'yish

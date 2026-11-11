@@ -4,10 +4,21 @@ import fs from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 const root=path.resolve(import.meta.dirname,'..');
-const account=process.env.CLOUDFLARE_ACCOUNT_ID || 'a298e2629afd0b9496b4c1d366a2626e';
 const name='linguaverse';
 const token=process.env.CLOUDFLARE_API_TOKEN;
 if(!token)throw new Error('CLOUDFLARE_API_TOKEN is required');
+// Diagnostika: token haqiqiymi va qaysi hisoblarni ko'radi (hisob ID maxfiy emas)
+const cf=(u)=>fetch('https://api.cloudflare.com/client/v4/'+u,{headers:{Authorization:`Bearer ${token}`}}).then(r=>r.json()).catch(e=>({success:false,errors:[{message:e.message}]}));
+const ver=await cf('user/tokens/verify');
+console.log('Token:',ver.success?ver.result?.status:'TEKSHIRILMADI '+JSON.stringify(ver.errors));
+const accs=await cf('accounts?per_page=50');
+const ids=(accs.result||[]).map(a=>a.id);
+console.log('Token ko\'radigan hisoblar:',(accs.result||[]).map(a=>`${a.name} (${a.id})`).join('; ')||'YO\'Q — tokenga "Account Resources" berilmagan');
+const DEFAULT='a298e2629afd0b9496b4c1d366a2626e';
+const account=process.env.CLOUDFLARE_ACCOUNT_ID || (ids.includes(DEFAULT)||!ids.length?DEFAULT:ids[0]);
+console.log('Ishlatiladigan hisob:',account);
+const ws=await cf(`accounts/${account}/workers/scripts`);
+console.log('Workers ro\'yxati:',ws.success?(ws.result||[]).map(w=>w.id).join(', ')||'(bo\'sh)':'RUXSAT YO\'Q '+JSON.stringify(ws.errors));
 async function api(method,endpoint,body) {
  const multipart=body instanceof FormData;
  const r=await fetch(`https://api.cloudflare.com/client/v4/accounts/${account}/${endpoint}`,{method,headers:{Authorization:`Bearer ${token}`,...(!multipart?{'Content-Type':'application/json'}:{})},body:body===undefined?undefined:multipart?body:JSON.stringify(body)});

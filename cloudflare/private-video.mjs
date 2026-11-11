@@ -22,7 +22,7 @@ export async function privateVideo(request, env) {
     const auth = { Authorization: `Bearer ${env.GITHUB_VIDEO_TOKEN}`, 'User-Agent': 'LinguaVerse-video', 'X-GitHub-Api-Version': '2022-11-28' };
     let asset = metadataCache.get(path);
     if (!asset || asset.until < Date.now()) {
-      const r = await fetch(`https://api.github.com/repos/${REPO}/releases/tags/${encodeURIComponent(tag)}`, { headers: { ...auth, Accept: 'application/vnd.github+json' } });
+      const r = await fetch(`https://api.github.com/repos/${env.VIDEO_REPO || REPO}/releases/tags/${encodeURIComponent(tag)}`, { headers: { ...auth, Accept: 'application/vnd.github+json' } });
       if (!r.ok) return new Response('Video temporarily unavailable', { status: r.status === 404 ? 404 : 502, headers });
       const release = await r.json();
       const found = release.assets?.find(a => a.name === name && a.state === 'uploaded');
@@ -32,7 +32,7 @@ export async function privateVideo(request, env) {
       metadataCache.set(path, asset);
     }
     const mediaHeaders = { ...(range ? { Range: range } : {}), ...(request.headers.has('if-range') ? { 'If-Range': request.headers.get('if-range') } : {}) };
-    let upstream = await fetch(`https://api.github.com/repos/${REPO}/releases/assets/${asset.id}`, { headers: { ...auth, ...mediaHeaders, Accept: 'application/octet-stream' }, redirect: 'manual' });
+    let upstream = await fetch(`https://api.github.com/repos/${env.VIDEO_REPO || REPO}/releases/assets/${asset.id}`, { headers: { ...auth, ...mediaHeaders, Accept: 'application/octet-stream' }, redirect: 'manual' });
     if ([301, 302, 303, 307, 308].includes(upstream.status)) {
       const location = new URL(upstream.headers.get('location'));
       if (location.protocol !== 'https:' || !['release-assets.githubusercontent.com', 'objects.githubusercontent.com'].includes(location.hostname)) throw new Error('Invalid asset host');

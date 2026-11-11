@@ -65,6 +65,9 @@ jobs:
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
           VIDEO_STORE: ${{ secrets.R2_BUCKET == '' && 'github' || 'r2' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Yopiq video repo: VIDEO_REPO_TOKEN secret qo'shilgach videolar o'sha yerga yuklanadi
+          VIDEO_REPO: ${{ secrets.VIDEO_REPO_TOKEN != '' && 'BEHRUZBEK77/LinguaVerse-videos' || '' }}
+          VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
           SADO_MODELS: /home/runner/.sado-models
         run: node scripts/video-smoke.mjs
 
@@ -109,6 +112,9 @@ jobs:
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
           VIDEO_STORE: ${{ secrets.R2_BUCKET == '' && 'github' || 'r2' }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Yopiq video repo: VIDEO_REPO_TOKEN secret qo'shilgach videolar o'sha yerga yuklanadi
+          VIDEO_REPO: ${{ secrets.VIDEO_REPO_TOKEN != '' && 'BEHRUZBEK77/LinguaVerse-videos' || '' }}
+          VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
           SADO_MODELS: /home/runner/.sado-models
         run: |
           node scripts/render-lesson-video.mjs \

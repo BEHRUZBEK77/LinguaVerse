@@ -1,0 +1,34 @@
+# Dars videolarini ochiq repodan YOPIQ BEHRUZBEK77/LinguaVerse-videos repoga ko'chirish.
+# Kerak: VIDEO_REPO_TOKEN secret (faqat LinguaVerse-videos uchun, Contents: Read & Write).
+# "delete_public" — FAQAT ko'chirish to'liq tekshirilgandan keyin: ochiq relizlarni o'chiradi (qaytarib bo'lmaydi).
+name: Videolarni yopiq repoga ko'chirish
+on:
+  workflow_dispatch:
+    inputs:
+      delete_public:
+        description: "Ko'chgan videolarni ochiq repodan o'chirish (qaytarib bo'lmaydi)"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Ko'chirish
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: 10
+          VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
+          SRC_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DELETE_SRC: ${{ inputs.delete_public && '1' || '0' }}
+        run: node scripts/copy-videos-private.mjs

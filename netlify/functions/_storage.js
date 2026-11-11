@@ -51,15 +51,16 @@ function presign({ method = 'GET', host, path, region, keyId, secret, expires = 
 // Shuning uchun har bir video o'z relizida: qoralama (draft) → fayl yuklash → e'lon qilish.
 // Saqlangan yo'l: "gh:<tag>#<objectName>". Eski "gh:<objectName>" yozuvlari videos-v1 ga qaraydi.
 const GH_TAG = 'videos-v1';
-const ghRepo = () => process.env.GITHUB_REPOSITORY || process.env.GITHUB_VIDEO_REPO || 'BEHRUZBEK77/LinguaVerse';
+// VIDEO_REPO — videolar uchun alohida YOPIQ repo (masalan BEHRUZBEK77/LinguaVerse-videos), token: VIDEO_REPO_TOKEN
+const ghRepo = () => process.env.VIDEO_REPO || process.env.GITHUB_VIDEO_REPO || process.env.GITHUB_REPOSITORY || 'BEHRUZBEK77/LinguaVerse';
 const ghName = objectName => objectName.replace(/\//g, '__');
 const ghTag = (objectName, date = new Date()) =>
   'vid-' + objectName.replace(/^courseVideos\//, '').replace(/\.mp4$/, '').replace(/[^\w.-]+/g, '-') + '-' + date.toISOString().replace(/\D/g, '').slice(0, 14);
 const provider = () => (process.env.VIDEO_STORE === 'github' ? 'gh' : r2() ? 'r2' : 'gcs');
 
 async function ghUpload(objectName, buffer, contentType) {
-  const token = process.env.GITHUB_TOKEN;
-  if (!token) throw new Error('GITHUB_TOKEN yo\'q');
+  const token = process.env.VIDEO_REPO ? process.env.VIDEO_REPO_TOKEN : process.env.GITHUB_TOKEN;
+  if (!token) throw new Error(process.env.VIDEO_REPO ? 'VIDEO_REPO_TOKEN yo\'q' : 'GITHUB_TOKEN yo\'q');
   const api = `https://api.github.com/repos/${ghRepo()}`;
   const h = { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'linguaverse-video' };
   const tag = ghTag(objectName);

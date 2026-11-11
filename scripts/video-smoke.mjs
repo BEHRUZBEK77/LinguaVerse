@@ -19,11 +19,17 @@ try {
   const storage = require(path.join(ROOT, 'netlify/functions/_storage.js'));
   const up = await storage.upload('courseVideos/test/smoke.mp4', fs.readFileSync(path.join('/tmp/smoke', mp4)), 'video/mp4');
   const url = storage.signedUrl(up?.stored || storage.storedPath('courseVideos/test/smoke.mp4'));
-  const head = await fetch(url, { method: 'HEAD', redirect: 'follow' });       // video haqiqatan ochiladimi
-  if (!head.ok) throw new Error(`Yuklangan video ochilmadi: ${head.status} ${url}`);
-  if (up?.tag && process.env.GITHUB_TOKEN) {                                  // sinov relizi to'planib qolmasin
-    const api = `https://api.github.com/repos/${process.env.GITHUB_REPOSITORY || 'BEHRUZBEK77/LinguaVerse'}`;
-    const h = { Authorization: `Bearer ${process.env.GITHUB_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'linguaverse-video' };
+  const vrepo = process.env.VIDEO_REPO, vtoken = vrepo ? process.env.VIDEO_REPO_TOKEN : process.env.GITHUB_TOKEN;
+  const api = `https://api.github.com/repos/${vrepo || process.env.GITHUB_REPOSITORY || 'BEHRUZBEK77/LinguaVerse'}`;
+  const h = { Authorization: `Bearer ${vtoken}`, Accept: 'application/vnd.github+json', 'User-Agent': 'linguaverse-video' };
+  if (vrepo && up?.tag) {                                                     // yopiq repo: ochiq havola yo'q — API orqali tekshiramiz
+    const r = await fetch(`${api}/releases/tags/${up.tag}`, { headers: h });
+    if (!r.ok || !(await r.json()).assets?.some(a => a.size > 0)) throw new Error(`Yopiq repoda video topilmadi: ${r.status}`);
+  } else {
+    const head = await fetch(url, { method: 'HEAD', redirect: 'follow' });     // video haqiqatan ochiladimi
+    if (!head.ok) throw new Error(`Yuklangan video ochilmadi: ${head.status} ${url}`);
+  }
+  if (up?.tag && vtoken) {                                                    // sinov relizi to'planib qolmasin
     const r = await fetch(`${api}/releases/tags/${up.tag}`, { headers: h });
     if (r.ok) await fetch(`${api}/releases/${(await r.json()).id}`, { method: 'DELETE', headers: h });
   }

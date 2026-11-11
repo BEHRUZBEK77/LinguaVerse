@@ -704,6 +704,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;600&display=swap"></noscript>
   <!-- Yagona tema — sahifaning o'z <style> bloklaridan KEYIN turishi shart -->
   <link rel="stylesheet" href="css/lv-theme.css">
+  <link rel="stylesheet" href="css/lv-home.css">
   <script src="js/lv-icons.js" defer></script>
   <script src="/js/learning-language.js"></script>
   <script type="module" src="/js/site-language.mjs"></script>
@@ -749,45 +750,46 @@
   </nav>
 
   <!-- ══════════ HERO ══════════ -->
-  <header class="hero">
-    <div class="wrap">
-      <div id="loadWarn"></div>
-      <div class="badge"><i class="fa-solid fa-wand-magic-sparkles" style="color:#a78bfa"></i>
-        <b data-i18n="hero_badge">AI ustoz · Talaffuz bahosi · 8 til</b></div>
-
-      <h1>
-        <span data-i18n="hero_h1a">Tilni</span>
-        <em data-i18n="hero_h1b">gapirib</em>
-        <span data-i18n="hero_h1c">o'rganing.</span>
-      </h1>
-
-      <p class="hero-p" data-i18n="hero_p">
-        AI ustoz sizni tinglaydi, har bir tovushga ball qo'yadi va xatoni sababi bilan
-        tushuntiradi. Anketadan keyin shaxsiy o'quv rejangiz tayyor bo'ladi.
-      </p>
-
-      <div class="hero-btns">
-        <a href="auth/register.html" class="btn btn-fill" id="ctaMain" data-i18n="hero_btn1">Bepul boshlash</a>
-        <a href="#plans" class="btn btn-line" data-i18n="hero_btn2">Narxlarni ko'rish</a>
+  <header class="lvh">
+    <div class="wrap lvh-grid">
+      <div class="lvh-copy">
+        <div id="loadWarn"></div>
+        <a class="lvh-pill" href="languages-html/courses.html"><span class="lvh-new">Yangi</span><b data-i18n="hero_badge">AI ustoz · Talaffuz bahosi · 8 til</b><i class="fa-solid fa-arrow-right"></i></a>
+        <h1><span data-i18n="hero_h1a">Tilni</span> <em data-i18n="hero_h1b">gapirib</em> <span data-i18n="hero_h1c">o'rganing.</span></h1>
+        <p class="lvh-p" data-i18n="hero_p">AI ustoz sizni tinglaydi, har bir tovushga ball qo'yadi va xatoni sababi bilan tushuntiradi. Anketadan keyin shaxsiy o'quv rejangiz tayyor bo'ladi.</p>
+        <div class="lvh-btns">
+          <a href="auth/register.html" class="btn btn-fill lvh-cta" id="ctaMain" data-i18n="hero_btn1">Bepul boshlash</a>
+          <a href="#plans" class="btn btn-line lvh-cta" data-i18n="hero_btn2">Narxlarni ko'rish</a>
+        </div>
+        <div class="lvh-trust"><i class="fa-solid fa-circle-check"></i> Karta talab qilinmaydi <span>·</span> <i class="fa-solid fa-circle-check"></i> O'zbek tilida tushuntirish</div>
+        <div class="lvh-langs" aria-label="Tillar">
+          <span>🇬🇧 English</span><span>🇷🇺 Русский</span><span>🇹🇷 Türkçe</span><span>🇩🇪 Deutsch</span><span>🇪🇸 Español</span><span>🇸🇦 العربية</span><span>🇨🇳 中文</span><span>🇰🇷 한국어</span>
+        </div>
       </div>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-n">8</div>
-          <div class="stat-l" data-i18n="stat_langs">Til</div>
+      <div class="lvh-visual" aria-hidden="true">
+        <div class="lvh-window">
+          <div class="lvh-bar"><i></i><i></i><i></i><span>linguaverse · B1-04</span></div>
+          <div class="lvh-video">
+            <div class="lvh-say">I <u>have been</u> learning English for two years.</div>
+            <div class="lvh-sub">Men ikki yildan beri ingliz tilini o‘rganyapman — <b>Present Perfect Continuous</b></div>
+            <div class="lvh-play"><i class="fa-solid fa-play"></i></div>
+            <div class="lvh-prog"><span style="width:38%"></span></div>
+          </div>
+          <div class="lvh-row">
+            <div class="lvh-score"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="v" cx="18" cy="18" r="15.5" stroke-dasharray="89 100"/></svg><b>92</b></div>
+            <div><div class="lvh-k">Talaffuz bahosi</div><div class="lvh-w"><span class="ok">learning</span> <span class="ok">English</span> <span class="mid">two</span> <span class="ok">years</span></div></div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-n">6</div>
-          <div class="stat-l" data-i18n="stat_models">AI model</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n" id="statUsers">—</div>
-          <div class="stat-l" data-i18n="stat_users">O'quvchi</div>
-        </div>
-        <div class="stat">
-          <div class="stat-n">24/7</div>
-          <div class="stat-l" data-i18n="stat_always">Ochiq</div>
-        </div>
+        <div class="lvh-float lvh-f1"><i class="fa-solid fa-fire"></i><div><b>12 kun</b><span>ketma-ket</span></div></div>
+        <div class="lvh-float lvh-f2"><i class="fa-solid fa-award"></i><div><b>B1 sertifikat</b><span>tayyor</span></div></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="lvh-stats">
+        <div><b>1 600+</b><span>video dars</span></div>
+        <div><b>8</b><span data-i18n="stat_langs">Til</span></div>
+        <div><b>A1–C2</b><span>+ PRO daraja</span></div>
+        <div><b id="statUsers">—</b><span data-i18n="stat_users">O'quvchi</span></div>
       </div>
     </div>
   </header>

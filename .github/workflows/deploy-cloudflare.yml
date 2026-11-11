@@ -1,0 +1,33 @@
+# Saytni Cloudflare'ga avtomatik yuklash. Kod o'zgarganda (darslar emas) va qo'lda ishga tushadi.
+# Bir martalik sozlash: GitHub → Settings → Secrets and variables → Actions →
+#   New repository secret → nomi CLOUDFLARE_API_TOKEN (Cloudflare "Edit Cloudflare Workers" token).
+name: Saytni yangilash (Cloudflare)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore: ['content/**', '**.md', 'scripts/lesson-*.mjs']
+concurrency: { group: deploy-cloudflare, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kalit bormi
+        id: k
+        env: { T: '${{ secrets.CLOUDFLARE_API_TOKEN }}' }
+        run: |
+          if [ -z "$T" ]; then echo "::warning::CLOUDFLARE_API_TOKEN secret qo'shilmagan — deploy o'tkazib yuborildi"; echo ok=0 >> $GITHUB_OUTPUT; else echo ok=1 >> $GITHUB_OUTPUT; fi
+      - name: Testlar
+        if: steps.k.outputs.ok == '1'
+        run: npm ci --ignore-scripts --no-audit --no-fund && npm test
+      - name: Deploy
+        if: steps.k.outputs.ok == '1'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npm run deploy:cloudflare

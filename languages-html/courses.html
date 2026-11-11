@@ -24,7 +24,7 @@
     .btn:hover { transform: translateY(-1px); }
     .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
     .btn.ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
-    .btn.red { background: #e11d48; color: #fff; }
+    .btn.red { background: var(--text); color: var(--bg); }
 
     .hero h1 { font-family: var(--font-head); font-size: clamp(1.7rem, 4.5vw, 2.6rem); margin-bottom: 8px; }
     .hero h1 em { font-style: normal; color: #fb7185; }
@@ -131,7 +131,7 @@
     .ls .tag.mp4tag{background:rgba(112,205,187,.14);color:var(--accent)}.ls .tag.yttag{background:rgba(255,78,69,.12);color:#ff7a73}
     .chapter-list button{background:var(--bg3);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;cursor:pointer;font:inherit;font-size:.8rem}
     .chapter-list button.active{border-color:#8de2c7;color:#8de2c7}.chapter-list button span{opacity:.6;margin-inline-end:8px}
-    .sub-ad { margin-top: 22px; display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 18px; border-radius: 18px; border: 1px solid rgba(225,29,72,.35); background: linear-gradient(120deg, rgba(225,29,72,.12), transparent); }
+    .sub-ad { margin-top: 22px; display: flex; gap: 14px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 18px; border-radius: 18px; border: 1px solid var(--border2); background: var(--bg2); }
 
     @media (max-width: 760px) {
       .courses { grid-template-columns: 1fr; }
@@ -161,7 +161,7 @@
 
   <main>
     <section class="hero">
-      <div style="color:#88ddc6;letter-spacing:.18em;font-size:.75rem;font-weight:800;margin-bottom:14px">LINGUAVERSE / LANGUAGE ACADEMY</div>
+      <div style="color:var(--goldline);letter-spacing:.18em;font-size:.72rem;font-weight:700;margin-bottom:14px">LINGUAVERSE / LANGUAGE ACADEMY</div>
       <h1 id="courseHeading"></h1>
       <p class="muted" id="courseIntro"></p>
     </section>
@@ -174,7 +174,7 @@
 
     <div class="sub-ad">
       <div>
-        <b style="font-family:var(--font-head);font-size:1.05rem"><i class="fa-solid fa-handshake" style="color:#fb7185"></i> LinguaVerse Hamkorlik markazi</b>
+        <b style="font-family:var(--font-head);font-size:1.05rem">LinguaVerse Hamkorlik markazi</b>
         <div class="muted" style="font-size:.86rem">Do'stlar, o'qituvchilar, bloggerlar, o'quv markazlari va brendlar uchun: 20–45% komissiya, avtomatik hisob-kitob. Bloggerlarga bepul YOUTUBER rejasi.</div>
       </div>
       <a class="btn red" href="./partners.html">Hamkorlikka qo‘shilish</a>

@@ -1116,3 +1116,14 @@ nav, .nav, .topbar { backdrop-filter: saturate(160%) blur(14px); -webkit-backdro
 .feat:hover, .lang-card:hover, .practice-card:hover, .sec-card:hover, .plan-card:hover { border-color: var(--border2); transform: translateY(-2px); }
 .feat-ic { background: transparent !important; color: var(--text2) !important; border: 1px solid var(--border2); border-radius: 8px; }
 input, select, textarea { font-family: inherit; }
+
+/* Sarlavhalardagi rangli gradient matn olib tashlandi (brend: bir rangli, jiddiy) */
+h1 span, h1 .grad, h2 .grad, .gradient-text, .head h1 span, .page-head h1 .grad {
+  background: none !important; -webkit-background-clip: border-box !important; background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important; color: inherit !important;
+}
+/* Profil va menyulardagi rang-barang ikonkalar — bir xil, neytral */
+.nav-stat i, .stat-l i, .chip-icon, .chip-icon i { color: var(--text3) !important; }
+.cb-green { background: var(--brand-soft) !important; color: var(--brand) !important; border-color: transparent !important; }
+h1, h2 { word-break: normal !important; overflow-wrap: normal; hyphens: manual; text-wrap: balance; }
+.head h1 { font-size: clamp(30px, 3.6vw, 46px) !important; }

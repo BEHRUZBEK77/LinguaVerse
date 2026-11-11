@@ -16,6 +16,22 @@ const gh = async (url, t, opt = {}) => {
   }
 };
 
+// Oldindan tekshiruv: token yopiq repoga kira oladimi va yozish huquqi bormi
+{
+  const r = await gh(`https://api.github.com/repos/${DST}`, TOKEN);
+  if (!r.ok) {
+    console.error(`❌ Token ${DST} repozitoriyni ko'rmayapti (HTTP ${r.status}). Tekshiring:\n` +
+      `  1) repo nomi aynan "${DST}" (github.com/${DST} ochiladimi)\n` +
+      `  2) token sozlamasida "Repository access" → shu repo tanlangan\n` +
+      `  3) token egasi (Resource owner) — ${DST.split('/')[0]}`);
+    process.exit(1);
+  }
+  const repo = await r.json();
+  const perms = repo.permissions ? Object.entries(repo.permissions).filter(([, v]) => v).map(([k]) => k).join(', ') : "noma'lum";
+  console.log(`Yopiq repo: ${repo.full_name}, private=${repo.private}, ruxsatlar: ${perms}`);
+  if (repo.permissions && !repo.permissions.push) { console.error('❌ Tokenda yozish huquqi yo\'q: Permissions → Contents → "Read and write" qiling (token o\'zgarmaydi, qayta qo\'shish shart emas)'); process.exit(1); }
+}
+
 // Manba relizlari (sahifalab)
 const src = [];
 for (let p = 1; ; p++) {

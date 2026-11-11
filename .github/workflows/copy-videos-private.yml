@@ -12,7 +12,22 @@ on:
 permissions:
   contents: write
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Token tekshiruvi (0 ta video bilan)
+        env:
+          VIDEO_REPO_TOKEN: ${{ secrets.VIDEO_REPO_TOKEN }}
+          SRC_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHARD: 0
+          SHARDS: 100000
+        run: node scripts/copy-videos-private.mjs
   copy:
+    needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 300
     strategy:

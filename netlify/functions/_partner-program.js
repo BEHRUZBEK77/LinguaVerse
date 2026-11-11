@@ -42,7 +42,7 @@ const TYPES = Object.freeze({
   corporate:  { label: 'Korporativ (xodimlar uchun)', icon: '💼', rate: 0.15, recurring: true, review: true, bulk: true, roster: true,
                 pitch: "Xodimlaringiz uchun ommaviy litsenziya va hisobot." },
   ambassador: { label: 'Talaba elchi', icon: '🎓', rate: 0.25, recurring: true, review: true,
-                pitch: "Universitetingizda LinguaVerse vakili bo'ling: 25% + oylik bonuslar." }
+                pitch: "Universitetingizda LinguaVerse vakili bo'ling: to'lovlardan 25%." }
 });
 const PLATFORMS = Object.freeze({
   youtube:   { label: 'YouTube', min: 1000, auto: true },

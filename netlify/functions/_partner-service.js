@@ -215,6 +215,7 @@ async function sales90(partnerUid) {
  * tizimiga tegishli (eski referal mukofoti berilmaydi), false — tegishli emas.
  */
 async function recordSale({ uid, orderId, amount, kind }) {
+  if (!(Number(amount) > 0) || !orderId) return false;          // faqat haqiqiy to'lovdan
   const attr = await fsdb.getDoc(`partnerAttribution/${uid}`);
   if (!attr) return false;
   const [acc, cfg] = await Promise.all([account(attr.partnerUid), config()]);
@@ -237,6 +238,18 @@ async function recordSale({ uid, orderId, amount, kind }) {
   return true;
 }
 
+/** Eski "do'st taklif" mukofoti: ham shu tizimda ushlab turiladi (darhol balansga emas). */
+async function holdLegacyReferral({ inviterUid, buyerUid, orderId, amount, reward }) {
+  const cfg = await config();
+  try {
+    await fsdb.addDoc('partnerCommissions', {
+      orderId, partnerUid: inviterUid, code: '', partnerName: 'Referal (eski havola)', type: 'referral-legacy', buyerUid, buyerName: 'Do‘st',
+      kind: 'plan', amount, rate: amount ? +(reward / amount).toFixed(4) : 0, commission: reward, tier: 'start', risk: inviterUid === buyerUid ? 100 : 0, flags: [],
+      status: 'hold', createdAt: new Date(), createdMs: now(), releaseMs: now() + cfg.holdDays * P.DAY, releaseAt: new Date(now() + cfg.holdDays * P.DAY)
+    }, orderId);
+  } catch (e) { if (!dup(e)) throw e; }
+}
+
 /** Komissiyani balansga o'tkazadi. from — kutilgan joriy holat (hold/review). */
 async function credit(id, from, by = 'tizim', note = '') {
   let claimed = null;
@@ -247,7 +260,7 @@ async function credit(id, from, by = 'tizim', note = '') {
   });
   if (!claimed) return false;
   try {
-    await fsdb.transact(`users/${claimed.partnerUid}`, u => ({ balance: (Number(u?.balance) || 0) + claimed.commission }));
+    await fsdb.transact(`users/${claimed.partnerUid}`, u => ({ balance: (Number(u?.balance) || 0) + claimed.commission, ...(claimed.type === 'referral-legacy' ? { referralEarnings: (Number(u?.referralEarnings) || 0) + claimed.commission } : {}) }));
   } catch (e) {
     await fsdb.setDoc(`partnerCommissions/${id}`, { status: from, error: e.message.slice(0, 200) });
     throw e;
@@ -273,6 +286,23 @@ async function runCron() {
         report[d.status === 'review' ? 'review' : 'reversed']++;
       }
     } catch (e) { report.errors++; console.error('partner.cron.release', c.id, e.message); }
+  }
+  // 1b) Balansga o'tgandan keyin bekor qilingan/qaytarilgan to'lovlar — komissiya qaytarib olinadi
+  report.clawedBack = 0;
+  const credited = await fsdb.queryList('partnerCommissions', [{ field: 'status', op: 'EQUAL', value: 'credited' }], 'createdMs', 1000).catch(() => []);
+  for (const c of credited.filter(c => (c.createdMs || 0) >= now() - 120 * P.DAY)) {
+    try {
+      const order = await fsdb.getDoc(`orders/${c.orderId}`).catch(() => null);
+      if (!order || order.status === 'paid') continue;
+      let took = false;
+      await fsdb.transact(`partnerCommissions/${c.id}`, x => { if (!x || x.status !== 'credited') return null; took = true; return { status: 'reversed', reviewReason: "to'lov bekor qilingan — komissiya qaytarib olindi", reversedAt: new Date() }; });
+      if (!took) continue;
+      // Balans manfiy bo'lishi mumkin — keyingi komissiyalardan qoplanadi, pul yechib bo'lmaydi
+      await fsdb.transact(`users/${c.partnerUid}`, u => ({ balance: (Number(u?.balance) || 0) - c.commission }));
+      await fsdb.transact(`partnerAccounts/${c.partnerUid}`, a => a ? { totals: { ...(a.totals || {}), earned: (Number(a.totals?.earned) || 0) - c.commission } } : null);
+      await audit('tizim', 'clawback', c.id, { partnerUid: c.partnerUid, commission: c.commission });
+      report.clawedBack++;
+    } catch (e) { report.errors++; console.error('partner.cron.clawback', c.id, e.message); }
   }
   // 2) Kontent yaratuvchilarning bepul YOUTUBER imtiyozi: har 30 kunda faollik tekshiruvi
   const creators = await fsdb.queryList('partnerAccounts', [{ field: 'type', op: 'EQUAL', value: 'creator' }], null, 1000).catch(() => []);
@@ -311,5 +341,5 @@ async function recentMentions(a, since) {
 
 module.exports = {
   SITE, err, config, account, audit, history, bumpStats, resolveCode, claimCode, apply, verifySocial, verifyDomain,
-  activate, recordClick, attach, partnerSales, sales90, recordSale, credit, runCron
+  activate, recordClick, attach, partnerSales, sales90, recordSale, holdLegacyReferral, credit, runCron
 };

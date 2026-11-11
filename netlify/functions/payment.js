@@ -345,7 +345,7 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
   // ── VIDEO KURS: kursni ochamiz (umrbod). Reja o'zgarmaydi. ──
   if (activated.kind === 'course') {
     await grantCourse(activated.uid, activated.courseKey, orderId, source);
-    try { if (!(await partnerSale(activated, orderId))) await creditReferral(activated.uid, activated.amount); }
+    try { if (!(await partnerSale(activated, orderId))) await creditReferral(activated.uid, activated.amount, orderId); }
     catch (e) { console.error('[payment] referal mukofoti berilmadi:', e.message); }
     console.log(`[payment] kurs ochildi: ${activated.uid} → ${activated.courseKey}`);
     return activated;
@@ -401,7 +401,7 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
   // marta — referral hujjatidagi `rewarded` bayrog'i takrorlashning oldini oladi.
   try {
     // Hamkorlik markazi orqali kelgan foydalanuvchi — komissiya hamkorga (eski referal berilmaydi)
-    if (!(await partnerSale(activated, orderId))) await creditReferral(activated.uid, activated.amount);
+    if (!(await partnerSale(activated, orderId))) await creditReferral(activated.uid, activated.amount, orderId);
   } catch (e) {
     // Referal xatosi to'lovni buzmasin — tarif baribir yoqildi
     console.error('[payment] referal mukofoti berilmadi:', e.message);
@@ -426,7 +426,7 @@ async function partnerSale(activated, orderId) {
  * referral hujjatini atomik ravishda `rewarded:true` qiladi; ikkinchi
  * chaqiruv hech narsa qilmaydi.
  */
-async function creditReferral(invitedUid, planPrice) {
+async function creditReferral(invitedUid, planPrice, orderId) {
   const refDoc = await fsdb.getDoc(`referrals/${invitedUid}`);
   if (!refDoc || refDoc.rewarded === true || !refDoc.inviterUid) return;
   if (refDoc.inviterUid === invitedUid) {
@@ -435,7 +435,7 @@ async function creditReferral(invitedUid, planPrice) {
   }
 
   const reward = referralReward(planPrice);
-  if (reward <= 0) return;
+  if (reward <= 0 || !orderId) return;
 
   // Avval bayroqni atomik yoqamiz — ikki webhook bir vaqtda kelsa ham
   // faqat bittasi o'tadi.
@@ -443,28 +443,16 @@ async function creditReferral(invitedUid, planPrice) {
   await fsdb.transact(`referrals/${invitedUid}`, (cur) => {
     if (!cur || cur.rewarded === true) return null;   // allaqachon berilgan
     claimed = true;
-    return { rewarded: true, reward, rewardedAt: new Date() };
+    return { rewarded: true, reward, rewardedAt: new Date(), orderId };
   });
   if (!claimed) return;
 
-  // Taklif qiluvchining balansini oshiramiz (haqiqiy pul)
+  // Pul DARHOL balansga tushmaydi: hamkorlik tizimidagi kabi qaytarish muddati
+  // davomida ushlab turiladi, to'lov bekor bo'lsa — mukofot ham bekor.
+  await require('./_partner-service.js').holdLegacyReferral({ inviterUid: refDoc.inviterUid, buyerUid: invitedUid, orderId, amount: planPrice, reward });
   const inviter = await fsdb.getDoc(`users/${refDoc.inviterUid}`);
-  if (!inviter) return;
-
-  await fsdb.setDoc(`users/${refDoc.inviterUid}`, {
-    balance: (inviter.balance || 0) + reward,
-    referralEarnings: (inviter.referralEarnings || 0) + reward,
-    referralCount: (inviter.referralCount || 0) + 1
-  });
-
-  await fsdb.addDoc(`users/${refDoc.inviterUid}/events`, {
-    event: 'referral_reward',
-    invitedUid,
-    reward,
-    at: new Date()
-  });
-
-  console.log(`[payment] referal: ${refDoc.inviterUid} +${reward} so'm (do'st: ${invitedUid})`);
+  if (inviter) await fsdb.setDoc(`users/${refDoc.inviterUid}`, { referralCount: (inviter.referralCount || 0) + 1 });
+  console.log(`[payment] referal: ${refDoc.inviterUid} +${reward} so'm ushlab turildi (do'st: ${invitedUid})`);
 }
 
 /**

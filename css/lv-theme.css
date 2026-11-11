@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 /* ═══════════════════════════════════════════════════════════════════
    LinguaVerse — YAGONA TEMA
    Butun saytda bitta shrift, bitta rang palitrasi, bitta kursor qoidasi.
@@ -1043,78 +1043,76 @@ html[data-lv-performance="powerful"] [class$="-card"] {
 
 
 /* ═══════════════════════════════════════════════════════════════════
-   LINGUAVERSE BRAND 2026 — yagona brend tizimi (barcha sahifalar)
-   Logo: /media/linguaverse-mark.svg · Asosiy rang: Verse Mint #14C08F
-   Siyoh (fon): #0A0F1A · Ikkinchi: Indigo #5B7CFF · Urg'u: Saffron #FFC23D
+   LINGUAVERSE BRAND 2026 — "Samarqand × zamonaviy nashriyot"
+   Logo: /media/linguaverse-mark.svg (LV monogramma)
+   Siyoh #0B0D12 · Qog'oz #F3EEE4 · Lojuvard #2346D8 (asosiy) · Oltin #C9A45C (juda kam)
+   Sarlavha: Lora (serif) · Matn: Inter
    ═══════════════════════════════════════════════════════════════════ */
 :root, :root[data-theme="dark"] {
-  --brand: #14C08F; --brand-2: #0FA57A; --brand-ink: #04261C; --brand-soft: rgba(20,192,143,.12);
-  --indigo: #5B7CFF; --saffron: #FFC23D;
+  --brand: #4A6CF0; --brand-2: #3A5BDF; --brand-deep: #2346D8; --brand-soft: rgba(74,108,240,.12);
+  --paper: #F3EEE4; --ink: #0B0D12; --goldline: #C9A45C;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-head: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-head: 'Lora', 'Georgia', 'Times New Roman', serif;
   --font-display: var(--font-head); --font-b: var(--font-body); --font-h: var(--font-head); --font-d: var(--font-head);
-  --bg: #0A0F1A; --bg2: #0F1624; --bg3: #151E30; --bg4: #1D283D;
-  --surface: rgba(255,255,255,.035); --surface2: rgba(255,255,255,.055); --surface3: rgba(255,255,255,.08);
-  --nav-bg: rgba(10,15,26,.82); --sidebar: #0F1624;
-  --text: #F4F7FB; --text2: #C6CFDC; --text3: #8E9AAE; --muted: #8E9AAE;
-  --border: rgba(255,255,255,.08); --border2: rgba(255,255,255,.14); --border-hi: rgba(20,192,143,.55);
-  --accent: #14C08F; --accent2: #FFC23D; --gold: #FFC23D; --cyan: #4FD1E8; --purple: #9B8CFF;
-  --radius: 14px; --card-hover: rgba(255,255,255,.06); --card-accent: rgba(20,192,143,.12);
-  --shadow-1: 0 1px 2px rgba(0,0,0,.25), 0 8px 24px -12px rgba(0,0,0,.45);
-  --shadow-2: 0 2px 6px rgba(0,0,0,.25), 0 24px 60px -24px rgba(0,0,0,.6);
+  --bg: #0B0D12; --bg2: #111419; --bg3: #171B22; --bg4: #1F242D;
+  --surface: rgba(243,238,228,.03); --surface2: rgba(243,238,228,.05); --surface3: rgba(243,238,228,.08);
+  --nav-bg: rgba(11,13,18,.85); --sidebar: #111419;
+  --text: #F3EEE4; --text2: #BDB7AB; --text3: #8C877D; --muted: #8C877D;
+  --border: rgba(243,238,228,.09); --border2: rgba(243,238,228,.16); --border-hi: rgba(74,108,240,.6);
+  --accent: #4A6CF0; --accent2: #C9A45C; --gold: #C9A45C; --gold2: #B08D57; --cyan: #7C9BFF; --purple: #9D93D6;
+  --green: #6FB58A; --success: #6FB58A; --yellow: #D9B25F; --orange: #D6946A; --red: #D9746C; --pink: #C98AA6;
+  --radius: 10px; --card-hover: rgba(243,238,228,.05); --card-accent: rgba(74,108,240,.1);
+  --shadow-1: 0 1px 0 rgba(243,238,228,.03) inset, 0 10px 30px -18px rgba(0,0,0,.7);
+  --shadow-2: 0 1px 0 rgba(243,238,228,.04) inset, 0 30px 70px -30px rgba(0,0,0,.85);
 }
 :root[data-theme="light"] {
-  --brand: #0EA77B; --brand-2: #0B8F69; --brand-soft: rgba(14,167,123,.1);
-  --bg: #F7F8FA; --bg2: #FFFFFF; --bg3: #EEF1F5; --bg4: #E3E8EF;
-  --surface: rgba(10,15,26,.03); --surface2: rgba(10,15,26,.045); --surface3: rgba(10,15,26,.07);
-  --nav-bg: rgba(255,255,255,.85); --sidebar: #FFFFFF;
-  --text: #0A0F1A; --text2: #364152; --text3: #667085; --muted: #667085;
-  --border: rgba(10,15,26,.09); --border2: rgba(10,15,26,.15); --border-hi: rgba(14,167,123,.5);
-  --accent: #0EA77B; --card-accent: rgba(14,167,123,.08);
-  --shadow-1: 0 1px 2px rgba(16,24,40,.06), 0 8px 24px -12px rgba(16,24,40,.12);
-  --shadow-2: 0 2px 6px rgba(16,24,40,.06), 0 24px 60px -24px rgba(16,24,40,.2);
+  --brand: #2346D8; --brand-2: #1B39B8; --brand-soft: rgba(35,70,216,.08);
+  --bg: #F5F1E8; --bg2: #FBF9F4; --bg3: #EDE7DA; --bg4: #E2DACA;
+  --surface: rgba(11,13,18,.025); --surface2: rgba(11,13,18,.04); --surface3: rgba(11,13,18,.07);
+  --nav-bg: rgba(245,241,232,.88); --sidebar: #FBF9F4;
+  --text: #0B0D12; --text2: #3A3D45; --text3: #6B6A66; --muted: #6B6A66;
+  --border: rgba(11,13,18,.1); --border2: rgba(11,13,18,.18); --border-hi: rgba(35,70,216,.5);
+  --accent: #2346D8; --accent2: #9C7A3C; --gold: #9C7A3C; --card-accent: rgba(35,70,216,.06);
+  --shadow-1: 0 1px 2px rgba(11,13,18,.05), 0 10px 30px -18px rgba(11,13,18,.18);
+  --shadow-2: 0 2px 6px rgba(11,13,18,.05), 0 30px 70px -30px rgba(11,13,18,.25);
 }
 html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
-body { font-family: var(--font-body); background-color: var(--bg); color: var(--text); font-feature-settings: "cv11", "ss01"; }
-h1, h2, h3, .sec-title, .page-title { font-family: var(--font-head); letter-spacing: -.025em; }
-h1 { letter-spacing: -.035em; }
-::selection { background: rgba(20,192,143,.3); }
-:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
+body { font-family: var(--font-body); background-color: var(--bg); color: var(--text); }
+h1, h2, .sec-title, .page-title, .hero h1 { font-family: var(--font-head); font-weight: 500; letter-spacing: -.02em; }
+h3 { font-family: var(--font-body); font-weight: 600; letter-spacing: -.01em; }
+h1 em, h2 em, .sec-title em { font-style: italic; color: inherit; }
+::selection { background: rgba(74,108,240,.35); }
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+a { text-underline-offset: 3px; }
 
-/* Logo belgisi — har sahifadagi matnli logo oldiga qo'yiladi */
+/* Logo: LV monogramma + serif yozuv */
 .logo:not(:has(img)), .nav-logo:not(:has(img)), .drawer-logo:not(:has(img)), .auth-logo:not(:has(img)) {
-  display: inline-flex; align-items: center; gap: 0; font-family: var(--font-head); font-weight: 700; letter-spacing: -.03em; color: var(--text); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0; font-family: var(--font-head); font-weight: 600; letter-spacing: -.01em; color: var(--text); text-decoration: none;
 }
 .logo:not(:has(img))::before, .nav-logo:not(:has(img))::before, .drawer-logo:not(:has(img))::before, .auth-logo:not(:has(img))::before {
-  content: ""; width: 1.55em; height: 1.55em; flex: none; margin-right: .45em; background: url(/media/linguaverse-mark.svg) center / contain no-repeat;
+  content: ""; width: 1.5em; height: 1.5em; flex: none; margin-right: .5em; border-radius: 5px; background: url(/media/linguaverse-mark.svg) center / contain no-repeat;
 }
-.logo span, .nav-logo span, .drawer-logo span, .auth-logo span { color: var(--brand); }
+.logo span, .nav-logo span, .drawer-logo span, .auth-logo span { color: inherit; font-style: italic; }
 
-/* Navigatsiya */
-nav, .nav, .topbar { backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid var(--border); }
+nav, .nav, .topbar { backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid var(--border); }
 
-/* Tugmalar */
-.btn-fill, .btn-primary, .btn.primary, .btn-save, .cta-btn {
-  background: var(--brand); color: #fff; border: 1px solid transparent; font-weight: 600; letter-spacing: -.01em;
-  box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 6px 18px -8px rgba(20,192,143,.7); transition: background .15s, transform .15s, box-shadow .15s;
+/* Tugmalar — asosiy: qog'oz rang (premium), ikkinchi: ingichka chegara */
+.btn-fill, .btn-primary, .btn.primary, .cta-btn {
+  background: var(--text); color: var(--bg); border: 1px solid var(--text); font-weight: 600; letter-spacing: -.005em; box-shadow: none; transition: opacity .15s, transform .15s;
 }
-.btn-fill:hover, .btn-primary:hover, .btn.primary:hover, .btn-save:hover, .cta-btn:hover { background: var(--brand-2); transform: translateY(-1px); }
+.btn-fill:hover, .btn-primary:hover, .btn.primary:hover, .cta-btn:hover { opacity: .88; transform: translateY(-1px); }
+.btn-save { background: var(--brand); color: #fff; border: 1px solid transparent; font-weight: 600; box-shadow: none; }
 .btn-line, .btn.ghost, .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border2); font-weight: 600; }
-.btn-line:hover, .btn.ghost:hover, .btn-secondary:hover { border-color: var(--text3); background: var(--surface); }
-.btn, .btn-fill, .btn-line { border-radius: 10px; }
+.btn-line:hover, .btn.ghost:hover, .btn-secondary:hover { border-color: var(--text3); }
+.btn, .btn-fill, .btn-line { border-radius: 8px; }
 
-/* Bo'lim sarlavhalari */
-.sec-label { color: var(--brand); font-weight: 600; letter-spacing: .08em; font-size: 12.5px; }
-.sec-title { font-weight: 700; }
+.sec-label { color: var(--goldline); font-weight: 600; letter-spacing: .14em; font-size: 11.5px; text-transform: uppercase; }
+.sec-title { font-weight: 500; }
 .sec-sub, .sec-desc { color: var(--text2); }
 
-/* Kartalar */
 .card, .feat, .sec-card, .lang-card, .practice-card, .plan-card, .fb-card {
-  border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg2); box-shadow: var(--shadow-1);
-  transition: border-color .2s, transform .2s, box-shadow .2s;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg2); box-shadow: var(--shadow-1); transition: border-color .2s, transform .2s;
 }
-.feat:hover, .lang-card:hover, .practice-card:hover, .sec-card:hover, .plan-card:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: var(--shadow-2); }
-.feat-ic { background: var(--brand-soft) !important; color: var(--brand) !important; border-radius: 10px; }
-
-/* Shakllar */
+.feat:hover, .lang-card:hover, .practice-card:hover, .sec-card:hover, .plan-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.feat-ic { background: transparent !important; color: var(--text2) !important; border: 1px solid var(--border2); border-radius: 8px; }
 input, select, textarea { font-family: inherit; }

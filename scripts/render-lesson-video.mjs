@@ -506,7 +506,8 @@ try {
     const one = [...Array(100).keys()].map(n => ['b2', n]).concat([...Array(50).keys()].map(n => ['c2', n]), [...Array(50).keys()].map(n => ['pro', n]));
     const all = one.flatMap(x => langs.map(l => [l, ...x]));        // tillar aralash: hamma til parallel siljiydi
     for (let i = 0; i < all.length; i++) {
-      if (i % total !== k) continue;
+      // Bo'laklar tillar bo'yicha aralash bo'lsin (aks holda total 8 ga karrali bo'lsa, har bo'lak bitta tilga tushadi)
+      if ((i + Math.floor(i / total)) % total !== k) continue;
       const [lang, level, n] = all[i];
       LANG = lang; LEVEL = level;
       const doc = await fsdb.getDoc(course.lessonPath(LANG, level, n, NATIVE)).catch(() => null);

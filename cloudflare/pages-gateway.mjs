@@ -4,7 +4,7 @@
 // alohida deploy kerak emas. Ba'zi provayderlar *.workers.dev ni to'sganda kerak bo'ladi.
 const account = process.env.CLOUDFLARE_ACCOUNT_ID || 'a298e2629afd0b9496b4c1d366a2626e';
 const token = process.env.CLOUDFLARE_API_TOKEN;
-const project = process.env.PAGES_PROJECT || 'linguaverse';
+const project = process.env.PAGES_PROJECT || 'linguaverse-uz';
 if (!token) throw new Error('CLOUDFLARE_API_TOKEN kerak');
 const base = `https://api.cloudflare.com/client/v4/accounts/${account}/pages/projects`;
 async function api(method, url, body) {

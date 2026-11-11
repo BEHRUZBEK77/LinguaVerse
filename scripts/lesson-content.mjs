@@ -131,7 +131,8 @@ async function main() {
       if (cur && cur.videoPath) {
         const vt = cur.videoUpdatedAt ? new Date(cur.videoUpdatedAt).getTime() : 0;
         const changed = cur.contentHash ? cur.contentHash !== hash : fileTime(`content/${x.native}/${x.lang}/${x.id}.json`) > vt + 60000;
-        if (changed) { Object.assign(extra, { videoPath: null, videoOldPath: cur.videoPath, videoStaleAt: new Date() }); stale++; console.log('♻️  video eskirdi, qayta yasaladi:', d.path); }
+        // Eski video saytda qoladi (videoPath o'zgarmaydi), lekin videoStaleAt — video jarayoni yangisini yasab almashtiradi
+        if (changed) { Object.assign(extra, { videoOldPath: cur.videoPath, videoStaleAt: new Date() }); stale++; console.log('♻️  video eskirdi, qayta yasaladi:', d.path); }
       }
       await fsdb.setDoc(d.path, { ...d.data, createdAt: cur?.createdAt || new Date(), ...extra });
       written++; console.log('↑', d.path);

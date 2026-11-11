@@ -338,7 +338,7 @@ async function renderOne(n, browser, baseUrl) {
     const course = require(path.join(ROOT, 'netlify/functions/course.js'));
     const objectName = `courseVideos/v3/${NATIVE}/${LANG}_${LEVEL}_${n}.mp4`;
     const up = await storage.upload(objectName, fs.readFileSync(file), 'video/mp4');
-    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: up?.stored || storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null });
+    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: up?.stored || storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null, videoStaleAt: null, videoOldPath: null });
     await bumpStatus(fsdb, `${LANG}_${LEVEL}`, 1);
     const cefr = L.meta?.cefr;
     if (cefr) await fsdb.transact(`videoFactory/v3_${NATIVE}`, cur => ({ cefr: { ...(cur?.cefr || {}), [`${LANG}_${cefr}`]: ((cur?.cefr || {})[`${LANG}_${cefr}`] || 0) + 1 } })).catch(() => {});
@@ -367,7 +367,7 @@ async function bumpStatus(fsdb, key, add = 0, extra = {}) {
 async function claim(fsdb, docPath) {
   let ok = false;
   await fsdb.transact(docPath, cur => {
-    if (cur?.videoPath) return null;
+    if (cur?.videoPath && !cur?.videoStaleAt) return null;   // eskirgan video — qayta yasaladi
     const at = cur?.videoRenderingAt instanceof Date ? cur.videoRenderingAt.getTime() : 0;
     if (at && Date.now() - at < LOCK_MS) return null;
     ok = true;
@@ -396,7 +396,7 @@ async function autoQueue() {
   // 1) NAVBAT: o'quvchilar ochgan darslar (eng ko'p ochilgani birinchi)
   const wanted = await fsdb.queryList('courseLessons', [{ field: 'videoWanted', op: 'EQUAL', value: true }, { field: 'nativeLang', op: 'EQUAL', value: NATIVE }], 'videoDemand', 200).catch(() => []);
   for (const d of wanted) {
-    if (d.videoPath || !langs.includes(d.lang) || !['b2', 'c2', 'pro'].includes(d.level) || !Number.isInteger(d.n)) continue;
+    if ((d.videoPath && !d.videoStaleAt) || !langs.includes(d.lang) || !['b2', 'c2', 'pro'].includes(d.level) || !Number.isInteger(d.n)) continue;
     if (!cat.COURSE_LEVELS[d.level].lessons[d.n]?.core) continue;   // MP4 faqat 60 ta asosiy darsga
     if (jobs.length < batch * 4) jobs.push({ lang: d.lang, level: d.level, n: d.n, docPath: course.lessonPath(d.lang, d.level, d.n, NATIVE), demand: d.videoDemand || 1 });
   }
@@ -414,7 +414,7 @@ async function autoQueue() {
         const cefr = all[n].cefr;
         cefrDone[`${lang}_${cefr}`] = cefrDone[`${lang}_${cefr}`] || 0;
         const doc = await fsdb.getDoc(course.lessonPath(lang, level, n, NATIVE)).catch(() => null);
-        if (doc?.videoPath) { ready++; cefrDone[`${lang}_${cefr}`]++; continue; }
+        if (doc?.videoPath && !doc?.videoStaleAt) { ready++; cefrDone[`${lang}_${cefr}`]++; continue; }
         if (fillAll && jobs.length < batch * 4 && !jobs.some(j => j.docPath === course.lessonPath(lang, level, n, NATIVE))) jobs.push({ lang, level, n, docPath: course.lessonPath(lang, level, n, NATIVE) });
       }
       // Aniq sonni qayta yozamiz (qo'lda o'chirilgan videolar ham hisobga olinsin)
@@ -477,7 +477,7 @@ try {
       LANG = lang; LEVEL = level;
       const doc = await fsdb.getDoc(course.lessonPath(LANG, level, n, NATIVE)).catch(() => null);
       if (!doc?.core || doc.backend !== 'manual') { console.log(`  ⏭ ${LANG} ${level}#${n + 1}: qo'lda yozilgan dars hali yo'q`); continue; }
-      if (doc.videoPath && doc.videoVoice === VOICE_TAG() && !args.force) { console.log(`  ✓ #${i + 1}: video bor`); continue; }
+      if (doc.videoPath && !doc.videoStaleAt && doc.videoVoice === VOICE_TAG() && !args.force) { console.log(`  ✓ #${i + 1}: video bor`); continue; }
       try { await renderOne(n, browser, baseUrl); }
       catch (e) {
         failed.push(i + 1); console.error(`  ❌ #${i + 1}: ${e.message}`);

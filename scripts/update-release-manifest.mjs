@@ -9,15 +9,15 @@ if (!outputPath || !repository || !tag || !token) {
   throw new Error('Release manifest uchun output yo‘li, GitHub repository, tag va token kerak.');
 }
 
-const response = await fetch(`https://api.github.com/repos/${repository}/releases/tags/${encodeURIComponent(tag)}`, {
-  headers: {
-    Accept: 'application/vnd.github+json',
-    Authorization: `Bearer ${token}`,
-    'X-GitHub-Api-Version': '2022-11-28'
-  }
-});
+let response;
+for (let i = 0; i < 6; i++) {   // reliz yangi e'lon qilinganda API bir necha soniya 404 berishi mumkin
+  response = await fetch(`https://api.github.com/repos/${repository}/releases/tags/${encodeURIComponent(tag)}`, {
+    headers: { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28' }
+  });
+  if (response.ok) break;
+  await new Promise(r => setTimeout(r, 5000));
+}
 if (!response.ok) throw new Error(`GitHub Release API xatosi: ${response.status}`);
-
 const release = await response.json();
 const assets = [
   { platform: 'windows', suffix: '-windows-x64.exe' },

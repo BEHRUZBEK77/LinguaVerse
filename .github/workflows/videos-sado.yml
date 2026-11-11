@@ -32,7 +32,7 @@ permissions:
 
 jobs:
   smoke:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -43,7 +43,7 @@ jobs:
 
       - name: ffmpeg, shriftlar, brauzer, ovoz dvigatellari
         run: |
-          for i in 1 2 3 4 5; do sudo apt-get update -qq -o Acquire::Retries=5 && sudo apt-get install -y -qq -o Acquire::Retries=5 --fix-missing ffmpeg fonts-noto-cjk fonts-noto-core && break; echo "apt urinish $i muvaffaqiyatsiz — 30s kutamiz"; sleep 30; done; command -v ffmpeg
+          for i in 1 2 3; do timeout 240 sudo apt-get update -qq -o Acquire::Retries=3 && timeout 300 sudo apt-get install -y -qq -o Acquire::Retries=3 --fix-missing ffmpeg fonts-noto-cjk fonts-noto-core && break; echo "apt urinish $i muvaffaqiyatsiz — 20s kutamiz"; sleep 20; done; if ! command -v ffmpeg; then echo "apt ishlamadi — ffmpeg GitHub'dan"; curl -sSL --retry 5 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz | tar -xJ -C /tmp && sudo cp /tmp/ffmpeg-master-latest-linux64-gpl/bin/ff* /usr/local/bin/; fi; ffmpeg -version | head -1
           npm install --no-save playwright@1.48.2
           npx playwright install --with-deps chromium
           pip install -q onnxruntime numpy piper-tts
@@ -73,7 +73,7 @@ jobs:
 
   render:
     needs: smoke
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 355
     strategy:
       fail-fast: false
@@ -90,7 +90,7 @@ jobs:
 
       - name: ffmpeg, shriftlar, brauzer, ovoz dvigatellari
         run: |
-          for i in 1 2 3 4 5; do sudo apt-get update -qq -o Acquire::Retries=5 && sudo apt-get install -y -qq -o Acquire::Retries=5 --fix-missing ffmpeg fonts-noto-cjk fonts-noto-core && break; echo "apt urinish $i muvaffaqiyatsiz — 30s kutamiz"; sleep 30; done; command -v ffmpeg
+          for i in 1 2 3; do timeout 240 sudo apt-get update -qq -o Acquire::Retries=3 && timeout 300 sudo apt-get install -y -qq -o Acquire::Retries=3 --fix-missing ffmpeg fonts-noto-cjk fonts-noto-core && break; echo "apt urinish $i muvaffaqiyatsiz — 20s kutamiz"; sleep 20; done; if ! command -v ffmpeg; then echo "apt ishlamadi — ffmpeg GitHub'dan"; curl -sSL --retry 5 https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz | tar -xJ -C /tmp && sudo cp /tmp/ffmpeg-master-latest-linux64-gpl/bin/ff* /usr/local/bin/; fi; ffmpeg -version | head -1
           npm install --no-save playwright@1.48.2
           npx playwright install --with-deps chromium
           pip install -q onnxruntime numpy piper-tts

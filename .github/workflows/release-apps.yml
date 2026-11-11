@@ -41,7 +41,10 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: desktop-${{ matrix.platform }}
-          path: dist-desktop/*
+          path: |
+            dist-desktop/*.exe
+            dist-desktop/*.dmg
+            dist-desktop/*.AppImage
           if-no-files-found: error
           retention-days: 7
 
@@ -96,7 +99,11 @@ jobs:
       - name: Publish release assets
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$TAG" release-assets/* --target "$GITHUB_SHA" --title "LinguaVerse $TAG" --generate-notes
+        run: |
+          files=$(find release-assets -maxdepth 1 -type f \( -name '*.exe' -o -name '*.dmg' -o -name '*.AppImage' -o -name '*.apk' \))
+          echo "$files"
+          if gh release view "$TAG" >/dev/null 2>&1; then gh release upload "$TAG" $files --clobber; gh release edit "$TAG" --draft=false;
+          else gh release create "$TAG" $files --target "$GITHUB_SHA" --title "LinguaVerse $TAG" --generate-notes; fi
       - name: Update website download manifest
         env:
           GITHUB_TOKEN: ${{ github.token }}

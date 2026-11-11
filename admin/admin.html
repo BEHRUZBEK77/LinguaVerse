@@ -3502,9 +3502,413 @@ ${o.status === 'pending' ? `
       wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    // ── HAMKORLAR (vaqtinchalik — to'liq interfeys OpenCode tomonidan yoziladi) ──
-    window.pTab = function () {}; window.pRun = function () {};
-    window.loadPartners = function () { document.getElementById('pBox').innerHTML = '<div class="op-grant-sub">Hamkorlar bo\'limi tayyorlanmoqda.</div>'; };
+    // ── HAMKORLAR ── to'liq interfeys ──
+    const P_TYPE_LABEL = { referral: "Do'st taklifi", teacher: "O'qituvchi / repetitor", creator: 'Kontent yaratuvchi', school: "O'quv markazi / maktab", brand: 'Brend sahifasi', corporate: 'Korporativ', ambassador: 'Elchi' };
+    const P_STATUS_LABEL = { active: 'Faol', review: "Ko'rib chiqishda", pending: 'Kutilmoqda', 'needs-info': "Ma'lumot so'ralgan", rejected: 'Rad etilgan', suspended: "To'xtatilgan" };
+    let _pTab = 'overview', _pAppsView = 'all', _pListStatus = '', _pListType = '', _pListQ = '', _pCommStatus = 'review', _pReqView = 'new';
+    let _pOverview = null;
+
+    async function partnersApi(action, extra = {}) {
+      const idToken = await CURRENT_ADMIN.getIdToken();
+      const r = await fetch('/.netlify/functions/partners', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, idToken, ...extra }) });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok || d.error) throw new Error(d.error || ('HTTP ' + r.status));
+      return d;
+    }
+    const pSum = n => (Number(n) || 0).toLocaleString('uz-UZ');
+    const pMoney = n => pSum(n) + " so'm";
+    const pDate = v => {
+      const t = !v ? null : (v.toDate ? v.toDate() : (v.seconds != null ? new Date(v.seconds * 1000) : new Date(v)));
+      return t && !isNaN(t) ? t.toLocaleString('uz') : '—';
+    };
+    const pChip = (text, color) => `<span style="padding:2px 10px;border-radius:99px;font-size:.68rem;font-weight:700;background:${color}1f;color:${color};white-space:nowrap">${text}</span>`;
+    const P_STATUS_COLOR = { active: '#34d399', review: '#fbbf24', pending: '#fbbf24', 'needs-info': '#fb923c', rejected: '#f87171', suspended: '#94a3b8' };
+    const pStatusChip = s => pChip(P_STATUS_LABEL[s] || esc(s || '—'), P_STATUS_COLOR[s] || '#94a3b8');
+    const pTypeChip = t => pChip(P_TYPE_LABEL[t] || esc(t || '—'), '#a78bfa');
+    const pRisk = (risk, flags) => {
+      const r = Number(risk) || 0;
+      const c = r >= 50 ? '#f87171' : r >= 30 ? '#fbbf24' : '#34d399';
+      const fl = (flags || []).length ? `<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px">${flags.map(f => `<span style="padding:2px 8px;border-radius:6px;background:rgba(248,113,113,.12);color:#fca5a5;font-size:.68rem">${esc(f)}</span>`).join('')}</div>` : '';
+      return `<div style="margin-top:6px">${pChip('Xavf bali: ' + r, c)}${fl}</div>`;
+    };
+    const pSection = t => `<div style="font-family:var(--font-d);font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);margin:18px 2px 8px">${t}</div>`;
+    const pStatCard = (label, val, color, sub) => `<div style="background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:12px 14px;min-width:140px">
+      <div style="font-size:.68rem;color:var(--text3)">${label}</div>
+      <div style="font-family:var(--font-d);font-size:1.4rem;font-weight:800;color:${color || 'var(--text)'};margin-top:2px">${val}</div>
+      ${sub ? `<div style="font-size:.68rem;color:var(--text3);margin-top:2px">${sub}</div>` : ''}
+    </div>`;
+    const pLoading = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+    const pEmpty = (icon, text) => `<div class="empty"><span><i class="fa-solid ${icon}" style="color:#94a3b8"></i></span>${text}</div>`;
+
+    window.pTab = function (name) {
+      _pTab = name;
+      document.querySelectorAll('#pTabs [data-pt]').forEach(b => b.classList.toggle('active', b.dataset.pt === name));
+      renderPartners();
+    };
+    window.loadPartners = async function () {
+      const box = document.getElementById('pBox');
+      box.innerHTML = pLoading;
+      try {
+        _pOverview = await partnersApi('admin-overview');
+        const reviewApps = (_pOverview.counts && _pOverview.counts.review) || 0;
+        const reviewComm = _pOverview.commissionsReview || 0;
+        const badge = document.getElementById('partnerBadge');
+        if (badge) badge.textContent = reviewApps + reviewComm;
+        const appsN = document.getElementById('pAppsN');
+        const commN = document.getElementById('pCommN');
+        const reqN = document.getElementById('pReqN');
+        if (appsN) appsN.textContent = reviewApps ? '(' + reviewApps + ')' : '';
+        if (commN) commN.textContent = reviewComm ? '(' + reviewComm + ')' : '';
+        if (reqN) reqN.textContent = _pOverview.newRequests ? '(' + _pOverview.newRequests + ')' : '';
+        await renderPartners();
+      } catch (e) {
+        box.innerHTML = pEmpty('fa-triangle-exclamation', esc(e.message));
+      }
+    };
+    window.pRun = async function () {
+      if (!confirm("Kunlik avtomatikani hozir ishga tushirasizmi? Ushlab turish muddati tugagan komissiyalar hisoblanadi.")) return;
+      try {
+        const d = await partnersApi('admin-run');
+        toast(`Tayyor: ${d.credited || 0} tasdiqlandi, ${d.review || 0} ko'rib chiqishda, ${d.reversed || 0} qaytarildi`, 'success', 'fa-check-circle');
+        await loadPartners();
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+    async function renderPartners() {
+      const box = document.getElementById('pBox');
+      box.innerHTML = pLoading;
+      try {
+        if (_pTab === 'overview') return renderPOverview(box);
+        if (_pTab === 'apps') return renderPApps(box);
+        if (_pTab === 'list') return renderPList(box);
+        if (_pTab === 'comm') return renderPComm(box);
+        if (_pTab === 'req') return renderPRequests(box);
+        if (_pTab === 'cfg') return renderPSettings(box);
+        if (_pTab === 'audit') return renderPAudit(box);
+      } catch (e) {
+        box.innerHTML = pEmpty('fa-triangle-exclamation', esc(e.message));
+      }
+    }
+
+    function renderPOverview(box) {
+      const o = _pOverview || {};
+      const c = o.counts || {};
+      const tot = o.totals || {};
+      const byType = o.byType || {};
+      const top = o.top || [];
+      const lc = o.lastCron;
+      const rep = (lc && lc.report) || {};
+      const top10 = top.length ? `<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.8rem">
+        <thead><tr style="text-align:left;color:var(--text3);font-size:.68rem;text-transform:uppercase;letter-spacing:.05em"><th style="padding:6px 8px">#</th><th style="padding:6px 8px">Hamkor</th><th style="padding:6px 8px">Turi</th><th style="padding:6px 8px">Kod</th><th style="padding:6px 8px;text-align:right">Sotuv</th><th style="padding:6px 8px;text-align:right">Tushum</th><th style="padding:6px 8px;text-align:right">Topilgan</th></tr></thead>
+        <tbody>${top.map((t, i) => `<tr style="border-top:1px solid var(--border)"><td style="padding:7px 8px;color:var(--text3)">${i + 1}</td><td style="padding:7px 8px"><b>${esc(t.name)}</b></td><td style="padding:7px 8px">${esc(P_TYPE_LABEL[t.type] || t.type || '—')}</td><td style="padding:7px 8px"><code>${esc(t.code)}</code></td><td style="padding:7px 8px;text-align:right">${pSum(t.sales)}</td><td style="padding:7px 8px;text-align:right">${pMoney(t.revenue)}</td><td style="padding:7px 8px;text-align:right">${pMoney(t.earned)}</td></tr>`).join('')}</tbody>
+      </table></div>` : pEmpty('fa-award', "Hali faol hamkor yo'q");
+      box.innerHTML = `
+        ${pSection('Hamkorlar holati')}
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">
+          ${pStatCard('Faol', pSum(c.active), 'var(--green)')}
+          ${pStatCard("Ko'rib chiqishda", pSum(c.review), 'var(--gold)')}
+          ${pStatCard('Kutilmoqda', pSum(c.pending), '#fbbf24')}
+          ${pStatCard("Ma'lumot so'ralgan", pSum(c.needsInfo), '#fb923c')}
+          ${pStatCard("To'xtatilgan", pSum(c.suspended), '#94a3b8')}
+          ${pStatCard('Jami', pSum(c.total), 'var(--accent)')}
+        </div>
+        ${pSection('Komissiyalar')}
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px">
+          ${pStatCard("Ko'rib chiqishdagi", pSum(o.commissionsReview), '#fbbf24', pMoney(o.commissionsReviewSum))}
+          ${pStatCard('Ushlab turishda', pSum(o.holdCount), 'var(--text2)', pMoney(o.holdSum))}
+          ${pStatCard("Yangi litsenziya so'rovlari", pSum(o.newRequests), '#58d3b3')}
+        </div>
+        ${pSection('Jami natijalar')}
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">
+          ${pStatCard('Kliklar', pSum(tot.clicks))}
+          ${pStatCard("Ro'yxatdan o'tishlar", pSum(tot.signups))}
+          ${pStatCard('Sotuvlar', pSum(tot.sales))}
+          ${pStatCard('Tushum', pMoney(tot.revenue))}
+          ${pStatCard('Topilgan', pMoney(tot.earned))}
+        </div>
+        ${pSection("Tarkib bo'yicha (faol)")}
+        <div style="display:flex;gap:6px;flex-wrap:wrap">${Object.entries(byType).filter(([, n]) => n).map(([t, n]) => `<span style="padding:4px 12px;border-radius:99px;background:rgba(167,139,250,.1);color:#c4b5fd;font-size:.75rem">${esc(P_TYPE_LABEL[t] || t)}: <b>${pSum(n)}</b></span>`).join('') || '<div class="op-grant-sub">Faol hamkorlar hali yo\'q</div>'}</div>
+        ${pSection('Eng yaxshi 10 hamkor')}
+        ${top10}
+        ${pSection('Avtomatika')}
+        <div style="background:rgba(88,211,179,.06);border:1px solid rgba(88,211,179,.22);border-radius:10px;padding:10px 13px;font-size:.76rem;color:var(--text2);line-height:1.55"><i class="fa-solid fa-gears" style="color:#58d3b3"></i> ${lc ? 'Oxirgi ishga tushish: ' + pDate(lc.at) + ' · ' + pSum(rep.credited) + " to'landi, " + pSum(rep.review) + " ko'rib chiqishda, " + pSum(rep.reversed) + " qaytarildi, " + pSum(rep.perksRenewed) + ' imtiyoz yangilandi' : "Avtomatika hali ishga tushmagan"}</div>`;
+    }
+
+    function pAppCard(a) {
+      const org = typeof a.org === 'string' ? a.org : (a.org && (a.org.name || a.org.title)) || '';
+      const social = a.social || {};
+      const followers = Number(social.followers || social.subscribers || 0);
+      const socialLine = social.handle ? `${social.platform ? esc(social.platform) + ': ' : ''}${esc(social.handle)}${followers ? ' · ' + pSum(followers) + ' obunachi' : ''}${social.verified ? ' · tasdiqlangan' : ''}` : '';
+      const brand = a.brand && typeof a.brand === 'object' ? a.brand : null;
+      const brandLine = brand ? `${esc(brand.name || brand.domain || '')}${brand.domain ? ' · ' + esc(brand.domain) : ''}${a.brandReview ? " · <b style=\"color:var(--gold)\">sahifasi ko'rilmoqda</b>" : ''}` : '';
+      const history = (a.history || []).slice(0, 3).map(h => `<div style="font-size:.68rem;color:var(--text3);margin-top:2px">${pDate(h.at)} — ${esc(h.event)}${h.note ? ': ' + esc(h.note) : ''}</div>`).join('');
+      return `<div class="order-card" style="padding:14px 16px;margin-bottom:10px">
+        <div style="display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap">
+          <div style="min-width:250px;flex:1.2">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b style="font-size:.95rem">${esc(a.name)}</b>${pTypeChip(a.type)}${pStatusChip(a.status)}${a.brandReview ? pChip('brend sahifasi', '#fbbf24') : ''}</div>
+            <div style="font-size:.75rem;color:var(--text3);margin-top:4px">${esc(a.email)} · Kod: <b>${esc(a.code)}</b> · ${pDate(a.createdAt)}</div>
+            ${org ? `<div style="font-size:.75rem;color:var(--text2);margin-top:3px"><i class="fa-solid fa-building" style="opacity:.6"></i> ${esc(org)}</div>` : ''}
+            ${a.city ? `<div style="font-size:.75rem;color:var(--text2)"><i class="fa-solid fa-location-dot" style="opacity:.6"></i> ${esc(a.city)}</div>` : ''}
+            ${a.contact ? `<div style="font-size:.75rem;color:var(--text2)"><i class="fa-solid fa-phone" style="opacity:.6"></i> ${esc(a.contact)}</div>` : ''}
+            ${socialLine ? `<div style="font-size:.75rem;color:var(--text2)"><i class="fa-solid fa-share-nodes" style="opacity:.6"></i> ${socialLine}</div>` : ''}
+            ${brandLine ? `<div style="font-size:.75rem;color:var(--text2)"><i class="fa-solid fa-store" style="opacity:.6"></i> ${brandLine}</div>` : ''}
+            ${a.about ? `<div style="font-size:.76rem;color:var(--text2);margin-top:5px;line-height:1.5">${esc(a.about)}</div>` : ''}
+            ${a.adminNote ? `<div style="font-size:.73rem;color:var(--text3);margin-top:5px"><i class="fa-solid fa-lock"></i> Admin izohi: ${esc(a.adminNote)}</div>` : ''}
+            ${a.reviewReason ? `<div style="font-size:.73rem;color:var(--gold);margin-top:5px"><i class="fa-solid fa-note-sticky"></i> Sabab: ${esc(a.reviewReason)}</div>` : ''}
+            ${history}
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;min-width:270px;flex:1;justify-content:center">
+            <input class="announce-input" id="pAppNote-${esc(a.uid)}" placeholder="Sabab / izoh (rad etishda majburiy)" maxlength="300">
+            <div style="display:flex;gap:7px;flex-wrap:wrap">
+              <button class="btn-save" onclick="pDecide('${esc(a.uid)}','approve')"><i class="fa-solid fa-check"></i> Tasdiqlash</button>
+              ${a.brandReview && brand ? `<button class="btn-save" style="background:#58d3b3;color:#06251d" onclick="pDecide('${esc(a.uid)}','publish-brand')"><i class="fa-solid fa-globe"></i> Brend sahifasini e'lon qilish</button>` : ''}
+              <button class="btn-save" style="background:var(--gold);color:#3a2b00" onclick="pDecide('${esc(a.uid)}','needs-info')"><i class="fa-solid fa-circle-question"></i> Ma'lumot so'rash</button>
+              <button class="btn-danger" onclick="pDecide('${esc(a.uid)}','reject')"><i class="fa-solid fa-xmark"></i> Rad etish</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }
+    async function renderPApps(box) {
+      const [reviewD, pendingD] = await Promise.all([partnersApi('admin-list', { status: 'review' }), partnersApi('admin-list', { status: 'pending' })]);
+      const review = reviewD.rows || [], pending = pendingD.rows || [];
+      const view = _pAppsView;
+      const rows = view === 'review' ? review : view === 'pending' ? pending : [...review, ...pending];
+      box.innerHTML = `
+        <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+          <button class="filter-btn ab ${view === 'all' ? 'active' : ''}" onclick="pAppsSet('all')">Hammasi (${review.length + pending.length})</button>
+          <button class="filter-btn ab ${view === 'review' ? 'active' : ''}" onclick="pAppsSet('review')">Ko'rib chiqishda (${review.length})</button>
+          <button class="filter-btn ab ${view === 'pending' ? 'active' : ''}" onclick="pAppsSet('pending')">Kutilmoqda (${pending.length})</button>
+        </div>
+        ${rows.length ? rows.map(pAppCard).join('') : pEmpty('fa-circle-check', "Arizalar yo'q — hammasi ko'rib chiqilgan")}`;
+    }
+    window.pAppsSet = function (v) { _pAppsView = v; renderPartners(); };
+    window.pDecide = async function (uid, decision) {
+      const noteEl = document.getElementById('pAppNote-' + uid) || document.getElementById('pListNote-' + uid);
+      const note = noteEl ? noteEl.value.trim() : '';
+      if (decision === 'reject' || decision === 'suspend') {
+        if (!note) { toast("Sababini yozing — hamkor uni ko'radi", 'error', 'fa-circle-xmark'); if (noteEl) noteEl.focus(); return; }
+        if (!confirm(decision === 'reject' ? 'Arizani rad etasizmi?' : "Hamkorni to'xtatasizmi?")) return;
+      }
+      try {
+        await partnersApi('admin-decide', { uid, decision, note });
+        toast(decision === 'approve' || decision === 'publish-brand' || decision === 'reactivate' ? 'Bajarildi' : 'Saqlandi', 'success', 'fa-check-circle');
+        await loadPartners();
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
+    function pListCard(a) {
+      const totals = a.totals || {};
+      const o = a.rateOverride;
+      const stopBtn = a.status === 'suspended'
+        ? `<button class="btn-save" style="background:#34d399;color:#06251d" onclick="pDecide('${esc(a.uid)}','reactivate')"><i class="fa-solid fa-rotate-left"></i> Faollashtirish</button>`
+        : `<button class="btn-danger" onclick="pDecide('${esc(a.uid)}','suspend')"><i class="fa-solid fa-ban"></i> To'xtatish</button>`;
+      return `<div class="order-card" style="padding:12px 14px;margin-bottom:8px">
+        <div style="display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;align-items:center">
+          <div style="min-width:230px;flex:1.2">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b>${esc(a.name)}</b>${pTypeChip(a.type)}${pStatusChip(a.status)}</div>
+            <div style="font-size:.73rem;color:var(--text3);margin-top:3px">${esc(a.email)} · <code>${esc(a.code)}</code></div>
+            <div style="font-size:.73rem;color:var(--text2);margin-top:2px">Sotuv: <b>${pSum(totals.sales)}</b> · Tushum: <b>${pMoney(totals.revenue)}</b> · Topilgan: <b>${pMoney(totals.earned)}</b></div>
+            <div style="font-size:.72rem;color:var(--text2);margin-top:2px">Stavka: <b>${o != null ? Math.round(o * 1000) / 10 + '% (shaxsiy)' : 'standart'}</b></div>
+          </div>
+          <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;flex:1;justify-content:flex-end">
+            <input class="announce-input" id="pListRate-${esc(a.uid)}" type="number" min="0" max="50" step="0.5" style="width:105px" placeholder="shaxsiy %" value="${o != null ? Math.round(o * 1000) / 10 : ''}">
+            <button class="btn-save" title="Shaxsiy stavka (bo'sh qoldiring — olib tashlanadi)" onclick="pListSetRate('${esc(a.uid)}')"><i class="fa-solid fa-percent"></i> Stavka</button>
+            <input class="announce-input" id="pListNote-${esc(a.uid)}" style="width:170px" placeholder="Sabab (to'xtatishda)" maxlength="300">
+            ${stopBtn}
+          </div>
+        </div>
+      </div>`;
+    }
+    async function renderPList(box) {
+      const d = await partnersApi('admin-list', { status: _pListStatus || undefined, type: _pListType || undefined, q: _pListQ || undefined });
+      const rows = d.rows || [];
+      const typeOptions = [['', 'Barcha turlar'], ...Object.entries(P_TYPE_LABEL)];
+      const statusOptions = [['', 'Barcha holatlar'], ...Object.entries(P_STATUS_LABEL)];
+      box.innerHTML = `
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+          <input class="announce-input" id="pListSearch" style="flex:2;min-width:220px" placeholder="Ism, email, kod yoki aloqa..." value="${esc(_pListQ)}" onkeydown="if(event.key==='Enter')pListReload()">
+          <select class="announce-input" id="pListStatusSel" style="flex:1;min-width:160px" onchange="pListReload()">${statusOptions.map(([v, l]) => `<option value="${v}" ${v === _pListStatus ? 'selected' : ''}>${l}</option>`).join('')}</select>
+          <select class="announce-input" id="pListTypeSel" style="flex:1;min-width:160px" onchange="pListReload()">${typeOptions.map(([v, l]) => `<option value="${v}" ${v === _pListType ? 'selected' : ''}>${l}</option>`).join('')}</select>
+          <button class="btn-save" onclick="pListReload()"><i class="fa-solid fa-magnifying-glass"></i> Qidirish</button>
+        </div>
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:8px">${rows.length} ta hamkor</div>
+        ${rows.length ? rows.map(pListCard).join('') : pEmpty('fa-inbox', 'Hamkor topilmadi')}`;
+    }
+    window.pListReload = function () {
+      _pListQ = (document.getElementById('pListSearch')?.value || '').trim();
+      _pListStatus = document.getElementById('pListStatusSel')?.value || '';
+      _pListType = document.getElementById('pListTypeSel')?.value || '';
+      renderPartners();
+    };
+    window.pListSetRate = async function (uid) {
+      const el = document.getElementById('pListRate-' + uid);
+      const raw = (el?.value || '').trim();
+      const rate = raw === '' ? '' : Number(raw);
+      if (rate !== '' && (!Number.isFinite(rate) || rate < 0 || rate > 50)) { toast('Stavka 0–50% oralig\'ida bo\'lsin', 'error', 'fa-circle-xmark'); return; }
+      try {
+        await partnersApi('admin-decide', { uid, decision: 'rate', rate });
+        toast(raw === '' ? 'Shaxsiy stavka olib tashlandi' : 'Shaxsiy stavka saqlandi', 'success', 'fa-check-circle');
+        await renderPartners();
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
+    function pCommCard(c) {
+      const review = c.status === 'review';
+      const statusNote = { hold: "Ushlab turilmoqda (avtomatik)", credited: "Hamkor balansiga o'tkazildi", rejected: 'Rad etilgan', reversed: 'Qaytarilgan' }[c.status] || c.status;
+      return `<div class="order-card" style="padding:12px 14px;margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div style="min-width:250px;flex:1.2">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b>${esc(c.partnerName || '—')}</b><code style="font-size:.72rem">${esc(c.code)}</code>${pTypeChip(c.type)}</div>
+            <div style="font-size:.73rem;color:var(--text3);margin-top:3px"><i class="fa-solid fa-user" style="opacity:.6"></i> ${esc(c.buyer || '—')} · ${esc(c.kind || '')} · ${pDate(c.at)}</div>
+            <div style="font-size:.8rem;color:var(--text2);margin-top:4px">Sotuv: <b>${pMoney(c.amount)}</b> · stavka <b>${Math.round((Number(c.rate) || 0) * 100)}%</b> → komissiya: <b style="color:var(--green)">${pMoney(c.commission)}</b></div>
+            ${c.reason ? `<div style="font-size:.73rem;color:var(--gold);margin-top:3px"><i class="fa-solid fa-circle-info"></i> ${esc(c.reason)}</div>` : ''}
+            ${pRisk(c.risk, c.flags)}
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;min-width:250px;flex:1;justify-content:center">
+            ${review ? `
+              <input class="announce-input" id="pCommNote-${esc(c.id)}" placeholder="Izoh (rad etishda majburiy)" maxlength="200">
+              <div style="display:flex;gap:7px;flex-wrap:wrap">
+                <button class="btn-save" onclick="pCommDecide('${esc(c.id)}','approve')"><i class="fa-solid fa-check"></i> Tasdiqlash va to'lash</button>
+                <button class="btn-danger" onclick="pCommDecide('${esc(c.id)}','reject')"><i class="fa-solid fa-xmark"></i> Rad etish</button>
+              </div>` : `<div style="font-size:.74rem;color:var(--text3)">${esc(statusNote)}</div>`}
+          </div>
+        </div>
+      </div>`;
+    }
+    async function renderPComm(box) {
+      const d = await partnersApi('admin-commissions', { status: _pCommStatus });
+      const rows = d.rows || [];
+      const sum = rows.reduce((n, c) => n + (Number(c.commission) || 0), 0);
+      const seg = [['review', "Ko'rib chiqishda"], ['hold', 'Ushlab turishda'], ['credited', "To'langan"], ['rejected', 'Rad etilgan'], ['reversed', 'Qaytarilgan']];
+      box.innerHTML = `
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">${seg.map(([v, l]) => `<button class="filter-btn ab ${v === _pCommStatus ? 'active' : ''}" onclick="pCommSet('${v}')">${l}</button>`).join('')}</div>
+        <div style="font-size:.76rem;color:var(--text3);margin-bottom:10px">${rows.length} ta komissiya · Jami: <b style="color:var(--text)">${pMoney(sum)}</b>${_pCommStatus === 'review' && _pOverview ? ` · Tizim bo'yicha review: ${pSum(_pOverview.commissionsReview)} ta, ${pMoney(_pOverview.commissionsReviewSum)}` : ''}</div>
+        ${rows.length ? rows.map(pCommCard).join('') : pEmpty('fa-file-invoice-dollar', "Komissiyalar yo'q")}`;
+    }
+    window.pCommSet = function (v) { _pCommStatus = v; renderPartners(); };
+    window.pCommDecide = async function (id, decision) {
+      const noteEl = document.getElementById('pCommNote-' + id);
+      const note = noteEl ? noteEl.value.trim() : '';
+      if (decision === 'reject' && !note) { toast("Rad etish sababini yozing", 'error', 'fa-circle-xmark'); if (noteEl) noteEl.focus(); return; }
+      if (decision === 'approve' && !confirm("Komissiyani tasdiqlaysizmi? Summa hamkor balansiga o'tadi.")) return;
+      try {
+        await partnersApi('admin-commission-decide', { id, decision, note });
+        toast(decision === 'approve' ? "Tasdiqlandi" : 'Rad etildi', 'success', 'fa-check-circle');
+        await loadPartners();
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
+    function pReqCard(r) {
+      const done = r.status === 'done';
+      return `<div class="order-card" style="padding:12px 14px;margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <div style="min-width:240px;flex:1.2">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><b>${esc(r.partnerName || '—')}</b><code style="font-size:.72rem">${esc(r.code)}</code>${pChip(done ? 'Bajarilgan' : 'Yangi', done ? '#34d399' : '#fbbf24')}</div>
+            <div style="font-size:.78rem;color:var(--text2);margin-top:4px">O'rinlar: <b>${pSum(r.seats)}</b>${r.product ? ` · Mahsulot: <b>${esc(r.product)}</b>` : ''}</div>
+            ${r.contact ? `<div style="font-size:.74rem;color:var(--text3)">Aloqa: ${esc(r.contact)}</div>` : ''}
+            ${r.note ? `<div style="font-size:.74rem;color:var(--text2);margin-top:4px;line-height:1.5">${esc(r.note)}</div>` : ''}
+            <div style="font-size:.68rem;color:var(--text3);margin-top:4px">${pDate(r.createdAt)}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;min-width:230px;flex:1;justify-content:center">
+            ${done
+              ? `<div style="font-size:.74rem;color:var(--text3)">${r.note && r.doneBy ? 'Bajardi: ' + esc(r.doneBy) : 'So\'rov bajarilgan'}</div>`
+              : `<input class="announce-input" id="pReqNote-${esc(r.id)}" placeholder="Bajarish haqida eslatma (ixtiyoriy)" maxlength="300">
+                 <button class="btn-save" onclick="pReqDone('${esc(r.id)}')"><i class="fa-solid fa-check"></i> Bajarildi deb belgilash</button>`}
+          </div>
+        </div>
+      </div>`;
+    }
+    async function renderPRequests(box) {
+      const d = await partnersApi('admin-requests');
+      const rows = [...(d.rows || [])].sort((a, b) => ((b.status === 'new') - (a.status === 'new')) || ((b.createdMs || 0) - (a.createdMs || 0)));
+      const view = _pReqView;
+      const filtered = view === 'new' ? rows.filter(r => r.status === 'new') : view === 'done' ? rows.filter(r => r.status === 'done') : rows;
+      box.innerHTML = `
+        <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap">
+          <button class="filter-btn ab ${view === 'new' ? 'active' : ''}" onclick="pReqSet('new')">Yangi (${rows.filter(r => r.status === 'new').length})</button>
+          <button class="filter-btn ab ${view === 'done' ? 'active' : ''}" onclick="pReqSet('done')">Bajarilgan (${rows.filter(r => r.status === 'done').length})</button>
+          <button class="filter-btn ab ${view === 'all' ? 'active' : ''}" onclick="pReqSet('all')">Hammasi (${rows.length})</button>
+        </div>
+        ${filtered.length ? filtered.map(pReqCard).join('') : pEmpty('fa-file-signature', "So'rovlar yo'q")}`;
+    }
+    window.pReqSet = function (v) { _pReqView = v; renderPartners(); };
+    window.pReqDone = async function (id) {
+      const note = document.getElementById('pReqNote-' + id)?.value.trim() || '';
+      try {
+        await partnersApi('admin-request-done', { id, note });
+        toast("So'rov bajarildi deb belgilandi", 'success', 'fa-check-circle');
+        await loadPartners();
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
+    function renderPSettings(box) {
+      const s = (_pOverview && _pOverview.settings) || {};
+      const dfl = (_pOverview && _pOverview.defaults) || {};
+      const lc = _pOverview && _pOverview.lastCron;
+      const num = (key, label, hint) => `<div>
+        <label for="pCfg-${key}" style="font-size:.78rem;font-weight:700;color:var(--text2);display:block;margin-bottom:4px">${label}</label>
+        <input class="announce-input" id="pCfg-${key}" type="number" min="0" step="1" style="width:100%" value="${s[key] ?? ''}">
+        <div style="font-size:.66rem;color:var(--text3);margin-top:3px">${hint} · Standart: ${esc(String(dfl[key] ?? '—'))}</div>
+      </div>`;
+      const bool = (key, label, hint) => `<label style="display:flex;gap:9px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:10px 12px;cursor:pointer">
+        <input type="checkbox" id="pCfg-${key}" ${s[key] ? 'checked' : ''} style="margin-top:2px;accent-color:var(--accent);width:16px;height:16px">
+        <span><span style="font-size:.8rem;font-weight:700">${label}</span><br><span style="font-size:.7rem;color:var(--text3);line-height:1.5">${hint}</span></span>
+      </label>`;
+      box.innerHTML = `
+        ${pSection('Dastur sozlamalari')}
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px">
+          ${num('holdDays', 'Ushlab turish muddati (kun)', 'Komissiya shu kun ushlab turiladi (qaytarish himoyasi)')}
+          ${num('autoApproveMax', "Avtomatik tasdiqlash chegarasi (so'm)", "Shundan katta komissiya admin tasdigiga tushadi")}
+          ${num('riskReview', 'Xavf bali chegarasi', "Shundan yuqori xavf bali komissiyani admin ko'rib chiqishga yuboradi")}
+          ${num('attributionMonths', 'Takroriy komissiya muddati (oy)', "Bog'langan hamkordan tushum shu oy davomida takrorlanadi")}
+          ${num('attachWindowDays', 'Kod ulanish oynasi (kun)', "Ro'yxatdan o'tgandan keyin shu kun ichida kod ulasangiz komissiya hisoblanadi")}
+          ${num('dailySignupFlag', "Kunlik shubhali ro'yxatlar soni", "Bir kunda shu sondan ko'p ro'yxat xavf bayrog'i hisoblanadi")}
+          ${num('creatorRenewSignups', 'YOUTUBER imtiyozi: min. yangi foydalanuvchi', "30 kunda shu sondan kam bo'lsa imtiyoz pauza qilinadi")}
+          <div style="display:flex;flex-direction:column;gap:10px">
+            ${bool('autoApproveTeachers', "O'qituvchilar avtomatik tasdiqlansin", "O'qituvchi arizalari ko'rib chiqmasdan faol bo'ladi")}
+            ${bool('paused', "Dastur vaqtincha to'xtatilgan", 'Yangi arizalar qabul qilinmaydi')}
+          </div>
+        </div>
+        <div style="margin-top:14px"><button class="btn-save" onclick="pCfgSave()"><i class="fa-solid fa-floppy-disk"></i> Sozlamalarni saqlash</button></div>
+        ${pSection('Avtomatika')}
+        <div class="info-box">Kunlik avtomatika ushlab turish muddati tugagan komissiyalarni balansga o'tkazadi, YOUTUBER imtiyozlarini yangilaydi va eski kliklarni tozalaydi. ${lc ? 'Oxirgi ishga tushish: ' + pDate(lc.at) + '.' : 'Hali ishga tushmagan.'} “Avtomatikani ishga tushirish” tugmasi sahifa yuqorisida joylashgan.</div>`;
+    }
+    window.pCfgSave = async function () {
+      const keys = ['holdDays', 'autoApproveMax', 'riskReview', 'attributionMonths', 'attachWindowDays', 'dailySignupFlag', 'creatorRenewSignups'];
+      const set = {};
+      for (const k of keys) {
+        const v = Number(document.getElementById('pCfg-' + k)?.value);
+        if (!Number.isFinite(v) || v < 0) { toast("Noto'g'ri son: " + k, 'error', 'fa-circle-xmark'); return; }
+        set[k] = v;
+      }
+      set.autoApproveTeachers = !!document.getElementById('pCfg-autoApproveTeachers')?.checked;
+      set.paused = !!document.getElementById('pCfg-paused')?.checked;
+      try {
+        await partnersApi('admin-settings', { set });
+        toast('Sozlamalar saqlandi', 'success', 'fa-check-circle');
+        await loadPartners();
+      } catch (e) { toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+
+    function renderPAudit(box) {
+      return partnersApi('admin-audit').then(d => {
+        const rows = d.rows || [];
+        box.innerHTML = rows.length
+          ? `<div style="font-size:.75rem;color:var(--text3);margin-bottom:8px">${rows.length} ta yozuv</div>` + rows.map(r => {
+              const detail = r.detail && Object.keys(r.detail).length
+                ? Object.entries(r.detail).map(([k, v]) => k + ': ' + (typeof v === 'object' ? JSON.stringify(v) : v)).join(', ')
+                : '';
+              return `<div style="display:flex;gap:10px;align-items:baseline;padding:8px 10px;border-bottom:1px solid var(--border);font-size:.78rem;flex-wrap:wrap">
+                <span style="color:var(--text3);white-space:nowrap;font-size:.7rem">${pDate(r.at)}</span>
+                <span style="min-width:150px"><b>${esc(r.actor || '—')}</b></span>
+                <span style="min-width:170px">${pChip(esc(r.action || '—'), '#a78bfa')}</span>
+                <span style="color:var(--text2);min-width:110px">${esc(r.target || '')}</span>
+                <span style="color:var(--text3);font-size:.72rem;word-break:break-word">${esc(detail)}</span>
+              </div>`;
+            }).join('')
+          : pEmpty('fa-clock-rotate-left', "Jurnal bo'sh");
+      });
+    }
 
     // ── VIDEO FABRIKA ─────────────────────────────────
     async function courseApi(action, extra = {}) {

@@ -3,7 +3,8 @@
 # O'rnatish (bir marta): git config core.hooksPath .githooks
 staged=$(git diff --cached --name-only --diff-filter=ACMR)
 lessons=$(printf '%s\n' "$staged" | grep -E '^content/[a-z]+/[a-z]+/[ABCP][12]-[0-9][0-9]\.json$')
-other=$(printf '%s\n' "$staged" | grep -v '^content/' | grep -v '^$')
+# o'chirilgan fayllar ham hisoblanadi (D) — dars yozuvchi kod faylini o'chirib yubormasin
+other=$(git diff --cached --name-only --diff-filter=ACMRD | grep -v '^content/' | grep -v '^$')
 
 if [ -n "$other" ] && [ -z "$LV_ALLOW_CODE" ]; then
   echo ""

@@ -151,6 +151,36 @@ const SADO_PIPER = {
   de: { model: 'de_DE-mls-medium', speaker: 0 }, es: { model: 'es_ES-sharvard-medium', speaker: 0 },
   tr: { model: 'tr_TR-dfki-medium' }, ar: { model: 'ar_JO-kareem-medium' }, zh: { model: 'zh_CN-huayan-medium' }
 };
+// Koreyscha — Piper'da yo'q, shuning uchun MeloTTS (MIT, bepul). Model bir marta yuklanadi:
+// doimiy python jarayoni, har gap — bitta JSON qator (scripts/tts/melo_server.py).
+const SADO_MELO = { ko: 'KR' };
+const melo = {};
+function meloSay(lang, text, file, speed) {
+  if (!melo[lang]) {
+    const p = spawn('python3', [path.join(ROOT, 'scripts/tts/melo_server.py'), lang], { stdio: ['pipe', 'pipe', 'inherit'] });
+    const st = { p, buf: '', waiting: [], dead: null };
+    p.stdout.setEncoding('utf8');
+    p.stdout.on('data', d => {
+      st.buf += d;
+      let i;
+      while ((i = st.buf.indexOf('\n')) >= 0) {
+        const line = st.buf.slice(0, i).trim(); st.buf = st.buf.slice(i + 1);
+        if (line === 'ready' || !line) continue;
+        const w = st.waiting.shift();
+        if (w) line === 'ok' ? w.ok() : w.err(new Error('melo: ' + line));
+      }
+    });
+    p.on('exit', c => { st.dead = new Error('melo jarayoni to\'xtadi: ' + c); st.waiting.splice(0).forEach(w => w.err(st.dead)); delete melo[lang]; });
+    p.unref();
+    melo[lang] = st;
+  }
+  const st = melo[lang];
+  return new Promise((ok, err) => {
+    st.waiting.push({ ok, err });
+    st.p.stdin.write(JSON.stringify({ text, out: file, speed }) + '\n');
+  });
+}
+const hasSadoVoice = lang2 => !!(SADO_PIPER[lang2] || SADO_MELO[lang2]);
 const VOICE_TAG = () => TTS === 'sado' ? 'sado-v1' : TTS;
 let RATE = 1;
 async function synth(text, locale, emotion, file) {
@@ -167,7 +197,10 @@ async function synth(text, locale, emotion, file) {
     const lang2 = String(locale).slice(0, 2);
     let r;
     if (lang2 === 'uz') r = spawnSync('python3', [path.join(ROOT, 'scripts/tts/mms.py'), path.join(dir, 'uz-mms'), file], { input: text, encoding: 'utf8' });
-    else {
+    else if (SADO_MELO[lang2]) {
+      await meloSay(SADO_MELO[lang2], text, file, +RATE.toFixed(3));
+      r = { status: 0 };
+    } else {
       const v = SADO_PIPER[lang2];
       if (!v) throw new Error(`Sado: ${locale} uchun ovoz yo'q`);
       const argv = ['-m', 'piper', '-m', path.join(dir, v.model + '.onnx'), '-f', file, '--length-scale', String(+(1 / RATE).toFixed(3))];
@@ -468,8 +501,9 @@ try {
     const course = require(path.join(ROOT, 'netlify/functions/course.js'));
     const [k, total] = String(args.shard || '0/1').split('/').map(Number);
     const cat = await import(pathToFileURL(path.join(ROOT, 'js', 'course-catalog.mjs')).href);
-    const langs = args.course === 'all' ? cat.COURSE_LANGS.map(l => l.id).filter(l => SADO_PIPER[cat.COURSE_LANGS.find(c => c.id === l).locale.slice(0, 2)]) : [String(args.course)];
-    const one = [...Array(100).keys()].map(n => ['b2', n]).concat([...Array(50).keys()].map(n => ['c2', n]));
+    const langs = args.course === 'all' ? cat.COURSE_LANGS.map(l => l.id).filter(l => hasSadoVoice(cat.COURSE_LANGS.find(c => c.id === l).locale.slice(0, 2))) : String(args.course).split(',');
+    // 200 dars: A1–B2 (b2, 100) + C1–C2 (c2, 50) + PRO P1–P2 (pro, 50)
+    const one = [...Array(100).keys()].map(n => ['b2', n]).concat([...Array(50).keys()].map(n => ['c2', n]), [...Array(50).keys()].map(n => ['pro', n]));
     const all = one.flatMap(x => langs.map(l => [l, ...x]));        // tillar aralash: hamma til parallel siljiydi
     for (let i = 0; i < all.length; i++) {
       if (i % total !== k) continue;
@@ -491,6 +525,7 @@ try {
     }
   }
 } finally {
+  for (const m of Object.values(melo)) m.p.kill();
   await browser.close();
   server.close();
 }

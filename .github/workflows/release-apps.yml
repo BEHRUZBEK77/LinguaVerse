@@ -4,6 +4,13 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versiya (masalan v2.2.0)'
+        required: true
+env:
+  TAG: ${{ inputs.version || github.ref_name }}
 
 permissions:
   contents: write
@@ -59,7 +66,7 @@ jobs:
       - run: android/gradlew -p android assembleDebug
       - name: Prepare release APK
         shell: bash
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk "LinguaVerse-${GITHUB_REF_NAME}-android-universal.apk"
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk "LinguaVerse-${TAG}-android-universal.apk"
       - uses: actions/upload-artifact@v4
         with:
           name: android-apk
@@ -89,10 +96,11 @@ jobs:
       - name: Publish release assets
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" release-assets/* --title "LinguaVerse $GITHUB_REF_NAME" --generate-notes
+        run: gh release create "$TAG" release-assets/* --target "$GITHUB_SHA" --title "LinguaVerse $TAG" --generate-notes
       - name: Update website download manifest
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REF_NAME: ${{ env.TAG }}
         run: node scripts/update-release-manifest.mjs "$RUNNER_TEMP/releases.json"
       - name: Deploy links through the default branch
         env:
@@ -105,7 +113,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Download manifest is already current."
           else
-            git commit -m "Update app download links for $GITHUB_REF_NAME"
+            git commit -m "Update app download links for $TAG"
             git push origin "HEAD:$DEFAULT_BRANCH"
           fi
       - name: Saytni yangilash (yuklab olish havolalari)

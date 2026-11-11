@@ -2,69 +2,373 @@
 <html lang="uz">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="LinguaVerse brend va kontent yaratuvchilar hamkorlik dasturi. Biznes, maktab, YouTube va Instagram hamkorligi.">
-<title>Hamkorlik va YouTuber dasturi — LinguaVerse</title>
+<meta name="description" content="LinguaVerse Hamkorlik markazi: do'stlar, o'qituvchilar, kontent yaratuvchilar, o'quv markazlari va brendlar uchun 20–45% komissiya, avtomatik hisob-kitob.">
+<title>Hamkorlik markazi — LinguaVerse</title>
+<link rel="icon" href="/media/linguaverse-mark.webp">
 <style>
-:root{color-scheme:dark;--a:#58d3b3;--bg:#080e17;--surface:#131e2d;--border:#304055;--text:#f0f7ff;--muted:#9fb3c9}*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse 80% 35% at 78% 0%,#11354888,transparent),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
-a{color:var(--a)}header,main,footer{max-width:1170px;margin:auto;padding:0 24px}header{padding-top:20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.logo{color:#fff;text-decoration:none;font-size:23px;font-weight:900;letter-spacing:-1px}.logo span{color:var(--a)}nav a{color:var(--muted);margin-left:20px;text-decoration:none}
-.hero{padding:78px 0 40px;max-width:820px}.eyebrow{color:var(--a);text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:800}.hero h1{font-size:clamp(36px,5.8vw,68px);letter-spacing:-3px;line-height:1.05;margin:13px 0 20px}.hero p{color:var(--muted);font-size:18px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0}.chip{border:1px solid var(--border);background:#152338;color:#d6e7ff;padding:11px 18px;border-radius:100px;cursor:pointer;font-weight:700}.chip.active{background:var(--a);border-color:var(--a);color:#041a21}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px}.panel{background:linear-gradient(150deg,#162336,#101a29);border:1px solid var(--border);padding:28px;border-radius:22px;box-shadow:0 16px 50px #0002}.panel h2{margin:0 0 6px;font-size:27px}.muted{color:var(--muted)}.mini{font-size:14px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-label{display:block;color:#bfd0e2;font-size:13px;margin-bottom:7px;font-weight:700}input,select,textarea{border-radius:11px;border:1px solid #3c4c62;background:#0b1523;color:white;padding:13px 14px;font:inherit;width:100%;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--a);box-shadow:0 0 0 3px #58d3b322}textarea{min-height:110px;resize:vertical}.field{margin:19px 0}
-button.primary{width:100%;background:var(--a);color:#06202c;border:0;border-radius:11px;padding:15px 20px;font-size:15px;font-weight:800;cursor:pointer}button.primary:disabled{opacity:.6}.preview{--brand-color:#58d3b3;border:1px solid var(--brand-color);background:radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--brand-color) 30%,transparent),transparent 65%),#0a1320;padding:24px;border-radius:18px;margin:20px 0}.preview .brand{font-size:22px;font-weight:900;color:var(--brand-color)}.preview small{display:block;color:#9eb1c4;margin-top:22px}.rate{color:#fff;font-size:32px;font-weight:900}.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fact{padding:16px;border-radius:14px;background:#0b1828;border:1px solid #2b3e51}.fact b{font-size:20px;color:var(--a)}
-.terms{margin:32px 0 16px;border-top:1px solid var(--border);padding-top:20px}.terms ul{padding-left:20px;color:#c3d3e2}.terms li{margin:7px 0}.check{display:flex;align-items:start;gap:12px;margin:15px 0}.check input{width:18px;height:18px;margin:5px 0}.check label{font-weight:400;font-size:14px}.notice{padding:12px 14px;background:#153a3555;border:1px solid #387c73;border-radius:12px;margin:20px 0}.status{font-size:14px;margin-top:14px;white-space:pre-wrap;min-height:20px}footer{padding-top:60px;padding-bottom:40px;color:var(--muted);font-size:13px}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.cols{grid-template-columns:1fr}.hero{padding-top:45px}.panel{padding:19px}nav a{margin-left:10px}}
+:root{color-scheme:dark;--a:#58d3b3;--a2:#7aa7ff;--gold:#f5c842;--red:#ff7b8a;--bg:#080e17;--s1:#0f1826;--s2:#152234;--line:#26364b;--text:#eef5ff;--muted:#93a7bd;--r:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse 70% 30% at 85% -5%,#12405044,transparent),radial-gradient(ellipse 50% 25% at 0% 10%,#2a2f6b33,transparent),var(--bg);color:var(--text);font:15.5px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--a)}.wrap{max-width:1180px;margin:auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0}
+.logo{color:#fff;text-decoration:none;font-size:22px;font-weight:900;letter-spacing:-.8px;display:flex;align-items:center;gap:9px}.logo img{border-radius:50%}.logo span{color:var(--a)}
+nav{display:flex;gap:18px;align-items:center}nav a{color:var(--muted);text-decoration:none;font-size:14px}nav a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 18px;font:700 14.5px system-ui;cursor:pointer;text-decoration:none;transition:.15s}
+.btn.p{background:var(--a);color:#05211c}.btn.p:hover{filter:brightness(1.08)}.btn.g{background:var(--s2);color:var(--text);border:1px solid var(--line)}.btn.g:hover{border-color:#3a5070}.btn:disabled{opacity:.55;cursor:default}.btn.sm{padding:8px 12px;font-size:13px;border-radius:10px}
+.eyebrow{color:var(--a);text-transform:uppercase;letter-spacing:2.5px;font-size:11.5px;font-weight:800}
+h1{font-size:clamp(34px,5.4vw,62px);letter-spacing:-2.2px;line-height:1.04;margin:12px 0 16px}h2{font-size:clamp(24px,3vw,32px);letter-spacing:-.8px;margin:0 0 8px}h3{margin:0 0 6px;font-size:17px}
+.muted{color:var(--muted)}.small{font-size:13px}.hero{padding:46px 0 26px;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center}
+.hero p{font-size:17.5px;color:#b7c7d8;max-width:620px}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.kpi{background:linear-gradient(160deg,var(--s2),var(--s1));border:1px solid var(--line);border-radius:16px;padding:16px}.kpi b{display:block;font-size:26px;letter-spacing:-1px}.kpi span{color:var(--muted);font-size:13px}
+section.block{padding:34px 0}
+.types{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.type{background:linear-gradient(160deg,var(--s2),var(--s1));border:1px solid var(--line);border-radius:var(--r);padding:18px;cursor:pointer;transition:.15s;position:relative}
+.type:hover{border-color:#3d5676;transform:translateY(-2px)}.type.on{border-color:var(--a);box-shadow:0 0 0 3px #58d3b322}
+.type .ic{font-size:26px}.type .rate{font-size:22px;font-weight:900;color:var(--a);margin-top:8px}.tag{display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:99px;margin:8px 6px 0 0}
+.tag.auto{background:#14423a;color:#7ff0d0}.tag.rev{background:#3b3214;color:#f5d36b}.tag.ver{background:#1c2c55;color:#a9c4ff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}.step{background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:16px;counter-increment:s}.step:before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#58d3b322;color:var(--a);font-weight:900;margin-bottom:8px}
+.panel{background:linear-gradient(160deg,var(--s2),var(--s1));border:1px solid var(--line);border-radius:22px;padding:24px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+label{display:block;color:#bcd0e4;font-size:13px;font-weight:700;margin:14px 0 6px}
+input,select,textarea{width:100%;border-radius:11px;border:1px solid #344761;background:#0a1421;color:#fff;padding:12px 13px;font:inherit;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--a);box-shadow:0 0 0 3px #58d3b322}textarea{min-height:90px;resize:vertical}
+input[type=range]{padding:0;accent-color:var(--a)}input[type=color]{height:46px;padding:4px}
+.check{display:flex;gap:10px;align-items:flex-start;margin:16px 0}.check input{width:18px;height:18px;margin-top:3px}.check label{margin:0;font-weight:400}
+.msg{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:14px;white-space:pre-wrap;display:none}.msg.ok{display:block;background:#123a33;border:1px solid #2f7f6e}.msg.err{display:block;background:#3d1820;border:1px solid #8a3644}.msg.info{display:block;background:#16263f;border:1px solid #2f4f80}
+.calc{display:grid;grid-template-columns:1fr 260px;gap:20px;align-items:center}.calc .out{text-align:center;background:#0a1421;border:1px solid var(--line);border-radius:18px;padding:20px}.calc .out b{font-size:34px;color:var(--a);letter-spacing:-1px;display:block}
+details{background:var(--s1);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}summary{cursor:pointer;font-weight:700}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.tier{border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;background:var(--s1)}.tier b{display:block;font-size:18px}.tier.cur{border-color:var(--gold);box-shadow:0 0 0 3px #f5c84222}
+/* kabinet */
+.dash-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin:18px 0}
+.badge{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:800;padding:5px 10px;border-radius:99px;background:#1b2b42;color:#bcd0e4}.badge.active{background:#143f37;color:#7ff0d0}.badge.review,.badge.pending,.badge.needs-info{background:#3b3214;color:#f5d36b}.badge.rejected,.badge.suspended{background:#3d1820;color:#ffb3bd}
+.tabs{display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--line);margin:8px 0 18px}.tab{background:none;border:0;color:var(--muted);padding:11px 14px;font:700 14px system-ui;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}.tab.on{color:#fff;border-color:var(--a)}
+.stat{background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:14px}.stat span{color:var(--muted);font-size:12.5px}.stat b{display:block;font-size:24px;letter-spacing:-.6px}
+.copy{display:flex;gap:8px}.copy input{font-family:ui-monospace,Menlo,monospace;font-size:13.5px}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.st{font-size:12px;font-weight:800;padding:3px 8px;border-radius:99px}.st.hold{background:#1c2c55;color:#a9c4ff}.st.review{background:#3b3214;color:#f5d36b}.st.credited{background:#143f37;color:#7ff0d0}.st.rejected,.st.reversed{background:#3d1820;color:#ffb3bd}
+.chart{width:100%;height:170px}.legend{display:flex;gap:14px;font-size:12.5px;color:var(--muted)}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.kit{background:#0a1421;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;white-space:pre-wrap;font-size:14px}
+.banner{border-radius:16px;padding:16px 18px;margin:12px 0;border:1px solid}.banner.warn{background:#2a2410;border-color:#6b5a1d}.banner.bad{background:#2c1218;border-color:#7a2e3c}.banner.good{background:#0f2f2a;border-color:#2b6e60}
+.brandhero{border-radius:24px;padding:40px;margin:20px 0;border:1px solid var(--bc,#58d3b3);background:radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--bc,#58d3b3) 35%,transparent),transparent 60%),#0a1320}
+.empty{color:var(--muted);text-align:center;padding:30px}
+footer{padding:40px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:40px}
+[hidden]{display:none!important}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.steps,.grid4,.tiers{grid-template-columns:1fr 1fr}.grid3,.calc{grid-template-columns:1fr}}
+@media(max-width:560px){.grid2,.steps,.grid4{grid-template-columns:1fr}nav a.hide-sm{display:none}.panel{padding:18px}.tiers{grid-template-columns:1fr 1fr}th:nth-child(4),td:nth-child(4){display:none}}
 </style>
-<script src="/js/learning-language.js" defer></script>
-</head><body>
-<header><a class="logo" href="/index.html"><img src="/media/linguaverse-mark.webp" width="42" height="42" alt="" style="vertical-align:middle;object-fit:cover;border-radius:50%;margin-right:9px">Lingua<span>Verse</span></a><nav><a href="/languages-html/courses.html">Darslar</a><a href="/languages-html/profile.html">Profil</a></nav></header>
-<main><section class="hero"><div class="eyebrow">LinguaVerse Partnership Network</div><h1>Birga o‘saylik.<br><span style="color:var(--a)">Birga yarataylik.</span></h1><p>Brendlar, ta’lim markazlari, o‘qituvchilar va kontent yaratuvchilar uchun shaffof hamkorlik dasturi. O‘z ranglaringiz va brendingiz bilan LinguaVerse texnologiyasi.</p></section>
-<div class="chips" id="chips"><button class="chip active" data-type="brand">🏢 Brend</button><button class="chip" data-type="youtube">▶ YouTuber</button><button class="chip" data-type="instagram">◉ Instagram</button><button class="chip" data-type="school">🏫 Ta’lim markazi</button><button class="chip" data-type="educator">🎓 O‘qituvchi</button><button class="chip" data-type="community">🌐 Community</button><button class="chip" data-type="affiliate">🔗 Referal</button></div>
-<div class="layout"><section class="panel"><h2>Hamkorlik arizasi</h2><p class="muted" id="intro">Brendingiz uchun shaxsiy rang, nom va hamkorlik sahifasi.</p>
-<form id="application"><div class="cols"><div class="field"><label for="company">Brend yoki kanal nomi *</label><input id="company" required maxlength="90" placeholder="Masalan: Til Akademiya"></div><div class="field"><label for="contact">Aloqa (email / Telegram) *</label><input id="contact" required maxlength="150" placeholder="contact@example.com"></div></div>
-<div class="field" id="domainField"><label for="domain">Brendning rasmiy domeni *</label><input id="domain" placeholder="example.uz" maxlength="100"><small class="muted">Avtomatik tasdiqlash uchun DNS TXT yozuvi kiritiladi.</small></div>
-<div class="cols"><div class="field"><label for="tagline">Tagline — nom ostidagi yozuv</label><input id="tagline" maxlength="130" placeholder="Kelajak uchun til o‘rganing!"></div><div class="field"><label for="color">Brend rangi</label><input id="color" type="color" value="#58d3b3" style="height:50px;padding:5px"></div></div>
-<div id="creatorFields" hidden><div class="notice"><b>Rasmiy hisob bilan ulaning</b><p class="mini">YouTube yoki Instagram Professional akkauntingiz OAuth orqali ulanadi. Obunachi va videolarni saytning serveri mustaqil tekshiradi — o‘zingiz raqam kiritmaysiz.</p></div><div class="field"><label for="videoLinks">LinguaVerse haqidagi videolaringiz havolalari (ixtiyoriy, tekshiruvga yordam beradi)</label><textarea id="videoLinks" placeholder="https://youtube.com/watch?v=..."></textarea></div></div>
-<div class="field"><label for="message">Hamkorlik maqsadingiz va taklifingiz *</label><textarea id="message" required minlength="20" maxlength="1500" placeholder="Auditoriyangiz, biznesingiz va LinguaVerse bilan qanday ishlamoqchisiz?"></textarea></div>
-<div class="terms"><h3>Shartlar va qoidalar</h3><ul id="rules"><li>Arizalar rasmiy API yoki DNS orqali avtomatik tekshiriladi.</li><li>Brendning rasmiy hamkori ekanligi tasdiqlanishi shart.</li><li>Har qanday reklama hamkorlik ekanini ochiq ko‘rsatishi kerak.</li><li>Mualliflik huquqlari va foydalanuvchilar maxfiyligi saqlanadi.</li><li>Pullik kelishuv faqat yozma shartnomadan keyin kuchga kiradi.</li></ul></div>
-<div class="check"><input type="checkbox" id="guardian"><label for="guardian">Agar 18 yoshdan kichik bo‘lsam, ota-onam yoki qonuniy vakilim bilan kelishib shartnoma tuzaman.</label></div>
-<div class="check"><input type="checkbox" id="consent" required><label for="consent">Hamkorlik qoidalarini o‘qidim. Ma’lumotlarimni avtomatik tekshirishga va hamkorlik shartlariga roziman. *</label></div>
-<button class="primary" type="submit" id="send">Avtomatik tekshiruvni boshlash</button><button class="primary" type="button" id="verifyDomain" hidden style="margin-top:10px;background:#223f4d;color:white">DNS domenini avtomatik tekshirish</button><button class="primary" type="button" id="checkStatus" style="margin-top:10px;background:#162a39;color:white">Mening holatim</button><div class="status" id="status" aria-live="polite"></div></form></section>
-<aside><section class="panel"><div class="eyebrow">Brand studio</div><div class="preview" id="preview"><div class="brand" id="brandName">Brend nomi</div><div class="muted" id="brandTagline">Sizning shioringiz</div><small><b>Powered by LinguaVerse</b></small></div><p class="muted mini">Tasdiqlangan hamkor: alohida rang, nom, shior va brend sahifasi. LinguaVerse asosiy brendi ham ko‘rsatiladi.</p><div class="facts"><div class="fact"><b>40%</b><small class="muted" style="display:block">LinguaVerse ulushi</small></div><div class="fact"><b>60%</b><small class="muted" style="display:block">Hamkor ulushi</small></div></div><p class="mini muted">Bo‘linish faqat yozma shartnomada belgilangan, qaytarishlar, soliqlar va tranzaksiya xarajatlaridan keyingi tasdiqlangan hamkorlik daromadiga qo‘llanadi. Avtomatik pul to‘lash hali yoqilmagan.</p></section>
-<section class="panel" style="margin-top:20px"><h3 style="margin:0">YouTuber rejasi</h3><p class="muted mini">YouTube: 1000+ obunachi. Instagram: 10 000+ obunachi. Dastlab LinguaVerse haqida 5 ta video; tasdiqlangandan so‘ng har 30 kunda kamida 3 ta yangi video.</p><div class="notice"><b>YOUTUBER</b><div class="mini">8 til bo‘yicha 150 tadan asosiy video dars • barcha AI modellar • kunlik, haftalik va oylik AI limitlari.</div></div><p class="mini muted">YouTube va Instagram Professional hisoblari rasmiy OAuth orqali tasdiqlanadi. Ma’lumot olinmasa avtomatik tasdiq berilmaydi; tizim keyin qayta tekshiradi. 30 kunda 3 ta yangi video bo‘lmasa YOUTUBER imtiyozi o‘chadi.</p></section></aside></div>
-</main><footer>© LinguaVerse — Hamkorlik arizalari shartnoma emas. To‘lov, reklama va brend litsenziyasi alohida yozma kelishuvni talab qiladi.</footer>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="/index.html"><img src="/media/linguaverse-mark.webp" width="38" height="38" alt="">Lingua<span>Verse</span></a>
+  <nav><a class="hide-sm" href="/languages-html/courses.html">Kurslar</a><a class="hide-sm" href="#faq">Savollar</a><a href="/languages-html/earn.html">Hamyon</a><a id="navAuth" class="btn g sm" href="/auth/login.html?redirect=partners">Kirish</a></nav>
+</header>
+
+<!-- BREND SAHIFASI (?brand=slug) -->
+<section id="brandView" hidden>
+  <div class="brandhero" id="brandHero">
+    <div class="eyebrow" style="color:var(--bc)">LinguaVerse rasmiy hamkori</div>
+    <h1 id="bName"></h1><p class="muted" id="bTag" style="font-size:18px"></p>
+    <p>8 til · 200 tadan video dars · o'zbek tilida tushuntirish · sertifikat</p>
+    <a class="btn p" id="bJoin" href="#">Bepul boshlash</a>
+  </div>
+</section>
+
+<!-- KABINET -->
+<section id="dash" hidden>
+  <div class="dash-top">
+    <div><div class="eyebrow">Hamkor kabineti</div><h2 id="dName"></h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="badge" id="dStatus"></span><span class="badge" id="dType"></span><span class="badge" id="dTier"></span><span class="badge" id="dRate"></span></div></div>
+    <div style="text-align:right"><div class="muted small">Balans</div><div style="font-size:28px;font-weight:900" id="dBalance">0</div><a class="btn g sm" href="/languages-html/earn.html">Pul yechish →</a></div>
+  </div>
+  <div id="dBanner"></div>
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-t="overview">Umumiy</button><button class="tab" data-t="links">Havola va materiallar</button><button class="tab" data-t="money">Komissiyalar</button>
+    <button class="tab" data-t="roster" hidden>O'quvchilar</button><button class="tab" data-t="bulk" hidden>Guruh litsenziyasi</button><button class="tab" data-t="settings">Sozlamalar</button>
+  </div>
+  <div data-p="overview">
+    <div class="grid4" id="dStats"></div>
+    <div class="panel" style="margin-top:14px"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><h3>Oxirgi 30 kun</h3><div class="legend"><span><i style="background:#3a5578"></i>Kliklar</span><span><i style="background:var(--a2)"></i>Ro'yxatdan o'tish</span><span><i style="background:var(--a)"></i>Xaridlar</span></div></div><svg class="chart" id="chart" viewBox="0 0 600 170" preserveAspectRatio="none"></svg></div>
+    <div class="panel" style="margin-top:14px"><h3>Daraja</h3><p class="muted small" id="tierNote"></p><div class="tiers" id="tierBox"></div></div>
+  </div>
+  <div data-p="links" hidden>
+    <div class="panel"><h3>Sizning kodingiz va havolalaringiz</h3>
+      <label>Kod</label><div class="copy"><input id="lCode" readonly><button class="btn g" data-copy="lCode">Nusxa</button></div>
+      <label>Asosiy havola (bosh sahifa)</label><div class="copy"><input id="lLink" readonly><button class="btn g" data-copy="lLink">Nusxa</button></div>
+      <label>To'g'ridan-to'g'ri ro'yxatdan o'tish</label><div class="copy"><input id="lReg" readonly><button class="btn g" data-copy="lReg">Nusxa</button></div>
+      <div id="lBrand"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><a class="btn g sm" id="shTg" target="_blank" rel="noopener">Telegram'da ulashish</a><a class="btn g sm" id="shWa" target="_blank" rel="noopener">WhatsApp</a><button class="btn g sm" id="shNative">Ulashish…</button></div>
+      <p class="muted small">Havola bosilganda kod 30 kun eslab qolinadi. Do'stingiz shu muddatda ro'yxatdan o'tsa — u sizga bog'lanadi.</p>
+    </div>
+    <div class="panel" style="margin-top:14px"><h3>Tayyor matnlar</h3><p class="muted small">Nusxa olib, o'z kanalingiz yoki guruhingizga joylang.</p><div id="kit"></div></div>
+  </div>
+  <div data-p="money" hidden>
+    <div class="grid4" id="mStats"></div>
+    <div class="panel" style="margin-top:14px;overflow-x:auto"><h3>Komissiyalar</h3><p class="muted small" id="holdNote"></p><table><thead><tr><th>Sana</th><th>Mijoz</th><th>Xarid</th><th>Stavka</th><th>Komissiya</th><th>Holat</th></tr></thead><tbody id="mRows"></tbody></table></div>
+  </div>
+  <div data-p="roster" hidden><div class="panel" style="overflow-x:auto"><h3>Siz orqali qo'shilganlar</h3><p class="muted small">Maxfiylik uchun ismlar qisqartirilgan.</p><table><thead><tr><th>Ism</th><th>Qo'shilgan</th><th>Holat</th></tr></thead><tbody id="rRows"></tbody></table></div></div>
+  <div data-p="bulk" hidden>
+    <div class="panel"><h3>Guruh litsenziyasi so'rovi</h3><p class="muted small">O'quvchi yoki xodimlaringiz uchun ommaviy ruxsat. Admin 24 soat ichida narx va shartnoma bilan bog'lanadi.</p>
+      <div class="grid2"><div><label>O'rinlar soni</label><input id="bSeats" type="number" min="5" max="5000" value="20"></div><div><label>Kurs yoki reja</label><select id="bProduct"><option>Ingliz tili A1–C2</option><option>Rus tili A1–C2</option><option>Koreys tili A1–C2</option><option>Barcha tillar (ULTRA)</option><option>Boshqa</option></select></div></div>
+      <label>Izoh</label><textarea id="bNote" placeholder="Masalan: 2 ta guruh, sentyabrdan boshlab, IELTS tayyorlov"></textarea>
+      <button class="btn p" id="bSend" style="margin-top:12px">So'rov yuborish</button><div class="msg" id="bMsg"></div>
+      <div id="bList" style="margin-top:14px"></div></div>
+  </div>
+  <div data-p="settings" hidden>
+    <div class="panel"><h3>Profil</h3>
+      <label>Bog'lanish (telefon yoki Telegram)</label><input id="sContact">
+      <label>O'zingiz haqingizda</label><textarea id="sAbout"></textarea>
+      <div id="sBrand" hidden><div class="grid2"><div><label>Brend rangi</label><input type="color" id="sColor"></div><div><label>Shior</label><input id="sTag" maxlength="120"></div></div><p class="muted small">Brend ko'rinishi o'zgarsa, sahifa qayta admin ko'rigidan o'tadi.</p></div>
+      <button class="btn p" id="sSave" style="margin-top:12px">Saqlash</button><div class="msg" id="sMsg"></div></div>
+    <div class="panel" style="margin-top:14px"><h3>Kodni o'zgartirish</h3><p class="muted small">4–16 ta lotin harf yoki raqam. 30 kunda bir marta. Eski kod ham ishlashda davom etadi.</p>
+      <div class="copy"><input id="cCode" maxlength="16" style="text-transform:uppercase"><button class="btn g" id="cSave">O'zgartirish</button></div><div class="msg" id="cMsg"></div></div>
+    <div class="panel" style="margin-top:14px"><h3>Tarix</h3><div id="hist" class="small"></div></div>
+  </div>
+</section>
+
+<!-- DASTUR (hamkor bo'lmaganlar uchun) -->
+<section id="landing">
+  <div class="hero">
+    <div><div class="eyebrow">LinguaVerse Hamkorlik markazi</div>
+      <h1>Til o'rgatishga yordam bering — <span style="color:var(--a)">daromad qiling.</span></h1>
+      <p>Do'stlar, o'qituvchilar, bloggerlar, o'quv markazlari va brendlar uchun yagona dastur. Hisob-kitob avtomatik, to'lovlar shaffof, har bir qaror kabinetingizda ko'rinadi.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn p" href="#apply">Hamkor bo'lish</a><a class="btn g" href="#calc">Daromadni hisoblash</a></div></div>
+    <div class="kpis"><div class="kpi"><b>20–45%</b><span>komissiya, darajaga qarab</span></div><div class="kpi"><b>12 oy</b><span>takroriy to'lovlardan ulush</span></div><div class="kpi"><b id="kHold">14 kun</b><span>so'ng balansga avtomatik</span></div><div class="kpi"><b>1 daqiqa</b><span>do'st va o'qituvchi uchun faollashish</span></div></div>
+  </div>
+
+  <section class="block"><h2>Kimlar uchun</h2><p class="muted">Turini tanlang — ariza formasi shunga moslashadi.</p><div class="types" id="types"></div></section>
+
+  <section class="block"><h2>Qanday ishlaydi</h2>
+    <div class="steps"><div class="step"><h3>Ariza</h3><p class="muted small">Do'st va o'qituvchi darhol faol. Blogger kanali API orqali avtomatik tekshiriladi.</p></div>
+      <div class="step"><h3>Havola</h3><p class="muted small">Shaxsiy kod va havolani ulashing. Kliklar va ro'yxatdan o'tishlar real vaqtda.</p></div>
+      <div class="step"><h3>Komissiya</h3><p class="muted small">Har bir to'lovdan ulush yoziladi va qaytarish muddati davomida ushlab turiladi.</p></div>
+      <div class="step"><h3>To'lov</h3><p class="muted small">Muddat tugagach balansga o'tadi. Yechish — kartaga, admin tasdig'i bilan.</p></div></div>
+  </section>
+
+  <section class="block" id="calc"><div class="panel calc"><div><h2>Daromad kalkulyatori</h2>
+      <label>Turi</label><select id="cType"></select>
+      <label>Oyiga to'lov qiladigan mijozlar: <b id="cNv">10</b></label><input type="range" id="cN" min="1" max="200" value="10">
+      <label>O'rtacha to'lov: <b id="cAv">99 000</b> so'm</label><input type="range" id="cA" min="29000" max="300000" step="1000" value="99000"></div>
+    <div class="out"><span class="muted small">Taxminiy oylik daromad</span><b id="cOut">—</b><span class="muted small" id="cTier"></span></div></div></section>
+
+  <section class="block"><h2>Darajalar</h2><p class="muted">Oxirgi 90 kundagi to'lov qilgan mijozlar soniga qarab bonus avtomatik qo'shiladi.</p><div class="tiers" id="tiersPub"></div></section>
+
+  <section class="block" id="apply"><div class="panel">
+    <h2>Hamkorlik arizasi</h2><p class="muted" id="aPitch"></p>
+    <div id="aLogin" class="banner warn" hidden>Ariza berish uchun avval <a href="/auth/login.html?redirect=partners">hisobga kiring</a> yoki <a href="/auth/register.html">ro'yxatdan o'ting</a>.</div>
+    <form id="aForm">
+      <div class="grid2"><div><label>Ism yoki tashkilot nomi</label><input id="aName" required maxlength="90"></div><div><label id="aContactL">Bog'lanish (telefon yoki Telegram)</label><input id="aContact" maxlength="120" placeholder="+998 … yoki @username"></div></div>
+      <div id="fCreator" hidden><div class="grid2"><div><label>Platforma</label><select id="aPlatform"></select></div><div><label>Kanal yoki sahifa havolasi</label><input id="aUrl" placeholder="https://youtube.com/@kanal yoki t.me/kanal"></div></div>
+        <p class="muted small" id="aPlatNote"></p></div>
+      <div id="fBrand" hidden><div class="grid3"><div><label>Rasmiy domen</label><input id="aDomain" placeholder="brend.uz"></div><div><label>Brend rangi</label><input type="color" id="aColor" value="#58d3b3"></div><div><label>Shior</label><input id="aTagline" maxlength="120"></div></div></div>
+      <div id="fOrg" hidden><div class="grid2"><div><label>O'quvchi / xodimlar soni</label><input id="aSize" type="number" min="0"></div><div><label>Veb-sayt yoki sahifa</label><input id="aWeb" maxlength="120"></div></div></div>
+      <div class="grid2"><div><label>Shahar</label><input id="aCity" maxlength="60"></div><div><label>Istalgan kod (ixtiyoriy)</label><input id="aCode" maxlength="16" placeholder="masalan: ANVAR" style="text-transform:uppercase"></div></div>
+      <label>Qisqacha (qanday tarqatasiz, auditoriyangiz)</label><textarea id="aAbout" maxlength="600"></textarea>
+      <div class="check"><input type="checkbox" id="aOk"><label for="aOk"><a href="#rules">Hamkorlik qoidalari</a>ni o'qidim va qabul qilaman.</label></div>
+      <button class="btn p" id="aSend" type="submit" style="width:100%">Ariza yuborish</button>
+      <div class="msg" id="aMsg"></div>
+    </form>
+  </div></section>
+
+  <section class="block" id="rules"><h2>Qoidalar</h2><div class="panel small">
+    <ul style="margin:0;padding-left:20px;line-height:1.9">
+      <li>Komissiya faqat havola yoki kodingiz orqali kelgan <b>yangi</b> foydalanuvchilarning haqiqiy to'lovlaridan hisoblanadi. O'z kodingiz bilan xarid qilish hisoblanmaydi.</li>
+      <li>Komissiya <b id="rHold">14</b> kun ushlab turiladi (qaytarish muddati). To'lov bekor qilinsa, komissiya ham bekor bo'ladi.</li>
+      <li>Kichik va xavfsiz komissiyalar balansga avtomatik o'tadi. Katta yoki shubhali (bir xil qurilma/IP, sun'iy ro'yxatdan o'tishlar) holatlar admin tomonidan tekshiriladi.</li>
+      <li>Pul yechish har doim admin tasdig'idan o'tadi va kartaga o'tkaziladi.</li>
+      <li>Spam, yolg'on va'dalar, LinguaVerse nomidan rasmiy vakil sifatida chiqish, pullik reklamada brend nomidan foydalanish taqiqlanadi — hisob to'xtatiladi.</li>
+      <li>Kontent yaratuvchilarga bepul YOUTUBER rejasi (150 video) beriladi va har 30 kunda faollik bo'yicha avtomatik uzaytiriladi: kamida 3 ta yangi foydalanuvchi yoki LinguaVerse haqida yangi video.</li>
+      <li>Brend sahifasi domen DNS orqali tasdiqlanadi va admin ko'rigidan so'ng e'lon qilinadi.</li>
+    </ul></div></section>
+
+  <section class="block" id="faq"><h2>Ko'p so'raladigan savollar</h2>
+    <details><summary>Qachon pul olaman?</summary><p class="muted">Xarid qilinganidan keyin ushlab turish muddati tugagach komissiya balansingizga o'tadi. Balansdan istalgan vaqtda (eng kami 20 000 so'm) kartaga yechish so'rovini yuborasiz.</p></details>
+    <details><summary>Do'stim kodni kiritishni unutdi, nima qilish kerak?</summary><p class="muted">Agar u havolangizni bosgan bo'lsa, kod 30 kun eslab qolinadi. Aks holda u ro'yxatdan o'tgandan keyin 7 kun ichida <code>?p=KOD</code> havolasini ochsa, avtomatik bog'lanadi.</p></details>
+    <details><summary>Nega arizam admin ko'rigida?</summary><p class="muted">O'quv markazi, brend, korporativ va elchi hamkorliklari shartnoma talab qiladi. Instagram va TikTok'ni avtomatik tekshirib bo'lmaydi. Odatda javob 24 soat ichida.</p></details>
+    <details><summary>Bir nechta turdagi hamkor bo'la olamanmi?</summary><p class="muted">Har bir hisobda bitta hamkorlik turi. Turini o'zgartirish uchun qo'llab-quvvatlashga yozing.</p></details>
+  </section>
+</section>
+
+<footer>© LinguaVerse · <a href="/offer.html">Oferta</a> · <a href="https://t.me/Akromov141" target="_blank" rel="noopener noreferrer">Qo'llab-quvvatlash</a></footer>
+</div>
+
 <script type="module">
 import { auth } from '/js/lv-core.js';
 import { onAuthStateChanged } from '/js/fb/firebase-auth.js';
-const $=id=>document.getElementById(id);let user=null,type='brand';
-onAuthStateChanged(auth,u=>{user=u;});
-const creator=()=>type==='youtube'||type==='instagram';
-function rules(){
-  $('creatorFields').hidden=!creator();$('domainField').hidden=type!=='brand';
-  const list=creator()?['YouTube kanali kamida 1000 yoki Instagram sahifasi kamida 10 000 obunachiga ega bo‘lishi kerak.','Ariza berishdan oldin LinguaVerse haqida kamida 5 ta original video chiqaring.','YouTuber rejasi 30 kunga beriladi. Keyingi davr uchun kamida 3 ta yangi, hamkorligi ochiq ko‘rsatilgan video kerak.','YouTube va Instagram Professional akkauntini OAuth orqali ulash majburiy; hammasi API bilan tekshiriladi.','Soxta auditoriya, botlar yoki yashirin reklama rad etiladi.']:['LinguaVerse tomonidan 40%, hamkor tomonidan 60% ulush faqat shartnomadagi tasdiqlangan sof hamkorlik tushumiga nisbatan hisoblanadi.','Brend rangi va shiori ruxsat asosida qo‘llanadi; LinguaVerse hamkorligi oshkora ko‘rsatiladi.','Brend platforma nomidan mustaqil shartnomalar imzolay olmaydi.','Hisob-kitob, intellektual mulk, bekor qilish va kontent moderatsiyasi yozma kelishuvda belgilanadi.','Ta’lim sifati, o‘quvchi maxfiyligi va reklamalarni oshkor etish majburiy.'];
-  $('rules').replaceChildren(...list.map(t=>{const li=document.createElement('li');li.textContent=t;return li}));
-  $('intro').textContent=creator()?'Kontent yaratuvchi uchun bepul YOUTUBER rejasi va professional kampaniyalar.':'Brendingiz uchun shaxsiy rang, nom, shior va hamkorlik sahifasi.';
+import '/js/partner-ref.js';
+const API = '/.netlify/functions/partners';
+const $ = id => document.getElementById(id);
+const nf = n => Math.round(Number(n) || 0).toLocaleString('ru-RU').replace(/,/g, ' ');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const dt = v => { const t = v?.$t ? Date.parse(v.$t) : Date.parse(v || ''); return t ? new Date(t).toLocaleDateString('uz-UZ', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—'; };
+const STATUS = { active: 'Faol', review: 'Admin ko‘rigida', pending: 'Tasdiq kutilmoqda', 'needs-info': "Qo'shimcha ma'lumot kerak", rejected: 'Rad etilgan', suspended: "To'xtatilgan" };
+const CST = { hold: 'Ushlab turilibdi', review: 'Admin tekshiruvida', credited: "Balansga o'tdi", rejected: 'Rad etildi', reversed: 'Bekor (qaytarildi)' };
+let user = null, PROG = null, ME = null, type = 'referral';
+function msg(el, text, kind = 'ok') { const m = $(el); m.className = 'msg ' + kind; m.textContent = text; }
+async function api(action, extra = {}, auth = true) {
+  const body = { action, ...extra };
+  if (auth) { if (!user) throw new Error('Avval hisobga kiring'); body.idToken = await user.getIdToken(); }
+  const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error || d.message || 'Xatolik');
+  return d;
 }
-$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-type]');if(!b)return;type=b.dataset.type;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active',x===b));rules()});
-function preview(){ $('brandName').textContent=$('company').value||'Brend nomi';$('brandTagline').textContent=$('tagline').value||'Sizning shioringiz';$('preview').style.setProperty('--brand-color',$('color').value)}
-['company','tagline','color'].forEach(id=>$(id).addEventListener('input',preview));
-const msg=(t,bad=false)=>{$('status').textContent=t;$('status').style.color=bad?'#ff9999':'#74eac5'};
-$('application').addEventListener('submit',async e=>{e.preventDefault();if(!user){location.href='/auth/login.html?redirect='+encodeURIComponent(location.pathname);return;}
-  $('send').disabled=true;msg('Ariza yuborilmoqda...');try{const idToken=await user.getIdToken();const payload={action:'apply',idToken,kind:type,company:$('company').value,contact:$('contact').value,domain:$('domain').value,tagline:$('tagline').value,color:$('color').value,videoLinks:$('videoLinks').value.split(/\r?\n/),message:$('message').value,consent:$('consent').checked,guardianReview:$('guardian').checked};
-  const r=await fetch('/.netlify/functions/partnership',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const d=await r.json();if(!r.ok)throw new Error(d.error||'Ariza yuborilmadi');if(creator()){
-      msg('Hisobingizni rasmiy platforma bilan ulashga yo‘naltirilmoqda…');
-      const r2=await fetch('/.netlify/functions/partnership',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'start-social',provider:type,idToken})});
-      const o=await r2.json();if(!r2.ok||!o.authorizationUrl)throw new Error(o.error||'Rasmiy OAuth sozlanmagan');
-      location.assign(o.authorizationUrl);return;
-    }
-    if(type==='brand'){$('verifyDomain').hidden=false;msg('DNS TXT yozuvini domeningizga kiriting: '+d.challenge+' — so‘ng «DNS tekshirish»ni bosing.');}
-    else msg('✅ Ariza saqlandi; rasmiy integratsiya yoki domen nazorati tasdiqlanguncha faollashmaydi.');
-  }catch(err){msg('❌ '+err.message,true)}finally{$('send').disabled=false}});
-async function request(action){if(!user)throw new Error('Avval hisobga kiring');const idToken=await user.getIdToken();const r=await fetch('/.netlify/functions/partnership',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,idToken})});const d=await r.json();if(!r.ok)throw new Error(d.error||'Xato');return d;}
-$('verifyDomain').addEventListener('click',async()=>{try{const d=await request('verify-domain');msg(d.ok?'✅ Domen tasdiqlandi. Hamkorlik sahifasi: '+d.brandUrl:d.message,!d.ok)}catch(e){msg(e.message,true)}});
-$('checkStatus').addEventListener('click',async()=>{try{const d=await request('status');msg('Holat: '+d.status+(d.reason?' — '+d.reason:'')+(d.challenge?'\nDNS: '+d.challenge:''));if(d.challenge)$('verifyDomain').hidden=false;}catch(e){msg(e.message,true)}});
-const search=new URLSearchParams(location.search);if(search.has('oauth'))msg({'approved':'✅ YOUTUBER rejasi avtomatik faollashdi!','requirements':'Talablar hali bajarilmagan. Statusni tekshiring.','retry':'Platforma vaqtincha ishlamayapti. Avtomatik tasdiq hozircha berilmadi.','expired':'Ulanish muddati tugadi. Qayta urinib ko‘ring.'}[search.get('oauth')]||'Ulanish natijasi: '+search.get('oauth'));if(search.get('brand')){try{const r=await fetch('/.netlify/functions/partnership?brand='+encodeURIComponent(search.get('brand')));if(r.ok){const b=await r.json();$('company').value=b.name;$('tagline').value=b.tagline;$('color').value=b.color;preview();}}catch{}}
-rules();preview();
-</script></body></html>
+
+// ── Brend sahifasi ──
+const brand = new URLSearchParams(location.search).get('brand');
+if (brand) {
+  fetch(`${API}?brand=${encodeURIComponent(brand)}`).then(r => r.ok ? r.json() : null).then(b => {
+    if (!b) return;
+    $('brandView').hidden = false; $('brandHero').style.setProperty('--bc', b.color);
+    $('bName').textContent = b.name + ' × LinguaVerse'; $('bTag').textContent = b.tagline || '';
+    $('bJoin').href = '/auth/register.html?p=' + encodeURIComponent(b.code); $('bJoin').style.background = b.color;
+    try { localStorage.setItem('lv_pcode', JSON.stringify({ code: b.code, at: Date.now() })); } catch {}
+  });
+}
+
+// ── Dastur ──
+function renderProgram() {
+  $('kHold').textContent = PROG.holdDays + ' kun'; $('rHold').textContent = PROG.holdDays;
+  $('types').innerHTML = PROG.types.map(t => `<div class="type${t.id === type ? ' on' : ''}" data-type="${t.id}"><div class="ic">${t.icon}</div><h3>${esc(t.label)}</h3>
+    <div class="muted small">${esc(t.pitch)}</div><div class="rate">${Math.round(t.rate * 100)}%${t.recurring ? '<span class="muted small" style="font-weight:600"> · 12 oy</span>' : '<span class="muted small" style="font-weight:600"> · 1-to\'lov</span>'}</div>
+    ${t.auto ? '<span class="tag auto">⚡ Darhol faol</span>' : ''}${t.verify === 'social' ? '<span class="tag ver">🤖 Avtomatik tekshiruv</span>' : ''}${t.verify === 'dns' ? '<span class="tag ver">🌐 DNS tasdiq</span>' : ''}${t.review ? '<span class="tag rev">🛡 Admin ko\'rigi</span>' : ''}</div>`).join('');
+  document.querySelectorAll('.type').forEach(el => el.onclick = () => { type = el.dataset.type; renderProgram(); formFor(); $('apply').scrollIntoView({ behavior: 'smooth' }); });
+  $('cType').innerHTML = PROG.types.map(t => `<option value="${t.id}"${t.id === type ? ' selected' : ''}>${t.icon} ${esc(t.label)}</option>`).join('');
+  $('tiersPub').innerHTML = PROG.tiers.map(t => `<div class="tier"><b>${t.label}</b><span class="muted small">${t.min}+ mijoz · +${Math.round(t.bonus * 100)}%</span></div>`).join('');
+  $('aPlatform').innerHTML = PROG.platforms.map(p => `<option value="${p.id}">${p.label}</option>`).join('');
+  calc(); formFor();
+}
+function calc() {
+  const t = PROG.types.find(x => x.id === $('cType').value) || PROG.types[0];
+  const n = +$('cN').value, a = +$('cA').value; $('cNv').textContent = n; $('cAv').textContent = nf(a);
+  const tier = [...PROG.tiers].reverse().find(x => n * 3 >= x.min) || PROG.tiers[0];
+  const rate = Math.min(PROG.maxRate, t.rate + tier.bonus);
+  $('cOut').textContent = nf(n * a * rate) + " so'm"; $('cTier').textContent = `${tier.label} daraja · ${Math.round(rate * 100)}%` + (t.recurring ? '' : ' · faqat birinchi to‘lov');
+}
+['cType', 'cN', 'cA'].forEach(id => $(id).addEventListener('input', calc));
+function formFor() {
+  const t = PROG.types.find(x => x.id === type);
+  $('aPitch').textContent = `${t.icon} ${t.label}: ${t.pitch}`;
+  $('fCreator').hidden = type !== 'creator'; $('fBrand').hidden = type !== 'brand'; $('fOrg').hidden = !['school', 'corporate'].includes(type);
+  $('aContactL').textContent = t.auto ? "Bog'lanish (ixtiyoriy)" : "Bog'lanish (telefon yoki Telegram) *";
+  platNote();
+}
+function platNote() {
+  const p = PROG.platforms.find(x => x.id === $('aPlatform').value); if (!p) return;
+  $('aPlatNote').textContent = p.auto ? `${p.label}: kamida ${nf(p.min)} obunachi. Ariza yuborilgach kanal tavsifiga kodingizni qo'shasiz — tizim API orqali avtomatik tasdiqlaydi.` : `${p.label}: kamida ${nf(p.min)} obunachi. Bu platformani avtomatik tekshirib bo'lmaydi — profil bio'siga kodingizni qo'shing, admin 24 soat ichida tekshiradi.`;
+}
+$('aPlatform').addEventListener('change', platNote);
+$('aForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!user) { $('aLogin').hidden = false; return; }
+  if (!$('aOk').checked) return msg('aMsg', 'Qoidalarga rozilik belgisini qo‘ying', 'err');
+  $('aSend').disabled = true;
+  try {
+    const d = await api('apply', { type, name: $('aName').value, contact: $('aContact').value, about: $('aAbout').value, city: $('aCity').value, code: $('aCode').value, consent: true,
+      platform: $('aPlatform').value, url: $('aUrl').value, domain: $('aDomain').value, color: $('aColor').value, tagline: $('aTagline').value, size: $('aSize').value, website: $('aWeb').value });
+    msg('aMsg', d.message || (d.status === 'active' ? '✅ Hamkorlik faollashdi!' : '✅ Ariza qabul qilindi.'));
+    await load();
+  } catch (err) { msg('aMsg', '❌ ' + err.message, 'err'); } finally { $('aSend').disabled = false; }
+});
+
+// ── Kabinet ──
+document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === b));
+  document.querySelectorAll('[data-p]').forEach(p => p.hidden = p.dataset.p !== b.dataset.t);
+});
+document.addEventListener('click', e => { const id = e.target.dataset?.copy; if (!id) return; navigator.clipboard?.writeText($(id).value); e.target.textContent = '✓ Olindi'; setTimeout(() => e.target.textContent = 'Nusxa', 1400); });
+function banner(p) {
+  const T = PROG.types.find(t => t.id === p.type) || {};
+  const b = [];
+  if (p.status === 'pending' && p.type === 'creator') b.push(`<div class="banner warn"><b>Kanalingizni tasdiqlang.</b> ${esc(p.social?.title || p.social?.handle || '')} kanali tavsifiga (description) <b>${esc(p.code)}</b> kodini qo'shing va tugmani bosing. Tasdiqlangach kodni olib tashlashingiz mumkin.<div style="margin-top:10px"><button class="btn p sm" id="vSoc">Tekshirish</button></div><div class="msg" id="vMsg"></div></div>`);
+  if (p.brand && !p.brand.dnsVerified) b.push(`<div class="banner warn"><b>Domenni tasdiqlang.</b> ${esc(p.brand.domain)} DNS sozlamalariga TXT yozuv qo'shing:<div class="kit">Nom: ${esc(p.brand.dnsRecord?.name)}\nTur: TXT\nQiymat: ${esc(p.brand.dnsRecord?.value)}</div><button class="btn p sm" id="vDns">DNS tekshirish</button><div class="msg" id="vMsg2"></div></div>`);
+  if (p.status === 'review') b.push(`<div class="banner warn">🛡 Arizangiz admin ko'rigida. Odatda 24 soat ichida javob beriladi.${p.reviewReason ? '' : ''}</div>`);
+  if (p.status === 'needs-info') b.push(`<div class="banner warn"><b>Admin qo'shimcha ma'lumot so'radi:</b> ${esc(p.reviewReason)}<br>Sozlamalar bo'limida ma'lumotni yangilang va qayta yuboring.<div style="margin-top:10px"><button class="btn p sm" id="reSub">Qayta yuborish</button></div></div>`);
+  if (p.status === 'rejected') b.push(`<div class="banner bad"><b>Ariza rad etildi.</b> ${esc(p.reviewReason || '')}</div>`);
+  if (p.status === 'suspended') b.push(`<div class="banner bad"><b>Hamkorlik to'xtatildi.</b> ${esc(p.reviewReason || '')} Savollar uchun: @Akromov141</div>`);
+  if (p.creator) b.push(p.creator.status === 'active' ? `<div class="banner good">🎬 Bepul YOUTUBER rejasi faol — ${dt(p.creator.activeUntil)} gacha. Har 30 kunda faollik bo'yicha avtomatik uzayadi.</div>` : `<div class="banner warn">🎬 YOUTUBER imtiyozi pauzada: ${esc(p.creator.pausedReason || '')} Yangi foydalanuvchilar yoki video bilan keyingi tekshiruvda qayta yoqiladi.</div>`);
+  if (p.brandReview) b.push('<div class="banner warn">Brend ko‘rinishi o‘zgardi — sahifa admin ko‘rigidan so‘ng qayta e’lon qilinadi.</div>');
+  $('dBanner').innerHTML = b.join('');
+  $('vSoc')?.addEventListener('click', async () => { try { const d = await api('verify-social'); msg('vMsg', d.message || d.status, d.ok ? 'ok' : 'err'); if (d.status !== 'pending') setTimeout(load, 1200); } catch (e) { msg('vMsg', e.message, 'err'); } });
+  $('vDns')?.addEventListener('click', async () => { try { const d = await api('verify-domain'); msg('vMsg2', d.message || d.status, d.ok ? 'ok' : 'err'); if (d.ok) setTimeout(load, 1200); } catch (e) { msg('vMsg2', e.message, 'err'); } });
+  $('reSub')?.addEventListener('click', async () => { try { await api('update', { contact: $('sContact').value, about: $('sAbout').value, resubmit: true }); load(); } catch (e) { alert(e.message); } });
+  void T;
+}
+function chart(stats) {
+  const days = [...Array(30)].map((_, i) => { const d = new Date(Date.now() - (29 - i) * 864e5); return d.toISOString().slice(0, 10).replace(/-/g, ''); });
+  const by = Object.fromEntries(stats.map(s => [s.day, s]));
+  const rows = days.map(d => by[d] || { clicks: 0, signups: 0, sales: 0 });
+  const max = Math.max(1, ...rows.map(r => r.clicks), ...rows.map(r => r.signups * 3));
+  const w = 600 / 30, h = 150;
+  $('chart').innerHTML = rows.map((r, i) => {
+    const x = i * w + 3, bw = w - 6;
+    const ch = r.clicks / max * h, sh = Math.max(r.signups ? 3 : 0, r.signups * 3 / max * h);
+    return `<rect x="${x}" y="${h - ch + 10}" width="${bw}" height="${ch}" rx="3" fill="#3a5578"><title>${days[i].slice(6)}.${days[i].slice(4, 6)}: ${r.clicks} klik, ${r.signups} ro'yxat, ${r.sales} xarid</title></rect>
+      <rect x="${x + bw * .2}" y="${h - sh + 10}" width="${bw * .6}" height="${sh}" rx="2" fill="#7aa7ff"/>${r.sales ? `<circle cx="${x + bw / 2}" cy="${h - sh + 2}" r="4" fill="#58d3b3"/>` : ''}`;
+  }).join('') + `<line x1="0" y1="${h + 10}" x2="600" y2="${h + 10}" stroke="#26364b"/>`;
+}
+function renderDash(d) {
+  const p = d.partner, T = PROG.types.find(t => t.id === p.type) || {};
+  $('landing').hidden = true; $('dash').hidden = false;
+  $('dName').textContent = p.name; $('dStatus').textContent = STATUS[p.status] || p.status; $('dStatus').className = 'badge ' + p.status;
+  $('dType').textContent = `${T.icon || ''} ${T.label || p.type}`; $('dTier').textContent = '🏅 ' + d.tier.label; $('dRate').textContent = `Stavka ${Math.round(d.rate * 100)}%`;
+  $('dBalance').textContent = nf(d.balance) + " so'm";
+  banner(p);
+  const t = p.totals || {};
+  const conv = t.clicks ? ((t.signups || 0) / t.clicks * 100).toFixed(1) + '%' : '—';
+  $('dStats').innerHTML = [['Kliklar', nf(t.clicks)], ["Ro'yxatdan o'tganlar", nf(t.signups) + ` <span class="muted small">(${conv})</span>`], ['Xaridlar', nf(t.sales)], ['Jami ishlangan', nf(t.earned) + " so'm"]].map(([a, b]) => `<div class="stat"><span>${a}</span><b>${b}</b></div>`).join('');
+  chart(d.stats || []);
+  $('tierNote').textContent = `Oxirgi 90 kunda ${d.sales90} ta to'lov qilgan mijoz.` + (d.tier.next ? ` ${d.tier.next.label} darajasigacha yana ${d.tier.next.need} ta.` : ' Eng yuqori daraja!');
+  $('tierBox').innerHTML = PROG.tiers.map(x => `<div class="tier${x.id === d.tier.id ? ' cur' : ''}"><b>${x.label}</b><span class="muted small">${x.min}+ · +${Math.round(x.bonus * 100)}%</span></div>`).join('');
+  // Havolalar
+  $('lCode').value = p.code; $('lLink').value = d.link; $('lReg').value = d.registerLink;
+  $('lBrand').innerHTML = d.brandUrl ? `<label>Brend sahifangiz</label><div class="copy"><input id="lB" readonly value="${esc(d.brandUrl)}"><button class="btn g" data-copy="lB">Nusxa</button></div>` : '';
+  const share = `LinguaVerse — o'zbek tilida tushuntiriladigan 8 ta til kursi. Mening havolam orqali qo'shiling: ${d.link}`;
+  $('shTg').href = 'https://t.me/share/url?url=' + encodeURIComponent(d.link) + '&text=' + encodeURIComponent("LinguaVerse — o'zbek tilida 8 ta til kursi");
+  $('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(share);
+  $('shNative').onclick = () => navigator.share ? navigator.share({ title: 'LinguaVerse', text: share, url: d.link }).catch(() => {}) : navigator.clipboard?.writeText(share);
+  const kits = [
+    ['Telegram post', `🎓 Ingliz, rus, koreys va yana 5 ta tilni o'zbek tilida o'rganing!\n\n✅ Har bir tilda 200 ta video dars (A1 dan C2 gacha)\n✅ O'zbek tilida tushuntirish va mashqlar\n✅ Sertifikat\n\nBepul boshlang 👉 ${d.link}`],
+    ['Instagram / TikTok bio', `🌍 Tillarni o'zbekcha o'rganing → ${d.link}`],
+    ['Video tavsifi (YouTube)', `📚 Men foydalanadigan platforma — LinguaVerse: 8 til, o'zbek tilida video darslar.\nRo'yxatdan o'tish: ${d.registerLink}\nHamkor kodi: ${p.code}`],
+    ["O'quvchilarga xabar", `Assalomu alaykum! Uyga vazifalar va qo'shimcha mashg'ulotlar uchun LinguaVerse platformasidan foydalanamiz. Shu havola orqali ro'yxatdan o'ting: ${d.registerLink}`]
+  ];
+  $('kit').innerHTML = kits.map(([h, txt], i) => `<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px"><b class="small">${h}</b><button class="btn g sm" data-copy="kit${i}">Nusxa</button></div><textarea id="kit${i}" readonly style="min-height:${txt.length > 120 ? 130 : 60}px">${esc(txt)}</textarea>`).join('');
+  // Komissiyalar
+  const e = d.earnings;
+  $('mStats').innerHTML = [['Ushlab turilibdi', e.hold], ['Admin tekshiruvida', e.review], ["Balansga o'tgan", e.credited], ['Bekor qilingan', e.rejected]].map(([a, b]) => `<div class="stat"><span>${a}</span><b>${nf(b)}</b></div>`).join('');
+  $('holdNote').textContent = `Komissiya ${PROG.holdDays} kun ushlab turiladi, so'ng avtomatik balansga o'tadi. Katta yoki shubhali summalarni admin tekshiradi.`;
+  $('mRows').innerHTML = d.commissions.length ? d.commissions.map(c => `<tr><td>${dt(c.at)}</td><td>${esc(c.buyer)}</td><td>${nf(c.amount)}</td><td>${Math.round(c.rate * 100)}%</td><td><b>${nf(c.commission)}</b></td><td><span class="st ${c.status}">${CST[c.status] || c.status}</span>${c.status === 'hold' ? `<div class="muted small">${dt(c.releaseAt)} gacha</div>` : ''}</td></tr>`).join('') : '<tr><td colspan="6" class="empty">Hali komissiya yo‘q. Havolangizni ulashing!</td></tr>';
+  // O'quvchilar / guruh
+  document.querySelector('[data-t=roster]').hidden = !d.roster;
+  if (d.roster) $('rRows').innerHTML = d.roster.length ? d.roster.map(r => `<tr><td>${esc(r.name)}</td><td>${dt(r.joined)}</td><td>${r.paid ? '<span class="st credited">Obunachi</span>' : '<span class="st hold">Bepul</span>'}</td></tr>`).join('') : '<tr><td colspan="3" class="empty">Hali hech kim qo‘shilmagan</td></tr>';
+  document.querySelector('[data-t=bulk]').hidden = !d.requests;
+  if (d.requests) $('bList').innerHTML = d.requests.map(r => `<div class="kit">${dt(r.createdAt)} · ${r.seats} o'rin · ${esc(r.product)} — <b>${r.status === 'done' ? 'Ko‘rib chiqildi' : 'Yangi'}</b>${r.note ? '\n' + esc(r.note) : ''}</div>`).join('');
+  // Sozlamalar
+  $('sContact').value = p.contact || ''; $('sAbout').value = p.about || ''; $('sBrand').hidden = !p.brand;
+  if (p.brand) { $('sColor').value = p.brand.color || '#58d3b3'; $('sTag').value = p.brand.tagline || ''; }
+  $('cCode').value = p.code;
+  $('hist').innerHTML = (p.history || []).map(h => `<div style="padding:7px 0;border-bottom:1px solid var(--line)">${dt(h.at)} · <b>${esc(h.event)}</b>${h.note ? ' — ' + esc(h.note) : ''} <span class="muted">(${esc(h.by)})</span></div>`).join('') || '<div class="muted">—</div>';
+}
+$('sSave').onclick = async () => { try { await api('update', { contact: $('sContact').value, about: $('sAbout').value, color: $('sColor').value, tagline: $('sTag').value }); msg('sMsg', '✅ Saqlandi'); load(); } catch (e) { msg('sMsg', e.message, 'err'); } };
+$('cSave').onclick = async () => { try { const d = await api('change-code', { code: $('cCode').value.trim().toUpperCase() }); msg('cMsg', '✅ Yangi kod: ' + d.code); load(); } catch (e) { msg('cMsg', e.message, 'err'); } };
+$('bSend').onclick = async () => { try { await api('bulk-request', { seats: $('bSeats').value, product: $('bProduct').value, note: $('bNote').value }); msg('bMsg', "✅ So'rov yuborildi. Admin tez orada bog'lanadi."); load(); } catch (e) { msg('bMsg', e.message, 'err'); } };
+
+async function load() {
+  try {
+    if (user) {
+      ME = await api('me'); PROG = ME.program;
+      if (ME.partner && !['rejected'].includes(ME.partner.status)) { renderDash(ME); return; }
+      if (ME.partner?.status === 'rejected') { $('aMsg').className = 'msg err'; $('aMsg').textContent = 'Oldingi ariza rad etilgan: ' + (ME.partner.reviewReason || '') + ' — yangisini yuborishingiz mumkin.'; }
+    } else PROG = await fetch(API).then(r => r.json());
+    $('landing').hidden = false; $('dash').hidden = true; renderProgram();
+  } catch (e) { console.error(e); if (!PROG) PROG = await fetch(API).then(r => r.json()).catch(() => null); if (PROG) renderProgram(); }
+}
+onAuthStateChanged(auth, u => {
+  user = u && !u.isAnonymous ? u : null;
+  $('navAuth').textContent = user ? 'Profil' : 'Kirish'; $('navAuth').href = user ? '/languages-html/profile.html' : '/auth/login.html?redirect=partners';
+  $('aLogin').hidden = !!user; load();
+});
+</script>
+</body>
+</html>

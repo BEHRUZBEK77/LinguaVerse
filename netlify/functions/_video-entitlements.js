@@ -29,4 +29,12 @@ function canWatch(user, lang, level, index, now = Date.now()) {
   if (level !== 'b2' && level !== 'c2') return false;
   return (level === 'c2' ? 100 + index : index) < videoLimit(user, now);
 }
-module.exports = { VIDEO_LIMITS, effectivePlan, creatorActive, videoLimit, canWatch, owns };
+/**
+ * Kontent yaratuvchi imtiyozi FAQAT serverdagi partnerAccounts/{uid} hujjatidan olinadi.
+ * users/{uid}.creator maydoni mijoz tomonidan yozilishi mumkin — unga ishonilmaydi.
+ */
+async function withServerPerks(fsdb, uid, user) {
+  const acc = await fsdb.getDoc(`partnerAccounts/${uid}`).catch(() => null);
+  return { ...(user || {}), creator: acc && acc.status === 'active' && acc.creator ? acc.creator : null };
+}
+module.exports = { VIDEO_LIMITS, effectivePlan, creatorActive, videoLimit, canWatch, owns, withServerPerks };

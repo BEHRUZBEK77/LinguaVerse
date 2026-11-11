@@ -27,7 +27,7 @@ const keys = require('./_keys.js');
 const { think, extractJson } = require('./_brain.js');
 const { verifyIdToken } = require('./_auth.js');
 const { courseProduct, ultraActive, COURSE_LANGS } = require('./_plans.js');
-const { canWatch, videoLimit, effectivePlan } = require('./_video-entitlements.js');
+const { canWatch, videoLimit, effectivePlan, withServerPerks } = require('./_video-entitlements.js');
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -71,7 +71,7 @@ async function access(uid, lang, level, n) {
   const idx = Number(n);
   if (!Number.isInteger(idx) || idx < 0 || idx >= lessons.length) throw httpErr(400, "Noto'g'ri dars raqami");
 
-  const user = await fsdb.getDoc(`users/${uid}`);
+  const user = await withServerPerks(fsdb, uid, await fsdb.getDoc(`users/${uid}`));
   const owned = user?.courses || {};
   // ULTRA rejasida hamma video kurslar ochiq (8 til, B2 + C2)
   const has = !!owned[product.key] || (level === 'b2' && !!owned[`${lang}_c2`]) || ultraActive(user);
@@ -605,7 +605,7 @@ async function factoryRun(uid, body) {
 }
 
 async function mine(uid) {
-  const user = await fsdb.getDoc(`users/${uid}`);
+  const user = await withServerPerks(fsdb, uid, await fsdb.getDoc(`users/${uid}`));
   const owned = { ...(user?.courses || {}) };
   if (ultraActive(user)) for (const l of Object.keys(COURSE_LANGS)) { owned[`${l}_b2`] = true; owned[`${l}_c2`] = true; }
   const keysOwned = Object.keys(owned);

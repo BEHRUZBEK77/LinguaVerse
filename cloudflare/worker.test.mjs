@@ -10,7 +10,7 @@ test('adapter preserves binary responses and multiple cookies',async()=>{
  const r=toResponse({statusCode:200,body:'aGVsbG8=',isBase64Encoded:true,multiValueHeaders:{'set-cookie':['a=1','b=2']}},'GET');assert.equal(await r.text(),'hello');assert.equal(r.headers.getSetCookie().length,2);
 });
 test('scheduled and private functions are not exposed over HTTP',async()=>{
- for(const n of ['renew-subscriptions','update-leaderboard','_keys','constructor','__proto__']) {
+ for(const n of ['renew-subscriptions','update-leaderboard','partners-cron','partnership','_keys','constructor','__proto__']) {
   const r=await worker.fetch(new Request('https://example.com/.netlify/functions/'+n),{});assert.equal(r.status,404,n);
  }
 });

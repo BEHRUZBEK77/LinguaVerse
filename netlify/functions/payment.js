@@ -345,7 +345,7 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
   // ── VIDEO KURS: kursni ochamiz (umrbod). Reja o'zgarmaydi. ──
   if (activated.kind === 'course') {
     await grantCourse(activated.uid, activated.courseKey, orderId, source);
-    try { await creditReferral(activated.uid, activated.amount); }
+    try { if (!(await partnerSale(activated, orderId))) await creditReferral(activated.uid, activated.amount); }
     catch (e) { console.error('[payment] referal mukofoti berilmadi:', e.message); }
     console.log(`[payment] kurs ochildi: ${activated.uid} → ${activated.courseKey}`);
     return activated;
@@ -400,7 +400,8 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
   // qilgan bo'lsa, taklif qiluvchiga haqiqiy pul (balance) beramiz. Faqat bir
   // marta — referral hujjatidagi `rewarded` bayrog'i takrorlashning oldini oladi.
   try {
-    await creditReferral(activated.uid, activated.amount);
+    // Hamkorlik markazi orqali kelgan foydalanuvchi — komissiya hamkorga (eski referal berilmaydi)
+    if (!(await partnerSale(activated, orderId))) await creditReferral(activated.uid, activated.amount);
   } catch (e) {
     // Referal xatosi to'lovni buzmasin — tarif baribir yoqildi
     console.error('[payment] referal mukofoti berilmadi:', e.message);
@@ -408,6 +409,16 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
 
   console.log(`[payment] tarif yoqildi: ${activated.uid} → ${activated.plan} (${expiry.toISOString()})`);
   return { ...activated, expiry };
+}
+
+/** Hamkorlik markazi: komissiyani yozadi (ushlab turiladi). true — foydalanuvchi hamkorga tegishli. */
+async function partnerSale(activated, orderId) {
+  try {
+    return await require('./_partner-service.js').recordSale({ uid: activated.uid, orderId, amount: activated.amount, kind: activated.kind || 'plan' });
+  } catch (e) {
+    console.error('[payment] hamkor komissiyasi yozilmadi:', e.message);
+    return false;
+  }
 }
 
 /**

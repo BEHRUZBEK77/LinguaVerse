@@ -2191,6 +2191,8 @@
             class="fa-solid fa-film"></i></span> Video fabrika</div>
       <div class="sidebar-item" onclick="showPage('receipts')" data-page="receipts"><span class="icon"><i
             class="fa-solid fa-images"></i></span> Cheklar</div>
+      <div class="sidebar-item" onclick="showPage('partners')" data-page="partners"><span class="icon"><i
+            class="fa-solid fa-handshake"></i></span> Hamkorlar <span class="sidebar-badge" id="partnerBadge">0</span></div>
       <div class="sidebar-item" onclick="showPage('payouts')" data-page="payouts"><span class="icon"><i
             class="fa-solid fa-money-check-dollar"></i></span> Pul yechish <span class="sidebar-badge"
           id="payoutBadge">0</span></div>
@@ -2429,6 +2431,31 @@
           <video id="vidPlayer" controls preload="metadata" playsinline style="width:100%;max-height:70vh;border-radius:8px;background:#000"></video>
         </div>
         <div id="vidBox"><div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div></div>
+      </div>
+
+      <!-- HAMKORLAR -->
+      <div class="page-sec" id="page-partners">
+        <div class="page-header">
+          <div class="page-title"><i class="fa-solid fa-handshake" style="color:#58d3b3;font-size:1rem"></i> Hamkorlik markazi</div>
+          <div class="page-actions">
+            <button class="filter-btn ab" onclick="pRun()" title="Muddati tugagan komissiyalarni hozir hisoblash"><i class="fa-solid fa-gears"></i> Avtomatikani ishga tushirish</button>
+            <button class="filter-btn ab" onclick="loadPartners()"><i class="fa-solid fa-rotate-right"></i> Yangilash</button>
+          </div>
+        </div>
+        <div style="background:rgba(88,211,179,.06);border:1px solid rgba(88,211,179,.22);border-radius:12px;padding:12px 16px;margin-bottom:14px;font-size:.82rem;line-height:1.6;color:var(--text2)">
+          <i class="fa-solid fa-circle-info" style="color:#58d3b3"></i> <b style="color:var(--text)">Avtomatik:</b> do'st/o'qituvchi arizalari, YouTube/Telegram kanallarini API orqali tekshirish, kliklar, komissiyani ushlab turish va kichik summalarni balansga o'tkazish, YOUTUBER imtiyozini uzaytirish.
+          <b style="color:var(--text)">Sizning qaroringiz:</b> o'quv markazi, brend, korporativ, elchi arizalari, Instagram/TikTok, katta yoki shubhali komissiyalar, brend sahifasi. Pul yechish — <a href="#" onclick="showPage('payouts');return false" style="color:#58d3b3">Pul yechish</a> bo'limida.
+        </div>
+        <div class="tabs-row" id="pTabs" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
+          <button class="filter-btn ab active" data-pt="overview" onclick="pTab('overview')">Umumiy</button>
+          <button class="filter-btn ab" data-pt="apps" onclick="pTab('apps')">Arizalar <span id="pAppsN"></span></button>
+          <button class="filter-btn ab" data-pt="list" onclick="pTab('list')">Barcha hamkorlar</button>
+          <button class="filter-btn ab" data-pt="comm" onclick="pTab('comm')">Komissiyalar <span id="pCommN"></span></button>
+          <button class="filter-btn ab" data-pt="req" onclick="pTab('req')">Litsenziya so'rovlari <span id="pReqN"></span></button>
+          <button class="filter-btn ab" data-pt="cfg" onclick="pTab('cfg')">Sozlamalar</button>
+          <button class="filter-btn ab" data-pt="audit" onclick="pTab('audit')">Jurnal</button>
+        </div>
+        <div id="pBox"><div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div></div>
       </div>
 
       <!-- PAYOUTS PAGE -->
@@ -3095,6 +3122,7 @@
       if (page === 'online') loadOnline();
       if (page === 'factory') loadFactory();
       if (page === 'videos') loadVideos();
+      if (page === 'partners') loadPartners();
       if (page === 'apikeys') window.loadApikeys();
       if (page === 'ai') loadAdminAIStatus();
     };
@@ -3473,6 +3501,10 @@ ${o.status === 'pending' ? `
       v.src = l.video; wrap.hidden = false; v.play().catch(() => {});
       wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
+
+    // ── HAMKORLAR (vaqtinchalik — to'liq interfeys OpenCode tomonidan yoziladi) ──
+    window.pTab = function () {}; window.pRun = function () {};
+    window.loadPartners = function () { document.getElementById('pBox').innerHTML = '<div class="op-grant-sub">Hamkorlar bo\'limi tayyorlanmoqda.</div>'; };
 
     // ── VIDEO FABRIKA ─────────────────────────────────
     async function courseApi(action, extra = {}) {

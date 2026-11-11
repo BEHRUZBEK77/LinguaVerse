@@ -23,7 +23,8 @@ function mapUser(u) {
     supabaseId: u.id,
     email,
     name: meta.full_name || meta.name || meta.displayName || (email ? email.split('@')[0] : "O'quvchi"),
-    anonymous: !!u.is_anonymous
+    anonymous: !!u.is_anonymous,
+    createdAt: u.created_at || null
   };
 }
 

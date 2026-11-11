@@ -60,14 +60,9 @@ export default {
     return env.ASSETS.fetch(request);
   },
   async scheduled(controller, env, ctx) {
-    if (controller.cron === '15 3 * * *') {
-      const h = scheduledHandlers.partnership;
-      if (typeof h !== 'function' || !env.PARTNERSHIP_CRON_SECRET) throw new Error('Partner cron configuration missing');
-      ctx.waitUntil(h({httpMethod:'POST',headers:{authorization:'Bearer '+env.PARTNERSHIP_CRON_SECRET},body:JSON.stringify({action:'cron'})}));
-      return;
-    }
     const name = controller.cron === '0 5 * * *' ? 'renew-subscriptions'
-      : controller.cron === '*/15 * * * *' ? 'update-leaderboard' : null;
+      : controller.cron === '*/15 * * * *' ? 'update-leaderboard'
+      : controller.cron === '15 3 * * *' ? 'partners-cron' : null;
     if (!name) throw new Error('Unknown schedule');
     ctx.waitUntil(scheduledHandlers[name]());
   }

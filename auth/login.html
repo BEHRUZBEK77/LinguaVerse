@@ -592,6 +592,7 @@
             // order.html dan kelganda tanlangan reja ham qaytarib boriladi.
             const params = new URLSearchParams(window.location.search);
             const redirect = params.get('redirect');
+            if (redirect === 'partners') { window.location.href = '../languages-html/partners.html'; return; }
             if (redirect && ['order', 'profile', 'select-language'].includes(redirect)) {
                 const plan = params.get('plan') || sessionStorage.getItem('intendedPlan');
                 sessionStorage.removeItem('intendedPlan');

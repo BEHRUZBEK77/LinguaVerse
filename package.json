@@ -1,6 +1,6 @@
 {
   "name": "linguaverse",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "AI bilan til o'rganish platformasi",
   "private": true,
   "scripts": {
@@ -24,7 +24,8 @@
     "appId": "uz.linguaverse.desktop",
     "productName": "LinguaVerse",
     "directories": {
-      "output": "dist-desktop"
+      "output": "dist-desktop",
+      "buildResources": "build"
     },
     "files": [
       "desktop/**/*",
@@ -40,7 +41,8 @@
           ]
         }
       ],
-      "artifactName": "LinguaVerse-${version}-windows-x64.${ext}"
+      "artifactName": "LinguaVerse-${version}-windows-x64.${ext}",
+      "icon": "build/icon.png"
     },
     "nsis": {
       "oneClick": false,
@@ -58,7 +60,8 @@
         }
       ],
       "artifactName": "LinguaVerse-${version}-macos-universal.${ext}",
-      "category": "public.app-category.education"
+      "category": "public.app-category.education",
+      "icon": "build/icon.png"
     },
     "linux": {
       "target": [
@@ -70,7 +73,8 @@
         }
       ],
       "artifactName": "LinguaVerse-${version}-linux-x64.${ext}",
-      "category": "Education"
+      "category": "Education",
+      "icon": "build/icon.png"
     }
   },
   "dependencies": {

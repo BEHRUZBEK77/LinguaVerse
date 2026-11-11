@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   desktop:
@@ -52,6 +53,7 @@ jobs:
           java-version: '21'
       - uses: android-actions/setup-android@v3
       - run: npm ci
+      - run: '[ -d android ] || npx cap add android'
       - run: npx cap sync android
       - run: chmod +x android/gradlew
       - run: android/gradlew -p android assembleDebug
@@ -68,6 +70,8 @@ jobs:
   publish:
     name: Publish release and website links
     needs: [desktop, android]
+    # Android yiqilsa ham kompyuter ilovalari chiqaveradi
+    if: always() && needs.desktop.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -104,3 +108,7 @@ jobs:
             git commit -m "Update app download links for $GITHUB_REF_NAME"
             git push origin "HEAD:$DEFAULT_BRANCH"
           fi
+      - name: Saytni yangilash (yuklab olish havolalari)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-cloudflare.yml --ref "${{ github.event.repository.default_branch }}" -R "$GITHUB_REPOSITORY"

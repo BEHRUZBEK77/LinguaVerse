@@ -15,10 +15,10 @@
   <main>
     <h1>LinguaVerse</h1>
     <p>Sayt bilan bir xil hisobingiz va ma’lumotlaringiz yuklanmoqda…</p>
-    <p id="offline" hidden>Internetga ulaning, so‘ng <a href="https://linguaverce.netlify.app/?lv_app=android">qayta urinib ko‘ring</a>.</p>
+    <p id="offline" hidden>Internetga ulaning, so‘ng <a href="https://linguaverse-uz.pages.dev/?lv_app=android">qayta urinib ko‘ring</a>.</p>
   </main>
   <script>
-    const site = 'https://linguaverce.netlify.app/?lv_app=android';
+    const site = 'https://linguaverse-uz.pages.dev/?lv_app=android';
     const timeout = setTimeout(() => { document.getElementById('offline').hidden = false; }, 12000);
     addEventListener('load', () => {
       if (navigator.onLine) location.replace(site);

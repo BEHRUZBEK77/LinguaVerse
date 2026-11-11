@@ -26,9 +26,10 @@ const assets = [
   { platform: 'android', suffix: '-android-universal.apk' }
 ].map(({ platform, suffix }) => {
   const asset = release.assets.find(item => item.name.endsWith(suffix));
-  if (!asset) throw new Error(`Relizda ${platform} fayli yo‘q (${suffix}).`);
+  if (!asset) { console.warn(`Relizda ${platform} fayli yo‘q (${suffix}) — o‘tkazib yuborildi.`); return null; }
   return { platform, name: asset.name, url: asset.browser_download_url };
-});
+}).filter(Boolean);
+if (!assets.length) throw new Error('Relizda birorta ham ilova fayli yo‘q.');
 
 await writeFile(outputPath, `${JSON.stringify({
   version: release.tag_name,

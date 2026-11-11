@@ -43,7 +43,7 @@ jobs:
 
       - name: ffmpeg, shriftlar, brauzer, ovoz dvigatellari
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-cjk fonts-noto-core
+          for i in 1 2 3 4 5; do sudo apt-get update -qq -o Acquire::Retries=5 && sudo apt-get install -y -qq -o Acquire::Retries=5 --fix-missing ffmpeg fonts-noto-cjk fonts-noto-core && break; echo "apt urinish $i muvaffaqiyatsiz — 30s kutamiz"; sleep 30; done; command -v ffmpeg
           npm install --no-save playwright@1.48.2
           npx playwright install --with-deps chromium
           pip install -q onnxruntime numpy piper-tts
@@ -90,7 +90,7 @@ jobs:
 
       - name: ffmpeg, shriftlar, brauzer, ovoz dvigatellari
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-cjk fonts-noto-core
+          for i in 1 2 3 4 5; do sudo apt-get update -qq -o Acquire::Retries=5 && sudo apt-get install -y -qq -o Acquire::Retries=5 --fix-missing ffmpeg fonts-noto-cjk fonts-noto-core && break; echo "apt urinish $i muvaffaqiyatsiz — 30s kutamiz"; sleep 30; done; command -v ffmpeg
           npm install --no-save playwright@1.48.2
           npx playwright install --with-deps chromium
           pip install -q onnxruntime numpy piper-tts

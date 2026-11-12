@@ -22,7 +22,7 @@ Qoidalar (har bir sessiya uchun):
 - [x] 9. release-apps.yml publish: `git push` oldidan `git pull --rebase` + 3 marta qayta urinish. — bajarildi.
 - [x] 10. validate-app.yml: `paths-ignore: ['content/**']`. — bajarildi (push va pull_request).
 - [x] 11. lesson-content.yml: `permissions: contents: read`, sarlavhadagi noto'g'ri va'dani to'g'rilash. — bajarildi: workflow repoga yozmaydi, sarlavha shunga moslandi.
-- [ ] 12. Bir martalik workflow'lar: `tts-korean-test.yml` ni o'chirish.
+- [x] 12. Bir martalik workflow'lar: `tts-korean-test.yml` ni o'chirish. — bajarildi.
 
 ## P3 — frontend va sifat
 - [ ] 13. THREE fon kodi bo'lgan sahifalarda `if (window.THREE)` himoyasi (CDN ochilmasa sahifa xato bermasin).

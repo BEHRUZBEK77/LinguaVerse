@@ -18,7 +18,7 @@ Qoidalar (har bir sessiya uchun):
 - [x] 7. course.js: yakuniy sertifikat `transact` ichida (ikki parallel so'rov ikki sertifikat bermasin); test urinishlariga rate limit (dars bo'yicha soatiga 10). — bajarildi: `recordQuizResult` (progress + sertifikat ID bitta transact'da), `quiz:<uid>:<kurs>:<dars>` soatiga 10; scripts/course-certificate.test.js.
 
 ## P2 — workflow'lar
-- [ ] 8. render-videos.yml: `concurrency: {group: render-videos, cancel-in-progress: false}`, dars regex'iga `pro`, eski FIREBASE_* secret'larni olib tashlash, sarlavha izohini to'g'rilash.
+- [x] 8. render-videos.yml: `concurrency: {group: render-videos, cancel-in-progress: false}`, dars regex'iga `pro`, eski FIREBASE_* secret'larni olib tashlash, sarlavha izohini to'g'rilash. — bajarildi: concurrency, `(b2|c2|pro)`, FIREBASE_* olib tashlandi (R2 asosiy), sarlavha: jadval yo'q.
 - [ ] 9. release-apps.yml publish: `git push` oldidan `git pull --rebase` + 3 marta qayta urinish.
 - [ ] 10. validate-app.yml: `paths-ignore: ['content/**']`.
 - [ ] 11. lesson-content.yml: `permissions: contents: read`, sarlavhadagi noto'g'ri va'dani to'g'rilash.

@@ -1,10 +1,11 @@
 # ════════════════════════════════════════════════════════════════════════════
 # VIDEO FABRIKA — AI o'zi barcha MP4 darslarni yaratadi
 #
-# 8 til × 150 dars. Har 15 daqiqada navbatni tekshiradi: o'quvchi ochgan,
-# MP4 i hali yo'q dars bo'lsa — shu til uchun runner ochib, darsni yasaydi
-# (AI ssenariy → ustoz ovozi → 1080p montaj → Cloudflare R2). Navbat bo'sh
-# bo'lsa ~10 soniyada tugaydi. GITHUB_TOKEN kerak emas.
+# 8 til × 150 dars. Faqat qo'lda yoki sayt orqali (workflow_dispatch) ishga
+# tushadi — jadval (schedule) yo'q. O'quvchi ochgan, MP4 i hali yo'q darslar
+# uchun runner ochib, darsni yasaydi (AI ssenariy → ustoz ovozi → 1080p
+# montaj → Cloudflare R2). Bir vaqtda faqat bitta ishga tushirish ishlaydi
+# (concurrency); kutayotganlardan faqat eng oxirgisi navbatda qoladi.
 #
 # Qo'lda: GitHub → Actions → "Video fabrika" → Run workflow
 # (yoki admin panel → Video fabrika → "Hozir ishga tushirish")
@@ -15,8 +16,6 @@
 # GitHub Secrets (Settings → Secrets and variables → Actions):
 #   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 #   R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_BUCKET
-#   (R2 o'rniga Firebase: FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL,
-#    FIREBASE_PRIVATE_KEY, FIREBASE_STORAGE_BUCKET)
 # AI va ElevenLabs kalitlari admin paneldan (Firestore) o'qiladi.
 # ════════════════════════════════════════════════════════════════════════════
 name: Video fabrika
@@ -43,7 +42,7 @@ on:
         options: [auto, azure]
         default: auto
       lesson:
-        description: "Bitta dars (sayt o'zi yuboradi): til:kurs:raqam, masalan english:b2:0"
+        description: "Bitta dars (sayt o'zi yuboradi): til:kurs:raqam, masalan english:b2:0 (kurs: b2, c2, pro)"
         required: false
         default: ""
       mode:
@@ -51,6 +50,10 @@ on:
         type: choice
         options: [demand, all]
         default: demand
+
+concurrency:
+  group: render-videos
+  cancel-in-progress: false
 
 jobs:
   plan:
@@ -89,7 +92,7 @@ jobs:
               console.log(`Navbatda ${rows.length} ta dars → ${jobs.length} ta runner`);
             } else {
               const one = process.env.ONE_LESSON || '';
-              if (one && !/^[a-z]+:(b2|c2):\d{1,3}$/.test(one)) throw new Error('Invalid lesson');
+              if (one && !/^[a-z]+:(b2|c2|pro):\d{1,3}$/.test(one)) throw new Error('Invalid lesson');
               const native = process.env.REQUESTED_NATIVE || 'uz';
               if (!natives.includes(native)) throw new Error('Unsupported native language');
               const value = one ? one.split(':')[0] : (process.env.REQUESTED_LANGS || 'all');
@@ -140,10 +143,6 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
-          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
-          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
         run: |
           node scripts/render-lesson-video.mjs --auto \
             --langs "$TARGET_LANG" \

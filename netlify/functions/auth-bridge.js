@@ -136,7 +136,12 @@ async function signup(body) {
 
   // Eski (Firebase) hisob bo'lsa — yangisini ochmaymiz, eski parol bilan kirsin
   try { if (await fbLookupEmail(email)) throw err(409, 'auth/email-already-in-use', 'Bu email allaqachon ro‘yxatdan o‘tgan'); }
-  catch (e) { if (e.code === 'auth/email-already-in-use') throw e; }
+  catch (e) {
+    if (e.code === 'auth/email-already-in-use') throw e;
+    // Firebase umuman sozlanmagan bo'lsa — eski hisoblar yo'q, davom etamiz. Sozlangan-u, lekin javob bermasa —
+    // yopiq ishlaymiz: aks holda eski foydalanuvchining emailini boshqa odam egallab olishi mumkin.
+    if (!/sozlanmagan/.test(e.message)) throw err(503, 'auth/unavailable', 'Ro‘yxatdan o‘tish vaqtincha ishlamayapti, birozdan so‘ng urinib ko‘ring');
+  }
 
   try {
     await sbAdmin('POST', 'users', {
@@ -388,7 +393,7 @@ exports.handler = async function (event) {
   const origin = event.headers?.origin || process.env.URL || '';
 
   try {
-    if (['signup', 'legacy-login', 'reset'].includes(body.action)) {
+    if (['signup', 'legacy-login', 'reset', 'claim'].includes(body.action)) {
       const rl = await ratelimit.checkRateLimit(`bridge:${body.action}:${ratelimit.clientIp(event)}`, { windowMs: 10 * 60_000, max: 15 });
       if (!rl.ok) return json(rl.unavailable ? 503 : 429, { error: 'Juda ko‘p urinish. Biroz kuting.', code: 'auth/too-many-requests' });
     }

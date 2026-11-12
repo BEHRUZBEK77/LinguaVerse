@@ -314,8 +314,12 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
   await fsdb.transact(`orders/${orderId}`, async (order) => {
     if (!order) throw new Error('Buyurtma topilmadi: ' + orderId);
 
-    // Allaqachon hisoblangan — hech narsa qilmaymiz
-    if (order.status === 'paid') {
+    // Allaqachon hisoblangan — hech narsa qilmaymiz.
+    // Istisno: to'langan, lekin huquq berish yarimda uzilgan (activatingAt bor, activatedAt yo'q, 10 daqiqadan oshgan)
+    // yoki avto-to'lovda "paid-unactivated" — qayta chaqiruv huquqni beradi.
+    const actAt = Date.parse(order.activatingAt?.$t || order.activatingAt || '') || 0;
+    const stuck = order.status === 'paid-unactivated' || (order.status === 'paid' && actAt && !order.activatedAt && Date.now() - actAt > 10 * 60_000);
+    if (order.status === 'paid' && !stuck) {
       activated = { already: true, plan: order.plan, uid: order.uid };
       return null;
     }
@@ -333,7 +337,8 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
     };
     return {
       status: 'paid',
-      paidAt: new Date(),
+      activatingAt: new Date(),
+      paidAt: order.paidAt || new Date(),
       paidAmount: paidAmount ?? order.amount,
       providerId: providerId || order.providerId || null,
       confirmedBy: source
@@ -341,6 +346,13 @@ async function confirmPayment(orderId, paidAmount, providerId, source, cardInfo)
   });
 
   if (!activated || activated.already) return activated;
+  const result = await activateOrder(orderId, activated, source, cardInfo);
+  await fsdb.setDoc(`orders/${orderId}`, { activatedAt: new Date(), activationError: null }).catch(e => console.error('[payment] activatedAt yozilmadi:', e.message));
+  return result;
+}
+
+/** To'langan buyurtma bo'yicha huquq berish (kurs yoki reja). confirmPayment chaqiradi. */
+async function activateOrder(orderId, activated, source, cardInfo) {
 
   // ── VIDEO KURS: kursni ochamiz (umrbod). Reja o'zgarmaydi. ──
   if (activated.kind === 'course') {
@@ -674,8 +686,24 @@ async function runRenewals(limit = 50) {
     if (!plan) { report.details.push({ uid, skip: "noma'lum reja" }); continue; }
     const days = sub.days || plan.days;
 
-    const orderId = 'LVR-' + Date.now().toString(36).toUpperCase() + '-' +
-                    crypto.randomBytes(3).toString('hex').toUpperCase();
+    // ── Takroriy yechishdan himoya ──
+    // 1) Atomik "ijara" (lease): parallel ishga tushgan cron/admin bitta obunani ikki marta yechmasin.
+    const now = Date.now();
+    let leased = false;
+    await fsdb.transact(SUB_PATH(uid), cur => {
+      if (!cur || cur.active === false) return null;
+      const next = Date.parse(cur.nextChargeAt?.$t || cur.nextChargeAt || '') || 0;
+      const lease = Date.parse(cur.chargingUntil?.$t || cur.chargingUntil || '') || 0;
+      if (next > now || lease > now) return null;          // boshqa ishga tushish allaqachon bajargan/bajaryapti
+      leased = true;
+      return { chargingUntil: new Date(now + 15 * 60_000) };
+    });
+    if (!leased) { report.details.push({ uid, skip: 'boshqa jarayon yechmoqda yoki muddat kelmagan' }); continue; }
+    // 2) Har obuna davri uchun deterministik buyurtma raqami — bir davr ikki marta yechilmaydi.
+    const periodKey = String(sub.nextChargeAt?.$t || sub.nextChargeAt || '').slice(0, 10).replace(/-/g, '') || new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const orderId = ('LVR-' + crypto.createHash('sha256').update(uid).digest('hex').slice(0, 10) + '-' + periodKey + '-' + ((sub.failCount || 0) + 1)).toUpperCase();
+    const existing = await fsdb.getDoc(`orders/${orderId}`).catch(() => null);
+    if (existing) { report.details.push({ uid, skip: 'bu davr uchun buyurtma allaqachon bor', orderId }); continue; }
 
     await fsdb.addDoc('orders', {
       orderId, uid,
@@ -692,7 +720,16 @@ async function runRenewals(limit = 50) {
       const charged = await chargeSaved(orderId, plan, sub.cardToken);
 
       if (charged.paid) {
-        await confirmPayment(orderId, plan.price, charged.providerId, 'autopay');
+        // Pul yechildi: endi nima bo'lsa ham keyingi yechish sanasini surib qo'yamiz (qayta yechilmasin)
+        await fsdb.setDoc(SUB_PATH(uid), { nextChargeAt: new Date(Date.now() + days * 86400_000), chargingUntil: null, updatedAt: new Date() });
+        try { await confirmPayment(orderId, plan.price, charged.providerId, 'autopay'); }
+        catch (e) {
+          // Pul olindi, lekin huquq berilmadi — "failed" emas: admin/qayta urinish tugatadi
+          await fsdb.setDoc(`orders/${orderId}`, { status: 'paid-unactivated', providerId: charged.providerId || null, activationError: String(e.message).slice(0, 300), paidAt: new Date() });
+          console.error('[autopay] to\'landi, lekin faollashmadi:', uid, orderId, e.message);
+          report.failed++; report.details.push({ uid, ok: false, reason: 'paid-unactivated', orderId });
+          continue;
+        }
         // confirmPayment nextChargeAt ni yangilaydi (autopay + token bor)
         await fsdb.setDoc(SUB_PATH(uid), {
           lastChargeAt: new Date(),
@@ -716,7 +753,7 @@ async function runRenewals(limit = 50) {
       const RETRY_DAYS = [1, 3];
       if (fails > RETRY_DAYS.length) {
         await fsdb.setDoc(SUB_PATH(uid), {
-          active: false, failCount: fails,
+          active: false, failCount: fails, chargingUntil: null,
           disabledReason: 'uch marta to\'lanmadi', updatedAt: new Date()
         });
         await fsdb.addDoc(`users/${uid}/events`, {
@@ -725,7 +762,7 @@ async function runRenewals(limit = 50) {
         report.disabled++;
       } else {
         await fsdb.setDoc(SUB_PATH(uid), {
-          failCount: fails,
+          failCount: fails, chargingUntil: null,
           nextChargeAt: new Date(Date.now() + RETRY_DAYS[fails - 1] * 86400_000),
           lastError: charged.message || charged.status,
           updatedAt: new Date()
@@ -929,7 +966,9 @@ exports.handler = async function (event) {
       return json(200, { ok: true, already: res?.already || false });
     } catch (e) {
       console.error('[payment] tasdiqlash xatosi:', e.message);
-      return json(200, { ok: false, error: e.message });
+      // Ma'lumot xatosi (summa/buyurtma) — qayta yuborish foydasiz: 200. Vaqtinchalik xato — 500, provayder qayta yuboradi.
+      const permanent = /Summa mos emas|topilmadi/i.test(e.message);
+      return json(permanent ? 200 : 500, { ok: false, error: e.message });
     }
   }
 

@@ -192,7 +192,8 @@ exports.handler = async function (event) {
         target,
         level,
         authorUid: auth.uid,
-        authorName: (payload.authorName || auth.name || "O'quvchi").slice(0, 40),
+        // Ism faqat tasdiqlangan tokendan — klient boshqa birovning nomini yoza olmasin
+        authorName: String(auth.name || "O'quvchi").slice(0, 40),
         dupKey,
         saves: 0,
         createdAt: new Date().toISOString()
@@ -203,14 +204,25 @@ exports.handler = async function (event) {
     }
 
     if (action === 'save_count') {
-      // Foydalanuvchi community elementni o'ziga import qilganda chaqiriladi
-      // — mashhurlikni ko'rsatish uchun oddiy hisoblagich (aniq transact emas,
-      // sabab: bu kritik emas, taxminiy son yetarli).
+      // Foydalanuvchi community elementni o'ziga import qilganda chaqiriladi.
+      // Har foydalanuvchi har elementni faqat BIR marta hisoblaydi (belgi hujjati),
+      // hisoblagich esa atomik transact bilan oshiriladi.
       const auth = await verifyIdToken(payload.idToken);
-      if (!payload.id) return json(400, { error: 'id kerak' });
-      const path = `${collection}/${payload.id}`;
-      const cur = await fsdb.getDoc(path).catch(() => null);
-      if (cur) await fsdb.setDoc(path, { ...cur, saves: (cur.saves || 0) + 1 });
+      const id = typeof payload.id === 'string' ? payload.id : '';
+      if (!/^[A-Za-z0-9_-]{1,64}$/.test(id)) return json(400, { error: 'id kerak' });
+      const path = `${collection}/${id}`;
+      const cur = await fsdb.getDoc(path);
+      if (!cur) return json(404, { ok: false, error: 'Topilmadi' });
+
+      let first = false;
+      await fsdb.transact(`community_saves/${kind}_${id}_${auth.uid}`, existing => {
+        if (existing) return null;
+        first = true;
+        return { kind, id, uid: auth.uid, createdAt: new Date().toISOString() };
+      });
+      if (!first) return json(200, { ok: true, already: true });
+
+      await fsdb.transact(path, item => item ? { saves: (Number(item.saves) || 0) + 1 } : null);
       return json(200, { ok: true });
     }
 

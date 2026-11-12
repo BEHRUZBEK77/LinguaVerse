@@ -1,7 +1,8 @@
 # ════════════════════════════════════════════════════════════════════════════
 # QO'LDA YOZILGAN DARSLAR → SAYT
-# content/<native>/<lang>/A1-01.json o'zgarsa: tekshiradi, Supabase'ga yozadi
-# (saytda dars shu matn bilan ochiladi) va ssenariylar/ diktor matnini yangilaydi.
+# content/<native>/<lang>/A1-01.json o'zgarsa: tekshiradi va Supabase'ga yozadi
+# (saytda dars shu matn bilan ochiladi). Repoga hech narsa yozmaydi —
+# ssenariylar/ diktor matni lokal `node scripts/lesson-content.mjs` bilan yangilanadi.
 # ════════════════════════════════════════════════════════════════════════════
 name: Darslar saytga
 
@@ -16,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   push:

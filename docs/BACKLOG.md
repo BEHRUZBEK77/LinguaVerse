@@ -28,6 +28,9 @@ Qoidalar (har bir sessiya uchun):
 - [x] 13. THREE fon kodi bo'lgan sahifalarda `if (window.THREE)` himoyasi (CDN ochilmasa sahifa xato bermasin). — bajarildi: 11 sahifa (admin + languages-html) fon IIFE boshida `if (!window.THREE || !cv) return;`.
 - [x] 14. update-leaderboard.js: yozuvlarni 5 tadan parallel. — bajarildi: `writeInBatches` (5 tadan Promise.all); scripts/leaderboard.test.js.
 - [ ] 15. Darslar sifati: har sessiyada har tildan 2 ta tasodifiy dars — `say`/`examples` grammatikasi va o'zbekcha izoh. Faqat aniq xatoni tuzat, lesson-check ✅.
+  - 2026-11-12: 16 dars ko‘rildi (8 til × A2-16, C2-03). german/A2-16 izohi tuzatildi («ikki dona non»). Katta muammo topildi → 16-band.
+- [⏸ INSON QARORI] 16. 313 ta dars (arabic 88, chinese 74, russian 47+, turkish 99+, spanish 1) shablon: `say` ichida «ko‘nikma: …» qoldig‘i, bir gap o‘nlab sahnada takror, noto‘g‘ri tarjimalar — lekin `lesson-check` ✅ beradi va ular saytga/videoga chiqyapti. Yana 105 tasi shubhali. Ro‘yxat: `docs/LESSON-AUDIT-2026-11-12.md`. Kerak: `lesson-check` ga shablon tekshiruvini qo‘shish (scripts/ — egasi ruxsati), keyin ularni «QAYTA YOZING» navbati orqali qayta yozish.
 
 ## Jurnal
 (har sessiya oxirida: sana, bajarilgan bandlar, test natijasi)
+- 2026-11-12 (avtonom sessiya): 4–14 bajarildi (youtube kesh/limit, teacher validatsiya, community save_count, course sertifikat transact + quiz rate limit, 5 ta workflow tuzatish, tts-korean-test o‘chirildi, THREE himoyasi, leaderboard parallel). 15: 16 dars ko‘rildi, 1 tuzatish; 16-band (313 shablon dars) ochildi. `npm test`: 119/119 o‘tdi. 1–3 ⏸ (sud qarori) tegilmadi.

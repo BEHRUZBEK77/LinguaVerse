@@ -37,7 +37,11 @@ export function toResponse(result, method) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === '/.netlify/functions/private-video') return privateVideo(request, env);
+    if (url.pathname === '/.netlify/functions/private-video') {
+      // Bu Worker'da video kaliti bo'lmasa — videoni sozlangan proksi manziliga yo'naltiramiz
+      if (!env.GITHUB_VIDEO_TOKEN && env.VIDEO_PROXY_URL && new URL(env.VIDEO_PROXY_URL).host !== url.host) return Response.redirect(env.VIDEO_PROXY_URL + url.search, 302);
+      return privateVideo(request, env);
+    }
     const match = /^\/\.netlify\/functions\/([^/]+)(?:\/.*)?$/.exec(url.pathname);
     if (match) {
       const handler = Object.hasOwn(handlers, match[1]) ? handlers[match[1]] : null;

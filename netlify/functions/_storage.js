@@ -108,7 +108,10 @@ function signedUrl(storedPath, ttlSec = 3 * 3600) {
     if (process.env.VIDEO_SIGNING_SECRET && process.env.VIDEO_PROXY_URL) {
       const expires = String(Math.floor(Date.now() / 1000) + Math.max(1, Math.min(ttlSec, 10800)));
       const sig = crypto.createHmac('sha256', process.env.VIDEO_SIGNING_SECRET).update(`${expires}\n${storedPath}`).digest('hex');
-      return `${process.env.VIDEO_PROXY_URL}?path=${encodeURIComponent(storedPath)}&expires=${expires}&sig=${sig}`;
+      // Nisbiy havola: video sayt qaysi manzilda ochilgan bo'lsa (pages.dev, workers.dev, ilova) o'sha orqali keladi —
+      // ba'zi provayderlar bitta manzilni to'sganda ham ishlaydi.
+      const proxy = process.env.VIDEO_PROXY_RELATIVE === '0' ? process.env.VIDEO_PROXY_URL : new URL(process.env.VIDEO_PROXY_URL).pathname;
+      return `${proxy}?path=${encodeURIComponent(storedPath)}&expires=${expires}&sig=${sig}`;
     }
     return `https://github.com/${ghRepo()}/releases/download/${tag}/${ghName(obj)}`;
   }

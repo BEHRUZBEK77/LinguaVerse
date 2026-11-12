@@ -143,6 +143,12 @@
       .ls .tag { display: none; }
       nav .links a.hide-m { display: none; }
     }
+
+    .lv-report{margin:12px 0;border:1px solid var(--border);border-radius:10px;padding:10px 14px;background:var(--surface)}
+    .lv-report summary{cursor:pointer;color:var(--text2);font-size:.9rem}
+    .lv-report-body{display:grid;gap:8px;margin-top:10px}
+    .lv-report select,.lv-report textarea{width:100%;border-radius:8px;border:1px solid var(--border2);background:var(--bg2);color:var(--text);padding:9px;font:inherit}
+    .lv-report textarea{min-height:80px;resize:vertical}
   </style>
   <link rel="icon" type="image/svg+xml" href="/media/linguaverse-mark.svg"><link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
   <link rel="stylesheet" href="../css/lv-theme.css">
@@ -199,6 +205,13 @@
     <div class="yt-box hidden" id="ytBox"><iframe class="yt-frame" id="ytFrame" title="YouTube" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="yt-list" id="ytList"></div></div>
     <div class="media-status" id="mediaStatus" role="status" translate="no"></div>
     <div class="chapter-list" id="videoChapters" translate="no"></div>
+    <details class="lv-report" id="lvReport"><summary>⚑ Darsda xato topdingizmi?</summary>
+      <div class="lv-report-body">
+        <select id="repKind"><option value="translation">Tarjima xato</option><option value="grammar">Grammatika xato</option><option value="audio">Talaffuz / ovoz</option><option value="video">Video ochilmaydi / buzilgan</option><option value="other">Boshqa</option></select>
+        <textarea id="repText" maxlength="800" placeholder="Qaysi joyda va nima noto‘g‘ri? Masalan: 3-daqiqadagi «I has» — «I have» bo‘lishi kerak"></textarea>
+        <button class="btn" id="repSend" type="button">Yuborish</button><span class="muted" id="repMsg" role="status" style="margin-left:10px;font-size:.85rem"></span>
+      </div>
+    </details>
     <div class="controls" id="liveControls">
       <button onclick="prevScene()" aria-label="Oldingi"><i class="fa-solid fa-backward-step"></i></button>
       <button id="btnPlay" onclick="togglePlay()" aria-label="Ijro"><i class="fa-solid fa-play"></i></button>
@@ -259,6 +272,17 @@
     const params = new URLSearchParams(location.search);
     const S = { lang: params.get('lang') || pref.targetLang, level: params.get('level') || null, user: null, mine: { owned: [], progress: {}, plan: 'free', videoLimit: 10 }, buy: null };
 
+    // "Darsda xato bormi?" — xabar serverga (admin panelda ko'rinadi)
+    $('repSend')?.addEventListener('click', async () => {
+      const text = $('repText').value.trim();
+      if (text.length < 5) { $('repMsg').textContent = 'Xatoni qisqacha yozing.'; return; }
+      $('repSend').disabled = true; $('repMsg').textContent = 'Yuborilmoqda…';
+      try {
+        await api('report', { lang: S.lang, level: S.level, n: P.n, kind: $('repKind').value, text, t: Math.floor($('mp4')?.currentTime || 0) });
+        $('repText').value = ''; $('repMsg').textContent = '✓ Rahmat! Xabaringiz yuborildi, tekshirib tuzatamiz.';
+      } catch (e) { $('repMsg').textContent = e.message; }
+      finally { $('repSend').disabled = false; }
+    });
     async function api(action, payload = {}) {
       if (!S.user) throw Object.assign(new Error('Tizimga kiring'), { code: 'auth' });
       const idToken = await S.user.getIdToken();

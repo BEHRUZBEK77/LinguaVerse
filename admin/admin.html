@@ -2421,8 +2421,10 @@
               <option value="english">🇬🇧 Ingliz tili</option><option value="russian">🇷🇺 Rus tili</option><option value="turkish">🇹🇷 Turk tili</option><option value="german">🇩🇪 Nemis tili</option><option value="spanish">🇪🇸 Ispan tili</option><option value="arabic">🇸🇦 Arab tili</option><option value="chinese">🇨🇳 Xitoy tili</option><option value="korean">🇰🇷 Koreys tili</option>
             </select>
             <button class="filter-btn ab" onclick="loadVideos()"><i class="fa-solid fa-rotate-right"></i> Yangilash</button>
+            <button class="filter-btn ab" onclick="loadReports()"><i class="fa-solid fa-flag"></i> Xato xabarlari</button>
           </div>
         </div>
+        <div id="repBox" style="margin-bottom:14px"></div>
         <div id="vidPlayerWrap" hidden style="margin-bottom:16px;background:#0b1120;border:1px solid rgba(56,189,248,.25);border-radius:12px;padding:12px">
           <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
             <div id="vidNow" style="font-weight:600"></div>
@@ -3459,6 +3461,27 @@ ${o.status === 'pending' ? `
     };
 
     // ── VIDEO DARSLAR (admin ko'radi) ─────────────────
+    // ── Darslardagi xato xabarlari (foydalanuvchilardan) ──
+    window.loadReports = async function () {
+      const box = document.getElementById('repBox');
+      box.innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      try {
+        const idToken = await CURRENT_ADMIN.getIdToken();
+        const r = await fetch('/.netlify/functions/course', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'admin-reports', idToken }) });
+        const d = await r.json(); if (!r.ok) throw new Error(d.error || 'Xato');
+        const ID = (lv, n) => (lv === 'pro' ? ['P1', 'P2'][Math.floor(n / 25)] : lv === 'c2' ? ['C1', 'C2'][Math.floor(n / 25)] : ['A1', 'A2', 'B1', 'B2'][Math.floor(n / 25)]) + '-' + String(n % 25 + 1).padStart(2, '0');
+        box.innerHTML = `<div class="card" style="padding:14px"><b>Yangi xato xabarlari: ${d.rows.length}</b>` + (d.rows.length ? d.rows.map(x => `<div style="border-top:1px solid var(--border);padding:10px 0;margin-top:8px">
+<div style="font-size:.8rem;color:var(--text3)">${esc(x.lang)} · ${esc(ID(x.level, x.n))} · ${esc(x.kind)} · ${Math.floor(x.t / 60)}:${String(x.t % 60).padStart(2, '0')} · ${esc(x.email)}</div>
+<div style="margin:6px 0;white-space:pre-wrap">${esc(x.text)}</div>
+<button class="filter-btn ab" data-id="${esc(x.id)}" onclick="doneReport(this.dataset.id, this)">✓ Tuzatildi</button></div>`).join('') : '<div style="color:var(--text3);margin-top:6px">Hozircha xabar yo‘q.</div>') + '</div>';
+      } catch (e) { box.innerHTML = `<div class="empty">${esc(e.message)}</div>`; }
+    };
+    window.doneReport = async function (id, btn) {
+      btn.disabled = true;
+      const idToken = await CURRENT_ADMIN.getIdToken();
+      const r = await fetch('/.netlify/functions/course', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'admin-report-done', idToken, id }) });
+      if (r.ok) btn.closest('div').remove(); else btn.disabled = false;
+    };
     window.loadVideos = async function () {
       const box = document.getElementById('vidBox');
       const lang = document.getElementById('vidLang').value;

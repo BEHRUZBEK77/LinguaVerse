@@ -444,6 +444,35 @@ async function gradeQuiz(uid, email, name, body) {
 // ───────────────────────────────────────────────────────────────────────────
 // VIDEO FABRIKA (admin)
 // ───────────────────────────────────────────────────────────────────────────
+// ── "DARSDA XATO BORMI?" — foydalanuvchilar darsdagi xatoni xabar qiladi (AI yozgan darslar sifati uchun) ──
+const REPORT_KINDS = { translation: 'Tarjima xato', grammar: 'Grammatika xato', audio: 'Talaffuz / ovoz', video: 'Video ochilmaydi / buzilgan', other: 'Boshqa' };
+async function reportLesson(auth, body) {
+  if (auth.anonymous) throw httpErr(403, 'Xabar yuborish uchun hisobga kiring');
+  const lang = String(body.lang || ''), level = String(body.level || ''), n = Number(body.n);
+  if (!/^[a-z]{2,10}$/.test(lang) || !['b2', 'c2', 'pro'].includes(level) || !Number.isInteger(n) || n < 0 || n > 99) throw httpErr(400, "Dars noto'g'ri");
+  const kind = Object.hasOwn(REPORT_KINDS, body.kind) ? body.kind : 'other';
+  const text = String(body.text || '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, 800);
+  if (text.length < 5) throw httpErr(400, 'Xatoni qisqacha yozing (kamida 5 belgi)');
+  const rl = await require('./_ratelimit.js').checkRateLimit(`report:${auth.uid}`, { windowMs: 3600_000, max: 8 });
+  if (!rl.ok) throw httpErr(429, "Juda ko'p xabar — bir soatdan keyin urinib ko'ring");
+  const at = Math.max(0, Math.min(36000, Math.floor(Number(body.t) || 0)));
+  await fsdb.addDoc('lessonReports', { uid: auth.uid, email: auth.email || '', lang, level, n, kind, text, t: at, status: 'new', createdAt: new Date(), createdMs: Date.now() });
+  return { ok: true };
+}
+async function adminReports(uid, body = {}) {
+  await requireAdmin(uid);
+  const st = ['new', 'done'].includes(body.status) ? body.status : 'new';
+  const rows = await fsdb.queryList('lessonReports', [{ field: 'status', op: 'EQUAL', value: st }], 'createdMs', 300).catch(() => []);
+  return { rows: rows.map(r => ({ id: r.id, lang: r.lang, level: r.level, n: r.n, kind: REPORT_KINDS[r.kind] || r.kind, text: r.text, t: r.t, email: r.email, at: r.createdAt })) };
+}
+async function adminReportDone(uid, body = {}) {
+  await requireAdmin(uid);
+  const id = String(body.id || '').slice(0, 80);
+  if (!id) throw httpErr(400, 'id kerak');
+  await fsdb.setDoc(`lessonReports/${id}`, { status: 'done', doneAt: new Date(), doneBy: uid, note: String(body.note || '').slice(0, 300) });
+  return { ok: true };
+}
+
 async function requireAdmin(uid) {
   const a = await fsdb.getDoc(`admins/${uid}`).catch(() => null);
   if (!a) throw httpErr(403, "Admin huquqi yo'q");
@@ -654,6 +683,9 @@ exports.handler = async function (event) {
       case 'factory-status': return json(200, await factoryStatus(auth.uid, body));
       case 'factory-run':    return json(200, await factoryRun(auth.uid, body));
       case 'admin-videos':   return json(200, await adminVideos(auth.uid, body));
+      case 'report':         return json(200, await reportLesson(auth, body));
+      case 'admin-reports':  return json(200, await adminReports(auth.uid, body));
+      case 'admin-report-done': return json(200, await adminReportDone(auth.uid, body));
       default:       return json(400, { error: "Noma'lum action: " + body.action });
     }
   } catch (e) {

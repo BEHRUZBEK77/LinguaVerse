@@ -404,8 +404,52 @@ async function sceneAudio(uid, body) {
 // ───────────────────────────────────────────────────────────────────────────
 const progressPath = (uid, key) => `users/${uid}/courseProgress/${key}`;
 
+const QUIZ_ATTEMPTS_PER_HOUR = 10;
+
+/**
+ * Natija va yakuniy sertifikatni BITTA transact ichida yozadi: ikki parallel
+ * so'rov ikki xil sertifikat bera olmaydi (ID progress hujjatida band qilinadi,
+ * sertifikat hujjati faqat g'olib so'rov tomonidan yoziladi).
+ */
+async function recordQuizResult(uid, email, name, r) {
+  let passedCount = 0, certificate = null, issued = false;
+  await fsdb.transact(progressPath(uid, r.key), cur => {
+    const prog = cur || {};
+    const lessons = { ...(prog.lessons || {}) };
+    const prev = lessons[r.idx];
+    if (!prev || r.score > (prev.score || 0)) lessons[r.idx] = { score: Math.round(r.score * 100) / 100, passed: r.passed, at: new Date() };
+    passedCount = Object.values(lessons).filter(x => x.passed).length;
+    certificate = prog.certificateId || null;
+    issued = false;
+    if (r.isFinal && r.passed && r.owned && !certificate && passedCount >= Math.ceil(r.total * MIN_LESSONS_PASSED)) {
+      certificate = 'LV-' + r.level.toUpperCase() + '-' + crypto.randomBytes(4).toString('hex').toUpperCase();
+      issued = true;
+    }
+    return {
+      lessons, passedCount, total: r.total, updatedAt: new Date(),
+      ...(certificate ? { certificateId: certificate } : {})
+    };
+  });
+
+  if (issued) {
+    await fsdb.setDoc(`certificates/${certificate}`, {
+      certId: certificate, uid, name: name || email || "O'quvchi",
+      course: r.courseName, lang: r.lang, level: r.level.toUpperCase(),
+      finalScore: Math.round(r.score * 100), lessonsPassed: passedCount, lessonsTotal: r.total,
+      issuedAt: new Date()
+    });
+    await fsdb.addDoc(`users/${uid}/events`, { event: 'certificate_issued', certificate, course: r.key, at: new Date() });
+  }
+  return { passedCount, certificate };
+}
+
 async function gradeQuiz(uid, email, name, body) {
   const a = await access(uid, body.lang, body.level, body.n);
+  // Javoblarni terib topishning oldini olish: bir dars testiga soatiga 10 urinish
+  const rl = await require('./_ratelimit.js').checkRateLimit(`quiz:${uid}:${a.product.key}:${a.idx}`,
+    { windowMs: 3600_000, max: QUIZ_ATTEMPTS_PER_HOUR });
+  if (rl.unavailable) throw httpErr(503, 'Xizmat vaqtincha mavjud emas.');
+  if (!rl.ok) throw httpErr(429, "Bu test uchun urinishlar soni tugadi — bir soatdan so'ng qayta urinib ko'ring.");
   const doc = await fsdb.getDoc(lessonPath(body.lang, body.level, a.idx, body.nativeLang || a.user?.nativeLang));
   if (!doc?.quiz) throw httpErr(409, 'Test hali tayyor emas');
   const quiz = JSON.parse(doc.quiz);
@@ -421,28 +465,9 @@ async function gradeQuiz(uid, email, name, body) {
   const isFinal = a.idx === a.total - 1;
   const passed = score >= (isFinal ? PASS_FINAL : PASS_LESSON);
 
-  const key = a.product.key;
-  const prog = (await fsdb.getDoc(progressPath(uid, key))) || {};
-  const lessons = { ...(prog.lessons || {}) };
-  const prev = lessons[a.idx];
-  if (!prev || score > (prev.score || 0)) lessons[a.idx] = { score: Math.round(score * 100) / 100, passed, at: new Date() };
-  const passedCount = Object.values(lessons).filter(x => x.passed).length;
-
-  let certificate = prog.certificateId || null;
-  if (isFinal && passed && a.owned && !certificate && passedCount >= Math.ceil(a.total * MIN_LESSONS_PASSED)) {
-    certificate = 'LV-' + a.product.level.toUpperCase() + '-' + crypto.randomBytes(4).toString('hex').toUpperCase();
-    await fsdb.addDoc('certificates', {
-      certId: certificate, uid, name: name || email || "O'quvchi",
-      course: a.product.name, lang: body.lang, level: a.product.level.toUpperCase(),
-      finalScore: Math.round(score * 100), lessonsPassed: passedCount, lessonsTotal: a.total,
-      issuedAt: new Date()
-    }, certificate);
-    await fsdb.addDoc(`users/${uid}/events`, { event: 'certificate_issued', certificate, course: key, at: new Date() });
-  }
-
-  await fsdb.setDoc(progressPath(uid, key), {
-    lessons, passedCount, total: a.total, updatedAt: new Date(),
-    ...(certificate ? { certificateId: certificate } : {})
+  const { passedCount, certificate } = await recordQuizResult(uid, email, name, {
+    key: a.product.key, idx: a.idx, total: a.total, score, passed, isFinal, owned: a.owned,
+    level: a.product.level, courseName: a.product.name, lang: body.lang
   });
 
   const needMore = isFinal && passed && !certificate
@@ -712,6 +737,8 @@ function json(statusCode, body) {
 }
 
 module.exports.cleanCore = cleanCore;
+module.exports.recordQuizResult = recordQuizResult;
+module.exports.QUIZ_ATTEMPTS_PER_HOUR = QUIZ_ATTEMPTS_PER_HOUR;
 module.exports.cleanQuiz = cleanQuiz;
 module.exports.catalog = catalog;
 module.exports.ensureLesson = ensureLesson;

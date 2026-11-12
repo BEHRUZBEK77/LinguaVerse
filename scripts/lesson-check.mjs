@@ -31,6 +31,15 @@ for (const f of process.argv.slice(2)) {
       if (SCRIPT[lang] && !SCRIPT[lang].test(s.say)) throw new Error(`#${i + 1} say "${s.say.slice(0, 40)}" — ${lang} yozuvida emas. say o'sha tilning o'z yozuvida bo'lsin (transliteratsiya emas)`);
       if (lang !== 'english' && (s.say.match(ENG) || []).length >= 2) throw new Error(`#${i + 1} say "${s.say.slice(0, 40)}" — inglizcha. say faqat ${lang} tilida bo'lsin`);
     });
+    // Shablon dars: chet tildagi `say` ichida o'zbekcha qolip qoldig'i yoki bitta gap ko'p sahnada takror
+    const saysAll = (L.scenes || []).map(s => (s.say || '').trim()).filter(Boolean);
+    const tpl = saysAll.find(t => /ko[‘'ʻ`]?nikma\s*:/i.test(t));
+    if (tpl) throw new Error(`say ichida o'zbekcha qolip qoldig'i ("${tpl.slice(0, 40)}") — shablon dars. Darsni brief asosida TO'LIQ qayta yozing`);
+    if (saysAll.length >= 10) {
+      const freq = {}; for (const t of saysAll) freq[t] = (freq[t] || 0) + 1;
+      const [top, cnt] = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
+      if (cnt >= 5 && cnt / saysAll.length > 0.3) throw new Error(`bitta gap ("${top.slice(0, 40)}") ${cnt} ta sahnada takrorlangan — shablon dars. Har sahnada o'z misoli bo'lsin, darsni TO'LIQ qayta yozing`);
+    }
     // Lotin yozuvli tillarda maxsus harflar tushib qolmasin (Kac → Kaç, Uc → Üç)
     const LETTERS = { turkish: [/[çğıİöşüÇĞŞÖÜ]/, 0.4, 'ç ğ ı İ ö ş ü'], german: [/[äöüßÄÖÜ]/, 0.08, 'ä ö ü ß'], spanish: [/[ñáéíóúü¿¡ÁÉÍÓÚÑ]/, 0.1, 'ñ á é í ó ú ¿ ¡'] };
     if (LETTERS[lang]) {

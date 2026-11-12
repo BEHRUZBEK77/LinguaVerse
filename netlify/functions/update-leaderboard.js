@@ -36,6 +36,17 @@ function pickPublicFields(user) {
   };
 }
 
+// Yozuvlarni BATCH tadan parallel bajaradi (ketma-ket 150 so'rov funksiya
+// vaqt limitiga yaqinlashardi). Muvaffaqiyatli yozuvlar sonini qaytaradi.
+const BATCH = 5;
+async function writeInBatches(items, write, size = BATCH) {
+  let written = 0;
+  for (let i = 0; i < items.length; i += size) {
+    await Promise.all(items.slice(i, i + size).map(async item => { await write(item); written++; }));
+  }
+  return written;
+}
+
 exports.handler = async function () {
   const started = Date.now();
 
@@ -58,11 +69,8 @@ exports.handler = async function () {
       }
     }
 
-    let written = 0;
-    for (const [uid, user] of merged.entries()) {
-      await fsdb.setDoc(`leaderboard/${uid}`, pickPublicFields(user));
-      written++;
-    }
+    const written = await writeInBatches([...merged.entries()], ([uid, user]) =>
+      fsdb.setDoc(`leaderboard/${uid}`, pickPublicFields(user)));
 
     // Reytingdan tushib qolgan (endi top N ichida yo'q) eski hujjatlarni
     // tozalash — bu yerda soddalik uchun o'tkazib yuborilgan; ular vaqt
@@ -78,3 +86,5 @@ exports.handler = async function () {
     return { statusCode: 200, body: JSON.stringify({ ok: false, error: e.message }) };
   }
 };
+
+module.exports.writeInBatches = writeInBatches;

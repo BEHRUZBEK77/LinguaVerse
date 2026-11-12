@@ -3,7 +3,9 @@ name: Validate LinguaVerse
 on:
   push:
     branches: [main, master]
+    paths-ignore: ['content/**']
   pull_request:
+    paths-ignore: ['content/**']
 
 permissions:
   contents: read

@@ -1,5 +1,12 @@
 const keys = require('./_keys.js');
 const ratelimit = require('./_ratelimit.js');
+const fsdb = require('./_firestore.js');
+const crypto = require('crypto');
+
+// Natijalar 6 soat keshlanadi; YouTube API'ga kunlik umumiy so'rovlar soni cheklangan
+// (search.list = 100 kvota birligi, standart kunlik kvota 10 000).
+const CACHE_TTL_MS = 6 * 60 * 60 * 1000;
+const DAILY_API_LIMIT = 90;
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -98,6 +105,59 @@ async function searchVideos({ query, language, apiKey, fetchImpl = globalThis.fe
   }
 }
 
+function cacheKey(search) {
+  const raw = [search.language.code, search.query.toLowerCase()].join('|');
+  return crypto.createHash('sha256').update(raw).digest('hex').slice(0, 40);
+}
+
+async function readCache(key, now = Date.now()) {
+  try {
+    const doc = await fsdb.getDoc(`ytCache/${key}`);
+    const cachedAt = Number(doc?.cachedAt) || 0;
+    if (doc && Array.isArray(doc.videos) && now - cachedAt < CACHE_TTL_MS) return doc.videos;
+  } catch (error) {
+    console.error('[youtube-videos] cache read failed:', error.message);
+  }
+  return null;
+}
+
+async function writeCache(key, videos, now = Date.now()) {
+  try {
+    await fsdb.setDoc(`ytCache/${key}`, { videos, cachedAt: now });
+  } catch (error) {
+    console.error('[youtube-videos] cache write failed:', error.message);
+  }
+}
+
+// Kunlik umumiy limit: atomik hisoblagich. Xato bo'lsa — yopiq (API chaqirilmaydi).
+async function takeDailyQuota(now = Date.now(), limit = DAILY_API_LIMIT) {
+  const day = new Date(now).toISOString().slice(0, 10);
+  let allowed = false;
+  try {
+    await fsdb.transact(`ytQuota/${day}`, current => {
+      const count = Number(current?.count) || 0;
+      if (count >= limit) { allowed = false; return null; }
+      allowed = true;
+      return { count: count + 1, updatedAt: new Date(now) };
+    });
+  } catch (error) {
+    console.error('[youtube-videos] daily quota check failed:', error.message);
+    return false;
+  }
+  return allowed;
+}
+
+async function cachedSearch(search, apiKey, fetchImpl) {
+  if (!apiKey || !fsdb.configured()) return searchVideos({ ...search, apiKey, fetchImpl });
+  const key = cacheKey(search);
+  const cached = await readCache(key);
+  if (cached) return { ok: true, configured: true, videos: cached, cached: true };
+  if (!(await takeDailyQuota())) return { ok: true, configured: true, videos: [], limited: true };
+  const result = await searchVideos({ ...search, apiKey, fetchImpl });
+  if (result.configured) await writeCache(key, result.videos);
+  return result;
+}
+
 exports.handler = async function (event) {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: CORS, body: '' };
   if (event.httpMethod !== 'POST') return json(405, { error: 'Method Not Allowed' });
@@ -131,10 +191,7 @@ exports.handler = async function (event) {
   }
 
   try {
-    const result = await searchVideos({
-      ...search,
-      apiKey: keys.get('YOUTUBE_API_KEY')
-    });
+    const result = await cachedSearch(search, keys.get('YOUTUBE_API_KEY'));
     return json(200, { ...result, query: search.query, searchUrl: search.searchUrl });
   } catch (error) {
     console.error('[youtube-videos] search failed:', error.message);
@@ -144,3 +201,6 @@ exports.handler = async function (event) {
 
 module.exports.buildSearch = buildSearch;
 module.exports.searchVideos = searchVideos;
+module.exports.cachedSearch = cachedSearch;
+module.exports.CACHE_TTL_MS = CACHE_TTL_MS;
+module.exports.DAILY_API_LIMIT = DAILY_API_LIMIT;

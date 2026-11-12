@@ -43,7 +43,8 @@
     const id = new URLSearchParams(location.search).get('id') || '';
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     function copyLink() { navigator.clipboard?.writeText(location.href); }
-    fetch('/.netlify/functions/course?verify=' + encodeURIComponent(id))
+    if (!id) document.getElementById('root').innerHTML = '<div class="msg">Sertifikat raqami ko‘rsatilmagan.</div>';
+    else fetch('/.netlify/functions/course?verify=' + encodeURIComponent(id))
       .then(r => r.json())
       .then(c => {
         if (!c.valid) { document.getElementById('root').innerHTML = `<div class="msg"><h2>Sertifikat topilmadi</h2><p>ID: ${esc(id)} — bunday sertifikat LinguaVerse bazasida yo'q.</p></div>`; return; }

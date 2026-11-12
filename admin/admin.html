@@ -3212,8 +3212,8 @@
       feed.innerHTML = orders.slice(0, 6).map(o => {
         const ts = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleTimeString('uz', { hour: '2-digit', minute: '2-digit' }) : '--:--';
         return `<div class="activity-item">
-<div class="ai-dot ${o.status || 'pending'}"></div>
-<div class="ai-text"><strong style="color:var(--text)">${o.userName || 'Anonim'}</strong> — ${o.itemName || 'mahsulot'}</div>
+<div class="ai-dot ${esc(o.status || 'pending')}"></div>
+<div class="ai-text"><strong style="color:var(--text)">${esc(o.userName || 'Anonim')}</strong> — ${esc(o.itemName || 'mahsulot')}</div>
 <div class="ai-time">${ts}</div></div>`;
       }).join('');
     }
@@ -3324,14 +3324,14 @@ ${o.status === 'pending' ? `
           if (src) withReceipts.push({ ...o, _src: src });
         });
         if (!withReceipts.length) { grid.innerHTML = '<div class="empty" style="grid-column:1/-1"><span><i class="fa-solid fa-camera" style="color:#94a3b8"></i></span>Hech qanday chek rasmi yo\'q</div>'; return; }
-        grid.innerHTML = withReceipts.map(o => `<div class="receipt-thumb-card" onclick="openLightbox('${o._src}')">
-<img src="${o._src}" alt="Chek" loading="lazy" onerror="this.style.display='none'"/>
+        grid.innerHTML = withReceipts.map(o => `<div class="receipt-thumb-card" data-src="${esc(/^https?:\/\//i.test(o._src || '') ? o._src : '')}" onclick="openLightbox(this.dataset.src)">
+<img src="${esc(/^https?:\/\//i.test(o._src || '') ? o._src : '')}" alt="Chek" loading="lazy" onerror="this.style.display='none'"/>
 <div class="receipt-thumb-info">
-<div class="receipt-thumb-name">${o.itemName || '—'}</div>
-<div class="receipt-thumb-meta">${o.userName || '—'} · <span class="status-badge status-${o.status || 'pending'}" style="font-size:.55rem;padding:2px 7px">${o.status || 'pending'}</span></div>
+<div class="receipt-thumb-name">${esc(o.itemName || '—')}</div>
+<div class="receipt-thumb-meta">${esc(o.userName || '—')} · <span class="status-badge status-${esc(o.status || 'pending')}" style="font-size:.55rem;padding:2px 7px">${esc(o.status || 'pending')}</span></div>
 <div class="receipt-thumb-meta" style="color:var(--gold)">${(o.price_uzs || 0).toLocaleString()} so'm</div>
 </div></div>`).join('');
-      } catch (e) { grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span>${e.message}</div>`; }
+      } catch (e) { grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span>${esc(e.message)}</div>`; }
     };
 
     // ── ONLAYN TO'LOVLAR (inPAY + qo'lda) ─────────────
@@ -3978,7 +3978,7 @@ ${o.status === 'pending' ? `
 
         renderPayouts();
       } catch (e) {
-        wrap.innerHTML = `<div class="empty"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span>${e.message}</div>`;
+        wrap.innerHTML = `<div class="empty"><span><i class="fa-solid fa-triangle-exclamation" style="color:#fbbf24"></i></span>${esc(e.message)}</div>`;
         showPermError(e);
       }
     };
@@ -4195,7 +4195,7 @@ ${o.status === 'pending' ? `
 <td><button class="btn-view-user" onclick="viewUser('${u.id}')" style="font-size:.72rem;padding:5px 12px"><i class="fa-solid fa-eye"></i> Ko'rish</button></td>
 </tr>`;
         }).join('');
-      } catch (e) { tbody.innerHTML = `<tr><td colspan="8" class="loading-row" style="color:var(--red)"><i class="fa-solid fa-circle-xmark"></i> ${e.message}</td></tr>`; }
+      } catch (e) { tbody.innerHTML = `<tr><td colspan="8" class="loading-row" style="color:var(--red)"><i class="fa-solid fa-circle-xmark"></i> ${esc(e.message)}</td></tr>`; }
     };
 
     // ── USER DETAIL ────────────────────────────────────
@@ -4250,7 +4250,7 @@ ${o.status === 'pending' ? `
 <button class="btn-danger" onclick="resetUserTokens('${u.id}')"><i class="fa-solid fa-rotate-right"></i> Tokenlarni Tiklash</button>
 </div>
 <div class="action-result" id="user-res-${u.id}" style="margin-top:12px"></div>`;
-      } catch (e) { body.innerHTML = `<div style="color:var(--red);font-family:var(--font-h)"><i class="fa-solid fa-circle-xmark"></i> ${e.message}</div>`; }
+      } catch (e) { body.innerHTML = `<div style="color:var(--red);font-family:var(--font-h)"><i class="fa-solid fa-circle-xmark"></i> ${esc(e.message)}</div>`; }
     };
 
     window.saveUser = async function (uid) {
@@ -4309,17 +4309,17 @@ ${o.status === 'pending' ? `
           res.innerHTML = results.map(renderUserCard).join(''); return;
         }
         res.innerHTML = '<div class="empty"><span><i class="fa-solid fa-magnifying-glass" style="color:#94a3b8"></i></span>Topilmadi. Email yoki to\'g\'ri UID kiriting.</div>';
-      } catch (e) { res.innerHTML = `<div style="color:var(--red);font-family:var(--font-h)"><i class="fa-solid fa-circle-xmark"></i> ${e.message}</div>`; }
+      } catch (e) { res.innerHTML = `<div style="color:var(--red);font-family:var(--font-h)"><i class="fa-solid fa-circle-xmark"></i> ${esc(e.message)}</div>`; }
     };
 
     function renderUserCard(u) {
       const planClass = { free: 'plan-free', pro: 'plan-pro', premium: 'plan-premium', ultimate: 'plan-ultimate' }[u.plan || 'free'] || 'plan-free';
       return `<div class="user-search-card">
 <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
-<div class="user-avatar" style="width:46px;height:46px;font-size:1.1rem">${(u.displayName || u.email || '?').substring(0, 1).toUpperCase()}</div>
-<div><div style="font-family:var(--font-d);font-weight:800;font-size:1rem;letter-spacing:.03em">${u.displayName || '—'}</div><div style="font-size:.76rem;color:var(--text3);font-family:var(--font-h)">${u.email || u.id}</div></div>
+<div class="user-avatar" style="width:46px;height:46px;font-size:1.1rem">${esc((u.displayName || u.email || '?').substring(0, 1).toUpperCase())}</div>
+<div><div style="font-family:var(--font-d);font-weight:800;font-size:1rem;letter-spacing:.03em">${esc(u.displayName || '—')}</div><div style="font-size:.76rem;color:var(--text3);font-family:var(--font-h)">${esc(u.email || u.id)}</div></div>
 ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid fa-crown"></i> VIP</span>' : ''}
-<span class="plan-chip ${planClass}" style="${!u.isVIP ? 'margin-left:auto' : ''}">${u.plan || 'free'}</span>
+<span class="plan-chip ${planClass}" style="${!u.isVIP ? 'margin-left:auto' : ''}">${esc(u.plan || 'free')}</span>
 </div>
 <div class="ud-grid" style="margin-bottom:14px">
 <div class="ud-field"><div class="ud-label">XP</div><div class="ud-val" style="color:var(--accent)">${(u.xp || 0).toLocaleString()}</div></div>
@@ -4497,7 +4497,7 @@ ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid 
         if (!r.ok || !d.ok) throw new Error(d.error || 'Server xato qaytardi');
         renderApikeys(d);
       } catch (e) {
-        box.textContent = `Firebase sozlamalari yuklanmadi: ${e.message}`;
+        box.textContent = `Firebase sozlamalari yuklanmadi: ${esc(e.message)}`;
         if (st) st.textContent = 'Holatni aniqlab bo‘lmadi.';
       }
     };
@@ -4805,7 +4805,7 @@ ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid 
         } catch (e) {
           const chip = document.createElement('span');
           chip.setAttribute('class', 'test-chip bad');
-          chip.textContent = `${p}: xato (${e.message})`;
+          chip.textContent = `${p}: xato (${esc(e.message)})`;
           chips.appendChild(chip);
         }
       }

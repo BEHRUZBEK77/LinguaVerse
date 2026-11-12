@@ -436,7 +436,9 @@ async function gradeQuiz(uid, email, name, body) {
     ? `Sertifikat uchun kamida ${Math.ceil(a.total * MIN_LESSONS_PASSED)} ta darsdan o'tish kerak (hozir ${passedCount}).`
     : null;
 
-  return { score: Math.round(score * 100), correct, total: quiz.length, passed, review, passedCount, certificate, needMore };
+  // To'g'ri javoblar faqat o'tganda ko'rsatiladi — aks holda bo'sh javob yuborib javoblarni bilib olish mumkin edi
+  const safeReview = passed ? review : review.map(r => ({ ok: r.ok }));
+  return { score: Math.round(score * 100), correct, total: quiz.length, passed, review: safeReview, passedCount, certificate, needMore };
 }
 
 // ───────────────────────────────────────────────────────────────────────────

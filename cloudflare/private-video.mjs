@@ -4,7 +4,7 @@ const REPO = 'BEHRUZBEK77/LinguaVerse';
 const metadataCache = new Map();
 const signature = (path, expires, key) => createHmac('sha256', key).update(`${expires}\n${path}`).digest('hex');
 export function validTicket(path, expires, sig, key, now = Math.floor(Date.now() / 1000)) {
-  if (!key || !/^gh:[\w.-]+#courseVideos\/v3\/uz\/[a-z]+_(b2|c2|pro)_\d+\.mp4$/.test(path)
+  if (!key || !/^gh:[\w.-]+#courseVideos\/v3\/[a-z]{2}\/[a-z]+_(b2|c2|pro)_\d+\.mp4$/.test(path)
       || !/^\d{10}$/.test(expires) || Number(expires) <= now || Number(expires) > now + 10800
       || !/^[a-f0-9]{64}$/.test(sig)) return false;
   return timingSafeEqual(Buffer.from(signature(path, expires, key), 'hex'), Buffer.from(sig, 'hex'));

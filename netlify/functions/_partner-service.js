@@ -60,13 +60,15 @@ async function apply(user, body, ip) {
   if (cfg.paused) throw err(503, "Hamkorlik dasturi vaqtincha yangi arizalarni qabul qilmayapti");
   const app = P.validateApplication(body);
   const cur = await account(user.uid);
-  if (cur && ['active', 'review', 'pending'].includes(cur.status)) throw err(409, 'Sizda allaqachon hamkorlik arizasi bor — holatini kabinetda ko‘ring');
+  if (cur && ['active', 'review', 'pending', 'needs-info'].includes(cur.status)) throw err(409, 'Sizda allaqachon hamkorlik arizasi bor — holatini kabinetda ko‘ring');
+  // Rad etilgan hamkor qayta ariza bersa — avtomatik emas, admin ko'rigi orqali
+  const wasRejected = cur?.status === 'rejected';
   if (cur?.status === 'suspended') throw err(403, "Hisobingiz to'xtatilgan. Qo'llab-quvvatlash bilan bog'laning.");
   const T = P.TYPES[app.type];
   const code = cur?.code || await claimCode(user.uid, body.code || app.name);
   let status = 'review';
-  if (T.auto && (app.type !== 'teacher' || cfg.autoApproveTeachers)) status = 'active';
-  else if (T.verify === 'social' || T.verify === 'dns') status = 'pending';
+  if (T.auto && !wasRejected && (app.type !== 'teacher' || cfg.autoApproveTeachers)) status = 'active';
+  else if (!wasRejected && (T.verify === 'social' || T.verify === 'dns')) status = 'pending';
   const h = P.ipHash(ip);
   const doc = {
     uid: user.uid, email: user.email || '', type: app.type, name: app.name, contact: app.contact, about: app.about, city: app.city,

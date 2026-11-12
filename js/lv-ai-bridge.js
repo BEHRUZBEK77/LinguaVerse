@@ -18,7 +18,7 @@
 //   <script type="module" src="../js/lv-ai-bridge.js"></script>
 // ═══════════════════════════════════════════════════════════════════════════
 
-import { LV, MODELS, aiRequest } from './lv-core.js';
+import { LV, MODELS, aiRequest, auth } from './lv-core.js';
 
 const AI_PATH = '.netlify/functions/ai';
 const origFetch = window.fetch.bind(window);
@@ -68,9 +68,10 @@ window.fetch = async function (input, init) {
   try { payload = JSON.parse(init.body); }
   catch { return origFetch(input, init); }
 
-  // Model allaqachon berilgan bo'lsa — bu yangi kod, aralashmaymiz
+  // Model allaqachon berilgan bo'lsa — bu yangi kod, aralashmaymiz (faqat tokenni qo'shamiz: server tarifni tekshiradi)
   if (payload.model && MODELS[payload.model]) {
-    return origFetch(input, init);
+    const tok = await auth.currentUser?.getIdToken?.().catch(() => null);
+    return origFetch(input, tok ? { ...init, headers: { ...(init.headers || {}), Authorization: `Bearer ${tok}` } } : init);
   }
 
   const snap = await readyPromise;

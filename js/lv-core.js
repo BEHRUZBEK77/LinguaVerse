@@ -76,9 +76,11 @@ export async function aiRequest(payload, signal) {
   if (preferences) payload = { ...preferences, ...payload };
   if (functionsAvailable !== false) {
     try {
+      // Kirgan foydalanuvchi tokeni — server tarifni o'zi tekshiradi (qimmat modellar faqat tarif egalariga)
+      const tok = await auth.currentUser?.getIdToken?.().catch(() => null);
       const r = await fetch(AI_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...(tok ? { Authorization: `Bearer ${tok}` } : {}) },
         body: JSON.stringify(payload),
         signal
       });

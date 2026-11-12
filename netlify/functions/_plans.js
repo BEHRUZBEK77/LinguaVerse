@@ -49,9 +49,10 @@ const COURSE_LANGS = {
 
 /** Kurs mahsuloti: { key:'english_c2', lang, level, name, price } yoki null. */
 function courseProduct(lang, level) {
-  const L = COURSE_LEVELS[String(level || '').toLowerCase()];
-  const langId = String(lang || '').toLowerCase();
-  if (!L || !COURSE_LANGS[langId]) return null;
+  const lvl = String(level || '').toLowerCase(), langId = String(lang || '').toLowerCase();
+  // Object.hasOwn — 'constructor', '__proto__' kabi nomlar prototipdan qiymat olmasin
+  const L = Object.hasOwn(COURSE_LEVELS, lvl) ? COURSE_LEVELS[lvl] : null;
+  if (!L || !Object.hasOwn(COURSE_LANGS, langId) || !(Number(L.price) > 0)) return null;
   return {
     key: `${langId}_${L.id}`,
     lang: langId,
@@ -95,9 +96,9 @@ function planPrice(planId, duration = 'monthly') {
 
 /** Reja mavjud va pullikmi? duration bo'lsa — shu davr uchun narx/days qaytaradi. */
 function paidPlan(id, duration) {
-  const p = PLANS[id];
-  if (id === 'ielts' || !p || p.price <= 0) return null;
-  const dur = DURATIONS[duration] || DURATIONS.monthly;
+  const p = Object.hasOwn(PLANS, String(id)) ? PLANS[id] : null;
+  if (id === 'ielts' || !p || !p.id || !(p.price > 0)) return null;
+  const dur = Object.hasOwn(DURATIONS, String(duration)) ? DURATIONS[duration] : DURATIONS.monthly;
   return { ...p, duration: dur.key, durationLabel: dur.label, days: dur.days, price: planPrice(id, dur.key) };
 }
 

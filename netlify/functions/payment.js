@@ -781,6 +781,7 @@ async function requestPayout(body) {
   const payoutId = 'PO-' + Date.now().toString(36).toUpperCase() + '-' +
                    crypto.randomBytes(2).toString('hex').toUpperCase();
 
+  try {
   await fsdb.addDoc('payouts', {
     payoutId, uid,
     amount,
@@ -790,6 +791,12 @@ async function requestPayout(body) {
     balanceAfter: newBalance,
     createdAt: new Date()
   }, payoutId);
+  } catch (e) {
+    // So'rov yozilmasa — ushlangan pul balansga qaytariladi (pul "yo'qolib" qolmasin)
+    await fsdb.transact(`users/${uid}`, u => u ? { balance: (u.balance || 0) + amount } : null).catch(() => {});
+    console.error('[payment] pul yechish so\'rovi yozilmadi, balans qaytarildi:', e.message);
+    return { ok: false, message: "So'rov saqlanmadi, birozdan so'ng qayta urinib ko'ring. Balansingiz o'zgarmadi." };
+  }
 
   await fsdb.addDoc(`users/${uid}/events`, {
     event: 'payout_requested', payoutId, amount, at: new Date()
@@ -904,8 +911,9 @@ exports.handler = async function (event) {
     if (!orderDoc) return json(404, { error: 'Buyurtma topilmadi: ' + info.orderId });
 
     if (!info.paid) {
-      await fsdb.setDoc(`orders/${orderRef}`, {
-        status: 'failed',
+      // Faqat hali to'lanmagan buyurtma "failed" bo'ladi — kechikib kelgan xabar to'langanini buzmasin
+      await fsdb.transact(`orders/${orderRef}`, cur => (!cur || cur.status === 'paid') ? null : {
+        status: /cancel|refund|reject|fail|expired|declin/i.test(String(info.status || '')) ? 'failed' : (cur.status || 'pending'),
         providerStatus: info.status,
         failedAt: new Date()
       }).catch(e => console.error('[payment] holat yozilmadi:', e.message));

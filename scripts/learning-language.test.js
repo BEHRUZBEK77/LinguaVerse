@@ -142,7 +142,7 @@ test('GitHub video storage uses one immutable release per video and resolves its
   const tag = st.ghTag('courseVideos/v3/uz/english_b2_0.mp4', new Date('2026-11-07T02:31:05Z'));
   assert.equal(tag, 'vid-v3-uz-english_b2_0-20261107023105');
   const env = { ...process.env };
-  process.env.GITHUB_REPOSITORY = 'o/r';
+  process.env.GITHUB_REPOSITORY = 'o/r'; process.env.VIDEO_PUBLIC_FALLBACK = '1';
   try {
     assert.equal(st.signedUrl(`gh:${tag}#courseVideos/v3/uz/english_b2_0.mp4`), `https://github.com/o/r/releases/download/${tag}/courseVideos__v3__uz__english_b2_0.mp4`);
     assert.equal(st.signedUrl('gh:courseVideos/v3/uz/english_b2_0.mp4'), 'https://github.com/o/r/releases/download/videos-v1/courseVideos__v3__uz__english_b2_0.mp4');

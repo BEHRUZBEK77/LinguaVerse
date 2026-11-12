@@ -33,6 +33,28 @@ const CORS = {
 // Har bir nom uchun fallback zanjiri: birinchisi ishlamasa keyingisi.
 // Shu tufayli bitta provayder yiqilsa ham sayt to'xtamaydi.
 // ───────────────────────────────────────────────────────────────────────────
+// Model → kerakli tarif darajasi (0 bepul, 1 NOVA, 2 MEGA, 3 PREMIUM/SERTIFIKAT, 4 ULTRA)
+const MODEL_RANK = { nova: 0, pro: 1, mega: 2, proplus: 2, premium: 3, megaplus: 3, ultra: 4 };
+const PLAN_RANK = { free: 0, nova: 1, mega: 2, premium: 3, ielts: 3, youtuber: 3, ultra: 4 };
+async function planRank(event, payload) {
+  const h = event.headers || {};
+  const token = String(h.authorization || h.Authorization || '').replace(/^Bearer\s+/i, '') || payload.idToken || '';
+  if (!token) return 0;
+  try {
+    const { verifyIdToken } = require('./_auth.js');
+    const fsdb = require('./_firestore.js');
+    const { effectivePlan, withServerPerks } = require('./_video-entitlements.js');
+    const u = await verifyIdToken(token);
+    if (!u || u.anonymous) return 0;
+    if (await fsdb.getDoc(`admins/${u.uid}`).catch(() => null)) return 4;
+    const user = await withServerPerks(fsdb, u.uid, await fsdb.getDoc(`users/${u.uid}`).catch(() => null));
+    const raw = String(user?.plan || '');
+    // Sertifikat PRO (ielts) — alohida tarif, muddati planExpiry bilan
+    if (raw === 'ielts' && (!user.planExpiry || Date.parse(user.planExpiry.$t || user.planExpiry) > Date.now())) return PLAN_RANK.ielts;
+    return PLAN_RANK[effectivePlan(user)] || 0;
+  } catch { return 0; }
+}
+
 const REGISTRY = {
   // ── NOVA — tez, arzon, kundalik savollar
   nova: {
@@ -266,6 +288,7 @@ function withQualityGuide(messages) {
 }
 
 function wantsWebSearch(payload, messages) {
+  if (payload.noAutoSearch) return false;
   if (payload.webSearch === true || payload.searchMode === true) return true;
   const latest = [...messages].reverse().find(message => message.role !== 'assistant' && message.role !== 'system');
   const text = String(latest?.content || '');
@@ -683,7 +706,9 @@ exports.handler = async function (event) {
     // Provayder jonli testi: /.netlify/functions/ai?test=groq
     const testProvider = (event.queryStringParameters || {}).test;
     if (testProvider) {
-      const fn = PROVIDERS[testProvider];
+      // Pullik provayder chaqiruvi — faqat admin
+      if (await planRank(event, {}) < 4) return json(403, { error: 'Faqat admin' });
+      const fn = Object.hasOwn(PROVIDERS, testProvider) ? PROVIDERS[testProvider] : null;
       if (!fn) return json(400, { error: `Noma'lum provayder: ${testProvider}` });
       if (!hasKeyFor(testProvider)) {
         return json(200, { ok: false, configured: false, error: 'kalit sozlanmagan' });
@@ -756,9 +781,16 @@ exports.handler = async function (event) {
     if (gc.maxOutputTokens != null) payload.maxTokens = gc.maxOutputTokens;
   }
 
-  const modelId = String(payload.model || keys.getDefaultModel() || 'nova').toLowerCase();
+  let modelId = String(payload.model || keys.getDefaultModel() || 'nova').toLowerCase();
+  if (!Object.hasOwn(REGISTRY, modelId)) return json(400, { error: `Noma'lum model: ${modelId}` });
+  // ── TARIF TEKSHIRUVI (server) ── Qimmat modellar faqat shu tarif egalariga.
+  // Mijoz yuborgan model nomiga ishonilmaydi: ruxsat bo'lmasa — ruxsat etilgan eng kuchli modelga tushiriladi.
+  const rank = await planRank(event, payload);
+  if ((MODEL_RANK[modelId] || 0) > rank) {
+    modelId = Object.keys(MODEL_RANK).filter(m => MODEL_RANK[m] <= rank).sort((a, b) => MODEL_RANK[b] - MODEL_RANK[a])[0] || 'nova';
+  }
+  if (rank < 2) { payload.thinkingMode = undefined; payload.webSearch = false; payload.searchMode = false; payload.noAutoSearch = true; }
   const entry = REGISTRY[modelId];
-  if (!entry) return json(400, { error: `Noma'lum model: ${modelId}` });
   const thinkingPlan = getThinkingPlan(payload.thinkingMode);
 
   const messages = Array.isArray(payload.messages) ? payload.messages : [];

@@ -654,7 +654,7 @@
           const picked = answers[i];
           $(`o${i}_${rv.answer}`)?.classList.add('ok');
           if (!rv.ok) $(`o${i}_${picked}`)?.classList.add('bad');
-          $(`w${i}`).textContent = rv.ok ? '' : rv.why_uz;
+          $(`w${i}`).textContent = rv.ok ? '' : (rv.why_uz || (r.passed ? '' : 'Izoh testdan o‘tgandan keyin ochiladi.'));
         });
         P.avatar.setEmotion(r.passed ? (r.score >= 90 ? 'impressed' : 'proud') : (r.score < 40 ? 'angry' : 'disappointed'), r.passed ? 1 : 2);
         $('qRes').innerHTML = `<b style="font-size:1.2rem">${r.score}%</b> (${r.correct}/${r.total}) — ${r.passed ? '<span style="color:var(--green)">O\'tdingiz!</span>' : '<span style="color:#fca5a5">O\'tmadingiz. Darsni qayta ko\'ring va yana urinib ko\'ring.</span>'}

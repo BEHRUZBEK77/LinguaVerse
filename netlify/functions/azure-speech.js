@@ -208,7 +208,7 @@ async function synthesize({ text, lang, voice, rate, pitch, style, emotion }) {
   const ssml =
     `<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' ` +
     `xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='${locale}'>` +
-    `<voice name='${voiceName}'>${inner}</voice></speak>`;
+    `<voice name='${xmlEscape(voiceName)}'>${inner}</voice></speak>`;
 
   const resp = await fetch(`https://${REGION()}.tts.speech.microsoft.com/cognitiveservices/v1`, {
     method: 'POST',
@@ -447,6 +447,9 @@ exports.handler = async function (event) {
   const q = event.queryStringParameters || {};
 
   if (event.httpMethod === 'GET') {
+    // Token va test so'rovlari pullik — IP bo'yicha qattiq cheklov
+    const grl = await ratelimit.checkRateLimit(`azure-speech-get:${ratelimit.clientIp(event)}`, { windowMs: 60_000, max: 6 });
+    if (!grl.ok) return json(429, { error: "Juda ko'p so'rov" });
     if (q.action === 'token') {
       try {
         return json(200, await issueToken(), { 'Cache-Control': 'no-store' });

@@ -27,7 +27,7 @@ const TOP_N = 50; // eng katta klient so'rovi (Chinese.js limit(50)) bilan mos
 // role kabi maxfiy narsalar hech qachon bu yerga tushmaydi.
 function pickPublicFields(user) {
   return {
-    displayName: user.displayName || user.email?.split('@')[0] || 'O\'quvchi',
+    displayName: user.displayName || 'O\'quvchi',   // emailning bir qismi ochiq jadvalga chiqmasin
     xp: user.xp || 0,
     coins: user.coins || 0,
     unitsCompleted: user.unitsCompleted || 0,

@@ -113,6 +113,8 @@ function signedUrl(storedPath, ttlSec = 3 * 3600) {
       const proxy = process.env.VIDEO_PROXY_RELATIVE === '0' ? process.env.VIDEO_PROXY_URL : new URL(process.env.VIDEO_PROXY_URL).pathname;
       return `${proxy}?path=${encodeURIComponent(storedPath)}&expires=${expires}&sig=${sig}`;
     }
+    // Proksi sozlanmagan bo'lsa — pullik videoni ochiq havola bilan bermaymiz (yopiq rejim)
+    if (process.env.VIDEO_PUBLIC_FALLBACK !== '1') { console.error('[storage] VIDEO_SIGNING_SECRET/VIDEO_PROXY_URL sozlanmagan — video havolasi berilmadi'); return null; }
     return `https://github.com/${ghRepo()}/releases/download/${tag}/${ghName(obj)}`;
   }
   const c = r2();

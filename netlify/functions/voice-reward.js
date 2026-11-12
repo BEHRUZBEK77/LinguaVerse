@@ -48,23 +48,24 @@ exports.handler = async function (event) {
     const trackPath = `users/${auth.uid}/usage/voice_reward`;
 
     const now = Date.now();
-    const prev = await fsdb.getDoc(trackPath).catch(() => null);
-    const lastAt = prev?.lastRewardAt ? Date.parse(prev.lastRewardAt) : 0;
-
-    if (now - lastAt < MIN_INTERVAL_MS) {
-      return json(200, { ok: false, cooldown: true, waitMs: MIN_INTERVAL_MS - (now - lastAt) });
-    }
+    // Kutish vaqtini atomik band qilamiz — parallel so'rovlar ikki marta mukofot ololmasin
+    let waitMs = 0;
+    await fsdb.transact(trackPath, prev => {
+      const lastAt = prev?.lastRewardAt ? Date.parse(prev.lastRewardAt) : 0;
+      if (now - lastAt < MIN_INTERVAL_MS) { waitMs = MIN_INTERVAL_MS - (now - lastAt); return null; }
+      return { lastRewardAt: new Date(now).toISOString() };
+    });
+    if (waitMs) return json(200, { ok: false, cooldown: true, waitMs });
 
     const userPath = `users/${auth.uid}`;
-    const user = await fsdb.getDoc(userPath).catch(() => null);
-    if (!user) return json(200, { ok: false, error: 'Foydalanuvchi topilmadi' });
-
-    await fsdb.setDoc(userPath, {
-      ...user,
-      xp: (user.xp || 0) + XP_REWARD,
-      coins: (user.coins || 0) + COIN_REWARD
+    let found = false;
+    // Faqat xp/coins o'zgaradi — balans, reja va kurslar ustidan eski nusxa yozilmaydi
+    await fsdb.transact(userPath, user => {
+      if (!user) return null;
+      found = true;
+      return { xp: (user.xp || 0) + XP_REWARD, coins: (user.coins || 0) + COIN_REWARD };
     });
-    await fsdb.setDoc(trackPath, { lastRewardAt: new Date(now).toISOString() });
+    if (!found) return json(200, { ok: false, error: 'Foydalanuvchi topilmadi' });
 
     return json(200, { ok: true, xp: XP_REWARD, coins: COIN_REWARD });
   } catch (e) {

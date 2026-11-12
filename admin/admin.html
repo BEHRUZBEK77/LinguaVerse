@@ -4795,7 +4795,7 @@ ${u.isVIP ? '<span class="vip-chip" style="margin-left:auto"><i class="fa-solid 
       const chips = document.createDocumentFragment();
       for (const p of TEST_PROVIDERS) {
         try {
-          const r = await fetch(AI_URL + '?test=' + p);
+          const r = await fetch(AI_URL + '?test=' + p, { headers: { Authorization: 'Bearer ' + await CURRENT_ADMIN.getIdToken() } });
           const d = await r.json();
           const ok = d.ok === true;
           const chip = document.createElement('span');

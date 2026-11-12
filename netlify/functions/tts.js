@@ -88,6 +88,8 @@ exports.handler = async function (event) {
   //   /.netlify/functions/tts            → sozlamalar holati
   //   /.netlify/functions/tts?test=uz    → Azure'ga jonli test so'rov
   if (event.httpMethod === 'GET') {
+    const grl = await ratelimit.checkRateLimit(`tts-get:${ratelimit.clientIp(event)}`, { windowMs: 60_000, max: 6 });
+    if (!grl.ok) return { statusCode: 429, headers: CORS, body: JSON.stringify({ error: "Juda ko'p so'rov" }) };
     const region = (keys.get('AZURE_SPEECH_REGION') || '(not set)');
     const status = {
       ok: true,
@@ -118,8 +120,8 @@ exports.handler = async function (event) {
 
   try {
     const body = JSON.parse(event.body || '{}');
-    const text = body.input?.text || '';
-    const lang = body.voice?.languageCode || 'en-US';
+    const text = String(body.input?.text || '').slice(0, 1500);          // pullik ovoz — uzunlik cheklovi
+    const lang = /^[a-z]{2,3}(-[A-Z]{2})?$/.test(body.voice?.languageCode || '') ? body.voice.languageCode : 'en-US';
     const rate = body.audioConfig?.speakingRate ?? 0.95;
     if (!text) return { statusCode: 400, headers: CORS, body: JSON.stringify({ error: 'No text' }) };
 

@@ -371,7 +371,7 @@ async function renderOne(n, browser, baseUrl) {
     const course = require(path.join(ROOT, 'netlify/functions/course.js'));
     const objectName = `courseVideos/v3/${NATIVE}/${LANG}_${LEVEL}_${n}.mp4`;
     const up = await storage.upload(objectName, fs.readFileSync(file), 'video/mp4');
-    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: up?.stored || storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null, videoStaleAt: null, videoOldPath: null });
+    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: up?.stored || storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoQuality: SCALE > 1 ? '1080p' : '720p', videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null, videoStaleAt: null, videoOldPath: null });
     await bumpStatus(fsdb, `${LANG}_${LEVEL}`, 1);
     const cefr = L.meta?.cefr;
     if (cefr) await fsdb.transact(`videoFactory/v3_${NATIVE}`, cur => ({ cefr: { ...(cur?.cefr || {}), [`${LANG}_${cefr}`]: ((cur?.cefr || {})[`${LANG}_${cefr}`] || 0) + 1 } })).catch(() => {});

@@ -64,3 +64,24 @@
     return originalFetch(input, init);
   };
 })(typeof window === 'undefined' ? null : window);
+
+/* ── Qurilma darajasi: lite (kuchsiz/sekin internet) · standard · ultra (kuchli) ──
+   <html data-tier="..."> — dizayn shunga moslashadi (css/lv-theme.css). Qo'lda: ?tier=lite|standard|ultra */
+(function () {
+  if (typeof document === 'undefined' || typeof navigator === 'undefined') return;
+  try {
+    const q = new URLSearchParams(location.search).get('tier');
+    if (q && /^(lite|standard|ultra|auto)$/.test(q)) { try { q === 'auto' ? localStorage.removeItem('lv_tier') : localStorage.setItem('lv_tier', q); } catch (e) {} }
+    let tier = null;
+    try { tier = localStorage.getItem('lv_tier'); } catch (e) {}
+    if (!tier) {
+      const c = navigator.connection || {}, mem = navigator.deviceMemory || 4, cores = navigator.hardwareConcurrency || 4;
+      const reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const slowNet = c.saveData || /(^|-)2g|3g/.test(c.effectiveType || '');
+      if (reduced || slowNet || mem <= 2 || cores <= 2) tier = 'lite';
+      else if (mem >= 8 && cores >= 8 && !/Android|iPhone|iPad/i.test(navigator.userAgent)) tier = 'ultra';
+      else tier = 'standard';
+    }
+    document.documentElement.dataset.tier = tier;
+  } catch (e) { document.documentElement.dataset.tier = 'standard'; }
+})();

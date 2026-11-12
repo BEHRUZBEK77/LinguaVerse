@@ -149,6 +149,12 @@
     .lv-report-body{display:grid;gap:8px;margin-top:10px}
     .lv-report select,.lv-report textarea{width:100%;border-radius:8px;border:1px solid var(--border2);background:var(--bg2);color:var(--text);padding:9px;font:inherit}
     .lv-report textarea{min-height:80px;resize:vertical}
+
+    .vwrap{position:relative;width:100%;max-width:1100px}
+    .vmark{position:absolute;pointer-events:none;user-select:none;font:600 12px/1 Inter,system-ui,sans-serif;color:rgba(255,255,255,.24);text-shadow:0 1px 2px rgba(0,0,0,.45);letter-spacing:.06em;transition:left 1.2s ease,top 1.2s ease;z-index:2;white-space:nowrap}
+    .vmark.creator{left:auto!important;top:auto!important;right:12px;bottom:46px;color:rgba(255,255,255,.55);font-size:12px}
+    .vwrap:fullscreen,.vwrap:-webkit-full-screen{max-width:none;background:#000;display:flex;align-items:center}
+    .vwrap:fullscreen video{width:100%;height:100%}
   </style>
   <link rel="icon" type="image/svg+xml" href="/media/linguaverse-mark.svg"><link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
   <link rel="stylesheet" href="../css/lv-theme.css">
@@ -201,7 +207,7 @@
       <div class="subs" id="subs"><span class="tgt" id="subT"></span><span class="uz" id="subU"></span></div>
       <div class="loader" id="pLoader"><div><div class="spin"></div><div id="pLoadTxt">Ustoz darsni tayyorlamoqda…</div><div class="muted" style="font-size:.8rem;margin-top:6px">Dars birinchi marta ochilganda tayyorlanishi biroz vaqt olishi mumkin.</div></div></div>
     </div>
-    <video id="mp4" class="mp4 hidden" controls playsinline preload="metadata" controlslist="nodownload" oncontextmenu="return false"></video>
+    <div class="vwrap" id="vwrap"><video id="mp4" class="mp4 hidden" controls playsinline preload="metadata" controlslist="nodownload noremoteplayback" disablepictureinpicture disableremoteplayback oncontextmenu="return false"></video><div class="vmark hidden" id="vmark" aria-hidden="true"></div></div>
     <div class="yt-box hidden" id="ytBox"><iframe class="yt-frame" id="ytFrame" title="YouTube" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div class="yt-list" id="ytList"></div></div>
     <div class="media-status" id="mediaStatus" role="status" translate="no"></div>
     <div class="chapter-list" id="videoChapters" translate="no"></div>
@@ -283,6 +289,29 @@
       } catch (e) { $('repMsg').textContent = e.message; }
       finally { $('repSend').disabled = false; }
     });
+    // ── VIDEO HIMOYASI: foydalanuvchiga xos suv belgisi (ekrandan yozilgan nusxa qaysi hisobdan ekani ko'rinadi) ──
+    let wmTimer = null;
+    function setupWatermark(pr) {
+      const m = $('vmark'), v = $('mp4'); if (!m || !pr) return;
+      clearInterval(wmTimer);
+      m.classList.remove('hidden');
+      if (pr.creator) { m.className = 'vmark creator'; m.textContent = 'LinguaVerse · ' + (pr.code || ''); return; }
+      m.className = 'vmark'; m.textContent = 'LinguaVerse · ' + pr.mark;
+      const move = () => { m.style.left = (6 + Math.random() * 62) + '%'; m.style.top = (8 + Math.random() * 70) + '%'; };
+      move(); wmTimer = setInterval(move, 7000);
+      // Havola muddati tugasa — video uzilmasin: yangi havola olib, shu joydan davom etamiz
+      let refreshing = false;
+      v.onerror = async () => {
+        if (refreshing || !P.data?.videoUrl) return; refreshing = true;
+        const at = v.currentTime || 0, n = P.n;
+        try { const d = await api('lesson', { lang: S.lang, level: S.level, n }); if (d.videoUrl && P.n === n) { v.src = d.videoUrl; v.currentTime = at; v.play().catch(() => {}); } }
+        catch {} finally { setTimeout(() => { refreshing = false; }, 15000); }
+      };
+      // To'liq ekran — videoning o'zi emas, belgili konteyner (aks holda belgi yo'qoladi)
+      const toWrap = () => { if (document.fullscreenElement === v) document.exitFullscreen().then(() => $('vwrap').requestFullscreen?.()).catch(() => {}); };
+      document.addEventListener('fullscreenchange', toWrap);
+      v.addEventListener('dblclick', e => { e.preventDefault(); document.fullscreenElement ? document.exitFullscreen() : $('vwrap').requestFullscreen?.(); });
+    }
     async function api(action, payload = {}) {
       if (!S.user) throw Object.assign(new Error('Tizimga kiring'), { code: 'auth' });
       const idToken = await S.user.getIdToken();
@@ -514,6 +543,7 @@
         v.classList.remove('hidden');
         v.src = P.data.videoUrl;
         setupVideoExtras();
+        setupWatermark(P.data.protect);
         $('mediaStatus').textContent = 'MP4 · ' + nativeInfo.label + ' → ' + COURSE_LANGS.find(l=>l.id===S.lang).native;
         v.playbackRate = P.speed;
         v.onended = () => { P.avatar?.setEmotion('proud'); $('after').scrollIntoView({ behavior: 'smooth' }); };
@@ -650,7 +680,7 @@
     window.toggleSubs = () => { P.subs = !P.subs; $('subs').classList.toggle('off', !P.subs); $('btnSubs').classList.toggle('on', P.subs); };
     window.toggleUz = () => { P.uz = !P.uz; $('btnUz').classList.toggle('on', P.uz); const sc = P.data?.lesson.scenes[P.scene]; $('subU').textContent = P.uz && sc ? sc.say_uz : ''; };
     window.fullscreen = () => { const el = P.data?.videoUrl && !$('mp4').classList.contains('hidden') ? $('mp4') : $('screen'); (document.fullscreenElement ? document.exitFullscreen() : el.requestFullscreen?.())?.catch?.(() => {}); };
-    window.closePlayer = () => { stopYoutube(); P.token++; P.playing = false; P.started = false; stopAudio(); try { $('mp4').pause(); $('mp4').removeAttribute('src'); $('mp4').load(); } catch {} clearVideoTracks(); $('player').classList.add('hidden'); document.body.style.overflow = ''; if (S.level) openCourse(S.level); };
+    window.closePlayer = () => { clearInterval(wmTimer); $('vmark')?.classList.add('hidden'); stopYoutube(); P.token++; P.playing = false; P.started = false; stopAudio(); try { $('mp4').pause(); $('mp4').removeAttribute('src'); $('mp4').load(); } catch {} clearVideoTracks(); $('player').classList.add('hidden'); document.body.style.overflow = ''; if (S.level) openCourse(S.level); };
 
     // ── DARSDAN KEYIN: lug'at, uy vazifasi, test ──
     function renderAfter() {

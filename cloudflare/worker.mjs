@@ -3,6 +3,7 @@ import { privateVideo } from './private-video.mjs';
 
 const security = {
   'X-Content-Type-Options': 'nosniff',
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
   'X-Frame-Options': 'DENY',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'geolocation=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()'
@@ -55,13 +56,13 @@ export default {
     }
     if (url.pathname === '/admin') {
       url.pathname = '/admin/admin.html';
-      return env.ASSETS.fetch(new Request(url, request));
+      return withSecurity(await env.ASSETS.fetch(new Request(url, request)));
     }
     if (url.pathname === '/languages-html/ai-coach.html') {
       url.pathname = '/languages-html/speaking-coach.html';
       return Response.redirect(url, 301);
     }
-    return env.ASSETS.fetch(request);
+    return withSecurity(await env.ASSETS.fetch(request));
   },
   async scheduled(controller, env, ctx) {
     const name = controller.cron === '0 5 * * *' ? 'renew-subscriptions'
@@ -71,3 +72,10 @@ export default {
     ctx.waitUntil(scheduledHandlers[name]());
   }
 };
+
+// Statik sahifalarga ham xavfsizlik sarlavhalari (clickjacking, MIME sniffing, HTTPS majburiy)
+function withSecurity(res) {
+  const r = new Response(res.body, res);
+  for (const [k, v] of Object.entries(security)) if (!r.headers.has(k)) r.headers.set(k, v);
+  return r;
+}

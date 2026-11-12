@@ -1127,3 +1127,21 @@ h1 span, h1 .grad, h2 .grad, .gradient-text, .head h1 span, .page-head h1 .grad 
 .cb-green { background: var(--brand-soft) !important; color: var(--brand) !important; border-color: transparent !important; }
 h1, h2 { word-break: normal !important; overflow-wrap: normal; hyphens: manual; text-wrap: balance; }
 .head h1 { font-size: clamp(30px, 3.6vw, 46px) !important; }
+
+/* ═══ QURILMA DARAJASI ═══ */
+/* LITE — kuchsiz qurilma yoki sekin internet: effektlarsiz, tez va sodda */
+html[data-tier="lite"] *, html[data-tier="lite"] *::before, html[data-tier="lite"] *::after {
+  animation-duration: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0s !important;
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important; box-shadow: none !important; text-shadow: none !important;
+}
+html[data-tier="lite"] #bgCanvas, html[data-tier="lite"] .lvh::before, html[data-tier="lite"] .lvh::after, html[data-tier="lite"] .lvh-float { display: none !important; }
+html[data-tier="lite"] nav, html[data-tier="lite"] .nav, html[data-tier="lite"] .topbar { background: var(--bg) !important; }
+/* ULTRA — kuchli qurilma: nafis qo'shimcha harakat va chuqurlik */
+html[data-tier="ultra"] .lvh::before { animation: lvAura 18s ease-in-out infinite alternate; }
+@keyframes lvAura { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(-4%,3%,0) scale(1.08); } }
+html[data-tier="ultra"] .lvh-window { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
+html[data-tier="ultra"] .lvh-window:hover { transform: perspective(1200px) rotateX(2deg) rotateY(-3deg) translateY(-4px); }
+html[data-tier="ultra"] .feat:hover, html[data-tier="ultra"] .lang-card:hover, html[data-tier="ultra"] .plan-card:hover, html[data-tier="ultra"] .sec-card:hover {
+  box-shadow: 0 0 0 1px var(--border-hi), var(--shadow-2);
+}
+@media (prefers-reduced-motion: reduce) { html[data-tier="ultra"] .lvh::before { animation: none; } }

@@ -324,7 +324,20 @@ async function getLesson(uid, body) {
     const started = await autoVideo(lang, level, a.idx, nativeLang, doc).catch(e => { console.warn('[course] avto-video:', e.message); return null; });
     if (started === 'started') doc.videoDispatchedAt = new Date();
   }
-  return shape(doc, a, doc.quiz ? 'ready' : 'partial');
+  const out = shape(doc, a, doc.quiz ? 'ready' : 'partial');
+  out.protect = await videoProtection(uid, a.user);
+  return out;
+}
+
+/**
+ * Video himoyasi: har foydalanuvchiga noyob qisqa belgi (ism/email emas) — ekrandan yozilgan nusxa
+ * qaysi hisobdan chiqqanini aniqlash uchun. YouTuber hamkor: yozishga ruxsat, burchakda hamkor kodi.
+ */
+async function videoProtection(uid, user) {
+  const mark = 'LV-' + require('node:crypto').createHash('sha256').update('lv-wm:' + uid).digest('hex').slice(0, 8).toUpperCase();
+  const acc = await fsdb.getDoc(`partnerAccounts/${uid}`).catch(() => null);
+  const creator = !!(acc && acc.status === 'active' && acc.type === 'creator');
+  return { mark, creator, code: creator ? acc.code : null };
 }
 
 /** Klientga: test JAVOBLARISIZ. */
@@ -334,7 +347,7 @@ function shape(doc, a, status) {
   // Haqiqiy MP4 video tayyor bo'lsa — 3 soatlik imzolangan havola
   let videoUrl = null;
   if (doc.videoPath) {
-    try { videoUrl = require('./_storage.js').signedUrl(doc.videoPath, 3 * 3600); }
+    try { videoUrl = require('./_storage.js').signedUrl(doc.videoPath, 2 * 3600); }   // 2 soat: dars + qayta ko'rish uchun yetarli, ulashish uchun qisqa
     catch (e) { console.warn('[course] video havolasi:', e.message); }
   }
   return {

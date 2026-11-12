@@ -207,3 +207,17 @@ test('every language has 150 video lessons: 25 per CEFR level, each level ends w
   assert.match(course.lessonPath('english', 'b2', 7), /^courseLessons\/v4_uz_english_b2_7$/);
   assert.ok(course.CEFR_RATE.A1 < course.CEFR_RATE.C2);
 });
+
+test('teacher validates lang against the allowed list and caps assessed text length', () => {
+  const b = {};
+  assert.equal(teacher.validateBody(b), null);
+  assert.equal(b.lang, 'english');
+  assert.equal(teacher.validateBody({ lang: 'korean', action: 'reply' }), null);
+  assert.match(teacher.validateBody({ lang: '__proto__' }), /qo'llab-quvvatlanmaydi/);
+  assert.match(teacher.validateBody({ lang: 'klingon' }), /qo'llab-quvvatlanmaydi/);
+  assert.match(teacher.validateBody({ lang: ['english'] }), /qo'llab-quvvatlanmaydi/);
+  const long = 'a'.repeat(teacher.ASSESS_MAX_CHARS / 2 + 1);
+  assert.match(teacher.validateBody({ action: 'assess', transcript: [{ a: long }, { a: long }] }), /juda uzun/);
+  assert.equal(teacher.validateBody({ action: 'assess', transcript: [{ a: 'short answer' }] }), null);
+  assert.match(teacher.validateBody({ action: 'assess', transcript: 'x' }), /noto'g'ri/);
+});

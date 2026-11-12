@@ -13,7 +13,7 @@ Qoidalar (har bir sessiya uchun):
 - [⏸ INSON KO'RIGI — avtonom qilinmaydi (sud qarori)] 2. payment.js `confirmPayment`: `activatedAt` belgisi faqat huquq berilgandan keyin; `paid` lekin `activatedAt` yo'q buyurtmani qayta chaqiruv tugatadi; webhook xatoda 5xx qaytarsin (provayder qayta yuborsin).
 - [⏸ INSON KO'RIGI — avtonom qilinmaydi (sud qarori)] 3. auth-bridge.js: `claim` uchun rate limit (uid/IP); eski (legacy) qidiruv xatosida yopiq ishlash (fail-closed). `email_confirm:true` ni o'zgartirma — faqat docs'ga izoh.
 - [x] 4. youtube-videos.js: natijalarni (til, ko'nikma, daraja, imtihon) bo'yicha 6 soat keshlash (fsdb `ytCache/<key>`), kunlik umumiy limit. — bajarildi: `ytCache/<sha>` 6 soat, `ytQuota/<kun>` 90 ta, xatoda yopiq; 2 test.
-- [ ] 5. teacher.js: `ieltsBand[body.lang]` faqat ruxsat etilgan tillar; baholanadigan matn uzunligi cheklovi.
+- [x] 5. teacher.js: `ieltsBand[body.lang]` faqat ruxsat etilgan tillar; baholanadigan matn uzunligi cheklovi. — bajarildi: `validateBody` (til TEACHERS ro'yxatidan, aks holda 400; assess javoblari jami ≤20000 belgi); test.
 - [ ] 6. community.js `save_count`: transact bilan, bir foydalanuvchi bir marta; `authorName` serverdan.
 - [ ] 7. course.js: yakuniy sertifikat `transact` ichida (ikki parallel so'rov ikki sertifikat bermasin); test urinishlariga rate limit (dars bo'yicha soatiga 10).
 

@@ -402,6 +402,22 @@ function lockMessage(quota) {
   return `Bepul 5 daqiqalik speaking tugadi. Ustoz ${when} da yana ochiladi. Hozir davom etish uchun — SERTIFIKAT PRO.`;
 }
 
+// Kiruvchi so'rovni tekshiradi: til faqat ruxsat etilganlardan (ieltsBand kaliti
+// sifatida ham ishlatiladi), baholanadigan matn hajmi cheklangan.
+const ASSESS_MAX_CHARS = 20000;
+function validateBody(body) {
+  if (body.lang === undefined || body.lang === null || body.lang === '') body.lang = 'english';
+  if (typeof body.lang !== 'string' || !Object.prototype.hasOwnProperty.call(TEACHERS, body.lang)) {
+    return "Bu til qo'llab-quvvatlanmaydi.";
+  }
+  if (body.action === 'assess') {
+    if (!Array.isArray(body.transcript) || body.transcript.length > 20) return "Javoblar ro'yxati noto'g'ri.";
+    const total = body.transcript.reduce((n, x) => n + String(x?.a || '').length, 0);
+    if (total > ASSESS_MAX_CHARS) return 'Baholanadigan matn juda uzun.';
+  }
+  return null;
+}
+
 async function gate(action, uid, plan) {
   const lim = DAILY[action];
   if (!lim) return { ok: true };
@@ -445,6 +461,9 @@ exports.handler = async function (event) {
   try { auth = await verifyIdToken(body.idToken); }
   catch { return json(401, { error: 'Ustoz bilan gaplashish uchun tizimga kiring.' }); }
 
+  const invalid = validateBody(body);
+  if (invalid) return json(400, { error: invalid });
+
   try {
     const plan = await userPlan(auth.uid);
     const unlimited = PREMIUM_PLANS.has(plan);
@@ -478,14 +497,14 @@ exports.handler = async function (event) {
         const result = await assess(body);
         // Natija serverda saqlanadi — sertifikat va progress uchun ishonchli manba
         await fsdb.addDoc('ieltsResults', {
-          uid: auth.uid, email: auth.email, lang: body.lang || 'english',
+          uid: auth.uid, email: auth.email, lang: body.lang,
           overall: result.overall, criteria: result.criteria, cefr: result.cefr,
           mode: body.mode || 'exam', createdAt: new Date()
         }).catch(e => console.error('[teacher] natija saqlanmadi:', e.message));
         if (result.overall != null) {
           const u = await fsdb.getDoc(`users/${auth.uid}`).catch(() => null);
-          const best = Math.max(Number(u?.ieltsBand?.[body.lang || 'english']) || 0, result.overall);
-          await fsdb.setDoc(`users/${auth.uid}`, { ieltsBand: { ...(u?.ieltsBand || {}), [body.lang || 'english']: best } })
+          const best = Math.max(Number(u?.ieltsBand?.[body.lang]) || 0, result.overall);
+          await fsdb.setDoc(`users/${auth.uid}`, { ieltsBand: { ...(u?.ieltsBand || {}), [body.lang]: best } })
             .catch(e => console.error('[teacher] band yozilmadi:', e.message));
         }
         return json(200, result);
@@ -507,6 +526,8 @@ function json(statusCode, body) {
 }
 
 module.exports.TEACHERS = TEACHERS;
+module.exports.validateBody = validateBody;
+module.exports.ASSESS_MAX_CHARS = ASSESS_MAX_CHARS;
 module.exports.EMOTIONS = EMOTIONS;
 module.exports.extractJson = extractJson;
 module.exports.ieltsOverall = ieltsOverall;

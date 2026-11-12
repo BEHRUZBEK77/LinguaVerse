@@ -25,7 +25,7 @@ Qoidalar (har bir sessiya uchun):
 - [x] 12. Bir martalik workflow'lar: `tts-korean-test.yml` ni o'chirish. — bajarildi.
 
 ## P3 — frontend va sifat
-- [ ] 13. THREE fon kodi bo'lgan sahifalarda `if (window.THREE)` himoyasi (CDN ochilmasa sahifa xato bermasin).
+- [x] 13. THREE fon kodi bo'lgan sahifalarda `if (window.THREE)` himoyasi (CDN ochilmasa sahifa xato bermasin). — bajarildi: 11 sahifa (admin + languages-html) fon IIFE boshida `if (!window.THREE || !cv) return;`.
 - [ ] 14. update-leaderboard.js: yozuvlarni 5 tadan parallel.
 - [ ] 15. Darslar sifati: har sessiyada har tildan 2 ta tasodifiy dars — `say`/`examples` grammatikasi va o'zbekcha izoh. Faqat aniq xatoni tuzat, lesson-check ✅.
 

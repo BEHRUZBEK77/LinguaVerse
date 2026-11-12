@@ -2536,6 +2536,7 @@
     <script>
         (function () {
             const cv = document.getElementById('bgCanvas');
+            if (!window.THREE || !cv) return; // CDN ochilmasa fon shunchaki chizilmaydi
             const r = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
             r.setPixelRatio(Math.min(devicePixelRatio, 2)); r.setSize(innerWidth, innerHeight);
             const sc = new THREE.Scene(), cam = new THREE.PerspectiveCamera(70, innerWidth / innerHeight, .1, 1000);

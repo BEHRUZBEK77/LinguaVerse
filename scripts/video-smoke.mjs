@@ -27,11 +27,11 @@ try {
     if (!r.ok || !(await r.json()).assets?.some(a => a.size > 0)) throw new Error(`Yopiq repoda video topilmadi: ${r.status}`);
   } else {
     const head = await fetch(url, { method: 'HEAD', redirect: 'follow' });     // video haqiqatan ochiladimi
-    if (!head.ok) throw new Error(`Yuklangan video ochilmadi: ${head.status} ${url}`);
+    if (!head.ok) throw new Error(`Yuklangan video ochilmadi: ${head.status}`);
   }
   if (up?.tag && vtoken) {                                                    // sinov relizi to'planib qolmasin
     const r = await fetch(`${api}/releases/tags/${up.tag}`, { headers: h });
     if (r.ok) await fetch(`${api}/releases/${(await r.json()).id}`, { method: 'DELETE', headers: h });
   }
-  await report({ ok: true, provider: storage.provider(), up, url });
+  await report({ ok: true, provider: storage.provider(), up });   // imzolangan havola jurnalga yozilmaydi
 } catch (e) { await report({ ok: false, step: 'upload', error: String(e.stack || e.message).slice(0, 1500) }); process.exit(1); }

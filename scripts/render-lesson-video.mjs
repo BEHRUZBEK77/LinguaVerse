@@ -260,6 +260,10 @@ async function renderOne(n, browser, baseUrl) {
   const langInfo = cat.COURSE_LANGS.find(l => l.id === LANG);
   const L = await loadLesson(n);
   const core = L.core;
+  // Render davomida dars matni o'zgarsa, "eskirgan" belgisini o'chirib yubormaslik uchun boshlang'ich hash
+  const startHash = args.upload && !args.json
+    ? (await require(path.join(ROOT, 'netlify/functions/_firestore.js')).getDoc(require(path.join(ROOT, 'netlify/functions/course.js')).lessonPath(LANG, LEVEL, n, NATIVE)).catch(() => null))?.contentHash || null
+    : null;
   if (!langInfo || !L.meta || !Array.isArray(core.scenes) || !core.scenes.length) throw new Error('Invalid lesson script');
   const renderScenes = core.scenes.flatMap((scene, lessonScene) => [
     ...(scene.say_native ? [{ ...scene, lessonScene, say: scene.say_native, say_uz: '', nativeSpeech: true, practice_seconds: 0 }] : []),
@@ -371,12 +375,15 @@ async function renderOne(n, browser, baseUrl) {
     const course = require(path.join(ROOT, 'netlify/functions/course.js'));
     const objectName = `courseVideos/v3/${NATIVE}/${LANG}_${LEVEL}_${n}.mp4`;
     const up = await storage.upload(objectName, fs.readFileSync(file), 'video/mp4');
-    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: up?.stored || storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoQuality: SCALE > 1 ? '1080p' : '720p', videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null, videoStaleAt: null, videoOldPath: null });
+    const nowDoc = await fsdb.getDoc(course.lessonPath(LANG, LEVEL, n, NATIVE)).catch(() => null);
+    const changedMeanwhile = !!(startHash && nowDoc?.contentHash && nowDoc.contentHash !== startHash);
+    if (changedMeanwhile) console.log('  ⚠️ render paytida dars matni o\'zgardi — video yana navbatga qo\'yiladi');
+    await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: up?.stored || storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoQuality: SCALE > 1 ? '1080p' : '720p', videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null, videoErrorAt: null, videoStaleAt: changedMeanwhile ? new Date() : null, videoOldPath: null });
     await bumpStatus(fsdb, `${LANG}_${LEVEL}`, 1);
     const cefr = L.meta?.cefr;
     if (cefr) await fsdb.transact(`videoFactory/v3_${NATIVE}`, cur => ({ cefr: { ...(cur?.cefr || {}), [`${LANG}_${cefr}`]: ((cur?.cefr || {})[`${LANG}_${cefr}`] || 0) + 1 } })).catch(() => {});
     console.log(`  ☁️  yuklandi: ${objectName}`);
-    if (args.auto) fs.rmSync(file, { force: true });     // fabrika rejimida disk to'lmasin
+    if (args.auto || args.course) fs.rmSync(file, { force: true });     // yuklangandan keyin disk to'lmasin
   }
   return file;
 }
@@ -513,6 +520,8 @@ try {
       const doc = await fsdb.getDoc(course.lessonPath(LANG, level, n, NATIVE)).catch(() => null);
       if (!doc?.core || doc.backend !== 'manual') { console.log(`  ⏭ ${LANG} ${level}#${n + 1}: qo'lda yozilgan dars hali yo'q`); continue; }
       if (doc.videoPath && !doc.videoStaleAt && doc.videoVoice === VOICE_TAG() && !args.force) { console.log(`  ✓ #${i + 1}: video bor`); continue; }
+      const errAt = Date.parse(doc.videoErrorAt?.$t || doc.videoErrorAt || '') || 0;
+      if (!args.force && errAt && Date.now() - errAt < 24 * 3600e3) { console.log(`  ⏸ #${i + 1}: 24 soat ichida xato bergan — keyinroq`); continue; }
       try { await renderOne(n, browser, baseUrl); }
       catch (e) {
         failed.push(i + 1); console.error(`  ❌ #${i + 1}: ${e.message}`);

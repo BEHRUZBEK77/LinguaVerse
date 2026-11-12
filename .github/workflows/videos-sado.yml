@@ -34,6 +34,8 @@ jobs:
   smoke:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    outputs:
+      todo: ${{ steps.queue.outputs.todo }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -71,18 +73,27 @@ jobs:
           SADO_MODELS: /home/runner/.sado-models
         run: node scripts/video-smoke.mjs
       - name: 720p videolarni 1080p ga qayta navbatga qo'yish
+        continue-on-error: true
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node scripts/redo-720p.mjs
+      - name: Navbatda nechta video bor
+        id: queue
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: echo "todo=$(node scripts/video-queue-count.mjs || echo 1)" >> "$GITHUB_OUTPUT"
 
   render:
     needs: smoke
+    # Push'da faqat sinov; to'liq render — jadval (har 6 soat) yoki qo'lda. Navbat bo'sh bo'lsa render o'tkazib yuboriladi.
+    if: github.event_name != 'push' && needs.smoke.outputs.todo != '0'
     runs-on: ubuntu-24.04
     timeout-minutes: 355
     strategy:
       fail-fast: false
-      max-parallel: 20      # bepul tarifdagi hamma 20 ta server (boshqa ishlar navbat kutadi)
+      max-parallel: 18      # 2 ta server deploy va darslarni saytga chiqarish uchun bo'sh qoladi
       matrix:
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
                 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39]
@@ -123,6 +134,7 @@ jobs:
 
       - name: Videolarni yasash va yuklash
         env:
+          COURSE: ${{ github.event.inputs.course || 'all' }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
@@ -140,7 +152,7 @@ jobs:
         run: |
           VIDEO_HD=true; export VIDEO_FPS=15; PROCS=2; TOTAL=$(( 40 * PROCS ))
           run() { node scripts/render-lesson-video.mjs \
-            --course "${{ github.event.inputs.course || 'all' }}" \
+            --course "$COURSE" \
             --shard "$1/$TOTAL" --preset veryfast --hd $VIDEO_HD \
             --tts sado --native uz --no-recording \
             ${{ github.event.inputs.force == 'true' && '--force' || '' }} \

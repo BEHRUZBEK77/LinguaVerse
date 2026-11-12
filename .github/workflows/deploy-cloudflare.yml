@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths-ignore: ['content/**', '**.md', 'scripts/lesson-*.mjs']
+    paths-ignore: ['content/**', '**.md', 'scripts/**', '.github/**', 'supabase/**', 'ssenariylar/**', 'desktop/**', 'build/**']
 concurrency: { group: deploy-cloudflare, cancel-in-progress: false }
 permissions: { contents: read }
 jobs:

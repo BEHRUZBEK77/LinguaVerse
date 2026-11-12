@@ -121,7 +121,15 @@ jobs:
             echo "Download manifest is already current."
           else
             git commit -m "Update app download links for $TAG"
-            git push origin "HEAD:$DEFAULT_BRANCH"
+            # Boshqa workflow'lar ham main'ga yozadi — rebase qilib, 3 marta urinamiz
+            for i in 1 2 3; do
+              git pull --rebase origin "$DEFAULT_BRANCH" && git push origin "HEAD:$DEFAULT_BRANCH" && exit 0
+              echo "Push urinishi $i muvaffaqiyatsiz, qayta urinamiz..."
+              git rebase --abort 2>/dev/null || true
+              sleep $((i * 10))
+            done
+            echo "Push 3 urinishdan keyin ham bajarilmadi" >&2
+            exit 1
           fi
       - name: Saytni yangilash (yuklab olish havolalari)
         env:

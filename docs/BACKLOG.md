@@ -19,7 +19,7 @@ Qoidalar (har bir sessiya uchun):
 
 ## P2 — workflow'lar
 - [x] 8. render-videos.yml: `concurrency: {group: render-videos, cancel-in-progress: false}`, dars regex'iga `pro`, eski FIREBASE_* secret'larni olib tashlash, sarlavha izohini to'g'rilash. — bajarildi: concurrency, `(b2|c2|pro)`, FIREBASE_* olib tashlandi (R2 asosiy), sarlavha: jadval yo'q.
-- [ ] 9. release-apps.yml publish: `git push` oldidan `git pull --rebase` + 3 marta qayta urinish.
+- [x] 9. release-apps.yml publish: `git push` oldidan `git pull --rebase` + 3 marta qayta urinish. — bajarildi.
 - [ ] 10. validate-app.yml: `paths-ignore: ['content/**']`.
 - [ ] 11. lesson-content.yml: `permissions: contents: read`, sarlavhadagi noto'g'ri va'dani to'g'rilash.
 - [ ] 12. Bir martalik workflow'lar: `tts-korean-test.yml` ni o'chirish.

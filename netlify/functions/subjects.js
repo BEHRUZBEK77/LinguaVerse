@@ -122,6 +122,8 @@ async function getLessonDoc(t, uid, create) {
 
 async function lesson(uid, body) {
   const t = topicOf(body);
+  const any = await checkRateLimit(`subjreq:${uid}`, { windowMs: 3600_000, max: 300 });
+  if (!any.ok && !any.unavailable) throw httpErr(429, "Juda ko'p so'rov — birozdan so'ng.");
   requireAccess(t, await account(uid));
   const doc = await getLessonDoc(t, uid, true);
   const quiz = JSON.parse(doc.quiz).map(q => ({ q: q.q, o: q.o }));

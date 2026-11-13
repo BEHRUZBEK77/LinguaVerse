@@ -74,6 +74,8 @@ async function define(uid, body) {
     .filter(w => WORD_RE.test(w)).slice(0, MAX_WORDS);
   if (!words.length) throw httpErr(400, "So'z yo'q");
 
+  const any = await checkRateLimit(`vocabreq:${uid}`, { windowMs: 3600_000, max: 600 });
+  if (!any.ok && !any.unavailable) throw httpErr(429, "Juda ko'p so'rov — birozdan so'ng.");
   const defs = {};
   const cached = await Promise.all(words.map(w => fsdb.getDoc(defId(lang, w)).catch(() => null)));
   const missing = [];

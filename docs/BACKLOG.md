@@ -36,3 +36,13 @@ Qoidalar (har bir sessiya uchun):
 - 2026-11-12 (avtonom sessiya): 4–14 bajarildi (youtube kesh/limit, teacher validatsiya, community save_count, course sertifikat transact + quiz rate limit, 5 ta workflow tuzatish, tts-korean-test o‘chirildi, THREE himoyasi, leaderboard parallel). 15: 16 dars ko‘rildi, 1 tuzatish; 16-band (313 shablon dars) ochildi. `npm test`: 119/119 o‘tdi. 1–3 ⏸ (sud qarori) tegilmadi.
 - 2026-11-12 (egasi so'rovi bilan, Claude): 1–3 bajarildi — avto-to'lov ijarasi va deterministik buyurtma raqami, to'langan-lekin-faollashmagan holat (paid-unactivated / activatingAt→activatedAt), webhook vaqtinchalik xatoda 500; auth: legacy tekshiruvi fail-closed, claim rate limit. lesson-check shablon qoidasi. npm test 119/119.
 - 2026-11-12 (Claude): Lug'at — 8 til × 40 000 so'z (vocab/, FrequencyWords CC BY-SA), languages-html/lugat.html (qidiruv, daraja, talaffuz, SRS mashq), netlify/functions/vocab.js (AI ma'no keshi vocabDefs/, progress vocabProgress/, limitlar). npm test 122/122.
+
+## Tungi sessiya 2026-11-13/14 (Claude, egasi uxlayotganda)
+Qoidalar o'sha: to'lov/kalit/o'chirish/release — tegilmaydi; har o'zgarish test → commit → push.
+- [x] N1. SEO: robots.txt, sitemap.xml (worker), 404 sahifasi, 26 sahifaga meta description.
+- [x] N2. PWA: manifest, ikonlar, service worker (oflayn: oxirgi sahifalar, lug'at), favicon hamma sahifada.
+- [x] N3. Bosh sahifa: Lug'at va Fanlar bo'limi; til tanlash oynasi brend ranglarida; telefonda hamkorlik tugmasi kontentni to'smaydi.
+- [x] N4. Fanlar: darsdagi xatoni xabar qilish + admin panelda "Fan darslari xatolari" (qayta yozdirish).
+- [x] N5. Lug'at/fanlar: umumiy so'rov cheklovlari; lug'at fayllari keshlanadi.
+- [x] N6. lesson-check: sahnalarning yarmidan ko'pi takror → shablon (navbatga +87 dars).
+- [~] N7. Shablon darslarni qayta yozish (agentlar, faqat lesson-check ✅ bo'lganlari push qilinadi).

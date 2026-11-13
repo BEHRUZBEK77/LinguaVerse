@@ -1,73 +1,983 @@
 {
  "title": "Tez nutq va turli aksentlarni tushunish",
- "goal_uz": "Dars yakunida rus tilida tez nutqni tushunasiz. «Быстро ...», «Еще раз ...», «Пожалуйста ...» bog‘lovchilarini o‘rinli qo‘llaysiz, mukammallashtirib rasmini bayon qilasiz. Oxirida o‘ttiz soniyalik tez nutqni matnga o‘tkazib bera olasiz.",
+ "goal_uz": "Dars oxirida siz ruscha qo‘shilib ketgan nutq qonuniyatlarini taniysiz, asosiy talaffuz turlarini farqlaysiz, tez nutqda tayanch so‘zlarni ushlaysiz va tushunmagan joyda qayta so‘rash yoki kontekstdan taxmin qilishni bilasiz.",
  "vocab": [
-  {"w": "быстро", "uz": "tez"},
-  {"w": "медленно", "uz": "sekin"},
-  {"w": "ещё раз", "uz": "yana bir marta"},
-  {"w": "пожалуйста", "uz": "iltimos"},
-  {"w": "извините", "uz": "kechirasiz"},
-  {"w": "слушать", "uz": "tinglamoq"},
-  {"w": "слышать", "uz": "eshitmoq"},
-  {"w": "говорить", "uz": "gapirmoq"},
-  {"w": "писать", "uz": "yozmoq"},
-  {"w": "читать", "uz": "o‘qimoq"}
+  {
+   "w": "слитная речь",
+   "uz": "qo‘shilib ketgan nutq"
+  },
+  {
+   "w": "ударный слог",
+   "uz": "urg‘uli bo‘g‘in"
+  },
+  {
+   "w": "безударный",
+   "uz": "urg‘usiz"
+  },
+  {
+   "w": "говор",
+   "uz": "sheva"
+  },
+  {
+   "w": "произношение",
+   "uz": "talaffuz"
+  },
+  {
+   "w": "расслышать",
+   "uz": "eshitib qolmoq, aniq eshitmoq"
+  },
+  {
+   "w": "переспросить",
+   "uz": "qayta so‘ramoq"
+  },
+  {
+   "w": "догадаться",
+   "uz": "taxmin qilib topmoq"
+  },
+  {
+   "w": "скорость речи",
+   "uz": "nutq tezligi"
+  },
+  {
+   "w": "опорное слово",
+   "uz": "tayanch so‘z"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Yuz o‘n uchinchi dars: tez nutq","emotion":"happy","board":["Быстро ...","Ещё раз ...","Пожалуйста ..."],"examples":[],"say_native":"Assalomu alaykum! Yuz o‘n uchinchi darsda tez nutq va turli aksentlarni tushunishni o‘rganamiz. Bugun «быстро», «ещё раз» va «пожалуйста» bog‘lovchilarini mukammallashtirib rasmini bayon qilamiz. Oxirida o‘ttiz soniyalik tez nutqni matnga o‘tkazib bera olasiz. Keyingi darsda ishontirishni o‘rganamiz.","say":"Здравствуйте! Сегодня слушаем быстро.","say_uz":"Assalomu alaykum! Bugun tez tinglaymiz.","practice_seconds":0},
-  {"kind":"explain","title":"Tezlik belgisi","emotion":"neutral","board":["Быстро ...","Быстро хорошо.","Быстро понятно."],"examples":[{"t":"Быстро хорошо.","uz":"Tez yaxshi."},{"t":"Быстро понятно.","uz":"Tez tushunarli."}],"say_native":"«Быстро» — tez bog‘lovchisi tez nutqni mustahkam slab qo‘yadi. «Быстро хорошо» — tez yaxshi, «быстро понятно» — tez tushunarli. Ushbu belgilar tez nutqni tushunishni mustahkam slab qolishining asos yotqizuvchisi bo‘ladi.","say":"Быстро хорошо. Быстро понятно.","say_uz":"Tez yaxshi. Tez tushunarli.","practice_seconds":0},
-  {"kind":"practice","title":"Tezni ayting","emotion":"encouraging","board":["1) Tez yaxshi.","2) Tez tushunarli."],"examples":[],"say_native":"Tez belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «быстро хорошо». Ikkinchisi: «быстро понятно». Har birini bitta nafas bilan tugallab qo‘ying.","say":"Быстро хорошо. Быстро понятно.","say_uz":"Tez yaxshi. Tez tushunarli.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Быстро хорошо.","Быстро понятно."],"examples":[],"say_native":"Tez javoblari ikki qator tez nutq bilan tugadi. «Быстро хорошо» — yaxshilik belgisi, «быстро понятно» — tushunarlilik belgisi. Tez nutqni tushunish shu ikki shakl bilan mushtahkam balanti bo‘lib qoldi.","say":"Быстро хорошо. Быстро понятно.","say_uz":"Tez yaxshi. Tez tushunarli.","practice_seconds":0},
-  {"kind":"explain","title":"Yana bir marta belgisi","emotion":"thinking","board":["Ещё раз ...","Ещё раз, пожалуйста.","Ещё раз, извините."],"examples":[{"t":"Ещё раз, пожалуйста.","uz":"Il­timos, yana bir marta."},{"t":"Ещё раз, извините.","uz":"Kechirasiz, yana bir marta."}],"say_native":"«Ещё раз» — yana bir marta belgisi tinglashda qayta takrorlashni mustahkam slab qo‘yadi. «Ещё раз, пожалуйста» — iltimos, yana bir marta; «ещё раз, извините» — kechirasiz, yana bir marta. Ushbu belgilar suhbatni ishonchli bayon slab qolishining ikkinchi a’zosi bo‘ladi.","say":"Ещё раз, пожалуйста. Ещё раз, извините.","say_uz":"Iltimos, yana bir marta. Kechirasiz, yana bir marta.","practice_seconds":0},
-  {"kind":"practice","title":"Yana bir martani ayting","emotion":"encouraging","board":["1) Iltimos, yana bir marta.","2) Kechirasiz, yana bir marta."],"examples":[],"say_native":"Yana bir marta belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «ещё раз, пожалуйста». Ikkinchisi: «ещё раз, извините». Ularni bitta nafas bilan tugallab qo‘ying.","say":"Ещё раз, пожалуйста. Ещё раз, извините.","say_uz":"Iltimos, yana bir marta. Kechirasiz, yana bir marta.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Ещё раз, пожалуйста.","Ещё раз, извините."],"examples":[],"say_native":"Yana bir marta javoblari ikki qator takrorlash belgisi bilan tugunlarga qotib qolib mustahkam bo‘lib qoladi. «Ещё раз, пожалуйста» — iltimos bilan takrorlash, «ещё раз, извините» — kechirim bilan takrorlash. Suhbat takrori shu ikki shakl bilan mustahkamlanadi.","say":"Ещё раз, пожалуйста. Ещё раз, извините.","say_uz":"Iltimos, yana bir marta. Kechirasiz, yana bir marta.","practice_seconds":0},
-  {"kind":"mistake","title":"Tez nutqni bitta so‘z bilan tugatish","emotion":"stern","board":["✗ Быстро хорошо.","✓ Быстро хорошо. Например, это хорошо. Потому что это важно.","✗ Ещё раз.","✓ Ещё раз, пожалуйста. Например, это хорошо. Потому что это важно."],"examples":[],"say_native":"Ko‘p uchraydigan xato — tez nutqni bitta so‘z bilan tugatib qo‘yishdir. «Быстро хорошо» bitta so‘z bilan tugallanib qolishi mumkin emas. To‘g‘ri shakl uch qatorli dalilli xulosa bilang tugallanadi.","say":"Быстро хорошо. Например, это хорошо. Потому что это важно.","say_uz":"Tez yaxshi. Masalan, bu yaxshi. Chunki bu muhim.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: tez nutqni tushunish","emotion":"happy","board":["— Что ты думаешь?","— Быстро, это хорошо.","— Почему? — Например, это хорошо."],"examples":[],"say_native":"Birinchi dialog tez nutq tushunishni mungozara qiladi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Быстро, это хорошо» — tezlik belgisi. «Почему? — Например, это хорошо» — dalil belgisi bilan tugaydi.","say":"Что ты думаешь? Быстро, это хорошо. Почему? Например, это хорошо.","say_uz":"Nima deb o‘ylaysan? Tez, bu yaxshi. Nega? Masalan, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Nega?"],"examples":[],"say_native":"Tez nutq savollarini mustahkamlab oling. Birinchi savol: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchisi: «почему?» — nega. Javoblarda «например» bog‘lovchisini aniq qo‘llab yakunlab qo‘ying.","say":"Что ты думаешь? Быстро, это хорошо. Почему? Например, это хорошо.","say_uz":"Nima deb o‘ylaysan? Tez, bu yaxshi. Nega? Masalan, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Быстро, это хорошо.","Например, это хорошо."],"examples":[],"say_native":"Birinchi dialog javoblari tezlik bilan dalil borg‘liqligida tugadi. «Быстро, это хорошо» — tezlik belgisi, «например, это хорошо» — dalil belgisi. Tez nutqni tushunish ushbu ikki shakl bilan aniq namoyish etiladi.","say":"Быстро, это хорошо. Например, это хорошо.","say_uz":"Tez, bu yaxshi. Masalan, bu yaxshi.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: takrorlash bahosi","emotion":"neutral","board":["— А ещё раз?","— Ещё раз, пожалуйста.","— Итого? — Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog takrorlash bahosi bilan yakunlanadi. «А ещё раз?» — yana bir marta de so‘raydi. «Ещё раз, пожалуйста» — takrorlash belgisi. «Итого? — Итого, это хорошо» — umumiy xulosa bilan tugaydi.","say":"А ещё раз? Ещё раз, пожалуйста. Итого? Итого, это хорошо.","say_uz":"Yana bir marta-chi? Iltimos, yana bir marta. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Yana bir marta-chi?","2) Xulosa?"],"examples":[],"say_native":"Takrorlash savollarini mustahkamlab oling. Birinchi savol: «а ещё раз?» — yana bir marta-chi deb. Ikkinchisi: «итого?» — xulosa. Javoblarda «ещё раз, пожалуйста» va «итого» belgilarini aniq qo‘llab yopib qo‘ying.","say":"А ещё раз? Ещё раз, пожалуйста. Итого? Итого, это хорошо.","say_uz":"Yana bir marta-chi? Iltimos, yana bir marta. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Ещё раз, пожалуйста.","Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog javoblari takrorlash bilan xulosa borg‘liqligida birlashdi. «Ещё раз, пожалуйста» — takrorlash belgisi, «итого, это хорошо» — xulosa belgisi. Takrorlash bahosi shu ikki qatorga muhtarkam bo‘lib qoldi.","say":"Ещё раз, пожалуйста. Итого, это хорошо.","say_uz":"Iltimos, yana bir marta. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Sekin belgi","emotion":"thinking","board":["Медленно ...","Медленно хорошо.","Медленно понятно."],"examples":[{"t":"Медленно хорошо.","uz":"Sekin yaxshi."},{"t":"Медленно понятно.","uz":"Sekin tushunarli."}],"say_native":"«Медленно» — sekin belgisi tez nutqning aksi bo‘lib qoladi. «Медленно хорошо» — sekin yaxshi, «медленно понятно» — sekin tushunarli. Ushbu belgilar nutq sur’atini mustahkam slab qolishining uchinchi a’zosi bo‘ladi.","say":"Медленно хорошо. Медленно понятно.","say_uz":"Sekin yaxshi. Sekin tushunarli.","practice_seconds":0},
-  {"kind":"practice","title":"Sekin deb ayting","emotion":"encouraging","board":["1) Sekin yaxshi.","2) Sekin tushunarli."],"examples":[],"say_native":"Sekin belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «медленно хорошо». Ikkinchisi: «медленно понятно». Ularni bitta soatda tugallab qo‘ying.","say":"Медленно хорошо. Медленно понятно.","say_uz":"Sekin yaxshi. Sekin tushunarli.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Медленно хорошо.","Медленно понятно."],"examples":[],"say_native":"Sekin javoblari ikki qator nutq sur’atida barqaror qoldi. «Медленно хорошо» — yaxshilik sur’ati, «медленно понятно» — tushunarlilik sur’ati. Ushbu ikki shakl nutq sur’atini mustahkam qotib qoladi.","say":"Медленно хорошо. Медленно понятно.","say_uz":"Sekin yaxshi. Sekin tushunarli.","practice_seconds":0},
-  {"kind":"explain","title":"Skript belgisi","emotion":"neutral","board":["Слушать ...","Слушать быстро.","Слушать медленно."],"examples":[{"t":"Слушать быстро.","uz":"Tez tinglaydi."},{"t":"Слушать медленно.","uz":"Sekin tinglaydi."}],"say_native":"«Слушать» — tinglash belgisi tez nutqni tranzitlab tugunlab qo‘yishi bilan yakunlab tugallaydi. «Слушать быстро» — tez tinglaydi, «слушать медленно» — sekin tinglaydi. Ikki belgi tinglash bayonini mustahkam slab qolib, qo‘llab quvatlab turadi.","say":"Слушать быстро. Слушать медленно.","say_uz":"Tez tinglaydi. Sekin tinglaydi.","practice_seconds":0},
-  {"kind":"practice","title":"Tinglashni ayting","emotion":"encouraging","board":["1) Tez tinglaydi.","2) Sekin tinglaydi."],"examples":[],"say_native":"Tinglash belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «слушать быстро». Ikkinchisi: «слушать медленно». Ularni nutq bayonida bitta tugun bilang tugallab qo‘ying.","say":"Слушать быстро. Слушать медленно.","say_uz":"Tez tinglaydi. Sekin tinglaydi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Слушать быстро.","Слушать медленно."],"examples":[],"say_native":"Tinglash javoblari ikki qator nutq bayonida barqaror qoldi. «Слушать быстро» — tez tinglash, «слушать медленно» — sekin tinglash. Ushbu ikki shakl tinglash bayonini mustahkam qotib qoladi.","say":"Слушать быстро. Слушать медленно.","say_uz":"Tez tinglaydi. Sekin tinglaydi.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: matnga o‘tkazish","emotion":"encouraging","board":["1) Tez, bu yaxshi.","2) Masalan, bu yaxshi.","3) Chunki bu muhim.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda o‘ttiz soniyalik tez nutqni matnga o‘tkazib qo‘ying. Birinchisi: «быстро, это хорошо». Ikkinchisi: «например, это хорошо». Uchinchisi: «потому что это важно». Uch qatorni matn shaklida bitta nafas bilan mustahkam slab qolib, bayon qiling.","say":"Быстро, это хорошо. Например, это хорошо. Потому что это важно. Спасибо!","say_uz":"Tez, bu yaxshi. Masalan, bu yaxshi. Chunki bu muhim. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Быстро, это хорошо.","Например, это хорошо.","Потому что это важно."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «быстро, это хорошо». Ikkinchisi: «например, это хорошо». Uchinchisi: «потому что это важно». Ushbu uch qator o‘ttiz soniyalik matn namunasi zaken bo‘lib turadi.","say":"Быстро, это хорошо. Например, это хорошо. Потому что это важно.","say_uz":"Tez, bu yaxshi. Masalan, bu yaxshi. Chunki bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Tez nutq qatlamini yoyish","emotion":"neutral","board":["Быстро ...","Медленно ...","Ещё раз ...","Например ..."],"examples":[{"t":"Быстро ...","uz":"Tez ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Tez nutq qatlamini yoyish «быстро» so‘zidan boshlanib, «медленно» so‘zi bilan sekinlanib, «ещё раз» so‘zi bilan takrorlanib, «например ...» bog‘lovchisi bilan mustahkamlanib yoyiladi. Matn sarlavhasi ham, bayon kirishi ham shu to‘rt belgi bilan mustahkamlanib, tez nutqni aniq shakl oladi. O‘ttiz soniyalik tez nutqni matnga o‘tkazib qo‘yayotganda tez qatlamni tartibli yozsa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Быстро ... Медленно ... Ещё раз ... Например ...","say_uz":"Tez ... Sekin ... Yana bir marta ... Masalan ...","practice_seconds":0},
-  {"kind":"practice","title":"Zanjirni mustahkamlang","emotion":"encouraging","board":["1) Tez ...","2) Sekin ...","3) Yana bir marta ...","4) Masalan ..."],"examples":[],"say_native":"Tez nutq qatlamini to‘rt bosqichda mustahkamlab oling. Birinchi: «быстро ...». Ikkinchisi: «медленно ...». Uchinchisi: «ещё раз ...». Yakunda esa: «например ...». Har birini bitta nafas bilan bir qatorda talaffuz qiling.","say":"Быстро ... Медленно ... Ещё раз ... Например ...","say_uz":"Tez ... Sekin ... Yana bir marta ... Masalan ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Быстро ...","Медленно ...","Ещё раз ...","Например ..."],"examples":[],"say_native":"Zanjir javoblari to‘rt qator bilan to‘liq ko‘rindi. «Быстро ...» — tez, «медленно ...» — sekin, «ещё раз ...» — yana bir marta, «например ...» — dalil. Endi tez nutq shu to‘rt belgida mustahkam bo‘lib qoladi.","say":"Быстро ... Медленно ... Ещё раз ... Например ...","say_uz":"Tez ... Sekin ... Yana bir marta ... Masalan ...","practice_seconds":0},
-  {"kind":"explain","title":"Tez nutqni tugatish namunasi","emotion":"neutral","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Быстро хорошо.","uz":"Tez yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Tez nutqni tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «быстро хорошо» — tezlik belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator o‘ttiz soniyalik matn namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda tez nutq namunasi uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Tez yaxshi.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Tez nutq namunasini uch qator bilan mustahkamlab oling. Birinchisi: «быстро хорошо». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Быстро хорошо» — tezlik, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Tez nutq namunasi shu uch qatlamda tugallanib qoladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Быстро ...","Медленно ...","Ещё раз ..."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. Tezni «быстро» bilan ayta olasizmi? Sekin ni «медленно» bilan sekinlatib bera olasizmi? Yana bir marta ni «ещё раз» bilan takrorlay olasizmi? Uchala javob ijobiy bo‘lsa, tez nutq sizga do‘st bo‘ladi.","say":"Быстро ... Медленно ... Ещё раз ...","say_uz":"Tez ... Sekin ... Yana bir marta ...","practice_seconds":0},
-  {"kind":"explain","title":"Tez nutqni yakunlash","emotion":"neutral","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Быстро хорошо.","uz":"Tez yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Tez nutqni yakunlash namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «быстро хорошо» — tezlik belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator tez nutqni yakunlash namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda tez nutq namunasi uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Yakunlashni mustahkamlang","emotion":"encouraging","board":["1) Tez yaxshi.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Tez nutqni yakunlashni uch qator bilan mustahkamlab oling. Birinchisi: «быстро хорошо». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Yakunlash javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Быстро хорошо» — tezlik, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Tez nutqni yakunlash shu uch qatlamda tugallanib qoladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Tez namunani tugatish","emotion":"neutral","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Быстро хорошо.","uz":"Tez yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Tez namunani tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «быстро хорошо» — tezlik belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator tez namunani tugatish namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda tez namuna uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Tez yaxshi.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Tez namunani tugatishni uch qator bilan mustahkamlab oling. Birinchisi: «быстро хорошо». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Быстро хорошо» — tezlik, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Tez namunani tugatish shu uch qatlamda tugallanib qoladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Tez namunani tugatish","emotion":"neutral","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Быстро хорошо.","uz":"Tez yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Tez namunani tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «быстро хорошо» — tezlik belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator tez namunani tugatish namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda tez namuna uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi. So‘z bitta bilan emas, uch qator belgisi bilang tugatilgani uchun mustahkam bo‘lib qoladi. Qog‘ozda ham bu izchillik saqlangsa, baho yuqoriga chiqadi va bir qator oralig‘ida kichik tanaffus bilan nuqtani tiklab qo‘ying hamda har bir maqsad mustahkamlanib yodda saqlanadi va amaliy shaklda qo‘llaniladi hamda mustahkamlanadi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Tez namunani tugatish","emotion":"neutral","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Быстро хорошо.","uz":"Tez yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Tez namunani tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «быстро хорошо» — tezlik belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator tez namunani tugatish namunasi mustahkam tugun bo‘lib qoladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Tugatishni mustahkamlang","emotion":"encouraging","board":["1) Tez yaxshi.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Tez namunani tugatishni uch qator bilan mustahkamlab oling. Birinchisi: «быстро хорошо». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Tugatsh javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Быстро хорошо» — tezlik, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Tez namunani tugatish shu uch qatlamda tugallanib qoladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Tez namunani tugatish","emotion":"neutral","board":["Быстро хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Быстро хорошо.","uz":"Tez yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Tez namunani tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «быстро хорошо» — tezlik belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator tez namunani tugatish namunasi mustahkam tugun bo‘lib qoladi.","say":"Быстро хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Tez yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["быстро · медленно · ещё раз","пожалуйста · извините · спасибо"],"examples":[],"say_native":"Bugunning xulosasi: tez nutq va aksentlarni tushunishni o‘rgandik va barcha rejani amaliy matnda tekshirib mustahkamlab oldik hamda mustahkamladi. «Быстро» — tez, «медленно» — sekin, «ещё раз» — yana bir marta. O‘ttiz soniyalik tez nutqni matnga o‘tkazib bera olasiz.","say":"Отлично! Теперь вы понимаете быструю речь.","say_uz":"Ajoyib! Endi tez nutqni tushunasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["30 soniyalik tez nutqni matnga o‘tkazing","Tez · sekin · yana bir marta","Keyingi dars: Ishontirish va muzokara"],"examples":[],"say_native":"Uyga vazifa: o‘ttiz soniyalik tez nutqni matnga o‘tkazib qo‘ying. Matnda «быстро», «медленно», «ещё раз», «например», «итого» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda ishontirishni o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем убеждать.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Ishontiramiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Tez nutq va aksentlarni tushunish",
+   "emotion": "happy",
+   "board": [
+    "Понимать быстрый русский",
+    "(Tez ruscha nutqni tushunish)",
+    "слитная речь · говоры · скорость · пропущенные слова"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda murakkab matnlarda muallif niyatini topishni o‘rgandik. Bugun esa tinglashning eng qiyin tomoni: tez nutq va turli talaffuz. Siz ruscha yozilgan matnni yaxshi tushunishingiz mumkin, lekin tirik suhbatda so‘zlar bir-biriga qo‘shilib ketadi. Dars oxirida siz qo‘shilib ketgan nutq qonuniyatlarini bilasiz, rus tilining asosiy talaffuz turlarini ajrata olasiz, tezlikda tayanch so‘zlarni ushlaysiz va tushunmagan so‘zingiz bilan nima qilishni bilib olasiz.",
+   "say": "Здравствуйте! Сегодня учимся понимать быстрый русский. В живой речи слова склеиваются, гласные сокращаются, а некоторые звуки исчезают. Мы разберёмся, как это работает, и вы перестанете теряться.",
+   "say_uz": "Assalomu alaykum! Bugun tez ruscha nutqni tushunishni o‘rganamiz. Jonli nutqda so‘zlar yopishib ketadi, unlilar qisqaradi, ba’zi tovushlar tushib qoladi. Buning qanday ishlashini ko‘rib chiqamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nega tez nutq tushunarsiz",
+   "emotion": "thinking",
+   "board": [
+    "Книжная форма ≠ живая речь",
+    "Слышим не слова, а потоки",
+    "Ударный слог = опора"
+   ],
+   "examples": [
+    {
+     "t": "Здравствуйте звучит почти как «здрасьте».",
+     "uz": "«Здравствуйте» deyarli «zdrasste» kabi eshitiladi."
+    }
+   ],
+   "say_native": "Maktabda biz so‘zlarni alohida va sekin eshitamiz, tirik nutqda esa ular oqim bo‘lib ketadi. «Здравствуйте» deyarli «здрасьте» eshitiladi, «сейчас» ba’zan «щас» bo‘lib qoladi. Bu ayb emas, bu qonuniyat. Yaxshi xabar: bu qonuniyatlar tartibli, ularni o‘rgansangiz, tushunish tezlashadi. Bugungi reja: birinchi, qo‘shilib ketgan nutq, ikkinchi, asosiy aksentlar, uchinchi, tezlikda ushlab qolish, to‘rtinchi, tushunmagan so‘z bilan nima qilish.",
+   "say": "В учебнике «здравствуйте» произносят полностью, а в жизни говорят почти «здрасьте». Слово «сейчас» превращается в «щас», а «пожалуйста» — в «пожалуста». Всё это можно научиться узнавать.",
+   "say_uz": "Darslikda «zdravstvuyte» to‘liq aytiladi, hayotda esa deyarli «zdrasste». «Seychas» «shchas» ga, «pojaluysta» «pojalusta» ga aylanadi. Buni tanishni o‘rganish mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Unli tovushlar qisqarishi (akanye)",
+   "emotion": "neutral",
+   "board": [
+    "молоко → [мълако]",
+    "голова → [гълава]",
+    "Ударный слог — длинный и чёткий"
+   ],
+   "examples": [
+    {
+     "t": "Молоко стоит в холодильнике.",
+     "uz": "Sut muzlatgichda turibdi."
+    },
+    {
+     "t": "У меня болит голова.",
+     "uz": "Boshim og‘riyapti."
+    }
+   ],
+   "say_native": "Birinchi qonuniyat: urg‘usiz unlilarning qisqarishi. Ruscha «о» urg‘usiz bo‘g‘inda «а» ga yaqin eshitiladi: «молоко» deyarli «мълако», «голова» deyarli «гълава». Bu «аканье» deyiladi. Urg‘uli bo‘g‘in esa uzun va aniq. Demak, tinglaganda siz hamma harfni emas, avvalo urg‘uli bo‘g‘inni ushlashingiz kerak, qolganini kontekstdan tiklaysiz. O‘zbek tilida unlilar ko‘proq to‘liq, shuning uchun siz ruscha so‘zni xatoga ko‘ra «o» deb eshitib, tushunmay qolishingiz mumkin.",
+   "say": "Молоко стоит в холодильнике. У меня болит голова. Слушайте ударный слог: мо-ло-КО, го-ло-ВА. Безударные гласные звучат короче и слабее, поэтому слова кажутся короткими.",
+   "say_uz": "Sut muzlatgichda turibdi. Boshim og‘riyapti. Urg‘uli bo‘g‘inni tinglang: mo-lo-KO, go-lo-VA. Urg‘usiz unlilar qisqaroq va kuchsizroq, shuning uchun so‘zlar qisqa tuyuladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Undoshlar: jarangsizlanish va moslashuv",
+   "emotion": "neutral",
+   "board": [
+    "хлеб → [хлеп]",
+    "сказка → [скáска]",
+    "в школе → [фшко́ле]"
+   ],
+   "examples": [
+    {
+     "t": "Я купил хлеб в магазине.",
+     "uz": "Do‘kondan non sotib oldim."
+    },
+    {
+     "t": "В школе много детей.",
+     "uz": "Maktabda ko‘p bolalar bor."
+    }
+   ],
+   "say_native": "Ikkinchi qonuniyat: undoshlar. So‘z oxirida jarangli undosh jarangsiz aytiladi: «хлеб» — «хлеп», «друг» — «друк». So‘z o‘rtasida ham qo‘shni undosh o‘xshatadi: «сказка» da «з» jarangsiz «с» ga yaqin eshitiladi. Old qo‘shimcha esa keyingi so‘zga yopishadi: «в школе» deyarli «фшколе». Bu o‘zbek tilidagi kabi oddiy tovush moslashuvi, faqat imlo uni ko‘rsatmaydi. Eshitgan tovushni emas, imlodagi so‘zni qidiring.",
+   "say": "Я купил хлеб в магазине. В школе сегодня много детей. На слух «хлеб» похож на «хлеп», а «в школе» — на «фшколе», но пишется всё как обычно.",
+   "say_uz": "Do‘kondan non sotib oldim. Bugun maktabda bolalar ko‘p. Quloqqa «xleb» «xlep» ga, «v shkole» esa «fshkole» ga o‘xshaydi, lekin yozuvda hammasi odatdagidek.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tovushlar yo‘qolishi va o‘zgarishi",
+   "emotion": "thinking",
+   "board": [
+    "что → [што]",
+    "конечно → [конешно]",
+    "сегодня → [сивóдня]",
+    "его → [иво]"
+   ],
+   "examples": [
+    {
+     "t": "Что ты сегодня делаешь?",
+     "uz": "Bugun nima qilyapsan?"
+    },
+    {
+     "t": "Конечно, я его знаю.",
+     "uz": "Albatta, uni bilaman."
+    }
+   ],
+   "say_native": "Uchinchi qonuniyat: ba’zi yozilishlar o‘qilishidan farq qiladi. «Что» — «што», «конечно» — «конешно», «чтобы» — «штобы», «сегодня» — «сивóдня», «его» — «иво». Bular norma, tezlashganda esa yana qisqaradi. «Здравствуйте» da «в» deyarli aytilmaydi. Bu so‘zlarni kamida o‘nta bilsangiz, tez nutqning katta qismi ochiladi. Yodlash uchun ularni yozuvda emas, ovozda takrorlang.",
+   "say": "Что ты сегодня делаешь? Конечно, я его знаю. Хочу, чтобы всё получилось. Эти слова мы пишем одним образом, а произносим иначе, и именно так их надо запомнить на слух.",
+   "say_uz": "Bugun nima qilyapsan? Albatta, uni bilaman. Hammasi yaxshi chiqishini xohlayman. Bu so‘zlarni bir xil yozamiz, boshqacha aytamiz va ularni aynan shunday quloqqa o‘rnatish kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Og‘zaki qisqartirishlar",
+   "emotion": "neutral",
+   "board": [
+    "сейчас → щас",
+    "пожалуйста → пожалуста",
+    "Иванович → Иваныч",
+    "тысяча → тыща"
+   ],
+   "examples": [
+    {
+     "t": "Щас приду, подожди минутку.",
+     "uz": "Hozir kelaman, bir daqiqa kut."
+    },
+    {
+     "t": "Иваныч сегодня на работе.",
+     "uz": "Ivanich bugun ishda."
+    }
+   ],
+   "say_native": "Yana bir qatlam: og‘zaki qisqartmalar. «Сейчас» — «щас», «пожалуйста» — «пожалуста», «тысяча» — «тыща». Otasining ismi ham qisqaradi: «Иванович» — «Иваныч», «Михайлович» — «Михалыч». Bu shakllar do‘stona va kundalik, rasmiy yozuvga mos emas, lekin siz ularni tushunishingiz kerak. O‘zingiz esa, birinchi o‘rinda, odatiy shaklda gapirasiz. Quloq uchun yodlang, nutq uchun emas.",
+   "say": "Щас приду, подожди минутку. Иваныч сегодня на работе. Это стоит тыщу рублей. Такие формы вы услышите на улице, а на экзамене лучше использовать полные слова.",
+   "say_uz": "Hozir kelaman, bir daqiqa kut. Ivanich bugun ishda. Bu ming rubl turadi. Bunday shakllarni ko‘chada eshitasiz, imtihonda esa to‘liq so‘zlarni ishlatgan ma’qul.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tez nutq: bir gap, ikki shakl",
+   "emotion": "happy",
+   "board": [
+    "Медленно: Что ты сейчас делаешь?",
+    "Быстро: Шо ты щас делаешь?",
+    "Что — шо — щас"
+   ],
+   "examples": [
+    {
+     "t": "Что ты сейчас делаешь?",
+     "uz": "Hozir nima qilyapsan?"
+    },
+    {
+     "t": "Не знаю, давай потом решим.",
+     "uz": "Bilmayman, keyin hal qilamiz."
+    }
+   ],
+   "say_native": "Bitta gapning ikkita ko‘rinishi. Sekin: «Что ты сейчас делаешь?» Tez: «Шо ты щас делаешь?» Faqat «что» va «сейчас» o‘zgardi, qolgan so‘zlar xuddi shunday. Shunga e’tibor bering: tez nutqda ham so‘zlar tartibi va ma’nosi saqlanadi, o‘zgaradigan faqat tovush qiyofasi. Shu gapni oldin sekin, keyin tez o‘qib, o‘zingiz farqni eshiting.",
+   "say": "Что ты сейчас делаешь? А теперь быстро: что ты щас делаешь? Не знаю, давай потом решим. Слова те же, меняется только их звучание.",
+   "say_uz": "Hozir nima qilyapsan? Endi tez: hozir nima qilyapsan? Bilmayman, keyin hal qilamiz. So‘zlar o‘sha, faqat ularning tovushi o‘zgaradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Har bir so‘zni tushunishga urinish",
+   "emotion": "stern",
+   "board": [
+    "✗ Пропустил слово — застрял.",
+    "✓ Пропустил слово — слушаю дальше.",
+    "Ищите смысл, а не каждую букву"
+   ],
+   "examples": [],
+   "say_native": "Eng katta xato: bitta so‘zni eshitmay, unga yopishib qolish. Siz bir so‘zni o‘ylab turganingizda, nutq yana o‘n so‘z oldinga ketadi, va siz butun gapni yo‘qotasiz. To‘g‘ri yo‘l: o‘tkazib yuborilgan so‘zni belgilab, tinglashni davom ettiring. Ma’no keyingi gaplardan ko‘pincha o‘zi ochiladi. Quloqning vazifasi so‘zlarni emas, ma’noni ushlash.",
+   "say": "Вы пропустили слово? Не останавливайтесь. Слушайте дальше: смысл часто проясняется в следующем предложении. Цель аудирования — понять мысль, а не расслышать каждую букву.",
+   "say_uz": "So‘zni o‘tkazib yubordingizmi? To‘xtamang. Davom eting: ma’no ko‘pincha keyingi gapda ravshan bo‘ladi. Tinglashning maqsadi har harfni emas, fikrni tushunish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tez nutqni taniting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Шо ты щас делаешь?",
+    "2) Здрасьте, как дела?",
+    "3) Конешно, я иво знаю."
+   ],
+   "examples": [],
+   "say_native": "Mashq: uchta tez nutq jumlasi. Ularni oddiy, to‘liq shaklga qaytaring. Birinchi: «шо ты щас делаешь». Ikkinchi: «здрасьте, как дела». Uchinchi: «конешно, я иво знаю». Har birini imloli ko‘rinishda ayting. Javoblar keyingi sahnada.",
+   "say": "Восстановите полную форму. Первое: шо ты щас делаешь? Второе: здрасьте, как дела? Третье: конешно, я иво знаю.",
+   "say_uz": "To‘liq shaklini tiklang. Birinchisi: shu ty shchas delaesh? Ikkinchisi: zdrasste, kak dela? Uchinchisi: koneshno, ya ivo znayu.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: to‘liq shakl",
+   "emotion": "proud",
+   "board": [
+    "1) Что ты сейчас делаешь?",
+    "2) Здравствуйте, как дела?",
+    "3) Конечно, я его знаю."
+   ],
+   "examples": [
+    {
+     "t": "Что ты сейчас делаешь?",
+     "uz": "Hozir nima qilyapsan?"
+    },
+    {
+     "t": "Здравствуйте, как дела?",
+     "uz": "Assalomu alaykum, ishlar qalay?"
+    },
+    {
+     "t": "Конечно, я его знаю.",
+     "uz": "Albatta, uni bilaman."
+    }
+   ],
+   "say_native": "Javoblar: «что ты сейчас делаешь», «здравствуйте, как дела», «конечно, я его знаю». Ko‘rdingizmi, quloq uchun «шо», «щас», «здрасьте», «конешно», «иво» ning har biri ma’lum bir yozma so‘zga mos keladi. Bu moslikni yodlab olsangiz, tez nutqda ularni avtomatik tanib olasiz. Ularni daftarga ikki ustunda yozib qo‘ying: chapda eshitilgani, o‘ngda yozilgani.",
+   "say": "Что ты сейчас делаешь? Здравствуйте, как дела? Конечно, я его знаю. Запишите такие пары в тетрадь: слева то, что слышите, справа — то, что пишете.",
+   "say_uz": "Hozir nima qilyapsan? Assalomu alaykum, ishlar qalay? Albatta, uni bilaman. Bunday juftlarni daftarga yozing: chapda eshitganingiz, o‘ngda yozganingiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Rus tilining asosiy talaffuz turlari",
+   "emotion": "neutral",
+   "board": [
+    "Московское произношение — норма",
+    "Северный говор: оканье",
+    "Южный говор: фрикативное г",
+    "Петербург: свои слова"
+   ],
+   "examples": [
+    {
+     "t": "На севере говорят «молоко» с чётким «о».",
+     "uz": "Shimolda «moloko» ni aniq «o» bilan aytishadi."
+    },
+    {
+     "t": "На юге «г» звучит мягче.",
+     "uz": "Janubda «g» yumshoqroq eshitiladi."
+    }
+   ],
+   "say_native": "Endi ikkinchi mavzu: ruscha talaffuz turlari. Adabiy norma Moskva talaffuziga asoslangan, televideniye va ta’limda shu eshitiladi. Shimoliy shevalarda «оканье»: urg‘usiz «о» ni «о» deb aniq aytishadi, masalan, «молоко» deyarli yozilganidek. Janubiy shevalarda «г» fricativ, ya’ni yumshoq, ingichka, «х» ga yaqin tovush chiqadi. Bu farqlar sizni qo‘rqitmasin: ma’no o‘zgarmaydi, faqat tovush rangi boshqacha. Shevalarni qo‘rquv bilan emas, qiziqish bilan tinglang.",
+   "say": "Литературная норма опирается на московское произношение. На севере чётко произносят безударное «о»: молоко. На юге звук «г» мягче и больше похож на «х». Смысл не меняется, меняется только окраска звука.",
+   "say_uz": "Adabiy norma Moskva talaffuziga tayanadi. Shimolda urg‘usiz «o» aniq aytiladi: moloko. Janubda «g» tovushi yumshoqroq va «x» ga o‘xshaydi. Ma’no o‘zgarmaydi, faqat tovush rangi o‘zgaradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Shahar so‘zlari farqi",
+   "emotion": "happy",
+   "board": [
+    "шаурма (Петербург) · шаверма (Москва)",
+    "поребрик · бордюр",
+    "парадная · подъезд"
+   ],
+   "examples": [
+    {
+     "t": "В Москве говорят «бордюр», а в Петербурге — «поребрик».",
+     "uz": "Moskvada «bordyur» deyishadi, Peterburgda «porebrik»."
+    },
+    {
+     "t": "В Петербурге мы входим в парадную.",
+     "uz": "Peterburgda biz «paradnaya» ga kiramiz (kirish yo‘lagi)."
+    },
+    {
+     "t": "Куплю шаверму по дороге домой.",
+     "uz": "Uyga ketayotib shaverma olaman."
+    }
+   ],
+   "say_native": "Mintaqaviy farq faqat tovushda emas, so‘zlarda ham. Bir xil tilning ikki shahrida bir narsani turlicha atashadi. Yo‘l chekkasidagi toshni Moskvada «бордюр», Peterburgda «поребрик» deyishadi. Ko‘p qavatli uy kirishini Peterburgda «парадная», Moskvada «подъезд» deyishadi. Shuvarma esa «шаверма» yoki «шаурма». Bu so‘zlarni yodlab olish shart emas, lekin eshitsangiz, adashmaslik uchun bilib qo‘ying.",
+   "say": "В Москве говорят «бордюр», а в Петербурге — «поребрик». В Петербурге входят в парадную, а в Москве — в подъезд. Куплю шаверму по дороге домой, а петербуржец скажет: шаурму.",
+   "say_uz": "Moskvada «bordyur», Peterburgda «porebrik» deyishadi. Peterburgda «paradnaya» ga kirishadi, Moskvada «pod‘yezd» ga. Uyga ketayotib shaverma olaman, peterburglik esa «shaurma» deydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Chet ellik va boshqa tillar ta’siridagi nutq",
+   "emotion": "neutral",
+   "board": [
+    "Украинский: «г» фрикативное, мягкий выговор",
+    "Среднеазиатский русский: неполная редукция",
+    "Кавказский: чёткие гласные, ритм"
+   ],
+   "examples": [
+    {
+     "t": "Многие говорят по-русски с акцентом, и это нормально.",
+     "uz": "Ko‘plar ruscha aksent bilan gapiradi, bu normal."
+    }
+   ],
+   "say_native": "Rus tilida faqat Rossiya aholisi gapirmaydi. Ukrainada, O‘rta Osiyoda, Kavkazda, Boltiqbo‘yida millionlab odam ruscha gapiradi, ularning talaffuzi ona tilining ta’siri bilan farq qiladi. Ukraina tili ta’sirida «г» yumshoqroq bo‘ladi. O‘rta Osiyoda ba’zan unlilar to‘liqroq aytiladi, ya’ni qisqarish kamroq. Kavkazda ritm boshqacha. Siz ham o‘zingiz aksent bilan gapirasiz, bu esa muammo emas. Muhim narsa: tushunarli gapirish va tushunarli eshitish.",
+   "say": "Миллионы людей говорят по-русски как на втором языке или рядом с другими языками. У них свои особенности: например, гласные могут звучать более полно. Это нормально, и ваша задача — понимать смысл.",
+   "say_uz": "Millionlab odam ruscha ikkinchi til sifatida yoki boshqa tillar yonida gapiradi. Ularning o‘ziga xos xususiyatlari bor: masalan, unlilar to‘liqroq eshitilishi mumkin. Bu normal, sizning vazifangiz esa ma’noni tushunish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Shevani toping",
+   "emotion": "encouraging",
+   "board": [
+    "1) В Петербурге говорят «поребрик».",
+    "2) Молоко с чётким «о».",
+    "3) Безударное «о» звучит как «а»."
+   ],
+   "examples": [],
+   "say_native": "Mashq: har bir tasdiq qaysi talaffuz yoki hududga tegishli? Birinchisi, «поребрик» qayerniki? Ikkinchisi, aniq «о» qayerga xos? Uchinchisi, urg‘usiz «о» ning «а» ga yaqinlashishi qaysi talaffuzga xos? Qisqa javob bering. Javoblar keyingi sahnada.",
+   "say": "Определите. Где говорят «поребрик»? Где «о» произносят чётко даже без ударения? И какое произношение превращает безударное «о» в «а»?",
+   "say_uz": "Aniqlang. «Porebrik» deb qayerda aytishadi? Urg‘usiz bo‘lsa ham «o» ni aniq aytish qayerga xos? Urg‘usiz «o» ni «a» ga aylantiruvchi talaffuz qaysi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: hudud va talaffuz",
+   "emotion": "proud",
+   "board": [
+    "1) Петербург",
+    "2) Север (оканье)",
+    "3) Московская норма (аканье)"
+   ],
+   "examples": [
+    {
+     "t": "«Поребрик» говорят в Петербурге.",
+     "uz": "«Porebrik» ni Peterburgda aytishadi."
+    },
+    {
+     "t": "Оканье характерно для северных говоров.",
+     "uz": "Okanye shimoliy shevalarga xos."
+    }
+   ],
+   "say_native": "Javoblar: «поребрик» — Peterburg, aniq «о» — shimoliy shevalar, ya’ni okanye, va urg‘usiz «о» ning «а» ga yaqinlashishi — Moskva me’yori, ya’ni akanye. Eslab qolish uchun: akanye — adabiy norma, okanye — shimol. Ikkala hodisa «о» harfiga bog‘liq, shuning uchun nomlari ham «о» va «а» harflari bilan yasalgan. Bu oddiy mnemonika sizga yordam beradi.",
+   "say": "«Поребрик» говорят в Петербурге. Чёткое безударное «о» характерно для северных говоров. А аканье, то есть произношение «а» вместо безударного «о», — это московская норма.",
+   "say_uz": "«Porebrik» ni Peterburgda aytishadi. Urg‘usiz «o» ning aniq aytilishi shimoliy shevalarga xos. Akanye, ya’ni urg‘usiz «o» o‘rnida «a» aytilishi, Moskva me’yori.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tezlikda eshitish: tayanch so‘zlar",
+   "emotion": "neutral",
+   "board": [
+    "Ударные слова несут смысл",
+    "Глаголы, существительные, числа",
+    "Служебные слова — реже"
+   ],
+   "examples": [
+    {
+     "t": "Завтра в десять встречаемся у вокзала.",
+     "uz": "Ertaga soat o‘nda vokzal yonida uchrashamiz."
+    }
+   ],
+   "say_native": "Uchinchi mavzu: tezlik. Qoida: butun gapni emas, tayanch so‘zlarni ushlang. «Завтра», «в десять», «встречаемся», «вокзал» — shu to‘rt so‘zdan butun ma’no tiklanadi. Bog‘lovchilar, yuklamalar va old qo‘shimchalarga kamroq e’tibor bering, chunki ular tez aytiladi. Nutq tezlashsa ham tayanch so‘zlar urg‘uli va uzunroq aytiladi, ularni quloq ilib oladi. Ayniqsa raqamlar, vaqt va joyni ushlash muhim.",
+   "say": "Завтра в десять встречаемся у вокзала. Если вы услышали только «завтра», «десять» и «вокзал», вы уже поняли главное. Остальное можно достроить по смыслу.",
+   "say_uz": "Ertaga soat o‘nda vokzal yonida uchrashamiz. Agar faqat «ertaga», «o‘n» va «vokzal» ni eshitgan bo‘lsangiz, asosiyni tushundingiz. Qolganini ma’no bo‘yicha to‘ldirish mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Intonatsiya ishoralari",
+   "emotion": "thinking",
+   "board": [
+    "Вопрос без слова: ↗ Ты придёшь?",
+    "Утверждение: ↘ Ты придёшь.",
+    "Перечисление: ↗ ↗ ↘"
+   ],
+   "examples": [
+    {
+     "t": "Ты придёшь?",
+     "uz": "Kelasanmi?"
+    },
+    {
+     "t": "Ты придёшь.",
+     "uz": "Sen kelasan."
+    }
+   ],
+   "say_native": "Tez nutqda ohang ko‘p narsani aytib beradi. Ruscha so‘roq so‘zi bo‘lmasa, savol faqat ohangda bilinadi: «Ты придёшь?» deganda ovoz asosiy so‘zda ko‘tarilib, tushadi. Darak gapda esa ovoz pastga tushadi. Ro‘yxatda har bir element ko‘tarilib, oxirgisida pasayadi. O‘zbek tilida savol yuklamasi «-mi» bor, rus tilida esa ohangning o‘zi yetarli, shuning uchun sizga ohangni eshitish juda muhim.",
+   "say": "Ты придёшь? Ты придёшь. Слова одинаковые, а смысл разный: в первом случае это вопрос, во втором — утверждение. Различает их только интонация, и в быстрой речи это особенно важно.",
+   "say_uz": "Kelasanmi? Sen kelasan. So‘zlar bir xil, ma’no boshqa: birinchisi savol, ikkinchisi darak. Ularni faqat ohang farqlaydi, tez nutqda esa bu ayniqsa muhim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "So‘roq va darakni adashtirish",
+   "emotion": "stern",
+   "board": [
+    "✗ «Ты придёшь?» → «Ты придёшь.»",
+    "✓ Слушаем подъём голоса на ударном слове",
+    "Без слова «ли» вопрос — это интонация"
+   ],
+   "examples": [],
+   "say_native": "Xato: «Ты придёшь?» ni darak gap deb tushunish, yoki aksincha. O‘zbekchada «-mi» bor, shuning uchun ohang haqida kam o‘ylaymiz. Ruscha esa ko‘p hollarda so‘roq so‘zisiz ohang bilan so‘raydi. «Ли» yuklamasi ham bor: «придёшь ли ты?», lekin og‘zaki nutqda u kam ishlatiladi. Shuning uchun tinglashda ovozning ko‘tarilishiga e’tibor bering.",
+   "say": "Ты придёшь? — вопрос, голос поднимается. Ты придёшь. — утверждение, голос опускается. А «Придёшь ли ты?» звучит книжно и встречается в речи редко.",
+   "say_uz": "Kelasanmi? — savol, ovoz ko‘tariladi. Sen kelasan. — darak, ovoz pasayadi. «Придёшь ли ты?» esa kitobiy eshitiladi va nutqda kam uchraydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 1: tez suhbat",
+   "emotion": "neutral",
+   "board": [
+    "— Ну что, идём?",
+    "— Щас, только ключи возьму.",
+    "— Давай быстрее, а то опоздаем."
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog: ikki do‘st tez gaplashadi. Diqqat bilan tinglang, ularning tezligi va qisqartmalariga e’tibor bering. Siz uchta narsani aniqlashingiz kerak: ular qayerga ketyapti, kim kimni kutyapti va nega shoshilishyapti. Dialog bir marta aytiladi, so‘ng savollar keladi.",
+   "say": "— Ну что, идём? — Щас, только ключи возьму. — Давай быстрее, а то на автобус опоздаем. — Да подожди, я телефон найти не могу. — Он же у тебя в кармане! — Ой, правда. Всё, пошли.",
+   "say_uz": "— Xo‘sh, ketdikmi? — Hozir, faqat kalitlarni olay. — Tezroq bo‘l, bo‘lmasa avtobusga kechikamiz. — Kut, telefonni topolmayapman. — U axir cho‘ntagingda-ku! — Voy, rost. Hammasi, ketdik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog 1 bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Чего ждёт первый собеседник?",
+    "2) Почему они торопятся?",
+    "3) Где был телефон?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: birinchi suhbatdosh nimani kutyapti? Ikkinchi: ular nega shoshilishyapti? Uchinchi: telefon qayerda bo‘lib chiqdi? Qisqa javob bering. Javoblar keyingi sahnada.",
+   "say": "Ответьте. Чего ждёт первый собеседник? Почему они торопятся? И где оказался телефон?",
+   "say_uz": "Javob bering. Birinchi suhbatdosh nimani kutyapti? Ular nega shoshilishyapti? Telefon qayerda chiqdi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog 1 javoblari",
+   "emotion": "proud",
+   "board": [
+    "1) Ждёт, пока друг возьмёт ключи.",
+    "2) Боятся опоздать на автобус.",
+    "3) Телефон был в кармане."
+   ],
+   "examples": [
+    {
+     "t": "Он ждёт, пока друг возьмёт ключи.",
+     "uz": "U do‘sti kalitlarni olishini kutyapti."
+    },
+    {
+     "t": "Они боятся опоздать на автобус.",
+     "uz": "Ular avtobusga kechikishdan qo‘rqyapti."
+    },
+    {
+     "t": "Телефон был у него в кармане.",
+     "uz": "Telefon uning cho‘ntagida edi."
+    }
+   ],
+   "say_native": "Javoblar: birinchi suhbatdosh do‘sti kalit olishini kutyapti. Ular avtobusga kechikishdan qo‘rqib shoshilyapti. Telefon esa cho‘ntakda ekan. E’tibor bering, dialogda tez nutqning belgilari bor edi: «щас», «ну что», «а то». «А то» — «aks holda, bo‘lmasa» degani, uni «а то» deb tez aytishadi. Siz hamma so‘zni ilmasangiz ham, tayanch so‘zlardan: «ключи», «автобус», «телефон», «карман» butun voqeani tikladingiz.",
+   "say": "Он ждёт, пока друг возьмёт ключи. Они спешат, потому что боятся опоздать на автобус. А телефон всё это время лежал у друга в кармане.",
+   "say_uz": "U do‘sti kalitlarni olishini kutyapti. Ular avtobusga kechikishdan qo‘rqib shoshilyapti. Telefon esa butun vaqt do‘stining cho‘ntagida yotgan ekan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tezlashtirish mashqi",
+   "emotion": "neutral",
+   "board": [
+    "0,75× → 1× → 1,25× → 1,5×",
+    "Один отрывок — три прослушивания",
+    "Сначала смысл, потом детали"
+   ],
+   "examples": [],
+   "say_native": "Tezlikda eshitishni o‘rgatish uchun mashq tizimi bor. Bitta qisqa parchani oldin sekinlashtirilgan, keyin odatdagi, keyin bir oz tezlashtirilgan tezlikda tinglang. Birinchi eshitishda faqat mavzuni, ikkinchisida tayanch so‘zlarni, uchinchisida tafsilotlarni ushlang. Tezlikni oshirib, bir necha kundan keyin odatdagi tezlik sizga sekin tuyuladi. Kuniga o‘n besh daqiqa, ammo har kun, kamdan-kam uzoq mashqdan yaxshiroq.",
+   "say": "Возьмите короткий отрывок и послушайте его три раза. В первый раз поймите тему, во второй — главные слова, в третий — детали. Затем ускорьте запись. Пятнадцать минут каждый день лучше, чем два часа раз в неделю.",
+   "say_uz": "Qisqa parcha oling va uch marta tinglang. Birinchisida mavzuni, ikkinchisida asosiy so‘zlarni, uchinchisida tafsilotlarni tushuning. Keyin yozuvni tezlashtiring. Har kuni o‘n besh daqiqa haftada bir marta ikki soatdan yaxshi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Raqamlar va ismlar",
+   "emotion": "thinking",
+   "board": [
+    "пятнадцать ↔ пятьдесят",
+    "шестнадцать ↔ шестьдесят",
+    "ударение: пятнáдцать, пятьдеся́т"
+   ],
+   "examples": [
+    {
+     "t": "В зале пятнадцать человек.",
+     "uz": "Zalda o‘n besh kishi bor."
+    },
+    {
+     "t": "Ему пятьдесят лет.",
+     "uz": "U ellik yoshda."
+    }
+   ],
+   "say_native": "Tez nutqda eng ko‘p adashiladigan joy: raqamlar. «Пятнадцать» va «пятьдесят», «шестнадцать» va «шестьдесят» bir-biriga o‘xshaydi. Farq urg‘uda: «пятнáдцать» da urg‘u ikkinchi bo‘g‘inda, «пятьдесят» da oxirgi bo‘g‘inda. Uzbek tilida «o‘n besh» va «ellik» butunlay boshqa so‘zlar, shuning uchun ruscha «-надцать» va «-десят» farqini bilishingiz kerak: «-надцать» — o‘n bilan boshlanuvchi, «-десят» — o‘nlik. Bu bitta qoidani bilsangiz, raqamlarni urg‘u bilan ajratasiz.",
+   "say": "В зале пятнадцать человек. Ему пятьдесят лет. Слушайте ударение: пятнадцать и пятьдесят. Окончание «-надцать» показывает числа от одиннадцати до девятнадцати, а «-десят» — десятки.",
+   "say_uz": "Zalda o‘n besh kishi bor. U ellik yoshda. Urg‘uga quloq soling: o‘n besh va ellik. «-nadsat» qo‘shimchasi o‘n birdan o‘n to‘qqizgacha bo‘lgan sonlarni, «-desyat» esa o‘nliklarni bildiradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Raqamlarni eshiting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Мне шестнадцать лет.",
+    "2) Билет стоит шестьдесят рублей.",
+    "3) Автобус идёт пятнадцать минут."
+   ],
+   "examples": [],
+   "say_native": "Mashq: uch gapdagi sonlarni urg‘uga qarab ajrating. Birinchi gapda o‘n olti yoshmi yoki oltmish yoshmi? Ikkinchisida oltmishmi yoki o‘n oltimi? Uchinchisida o‘n beshmi yoki ellikmi? Faqat bitta javob to‘g‘ri, qolganini eshitib toping. Javoblar keyingi sahnada.",
+   "say": "Какие числа вы услышали? Мне шестнадцать лет. Билет стоит шестьдесят рублей. Автобус идёт пятнадцать минут.",
+   "say_uz": "Qaysi sonlarni eshitdingiz? Men o‘n olti yoshdaman. Chipta oltmish rubl turadi. Avtobus o‘n besh daqiqa yuradi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: raqamlar",
+   "emotion": "proud",
+   "board": [
+    "1) шестнадцать (16)",
+    "2) шестьдесят (60)",
+    "3) пятнадцать (15)"
+   ],
+   "examples": [
+    {
+     "t": "Мне шестнадцать лет.",
+     "uz": "Men o‘n olti yoshdaman."
+    },
+    {
+     "t": "Билет стоит шестьдесят рублей.",
+     "uz": "Chipta oltmish rubl turadi."
+    }
+   ],
+   "say_native": "Javoblar: o‘n olti, oltmish, o‘n besh. Urg‘uni takrorlaymiz: «шестнáдцать», «шестьдеся́т», «пятнáдцать». Bu o‘zgarishlarni ovoz chiqarib ayting. Shu bilan birga «пятьдесят» ni «пятнадцать» bilan almashtirib qo‘ysangiz, narx yoki yosh butunlay boshqa bo‘ladi, shuning uchun ularni diqqat bilan ajrating. Raqamni eshitib ishonmasangiz, savol bering: «шестнадцать или шестьдесят?»",
+   "say": "Мне шестнадцать лет. Билет стоит шестьдесят рублей. Автобус идёт пятнадцать минут. Если сомневаетесь, переспросите: шестнадцать или шестьдесят?",
+   "say_uz": "Men o‘n olti yoshdaman. Chipta oltmish rubl turadi. Avtobus o‘n besh daqiqa yuradi. Shubhalansangiz, qayta so‘rang: o‘n oltimi yoki oltmishmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Eshitmagan so‘z: qayta so‘rash",
+   "emotion": "neutral",
+   "board": [
+    "Простите, повторите, пожалуйста.",
+    "Я не расслышал последнее слово.",
+    "То есть вы имеете в виду …?"
+   ],
+   "examples": [
+    {
+     "t": "Простите, повторите, пожалуйста, последнее слово.",
+     "uz": "Kechirasiz, oxirgi so‘zni takrorlab bering."
+    },
+    {
+     "t": "То есть вы имеете в виду завтра?",
+     "uz": "Ya’ni siz ertaga demoqchisiz?"
+    }
+   ],
+   "say_native": "To‘rtinchi mavzu: eshitmagan so‘z. Birinchi strategiya: aniq so‘rang. «Простите, повторите, пожалуйста» — umumiy so‘rov. Yaxshiroq: «Я не расслышал последнее слово», ya’ni aynan qaysi qism tushunarsiz ekanini ko‘rsatasiz. Eng yaxshisi: eshitganingizni takrorlab, tasdiqlatish: «То есть вы имеете в виду завтра?» Bu so‘rov suhbatdoshga siz nimani tushunganingizni va nima qolganini ko‘rsatadi. Ayol «не расслышала» deydi.",
+   "say": "Простите, повторите, пожалуйста, последнее слово. Я не расслышал, во сколько мы встречаемся. То есть вы имеете в виду завтра в десять? Так вы показываете, что именно поняли.",
+   "say_uz": "Kechirasiz, oxirgi so‘zni takrorlab bering. Qachon uchrashishimizni eshitmadim. Ya’ni siz ertaga soat o‘nni nazarda tutyapsizmi? Shunday qilib, aynan nimani tushunganingizni ko‘rsatasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kontekstdan taxmin qilish",
+   "emotion": "thinking",
+   "board": [
+    "Тема подсказывает слово",
+    "Грамматика подсказывает форму",
+    "Интонация подсказывает цель"
+   ],
+   "examples": [
+    {
+     "t": "Мы пошли в … за хлебом.",
+     "uz": "Biz non uchun ... ga bordik."
+    }
+   ],
+   "say_native": "Ikkinchi strategiya: kontekstdan taxmin qilish. Agar «мы пошли в ... за хлебом» deb eshitsangiz va o‘rtadagi so‘zni tushunmasangiz, mavzu sizga «магазин» yoki «булочная» deyishni tavsiya qiladi. Grammatika ham yordam beradi: «в» dan keyin joy bildirish uchun ot kelishi kerak. Ohang esa gap tugaganini yoki davom etayotganini aytadi. Shu uch ishora bilan o‘tkazilgan so‘zni ko‘pincha o‘zingiz topasiz.",
+   "say": "Мы пошли в … за хлебом. Даже если вы не расслышали слово, тема подсказывает: магазин или булочная. Грамматика тоже помогает: после «в» мы ждём существительное.",
+   "say_uz": "Biz non uchun ... ga bordik. So‘zni eshitmasangiz ham, mavzu aytib turadi: do‘kon yoki novvoyxona. Grammatika ham yordam beradi: «v» dan keyin ot kutamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Jim qotib tushunmaganini yashirish",
+   "emotion": "stern",
+   "board": [
+    "✗ Кивнуть и не понять.",
+    "✓ Переспросить коротко и по делу.",
+    "Переспросить — не стыдно"
+   ],
+   "examples": [],
+   "say_native": "Xato: tushunmasdan bosh irg‘ab qo‘ya qolish. Bu qulay ko‘rinadi, lekin keyin javob bera olmay qolasiz. Qayta so‘rash ona tilida so‘zlashuvchilar uchun ham normal, shuning uchun uyalmang. Qisqa, aniq so‘rang: «Не расслышал, какой номер?» yoki «Простите, во сколько?» Bunday so‘rov muloqotni to‘xtatmaydi, aksincha, suhbatdoshni sekinroq va aniqroq gapirishga undaydi.",
+   "say": "Не стесняйтесь переспрашивать. Скажите коротко: «Простите, не расслышал номер» или «Во сколько, вы сказали?» Это нормально даже для носителей языка.",
+   "say_uz": "Qayta so‘rashdan uyalmang. Qisqa ayting: «Kechirasiz, raqamni eshitmadim» yoki «Soat nechada dedingiz?» Bu ona tilida so‘zlashuvchilar uchun ham normal.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qayta so‘rang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Не расслышали время встречи.",
+    "2) Не поняли номер дома.",
+    "3) Хотите проверить, что поняли «завтра»."
+   ],
+   "examples": [],
+   "say_native": "Mashq: uchta vaziyatda qisqa qayta so‘rash ayting. Birinchi: uchrashuv vaqtini eshitmadingiz. Ikkinchi: uy raqamini tushunmadingiz. Uchinchi: «ertaga» deganini to‘g‘ri tushunganingizni tekshirmoqchisiz. Har biri uchun bitta to‘liq jumla ayting. Javoblar keyingi sahnada.",
+   "say": "Переспросите. Первое: вы не расслышали время встречи. Второе: вы не поняли номер дома. Третье: вы хотите проверить, что речь идёт о завтрашнем дне.",
+   "say_uz": "Qayta so‘rang. Birinchisi: uchrashuv vaqtini eshitmadingiz. Ikkinchisi: uy raqamini tushunmadingiz. Uchinchisi: gap ertangi kun haqida ekanini tekshirmoqchisiz.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: qayta so‘rash",
+   "emotion": "proud",
+   "board": [
+    "1) Простите, во сколько мы встречаемся?",
+    "2) Не расслышал, какой номер дома?",
+    "3) То есть вы имеете в виду завтра?"
+   ],
+   "examples": [
+    {
+     "t": "Простите, во сколько мы встречаемся?",
+     "uz": "Kechirasiz, soat nechada uchrashamiz?"
+    },
+    {
+     "t": "Не расслышал, какой номер дома?",
+     "uz": "Eshitmadim, uy raqami nechchi?"
+    },
+    {
+     "t": "То есть вы имеете в виду завтра?",
+     "uz": "Ya’ni siz ertaga demoqchisiz?"
+    }
+   ],
+   "say_native": "Namunaviy javoblar: «Простите, во сколько мы встречаемся?», «Не расслышал, какой номер дома?», «То есть вы имеете в виду завтра?» Uchinchisi eng kuchli: u tasdiqlashni so‘raydi va tushunganingizni ko‘rsatadi. Yodlang: «простите» + aniq savol. Ayol «не расслышала» deydi, erkak «не расслышал». Qisqa savol, aniq kerakli ma’lumot, hech qanday uzr uzun-uzoq bo‘lmaydi.",
+   "say": "Простите, во сколько мы встречаемся? Не расслышал, какой номер дома? То есть вы имеете в виду завтра? Короткие вопросы работают лучше всего.",
+   "say_uz": "Kechirasiz, soat nechada uchrashamiz? Eshitmadim, uy raqami nechchi? Ya’ni siz ertaga demoqchisiz? Qisqa savollar eng yaxshi ishlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: telefon orqali",
+   "emotion": "neutral",
+   "board": [
+    "— Алло, вы меня слышите?",
+    "— Связь плохая, повторите, пожалуйста.",
+    "— Встреча перенесена на пятницу."
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog: telefon suhbati, aloqa yomon. Tinglang, tinglovchi yetishmayotgan so‘zni qanday tiklaydi va nima deb qayta so‘raydi. Savollarni dialogdan keyin ko‘rasiz.",
+   "say": "— Алло, вы меня слышите? — Связь плохая, повторите, пожалуйста. — Встреча перенесена на пятницу. — Простите, на пятнадцатое или на пятницу? — На пятницу, в три часа. — Понял, в пятницу в три. Спасибо.",
+   "say_uz": "— Allo, meni eshityapsizmi? — Aloqa yomon, takrorlab bering. — Uchrashuv juma kuniga ko‘chirildi. — Kechirasiz, o‘n beshinchigami yoki jumagami? — Jumaga, soat uchda. — Tushundim, juma kuni soat uchda. Rahmat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog 2 bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Что изменилось?",
+    "2) Какое слово было непонятно?",
+    "3) Когда теперь встреча?"
+   ],
+   "examples": [],
+   "say_native": "Uchta savol. Birinchi: nima o‘zgardi? Ikkinchi: qaysi so‘z tushunarsiz bo‘lib qoldi va nima bilan almashtirib so‘ralgan? Uchinchi: uchrashuv endi qachon? Javoblar keyingi sahnada.",
+   "say": "Ответьте. Что изменилось? Какое слово было непонятно и как собеседник его уточнил? Когда теперь встреча?",
+   "say_uz": "Javob bering. Nima o‘zgardi? Qaysi so‘z tushunarsiz edi va suhbatdosh uni qanday aniqlashtirdi? Uchrashuv endi qachon?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog 2 javoblari",
+   "emotion": "proud",
+   "board": [
+    "1) Встречу перенесли.",
+    "2) «Пятница» ↔ «пятнадцатое».",
+    "3) В пятницу в три часа."
+   ],
+   "examples": [
+    {
+     "t": "Встречу перенесли на пятницу.",
+     "uz": "Uchrashuv jumaga ko‘chirildi."
+    },
+    {
+     "t": "Он спросил: «На пятнадцатое или на пятницу?»",
+     "uz": "U so‘radi: «O‘n beshinchigami yoki jumagami?»"
+    },
+    {
+     "t": "Теперь встреча в пятницу в три часа.",
+     "uz": "Endi uchrashuv juma kuni soat uchda."
+    }
+   ],
+   "say_native": "Javoblar: uchrashuv ko‘chirildi, tushunarsiz so‘z «пятницу» yoki «пятнадцатое» edi, endi esa uchrashuv juma kuni soat uchda. Qarang, tinglovchi ikki o‘xshash variantni taqqosladi va to‘g‘risini aniqladi: bu juda yaxshi usul. «Пятница» va «пятнадцатое» ning boshlanishi bir xil, farq keyingi bo‘g‘inlarda. Shuning uchun ikki ehtimolni aytib so‘rash eng tez yo‘l.",
+   "say": "Встречу перенесли. Собеседник не понял слово: «пятница» или «пятнадцатое». Он уточнил и выяснил: встреча в пятницу в три часа.",
+   "say_uz": "Uchrashuv ko‘chirildi. Suhbatdosh so‘zni tushunmadi: «juma» yoki «o‘n beshinchi». U aniqlashtirdi va bildi: uchrashuv juma kuni soat uchda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qo‘shilib ketgan nutq: yodlash",
+   "emotion": "neutral",
+   "board": [
+    "Слушайте сочетания, а не слова",
+    "Повторяйте за диктором с задержкой",
+    "Пишите то, что слышите"
+   ],
+   "examples": [],
+   "say_native": "Qo‘shilib ketgan nutqni o‘zlashtirish uchun uchta mashq. Birinchi: yakka so‘zlarni emas, birikmalarni tinglang: «в школе», «что-нибудь», «как дела». Ikkinchi: «soyalash», ya’ni diktor ortidan bir-ikki soniya kechikib takrorlash. Uchinchi: eshitganingizni yozish, diktant. Bu uch mashq quloq, og‘iz va ko‘zni bir-biriga bog‘laydi. Ular birgalikda tez nutqni tez va aniq tushunishga olib keladi.",
+   "say": "Слушайте не отдельные слова, а целые сочетания. Повторяйте за диктором с небольшой задержкой. А потом запишите услышанное: так вы увидите, где именно теряете слова.",
+   "say_uz": "So‘zlarni emas, butun birikmalarni tinglang. Diktor ortidan ozgina kechikib takrorlang. Keyin eshitganingizni yozing: shunda so‘zlarni aynan qayerda yo‘qotayotganingizni ko‘rasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Diktant strategiyasi",
+   "emotion": "thinking",
+   "board": [
+    "1) Первое прослушивание — без письма",
+    "2) Второе — запишите ключевые слова",
+    "3) Третье — заполните пропуски"
+   ],
+   "examples": [
+    {
+     "t": "Сначала слушаем, потом пишем.",
+     "uz": "Avval tinglaymiz, keyin yozamiz."
+    }
+   ],
+   "say_native": "Uyga vazifa diktant bo‘lgani uchun uning strategiyasini ko‘rib chiqamiz. Birinchi eshitishda yozmang, faqat mavzu va umumiy ma’noni ushlang. Ikkinchisida tayanch so‘zlarni yozing. Uchinchisida bo‘shliqlarni to‘ldiring, mantiq va grammatikaga tayanib. Oxirida yozganingizni tekshiring: kelishik tugatmalari, fe’l shakllari va «ь» belgisi. O‘ttiz soniyali tez nutq uchun odatda o‘nga yaqin eshitish kerak bo‘ladi, bu normal.",
+   "say": "Сначала слушаем без письма: только тема. Потом записываем ключевые слова. В третий раз заполняем пропуски. В конце проверяем окончания и мягкий знак. Для тридцати секунд быстрой речи может понадобиться десять прослушиваний.",
+   "say_uz": "Avval yozmasdan tinglaymiz: faqat mavzu. Keyin tayanch so‘zlarni yozamiz. Uchinchi marta bo‘shliqlarni to‘ldiramiz. Oxirida tugatmalar va yumshatish belgisini tekshiramiz. O‘ttiz soniyalik tez nutq uchun o‘nga yaqin eshitish kerak bo‘lishi mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy topshiriq: diktant",
+   "emotion": "encouraging",
+   "board": [
+    "Диктант: тридцать секунд",
+    "1) Записывайте ключевые слова",
+    "2) Восстановите фразы",
+    "3) Проверьте окончания"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy topshiriq: diktant. Quyidagi parchani tinglang: tez va yuqori ohangda aytiladi. Yozing tayanch so‘zlarni, keyin butun gaplarni tiklang. Parchada vaqt, joy va harakat bo‘ladi. Javobni keyingi sahnada sekin tezlikda tekshirasiz. Imlo va tugatmalarga e’tibor bering.",
+   "say": "Щас я быстро скажу, а вы запишите. Завтра в девять мне надо быть на вокзале, потому что мама приезжает из Самарканда. Если успею, куплю ей цветы. Так что давай созвонимся вечером.",
+   "say_uz": "Hozir tez aytaman, siz yozing. Ertaga soat to‘qqizda vokzalda bo‘lishim kerak, chunki onam Samarqanddan keladi. Ulgursam, unga gul olaman. Shuning uchun kechqurun telefonlashamiz.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Diktant javobi",
+   "emotion": "proud",
+   "board": [
+    "Завтра в девять — вокзал",
+    "Мама приезжает из Самарканда",
+    "Куплю цветы · созвонимся вечером"
+   ],
+   "examples": [
+    {
+     "t": "Завтра в девять мне надо быть на вокзале.",
+     "uz": "Ertaga soat to‘qqizda vokzalda bo‘lishim kerak."
+    },
+    {
+     "t": "Если успею, куплю маме цветы.",
+     "uz": "Ulgursam, onamga gul olaman."
+    }
+   ],
+   "say_native": "Mana to‘liq matn: «Завтра в девять мне надо быть на вокзале, потому что мама приезжает из Самарканда. Если успею, куплю ей цветы. Так что давай созвонимся вечером». Tayanch so‘zlar: «завтра», «девять», «вокзал», «мама», «Самарканд», «цветы», «вечером». Agar ularni yozgan bo‘lsangiz, mazmunni tushundingiz. Endi xatolaringizni toping: «приезжает из + Р.п.» va «созвонимся» — o‘zaro fe’l.",
+   "say": "Завтра в девять мне надо быть на вокзале, потому что мама приезжает из Самарканда. Если успею, куплю ей цветы. Так что давай созвонимся вечером.",
+   "say_uz": "Ertaga soat to‘qqizda vokzalda bo‘lishim kerak, chunki onam Samarqanddan keladi. Ulgursam, unga gul olaman. Shuning uchun kechqurun telefonlashamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "O‘z-o‘zini tekshirish",
+   "emotion": "encouraging",
+   "board": [
+    "Сколько ключевых слов вы записали?",
+    "Что вы пропустили?",
+    "Почему?"
+   ],
+   "examples": [],
+   "say_native": "Endi o‘zingizni tekshiring. Nechta tayanch so‘zni yozdingiz? Nimani o‘tkazib yubordingiz? Nega: tezlik, qisqartma, noma’lum so‘zmi? Javobni o‘zingiz bilan baham ko‘ring, shunda keyingi mashq nimaga yo‘naltirilishini bilasiz. Bu tahlil diktantning o‘zidan ko‘ra foydaliroq bo‘ladi.",
+   "say": "Проанализируйте себя. Сколько ключевых слов вы записали? Что пропустили и почему: из-за скорости, сокращения или незнакомого слова?",
+   "say_uz": "O‘zingizni tahlil qiling. Nechta tayanch so‘z yozdingiz? Nimani o‘tkazib yubordingiz va nega: tezlik, qisqartma yoki notanish so‘z tufaylimi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Tahlildan xulosa",
+   "emotion": "proud",
+   "board": [
+    "Скорость → ускоренное аудирование",
+    "Сокращения → список пар",
+    "Незнакомые слова → словарь"
+   ],
+   "examples": [
+    {
+     "t": "Если я пропускаю сокращения, мне нужен список пар.",
+     "uz": "Qisqartmalarni o‘tkazib yuborsam, menga juftlar ro‘yxati kerak."
+    }
+   ],
+   "say_native": "Xulosa. Agar tezlik sabab bo‘lgan bo‘lsa, ko‘proq tezlashtirilgan tinglash kerak. Qisqartmalar sabab bo‘lsa, eshitilishi va yozilishi juftlar ro‘yxatini tuzing. Noma’lum so‘zlar bo‘lsa, ularni lug‘atga yozib, yana tinglang. Shu tarzda har bir xato sizga keyingi qadamni ko‘rsatadi. Tinglash kuchsiz yoki zo‘r bo‘lmaydi, u mashq bilan o‘zgaradi, va siz buni o‘z ko‘zingiz bilan ko‘rasiz.",
+   "say": "Если вам мешает скорость, ускоряйте запись. Если сокращения, составьте список пар. Если незнакомые слова, ведите словарь. Так каждая ошибка подсказывает следующий шаг.",
+   "say_uz": "Tezlik xalaqit bersa, yozuvni tezlashtiring. Qisqartmalar xalaqit bersa, juftlar ro‘yxatini tuzing. Notanish so‘zlar xalaqit bersa, lug‘at yuriting. Shunday qilib, har bir xato keyingi qadamni ko‘rsatadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "Слитная речь: аканье, оглушение, сокращения",
+    "Говоры и региональные слова",
+    "Опорные слова · переспрос · контекст"
+   ],
+   "examples": [],
+   "say_native": "Xulosa. Birinchi: qo‘shilib ketgan nutq, ya’ni unlilar qisqarishi, jarangsizlanish va og‘zaki qisqartmalar. Ikkinchi: talaffuz turlari va mintaqaviy so‘zlar, masalan, «бордюр» va «поребрик». Uchinchi: tezlikda tayanch so‘zlarni ushlash, sonlarni ajratish, ohangni eshitish. To‘rtinchi: tushunmasangiz, aniq qayta so‘rash va kontekstdan taxmin qilish.",
+   "say": "Подведём итог. Вы узнали, как устроена слитная речь, чем различаются говоры и как справляться со скоростью. А если слово потерялось, вы знаете, как переспросить или догадаться.",
+   "say_uz": "Xulosa qilaylik. Siz qo‘shilib ketgan nutq qanday tuzilganini, shevalar nimasi bilan farq qilishini va tezlik bilan qanday kurashishni bildingiz. So‘z yo‘qolsa, qayta so‘rash yoki taxmin qilishni ham bilasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "30 секунд быстрой речи — запишите на бумаге",
+    "Критерий: ≥ 80 % слов",
+    "Следующий урок: убеждение и переговоры"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa: ona tilida so‘zlashuvchining o‘ttiz soniyalik tez nutqini yozib oling: radio, podkast yoki videodan. Kerak bo‘lsa, parchani o‘nga yaqin marta eshiting. Muvaffaqiyat mezoni: so‘zlarning kamida sakson foizi to‘g‘ri yozilgan bo‘lsin, va qaysi joylarda xato qilganingizni belgilang. Keyingi darsda ishontirish va muzokara qilishni o‘rganamiz.",
+   "say": "До свидания! Запишите тридцать секунд быстрой речи и проверьте, сколько слов вы поняли правильно. До встречи на следующем уроке!",
+   "say_uz": "Xayr! O‘ttiz soniyalik tez nutqni yozing va nechta so‘zni to‘g‘ri tushunganingizni tekshiring. Keyingi darsda ko‘rishamiz!",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "30 soniyalik tez nutqni matnga o‘tkazib qo‘ying. Mezon: har bir gap rus tilida, «быстро, медленно, ещё раз, например, итого» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “fast”?","options":["быстро","медленно","ещё раз","пожалуйста"],"answer":0,"why_uz":"Быстро — tez."},
-  {"q":"Which word means “slowly”?","options":["медленно","быстро","ещё раз","пожалуйста"],"answer":0,"why_uz":"Медленно — sekin."},
-  {"q":"Which phrase means “again”?","options":["ещё раз","пожалуйста","извините","спасибо"],"answer":0,"why_uz":"Ещё раз — yana bir marta."},
-  {"q":"How do you say “Fast is good”?","options":["Быстро хорошо.","Быстро хорошо есть.","Быстро хорошо является.","Быстро хорошо был."],"answer":0,"why_uz":"Быстро хорошо — tez yaxshi."},
-  {"q":"Which word means “please”?","options":["пожалуйста","извините","ещё раз","спасибо"],"answer":0,"why_uz":"Пожалуйста — iltimos."},
-  {"q":"Which word means “excuse me”?","options":["извините","пожалуйста","ещё раз","спасибо"],"answer":0,"why_uz":"Извините — kechirasiz."},
-  {"q":"How do you say “Slowly is clear”?","options":["Медленно понятно.","Медленно понятно есть.","Медленно понятно является.","Медленно понятно был."],"answer":0,"why_uz":"Медленно понятно — sekin tushunarli."},
-  {"q":"Which verb means “to listen”?","options":["слушать","слышать","говорить","писать"],"answer":0,"why_uz":"Слушать — tinglamoq."},
-  {"q":"Which verb means “to speak”?","options":["говорить","писать","читать","слушать"],"answer":0,"why_uz":"Говорить — gapirmoq."},
-  {"q":"Which verb means “to read”?","options":["читать","говорить","писать","слушать"],"answer":0,"why_uz":"Читать — o‘qimoq."}
+ "homework_uz": "Ona tilida so‘zlashuvchining o‘ttiz soniyalik tez nutqini (radio, podkast yoki video) tinglab, so‘zma-so‘z yozib oling. Mezon: so‘zlarning kamida 80 foizi to‘g‘ri bo‘lsin; qaysi joylarda xato qilganingizni (tezlik, qisqartma, notanish so‘z) belgilab chiqing.",
+ "quiz": [
+  {
+   "q": "How is the Russian word «что» usually pronounced in the standard norm?",
+   "options": [
+    "што",
+    "чьто",
+    "чот",
+    "что"
+   ],
+   "answer": 0,
+   "why_uz": "Adabiy talaffuzda «что» — «što»."
+  },
+  {
+   "q": "What happens to an unstressed «о» in standard Moscow pronunciation?",
+   "options": [
+    "It sounds close to «а»",
+    "It is always pronounced as «у»",
+    "It disappears completely",
+    "It becomes «и»"
+   ],
+   "answer": 0,
+   "why_uz": "Bu «аканье» deyiladi."
+  },
+  {
+   "q": "Which phrase is a polite request to repeat?",
+   "options": [
+    "Простите, повторите, пожалуйста.",
+    "Не надо.",
+    "Мне всё равно.",
+    "До свидания."
+   ],
+   "answer": 0,
+   "why_uz": "Bu muloyim qayta so‘rash."
+  },
+  {
+   "q": "How do you say that the stress distinguishes «пятнадцать» from «пятьдесят»?",
+   "options": [
+    "The stressed syllable differs",
+    "The words are identical in sound",
+    "Only the vowel «я» differs",
+    "Only the final consonant differs"
+   ],
+   "answer": 0,
+   "why_uz": "Ikki so‘zda urg‘u turli bo‘g‘inda."
+  },
+  {
+   "q": "Which word is typical for St Petersburg?",
+   "options": [
+    "поребрик",
+    "бордюр",
+    "пирог",
+    "чай"
+   ],
+   "answer": 0,
+   "why_uz": "«Поребрик» — Peterburg so‘zi, Moskvada «бордюр»."
+  },
+  {
+   "q": "Which pronunciation of the word «сейчас» is colloquial?",
+   "options": [
+    "щас",
+    "сэйчас",
+    "сэчас",
+    "сейчаз"
+   ],
+   "answer": 0,
+   "why_uz": "«Щас» — og‘zaki qisqartma."
+  },
+  {
+   "q": "What helps most when you miss a word in fast speech?",
+   "options": [
+    "Keep listening and use context",
+    "Stop and wait",
+    "Leave the conversation",
+    "Translate every word"
+   ],
+   "answer": 0,
+   "why_uz": "Kontekst va tinglashni davom ettirish ma’noni tiklaydi."
+  },
+  {
+   "q": "In «Ты придёшь?» what shows that it is a question?",
+   "options": [
+    "Intonation",
+    "The word order only",
+    "A special ending",
+    "The word «ли»"
+   ],
+   "answer": 0,
+   "why_uz": "So‘roq so‘zi bo‘lmasa, ohang savolni bildiradi."
+  },
+  {
+   "q": "What is the patronymic «Иваныч» a short form of?",
+   "options": [
+    "Иванович",
+    "Иванов",
+    "Иванин",
+    "Иванко"
+   ],
+   "answer": 0,
+   "why_uz": "«Иваныч» — «Иванович» ning og‘zaki qisqartmasi."
+  },
+  {
+   "q": "What is the best way to confirm what you understood?",
+   "options": [
+    "То есть вы имеете в виду завтра?",
+    "Что?",
+    "Я не слушаю.",
+    "Хватит."
+   ],
+   "answer": 0,
+   "why_uz": "Eshitganingizni takrorlab, tasdiqlatish eng aniq usul."
+  }
  ]
 }

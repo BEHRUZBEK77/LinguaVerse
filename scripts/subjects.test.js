@@ -34,3 +34,18 @@ test('fanlar: noto\'g\'ri fan/sinf/raqam rad etiladi', () => {
   const t = sub.topicOf({ subject: 'fizika', grade: '7', n: 0 });
   assert.strictEqual(t.id, 'fizika_7_0');
 });
+
+test('fanlar: admin amallari admin bo\'lmaganga yopiq', async () => {
+  const fsdb = require('../netlify/functions/_firestore.js');
+  const orig = fsdb.getDoc; fsdb.getDoc = async () => null;
+  try {
+    const auth = require('../netlify/functions/_auth.js'); const ov = auth.verifyIdToken; auth.verifyIdToken = async () => ({ uid: 'u1' });
+    const keys = require('../netlify/functions/_keys.js'); const kr = keys.refreshFromFirestore; keys.refreshFromFirestore = async () => {};
+    try {
+      for (const action of ['admin-reports', 'admin-report-done', 'admin-regenerate']) {
+        const r = await sub.handler({ httpMethod: 'POST', body: JSON.stringify({ action, idToken: 'x', id: 'a', subject: 'fizika', grade: '7', n: 0 }) });
+        assert.strictEqual(r.statusCode, 403, action);
+      }
+    } finally { auth.verifyIdToken = ov; keys.refreshFromFirestore = kr; }
+  } finally { fsdb.getDoc = orig; }
+});

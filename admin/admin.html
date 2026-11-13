@@ -2425,6 +2425,7 @@
             </select>
             <button class="filter-btn ab" onclick="loadVideos()"><i class="fa-solid fa-rotate-right"></i> Yangilash</button>
             <button class="filter-btn ab" onclick="loadReports()"><i class="fa-solid fa-flag"></i> Xato xabarlari</button>
+            <button class="filter-btn ab" onclick="loadSubjReports()"><i class="fa-solid fa-book"></i> Fan darslari xatolari</button>
           </div>
         </div>
         <div id="repBox" style="margin-bottom:14px"></div>
@@ -3479,6 +3480,39 @@ ${o.status === 'pending' ? `
 <div style="margin:6px 0;white-space:pre-wrap">${esc(x.text)}</div>
 <button class="filter-btn ab" data-id="${esc(x.id)}" onclick="doneReport(this.dataset.id, this)">✓ Tuzatildi</button></div>`).join('') : '<div style="color:var(--text3);margin-top:6px">Hozircha xabar yo‘q.</div>') + '</div>';
       } catch (e) { box.innerHTML = `<div class="empty">${esc(e.message)}</div>`; }
+    };
+    // ── Maktab fanlari: AI darsdagi xato xabarlari, darsni qayta yozdirish ──
+    async function subjApi(action, extra = {}) {
+      const idToken = await CURRENT_ADMIN.getIdToken();
+      const r = await fetch('/.netlify/functions/subjects', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, idToken, ...extra }) });
+      const d = await r.json().catch(() => ({})); if (!r.ok) throw new Error(d.error || 'Xato'); return d;
+    }
+    window.loadSubjReports = async function () {
+      const box = document.getElementById('repBox');
+      box.innerHTML = '<div class="loading-row"><span class="spinner"></span>Yuklanmoqda...</div>';
+      try {
+        const d = await subjApi('admin-reports');
+        box.innerHTML = `<div class="card" style="padding:14px"><b>Fan darslari — yangi xabarlar: ${d.rows.length}</b>` + (d.rows.length ? d.rows.map(x => `<div style="border-top:1px solid var(--border);padding:10px 0;margin-top:8px">
+<div style="font-size:.8rem;color:var(--text3)">${esc(x.subject)} · ${esc(x.grade)}-sinf · ${Number(x.n) + 1}-dars · ${esc(x.topic)}</div>
+<div style="margin:6px 0;white-space:pre-wrap">${esc(x.text)}</div>
+<a class="filter-btn ab" target="_blank" rel="noopener" href="/languages-html/fanlar.html#/${encodeURIComponent(x.subject)}/${encodeURIComponent(x.grade)}/${Number(x.n)}">Darsni ochish</a>
+<button class="filter-btn ab" data-id="${esc(x.id)}" data-s="${esc(x.subject)}" data-g="${esc(x.grade)}" data-n="${Number(x.n)}" onclick="regenSubj(this)">↻ Qayta yozdirish</button>
+<button class="filter-btn ab" data-id="${esc(x.id)}" onclick="doneSubjReport(this)">✓ Tuzatildi</button></div>`).join('') : '<div style="color:var(--text3);margin-top:6px">Hozircha xabar yo‘q.</div>') + '</div>';
+      } catch (e) { box.innerHTML = `<div class="empty">${esc(e.message)}</div>`; }
+    };
+    window.doneSubjReport = async function (btn) {
+      btn.disabled = true;
+      try { await subjApi('admin-report-done', { id: btn.dataset.id }); btn.closest('div').remove(); }
+      catch (e) { btn.disabled = false; toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
+    };
+    window.regenSubj = async function (btn) {
+      if (!confirm("Bu dars o'chirilib, keyingi ochilishda AI uni yangidan yozadi. Davom etilsinmi?")) return;
+      btn.disabled = true;
+      try {
+        await subjApi('admin-regenerate', { subject: btn.dataset.s, grade: btn.dataset.g, n: Number(btn.dataset.n) });
+        await subjApi('admin-report-done', { id: btn.dataset.id });
+        btn.closest('div').remove(); toast('Dars qayta yoziladi', 'success', 'fa-check-circle');
+      } catch (e) { btn.disabled = false; toast('Xato: ' + esc(e.message), 'error', 'fa-circle-xmark'); }
     };
     window.doneReport = async function (id, btn) {
       btn.disabled = true;

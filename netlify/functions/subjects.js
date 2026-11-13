@@ -5,6 +5,8 @@
 //   POST { action:'quiz',     idToken, subject, grade, n, answers }  → serverda tekshiriladi
 //   POST { action:'ask',      idToken, subject, grade, n, question } → AI ustoz javobi
 //   POST { action:'progress', idToken }                              → { "<fan>_<sinf>_<n>": ball }
+//   POST { action:'report',   idToken, subject, grade, n, text }     → xato xabari (adminga)
+//   admin: 'admin-reports' | 'admin-report-done' {id} | 'admin-regenerate' {subject,grade,n}
 //
 // Mavzular ro'yxati statik (subjects/catalog.json). Dars matni birinchi ochilganda
 // AI bilan yoziladi va subjectLessons/ da hamma uchun saqlanadi (birinchi yozuv qoladi).
@@ -13,7 +15,7 @@
 const fsdb = require('./_firestore.js');
 const keys = require('./_keys.js');
 const { think, extractJson } = require('./_brain.js');
-const { verifyIdToken } = require('./_auth.js');
+const authLib = require('./_auth.js');
 const { checkRateLimit } = require('./_ratelimit.js');
 const { effectivePlan, withServerPerks } = require('./_video-entitlements.js');
 const catalog = require('../../subjects/catalog.json');
@@ -169,6 +171,38 @@ async function ask(uid, body) {
   return { answer: str(r.text, 3000) };
 }
 
+// ── Xato xabarlari va admin: noto'g'ri AI darsni qayta yozdirish ──
+async function report(uid, body) {
+  const t = topicOf(body);
+  const text = str(String(body.text || '').replace(/[\u0000-\u001f\u007f]/g, ' '), 800);
+  if (text.length < 5) throw httpErr(400, 'Xatoni qisqacha yozing (kamida 5 belgi)');
+  const rl = await checkRateLimit(`subjreport:${uid}`, { windowMs: 3600_000, max: 8 });
+  if (!rl.ok) throw httpErr(429, "Juda ko'p xabar — bir soatdan keyin urinib ko'ring");
+  await fsdb.addDoc('subjectReports', { uid, lessonId: t.id, subject: t.s.id, grade: t.g, n: t.n, topic: t.topic.t, text, status: 'new', createdAt: new Date(), createdMs: Date.now() });
+  return { ok: true };
+}
+async function requireAdmin(uid) {
+  if (!(await fsdb.getDoc(`admins/${uid}`).catch(() => null))) throw httpErr(403, "Admin huquqi yo'q");
+}
+async function adminReports(uid) {
+  await requireAdmin(uid);
+  const rows = await fsdb.queryList('subjectReports', [{ field: 'status', op: 'EQUAL', value: 'new' }], 'createdMs', 300).catch(() => []);
+  return { rows: rows.map(r => ({ id: r.id, lessonId: r.lessonId, subject: r.subject, grade: r.grade, n: r.n, topic: r.topic, text: r.text, at: r.createdAt })) };
+}
+async function adminReportDone(uid, body) {
+  await requireAdmin(uid);
+  const id = String(body.id || '').slice(0, 80);
+  if (!/^[A-Za-z0-9_-]+$/.test(id)) throw httpErr(400, 'id kerak');
+  await fsdb.setDoc(`subjectReports/${id}`, { status: 'done', doneAt: new Date(), doneBy: uid });
+  return { ok: true };
+}
+async function adminRegenerate(uid, body) {
+  await requireAdmin(uid);
+  const t = topicOf(body);
+  await fsdb.deleteDoc(`subjectLessons/${t.id}`);   // keyingi ochilishda yangidan yoziladi
+  return { ok: true, id: t.id };
+}
+
 async function progress(uid) {
   const doc = await fsdb.getDoc(`subjectProgress/${uid}`).catch(() => null);
   return { scores: doc?.scores ? JSON.parse(doc.scores) : {}, free: FREE_TOPICS, paid: (await account(uid)).paid };
@@ -180,7 +214,7 @@ exports.handler = async function (event) {
   let body;
   try { body = JSON.parse(event.body || '{}'); } catch { return json(400, { error: "Noto'g'ri JSON" }); }
   let auth;
-  try { auth = await verifyIdToken(body.idToken); }
+  try { auth = await authLib.verifyIdToken(body.idToken); }
   catch { return json(401, { error: 'Darslarni ochish uchun tizimga kiring.' }); }
   await keys.refreshFromFirestore().catch(() => {});
   try {
@@ -189,6 +223,10 @@ exports.handler = async function (event) {
       case 'quiz':     return json(200, await quiz(auth.uid, body));
       case 'ask':      return json(200, await ask(auth.uid, body));
       case 'progress': return json(200, await progress(auth.uid));
+      case 'report':   return json(200, await report(auth.uid, body));
+      case 'admin-reports':     return json(200, await adminReports(auth.uid));
+      case 'admin-report-done': return json(200, await adminReportDone(auth.uid, body));
+      case 'admin-regenerate':  return json(200, await adminRegenerate(auth.uid, body));
       default: return json(400, { error: "Noma'lum action" });
     }
   } catch (e) {

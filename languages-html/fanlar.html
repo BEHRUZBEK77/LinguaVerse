@@ -68,6 +68,7 @@
     .msg.u { align-self: flex-end; background: color-mix(in srgb, var(--accent) 18%, transparent); }
     .msg.a { align-self: flex-start; background: var(--surface2); }
     .tutor form { display: flex; gap: 8px; }
+    #repd form { display: flex; gap: 8px; } #repd input { flex: 1; min-width: 0; background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 11px 13px; font: inherit; }
     .tutor input { flex: 1; min-width: 0; background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 11px 13px; font: inherit; }
     .box { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; text-align: center; }
     .navl { display: flex; justify-content: space-between; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
@@ -166,6 +167,10 @@
         <section class="tutor"><b>AI ustozdan so'rang</b><p class="muted" style="margin:4px 0 0;font-size:.85rem">Tushunmagan joyingizni yozing — ustoz shu dars bo'yicha tushuntiradi.</p>
           <div class="msgs" id="msgs"></div>
           <form id="askf"><input id="askq" maxlength="800" placeholder="Masalan: buni oddiyroq tushuntiring" autocomplete="off"><button class="btn" type="submit">Yuborish</button></form></section>
+        <details class="tutor" id="repd"><summary style="cursor:pointer;font-weight:650">Darsda xato topdingizmi?</summary>
+          <p class="muted" style="margin:8px 0;font-size:.85rem">Qayerda va nima noto'g'ri ekanini yozing — tekshirib, darsni tuzatamiz.</p>
+          <form id="repf"><input id="rept" maxlength="800" placeholder="Masalan: 2-misol javobi noto'g'ri, 42 emas 24" autocomplete="off"><button class="btn ghost" type="submit">Yuborish</button></form>
+          <p class="muted" id="repmsg" style="margin:8px 0 0"></p></details>
         <div class="navl">${n > 0 ? `<a class="btn ghost" href="#/${s.id}/${g}/${n - 1}">← Oldingi dars</a>` : '<span></span>'}${n < total - 1 ? `<a class="btn ghost" href="#/${s.id}/${g}/${n + 1}">Keyingi dars →</a>` : ''}</div>
       </article>`;
       document.getElementById('quiz').onsubmit = async (e) => {
@@ -197,6 +202,15 @@
           document.getElementById('pending').textContent = r.answer;
         } catch (err) { document.getElementById('pending').textContent = err.message; }
         finally { document.getElementById('pending')?.removeAttribute('id'); btn.disabled = false; box.scrollTop = box.scrollHeight; }
+      };
+      document.getElementById('repf').onsubmit = async (e) => {
+        e.preventDefault();
+        const inp = document.getElementById('rept'), msg = document.getElementById('repmsg'), btn = e.submitter;
+        if (inp.value.trim().length < 5) { msg.textContent = 'Kamida 5 belgi yozing.'; return; }
+        btn.disabled = true;
+        try { await api('report', { subject: s.id, grade: g, n, text: inp.value.trim() }); inp.value = ''; msg.textContent = 'Rahmat! Xabaringiz yuborildi.'; }
+        catch (err) { msg.textContent = err.message; }
+        finally { btn.disabled = false; }
       };
       scrollTo(0, 0);
     }

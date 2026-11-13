@@ -17,7 +17,7 @@ await build({entryPoints:[path.join(root,'cloudflare/worker.mjs')], outfile:path
 
 // Only explicitly public directories and root HTML are published. Never publish
 // backend sources, lesson answers, credentials, build tools, or repository files.
-const publicDirs = ['admin','auth','css','js','languages-html','locales','media','world','downloads','mobile-web','vocab'];
+const publicDirs = ['admin','auth','css','js','languages-html','locales','media','world','downloads','mobile-web','vocab','subjects'];
 const allowed = new Set(['.html','.css','.js','.mjs','.json','.svg','.png','.jpg','.jpeg','.gif','.webp','.ico','.woff','.woff2','.ttf','.mp4','.mp3','.wav','.webmanifest','.pdf','.apk','.exe','.dmg','.AppImage']);
 const files = [];
 async function walk(dir) {

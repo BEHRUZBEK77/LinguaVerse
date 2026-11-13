@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LinguaVerse maktab fanlari: 1–11-sinf matematika, fizika, kimyo, biologiya, tarix, geografiya, ona tili va boshqa fanlardan darslar, testlar va AI ustoz.">
+  <title>Maktab fanlari — LinguaVerse</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap">
+  <link rel="stylesheet" href="../css/lv-theme.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); min-height: 100vh; }
+    nav { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px max(16px, calc((100% - 1080px)/2)); background: var(--nav-bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+    nav a { color: var(--text2); text-decoration: none; font-weight: 600; font-size: .85rem; }
+    nav .logo { color: var(--text); font-size: 1.1rem; font-family: var(--font-head); font-weight: 700; }
+    nav .links { display: flex; gap: 16px; align-items: center; }
+    main { max-width: 1080px; margin: auto; padding: 24px 16px 90px; }
+    h1, h2, h3, p { margin-top: 0; }
+    .kicker { color: var(--gold); letter-spacing: .18em; font-size: .72rem; font-weight: 700; margin-bottom: 12px; }
+    h1 { font-family: 'Lora', Georgia, serif; font-weight: 600; font-size: clamp(1.7rem, 4.5vw, 2.5rem); margin-bottom: 8px; }
+    h2 { font-family: 'Lora', Georgia, serif; font-weight: 600; font-size: 1.45rem; margin: 26px 0 10px; }
+    .muted { color: var(--text3); line-height: 1.6; }
+    .hidden { display: none !important; }
+    a { color: var(--accent); }
+    .crumbs { font-size: .85rem; margin-bottom: 14px; color: var(--text3); }
+    .crumbs a { color: var(--text2); text-decoration: none; }
+    .subjects { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; margin-top: 20px; }
+    .subj { display: flex; gap: 12px; align-items: center; padding: 16px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); color: var(--text); text-decoration: none; transition: border-color .15s, transform .15s; }
+    .subj:hover { border-color: var(--c); transform: translateY(-1px); }
+    .subj .mono { flex: none; width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; font-family: 'Lora', serif; font-weight: 600; font-size: 1.2rem; color: #fff; background: var(--c); }
+    .subj b { display: block; font-size: .98rem; }
+    .subj small { color: var(--text3); font-size: .78rem; }
+    .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .chip { padding: 8px 13px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); color: var(--text); cursor: pointer; font: inherit; font-size: .88rem; text-decoration: none; }
+    .chip.sel { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+    .topics { list-style: none; padding: 0; margin: 16px 0 0; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+    .topics li a { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text); text-decoration: none; }
+    .topics li:last-child a { border-bottom: 0; }
+    .topics li a:hover { background: var(--surface2); }
+    .topics .num { color: var(--text3); font-variant-numeric: tabular-nums; font-size: .82rem; }
+    .topics .k { display: block; color: var(--text3); font-size: .8rem; margin-top: 2px; }
+    .badge { font-size: .72rem; font-weight: 800; padding: 3px 8px; border-radius: 6px; background: var(--surface3); color: var(--text2); white-space: nowrap; }
+    .badge.ok { background: color-mix(in srgb, var(--green) 22%, transparent); color: var(--green); }
+    .badge.free { background: color-mix(in srgb, var(--gold) 20%, transparent); color: var(--gold); }
+    .lesson { max-width: 760px; }
+    .lesson .intro { font-size: 1.08rem; line-height: 1.7; color: var(--text2); }
+    .lesson p, .lesson li { line-height: 1.75; }
+    .lesson ul { padding-left: 20px; }
+    .ex { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+    .ex summary { cursor: pointer; color: var(--accent); font-weight: 650; margin-top: 8px; }
+    .ex .sol { white-space: pre-line; margin-top: 8px; line-height: 1.7; }
+    .sum { border-left: 3px solid var(--gold); padding: 4px 0 4px 16px; }
+    .q { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+    .q b { display: block; margin-bottom: 8px; line-height: 1.5; }
+    .q label { display: flex; gap: 10px; align-items: flex-start; padding: 7px 8px; border-radius: 8px; cursor: pointer; line-height: 1.45; }
+    .q label:hover { background: var(--surface2); }
+    .q.right { border-color: color-mix(in srgb, var(--green) 60%, transparent); }
+    .q.wrong { border-color: color-mix(in srgb, var(--red) 60%, transparent); }
+    .q .why { margin-top: 8px; font-size: .9rem; color: var(--text2); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 10px; background: var(--accent); color: #fff; font: inherit; font-weight: 700; padding: 11px 18px; cursor: pointer; text-decoration: none; }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+    .btn.ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+    .tutor { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; margin-top: 26px; }
+    .msgs { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; max-height: 420px; overflow-y: auto; }
+    .msg { padding: 10px 12px; border-radius: 10px; line-height: 1.6; white-space: pre-line; max-width: 92%; }
+    .msg.u { align-self: flex-end; background: color-mix(in srgb, var(--accent) 18%, transparent); }
+    .msg.a { align-self: flex-start; background: var(--surface2); }
+    .tutor form { display: flex; gap: 8px; }
+    .tutor input { flex: 1; min-width: 0; background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 10px; padding: 11px 13px; font: inherit; }
+    .box { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; text-align: center; }
+    .navl { display: flex; justify-content: space-between; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+    .spin { width: 28px; height: 28px; border: 3px solid var(--surface3); border-top-color: var(--accent); border-radius: 50%; animation: s 1s linear infinite; margin: 0 auto 12px; }
+    @keyframes s { to { transform: rotate(360deg); } }
+    @media (max-width: 640px) { .hide-m { display: none; } .topics li a { grid-template-columns: 28px 1fr auto; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="../index.html">LinguaVerse</a>
+    <div class="links">
+      <a class="hide-m" href="./lugat.html">Lug'at</a>
+      <a class="hide-m" href="./courses.html">Video kurslar</a>
+      <a href="./profile.html">Profil</a>
+    </div>
+  </nav>
+  <main id="app"><p class="muted">Yuklanmoqda…</p></main>
+
+  <script type="module">
+    let API = '/.netlify/functions/subjects';
+    const $app = document.getElementById('app');
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const COLORS = ['#2346D8', '#0E8A6D', '#B4532A', '#7A4CC2', '#C9A45C', '#1D7FA8', '#A23B5B', '#4F7A28'];
+    const S = { cat: null, user: undefined, scores: {}, paid: false, free: 3, lesson: null, chat: [] };
+    const login = () => `../auth/login.html?redirect=${encodeURIComponent(location.pathname + location.hash)}`;
+
+    async function api(action, payload) {
+      if (!S.user) throw Object.assign(new Error('login'), { login: true });
+      const idToken = await S.user.getIdToken();
+      const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, idToken, ...payload }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw Object.assign(new Error(j.error || 'Xatolik'), { locked: j.locked, status: r.status });
+      return j;
+    }
+    const subj = (id) => S.cat.subjects.find(s => s.id === id);
+    const grades = (s) => Object.keys(s.grades).sort((a, b) => a - b);
+    const range = (s) => { const g = grades(s); return g.length > 1 ? `${g[0]}–${g[g.length - 1]}-sinf` : `${g[0]}-sinf`; };
+    const scoreBadge = (id) => S.scores[id] != null ? `<span class="badge${S.scores[id] >= 70 ? ' ok' : ''}">${S.scores[id]}%</span>` : '';
+
+    // ── Sahifalar ───────────────────────────────────────────────
+    function home() {
+      document.title = 'Maktab fanlari — LinguaVerse';
+      const total = S.cat.subjects.reduce((n, s) => n + Object.values(s.grades).reduce((m, l) => m + l.length, 0), 0);
+      $app.innerHTML = `<div class="kicker">LINGUAVERSE / MAKTAB FANLARI</div>
+        <h1>1–11-sinf fanlari</h1>
+        <p class="muted">${S.cat.subjects.length} ta fan, ${total.toLocaleString()} ta mavzu: har bir dars — tushuntirish, yechilgan misollar, test va savollaringizga javob beradigan AI ustoz. Har sinfning dastlabki ${S.free} ta darsi bepul.</p>
+        <div class="subjects">${S.cat.subjects.map((s, i) => `<a class="subj" href="#/${s.id}" style="--c:${COLORS[i % COLORS.length]}">
+          <span class="mono">${esc(s.name[0])}</span><span><b>${esc(s.name)}</b><small>${range(s)} · ${Object.values(s.grades).reduce((m, l) => m + l.length, 0)} mavzu</small></span></a>`).join('')}</div>`;
+    }
+    function subjectPage(s, g) {
+      const gs = grades(s); if (!gs.includes(g)) g = gs[0];
+      document.title = `${s.name}, ${g}-sinf — LinguaVerse`;
+      $app.innerHTML = `<div class="crumbs"><a href="#/">Fanlar</a> / ${esc(s.name)}</div>
+        <h1>${esc(s.name)}</h1>
+        <div class="row" role="tablist" aria-label="Sinf">${gs.map(x => `<a class="chip${x === g ? ' sel' : ''}" href="#/${s.id}/${x}">${x}-sinf</a>`).join('')}</div>
+        <ul class="topics">${s.grades[g].map((t, n) => {
+          const id = `${s.id}_${g}_${n}`, free = n < S.free;
+          return `<li><a href="#/${s.id}/${g}/${n}"><span class="num">${n + 1}</span><span>${esc(t.t)}<span class="k">${esc((t.k || []).join(' · '))}</span></span>
+            ${scoreBadge(id) || (free ? '<span class="badge free">Bepul</span>' : (S.paid ? '' : '<span class="badge">🔒 Obuna</span>'))}</a></li>`;
+        }).join('')}</ul>`;
+    }
+    async function lessonPage(s, g, n) {
+      const t = s.grades[g]?.[n]; if (!t) return subjectPage(s, g);
+      document.title = `${t.t} — ${s.name}, ${g}-sinf`;
+      const crumbs = `<div class="crumbs"><a href="#/">Fanlar</a> / <a href="#/${s.id}/${g}">${esc(s.name)}, ${g}-sinf</a> / ${n + 1}-dars</div>`;
+      if (S.user === undefined) { $app.innerHTML = crumbs + `<h1>${esc(t.t)}</h1><div class="box"><div class="spin"></div></div>`; return; }
+      if (!S.user) {
+        $app.innerHTML = crumbs + `<h1>${esc(t.t)}</h1><div class="box"><p>Darsni ochish uchun tizimga kiring — ro'yxatdan o'tish bepul.</p><a class="btn" href="${login()}">Kirish</a></div>`;
+        return;
+      }
+      $app.innerHTML = crumbs + `<h1>${esc(t.t)}</h1><div class="box"><div class="spin"></div><p class="muted">Dars tayyorlanmoqda… Mavzu birinchi marta ochilayotgan bo'lsa, 30–60 soniya ketadi.</p></div>`;
+      const key = `${s.id}/${g}/${n}`; S.cur = key;
+      let L;
+      try { L = await api('lesson', { subject: s.id, grade: g, n }); }
+      catch (e) {
+        if (S.cur !== key) return;
+        $app.innerHTML = crumbs + `<h1>${esc(t.t)}</h1><div class="box"><p>${esc(e.message)}</p>${e.locked ? '<a class="btn" href="../index.html#plans">Obunani ko\'rish</a>' : `<button class="btn ghost" onclick="location.reload()">Qayta urinish</button>`}</div>`;
+        return;
+      }
+      if (S.cur !== key) return;
+      S.lesson = L; S.chat = [];
+      const total = s.grades[g].length;
+      $app.innerHTML = crumbs + `<article class="lesson">
+        <h1>${esc(L.title)}</h1>
+        ${L.intro ? `<p class="intro">${esc(L.intro)}</p>` : ''}
+        ${L.sections.map(x => `<h2>${esc(x.h)}</h2>${x.p.map(p => `<p>${esc(p)}</p>`).join('')}${x.list.length ? `<ul>${x.list.map(i => `<li>${esc(i)}</li>`).join('')}</ul>` : ''}`).join('')}
+        ${L.examples.length ? `<h2>Yechilgan misollar</h2>${L.examples.map((x, i) => `<div class="ex"><b>${i + 1}. ${esc(x.q)}</b><details><summary>Yechimni ko'rish</summary><div class="sol">${esc(x.a)}</div></details></div>`).join('')}` : ''}
+        ${L.summary.length ? `<h2>Xulosa</h2><ul class="sum">${L.summary.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+        <h2>Test</h2>
+        <form id="quiz">${L.quiz.map((q, i) => `<div class="q" id="q${i}"><b>${i + 1}. ${esc(q.q)}</b>${q.o.map((o, j) => `<label><input type="radio" name="q${i}" value="${j}"> <span>${esc(o)}</span></label>`).join('')}<div class="why hidden"></div></div>`).join('')}
+          <button class="btn" type="submit">Tekshirish</button> <span class="muted" id="qres"></span></form>
+        <section class="tutor"><b>AI ustozdan so'rang</b><p class="muted" style="margin:4px 0 0;font-size:.85rem">Tushunmagan joyingizni yozing — ustoz shu dars bo'yicha tushuntiradi.</p>
+          <div class="msgs" id="msgs"></div>
+          <form id="askf"><input id="askq" maxlength="800" placeholder="Masalan: buni oddiyroq tushuntiring" autocomplete="off"><button class="btn" type="submit">Yuborish</button></form></section>
+        <div class="navl">${n > 0 ? `<a class="btn ghost" href="#/${s.id}/${g}/${n - 1}">← Oldingi dars</a>` : '<span></span>'}${n < total - 1 ? `<a class="btn ghost" href="#/${s.id}/${g}/${n + 1}">Keyingi dars →</a>` : ''}</div>
+      </article>`;
+      document.getElementById('quiz').onsubmit = async (e) => {
+        e.preventDefault();
+        const answers = L.quiz.map((_, i) => { const c = document.querySelector(`input[name=q${i}]:checked`); return c ? +c.value : -1; });
+        if (answers.includes(-1)) { document.getElementById('qres').textContent = 'Hamma savolga javob bering.'; return; }
+        const btn = e.submitter; btn.disabled = true;
+        try {
+          const r = await api('quiz', { subject: s.id, grade: g, n, answers });
+          r.result.forEach((x, i) => {
+            const el = document.getElementById('q' + i); el.classList.toggle('right', x.ok); el.classList.toggle('wrong', !x.ok);
+            const why = el.querySelector('.why'); why.classList.remove('hidden');
+            why.textContent = (x.ok ? '✓ To\'g\'ri. ' : `✗ To'g'ri javob: ${L.quiz[i].o[x.a]}. `) + (x.e || '');
+          });
+          S.scores[`${s.id}_${g}_${n}`] = Math.max(S.scores[`${s.id}_${g}_${n}`] || 0, r.score);
+          document.getElementById('qres').textContent = `Natija: ${r.correct}/${r.total} (${r.score}%)${r.score >= 70 ? ' — barakalla!' : ' — darsni yana bir ko\'rib chiqing.'}`;
+        } catch (err) { document.getElementById('qres').textContent = err.message; }
+        finally { btn.disabled = false; }
+      };
+      document.getElementById('askf').onsubmit = async (e) => {
+        e.preventDefault();
+        const inp = document.getElementById('askq'), q = inp.value.trim(); if (!q) return;
+        const box = document.getElementById('msgs'), btn = e.submitter;
+        box.insertAdjacentHTML('beforeend', `<div class="msg u">${esc(q)}</div><div class="msg a" id="pending">…</div>`); box.scrollTop = box.scrollHeight;
+        inp.value = ''; btn.disabled = true;
+        try {
+          const r = await api('ask', { subject: s.id, grade: g, n, question: q, history: S.chat.slice(-6) });
+          S.chat.push({ role: 'user', content: q }, { role: 'assistant', content: r.answer });
+          document.getElementById('pending').textContent = r.answer;
+        } catch (err) { document.getElementById('pending').textContent = err.message; }
+        finally { document.getElementById('pending')?.removeAttribute('id'); btn.disabled = false; box.scrollTop = box.scrollHeight; }
+      };
+      scrollTo(0, 0);
+    }
+    function route() {
+      if (!S.cat) return;
+      const [id, g, n] = location.hash.replace(/^#\/?/, '').split('/').map(decodeURIComponent);
+      const s = id && subj(id);
+      if (!s) return home();
+      if (n != null && n !== '' && /^\d+$/.test(n)) return lessonPage(s, g, +n);
+      subjectPage(s, g || grades(s)[0]);
+      if (!g) scrollTo(0, 0);
+    }
+    addEventListener('hashchange', route);
+
+    fetch('/subjects/catalog.json').then(r => r.json()).then(c => { S.cat = c; route(); })
+      .catch(() => { $app.innerHTML = '<p class="muted">Fanlar ro\'yxatini yuklab bo\'lmadi. Internetni tekshiring.</p>'; });
+    Promise.all([import('../js/lv-core.js'), import('/js/fb/firebase-auth.js')]).then(([core, fb]) => {
+      API = core.url('.netlify/functions/subjects');
+      fb.onAuthStateChanged(core.auth, async (u) => {
+        S.user = u || null;
+        if (S.user) { try { const p = await api('progress', {}); S.scores = p.scores || {}; S.paid = !!p.paid; S.free = p.free || 3; } catch {} }
+        route();
+      });
+    }).catch(() => { S.user = null; route(); });
+  </script>
+  <script src="/js/learning-language.js"></script>
+</body>
+</html>

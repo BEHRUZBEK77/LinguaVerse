@@ -350,10 +350,23 @@
       return [e, iv, today() + iv, reps];
     }
 
+    // Ketma-ket kunlar: bugun kamida bitta kartochka takrorlansa, kun hisoblanadi (barcha tillar uchun umumiy)
+    function streak() {
+      const st = ls.get('lv_vocab_streak', { last: -1, days: 0 }), t = today();
+      if (st.last === t) return { days: st.days, today: true };
+      if (st.last === t - 1) return { days: st.days, today: false };
+      return { days: 0, today: false };
+    }
+    function markStreak() {
+      const st = ls.get('lv_vocab_streak', { last: -1, days: 0 }), t = today();
+      if (st.last === t) return;
+      ls.set('lv_vocab_streak', { last: t, days: st.last === t - 1 ? st.days + 1 : 1 });
+    }
     function renderTrain() {
       const t = today(), c = Object.entries(S.cards);
       const due = c.filter(([, v]) => v[2] <= t).length, learned = c.filter(([, v]) => v[3] > 0).length, solid = c.filter(([, v]) => v[1] >= 21).length;
-      $('stats').innerHTML = [[due, 'Bugun takrorlash'], [learned, "O'rganilgan"], [solid, 'Mustahkam (21+ kun)'], [c.length, 'Jami kartochka']]
+      const st = streak();
+      $('stats').innerHTML = [[due, 'Bugun takrorlash'], [learned, "O'rganilgan"], [solid, 'Mustahkam (21+ kun)'], [st.days, st.today ? 'Kun ketma-ket 🔥' : 'Kun ketma-ket (bugun hali yo\'q)']]
         .map(([n, l]) => `<div class="stat"><b>${n.toLocaleString()}</b><span>${l}</span></div>`).join('');
       $('levels').innerHTML = BANDS.map(([, lv]) => {
         const [a, b] = range(lv); const n = c.filter(([k, v]) => +k >= a && +k < b && v[3] > 0).length;
@@ -411,7 +424,7 @@
       const g = e.target.closest('[data-g]'); if (!g || !T.cur) return;
       const gv = +g.dataset.g;
       S.cards[T.cur.i] = grade(S.cards[T.cur.i] || [250, 0, today(), 0], gv);
-      T.done++;
+      T.done++; markStreak();
       if (gv < 3) T.q.splice(Math.min(T.q.length, 4), 0, { ...T.cur, isNew: false });   // biroz keyin yana
       markDirty(); nextCard();
     };

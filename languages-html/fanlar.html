@@ -110,6 +110,7 @@
     const subj = (id) => S.cat.subjects.find(s => s.id === id);
     const grades = (s) => Object.keys(s.grades).sort((a, b) => a - b);
     const range = (s) => { const g = grades(s); return g.length > 1 ? `${g[0]}–${g[g.length - 1]}-sinf` : `${g[0]}-sinf`; };
+    const done = (sid) => Object.entries(S.scores).filter(([k, v]) => k.startsWith(sid + '_') && v >= 70).length;
     const scoreBadge = (id) => S.scores[id] != null ? `<span class="badge${S.scores[id] >= 70 ? ' ok' : ''}">${S.scores[id]}%</span>` : '';
 
     // ── Sahifalar ───────────────────────────────────────────────
@@ -120,7 +121,7 @@
         <h1>1–11-sinf fanlari</h1>
         <p class="muted">${S.cat.subjects.length} ta fan, ${total.toLocaleString()} ta mavzu: har bir dars — tushuntirish, yechilgan misollar, test va savollaringizga javob beradigan AI ustoz. Har sinfning dastlabki ${S.free} ta darsi bepul.</p>
         <div class="subjects">${S.cat.subjects.map((s, i) => `<a class="subj" href="#/${s.id}" style="--c:${COLORS[i % COLORS.length]}">
-          <span class="mono">${esc(s.name[0])}</span><span><b>${esc(s.name)}</b><small>${range(s)} · ${Object.values(s.grades).reduce((m, l) => m + l.length, 0)} mavzu</small></span></a>`).join('')}</div>`;
+          <span class="mono">${esc(s.name[0])}</span><span><b>${esc(s.name)}</b><small>${range(s)} · ${Object.values(s.grades).reduce((m, l) => m + l.length, 0)} mavzu${done(s.id) ? ` · <span style="color:var(--green)">✓ ${done(s.id)}</span>` : ''}</small></span></a>`).join('')}</div>`;
     }
     function subjectPage(s, g) {
       const gs = grades(s); if (!gs.includes(g)) g = gs[0];

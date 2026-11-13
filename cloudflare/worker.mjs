@@ -89,6 +89,11 @@ export default {
       const page = await env.ASSETS.fetch(new Request(new URL('/404.html', url), { headers: { accept: 'text/html' } }));
       if (page.ok) return withSecurity(new Response(page.body, { status: 404, headers: page.headers }));
     }
+    // Lug'at bo'laklari va fanlar ro'yxati kam o'zgaradi — brauzer 1 kun keshlaydi
+    if (res.ok && (url.pathname.startsWith('/vocab/') || url.pathname === '/subjects/catalog.json')) {
+      const h = new Headers(res.headers); h.set('Cache-Control', 'public, max-age=86400');
+      return withSecurity(new Response(res.body, { status: res.status, headers: h }));
+    }
     return withSecurity(res);
   },
   async scheduled(controller, env, ctx) {

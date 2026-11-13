@@ -36,3 +36,8 @@ test('sw.js, favicon va manifest ildizdan beriladi',async()=>{
  const m=await worker.fetch(new Request('https://x.dev/manifest.webmanifest'),{ASSETS:assets});assert.equal(m.headers.get('content-type'),'application/manifest+json');
  assert.deepEqual(seen,['/js/sw.js','/media/favicon.ico','/media/site.webmanifest']);
 });
+test('lug\'at bo\'laklari keshlanadi',async()=>{
+ const assets={fetch:async()=>new Response('[]',{status:200,headers:{'content-type':'application/json'}})};
+ const r=await worker.fetch(new Request('https://x.dev/vocab/english/0.json'),{ASSETS:assets});assert.equal(r.headers.get('cache-control'),'public, max-age=86400');
+ const o=await worker.fetch(new Request('https://x.dev/js/lv-core.js'),{ASSETS:assets});assert.equal(o.headers.get('cache-control'),null);
+});

@@ -39,6 +39,9 @@ for (const f of process.argv.slice(2)) {
       const freq = {}; for (const t of saysAll) freq[t] = (freq[t] || 0) + 1;
       const [top, cnt] = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
       if (cnt >= 5 && cnt / saysAll.length > 0.3) throw new Error(`bitta gap ("${top.slice(0, 40)}") ${cnt} ta sahnada takrorlangan — shablon dars. Har sahnada o'z misoli bo'lsin, darsni TO'LIQ qayta yozing`);
+      // Yaxshi darslarda (masalan, nemischa — 200/200) sahnalarning 70%+ i o'z gapiga ega.
+      const distinct = Object.keys(freq).length;
+      if (distinct / saysAll.length < 0.5) throw new Error(`${saysAll.length} ta sahnadan faqat ${distinct} tasida yangi gap — qolganlari takror (shablon dars). Har sahnada o'z misoli bo'lsin, darsni TO'LIQ qayta yozing`);
     }
     // Lotin yozuvli tillarda maxsus harflar tushib qolmasin (Kac → Kaç, Uc → Üç)
     const LETTERS = { turkish: [/[çğıİöşüÇĞŞÖÜ]/, 0.4, 'ç ğ ı İ ö ş ü'], german: [/[äöüßÄÖÜ]/, 0.08, 'ä ö ü ß'], spanish: [/[ñáéíóúü¿¡ÁÉÍÓÚÑ]/, 0.1, 'ñ á é í ó ú ¿ ¡'] };

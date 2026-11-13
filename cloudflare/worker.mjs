@@ -9,6 +9,17 @@ const security = {
   'Permissions-Policy': 'geolocation=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()'
 };
 
+// Qidiruv tizimlari uchun ochiq sahifalar (admin, to'lov, kirish sahifalari kiritilmaydi)
+export const SITEMAP_PAGES = ['/', '/select-language.html', '/languages-html/courses.html', '/languages-html/lugat.html',
+  '/languages-html/fanlar.html', '/languages-html/English.html', '/languages-html/Russia.html', '/languages-html/Turkish.html',
+  '/languages-html/German.html', '/languages-html/Spain.html', '/languages-html/Arabic.html', '/languages-html/Chinese.html',
+  '/languages-html/Korean.html', '/languages-html/ielts-prep.html', '/languages-html/ielts-examiner.html',
+  '/languages-html/speaking-coach.html', '/languages-html/writing-coach.html', '/languages-html/certificate-center.html',
+  '/languages-html/partners.html', '/downloads.html', '/order.html', '/offer.html'];
+export const robots = (origin) => `User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /admin/\nDisallow: /.netlify/\nDisallow: /payment-result.html\nDisallow: /payment-sandbox.html\nSitemap: ${origin}/sitemap.xml\n`;
+export const sitemap = (origin) => '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+  + SITEMAP_PAGES.map(p => `  <url><loc>${origin}${p}</loc></url>`).join('\n') + '\n</urlset>\n';
+
 export async function toEvent(request) {
   const url = new URL(request.url);
   const headers = Object.fromEntries(request.headers);
@@ -62,7 +73,15 @@ export default {
       url.pathname = '/languages-html/speaking-coach.html';
       return Response.redirect(url, 301);
     }
-    return withSecurity(await env.ASSETS.fetch(request));
+    if (url.pathname === '/robots.txt') return withSecurity(new Response(robots(url.origin), { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'public, max-age=86400' } }));
+    if (url.pathname === '/sitemap.xml') return withSecurity(new Response(sitemap(url.origin), { headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, max-age=86400' } }));
+    const res = await env.ASSETS.fetch(request);
+    // Topilmagan sahifa: brauzerga chiroyli 404 sahifasi (status 404 qoladi)
+    if (res.status === 404 && request.method === 'GET' && (request.headers.get('accept') || '').includes('text/html')) {
+      const page = await env.ASSETS.fetch(new Request(new URL('/404.html', url), { headers: { accept: 'text/html' } }));
+      if (page.ok) return withSecurity(new Response(page.body, { status: 404, headers: page.headers }));
+    }
+    return withSecurity(res);
   },
   async scheduled(controller, env, ctx) {
     const name = controller.cron === '0 5 * * *' ? 'renew-subscriptions'

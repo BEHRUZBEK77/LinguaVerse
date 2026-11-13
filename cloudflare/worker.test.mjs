@@ -21,3 +21,10 @@ test('course GET and unauthorized lesson requests still work',async()=>{
 test('catalog is bundled and loads on Workers',async()=>{
  const {default:course}=await import('../netlify/functions/course.js');const c=await course.catalog();assert.ok(Object.keys(c).length>0);
 });
+test('robots.txt, sitemap.xml va 404 sahifasi',async()=>{
+ const assets={fetch:async(r)=>{const u=new URL(r.url);if(u.pathname==='/404.html')return new Response('<h1>404</h1>',{status:200,headers:{'content-type':'text/html'}});return new Response('nf',{status:404});}};
+ const rb=await worker.fetch(new Request('https://x.dev/robots.txt'),{ASSETS:assets});assert.match(await rb.text(),/Sitemap: https:\/\/x\.dev\/sitemap\.xml/);
+ const sm=await (await worker.fetch(new Request('https://x.dev/sitemap.xml'),{ASSETS:assets})).text();assert.match(sm,/lugat\.html/);assert.doesNotMatch(sm,/admin/);
+ const nf=await worker.fetch(new Request('https://x.dev/yoq-sahifa',{headers:{accept:'text/html'}}),{ASSETS:assets});assert.equal(nf.status,404);assert.match(await nf.text(),/404/);
+ const js=await worker.fetch(new Request('https://x.dev/yoq.js'),{ASSETS:assets});assert.equal(await js.text(),'nf');
+});

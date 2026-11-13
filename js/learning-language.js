@@ -85,3 +85,11 @@
     document.documentElement.dataset.tier = tier;
   } catch (e) { document.documentElement.dataset.tier = 'standard'; }
 })();
+
+// Ilova sifatida o'rnatish va oflayn rejim (service worker). Xato bo'lsa sayt odatdagidek ishlaydi.
+(function registerSW() {
+  try {
+    if (!('serviceWorker' in navigator) || location.protocol !== 'https:' || /[?&]nosw=1/.test(location.search)) return;
+    addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  } catch (e) {}
+})();

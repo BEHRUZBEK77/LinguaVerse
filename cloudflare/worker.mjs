@@ -73,6 +73,14 @@ export default {
       url.pathname = '/languages-html/speaking-coach.html';
       return Response.redirect(url, 301);
     }
+    if (url.pathname === '/sw.js' || url.pathname === '/favicon.ico' || url.pathname === '/manifest.webmanifest') {
+      const map = { '/sw.js': '/js/sw.js', '/favicon.ico': '/media/favicon.ico', '/manifest.webmanifest': '/media/site.webmanifest' };
+      const r = await env.ASSETS.fetch(new Request(new URL(map[url.pathname], url), request));
+      const h = new Headers(r.headers);
+      if (url.pathname === '/sw.js') { h.set('Cache-Control', 'no-cache'); h.set('Service-Worker-Allowed', '/'); }
+      if (url.pathname === '/manifest.webmanifest') h.set('Content-Type', 'application/manifest+json');
+      return withSecurity(new Response(r.body, { status: r.status, headers: h }));
+    }
     if (url.pathname === '/robots.txt') return withSecurity(new Response(robots(url.origin), { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'public, max-age=86400' } }));
     if (url.pathname === '/sitemap.xml') return withSecurity(new Response(sitemap(url.origin), { headers: { 'Content-Type': 'application/xml; charset=utf-8', 'Cache-Control': 'public, max-age=86400' } }));
     const res = await env.ASSETS.fetch(request);

@@ -28,3 +28,11 @@ test('robots.txt, sitemap.xml va 404 sahifasi',async()=>{
  const nf=await worker.fetch(new Request('https://x.dev/yoq-sahifa',{headers:{accept:'text/html'}}),{ASSETS:assets});assert.equal(nf.status,404);assert.match(await nf.text(),/404/);
  const js=await worker.fetch(new Request('https://x.dev/yoq.js'),{ASSETS:assets});assert.equal(await js.text(),'nf');
 });
+test('sw.js, favicon va manifest ildizdan beriladi',async()=>{
+ const seen=[];const assets={fetch:async(r)=>{seen.push(new URL(r.url).pathname);return new Response('x',{status:200,headers:{'content-type':'text/javascript'}});}};
+ const sw=await worker.fetch(new Request('https://x.dev/sw.js'),{ASSETS:assets});
+ assert.equal(sw.headers.get('service-worker-allowed'),'/');assert.equal(sw.headers.get('cache-control'),'no-cache');
+ await worker.fetch(new Request('https://x.dev/favicon.ico'),{ASSETS:assets});
+ const m=await worker.fetch(new Request('https://x.dev/manifest.webmanifest'),{ASSETS:assets});assert.equal(m.headers.get('content-type'),'application/manifest+json');
+ assert.deepEqual(seen,['/js/sw.js','/media/favicon.ico','/media/site.webmanifest']);
+});

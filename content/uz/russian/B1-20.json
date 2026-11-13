@@ -1,73 +1,837 @@
 {
  "title": "O‘qish: asosiy g‘oyani topish",
- "goal_uz": "Dars oxirida rus tilida o‘qishda asosiy g‘oyani ajratib bera olasiz. «Основная мысль ...», «Главная мысль ...», «Итого ...» kabi iboralarni o‘rinli ishlatasiz, tafsilotdan ajratib xulosa chiqarasiz. Oxirida 300 so‘zlik maqolani uch jumla qilib qisqartirib bera olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilidagi matnda skimming va signal so‘zlar yordamida asosiy fikrni topasiz, uni tafsilotdan ajratasiz va 300 so‘zlik maqolani uchta gapda qisqartirasiz.",
  "vocab": [
-  {"w": "основная мысль", "uz": "asosiy g‘oya"},
-  {"w": "главная мысль", "uz": "asosiy mulohaza"},
-  {"w": "деталь", "uz": "tafsilot"},
-  {"w": "текст", "uz": "matn"},
-  {"w": "статья", "uz": "maqola"},
-  {"w": "заголовок", "uz": "sarlavha"},
-  {"w": "вступление", "uz": "kirish"},
-  {"w": "заключение", "uz": "xulosa qismi"},
-  {"w": "скетч", "uz": "eskiz"},
-  {"w": "кратко", "uz": "qisqacha"}
+  {
+   "w": "главная мысль",
+   "uz": "asosiy fikr"
+  },
+  {
+   "w": "заголовок",
+   "uz": "sarlavha"
+  },
+  {
+   "w": "абзац",
+   "uz": "abzats"
+  },
+  {
+   "w": "деталь",
+   "uz": "tafsilot"
+  },
+  {
+   "w": "вывод",
+   "uz": "xulosa"
+  },
+  {
+   "w": "в целом",
+   "uz": "umuman olganda"
+  },
+  {
+   "w": "таким образом",
+   "uz": "shunday qilib"
+  },
+  {
+   "w": "автор считает",
+   "uz": "muallif hisoblaydi"
+  },
+  {
+   "w": "пересказать",
+   "uz": "qayta aytib bermoq"
+  },
+  {
+   "w": "своими словами",
+   "uz": "o‘z so‘zlari bilan"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Yigirma beshinchi dars: o‘qish","emotion":"happy","board":["Основная мысль ...","Главное ...","Итого ..."],"examples":[],"say_native":"Assalomu alaykum! Yigirma beshinchi darsda o‘qish mahoratidagi yangi qadamni egallaysiz. Bugun matn markazidagi asosiy g‘oyani tutishni o‘rganamiz, ya’ni tafsilotlarni saralab olishni. Oxirida 300 so‘zlik bir maqolani uch jumla bilan siqib yozib bera olasiz. Navbatdagi darsimiz undan keyingi tinglashga tayyorgarlik bo‘ladi.","say":"Здравствуйте! Сегодня читаем и понимаем главное.","say_uz":"Assalomu alaykum! Bugun asosiy g‘oyani o‘qiymiz.","practice_seconds":0},
-  {"kind":"explain","title":"Markaziy mulohaza kodi","emotion":"neutral","board":["Основная мысль ...","Главная мысль ...","Итого ..."],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Главная мысль ...","uz":"Asosiy mulohaza ..."}],"say_native":"O‘qishda birinchi hal qiluvchi narsa — «основная мысль ...» iborasining ma’nosini teran anglash. U — bir g‘oya bilan ifodalanadigan markaziy maqsadni ko‘rsatadi. Ba’zan uning o‘rnida «главная мысль ...» ham qo‘llanib, xuddi shu vazifani bajaradi. Masalan, matn odat haqida bo‘lajak bo‘lsa, «основная мысль» shu odat markazida aylanadi. Shuning uchun avval shu ikki iborani yodlab oling, ular o‘qishda dalolat beruvchi mayoq bo‘ladi. Markaz belgilarini topgan o‘quvchi matn ustida eng tezkor qaror qabul qilishi tabiiy hol. Agar siz ikki manbada bir xil savollarni ko‘rsangiz, markazga oid javobni ham topib chiqishingiz oson bo‘ladi. O‘qish amalining shu nuqtasini mustahkam yodda saqlashingiz bugungi darsning eng asosiy natijalaridan biri bo‘lib qoladi.","say":"Основная мысль ... Главная мысль ... Итого ...","say_uz":"Asosiy g‘oya ... Asosiy mulohaza ... Xulosa ...","practice_seconds":0},
-  {"kind":"practice","title":"Markazni ayting","emotion":"encouraging","board":["1) Asosiy g‘oya ...","2) Asosiy mulohaza ...","3) Xulosa ..."],"examples":[],"say_native":"Uchta ibora bosimini amalda sinab ko‘ring. Birinchisi: «основная мысль ...». Ikkinchisi: «главная мысль ...». Yakuniy bag‘ish esa: «итого ...». Gaplar rus tilida to‘liqay hollarda yakunlangan bo‘lsa, markaz dunyoqarash shakllana boshlaydi.","say":"Основная мысль ... Главная мысль ... Итого ...","say_uz":"Asosiy g‘oya ... Asosiy mulohaza ... Xulosa ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Основная мысль ...","Главная мысль ...","Итого ..."],"examples":[],"say_native":"Tezda javoblarni xulosa qilamiz. «Основная мысль ...» — umumiy markaz, «главная мысль ...» — shu bois takrorlash, «итого ...» — yakuniy xulosa jumlasi. Endi amaliy o‘qishda uchta ibora sizning orqangizda xuddi asosiy ayiqdek turgan bo‘ladi. Ularga tayanib matnni o‘qish unchalik mushkul bo‘lmaydi.","say":"Основная мысль ... Главная мысль ... Итого ...","say_uz":"Asosiy g‘oya ... Asosiy mulohaza ... Xulosa ...","practice_seconds":0},
-  {"kind":"explain","title":"Tafsilot bilan markazni ajratish","emotion":"thinking","board":["Основная мысль ...","Деталь ...","Сколько?"],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Деталь ...","uz":"Tafsilot ..."}],"say_native":"Ko‘p hollarda o‘quvchi tafsilotni markaz deb o‘ylab qoladi. Masalan, «сколько?» — qancha deydigan tafsilotni ko‘rganingizda, bu son ma’no markazini bildirmay, moliyaga oid belgidir. «Деталь ...» — tafsilot har qanday o‘quvda uchraydi, lekin markazni hosil qilmaydi. Shuning uchun o‘qirken gaplardan biri o‘tib ketganda, uning markazga aloqadorligi to‘g‘risida o‘ylab ko‘ring. Tafsilotlar odatda «сколько», «когда» va «где» каби savollar orqali namoyon bo‘ladi. Agar sonli belgi matn markaziy maqsadi mexanik hisobga bog‘langan bo‘lsa, buning boshqa ma’no ahamiyati tafsilot qatorida qolishi kerak. O‘qish strategiyasida belgilarni saralash eng erkin usul hisoblanadi.","say":"Основная мысль ... Деталь ... Сколько?","say_uz":"Asosiy g‘oya ... Tafsilot ... Qancha?","practice_seconds":0},
-  {"kind":"practice","title":"Tafsilotni tanlang","emotion":"encouraging","board":["1) Tafsilot ...","2) Qancha?","3) Asosiy g‘oya ..."],"examples":[],"say_native":"Uchta tushunchani amaliy blokda uyg‘unlashtirib ko‘ring. Birinchi: «деталь ...». Ikkinchi: «сколько?». Uchinchi: «основная мысль ...». Ularni birma-bir talaffuz qilganda o‘zbek tilidagi izohni xushlamaymiz — ruscha ohang jonli bo‘lsin.","say":"Деталь ... Сколько? Основная мысль ...","say_uz":"Tafsilot ... Qancha? Asosiy g‘oya ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Деталь ...","Сколько?","Основная мысль ..."],"examples":[],"say_native":"Javoblar quyidagicha izoh topadi. «Деталь ...» — tafsilot belgisi, «сколько?» — sonli tafsilot so‘rog‘i, «основная мысль ...» — markaz xulosasi. Endi o‘qishni mashq qilayotganda tafsilot sonni markaz deb o‘ylashdan tiyilasiz.","say":"Деталь ... Сколько? Основная мысль ...","say_uz":"Tafsilot ... Qancha? Asosiy g‘oya ...","practice_seconds":0},
-  {"kind":"explain","title":"Sarlavha qog‘ozcha","emotion":"neutral","board":["Основная мысль ...","Главная мысль ...","Заголовок ..."],"examples":[{"t":"Заголовок ...","uz":"Sarlavha ..."},{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."}],"say_native":"Sarlavha — kuzatuvchan o‘quvchining asosiy qurolidir. Matn boshidagi «заголовок ...» — sarlavha ko‘pincha asosiy g‘oyani ochiq beradi. Masalan, maqola kirishida sarlavha ochilgan bo‘lsa, tananing eng qiziqtiruvchi qismida markaz yashiringan bo‘ladi. Shu sababdan matnni o‘qishni sarlavha tahlilidan boshlash oqilona ish. Undan keyin «основная мысль ...» ni aniqlashtirish muchtoqlanib ketmaydi. Sarlavhadan tashqari, birinchi va oxirgi gaplarda ko‘pincha markaz aynan yashiringan bo‘ladi. Ikkala qirra bir xil yo‘nalishda bo‘lsa, butun matn markaziy o‘quv maqsadiga aylanadi. Amaliy shaklda bu muqaddima o‘quvchiga tanish hol, uni qog‘oz ustida sinchkovlik bilan yodlab oling.","say":"Заголовок ... Основная мысль ... Главная мысль ...","say_uz":"Sarlavha ... Asosiy g‘oya ... Asosiy mulohaza ...","practice_seconds":0},
-  {"kind":"practice","title":"Sarlavhani tahlil qiling","emotion":"encouraging","board":["1) Sarlavha ...","2) Asosiy g‘oya ...","3) Asosiy mulohaza ..."],"examples":[],"say_native":"Endi sarlavha bosimini so‘z bilan mustahkamlang. Birinchisi: «заголовок ...». Ikkinchisi: «основная мысль ...». Uchinchisi: «главная мысль ...». Har bir jumla tugagach, sarlavha tahlilini uch slog‘da qayta yozib berishga urinib ko‘ring.","say":"Заголовок ... Основная мысль ... Главная мысль ...","say_uz":"Sarlavha ... Asosiy g‘oya ... Asosiy mulohaza ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Заголовок ...","Основная мысль ...","Главная мысль ..."],"examples":[],"say_native":"Javoblar — sarlavha tahlilining tarqalgan bog‘lari. «Заголовок ...» ochilish mayog‘i, «основная мысль ...» — tanani tushunish, «главная мысль ...» — yakuniy his. Endi matn o‘qishda sarlavhadan boshlab, asosiy g‘oyaga oson yetib borasiz.","say":"Заголовок ... Основная мысль ... Главная мысль ...","say_uz":"Sarlavha ... Asosiy g‘oya ... Asosiy mulohaza ...","practice_seconds":0},
-  {"kind":"explain","title":"Maqolaning kirish qismi","emotion":"thinking","board":["Основная мысль ...","Вступление ...","Заключение ..."],"examples":[{"t":"Вступление ...","uz":"Kirish ..."},{"t":"Заключение ...","uz":"Xulosa qismi ..."}],"say_native":"Maqola umumiy strukturasi uch bosqichdan turadi. Kirish — «вступление ...» — asosiy g‘oyani tayyorlaydi. Markaziy badan — tafsilotlarni yoyadi. Yakuniy qism — «заключение ...» — markazni tiklaydi. Kirish va yakun bir-birini takrorlasa, biz ham «основная мысль ...» ni topib chiqamiz. Shuning uchun o‘qiganingizda bu ikki nuqtani eslab turing. Agar kirish va yakun xuddi ikki ustun singari bir-birini takrorlasa, asosiy fikr markazda saqlanadi. Ikki chekka o‘rtasida qancha tafsilot bo‘lsa ham, asosiy fikr o‘sha yerda yashiringan bo‘ladi. Bu hodisani kelgusi o‘quv mashqlarida bexatol qo‘llash uchun yodlang.","say":"Вступление ... Заключение ... Основная мысль ...","say_uz":"Kirish ... Xulosa qismi ... Asosiy g‘oya ...","practice_seconds":0},
-  {"kind":"practice","title":"Kirishni toping","emotion":"encouraging","board":["1) Kirish ...","2) Xulosa qismi ...","3) Asosiy g‘oya ..."],"examples":[],"say_native":"Bu mashqda kirish va yakunni talaffuz qiling. Birinchisi: «вступление ...». Ikkinchisi: «заключение ...». Va nihoyat: «основная мысль ...». Uchta gapda maktab darsidagidek buyuk yuksalish ko‘zingizdan yo‘qolsa ham, rus tilida tasavvur uyg‘ong.","say":"Вступление ... Заключение ... Основная мысль ...","say_uz":"Kirish ... Xulosa qismi ... Asosiy g‘oya ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Вступление ...","Заключение ...","Основная мысль ..."],"examples":[],"say_native":"Javoblar qog‘ozda qatlam bo‘lib yozilmagan, lekin muhokama quyidagicha. «Вступление ...» — tayyorlov, «заключение ...» — tiklash, «основная мысль ...» — tug‘yan. O‘qishda markazni topsangiz, bu uchlik harakatni unchalik sekinlashtirmaydi.","say":"Вступление ... Заключение ... Основная мысль ...","say_uz":"Kirish ... Xulosa qismi ... Asosiy g‘oya ...","practice_seconds":0},
-  {"kind":"mistake","title":"Markaz bilan tafsilotni adashtirish","emotion":"stern","board":["✗ Главная мысль — пять рублей.","✓ Главная мысль — текст о работе.","✗ Деталь — основная мысль.","✓ Деталь — пять рублей."],"examples":[],"say_native":"Keng tarqalgan xato — tafsilot raqamni markaz deb o‘ylash. «Главная мысль — пять рублей» — besh rublni markaz deb ko‘rsatish noto‘g‘ri. To‘g‘risi — markaz matn mavzusida, masalan, «главная мысль — текст о работе». Tafsilot esa kichik ahamiyatli raqam bo‘lib, uni markaz deb adashtirmaslik o‘quvchiga yordam beradi.","say":"Главная мысль — текст о работе. Деталь — пять рублей.","say_uz":"Asosiy mulohaza — ish haqida matn. Tafsilot — besh rubl.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: asosiy g‘oya","emotion":"happy","board":["— В чём главная мысль?","— Главная мысль — работа.","— Итого?"],"examples":[],"say_native":"Birinchi dialogda do‘stlar matnni muhokama qiladi. Birinchisi so‘raydi: «в чём главная мысль?» — bu qayerda asosiy mulohaza. Ikkinchisi javob beradi: «главная мысль — работа». Oxirgi savol «итого?» — xulosa nima ekanini so‘raydi. Shu uch so‘roq-javob orqali asosiy g‘oya topila boshlaydi.","say":"В чём главная мысль? Главная мысль — работа. Итого?","say_uz":"Asosiy mulohaza nimada? Asosiy mulohaza — ish. Xulosa?","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Asosiy mulohaza nimada?","2) Xulosa?"],"examples":[],"say_native":"Savolga ijodiy javob bering. Birinchi so‘roq: «в чём главная мысль?». Ikkinchi so‘roq: «итого?». Javoblarni rus tilida qisqa, lekin to‘liq jumla bilan berib, asosiy mulohazani aniqlashtirib yuboring.","say":"В чём главная мысль? Главная мысль — работа. Итого?","say_uz":"Asosiy mulohaza nimada? Asosiy mulohaza — ish. Xulosa?","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Главная мысль — работа.","Итого ..."],"examples":[],"say_native":"Javoblar quyidagicha tarqaladi. «Главная мысль — работа» — ish mavzusidagi markaz. «Итого ...» — yakun. Endi asosiy g‘oyani so‘rash va javob berish mahoratini egallaganingiz o‘zingizda seziladi.","say":"Главная мысль — работа. Итого ...","say_uz":"Asosiy mulohaza — ish. Xulosa ...","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: tafsilot","emotion":"neutral","board":["— Сколько стоит?","— Пять рублей.","— Когда? — Завтра."],"examples":[],"say_native":"Ikkala do‘stning navbatdagi suhbatim tif tafsilotlarga qaratildi. «Сколько стоит?» — qancha turibdi, «пять рублей» — besh rubl tafsiloti, «когда? — завтра» — qachon? — ertaga. Bu uch qatlam matndagi ikkilamchi belgilar bo‘lsa ham, poligrafiyaga vaqt ajratib tushunchaga yetiladi.","say":"Сколько стоит? Пять рублей. Когда? Завтра.","say_uz":"Qancha turadi? Besh rubl. Qachon? Ertaga.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Qancha turadi?","2) Qachon?"],"examples":[],"say_native":"Savol- javob siklini amaliy mashqda davom ettiring. Birinchi savol: «сколько стоит?». Ikkinchi savol: «когда?». Javoblarni rus tilida to‘liq jumla bilan berib, tafsilotlarni saqlay olganingizni ko‘rsating.","say":"Сколько стоит? Пять рублей. Когда? Завтра.","say_uz":"Qancha turadi? Besh rubl. Qachon? Ertaga.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Пять рублей.","Завтра."],"examples":[],"say_native":"Bu yerda javoblar tafsilotlardir. «Пять рублей» — narx tafsiloti, «завтра» — vaqt tafsiloti. Endi asosiy g‘oya bilan tafsilotni ajratib olishda siz ancha mustaqil holgansiz.","say":"Пять рублей. Завтра.","say_uz":"Besh rubl. Ertaga.","practice_seconds":0},
-  {"kind":"explain","title":"So‘roq so‘zlarida urg‘u","emotion":"neutral","board":["сколько · когда · почему · где","кто · что · пять · десять"],"examples":[{"t":"Сколько стоит?","uz":"Qancha turadi?"},{"t":"Когда время?","uz":"Qachon vaqt?"}],"say_native":"O‘qishda uchraydigan so‘roq so‘zlarida urg‘u ahamiyatli rol o‘ynaydi. «Сколько» so‘zi ikkinchi bo‘g‘inda, «когда» — ikkinchi bo‘g‘inda, «почему» — ikkinchi bo‘g‘inda, «где» — bitta bo‘g‘in, «кто» — bitta bo‘g‘in, «что» — bitta bo‘g‘in. U/ha so‘zlarda urg‘uni rejalanishtirmaslik g‘alati ohangga olib keladi. Shu sababdan ham bu so‘zlarni urg‘usi bilan yodlab qolish mashg‘ulotning asosiy vazifasidir.","say":"Сколько. Когда. Почему. Где. Кто. Что. Пять. Десять.","say_uz":"Qancha. Qachon. Nega. Qayerda. Kim. Nima. Besh. O‘n.","practice_seconds":0},
-  {"kind":"explain","title":"Tafsilotdan markazga","emotion":"neutral","board":["Основная мысль ...","Сколько?","Когда?","Итого ..."],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Сколько стоит?","uz":"Qancha turadi?"}],"say_native":"O‘qishda umumiy sxema quyidagicha. Avval «основная мысль ...» ni eslab qoling, so‘ngra uning tafsilotlarini — «сколько?», «когда?» — saralab bayon qiling. Nihoyat, «итого ...» bilan yakuniy xulosa chiqaring. Bu tartib o‘quvchini uch jumladan iborat jamlagich xulosa yozishga tayyorlab beradi.","say":"Основная мысль ... Сколько? Когда? Итого ...","say_uz":"Asosiy g‘oya ... Qancha? Qachon? Xulosa ...","practice_seconds":0},
-  {"kind":"practice","title":"Markazdan xulosagacha","emotion":"encouraging","board":["1) Asosiy g‘oya ...","2) Qancha?","3) Qachon?","4) Xulosa ..."],"examples":[],"say_native":"Mashqda markazdan xulosaga o‘tadigan to‘rt qatlamni talaffuz qiling. Birinchisi: «основная мысль ...». Ikkinchisi: «сколько?». Uchinchisi: «когда?». Yakunda: «итого ...». Har bir qadamni biroz sekin ayting, chunki matn qisqartirishda izchil sxema muhimdir.","say":"Основная мысль ... Сколько? Когда? Итого ...","say_uz":"Asosiy g‘oya ... Qancha? Qachon? Xulosa ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Основная мысль ...","Сколько?","Когда?","Итого ..."],"examples":[],"say_native":"Bu mashqning javoblari amaliy tabiiydir. «Основная мысль ...» — markaz, «сколько?» va «когда?» — tafsilot so‘rovlari, «итого ...» — yakun. Siz endi matnni o‘qishda avval umumiy makonni, so‘ngra tafsilotlarni topib, yakunda qisqa xulosa chiqara olasiz.","say":"Основная мысль ... Сколько? Когда? Итого ...","say_uz":"Asosiy g‘oya ... Qancha? Qachon? Xulosa ...","practice_seconds":0},
-  {"kind":"explain","title":"Uch jumlalik qisqartirish","emotion":"thinking","board":["Основная мысль ...","Конечно ...","Итого ..."],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Конечно ...","uz":"Albatta ..."}],"say_native":"Qisqartirish texnikasi uch jumladan iborat bo‘ladi. Birinchi jumla — asosiy g‘oyani bayon etadi: «основная мысль ...». Ikkinchisi — eng muhim tafsilotni umumlashtiradi. Uchinchisi esa — yakuniy natijani «итого ...» bilan bandid qiladi. Ushbu sxema o‘zbek tilidagi «uch jumla yozing» vazifasini rus tilida ham tabiiy bajarishga yordam beradi.","say":"Основная мысль ... Итого ...","say_uz":"Asosiy g‘oya ... Xulosa ...","practice_seconds":0},
-  {"kind":"practice","title":"Qisqartirishni mashq qiling","emotion":"encouraging","board":["1) Asosiy g‘oya ...","2) Asosiy mulohaza ...","3) Xulosa ..."],"examples":[],"say_native":"Uch jumlalik qisqartirishni bugun o‘z holatingizda sinab ko‘ring. Birinchisi: «основная мысль ...». Ikkinchisi: «главная мысль ...». Uchinchisi: «итого ...». Bu matnni o‘qishning asl quroli ekanligini his qilib, mashqda ishonch bilan talaffuz qiling.","say":"Основная мысль ... Главная мысль ... Итого ...","say_uz":"Asosiy g‘oya ... Asosiy mulohaza ... Xulosa ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Основная мысль ...","Главная мысль ...","Итого ..."],"examples":[],"say_native":"Qisqartirish amalining javoblari tadrijiy xarakterga ega. «Основная мысль ...» — aytilgan g‘oya, «главная мысль ...» — ichki mulohaza, «итого ...» — yakun daqiqasi. Endi siz uch jumla yozish vazifasini ham muvaffaqiyatli bajara boshlagsiz.","say":"Основная мысль ... Главная мысль ... Итого ...","say_uz":"Asosiy g‘oya ... Asosiy mulohaza ... Xulosa ...","practice_seconds":0},
-  {"kind":"explain","title":"Xulosa yozish namunasi","emotion":"neutral","board":["Основная мысль ...","Итого ...","Спасибо!"],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Итого ...","uz":"Xulosa ..."}],"say_native":"Namuna xulosa yozishda asosiy struktura ishlatilgan. Birinchi qism — asosiy g‘oya. Ikkinchi qism — yakuniy «итого ...» bilan xulosa. Bu namuna 300 so‘zlik maqolani uch jumlaga siqib yozish sxemasini aniq ko‘rsatib beradi. Siz ham shu sxemani qo‘llab, qisqa xulosa yozib bera olasiz.","say":"Основная мысль ... Итого ... Спасибо!","say_uz":"Asosiy g‘oya ... Xulosa ... Rahmat!","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: xulosa","emotion":"encouraging","board":["1) Asosiy g‘oya ...","2) Xulosa ...","3) Rahmat!"],"examples":[],"say_native":"Yakuniy mashq: 300 so‘zdan iborat maqolani uch jumla bilan qisqartiring. Avvalib «основная мысль ...», keyin — eng muhim tafsilot, so‘nggi jumla — «итого ...». Ushbu shaklni maktab imtihonida ishlatishga yodlab qo‘ying.","say":"Основная мысль ... Итого ... Спасибо!","say_uz":"Asosiy g‘oya ... Xulosa ... Rahmat!","practice_seconds":25},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Основная мысль ...","Итого ...","Спасибо!"],"examples":[],"say_native":"Namuna javob quyidagicha. Birinchi jumla — asosiy g‘oya bayoni, ikkinchi jumla — yakuniy xulosa, uchinchi so‘z — minnat. Bu sxema navbatdagi audiovizual yozuvda o‘z isbotini topadi. Uch jumla sxemasi o‘rta maktab o‘quvchining imtihon tayyorgarligiga mos keladi. Agar shu uchlikni birmuncha erkindan yozmasangiz, keyingi mashqda takrorlash mustaqilligini oshirib bering.","say":"Основная мысль ... Итого ... Спасибо!","say_uz":"Asosiy g‘oya ... Xulosa ... Rahmat!","practice_seconds":0},
-  {"kind":"explain","title":"Xulosa yozishda xatolar","emotion":"neutral","board":["Основная мысль ...","Деталь ...","Итого ..."],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Деталь ...","uz":"Tafsilot ..."}],"say_native":"Xulosa yozishda ko‘p uchraydigan xatolar uch xil ko‘rinishda bo‘ladi. Birinchisi: markaz o‘rniga tafsilotni yozib qo‘yish. Ikkinchisi: sarlavhadagi faktni takrorlab qo‘yish. Uchinchisi: uch jumladan ortib ketib, yozuvni cho‘zib yuborish. Agar bu uch kamsitmani e’tibordan chetda qoldirsangiz, bir xulosangiz birmuncha yaxshi bo‘lib qoladi.","say":"Основная мысль ... Деталь ... Итого ...","say_uz":"Asosiy g‘oya ... Tafsilot ... Xulosa ...","practice_seconds":0},
-  {"kind":"practice","title":"Xatolarni tuzating","emotion":"encouraging","board":["1) Asosiy g‘oya ...","2) Tafsilot ...","3) Xulosa ..."],"examples":[],"say_native":"Uchta qoidani birgalikda mashq qilib ko‘ring. Birinchisi: «основная мысль ...». Ikkinchisi: «деталь ...». Uchinchisi: «итого ...». Har bir jumla tugagach, uning xato ekanligi to‘g‘risida o‘zingiz iqror bo‘ling.","say":"Основная мысль ... Деталь ... Итого ...","say_uz":"Asosiy g‘oya ... Tafsilot ... Xulosa ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Основная мысль ...","Деталь ...","Итого ..."],"examples":[],"say_native":"Javoblar quyidagi shaklda yakun topdi. «Основная мысль ...» markaz, «деталь ...» ikkinchi o‘rinda, «итого ...» yakun. Endi siz ham uch jumladan iborat xulosada xatolarni sezib tuzata olasiz.","say":"Основная мысль ... Деталь ... Итого ...","say_uz":"Asosiy g‘oya ... Tafsilot ... Xulosa ...","practice_seconds":0},
-  {"kind":"explain","title":"Bir daqiqalik o‘qish taktikasini sinash","emotion":"thinking","board":["Основная мысль ...","Сколько?","Итого ..."],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Сколько?","uz":"Qancha?"}],"say_native":"Bir daqiqalik o‘qish taktikasida asosiy g‘oya «основная мысль» bilan belgilanadi, so‘ngra tafsilotlar «сколько?» singari savollar bilan yoritiladi. Nihoyat, yakun «итого ...» bilan yakunlanadi. Bu taktika tanani qisqa va aniq yoritib, markazdan yakungacha bo‘lgan masofani bosib o‘tadi.","say":"Основная мысль ... Сколько? Итого ...","say_uz":"Asosiy g‘oya ... Qancha? Xulosa ...","practice_seconds":0},
-  {"kind":"practice","title":"Taktikani takrorlang","emotion":"encouraging","board":["1) Asosiy g‘oya ...","2) Qancha?","3) Xulosa ..."],"examples":[],"say_native":"Taktikani o‘z holatingizda takrorlab ko‘ring. Birinchi qadam: «основная мысль ...». Ikkinchi qadam: «сколько?». Yakuniy qadam: «итого ...». Har birini alohida nafasda talaffuz qilsangiz, matn ustidagi fazo sizga tabiiy bo‘lib qoladi.","say":"Основная мысль ... Сколько? Итого ...","say_uz":"Asosiy g‘oya ... Qancha? Xulosa ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Основная мысль ...","Сколько?","Итого ..."],"examples":[],"say_native":"Amaliy taktikaning javoblari shu tartibda yozilgan. «Основная мысль ...» — nuqta, «сколько?» — savol, «итого ...» — yakun. Endi siz ham bir daqiqa ichida matnni o‘qib, umumiy tahlil yozib bera olasiz.","say":"Основная мысль ... Сколько? Итого ...","say_uz":"Asosiy g‘oya ... Qancha? Xulosa ...","practice_seconds":0},
-  {"kind":"explain","title":"Yakuniy ohang bilan o‘qish","emotion":"neutral","board":["Основная мысль ...","Итого ...","Спасибо!"],"examples":[{"t":"Основная мысль ...","uz":"Asosiy g‘oya ..."},{"t":"Итого ...","uz":"Xulosa ..."}],"say_native":"Yakuniy ohang bilan o‘qish — matnni yakunlagan matndagi ma’no xulosasini tugatishdir. Avval «основная мысль ...» ni eslab qoling, o‘rtada yakuniy «итого ...» bilan qoidalarni jamlab qo‘ying, oxiri minnat «спасибо!» bilan yakunlang. Bu ohang har qanday o‘qish yakunida tabiiy bo‘lib qoladi.","say":"Основная мысль ... Итого ... Спасибо!","say_uz":"Asosiy g‘oya ... Xulosa ... Rahmat!","practice_seconds":0},
-  {"kind":"practice","title":"Yakunlovchi mashq","emotion":"encouraging","board":["1) Asosiy g‘oya ...","2) Xulosa ...","3) Rahmat!"],"examples":[],"say_native":"Yakunlovchi mashqda o‘qishni yakunlang. Birinchisi: «основная мысль ...». Ikkinchisi: «итого ...». Uchinchisi: «спасибо!». Ularni bitta nafasda ketma-ket talaffuz qiling.","say":"Основная мысль ... Итого ... Спасибо!","say_uz":"Asosiy g‘oya ... Xulosa ... Rahmat!","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Основная мысль ...","Итого ...","Спасибо!"],"examples":[],"say_native":"Yakuniy mashqning javoblari belgilandi. «Основная мысль ...» markaz, «итого ...» yakun, «спасибо!» minnat. Endi o‘qish amalini rasmiy yakunlashda shu uch tasvir do‘st bo‘ladi.","say":"Основная мысль ... Итого ... Спасибо!","say_uz":"Asosiy g‘oya ... Xulosa ... Rahmat!","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Основная мысль ...","Главная мысль ...","Итого ..."],"examples":[],"say_native":"O‘z nazoratingizni sinching. Asosiy g‘oyani «основная мысль» deb ayta olasizmi? Taqdimot mulohazasini «главная мысль» deb bayon eta olasizmi? Yakuniy xulosani «итого» bilan tugatib bera olasizmi? Barchasi ijobiy bo‘lsa, o‘qish strategiyangiz barqaror mohiyatga ega.","say":"Основная мысль ... Главная мысль ... Итого ...","say_uz":"Asosiy g‘oya ... Asosiy mulohaza ... Xulosa ...","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["основная мысль · главная мысль · итого","деталь · заголовок · вступление"],"examples":[],"say_native":"Bugunning xulosasi: sarlavha bilan asosiy g‘oyani topishni o‘rgandik, tafsilotni ajratishni mashq qildik. «Основная мысль», «главная мысль» va «итого» — uchta asosiy mayoq. Ularga tayanib 300 so‘zlik maqolani uch jumlaga siqib bera olasiz.","say":"Отлично! Теперь вы знаете главную мысль.","say_uz":"Ajoyib! Endi asosiy g‘oyani bilasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["300 so‘zlik maqolani 3 jumla bilan","Asosiy g‘oya · tafsilot · xulosa","Keyingi dars: tinglash: tafsilotlarni ushlash"],"examples":[],"say_native":"Uyga vazifa: 300 so‘zdan iborat maqolani uch jumla bilan qisqartirib yozing. Birinchi jumla — asosiy g‘oyani, ikkinchisi — eng muhim tafsilotni, uchinchisi — yakuniy natijani o‘z ichiga olishi lozim. Keyingi darsda tinglashda tafsilotlarni ushlashni o‘rganamiz. Biz imtihonga yaqinlashdik.","say":"До свидания! До встречи на следующем уроке. Будем слушать.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Tinglaymiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Matnning asosiy g‘oyasi",
+   "emotion": "happy",
+   "board": [
+    "Чтение: главная мысль текста",
+    "(Asosiy fikrni topish)",
+    "просмотр · тема · детали · вывод"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda rasmiy va norasmiy xat yozishni o‘rgandik, bugun esa o‘qish ko‘nikmasini mashq qilamiz. Siz rus tilidagi matnni so‘zma-so‘z tarjima qilmasdan, uning asosiy fikrini tez topishni o‘rganasiz. Bu imtihonda ham, hayotda ham juda kerak: gazeta, xabar yoki ish xatini o‘qiyotganda butun matn emas, avval nima haqida ekanini tushunish muhim. Dars oxirida siz 300 so‘zlik maqolani uchta gapda qisqartira olasiz.",
+   "say": "Здравствуйте! Сегодня мы учимся читать быстро и понимать главное. Не нужно знать каждое слово, нужно понять, о чём текст и что автор хочет сказать.",
+   "say_uz": "Assalomu alaykum! Bugun tez o‘qish va asosiy fikrni tushunishni o‘rganamiz. Har bir so‘zni bilish shart emas, matn nima haqida ekanini va muallif nima demoqchi ekanini tushunish kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nega har bir so‘z kerak emas",
+   "emotion": "thinking",
+   "board": [
+    "Главное ≠ все слова",
+    "заголовок · первое предложение · последнее предложение",
+    "(Sarlavha, birinchi va oxirgi gap)"
+   ],
+   "examples": [
+    {
+     "t": "Я не знаю этого слова, но понимаю, о чём текст.",
+     "uz": "Bu so‘zni bilmayman, lekin matn nima haqida ekanini tushunyapman."
+    }
+   ],
+   "say_native": "Ko‘p o‘quvchilar notanish so‘zga duch kelsa, to‘xtab qoladi va lug‘atga yuguradi. Bu o‘qish tezligini o‘ldiradi. Matn ko‘pincha ma’nosini o‘zi tushuntiradi, yetarli konteksti bor. Asosiy fikr uchun odatda uchta joy muhim: sarlavha, birinchi gap va oxirgi gap. Ularni o‘qib, siz matnning yarmini allaqachon tushunasiz. Qolgan qismi ana shu fikrni misollar bilan to‘ldiradi.",
+   "say": "Я не знаю этого слова, но понимаю, о чём текст. Сначала читаем заголовок, потом первое и последнее предложение.",
+   "say_uz": "Bu so‘zni bilmayman, lekin matn nima haqida ekanini tushunyapman. Avval sarlavhani, keyin birinchi va oxirgi gapni o‘qiymiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Skimming: tez ko‘z yugurtirish",
+   "emotion": "neutral",
+   "board": [
+    "1) Заголовок",
+    "2) Первое предложение абзаца",
+    "3) Ключевые слова (выделенные)",
+    "4) Последнее предложение"
+   ],
+   "examples": [
+    {
+     "t": "Быстро просмотрите текст за тридцать секунд.",
+     "uz": "Matnni o‘ttiz soniyada tez ko‘zdan kechiring."
+    }
+   ],
+   "say_native": "Skimming — bu tez ko‘z yugurtirish, ya’ni matnni o‘qimay, ko‘zdan kechirish. Tartib quyidagicha. Birinchi: sarlavhaga qarang, u mavzuni aytadi. Ikkinchi: har bir abzatsning birinchi gapini o‘qing. Uchinchi: qalin yoki takrorlangan kalit so‘zlarni belgilang. To‘rtinchi: oxirgi gapni o‘qing, ko‘pincha unda xulosa bo‘ladi. Butun jarayon o‘ttiz soniyadan oshmasligi kerak.",
+   "say": "Сначала посмотрите на заголовок. Затем прочитайте первое предложение каждого абзаца. В конце найдите вывод.",
+   "say_uz": "Avval sarlavhaga qarang. Keyin har bir abzatsning birinchi gapini o‘qing. Oxirida xulosani toping.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Skimming namunasi",
+   "emotion": "neutral",
+   "board": [
+    "Заголовок → тема",
+    "Первое предложение → идея",
+    "Последнее → вывод"
+   ],
+   "examples": [
+    {
+     "t": "Заголовок: «Велосипед в большом городе».",
+     "uz": "Sarlavha: «Katta shaharda velosiped»."
+    }
+   ],
+   "say_native": "Endi birinchi matnni skimming usulida o‘qiymiz. Sarlavha: «Велосипед в большом городе». Demak, matn velosiped va shahar haqida. Birinchi gap «В последние годы всё больше людей...» deydi: velosipedchilar ko‘paymoqda. Oxirgi gap esa «Правда, велодорожек пока не хватает» — kamchilik haqida. Shundan asosiy fikrni taxmin qilish mumkin: velosiped mashhur, lekin infratuzilma yetishmaydi. Endi matnning o‘zini tinglang.",
+   "say": "В последние годы в больших городах всё больше людей пересаживаются на велосипеды. Причин несколько. Во-первых, велосипед позволяет не стоять в пробках. Во-вторых, он помогает сохранять здоровье. В-третьих, он почти ничего не стоит. Правда, велодорожек в городах пока не хватает.",
+   "say_uz": "So‘nggi yillarda katta shaharlarda tobora ko‘p odam velosipedga o‘tmoqda. Sabablar bir nechta. Birinchidan, velosiped tirbandlikda turmaslikka imkon beradi. Ikkinchidan, u sog‘likni saqlashga yordam beradi. Uchinchidan, u deyarli pul turmaydi. To‘g‘ri, shaharlarda velosiped yo‘laklari hozircha yetarli emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Asosiy fikrni toping",
+   "emotion": "encouraging",
+   "board": [
+    "Что главное в тексте о велосипеде?",
+    "1) Велосипеды опасны.",
+    "2) Велосипед становится популярным, но не хватает дорожек.",
+    "3) Велосипед дорогой."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Matnni eslang va uchta variantdan asosiy fikrni tanlang. Birinchi: velosipedlar xavfli. Ikkinchi: velosiped mashhur bo‘lib bormoqda, lekin yo‘laklar yetmaydi. Uchinchi: velosiped qimmat. Qaysi variant matnning butun mazmunini qamrab oladi? Vaqt bering, javobni o‘zingiz ayting.",
+   "say": "Главная мысль: велосипед становится всё популярнее, но в городах не хватает велодорожек.",
+   "say_uz": "Asosiy fikr: velosiped tobora mashhur bo‘lmoqda, lekin shaharlarda velosiped yo‘laklari yetishmaydi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javob va izoh",
+   "emotion": "proud",
+   "board": [
+    "Главная мысль: вариант 2",
+    "1) — неверно (в тексте не сказано)",
+    "3) — неверно (противоположное)"
+   ],
+   "examples": [],
+   "say_native": "Javob: ikkinchi variant. Birinchi variant noto‘g‘ri, chunki matnda xavf haqida hech narsa aytilmagan. Uchinchi variant ham noto‘g‘ri, matnda aksincha velosiped deyarli pul turmasligi aytilgan. Ikkinchi variant esa matnning ham boshini, ham oxirini qamrab oladi: mashhurlik va yo‘laklar yetishmasligi. Asosiy fikr doim matnning butun mazmuniga mos bo‘lishi kerak, faqat bir qismiga emas.",
+   "say": "Правильный ответ — второй. Он включает и популярность велосипеда, и проблему с дорожками.",
+   "say_uz": "To‘g‘ri javob — ikkinchisi. U velosipedning mashhurligini ham, yo‘laklar muammosini ham qamrab oladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mavzu gap",
+   "emotion": "neutral",
+   "board": [
+    "Тема-предложение (topic sentence)",
+    "чаще всего — первое предложение абзаца",
+    "иногда — последнее"
+   ],
+   "examples": [
+    {
+     "t": "В последние годы всё больше людей занимаются спортом.",
+     "uz": "So‘nggi yillarda tobora ko‘p odam sport bilan shug‘ullanmoqda."
+    }
+   ],
+   "say_native": "Mavzu gap — bu abzatsning asosiy fikrini aytadigan gap. U ko‘pincha abzatsning boshida turadi, ba’zan oxirida. Qolgan gaplar uni misol, sabab yoki tafsilot bilan to‘ldiradi. «В последние годы всё больше людей занимаются спортом» — bu mavzu gap: u butun abzatsning fikrini aytadi, keyin sabablar va misollar keladi. Mavzu gapni topsangiz, abzatsni tushunasiz.",
+   "say": "В последние годы всё больше людей занимаются спортом. Одни бегают по утрам, другие ходят в зал, третьи просто много гуляют.",
+   "say_uz": "So‘nggi yillarda tobora ko‘p odam sport bilan shug‘ullanmoqda. Ba’zilar ertalab yuguradi, boshqalar zalga boradi, uchinchilari esa shunchaki ko‘p sayr qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Signal so‘zlari",
+   "emotion": "thinking",
+   "board": [
+    "Вывод: итак, таким образом, в целом",
+    "Главное: главное, прежде всего",
+    "Контраст: однако, но, зато"
+   ],
+   "examples": [
+    {
+     "t": "Таким образом, главная проблема — время.",
+     "uz": "Shunday qilib, asosiy muammo — vaqt."
+    },
+    {
+     "t": "Прежде всего, нужно выбрать тему.",
+     "uz": "Eng avvalo, mavzuni tanlash kerak."
+    }
+   ],
+   "say_native": "Matnda ba’zi so‘zlar asosiy fikrni ko‘rsatib turadi. Xulosani «итак», «таким образом», «в целом», «в итоге» bildiradi. Eng muhimini «главное» yoki «прежде всего» ko‘rsatadi. Qarama-qarshilikni «однако», «но», «зато» bildiradi, ko‘pincha muallifning haqiqiy fikri shundan keyin keladi. Bu so‘zlar sizga yo‘l ko‘rsatuvchi belgilardek yordam beradi: ularni ko‘rsangiz, to‘xtab, uning keyingi gapini diqqat bilan o‘qing.",
+   "say": "Таким образом, главная проблема — время. Прежде всего, нужно выбрать тему. Однако не всё так просто.",
+   "say_uz": "Shunday qilib, asosiy muammo — vaqt. Eng avvalo, mavzuni tanlash kerak. Biroq hammasi unchalik oson emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Signal so‘zni toping",
+   "emotion": "encouraging",
+   "board": [
+    "1) Мы долго спорили. Итак, решили ехать завтра.",
+    "2) Погода хорошая. Однако ехать далеко.",
+    "3) Прежде всего нужен билет."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Har bir gapda signal so‘zni toping va uning vazifasini ayting: xulosa, qarama-qarshilik yoki eng muhimi. Birinchi gapda «итак». Ikkinchi gapda «однако». Uchinchi gapda «прежде всего». Har bir signal so‘zdan keyin qanday ma’no kelishini ham ayting.",
+   "say": "Итак — вывод. Однако — противопоставление. Прежде всего — самое важное.",
+   "say_uz": "Итак — xulosa. Однако — qarama-qarshilik. Прежде всего — eng muhim.",
+   "practice_seconds": 11
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "итак → вывод",
+    "однако → контраст",
+    "прежде всего → главное"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. «Итак» — xulosa: ular bahslashib, qaror qildilar. «Однако» — qarama-qarshilik: ob-havo yaxshi, lekin yo‘l uzoq. «Прежде всего» — eng muhimi: avvalo chipta kerak. Matnda bu so‘zlarni ko‘rsangiz, ularning ortidagi gap ko‘pincha asosiy fikr yoki muallifning haqiqiy fikri bo‘lishini eslang.",
+   "say": "Итак — это вывод. Однако — это контраст. Прежде всего — это главное.",
+   "say_uz": "Итак — bu xulosa. Однако — bu qarama-qarshilik. Прежде всего — bu eng muhimi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Asosiy fikr va tafsilot",
+   "emotion": "neutral",
+   "board": [
+    "Главная мысль — зонтик, детали — спицы",
+    "Главное отвечает на «О чём?»",
+    "Деталь отвечает на «Какой? Сколько? Где?»"
+   ],
+   "examples": [
+    {
+     "t": "Главное: спорт полезен. Деталь: бегать надо 30 минут.",
+     "uz": "Asosiy: sport foydali. Tafsilot: 30 daqiqa yugurish kerak."
+    }
+   ],
+   "say_native": "Asosiy fikr soyabon bo‘lsa, tafsilotlar uning ustunlari. Asosiy fikr «matn nima haqida?» savoliga javob beradi, tafsilot esa «qanday? qancha? qayerda?» savollariga. Misol: «Sport foydali» — asosiy fikr. «Har kuni o‘ttiz daqiqa yugurish kerak» — tafsilot. Imtihonda ko‘pincha tafsilotni asosiy fikr deb adashtirishadi, chunki tafsilot aniqroq va ko‘zga tashlanadi. Shuning uchun har gapni tekshiring: bu butun matnni qamrab oladimi?",
+   "say": "Главная мысль отвечает на вопрос «о чём текст?». Деталь отвечает на вопросы «где?», «когда?» и «сколько?».",
+   "say_uz": "Asosiy fikr «matn nima haqida?» savoliga javob beradi. Tafsilot «qayerda?», «qachon?» va «qancha?» savollariga javob beradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: tafsilotni asosiy fikr deb olish",
+   "emotion": "stern",
+   "board": [
+    "✗ Главная мысль: «Велодорожек не хватает».",
+    "✓ Главная мысль: «Велосипед популярен, но нужна инфраструктура».",
+    "(слишком узко)"
+   ],
+   "examples": [],
+   "say_native": "Eng keng tarqalgan xato — tor javob tanlash. «Velosiped yo‘laklari yetmaydi» to‘g‘ri, lekin bu matnning faqat bir qismi. U asosiy fikr emas, tafsilot yoki muammo. Asosiy fikr butun matnni qamrab olishi kerak: mashhurlik va muammo birgalikda. Ikkinchi xato — juda keng javob: «shaharlar haqida». Bu juda umumiy, matnning o‘ziga xos fikrini bermaydi. Eng yaxshi javob na tor, na keng.",
+   "say": "Неправильно: главная мысль — «не хватает дорожек». Это деталь. Правильно: велосипед популярен, но нужна инфраструктура.",
+   "say_uz": "Noto‘g‘ri: asosiy fikr — «yo‘laklar yetmaydi». Bu tafsilot. To‘g‘ri: velosiped mashhur, lekin infratuzilma kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Asosiy yoki tafsilot",
+   "emotion": "encouraging",
+   "board": [
+    "1) Врачи советуют спать восемь часов.",
+    "2) Сон важен для здоровья.",
+    "3) Многие ложатся спать после полуночи.",
+    "4) Хороший сон помогает учиться и работать."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapdan qaysi biri asosiy fikr, qaysilari tafsilot ekanini ayting. Gaplar uyqu haqida. Asosiy fikr butun mavzuni qamrab olishi kerak. Tafsilot konkret son yoki aniq holatni beradi. Har bir gapga «asosiy» yoki «tafsilot» deb javob bering.",
+   "say": "Сон важен для здоровья — это главная мысль. Остальные предложения — детали.",
+   "say_uz": "Uyqu sog‘liq uchun muhim — bu asosiy fikr. Qolgan gaplar tafsilot.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "2) главная мысль",
+    "1), 3), 4) — детали"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Ikkinchi gap, «Сон важен для здоровья», asosiy fikr: u mavzuni umumiy aytadi. Birinchi gap konkret maslahat, uchinchisi odat haqida aniq holat, to‘rtinchisi foyda haqida alohida misol. Shuning uchun ular tafsilot. Eslab qoling: asosiy fikrni boshqa gaplar qo‘llab-quvvatlaydi, uning o‘zi boshqa gapga muhtoj emas.",
+   "say": "Главная мысль — второе предложение. Остальные предложения подтверждают её деталями.",
+   "say_uz": "Asosiy fikr — ikkinchi gap. Qolgan gaplar uni tafsilotlar bilan tasdiqlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ikkinchi matn: shahar bog‘i",
+   "emotion": "impressed",
+   "board": [
+    "Тема-предложение в конце",
+    "Вывод после рассказа"
+   ],
+   "examples": [
+    {
+     "t": "Утром я заметил, что в парке стало тихо.",
+     "uz": "Ertalab bog‘da jimjitlik bo‘lganini payqadim."
+    },
+    {
+     "t": "Оказалось, рядом строят дорогу.",
+     "uz": "Ma’lum bo‘ldiki, yaqin atrofda yo‘l qurilayotgan ekan."
+    }
+   ],
+   "say_native": "Ba’zan asosiy fikr matnning oxirida keladi. Endi shunday matnni tinglang. U parkdagi o‘zgarish haqida hikoya bilan boshlanadi va xulosa bilan tugaydi. Tinglab bo‘lgach, asosiy fikrni toping. Esingizda bo‘lsin: bu safar birinchi gap emas, oxirgi gap muhim.",
+   "say": "Утром я заметил, что в парке стало непривычно тихо. Птицы пели меньше, а дети почти не играли на площадке. Потом я узнал, что рядом начали строить дорогу. Стало ясно: стройка меняет не только город, но и жизнь людей рядом с ней.",
+   "say_uz": "Ertalab bog‘da odatdagidan jimroq bo‘lganini payqadim. Qushlar kamroq sayrar, bolalar maydonchada deyarli o‘ynamasdi. Keyin yaqin atrofda yo‘l qurilayotganini bildim. Ma’lum bo‘ldi: qurilish nafaqat shaharni, balki uning yonidagi odamlar hayotini ham o‘zgartiradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Matn bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) О чём этот текст?",
+    "2) Где находится главная мысль?",
+    "3) Какие детали вы запомнили?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: matn nima haqida? Ikkinchi: asosiy fikr qayerda joylashgan, boshida yoki oxirida? Uchinchi: qaysi tafsilotlarni eslaysiz? Javoblarni ruscha ayting. Eslatma: hikoya qismi tafsilot, xulosa gap esa asosiy fikr.",
+   "say": "Текст о том, как стройка влияет на жизнь людей. Главная мысль находится в конце. Детали: птицы поют меньше, дети не играют.",
+   "say_uz": "Matn qurilish odamlar hayotiga qanday ta’sir qilishi haqida. Asosiy fikr oxirida. Tafsilotlar: qushlar kamroq sayraydi, bolalar o‘ynamaydi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Тема: влияние стройки",
+    "Главная мысль — в последнем предложении",
+    "Детали: птицы, дети, дорога"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Matn qurilishning odamlar hayotiga ta’siri haqida. Asosiy fikr oxirgi gapda: qurilish shaharni ham, odamlar hayotini ham o‘zgartiradi. Tafsilotlar: qushlar kamroq sayraydi, bolalar o‘ynamaydi, yaqin atrofda yo‘l quriladi. Ko‘rdingizmi, hikoya boshida mavzu to‘g‘ridan-to‘g‘ri aytilmadi. Shuning uchun matnni oxirigacha ko‘z yugurtirish kerak.",
+   "say": "Тема — влияние стройки. Главная мысль — в конце. Детали — тишина в парке и новая дорога.",
+   "say_uz": "Mavzu — qurilishning ta’siri. Asosiy fikr — oxirida. Tafsilotlar — bog‘dagi jimjitlik va yangi yo‘l.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Bitta gapda xulosa",
+   "emotion": "neutral",
+   "board": [
+    "Кто/что + главное действие + вывод",
+    "В тексте говорится о том, что ...",
+    "Автор считает, что ..."
+   ],
+   "examples": [
+    {
+     "t": "В тексте говорится о том, что велосипед стал популярным.",
+     "uz": "Matnda velosiped mashhur bo‘lgani haqida aytiladi."
+    },
+    {
+     "t": "Автор считает, что городам нужны велодорожки.",
+     "uz": "Muallif shaharlarga velosiped yo‘laklari kerak deb hisoblaydi."
+    }
+   ],
+   "say_native": "Asosiy fikrni bitta gapda aytish uchun tayyor qoliplardan foydalaning. «В тексте говорится о том, что ...» — matnda ... haqida aytiladi. «Автор считает, что ...» — muallif ... deb hisoblaydi. «Основная идея текста состоит в том, что ...» — matnning asosiy g‘oyasi shundaki ... Keyin «что» dan keyin o‘z so‘zlaringiz bilan asosiy fikrni qo‘yasiz. Bu qoliplar sizga qisqa va aniq xulosa yozishga yordam beradi.",
+   "say": "В тексте говорится о том, что велосипед стал популярным. Автор считает, что городам нужны велодорожки. Основная идея состоит в том, что транспорт должен быть удобным.",
+   "say_uz": "Matnda velosiped mashhur bo‘lgani haqida aytiladi. Muallif shaharlarga velosiped yo‘laklari kerak deb hisoblaydi. Asosiy g‘oya shundaki, transport qulay bo‘lishi kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘z so‘zlaringiz bilan",
+   "emotion": "thinking",
+   "board": [
+    "парафраз: другими словами",
+    "не копировать предложения",
+    "синонимы: важный = значительный"
+   ],
+   "examples": [
+    {
+     "t": "Пробки — это когда машины стоят на дороге.",
+     "uz": "Tirbandlik — bu mashinalar yo‘lda turib qolgan holat."
+    }
+   ],
+   "say_native": "Qisqa mazmun matndan ko‘chirilgan gap emas, o‘z so‘zlaringiz bilan aytilgan fikr bo‘lishi kerak. Bunga parafraz deyiladi. Buning uchun: sinonimlardan foydalaning, gap tuzilishini o‘zgartiring va ikkinchi darajali tafsilotlarni tashlab yuboring. Masalan, «велодорожек не хватает» o‘rniga «инфраструктура развита слабо» deyish mumkin. Bu mazmunni saqlaydi, lekin so‘zlar boshqacha.",
+   "say": "Другими словами, городам нужно больше дорожек для велосипедов. Инфраструктура пока развита слабо.",
+   "say_uz": "Boshqacha aytganda, shaharlarga velosipedlar uchun ko‘proq yo‘lak kerak. Infratuzilma hozircha zaif rivojlangan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: ko‘chirib yozish",
+   "emotion": "stern",
+   "board": [
+    "✗ Копировать три предложения подряд",
+    "✓ Одно своё предложение с главной мыслью",
+    "✗ Добавлять своё мнение",
+    "✓ Писать только то, что в тексте"
+   ],
+   "examples": [],
+   "say_native": "Qisqa mazmunda ikki xato qiladilar. Birinchi: matndan bir necha gapni ko‘chirib qo‘yish. Bu qisqartirish emas, ko‘chirish. Ikkinchi: o‘z fikringizni qo‘shish. Qisqa mazmunda faqat matndagi fikr bo‘ladi, sizning munosabatingiz emas. Shuning uchun «мне кажется» yoki «я думаю» demang, «автор пишет» yoki «в тексте говорится» ishlating. Bu usul sizni aniq va xolis qiladi.",
+   "say": "Неправильно: копировать предложения из текста. Правильно: коротко сказать главную мысль своими словами.",
+   "say_uz": "Noto‘g‘ri: matndan gaplarni ko‘chirish. To‘g‘ri: asosiy fikrni qisqa o‘z so‘zlaringiz bilan aytish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Uchinchi matn: uyqu",
+   "emotion": "happy",
+   "board": [
+    "Текст для краткого пересказа",
+    "3 предложения"
+   ],
+   "examples": [
+    {
+     "t": "Многие думают, что сон — это просто отдых.",
+     "uz": "Ko‘pchilik uyquni oddiy dam olish deb o‘ylaydi."
+    },
+    {
+     "t": "Однако врачи считают иначе.",
+     "uz": "Biroq shifokorlar boshqacha o‘ylaydi."
+    }
+   ],
+   "say_native": "Endi uchinchi matnni tinglang va keyin uni uchta gapda qisqartiring. Birinchi gapda mavzu, ikkinchisida eng muhim sabab, uchinchisida xulosa bo‘ladi. Diqqat bilan eshiting va signal so‘zlarga e’tibor bering: «однако», «поэтому».",
+   "say": "Многие думают, что для хорошего сна достаточно лечь пораньше. Однако врачи считают, что важнее ложиться и вставать в одно и то же время. Организм привыкает к режиму и быстрее засыпает. Поэтому даже в выходные не стоит сильно менять расписание.",
+   "say_uz": "Ko‘pchilik yaxshi uxlash uchun erta yotish yetarli deb o‘ylaydi. Biroq shifokorlar muhimrog‘i bir xil vaqtda yotib turish deb hisoblaydi. Organizm tartibga ko‘nikadi va tezroq uxlab qoladi. Shuning uchun dam olish kunlari ham jadvalni keskin o‘zgartirmaslik kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Uch gapli mazmun",
+   "emotion": "encouraging",
+   "board": [
+    "1) Тема: ...",
+    "2) Главная причина: ...",
+    "3) Вывод: ..."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Matnni uchta gapda qisqartiring. Birinchi gap: matn nima haqida. Ikkinchi gap: eng muhim sabab yoki fikr. Uchinchi gap: xulosa yoki maslahat. Faqat o‘z so‘zlaringizdan foydalaning va ko‘chirmang. Ayting.",
+   "say": "Текст о том, как лучше спать. Главное — ложиться и вставать в одно и то же время. Поэтому режим нужно соблюдать и в выходные.",
+   "say_uz": "Matn qanday qilib yaxshiroq uxlash haqida. Eng muhimi — bir xil vaqtda yotish va turish. Shuning uchun tartibni dam olish kunlari ham saqlash kerak.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna va tahlil",
+   "emotion": "proud",
+   "board": [
+    "1) Тема",
+    "2) Главное",
+    "3) Вывод"
+   ],
+   "examples": [],
+   "say_native": "Namuna mazmun. Birinchi gap: matn qanday yaxshiroq uxlash haqida. Ikkinchi gap: eng muhimi bir xil vaqtda yotish va turish. Uchinchi gap: bu tartibni dam olish kunlarida ham saqlash. Bu mazmun matnning har bir jumlasini ko‘chirmaydi va faqat asosiy fikrni saqlaydi. Sizniki boshqacha bo‘lishi mumkin, muhimi, u ham asosiy fikrni saqlasa bo‘ldi.",
+   "say": "Текст о сне. Главное — одно и то же время. Поэтому в выходные режим тоже важен.",
+   "say_uz": "Matn uyqu haqida. Eng muhimi — bir xil vaqt. Shuning uchun dam olish kunlari ham tartib muhim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Imtihon variantlari",
+   "emotion": "thinking",
+   "board": [
+    "Слишком узкий ответ",
+    "Слишком широкий ответ",
+    "Неверный ответ (противоположный)",
+    "Правильный ответ"
+   ],
+   "examples": [
+    {
+     "t": "Заголовок: «Режим сна и здоровье».",
+     "uz": "Sarlavha: «Uyqu tartibi va sog‘liq»."
+    }
+   ],
+   "say_native": "Imtihonda asosiy fikr haqida savol bo‘lsa, to‘rtta variant bo‘ladi. Ularning ikkitasi odatda tuzoq. Tor javob matnning bir qismini oladi. Keng javob juda umumiy, matnga xos emas. Qarama-qarshi javob matnning aksini aytadi. To‘g‘risi o‘rtada: butun mazmunni qamrab oladi, lekin aniq. Variantlarni ko‘rganda har birini shu to‘rt toifadan biriga ajrating, shunda xatoga yo‘l qo‘ymaysiz.",
+   "say": "Правильный ответ не слишком узкий и не слишком широкий. Он описывает весь текст.",
+   "say_uz": "To‘g‘ri javob na juda tor, na juda keng. U butun matnni tasvirlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Eng yaxshi sarlavha",
+   "emotion": "encouraging",
+   "board": [
+    "Текст о сне. Выберите заголовок:",
+    "1) Всё о здоровье",
+    "2) Режим сна важнее раннего отбоя",
+    "3) Врачи в выходные"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uyqu haqidagi matn uchun eng yaxshi sarlavhani tanlang. Birinchi: «Sog‘liq haqida hamma narsa», bu juda keng. Ikkinchi: «Uyqu tartibi erta yotishdan muhimroq». Uchinchi: «Shifokorlar dam olish kuni», bu matnga bog‘liq emas. Qaysi biri butun matnni aniq bildiradi? Ayting.",
+   "say": "Лучший заголовок — второй: режим сна важнее раннего отбоя.",
+   "say_uz": "Eng yaxshi sarlavha — ikkinchisi: uyqu tartibi erta yotishdan muhimroq.",
+   "practice_seconds": 10
+  },
+  {
+   "kind": "explain",
+   "title": "Javob",
+   "emotion": "proud",
+   "board": [
+    "2) Режим сна важнее раннего отбоя",
+    "1) слишком широкий",
+    "3) не по теме"
+   ],
+   "examples": [],
+   "say_native": "Javob: ikkinchi sarlavha. Birinchisi juda keng: sog‘liq haqida hamma narsa, bu matnga xos emas. Uchinchisi umuman mavzudan chetga chiqqan. Ikkinchisi esa matnning asosiy fikrini aniq beradi: uyqu tartibi erta yotishdan muhimroq. Yaxshi sarlavha o‘quvchiga matn nima haqida ekanini darhol aytadi.",
+   "say": "Второй заголовок точно передаёт главную мысль. Первый слишком общий, третий не по теме.",
+   "say_uz": "Ikkinchi sarlavha asosiy fikrni aniq beradi. Birinchisi juda umumiy, uchinchisi mavzuga aloqasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "To‘rtinchi matn: kitob o‘qish",
+   "emotion": "happy",
+   "board": [
+    "Самостоятельный разбор",
+    "Главная мысль + детали"
+   ],
+   "examples": [
+    {
+     "t": "Чтение развивает память и воображение.",
+     "uz": "O‘qish xotira va tasavvurni rivojlantiradi."
+    },
+    {
+     "t": "Читать можно даже десять минут в день.",
+     "uz": "Kuniga hatto o‘n daqiqa o‘qish ham mumkin."
+    }
+   ],
+   "say_native": "Mana endi to‘rtinchi, mustaqil matn. Tinglang, keyin o‘zingiz asosiy fikrni, ikkita tafsilotni va muallifning maslahatini toping. Esingizda bo‘lsin: sarlavha, signal so‘z va oxirgi gap sizning yordamchilaringiz.",
+   "say": "Чтение — один из самых простых способов развивать память и воображение. Многие говорят, что у них нет времени на книги. Но достаточно читать всего десять минут в день: за год получится около десяти книг. Главное — начать и не бросать.",
+   "say_uz": "O‘qish xotira va tasavvurni rivojlantirishning eng oddiy usullaridan biri. Ko‘pchilik kitobga vaqti yo‘q deydi. Lekin kuniga atigi o‘n daqiqa o‘qish yetarli: bir yilda taxminan o‘nta kitob bo‘ladi. Asosiysi — boshlash va tashlab qo‘ymaslik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Mustaqil tahlil",
+   "emotion": "encouraging",
+   "board": [
+    "1) Главная мысль?",
+    "2) Две детали?",
+    "3) Совет автора?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: matnning asosiy fikri nima? Ikkinchi: ikkita tafsilot ayting. Uchinchi: muallifning maslahati nima? Javoblarni ruscha, o‘z so‘zlaringiz bilan ayting. Signal so‘z «но» va «главное» ni ham qidiring.",
+   "say": "Главная мысль: чтение полезно, и для него достаточно десяти минут в день. Детали: память и воображение, около десяти книг в год. Совет: начать и не бросать.",
+   "say_uz": "Asosiy fikr: o‘qish foydali va uchun kuniga o‘n daqiqa yetarli. Tafsilotlar: xotira va tasavvur, bir yilda o‘nta kitob. Maslahat: boshlash va tashlab qo‘ymaslik.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Главная мысль: 10 минут в день достаточно",
+    "Детали: память, воображение, 10 книг",
+    "Совет: начать и не бросать"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Asosiy fikr: kuniga o‘n daqiqa o‘qish foydali va yetarli. Tafsilotlar: xotira va tasavvur rivojlanadi, bir yilda taxminan o‘nta kitob o‘qiladi. Muallifning maslahati: boshlash va tashlab qo‘ymaslik. «Главное» so‘zi shu yerda signal vazifasini bajardi va maslahatni ko‘rsatdi. Siz matnni to‘g‘ri tahlil qildingiz.",
+   "say": "Главная мысль — читать полезно, и десяти минут в день достаточно. Совет — начать и не бросать.",
+   "say_uz": "Asosiy fikr — o‘qish foydali va kuniga o‘n daqiqa yetarli. Maslahat — boshlash va tashlab qo‘ymaslik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kalit so‘zlar",
+   "emotion": "thinking",
+   "board": [
+    "ключевые слова повторяются",
+    "существительные и глаголы",
+    "не предлоги и союзы"
+   ],
+   "examples": [
+    {
+     "t": "Слово «чтение» повторяется в каждом абзаце.",
+     "uz": "«Чтение» so‘zi har bir abzatsda takrorlanadi."
+    }
+   ],
+   "say_native": "Kalit so‘zlar — matnda eng ko‘p takrorlanadigan va mavzuga bog‘liq so‘zlar. Odatda bular otlar va fe’llar, kamdan-kam ko‘makchi va bog‘lovchilar. Agar «чтение» so‘zi har abzatsda uchrasa, matn o‘qish haqida. Ba’zan muallif bitta so‘zni sinonim bilan almashtiradi: «книга», «издание», «текст». Shuning uchun nafaqat bir xil so‘zni, balki bir mavzudagi so‘zlar guruhini qidiring. Uch-to‘rt kalit so‘zdan asosiy fikrni taxmin qilish mumkin.",
+   "say": "Слово «чтение» повторяется в каждом абзаце. Рядом стоят слова «память», «книга» и «время». Они показывают тему.",
+   "say_uz": "«Чтение» so‘zi har abzatsda takrorlanadi. Yonida «xotira», «kitob» va «vaqt» so‘zlari bor. Ular mavzuni ko‘rsatadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Beshinchi matn: kutubxona",
+   "emotion": "impressed",
+   "board": [
+    "Новость о библиотеке",
+    "Тема · главное · детали"
+   ],
+   "examples": [
+    {
+     "t": "В городе открылась новая библиотека.",
+     "uz": "Shaharda yangi kutubxona ochildi."
+    },
+    {
+     "t": "Там есть зал для детей и кафе.",
+     "uz": "U yerda bolalar zali va kafe bor."
+    }
+   ],
+   "say_native": "Beshinchi matn xabar uslubida. Xabarlarda odatda eng muhim narsa birinchi gapda aytiladi, qolganlari tafsilot. Tinglang va ushbu fikrni tekshiring: birinchi gap haqiqatan ham asosiy fikrni beradimi?",
+   "say": "В центре города открылась новая библиотека. Здесь есть читальный зал, детская комната и небольшое кафе. Библиотека работает каждый день до десяти вечера. Мэр сказал, что такие места нужны городу, потому что люди хотят проводить время не только в магазинах.",
+   "say_uz": "Shahar markazida yangi kutubxona ochildi. Bu yerda o‘quv zali, bolalar xonasi va kichik kafe bor. Kutubxona har kuni kechki o‘nggacha ishlaydi. Mer bunday joylar shaharga kerak ekanini, chunki odamlar vaqtni nafaqat do‘konlarda o‘tkazishni xohlashini aytdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Xabar bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Главная новость?",
+    "2) Какие детали вы услышали?",
+    "3) Почему мэр считает это важным?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: asosiy yangilik nima? Ikkinchi: qanday tafsilotlarni eshitdingiz? Uchinchi: mer nima uchun buni muhim deb hisoblaydi? Javoblarni ruscha, qisqa ayting. Birinchi savolga bir gapda javob bering, ikkinchisiga ikkita tafsilot ayting.",
+   "say": "В городе открылась новая библиотека. Там есть читальный зал, детская комната и кафе. Мэр считает, что людям нужны места не только для магазинов.",
+   "say_uz": "Shaharda yangi kutubxona ochildi. U yerda o‘quv zali, bolalar xonasi va kafe bor. Mer odamlarga do‘kondan boshqa joylar ham kerak deb hisoblaydi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Главная новость: открылась библиотека",
+    "Детали: зал, детская комната, кафе, до 22:00",
+    "Причина: люди хотят проводить время не только в магазинах"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Asosiy yangilik: shaharda kutubxona ochildi, bu birinchi gapdan ko‘rinadi. Tafsilotlar: o‘quv zali, bolalar xonasi, kafe va ish vaqti kechki o‘nggacha. Sabab: odamlar do‘konlardan boshqa joylarda ham vaqt o‘tkazishni xohlaydi. Ko‘rdingizmi, xabar matnlarida asosiy fikr boshida, shuning uchun skimming bu yerda ayniqsa samarali.",
+   "say": "Главная новость — открылась библиотека. Остальное — детали и причина.",
+   "say_uz": "Asosiy yangilik — kutubxona ochildi. Qolgani — tafsilot va sabab.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Abzatslar tuzilishi",
+   "emotion": "neutral",
+   "board": [
+    "1 абзац — тема",
+    "2–3 абзац — аргументы и примеры",
+    "последний — вывод"
+   ],
+   "examples": [
+    {
+     "t": "Первый абзац вводит тему.",
+     "uz": "Birinchi abzats mavzuni kiritadi."
+    }
+   ],
+   "say_native": "Ko‘p matnlar uch qismdan iborat: kirish, asosiy qism va xulosa. Birinchi abzats mavzuni kiritadi va ba’zan asosiy fikrni aytadi. O‘rta abzatslar sabab, misol va dalillarni beradi. Oxirgi abzats xulosa qiladi. Bu tuzilishni bilsangiz, nimaga e’tibor berishni darhol bilasiz: boshi va oxiriga ko‘proq, o‘rtasiga esa tafsilotlar kerak bo‘lganda. Har abzatsni ham bitta kichik fikr deb qabul qiling.",
+   "say": "Первый абзац вводит тему. В середине автор приводит примеры. Последний абзац содержит вывод.",
+   "say_uz": "Birinchi abzats mavzuni kiritadi. O‘rtada muallif misollar keltiradi. Oxirgi abzats xulosani o‘z ichiga oladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Vaqtni to‘g‘ri taqsimlang",
+   "emotion": "neutral",
+   "board": [
+    "30 секунд — просмотр",
+    "2 минуты — чтение",
+    "1 минута — вывод"
+   ],
+   "examples": [
+    {
+     "t": "Сначала быстро просмотрите текст.",
+     "uz": "Avval matnni tez ko‘zdan kechiring."
+    }
+   ],
+   "say_native": "Imtihonda vaqt cheklangan, shuning uchun reja tuzing. O‘ttiz soniya skimming uchun. Ikki daqiqa matnni diqqat bilan o‘qish uchun. Bir daqiqa asosiy fikrni va xulosani yozish uchun. Agar so‘z notanish bo‘lsa, to‘xtamang: kontekstdan taxmin qiling. Savollarni avval o‘qib olish ham yordam beradi, chunki shunda nimani qidirishni bilasiz. Bu ketma-ketlik ham tezlikni, ham aniqlikni oshiradi.",
+   "say": "Сначала быстро просмотрите текст. Потом прочитайте вопросы. Затем внимательно прочитайте текст и найдите главное.",
+   "say_uz": "Avval matnni tez ko‘zdan kechiring. Keyin savollarni o‘qing. So‘ng matnni diqqat bilan o‘qib, asosiy fikrni toping.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qisqa mazmun yozish",
+   "emotion": "encouraging",
+   "board": [
+    "Прочитайте текст о чтении и скажите:",
+    "Тема · главная мысль · вывод",
+    "3 предложения"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy mashq. Kitob o‘qish haqidagi matnni uchta gapda aytib bering: mavzu, asosiy fikr va xulosa. «В тексте говорится о том, что» qolipidan foydalaning. Hech narsani ko‘chirmang. Bir daqiqa o‘ylang va ayting, keyin namunani eshiting.",
+   "say": "В тексте говорится о том, что чтение развивает память и воображение. Автор считает, что достаточно читать десять минут в день. Вывод: главное — начать и не бросать.",
+   "say_uz": "Matnda o‘qish xotira va tasavvurni rivojlantirishi haqida aytiladi. Muallif kuniga o‘n daqiqa o‘qish yetarli deb hisoblaydi. Xulosa: asosiysi — boshlash va tashlab qo‘ymaslik.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "skimming",
+    "mavzu gap",
+    "asosiy fikr ≠ tafsilot",
+    "bir gapda xulosa"
+   ],
+   "examples": [],
+   "say_native": "Bugun nimani o‘rgandik. Birinchi: skimming, ya’ni sarlavha, birinchi va oxirgi gapni o‘qib, matn nima haqida ekanini tushunish. Ikkinchi: mavzu gap abzatsning asosiy fikrini aytadi. Uchinchi: asosiy fikrni tafsilotdan ajratish va tor yoki keng javobga aldanmaslik. To‘rtinchi: signal so‘zlar, masalan «итак», «однако», «главное». Beshinchi: qisqa mazmunni o‘z so‘zlaringiz bilan uch gapda aytish. Bu ko‘nikma sizning o‘qishingizni ancha tezlashtiradi.",
+   "say": "Сегодня мы научились находить главную мысль. Помните: заголовок, первое и последнее предложение, слова-сигналы и свои слова. Вы молодцы!",
+   "say_uz": "Bugun asosiy fikrni topishni o‘rgandik. Esda tuting: sarlavha, birinchi va oxirgi gap, signal so‘zlar va o‘z so‘zlaringiz. Barakalla!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "Статья на 300 слов",
+    "3 предложения",
+    "Keyingi dars: tafsilotlarni ushlash"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. Rus tilidagi taxminan 300 so‘zlik maqolani toping, uni o‘qing va uchta gapda qisqartiring: mavzu, asosiy fikr va xulosa. Muvaffaqiyat mezoni: gaplar o‘z so‘zlaringizda, ko‘chirish yo‘q va asosiy fikr tafsilotdan ajratilgan. Keyingi darsda tinglash ko‘nikmasida tafsilotlarni ushlashni o‘rganamiz. Ko‘rishguncha!",
+   "say": "Прочитайте статью и перескажите её в трёх предложениях. До свидания!",
+   "say_uz": "Maqolani o‘qing va uni uchta gapda aytib bering. Ko‘rishguncha!",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "300 so‘zlik maqolani uch jumla bilan qisqartirib yozing. Mezon: har bir gap rus tilida, «основная мысль, итого» iboralari ishlatilgan.",
- "quiz":[
-  {"q":"How do you say “The main idea ...”?","options":["Основная мысль ...","Основная мысль ... есть ...","Основная мысль ... является ...","Основная мысль ... был ..."],"answer":0,"why_uz":"Основная мысль — asosiy g‘oya."},
-  {"q":"Which word means “detail”?","options":["деталь","текст","статья","заголовок"],"answer":0,"why_uz":"Деталь — tafsilot."},
-  {"q":"Which word means “text”?","options":["текст","деталь","статья","заголовок"],"answer":0,"why_uz":"Текст — matn."},
-  {"q":"How do you say “In short ...”?","options":["Итого ...","Итого ... есть ...","Итого ... является ...","Итого ... был ..."],"answer":0,"why_uz":"Итого — xulosa."},
-  {"q":"Which word means “heading”?","options":["заголовок","текст","деталь","статья"],"answer":0,"why_uz":"Заголовок — sarlavha."},
-  {"q":"Which word means “introduction”?","options":["вступление","заключение","текст","деталь"],"answer":0,"why_uz":"Вступление — kirish."},
-  {"q":"How do you ask “In what is the main idea?”?","options":["В чём главная мысль?","В чём главная мысль есть?","В чём главная мысль является?","В чём главная мысль был?"],"answer":0,"why_uz":"В чём главная мысль? — asosiy mulohaza nimada?"},
-  {"q":"How do you ask “How much does it cost?”?","options":["Сколько стоит?","Сколько стоит есть?","Сколько стоит является?","Сколько стоит был?"],"answer":0,"why_uz":"Сколько стоит? — qancha turadi?"},
-  {"q":"Which word means “briefly”?","options":["кратко","текст","деталь","статья"],"answer":0,"why_uz":"Кратко — qisqacha."},
-  {"q":"Which word means “conclusion”?","options":["заключение","вступление","заголовок","текст"],"answer":0,"why_uz":"Заключение — xulosa qismi."}
+ "homework_uz": "Rus tilidagi taxminan 300 so‘zlik maqolani o‘qing va uni uchta gapda qisqartiring: mavzu, asosiy fikr va xulosa. Gaplarni o‘z so‘zlaringizda yozing, matndan ko‘chirmang. Keyingi darsda tinglashda tafsilotlarni ushlashni o‘rganamiz.",
+ "quiz": [
+  {
+   "q": "Skimming nima?",
+   "options": [
+    "Har bir so‘zni tarjima qilish",
+    "Matnni tez ko‘zdan kechirish",
+    "Matnni yodlash",
+    "Matnni ovoz chiqarib o‘qish"
+   ],
+   "answer": 1,
+   "why_uz": "Skimming — sarlavha, birinchi va oxirgi gapga tez qarab, matn mazmunini tushunish."
+  },
+  {
+   "q": "Mavzu gap odatda qayerda bo‘ladi?",
+   "options": [
+    "Faqat oxirida",
+    "Ko‘pincha abzatsning boshida",
+    "Hech qachon",
+    "O‘rtasida doim"
+   ],
+   "answer": 1,
+   "why_uz": "Mavzu gap ko‘pincha abzats boshida, ba’zan oxirida."
+  },
+  {
+   "q": "Qaysi so‘z xulosani bildiradi?",
+   "options": [
+    "однако",
+    "итак",
+    "например",
+    "потому что"
+   ],
+   "answer": 1,
+   "why_uz": "«Итак» xulosani ko‘rsatadi."
+  },
+  {
+   "q": "«Однако» odatda nimani bildiradi?",
+   "options": [
+    "Xulosa",
+    "Qarama-qarshilik",
+    "Sabab",
+    "Misol"
+   ],
+   "answer": 1,
+   "why_uz": "«Однако» — biroq, qarama-qarshilik bildiradi."
+  },
+  {
+   "q": "Asosiy fikr tavsifi qaysi?",
+   "options": [
+    "Eng aniq raqam",
+    "Butun matnni qamrab oluvchi fikr",
+    "Eng uzun gap",
+    "Birinchi so‘z"
+   ],
+   "answer": 1,
+   "why_uz": "Asosiy fikr butun matnni qamrab oladi."
+  },
+  {
+   "q": "Qaysi javob juda tor?",
+   "options": [
+    "Matn faqat bitta misolga tegishli",
+    "Matn butun mazmunni beradi",
+    "Matn umumiy mavzuni aytadi",
+    "Matn muallif fikrini aytadi"
+   ],
+   "answer": 0,
+   "why_uz": "Tor javob matnning faqat bir qismini oladi."
+  },
+  {
+   "q": "Qisqa mazmunda nima qilmaslik kerak?",
+   "options": [
+    "O‘z so‘zlaringizdan foydalanmaslik",
+    "Gaplarni matndan ko‘chirish",
+    "Asosiy fikrni aytish",
+    "Qisqa yozish"
+   ],
+   "answer": 1,
+   "why_uz": "Matndan ko‘chirish qisqa mazmun emas."
+  },
+  {
+   "q": "«В тексте говорится о том, что ...» qanday tarjima qilinadi?",
+   "options": [
+    "Matnda ... haqida aytiladi",
+    "Men ... deb o‘ylayman",
+    "Muallif qaytib keldi",
+    "Matn tugadi"
+   ],
+   "answer": 0,
+   "why_uz": "Bu qolip matn mazmunini xolis bayon qiladi."
+  },
+  {
+   "q": "Imtihonda to‘g‘ri javob qanday bo‘ladi?",
+   "options": [
+    "Juda tor",
+    "Juda keng",
+    "Matnga aniq mos va qamrab oluvchi",
+    "Matn aksini aytuvchi"
+   ],
+   "answer": 2,
+   "why_uz": "To‘g‘ri javob na tor, na keng, matnga mos."
+  },
+  {
+   "q": "«Деталь» nima?",
+   "options": [
+    "Asosiy g‘oya",
+    "Tafsilot",
+    "Sarlavha",
+    "Xulosa"
+   ],
+   "answer": 1,
+   "why_uz": "«Деталь» — tafsilot, asosiy fikrni qo‘llab-quvvatlaydi."
+  }
  ]
 }

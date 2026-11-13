@@ -1,73 +1,816 @@
 {
  "title": "Muammo va yechim haqida gapirish",
- "goal_uz": "Dars yakunida rus tilida muammo va yechimni tavsiflay olasiz. «Проблема ...», «Решение ...», «Нужно ...», «Поэтому ...» kabi iboralarni o‘rinli qo‘llaysiz, variantlarni baholab tavsiya berasiz. Oxirida shahringizdagi muammoni va uchta yechimni tavsiflab bera olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilida shahringizdagi muammoni tushuntirasiz, uchta yechim taklif qilasiz, ularni afzallik va kamchilik bo‘yicha baholaysiz va sabab bilan aniq tavsiya berasiz.",
  "vocab": [
-  {"w": "проблема", "uz": "muammo"},
-  {"w": "решение", "uz": "yechim"},
-  {"w": "нужно", "uz": "kerak"},
-  {"w": "должен", "uz": "majbur"},
-  {"w": "поэтому", "uz": "shuning uchun"},
-  {"w": "потому что", "uz": "chunki"},
-  {"w": "город", "uz": "shahar"},
-  {"w": "вода", "uz": "suv"},
-  {"w": "дерево", "uz": "daraxt"},
-  {"w": "общество", "uz": "jamiyat"}
+  {
+   "w": "проблема в том, что",
+   "uz": "muammo shundaki"
+  },
+  {
+   "w": "из-за",
+   "uz": "... tufayli (salbiy)"
+  },
+  {
+   "w": "благодаря",
+   "uz": "... tufayli (ijobiy)"
+  },
+  {
+   "w": "предлагаю",
+   "uz": "taklif qilaman"
+  },
+  {
+   "w": "преимущество",
+   "uz": "afzallik"
+  },
+  {
+   "w": "недостаток",
+   "uz": "kamchilik"
+  },
+  {
+   "w": "зато",
+   "uz": "ammo evaziga"
+  },
+  {
+   "w": "на мой взгляд",
+   "uz": "menimcha"
+  },
+  {
+   "w": "я бы рекомендовал",
+   "uz": "tavsiya qilgan bo‘lardim"
+  },
+  {
+   "w": "подводя итог",
+   "uz": "xulosa qilib"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Yigirma to‘rtinchi dars: muammo va yechim","emotion":"happy","board":["Проблема ...","Решение ...","Нужно ...","Поэтому ..."],"examples":[],"say_native":"Assalomu alaykum! Yigirma to‘rtinchi darsga xush kelibsiz. Kecha hikoya qilish texnikasini o‘rgandik, bugun esa muammo e’lon qilib, unga yechim taklif qilishni o‘rganamiz. Shahringizdagi aniq muammoni topib, uchta yechim variantini baholab tavsiya berasiz. Keyingi darsda bo‘lajak yakuniy imtihon mavzusini tanishtiramiz. Baholashda qulaylik, narx va vaqt mezonlarini yodda tuting, chunki eng yaxshi variant mana shu uchala mezonlarga tayanib tanlanadi. So‘zlov nutqini fiksirlab turish ishonchingizni oshirib, yakuniy nutq orasidagi mantiqiy bog‘liqlikni mustahkamlaydi va keyingi amaliy vazifalarda do‘stona qo‘llab oling.","say":"Здравствуйте! Сегодня говорим о проблемах.","say_uz":"Assalomu alaykum! Bugun muammolar haqida gaplashamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Muammo joylagichi","emotion":"neutral","board":["Проблема ...","Проблема в воде.","Проблема в городе.","Проблема в школе."],"examples":[{"t":"Проблема в воде.","uz":"Muammo suvda."},{"t":"Проблема в городе.","uz":"Muammo shaharda."}],"say_native":"Muammo bayonoti uch xil shaklda uylagandek ajratiladi. «Проблема в воде» — suvga bog‘liq muammo, «проблема в городе» — shaharga bog‘liq muammo, «проблема в школе» — maktab muammosi. Jumlani qisqa egalandi, lekin batafsil qoldirish muammo qamari jonlanib boradi. Shahringiz muammosini topib, uni aniq joy belgisi bilan ifoda qiling. Agar suv, shahar yoki maktab belgisi aniq ko‘rinsa, muammo butun jamoaga tushunarli bo‘ladi. Taklif yozilgan hujjatda muammo belgisi aynan shu uch maydon bilan qo‘llaniladi.","say":"Проблема в воде. Проблема в городе. Проблема в школе.","say_uz":"Muammo suvda. Muammo shaharda. Muammo maktabda.","practice_seconds":0},
-  {"kind":"practice","title":"Muammoni ayting","emotion":"encouraging","board":["1) Muammo suvda.","2) Muammo shaharda.","3) Muammo maktabda."],"examples":[],"say_native":"Uchta muammo jumlasini amalda mustahkamlab oling. Birinchisi: «проблема в воде». Ikkinchisi: «проблема в городе». Uchinchisi: «проблема в школе». Har birini batafsil talaffuz qiling, shunda so‘z muammo ustida chindan jonlana boshlaydi.","say":"Проблема в воде. Проблема в городе. Проблема в школе.","say_uz":"Muammo suvda. Muammo shaharda. Muammo maktabda.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Проблема в воде.","Проблема в городе.","Проблема в школе."],"examples":[],"say_native":"Muammo javoblari uch maydonda to‘liq ko‘rindi. «Проблема в воде» — suv muammosi, «проблема в городе» — shahar muammosi, «проблема в школе» — maktab muammosi. Endi siz ham muammoni joyi bilan tanishtirib bera olasiz.","say":"Проблема в воде. Проблема в городе. Проблема в школе.","say_uz":"Muammo suvda. Muammo shaharda. Muammo maktabda.","practice_seconds":0},
-  {"kind":"explain","title":"Yechim asoslari","emotion":"thinking","board":["Решение ...","Решение — дерево.","Решение — вода.","Решение — город."],"examples":[{"t":"Решение — дерево.","uz":"Yechim — daraxt."},{"t":"Решение — вода.","uz":"Yechim — suv."}],"say_native":"Yechim bayonoti muammoning hal qilish yo‘liga ishora beradi. «Решение — дерево» — yechim daraxt ekish, «решение — вода» — yechim suv tejash, «решение — город» — yechim shahar tartibi. Har bir yechim muammodan kelib chiqqan bo‘lishi shart, yo‘qsa u yechim emas, xohish ko‘rinib qoladi. Daraxt ekish, suv tejash va shahar tartiblash — har biri o‘z muammosiga mos keladi. Yechim ham muammo bilan bog‘liq bo‘lganda samarador bo‘ladi. Shuning uchun avval muammo joyini, so‘ngra yechim yo‘lini tanlab oling.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":0},
-  {"kind":"practice","title":"Yechimni ayting","emotion":"encouraging","board":["1) Yechim — daraxt.","2) Yechim — suv.","3) Yechim — shahar."],"examples":[],"say_native":"Uchta yechim jumlasini talaffuz bilan mustahkamlab oling. Birinchisi: «решение — дерево». Ikkinchisi: «решение — вода». Uchinchisi: «решение — город». Ularni oxirgi qismda yakunlab, muammo va yechim bog‘lovchisini vujudga keltiring.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Решение — дерево.","Решение — вода.","Решение — город."],"examples":[],"say_native":"Yechim javoblari uchta bayroqdek aniq tog‘ilgan holatda. «Решение — дерево» — daraxt ekish yechimi, «решение — вода» — suv tejash yechimi, «решение — город» — shahar tartibi yechimi. Endi siz ham muammoning yechim variantlarini uzun qisqa bayon qilib bera olasiz.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":0},
-  {"kind":"explain","title":"Zarurat bog‘lovchisi","emotion":"neutral","board":["Нужно ...","Нужно дерево.","Нужно вода.","Нужно город."],"examples":[{"t":"Нужно дерево.","uz":"Daraxt kerak."},{"t":"Нужно вода.","uz":"Suv kerak."}],"say_native":"Zarurat bog‘lovchisi «нужно» — kerak so‘zi bilan birlashadi. «Нужно дерево» — daraxt kerak, «нужно вода» — suv kerak, «нужно город» — shahar kerak. Bu shakl muammo va yechim orasidagi ko‘prik bo‘lib qoladi. Har bir gapni yakunlaganda shu bog‘lovchini aniqlashtirib qo‘ying. «Нужно» bilan yakunlansa, talab tavhid makelga aylanadi. Agar «нужно» ni eshitsangiz, keyingi jumla yechim bilan bog‘liqligini tushunasiz. Talab bog‘lovchisi yozma matnda muammo va yechim orasidagi ko‘priktir.","say":"Нужно дерево. Нужно вода. Нужно город.","say_uz":"Daraxt kerak. Suv kerak. Shahar kerak.","practice_seconds":0},
-  {"kind":"practice","title":"Zaruratni ayting","emotion":"encouraging","board":["1) Daraxt kerak.","2) Suv kerak.","3) Shahar kerak."],"examples":[],"say_native":"Uchta zarurat jumlasini talaffuz bilan speaksiring. Birinchisi: «нужно дерево». Ikkinchisi: «нужно вода». Uchinchisi: «нужно город». Har birini o‘zbekchaning muloqot imlosida mustahkamlab oling.","say":"Нужно дерево. Нужно вода. Нужно город.","say_uz":"Daraxt kerak. Suv kerak. Shahar kerak.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Нужно дерево.","Нужно вода.","Нужно город."],"examples":[],"say_native":"Zarurat javoblari uch maydon tumanida tolarga sig‘dirildi. «Нужно дерево» — daraxt zarurati, «нужно вода» — suv zarurati, «нужно город» — shahar zarurati. Endi siz ham muammo va yechim ustida zarurat bog‘lovchisini aniq ishlatasiz.","say":"Нужно дерево. Нужно вода. Нужно город.","say_uz":"Daraxt kerak. Suv kerak. Shahar kerak.","practice_seconds":0},
-  {"kind":"explain","title":"Natija bog‘lovchisi kuchi","emotion":"thinking","board":["Поэтому ...","Поэтому нужно дерево.","Поэтому нужно вода.","Поэтому нужно решение."],"examples":[{"t":"Поэтому нужно дерево.","uz":"Shuning uchun daraxt kerak."},{"t":"Поэтому нужно вода.","uz":"Shuning uchun suv kerak."}],"say_native":"Natija bog‘lovchisi «поэтому» — shuning uchun so‘zi bilan ifodalanadi. «Поэтому нужно дерево» — shuning uchun daraxt kerak, «поэтому нужно вода» — shuning uchun suv kerak, «поэтому нужно решение» — shuning uchun yechim zarur. Bu bog‘lovchi muammo bayoni bilan yechim bayonotini mantiqiy tartibda ulab beradi.","say":"Поэтому нужно дерево. Поэтому нужно вода. Поэтому нужно решение.","say_uz":"Shuning uchun daraxt kerak. Shuning uchun suv kerak. Shuning uchun yechim kerak.","practice_seconds":0},
-  {"kind":"practice","title":"Natijani ayting","emotion":"encouraging","board":["1) Shuning uchun daraxt kerak.","2) Shuning uchun suv kerak.","3) Shuning uchun yechim kerak."],"examples":[],"say_native":"Natija bog‘lovchisini uch jumla bilan mustahkamlab oling. Birinchisi: «поэтому нужно дерево». Ikkinchisi: «поэтому нужно вода». Uchinchisi: «поэтому нужно решение». Ularni natija ohangida talaffuz qiling.","say":"Поэтому нужно дерево. Поэтому нужно вода. Поэтому нужно решение.","say_uz":"Shuning uchun daraxt kerak. Shuning uchun suv kerak. Shuning uchun yechim kerak.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Поэтому нужно дерево.","Поэтому нужно вода.","Поэтому нужно решение."],"examples":[],"say_native":"Natija javoblari mantiqiy zanjir kabi izchil tortildi. «Поэтому нужно дерево» — daraxt natijasi, «поэтому нужно вода» — suv natijasi, «поэтому нужно решение» — yechim natijasi. Shu natija bilan tavsiya tugaydi.","say":"Поэтому нужно дерево. Поэтому нужно вода. Поэтому нужно решение.","say_uz":"Shuning uchun daraxt kerak. Shuning uchun suv kerak. Shuning uchun yechim kerak.","practice_seconds":0},
-  {"kind":"mistake","title":"Yechimni takrorlamaslik","emotion":"stern","board":["✗ Проблема в воде.","✓ Проблема в воде. Поэтому нужно дерево.","✗ Решение.","✓ Решение — дерево."],"examples":[],"say_native":"Ko‘p uchraydigan xato — muammoni bayon qilib, yechimni yozmay qo‘yishdir. «Проблема в воде» yakka o‘zi tugallanmagan hukm. To‘g‘ri shakl: muammodan keyingi gapda yechimni zarurat bilan birlashtirish. Shu bilan yechim uji sulaykan boshqa do‘stona holat bo‘lmaganidek darajasiga aylanib qoladi.","say":"Проблема в воде. Поэтому нужно дерево. Решение — дерево.","say_uz":"Muammo suvda. Shuning uchun daraxt kerak. Yechim — daraxt.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: shahar muammosi","emotion":"happy","board":["— В чём проблема?","— Проблема в городе.","— Решение? — Нужно дерево."],"examples":[],"say_native":"Birinchi dialog shahar muammosini ochib beradi. «В чём проблема?» — muammo nimada deb so‘raydi. «Проблема в городе» — muammo shaharda. «Решение? — Нужно дерево» — yechim so‘raganmi, javob daraxt bilan beriladi. Ushbu savol-javob uch zarurat shaklida yechim so‘rog‘iga javob beradi.","say":"В чём проблема? Проблема в городе. Решение? Нужно дерево.","say_uz":"Muammo nimada? Muammo shaharda. Yechim? Daraxt kerak.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Muammo nimada?","2) Yechim nima?"],"examples":[],"say_native":"Savol-javob doirasida muammo va yechimni ajratib oling. Birinchi savol: «в чём проблема?» — muammo nimada. Ikkinchisi: «решение?» — yechim nimadir. Javoblarni rus tilida to‘liq jumla bilan berib, savol bilan javobni aniqlashtiring.","say":"В чём проблема? Проблема в городе. Решение? Нужно дерево.","say_uz":"Muammo nimada? Muammo shaharda. Yechim? Daraxt kerak.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Проблема в городе.","Нужно дерево."],"examples":[],"say_native":"Har bir javob alohida bayon shaklida yozildi. «Проблема в городе» muammo xabari, «нужно дерево» — yechim xabari. Endi siz ham shahar muammosini aniq bayon qilib, yechim taklif qila olasiz.","say":"Проблема в городе. Нужно дерево.","say_uz":"Muammo shaharda. Daraxt kerak.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: suv yechimi","emotion":"neutral","board":["— Почему нужен лес?","— Потому что нет дерева.","— Поэтому? — Нужно решение."],"examples":[],"say_native":"Ikkinchi dialog o‘rmon sababiga bog‘liq. «Почему нужен лес?» — nega o‘rmon kerak deb so‘raydi. «Потому что нет дерева» — chunki daraxt yo‘q. Sandiq savol: «поэтому? — нужно решение» — shuning uchun yechim zarur. Ushaning sababi bilan natija bitta tafsilotda jamlangan.","say":"Почему нужен лес? Потому что нет дерева. Поэтому? Нужно решение.","say_uz":"Nega o‘rmon kerak? Chunki daraxt yo‘q. Shuning uchun? Yechim kerak.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nega o‘rmon kerak?","2) Shuning uchun nima kerak?"],"examples":[],"say_native":"Savol so‘rovlari qatorini amalda sinab ko‘ring. Birinchi savol: «почему нужен лес?» — nega o‘rmon zarur. Ikkinchisi: «поэтому?» — shuning uchun deb. Javoblarda «потому что» va «поэтому» bog‘lovchilarini farqlash ishini mashq qiling.","say":"Почему нужен лес? Потому что нет дерева. Поэтому? Нужно решение.","say_uz":"Nega o‘rmon kerak? Chunki daraxt yo‘q. Shuning uchun? Yechim kerak.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Потому что нет дерева.","Поэтому нужно решение."],"examples":[],"say_native":"Ikkinchi dialog javoblari sabab va natija zikr etilgan holda yozildi. «Потому что нет дерева» sabab pochasi, «поэтому нужно решение» — natija. Endi siz ham sabab bilan natijani mantiqiy e’tirof bilan birlashtirib bera olasiz.","say":"Потому что нет дерева. Поэтому нужно решение.","say_uz":"Chunki daraxt yo‘q. Shuning uchun yechim kerak.","practice_seconds":0},
-  {"kind":"explain","title":"Jamiyat va muammo birligi","emotion":"neutral","board":["Проблема · решение · нужно","поэтому · потому что · общество"],"examples":[{"t":"Проблема в воде.","uz":"Muammo suvda."},{"t":"Решение — дерево.","uz":"Yechim — daraxt."}],"say_native":"Jamiyat bayoni bilan bog‘liq muammolar uch maydon bilan birlashadi. «Проблема» — muammo belgisi, «решение» — yechim belgisi, «нужно» — zarurat belgisi. «Поэтому» natija va «потому что» sababni beradi, «общество» — jamiyat belgisi. Bu besh so‘z matni muammo va yechimda mukammal tiqishtirib qo‘yadi. «Проблема» belgisi muammoni, «решение» belgisi yechimni, «нужно» belgisi zaruratni, «поэтому» natijani, «общество» esa jamoani bildiradi. Ularni yagona xat deb qoyilsa, matn mukammal holatda joylashib qoladi. Besh so‘z bir xatda pishitilgan holatda samara beradi.","say":"Проблема. Решение. Нужно. Поэтому. Потому что. Общество.","say_uz":"Muammo. Yechim. Kerak. Shuning uchun. Chunki. Jamiyat.","practice_seconds":0},
-  {"kind":"explain","title":"Yechim variantlarini baholash","emotion":"neutral","board":["Решение — дерево.","Решение — вода.","Решение — город.","Спасибо!"],"examples":[{"t":"Решение — дерево.","uz":"Yechim — daraxt."},{"t":"Решение — вода.","uz":"Yechim — suv."}],"say_native":"Yechim variantlarini baholaganda uchta asosni yodda tuting. Birinchisi: «решение — дерево» — daraxt ekish yechimi. Ikkinchisi: «решение — вода» — suv tejash yechimi. Uchinchisi: «решение — город» — shahar tartibi yechimi. Har bir variantni qulaylik, narx va foyda bilan baholang. Tavsiya oxirida eng to‘g‘ri variantni tanlang. Baholashda daraxt ekish salomatlik, suv tejash iqtisod, shahar tartibi esa qulaylik bilan baholanadi. Eng yaxshi variantni tanlagach, uni «поэтому» bog‘lovchisida yakunlangan jumlaga singdirib qo‘ying.","say":"Решение — дерево. Решение — вода. Решение — город. Спасибо!","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar. Rahmat!","practice_seconds":0},
-  {"kind":"practice","title":"Variantni baholang","emotion":"encouraging","board":["1) Yechim — daraxt.","2) Yechim — suv.","3) Yechim — shahar."],"examples":[],"say_native":"Uchta variantni birgalikda baholab ko‘ring. Birinchisi: «решение — дерево». Ikkinchisi: «решение — вода». Uchinchisi: «решение — город». Har birini qulaylik bilan baholab, eng samarali variantni tanlang.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Решение — дерево.","Решение — вода.","Решение — город."],"examples":[],"say_native":"Variant javoblari baholash jarayonidan so‘ng aniq ko‘rindi. «Решение — дерево», «решение — вода», «решение — город» — uchta baholangan variant. Eng to‘g‘ri variantni tanlashda narx va foyda mezonini yodda tuting.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":0},
-  {"kind":"explain","title":"Tavsiya berish chizig‘i","emotion":"thinking","board":["Поэтому нужно дерево.","Поэтому нужно вода.","Поэтому нужно решение.","Спасибо!"],"examples":[{"t":"Поэтому нужно дерево.","uz":"Shuning uchun daraxt kerak."},{"t":"Поэтому нужно вода.","uz":"Shuning uchun suv kerak."}],"say_native":"Tavsiya chizig‘i natija bog‘lovchisi bilan yakunlanadi. «Поэтому нужно дерево» — daraxt tavsiyasi, «поэтому нужно вода» — suv tavsiyasi, «поэтому нужно решение» — yechim tavsiyasi. Ushbu uchta jumlani ketma-ket talaffuz qilsangiz, muammo bayoni va yechim tavsiyasi uzilmay bog‘lanadi. Mantiq zanjiri «поэтому» da yotadi. Har bir tavsiya jumlasida natija belgisi aniqlashtirilgan bo‘lsa, tinglovchi keyingi qadamni aniqlashtirib oladi. Yozma matnda ham shu zanjir hukmdor bo‘lib turishi kerak.","say":"Поэтому нужно дерево. Поэтому нужно вода. Поэтому нужно решение. Спасибо!","say_uz":"Shuning uchun daraxt kerak. Shuning uchun suv kerak. Shuning uchun yechim kerak. Rahmat!","practice_seconds":0},
-  {"kind":"practice","title":"Tavsiyani yozing","emotion":"encouraging","board":["1) Shuning uchun daraxt kerak.","2) Shuning uchun suv kerak.","3) Shuning uchun yechim kerak."],"examples":[],"say_native":"Uchta tavsiya jumlasini ketma-ket talaffuz qiling. Birinchisi: «поэтому нужно дерево». Ikkinchisi: «поэтому нужно вода». Uchinchisi: «поэтому нужно решение». Bitta nafasda nuqta esa mantiq zanjirida mahkam qotib qoladi.","say":"Поэтому нужно дерево. Поэтому нужно вода. Поэтому нужно решение.","say_uz":"Shuning uchun daraxt kerak. Shuning uchun suv kerak. Shuning uchun yechim kerak.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Поэтому нужно дерево.","Поэтому нужно вода.","Поэтому нужно решение."],"examples":[],"say_native":"Tavsiya javoblari mantiqiy dalillar qatorida joylashdi. «Поэтому нужно дерево» — daraxt tavsiyasi, «поэтому нужно вода» — suv tavsiyasi, «поэтому нужно решение» — har qanday yechim tavsiyasi. Endi siz tavsiya berishda shu uchta harakatni birlashtirib bera olasiz.","say":"Поэтому нужно дерево. Поэтому нужно вода. Поэтому нужно решение.","say_uz":"Shuning uchun daraxt kerak. Shuning uchun suv kerak. Shuning uchun yechim kerak.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: tavsiflash","emotion":"encouraging","board":["1) Muammo suvda.","2) Daraxt kerak.","3) Yechim — daraxt.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda muammoni va uchta yechimni tavsiflab bering. Birinchi: «проблема в воде». Ikkinchisi: «нужно дерево». Uchinchisi: «решение — дерево». Yozma tavsifni rus tilida tugallangan gap bilan yakunlab qo‘ying.","say":"Проблема в воде. Нужно дерево. Решение — дерево. Спасибо!","say_uz":"Muammo suvda. Daraxt kerak. Yechim — daraxt. Rahmat!","practice_seconds":25},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Проблема в воде.","Нужно дерево.","Решение — дерево."],"examples":[],"say_native":"Namuna tavsif shakli uch qatorga yig‘ildi. «Проблема в воде» muammo depict, «нужно дерево» zarurat, «решение — дерево» yechim. Bu uch qator shahringiz muammosini tavsiflash skeletini tashkil etadi.","say":"Проблема в воде. Нужно дерево. Решение — дерево.","say_uz":"Muammo suvda. Daraxt kerak. Yechim — daraxt.","practice_seconds":0},
-  {"kind":"explain","title":"Muammoni baholash yo‘li","emotion":"neutral","board":["Проблема в воде.","Решение — дерево.","Поэтому нужно дерево."],"examples":[{"t":"Проблема в воде.","uz":"Muammo suvda."},{"t":"Поэтому нужно дерево.","uz":"Shuning uchun daraxt kerak."}],"say_native":"Muammoni baholash yo‘li uch bosqichdan turib, bir xususiylik bilan tekshiriladi. Birinchi bosqich: muammoni joyni bilan topib yozing. Ikkinchi bosqich: yechim variantlarini keyingi baholashda tartiblangan. Uchinchisi: eng yaxshi variantni «поэтому» bog‘lovchisida yakunlang. Bu yo‘l tavsiya berishni mustaqillikka aylantiradi.","say":"Проблема в воде. Решение — дерево. Поэтому нужно дерево.","say_uz":"Muammo suvda. Yechim — daraxt. Shuning uchun daraxt kerak.","practice_seconds":0},
-  {"kind":"practice","title":"Baholashni mashq qiling","emotion":"encouraging","board":["1) Muammo suvda.","2) Yechim — daraxt.","3) Shuning uchun daraxt kerak."],"examples":[],"say_native":"Baholash yo‘lini uch jumla bilan mashq qiling. Birinchisi: «проблема в воде». Ikkinchisi: «решение — дерево». Uchinchisi: «поэтому нужно дерево». Har bir gapni alohida nafasda talaffuz qiling.","say":"Проблема в воде. Решение — дерево. Поэтому нужно дерево.","say_uz":"Muammo suvda. Yechim — daraxt. Shuning uchun daraxt kerak.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Проблема в воде.","Решение — дерево.","Поэтому нужно дерево."],"examples":[],"say_native":"Baholash javoblari uch qatorga yig‘ildi. «Проблема в воде» muammo, «решение — дерево» yechim, «поэтому нужно дерево» tavsiya. Ushbu uch qator muammoni baholashning uch bog‘lovchisidir.","say":"Проблема в воде. Решение — дерево. Поэтому нужно дерево.","say_uz":"Muammo suvda. Yechim — daraxt. Shuning uchun daraxt kerak.","practice_seconds":0},
-  {"kind":"explain","title":"Tavsiya berish adabi","emotion":"thinking","board":["Решение — дерево.","Решение — вода.","Решение — город."],"examples":[{"t":"Решение — дерево.","uz":"Yechim — daraxt."},{"t":"Решение — вода.","uz":"Yechim — suv."}],"say_native":"Tavsiya berish adabi nafaqat yechimni yozib qo‘yish, balki narx-faydoi miqdorini baholashdan iborat. Baholashda uchta savol: qachon bajariladi, qancha sarflanadi, qancha samara beradi. Ularni diqqat bilan yozib borsangiz, tavsiya mustaqil bo‘lib qoladi va tinglovchi ishonch hosil qiladi.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":0},
-  {"kind":"practice","title":"Tavsiya bering","emotion":"encouraging","board":["1) Yechim — daraxt.","2) Yechim — suv.","3) Yechim — shahar."],"examples":[],"say_native":"Uchta tavsiya variantini bitta nafasda uch qator qilib yozing. Birinchi variant: «решение — дерево». Ikkinchi: «решение — вода». Uchinchisi: «решение — город». Har birini tavsiya ohangida tugallang.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Решение — дерево.","Решение — вода.","Решение — город."],"examples":[],"say_native":"Uchta tavsiya javobi baholashdan so‘ng aniqlandi. «Решение — дерево» — daraxt variantii, «решение — вода» — suv variantii, «решение — город» — shahar variantii. Eng yaxshi tavsiyani tanlash huquqi sizda qoldi.","say":"Решение — дерево. Решение — вода. Решение — город.","say_uz":"Yechim — daraxt. Yechim — suv. Yechim — shahar.","practice_seconds":0},
-  {"kind":"explain","title":"Muammoli xatni tugatish","emotion":"neutral","board":["Проблема в городе.","Нужно дерево.","С уважением."],"examples":[{"t":"Проблема в городе.","uz":"Muammo shaharda."},{"t":"Нужно дерево.","uz":"Daraxt kerak."}],"say_native":"Muammoli xatni tugatish rasmiy odobni saqlagan holda yakunlanadi. Muammo: «проблема в городе». Zarurat: «нужно дерево». Yakun: «с уважением». Ushbu uchlik xatni imtihon mezoniga mos keladigan holatda yakunlab berish imkonini beradi.","say":"Проблема в городе. Нужно дерево. С уважением.","say_uz":"Muammo shaharda. Daraxt kerak. Hurmat bilan.","practice_seconds":0},
-  {"kind":"practice","title":"Xatni tugating","emotion":"encouraging","board":["1) Muammo shaharda.","2) Daraxt kerak.","3) Hurmat bilan."],"examples":[],"say_native":"Xat tugatishni uch qator bilan mashq qilib ko‘ring. Birinchi qator: «проблема в городе». Ikkinchi qator: «нужно дерево». Yakunda esa: «с уважением». Ularni ketma-ket bitta nafasda talaffuz qiling.","say":"Проблема в городе. Нужно дерево. С уважением.","say_uz":"Muammo shaharda. Daraxt kerak. Hurmat bilan.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Проблема в городе.","Нужно дерево.","С уважением."],"examples":[],"say_native":"Xatni tugatish javoblari shu uchlikni tashkil etdi. «Проблема в городе» muammo, «нужно дерево» zarurat, «с уважением» yakun. Endi siz ham rasmiy xatni muammoda boshlab, tavsiyada tugatib bera olasiz.","say":"Проблема в городе. Нужно дерево. С уважением.","say_uz":"Muammo shaharda. Daraxt kerak. Hurmat bilan.","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Проблема ...","Решение ...","Нужно ...","Поэтому ..."],"examples":[],"say_native":"O‘zingizni imtihon qiling. Muammoni «проблема» bilan ayta olasizmi? Yechimni «решение» bilan bayon eta olasizmi? Zaruratni «нужно» bilan talab eta olasizmi? Natijani «поэтому» bilan yakunlashga qodirmisiz? Javoblar ijobiy bo‘lsa, muammo va yechim nutqi sizga do‘st bo‘lib qoladi.","say":"Проблема ... Решение ... Нужно ... Поэтому ...","say_uz":"Muammo ... Yechim ... Kerak ... Shuning uchun ...","practice_seconds":0},
-  {"kind":"explain","title":"Yakuniy tavsiya namunasi","emotion":"neutral","board":["Проблема в воде.","Решение — дерево.","Поэтому нужно дерево."],"examples":[{"t":"Проблема в воде.","uz":"Muammo suvda."},{"t":"Решение — дерево.","uz":"Yechim — daraxt."}],"say_native":"Namuna tavsiya shakli uch qatorga sig‘dirilgan. «Проблема в воде» — muammo, «решение — дерево» — yechim, «поэтому нужно дерево» — tavsiya yakuni. Ushbu namuna yakuniy amaliy vazifada to‘liq mavjud bo‘lgan skeletni tashkil etadi.","say":"Проблема в воде. Решение — дерево. Поэтому нужно дерево.","say_uz":"Muammo suvda. Yechim — daraxt. Shuning uchun daraxt kerak.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["проблема · решение · нужно","поэтому · потому что · общество"],"examples":[],"say_native":"Bugunning xulosasi: muammoni bayon qilib, uchta yechimni baholab, tavsiya berishni o‘rgandik. «Проблема» — muammo belgisi, «решение» — yechim belgisi, «нужно» — zarurat, «поэтому» — natija bog‘lovchisi. Shahringiz muammosini tasvirlash endi sizga quvvat beradi.","say":"Отлично! Теперь вы умеете говорить о проблемах.","say_uz":"Ajoyib! Endi muammolar haqida gapira olasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["Shahringizdagi muammo","Uchta yechim","Keyingi dars: B1 yakuniy imtihon"],"examples":[],"say_native":"Uyga vazifa: shahringizdagi bitta muammoni tasvirlab, unga uchta yechim taklif qiling. Matnni avval «проблема» bilan boshlab, «решение» bilan tugating, «нужно» va «поэтому» bog‘lovchilaridan foydalaning. Keyingi darsda B1 yakuniy imtihonni topshiramiz — tayyorgarlik ko‘ring.","say":"До свидания! До встречи на следующем уроке. Будет экзамен.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Imtihon bo‘ladi.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Muammo va yechim",
+   "emotion": "happy",
+   "board": [
+    "Говорим о проблеме и решениях",
+    "(Muammo va yechim haqida)",
+    "проблема · предложение · оценка · рекомендация"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda hikoya qilish texnikasini o‘rgandik, bugun esa gapirishning juda foydali turiga o‘tamiz: muammoni tasvirlash va yechim taklif qilish. Bu ish joyida, uchrashuvda va imtihonning og‘zaki qismida ko‘p kerak bo‘ladi. Dars oxirida siz shahringizdagi muammoni tushuntirib, uchta yechim taklif qilasiz, ularni baholaysiz va aniq tavsiya berasiz.",
+   "say": "Здравствуйте! Сегодня мы учимся говорить о проблемах и предлагать решения. Это очень полезное умение и на работе, и в обычной жизни.",
+   "say_uz": "Assalomu alaykum! Bugun muammolar haqida gapirish va yechim taklif qilishni o‘rganamiz. Bu ishda ham, oddiy hayotda ham juda foydali.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "To‘rt bosqichli reja",
+   "emotion": "neutral",
+   "board": [
+    "1. Проблема",
+    "2. Причины",
+    "3. Решения",
+    "4. Рекомендация"
+   ],
+   "examples": [
+    {
+     "t": "Давайте сначала опишем проблему, а потом предложим решения.",
+     "uz": "Avval muammoni tasvirlaymiz, keyin yechim taklif qilamiz."
+    }
+   ],
+   "say_native": "Yaxshi nutq oddiy reja bilan boshlanadi. Birinchi bosqich: muammo nima. Ikkinchi: sababi nimada. Uchinchi: qanday yechimlar bor. To‘rtinchi: siz qaysi birini tavsiya qilasiz. Shu tartibni ushlasangiz, to‘xtab qolmaysiz va tinglovchi sizni tushunadi. Har bosqichga alohida iboralar kerak, bugun ularni birin-ketin o‘rganamiz.",
+   "say": "Сначала расскажите, в чём проблема. Потом объясните причины. Затем предложите решения и выберите лучшее.",
+   "say_uz": "Avval muammo nimada ekanini ayting. Keyin sabablarni tushuntiring. So‘ng yechimlarni taklif qiling va eng yaxshisini tanlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Muammoni nomlash",
+   "emotion": "neutral",
+   "board": [
+    "Проблема в том, что ...",
+    "Главная трудность — ...",
+    "К сожалению, ...",
+    "Меня беспокоит то, что ..."
+   ],
+   "examples": [
+    {
+     "t": "Проблема в том, что в городе мало парковок.",
+     "uz": "Muammo shundaki, shaharda to‘xtash joylari kam."
+    },
+    {
+     "t": "Главная трудность — большие пробки по утрам.",
+     "uz": "Asosiy qiyinchilik — ertalabki katta tirbandlik."
+    }
+   ],
+   "say_native": "Muammoni aytishning bir nechta qolipi bor. «Проблема в том, что» — muammo shundaki. Undan keyin to‘liq gap keladi va oldiga vergul qo‘yiladi. «Главная трудность — ...» dan keyin ot keladi. «К сожалению» — afsuski, «меня беспокоит то, что» — meni tashvishga soladigani shuki. O‘zbek tilida shunday qoliplar bor: «muammo shundaki...», shuning uchun tuzilishni oson o‘zlashtirasiz. Faqat «в том, что» ni to‘liq aytishni unutmang.",
+   "say": "Проблема в том, что в городе мало парковок. Главная трудность — большие пробки по утрам. К сожалению, люди выбрасывают мусор на улицах.",
+   "say_uz": "Muammo shundaki, shaharda to‘xtash joylari kam. Asosiy qiyinchilik — ertalabki katta tirbandlik. Afsuski, odamlar ko‘chaga axlat tashlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Shahar muammolari",
+   "emotion": "thinking",
+   "board": [
+    "пробки · мусор · шум · парковки",
+    "нехватка · загрязнение"
+   ],
+   "examples": [
+    {
+     "t": "В центре города всегда шумно.",
+     "uz": "Shahar markazi doim shovqinli."
+    },
+    {
+     "t": "Во дворах не хватает детских площадок.",
+     "uz": "Hovlilarda bolalar maydonchalari yetishmaydi."
+    },
+    {
+     "t": "Воздух в городе стал грязнее.",
+     "uz": "Shahardagi havo ifloslashdi."
+    }
+   ],
+   "say_native": "Mana shahar muammolari haqida uchta gap. «Всегда шумно» — doim shovqin. «Не хватает детских площадок» — maydonchalar yetmaydi, bu yerda rodit. kelishik «площадок» ni eslang. «Воздух стал грязнее» — qiyosiy daraja yordamida o‘zgarish aytilyapti. Bu iboralarni muammoni tasvirlash uchun xohlagancha ishlating.",
+   "say": "В центре города всегда шумно. Во дворах не хватает детских площадок. Воздух в городе стал грязнее.",
+   "say_uz": "Shahar markazi doim shovqinli. Hovlilarda bolalar maydonchalari yetishmaydi. Shahardagi havo ifloslashdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Muammoni ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Улицы грязные. (мусор)",
+    "2) Автобусы ходят редко. (транспорт)",
+    "3) Нет парковок. (машины)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Doskadagi qisqa ma’lumotlardan «проблема в том, что» qolipi bilan to‘liq gap tuzing. Masalan, birinchisi: muammo shundaki, ko‘chalar iflos. Ikkinchisi: avtobuslar kam qatnaydi. Uchinchisi: mashinalar uchun to‘xtash joyi yo‘q. Uchala gapni ham ayting.",
+   "say": "Проблема в том, что улицы грязные. Проблема в том, что автобусы ходят редко. Проблема в том, что нет парковок для машин.",
+   "say_uz": "Muammo shundaki, ko‘chalar iflos. Muammo shundaki, avtobuslar kam qatnaydi. Muammo shundaki, mashinalar uchun to‘xtash joylari yo‘q.",
+   "practice_seconds": 13
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Проблема в том, что + полное предложение",
+    "в том, что — запятая перед «что»"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. «Проблема в том, что улицы грязные», «проблема в том, что автобусы ходят редко», «проблема в том, что нет парковок». E’tibor bering: «что» dan oldin doim vergul turadi. O‘zbek tilida bunday vergul yo‘q, chunki o‘zbekcha «shundaki» tuzilishi boshqacha. Ko‘pchilik shu yerda xato qiladi, shuning uchun yozma ishda ham diqqat bilan bo‘ling.",
+   "say": "Проблема в том, что улицы грязные. Проблема в том, что автобусы ходят редко.",
+   "say_uz": "Muammo shundaki, ko‘chalar iflos. Muammo shundaki, avtobuslar kam qatnaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sabablarni aytish",
+   "emotion": "neutral",
+   "board": [
+    "из-за + родительный падеж",
+    "потому что + предложение",
+    "благодаря + дательный (хорошая причина)",
+    "поэтому"
+   ],
+   "examples": [
+    {
+     "t": "Из-за пробок я опаздываю на работу.",
+     "uz": "Tirbandlik tufayli ishga kechikaman."
+    },
+    {
+     "t": "Благодаря новому метро стало быстрее.",
+     "uz": "Yangi metro tufayli tezroq bo‘ldi."
+    }
+   ],
+   "say_native": "Sababni aytish uchun bir nechta so‘z bor. «Из-за» salbiy sabab uchun va rodit. kelishik bilan: «из-за пробок». «Благодаря» ijobiy sabab uchun va datel kelishigi bilan: «благодаря метро». «Потому что» dan keyin to‘liq gap keladi. «Поэтому» esa natijani bildiradi: sababdan keyin. O‘zbek tilida «tufayli» ikkalasini ham bildiradi, ruscha esa ijobiy va salbiyni ajratadi, shuning uchun to‘g‘ri tanlang.",
+   "say": "Из-за пробок я опаздываю на работу. Благодаря новому метро стало быстрее. Автобусов мало, поэтому люди ездят на машинах.",
+   "say_uz": "Tirbandlik tufayli ishga kechikaman. Yangi metro tufayli tezroq bo‘ldi. Avtobuslar kam, shuning uchun odamlar mashinada yuradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: из-за yoki благодаря",
+   "emotion": "stern",
+   "board": [
+    "✗ Благодаря пробкам я опоздал.",
+    "✓ Из-за пробок я опоздал.",
+    "✗ Из-за хорошей погоды мы гуляли.",
+    "✓ Благодаря хорошей погоде мы гуляли."
+   ],
+   "examples": [],
+   "say_native": "Tipik xato: «благодаря» va «из-за» ni aralashtirish. «Благодаря» — yaxshi natijaga olib kelgan sabab. «Из-за» — yomon natijaga olib kelgan sabab. Shuning uchun «благодаря пробкам я опоздал» noto‘g‘ri, ma’no kulgili chiqadi. To‘g‘risi «из-за пробок». Kelishik ham farq qiladi: «благодаря» + datel, «из-за» + rodit. Shuni yodlab oling.",
+   "say": "Неправильно: благодаря пробкам я опоздал. Правильно: из-за пробок я опоздал. Благодаря хорошей погоде мы гуляли.",
+   "say_uz": "Noto‘g‘ri: tirbandliklar sharofati bilan kechikdim. To‘g‘ri: tirbandlik tufayli kechikdim. Yaxshi ob-havo tufayli sayr qildik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sabab so‘zini tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) ___ дождя мы остались дома.",
+    "2) ___ помощи друзей я сдал экзамен.",
+    "3) Нет парковок, ___ машины стоят на тротуаре."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Bo‘sh joylarga «из-за», «благодаря» yoki «поэтому» qo‘ying. Birinchi gap: yomg‘ir tufayli uyda qoldik, bu salbiy sabab. Ikkinchi gap: do‘stlar yordami tufayli imtihondan o‘tdim, ijobiy. Uchinchi gap: natijani bildiruvchi so‘z kerak. Ayting.",
+   "say": "Из-за дождя мы остались дома. Благодаря помощи друзей я сдал экзамен. Нет парковок, поэтому машины стоят на тротуаре.",
+   "say_uz": "Yomg‘ir tufayli uyda qoldik. Do‘stlar yordami tufayli imtihondan o‘tdim. To‘xtash joylari yo‘q, shuning uchun mashinalar yo‘lakda turadi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "из-за дождя",
+    "благодаря помощи",
+    "поэтому"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. «Из-за дождя», chunki yomg‘ir yomon sabab. «Благодаря помощи», chunki yordam yaxshi sabab va «помощь» datel kelishigida «помощи». «Поэтому» natijani beradi: parkovka yo‘q, shuning uchun mashinalar yo‘lakda. Ko‘ryapsizmi, to‘g‘ri so‘z tanlansa, gap ma’nosi aniq bo‘ladi.",
+   "say": "Из-за дождя. Благодаря помощи. Нет парковок, поэтому машины стоят на тротуаре.",
+   "say_uz": "Yomg‘ir tufayli. Yordam tufayli. To‘xtash joylari yo‘q, shuning uchun mashinalar yo‘lakda turadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yechim taklif qilish",
+   "emotion": "neutral",
+   "board": [
+    "Можно + инфинитив",
+    "Предлагаю + инфинитив",
+    "Стоит / следует / нужно + инфинитив",
+    "Было бы хорошо + инфинитив"
+   ],
+   "examples": [
+    {
+     "t": "Можно построить больше парковок.",
+     "uz": "Ko‘proq to‘xtash joylari qurish mumkin."
+    },
+    {
+     "t": "Предлагаю ввести платную парковку.",
+     "uz": "Pullik to‘xtash joyi joriy qilishni taklif qilaman."
+    }
+   ],
+   "say_native": "Yechim taklif qilish uchun asosiy qolip: modal so‘z plyus infinitiv. «Можно построить» — qurish mumkin. «Нужно» — kerak, «следует» — lozim, «стоит» — arziydi, ya’ni yaxshi bo‘lardi. «Предлагаю» — taklif qilaman, undan keyin ham infinitiv keladi. Eng yumshoq shakl «было бы хорошо» — yaxshi bo‘lardi. Bu qoliplar o‘zbekcha «-sa bo‘ladi», «kerak» ga mos keladi. Ularning hammasidan keyin fe’l infinitivda turadi, shuni unutmang.",
+   "say": "Можно построить больше парковок. Предлагаю ввести платную парковку. Было бы хорошо открыть новые автобусные маршруты.",
+   "say_uz": "Ko‘proq to‘xtash joylari qurish mumkin. Pullik to‘xtash joyi joriy qilishni taklif qilaman. Yangi avtobus yo‘nalishlari ochilsa yaxshi bo‘lardi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Предлагаю, чтобы ...",
+   "emotion": "thinking",
+   "board": [
+    "Предлагаю, чтобы + прошедшее время",
+    "Я хочу, чтобы город построил ...",
+    "(boshqa kishi bajarishi kerak bo‘lsa)"
+   ],
+   "examples": [
+    {
+     "t": "Я предлагаю, чтобы город построил новый мост.",
+     "uz": "Men shahar yangi ko‘prik qursa deb taklif qilaman."
+    },
+    {
+     "t": "Нужно, чтобы автобусы ходили чаще.",
+     "uz": "Avtobuslar tez-tez qatnashi kerak."
+    }
+   ],
+   "say_native": "Agar bajaruvchi gap egasi emas, boshqa kishi yoki tashkilot bo‘lsa, «чтобы» ishlatiladi. «Я предлагаю, чтобы город построил мост» — shahar qursin degan taklif. Bu yerda fe’l o‘tgan zamon shaklida turadi, lekin ma’nosi o‘tgan zamon emas, istak yoki maqsad. O‘zbek tilida «-sa» yoki «-ishi kerak» ni ishlatamiz. Agar bajaruvchi bir xil bo‘lsa, «чтобы» kerak emas: «я предлагаю построить».",
+   "say": "Я предлагаю, чтобы город построил новый мост. Нужно, чтобы автобусы ходили чаще. Я хочу, чтобы во дворе было чище.",
+   "say_uz": "Men shahar yangi ko‘prik qursa deb taklif qilaman. Avtobuslar tez-tez qatnashi kerak. Hovli tozaroq bo‘lishini xohlayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yechim taklif qiling",
+   "emotion": "encouraging",
+   "board": [
+    "1) Мало парков. → Предлагаю ...",
+    "2) Автобусы ходят редко. → Нужно, чтобы ...",
+    "3) Грязные улицы. → Можно ..."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Har bir muammo uchun yechim taklif qiling. Birinchi: bog‘lar kam, shuning uchun «предлагаю» bilan yangi bog‘ ochishni taklif qiling. Ikkinchi: avtobuslar kam qatnaydi, «нужно, чтобы» bilan. Uchinchi: ko‘chalar iflos, «можно» bilan. Har biriga o‘z yechimingizni ayting.",
+   "say": "Предлагаю открыть новый парк. Нужно, чтобы автобусы ходили чаще. Можно поставить больше урн.",
+   "say_uz": "Yangi bog‘ ochishni taklif qilaman. Avtobuslar tez-tez qatnashi kerak. Ko‘proq axlat qutilari qo‘yish mumkin.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javoblar",
+   "emotion": "proud",
+   "board": [
+    "Предлагаю открыть новый парк.",
+    "Нужно, чтобы автобусы ходили чаще.",
+    "Можно поставить больше урн."
+   ],
+   "examples": [],
+   "say_native": "Namuna javoblar. Siznikilar boshqacha bo‘lsa, yaxshi. Tuzilishni tekshiring. «Предлагаю» dan keyin infinitiv: «открыть». «Нужно, чтобы» dan keyin o‘tgan zamon shakli: «ходили». «Можно» dan keyin infinitiv: «поставить». Agar «чтобы» dan keyin infinitiv qo‘ysangiz, xato bo‘ladi: «нужно, чтобы ходить» emas.",
+   "say": "Предлагаю открыть новый парк. Нужно, чтобы автобусы ходили чаще. Можно поставить больше урн.",
+   "say_uz": "Yangi bog‘ ochishni taklif qilaman. Avtobuslar tez-tez qatnashi kerak. Ko‘proq axlat qutilari qo‘yish mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Variantlarni baholash",
+   "emotion": "neutral",
+   "board": [
+    "плюс / минус",
+    "преимущество / недостаток",
+    "выгодно / невыгодно",
+    "дешевле, эффективнее"
+   ],
+   "examples": [
+    {
+     "t": "У этого варианта есть преимущество: он дешёвый.",
+     "uz": "Bu variantning afzalligi bor: u arzon."
+    },
+    {
+     "t": "Недостаток в том, что он требует много времени.",
+     "uz": "Kamchiligi shundaki, u ko‘p vaqt talab qiladi."
+    }
+   ],
+   "say_native": "Yechimlarni solishtirish uchun baholash so‘zlari kerak. «Преимущество» — afzallik, «недостаток» — kamchilik, «плюс» va «минус» — qulaylik va noqulaylik. «Выгодно» — foydali, «невыгодно» — foydasiz. Qiyosiy daraja ham ishlaydi: «дешевле», «эффективнее», «быстрее». «Недостаток в том, что ...» qolipi, o‘tgan darsdagi «проблема в том, что» ga o‘xshaydi, shuning uchun hamma tushunadi.",
+   "say": "У этого варианта есть преимущество: он дешёвый. Недостаток в том, что он требует много времени. Второй вариант эффективнее, но дороже.",
+   "say_uz": "Bu variantning afzalligi bor: u arzon. Kamchiligi shundaki, u ko‘p vaqt talab qiladi. Ikkinchi variant samaraliroq, lekin qimmatroq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ikki variantni solishtirish",
+   "emotion": "thinking",
+   "board": [
+    "Вариант А: платная парковка",
+    "Вариант Б: больше автобусов"
+   ],
+   "examples": [
+    {
+     "t": "Платная парковка принесёт деньги городу.",
+     "uz": "Pullik to‘xtash joyi shaharga pul keltiradi."
+    },
+    {
+     "t": "Но она не нравится жителям.",
+     "uz": "Lekin u aholiga yoqmaydi."
+    },
+    {
+     "t": "Больше автобусов — это удобно, но дорого.",
+     "uz": "Ko‘proq avtobus — bu qulay, lekin qimmat."
+    }
+   ],
+   "say_native": "Mana ikki variantni solishtirish namunasi. Birinchi variant: pullik to‘xtash joyi. Plyusi: shaharga pul keladi. Minusi: aholiga yoqmaydi. Ikkinchi variant: ko‘proq avtobus. Plyusi: qulay. Minusi: qimmat. Variantlarni solishtirganda «зато» va «но» so‘zlaridan foydalaning: «дорого, зато удобно» — qimmat, ammo qulay. «Зато» kamchilikni afzallik bilan muvozanatlaydi.",
+   "say": "Платная парковка принесёт деньги городу, но она не нравится жителям. Больше автобусов — это удобно, но дорого. Метро дорогое, зато быстрое.",
+   "say_uz": "Pullik to‘xtash joyi shaharga pul keltiradi, lekin aholiga yoqmaydi. Ko‘proq avtobus — bu qulay, lekin qimmat. Metro qimmat, ammo tez.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Baholang",
+   "emotion": "encouraging",
+   "board": [
+    "Велодорожки: плюс? минус?",
+    "Платная парковка: плюс? минус?",
+    "Новый автобус: плюс? минус?"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta yechimning har biri uchun bitta plyus va bitta minus ayting. Birinchi: velosiped yo‘laklari. Ikkinchi: pullik to‘xtash joyi. Uchinchi: yangi avtobus. Gaplaringizda «но» yoki «зато» ishlating. Vaqtingiz bor, o‘ylab ayting.",
+   "say": "Велодорожки полезны для здоровья, но стоят дорого. Платная парковка даёт деньги, но жители недовольны. Новый автобус удобный, зато маршрут длинный.",
+   "say_uz": "Velosiped yo‘laklari sog‘liq uchun foydali, lekin qimmat. Pullik to‘xtash joyi pul beradi, lekin aholi norozi. Yangi avtobus qulay, ammo yo‘nalishi uzun.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javoblar",
+   "emotion": "proud",
+   "board": [
+    "но — qarama-qarshilik",
+    "зато — kamchilik + afzallik"
+   ],
+   "examples": [],
+   "say_native": "Namuna javoblar. Sizniki boshqacha bo‘lishi mumkin. Tilga e’tibor bering: «но» va «зато» ikkalasi ham ikki qismni bog‘laydi. Farqi: «но» oddiy qarama-qarshilik, «зато» esa ikkinchi qism birinchining kamchiligini to‘ldiradi. «Дорого, зато качественно» — qimmat, ammo sifatli. Bu so‘z juda tabiiy eshitiladi va nutqingizni boyitadi.",
+   "say": "Но показывает контраст. Зато показывает компенсацию. Дорого, зато качественно.",
+   "say_uz": "«Но» qarama-qarshilikni ko‘rsatadi. «Зато» o‘rnini to‘ldirishni ko‘rsatadi. Qimmat, ammo sifatli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qiyoslash iboralari",
+   "emotion": "neutral",
+   "board": [
+    "более ... чем",
+    "менее ... чем",
+    "лучше всего",
+    "самый эффективный"
+   ],
+   "examples": [
+    {
+     "t": "Этот способ более эффективный, чем тот.",
+     "uz": "Bu usul u usuldan samaraliroq."
+    },
+    {
+     "t": "Самый быстрый вариант — метро.",
+     "uz": "Eng tez variant — metro."
+    }
+   ],
+   "say_native": "Variantlarni baholaganda qiyosiy va orttirma darajadan foydalanasiz. «Более эффективный, чем» — ... dan samaraliroq. «Менее дорогой» — kamroq qimmat. «Самый быстрый» — eng tez. Bu shakllarni A2 darajasida o‘rgangansiz. Endi ularni fikringizni asoslash uchun ishlating: «Метро — самый быстрый вариант, поэтому я рекомендую именно его».",
+   "say": "Этот способ более эффективный, чем тот. Самый быстрый вариант — метро. Автобус менее дорогой, но медленнее.",
+   "say_uz": "Bu usul u usuldan samaraliroq. Eng tez variant — metro. Avtobus kamroq qimmat, lekin sekinroq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tavsiya berish",
+   "emotion": "neutral",
+   "board": [
+    "Я бы рекомендовал + инфинитив",
+    "На мой взгляд, лучше всего ...",
+    "Думаю, стоит выбрать ...",
+    "Поэтому я предлагаю ..."
+   ],
+   "examples": [
+    {
+     "t": "Я бы рекомендовал построить метро.",
+     "uz": "Metro qurishni tavsiya qilgan bo‘lardim."
+    },
+    {
+     "t": "На мой взгляд, лучше всего начать с велодорожек.",
+     "uz": "Menimcha, eng yaxshisi velosiped yo‘laklaridan boshlash."
+    }
+   ],
+   "say_native": "Tavsiya berish — gapning eng muhim qismi. Yaxshi tavsiyada ikki narsa bo‘ladi: tanlov va sabab. «Я бы рекомендовал» — tavsiya qilgan bo‘lardim, yumshoq shakl, bu yerda «бы» shart maylidan. Erkak aytsa «рекомендовал бы», ayol «рекомендовала бы». «На мой взгляд, лучше всего» — menimcha, eng yaxshisi. Keyin «потому что» bilan sabab qo‘shing: «потому что это дёшево и быстро».",
+   "say": "Я бы рекомендовал построить метро. На мой взгляд, лучше всего начать с велодорожек, потому что это недорого. Думаю, стоит выбрать этот вариант.",
+   "say_uz": "Metro qurishni tavsiya qilgan bo‘lardim. Menimcha, eng yaxshisi velosiped yo‘laklaridan boshlash, chunki bu arzon. O‘ylaymanki, shu variantni tanlash kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: sababsiz tavsiya",
+   "emotion": "stern",
+   "board": [
+    "✗ Я рекомендую метро.",
+    "✓ Я рекомендую метро, потому что оно быстрое.",
+    "✗ Я рекомендовал бы строить.",
+    "✓ Я бы рекомендовал построить."
+   ],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchisi: tavsiya sababsiz berilgan. «Metro tavsiya qilaman» — yetarli emas, tinglovchi nima uchun deb so‘raydi. Har doim sabab qo‘shing. Ikkinchisi: «бы» ning o‘rni. U ko‘pincha fe’ldan oldin keladi: «я бы рекомендовал». Bu ikkita kichik tuzatish nutqingizni ancha ishonarli qiladi. Ishonarli nutq esa har doim tavsiya plyus dalildan iborat.",
+   "say": "Неправильно: я рекомендую метро. Правильно: я рекомендую метро, потому что оно быстрое. Я бы рекомендовал построить метро.",
+   "say_uz": "Noto‘g‘ri: metro tavsiya qilaman. To‘g‘ri: metro tavsiya qilaman, chunki u tez. Metro qurishni tavsiya qilgan bo‘lardim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tavsiya bering",
+   "emotion": "encouraging",
+   "board": [
+    "Проблема: нет парковок",
+    "Варианты: платная парковка / больше автобусов",
+    "Ваша рекомендация + причина"
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘xtash joylari yo‘q. Ikki variant: pullik parkovka yoki ko‘proq avtobus. Bittasini tanlang va sabab ayting. «Я бы рекомендовал» yoki «на мой взгляд» qolipini ishlating. O‘ylash uchun vaqt beriladi, so‘ngra namuna eshitiladi.",
+   "say": "На мой взгляд, лучше всего открыть больше автобусных маршрутов, потому что тогда люди будут реже ездить на машинах. Я бы рекомендовал начать с центра.",
+   "say_uz": "Menimcha, eng yaxshisi ko‘proq avtobus yo‘nalishlari ochish, chunki shunda odamlar kamroq mashinada yuradi. Markazdan boshlashni tavsiya qilgan bo‘lardim.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Tahlil",
+   "emotion": "proud",
+   "board": [
+    "На мой взгляд, ... потому что ...",
+    "Я бы рекомендовал + СВ инфинитив"
+   ],
+   "examples": [],
+   "say_native": "Tahlil. Namunada tavsiya ham, sabab ham bor: «потому что тогда люди будут реже ездить на машинах». Keyin ikkinchi gapda aniq amal berildi: markazdan boshlash. Yaxshi nutq shunday bo‘ladi: umumiy fikr, sabab, keyin aniq qadam. Sizning tanlovingiz boshqa bo‘lishi mumkin, muhimi sabab bor-yo‘qligi.",
+   "say": "Хорошая рекомендация состоит из выбора, причины и первого шага.",
+   "say_uz": "Yaxshi tavsiya tanlov, sabab va birinchi qadamdan iborat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: yig‘ilishda",
+   "emotion": "happy",
+   "board": [
+    "— В чём проблема?",
+    "— Проблема в том, что во дворе нет площадки."
+   ],
+   "examples": [
+    {
+     "t": "— В чём проблема?",
+     "uz": "— Muammo nimada?"
+    },
+    {
+     "t": "— Во дворе нет детской площадки, поэтому дети играют на дороге.",
+     "uz": "— Hovlida bolalar maydonchasi yo‘q, shuning uchun bolalar yo‘lda o‘ynaydi."
+    }
+   ],
+   "say_native": "Birinchi suhbat uy aholisi yig‘ilishida. Rais muammo haqida so‘raydi, aholi esa javob beradi va yechim taklif qiladi. Tinglang: muammo nima, sabab nima, nimani taklif qilishadi.",
+   "say": "— В чём проблема? — Во дворе нет детской площадки, поэтому дети играют на дороге. — Что вы предлагаете? — Я предлагаю собрать деньги и поставить качели. — Хорошо, но нужно, чтобы город тоже помог.",
+   "say_uz": "— Muammo nimada? — Hovlida bolalar maydonchasi yo‘q, shuning uchun bolalar yo‘lda o‘ynaydi. — Siz nimani taklif qilasiz? — Pul yig‘ib, belanchak o‘rnatishni taklif qilaman. — Yaxshi, lekin shahar ham yordam berishi kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yig‘ilish bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) В чём проблема?",
+    "2) Почему это опасно?",
+    "3) Какое решение предложили?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: muammo nimada? Ikkinchi: nima uchun bu xavfli? Uchinchi: qanday yechim taklif qilindi? Javoblarni ruscha ayting. Ikkinchi savolda sababni, uchinchisida taklif qolipini ishlating.",
+   "say": "Во дворе нет детской площадки. Дети играют на дороге, поэтому это опасно. Предложили собрать деньги и поставить качели.",
+   "say_uz": "Hovlida bolalar maydonchasi yo‘q. Bolalar yo‘lda o‘ynaydi, shuning uchun bu xavfli. Pul yig‘ib, belanchak qo‘yish taklif qilindi.",
+   "practice_seconds": 13
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "нет площадки",
+    "дети играют на дороге",
+    "собрать деньги, поставить качели"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Muammo: hovlida maydoncha yo‘q. Xavfli, chunki bolalar yo‘lda o‘ynaydi. Yechim: pul yig‘ib, belanchak o‘rnatish. Rais esa shaharning ham yordamini qo‘shdi: «нужно, чтобы город тоже помог». Shunday qilib, suhbatda muammo, sabab, taklif va qo‘shimcha shart bor. Bu siz bugun o‘rgangan butun ketma-ketlik.",
+   "say": "Проблема — нет площадки. Опасность — дети на дороге. Решение — собрать деньги и поставить качели.",
+   "say_uz": "Muammo — maydoncha yo‘q. Xavf — bolalar yo‘lda. Yechim — pul yig‘ib, belanchak o‘rnatish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: ishda",
+   "emotion": "neutral",
+   "board": [
+    "— У нас проблема с отчётами.",
+    "— Какие есть варианты?"
+   ],
+   "examples": [
+    {
+     "t": "— Сотрудники сдают отчёты поздно.",
+     "uz": "— Xodimlar hisobotni kech topshiryapti."
+    },
+    {
+     "t": "— Можно ввести напоминания или поменять срок.",
+     "uz": "— Eslatma joriy qilish yoki muddatni o‘zgartirish mumkin."
+    }
+   ],
+   "say_native": "Ikkinchi suhbat ishxonada. Rahbar bilan xodim hisobotlar kechikishi haqida gaplashadi. Dialogda ikki yechim muhokama qilinadi. Tinglang: qaysi yechim tanlanadi va nega.",
+   "say": "— У нас проблема: сотрудники сдают отчёты поздно. — Можно ввести напоминания или поменять срок. Что лучше? — Напоминания дешевле, но срок надёжнее. — Я бы рекомендовала напоминания, потому что их можно начать сразу.",
+   "say_uz": "— Bizda muammo: xodimlar hisobotni kech topshiryapti. — Eslatma joriy qilish yoki muddatni o‘zgartirish mumkin. Qaysi biri yaxshi? — Eslatma arzonroq, lekin muddat ishonchliroq. — Men eslatmani tavsiya qilgan bo‘lardim, chunki uni darhol boshlash mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ish suhbati savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1) Какая проблема?",
+    "2) Какие два решения?",
+    "3) Что рекомендует собеседница и почему?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: muammo nima? Ikkinchi: qaysi ikkita yechim aytildi? Uchinchi: suhbatdosh nimani tavsiya qiladi va nima uchun? Javoblarni ruscha ayting va sabab so‘zini ishlatishni unutmang.",
+   "say": "Сотрудники сдают отчёты поздно. Можно ввести напоминания или поменять срок. Она рекомендует напоминания, потому что их можно начать сразу.",
+   "say_uz": "Xodimlar hisobotni kech topshiradi. Eslatma joriy qilish yoki muddatni o‘zgartirish mumkin. U eslatmani tavsiya qiladi, chunki uni darhol boshlash mumkin.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "поздние отчёты",
+    "напоминания / новый срок",
+    "рекомендует напоминания — можно начать сразу"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Muammo: hisobotlar kech topshiriladi. Yechimlar: eslatmalar yoki yangi muddat. Suhbatdosh eslatmani tavsiya qiladi, chunki uni darhol boshlash mumkin. Bu suhbatda sabab oxirida «потому что» bilan berildi. Shu usul siz uchun ham namuna: avval tavsiya, keyin sabab.",
+   "say": "Она рекомендует напоминания, потому что их можно начать сразу.",
+   "say_uz": "U eslatmani tavsiya qiladi, chunki uni darhol boshlash mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Bog‘lovchi iboralar",
+   "emotion": "thinking",
+   "board": [
+    "Во-первых, ... во-вторых, ...",
+    "Кроме того, ...",
+    "В результате, ...",
+    "Подводя итог, ..."
+   ],
+   "examples": [
+    {
+     "t": "Во-первых, это дёшево. Во-вторых, это быстро.",
+     "uz": "Birinchidan, bu arzon. Ikkinchidan, bu tez."
+    },
+    {
+     "t": "Подводя итог, я рекомендую этот вариант.",
+     "uz": "Xulosa qilib, shu variantni tavsiya qilaman."
+    }
+   ],
+   "say_native": "Nutq silliq bo‘lishi uchun bog‘lovchi iboralar kerak. «Во-первых», «во-вторых» — sanash uchun. «Кроме того» — bundan tashqari. «В результате» — natijada. «Подводя итог» — xulosa qilib. Bu iboralar fikrlaringizni tartibga soladi va tinglovchi sizni osonroq kuzatadi. Ularni muammo, yechim va tavsiya o‘rtasida qo‘ying.",
+   "say": "Во-первых, это дёшево. Во-вторых, это быстро. Кроме того, это удобно. Подводя итог, я рекомендую этот вариант.",
+   "say_uz": "Birinchidan, bu arzon. Ikkinchidan, bu tez. Bundan tashqari, bu qulay. Xulosa qilib, shu variantni tavsiya qilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Shahar muammosi: to‘liq monolog",
+   "emotion": "encouraging",
+   "board": [
+    "Опишите проблему в вашем городе",
+    "3 решения",
+    "оценка · рекомендация",
+    "≈ 1 минута"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy mashq. Shahringizdagi bitta muammoni tanlang. Uni «проблема в том, что» bilan tasvirlang, uchta yechim taklif qiling, har birini qisqa baholang va oxirida tavsiya bering. «Во-первых», «подводя итог» kabi iboralar yordam beradi. Taxminan bir daqiqa gapiring.",
+   "say": "Проблема в том, что в нашем городе мало парков. Можно открыть новый парк, посадить деревья во дворах или закрыть центр для машин. Парк дорогой, зато полезный. Подводя итог, я бы рекомендовал начать с деревьев во дворах, потому что это недорого и быстро.",
+   "say_uz": "Muammo shundaki, bizning shaharda bog‘lar kam. Yangi bog‘ ochish, hovlilarga daraxt ekish yoki markazni mashinalar uchun yopish mumkin. Bog‘ qimmat, ammo foydali. Xulosa qilib, hovlilarga daraxt ekishdan boshlashni tavsiya qilgan bo‘lardim, chunki bu arzon va tez.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Monolog tahlili",
+   "emotion": "proud",
+   "board": [
+    "проблема → решения → оценка → рекомендация"
+   ],
+   "examples": [],
+   "say_native": "Namuna monologni tahlil qilamiz. Birinchi gapda muammo. Ikkinchi gapda uchta yechim. Uchinchi gapda baholash: «дорогой, зато полезный». To‘rtinchi gapda «подводя итог» bilan tavsiya va sabab. Sizning monologingiz ham shu to‘rt qismdan iborat bo‘lishi kerak. Qanchalik aniq tuzilma bo‘lsa, shunchalik ravon va ishonarli chiqadi.",
+   "say": "В монологе есть проблема, три решения, оценка и рекомендация с причиной.",
+   "say_uz": "Monologda muammo, uchta yechim, baholash va sabab bilan tavsiya bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz va ohang",
+   "emotion": "thinking",
+   "board": [
+    "Проблема в том, что ...",
+    "(ohang: «что» da pasayish)",
+    "Предлагаю ..., (pauza)"
+   ],
+   "examples": [
+    {
+     "t": "Предлагаю построить новый парк.",
+     "uz": "Yangi bog‘ qurishni taklif qilaman."
+    }
+   ],
+   "say_native": "Taklif qilganda ohang ham muhim. «Предлагаю построить новый парк» — ishonchli, past ohangda tugaydi. Savol bermaganingizda ovoz oxirida pasayadi, ko‘tarilmaydi. O‘zbek tilida taklif ko‘pincha yumshoqroq ohangda aytiladi. Ruscha rasmiy nutqda esa aniq va tinch aytish ishonchli taassurot qoldiradi. Uzun fikr aytganda vergul joyida qisqa pauza qiling.",
+   "say": "Предлагаю построить новый парк. Проблема в том, что зелени мало. Я бы рекомендовал начать с центра.",
+   "say_uz": "Yangi bog‘ qurishni taklif qilaman. Muammo shundaki, ko‘kalamzor kam. Markazdan boshlashni tavsiya qilgan bo‘lardim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "проблема → причина → решения → оценка → рекомендация",
+    "проблема в том, что · из-за · благодаря",
+    "можно / предлагаю / нужно, чтобы",
+    "зато · более ... чем · я бы рекомендовал"
+   ],
+   "examples": [],
+   "say_native": "Bugun nimani o‘rgandik. Birinchi: muammoni «проблема в том, что» bilan aytish. Ikkinchi: sabab so‘zlari, ya’ni «из-за», «благодаря», «потому что», «поэтому». Uchinchi: yechim taklif qilish, «можно», «предлагаю» va «нужно, чтобы». To‘rtinchi: variantlarni «плюс», «минус», «зато» bilan baholash. Beshinchi: sabab bilan tavsiya berish, «я бы рекомендовал». Siz endi muammoni aniq tasvirlay va yechim taklif qila olasiz.",
+   "say": "Сегодня мы научились говорить о проблемах и решениях. Помните план: проблема, причина, решения, оценка и рекомендация. Хорошая работа!",
+   "say_uz": "Bugun muammo va yechimlar haqida gapirishni o‘rgandik. Rejani eslang: muammo, sabab, yechimlar, baho va tavsiya. Yaxshi ish!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "Проблема в вашем городе",
+    "3 решения",
+    "1–2 минуты",
+    "Keyingi dars: B1 yakuniy imtihon"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. Shahringizdagi bitta muammoni tanlang. Uni tasvirlab, uchta yechim taklif qiling va audio yozib oling yoki baland ovozda ayting. Muvaffaqiyat mezoni: sabab so‘zlari, uchta yechim, baho va sabab bilan berilgan tavsiya bo‘lsin. Keyingi darsda B1 darajasining yakuniy imtihoniga tayyorlanamiz. Ko‘rishguncha!",
+   "say": "Опишите проблему в вашем городе и предложите три решения. До свидания!",
+   "say_uz": "Shahringizdagi muammoni tasvirlang va uchta yechim taklif qiling. Ko‘rishguncha!",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "Shahringizdagi muammoni tasvirlab, uchta yechim taklif qiling. Mezon: har bir gap rus tilida, «проблема, решение, нужно, поэтому» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"How do you say “The problem is in water”?","options":["Проблема в воде.","Проблема в воде есть.","Проблема в воде является.","Проблема в воде был."],"answer":0,"why_uz":"Проблема в воде — muammo suvda."},
-  {"q":"Which word means “solution”?","options":["решение","проблема","советую","нужно"],"answer":0,"why_uz":"Решение — yechim."},
-  {"q":"How do you say “A tree is necessary”?","options":["Нужно дерево.","Нужно дерево есть.","Нужно дерево является.","Нужно дерево был."],"answer":0,"why_uz":"Нужно дерево — daraxt kerak."},
-  {"q":"How do you say “That is why a solution is needed”?","options":["Поэтому нужно решение.","Поэтому нужно решение есть.","Поэтому нужно решение является.","Поэтому нужно решение был."],"answer":0,"why_uz":"Поэтому нужно решение — shuning uchun yechim kerak."},
-  {"q":"How do you say “Because there is no water”?","options":["Потому что нет воды.","Потому что нет воды есть.","Потому что нет воды является.","Потому что нет воды был."],"answer":0,"why_uz":"Потому что нет воды — chunki suv yo‘q."},
-  {"q":"How do you ask “What is the problem?”?","options":["В чём проблема?","В чём проблема есть?","В чём проблема является?","В чём проблема был?"],"answer":0,"why_uz":"В чём проблема? — muammo nimada?"},
-  {"q":"Which word means “problem”?","options":["проблема","решение","советую","нужно"],"answer":0,"why_uz":"Проблема — muammo."},
-  {"q":"Which word means “environment”?","options":["окружение","природа","проблема","решение"],"answer":0,"why_uz":"Окружение — atrof-muhit."},
-  {"q":"Which word means “society”?","options":["общество","город","вода","дерево"],"answer":0,"why_uz":"Общество — jamiyat."},
-  {"q":"How do you say “I advise water”?","options":["Я советую вода.","Я советую вода есть.","Я советую вода является.","Я советую вода был."],"answer":0,"why_uz":"Я советую вода — men suvni tavsiya qilaman."}
+ "homework_uz": "Shahringizdagi bitta muammoni tanlang. «Проблема в том, что» bilan uni tasvirlang, uchta yechim taklif qiling, har birini baholang va sabab bilan tavsiya bering. Bir-ikki daqiqa baland ovozda ayting yoki yozib oling. Keyingi darsda B1 yakuniy imtihoniga tayyorlanamiz.",
+ "quiz": [
+  {
+   "q": "«Muammo shundaki, avtobuslar kam» ruscha qaysi?",
+   "options": [
+    "Проблема в том, что автобусов мало.",
+    "Проблема что автобусы мало.",
+    "Проблема в том автобусов мало.",
+    "Проблема есть мало автобусов."
+   ],
+   "answer": 0,
+   "why_uz": "«Проблема в том, что» + to‘liq gap."
+  },
+  {
+   "q": "«Yomg‘ir tufayli» ruscha qaysi?",
+   "options": [
+    "благодаря дождю",
+    "из-за дождя",
+    "поэтому дождь",
+    "потому дождя"
+   ],
+   "answer": 1,
+   "why_uz": "Salbiy sabab uchun «из-за» + rodit. kelishik."
+  },
+  {
+   "q": "«Yordam tufayli» (yaxshi natija).",
+   "options": [
+    "из-за помощи",
+    "благодаря помощи",
+    "поэтому помощь",
+    "потому помощи"
+   ],
+   "answer": 1,
+   "why_uz": "Ijobiy sabab uchun «благодаря» + datel kelishik."
+  },
+  {
+   "q": "Qaysi gap to‘g‘ri?",
+   "options": [
+    "Нужно, чтобы автобусы ходить чаще.",
+    "Нужно, чтобы автобусы ходили чаще.",
+    "Нужно, чтобы автобусы ходят чаще.",
+    "Нужно, чтобы автобусы будут ходить чаще."
+   ],
+   "answer": 1,
+   "why_uz": "«Чтобы» dan keyin fe’l o‘tgan zamon shaklida turadi."
+  },
+  {
+   "q": "«Зато» nimani bildiradi?",
+   "options": [
+    "Sababni",
+    "Kamchilikni afzallik bilan to‘ldirishni",
+    "Misolni",
+    "Taqiqni"
+   ],
+   "answer": 1,
+   "why_uz": "«Дорого, зато качественно» — qimmat, ammo sifatli."
+  },
+  {
+   "q": "«Недостаток» nima?",
+   "options": [
+    "Afzallik",
+    "Kamchilik",
+    "Yechim",
+    "Sabab"
+   ],
+   "answer": 1,
+   "why_uz": "«Недостаток» — kamchilik, «преимущество» — afzallik."
+  },
+  {
+   "q": "Yaxshi tavsiyada nima bo‘lishi kerak?",
+   "options": [
+    "Faqat tanlov",
+    "Tanlov va sabab",
+    "Faqat savol",
+    "Faqat son"
+   ],
+   "answer": 1,
+   "why_uz": "Tavsiya sabab bilan ishonarli bo‘ladi."
+  },
+  {
+   "q": "«Я бы рекомендовал» da «бы» nimani bildiradi?",
+   "options": [
+    "Yumshoq, shartli tavsiyani",
+    "O‘tgan zamonni",
+    "Inkorni",
+    "Savolni"
+   ],
+   "answer": 0,
+   "why_uz": "«Бы» shart mayli, tavsiyani yumshoqroq qiladi."
+  },
+  {
+   "q": "«Подводя итог» qachon aytiladi?",
+   "options": [
+    "Gapning boshida mavzuni kiritish uchun",
+    "Oxirida xulosa qilish uchun",
+    "Sabab ko‘rsatish uchun",
+    "Savol berish uchun"
+   ],
+   "answer": 1,
+   "why_uz": "«Подводя итог» — xulosa qilib."
+  },
+  {
+   "q": "«Можно построить» da «построить» qaysi shaklda?",
+   "options": [
+    "Infinitiv",
+    "O‘tgan zamon",
+    "Buyruq",
+    "Hozirgi zamon"
+   ],
+   "answer": 0,
+   "why_uz": "«Можно» dan keyin infinitiv keladi."
+  }
  ]
 }

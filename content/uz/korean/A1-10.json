@@ -1,9 +1,9 @@
 {
  "title": "Uy, xonalar va jihozlar",
- "goal_uz": "Dars oxirida uy, xonalar va jihozlar haqida koreys tilida gapirasa bolasiz, 20 ta so‘z bilan tanishing, uy va ish joyi haqida gapirishingiz mumkin.",
+ "goal_uz": "Dars oxirida uyingizni koreyscha tasvirlaysiz: xonalar va jihozlar nomini aytasiz, “~이/가 있어요/없어요” bilan nima qayerda borligini bildirasiz, “위, 아래, 앞, 뒤, 옆” bilan joylashuvni aytasiz va “큰 방, 깨끗한 부엌” kabi sifatlar bilan hajm va holatni tasvirlaysiz.",
  "vocab": [
   {
-   "w": "집 (jib)",
+   "w": "집 (jip)",
    "uz": "uy"
   },
   {
@@ -11,36 +11,36 @@
    "uz": "xona"
   },
   {
+   "w": "거실 (geosil)",
+   "uz": "mehmonxona"
+  },
+  {
    "w": "부엌 (bueok)",
    "uz": "oshxona"
   },
   {
    "w": "화장실 (hwajangsil)",
-   "uz": "hammom"
+   "uz": "hojatxona, hammom"
   },
   {
    "w": "침대 (chimdae)",
-   "uz": "yotoq"
+   "uz": "karavot"
   },
   {
-   "w": "의자 (uija)",
-   "uz": "stul"
+   "w": "책상 (chaeksang)",
+   "uz": "yozuv stoli"
   },
   {
-   "w": "상자 (sangja)",
-   "uz": "stol"
+   "w": "있어요 (isseoyo)",
+   "uz": "bor"
   },
   {
-   "w": "문 (mun)",
-   "uz": "eshik"
+   "w": "위 (wi)",
+   "uz": "ust"
   },
   {
-   "w": "창문 (changmun)",
-   "uz": "deraza"
-  },
-  {
-   "w": "거실 (geosil)",
-   "uz": "mehmonxona"
+   "w": "큰 (keun)",
+   "uz": "katta"
   }
  ],
  "scenes": [
@@ -50,12 +50,12 @@
    "emotion": "happy",
    "board": [
     "Uy, xonalar va jihozlar",
-    "Bugun: uy, xonalar, jihozlar"
+    "있어요 · 위/옆/앞 · 큰/작은"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! O‘ninchi darsga xush kelibsiz. Oldingi darsda ovqat, ichimlik va kafeda buyurtma berishni o‘rgandik. Bugun uy, xonalar va jihozlar haqida gapiramiz. Uy qanday, xonalar qandaya, jihozlar nima? Bularni aytishni o‘rganamiz. Dars oxirida uyingiz haqida gapira olasiz.",
-   "say": "안녕하세요! 오늘은 집과 가구에 대해 배워요.",
-   "say_uz": "Assalomu alaykum! Bugun uy va jihozlar haqida gaplashamiz.",
+   "say": "안녕하세요! 오늘은 우리 집에 대해 이야기해요.",
+   "say_native": "Assalomu alaykum! O‘ninchi darsga xush kelibsiz. Oldingi darsda kafe va restoranda buyurtma berishni o‘rgandik: “커피 주세요”, “얼마예요?”. Bugun uyingiz haqida gapirishni o‘rganamiz. Xonalar va jihozlar nomini bilib olamiz, “nimadir bor yoki yo‘q” deyishni va narsa qayerda turganini aytishni mashq qilamiz. Oxirida “큰 방”, “깨끗한 부엌” kabi sifatlar bilan uyingizni ko‘z oldiga keltiradigan qilib tasvirlaysiz.",
+   "say_uz": "Assalomu alaykum! Bugun uyimiz haqida gaplashamiz.",
    "practice_seconds": 0
   },
   {
@@ -63,195 +63,611 @@
    "title": "Uy va xonalar",
    "emotion": "neutral",
    "board": [
-    "집 (jib) — uy",
+    "집 (jip) — uy",
     "방 (bang) — xona",
+    "거실 (geosil) — mehmonxona",
     "부엌 (bueok) — oshxona",
-    "화장실 (hwajangsil) — hammom"
+    "화장실 (hwajangsil) — hojatxona, hammom"
    ],
    "examples": [
     {
-     "t": "집",
-     "uz": "uy"
+     "t": "우리 집은 아파트예요.",
+     "uz": "Bizning uy kvartira."
     },
     {
-     "t": "방",
-     "uz": "xona"
-    },
-    {
-     "t": "부엌",
-     "uz": "oshxona"
+     "t": "부엌에서 요리해요.",
+     "uz": "Oshxonada ovqat pishiraman."
     }
    ],
-   "say_native": "Uy va xonalar so‘zlarini o‘rganaymiz. “집” — uy. “방” — xona. “부엌” — oshxona. “화장실” — hammom. Uylar va xonalar haqida gapirish uchun kerakli so‘zlar. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "집. 방. 부엌. 화장실.",
-   "say_uz": "Uy. Xona. Oshxona. Hammom.",
-   "practice_seconds": 10
+   "say": "우리 집은 아파트예요. 거실에서 텔레비전을 봐요. 부엌에서 요리해요.",
+   "say_native": "Avval xonalar. “집” — uy, “방” — xona, “거실” — mehmonxona, “부엌” — oshxona, “화장실” — hojatxona yoki hammom. “우리 집” — “bizning uy”, koreyslar “mening uyim” o‘rniga ham “우리 집” deyishadi, chunki jamoaviy yondashuv. Shaharlarda ko‘pchilik “아파트”da, ya‘ni ko‘p qavatli uyda yashaydi. Oldingi darsda o‘rgangan “에서” zarrachasi bilan joy ayting: “부엌에서 요리해요”, “거실에서 텔레비전을 봐요”.",
+   "say_uz": "Bizning uy kvartira. Mehmonxonada televizor ko‘ramiz. Oshxonada ovqat pishiramiz.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Uy va xonalarni o‘qing",
+   "title": "Xonalarni takrorlang",
    "emotion": "encouraging",
    "board": [
-    "집 · 방 · 부엌 · 화장실"
+    "집 · 방 · 거실",
+    "부엌 · 화장실",
+    "Qayerda nima qilasiz?",
+    "Ovoz chiqarib ayting"
    ],
    "examples": [],
-   "say_native": "Ekrandagi uy va xonalar so‘zlarini koreyscha o‘qing: 집, 방, 부엌, 화장실. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "집. 방. 부엌. 화장실.",
-   "say_uz": "Uy. Xona. Oshxona. Hammom.",
-   "practice_seconds": 20
+   "say": "집, 방, 거실, 부엌, 화장실. 방에서 뭐 해요?",
+   "say_native": "Ekrandagi xonalarni ovoz chiqarib o‘qing. Uy, xona, mehmonxona, oshxona, hojatxona. So‘ng o‘zingizga savol bering: “방에서 뭐 해요?” — xonada nima qilasiz? Masalan “방에서 공부해요” yoki “방에서 자요”. Har bir xona uchun bittadan gap tuzing. Javoblar keyingi sahnada.",
+   "say_uz": "Mashq: xonalar nomini ayting va ularda nima qilishingizni ayting.",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
-   "title": "Javoblar: uy va xonalar",
+   "title": "Javoblar: xonalar",
    "emotion": "proud",
    "board": [
-    "집 — uy",
-    "방 — xona",
-    "부엌 — oshxona",
-    "화장실 — hammom"
+    "방에서 자요. · 방에서 공부해요.",
+    "거실에서 쉬어요.",
+    "부엌에서 요리해요.",
+    "화장실에서 씻어요."
    ],
-   "examples": [],
-   "say_native": "Javoblar: 집 — uy, 방 — xona, 부엌 — oshxona, 화장실 — hammom. Ularni yodlab oling, chunki keyingi bo‘limlarda gap ichida ishlatamiz.",
-   "say": "집. 방. 부엌. 화장실.",
-   "say_uz": "Uy. Xona. Oshxona. Hammom.",
-   "practice_seconds": 10
+   "examples": [
+    {
+     "t": "거실에서 가족과 이야기해요.",
+     "uz": "Mehmonxonada oila bilan suhbatlashaman."
+    }
+   ],
+   "say": "방에서 자요. 거실에서 쉬어요. 화장실에서 씻어요.",
+   "say_native": "Mana namunaviy javoblar: “방에서 자요” — xonada uxlayman, “거실에서 쉬어요” — mehmonxonada dam olaman, “부엌에서 요리해요”, “화장실에서 씻어요” — yuvinaman. Fe‘llar sizga tanish qoida bo‘yicha o‘zgargan: “쉬다” — “쉬어요”, “씻다” — “씻어요”. Sizning javobingiz boshqacha bo‘lsa ham, asosiysi — “joy + 에서 + fe‘l” tartibi.",
+   "say_uz": "Xonada uxlayman. Mehmonxonada dam olaman. Hammomda yuvinaman.",
+   "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Jihozlar so‘zlari",
+   "title": "Jihozlar: yotoqxona va ish xonasi",
    "emotion": "neutral",
    "board": [
-    "침대 (chimdae) — yotoq",
+    "침대 (chimdae) — karavot",
+    "책상 (chaeksang) — yozuv stoli",
     "의자 (uija) — stul",
-    "상자 (sangja) — stol",
-    "문 (mun) — eshik",
+    "책장 (chaekjang) — kitob javoni",
+    "옷장 (otjang) — kiyim shkafi"
+   ],
+   "examples": [
+    {
+     "t": "방에 침대와 책상이 있어요.",
+     "uz": "Xonada karavot va yozuv stoli bor."
+    },
+    {
+     "t": "옷장에 옷이 많아요.",
+     "uz": "Shkafda kiyim ko‘p."
+    }
+   ],
+   "say": "방에 침대와 책상이 있어요. 책장에 책이 많아요. 옷장은 아주 커요.",
+   "say_native": "Xonadagi jihozlar: “침대” — karavot, “책상” — yozuv stoli, “의자” — stul, “책장” — kitob javoni, “옷장” — kiyim shkafi. Ko‘rib turganingizdek, ko‘p so‘zlar ikki qismdan iborat: “책” — kitob, “장” — javon, demak “책장”; “옷” — kiyim, “장” — javon, demak “옷장”. Bu qolipni bilsangiz, yangi so‘zlarni eslab qolish osonlashadi. “와” — “va”, “…bilan”, unli bilan tugagan so‘zdan keyin: “침대와 책상” — karavot va stol.",
+   "say_uz": "Xonada karavot va yozuv stoli bor. Kitob javonida kitob ko‘p. Kiyim shkafi juda katta.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Jihozlar: mehmonxona va oshxona",
+   "emotion": "neutral",
+   "board": [
+    "소파 (sopa) — divan",
+    "텔레비전 (tellebijeon) — televizor",
+    "냉장고 (naengjanggo) — muzlatgich",
+    "식탁 (siktak) — ovqat stoli",
     "창문 (changmun) — deraza"
    ],
    "examples": [
     {
-     "t": "침대",
-     "uz": "yotoq"
+     "t": "거실에 소파가 있어요.",
+     "uz": "Mehmonxonada divan bor."
     },
     {
-     "t": "의자",
-     "uz": "stul"
-    },
-    {
-     "t": "상자",
-     "uz": "stol"
+     "t": "식탁 위에 과일이 있어요.",
+     "uz": "Ovqat stoli ustida meva bor."
     }
    ],
-   "say_native": "Endi jihozlar so‘zlarini o‘rganaymiz. “침대” — yotoq. “의자” — stul. “상자” — stol. “문” — eshik. “창문” — deraza. Uylar va xonalarda ishlatiladigan muhim so‘zlar. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "침대. 의자. 상자. 문. 창문.",
-   "say_uz": "Yotoq. Stul. Stol. Eshik. Deraza.",
-   "practice_seconds": 10
+   "say": "거실에 소파와 텔레비전이 있어요. 부엌에 냉장고와 식탁이 있어요. 창문이 커요.",
+   "say_native": "Mehmonxona va oshxona jihozlari: “소파” — divan, “텔레비전” — televizor, “냉장고” — muzlatgich, “식탁” — ovqat stoli, “창문” — deraza. “소파” va “텔레비전” inglizchadan olingan, shuning uchun tanish. “냉장고” — “sovuq saqlash omborxonasi” kabi so‘zma-so‘z ma‘no beradi. “식탁” — ovqat stoli, “식” — ovqat. Ba‘zi uylarda Koreyaning an‘anaviy past stollari ham bo‘ladi, ularga yerda o‘tirib ovqatlanishadi, bu ham madaniyatning bir qismi.",
+   "say_uz": "Mehmonxonada divan va televizor bor. Oshxonada muzlatgich va ovqat stoli bor. Deraza katta.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Jihozlarni o‘qing",
+   "title": "Jihozlarni nomlang",
    "emotion": "encouraging",
    "board": [
-    "침대 · 의자 · 상자 · 문 · 창문"
+    "1) Karavot",
+    "2) Muzlatgich",
+    "3) Divan",
+    "4) Kiyim shkafi"
    ],
    "examples": [],
-   "say_native": "Ekrandagi jihozlar so‘zlarini koreyscha o‘qing: 침대, 의자, 상자, 문, 창문. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "침대. 의자. 상자. 문. 창문.",
-   "say_uz": "Yotoq. Stul. Stol. Eshik. Deraza.",
-   "practice_seconds": 20
+   "say": "침대, 냉장고, 소파, 옷장, 책상, 의자를 한국어로 말해 보세요.",
+   "say_native": "Ekrandagi to‘rtta narsani koreyscha ayting: karavot, muzlatgich, divan, kiyim shkafi. Keyin xonangizga qarab, yana ikki-uchta narsani ayting: yozuv stoli, stul, deraza. Imkon bo‘lsa, narsaga ishora qilib ovoz chiqarib ayting, bu so‘zlarni tez yodga solishga yordam beradi. Javoblar keyingi sahnada.",
+   "say_uz": "Mashq: jihozlarni koreyscha ayting.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar: jihozlar",
    "emotion": "proud",
    "board": [
-    "침대 — yotoq",
-    "의자 — stul",
-    "상자 — stol",
-    "문 — eshik",
-    "창문 — deraza"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 침대 — yotoq, 의자 — stul, 상자 — stol, 문 — eshik, 창문 — deraza. Ularni yodlab oling, chunki keyingi bo‘limlarda uy va xonalar haqida gapirishda ishlatamiz.",
-   "say": "침대. 의자. 상자. 문. 창문.",
-   "say_uz": "Yotoq. Stul. Stol. Eshik. Deraza.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "explain",
-   "title": "Is bor / yo‘q: ~이/가 있어요/없어요",
-   "emotion": "neutral",
-   "board": [
-    "집에 침대가 있어요. — Uyda yotoq bor.",
-    "집에 의자가 없어요. — Uyda stul yo‘q.",
-    "이/가 — subyekt belgisi"
+    "침대",
+    "냉장고",
+    "소파",
+    "옷장"
    ],
    "examples": [
     {
-     "t": "집에 침대가 있어요.",
-     "uz": "Uyda yotoq bor."
-    },
-    {
-     "t": "집에 의자가 없어요.",
-     "uz": "Uyda stul yo‘q."
+     "t": "소파가 거실에 있어요.",
+     "uz": "Divan mehmonxonada."
     }
    ],
-   "say_native": "Narsa bor-yo‘q aytish uchun “~이/가 있어요” (bor) yoki “~이/가 없어요” (yo‘q) shaklidan foydalanamiz. “집에 침대가 있어요” — uyda yotoq bor. “집에 의자가 없어요” — uyda stul yo‘q. “이/가” — subyekt belgisi. Bu o‘zbek tilidagi “bor/yo‘q” ga o‘xshaydi.",
-   "say": "집에 침대가 있어요. 집에 의자가 없어요.",
-   "say_uz": "Uyda yotoq bor. Uyda stul yo‘q.",
-   "practice_seconds": 10
+   "say": "침대, 냉장고, 소파, 옷장. 소파가 거실에 있어요.",
+   "say_native": "Javoblar: karavot — “침대”, muzlatgich — “냉장고”, divan — “소파”, kiyim shkafi — “옷장”. Yozuv stoli — “책상”, stul — “의자”, deraza — “창문”. Agar bularni yodlashda qiynalsangiz, uydagi narsalarga yopishtirib qo‘yadigan kichik yozuvlar qiling: “침대”, “문”. Ko‘rib turgan narsangiz so‘zni tezroq yodingizga soladi.",
+   "say_uz": "Karavot, muzlatgich, divan, kiyim shkafi. Divan mehmonxonada.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mavjudlik: ~이/가 있어요",
+   "emotion": "neutral",
+   "board": [
+    "N + 이/가 + 있어요",
+    "침대가 있어요 — karavot bor",
+    "책상이 있어요 — stol bor",
+    "unli → 가 · undosh → 이"
+   ],
+   "examples": [
+    {
+     "t": "방에 침대가 있어요.",
+     "uz": "Xonada karavot bor."
+    },
+    {
+     "t": "거실에 소파가 있어요.",
+     "uz": "Mehmonxonada divan bor."
+    },
+    {
+     "t": "집에 마당이 있어요.",
+     "uz": "Uyda hovli bor."
+    }
+   ],
+   "say": "방에 침대가 있어요. 거실에 소파가 있어요. 집에 마당이 있어요.",
+   "say_native": "Nimadir borligini aytish uchun “있어요” ishlatamiz. Narsa nomidan keyin “이” yoki “가” keladi: unli bilan tugasa “가”, undosh bilan tugasa “이”. “침대가 있어요” — karavot bor, “책상이 있어요” — stol bor. Joy “에” bilan ko‘rsatiladi: “방에 침대가 있어요” — xonada karavot bor. O‘zbekchada “xonada karavot bor” deymiz, tartib o‘xshash: joy, narsa, “bor”. Farqi — narsadan keyingi “이/가”: u yangi ma‘lumotni ta‘kidlaydi.",
+   "say_uz": "Xonada karavot bor. Mehmonxonada divan bor. Uyda hovli bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Inkor: 없어요 va savol",
+   "emotion": "neutral",
+   "board": [
+    "있어요 ↔ 없어요 (eopseoyo)",
+    "소파가 없어요 — divan yo‘q",
+    "텔레비전이 있어요? — televizor bormi?",
+    "네, 있어요. / 아니요, 없어요."
+   ],
+   "examples": [
+    {
+     "t": "방에 소파가 없어요.",
+     "uz": "Xonada divan yo‘q."
+    },
+    {
+     "t": "부엌에 식탁이 있어요?",
+     "uz": "Oshxonada ovqat stoli bormi?"
+    },
+    {
+     "t": "아니요, 식탁이 없어요.",
+     "uz": "Yo‘q, ovqat stoli yo‘q."
+    }
+   ],
+   "say": "방에 소파가 없어요. 부엌에 식탁이 있어요? 아니요, 식탁이 없어요.",
+   "say_native": "“Yo‘q” uchun “없어요” ishlatiladi: “있어요” — bor, “없어요” — yo‘q. Inkor alohida “안” kerak emas: “소파가 없어요” — divan yo‘q. Savol uchun shaklni o‘zgartirmaymiz, ohangni ko‘taramiz: “식탁이 있어요?” — ovqat stoli bormi? Javob “네, 있어요” yoki “아니요, 없어요”. O‘zbek tilida “bor” va “yo‘q” juftligi mavjud, koreyscha ham shunday. Faqat “않아요” kabi inkor shakllarini bu yerda aralashtirmang, mavjudlikda “없어요” yetarli.",
+   "say_uz": "Xonada divan yo‘q. Oshxonada ovqat stoli bormi? Yo‘q, ovqat stoli yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Tipik xatolar: mavjudlik",
+   "emotion": "stern",
+   "board": [
+    "✗ 침대를 있어요.",
+    "✓ 침대가 있어요.",
+    "✗ 방에서 책상이 있어요.",
+    "✓ 방에 책상이 있어요."
+   ],
+   "examples": [
+    {
+     "t": "방에 책상이 있어요.",
+     "uz": "Xonada yozuv stoli bor."
+    },
+    {
+     "t": "부엌에 냉장고가 있어요.",
+     "uz": "Oshxonada muzlatgich bor."
+    }
+   ],
+   "say": "방에 책상이 있어요. 부엌에 냉장고가 있어요. 거실에 창문이 있어요.",
+   "say_native": "Birinchi xato: “있어요” bilan “을/를” ishlatish. “있어요” — “bor”, “nimanidir qilmoq” emas, shuning uchun narsa “이/가” bilan keladi: “침대가 있어요”. Ikkinchi xato: joyni “에서” bilan aytish. “에서” — harakat bajariladigan joy, “에” — narsa qayerda borligi. Qoida: “bor” bo‘lsa “에”, “harakat” bo‘lsa “에서”. “방에 책상이 있어요” — to‘g‘ri, “방에서 책상이 있어요” — xato. Bu xatoni bilsangiz, o‘zingizni tez tuzatib olasiz.",
+   "say_uz": "Xonada yozuv stoli bor. Oshxonada muzlatgich bor. Mehmonxonada deraza bor.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Bor-yo‘q gap quring",
+   "title": "Uyingizda nima bor?",
    "emotion": "encouraging",
    "board": [
-    "집에 ___가/이 있어요/없어요.",
-    "침대 · 의자 · 상자 · 문"
+    "1) Xonamda karavot bor",
+    "2) Oshxonada muzlatgich bor",
+    "3) Mehmonxonada televizor yo‘q",
+    "4) Xonangizda divan bormi?"
    ],
    "examples": [],
-   "say_native": "Siz o‘zingizning uyimdagi jihozlar haqida gapirib ko‘ring: “침대가 있어요”, “의자가 없어요”. Har birini sekin, aniq aytng.",
-   "say": "침대가 있어요. 의자가 없어요.",
-   "say_uz": "Yotoq bor. Stul yo‘q.",
-   "practice_seconds": 20
+   "say": "방에 침대가 있어요. 부엌에 냉장고가 있어요. 거실에 텔레비전이 없어요.",
+   "say_native": "O‘zbekchadan koreyschaga o‘giring. Birinchi, xonamda karavot bor. Ikkinchi, oshxonada muzlatgich bor. Uchinchi, mehmonxonada televizor yo‘q. To‘rtinchi, savol: xonangizda divan bormi? Har bir gapda joy “에” bilan, narsa “이/가” bilan, fe‘l “있어요/없어요”. Ovoz chiqarib ayting, javobni keyingi sahnada tekshiring.",
+   "say_uz": "Mashq: nima bor, nima yo‘qligini ayting.",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
-   "title": "Javoblar: bor-yo‘q",
+   "title": "Javoblar: bor va yo‘q",
    "emotion": "proud",
    "board": [
-    "집에 침대가 있어요. — uyda yotoq bor.",
-    "집에 의자가 없어요. — uyda stul yo‘q.",
-    "이/가 — subyekt belgisi"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “집에 침대가 있어요” — uyda yotoq bor, “집에 의자가 없어요” — uyda stul yo‘q. “이/가” — subyekt belgisi. Ularni yodlab oling, chunki keyingi bo‘limlarda doim ishlatamiz.",
-   "say": "집에 침대가 있어요. 집에 의자가 없어요.",
-   "say_uz": "Uyda yotoq bor. Uyda stul yo‘q.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "example",
-   "title": "Dialog 1: uy haqida",
-   "emotion": "happy",
-   "board": [
-    "A: 집이 커요?",
-    "B: 네, 집이 커요.",
-    "A: 방이 몇 개 있어요?",
-    "B: 네, 세 개 있어요."
+    "방에 침대가 있어요.",
+    "부엌에 냉장고가 있어요.",
+    "거실에 텔레비전이 없어요.",
+    "방에 소파가 있어요?"
    ],
    "examples": [
     {
-     "t": "집이 커요?",
-     "uz": "Uy kattami?"
-    },
-    {
-     "t": "네, 집이 커요.",
-     "uz": "Ha, uy katta."
+     "t": "방에 소파가 있어요?",
+     "uz": "Xonangizda divan bormi?"
     }
    ],
-   "say_native": "Birinchi dialog: uy haqida. “집이 커요?” — uy kattami? “네, 집이 커요.” — ha, uy katta. “방이 몇 개 있어요?” — necha xona bor? “네, 세 개 있어요.” — ha, uchta xona bor. Eshiting va javoblarni yoddingizmi tekshiring.",
-   "say": "집이 커요? 네, 집이 커요. 방이 몇 개 있어요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Ha, uy katta. Necha xona bor? Ha, uchta xona bor.",
+   "say": "방에 침대가 있어요. 거실에 텔레비전이 없어요.",
+   "say_native": "Javoblar ekranda: “방에 침대가 있어요”, “부엌에 냉장고가 있어요”, “거실에 텔레비전이 없어요”, “방에 소파가 있어요?”. Narsa nomi unli bilan tugasa “가”: “냉장고가”, “소파가”. Undosh bilan tugasa “이”: “침대가” — bu yerda “대” unli bilan tugaydi, demak “가”; “텔레비전이” — “전” undosh bilan tugaydi, shuning uchun “이”. Shu mayda farqni bilsangiz, so‘zlaringiz yanada ishonchli chiqadi.",
+   "say_uz": "Xonada karavot bor. Mehmonxonada televizor yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Joylashuv so‘zlari 1: 위, 아래, 앞, 뒤",
+   "emotion": "neutral",
+   "board": [
+    "위 (wi) — ust",
+    "아래 / 밑 — past, ost",
+    "앞 (ap) — old",
+    "뒤 (dwi) — orqa"
+   ],
+   "examples": [
+    {
+     "t": "책상 위에 책이 있어요.",
+     "uz": "Yozuv stoli ustida kitob bor."
+    },
+    {
+     "t": "침대 아래에 가방이 있어요.",
+     "uz": "Karavot ostida sumka bor."
+    },
+    {
+     "t": "집 앞에 나무가 있어요.",
+     "uz": "Uy oldida daraxt bor."
+    }
+   ],
+   "say": "책상 위에 책이 있어요. 침대 아래에 가방이 있어요. 집 앞에 나무가 있어요. 집 뒤에 마당이 있어요.",
+   "say_native": "Joylashuv so‘zlari ot kabi, nomdan keyin keladi va “에” bilan birga ishlatiladi: “책상 위에” — yozuv stoli ustida. O‘zbekcha “stol ustida”, “karavot ostida”, “uy oldida”, “uy orqasida” bilan tartib bir xil: avval narsa, keyin joy so‘zi. “위” — ust, “아래” yoki “밑” — past, ost, “앞” — old, “뒤” — orqa. Bu so‘zlarni birinchi marta ko‘rganda oson, chunki o‘zbekchadan farq qilmaydigan tartibda.",
+   "say_uz": "Yozuv stoli ustida kitob bor. Karavot ostida sumka bor. Uy oldida daraxt bor. Uy orqasida hovli bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Joylashuv so‘zlari 2: 옆, 안, 밖, 사이",
+   "emotion": "neutral",
+   "board": [
+    "옆 (yeop) — yon",
+    "안 (an) — ichida",
+    "밖 (bak) — tashqarida",
+    "사이 (sai) — orasida"
+   ],
+   "examples": [
+    {
+     "t": "소파 옆에 의자가 있어요.",
+     "uz": "Divan yonida stul bor."
+    },
+    {
+     "t": "냉장고 안에 우유가 있어요.",
+     "uz": "Muzlatgich ichida sut bor."
+    },
+    {
+     "t": "창문과 문 사이에 책장이 있어요.",
+     "uz": "Deraza bilan eshik orasida kitob javoni bor."
+    }
+   ],
+   "say": "소파 옆에 의자가 있어요. 냉장고 안에 우유가 있어요. 문 밖에 신발이 있어요. 창문과 문 사이에 책장이 있어요.",
+   "say_native": "Yana to‘rtta joy so‘zi: “옆” — yon, “안” — ichi, “밖” — tashqari, “사이” — o‘rta, orasi. Qolip o‘sha: narsa + joy so‘zi + “에” + nima bor + “있어요”. “사이” uchun ikkita narsa kerak va ularni “와/과” bilan bog‘laymiz: “창문과 문 사이에” — deraza va eshik orasida. “과” undosh bilan tugagan so‘zdan keyin, “와” — unli bilan tugaganidan keyin. Tashqarida qoldirilgan poyabzal haqidagi gap uchun “문 밖에 신발이 있어요” — eshik tashqarisida poyabzal bor.",
+   "say_uz": "Divan yonida stul bor. Muzlatgich ichida sut bor. Eshik tashqarisida poyabzal bor. Deraza bilan eshik orasida kitob javoni bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Tipik xatolar: joy so‘zi",
+   "emotion": "stern",
+   "board": [
+    "✗ 책상 위 책이 있어요.",
+    "✓ 책상 위에 책이 있어요.",
+    "✗ 위에 책상 책이 있어요.",
+    "✓ 책상 위에 책이 있어요."
+   ],
+   "examples": [
+    {
+     "t": "책상 위에 컴퓨터가 있어요.",
+     "uz": "Yozuv stoli ustida kompyuter bor."
+    },
+    {
+     "t": "의자 아래에 고양이가 있어요.",
+     "uz": "Stul ostida mushuk bor."
+    }
+   ],
+   "say": "책상 위에 컴퓨터가 있어요. 의자 아래에 고양이가 있어요. 문 옆에 우산이 있어요.",
+   "say_native": "Ikki xato bor. Birinchisi: joy so‘zidan keyin “에” ni tushirib qoldirish. “책상 위 책이 있어요” emas, “책상 위에 책이 있어요”. Ikkinchisi: tartibni almashtirish, “위에 책상”. Koreyschada narsa oldin, joy so‘zi keyin: “책상 위에”. O‘zbekchada ham shunday, shuning uchun tartibni tez eslaysiz. Yana bir tavsiya: “에” ni joy so‘zining bir qismi deb o‘ylang: “위에”, “옆에”, “안에”, “앞에”. Ularni birgalikda yodlab oling.",
+   "say_uz": "Yozuv stoli ustida kompyuter bor. Stul ostida mushuk bor. Eshik yonida soyabon bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Narsa qayerda?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Kitob stol ustida",
+    "2) Sumka karavot ostida",
+    "3) Stul divan yonida",
+    "4) Sut muzlatgich ichida"
+   ],
+   "examples": [],
+   "say": "책은 책상 위에, 가방은 침대 아래에, 의자는 소파 옆에, 우유는 냉장고 안에 있어요.",
+   "say_native": "Narsalar qayerda ekanini koreyscha ayting. Birinchi, kitob stol ustida. Ikkinchi, sumka karavot ostida. Uchinchi, stul divan yonida. To‘rtinchi, sut muzlatgich ichida. Qolip: narsa + joy so‘zi + “에” + narsa + “있어요”. Ikkinchi variant: narsaga e‘tibor qaratib, “책은 책상 위에 있어요” deb ham aytsa bo‘ladi. Javoblar keyingi sahnada.",
+   "say_uz": "Mashq: narsalarning joyini koreyscha ayting.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: joylashuv",
+   "emotion": "proud",
+   "board": [
+    "책상 위에 책이 있어요.",
+    "침대 아래에 가방이 있어요.",
+    "소파 옆에 의자가 있어요.",
+    "냉장고 안에 우유가 있어요."
+   ],
+   "examples": [
+    {
+     "t": "책은 책상 위에 있어요.",
+     "uz": "Kitob yozuv stoli ustida."
+    }
+   ],
+   "say": "책은 책상 위에 있어요. 우유는 냉장고 안에 있어요.",
+   "say_native": "Javoblar ekranda. Ikki xil tartib ham to‘g‘ri: “책상 위에 책이 있어요” — “yozuv stoli ustida kitob bor”, “책은 책상 위에 있어요” — “kitob yozuv stoli ustida”. Birinchisi yangi narsani ko‘rsatadi, ikkinchisi esa tanish narsa qayerda ekanini aytadi. “은/는” va “이/가” farqi shu: o‘zbek tilida bu farq so‘z tartibi va ohang bilan beriladi, koreyschada zarracha bilan.",
+   "say_uz": "Kitob yozuv stoli ustida. Sut muzlatgich ichida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sifatlar: hajm",
+   "emotion": "neutral",
+   "board": [
+    "크다 → 커요 (keoyo) — katta",
+    "작다 → 작아요 (jagayo) — kichik",
+    "넓다 → 넓어요 (neolbeoyo) — keng",
+    "좁다 → 좁아요 (jobayo) — tor"
+   ],
+   "examples": [
+    {
+     "t": "우리 집은 커요.",
+     "uz": "Bizning uy katta."
+    },
+    {
+     "t": "제 방은 작아요.",
+     "uz": "Mening xonam kichik."
+    },
+    {
+     "t": "거실이 넓어요.",
+     "uz": "Mehmonxona keng."
+    }
+   ],
+   "say": "우리 집은 커요. 제 방은 작아요. 거실이 넓어요. 부엌이 좁아요.",
+   "say_native": "Koreys sifatlari fe‘llarga o‘xshab o‘zgaradi: “크다” — “커요”, “작다” — “작아요”, “넓다” — “넓어요”, “좁다” — “좁아요”. Sifatning o‘zi “… dir” ma‘nosini beradi, alohida “bo‘lmoq” kerak emas: “거실이 넓어요” — mehmonxona keng. “크다” — “크어요” emas, “커요”, chunki “ㅡ” tushib qoladi. Qolgan sifatlar oldingi dars qoidasiga bo‘ysunadi: oxirgi unli “ㅏ, ㅗ” bo‘lsa “아요”, bo‘lmasa “어요”.",
+   "say_uz": "Bizning uy katta. Mening xonam kichik. Mehmonxona keng. Oshxona tor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sifatlar: holat",
+   "emotion": "neutral",
+   "board": [
+    "깨끗하다 → 깨끗해요 — toza",
+    "예쁘다 → 예뻐요 — chiroyli",
+    "조용하다 → 조용해요 — sokin",
+    "밝다 → 밝아요 — yorug‘"
+   ],
+   "examples": [
+    {
+     "t": "부엌이 깨끗해요.",
+     "uz": "Oshxona toza."
+    },
+    {
+     "t": "제 방은 조용해요.",
+     "uz": "Mening xonam sokin."
+    },
+    {
+     "t": "거실이 밝아요.",
+     "uz": "Mehmonxona yorug‘."
+    }
+   ],
+   "say": "부엌이 깨끗해요. 제 방은 조용해요. 거실이 밝아요. 소파가 예뻐요.",
+   "say_native": "Holat haqida sifatlar: “깨끗하다” — toza, “조용하다” — sokin, “예쁘다” — chiroyli, “밝다” — yorug‘. “하다” bilan tugaydiganlar “해요” bo‘ladi: “깨끗해요”, “조용해요”. “예쁘다” “크다” singari “ㅡ” ni tashlaydi: “예뻐요”. “밝다” — “밝아요”, chunki unli “ㅏ”. Yana bir foydali so‘z: “아주” — juda, “아주 깨끗해요” — juda toza. “너무” ham “juda” deydi, lekin ko‘pincha “ortiqcha” ma‘nosini beradi, shuning uchun boshlovchi sifatida “아주” ni tanlang.",
+   "say_uz": "Oshxona toza. Mening xonam sokin. Mehmonxona yorug‘. Divan chiroyli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sifat + ot: 큰 방, 작은 방",
+   "emotion": "thinking",
+   "board": [
+    "unli bilan tugasa + ㄴ: 크다 → 큰",
+    "undosh bilan tugasa + 은: 작다 → 작은",
+    "하다 → 한: 깨끗한",
+    "큰 방 · 작은 방 · 깨끗한 부엌"
+   ],
+   "examples": [
+    {
+     "t": "큰 방이 있어요.",
+     "uz": "Katta xona bor."
+    },
+    {
+     "t": "작은 침대가 있어요.",
+     "uz": "Kichik karavot bor."
+    },
+    {
+     "t": "깨끗한 부엌이 좋아요.",
+     "uz": "Toza oshxona yoqadi."
+    }
+   ],
+   "say": "큰 방이 있어요. 작은 침대가 있어요. 깨끗한 부엌이 좋아요. 넓은 거실이 있어요.",
+   "say_native": "Sifat otdan oldin keladi, xuddi o‘zbekchadagi “katta xona”. Faqat koreyschada sifat o‘zgaradi: o‘zak unli bilan tugasa “ㄴ” qo‘shiladi, “크다” — “큰”; undosh bilan tugasa “은”, “작다” — “작은”, “넓다” — “넓은”. “하다” sifatlari “한” bo‘ladi: “깨끗하다” — “깨끗한”. Natijada “큰 방”, “작은 침대”, “넓은 거실”, “깨끗한 부엌”. Bu shakl ko‘pincha “요” siz yoziladi, chunki u gapni tugatmaydi, otni tasvirlaydi.",
+   "say_uz": "Katta xona bor. Kichik karavot bor. Toza oshxona yoqadi. Keng mehmonxona bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Tipik xatolar: sifatlar",
+   "emotion": "stern",
+   "board": [
+    "✗ 방이 크어요.",
+    "✓ 방이 커요.",
+    "✗ 넓 거실이 있어요.",
+    "✓ 넓은 거실이 있어요."
+   ],
+   "examples": [
+    {
+     "t": "방이 커요.",
+     "uz": "Xona katta."
+    },
+    {
+     "t": "큰 방이 있어요.",
+     "uz": "Katta xona bor."
+    }
+   ],
+   "say": "방이 커요. 큰 방이 있어요. 거실이 넓어요. 넓은 거실이 있어요.",
+   "say_native": "Birinchi xato: “크다” ni “크어요” deb yozish, to‘g‘risi “커요”. Ikkinchi xato: otdan oldin sifatni o‘zakcha qoldirish: “넓 거실”. To‘g‘risi “넓은 거실”. Uchinchi xato: ikkita shaklni aralashtirish. “방이 커요” — xona katta, gapni tugatadigan shakl. “큰 방” — katta xona, ot oldidagi shakl. Birinchi shakl gap oxirida, ikkinchisi otdan oldin turadi. Bu ikki shaklni farqlang, tushunmovchilik bo‘lmaydi.",
+   "say_uz": "Xona katta. Katta xona bor. Mehmonxona keng. Keng mehmonxona bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Uyni tasvirlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Mening xonam kichik",
+    "2) Katta mehmonxona bor",
+    "3) Oshxona toza",
+    "4) Yorug‘ deraza bor"
+   ],
+   "examples": [],
+   "say": "제 방은 작아요. 큰 거실이 있어요. 부엌이 깨끗해요. 밝은 창문이 있어요.",
+   "say_native": "Uyni sifatlar bilan tasvirlang. Birinchi, mening xonam kichik. Ikkinchi, katta mehmonxona bor. Uchinchi, oshxona toza. To‘rtinchi, yorug‘ deraza bor. Birinchi va uchinchi gap oxirida turadigan shakl, ikkinchi va to‘rtinchida otdan oldin turadigan shakl kerak. Ovoz chiqarib ayting, keyin javobni tekshiring.",
+   "say_uz": "Mashq: sifatlar bilan uyni tasvirlang.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: tasvirlash",
+   "emotion": "proud",
+   "board": [
+    "제 방은 작아요.",
+    "큰 거실이 있어요.",
+    "부엌이 깨끗해요.",
+    "밝은 창문이 있어요."
+   ],
+   "examples": [
+    {
+     "t": "밝은 창문이 있어요.",
+     "uz": "Yorug‘ deraza bor."
+    }
+   ],
+   "say": "제 방은 작아요. 큰 거실이 있어요. 밝은 창문이 있어요.",
+   "say_native": "Javoblar: “제 방은 작아요” — gap oxirida “작아요”. “큰 거실이 있어요” — otdan oldin “큰”. “부엌이 깨끗해요” — gap oxirida “깨끗해요”. “밝은 창문이 있어요” — otdan oldin “밝은”, chunki “밝다” undosh bilan tugaydi va “은” oladi. “제” — “mening” ning hurmatli, rasmiy shakli, “저의” ning qisqarishi. Barcha to‘rtta gapni to‘g‘ri qilgan bo‘lsangiz, bu darsning eng muhim qismini o‘zlashtirdingiz.",
+   "say_uz": "Mening xonam kichik. Katta mehmonxona bor. Yorug‘ deraza bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: 있어요, 없어요, 책상",
+   "emotion": "thinking",
+   "board": [
+    "있어요 → [이써요]",
+    "없어요 → [업써요]",
+    "책상 → [책쌍]",
+    "넓어요 → [널버요]"
+   ],
+   "examples": [
+    {
+     "t": "방에 책상이 있어요.",
+     "uz": "Xonada yozuv stoli bor."
+    },
+    {
+     "t": "소파가 없어요.",
+     "uz": "Divan yo‘q."
+    }
+   ],
+   "say": "방에 책상이 있어요. 창문은 없어요. 거실이 넓어요.",
+   "say_native": "Bu darsning so‘zlarida talaffuz qoidalari ko‘p. “있어요” yoziladi “isseoyo”, o‘qiladi “이써요”: “ㅆ” keyingi bo‘g‘inga o‘tadi. “없어요” — “업써요”, bu yerda “ㅂ” qoladi va “ㅅ” kuchli “ㅆ” ga aylanadi. “책상” — “책쌍”: “ㄱ” dan keyin “ㅅ” kuchayadi. “넓어요” — “널버요”: ikkita undoshdan birinchisi “ㄹ” oldingi bo‘g‘inda qoladi, “ㅂ” esa keyingisiga o‘tadi. Yozuvga qarab o‘qisangiz ham tushunishadi, lekin shu o‘zgarishlarni eshitib o‘rganish tabiiyroq nutq beradi.",
+   "say_uz": "Xonada yozuv stoli bor. Deraza yo‘q. Mehmonxona keng.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Madaniyat: koreyscha uy",
+   "emotion": "thinking",
+   "board": [
+    "현관 (hyeongwan) — kirish, poyabzal yechiladi",
+    "아파트 · 원룸 — kvartira, studiya",
+    "온돌 — qizdiriladigan pol",
+    "신발을 벗어요. — Poyabzalni yechaman."
+   ],
+   "examples": [
+    {
+     "t": "현관에서 신발을 벗어요.",
+     "uz": "Kirish qismida poyabzalni yechaman."
+    },
+    {
+     "t": "겨울에 바닥이 따뜻해요.",
+     "uz": "Qishda pol iliq."
+    }
+   ],
+   "say": "현관에서 신발을 벗어요. 겨울에 바닥이 따뜻해요. 원룸은 작지만 편해요.",
+   "say_native": "Koreya uylarida ham poyabzal eshik oldida yechiladi, bu o‘zbek odatiga yaqin. Kirish joyi “현관” deyiladi va u uyning qolgan qismidan bir pog‘ona pastroq bo‘ladi. Ko‘p uylarda “온돌” — pol ostidan isitish tizimi, shuning uchun qishda pol iliq va koreyslar ko‘pincha polda o‘tirishadi. Yosh odamlar ko‘pincha “원룸”, ya‘ni bir xonali kvartirada yashaydi. Mehmon bo‘lsangiz, kirishda poyabzalingizni yeching va “실례합니다” — kechirasiz, deb kiring.",
+   "say_uz": "Kirish qismida poyabzalni yechaman. Qishda pol iliq. Studiya kichik, lekin qulay.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 1: Yangi kvartira",
+   "emotion": "happy",
+   "board": [
+    "A: 새 집은 어때요?",
+    "B: 아주 좋아요. 방이 두 개 있어요.",
+    "A: 거실도 커요?",
+    "B: 네, 큰 창문이 있어서 밝아요."
+   ],
+   "examples": [
+    {
+     "t": "새 집은 어때요?",
+     "uz": "Yangi uy qanday?"
+    }
+   ],
+   "say": "새 집은 어때요? 아주 좋아요. 방이 두 개 있어요. 거실도 커요? 네, 큰 창문이 있어서 밝아요.",
+   "say_native": "Birinchi dialog. A yangi uy haqida so‘raydi: “새 집은 어때요?” — yangi uy qanday? B: juda yaxshi, ikkita xona bor. A: mehmonxona ham kattami? B: ha, katta deraza bo‘lgani uchun yorug‘. Diqqat: “어때요?” — “qanday?” degan umumiy savol, sifat bilan javob beriladi. “있어서” — “bor bo‘lgani uchun”, sabab bildiradi. Bu shaklni keyinroq o‘rganamiz, hozir ma‘nosini tushunish kifoya. “방이 두 개” — ikkita xona, sanoq so‘zi “개” bilan.",
+   "say_uz": "Yangi uy qanday? Juda yaxshi. Ikkita xona bor. Mehmonxona ham kattami? Ha, katta deraza bo‘lgani uchun yorug‘.",
    "practice_seconds": 0
   },
   {
@@ -259,109 +675,57 @@
    "title": "Dialog 1 ni tushunish",
    "emotion": "encouraging",
    "board": [
-    "1) Uy kattami?",
-    "2) Necha xona bor?",
-    "3) 네, 세 개 있어요."
+    "1) Uyda nechta xona bor?",
+    "2) Mehmonxona qanday?",
+    "3) Nima uchun yorug‘?",
+    "4) “어때요?” nima degani?"
    ],
    "examples": [],
-   "say_native": "Savollar: uy kattami? necha xona bor? “네, 세 개 있어요.” deb javob bering.",
-   "say": "집이 커요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Necha xona bor? Ha, uchta xona bor.",
-   "practice_seconds": 20
+   "say": "방이 몇 개 있어요? 거실은 어때요? 왜 밝아요?",
+   "say_native": "Dialog bo‘yicha savollarga javob bering. Birinchi, yangi uyda nechta xona bor? Ikkinchi, mehmonxona qanday? Uchinchi, nega yorug‘? To‘rtinchi, “어때요?” nimani bildiradi? Qisqa gaplar bilan, koreyscha javob berishga harakat qiling, masalan “방이 두 개 있어요”.",
+   "say_uz": "Dialog savollari: nechta xona, mehmonxona qanday, nega yorug‘.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar: dialog 1",
    "emotion": "proud",
    "board": [
-    "집이 커요? — uy kattami?",
-    "네, 집이 커요. — ha, uy katta.",
-    "방이 몇 개 있어요? — necha xona bor?"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “집이 커요?” — uy kattami?, “네, 집이 커요.” — ha, uy katta, “방이 몇 개 있어요?” — necha xona bor? “네, 세 개 있어요.” — ha, uchta xona bor. Endi ikkinchi dialogga o‘tamiz.",
-   "say": "집이 커요? 네, 집이 커요. 방이 몇 개 있어요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Ha, uy katta. Necha xona bor? Ha, uchta xona bor.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "explain",
-   "title": "오래된 / 새로운",
-   "emotion": "neutral",
-   "board": [
-    "오래된 (oraedoen) — eski",
-    "새로운 (saeroun) — yangi",
-    "오래된 집. — eski uy.",
-    "새로운 집. — yangi uy."
+    "방이 두 개 있어요.",
+    "거실이 커요.",
+    "큰 창문이 있어서 밝아요.",
+    "어때요? — qanday?"
    ],
    "examples": [
     {
-     "t": "오래된 집.",
-     "uz": "eski uy."
-    },
-    {
-     "t": "새로운 집.",
-     "uz": "yangi uy."
+     "t": "거실이 커요.",
+     "uz": "Mehmonxona katta."
     }
    ],
-   "say_native": "오래된 / 새로운 so‘zlarini o‘rganaymiz. “오래된” — eski. “새로운” — yangi. “오래된 집” — eski uy. “새로운 집” — yangi uy. Ularni sekin, aniq aytng va tarjimasini eslang.",
-   "say": "오래된 집. 새로운 집.",
-   "say_uz": "Eski uy. Yangi uy.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "오래된 / 새로운",
-   "emotion": "encouraging",
-   "board": [
-    "오래된 집 · 새로운 집",
-    "오래된 가구 · 새로운 가구"
-   ],
-   "examples": [],
-   "say_native": "Ekrandagi so‘zlarni koreyscha o‘qing: 오래된 집, 새로운 집, 오래된 가구, 새로운 가구. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "오래된 집. 새로운 집. 오래된 가구. 새로운 가구.",
-   "say_uz": "Eski uy. Yangi uy. eski mebel. yangi mebel.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: 오래된 / 새로운",
-   "emotion": "proud",
-   "board": [
-    "오래된 — eski",
-    "새로운 — yangi",
-    "오래된 집 — eski uy",
-    "새로운 집 — yangi uy"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 오래된 — eski, 새로운 — yangi, 오래된 집 — eski uy, 새로운 집 — yangi uy. Ularni yodlab oling, chunki keyingi bo‘limlarda uy va xonalar haqida gapirishda ishlatamiz.",
-   "say": "오래된 집. 새로운 집.",
-   "say_uz": "Eski uy. Yangi uy.",
-   "practice_seconds": 10
+   "say": "방이 두 개 있어요. 거실이 크고 밝아요.",
+   "say_native": "Javoblar: ikkita xona bor, mehmonxona katta, yorug‘, chunki katta deraza bor. “어때요?” — “qanday?”, uni “집은 어때요?”, “음식은 어때요?” deb har narsa haqida so‘rash mumkin. Javob sifat bilan: “좋아요”, “커요”, “깨끗해요”. Bu bugungi sifatlarni qo‘llash uchun ajoyib imkoniyat: har safar “어때요?” eshitsangiz, sifat topib javob bering.",
+   "say_uz": "Ikkita xona bor. Mehmonxona katta va yorug‘.",
+   "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 2: uy haqida",
+   "title": "Dialog 2: Do‘stning uyiga mehmon",
    "emotion": "happy",
    "board": [
-    "A: 집이 커요?",
-    "B: 네, 집이 커요.",
-    "A: 방이 몇 개 있어요?",
-    "B: 네, 세 개 있어요."
+    "A: 실례합니다. 화장실이 어디예요?",
+    "B: 부엌 옆에 있어요.",
+    "A: 냉장고 안에 물이 있어요?",
+    "B: 네, 물은 냉장고 안에 있어요."
    ],
    "examples": [
     {
-     "t": "집이 커요?",
-     "uz": "Uy kattami?"
-    },
-    {
-     "t": "네, 집이 커요.",
-     "uz": "Ha, uy katta."
+     "t": "화장실이 어디예요?",
+     "uz": "Hojatxona qayerda?"
     }
    ],
-   "say_native": "Uchinchi dialog: uy haqida. “집이 커요?” — uy kattami? “네, 집이 커요.” — ha, uy katta. “방이 몇 개 있어요?” — necha xona bor? “네, 세 개 있어요.” — ha, uchta xona bor. Eshiting va javoblarni yoddingizmi tekshiring.",
-   "say": "집이 커요? 네, 집이 커요. 방이 몇 개 있어요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Ha, uy katta. Necha xona bor? Ha, uchta xona bor.",
+   "say": "실례합니다. 화장실이 어디예요? 부엌 옆에 있어요. 냉장고 안에 물이 있어요? 네, 물은 냉장고 안에 있어요.",
+   "say_native": "Ikkinchi dialog: do‘stingiznikiga mehmonsiz. “실례합니다” — kechirasiz, birovning uyida yoki so‘rovda ishlatiladi. “화장실이 어디예요?” — hojatxona qayerda? Javob: oshxona yonida, “부엌 옆에 있어요”. Keyin siz so‘raysiz: muzlatgich ichida suv bormi? Ha, suv muzlatgich ichida. Qayerda deb so‘raganda “어디예요?” yoki “어디에 있어요?” ishlatiladi, javobda esa joylashuv so‘zi “옆에”, “안에”.",
+   "say_uz": "Kechirasiz. Hojatxona qayerda? Oshxona yonida. Muzlatgich ichida suv bormi? Ha, suv muzlatgich ichida.",
    "practice_seconds": 0
   },
   {
@@ -369,487 +733,73 @@
    "title": "Dialog 2 ni tushunish",
    "emotion": "encouraging",
    "board": [
-    "1) Uy kattami?",
-    "2) Necha xona bor?",
-    "3) 네, 세 개 있어요."
+    "1) Mehmon nimani so‘radi?",
+    "2) Hojatxona qayerda?",
+    "3) Suv qayerda?",
+    "4) “실례합니다” qachon aytiladi?"
    ],
    "examples": [],
-   "say_native": "Savollar: uy kattami? necha xona bor? “네, 세 개 있어요.” deb javob bering. Javobni avval sekin, keyin oddiy tezlikda ayting.",
-   "say": "집이 커요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Necha xona bor? Ha, uchta xona bor.",
-   "practice_seconds": 20
+   "say": "무엇을 물어봤어요? 화장실은 어디에 있어요? 물은 어디에 있어요?",
+   "say_native": "Ikkinchi dialog bo‘yicha savollar. Birinchi, mehmon nimani so‘radi? Ikkinchi, hojatxona qayerda? Uchinchi, suv qayerda? To‘rtinchi, “실례합니다” qachon aytiladi? Javoblarni to‘liq gap bilan ayting va joylashuv so‘zlariga e‘tibor bering.",
+   "say_uz": "Dialog savollari: nima so‘radi, hojatxona va suv qayerda.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar: dialog 2",
    "emotion": "proud",
    "board": [
-    "집이 커요? — uy kattami?",
-    "네, 집이 커요. — ha, uy katta.",
-    "방이 몇 개 있어요? — necha xona bor?"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “집이 커요?” — uy kattami?, “네, 집이 커요.” — ha, uy katta, “방이 몇 개 있어요?” — necha xona bor? “네, 세 개 있어요.” — ha, uchta xona bor. Endi ikkinchi dialogga o‘tamiz. Xonalar sonini har safar boshqa son bilan ayting: “두 개 있어요” — ikkita xona bor.",
-   "say": "집이 커요? 네, 집이 커요. 방이 몇 개 있어요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Ha, uy katta. Necha xona bor? Ha, uchta xona bor.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "explain",
-   "title": "오래된 / 새로운",
-   "emotion": "neutral",
-   "board": [
-    "오래된 (oraedoen) — eski",
-    "새로운 (saeroun) — yangi",
-    "오래된 집. — eski uy.",
-    "새로운 집. — yangi uy."
+    "화장실은 부엌 옆에 있어요.",
+    "물은 냉장고 안에 있어요.",
+    "화장실이 어디예요?",
+    "실례합니다 — kechirasiz"
    ],
    "examples": [
     {
-     "t": "오래된 집.",
-     "uz": "eski uy."
-    },
-    {
-     "t": "새로운 집.",
-     "uz": "yangi uy."
+     "t": "화장실은 부엌 옆에 있어요.",
+     "uz": "Hojatxona oshxona yonida."
     }
    ],
-   "say_native": "오래된 / 새로운 so‘zlarini o‘rganaymiz. “오래된” — eski. “새로운” — yangi. “오래된 집” — eski uy. “새로운 집” — yangi uy. Ularni sekin, aniq aytng va tarjimasini eslang. “오래된 가구” va “새로운 가구” ham shu qolipdagi misollar.",
-   "say": "오래된 집. 새로운 집.",
-   "say_uz": "Eski uy. Yangi uy.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "오래된 / 새로운",
-   "emotion": "encouraging",
-   "board": [
-    "오래된 집 · 새로운 집",
-    "오래된 가구 · 새로운 가구"
-   ],
-   "examples": [],
-   "say_native": "Ekrandagi so‘zlarni koreyscha o‘qing: 오래된 집, 새로운 집, 오래된 가구, 새로운 가구. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "오래된 집. 새로운 집. 오래된 가구. 새로운 가구.",
-   "say_uz": "Eski uy. Yangi uy. eski mebel. yangi mebel.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: 오래된 / 새로운",
-   "emotion": "proud",
-   "board": [
-    "오래된 — eski",
-    "새로운 — yangi",
-    "오래된 집 — eski uy",
-    "새로운 집 — yangi uy"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 오래된 — eski, 새로운 — yangi, 오래된 집 — eski uy, 새로운 집 — yangi uy. Ularni yodlab oling, chunki keyingi bo‘limlarda uy va xonalar haqida gapirishda ishlatamiz. Uy-ro‘zg‘or so‘zlarini ham shu juftlikda o‘rganing: “오래된 의자” — eski stul.",
-   "say": "오래된 집. 새로운 집.",
-   "say_uz": "Eski uy. Yangi uy.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "example",
-   "title": "Dialog 3: uy haqida",
-   "emotion": "happy",
-   "board": [
-    "A: 집이 커요?",
-    "B: 네, 집이 커요.",
-    "A: 방이 몇 개 있어요?",
-    "B: 네, 세 개 있어요."
-   ],
-   "examples": [
-    {
-     "t": "집이 커요?",
-     "uz": "Uy kattami?"
-    },
-    {
-     "t": "네, 집이 커요.",
-     "uz": "Ha, uy katta."
-    }
-   ],
-   "say_native": "Uchinchi dialog: uy haqida. “집이 커요?” — uy kattami? “네, 집이 커요.” — ha, uy katta. “방이 몇 개 있어요?” — necha xona bor? “네, 세 개 있어요.” — ha, uchta xona bor. Eshiting va javoblarni yoddingizmi tekshiring. Bu dialogda javoblar avvalgisiga o‘xshaydi — takrorlash mustahkamlaydi.",
-   "say": "집이 커요? 네, 집이 커요. 방이 몇 개 있어요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Ha, uy katta. Necha xona bor? Ha, uchta xona bor.",
+   "say": "화장실은 부엌 옆에 있어요. 물은 냉장고 안에 있어요.",
+   "say_native": "Javoblar: hojatxona oshxona yonida, suv muzlatgich ichida, mehmon hojatxonani so‘radi. “실례합니다” — birovning e‘tiborini jalb qilganda, kirayotganda yoki so‘raganda aytiladi: “kechirasiz”. Bu muloyim ibora koreys madaniyatida juda muhim. Uyga kirganda ham, ofitsiantga murojaat qilganda ham ishlatsangiz bo‘ladi. Buni bugungi qolip bilan birga eslab qoling.",
+   "say_uz": "Hojatxona oshxona yonida. Suv muzlatgich ichida.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Dialog 3 ni tushunish",
+   "title": "Yakuniy topshiriq: uyingiz",
    "emotion": "encouraging",
    "board": [
-    "1) Uy kattami?",
-    "2) Necha xona bor?",
-    "3) 네, 세 개 있어요."
+    "6–8 ta gap",
+    "이/가 있어요 — kamida 3 ta",
+    "joy so‘zi (위, 옆, 앞...) — kamida 2 ta",
+    "sifat (큰, 작은, 깨끗한...) — kamida 2 ta"
    ],
    "examples": [],
-   "say_native": "Savollar: uy kattami? necha xona bor? “네, 세 개 있어요.” deb javob bering. Bu uchinchi marta — endi tezlik bilan ayting.",
-   "say": "집이 커요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Necha xona bor? Ha, uchta xona bor.",
+   "say": "우리 집을 여덟 문장으로 소개해 보세요.",
+   "say_native": "Endi uyingizni tanishtiring. Kamida oltita gap ayting: nechta xona bor, mehmonxona qanday, xonangizda nima bor, narsalar qayerda turibdi. Kamida uchta “이/가 있어요”, ikkita joylashuv so‘zi va ikkita sifat ishlating. Tartib shunday bo‘lsin: avval uy haqida umumiy, so‘ng xonama-xona. Ovoz chiqarib, sekin va aniq gapiring. Keyingi sahnada namuna bor.",
+   "say_uz": "Yakuniy topshiriq: uyingizni sakkiz gap bilan tanishtiring.",
    "practice_seconds": 20
   },
   {
    "kind": "explain",
-   "title": "Javoblar: dialog 3",
+   "title": "Namuna: uyim",
    "emotion": "proud",
    "board": [
-    "집이 커요? — uy kattami?",
-    "네, 집이 커요. — ha, uy katta.",
-    "방이 몇 개 있어요? — necha xona bor?"
+    "우리 집은 아파트예요.",
+    "거실에 큰 소파가 있어요.",
+    "소파 옆에 작은 책장이 있어요.",
+    "제 방은 작지만 깨끗해요."
    ],
-   "examples": [],
-   "say_native": "Javoblar: “집이 커요?” — uy kattami?, “네, 집이 커요.” — ha, uy katta, “방이 몇 개 있어요?” — necha xona bor? “네, 세 개 있어요.” — ha, uchta xona bor. Endi ikkinchi dialogga o‘tamiz. Agar uyingiz katta bo‘lsa, “네, 집이 커요” deb javob bering.",
-   "say": "집이 커요? 네, 집이 커요. 방이 몇 개 있어요? 네, 세 개 있어요.",
-   "say_uz": "Uy kattami? Ha, uy katta. Necha xona bor? Ha, uchta xona bor.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "O‘zingizning uyingiz",
-   "emotion": "encouraging",
-   "board": [
-    "제 집이 커요.",
-    "제 방이 세 개 있어요.",
-    "저는 소파가 있어요."
+   "examples": [
+    {
+     "t": "제 방은 작지만 깨끗해요.",
+     "uz": "Mening xonam kichik, lekin toza."
+    }
    ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning uyingizni aytasiz: “저는 집이 커요”, “제 방이 세 개 있어요”, “저는 소파가 있어요”. Har birini sekin, aniq aytng.",
-   "say": "제 집이 커요. 제 방이 세 개 있어요.",
-   "say_uz": "Mening uyim katta. Mening 3 xonam bor.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning uy",
-   "emotion": "proud",
-   "board": [
-    "제 집이 커요. — mening uyim katta.",
-    "제 방이 세 개 있어요. — mening 3 xonam bor."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “제 집이 커요” — mening uyim katta, “제 방이 세 개 있어요” — mening 3 xonam bor. Endi xulosa qilamiz.",
-   "say": "제 집이 커요. 제 방이 세 개 있어요.",
-   "say_uz": "Mening uyim katta. Mening 3 xonam bor.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "Hamma narsani birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "커피 주세요.",
-    "얼마예요?",
-    "카드 돼요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning buyurtmangizni aytasiz: “커피 주세요”, “얼마예요?”, “카드 돼요?”, “네, 고마워요.”. Har birini sekin, aniq aytng.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning buyurtma",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "카드 돼요? — karta qilasizmi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “카드 돼요?” — karta qilasizmi?, “네, 고마워요.” — ha, rahmat. Endi xulosa qilamiz.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "Barcha narsani birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "밥 주세요.",
-    "국 주세요.",
-    "고기 주세요.",
-    "채소 주세요.",
-    "물 주세요.",
-    "커피 주세요.",
-    "차 주세요."
-   ],
-   "examples": [],
-   "say_native": "Barcha ovqat va ichimlikni birga aytasiz: “밥 주세요”, “국 주세요”, “고기 주세요”, “채소 주세요”, “물 주세요”, “커피 주세요”, “차 주세요”. Har birini sekin, aniq aytng.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: barcha narsani birga aytng",
-   "emotion": "proud",
-   "board": [
-    "밥 주세요. — non iltiga bering.",
-    "국 주세요. — sho‘rva iltiga bering.",
-    "고기 주세요. — go‘sht iltiga bering."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “밥 주세요” — non iltiga bering, “국 주세요” — sho‘rva iltiga bering, “고기 주세요” — go‘sht iltiga bering, “채소 주세요” — sabzavot iltiga bering, “물 주세요” — suv iltiga bering, “커피 주세요” — kofe iltiga bering, “차 주세요” — choy iltiga bering. Endi xulosa qilamiz.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "O‘zingizning uyingizni aytng",
-   "emotion": "encouraging",
-   "board": [
-    "제 집이 커요.",
-    "제 방이 세 개 있어요.",
-    "저는 소파가 있어요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning uyingizni aytasiz: “저는 집이 커요”, “제 방이 세 개 있어요”, “저는 소파가 있어요”. Har birini sekin, aniq aytng. “sofa” — koreyschada “소파”; sekin aytsak “so-pa” yangraydi.",
-   "say": "제 집이 커요. 제 방이 세 개 있어요.",
-   "say_uz": "Mening uyim katta. Mening 3 xonam bor.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning uy",
-   "emotion": "proud",
-   "board": [
-    "제 집이 커요. — mening uyim katta.",
-    "제 방이 세 개 있어요. — mening 3 xonam bor."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “제 집이 커요” — mening uyim katta, “제 방이 세 개 있어요” — mening 3 xonam bor. Endi xulosa qilamiz. “세 개” — uchta; xonalar soni har doim bitta va undan ko‘p bo‘lishi mumkin.",
-   "say": "제 집이 커요. 제 방이 세 개 있어요.",
-   "say_uz": "Mening uyim katta. Mening 3 xonam bor.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "Hamma narsani birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "커피 주세요.",
-    "얼마예요?",
-    "카드 돼요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning buyurtmangizni aytasiz: “커피 주세요”, “얼마예요?”, “카드 돼요?”, “네, 고마워요.”. Har birini sekin, aniq aytng. Buyurtmani rollar almashib ayting.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning buyurtma",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "카드 돼요? — karta qilasizmi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “카드 돼요?” — karta qilasizmi?, “네, 고마워요.” — ha, rahmat. Endi xulosa qilamiz. Bu gaplarni ertaga ham unutmasdan ayting.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "Barcha narsani birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "밥 주세요.",
-    "국 주세요.",
-    "고기 주세요.",
-    "채소 주세요.",
-    "물 주세요.",
-    "커피 주세요.",
-    "차 주세요."
-   ],
-   "examples": [],
-   "say_native": "Barcha ovqat va ichimlikni birga aytasiz: “밥 주세요”, “국 주세요”, “고기 주세요”, “채소 주세요”, “물 주세요”, “커피 주세요”, “차 주세요”. Har birini sekin, aniq aytng. Yettitasini ketma-ket aytib chiqing.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: barcha narsani birga aytng",
-   "emotion": "proud",
-   "board": [
-    "밥 주세요. — non iltiga bering.",
-    "국 주세요. — sho‘rva iltiga bering.",
-    "고기 주세요. — go‘sht iltiga bering."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “밥 주세요” — non iltiga bering, “국 주세요” — sho‘rva iltiga bering, “고기 주세요” — go‘sht iltiga bering, “채소 주세요” — sabzavot iltiga bering, “물 주세요” — suv iltiga bering, “커피 주세요” — kofe iltiga bering, “차 주세요” — choy iltiga bering. Endi xulosa qilamiz. Har birini ikki marta takrorlang.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "Hamma narsani birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "커피 주세요.",
-    "얼마예요?",
-    "카드 돼요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Barcha narsani birga aytasiz: “커피 주세요”, “얼마예요?”, “카드 돼요?”, “네, 고마워요.”. Har birini sekin, aniq aytng.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: hamma narsani birga aytng",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "카드 돼요? — karta qilasizmi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “카드 돼요?” — karta qilasizmi?, “네, 고마워요.” — ha, rahmat. Endi xulosa qilamiz. Har birini sherigingizga o‘qituvchidek ayting.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "Barcha ovqat va ichimlikni birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "밥 주세요.",
-    "국 주세요.",
-    "고기 주세요.",
-    "채소 주세요.",
-    "물 주세요.",
-    "커피 주세요.",
-    "차 주세요."
-   ],
-   "examples": [],
-   "say_native": "Barcha ovqat va ichimlikni birga aytasiz: “밥 주세요”, “국 주세요”, “고기 주세요”, “채소 주세요”, “물 주세요”, “커피 주세요”, “차 주세요”. Har birini sekin, aniq aytng. Har birini tarjimasi bilan ayting.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: barcha narsani birga aytng",
-   "emotion": "proud",
-   "board": [
-    "밥 주세요. — non iltiga bering.",
-    "국 주세요. — sho‘rva iltiga bering.",
-    "고기 주세요. — go‘sht iltiga bering."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “밥 주세요” — non iltiga bering, “국 주세요” — sho‘rva iltiga bering, “고기 주세요” — go‘sht iltiga bering, “채소 주세요” — sabzavot iltiga bering, “물 주세요” — suv iltiga bering, “커피 주세요” — kofe iltiga bering, “차 주세요” — choy iltiga bering. Endi xulosa qilamiz. O‘zingiz sevimli buyurtmangizni tanlang va ayting.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "O‘zingizning uyingizni aytng",
-   "emotion": "encouraging",
-   "board": [
-    "제 집이 커요.",
-    "제 방이 세 개 있어요.",
-    "저는 소파가 있어요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning uyingizni aytasiz: “제 집이 커요”, “제 방이 세 개 있어요”, “저는 소파가 있어요”. Har birini sekin, aniq aytng.",
-   "say": "제 집이 커요. 제 방이 세 개 있어요.",
-   "say_uz": "Mening uyim katta. Mening 3 xonam bor.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning uy",
-   "emotion": "proud",
-   "board": [
-    "제 집이 커요. — mening uyim katta.",
-    "제 방이 세 개 있어요. — mening 3 xonam bor."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “제 집이 커요” — mening uyim katta, “제 방이 세 개 있어요” — mening 3 xonam bor. Endi xulosa qilamiz. Sizning uyingiz haqida ham shu uch gapni ayting.",
-   "say": "제 집이 커요. 제 방이 세 개 있어요.",
-   "say_uz": "Mening uyim katta. Mening 3 xonam bor.",
-   "practice_seconds": 10
-  },
-  {
-   "kind": "practice",
-   "title": "O‘zingizning buyurtma",
-   "emotion": "encouraging",
-   "board": [
-    "커피 주세요.",
-    "얼마예요?",
-    "카드 돼요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning buyurtmangizni aytasiz: “커피 주세요”, “얼마예요?”, “카드 돼요?”, “네, 고마워요.”. Har birini sekin, aniq aytng. Oxirgi marta o‘zingiz uchun ayting — endi yodda qolgan.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning buyurtma",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "카드 돼요? — karta qilasizmi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “카드 돼요?” — karta qilasizmi?, “네, 고마워요.” — ha, rahmat. Endi xulosa qilamiz. Endi ko‘z yumib ham ayta olishingiz kerak.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 5
-  },
-  {
-   "kind": "recap",
-   "title": "Bugun nimani o‘rgandik",
-   "emotion": "proud",
-   "board": [
-    "20 ta kasb · 회사원, 교사, 의사, …",
-    "뭐 하세요? · 어디에서 일하세요?",
-    "은/는 · 이/가 · 을/를 partikllari",
-    "회사 · 병원 · 학교 · 식당 · …"
-   ],
-   "examples": [],
-   "say_native": "Xulosa. Qarindosh so‘zlarini, meniqsozlikni (“제”, “우리”), bor/yo‘q ni (“있어요”, “없어요”), oilangiz sonini (“명”) va mesulalarni o‘rgandik. Endi siz o‘zingiz va oilangiz haqida koreyscha gapira olasiz.",
-   "say": "잘 하셨어요! 이제 가족에 관해 말할 수 있어요.",
-   "say_uz": "Barakalla! Endi kasb va ish joyi haqida gapira olasiz.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "recap",
-   "title": "Uyga vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "To‘rtqarindoshingiz haqida 6 gap.",
-    "Ism, qarindoshi, mesula, yosh.",
-    "Mezon: 제/우리, 있어요 / 없어요, 명"
-   ],
-   "examples": [],
-   "say_native": "Uyga vazifa. O‘zingizning to‘rtqarindoshingiz haqida olti gap bilan ovoz yozing va baland ovozda ayting. Ismi, qarindoshi, mesulasi va yoshini kiriting. Muvaffaqiyat mezoni: “제/우리” to‘g‘ri, “있어요/없어요” to‘g‘ri, “명” sanoqi bo‘lishi kerak. Keyingi darsda kasblar va ish joylari bilan tanishamiz.",
-   "say": "다음 시간에 만나요. 안녕히 계세요!",
-   "say_uz": "Keyingi darsda ko‘rishamiz. Salomat qoling!",
+   "say": "우리 집은 아파트예요. 방이 세 개 있어요. 거실에 큰 소파가 있어요. 소파 옆에 작은 책장이 있어요. 부엌은 넓고 깨끗해요. 제 방은 작지만 밝아요.",
+   "say_native": "Mana namuna: bizning uy kvartira, uchta xona bor, mehmonxonada katta divan, divan yonida kichik javon, oshxona keng va toza, xonam kichik, lekin yorug‘. “-지만” — “…, lekin” degani, ikki qarama-qarshi gapni bog‘laydi, siz buni namuna sifatida ishlatishingiz mumkin. “넓고 깨끗해요” — “keng va toza”, “-고” sifatlarni bog‘laydi. Sizniki boshqacha bo‘lishi tabiiy. Asosiysi, joyni, sifatni va mavjudlikni aralashtira olish.",
+   "say_uz": "Bizning uy kvartira. Uchta xona bor. Mehmonxonada katta divan bor. Divan yonida kichik kitob javoni bor. Oshxona keng va toza. Mening xonam kichik, lekin yorug‘.",
    "practice_seconds": 0
   },
   {
@@ -857,15 +807,15 @@
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
    "board": [
-    "20 ta kasb · 회사원, 교사, 의사, …",
-    "뭐 하세요? · 어디에서 일하세요?",
-    "은/는 · 이/가 · 을/를 partikllari",
-    "회사 · 병원 · 학교 · 식당 · …"
+    "집 · 방 · 거실 · 부엌 · 화장실",
+    "침대 · 책상 · 소파 · 냉장고",
+    "~이/가 있어요/없어요 · 위/옆/앞/뒤/안",
+    "큰 · 작은 · 넓은 · 깨끗한"
    ],
    "examples": [],
-   "say_native": "Xulosa. Qarindosh so‘zlarini, meniqsozlikni (“제”, “우리”), bor/yo‘q ni (“있어요”, “없어요”), oilangiz sonini (“명”) va mesulalarni o‘rgandik. Endi siz o‘zingiz va oilangiz haqida koreyscha gapira olasiz. Bolalaringiz bilan ham shu gaplarni aytib ko‘ring.",
-   "say": "잘 하셨어요! 이제 가족에 관해 말할 수 있어요.",
-   "say_uz": "Barakalla! Endi kasb va ish joyi haqida gapira olasiz.",
+   "say": "잘 하셨어요! 이제 우리 집을 한국어로 소개할 수 있어요.",
+   "say_native": "Bugun to‘rtta asosiy narsani o‘rgandik. Birinchi, xonalar va jihozlar nomi. Ikkinchi, “이/가 있어요” va “없어요” bilan mavjudlikni aytish, joy esa “에” bilan. Uchinchi, “위, 아래, 앞, 뒤, 옆, 안, 밖, 사이” joylashuv so‘zlari. To‘rtinchi, sifatlar: gap oxirida “커요, 작아요, 깨끗해요”, otdan oldin “큰, 작은, 깨끗한”. Mana shu to‘rtta narsa bilan istalgan uyni tasvirlash mumkin.",
+   "say_uz": "Barakalla! Endi uyingizni koreyscha tanishtira olasiz.",
    "practice_seconds": 0
   },
   {
@@ -873,128 +823,129 @@
    "title": "Uyga vazifa",
    "emotion": "encouraging",
    "board": [
-    "To‘rtqarindoshingiz haqida 6 gap.",
-    "Ism, qarindoshi, mesula, yosh.",
-    "Mezon: 제/우리, 있어요 / 없어요, 명"
+    "Uyingizni 8 ta gap bilan tasvirlang",
+    "이/가 있어요 · joy so‘zi · sifat",
+    "hamma gap “요” shaklida",
+    "Keyingi dars: shaharda yo‘l so‘rash"
    ],
    "examples": [],
-   "say_native": "Uyga vazifa. O‘zingizning to‘rtqarindoshingiz haqida olti gap bilan ovoz yozing va baland ovozda ayting. Ismi, qarindoshi, mesulasi va yoshini kiriting. Muvaffaqiyat mezoni: “제/우리” to‘g‘ri, “있어요/없어요” to‘g‘ri, “명” sanoqi bo‘lishi kerak. Keyingi darsda kasblar va ish joylari bilan tanishamiz. Vazifani yozganda xonalaringizga nom bering.",
    "say": "다음 시간에 만나요. 안녕히 계세요!",
-   "say_uz": "Keyingi darsda ko‘rishamiz. Salomat qoling!",
+   "say_native": "Uyga vazifa: uyingizni xonama-xona sakkizta gap bilan tasvirlang. Gaplarda “~이/가 있어요”, kamida ikkita joylashuv so‘zi, masalan “위, 옆, 앞”, va kamida ikkita sifat, masalan “큰, 작은, 깨끗한” ishlating. Muvaffaqiyat mezoni: sakkizta to‘liq gap, hammasi “요” shaklida. Yozib, so‘ng ovoz chiqarib o‘qing. Keyingi darsda shaharda yo‘l so‘rash va tushuntirishni o‘rganamiz. Ko‘rishguncha!",
+   "say_uz": "Keyingi darsda ko‘rishamiz. Xayr!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "O‘zingizning uyingiz haqida 6 gap aytasiz va baland o‘vozda ayting. Ismi, kasbi, ish joyini kiriting. Mezon: “-아요/어요” to‘g‘ri bo‘lishi kerak.",
+ "homework_uz": "Uyingizni xonama-xona 8 ta gap bilan tasvirlang. Gaplarda “~이/가 있어요”, kamida 2 ta joylashuv so‘zi (위, 옆, 앞 ...) va kamida 2 ta sifat (큰, 작은, 깨끗한 ...) ishlating. Muvaffaqiyat mezoni: 8 ta to‘liq gap, hammasi “요” shaklida. Keyingi darsda shaharda yo‘l so‘rash va tushuntirishni o‘rganamiz.",
  "quiz": [
   {
-   "q": "What does “집” mean?",
+   "q": "What does 침대 mean?",
    "options": [
-    "house",
-    "school",
-    "office",
-    "hospital"
-   ],
-   "answer": 0,
-   "why_uz": "집 — uy."
-  },
-  {
-   "q": "Which word means “room”?",
-   "options": [
-    "집",
-    "방",
-    "부엌",
-    "화장실"
+    "desk",
+    "bed",
+    "sofa",
+    "wardrobe"
    ],
    "answer": 1,
-   "why_uz": "방 — xona."
+   "why_uz": "“침대” — karavot."
   },
   {
-   "q": "How do you say “There is a bed” in Korean?",
+   "q": "How do you say “There is a bed in the room”?",
    "options": [
-    "집에 침대가 있어요.",
-    "집에 의자가 있어요.",
-    "집에 문이 있어요.",
-    "집에 창문이 있어요."
+    "방에 침대가 있어요.",
+    "방에서 침대를 있어요.",
+    "방이 침대에 있어요.",
+    "방에 침대를 있어요."
    ],
    "answer": 0,
-   "why_uz": "Uyda yotoq bor — 집에 침대가 있어요."
+   "why_uz": "Mavjudlik: joy + 에, narsa + 이/가 + 있어요."
   },
   {
-   "q": "Which word means “kitchen”?",
+   "q": "What is the opposite of 있어요 (there is)?",
    "options": [
-    "집",
-    "방",
-    "부엌",
-    "화장실"
+    "안 있어요",
+    "없어요",
+    "아니에요",
+    "않아요"
+   ],
+   "answer": 1,
+   "why_uz": "“없어요” — yo‘q."
+  },
+  {
+   "q": "Which word means “under, below”?",
+   "options": [
+    "위",
+    "앞",
+    "아래",
+    "안"
    ],
    "answer": 2,
-   "why_uz": "부엌 — oshxona."
+   "why_uz": "“아래” yoki “밑” — past, ost."
   },
   {
-   "q": "How do you say “I want to order coffee” in Korean?",
+   "q": "How do you say “The book is on the desk”?",
    "options": [
-    "커피 주세요.",
-    "물 주세요.",
-    "차 주세요.",
-    "국 주세요."
+    "책은 책상 위에 있어요.",
+    "책은 위 책상에 있어요.",
+    "책은 책상 안이 있어요.",
+    "책상은 책 위에서 있어요."
    ],
    "answer": 0,
-   "why_uz": "Kofe iltiga bering — 커피 주세요."
+   "why_uz": "Narsa + joy so‘zi + 에 + 있어요."
   },
   {
-   "q": "Which word means “window”?",
+   "q": "What is the correct polite form of 크다 (to be big)?",
    "options": [
-    "문",
-    "창문",
-    "의자",
-    "침대"
+    "크어요",
+    "커요",
+    "큰요",
+    "크해요"
    ],
    "answer": 1,
-   "why_uz": "창문 — deraza."
+   "why_uz": "“ㅡ” tushadi: 크 + 어요 = 커요."
   },
   {
-   "q": "How do you ask “How much is it?”?",
+   "q": "How do you say “a clean kitchen”?",
    "options": [
-    "뭐예요?",
-    "얼마예요?",
-    "어디예요?",
-    "누구예요?"
+    "깨끗해 부엌",
+    "깨끗한 부엌",
+    "깨끗하 부엌",
+    "부엌 깨끗한"
    ],
    "answer": 1,
-   "why_uz": "Qancha bo‘ladi? — 얼마예요?"
+   "why_uz": "Sifat “하다” → “한”, otdan oldin."
   },
   {
-   "q": "Which word means “desk”?",
+   "q": "Which particle marks the place of existence?",
    "options": [
-    "상자",
-    "의자",
-    "침대",
-    "문"
+    "에서",
+    "을",
+    "에",
+    "는"
    ],
-   "answer": 0,
-   "why_uz": "상자 — stol."
+   "answer": 2,
+   "why_uz": "Mavjudlik joyi “에” bilan: 방에 있어요."
   },
   {
-   "q": "Which word means “living room”?",
+   "q": "What does 옆 mean?",
    "options": [
-    "침대",
-    "거실",
-    "부엌",
-    "화장실"
+    "inside",
+    "behind",
+    "next to",
+    "between"
+   ],
+   "answer": 2,
+   "why_uz": "“옆” — yon, yonida."
+  },
+  {
+   "q": "How is 있어요 pronounced?",
+   "options": [
+    "[있어요]",
+    "[이써요]",
+    "[이서요]",
+    "[인어요]"
    ],
    "answer": 1,
-   "why_uz": "거실 — mehmonxona."
-  },
-  {
-   "q": "How do you say “Thank you” in Korean?",
-   "options": [
-    "고마워요.",
-    "주세요.",
-    "얼마예요?",
-    "돼요?"
-   ],
-   "answer": 0,
-   "why_uz": "Rahmat — 고마워요."
+   "why_uz": "“ㅆ” keyingi bo‘g‘inga o‘tadi: [이써요]."
   }
  ]
 }

@@ -1,73 +1,936 @@
 {
  "title": "Abstrakt mavzularda fikr yuritish",
- "goal_uz": "Dars yakunida rus tilida abstrakt mavzularda mantiqiy fikr yuritasiz. «Думаю, что ...», «Возможно ...», «Потому что ...», «Итого ...» bog‘lovchilarini o‘rinli qo‘llaysiz, umumlashtirib xulosa chiqarasiz. Oxirida «Omadmi yoki harakatmi?» mavzusida uch daqiqa fikr yurita olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilida mavhum mavzularda fikr yurita olasiz: tushunchalarni aniq ta’riflaysiz, «если бы» bilan taxminlar tuzasiz, hukmlarni ehtiyotkorlik bilan umumlashtirasiz va dalillarni tezis, misol, e’tiroz va xulosa tartibida joylashtirasiz.",
  "vocab": [
-  {"w": "думаю", "uz": "o‘ylayman"},
-  {"w": "возможно", "uz": "mumkin"},
-  {"w": "потому что", "uz": "chunki"},
-  {"w": "итого", "uz": "xulosa"},
-  {"w": "например", "uz": "masalan"},
-  {"w": "однако", "uz": "ammo"},
-  {"w": "конечно", "uz": "albatta"},
-  {"w": "вообще", "uz": "umuman"},
-  {"w": "хорошо", "uz": "yaxshi"},
-  {"w": "важно", "uz": "muhim"}
+  {
+   "w": "понятие",
+   "uz": "tushuncha"
+  },
+  {
+   "w": "под … я понимаю",
+   "uz": "... deganda men tushunaman"
+  },
+  {
+   "w": "допустим, что",
+   "uz": "faraz qilaylik"
+  },
+  {
+   "w": "как правило",
+   "uz": "odatda"
+  },
+  {
+   "w": "зачастую",
+   "uz": "ko‘pincha"
+  },
+  {
+   "w": "отчасти",
+   "uz": "qisman"
+  },
+  {
+   "w": "можно возразить",
+   "uz": "e’tiroz bildirish mumkin"
+  },
+  {
+   "w": "следовательно",
+   "uz": "demak"
+  },
+  {
+   "w": "упорство",
+   "uz": "qat’iyat"
+  },
+  {
+   "w": "добиться (цели)",
+   "uz": "(maqsadga) erishmoq"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Yuz sakkizinchi dars: abstrakt fikr","emotion":"happy","board":["Думаю, что ...","Возможно ...","Потому что ...","Итого ..."],"examples":[],"say_native":"Assalomu alaykum! Yuz sakkizinchi darsda abstrakt mavzularda fikr yuritishni o‘rganamiz. Bugun «думаю, что», «возможно», «потому что» va «итого» bog‘lovchilarini umumlashtirib xulosa chiqarish shaklida mustahkamlab olamiz. Oxirida «Omadmi yoki harakatmi?» savoliga uch daqiqa javob bera olasiz. Navbatdagi darsda akademik uslubni o‘rganamiz.","say":"Здравствуйте! Сегодня думаем о важном.","say_uz":"Assalomu alaykum! Bugun muhimni o‘ylaymiz.","practice_seconds":0},
-  {"kind":"explain","title":"Fikr asoslarini yoddan tushinish","emotion":"neutral","board":["Думаю, что ...","Думаю, что это хорошо.","Думаю, что это важно."],"examples":[{"t":"Думаю, что это хорошо.","uz":"Menimcha, bu yaxshi."},{"t":"Думаю, что это важно.","uz":"Menimcha, bu muhim."}],"say_native":"«Думаю, что ...» — abstrakt fikrning asosiy bog‘lovchisi bo‘lib qoladi. «Думаю, что это хорошо» — menimcha, bu yaxshi; «думаю, что это важно» — menimcha, bu muhim. Fikrda manfaat uyg‘unligi birinchi navbatda ushbu qismdan boshlanib, bir-birini ushlab qoladi.","say":"Думаю, что это хорошо. Думаю, что это важно.","say_uz":"Menimcha, bu yaxshi. Menimcha, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Fikrni ayting","emotion":"encouraging","board":["1) Menimcha, bu yaxshi.","2) Menimcha, bu muhim."],"examples":[],"say_native":"Fikr bog‘lovchilarini ikki qator bilan mustahkamlab oling. Birinchisi: «думаю, что это хорошо». Ikkinchisi: «думаю, что это важно». Har birini bitta nafas bilan xulosaga aralashmay tugallab qo‘ying.","say":"Думаю, что это хорошо. Думаю, что это важно.","say_uz":"Menimcha, bu yaxshi. Menimcha, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, что это хорошо.","Думаю, что это важно."],"examples":[],"say_native":"Fikr javoblari ikki qator bog‘liqlikda tugun bo‘lib qoldi. «Думаю, что это хорошо» — omad asosidagi xulosa, «думаю, что это важно» — muhimlik asosidagi xulosa. Endi har bir mavzuni xulosa asosida mustahkam slab bera olasiz.","say":"Думаю, что это хорошо. Думаю, что это важно.","say_uz":"Menimcha, bu yaxshi. Menimcha, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Mumkin ehtimollik sabog‘i","emotion":"thinking","board":["Возможно ...","Возможно, это хорошо.","Возможно, это важно."],"examples":[{"t":"Возможно, это хорошо.","uz":"Mumkin, bu yaxshi."},{"t":"Возможно, это важно.","uz":"Mumkin, bu muhim."}],"say_native":"«Возможно ...» — mumkin belgisi ehtimollik holatini yumshatib bayon qiladi. «Возможно, это хорошо» — mumkin, bu yaxshi; «возможно, это важно» — mumkin, bu muhim. Bu holat umumiy savolda holatni mumkinsiz qilib, mantiqiy zodagonlikka aylanadi.","say":"Возможно, это хорошо. Возможно, это важно.","say_uz":"Mumkin, bu yaxshi. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Mumkin deb ayting","emotion":"encouraging","board":["1) Mumkin, bu yaxshi.","2) Mumkin, bu muhim."],"examples":[],"say_native":"Mumkin belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «возможно, это хорошо». Ikkinchisi: «возможно, это важно». Ularni abstrakt fikrda bitta nafas bilan tugallab qo‘ying.","say":"Возможно, это хорошо. Возможно, это важно.","say_uz":"Mumkin, bu yaxshi. Mumkin, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Возможно, это хорошо.","Возможно, это важно."],"examples":[],"say_native":"Mumkin javoblari ikki qator ehtimollik bilan tugunlarga qotib qolib mustahkam bo‘lib qoladi. «Возможно, это хорошо» — yaxshilik ehtimoli, «возможно, это важно» — muhimlik ehtimoli. Aql bovar qilmaydigan umumiy savolda tinch o‘yinni shakllantiradi.","say":"Возможно, это хорошо. Возможно, это важно.","say_uz":"Mumkin, bu yaxshi. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"mistake","title":"Abstrakt fikrni dalilsiz qoldirish","emotion":"stern","board":["✗ Думаю, что это хорошо.","✓ Думаю, что это хорошо. Например, это хорошо. Потому что это важно.","✗ Возможно, это важно.","✓ Возможно, это важно. Например, это важно. Потому что это хорошо."],"examples":[],"say_native":"Ko‘p uchraydigan xato — abstrakt fikrni dalilsiz tugatib qo‘yishdir. «Думаю, что это хорошо» bitta so‘z bilan tugallanib qolishi mumkin emas. To‘g‘ri shakl uch qatorli dalilli xulosa bilang tugallanadi.","say":"Думаю, что это хорошо. Например, это хорошо. Потому что это важно.","say_uz":"Menimcha, bu yaxshi. Masalan, bu yaxshi. Chunki bu muhim.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: abstrakt g‘oya","emotion":"happy","board":["— Что ты думаешь?","— Думаю, что это хорошо.","— Почему? — Например, это хорошо."],"examples":[],"say_native":"Birinchi dialog abstrakt g‘oyani mungozara qiladi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Думаю, что это хорошо» — fikr belgisi. «Почему? — Например, это хорошо» — dalil belgisi bilan tugaydi.","say":"Что ты думаешь? Думаю, что это хорошо. Почему? Например, это хорошо.","say_uz":"Nima deb o‘ylaysan? Menimcha, bu yaxshi. Nega? Masalan, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Nega?"],"examples":[],"say_native":"Abstrakt savollarini mustahkamlab oling. Birinchi savol: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchisi: «почему?» — nega. Javoblarda «например» bog‘lovchisini aniq qo‘llab yakunlab qo‘ying.","say":"Что ты думаешь? Думаю, что это хорошо. Почему? Например, это хорошо.","say_uz":"Nima deb o‘ylaysan? Menimcha, bu yaxshi. Nega? Masalan, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, что это хорошо.","Например, это хорошо."],"examples":[],"say_native":"Birinchi dialog javoblari fikr bilan dalil borg‘liqligida tugadi. «Думаю, что это хорошо» — fikr belgisi, «например, это хорошо» — dalil belgisi. Abstrakt g‘oya ushbu ikki shakl bilan aniq namoyish etiladi.","say":"Думаю, что это хорошо. Например, это хорошо.","say_uz":"Menimcha, bu yaxshi. Masalan, bu yaxshi.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: umumi xulosa","emotion":"neutral","board":["— А вообще?","— Вообще, это хорошо.","— Итого? — Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog umumi xulosa bilan yakunlanadi. «А вообще?» — umuman deb so‘raydi. «Вообще, это хорошо» — baho belgisi. «Итого? — Итого, это хорошо» — umumiy xulosa bilan tugaydi.","say":"А вообще? Вообще, это хорошо. Итого? Итого, это хорошо.","say_uz":"Umuman-chi? Umuman, bu yaxshi. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Umuman-chi?","2) Xulosa?"],"examples":[],"say_native":"Umumi xulosa savollarini mustahkamlab oling. Birinchi savol: «а вообще?» — umuman-chi. Ikkinchisi: «итого?» — xulosa deb. Javoblarda «вообще» va «итого» belgilarini aniq qo‘llab yopib qo‘ying.","say":"А вообще? Вообще, это хорошо. Итого? Итого, это хорошо.","say_uz":"Umuman-chi? Umuman, bu yaxshi. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Вообще, это хорошо.","Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog javoblari baho bilan xulosa borg‘liqligida birlashdi. «Вообще, это хорошо» — baho belgisi, «итого, это хорошо» — xulosa belgisi. Umumi xulosa shu ikki qatorga tavhid bilang mustahkam bo‘lib qoldi.","say":"Вообще, это хорошо. Итого, это хорошо.","say_uz":"Umuman, bu yaxshi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Omad belgisi","emotion":"thinking","board":["Удача ...","Удача важна.","Удача хороша."],"examples":[{"t":"Удача важна.","uz":"Omad muhim."},{"t":"Удача хороша.","uz":"Omad yaxshi."}],"say_native":"«Удача» — omad so‘zi abstrakt mavzuning muvozanat o‘ynini mustahkam slab qo‘yadi. «Удача важна» — omad muhim, «удача хороша» — omad yaxshi. Ikki belgi omad xulosasini mustahkam slab qolib, qo‘llab quvatlab turadi.","say":"Удача важна. Удача хороша.","say_uz":"Omad muhim. Omad yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Omadni ayting","emotion":"encouraging","board":["1) Omad muhim.","2) Omad yaxshi."],"examples":[],"say_native":"Omad belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «удача важна». Ikkinchisi: «удача хороша». Ularni abstrakt fikrda bitta tugun bilan yakunlab qo‘ying.","say":"Удача важна. Удача хороша.","say_uz":"Omad muhim. Omad yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Удача важна.","Удача хороша."],"examples":[],"say_native":"Omad javoblari ikki qator abstrakt fikrda barqaror qoldi. «Удача важна» — muhimlik, «удача хороша» — yaxshilik. Ushbu ikki shakl omad xulosasini mustahkam qotib qoladi.","say":"Удача важна. Удача хороша.","say_uz":"Omad muhim. Omad yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Harakat belgisi","emotion":"neutral","board":["Усилия ...","Усилия важны.","Усилия хороши."],"examples":[{"t":"Усилия важны.","uz":"Harakatlar muhim."},{"t":"Усилия хороши.","uz":"Harakatlar yaxshi."}],"say_native":"«Усилия» — harakatlar so‘zi omad belgisi bilan bir maqomda turadigan abstrakt harakat bo‘lib qoladi. «Усилия важны» — harakatlar muhim, «усилия хороши» — harakatlar yaxshi. Ikki belgi harakat bayonini mustahkam slab qo‘yib, xulosani yakunlab qo‘yadi.","say":"Усилия важны. Усилия хороши.","say_uz":"Harakatlar muhim. Harakatlar yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Harakatni ayting","emotion":"encouraging","board":["1) Harakatlar muhim.","2) Harakatlar yaxshi."],"examples":[],"say_native":"Harakat belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «усилия важны». Ikkinchisi: «усилия хороши». Ularni abstrakt fikrda bitta tugun bilang tugallab qo‘ying.","say":"Усилия важны. Усилия хороши.","say_uz":"Harakatlar muhim. Harakatlar yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Усилия важны.","Усилия хороши."],"examples":[],"say_native":"Harakat javoblari ikki qator abstrakt fikrda barqaror qoldi. «Усилия важны» — muhimlik, «усилия хороши» — yaxshilik. Ushbu ikki shakl harakat xulosasini mustahkam qotib qoladi.","say":"Усилия важны. Усилия хороши.","say_uz":"Harakatlar muhim. Harakatlar yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: omad va harakat","emotion":"encouraging","board":["1) Menimcha, omad muhim.","2) Masalan, bu muhim.","3) Chunki bu muhim.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda «Omadmi yoki harakatmi?» mavzusida uch daqiqa gapirib qo‘ying. Birinchisi: «я думаю, что удача важна». Ikkinchisi: «например, это важно». Uchinchisi: «потому что это важно». Uch qatorni abstrakt namuna sifatida bitta nafas bilan bayon qiling.","say":"Я думаю, что удача важна. Например, это важно. Потому что это важно. Спасибо!","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Chunki bu muhim. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Я думаю, что удача важна.","Например, это важно.","Потому что это важно."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «я думаю, что удача важна». Ikkinchisi: «например, это важно». Uchinchisi: «потому что это важно». Ushbu uch qator abstrakt namunasini tugunlab qo‘yishi kerak.","say":"Я думаю, что удача важна. Например, это важно. Потому что это важно.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Chunki bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Abstrakt qatlamni yoyish","emotion":"neutral","board":["Думаю, что ...","Возможно ...","Потому что ...","Например ..."],"examples":[{"t":"Думаю, что ...","uz":"Menimcha, ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Abstrakt qatlamni yoyish «думаю, что» so‘zidan boshlanib, «возможно» so‘zi bilan yumshatilib, «потому что» so‘zi bilan sabablanib, «например ...» bog‘lovchisi bilan mustahkamlanib yoyiladi. Matn sarlavhasi ham, bayon kirishi ham shu to‘rt belgi bilan mustahkamlanib, nutqni zo‘rlab qo‘yadi. «Omadmi yoki harakatmi?» savoliga uch daqiqadan gapirib qo‘yayotganda nutq qatlamini tartibli yozsa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Думаю, что ... Возможно ... Потому что ... Например ...","say_uz":"Menimcha, ... Mumkin ... Chunki ... Masalan ...","practice_seconds":0},
-  {"kind":"practice","title":"Zanjirni mustahkamlang","emotion":"encouraging","board":["1) Menimcha, ...","2) Mumkin ...","3) Chunki ...","4) Masalan ..."],"examples":[],"say_native":"Abstrakt qatlamini to‘rt bosqichda mustahkamlab oling. Birinchi: «думаю, что ...». Ikkinchisi: «возможно ...». Uchinchisi: «потому что ...». Yakunda esa: «например ...». Har birini bitta nafas bilan bir qatorda talaffuz qiling.","say":"Думаю, что ... Возможно ... Потому что ... Например ...","say_uz":"Menimcha, ... Mumkin ... Chunki ... Masalan ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, что ...","Возможно ...","Потому что ...","Например ..."],"examples":[],"say_native":"Zanjir javoblari to‘rt qator bilan to‘liq ko‘rindi. «Думаю, что ...» — fikr, «возможно ...» — mumkin, «потому что ...» — sabab, «например ...» — dalil. Endi nutq zo‘rlash shu to‘rt belgida mustahkam bo‘lib qoladi.","say":"Думаю, что ... Возможно ... Потому что ... Например ...","say_uz":"Menimcha, ... Mumkin ... Chunki ... Masalan ...","practice_seconds":0},
-  {"kind":"explain","title":"Abstrakt bayon namunasi","emotion":"neutral","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Думаю, что удача важна.","uz":"Menimcha, omad muhim."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Abstrakt bayon namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «думаю, что удача важна» — fikr belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator uch daqiqalik xulosaning namunasini tugunlab qo‘yishi kerak.\n Har bir javobda abstrakt namuna uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Menimcha, omad muhim.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Abstrakt namunasini uch qator bilan mustahkamlab oling. Birinchisi: «думаю, что удача важна». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Думаю, что удача важна» — fikr, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Abstrakt namuna shu uch qatlamda tugallanib qoladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Думаю, что ...","Возможно ...","Потому что ..."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. Fikrni «думаю, что» bilan ayta olasizmi? Mumkin ni «возможно» bilan yumshata olasizmi? Sababni «потому что» bilan izohlay olasizmi? Uchala javob ijobiy bo‘lsa, abstrakt fikr sizga do‘st bo‘ladi.","say":"Думаю, что ... Возможно ... Потому что ...","say_uz":"Menimcha, ... Mumkin ... Chunki ...","practice_seconds":0},
-  {"kind":"explain","title":"Abstrakt bayonni mustahkamlash","emotion":"neutral","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Думаю, что удача важна.","uz":"Menimcha, omad muhim."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Abstrakt bayonni mustahkamlash namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «думаю, что удача важна» — fikr belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator abstrakt bayonni mustahkamlash namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda abstrakt namuna uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Mustahkamlashni bajaring","emotion":"encouraging","board":["1) Menimcha, omad muhim.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Abstrakt bayonni uch qator bilan mustahkamlab oling. Birinchisi: «думаю, что удача важна». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Mustahkamlash javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Думаю, что удача важна» — fikr, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Abstrakt bayon shu uch qatlamda tugallanib qoladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Abstrakt namunani tugatish","emotion":"neutral","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Думаю, что удача важна.","uz":"Menimcha, omad muhim."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Abstrakt namunani tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «думаю, что удача важна» — fikr belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator abstrakt namunani tugatish namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda abstrakt namuna uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Menimcha, omad muhim.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Abstrakt namunani tugatishni uch qator bilan mustahkamlab oling. Birinchisi: «думаю, что удача важна». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Думаю, что удача важна» — fikr, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Abstrakt namunani tugatish shu uch qatlamda tugallanib qoladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Abstrakt namunani tugatish","emotion":"neutral","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Думаю, что удача важна.","uz":"Menimcha, omad muhim."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Abstrakt namunani tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «думаю, что удача важна» — fikr belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator abstrakt namunani tugatish namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda abstrakt namuna uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi. So‘z bitta bilan emas, uch qator belgisi bilang tugatilgani uchun mustahkam bo‘lib qoladi. Qog‘ozda ham bu izchillik saqlangsa, baho yuqoriga chiqadi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Menimcha, omad muhim.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Abstrakt namunani tugatishni uch qator bilan mustahkamlab oling. Birinchisi: «думаю, что удача важна». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Думаю, что удача важна» — fikr, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Abstrakt namunani tugatish shu uch qatlamda tugallanib qoladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Abstrakt namunani tugatish","emotion":"neutral","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Думаю, что удача важна.","uz":"Menimcha, omad muhim."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Abstrakt namunani tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «думаю, что удача важна» — fikr belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator abstrakt namunani tugatish namunasi mustahkam tugun bo‘lib qoladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Abstrakt tugatish namunasi","emotion":"neutral","board":["Думаю, что удача важна.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Думаю, что удача важна.","uz":"Menimcha, omad muhim."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Abstrakt tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «думаю, что удача важна» — fikr belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator abstrakt tugatish namunasi mustahkam tugun bo‘lib qoladi.","say":"Думаю, что удача важна. Например, это важно. Итого, это хорошо.","say_uz":"Menimcha, omad muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["думаю, что · возможно · потому что","например · однако · итого"],"examples":[],"say_native":"Bugunning xulosasi: abstrakt mavzularda fikr yuritishni o‘rgandik. «Думаю, что» — fikr, «возможно» — mumkin, «потому что» — sabab, «например» — dalil. «Omadmi yoki harakatmi?» savoliga uch daqiqa javob bera olasiz.","say":"Отлично! Теперь вы рассуждаете абстрактно.","say_uz":"Ajoyib! Endi abstrakt fikr yuritasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["3 daqiqalik xulosa: omadmi harakatmi","Fikr · mumkin · sabab","Keyingi dars: Nominalizatsiya va akademik uslub"],"examples":[],"say_native":"Uyga vazifa: «Omadmi yoki harakatmi?» mavzusida uch daqiqa gapirib qo‘ying. Matnda «думаю, что», «возможно», «потому что», «например», «итого» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda nominalizatsiyani o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем писать по-академически.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Akademik yozamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Mavhum mavzularda fikr yuritish",
+   "emotion": "happy",
+   "board": [
+    "Рассуждать об абстрактном",
+    "(Mavhum tushunchalar haqida mulohaza)",
+    "понятие · гипотеза · обобщение · структура"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda ikki daqiqa to‘xtamay gapirishni mashq qildik. Bugun nutqning yanada nozik qatlami: baxt, erkinlik, muvaffaqiyat kabi mavhum tushunchalar haqida fikr yuritamiz. Dars oxirida siz mavhum so‘zlarni aniq ta’riflaysiz, «agar … bo‘lganida» tipidagi taxminlarni to‘g‘ri tuzasiz, hukmlaringizni haddan ortiq qat’iy qilmay yumshatasiz va fikringizni tezis, dalil, e’tiroz, xulosa shaklida joylashtirasiz.",
+   "say": "Здравствуйте! Сегодня мы говорим о том, что нельзя потрогать: о свободе, успехе, справедливости. Сначала научимся точно определять понятия, потом рассуждать гипотетически, обобщать с оговорками и строить стройную аргументацию.",
+   "say_uz": "Assalomu alaykum! Bugun qo‘l bilan ushlab bo‘lmaydigan narsalar haqida gaplashamiz: erkinlik, muvaffaqiyat, adolat. Avval tushunchalarni aniq ta’riflaymiz, keyin taxminiy mulohaza yuritamiz, ehtiyotkorlik bilan umumlashtiramiz va dalillarni tartibga solamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nega mavhum mavzu qiyin",
+   "emotion": "thinking",
+   "board": [
+    "Конкретное: стол, чай, поезд",
+    "Абстрактное: справедливость, доверие",
+    "Нужны определения и примеры"
+   ],
+   "examples": [
+    {
+     "t": "Справедливость — понятие сложное.",
+     "uz": "Adolat — murakkab tushuncha."
+    }
+   ],
+   "say_native": "Aniq narsa haqida gapirish oson: stol, choy, poyezd. Mavhum tushunchada esa har kim o‘zicha tushunadi, shuning uchun to‘xtab qolish xavfi katta. Ikkita yordamchi bor: birinchisi, tushunchani avval ta’riflash, ikkinchisi, ta’rifni misol bilan mustahkamlash. Shu ikki qadam mavhum mavzuni ham ikki daqiqaga yetkazadi. Bugun to‘rtta nuqtani ketma-ket o‘tamiz: mavhum otlar, taxminiy fikr, umumlashtirish va dalillar tuzilmasi.",
+   "say": "Говорить о конкретном легко: стол, чай, поезд. С понятиями сложнее, потому что каждый понимает их по-своему. Поэтому начинайте с определения, а затем подкрепляйте его примером.",
+   "say_uz": "Aniq narsa haqida gapirish oson: stol, choy, poyezd. Tushunchalarda esa har kim o‘zicha tushunadi. Shuning uchun ta’rifdan boshlang, keyin uni misol bilan mustahkamlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mavhum otlar yasalishi",
+   "emotion": "neutral",
+   "board": [
+    "-ость (ж.): ответственность, возможность",
+    "-ство (ср.): богатство, общество",
+    "-ие (ср.): знание, решение",
+    "-ота (ж.): доброта, красота"
+   ],
+   "examples": [
+    {
+     "t": "Ответственность — важное качество.",
+     "uz": "Mas’uliyat — muhim fazilat."
+    },
+    {
+     "t": "Богатство не гарантирует счастья.",
+     "uz": "Boylik baxtni kafolatlamaydi."
+    }
+   ],
+   "say_native": "Mavhum otlarning ko‘pi muayyan qo‘shimchalar bilan yasaladi. «-ость» bilan tugaydiganlar ayol jinsida: ответственность, возможность, свобода. «-ство» va «-ие» bilan tugaganlari o‘rta jinsda: богатство, общество, знание, решение. «-ота» yana ayol jinsida: доброта, красота. Jinsni bilish muhim, chunki sifat va fe’l unga moslashadi: «важная ответственность», «важное решение». Yana bir qoida: «успех» va «выбор» erkak jinsida, ya’ni ularda alohida qo‘shimcha yo‘q.",
+   "say": "Ответственность, возможность, свобода — женский род. Богатство, общество, знание, решение — средний. А вот успех и выбор — мужской. Богатство не гарантирует счастья, но ответственность всегда важна.",
+   "say_uz": "Mas’uliyat, imkoniyat, erkinlik — ayol jinsi. Boylik, jamiyat, bilim, qaror — o‘rta jins. Muvaffaqiyat va tanlov esa erkak jinsida. Boylik baxtni kafolatlamaydi, lekin mas’uliyat doim muhim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Mavhum otlar gapda",
+   "emotion": "happy",
+   "board": [
+    "Доверие нельзя купить.",
+    "Свобода предполагает ответственность.",
+    "Успех требует упорства."
+   ],
+   "examples": [
+    {
+     "t": "Доверие нельзя купить, его можно только заслужить.",
+     "uz": "Ishonchni sotib olib bo‘lmaydi, uni faqat qozonish mumkin."
+    },
+    {
+     "t": "Свобода всегда предполагает ответственность.",
+     "uz": "Erkinlik doim mas’uliyatni nazarda tutadi."
+    },
+    {
+     "t": "Успех требует не только таланта, но и упорства.",
+     "uz": "Muvaffaqiyat nafaqat iste’dod, balki qat’iyatni ham talab qiladi."
+    }
+   ],
+   "say_native": "Mavhum otlar gapda qanday ishlashini ko‘ring. Ular ko‘pincha ega bo‘ladi: «Доверие нельзя купить». Ularni bog‘lash uchun «предполагает», «требует», «зависит от» kabi fe’llar kerak. Diqqat: «требует упорства» — «требовать» fe’lidan keyin qaratqich kelishigi turadi. «Не только … но и» juftligi esa fikrni kengaytiradi. Mavhum ot bilan har doim shunday mantiqiy fe’l ishlatsangiz, gap tayanchli bo‘ladi.",
+   "say": "Доверие нельзя купить, его можно только заслужить. Свобода всегда предполагает ответственность. Успех требует не только таланта, но и упорства.",
+   "say_uz": "Ishonchni sotib olib bo‘lmaydi, uni faqat qozonish mumkin. Erkinlik doim mas’uliyatni nazarda tutadi. Muvaffaqiyat nafaqat iste’dod, balki qat’iyatni ham talab qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tushunchani ta’riflash",
+   "emotion": "neutral",
+   "board": [
+    "Что такое …? — … — это …",
+    "Под … я понимаю + В.п.",
+    "Под … принято понимать + В.п."
+   ],
+   "examples": [
+    {
+     "t": "Под счастьем я понимаю спокойствие и уверенность.",
+     "uz": "Baxt deganda men xotirjamlik va ishonchni tushunaman."
+    },
+    {
+     "t": "Справедливость — это когда каждый получает по заслугам.",
+     "uz": "Adolat — bu har kim munosib narsasini olishi."
+    }
+   ],
+   "say_native": "Ta’riflashning uchta kalit shakli bor. Birinchisi: «X — это Y», masalan, «Справедливость — это когда каждый получает по заслугам». Ikkinchisi: «Под X я понимаю …», ya’ni «X deganda men … ni tushunaman». Bu yerda «под» dan keyin ot vosita kelishigida turadi: «под счастьем», «под успехом». Uchinchisi: «Под X принято понимать …», ya’ni «odatda X deb … ni tushunishadi». Bu variant ancha betaraf va kitobiy, shuning uchun imtihonda yaxshi ko‘rinadi.",
+   "say": "Под счастьем я понимаю спокойствие и уверенность в завтрашнем дне. А под успехом принято понимать достижение поставленной цели.",
+   "say_uz": "Baxt deganda men ertangi kunga xotirjamlik va ishonchni tushunaman. Muvaffaqiyat deganda esa odatda qo‘yilgan maqsadga erishishni tushunishadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Bo‘sh ta’rif",
+   "emotion": "stern",
+   "board": [
+    "✗ Свобода — это хорошо.",
+    "✓ Свобода — это возможность выбирать самому.",
+    "Определение = существо, а не оценка"
+   ],
+   "examples": [],
+   "say_native": "Xato: ta’rif o‘rniga baho berish. «Свобода — это хорошо» ta’rif emas, chunki u erkinlik nima ekanini aytmaydi. To‘g‘ri variant: «Свобода — это возможность выбирать самому». Qoida: ta’rifda «nima» ga javob bering, «yaxshimi-yomonmi» ga emas. Baho esa ta’rifdan keyin keladi: «и это ценно». Shunday qilib, avval mazmun, keyin munosabat.",
+   "say": "Свобода — это возможность выбирать самому. И именно поэтому она ценна. Сначала определение, затем оценка: такой порядок делает мысль точной.",
+   "say_uz": "Erkinlik — bu o‘zi tanlash imkoniyati. Aynan shuning uchun u qadrli. Avval ta’rif, keyin baho: bunday tartib fikrni aniq qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Uch tushunchani ta’riflang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Доверие",
+    "2) Ответственность",
+    "3) Успех"
+   ],
+   "examples": [],
+   "say_native": "Mashq: uchta tushunchani ta’riflang. Birinchisi «доверие», ikkinchisi «ответственность», uchinchisi «успех». Har biri uchun «под … я понимаю» yoki «… — это» shaklidan foydalaning va ta’rifni baho emas, mazmun bilan to‘ldiring. Javoblar keyingi sahnada.",
+   "say": "Определите три понятия: доверие, ответственность и успех. Используйте модели «… — это …» и «под … я понимаю …».",
+   "say_uz": "Uchta tushunchani ta’riflang: ishonch, mas’uliyat va muvaffaqiyat. «... — bu ...» va «... deganda men ... ni tushunaman» shakllaridan foydalaning.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: ta’riflar",
+   "emotion": "proud",
+   "board": [
+    "Доверие — это уверенность в другом человеке.",
+    "Под ответственностью я понимаю готовность отвечать за свои поступки.",
+    "Успех — это достижение цели."
+   ],
+   "examples": [
+    {
+     "t": "Доверие — это уверенность в другом человеке.",
+     "uz": "Ishonch — boshqa odamga bo‘lgan ishonchli."
+    },
+    {
+     "t": "Под ответственностью я понимаю готовность отвечать за свои поступки.",
+     "uz": "Mas’uliyat deganda men o‘z qilmishim uchun javob berishga tayyorlikni tushunaman."
+    }
+   ],
+   "say_native": "Namunaviy javoblar: «Доверие — это уверенность в другом человеке». «Под ответственностью я понимаю готовность отвечать за свои поступки». E’tibor bering: «отвечать за + вин. п.» — «uchun javob bermoq». Uchinchisi: «Успех — это достижение цели». Sizning ta’rifingiz boshqacha bo‘lishi mumkin, muhimi u baho emas, mazmun bersin. Endi taxminiy mulohazaga o‘tamiz.",
+   "say": "Доверие — это уверенность в другом человеке. Под ответственностью я понимаю готовность отвечать за свои поступки. А успех — это достижение поставленной цели.",
+   "say_uz": "Ishonch — bu boshqa odamga ishonch bilan qarash. Mas’uliyat deganda men o‘z qilmishlarim uchun javob berishga tayyorlikni tushunaman. Muvaffaqiyat esa qo‘yilgan maqsadga erishish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Taxminiy fikr: «если бы»",
+   "emotion": "thinking",
+   "board": [
+    "Если бы + прошедшее, … бы + прошедшее",
+    "Если бы у меня было время, я бы читал.",
+    "Что было бы, если бы …?"
+   ],
+   "examples": [
+    {
+     "t": "Если бы у меня было больше времени, я бы чаще путешествовал.",
+     "uz": "Agar vaqtim ko‘proq bo‘lganida, tez-tez sayohat qilgan bo‘lardim."
+    },
+    {
+     "t": "Что было бы, если бы все говорили только правду?",
+     "uz": "Agar hamma faqat haqiqatni aytsa, nima bo‘lardi?"
+    }
+   ],
+   "say_native": "Endi ikkinchi nuqta: taxminiy, ya’ni shartli fikr. Ruscha tuzilma: «если бы» va o‘tgan zamon shaklidagi fe’l, keyin «бы» va yana o‘tgan zamon shakli. Zamon haqiqiy o‘tmish emas, bu shakl hozirgi yoki kelasi ma’noni ham beradi: «Если бы у меня было больше времени, я бы чаще путешествовал». Bu o‘zbekchadagi «bo‘lganida … bo‘lardi» bilan mos tushadi. «Бы» zarrasi ikkala qismda turishi mumkin va fe’lga qo‘shilmaydi, alohida yoziladi.",
+   "say": "Если бы у меня было больше времени, я бы чаще путешествовал. Что было бы, если бы все говорили только правду? Заметьте: после «если бы» стоит форма прошедшего времени, но смысл — гипотетический.",
+   "say_uz": "Agar vaqtim ko‘proq bo‘lganida, tez-tez sayohat qilgan bo‘lardim. Agar hamma faqat haqiqatni aytsa, nima bo‘lardi? E’tibor bering: «agar» dan keyin o‘tgan zamon shakli turadi, lekin ma’no taxminiy.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Taxminiy gaplar",
+   "emotion": "happy",
+   "board": [
+    "Если бы он не опоздал, мы бы успели.",
+    "Я бы согласился, если бы условия были лучше.",
+    "Если бы не дождь, мы пошли бы в парк."
+   ],
+   "examples": [
+    {
+     "t": "Если бы он не опоздал, мы бы успели на поезд.",
+     "uz": "Agar u kechikmaganida, biz poyezdga ulgurgan bo‘lardik."
+    },
+    {
+     "t": "Я бы согласился, если бы условия были лучше.",
+     "uz": "Agar shartlar yaxshiroq bo‘lganida, rozi bo‘lardim."
+    },
+    {
+     "t": "Если бы не дождь, мы пошли бы в парк.",
+     "uz": "Yomg‘ir bo‘lmaganida, parkka borgan bo‘lardik."
+    }
+   ],
+   "say_native": "Uchta namuna. Birinchisi o‘tmish haqida: bo‘lib o‘tmagan narsa. Ikkinchisida «бы» gap boshida kelgan, chunki ruscha bu zarra erkin joylashadi. Uchinchisida «если бы не дождь» — «agar yomg‘ir bo‘lmasa» ma’nosida, qisqa shakl, ot bilan. E’tibor bering: har uch gapda ikkala qismda ham o‘tgan zamon shakli bor, va bu har doim shunday.",
+   "say": "Если бы он не опоздал, мы бы успели на поезд. Я бы согласился, если бы условия были лучше. Если бы не дождь, мы пошли бы в парк.",
+   "say_uz": "Agar u kechikmaganida, poyezdga ulgurgan bo‘lardik. Agar shartlar yaxshiroq bo‘lganida, rozi bo‘lardim. Yomg‘ir bo‘lmaganida, parkka borgan bo‘lardik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Taxminni boshlash iboralari",
+   "emotion": "neutral",
+   "board": [
+    "Допустим, что …",
+    "Предположим, что …",
+    "Представьте, что …"
+   ],
+   "examples": [
+    {
+     "t": "Допустим, что вам предложили работу за границей.",
+     "uz": "Faraz qilaylik, sizga chet elda ish taklif qilishdi."
+    },
+    {
+     "t": "Представьте, что успех зависит только от удачи.",
+     "uz": "Tasavvur qiling, muvaffaqiyat faqat omadga bog‘liq."
+    }
+   ],
+   "say_native": "Taxminni boshlashning uchta ibora bor. «Допустим, что» — «faraz qilaylik», «предположим, что» — «taxmin qilaylik», «представьте, что» — «tasavvur qiling». Hammasidan keyin «что» bilan qo‘shma gap keladi, ichida esa oddiy zamon: «допустим, что вам предложили». Keyin savol berish mumkin: «Согласились бы вы?» Bu iboralar fikrni jonli qiladi, tinglovchini ham mulohazaga tortadi.",
+   "say": "Допустим, что вам предложили работу за границей. Согласились бы вы? Представьте, что успех зависит только от удачи. Тогда зачем трудиться? Так вопросы помогают развить мысль.",
+   "say_uz": "Faraz qilaylik, sizga chet elda ish taklif qilishdi. Rozi bo‘lardingizmi? Tasavvur qiling, muvaffaqiyat faqat omadga bog‘liq. Unda mehnat qilishning nima keragi bor? Shunday savollar fikrni rivojlantiradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "«Если бы» bilan kelasi zamon",
+   "emotion": "stern",
+   "board": [
+    "✗ Если бы я буду богатым, я бы помог.",
+    "✓ Если бы я был богатым, я бы помог.",
+    "После «если бы» — только прошедшее"
+   ],
+   "examples": [],
+   "say_native": "Tipik xato: «если бы» dan keyin kelasi zamon qo‘yish, chunki o‘zbekchada «bo‘lsam» shakli bor. «Если бы я буду» noto‘g‘ri. To‘g‘ri: «если бы я был богатым». Bu yerda «был» hech qanday o‘tgan voqeani bildirmaydi, shunchaki taxminiylik shakli. Haqiqiy shart esa boshqa: «Если я буду богатым, помогу». Farqni eslab qoling: «если» — real, «если бы» — taxminiy.",
+   "say": "Если я буду богатым, я помогу всем. Но если бы я был богатым, я бы, наверное, думал иначе. Видите разницу: первое возможно, а второе — гипотеза.",
+   "say_uz": "Agar boy bo‘lsam, hammaga yordam beraman. Lekin agar boy bo‘lganimda, ehtimol, boshqacha o‘ylagan bo‘lardim. Farqni ko‘ryapsiz: birinchisi mumkin, ikkinchisi taxmin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Gapni tugallang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Если бы я знал ответ, я бы …",
+    "2) Что было бы, если бы не … ?",
+    "3) Допустим, что вам дали миллион …"
+   ],
+   "examples": [],
+   "say_native": "Mashq: uchta gapni o‘z fikringiz bilan tugallang. Birinchisi: «agar javobni bilganimda, men ...». Ikkinchisi: «agar ... bo‘lmaganida, nima bo‘lardi?». Uchinchisi: «faraz qilaylik, sizga million berishdi» va savol bering. Har safar «бы» ni unutmang.",
+   "say": "Закончите фразы. Если бы я знал ответ, я бы … Что было бы, если бы не … ? Допустим, что вам дали миллион, … ?",
+   "say_uz": "Gaplarni tugallang. Agar javobni bilganimda, men ... Agar ... bo‘lmaganida, nima bo‘lardi? Faraz qilaylik, sizga million berishdi, ... ?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: taxminiy gaplar",
+   "emotion": "proud",
+   "board": [
+    "Если бы я знал ответ, я бы сказал.",
+    "Что было бы, если бы не было интернета?",
+    "Допустим, дали миллион: что бы вы сделали?"
+   ],
+   "examples": [
+    {
+     "t": "Если бы я знал ответ, я бы сразу сказал.",
+     "uz": "Agar javobni bilganimda, darrov aytgan bo‘lardim."
+    },
+    {
+     "t": "Что было бы, если бы не было интернета?",
+     "uz": "Internet bo‘lmaganida nima bo‘lardi?"
+    },
+    {
+     "t": "Что бы вы сделали с миллионом?",
+     "uz": "Millionni nima qilgan bo‘lardingiz?"
+    }
+   ],
+   "say_native": "Namunaviy javoblar. «Если бы я знал ответ, я бы сразу сказал». «Что было бы, если бы не было интернета?» Bu yerda «не было» — «bo‘lmagan» shakli, «нет» emas, chunki taxminiy gap. «Что бы вы сделали с миллионом?» — oxirgi savol, bu yerda «бы» olmoshdan keyin turadi. Siz boshqacha tugallagan bo‘lishingiz mumkin, faqat «бы» va o‘tgan zamon shakli birga bo‘lsin.",
+   "say": "Если бы я знал ответ, я бы сразу сказал. Что было бы, если бы не было интернета? А что бы вы сделали с миллионом?",
+   "say_uz": "Agar javobni bilganimda, darrov aytgan bo‘lardim. Internet bo‘lmaganida nima bo‘lardi? Siz esa millionni nima qilgan bo‘lardingiz?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 1: omad yoki mehnat",
+   "emotion": "neutral",
+   "board": [
+    "— Как вы думаете, что важнее?",
+    "— Допустим, у человека нет таланта …",
+    "— Тогда решает труд."
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog: ikki do‘st omad va mehnat haqida bahslashadi. Tinglang, ular qaysi iboralar bilan taxmin tuzadi va fikrini qanday yumshatadi. Diqqat bilan eshiting, dialogdan keyin ikki savol beraman.",
+   "say": "— Как вы думаете, что важнее: везение или труд? — Допустим, у человека нет таланта. Если бы он работал упорно, он бы многого добился. — Но, возможно, ему просто повезло с обстоятельствами? — В какой-то степени да, однако без труда везение не помогает.",
+   "say_uz": "— Sizningcha, nima muhimroq: omadmi yoki mehnat? — Faraz qilaylik, odamda iste’dod yo‘q. Agar u qattiq mehnat qilsa, ko‘p narsaga erishgan bo‘lardi. — Lekin, ehtimol, unga sharoit omad keltirgandir? — Qaysidir darajada ha, biroq mehnatsiz omad yordam bermaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog 1 bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Что предполагает первый собеседник?",
+    "2) Что говорит второй о везении?"
+   ],
+   "examples": [],
+   "say_native": "Ikki savol. Birinchi: birinchi suhbatdosh qanday taxmin keltiradi va nimaga erishgan bo‘lardi? Ikkinchi: ikkinchi suhbatdosh omad haqida nima deydi, qanday ibora bilan yumshatadi? To‘liq gapda javob bering. Javoblar keyingi sahnada.",
+   "say": "Ответьте. Какое предположение делает первый собеседник и чего добился бы такой человек? И как второй собеседник отвечает насчёт везения?",
+   "say_uz": "Javob bering. Birinchi suhbatdosh qanday taxmin qiladi va bunday odam nimaga erishgan bo‘lardi? Ikkinchi suhbatdosh omad haqida qanday javob beradi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog 1 javoblari",
+   "emotion": "proud",
+   "board": [
+    "1) Допустим, нет таланта; упорный труд даёт результат.",
+    "2) «В какой-то степени да, однако …»"
+   ],
+   "examples": [
+    {
+     "t": "Он допускает, что у человека нет таланта, но труд всё равно приведёт к успеху.",
+     "uz": "U odamda iste’dod yo‘q deb faraz qiladi, ammo mehnat baribir muvaffaqiyatga olib boradi."
+    },
+    {
+     "t": "Второй соглашается лишь отчасти: «В какой-то степени да, однако …».",
+     "uz": "Ikkinchisi faqat qisman rozi: «Qaysidir darajada ha, biroq ...»."
+    }
+   ],
+   "say_native": "Javoblar: birinchi suhbatdosh «допустим, у человека нет таланта» deydi, va agar u mehnat qilsa, ko‘p narsaga erishgan bo‘lardi. Ikkinchisi esa «в какой-то степени да, однако» deb qisman rozi bo‘ladi, ya’ni qat’iy «ha» ham, «yo‘q» ham demaydi. Bu navbatdagi mavzumiz: umumlashtirish va ehtiyotkor ifodalash. Shu iboralar bilan fikr bahsli mavzuda ham ishonchli ko‘rinadi.",
+   "say": "Первый собеседник допускает, что таланта нет, но упорный труд всё равно приведёт к успеху. Второй соглашается лишь отчасти: в какой-то степени да, однако без труда везение не помогает.",
+   "say_uz": "Birinchi suhbatdosh iste’dod yo‘q deb faraz qiladi, ammo qat’iy mehnat baribir muvaffaqiyatga olib boradi. Ikkinchisi faqat qisman rozi: qaysidir darajada ha, ammo mehnatsiz omad yordam bermaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Umumlashtirish",
+   "emotion": "neutral",
+   "board": [
+    "как правило · обычно",
+    "в большинстве случаев",
+    "зачастую · нередко",
+    "по большей части"
+   ],
+   "examples": [
+    {
+     "t": "Как правило, успех приходит к тем, кто упорно работает.",
+     "uz": "Odatda muvaffaqiyat qat’iy mehnat qiluvchilarga keladi."
+    },
+    {
+     "t": "Зачастую люди недооценивают роль обстоятельств.",
+     "uz": "Ko‘pincha odamlar sharoit rolini kam baholaydi."
+    }
+   ],
+   "say_native": "Uchinchi nuqta: umumlashtirish. Mavhum mavzuda biz doim «odatda» deymiz, ya’ni bir hodisa emas, ko‘pchilikni ko‘zda tutamiz. Asosiy iboralar: «как правило», «обычно», «в большинстве случаев», «зачастую», «нередко». «Зачастую» va «нередко» ma’nosida «ko‘pincha». Bular «все» va «всегда»dan ancha aniq va kamroq bahsli. Shu iboralarni ishlatgan o‘quvchi fikrga ishonch bilan qaraydi, chunki u haqiqatdan haddan tashqari katta da’vo qilmaydi.",
+   "say": "Как правило, успех приходит к тем, кто упорно работает. Зачастую люди недооценивают роль обстоятельств. В большинстве случаев решает не один фактор, а сразу несколько.",
+   "say_uz": "Odatda muvaffaqiyat qat’iy mehnat qiluvchilarga keladi. Ko‘pincha odamlar sharoit rolini kam baholaydi. Ko‘p hollarda bitta omil emas, bir nechtasi hal qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ehtiyotkor aytish: oglashuv",
+   "emotion": "thinking",
+   "board": [
+    "отчасти · в какой-то степени",
+    "не всегда · за редким исключением",
+    "всё зависит от …"
+   ],
+   "examples": [
+    {
+     "t": "Это верно лишь отчасти.",
+     "uz": "Bu faqat qisman to‘g‘ri."
+    },
+    {
+     "t": "Всё зависит от обстоятельств.",
+     "uz": "Hammasi sharoitga bog‘liq."
+    }
+   ],
+   "say_native": "Endi yumshatish iboralari. «Отчасти» va «в какой-то степени» — «qisman», «qaysidir darajada». «Не всегда» — «har doim emas». «За редким исключением» — «kamdan-kam istisno bilan». «Всё зависит от» dan keyin qaratqich kelishigi turadi: «от обстоятельств». Bunday iboralar bilan fikringiz aniq bo‘ladi va e’tiroz bildirish qiyinlashadi. Rus tilida ayniqsa «зависит от + Р.п.» ni yodda tuting, o‘zbekchadagi «-ga bog‘liq» dan farqli o‘laroq.",
+   "say": "Это верно лишь отчасти. Не всегда трудолюбие гарантирует успех, за редким исключением. В конечном счёте всё зависит от обстоятельств и от самого человека.",
+   "say_uz": "Bu faqat qisman to‘g‘ri. Mehnatsevarlik har doim ham muvaffaqiyatni kafolatlamaydi, kamdan-kam istisno bilan. Oxir-oqibat hammasi sharoitga va odamning o‘ziga bog‘liq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Mutlaq va yumshoq gaplar",
+   "emotion": "happy",
+   "board": [
+    "✗ Все всегда стремятся к деньгам.",
+    "✓ Многие нередко стремятся к деньгам.",
+    "✗ Успех никогда не бывает случайным."
+   ],
+   "examples": [
+    {
+     "t": "Многие люди нередко стремятся к деньгам.",
+     "uz": "Ko‘p odamlar ko‘pincha pulga intiladi."
+    },
+    {
+     "t": "Успех редко бывает полностью случайным.",
+     "uz": "Muvaffaqiyat kamdan-kam hollarda butunlay tasodif bo‘ladi."
+    },
+    {
+     "t": "Талант, как правило, нужно развивать.",
+     "uz": "Iste’dodni, odatda, rivojlantirish kerak."
+    }
+   ],
+   "say_native": "Mana qat’iy va yumshoq gaplarning qiyosi. «Все всегда» va «никогда не» juda keskin, shuning uchun osongina inkor qilinadi: bitta istisno topilsa, butun fikr quladi. «Многие нередко», «редко бывает», «как правило» esa ancha xavfsiz va aniq. Tahlil, esse yoki suhbatda bu farq kuchli. Sizga ikki so‘z beraman: «многие» o‘rniga «все», «редко» o‘rniga «никогда» deganingizda, xavfni o‘zingiz oshiryapsiz.",
+   "say": "Многие люди нередко стремятся к деньгам. Успех редко бывает полностью случайным. Талант, как правило, нужно развивать, иначе он пропадает.",
+   "say_uz": "Ko‘p odamlar ko‘pincha pulga intiladi. Muvaffaqiyat kamdan-kam hollarda butunlay tasodif bo‘ladi. Iste’dodni, odatda, rivojlantirish kerak, aks holda yo‘qoladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Haddan tashqari qat’iylik",
+   "emotion": "stern",
+   "board": [
+    "✗ Все люди всегда хотят одного и того же.",
+    "✓ Большинство людей, как правило, хотят стабильности.",
+    "Избегайте «все», «всегда», «никогда»"
+   ],
+   "examples": [],
+   "say_native": "Xato: «hamma doim bir narsani istaydi» kabi mutlaq da’vo. Bu isbotlab bo‘lmaydigan gap. To‘g‘ri variant: «Большинство людей, как правило, хотят стабильности». «Большинство» — ko‘pchilik, va u ko‘plik shaklidagi fe’l bilan ham, birlik bilan ham kelishi mumkin; biz bu yerda ko‘plikni ishlatdik. Mutlaq so‘zlardan voz kechish nutqingizni yetuk qiladi.",
+   "say": "Большинство людей, как правило, хотят стабильности. Но есть и те, кому важнее риск и перемены. Так звучит спокойное, взвешенное суждение.",
+   "say_uz": "Ko‘pchilik odamlar, odatda, barqarorlikni xohlaydi. Lekin xavf va o‘zgarishni muhimroq ko‘radiganlar ham bor. Shunday tinch, o‘ylangan hukm eshitiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Gapni yumshating",
+   "emotion": "encouraging",
+   "board": [
+    "1) Все всегда ленятся.",
+    "2) Богатые никогда не бывают счастливы.",
+    "3) Молодёжь вообще не читает."
+   ],
+   "examples": [],
+   "say_native": "Mashq: uchta mutlaq gapni yumshoq va aniq qilib qayta yozing. Birinchi: «hamma doim dangasa». Ikkinchi: «boylar hech qachon baxtli emas». Uchinchi: «yoshlar umuman o‘qimaydi». «Многие», «нередко», «как правило», «отчасти» kabi iboralardan foydalaning. Javoblar keyingi sahnada.",
+   "say": "Смягчите утверждения. Все всегда ленятся. Богатые никогда не бывают счастливы. Молодёжь вообще не читает.",
+   "say_uz": "Gaplarni yumshating. Hamma doim dangasa. Boylar hech qachon baxtli emas. Yoshlar umuman o‘qimaydi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: yumshatish",
+   "emotion": "proud",
+   "board": [
+    "Многие нередко ленятся.",
+    "Богатство не всегда делает человека счастливым.",
+    "Молодёжь читает меньше, чем раньше."
+   ],
+   "examples": [
+    {
+     "t": "Многие люди нередко ленятся.",
+     "uz": "Ko‘p odamlar ko‘pincha dangasalik qiladi."
+    },
+    {
+     "t": "Богатство не всегда делает человека счастливым.",
+     "uz": "Boylik odamni har doim ham baxtli qilmaydi."
+    },
+    {
+     "t": "Молодёжь, как правило, читает меньше, чем раньше.",
+     "uz": "Yoshlar, odatda, avvalgidan kam o‘qiydi."
+    }
+   ],
+   "say_native": "Namuna javoblar: «Многие люди нередко ленятся». «Богатство не всегда делает человека счастливым»: bu yerda «делает счастливым» — vosita kelishigi: kim qanaqa qiladi. «Молодёжь, как правило, читает меньше, чем раньше». Ko‘ryapsizmi, har bir gap hali ham aniq fikrni bildiradi, lekin istisnoga joy qoldiradi. Endi mulohazani yaxlit tuzilmaga solamiz.",
+   "say": "Многие люди нередко ленятся. Богатство не всегда делает человека счастливым. Молодёжь, как правило, читает меньше, чем раньше.",
+   "say_uz": "Ko‘p odamlar ko‘pincha dangasalik qiladi. Boylik odamni har doim ham baxtli qilmaydi. Yoshlar, odatda, avvalgidan kam o‘qiydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Dalillar tuzilmasi",
+   "emotion": "neutral",
+   "board": [
+    "Тезис",
+    "Аргумент + пример",
+    "Контраргумент",
+    "Вывод"
+   ],
+   "examples": [
+    {
+     "t": "Моя позиция такова: успех — это прежде всего труд.",
+     "uz": "Mening pozitsiyam shunday: muvaffaqiyat — avvalo mehnat."
+    },
+    {
+     "t": "Можно возразить, что многое решает случай.",
+     "uz": "Ko‘p narsani tasodif hal qiladi deb e’tiroz bildirish mumkin."
+    }
+   ],
+   "say_native": "To‘rtinchi nuqta: mavhum bahsni qurish. Tuzilma to‘rt qadamdan iborat: tezis, ya’ni sizning pozitsiyangiz, dalil va unga misol, e’tiroz, ya’ni qarama-qarshi fikr, va xulosa. Tezisni «моя позиция такова» yoki «я убеждён, что» bilan beramiz. E’tirozni «можно возразить, что» bilan keltiramiz va unga javob beramiz. Eng kuchli nutq qarshi fikrni ham ko‘rsatadi, keyin esa nima uchun o‘z pozitsiyangiz ustun ekanini tushuntiradi.",
+   "say": "Моя позиция такова: успех — это прежде всего труд. Можно возразить, что многое решает случай. Однако случай даёт шанс, а использовать его помогает только подготовка.",
+   "say_uz": "Mening pozitsiyam shunday: muvaffaqiyat — avvalo mehnat. Ko‘p narsani tasodif hal qiladi deb e’tiroz bildirish mumkin. Biroq tasodif imkoniyat beradi, undan foydalanishga faqat tayyorgarlik yordam beradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "To‘liq mulohaza namunasi",
+   "emotion": "happy",
+   "board": [
+    "Тезис → аргумент → пример → возражение → вывод"
+   ],
+   "examples": [],
+   "say_native": "Mana to‘liq namuna. Diqqat qiling, har bir qadam bir gap yoki ikki gap. Tezis: «Я убеждён, что доверие важнее таланта». Dalil: sababi ko‘rsatiladi. Misol: jamoadagi holat. E’tiroz: «можно возразить». Xulosa: «таким образом». Har bir qadamni belgilab o‘qing, keyin o‘zingiz ham shunday qurasiz.",
+   "say": "Я убеждён, что доверие важнее таланта. Ведь талантливый человек, которому не доверяют, не получит возможности проявить себя. Например, в команде никто не даёт ответственное дело тому, кто обманывал. Можно возразить, что талант привлекает людей. Однако, на мой взгляд, привлечь внимание — ещё не значит удержать его. Таким образом, без доверия таланту трудно раскрыться.",
+   "say_uz": "Ishonch iste’doddan muhimroq deb o‘ylayman. Chunki ishonilmaydigan iste’dodli odam o‘zini ko‘rsatish imkoniyatini olmaydi. Masalan, jamoada aldagan odamga hech kim mas’uliyatli ishni bermaydi. Iste’dod odamlarni jalb qiladi deb e’tiroz bildirish mumkin. Biroq, menimcha, e’tiborni jalb qilish uni ushlab qolish degani emas. Shunday qilib, ishonchsiz iste’dod ochilishi qiyin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Bog‘lovchilar: xulosa va oqibat",
+   "emotion": "neutral",
+   "board": [
+    "следовательно · таким образом",
+    "из этого следует, что …",
+    "поэтому ≠ потому что"
+   ],
+   "examples": [
+    {
+     "t": "Следовательно, одного таланта недостаточно.",
+     "uz": "Demak, bitta iste’dodning o‘zi yetarli emas."
+    },
+    {
+     "t": "Он много трудился, поэтому добился успеха.",
+     "uz": "U ko‘p mehnat qildi, shuning uchun muvaffaqiyatga erishdi."
+    }
+   ],
+   "say_native": "Xulosa va oqibat bog‘lovchilari: «следовательно», «таким образом», «из этого следует, что». Ularni «demak», «shunday qilib», «bundan kelib chiqadiki» deb tarjima qilamiz. Yana bir tuzoq: «поэтому» natijani, «потому что» sababni bildiradi. Ko‘p o‘zbek o‘quvchilari buni aralashtiradi. «Он трудился, поэтому добился» — natija; «Он добился, потому что трудился» — sabab. Ikkalasi bir xil ma’noni, lekin teskari tartibda aytadi.",
+   "say": "Он много трудился, поэтому добился успеха. Или иначе: он добился успеха, потому что много трудился. Следовательно, одного таланта недостаточно.",
+   "say_uz": "U ko‘p mehnat qildi, shuning uchun muvaffaqiyatga erishdi. Yoki boshqacha: u muvaffaqiyatga erishdi, chunki ko‘p mehnat qildi. Demak, bitta iste’dodning o‘zi yetarli emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xulosada tezisni takrorlash",
+   "emotion": "stern",
+   "board": [
+    "✗ Итак, успех — это успех.",
+    "✓ Итак, успех складывается из труда, шанса и времени.",
+    "Вывод должен добавлять, а не повторять"
+   ],
+   "examples": [],
+   "say_native": "Xato: xulosada oldin aytilganni so‘zma-so‘z takrorlash yoki aylanma ta’rif berish. «Успех — это успех» hech narsa bermaydi. To‘g‘ri: xulosada fikrni bir bosqich oldinga siljiting, «успех складывается из труда, шанса и времени». «Складывается из + Р.п.» — «dan tashkil topadi». Xulosa tezisni yangi tomondan sarhisob qilishi kerak.",
+   "say": "Итак, успех складывается из труда, шанса и времени. Каждая часть важна, но без труда остальные не работают. Вот вывод, который что-то добавляет.",
+   "say_uz": "Xullas, muvaffaqiyat mehnat, imkoniyat va vaqtdan tashkil topadi. Har bir qism muhim, lekin mehnatsiz qolganlari ishlamaydi. Mana, nimadir qo‘shadigan xulosa.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dalillarni tartiblang",
+   "emotion": "encouraging",
+   "board": [
+    "А) Таким образом, труд важнее.",
+    "Б) Можно возразить, что решает удача.",
+    "В) Я считаю, что труд важнее.",
+    "Г) Например, спортсмены тренируются годами."
+   ],
+   "examples": [],
+   "say_native": "Mashq: to‘rtta gap aralash berilgan. Ularni to‘g‘ri tartibga qo‘ying: tezis, misol, e’tiroz, xulosa. Har bir harfning qaysi bosqich ekanini ayting va tartibni ovoz chiqarib o‘qing. Javob keyingi sahnada.",
+   "say": "Расставьте предложения по порядку. А: таким образом, труд важнее. Б: можно возразить, что решает удача. В: я считаю, что труд важнее. Г: например, спортсмены тренируются годами.",
+   "say_uz": "Gaplarni tartibga qo‘ying. A: demak, mehnat muhimroq. B: omad hal qiladi deb e’tiroz bildirish mumkin. V: menimcha, mehnat muhimroq. G: masalan, sportchilar yillab mashq qiladi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javob: to‘g‘ri tartib",
+   "emotion": "proud",
+   "board": [
+    "В → Г → Б → А",
+    "тезис → пример → возражение → вывод"
+   ],
+   "examples": [
+    {
+     "t": "Я считаю, что труд важнее. Например, спортсмены тренируются годами.",
+     "uz": "Menimcha, mehnat muhimroq. Masalan, sportchilar yillab mashq qiladi."
+    }
+   ],
+   "say_native": "To‘g‘ri tartib: V, G, B, A. Avval tezis, keyin misol, keyin e’tiroz va oxirida xulosa. «Я считаю, что труд важнее. Например, спортсмены тренируются годами. Можно возразить, что решает удача. Таким образом, труд важнее». Xulosa tezisni to‘liq takrorlamasligi kerak, shuning uchun uni bir oz boyiting: «труд важнее, хотя удача играет роль».",
+   "say": "Я считаю, что труд важнее. Например, спортсмены тренируются годами. Можно возразить, что решает удача. Таким образом, труд важнее, хотя удача тоже играет роль.",
+   "say_uz": "Menimcha, mehnat muhimroq. Masalan, sportchilar yillab mashq qiladi. Omad hal qiladi deb e’tiroz bildirish mumkin. Demak, mehnat muhimroq, garchi omad ham rol o‘ynasa.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 2: adolat haqida",
+   "emotion": "neutral",
+   "board": [
+    "— Что такое справедливость?",
+    "— На мой взгляд …",
+    "— Это верно лишь отчасти."
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog: adolat haqida suhbat. Tinglang, suhbatdoshlar tushunchani qanday ta’riflaydi, qanday umumlashtiradi, qayerda e’tiroz bildiradi. Dialogdan keyin yana ikki savol bo‘ladi.",
+   "say": "— Что такое справедливость? — На мой взгляд, это когда каждый получает по заслугам. — Это верно лишь отчасти. Нередко человек не может повлиять на обстоятельства. — Допустим. Но если бы мы не ценили заслуги, никто бы не старался.",
+   "say_uz": "— Adolat nima? — Menimcha, bu har kim munosib narsasini olishi. — Bu faqat qisman to‘g‘ri. Ko‘pincha odam sharoitga ta’sir qila olmaydi. — Faraz qilaylik. Lekin agar xizmatlarni qadrlamasak, hech kim harakat qilmasdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog 2 bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Как первый определяет справедливость?",
+    "2) Какое возражение приводит второй?"
+   ],
+   "examples": [],
+   "say_native": "Ikki savol. Birinchi: birinchi suhbatdosh adolatni qanday ta’riflaydi? Ikkinchi: ikkinchi suhbatdosh qanday e’tiroz bildiradi? Javoblaringizda tegishli iboralarni, masalan, «на мой взгляд» va «лишь отчасти» ni qo‘llang.",
+   "say": "Ответьте на вопросы. Как первый собеседник определяет справедливость? И какое возражение приводит второй?",
+   "say_uz": "Savollarga javob bering. Birinchi suhbatdosh adolatni qanday ta’riflaydi? Ikkinchisi qanday e’tiroz bildiradi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog 2 javoblari",
+   "emotion": "proud",
+   "board": [
+    "1) Каждый получает по заслугам.",
+    "2) Человек не всегда может повлиять на обстоятельства."
+   ],
+   "examples": [
+    {
+     "t": "Справедливость — это когда каждый получает по заслугам.",
+     "uz": "Adolat — bu har kim munosib narsasini olishi."
+    },
+    {
+     "t": "Второй возражает: нередко человек не может повлиять на обстоятельства.",
+     "uz": "Ikkinchisi e’tiroz bildiradi: ko‘pincha odam sharoitga ta’sir qila olmaydi."
+    }
+   ],
+   "say_native": "Javoblar: birinchisi adolatni «каждый получает по заслугам» deb ta’riflaydi. Ikkinchisi «нередко человек не может повлиять на обстоятельства» deb e’tiroz bildiradi. Birinchisi esa «допустим» deb qisman rozi bo‘lib, so‘ng «если бы мы не ценили заслуги, никто бы не старался» taxminini keltiradi. Ko‘ryapsizmi, bu bitta qisqa suhbatda to‘rtta bugungi usul ishladi.",
+   "say": "Первый считает, что справедливость — это когда каждый получает по заслугам. Второй возражает: нередко человек не может повлиять на обстоятельства. Тогда первый приводит гипотезу: если бы мы не ценили заслуги, никто бы не старался.",
+   "say_uz": "Birinchisi adolat har kim munosib narsasini olishi deb hisoblaydi. Ikkinchisi e’tiroz bildiradi: ko‘pincha odam sharoitga ta’sir qila olmaydi. Keyin birinchisi taxmin keltiradi: agar xizmatlarni qadrlamasak, hech kim harakat qilmasdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Muvaffaqiyat mavzusi lug‘ati",
+   "emotion": "neutral",
+   "board": [
+    "удача · везение · случай",
+    "труд · усилие · упорство",
+    "способности · обстоятельства · возможность"
+   ],
+   "examples": [
+    {
+     "t": "Удача любит упорных.",
+     "uz": "Omad qat’iyatlilarni yaxshi ko‘radi."
+    },
+    {
+     "t": "Упорство помогает преодолеть неудачи.",
+     "uz": "Qat’iyat muvaffaqiyatsizliklarni yengishga yordam beradi."
+    }
+   ],
+   "say_native": "Uyga vazifa mavzusi uchun lug‘at. Omad: «удача», «везение», «случай». Mehnat: «труд», «усилие», «упорство». Boshqa omillar: «способности», «обстоятельства», «возможность». «Преодолеть» — yengib o‘tmoq, undan keyin vin. kelishik: «преодолеть неудачи». «Добиться» fe’li esa «+ Р.п.»: «добиться успеха», «добиться цели». Bu fe’lni eslab qoling: uni kerakli joyda ishlatish nutqingizni yuqori darajaga olib chiqadi.",
+   "say": "Удача любит упорных. Упорство помогает преодолеть неудачи. Чтобы добиться цели, нужны и способности, и благоприятные обстоятельства, и возможность, которой надо вовремя воспользоваться.",
+   "say_uz": "Omad qat’iyatlilarni yaxshi ko‘radi. Qat’iyat muvaffaqiyatsizliklarni yengishga yordam beradi. Maqsadga erishish uchun ham qobiliyat, ham qulay sharoit, ham o‘z vaqtida foydalanilgan imkoniyat kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy topshiriq: uch daqiqa",
+   "emotion": "encouraging",
+   "board": [
+    "Тема: Успех — это удача или труд?",
+    "Определение → гипотеза → оговорка → возражение → вывод",
+    "Говорите 3 минуты"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy topshiriq va aynan uyga vazifa mavzusi: muvaffaqiyat omadmi yoki mehnat? Reja: avval tushunchani ta’riflang, keyin bitta taxminiy gap «если бы» bilan, bitta yumshatuvchi ibora, bitta e’tiroz va xulosa. Uch daqiqa gapiring, hozir esa o‘n soniya o‘ylash uchun. Namuna javob keyingi sahnada.",
+   "say": "Тема: успех — это удача или труд? Дайте определение, добавьте гипотезу с «если бы», используйте оговорку, приведите возражение и сделайте вывод. Говорите три минуты.",
+   "say_uz": "Mavzu: muvaffaqiyat omadmi yoki mehnat? Ta’rif bering, «agar» bilan taxminiy gap qo‘shing, yumshatuvchi iborani ishlating, e’tiroz keltiring va xulosa chiqaring. Uch daqiqa gapiring.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javob",
+   "emotion": "proud",
+   "board": [
+    "Определение",
+    "«Если бы …»",
+    "«Как правило …, но не всегда»",
+    "Возражение → вывод"
+   ],
+   "examples": [],
+   "say_native": "Namuna. Ta’rif: muvaffaqiyat deganda maqsadga erishishni tushunamiz. Taxmin: agar faqat omad hal qilganida, mehnat ma’nosiz bo‘lardi. Yumshatish: odatda mehnat zarur, lekin har doim ham yetarli emas. E’tiroz va xulosa. Siz bu rejani o‘z so‘zlaringiz va misollaringiz bilan to‘ldirasiz. Eng muhimi: har bir bosqichni bilib turasiz.",
+   "say": "Под успехом принято понимать достижение цели. Если бы всё решала удача, труд потерял бы смысл. Как правило, труд необходим, но не всегда достаточен. Можно возразить, что везение бывает решающим, однако оно лишь открывает дверь. Следовательно, успех — это труд и шанс вместе.",
+   "say_uz": "Muvaffaqiyat deganda odatda maqsadga erishishni tushunishadi. Agar hammasini omad hal qilganida, mehnat ma’nosini yo‘qotardi. Odatda mehnat zarur, lekin har doim ham yetarli emas. Omad hal qiluvchi bo‘ladi deb e’tiroz bildirish mumkin, biroq u faqat eshikni ochadi. Demak, muvaffaqiyat mehnat va imkoniyatning birgaligi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Tezkor mashq: so‘zni tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Если бы я … (быть) богатым …",
+    "2) … зависит от обстоятельств.",
+    "3) Я … , что труд важнее."
+   ],
+   "examples": [],
+   "say_native": "Tezkor mashq. Birinchi gapda «быть» fe’lini to‘g‘ri shaklda qo‘ying. Ikkinchisida «всё» yoki «все» ni tanlang. Uchinchisida «ishonaman» ma’nosini beruvchi «убеждён» so‘zini to‘g‘ri shaklda qo‘ying. Har bir gapni to‘liq o‘qing. Javoblar keyingi sahnada.",
+   "say": "Закончите. Первое: если бы я … богатым, я бы помог. Второе: … зависит от обстоятельств. Третье: я … , что труд важнее.",
+   "say_uz": "Tugallang. Birinchisi: agar men boy ..., yordam bergan bo‘lardim. Ikkinchisi: ... sharoitga bog‘liq. Uchinchisi: men mehnat muhimroq ekaniga ... .",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: tezkor mashq",
+   "emotion": "proud",
+   "board": [
+    "1) Если бы я был богатым …",
+    "2) Всё зависит от обстоятельств.",
+    "3) Я убеждён, что труд важнее."
+   ],
+   "examples": [
+    {
+     "t": "Если бы я был богатым, я бы помог многим.",
+     "uz": "Agar boy bo‘lganimda, ko‘plarga yordam bergan bo‘lardim."
+    },
+    {
+     "t": "Всё зависит от обстоятельств.",
+     "uz": "Hammasi sharoitga bog‘liq."
+    }
+   ],
+   "say_native": "Javoblar: «если бы я был богатым» — o‘tgan zamon shakli, «был», chunki taxminiy gap. «Всё зависит от обстоятельств» — bu yerda «всё» o‘rta jinsdagi olmosh, «hamma narsa». «Все» esa «hamma odamlar». Farq muhim: «все зависят» noto‘g‘ri bo‘lardi. «Я убеждён, что труд важнее» — erkak uchun, ayol esa «я убеждена» deydi. Mana, rus tilida jins nutqda yana bir marta ko‘rindi.",
+   "say": "Если бы я был богатым, я бы помог многим. Всё зависит от обстоятельств. Я убеждён, что труд важнее, а женщина скажет: я убеждена.",
+   "say_uz": "Agar boy bo‘lganimda, ko‘plarga yordam bergan bo‘lardim. Hammasi sharoitga bog‘liq. Mehnat muhimroq ekaniga ishonaman, ayol esa «ya ubejdena» deydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "понятие · гипотеза · обобщение · структура",
+    "Под … я понимаю · Если бы … бы",
+    "Как правило · отчасти · можно возразить"
+   ],
+   "examples": [],
+   "say_native": "Xulosa. Birinchi: mavhum otlar va ularni «под ... я понимаю» bilan ta’riflash. Ikkinchi: «если бы» bilan taxminiy fikr, doim o‘tgan zamon shaklida. Uchinchi: «как правило», «отчасти» bilan ehtiyotkor umumlashtirish. To‘rtinchi: tezis, dalil, e’tiroz va xulosa tuzilmasi. Shu to‘rtlik bilan har qanday mavhum mavzuda uch daqiqa gapirish mumkin.",
+   "say": "Подведём итог. Вы научились определять понятия, строить гипотезы, обобщать с оговорками и выстраивать аргументацию. С этим набором можно говорить о любой абстрактной теме.",
+   "say_uz": "Xulosa qilaylik. Siz tushunchalarni ta’riflashni, taxminlar qurishni, ehtiyotkorlik bilan umumlashtirishni va dalillarni tartibga solishni o‘rgandingiz. Shu to‘plam bilan istalgan mavhum mavzuda gapirish mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "Тема: Успех — это удача или труд?",
+    "3 минуты",
+    "Следующий урок: номинализация и академический стиль"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa: «muvaffaqiyat omadmi yoki mehnat?» mavzusida uch daqiqa gapiring va yozib oling. Mezon: ta’rif, «если бы» bilan bitta taxmin, kamida ikkita yumshatuvchi ibora, bitta e’tiroz va xulosa bo‘lsin. Keyingi darsda nominalizatsiya va akademik uslubni o‘rganamiz.",
+   "say": "До свидания! Запишите свою речь и проверьте, есть ли в ней определение, гипотеза, оговорки, возражение и вывод. До встречи на следующем уроке!",
+   "say_uz": "Xayr! Nutqingizni yozib oling va unda ta’rif, taxmin, yumshatish, e’tiroz va xulosa bor-yo‘qligini tekshiring. Keyingi darsda ko‘rishamiz!",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "«Omadmi yoki harakatmi?» mavzusida 3 daqiqa gapirib qo‘ying. Mezon: har bir gap rus tilida, «думаю, что, возможно, потому что, например, итого» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “I think”?","options":["думаю","возможно","потому что","итого"],"answer":0,"why_uz":"Думаю — o‘ylayman."},
-  {"q":"Which word means “possibly”?","options":["возможно","думаю","потому что","итого"],"answer":0,"why_uz":"Возможно — mumkin."},
-  {"q":"Which word means “because”?","options":["потому что","думаю","возможно","итого"],"answer":0,"why_uz":"Потому что — chunki."},
-  {"q":"How do you say “I think it is good”?","options":["Думаю, что это хорошо.","Думаю, что это хорошо есть.","Думаю, что это хорошо является.","Думаю, что это хорошо был."],"answer":0,"why_uz":"Думаю, что это хорошо — menimcha, bu yaxshi."},
-  {"q":"How do you say “Possibly it is important”?","options":["Возможно, это важно.","Возможно, это важно есть.","Возможно, это важно является.","Возможно, это важно был."],"answer":0,"why_uz":"Возможно, это важно — mumkin, bu muhim."},
-  {"q":"Which word means “for example”?","options":["например","думаю","возможно","потому что"],"answer":0,"why_uz":"Например — masalan."},
-  {"q":"Which word means “however”?","options":["однако","например","думаю","возможно"],"answer":0,"why_uz":"Однако — ammo."},
-  {"q":"Which word means “in total”?","options":["итого","например","однако","думаю"],"answer":0,"why_uz":"Итого — xulosa qilib."},
-  {"q":"How do you say “Luck is important”?","options":["Удача важна.","Удача важна есть.","Удача важна является.","Удача важна был."],"answer":0,"why_uz":"Удача важна — omad muhim."},
-  {"q":"How do you say “Effort is important”?","options":["Усилия важны.","Усилия важны есть.","Усилия важны являются.","Усилия важны был."],"answer":0,"why_uz":"Усилия важны — harakatlar muhim."}
+ "homework_uz": "«Успех — это удача или труд?» mavzusida rus tilida uch daqiqa gapiring va yozib oling. Mezon: nutqda tushuncha ta’rifi, «если бы» bilan bitta taxmin, kamida ikkita yumshatuvchi ibora (masalan, «как правило», «отчасти»), bitta e’tiroz va xulosa bo‘lsin.",
+ "quiz": [
+  {
+   "q": "Which phrase correctly defines a concept?",
+   "options": [
+    "Под счастьем я понимаю спокойствие.",
+    "Под счастье я понимаю спокойствие.",
+    "Под счастья я понимаю спокойствие.",
+    "Под счастью я понимаю спокойствие."
+   ],
+   "answer": 0,
+   "why_uz": "«Под» dan keyin ot vosita kelishigida turadi: под счастьем."
+  },
+  {
+   "q": "Which sentence is a correct hypothetical?",
+   "options": [
+    "Если бы я был богатым, я бы помог.",
+    "Если бы я буду богатым, я бы помог.",
+    "Если я был бы богатым, я помог.",
+    "Если бы я быть богатым, я помог."
+   ],
+   "answer": 0,
+   "why_uz": "«Если бы» dan keyin o‘tgan zamon shakli turadi."
+  },
+  {
+   "q": "Which word is feminine?",
+   "options": [
+    "ответственность",
+    "успех",
+    "выбор",
+    "случай"
+   ],
+   "answer": 0,
+   "why_uz": "-ость bilan tugaydigan otlar ayol jinsida."
+  },
+  {
+   "q": "Which phrase softens a statement?",
+   "options": [
+    "как правило",
+    "всегда",
+    "никогда",
+    "абсолютно все"
+   ],
+   "answer": 0,
+   "why_uz": "«Как правило» umumlashtirishni yumshatadi."
+  },
+  {
+   "q": "«Всё зависит ... обстоятельств.» Which preposition?",
+   "options": [
+    "от",
+    "из",
+    "у",
+    "о"
+   ],
+   "answer": 0,
+   "why_uz": "«Зависеть от + Р.п.»."
+  },
+  {
+   "q": "Which linker introduces a result?",
+   "options": [
+    "поэтому",
+    "потому что",
+    "например",
+    "однако"
+   ],
+   "answer": 0,
+   "why_uz": "«Поэтому» natijani bildiradi, «потому что» esa sababni."
+  },
+  {
+   "q": "Which expression begins an objection?",
+   "options": [
+    "Можно возразить, что …",
+    "Таким образом, …",
+    "Например, …",
+    "Как правило, …"
+   ],
+   "answer": 0,
+   "why_uz": "«Можно возразить, что» e’tirozni boshlaydi."
+  },
+  {
+   "q": "Which is the best order of an argument?",
+   "options": [
+    "Тезис, пример, возражение, вывод",
+    "Вывод, пример, тезис",
+    "Пример, вывод, возражение",
+    "Возражение, тезис, пример"
+   ],
+   "answer": 0,
+   "why_uz": "Klassik tartib: tezis, misol, e’tiroz, xulosa."
+  },
+  {
+   "q": "Which phrase means “let us suppose”?",
+   "options": [
+    "Допустим, что …",
+    "Кстати, …",
+    "Наконец, …",
+    "Хотя, …"
+   ],
+   "answer": 0,
+   "why_uz": "«Допустим, что» — faraz qilaylik."
+  },
+  {
+   "q": "Which sentence is the most cautious?",
+   "options": [
+    "Успех редко бывает полностью случайным.",
+    "Успех никогда не бывает случайным.",
+    "Успех всегда случаен.",
+    "Все всегда добиваются успеха."
+   ],
+   "answer": 0,
+   "why_uz": "«Редко» mutlaq «никогда» dan ehtiyotkorroq va aniqroq."
+  }
  ]
 }

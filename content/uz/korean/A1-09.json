@@ -1,30 +1,10 @@
 {
  "title": "Ovqat, ichimlik va kafeda buyurtma berish",
- "goal_uz": "Dars oxirida kafeda ovqat va ichimlik buyurtma bera olasiz, narxni so‘ray olasiz, to‘lov qilishingiz va xizmatkunlik bilan muloqot qilishingiz mumkin.",
+ "goal_uz": "Dars oxirida kafe va restoranda koreyscha buyurtma berasiz: “주세요” va “-고 싶어요” bilan so‘raysiz, sanoq so‘zlari (한 잔, 두 개) bilan miqdorni aytasiz, narxni so‘raysiz va hisobni to‘laysiz.",
  "vocab": [
   {
-   "w": "음식 (eumsik)",
-   "uz": "ovqat"
-  },
-  {
-   "w": "음료 (eumryo)",
-   "uz": "ichimlik"
-  },
-  {
-   "w": "밥 (bap)",
-   "uz": "non (ovqat)"
-  },
-  {
-   "w": "국 (guk)",
-   "uz": "sho‘rva"
-  },
-  {
-   "w": "고기 (gogi)",
-   "uz": "go‘sht"
-  },
-  {
-   "w": "채소 (chaeso)",
-   "uz": "sabzavot"
+   "w": "메뉴 (menyu)",
+   "uz": "menyu"
   },
   {
    "w": "물 (mul)",
@@ -32,30 +12,50 @@
   },
   {
    "w": "커피 (keopi)",
-   "uz": "kofe"
+   "uz": "qahva"
   },
   {
    "w": "차 (cha)",
    "uz": "choy"
   },
   {
-   "w": "주문하다 (jumunhada)",
-   "uz": "buyurtma berish"
+   "w": "빵 (ppang)",
+   "uz": "non, bulochka"
+  },
+  {
+   "w": "김밥 (gimbap)",
+   "uz": "gimbap (guruchli rulet)"
+  },
+  {
+   "w": "비빔밥 (bibimbap)",
+   "uz": "bibimbap (aralash guruch)"
+  },
+  {
+   "w": "주세요 (juseyo)",
+   "uz": "bering"
+  },
+  {
+   "w": "얼마예요? (eolmayeyo?)",
+   "uz": "qancha turadi?"
+  },
+  {
+   "w": "계산 (gyesan)",
+   "uz": "hisob-kitob, to‘lov"
   }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "To‘rttinchi darsga xush kelibsiz",
+   "title": "To‘qqizinchi darsga xush kelibsiz",
    "emotion": "happy",
    "board": [
-    "Ovqat, ichimlik va kafeda buyurtma berish",
-    "Bugun: ovqat, ichimlik, buyurtma berish, to‘lov"
+    "Ovqat, ichimlik va kafe",
+    "주세요 · 얼마예요? · 계산해 주세요"
    ],
    "examples": [],
-   "say_native": "Assalomu alaykum! To‘rttinchi darsga xush kelibsiz. Oldingi darsda odatlar va kunlik ishlar haqida gapirdik. Bugun kafeda ovqat va ichimlik buyurtma berishni o‘rganamiz. Soatni aytish, yoshni aytishni eslab qolishingiz kerak. Bugun siz kafeda ovqat va ichimlik buyurtma bera olasiz, narxni so‘ray olasiz va to‘lov qilashingiz mumkin. Buyurtma, narx, to‘lov — hammasi shu darsda; dars oxirida kafeda o‘zingizni erkin his qilasiz.",
-   "say": "안녕하세요! 오늘은 음식과 음료에 대해 배워요.",
-   "say_uz": "Assalomu alaykum! Bugun ovqat va ichimlik haqida gaplashamiz.",
+   "say": "안녕하세요! 오늘은 카페와 식당에서 주문해요.",
+   "say_native": "Assalomu alaykum! To‘qqizinchi darsga xush kelibsiz. Oldingi darsda odatlar va kundalik ishlar haqida gapirdik, “저는 보통 커피를 마셔요” kabi gaplar tuzdik. Bugun shu qahva va ovqatni kafeda o‘zingiz buyurtma qilasiz. Ovqat va ichimlik so‘zlarini, “주세요” bilan so‘rashni, miqdorni aytishni, narxni so‘rashni va to‘lashni o‘rganamiz. Koreyaga borsangiz, bugungi dars darhol kerak bo‘ladi.",
+   "say_uz": "Assalomu alaykum! Bugun kafe va restoranda buyurtma beramiz.",
    "practice_seconds": 0
   },
   {
@@ -63,193 +63,535 @@
    "title": "Ovqat so‘zlari",
    "emotion": "neutral",
    "board": [
-    "음식 (eumsik) — ovqat",
-    "밥 (bap) — non (ovqat)",
-    "국 (guk) — sho‘rva",
-    "고기 (gogi) — go‘sht",
-    "채소 (chaeso) — sabzavot"
+    "밥 (bap) — guruch, ovqat",
+    "김밥 (gimbap) — gimbap",
+    "비빔밥 (bibimbap) — bibimbap",
+    "라면 (ramyeon) — lagmon (tez tayyor)",
+    "빵 (ppang) — non"
    ],
    "examples": [
     {
-     "t": "밥",
-     "uz": "non (ovqat)"
+     "t": "김밥을 좋아해요.",
+     "uz": "Gimbapni yaxshi ko‘raman."
     },
     {
-     "t": "국",
-     "uz": "sho‘rva"
-    },
-    {
-     "t": "고기",
-     "uz": "go‘sht"
+     "t": "아침에 빵을 먹어요.",
+     "uz": "Ertalab non yeyman."
     }
    ],
-   "say_native": "Avval ovqat so‘zlarini o‘rgaymiz. “음식” — ovqat. “밥” — non (ovqat). “국” — sho‘rva. “고기” — go‘sht. “채소” — sabzavot. Bu asosiy ovqat turlari. Har birini sekin, aniq aytng va tarjimasini eslang. “밥” so‘zining boshqa ma‘nosi ham “guruch” — koreyslarda asosiy ovqat guruch bo‘lgani uchun non va guruch bitta so‘z bilan aytiladi.",
-   "say": "음식. 밥. 국. 고기. 채소.",
-   "say_uz": "Ovqat. Non. Sho‘rva. Go‘sht. Sabzavot.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Ovqat so‘zlarini o‘qing",
-   "emotion": "encouraging",
-   "board": [
-    "밥 · 국 · 고기 · 채소"
-   ],
-   "examples": [],
-   "say_native": "Ekrandagi ovqat so‘zlarini koreyscha o‘qing: 밥, 국, 고기, 채소. Har birini sekin, aniq aytng va tarjimasini eslang. “고기” va “채소” ichki tovushiga e‘tibor bering — ular o‘zbek tilida yo‘q tovushlar.",
-   "say": "밥. 국. 고기. 채소.",
-   "say_uz": "Non. Sho‘rva. Go‘sht. Sabzavot.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: ovqat",
-   "emotion": "proud",
-   "board": [
-    "밥 — non (ovqat)",
-    "국 — sho‘rva",
-    "고기 — go‘sht",
-    "채소 — sabzavot"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 밥 — non (ovqat), 국 — sho‘rva, 고기 — go‘sht, 채소 — sabzavot. Ularni yodlab oling, chunki keyingi bo‘limlarda buyurtma berishda ishlatamiz.",
-   "say": "밥. 국. 고기. 채소.",
-   "say_uz": "Non. Sho‘rva. Go‘sht. Sabzavot.",
-   "practice_seconds": 20
+   "say": "밥, 김밥, 비빔밥, 라면, 빵. 저는 김밥을 좋아해요.",
+   "say_native": "Avval ovqat nomlarini bilib olamiz. “밥” — guruch, shuningdek umuman ovqat. “김밥” — dengiz o‘tiga o‘ralgan guruchli rulet, Koreyada eng ommabop tez ovqat. “비빔밥” — guruch ustiga sabzavot va tuxum qo‘yib aralashtiriladigan taom. “라면” — tez tayyorlanadigan lagmon, “빵” — non va bulochkalar. O‘zbek dasturxonida non muhim, koreyslarda esa “밥” — hayotning markazi: “밥 먹었어요?” — ovqat yedingizmi, degan salomlashish ham bor.",
+   "say_uz": "Guruch, gimbap, bibimbap, ramyon, non. Men gimbapni yaxshi ko‘raman.",
+   "practice_seconds": 0
   },
   {
    "kind": "explain",
    "title": "Ichimlik so‘zlari",
    "emotion": "neutral",
    "board": [
-    "음료 (eumryo) — ichimlik",
     "물 (mul) — suv",
-    "커피 (keopi) — kofe",
-    "차 (cha) — choy"
+    "커피 (keopi) — qahva",
+    "차 (cha) — choy",
+    "주스 (juseu) — sok",
+    "우유 (uyu) — sut"
    ],
    "examples": [
     {
-     "t": "물",
-     "uz": "suv"
+     "t": "물 한 잔 주세요.",
+     "uz": "Bir stakan suv bering."
     },
     {
-     "t": "커피",
-     "uz": "kofe"
-    },
-    {
-     "t": "차",
-     "uz": "choy"
+     "t": "저는 차를 좋아해요.",
+     "uz": "Men choyni yoqtiraman."
     }
    ],
-   "say_native": "Endi ichimlik so‘zlarini o‘rgaymiz. “음료” — ichimlik. “물” — suv. “커피” — kofe. “차” — choy. Ularni sekin, aniq aytng va tarjimasini eslang. “커피” — kofe; ko‘pchilik kafelarda “따뜻한 커피” (issiq kofe) va “차가운 커피” (sovuq kofe) so‘raladi.",
-   "say": "음료. 물. 커피. 차.",
-   "say_uz": "Ichimlik. Suv. Kofe. Choy.",
-   "practice_seconds": 20
+   "say": "물, 커피, 차, 주스, 우유. 저는 따뜻한 차를 좋아해요.",
+   "say_native": "Endi ichimliklar. “물” — suv, “커피” — qahva, “차” — choy, “주스” — sok, “우유” — sut. Ko‘p chet so‘zlari inglizchadan olingan: “커피” — coffee, “주스” — juice, shuning uchun yodlash oson. Koreyada kafelar juda ko‘p, ko‘pchilik qahvani muzli ichadi, qishda ham. Yana “차” so‘zi ikki xil ma‘noda: ichimlik — choy, shuningdek mashina. Qaysi ekanini gap ma‘nosidan bilib olasiz, odatda “마시다” — ichmoq fe‘li bo‘lsa, choy.",
+   "say_uz": "Suv, qahva, choy, sok, sut. Men issiq choyni yoqtiraman.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Ichimlik so‘zlarini o‘qing",
+   "title": "So‘zlarni takrorlang",
    "emotion": "encouraging",
    "board": [
-    "물 · 커피 · 차"
+    "밥 · 김밥 · 비빔밥 · 라면 · 빵",
+    "물 · 커피 · 차 · 주스 · 우유",
+    "Har bir so‘zni ayting",
+    "Ma‘nosini eslang"
    ],
    "examples": [],
-   "say_native": "Ekrandagi ichimlik so‘zlarini koreyscha o‘qing: 물, 커피, 차. Har birini sekin va aniq aytng va tarjimasini eslang. “차” bitta harf — o‘zbek tilidagi “cha” kabi o‘qiladi.",
-   "say": "물. 커피. 차.",
-   "say_uz": "Suv. Kofe. Choy.",
-   "practice_seconds": 20
+   "say": "비빔밥, 라면, 주스, 우유, 차를 큰 소리로 읽어 보세요.",
+   "say_native": "Ekrandagi so‘zlarni ovoz chiqarib o‘qing va har birining ma‘nosini eslang. Birinchi qatorda ovqatlar, ikkinchisida ichimliklar. Menga “비빔밥”, “라면”, “주스”, “우유” va “차”ni ketma-ket ayting. Ma‘nosini bilmagan so‘zingiz bo‘lsa, ekrandagi izohga qarang. Keyingi sahnada hammasining javobi bor.",
+   "say_uz": "Mashq: ovqat va ichimlik so‘zlarini ovoz chiqarib o‘qing.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar: ichimlik",
+   "title": "Javoblar: ovqat va ichimliklar",
    "emotion": "proud",
    "board": [
-    "물 — suv",
-    "커피 — kofe",
+    "비빔밥 — aralash guruch",
+    "라면 — tez tayyor lagmon",
+    "주스 — sok · 우유 — sut",
     "차 — choy"
    ],
-   "examples": [],
-   "say_native": "Javoblar: 물 — suv, 커피 — kofe, 차 — choy. Ularni yodlab oling, chunki keyingi bo‘limlarda ichimlik buyurtma berishda ishlatamiz.",
-   "say": "물. 커피. 차.",
-   "say_uz": "Suv. Kofe. Choy.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Buyurtma berish: -세요/세요",
-   "emotion": "neutral",
-   "board": [
-    "주문하다 (jumunhada) — buyurtma berish",
-    "주세요 (juseyo) — …iltiga bering",
-    "주문할게요 (jumunhalgeyo) — buyurtma beraman"
-   ],
    "examples": [
     {
-     "t": "주문할게요.",
-     "uz": "Buyurtma beraman."
-    },
-    {
-     "t": "주세요.",
-     "uz": "Iltiga bering."
+     "t": "아침에 우유를 마셔요.",
+     "uz": "Ertalab sut ichaman."
     }
    ],
-   "say_native": "Buyurtma berishda “주세요” (juseyo) — …iltiga bering, “주문할게요” (jumunhalgeyo) — buyurtma beraman deb aytamiz. “물 주세요” — suv iltiga bering. “커피 주세요” — kofe iltiga bering. Bu o‘zbek tilining “…iltiga bering” ga o‘xshaydi. Shuningdek “주문할게요” — “buyurtma beraman” degan xabardor qilish iborasi; u buyurtmani boshlashda aytiladi.",
-   "say": "주문할게요. 주세요. 물 주세요. 커피 주세요.",
-   "say_uz": "Buyurtma beraman. Iltiga bering. Suv iltiga bering. Kofe iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Buyurtma berishni o‘rganamiz",
-   "emotion": "encouraging",
-   "board": [
-    "물 주세요.",
-    "커피 주세요.",
-    "차 주세요."
-   ],
-   "examples": [],
-   "say_native": "Ekrandagi buyurtmalarni koreyscha o‘qing: “물 주세요”, “커피 주세요”, “차 주세요”. Har birini sekin, aniq aytng. Har birini ikki marta ayting: avval yozuvga qarab, keyin ekranga qaramay.",
-   "say": "물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
+   "say": "아침에 우유를 마셔요. 점심에 비빔밥을 먹어요.",
+   "say_native": "Javoblar: “비빔밥” — aralash guruch, “라면” — tez tayyor lagmon, “주스” — sok, “우유” — sut, “차” — choy. Bu so‘zlarni oldingi darsdagi odat gaplariga qo‘shib ko‘ring: “아침에 우유를 마셔요”, “점심에 비빔밥을 먹어요”. Ichimlikka “마셔요”, ovqatga “먹어요” fe‘li mos keladi, buni yaxshi eslab qoling: koreyschada “sho‘rva ichmoq” emas, ko‘pincha “먹다” deyiladi, lekin suyuqliklar uchun “마시다”.",
+   "say_uz": "Ertalab sut ichaman. Tushlikda bibimbap yeyman.",
+   "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Javoblar: buyurtma berish",
-   "emotion": "proud",
+   "title": "Asosiy qolip: ~주세요",
+   "emotion": "neutral",
    "board": [
-    "물 주세요. — suv iltiga bering.",
-    "커피 주세요. — kofe iltiga bering.",
-    "차 주세요. — choy iltiga bering."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “물 주세요” — suv iltiga bering, “커피 주세요” — kofe iltiga bering, “차 주세요” — choy iltiga bering. Ularni yodlab oling, chunki keyingi bo‘limlarda doim ishlatamiz.",
-   "say": "물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "example",
-   "title": "Dialog 1: kofe buyurtma berish",
-   "emotion": "happy",
-   "board": [
-    "A: 커피 주세요.",
-    "B: 네, 따뜻한 커피예요.",
-    "A: 네, 고마워요."
+    "명사 + 주세요 (juseyo)",
+    "커피 주세요.",
+    "물 주세요.",
+    "메뉴 주세요."
    ],
    "examples": [
     {
      "t": "커피 주세요.",
-     "uz": "Kofe iltiga bering."
+     "uz": "Qahva bering."
     },
     {
-     "t": "고마워요.",
+     "t": "메뉴 주세요.",
+     "uz": "Menyu bering."
+    },
+    {
+     "t": "이거 주세요.",
+     "uz": "Mana buni bering."
+    }
+   ],
+   "say": "커피 주세요. 메뉴 주세요. 이거 주세요.",
+   "say_native": "Buyurtmaning eng muhim qolipi: nom va “주세요” — bering. “주다” — bermoq, “주세요” — iltimos, bering. Hurmatli shakl, shuning uchun uni ofitsiantga ham, sotuvchiga ham aytasiz. “커피 주세요” — qahva bering, “메뉴 주세요” — menyu bering. Menyuda ko‘rsatmoqchi bo‘lsangiz, “이거 주세요” — mana buni bering, deb barmog‘ingiz bilan ko‘rsatasiz. Odatda “을/를” aytilmaydi, nom to‘g‘ridan to‘g‘ri “주세요” bilan keladi. “Iltimos” so‘zi alohida kerak emas, “세요” shaklining o‘zi muloyim.",
+   "say_uz": "Qahva bering. Menyu bering. Mana buni bering.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Miqdor: 한 잔, 두 잔, 세 개",
+   "emotion": "thinking",
+   "board": [
+    "한 (1) · 두 (2) · 세 (3) · 네 (4)",
+    "잔 (jan) — stakan, finjon",
+    "개 (gae) — dona",
+    "명 (myeong) — kishi"
+   ],
+   "examples": [
+    {
+     "t": "커피 두 잔 주세요.",
+     "uz": "Ikki finjon qahva bering."
+    },
+    {
+     "t": "김밥 세 개 주세요.",
+     "uz": "Uchta gimbap bering."
+    },
+    {
+     "t": "두 명이에요.",
+     "uz": "Ikki kishimiz."
+    }
+   ],
+   "say": "커피 두 잔 주세요. 김밥 세 개 주세요. 저희는 두 명이에요.",
+   "say_native": "Koreyschada narsani sanaganda sanoq so‘zi kerak, xuddi o‘zbekchadagi “ikki dona”, “uch kishi” kabi. Tartib: nom, son, sanoq so‘zi: “커피 두 잔”. Bu yerda o‘zbekcha tartib bilan farq bor: biz “ikki finjon qahva” deymiz, koreyscha “qahva ikki finjon”. “잔” — stakan yoki finjon, “개” — dona, “명” — kishi. Sonlar “한, 두, 세, 네” — bir, ikki, uch, to‘rt; ularning ishlatilishi sanoq so‘zi bilan o‘zgaradi, shuning uchun “하나 잔” demang, “한 잔” deng.",
+   "say_uz": "Ikki finjon qahva bering. Uchta gimbap bering. Biz ikki kishimiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Tipik xatolar: tartib va ohang",
+   "emotion": "stern",
+   "board": [
+    "✗ 두 커피 주세요.",
+    "✓ 커피 두 잔 주세요.",
+    "✗ 커피 줘.",
+    "✓ 커피 주세요."
+   ],
+   "examples": [
+    {
+     "t": "주스 한 잔 주세요.",
+     "uz": "Bir stakan sok bering."
+    },
+    {
+     "t": "빵 네 개 주세요.",
+     "uz": "To‘rtta non bering."
+    }
+   ],
+   "say": "주스 한 잔 주세요. 빵 네 개 주세요. 물 두 잔 주세요.",
+   "say_native": "Birinchi xato: sonni narsadan oldin qo‘yish. O‘zbekchada “ikkita qahva” deymiz, shuning uchun “두 커피” deyishga moyil bo‘lamiz. Koreyschada narsa oldin, keyin son va sanoq so‘zi: “커피 두 잔”. Ikkinchi xato: “줘” — bu o‘rtoqlarcha, qo‘pol ohang. Do‘kon yoki kafeda doim “주세요”. Uchinchi xato: “하나” ni sanoq so‘zi oldidan ishlatish: “하나 잔” emas, “한 잔”. Xatolarni takrorlamang, to‘g‘ri gaplarni ikki marta ayting.",
+   "say_uz": "Bir stakan sok bering. To‘rtta non bering. Ikki stakan suv bering.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Buyurtma bering",
+   "emotion": "encouraging",
+   "board": [
+    "1) 2 finjon qahva",
+    "2) 3 ta gimbap",
+    "3) 1 stakan sok",
+    "4) 4 ta non"
+   ],
+   "examples": [],
+   "say": "커피 두 잔, 김밥 세 개, 주스 한 잔, 빵 네 개를 주문해 보세요.",
+   "say_native": "To‘rtta buyurtmani koreyscha ayting. Birinchi, ikki finjon qahva. Ikkinchi, uchta gimbap. Uchinchi, bir stakan sok. To‘rtinchi, to‘rtta non. Qolip: nom, son, sanoq so‘zi, “주세요”. “Qahva” va “sok” uchun “잔”, gimbap va non uchun “개” ishlatiladi. Har birini xuddi kafe peshtaxtasida turgandek, ovoz chiqarib ayting.",
+   "say_uz": "Mashq: to‘rtta buyurtmani koreyscha ayting.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: buyurtmalar",
+   "emotion": "proud",
+   "board": [
+    "커피 두 잔 주세요.",
+    "김밥 세 개 주세요.",
+    "주스 한 잔 주세요.",
+    "빵 네 개 주세요."
+   ],
+   "examples": [
+    {
+     "t": "커피 두 잔 주세요.",
+     "uz": "Ikki finjon qahva bering."
+    }
+   ],
+   "say": "커피 두 잔 주세요. 김밥 세 개 주세요. 주스 한 잔 주세요.",
+   "say_native": "Javoblar ekranda: “커피 두 잔 주세요”, “김밥 세 개 주세요”, “주스 한 잔 주세요”, “빵 네 개 주세요”. Hammasi bitta qolipga tushadi. Agar siz “잔” va “개” ni adashtirgan bo‘lsangiz, qoida oddiy: suyuqlikni idish bilan sanaymiz, yani “잔”, qattiq narsalarni “개” bilan. Bu “두 잔”, “세 개” iboralarini oldindan yodlab qo‘ysangiz, kafeda gapirishga qiynalmaysiz.",
+   "say_uz": "Ikki finjon qahva bering. Uchta gimbap bering. Bir stakan sok bering.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Xohishni aytish: -고 싶어요",
+   "emotion": "neutral",
+   "board": [
+    "o‘zak + 고 싶어요",
+    "마시다 → 마시고 싶어요",
+    "먹다 → 먹고 싶어요",
+    "bu — “xohlayman”"
+   ],
+   "examples": [
+    {
+     "t": "저는 차를 마시고 싶어요.",
+     "uz": "Men choy ichgim keladi."
+    },
+    {
+     "t": "비빔밥을 먹고 싶어요.",
+     "uz": "Bibimbap yegim keladi."
+    },
+    {
+     "t": "물을 마시고 싶어요.",
+     "uz": "Suv ichgim keladi."
+    }
+   ],
+   "say": "저는 차를 마시고 싶어요. 비빔밥을 먹고 싶어요. 물을 마시고 싶어요.",
+   "say_native": "Muloyim so‘rov uchun yana bir usul — o‘z xohishingizni aytish: o‘zakka “고 싶어요” qo‘shiladi. “마시다” — “마시고 싶어요”, ya‘ni ichgim keladi, “먹다” — “먹고 싶어요”, yegim keladi. Bu qoida hamma fe‘lga bir xil ishlaydi, o‘zakning unli yoki undosh bilan tugashi ahamiyatsiz. Bu o‘zbekchadagi “-moqchiman” yoki “-gim keladi” ga o‘xshaydi. Faqat bitta ogohlantirish: bu shakl asosan o‘zingiz haqingizda ishlatiladi, boshqa odamning xohishi uchun boshqa shakl bor.",
+   "say_uz": "Men choy ichmoqchiman. Bibimbap yemoqchiman. Suv ichmoqchiman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tanlov: 이걸로 할게요 va 있어요?",
+   "emotion": "neutral",
+   "board": [
+    "이걸로 할게요. — Shuni olaman.",
+    "아이스 커피 있어요? — Muzli qahva bormi?",
+    "네, 있어요. / 아니요, 없어요.",
+    "따뜻한 · 차가운 (issiq · sovuq)"
+   ],
+   "examples": [
+    {
+     "t": "이걸로 할게요.",
+     "uz": "Shuni olaman."
+    },
+    {
+     "t": "아이스 커피 있어요?",
+     "uz": "Muzli qahva bormi?"
+    },
+    {
+     "t": "죄송해요, 지금은 없어요.",
+     "uz": "Kechirasiz, hozir yo‘q."
+    }
+   ],
+   "say": "이걸로 할게요. 아이스 커피 있어요? 죄송해요, 지금은 없어요.",
+   "say_native": "Tanlaganingizda “이걸로 할게요” deysiz: so‘zma-so‘z “shuni qilaman”, ya‘ni shuni olaman. “할게요” — o‘zingiz qaror qilganingizni bildiradi. Mahsulot bor-yo‘qligini “있어요?” deb so‘raymiz: “아이스 커피 있어요?” — muzli qahva bormi? Javob “네, 있어요” yoki “아니요, 없어요”. Ofitsiant “죄송해요” — kechirasiz — deb ham aytishi mumkin. Issiq va sovuq uchun “따뜻한” va “차가운” so‘zlari ham bor, kafe menyusida esa odatda inglizcha “핫” va “아이스” yoziladi.",
+   "say_uz": "Shuni olaman. Muzli qahva bormi? Kechirasiz, hozir yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savol bering va tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Menyu bormi? deb so‘rang",
+    "2) Muzli choy bormi?",
+    "3) Shuni olaman deng",
+    "4) Bibimbap yegim keladi deng"
+   ],
+   "examples": [],
+   "say": "메뉴 있어요? 아이스 차 있어요? 이걸로 할게요. 비빔밥을 먹고 싶어요.",
+   "say_native": "To‘rtta vaziyat. Birinchi, menyu bor-yo‘qligini so‘rang. Ikkinchi, muzli choy bor-yo‘qligini so‘rang. Uchinchi, tanlaganingizni ayting: shuni olaman. To‘rtinchi, bibimbap yegingiz kelayotganini ayting. Tayyorlangan jumlalarni ovoz chiqarib, xuddi haqiqiy ofitsiant oldida turgandek talaffuz qiling. Javoblar keyingi sahnada.",
+   "say_uz": "Mashq: so‘rang, tanlang va xohishingizni ayting.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: so‘rash va tanlash",
+   "emotion": "proud",
+   "board": [
+    "메뉴 있어요?",
+    "아이스 차 있어요?",
+    "이걸로 할게요.",
+    "비빔밥을 먹고 싶어요."
+   ],
+   "examples": [
+    {
+     "t": "메뉴 있어요?",
+     "uz": "Menyu bormi?"
+    }
+   ],
+   "say": "메뉴 있어요? 아이스 차 있어요? 이걸로 할게요.",
+   "say_native": "Javoblar ekranda. “메뉴 있어요?” — menyu bormi, bu kafeda kirishda aytiladigan birinchi savol. “아이스 차 있어요?” — muzli choy bormi. “이걸로 할게요” — shuni olaman, “비빔밥을 먹고 싶어요” — bibimbap yegim keladi. Bularning hammasi bir-biridan farq qiladi: “있어요?” — mavjudlikni so‘raydi, “할게요” — qaror, “-고 싶어요” — istak. O‘rtadagi farqni tushunsangiz, har vaziyatda kerakli shaklni tanlaysiz.",
+   "say_uz": "Menyu bormi? Muzli choy bormi? Shuni olaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Narx: 얼마예요? va 원",
+   "emotion": "neutral",
+   "board": [
+    "얼마예요? (eolmayeyo?) — qancha?",
+    "원 (won) — Janubiy Koreya puli",
+    "삼천 원 (samcheon won) — 3000",
+    "오천 원 (ocheon won) — 5000 · 만 원 (man won) — 10 000"
+   ],
+   "examples": [
+    {
+     "t": "이거 얼마예요?",
+     "uz": "Bu qancha turadi?"
+    },
+    {
+     "t": "커피는 삼천 원이에요.",
+     "uz": "Qahva uch ming von."
+    },
+    {
+     "t": "김밥은 오천 원이에요.",
+     "uz": "Gimbap besh ming von."
+    }
+   ],
+   "say": "이거 얼마예요? 커피는 삼천 원이에요. 김밥은 오천 원이에요.",
+   "say_native": "Narxni “얼마예요?” deb so‘raymiz: “qancha?”. Javob: narx, so‘ng “원” va “이에요”. Koreyada pul birligi — von. Narxlar xitoy-koreys sonlari bilan aytiladi: “천” — ming, “만” — o‘n ming. “삼천 원” — uch ming von, “오천 원” — besh ming von, “만 원” — o‘n ming von. Bu sonlar sizga oldingi darslardagi minut sonlarini eslatadi: “삼”, “오”, “십”. Bu yerda narx ko‘pincha ming yoki yuzlab ming bilan aytiladi, shuning uchun “천” va “만” ni bilsangiz yetarli.",
+   "say_uz": "Bu qancha turadi? Qahva uch ming von. Gimbap besh ming von.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Narxlarni o‘qish",
+   "emotion": "neutral",
+   "board": [
+    "사천오백 원 — 4500",
+    "팔천 원 — 8000",
+    "만 이천 원 — 12 000",
+    "이만 원 — 20 000"
+   ],
+   "examples": [
+    {
+     "t": "아메리카노는 사천오백 원이에요.",
+     "uz": "Amerikano to‘rt ming besh yuz von."
+    },
+    {
+     "t": "비빔밥은 팔천 원이에요.",
+     "uz": "Bibimbap sakkiz ming von."
+    },
+    {
+     "t": "케이크는 만 이천 원이에요.",
+     "uz": "Tort o‘n ikki ming von."
+    }
+   ],
+   "say": "아메리카노는 사천오백 원이에요. 비빔밥은 팔천 원이에요. 케이크는 만 이천 원이에요.",
+   "say_native": "Narxlarni tuzish oddiy: katta qismni oldin aytasiz. “4500” — “사천오백”: to‘rt ming, besh yuz. “8000” — “팔천”. “12 000” — “만 이천”: o‘n ming va ikki ming. “20 000” — “이만”: ikki o‘n ming. “Besh yuz” uchun “오백”, bu oldingi “백” — yuz, o‘zbekcha “bir yuz” kabi “일백” demaymiz, faqat “백”. Boshida murakkab ko‘rinadi, lekin kassada sizga faqat raqamni tinglab tushunish kerak. Raqamlarni sekin takrorlang.",
+   "say_uz": "Amerikano to‘rt ming besh yuz von. Bibimbap sakkiz ming von. Tort o‘n ikki ming von.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Narxlarni o‘qing",
+   "emotion": "encouraging",
+   "board": [
+    "1) 삼천 원",
+    "2) 오천오백 원",
+    "3) 만 원",
+    "4) 이만 오천 원"
+   ],
+   "examples": [],
+   "say": "삼천 원, 오천오백 원, 만 원, 이만 오천 원. 얼마예요?",
+   "say_native": "Ekrandagi narxlarni raqam bilan ayting. Birinchi, “삼천 원”. Ikkinchi, “오천오백 원”. Uchinchi, “만 원”. To‘rtinchi, “이만 오천 원”. Esda tuting: “천” — ming, “만” — o‘n ming. Katta sonlarda har bir bo‘lakni alohida o‘qing: ikki o‘n ming va besh ming. Javoblarni daftaringizga yozib, keyingi sahnada tekshiring.",
+   "say_uz": "Mashq: narxlarni raqamlarga aylantiring.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: narxlar",
+   "emotion": "proud",
+   "board": [
+    "삼천 원 = 3000",
+    "오천오백 원 = 5500",
+    "만 원 = 10 000",
+    "이만 오천 원 = 25 000"
+   ],
+   "examples": [
+    {
+     "t": "김밥 한 줄은 삼천오백 원이에요.",
+     "uz": "Bir rulet gimbap uch ming besh yuz von."
+    }
+   ],
+   "say": "김밥 한 줄은 삼천오백 원이에요. 우유는 천오백 원이에요.",
+   "say_native": "Javoblar: “삼천 원” — 3000, “오천오백 원” — 5500, “만 원” — 10 000, “이만 오천 원” — 25 000. Agar xato qilgan bo‘lsangiz, “만” — o‘n ming ekanini unutmang va bo‘laklarga ajrating. Amalda ko‘p kafe menyularida narx “4.5” deb yoziladi, ya‘ni 4500 von. Shuni ham bilib qo‘ying: Koreyada narx ko‘rsatilgan bo‘ladi va savdolashish odat emas, shuning uchun narxni so‘rash kerak bo‘lganda “얼마예요?” yetadi.",
+   "say_uz": "Bir rulet gimbap uch ming besh yuz von. Sut bir ming besh yuz von.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Olib ketish va to‘lov",
+   "emotion": "neutral",
+   "board": [
+    "여기서 먹을게요. — Shu yerda yeyman.",
+    "포장해 주세요. — Olib ketaman.",
+    "계산해 주세요. — Hisobni bering.",
+    "카드로 할게요. · 현금으로 할게요."
+   ],
+   "examples": [
+    {
+     "t": "포장해 주세요.",
+     "uz": "Olib ketish uchun o‘rab bering."
+    },
+    {
+     "t": "카드로 할게요.",
+     "uz": "Karta bilan to‘layman."
+    },
+    {
+     "t": "영수증 주세요.",
+     "uz": "Chek bering."
+    }
+   ],
+   "say": "여기서 먹을게요. 포장해 주세요. 계산해 주세요. 카드로 할게요. 영수증 주세요.",
+   "say_native": "Ofitsiant sizdan “여기서 드시고 가세요?” — shu yerda yeysizmi — deb so‘raydi. Javobingiz “여기서 먹을게요” yoki “포장해 주세요” — olib ketaman. “-해 주세요” — “iltimos, shuni qilib bering”, “포장하다” — o‘ramoq. To‘lov uchun “계산해 주세요” — hisobni qiling, “카드로 할게요” — karta bilan, “현금으로 할게요” — naqd. Chek kerak bo‘lsa, “영수증 주세요”. Oxirida “감사합니다” deb minnatdorchilik bildirishni unutmang, bu har joyda muloyimlik belgisi.",
+   "say_uz": "Shu yerda yeyman. Olib ketish uchun o‘rab bering. Hisobni bering. Karta bilan to‘layman. Chek bering.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘lov va olib ketish",
+   "emotion": "encouraging",
+   "board": [
+    "1) Olib ketaman deng",
+    "2) Hisobni so‘rang",
+    "3) Karta bilan to‘lang",
+    "4) Chek so‘rang"
+   ],
+   "examples": [],
+   "say": "포장해 주세요. 계산해 주세요. 카드로 할게요. 영수증 주세요.",
+   "say_native": "To‘rtta ibora. Birinchi, olib ketishni so‘rang. Ikkinchi, hisobni so‘rang. Uchinchi, karta bilan to‘lashni ayting. To‘rtinchi, chek so‘rang. Hammasi “-해 주세요” va “-로 할게요” qoliplaridan iborat. Har birini ikki marta ayting va oxirida “감사합니다” qo‘shing. Javoblar keyingi sahnada.",
+   "say_uz": "Mashq: olib ketish va to‘lov iboralarini ayting.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: to‘lov iboralari",
+   "emotion": "proud",
+   "board": [
+    "포장해 주세요.",
+    "계산해 주세요.",
+    "카드로 할게요.",
+    "영수증 주세요."
+   ],
+   "examples": [
+    {
+     "t": "현금으로 할게요.",
+     "uz": "Naqd to‘layman."
+    }
+   ],
+   "say": "현금으로 할게요. 감사합니다.",
+   "say_native": "Javoblar ekranda. “-로” zarrachasi “vosita” degan ma‘no beradi: “카드로” — karta bilan, “현금으로” — naqd pul bilan. “으로” undosh bilan tugaydigan so‘zlardan keyin ishlatiladi, “로” esa unli bilan tugagandan keyin. Bu qoida “현금으로”, “카드로” misollarida ko‘rinib turibdi. Koreyada karta bilan to‘lash juda keng tarqalgan, hatto kichik do‘konlarda ham. Shuning uchun bu iboralar sizga eng ko‘p kerak bo‘ladi.",
+   "say_uz": "Naqd to‘layman. Rahmat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz: 김밥, 비빔밥, 감사합니다",
+   "emotion": "thinking",
+   "board": [
+    "김밥 → [김빱] (gimppap)",
+    "비빔밥 → [비빔빱]",
+    "감사합니다 → [감사함니다]",
+    "있어요 → [이써요]"
+   ],
+   "examples": [
+    {
+     "t": "김밥 주세요.",
+     "uz": "Gimbap bering."
+    },
+    {
+     "t": "감사합니다.",
      "uz": "Rahmat."
     }
    ],
-   "say_native": "Birinchi dialog: kofe buyurtma berish. “커피 주세요.” — kofe iltiga bering. “네, 따뜻한 커피예요.” — ha, issiq kofe. “네, 고마워요.” — ha, rahmat. Eshiting va javoblarni yoddingizmi tekshiring. “따뜻한” — issiq; kofe yoki choy buyurtma berganda haroratni aytish koreyslarda oddiy holat.",
-   "say": "커피 주세요. 네, 따뜻한 커피예요. 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Ha, issiq kofe. Ha, rahmat.",
+   "say": "김밥 주세요. 비빔밥 있어요? 감사합니다.",
+   "say_native": "Yozuv bilan talaffuz farq qiladigan o‘rinlar bor. “김밥” yoziladi “gimbap”, lekin aytiladi “김빱”: “ㅁ” dan keyin “ㅂ” kuchli, tarang tovushga aylanadi. “비빔밥” ham “비빔빱”. “감사합니다” da “ㅂ” oldidan “ㄴ” kelgani uchun “ㅂ” tovushi “ㅁ” ga o‘tadi: “감사함니다”. “있어요” — “이써요”, chunki “ㅆ” ikkinchi bo‘g‘inga o‘tadi. Siz yozilgani bo‘yicha o‘qiganingizda ham tushunishadi, lekin eshitganingizni takrorlasangiz, tabiiyroq chiqadi.",
+   "say_uz": "Gimbap bering. Bibimbap bormi? Rahmat.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Madaniyat: kafeda va restoranda",
+   "emotion": "thinking",
+   "board": [
+    "여기요! — Kechirasiz! (ofitsiantni chaqirish)",
+    "choy, suv — ko‘pincha bepul",
+    "chayovoy (tip) — odat emas",
+    "잘 먹겠습니다 · 잘 먹었습니다"
+   ],
+   "examples": [
+    {
+     "t": "여기요, 물 좀 주세요.",
+     "uz": "Kechirasiz, bir oz suv bering."
+    },
+    {
+     "t": "잘 먹겠습니다.",
+     "uz": "Mazali bo‘lsin (yeyishdan oldin)."
+    }
+   ],
+   "say": "여기요, 물 좀 주세요. 잘 먹겠습니다. 잘 먹었습니다.",
+   "say_native": "Koreya restoranlarida ofitsiantni chaqirish uchun “여기요!” deyiladi — bu qo‘pol emas, odatiy. Ba‘zi joylarda stol ustida tugma bor. Suv odatda bepul, stolga qo‘yilgan idishdan o‘zingiz olasiz, “물 좀 주세요” — bir oz suv bering. Chayovoy qoldirish odat emas, narx ichida hisoblangan. Kafelarning ko‘pida avval peshtaxtada yoki kioskda buyurtma berib to‘laysiz. Ovqatdan oldin “잘 먹겠습니다”, ovqatdan keyin “잘 먹었습니다” deyiladi, bu mezbonga minnatdorchilik.",
+   "say_uz": "Kechirasiz, bir oz suv bering. Yeyishdan oldin: mazali bo‘lsin. Yeb bo‘lgach: rahmat, juda mazali edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 1: Kafeda",
+   "emotion": "happy",
+   "board": [
+    "A: 어서 오세요. 뭐 드릴까요?",
+    "B: 아이스 아메리카노 두 잔 주세요.",
+    "A: 여기서 드시고 가세요?",
+    "B: 아니요, 포장해 주세요."
+   ],
+   "examples": [
+    {
+     "t": "뭐 드릴까요?",
+     "uz": "Nima olib kelay?"
+    }
+   ],
+   "say": "어서 오세요. 뭐 드릴까요? 아이스 아메리카노 두 잔 주세요. 여기서 드시고 가세요? 아니요, 포장해 주세요.",
+   "say_native": "Birinchi dialog kafeda. Barista salomlashadi: “어서 오세요” — xush kelibsiz, so‘ng so‘raydi: “뭐 드릴까요?” — nima beray? Mijoz buyurtma beradi: “아이스 아메리카노 두 잔 주세요”. Barista yana so‘raydi: shu yerda ichasizmi? Mijoz: yo‘q, olib ketaman, “포장해 주세요”. Diqqat qiling: barista hurmatli shakl ishlatyapti, “드시고 가세요” — “yeb/ichib ketasizmi”. Siz esa “주세요” va “포장해 주세요” bilan javob berasiz.",
+   "say_uz": "Xush kelibsiz. Nima olib kelay? Ikki stakan muzli amerikano bering. Shu yerda ichasizmi? Yo‘q, olib ketaman.",
    "practice_seconds": 0
   },
   {
@@ -257,107 +599,57 @@
    "title": "Dialog 1 ni tushunish",
    "emotion": "encouraging",
    "board": [
-    "1) U nima buyurtma berdi?",
-    "2) U nima deydi?",
-    "3) Nima deydi?"
+    "1) Mijoz nima buyurtma qildi?",
+    "2) Nechta?",
+    "3) Shu yerda ichadimi?",
+    "4) “뭐 드릴까요?” nima degani?"
    ],
    "examples": [],
-   "say_native": "Savollar: u nima buyurtma berdi? u nima deydi? “커피 주세요” — kofe iltiga bering. “네, 따뜻한 커피예요” — ha, issiq kofe. “네, 고마워요.” — ha, rahmat. Javobni baland o‘vozda ayting.",
-   "say": "커피 주세요. 네, 따뜻한 커피예요. 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Ha, issiq kofe. Ha, rahmat.",
-   "practice_seconds": 20
+   "say": "무엇을 주문했어요? 몇 잔이에요? 여기서 먹어요?",
+   "say_native": "Dialog bo‘yicha savollarga javob bering. Birinchi, mijoz nima buyurtma qildi? Ikkinchi, nechta? Uchinchi, shu yerda ichadimi yoki olib ketadimi? To‘rtinchi, “뭐 드릴까요?” nimani anglatadi? Dialogni xotirangizdan eslang va qisqa gaplar bilan koreyscha javob berishga urining.",
+   "say_uz": "Dialog savollari: nima, nechta va qayerda.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar: dialog 1",
    "emotion": "proud",
    "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "네, 따뜻한 커피예요. — ha, issiq kofe.",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “네, 따뜻한 커피예요.” — ha, issiq kofe, “네, 고마워요.” — ha, rahmat. Endi ikkinchi dialogga o‘tamiz.",
-   "say": "커피 주세요. 네, 따뜻한 커피예요. 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Ha, issiq kofe. Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Narxni so‘rash: 얼마예요?",
-   "emotion": "neutral",
-   "board": [
-    "얼마예요? (eolmaeyo?) — qancha bo‘ladi?",
-    "얼마예요? — narxni so‘rash",
-    "이 커피 얼마예요? — bu kofe qancha bo‘ladi?"
+    "아이스 아메리카노",
+    "두 잔",
+    "포장 (olib ketadi)",
+    "뭐 드릴까요? — Nima beray?"
    ],
    "examples": [
     {
-     "t": "얼마예요?",
-     "uz": "Qancha bo‘ladi?"
-    },
-    {
-     "t": "이 커피 얼마예요?",
-     "uz": "Bu kofe qancha bo‘ladi?"
+     "t": "아이스 아메리카노 두 잔 주세요.",
+     "uz": "Ikki muzli amerikano bering."
     }
    ],
-   "say_native": "Narxni so‘rashda “얼마예요?” (eolmaeyo?) — qancha bo‘ladi? degan so‘zlarni ishlatamiz. “이 커피 얼마예요?” — bu kofe qancha bo‘ladi? “이 음식 얼마예요?” — bu ovqat qancha bo‘ladi? Har birini sekin, aniq aytng. “얼마” — qancha, “예요” — bo‘lmoq; ya‘ni “qancha bo‘ladi?” Koreyschada doim shu tartibda keladi.",
-   "say": "얼마예요? 이 커피 얼마예요?",
-   "say_uz": "Qancha bo‘ladi? Bu kofe qancha bo‘ladi?",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Narxni so‘rashni o‘rganamiz",
-   "emotion": "encouraging",
-   "board": [
-    "얼마예요?",
-    "이 커피 얼마예요?",
-    "이 음식 얼마예요?"
-   ],
-   "examples": [],
-   "say_native": "Ekrandagi savollarni koreyscha o‘qing: “얼마예요?”, “이 커피 얼마예요?”, “이 음식 얼마예요?”. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "얼마예요? 이 커피 얼마예요? 이 음식 얼마예요?",
-   "say_uz": "Qancha bo‘ladi? Bu kofe qancha bo‘ladi? Bu ovqat qancha bo‘ladi?",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: narxni so‘rash",
-   "emotion": "proud",
-   "board": [
-    "얼마예요? — qancha bo‘ladi?",
-    "이 커피 얼마예요? — bu kofe qancha bo‘ladi?",
-    "이 음식 얼마예요? — bu ovqat qancha bo‘ladi?"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “얼마예요?” — qancha bo‘ladi?, “이 커피 얼마예요?” — bu kofe qancha bo‘ladi?, “이 음식 얼마예요?” — bu ovqat qancha bo‘ladi? Ularni yodlab oling, chunki keyingi bo‘limlarda narxni so‘rashda ishlatamiz.",
-   "say": "얼마예요? 이 커피 얼마예요? 이 음식 얼마예요?",
-   "say_uz": "Qancha bo‘ladi? Bu kofe qancha bo‘ladi? Bu ovqat qancha bo‘ladi?",
-   "practice_seconds": 20
+   "say": "아이스 아메리카노 두 잔이에요. 포장해 주세요.",
+   "say_native": "Javoblar: mijoz muzli amerikano buyurtma qildi, ikkita, va olib ketadi. “뭐 드릴까요?” — nima olib kelay, ya‘ni “nima buyurtma qilasiz?”. Bu xizmat ko‘rsatuvchining standart savoli. “드리다” — “bermoq” ning hurmatli shakli, “-ㄹ까요?” — taklif yoki so‘rov. Siz bu savolni eshitganda xotirjam bo‘ling va buyurtmani “…주세요” bilan ayting.",
+   "say_uz": "Ikki stakan muzli amerikano. Olib ketaman.",
+   "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Dialog 2: narxni so‘rash",
+   "title": "Dialog 2: Restoranda",
    "emotion": "happy",
    "board": [
-    "A: 이 커피 얼마예요?",
-    "B: 이천 원이에요.",
-    "A: 네, 고마워요."
+    "A: 비빔밥 하나, 김밥 한 줄 주세요.",
+    "B: 음료는요?",
+    "A: 물이면 돼요.",
+    "B: 네, 잠시만 기다려 주세요."
    ],
    "examples": [
     {
-     "t": "이 커피 얼마예요?",
-     "uz": "Bu kofe qancha bo‘ladi?"
-    },
-    {
-     "t": "이천 원이에요.",
-     "uz": "Ikkiming so‘m bo‘ladi."
+     "t": "잠시만 기다려 주세요.",
+     "uz": "Bir oz kutib turing."
     }
    ],
-   "say_native": "Ikkinchi dialog: narxni so‘rash. “이 커피 얼마예요?” — bu kofe qancha bo‘ladi? “이천 원이에요.” — ikki ming so‘m bo‘ladi. “네, 고마워요.” — ha, rahmat. Eshiting va javoblarni yoddingizmi tekshiring. “이천 원” degan narx javobini eshitganda, naqd yoki kartadan so‘rash haqida keyingi dialogda o‘rganamiz.",
-   "say": "이 커피 얼마예요? 이천 원이에요. 네, 고마워요.",
-   "say_uz": "Bu kofe qancha bo‘ladi? Ikki ming so‘m bo‘ladi. Ha, rahmat.",
+   "say": "비빔밥 하나, 김밥 한 줄 주세요. 음료는요? 물이면 돼요. 네, 잠시만 기다려 주세요.",
+   "say_native": "Ikkinchi dialog restoranda. Mijoz buyurtma beradi: bitta bibimbap, bir rulet gimbap. Ofitsiant so‘raydi: “음료는요?” — ichimlik-chi? Mijoz: “물이면 돼요” — suv bo‘lsa bo‘ladi. Ofitsiant: “잠시만 기다려 주세요” — bir oz kutib turing. “하나” — bir, “한 줄” — bir rulet, “줄” gimbap uchun sanoq so‘zi. “-는요?” — “…-chi?” degan ma‘no beradi va siz uni suhbatda tez-tez eshitasiz.",
+   "say_uz": "Bitta bibimbap, bir rulet gimbap bering. Ichimlik-chi? Suv bo‘lsa yetadi. Xo‘p, bir oz kutib turing.",
    "practice_seconds": 0
   },
   {
@@ -365,83 +657,57 @@
    "title": "Dialog 2 ni tushunish",
    "emotion": "encouraging",
    "board": [
-    "1) Kofe qancha bo‘ladi?",
-    "2) Ikki ming so‘m bo‘ladi.",
-    "3) Ha, rahmat."
+    "1) Mijoz nimalarni so‘radi?",
+    "2) Ofitsiant nimani so‘radi?",
+    "3) Mijoz qanday ichimlik tanladi?",
+    "4) “기다려 주세요” nima degani?"
    ],
    "examples": [],
-   "say_native": "Savollar: kofe qancha bo‘ladi? ikki ming so‘m bo‘ladi. ha, rahmat. “이 커피 얼마예요?” — “이천 원이에요.” “네, 고마워요.” deb javob bering.",
-   "say": "이 커피 얼마예요? 이천 원이에요. 네, 고마워요.",
-   "say_uz": "Bu kofe qancha bo‘ladi? Ikki ming so‘m bo‘ladi. Ha, rahmat.",
-   "practice_seconds": 20
+   "say": "무엇을 주문했어요? 음료는 뭐예요? 점원은 뭐라고 했어요?",
+   "say_native": "Ikkinchi dialog bo‘yicha savollar. Birinchi, mijoz qaysi taomlarni buyurtma qildi? Ikkinchi, ofitsiant nimani so‘radi? Uchinchi, mijoz qanday ichimlik tanladi? To‘rtinchi, “기다려 주세요” qanday ma‘noni bildiradi? Javoblarni qisqa jumlalar bilan ayting va keyingi sahnada tekshiring.",
+   "say_uz": "Dialog savollari: nima buyurtma qildi, ichimlik nima, xodim nima dedi.",
+   "practice_seconds": 14
   },
   {
    "kind": "explain",
    "title": "Javoblar: dialog 2",
    "emotion": "proud",
    "board": [
-    "이 커피 얼마예요? — bu kofe qancha bo‘ladi?",
-    "이천 원이에요. — ikki ming so‘m bo‘ladi.",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “이 커피 얼마예요?” — bu kofe qancha bo‘ladi?, “이천 원이에요.” — ikki ming so‘m bo‘ladi, “네, 고마워요.” — ha, rahmat. Endi o‘zingizning buyurtma berishingizni aytamiz.",
-   "say": "이 커피 얼마예요? 이천 원이에요. 네, 고마워요.",
-   "say_uz": "Bu kofe qancha bo‘ladi? Ikki ming so‘m bo‘ladi. Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Buyurtma berishni o‘rganamiz",
-   "emotion": "encouraging",
-   "board": [
-    "___ 주세요.",
-    "얼마예요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning buyurtmangizni aytasiz: “커피 주세요”, “물 주세요”, “차 주세요”. Va narxni so‘ray olasiz: “얼마예요?”. Sekin, aniq aytng. Buyurtmangizni do‘stingizga ham aytib ko‘ring.",
-   "say": "커피 주세요. 얼마예요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning buyurtma",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “네, 고마워요.” — ha, rahmat. Endi yakuniy mashqqa o‘tamiz. Ikkinchi marta eshitganda bu gaplar avtomatik miyangizga o‘rnashib qoladi.",
-   "say": "커피 주세요. 얼마예요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "example",
-   "title": "Dialog 3: to‘lov",
-   "emotion": "happy",
-   "board": [
-    "A: 카드 돼요?",
-    "B: 네, 돼요.",
-    "A: 네, 고마워요."
+    "비빔밥 하나 · 김밥 한 줄",
+    "음료는요? — ichimlik-chi?",
+    "물이면 돼요. — suv bo‘lsa bo‘ladi",
+    "기다려 주세요 — kutib turing"
    ],
    "examples": [
     {
-     "t": "카드 돼요?",
-     "uz": "Karta qilasizmi?"
-    },
-    {
-     "t": "네, 돼요.",
-     "uz": "Ha, qiladi."
+     "t": "물이면 돼요.",
+     "uz": "Suv bo‘lsa bo‘ladi."
     }
    ],
-   "say_native": "Uchinchi dialog: to‘lov. “카드 돼요?” — karta qilasizmi? “네, 돼요.” — ha, qiladi. “네, 고마워요.” — ha, rahmat. Eshiting va javoblarni yoddingizmi tekshiring. “카드” — karta; kredit kartani Koreyada hamma qabul qiladi, lekin kichik kafelarda naqd ustun bo‘lishi mumkin.",
-   "say": "카드 돼요? 네, 돼요. 네, 고마워요.",
-   "say_uz": "Karta qilasizmi? Ha, qiladi. Ha, rahmat.",
+   "say": "비빔밥 하나, 김밥 한 줄이에요. 음료는 물이에요.",
+   "say_native": "Javoblar: mijoz bitta bibimbap va bir rulet gimbap buyurtma qildi. Ofitsiant ichimlik haqida so‘radi: “음료는요?”. Mijoz suv bo‘lsa yetarli deb javob berdi, “물이면 돼요”. “기다려 주세요” — kutib turing. “-이면 돼요” qolipi — “… bo‘lsa yetadi”, buni xohlagan narsaga qo‘llash mumkin: “커피면 돼요” — qahva bo‘lsa yetadi.",
+   "say_uz": "Bitta bibimbap va bir rulet gimbap. Ichimlik — suv.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog 3: Novvoyxonada",
+   "emotion": "happy",
+   "board": [
+    "A: 이 빵은 얼마예요?",
+    "B: 이천오백 원이에요.",
+    "A: 그럼 빵 세 개하고 우유 한 잔 주세요.",
+    "B: 모두 팔천오백 원이에요. 카드로 하시겠어요?"
+   ],
+   "examples": [
+    {
+     "t": "모두 팔천오백 원이에요.",
+     "uz": "Jami sakkiz ming besh yuz von."
+    }
+   ],
+   "say": "이 빵은 얼마예요? 이천오백 원이에요. 그럼 빵 세 개하고 우유 한 잔 주세요. 모두 팔천오백 원이에요.",
+   "say_native": "Uchinchi dialog novvoyxonada. Mijoz so‘raydi: bu non qancha turadi? Sotuvchi: ikki ming besh yuz von. Mijoz: unda uchta non va bir stakan sut bering. Sotuvchi hisoblaydi: jami sakkiz ming besh yuz von. Uchta nonning narxi yetti ming besh yuz, sut esa bir ming von, hammasi sakkiz yarim ming. “하고” — “va”, “…bilan”, ro‘yxatda ishlatiladi: “빵 세 개하고 우유” — non va sut.",
+   "say_uz": "Bu non qancha turadi? Ikki ming besh yuz von. Unda uchta non va bir stakan sut bering. Jami sakkiz ming besh yuz von.",
    "practice_seconds": 0
   },
   {
@@ -449,350 +715,89 @@
    "title": "Dialog 3 ni tushunish",
    "emotion": "encouraging",
    "board": [
-    "1) U karta qilasizmi?",
-    "2) Ha, qiladi.",
-    "3) Ha, rahmat."
+    "1) Non qancha turadi?",
+    "2) Nechta non oldi?",
+    "3) Nima ichimlik?",
+    "4) Jami qancha?"
    ],
    "examples": [],
-   "say_native": "Savollar: u karta qilasizmi? ha, qiladi. ha, rahmat. “카드 돼요?” — karta qilasizmi? “네, 돼요.” — ha, qiladi. “네, 고마워요.” — ha, rahmat. deb javob bering.",
-   "say": "카드 돼요? 네, 돼요. 네, 고마워요.",
-   "say_uz": "Karta qilasizmi? Ha, qiladi. Ha, rahmat.",
-   "practice_seconds": 20
+   "say": "빵은 얼마예요? 몇 개 샀어요? 모두 얼마예요?",
+   "say_native": "Uchinchi dialog bo‘yicha savollar. Birinchi, bitta non qancha turadi? Ikkinchi, nechta non oldi? Uchinchi, qaysi ichimlikni oldi? To‘rtinchi, jami qancha to‘laydi? Hisob-kitobni hisoblab ko‘ring, keyin javobni tekshiramiz.",
+   "say_uz": "Dialog savollari: non narxi, nechta, jami qancha.",
+   "practice_seconds": 16
   },
   {
    "kind": "explain",
    "title": "Javoblar: dialog 3",
    "emotion": "proud",
    "board": [
-    "카드 돼요? — karta qilasizmi?",
-    "네, 돼요. — ha, qiladi.",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “카드 돼요?” — karta qilasizmi?, “네, 돼요.” — ha, qiladi, “네, 고마워요.” — ha, rahmat. Endi o‘zingizning buyurtma berishingizni aytamiz.",
-   "say": "카드 돼요? 네, 돼요. 네, 고마워요.",
-   "say_uz": "Karta qilasizmi? Ha, qiladi. Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "O‘zingizning buyurtma",
-   "emotion": "encouraging",
-   "board": [
-    "커피 주세요.",
-    "얼마예요?",
-    "카드 돼요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning buyurtmangizni aytasiz: “커피 주세요”, “얼마예요?”, “카드 돼요?”, “네, 고마워요.”. Har birini sekin, aniq aytng. Bu safar sirasini o‘zgartirib ayting: avval “얼마예요?”, keyin “커피 주세요.”",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning buyurtma",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "카드 돼요? — karta qilasizmi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “카드 돼요?” — karta qilasizmi?, “네, 고마워요.” — ha, rahmat. Endi xulosa qilamiz. Endilikda bu uchta gapni sinfdoshingizga o‘qituvchidek aytib ko‘ring.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Barcha so‘zlarni takrorlang",
-   "emotion": "encouraging",
-   "board": [
-    "밥 · 국 · 고기 · 채소",
-    "물 · 커피 · 차"
-   ],
-   "examples": [],
-   "say_native": "Barcha ovqat va ichimlik so‘zlarini yana takrorlang: 밥, 국, 고기, 채소, 물, 커피, 차. Har birini sekin, aniq aytng va tarjimasini eslang. Bu yetti so‘z shu darsning suyagi — ularni ko‘p ishlatib, mustahkamlang.",
-   "say": "밥. 국. 고기. 채소. 물. 커피. 차.",
-   "say_uz": "Non. Sho‘rva. Go‘sht. Sabzavot. Suv. Kofe. Choy.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: barcha so‘zlar",
-   "emotion": "proud",
-   "board": [
-    "밥 — non (ovqat) · 국 — sho‘rva",
-    "고기 — go‘sht · 채소 — sabzavot",
-    "물 — suv · 커피 — kofe · 차 — choy"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 밥 — non (ovqat), 국 — sho‘rva, 고기 — go‘sht, 채소 — sabzavot, 물 — suv, 커피 — kofe, 차 — choy. Hamma 7 ta so‘zni bilgan bo‘ldingiz. Sho‘rvani Koreyada “guk” deb ataladi — “guk” bitta harf, “goook” emas.",
-   "say": "밥. 국. 고기. 채소. 물. 커피. 차.",
-   "say_uz": "Non. Sho‘rva. Go‘sht. Sabzavot. Suv. Kofe. Choy.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Hamma narsani birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "커피 주세요.",
-    "얼마예요?",
-    "카드 돼요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Barcha narsani birga aytasiz: “커피 주세요”, “얼마예요?”, “카드 돼요?”, “네, 고마워요.”. Har birini sekin, aniq aytng. Ertalabki qahva uchun shu buyurtmani yodda saqlang.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: hamma narsani birga aytng",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "카드 돼요? — karta qilasizmi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “카드 돼요?” — karta qilasizmi?, “네, 고마워요.” — ha, rahmat. Endi xulosa qilamiz. Takrorlash uchun shu buyurtmalarni o‘zingiz yozing.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Ovqat so‘zlarini takrorlang",
-   "emotion": "encouraging",
-   "board": [
-    "밥 · 국 · 고기 · 채소"
-   ],
-   "examples": [],
-   "say_native": "Ekrandagi ovqat so‘zlarini yana koreyscha o‘qing: 밥, 국, 고기, 채소. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "밥. 국. 고기. 채소.",
-   "say_uz": "Non. Sho‘rva. Go‘sht. Sabzavot.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: ovqat so‘zlari",
-   "emotion": "proud",
-   "board": [
-    "밥 — non (ovqat)",
-    "국 — sho‘rva",
-    "고기 — go‘sht",
-    "채소 — sabzavot"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 밥 — non (ovqat), 국 — sho‘rva, 고기 — go‘sht, 채소 — sabzavot. Ularni yodlab oling, chunki keyingi bo‘limlarda buyurtma berishda ishlatamiz.",
-   "say": "밥. 국. 고기. 채소.",
-   "say_uz": "Non. Sho‘rva. Go‘sht. Sabzavot.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Ichimlik so‘zlarini takrorlang",
-   "emotion": "encouraging",
-   "board": [
-    "물 · 커피 · 차"
-   ],
-   "examples": [],
-   "say_native": "Ekrandagi ichimlik so‘zlarini yana koreyscha o‘qing: 물, 커피, 차. Har birini sekin, aniq aytng va tarjimasini eslang.",
-   "say": "물. 커피. 차.",
-   "say_uz": "Suv. Kofe. Choy.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: ichimlik so‘zlari",
-   "emotion": "proud",
-   "board": [
-    "물 — suv",
-    "커피 — kofe",
-    "차 — choy"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: 물 — suv, 커피 — kofe, 차 — choy. Ularni yodlab oling, chunki keyingi bo‘limlarda buyurtma berishda ishlatamiz.",
-   "say": "물. 커피. 차.",
-   "say_uz": "Suv. Kofe. Choy.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "example",
-   "title": "Dialog 4: ovqat buyurtma berish",
-   "emotion": "happy",
-   "board": [
-    "A: 이 음식 주세요.",
-    "B: 네, 이천 원이에요.",
-    "A: 네, 고마워요."
+    "이천오백 원 = 2500",
+    "빵 세 개",
+    "우유 한 잔",
+    "모두 팔천오백 원 = 8500"
    ],
    "examples": [
     {
-     "t": "이 음식 주세요.",
-     "uz": "Bu ovqatni iltiga bering."
-    },
-    {
-     "t": "이천 원이에요.",
-     "uz": "Ikki ming so‘m bo‘ladi."
+     "t": "빵 세 개하고 우유 한 잔 주세요.",
+     "uz": "Uchta non va bir stakan sut bering."
     }
    ],
-   "say_native": "To‘rtinchi dialog: ovqat buyurtma berish. “이 음식 주세요.” — bu ovqatni iltiga bering. “이천 원이에요.” — ikki ming so‘m bo‘ladi. “네, 고마워요.” — ha, rahmat. Eshiting va javoblarni yoddingizmi tekshiring. “이 음식” — bu ovqat; menyudagi taomga ishora qilganda ishlatiladi: “이 음식 주세요” — shu ovqatni bering.",
-   "say": "이 음식 주세요. 이천 원이에요. 네, 고마워요.",
-   "say_uz": "Bu ovqatni iltiga bering. Ikki ming so‘m bo‘ladi. Ha, rahmat.",
+   "say": "빵은 이천오백 원이에요. 모두 팔천오백 원이에요.",
+   "say_native": "Javoblar: bitta non 2500 von, uchta non, bir stakan sut. Jami 8500 von. Hisoblab ko‘ramiz: uch marta 2500 — 7500, qo‘shimcha sut 1000 — jami 8500. Siz shu tarzda tez hisoblasangiz, kassada tinchroq bo‘lasiz. Savol “카드로 하시겠어요?” — karta bilan to‘laysizmi?, javob “네” yoki “현금으로 할게요”.",
+   "say_uz": "Non ikki ming besh yuz von. Jami sakkiz ming besh yuz von.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Dialog 3 ni tushunish",
+   "title": "Yakuniy rolli o‘yin",
    "emotion": "encouraging",
    "board": [
-    "1) U nima buyurtma berdi?",
-    "2) U qancha bo‘ladi?",
-    "3) Nima deydi?"
+    "Siz mijozsiz: 3 ta mahsulot",
+    "Narx so‘rang",
+    "Sanoq so‘zi ishlating",
+    "“계산해 주세요” bilan tugating"
    ],
    "examples": [],
-   "say_native": "Savollar: u nima buyurtma berdi? u qancha bo‘ladi? u nima deydi? “이 음식 주세요” — bu ovqatni iltiga bering. “이천 원이에요” — ikki ming so‘m bo‘ladi. “네, 고마워요.” — ha, rahmat. deb javob bering.",
-   "say": "이 음식 주세요. 이천 원이에요. 네, 고마워요.",
-   "say_uz": "Bu ovqatni iltiga bering. Ikki ming so‘m bo‘ladi. Ha, rahmat.",
+   "say": "손님이 되어 주문하고 가격을 물어보고 계산하세요.",
+   "say_native": "Endi to‘liq rolli o‘yin. Siz mijozsiz. Kafe yoki restoranga kiring, kamida uchta mahsulot buyurtma bering, ularning narxini so‘rang, sanoq so‘zini ishlating va “계산해 주세요” bilan yakunlang. Boshlanishi: “메뉴 있어요?”, so‘ng “이거 얼마예요?”, “…주세요”, oxirida “카드로 할게요”. Hammasini ovoz chiqarib ayting. Bu imtihonga tayyorgarlik emas, balki haqiqiy sayohat uchun mashq.",
+   "say_uz": "Yakuniy rolli o‘yin: mijoz sifatida buyurtma bering, narxni so‘rang va to‘lang.",
    "practice_seconds": 20
   },
   {
    "kind": "explain",
-   "title": "Javoblar: dialog 3",
+   "title": "Namuna rolli o‘yin",
    "emotion": "proud",
    "board": [
-    "이 음식 주세요. — bu ovqatni iltiga bering.",
-    "이천 원이에요. — ikki ming so‘m bo‘ladi.",
-    "네, 고마워요. — ha, rahmat."
+    "메뉴 있어요? → 네, 여기요.",
+    "이거 얼마예요? → 오천 원이에요.",
+    "비빔밥 하나, 물 두 잔 주세요.",
+    "계산해 주세요. 카드로 할게요."
    ],
-   "examples": [],
-   "say_native": "Javoblar: “이 음식 주세요” — bu ovqatni iltiga bering, “이천 원이에요.” — ikki ming so‘m bo‘ladi, “네, 고마워요.” — ha, rahmat. Endi yakuniy mashqqa o‘tamiz.",
-   "say": "이 음식 주세요. 이천 원이에요. 네, 고마워요.",
-   "say_uz": "Bu ovqatni iltiga bering. Ikki ming so‘m bo‘ladi. Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Ovqat va ichimlikni birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "밥 주세요.",
-    "국 주세요.",
-    "고기 주세요.",
-    "채소 주세요.",
-    "물 주세요.",
-    "커피 주세요.",
-    "차 주세요."
+   "examples": [
+    {
+     "t": "비빔밥 하나, 물 두 잔 주세요.",
+     "uz": "Bitta bibimbap, ikki stakan suv bering."
+    }
    ],
-   "examples": [],
-   "say_native": "Barcha ovqat va ichimlikni birga aytasiz: “밥 주세요”, “국 주세요”, “고기 주세요”, “채소 주세요”, “물 주세요”, “커피 주세요”, “차 주세요”. Har birini sekin, aniq aytng. Har birini tarjima qilib chiqing.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: ovqat va ichimlikni birga aytng",
-   "emotion": "proud",
-   "board": [
-    "밥 주세요. — non iltiga bering.",
-    "국 주세요. — sho‘rva iltiga bering.",
-    "고기 주세요. — go‘sht iltiga bering."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “밥 주세요” — non iltiga bering, “국 주세요” — sho‘rva iltiga bering, “고기 주세요” — go‘sht iltiga bering, “채소 주세요” — sabzavot iltiga bering, “물 주세요” — suv iltiga bering, “커피 주세요” — kofe iltiga bering, “차 주세요” — choy iltiga bering. Endi xulosa qilamiz. Yettitasini ketma-ket ayting — bu sizga ishonch beradi.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "O‘zingizning buyurtma",
-   "emotion": "encouraging",
-   "board": [
-    "___ 주세요.",
-    "얼마예요?",
-    "카드 돼요?",
-    "네, 고마워요."
-   ],
-   "examples": [],
-   "say_native": "Siz o‘zingizning buyurtmangizni aytasiz: “커피 주세요”, “얼마예요?”, “카드 돼요?”, “네, 고마워요.”. Har birini sekin, aniq aytng. Endi shu gaplarni rol o‘ynab, do‘stingiz bilan mashq qiling.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: o‘zingizning buyurtma",
-   "emotion": "proud",
-   "board": [
-    "커피 주세요. — kofe iltiga bering.",
-    "얼마예요? — qancha bo‘ladi?",
-    "카드 돼요? — karta qilasizmi?",
-    "네, 고마워요. — ha, rahmat."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “커피 주세요” — kofe iltiga bering, “얼마예요?” — qancha bo‘ladi?, “카드 돼요?” — karta qilasizmi?, “네, 고마워요.” — ha, rahmat. Endi xulosa qilamiz. Endi shu buyurtmani sherigingiz bilan rollar bo‘lib ayting.",
-   "say": "커피 주세요. 얼마예요? 카드 돼요? 네, 고마워요.",
-   "say_uz": "Kofe iltiga bering. Qancha bo‘ladi? Karta qilasizmi? Ha, rahmat.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "practice",
-   "title": "Hamma narsani birga aytng",
-   "emotion": "encouraging",
-   "board": [
-    "밥 주세요.",
-    "국 주세요.",
-    "고기 주세요.",
-    "채소 주세요.",
-    "물 주세요.",
-    "커피 주세요.",
-    "차 주세요."
-   ],
-   "examples": [],
-   "say_native": "Barcha ovqat va ichimlikni birga aytasiz: “밥 주세요”, “국 주세요”, “고기 주세요”, “채소 주세요”, “물 주세요”, “커피 주세요”, “차 주세요”. Har birini sekin, aniq aytng. Har birini oldin tarjima qiling, keyin koreyschasini ayting — bu yo‘l lug‘atni mustahkamlaydi.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar: hamma narsani birga aytng",
-   "emotion": "proud",
-   "board": [
-    "밥 주세요. — non iltiga bering.",
-    "국 주세요. — sho‘rva iltiga bering.",
-    "고기 주세요. — go‘sht iltiga bering."
-   ],
-   "examples": [],
-   "say_native": "Javoblar: “밥 주세요” — non iltiga bering, “국 주세요” — sho‘rva iltiga bering, “고기 주세요” — go‘sht iltiga bering, “채소 주세요” — sabzavot iltiga bering, “물 주세요” — suv iltiga bering, “커피 주세요” — kofe iltiga bering, “차 주세요” — choy iltiga bering. Endi xulosa qilamiz. Har bir “주세요” oldiga istalgan ovqat nomini qo‘yib yangi buyurtma tuza olasiz.",
-   "say": "밥 주세요. 국 주세요. 고기 주세요. 채소 주세요. 물 주세요. 커피 주세요. 차 주세요.",
-   "say_uz": "Non iltiga bering. Sho‘rva iltiga bering. Go‘sht iltiga bering. Sabzavot iltiga bering. Suv iltiga bering. Kofe iltiga bering. Choy iltiga bering.",
-   "practice_seconds": 20
+   "say": "메뉴 있어요? 이거 얼마예요? 비빔밥 하나, 물 두 잔 주세요. 계산해 주세요. 카드로 할게요. 감사합니다.",
+   "say_native": "Mana bitta namuna: menyu so‘rash, narxni so‘rash, buyurtma berish, hisob so‘rash va to‘lash, hammasi oltita qisqa gap. Sizniki boshqa mahsulotlar bilan bo‘lishi mumkin. Tekshirib ko‘ring: sanoq so‘zi to‘g‘rimi, “주세요” ishlatilganmi, narx savoli bormi, “감사합니다” bilan tugatdingizmi. Shu to‘rt narsa bo‘lsa, siz kafe va restoranda tinch buyurtma bera olasiz.",
+   "say_uz": "Menyu bormi? Bu qancha? Bitta bibimbap va ikki stakan suv bering. Hisobni bering. Karta bilan to‘layman. Rahmat.",
+   "practice_seconds": 0
   },
   {
    "kind": "recap",
    "title": "Bugun nimani o‘rgandik",
    "emotion": "proud",
    "board": [
-    "Ovqat: 밥 · 국 · 고기 · 채소",
-    "Ichimlik: 물 · 커피 · 차",
-    "Buyurtma: … 주세요.",
-    "Narx: 얼마나 돼요?",
-    "To‘lov: 카드 돼요?"
+    "밥 · 김밥 · 비빔밥 · 커피 · 물 · 차",
+    "~주세요 · ~고 싶어요 · ~할게요",
+    "한 잔 · 두 개 · 세 명 · 얼마예요?",
+    "계산해 주세요 · 포장해 주세요"
    ],
    "examples": [],
-   "say_native": "Xulosa. Ovqat, ichimlik so‘zlarini, buyurtma berish (“… 주세요”), narxni so‘rash (“얼마예요?”), to‘lov (“카드 돼요?”) ni o‘rgandik. Endi siz kafeda ovqat va ichimlik buyurtma bera olasiz. “주세요” — “… iltiga bering” ma‘nosini beruvchi eng universal ibora.",
-   "say": "잘 하셨어요! 이제 음식과 음료 주문할 수 있어요.",
-   "say_uz": "Barakalla! Endi ovqat va ichimlik buyurtma bera olasiz.",
+   "say": "잘 하셨어요! 이제 한국 카페에서 주문할 수 있어요.",
+   "say_native": "Bugun asosiylarini o‘rgandik. Birinchi, ovqat va ichimlik so‘zlari. Ikkinchi, “주세요” bilan so‘rash, “-고 싶어요” bilan istagingizni aytish va “이걸로 할게요” bilan tanlash. Uchinchi, sanoq so‘zlari: “잔”, “개”, “명”. To‘rtinchi, narx so‘rash va to‘lov iboralari: “얼마예요?”, “계산해 주세요”, “포장해 주세요”. Madaniyat jihatidan “여기요” bilan chaqirish va “감사합니다” bilan minnatdorchilik bildirishni ham eslab qoling.",
+   "say_uz": "Barakalla! Endi koreys kafesida buyurtma bera olasiz.",
    "practice_seconds": 0
   },
   {
@@ -800,128 +805,129 @@
    "title": "Uyga vazifa",
    "emotion": "encouraging",
    "board": [
-    "5 ta ovqat va ichimlik buyurtma bering.",
-    "Ismi, narx, to‘lov.",
-    "Mezon: 주세요 / 얼마예요? / 돼요? to‘g‘ri bo‘lishi kerak."
+    "Rolli o‘yin: to‘liq buyurtma va to‘lov",
+    "kamida 3 ta mahsulot",
+    "sanoq so‘zi + narx savoli",
+    "Keyingi dars: uy, xonalar va jihozlar"
    ],
    "examples": [],
-   "say_native": "Uyga vazifa. 5 ta ovqat va ichimlik buyurtma bering va baland o‘vozda ayting. Ismi, narx, to‘lovni kiriting. Muvaffaqiyat mezoni: “주세요”, “얼마예요?”, “돼요?” to‘g‘ri bo‘lishi kerak. Keyingi darsda uy, xonalar va jihozlar bilan tanishamiz. Har bir buyurtmani o‘zingiz ovoz chiqarib aytib ko‘ring — ovoz chiqarish talaffuzni sezilarli yaxshilaydi.",
    "say": "다음 시간에 만나요. 안녕히 계세요!",
-   "say_uz": "Keyingi darsda ko‘rishamiz. Salomat qoling!",
+   "say_native": "Uyga vazifa: kafe yoki restoranda ovqat buyurtma berib, to‘lov qilish rolli o‘yinini yozing va sherigingiz bilan ijro eting. Muvaffaqiyat mezoni: kamida uchta mahsulot, kamida bitta sanoq so‘zi, bitta narx savoli va “계산해 주세요” iborasi ishlatilsin. Ovozingizni yozib eshitib ko‘rsangiz yanada yaxshi. Keyingi darsda uy, xonalar va jihozlar haqida gapirishni o‘rganamiz. Ko‘rishguncha!",
+   "say_uz": "Keyingi darsda ko‘rishamiz. Xayr!",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "5 ta ovqat va ichimlik buyurtma bering va baland o‘vozda ayting. Ismi, narx, to‘lovni kiriting. Mezon: “주세요”, “얼마예요?”, “돼요?” to‘g‘ri bo‘lishi kerak.",
+ "homework_uz": "Kafe yoki restoranda ovqat buyurtma berib, to‘lov qilish rolli o‘yinini yozing va sherigingiz bilan ijro eting. Muvaffaqiyat mezoni: kamida 3 ta mahsulot, sanoq so‘zi, bitta narx savoli va “계산해 주세요” iborasi ishlatilsin. Keyingi darsda uy, xonalar va jihozlar haqida gapirishni o‘rganamiz.",
  "quiz": [
   {
-   "q": "What does “커피” mean?",
+   "q": "How do you ask politely for coffee?",
    "options": [
-    "tea",
-    "coffee",
-    "water",
-    "food"
-   ],
-   "answer": 1,
-   "why_uz": "커피 — kofe."
-  },
-  {
-   "q": "Which word means “water”?",
-   "options": [
-    "밥",
-    "국",
-    "물",
-    "차"
-   ],
-   "answer": 2,
-   "why_uz": "물 — suv."
-  },
-  {
-   "q": "How do you say “I would like coffee” in Korean?",
-   "options": [
-    "커피 먹어요.",
+    "커피 줘.",
     "커피 주세요.",
-    "커피 있어요.",
-    "커피 좋아해요."
+    "커피 있다.",
+    "커피 해요."
    ],
    "answer": 1,
-   "why_uz": "Kofe iltiga bering — 커피 주세요."
+   "why_uz": "“주세요” — muloyim so‘rov."
   },
   {
-   "q": "How do you ask “How much is it?” in Korean?",
+   "q": "What is the correct order for “two cups of coffee”?",
    "options": [
-    "뭐예요?",
-    "얼마예요?",
-    "어디예요?",
-    "누구예요?"
+    "두 커피 잔",
+    "커피 두 잔",
+    "잔 두 커피",
+    "커피 잔 두"
    ],
    "answer": 1,
-   "why_uz": "Qancha bo‘ladi? — 얼마예요?"
+   "why_uz": "Tartib: nom, son, sanoq so‘zi."
   },
   {
-   "q": "Which word means “food”?",
+   "q": "What does 얼마예요? mean?",
    "options": [
-    "음료",
-    "물",
-    "음식",
-    "차"
-   ],
-   "answer": 2,
-   "why_uz": "음식 — ovqat."
-  },
-  {
-   "q": "Which sentence means “I will order”?",
-   "options": [
-    "저는 먹어요.",
-    "주문할게요.",
-    "커피 주세요.",
-    "얼마예요?"
+    "Where is it?",
+    "How much is it?",
+    "What is it?",
+    "Who is it?"
    ],
    "answer": 1,
-   "why_uz": "Buyurtma beraman — 주문할게요."
+   "why_uz": "“얼마예요?” — qancha turadi?"
   },
   {
-   "q": "Which word means “card”?",
+   "q": "How do you say “I’ll take this one” when choosing?",
    "options": [
-    "커피",
-    "카드",
-    "차",
-    "국"
-   ],
-   "answer": 1,
-   "why_uz": "카드 — karta."
-  },
-  {
-   "q": "How do you say “Can I pay by card?”?",
-   "options": [
-    "카드 돼요?",
-    "커피 돼요?",
-    "얼마 돼요?",
-    "물 돼요?"
+    "이걸로 할게요.",
+    "이걸로 줘요.",
+    "이거 있어요.",
+    "이거 먹다."
    ],
    "answer": 0,
-   "why_uz": "Karta qilasizmi? — 카드 돼요?"
+   "why_uz": "“할게요” — o‘zingiz qaror qilganingizni bildiradi."
   },
   {
-   "q": "Which word means “tea”?",
+   "q": "Which counter is used for people?",
    "options": [
-    "커피",
-    "물",
-    "차",
-    "밥"
+    "잔",
+    "개",
+    "명",
+    "줄"
    ],
    "answer": 2,
-   "why_uz": "차 — choy."
+   "why_uz": "“명” — kishi uchun sanoq so‘zi."
   },
   {
-   "q": "How do you say “Thank you” in Korean?",
+   "q": "How do you ask for takeaway?",
    "options": [
-    "고마워요.",
-    "주세요.",
-    "얼마예요?",
-    "돼요?"
+    "포장해 주세요.",
+    "계산해 주세요.",
+    "영수증 주세요.",
+    "여기서 먹을게요."
    ],
    "answer": 0,
-   "why_uz": "Rahmat — 고마워요."
+   "why_uz": "“포장” — o‘rash, olib ketish."
+  },
+  {
+   "q": "What does 오천 원 equal?",
+   "options": [
+    "500 won",
+    "5000 won",
+    "50 000 won",
+    "15 000 won"
+   ],
+   "answer": 1,
+   "why_uz": "“오” — besh, “천” — ming: 5000."
+  },
+  {
+   "q": "How do you say “I want to drink tea”?",
+   "options": [
+    "차를 마시고 싶어요.",
+    "차를 마시다 싶어요.",
+    "차를 마셔 싶어요.",
+    "차가 마시요."
+   ],
+   "answer": 0,
+   "why_uz": "“o‘zak + 고 싶어요” — xohlayman."
+  },
+  {
+   "q": "What do you say to ask for the bill?",
+   "options": [
+    "얼마예요?",
+    "계산해 주세요.",
+    "여기요.",
+    "주세요."
+   ],
+   "answer": 1,
+   "why_uz": "“계산해 주세요” — hisobni bering."
+  },
+  {
+   "q": "How is 김밥 pronounced?",
+   "options": [
+    "[김밥]",
+    "[김빱]",
+    "[기밥]",
+    "[김팝]"
+   ],
+   "answer": 1,
+   "why_uz": "“ㅁ” dan keyin “ㅂ” tarang “ㅃ” ga o‘tadi: [김빱]."
   }
  ]
 }

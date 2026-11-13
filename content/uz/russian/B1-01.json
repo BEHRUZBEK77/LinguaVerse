@@ -1,76 +1,920 @@
 {
  "title": "Zamonlar tizimi: umumiy takrorlash",
- "goal_uz": "Dars oxirida rus tilida barcha zamonlarni tizimda ko‘rasiz, «читал, читаю, буду читать, сейчас читаю» kabi shakllarni ma’no bo‘yicha tanlaysiz. Oxirida besh xil zamon bilan yuz yigirma so‘zlik matn yoza olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilidagi barcha zamon va vidlarni bitta xaritada ko‘ra olasiz, kerakli shaklni tarjimaga emas ma’noga qarab tanlaysiz va 120 so‘zlik matnda kamida beshta turli shaklni to‘g‘ri ishlatasiz.",
  "vocab": [
-  {"w": "читал", "uz": "o‘qidim"},
-  {"w": "читаю", "uz": "o‘qiyman"},
-  {"w": "буду читать", "uz": "o‘qiyman (kelajakda)"},
-  {"w": "сейчас читаю", "uz": "hozir o‘qiyman"},
-  {"w": "обычно читаю", "uz": "odatda o‘qiyman"},
-  {"w": "уже читал", "uz": "allaqachon o‘qidim"},
-  {"w": "ещё читаю", "uz": "hali o‘qiyman"},
-  {"w": "никогда не читал", "uz": "hech qachon o‘qimadim"},
-  {"w": "завтра", "uz": "ertaga"},
-  {"w": "вчера", "uz": "kecha"}
+  {
+   "w": "несовершенный вид",
+   "uz": "nomukammal vid (jarayon, odat)"
+  },
+  {
+   "w": "совершенный вид",
+   "uz": "mukammal vid (natija)"
+  },
+  {
+   "w": "обычно",
+   "uz": "odatda"
+  },
+  {
+   "w": "вдруг",
+   "uz": "to‘satdan"
+  },
+  {
+   "w": "наконец",
+   "uz": "nihoyat"
+  },
+  {
+   "w": "за час",
+   "uz": "bir soatda"
+  },
+  {
+   "w": "долго",
+   "uz": "uzoq"
+  },
+  {
+   "w": "сразу",
+   "uz": "darhol"
+  },
+  {
+   "w": "будущее время",
+   "uz": "kelasi zamon"
+  },
+  {
+   "w": "прошедшее время",
+   "uz": "o‘tgan zamon"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Ellik birinchi dars: zamonlar","emotion":"happy","board":["Я читал.","Я читаю.","Я буду читать.","Сейчас я читаю."],"examples":[],"say_native":"Assalomu alaykum! Ellik birinchi darsga xush kelibsiz. O‘tgan darsda A2 imtihonini topshirdik. Bugun zamonlar tizimini takrorlaymiz. Barcha zamonlarni bitta xaritada ko‘ramiz. Oxirida besh xil zamon bilan matn yozasiz.","say":"Здравствуйте! Сегодня повторяем времена.","say_uz":"Assalomu alaykum! Bugun zamonlarni takrorlaymiz.","practice_seconds":0},
-  {"kind":"explain","title":"Я читал","emotion":"neutral","board":["Я читал.","Я читал вчера.","Я читал вчера в библиотеке.","Я читал книгу."],"examples":[{"t":"Я читал.","uz":"Men o‘qidim."},{"t":"Я читал вчера.","uz":"Men kecha o‘qidim."}],"say_native":"O‘tgan zamon: «я читал» — men o‘qidim, «я читал вчера» — men kecha o‘qidim, «я читал вчера в библиотеке» — men kecha kutubxonada o‘qidim, «я читал книгу» — men kitobni o‘qidim. Bu to‘rt ibora o‘tgan zamonni takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, har birini to‘liq gap qilib ayting.","say":"Я читал. Я читал вчера. Я читал вчера в библиотеке. Я читал книгу.","say_uz":"Men o‘qidim. Men kecha o‘qidim. Men kecha kutubxonada o‘qidim. Men kitobni o‘qidim.","practice_seconds":0},
-  {"kind":"practice","title":"O‘tgan zamonni ayting","emotion":"encouraging","board":["1) Men o‘qidim.","2) Men kecha o‘qidim.","3) Men kecha kutubxonada o‘qidim.","4) Men kitobni o‘qidim."],"examples":[],"say_native":"To‘rtta gapni ayting. «Я читал», «я читал вчера», «я читал вчера в библиотеке», «я читал книгу». Har bir gap “я читал” bilan boshlangan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va o‘tgan zamonni eslab turing, iltimos.","say":"Я читал. Я читал вчера. Я читал вчера в библиотеке. Я читал книгу.","say_uz":"Men o‘qidim. Men kecha o‘qidim. Men kecha kutubxonada o‘qidim. Men kitobni o‘qidim.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я читал.","Я читал вчера.","Я читал вчера в библиотеке.","Я читал книгу."],"examples":[],"say_native":"Javoblar: «Я читал», «я читал вчера», «я читал вчера в библиотеке», «я читал книгу». Har bir gap “я читал” bilan boshlangan. Endi siz o‘tgan zamonni ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Я читал. Я читал вчера. Я читал вчера в библиотеке. Я читал книгу.","say_uz":"Men o‘qidim. Men kecha o‘qidim. Men kecha kutubxonada o‘qidim. Men kitobni o‘qidim.","practice_seconds":0},
-  {"kind":"explain","title":"Я читаю","emotion":"neutral","board":["Я читаю.","Я читаю сейчас.","Я читаю обычно.","Я читаю каждый день."],"examples":[{"t":"Я читаю.","uz":"Men o‘qiyman."},{"t":"Я читаю сейчас.","uz":"Men hozir o‘qiyman."}],"say_native":"Hozirgi zamon: «я читаю» — men o‘qiyman, «я читаю сейчас» — men hozir o‘qiyman, «я читаю обычно» — men odatda o‘qiyman, «я читаю каждый день» — men har kuni o‘qiyman. Bu to‘rt ibora hozirgi zamonni takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, har birini to‘liq gap qilib ayting.","say":"Я читаю. Я читаю сейчас. Я читаю обычно. Я читаю каждый день.","say_uz":"Men o‘qiyman. Men hozir o‘qiyman. Men odatda o‘qiyman. Men har kuni o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Hozirgi zamonni ayting","emotion":"encouraging","board":["1) Men o‘qiyman.","2) Men hozir o‘qiyman.","3) Men odatda o‘qiyman.","4) Men har kuni o‘qiyman."],"examples":[],"say_native":"To‘rtta gapni ayting. «Я читаю», «я читаю сейчас», «я читаю обычно», «я читаю каждый день». Har bir gap “я читаю” bilan boshlangan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va hozirgi zamonni eslab turing, iltimos.","say":"Я читаю. Я читаю сейчас. Я читаю обычно. Я читаю каждый день.","say_uz":"Men o‘qiyman. Men hozir o‘qiyman. Men odatda o‘qiyman. Men har kuni o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я читаю.","Я читаю сейчас.","Я читаю обычно.","Я читаю каждый день."],"examples":[],"say_native":"Javoblar: «Я читаю», «я читаю сейчас», «я читаю обычно», «я читаю каждый день». Har bir gap “я читаю” bilan boshlangan. Endi siz hozirgi zamonni ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Я читаю. Я читаю сейчас. Я читаю обычно. Я читаю каждый день.","say_uz":"Men o‘qiyman. Men hozir o‘qiyman. Men odatda o‘qiyman. Men har kuni o‘qiyman.","practice_seconds":0},
-  {"kind":"explain","title":"Я буду читать","emotion":"thinking","board":["Я буду читать.","Я буду читать завтра.","Я буду читать в библиотеке.","Я буду читать книгу."],"examples":[{"t":"Я буду читать.","uz":"Men o‘qiyman (kelajakda)."},{"t":"Я буду читать завтра.","uz":"Men ertaga o‘qiyman."}],"say_native":"Kelajak zamon: «я буду читать» — men o‘qiyman (kelajakda), «я буду читать завтра» — men ertaga o‘qiyman, «я буду читать в библиотеке» — men kutubxonada o‘qiyman, «я буду читать книгу» — men kitobni o‘qiyman. Bu to‘rt ibora kelajak zamonni takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, har birini to‘liq gap qilib ayting.","say":"Я буду читать. Я буду читать завтра. Я буду читать в библиотеке. Я буду читать книгу.","say_uz":"Men o‘qiyman (kelajakda). Men ertaga o‘qiyman. Men kutubxonada o‘qiyman. Men kitobni o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Kelajak zamonni ayting","emotion":"encouraging","board":["1) Men o‘qiyman (kelajakda).","2) Men ertaga o‘qiyman.","3) Men kutubxonada o‘qiyman.","4) Men kitobni o‘qiyman."],"examples":[],"say_native":"To‘rtta gapni ayting. «Я буду читать», «я буду читать завтра», «я буду читать в библиотеке», «я буду читать книгу». Har bir gap “я буду читать” bilan boshlangan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va kelajakni eslab turing, iltimos.","say":"Я буду читать. Я буду читать завтра. Я буду читать в библиотеке. Я буду читать книгу.","say_uz":"Men o‘qiyman (kelajakda). Men ertaga o‘qiyman. Men kutubxonada o‘qiyman. Men kitobni o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я буду читать.","Я буду читать завтра.","Я буду читать в библиотеке.","Я буду читать книгу."],"examples":[],"say_native":"Javoblar: «Я буду читать», «я буду читать завтра», «я буду читать в библиотеке», «я буду читать книгу». Har bir gap “я буду читать” bilan boshlangan. Endi siz kelajakni ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Я буду читать. Я буду читать завтра. Я буду читать в библиотеке. Я буду читать книгу.","say_uz":"Men o‘qiyman (kelajakda). Men ertaga o‘qiyman. Men kutubxonada o‘qiyman. Men kitobni o‘qiyman.","practice_seconds":0},
-  {"kind":"explain","title":"Сейчас я читаю","emotion":"neutral","board":["Сейчас я читаю.","Сейчас я читаю книгу.","Сейчас я читаю в библиотеке.","Сейчас я читаю каждый день."],"examples":[{"t":"Сейчас я читаю.","uz":"Hozir men o‘qiyman."},{"t":"Сейчас я читаю книгу.","uz":"Hozir men kitobni o‘qiyman."}],"say_native":"Hozirgi payt: «сейчас я читаю» — hozir men o‘qiyman, «сейчас я читаю книгу» — hozir men kitobni o‘qiyman, «сейчас я читаю в библиотеке» — hozir men kutubxonada o‘qiyman, «сейчас я читаю каждый день» — hozir men har kuni o‘qiyman. Bu to‘rt ibora hozirgi paytni takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, har birini to‘liq gap qilib ayting.","say":"Сейчас я читаю. Сейчас я читаю книгу. Сейчас я читаю в библиотеке. Сейчас я читаю каждый день.","say_uz":"Hozir men o‘qiyman. Hozir men kitobni o‘qiyman. Hozir men kutubxonada o‘qiyman. Hozir men har kuni o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Hozirni ayting","emotion":"encouraging","board":["1) Hozir men o‘qiyman.","2) Hozir men kitobni o‘qiyman.","3) Hozir men kutubxonada o‘qiyman.","4) Hozir men har kuni o‘qiyman."],"examples":[],"say_native":"To‘rtta gapni ayting. «Сейчас я читаю», «сейчас я читаю книгу», «сейчас я читаю в библиотеке», «сейчас я читаю каждый день». Har bir gap “сейчас я читаю” bilan boshlangan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va hozirni eslab turing, iltimos.","say":"Сейчас я читаю. Сейчас я читаю книгу. Сейчас я читаю в библиотеке. Сейчас я читаю каждый день.","say_uz":"Hozir men o‘qiyman. Hozir men kitobni o‘qiyman. Hozir men kutubxonada o‘qiyman. Hozir men har kuni o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Сейчас я читаю.","Сейчас я читаю книгу.","Сейчас я читаю в библиотеке.","Сейчас я читаю каждый день."],"examples":[],"say_native":"Javoblar: «Сейчас я читаю», «сейчас я читаю книгу», «сейчас я читаю в библиотеке», «сейчас я читаю каждый день». Har bir gap “сейчас я читаю” bilan boshlangan. Endi siz hozirni ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Сейчас я читаю. Сейчас я читаю книгу. Сейчас я читаю в библиотеке. Сейчас я читаю каждый день.","say_uz":"Hozir men o‘qiyman. Hozir men kitobni o‘qiyman. Hozir men kutubxonada o‘qiyman. Hozir men har kuni o‘qiyman.","practice_seconds":0},
-  {"kind":"explain","title":"Обычно я читаю","emotion":"thinking","board":["Обычно я читаю.","Обычно я читаю книгу.","Обычно я читаю в библиотеке.","Обычно я читаю каждый день."],"examples":[{"t":"Обычно я читаю.","uz":"Odatda men o‘qiyman."},{"t":"Обычно я читаю книгу.","uz":"Odatda men kitobni o‘qiyman."}],"say_native":"Odatiy harakat: «обычно я читаю» — odatda men o‘qiyman, «обычно я читаю книгу» — odatda men kitobni o‘qiyman, «обычно я читаю в библиотеке» — odatda men kutubxonada o‘qiyman, «обычно я читаю каждый день» — odatda men har kuni o‘qiyman. Bu to‘rt ibora odatiy harakatni takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, har birini to‘liq gap qilib ayting.","say":"Обычно я читаю. Обычно я читаю книгу. Обычно я читаю в библиотеке. Обычно я читаю каждый день.","say_uz":"Odatda men o‘qiyman. Odatda men kitobni o‘qiyman. Odatda men kutubxonada o‘qiyman. Odatda men har kuni o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Odatni ayting","emotion":"encouraging","board":["1) Odatda men o‘qiyman.","2) Odatda men kitobni o‘qiyman.","3) Odatda men kutubxonada o‘qiyman.","4) Odatda men har kuni o‘qiyman."],"examples":[],"say_native":"To‘rtta gapni ayting. «Обычно я читаю», «обычно я читаю книгу», «обычно я читаю в библиотеке», «обычно я читаю каждый день». Har bir gap “обычно я читаю” bilan boshlangan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va odatni eslab turing, iltimos.","say":"Обычно я читаю. Обычно я читаю книгу. Обычно я читаю в библиотеке. Обычно я читаю каждый день.","say_uz":"Odatda men o‘qiyman. Odatda men kitobni o‘qiyman. Odatda men kutubxonada o‘qiyman. Odatda men har kuni o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Обычно я читаю.","Обычно я читаю книгу.","Обычно я читаю в библиотеке.","Обычно я читаю каждый день."],"examples":[],"say_native":"Javoblar: «Обычно я читаю», «обычно я читаю книгу», «обычно я читаю в библиотеке», «обычно я читаю каждый день». Har bir gap “обычно я читаю” bilan boshlangan. Endi siz odatni ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Обычно я читаю. Обычно я читаю книгу. Обычно я читаю в библиотеке. Обычно я читаю каждый день.","say_uz":"Odatda men o‘qiyman. Odatda men kitobni o‘qiyman. Odatda men kutubxonada o‘qiyman. Odatda men har kuni o‘qiyman.","practice_seconds":0},
-  {"kind":"explain","title":"Я уже читал","emotion":"neutral","board":["Я уже читал.","Я ещё читаю.","Я никогда не читал.","Я всегда читаю."],"examples":[{"t":"Я уже читал.","uz":"Men allaqachon o‘qidim."},{"t":"Я ещё читаю.","uz":"Men hali o‘qiyman."}],"say_native":"Tajriba: «я уже читал» — men allaqachon o‘qidim, «я ещё читаю» — men hali o‘qiyman, «я никогда не читал» — men hech qachon o‘qimadim, «я всегда читаю» — men har doim o‘qiyman. Bu to‘rt ibora tajribani takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, har birini to‘liq gap qilib ayting.","say":"Я уже читал. Я ещё читаю. Я никогда не читал. Я всегда читаю.","say_uz":"Men allaqachon o‘qidim. Men hali o‘qiyman. Men hech qachon o‘qimadim. Men har doim o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Tajribani ayting","emotion":"encouraging","board":["1) Men allaqachon o‘qidim.","2) Men hali o‘qiyman.","3) Men hech qachon o‘qimadim.","4) Men har doim o‘qiyman."],"examples":[],"say_native":"To‘rtta gapni ayting. «Я уже читал», «я ещё читаю», «я никогда не читал», «я всегда читаю». Har bir gap to‘g‘ri shaklda aytilgan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va tajribani eslab turing, iltimos.","say":"Я уже читал. Я ещё читаю. Я никогда не читал. Я всегда читаю.","say_uz":"Men allaqachon o‘qidim. Men hali o‘qiyman. Men hech qachon o‘qimadim. Men har doim o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я уже читал.","Я ещё читаю.","Я никогда не читал.","Я всегда читаю."],"examples":[],"say_native":"Javoblar: «Я уже читал», «я ещё читаю», «я никогда не читал», «я всегда читаю». Har bir gap to‘g‘ri shaklda aytilgan. Endi siz tajribani ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Я уже читал. Я ещё читаю. Я никогда не читал. Я всегда читаю.","say_uz":"Men allaqachon o‘qidim. Men hali o‘qiyman. Men hech qachon o‘qimadim. Men har doim o‘qiyman.","practice_seconds":0},
-  {"kind":"mistake","title":"Я читал — xato","emotion":"stern","board":["✗ Я читал вчера есть.","✓ Я читал вчера.","✗ Я буду читать вчера.","✓ Я буду читать завтра."],"examples":[],"say_native":"“Есть” so‘zi ishlatilmaydi. Vaqt to‘g‘ri tanlanishi kerak. «Я читал вчера есть» emas, «я читал вчера» — to‘g‘ri. «Я буду читать вчера» ham xato, to‘g‘risi «я буду читать завтра». Har bir shaklni bir-biridan farqlashni o‘rganing, iltimos, har birini to‘liq gap qilib ayting.","say":"Я читал вчера. Я буду читать завтра.","say_uz":"Men kecha o‘qidim. Men ertaga o‘qiyman.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: zamonlar","emotion":"happy","board":["— Ты читал?","— Да, читал вчера.","— Сейчас читаешь? — Сейчас читаю."],"examples":[],"say_native":"Birinchi dialog. Do‘stlar zamonlarni muhokama qilmoqda. Tinglab bo‘lgach, do‘st kecha o‘qiganmi deb ayting. «Ты читал? — Да, читал вчера» — sen o‘qidimmi? — Ha, kecha o‘qidim. Bu savol va javoblar zamonlarda ayniqsa ko‘p uchraydi.","say":"Ты читал? Да, читал вчера. Сейчас читаешь? Сейчас читаю.","say_uz":"Sen o‘qidimmi? Ha, kecha o‘qidim. Hozir o‘qiysanmi? Hozir o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Sen o‘qidimmi?","2) Hozir o‘qiysanmi?"],"examples":[],"say_native":"Ikki savol. Do‘st o‘qiganmi? Hozir o‘qiydimi? Javoblarni rus tilida, to‘liq gap bilan ayting. «Да, читал вчера», «сейчас читаю» qoliplaridan foydalaning, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va javobni eslab turing, iltimos.","say":"Ты читал? Да, читал вчера. Сейчас читаешь? Сейчас читаю.","say_uz":"Sen o‘qidimmi? Ha, kecha o‘qidim. Hozir o‘qiysanmi? Hozir o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Да, читал вчера.","Сейчас читаю."],"examples":[],"say_native":"Javoblar: «Да, читал вчера», «сейчас читаю». Har bir javob to‘liq gap bilan kelgan. Endi siz zamonlarni ham bemalol ayta olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Да, читал вчера. Сейчас читаю.","say_uz":"Ha, kecha o‘qidim. Hozir o‘qiyman.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: kelajak","emotion":"neutral","board":["— Ты будешь читать?","— Да, завтра.","— Вчера читал? — Да, вчера."],"examples":[],"say_native":"Ikkinchi dialog. Do‘stlar kelajakni muhokama qilmoqda. Tinglab bo‘lgach, do‘st ertaga o‘qiydimi deb ayting. «Ты будешь читать? — Да, завтра» — sen o‘qiysanmi? — Ha, ertaga. Bu savol va javoblar kelajakda ayniqsa ko‘p uchraydi.","say":"Ты будешь читать? Да, завтра. Вчера читал? Да, вчера.","say_uz":"Sen o‘qiysanmi? Ha, ertaga. Kecha o‘qidimmi? Ha, kecha.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Sen o‘qiysanmi?","2) Kecha o‘qidimmi?"],"examples":[],"say_native":"Ikki savol. Do‘st o‘qiydimi? Kecha o‘qiganmi? Javoblarni rus tilida, to‘liq gap bilan ayting. «Да, завтра», «да, вчера» qoliplaridan foydalaning, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va javobni eslab turing, iltimos.","say":"Ты будешь читать? Да, завтра. Вчера читал? Да, вчера.","say_uz":"Sen o‘qiysanmi? Ha, ertaga. Kecha o‘qidimmi? Ha, kecha.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Да, завтра.","Да, вчера."],"examples":[],"say_native":"Javoblar: «Да, завтра», «да, вчера». Har bir javob to‘liq gap bilan kelgan. Endi siz kelajakni ham bemalol ayta olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Да, завтра. Да, вчера.","say_uz":"Ha, ertaga. Ha, kecha.","practice_seconds":0},
-  {"kind":"explain","title":"Urg‘u","emotion":"neutral","board":["читал · читаю · будет · сейчас","обычно · уже · ещё · никогда"],"examples":[{"t":"Я читал.","uz":"Men o‘qidim."},{"t":"Я читаю.","uz":"Men o‘qiyman."}],"say_native":"Zamon so‘zlarida urg‘u har xil tushadi. «Читал» — ikkinchisida, «читаю» — ikkinchisida, «будет» — ikkinchisida, «сейчас» — ikkinchisida, «обычно» — oxirgisida, «уже» — ikkinchisida. Bu so‘zlarni talaffuz qilganda urg‘uni to‘g‘ri qo‘ying, aks holda ular g‘alati eshitiladi.","say":"Читал. Читаю. Бедет. Сейчас. Обычно. Уже. Ещё. Никогда.","say_uz":"O‘qidim. O‘qiyman. Bo‘ladi. Hozir. Odatda. Allaqachon. Hali. Hech qachon.","practice_seconds":0},
-  {"kind":"explain","title":"Я читал вчера","emotion":"neutral","board":["Я читал вчера.","Я читаю сейчас.","Я буду читать завтра.","Я обычно читаю."],"examples":[{"t":"Я читал вчера.","uz":"Men kecha o‘qidim."},{"t":"Я читаю сейчас.","uz":"Men hozir o‘qiyman."}],"say_native":"Zamonlarni takrorlash: «я читал вчера» — men kecha o‘qidim, «я читаю сейчас» — men hozir o‘qiyman, «я буду читать завтра» — men ertaga o‘qiyman, «я обычно читаю» — men odatda o‘qiyman. Bu to‘rt ibora zamonlarni takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va zamonni eslab turing, iltimos.","say":"Я читал вчера. Я читаю сейчас. Я буду читать завтра. Я обычно читаю.","say_uz":"Men kecha o‘qidim. Men hozir o‘qiyman. Men ertaga o‘qiyman. Men odatda o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Zamonlarni takrorlang","emotion":"encouraging","board":["1) Men kecha o‘qidim.","2) Men hozir o‘qiyman.","3) Men ertaga o‘qiyman.","4) Men odatda o‘qiyman."],
-  "examples":[],"say_native":"To‘rtta gapni ayting. «Я читал вчера», «я читаю сейчас», «я буду читать завтра», «я обычно читаю». Har bir gap to‘g‘ri shaklda aytilgan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va zamonni eslab turing, iltimos.","say":"Я читал вчера. Я читаю сейчас. Я буду читать завтра. Я обычно читаю.","say_uz":"Men kecha o‘qidim. Men hozir o‘qiyman. Men ertaga o‘qiyman. Men odatda o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я читал вчера.","Я читаю сейчас.","Я буду читать завтра.","Я обычно читаю."],"examples":[],"say_native":"Javoblar: «Я читал вчера», «я читаю сейчас», «я буду читать завтра», «я обычно читаю». Har bir gap to‘g‘ri shaklda aytilgan. Endi siz zamonlarni ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Я читал вчера. Я читаю сейчас. Я буду читать завтра. Я обычно читаю.","say_uz":"Men kecha o‘qidim. Men hozir o‘qiyman. Men ertaga o‘qiyman. Men odatda o‘qiyman.","practice_seconds":0},
-  {"kind":"explain","title":"Я уже читал","emotion":"thinking","board":["Я уже читал.","Я ещё читаю.","Я никогда не читал.","Я всегда читаю."],"examples":[{"t":"Я уже читал.","uz":"Men allaqachon o‘qidim."},{"t":"Я ещё читаю.","uz":"Men hali o‘qiyman."}],"say_native":"Tajribani takrorlash: «я уже читал» — men allaqachon o‘qidim, «я ещё читаю» — men hali o‘qiyman, «я никогда не читал» — men hech qachon o‘qimadim, «я всегда читаю» — men har doim o‘qiyman. Bu to‘rt ibora tajribani takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va tajribani eslab turing, iltimos.","say":"Я уже читал. Я ещё читаю. Я никогда не читал. Я всегда читаю.","say_uz":"Men allaqachon o‘qidim. Men hali o‘qiyman. Men hech qachon o‘qimadim. Men har doim o‘qiyman.","practice_seconds":0},
-  {"kind":"explain","title":"Я читаю каждый день","emotion":"neutral","board":["Я читаю каждый день.","Я читаю обычно.","Я читаю сейчас.","Я читаю вчера."],"examples":[{"t":"Я читаю каждый день.","uz":"Men har kuni o‘qiyman."},{"t":"Я читаю обычно.","uz":"Men odatda o‘qiyman."}],"say_native":"Har kunni takrorlash: «я читаю каждый день» — men har kuni o‘qiyman, «я читаю обычно» — men odatda o‘qiyman, «я читаю сейчас» — men hozir o‘qiyman, «я читаю вчера» — men kecha o‘qidim. Bu to‘rt ibora odatni takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va odatni eslab turing, iltimos.","say":"Я читаю каждый день. Я читаю обычно. Я читаю сейчас. Я читаю вчера.","say_uz":"Men har kuni o‘qiyman. Men odatda o‘qiyman. Men hozir o‘qiyman. Men kecha o‘qidim.","practice_seconds":0},
-  {"kind":"practice","title":"Har kunni takrorlang","emotion":"encouraging","board":["1) Men har kuni o‘qiyman.","2) Men odatda o‘qiyman.","3) Men hozir o‘qiyman.","4) Men kecha o‘qidim."],
-  "examples":[],"say_native":"To‘rtta gapni ayting. «Я читаю каждый день», «я читаю обычно», «я читаю сейчас», «я читаю вчера». Har bir gap to‘g‘ri shaklda aytilgan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va odatni eslab turing, iltimos.","say":"Я читаю каждый день. Я читаю обычно. Я читаю сейчас. Я читаю вчера.","say_uz":"Men har kuni o‘qiyman. Men odatda o‘qiyman. Men hozir o‘qiyman. Men kecha o‘qidim.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я читаю каждый день.","Я читаю обычно.","Я читаю сейчас.","Я читаю вчера."],"examples":[],"say_native":"Javoblar: «Я читаю каждый день», «я читаю обычно», «я читаю сейчас», «я читаю вчера». Har bir gap to‘g‘ri shaklda aytilgan. Endi siz har kunni ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Я читаю каждый день. Я читаю обычно. Я читаю сейчас. Я читаю вчера.","say_uz":"Men har kuni o‘qiyman. Men odatda o‘qiyman. Men hozir o‘qiyman. Men kecha o‘qidim.","practice_seconds":0},
-  {"kind":"explain","title":"Я уже читал","emotion":"thinking","board":["Я уже читал.","Я ещё читаю.","Я никогда не читал.","Я всегда читаю."],"examples":[{"t":"Я уже читал.","uz":"Men allaqachon o‘qidim."},{"t":"Я ещё читаю.","uz":"Men hali o‘qiyman."}],"say_native":"Tajribani takrorlash: «я уже читал» — men allaqachon o‘qidim, «я ещё читаю» — men hali o‘qiyman, «я никогда не читал» — men hech qachon o‘qimadim, «я всегда читаю» — men har doim o‘qiyman. Bu to‘rt ibora tajribani takrorlashda ayniqsa ko‘p uchraydi. Har birini to‘liq gap qilib yodlang, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va tajribani eslab turing, iltimos.","say":"Я уже читал. Я ещё читаю. Я никогда не читал. Я всегда читаю.","say_uz":"Men allaqachon o‘qidim. Men hali o‘qiyman. Men hech qachon o‘qimadim. Men har doim o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Tajribani takrorlang","emotion":"encouraging","board":["1) Men allaqachon o‘qidim.","2) Men hali o‘qiyman.","3) Men hech qachon o‘qimadim.","4) Men har doim o‘qiyman."],
-  "examples":[],"say_native":"To‘rtta gapni ayting. «Я уже читал», «я ещё читаю», «я никогда не читал», «я всегда читаю». Har bir gap to‘g‘ri shaklda aytilgan bo‘lsin, iltimos, albatta, har birini tekshiring. Har birini to‘liq gap qilib ayting va tajribani eslab turing, iltimos.","say":"Я уже читал. Я ещё читаю. Я никогда не читал. Я всегда читаю.","say_uz":"Men allaqachon o‘qidim. Men hali o‘qiyman. Men hech qachon o‘qimadim. Men har doim o‘qiyman.","practice_seconds":12},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я уже читал.","Я ещё читаю.","Я никогда не читал.","Я всегда читаю."],"examples":[],"say_native":"Javoblar: «Я уже читал», «я ещё читаю», «я никогда не читал», «я всегда читаю». Har bir gap to‘g‘ri shaklda aytilgan. Endi siz tajribani ham takrorlay olasiz, iltimos, bu iboralarni yodda tuting, albatta har kuni takrorlang, yakunlang, yakunlang.","say":"Я уже читал. Я ещё читаю. Я никогда не читал. Я всегда читаю.","say_uz":"Men allaqachon o‘qidim. Men hali o‘qiyman. Men hech qachon o‘qimadim. Men har doim o‘qiyman.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: matn","emotion":"encouraging","board":["1) Men kecha o‘qidim.","2) Men hozir o‘qiyman.","3) Men ertaga o‘qiyman.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashq. Besh xil zamon bilan yuz yigirma so‘zlik matn yozing. «Я читал вчера. Я читаю сейчас. Я буду читать завтра. Спасибо!». Pauza bo‘lganda baland ovozda gapiring, iltimos, albatta, har bir gapni batafsil ayting.","say":"Я читал вчера. Я читаю сейчас. Я буду читать завтра. Спасибо!","say_uz":"Men kecha o‘qidim. Men hozir o‘qiyman. Men ertaga o‘qiyman. Rahmat!","practice_seconds":20},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Я читал вчера.","Я читаю сейчас.","Я буду читать завтра.","Спасибо!"],"examples":[],"say_native":"Namuna: «Я читал вчера. Я читаю сейчас. Я буду читать завтра. Спасибо!». Har bir gap to‘g‘ri shaklda aytilgan. Siz ham shu tuzilishni o‘zingizga moslab takrorlang, iltimos, albatta, har birini tekshiring.","say":"Я читал вчера. Я читаю сейчас. Я буду читать завтра. Спасибо!","say_uz":"Men kecha o‘qidim. Men hozir o‘qiyman. Men ertaga o‘qiyman. Rahmat!","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Я читал.","Я читаю.","Я буду читать.","Сейчас я читаю."],"examples":[],"say_native":"O‘zingizni tekshiring. O‘tgan zamonni “я читал” deb ayta olasizmi? Hozirgi zamonni “я читаю” deb ayta olasizmi? Kelajakni “я буду читать” deb ayta olasizmi? Hozirni “сейчас я читаю” deb ayta olasizmi? Hammasi joyida bo‘lsa, zamonlarga tayyorsiz.","say":"Я читал. Я читаю. Я буду читать. Сейчас я читаю.","say_uz":"Men o‘qidim. Men o‘qiyman. Men o‘qiyman (kelajakda). Hozir men o‘qiyman.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["я читал · я читаю · я буду читать","сейчас я читаю · обычно я читаю","я уже читал · я ещё читаю","я никогда не читал"],"examples":[],"say_native":"Xulosa. Zamonlar tizimini o‘rgandik: “я читал, я читаю, я буду читать”. Hozirgi paytni o‘rgandik: “сейчас я читаю”. Tajribani o‘rgandik: “я уже читал”. Endi zamonlarni bemalol ishlatasiz.","say":"Отлично! Теперь вы знаете систему времён.","say_uz":"Ajoyib! Endi zamonlar tizimini bilasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["Besh xil zamon bilan 120 so‘zlik matn","O‘tgan · hozirgi · kelajak · tajriba","Keyingi dars: tugallangan zamon va tajriba"],"examples":[],"say_native":"Uyga vazifa. Besh xil zamon bilan yuz yigirma so‘zlik matn yozing. Har bir gapda “я читал”, “я читаю”, “я буду читать”, “сейчас я читаю”, “я уже читал” iboralaridan foydalaning. Mezon: har bir gap rus tilida, zamon aniq. Keyingi darsda tugallangan zamonni o‘rganamiz. Ko‘rishguncha!","say":"До свидания! До встречи на следующем уроке. Мы будем говорить о совершённом виде.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Biz tugallangan zamon haqida gaplashamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Zamonlar xaritasi",
+   "emotion": "happy",
+   "board": [
+    "Система времён: общая карта",
+    "(Zamonlar tizimi)",
+    "настоящее · прошедшее · будущее · вид"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum va B1 darajasiga xush kelibsiz! Oldingi bosqichda A2 imtihonini topshirdingiz, endi yangi marraga chiqdingiz. Bugun rus tilidagi barcha zamonlarni bir xaritada ko‘ramiz. Rus tilida zamon kam, ammo ularning har biri ikki ko‘rinishga, ya’ni vidga ega. Dars oxirida siz kerakli zamon va vidni tarjimaga emas, ma’noga qarab tanlaysiz va 120 so‘zlik matnda kamida beshta shaklni ishlatasiz.",
+   "say": "Здравствуйте! Сегодня мы посмотрим на всю систему времён русского языка. Их немного, но у каждого есть свои особенности и своё время для употребления.",
+   "say_uz": "Assalomu alaykum! Bugun rus tilining butun zamonlar tizimiga qaraymiz. Ular kam, lekin har birining o‘z xususiyati va o‘z o‘rni bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Xaritaning umumiy ko‘rinishi",
+   "emotion": "neutral",
+   "board": [
+    "3 времени: прошедшее, настоящее, будущее",
+    "2 вида: несовершенный, совершенный",
+    "+ наклонения: изъявительное, условное, повелительное"
+   ],
+   "examples": [
+    {
+     "t": "Я читаю. Я читал. Я буду читать. Я прочитаю.",
+     "uz": "Men o‘qiyapman. O‘qirdim. O‘qiyman. O‘qib chiqaman."
+    }
+   ],
+   "say_native": "Rus tilida uchta zamon bor: o‘tgan, hozirgi va kelasi. Lekin hamma fe’l ikki vidda mavjud: nomukammal va mukammal. Mukammal vidda hozirgi zamon yo‘q, chunki tugagan ish hozir davom eta olmaydi. Natijada hammasi bo‘lib oltita asosiy shakl chiqadi: hozirgi, ikki xil o‘tgan va ikki xil kelasi, shuningdek shart va buyruq mayllari. O‘zbek tilida ko‘proq zamon bor, shuning uchun siz uchun ruscha oddiyroq, lekin vid bilan ehtiyot bo‘lish kerak.",
+   "say": "Я читаю книгу. Я читал книгу вчера. Я буду читать книгу вечером. Я прочитаю книгу завтра.",
+   "say_uz": "Men kitob o‘qiyapman. Men kitobni kecha o‘qigan edim. Kechqurun kitob o‘qiyman. Men kitobni ertaga o‘qib chiqaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hozirgi zamon",
+   "emotion": "neutral",
+   "board": [
+    "настоящее время: делаю, делаешь, делает",
+    "только несовершенный вид"
+   ],
+   "examples": [
+    {
+     "t": "Сейчас я работаю дома.",
+     "uz": "Hozir men uyda ishlayapman."
+    },
+    {
+     "t": "Она каждый день ходит в бассейн.",
+     "uz": "U har kuni basseynga boradi."
+    }
+   ],
+   "say_native": "Hozirgi zamon faqat nomukammal vid fe’llaridan yasaladi. U ikki holatni bildiradi: hozir bo‘layotgan ish va odat. «Сейчас я работаю» — hozir ishlayapman. «Она каждый день ходит в бассейн» — u har kuni boradi. O‘zbek tilida bu ikkisi uchun -yap va -adi shakllari bor, rus tilida esa hamma narsani bitta shakl bajaradi. Shuning uchun ma’noni aniqlash uchun «сейчас», «каждый день» kabi so‘zlar yordam beradi.",
+   "say": "Сейчас я работаю дома. Она каждый день ходит в бассейн. Они живут в Ташкенте.",
+   "say_uz": "Hozir men uyda ishlayapman. U har kuni basseynga boradi. Ular Toshkentda yashaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘tgan zamon: nomukammal",
+   "emotion": "neutral",
+   "board": [
+    "читал, читала, читало, читали",
+    "процесс, привычка, фон"
+   ],
+   "examples": [
+    {
+     "t": "Вчера я весь вечер читал.",
+     "uz": "Kecha butun kechqurun o‘qidim."
+    },
+    {
+     "t": "В детстве мы часто ездили к бабушке.",
+     "uz": "Bolaligimizda buvimnikiga tez-tez borar edik."
+    }
+   ],
+   "say_native": "O‘tgan zamonda ikki shakl bor. Nomukammal vid jarayonni, odatni yoki fonni aytadi. «Вчера я весь вечер читал» — jarayon, natijasi noma’lum. «Мы часто ездили» — takroriy odat. Shakl -л qo‘shimchasi bilan yasaladi va jins hamda songa moslashadi: читал, читала, читало, читали. O‘zbekchada bunga «-ar edi» va «-gan edi» o‘xshaydi, ammo ruscha aniq emas, shuning uchun kontekstga tayanamiz.",
+   "say": "Вчера я весь вечер читал. В детстве мы часто ездили к бабушке. Когда я пришёл, она готовила ужин.",
+   "say_uz": "Kecha butun kechqurun o‘qidim. Bolaligimizda buvimnikiga tez-tez borar edik. Men kelganimda u kechki ovqat tayyorlayotgan edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘tgan zamon: mukammal",
+   "emotion": "neutral",
+   "board": [
+    "прочитал, написал, открыл",
+    "результат, один раз, конкретное действие"
+   ],
+   "examples": [
+    {
+     "t": "Я прочитал книгу за два дня.",
+     "uz": "Men kitobni ikki kunda o‘qib chiqdim."
+    },
+    {
+     "t": "Вчера он открыл окно и вышел.",
+     "uz": "Kecha u derazani ochdi va chiqib ketdi."
+    }
+   ],
+   "say_native": "Mukammal vid natijani yoki bir martalik, tugallangan harakatni bildiradi. «Я прочитал книгу за два дня» — kitob tugadi. «Он открыл окно и вышел» — ketma-ket tugallangan ikki harakat. Mukammal vid odatda old qo‘shimcha yoki boshqa qo‘shimcha bilan yasaladi: «читать» — «прочитать», «писать» — «написать». Ko‘pincha «за + vaqt» iborasi ham mukammal vidning belgisi: «за два дня».",
+   "say": "Я прочитал книгу за два дня. Вчера он открыл окно и вышел. Мы наконец решили эту проблему.",
+   "say_uz": "Men kitobni ikki kunda o‘qib chiqdim. Kecha u derazani ochdi va chiqib ketdi. Biz nihoyat bu muammoni hal qildik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Bitta voqea, ikki vid",
+   "emotion": "impressed",
+   "board": [
+    "Я писал письмо. (процесс)",
+    "Я написал письмо. (результат)"
+   ],
+   "examples": [
+    {
+     "t": "Вчера я писал письмо два часа.",
+     "uz": "Kecha ikki soat xat yozdim (jarayon)."
+    },
+    {
+     "t": "Вчера я написал письмо и отправил его.",
+     "uz": "Kecha xatni yozib bo‘ldim va jo‘natdim (natija)."
+    }
+   ],
+   "say_native": "Mana bitta fe’lning ikki vidi. «Я писал письмо» — men xat yozish bilan band edim, ish tugagan bo‘lishi ham, tugamagan bo‘lishi ham mumkin. «Я написал письмо» — xat tayyor, jo‘natildi ham. Ikkinchi gapda «и отправил» keldi, bu ham tugallangan harakat. O‘zbek tilida shu farqni «yozdim» va «yozib bo‘ldim» yoki «yozib qo‘ydim» bilan bildiramiz.",
+   "say": "Вчера я писал письмо два часа. Вчера я написал письмо и отправил его. Пока я писал, он звонил.",
+   "say_uz": "Kecha ikki soat xat yozdim. Kecha xatni yozib bo‘ldim va jo‘natdim. Men yozayotganimda u qo‘ng‘iroq qilayotgan edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Vidni tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Вчера я (читал / прочитал) весь день.",
+    "2) Я (решал / решил) задачу и пошёл спать.",
+    "3) Когда он вошёл, мы (обедали / пообедали).",
+    "4) За час она (делала / сделала) всё."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Har bir gapda to‘g‘ri vidni tanlang. Birinchi gap: butun kun davomida jarayon. Ikkinchi gap: masala yechildi, keyin uxlashga ketdi, bu natija. Uchinchi gap: u kirganda biz ovqatlanayotgan edik, bu fon. To‘rtinchi gap: «за час», ya’ni bir soatda hammasini tugatdi. Har gapni baland ovozda ayting.",
+   "say": "Вчера я читал весь день. Я решил задачу и пошёл спать. Когда он вошёл, мы обедали. За час она сделала всё.",
+   "say_uz": "Kecha butun kun o‘qidim. Men masalani yechdim va uxlagani ketdim. U kirganda biz tushlik qilayotgan edik. Bir soatda u hammasini qildi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "читал (процесс)",
+    "решил (результат)",
+    "обедали (фон)",
+    "сделала (за час)"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. «Читал весь день» — jarayon, davomiylik, nomukammal vid. «Решил задачу» — natija, shuning uchun mukammal. «Когда он вошёл, мы обедали» — fon, nomukammal. «За час она сделала всё» — vaqt chegarasi va natija, mukammal. Qoidani eslang: davomiylik va takror — nomukammal, natija va bir marta — mukammal.",
+   "say": "Читал весь день. Решил задачу. Мы обедали. Она сделала всё за час.",
+   "say_uz": "Butun kun o‘qidim. Masalani yechdim. Biz tushlik qilayotgan edik. U hammasini bir soatda qildi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kelasi zamon: nomukammal",
+   "emotion": "neutral",
+   "board": [
+    "буду + инфинитив",
+    "буду читать, будешь читать, будет читать"
+   ],
+   "examples": [
+    {
+     "t": "Завтра я буду работать весь день.",
+     "uz": "Ertaga butun kun ishlayman."
+    },
+    {
+     "t": "Вечером мы будем смотреть фильм.",
+     "uz": "Kechqurun film ko‘ramiz."
+    }
+   ],
+   "say_native": "Kelasi zamonning birinchi shakli «быть» fe’lining kelasi shakli plyus nomukammal infinitiv: «буду читать», «будешь читать». U jarayonni yoki takrorni bildiradi. «Завтра я буду работать весь день» — butun kun davomida ishlayman. «Мы будем смотреть фильм» — film ko‘rish jarayoni. O‘zbekchada shu ma’noni «-ayotgan bo‘laman» yoki oddiy kelasi zamon bilan bildiramiz.",
+   "say": "Завтра я буду работать весь день. Вечером мы будем смотреть фильм. Летом он будет жить на даче.",
+   "say_uz": "Ertaga butun kun ishlayman. Kechqurun film ko‘ramiz. Yozda u dachada yashaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kelasi zamon: mukammal",
+   "emotion": "neutral",
+   "board": [
+    "прочитаю, напишу, сделаю",
+    "форма как настоящее, значение будущее"
+   ],
+   "examples": [
+    {
+     "t": "Завтра я прочитаю эту статью.",
+     "uz": "Ertaga bu maqolani o‘qib chiqaman."
+    },
+    {
+     "t": "Через час она позвонит нам.",
+     "uz": "Bir soatdan keyin u bizga qo‘ng‘iroq qiladi."
+    }
+   ],
+   "say_native": "Kelasi zamonning ikkinchi shakli mukammal fe’ldan yasaladi va tashqi ko‘rinishi hozirgi zamonga o‘xshaydi: «прочитаю», «напишу», «сделаю». Lekin ma’nosi kelasi zamon, natija bo‘ladi. «Завтра я прочитаю статью» — maqola o‘qib tugatiladi. «Она позвонит» — u qo‘ng‘iroq qiladi, bir marta. Bu o‘zbek o‘quvchilari uchun qiyin, chunki «ayt» o‘rniga «скажу» desak, hozirgi zamon emas, kelasi zamon bo‘ladi.",
+   "say": "Завтра я прочитаю эту статью. Через час она позвонит нам. Я обязательно напишу вам письмо.",
+   "say_uz": "Ertaga bu maqolani o‘qib chiqaman. Bir soatdan keyin u bizga qo‘ng‘iroq qiladi. Men albatta sizga xat yozaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Kelasi zamon shaklini tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1) Завтра я (буду читать / прочитаю) эту книгу до конца.",
+    "2) Весь вечер мы (будем смотреть / посмотрим) фильм.",
+    "3) Я (буду писать / напишу) ему сегодня.",
+    "4) Летом она (будет отдыхать / отдохнёт) на море."
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapda kelasi zamonning to‘g‘ri shaklini tanlang. Birinchi gap: kitobni oxirigacha o‘qib tugatish, natija. Ikkinchi gap: butun kechqurun, jarayon. Uchinchi gap: bugun unga yozaman, bir martalik. To‘rtinchi gap: yozda dengizda dam oladi, jarayon. Har birini ayting va javoblarni solishtiring.",
+   "say": "Завтра я прочитаю эту книгу до конца. Весь вечер мы будем смотреть фильм. Я напишу ему сегодня. Летом она будет отдыхать на море.",
+   "say_uz": "Ertaga bu kitobni oxirigacha o‘qib chiqaman. Butun kechqurun film ko‘ramiz. Unga bugun yozaman. Yozda u dengizda dam oladi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "прочитаю (результат)",
+    "будем смотреть (процесс)",
+    "напишу (один раз)",
+    "будет отдыхать (процесс)"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: «прочитаю», chunki oxirigacha o‘qib tugatiladi. Ikkinchi: «будем смотреть», chunki butun kechqurun davom etadi. Uchinchi: «напишу», bir martalik harakat, natija. To‘rtinchi: «будет отдыхать», davomli jarayon. Esda tuting: «буду» faqat nomukammal infinitiv bilan keladi, «буду прочитать» deyish xato.",
+   "say": "Прочитаю. Будем смотреть. Напишу. Будет отдыхать.",
+   "say_uz": "O‘qib chiqaman. Ko‘ramiz. Yozaman. Dam oladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Vaqt belgilari: nomukammal",
+   "emotion": "thinking",
+   "board": [
+    "всегда, обычно, часто, иногда",
+    "каждый день, по утрам",
+    "всё время, долго, целый день"
+   ],
+   "examples": [
+    {
+     "t": "Обычно я встаю в семь часов.",
+     "uz": "Odatda soat yettida turaman."
+    },
+    {
+     "t": "Мы долго ждали автобус.",
+     "uz": "Biz avtobusni uzoq kutdik."
+    }
+   ],
+   "say_native": "Vid ko‘pincha vaqt so‘zlariga qarab aniqlanadi. Nomukammal vidni chaqiradigan so‘zlar: «всегда», «обычно», «часто», «иногда», «каждый день», «по утрам», shuningdek davomiylik bildiruvchi «долго», «целый день», «всё время». Bularning hammasida takror yoki jarayon bor. «Мы долго ждали автобус» — kutish davom etdi. Shu so‘zlarni ko‘rsangiz, nomukammal vidni tanlang.",
+   "say": "Обычно я встаю в семь часов. Мы долго ждали автобус. Она всё время молчала.",
+   "say_uz": "Odatda soat yettida turaman. Biz avtobusni uzoq kutdik. U butun vaqt jim edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Vaqt belgilari: mukammal",
+   "emotion": "thinking",
+   "board": [
+    "вдруг, наконец, уже, сразу",
+    "за час, за неделю",
+    "однажды, один раз, в 5 часов"
+   ],
+   "examples": [
+    {
+     "t": "Вдруг зазвонил телефон.",
+     "uz": "To‘satdan telefon jiringladi."
+    },
+    {
+     "t": "Мы построили дом за год.",
+     "uz": "Biz uyni bir yilda qurdik."
+    }
+   ],
+   "say_native": "Mukammal vidni chaqiradigan belgilar: «вдруг» — to‘satdan, «наконец» — nihoyat, «сразу» — darhol, «уже» — allaqachon, «однажды» — bir kuni. «За» bilan vaqt, masalan «за год», ham mukammal vidni bildiradi, chunki harakat shu vaqt ichida tugallanadi. Nomukammalda esa «год» o‘rniga «весь год» yoki «целый год» ishlatiladi. Shu farq juda foydali.",
+   "say": "Вдруг зазвонил телефон. Мы построили дом за год. Он наконец сказал правду.",
+   "say_uz": "To‘satdan telefon jiringladi. Biz uyni bir yilda qurdik. U nihoyat haqiqatni aytdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Belgilar bo‘yicha vid",
+   "emotion": "encouraging",
+   "board": [
+    "1) Каждое утро я (пил / выпил) кофе.",
+    "2) Вдруг он (говорил / сказал) правду.",
+    "3) Мы (писали / написали) отчёт за день.",
+    "4) Она долго (думала / подумала)."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Vaqt belgilariga qarab vidni tanlang. Birinchi gap «каждое утро» bilan, takror. Ikkinchi gap «вдруг» bilan, to‘satdan bir marta. Uchinchi gap «за день» bilan, tugatildi. To‘rtinchi gap «долго» bilan, davomiylik. Baland ovozda ayting va keyin javoblarni eshiting.",
+   "say": "Каждое утро я пил кофе. Вдруг он сказал правду. Мы написали отчёт за день. Она долго думала.",
+   "say_uz": "Har kuni ertalab kofe ichardim. To‘satdan u haqiqatni aytdi. Biz hisobotni bir kunda yozdik. U uzoq o‘ylab o‘tirdi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "пил (каждое утро)",
+    "сказал (вдруг)",
+    "написали (за день)",
+    "думала (долго)"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. «Каждое утро я пил кофе» — odat, nomukammal. «Вдруг он сказал правду» — bir martalik hodisa, mukammal. «Мы написали отчёт за день» — «за день» natijani bildiradi, mukammal. «Она долго думала» — davomiylik, nomukammal. Agar to‘rttasini topsangiz, vid tanlashning asosiy yo‘lini egallagansiz: belgilarga e’tibor bering.",
+   "say": "Каждое утро я пил кофе. Вдруг он сказал правду. Мы написали отчёт за день. Она долго думала.",
+   "say_uz": "Har kuni ertalab kofe ichardim. To‘satdan u haqiqatni aytdi. Biz hisobotni bir kunda yozdik. U uzoq o‘ylab o‘tirdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tarjimaga emas, ma’noga qarab",
+   "emotion": "thinking",
+   "board": [
+    "Не «как по-узбекски», а «что я хочу сказать»",
+    "процесс/привычка → НСВ",
+    "результат/один раз → СВ"
+   ],
+   "examples": [
+    {
+     "t": "Я читал эту книгу в детстве.",
+     "uz": "Men bu kitobni bolaligimda o‘qiganman (o‘qirdim)."
+    },
+    {
+     "t": "Я прочитал эту книгу вчера.",
+     "uz": "Men bu kitobni kecha o‘qib bo‘ldim."
+    }
+   ],
+   "say_native": "Eng muhim xulosa: zamon va vidni o‘zbekcha tarjimaga qarab emas, aytmoqchi bo‘lgan ma’noga qarab tanlang. O‘zbekcha «o‘qidim» ham jarayonni, ham natijani bildirishi mumkin. Rus tilida esa albatta tanlash kerak: «читал» yoki «прочитал». O‘zingizga savol bering: men jarayonni, takrorni aytyapmanmi, yoki natijani, bir martalik harakatnimi? Birinchi bo‘lsa nomukammal, ikkinchi bo‘lsa mukammal.",
+   "say": "Я читал эту книгу в детстве. Я прочитал эту книгу вчера. Раньше я читал много, а сейчас читаю мало.",
+   "say_uz": "Men bu kitobni bolaligimda o‘qirdim. Men bu kitobni kecha o‘qib bo‘ldim. Ilgari ko‘p o‘qirdim, hozir esa oz o‘qiyman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: takror uchun mukammal vid",
+   "emotion": "stern",
+   "board": [
+    "✗ Каждый день я прочитаю газету.",
+    "✓ Каждый день я читаю газету.",
+    "✗ Вчера я сделаю уроки.",
+    "✓ Вчера я делал уроки / сделал уроки."
+   ],
+   "examples": [],
+   "say_native": "Birinchi tipik xato: takror ma’nosida mukammal vidni ishlatish. «Каждый день я прочитаю газету» noto‘g‘ri, chunki «каждый день» takrorni bildiradi, demak nomukammal: «читаю». Ikkinchi xato: zamonni aralashtirish. «Вчера я сделаю» emas, «вчера я сделал». O‘zbek tilida shunday xato kam uchraydi, lekin rus tilida mukammal fe’lning shakli hozirgiga o‘xshab ketgani uchun adashish oson. Shu shakl ko‘rinishiga aldanmang.",
+   "say": "Неправильно: каждый день я прочитаю газету. Правильно: каждый день я читаю газету. Вчера я сделал уроки.",
+   "say_uz": "Noto‘g‘ri: har kuni gazetani o‘qib chiqaman. To‘g‘ri: har kuni gazeta o‘qiyman. Kecha darslarni qildim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: inkorda vid",
+   "emotion": "stern",
+   "board": [
+    "Я не читал эту книгу. (umuman)",
+    "Я не прочитал эту книгу. (oxirigacha emas)"
+   ],
+   "examples": [
+    {
+     "t": "Я не звонил ему. (qo‘ng‘iroq qilmaganman)",
+     "uz": "Men unga qo‘ng‘iroq qilmaganman."
+    },
+    {
+     "t": "Я не дозвонился до него. (ulana olmadim)",
+     "uz": "Men u bilan bog‘lana olmadim."
+    }
+   ],
+   "say_native": "Inkorda ham vid ma’noni o‘zgartiradi. «Я не читал эту книгу» — umuman o‘qimaganman. «Я не прочитал» — boshladim, ammo tugata olmadim yoki o‘qib bo‘lmadim. Shuning uchun inkorda ham o‘ylab tanlang. Bu uzr so‘rashda ham muhim: «я не позвонил» — qo‘ng‘iroq qilishni unutdim, «я не звонил» — umuman qo‘ng‘iroq qilmaganman. Ular har xil taassurot qoldiradi.",
+   "say": "Я не читал эту книгу. Я не прочитал эту книгу до конца. Извини, я не позвонил вчера.",
+   "say_uz": "Men bu kitobni o‘qimaganman. Men bu kitobni oxirigacha o‘qib bo‘lmadim. Kechirasan, kecha qo‘ng‘iroq qilmabman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Buyruq mayli va vid",
+   "emotion": "neutral",
+   "board": [
+    "Читай! / Прочитай!",
+    "Не читай! / Не открывай!",
+    "(НСВ — процесс; СВ — один раз)"
+   ],
+   "examples": [
+    {
+     "t": "Читай каждый день, это полезно.",
+     "uz": "Har kuni o‘qi, bu foydali."
+    },
+    {
+     "t": "Прочитай это письмо, пожалуйста.",
+     "uz": "Iltimos, shu xatni o‘qib chiq."
+    }
+   ],
+   "say_native": "Buyruq mayli ham xaritaning bir qismi. Vid bu yerda ham ahamiyatli: «читай» — doimiy o‘qi, odat qil. «Прочитай» — shu xatni bir marta o‘qib chiq. Taqiqda esa odatda nomukammal vid ishlatiladi: «не читай», «не открывай окно». O‘zbekcha «o‘qi» buyrug‘i ikkala ma’noni ham beradi, shuning uchun rus tilida ma’noni o‘zingiz tanlashingiz kerak.",
+   "say": "Читай каждый день, это полезно. Прочитай это письмо, пожалуйста. Не открывай окно, там холодно.",
+   "say_uz": "Har kuni o‘qi, bu foydali. Iltimos, shu xatni o‘qib chiq. Derazani ochma, tashqarida sovuq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Shart mayli: бы",
+   "emotion": "neutral",
+   "board": [
+    "глагол в прошедшем + бы",
+    "Если бы я знал, я бы сказал."
+   ],
+   "examples": [
+    {
+     "t": "Если бы я знал, я бы сказал.",
+     "uz": "Agar bilganimda, aytgan bo‘lardim."
+    },
+    {
+     "t": "Я бы поехал, но у меня нет времени.",
+     "uz": "Borardim, lekin vaqtim yo‘q."
+    }
+   ],
+   "say_native": "Shart mayli «бы» yordamida yasaladi: o‘tgan zamon fe’li plyus «бы». «Если бы я знал, я бы сказал» — agar bilganimda aytgan bo‘lardim. Bu shakl gipotetik holat uchun, va u zamonga bog‘liq emas: o‘zgarmaydi. O‘zbek tilida «-sa» va «-gan bo‘lardi» shakllari bor, ruscha esa hammasini «бы» bilan bildiradi. Chuqurroq bu mavzuni B2 bosqichida o‘rganamiz, hozir tanib oling.",
+   "say": "Если бы я знал, я бы сказал. Я бы поехал, но у меня нет времени. Что бы ты сделал на моём месте?",
+   "say_uz": "Agar bilganimda, aytgan bo‘lardim. Borardim, lekin vaqtim yo‘q. Mening o‘rnimda sen nima qilarding?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Zamon xaritasi: gap tuzing",
+   "emotion": "encouraging",
+   "board": [
+    "1) Hozirgi: ... (я учу русский)",
+    "2) O‘tgan, jarayon: ... (вчера читал)",
+    "3) O‘tgan, natija: ... (написал письмо)",
+    "4) Kelasi, natija: ... (завтра позвоню)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta zamon shaklida o‘zingiz haqingizda bittadan gap ayting. Birinchi: hozirgi zamonda nima qilyapsiz yoki odatingiz. Ikkinchi: o‘tgan zamonda jarayon. Uchinchi: o‘tgan zamonda natija. To‘rtinchi: kelasi zamonda mukammal vid. Ayting va namunani eshiting.",
+   "say": "Я учу русский язык. Вчера я долго читал. На прошлой неделе я написал письмо. Завтра я позвоню другу.",
+   "say_uz": "Men rus tilini o‘rganaman. Kecha uzoq o‘qidim. O‘tgan hafta xat yozdim. Ertaga do‘stimga qo‘ng‘iroq qilaman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javoblar",
+   "emotion": "proud",
+   "board": [
+    "учу — настоящее",
+    "читал — прошедшее НСВ",
+    "написал — прошедшее СВ",
+    "позвоню — будущее СВ"
+   ],
+   "examples": [],
+   "say_native": "Namuna javoblar. «Я учу русский язык» — hozirgi zamon. «Вчера я долго читал» — o‘tgan zamon, nomukammal, davomiylik. «На прошлой неделе я написал письмо» — o‘tgan zamon, mukammal, natija. «Завтра я позвоню другу» — kelasi zamon, mukammal. Sizning gaplaringiz boshqacha bo‘lsa ham, tuzilish shu bo‘lishi kerak. Yaxshi ish!",
+   "say": "Я учу русский язык. Вчера я долго читал. Я написал письмо. Завтра я позвоню.",
+   "say_uz": "Men rus tilini o‘rganaman. Kecha uzoq o‘qidim. Men xat yozdim. Ertaga qo‘ng‘iroq qilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Vaqt oralig‘i: через va назад",
+   "emotion": "thinking",
+   "board": [
+    "через час (soatdan keyin)",
+    "час назад (bir soat oldin)",
+    "в течение недели"
+   ],
+   "examples": [
+    {
+     "t": "Я позвоню тебе через час.",
+     "uz": "Men senga bir soatdan keyin qo‘ng‘iroq qilaman."
+    },
+    {
+     "t": "Он уехал два дня назад.",
+     "uz": "U ikki kun oldin ketdi."
+    }
+   ],
+   "say_native": "Zamon xaritasini vaqt iboralari bilan to‘ldiramiz. «Через» kelasi zamon bilan keladi va «dan keyin» ma’nosini beradi: «через час», «через неделю». «Назад» o‘tgan zamon bilan ishlatiladi va «oldin» ma’nosini beradi, u so‘zdan keyin turadi: «час назад», «два дня назад». O‘zbek tilida «bir soatdan keyin» va «bir soat oldin» deymiz, ruscha ham shunga o‘xshash, faqat «назад» so‘zi oxirda turishini unutmang.",
+   "say": "Я позвоню тебе через час. Он уехал два дня назад. Через неделю мы будем уже дома.",
+   "say_uz": "Men senga bir soatdan keyin qo‘ng‘iroq qilaman. U ikki kun oldin ketdi. Bir haftadan keyin biz allaqachon uyda bo‘lamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Через yoki назад",
+   "emotion": "encouraging",
+   "board": [
+    "1) Урок начнётся ___ десять минут.",
+    "2) Мы познакомились три года ___.",
+    "3) Я вернусь ___ месяц.",
+    "4) Она позвонила пять минут ___."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Bo‘sh joylarga «через» yoki «назад» qo‘ying. Birinchi gapda dars hali boshlanmagan, kelasi zamon. Ikkinchi gapda tanishuv o‘tgan. Uchinchi gapda qaytish hali bo‘lmagan. To‘rtinchi gapda qo‘ng‘iroq bo‘lib o‘tgan. Zamonga qarang va ayting.",
+   "say": "Урок начнётся через десять минут. Мы познакомились три года назад. Я вернусь через месяц. Она позвонила пять минут назад.",
+   "say_uz": "Dars o‘n daqiqadan keyin boshlanadi. Biz uch yil oldin tanishganmiz. Men bir oydan keyin qaytaman. U besh daqiqa oldin qo‘ng‘iroq qildi.",
+   "practice_seconds": 12
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "через десять минут (будущее)",
+    "три года назад (прошедшее)",
+    "через месяц (будущее)",
+    "пять минут назад (прошедшее)"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi va uchinchi gapda kelasi zamon, shuning uchun «через». Ikkinchi va to‘rtinchi gapda o‘tgan zamon, shuning uchun «назад». Qoida oddiy: kelasi zamon bilan «через», o‘tgan zamon bilan «назад». Shu ikki so‘z bilan siz zamon xaritangizni vaqt jihatidan aniq belgilay olasiz.",
+   "say": "Через десять минут. Три года назад. Через месяц. Пять минут назад.",
+   "say_uz": "O‘n daqiqadan keyin. Uch yil oldin. Bir oydan keyin. Besh daqiqa oldin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Уже va ещё не",
+   "emotion": "thinking",
+   "board": [
+    "уже + СВ / НСВ",
+    "ещё не + НСВ: «ещё не сделал»",
+    "не ... ещё"
+   ],
+   "examples": [
+    {
+     "t": "Я уже прочитал эту книгу.",
+     "uz": "Men bu kitobni allaqachon o‘qib bo‘ldim."
+    },
+    {
+     "t": "Он ещё не пришёл.",
+     "uz": "U hali kelmadi."
+    }
+   ],
+   "say_native": "«Уже» — allaqachon, «ещё не» — hali emas. Ikkalasi ham natija bilan bog‘liq. «Я уже прочитал» — natija bor. «Он ещё не пришёл» — hali kelmagan, lekin kelishi kutilmoqda. Qiziq jihat: «ещё не» dan keyin ko‘pincha mukammal vid keladi, chunki natija hali yo‘q. O‘zbek tilida «hali» va «allaqachon» so‘zlari xuddi shunday ishlaydi, shuning uchun bu juft siz uchun tanish.",
+   "say": "Я уже прочитал эту книгу. Он ещё не пришёл. Мы уже ужинали, а они ещё не приехали.",
+   "say_uz": "Men bu kitobni allaqachon o‘qib bo‘ldim. U hali kelmadi. Biz allaqachon kechki ovqatni yedik, ular esa hali yetib kelmadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: o‘tgan hafta",
+   "emotion": "happy",
+   "board": [
+    "— Что ты делал в выходные?",
+    "— Сначала я отдыхал, а потом написал отчёт."
+   ],
+   "examples": [
+    {
+     "t": "— Что ты делал в выходные?",
+     "uz": "— Dam olish kunlari nima qilding?"
+    },
+    {
+     "t": "— Утром я гулял, а вечером написал отчёт.",
+     "uz": "— Ertalab sayr qildim, kechqurun hisobot yozdim."
+    }
+   ],
+   "say_native": "Birinchi suhbatni tinglang. Ikki hamkasb dam olish kunlari haqida gaplashadi. Diqqat qiling: qaysi harakatlar jarayon, qaysi biri natija. Tinglab bo‘lgach, savollarga javob berasiz.",
+   "say": "— Что ты делал в выходные? — Утром я гулял в парке, потом отдыхал дома, а вечером написал отчёт. — Ты уже отправил его? — Нет, завтра отправлю.",
+   "say_uz": "— Dam olish kunlari nima qilding? — Ertalab bog‘da sayr qildim, keyin uyda dam oldim, kechqurun hisobot yozdim. — Uni yuborib bo‘ldingmi? — Yo‘q, ertaga yuboraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Что он делал утром?",
+    "2) Что он написал вечером?",
+    "3) Когда он отправит отчёт?",
+    "4) Какой это вид: «написал»?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: u ertalab nima qildi? Ikkinchi: kechqurun nima yozdi? Uchinchi: hisobotni qachon yuboradi? To‘rtinchi savol grammatik: «написал» qaysi vid? Javoblarni qisqa ruscha ayting va oxirgisini o‘zbekcha izohlang.",
+   "say": "Утром он гулял в парке. Вечером он написал отчёт. Он отправит отчёт завтра. Это совершенный вид.",
+   "say_uz": "Ertalab u bog‘da sayr qildi. Kechqurun u hisobot yozdi. U hisobotni ertaga yuboradi. Bu mukammal vid.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "гулял (НСВ)",
+    "написал (СВ)",
+    "отправит завтра (СВ, будущее)",
+    "написал — СВ"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. U ertalab sayr qildi, «гулял», jarayon. Kechqurun hisobot yozdi, «написал», natija. Hisobotni ertaga yuboradi, «отправит», kelasi zamon, mukammal. «Написал» — mukammal vid, chunki hisobot tayyor. E’tibor bering: suhbatda ham hozirgi, ham o‘tgan, ham kelasi zamon bor edi va hammasi ma’noga mos tanlangan.",
+   "say": "Он гулял. Он написал отчёт. Он отправит отчёт завтра.",
+   "say_uz": "U sayr qildi. U hisobot yozdi. U hisobotni ertaga yuboradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: rejalar",
+   "emotion": "happy",
+   "board": [
+    "— Что вы будете делать летом?",
+    "— Мы поедем на море и будем плавать."
+   ],
+   "examples": [
+    {
+     "t": "— Что вы будете делать летом?",
+     "uz": "— Yozda nima qilasizlar?"
+    },
+    {
+     "t": "— Мы поедем на море и будем плавать каждый день.",
+     "uz": "— Dengizga boramiz va har kuni suzamiz."
+    }
+   ],
+   "say_native": "Ikkinchi suhbat kelajak haqida. Bu yerda «поедем» mukammal, «будем плавать» nomukammal. Nima uchun? «Поехать» bir martalik harakat, «плавать» takrorlanadigan jarayon. Tinglang va savolga tayyorlaning: ular yozda nima qilishadi?",
+   "say": "— Что вы будете делать летом? — Мы поедем на море и будем плавать каждый день. А ты? — Я останусь дома и буду работать, но в августе, наверное, возьму отпуск.",
+   "say_uz": "— Yozda nima qilasizlar? — Dengizga boramiz va har kuni suzamiz. Sen-chi? — Men uyda qolaman va ishlayman, lekin avgustda, ehtimol, ta’til olaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Rejalar bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Куда они поедут?",
+    "2) Что они будут делать каждый день?",
+    "3) Что будет делать он?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: ular qayerga borishadi? Ikkinchi: har kuni nima qilishadi? Uchinchi: suhbatdosh nima qiladi? Ikkinchi javobda nomukammal kelasi zamon bo‘lishi kerak. Javoblarni ayting.",
+   "say": "Они поедут на море. Они будут плавать каждый день. Он останется дома и будет работать.",
+   "say_uz": "Ular dengizga boradi. Ular har kuni suzadi. U uyda qoladi va ishlaydi.",
+   "practice_seconds": 13
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "поедут (СВ)",
+    "будут плавать (НСВ)",
+    "останется, будет работать"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Ular dengizga «поедут», mukammal kelasi zamon, bir martalik safar. Har kuni «будут плавать», nomukammal, takror. U uyda «останется» va «будет работать». Bitta suhbatda ikkala vidning kelasi zamoni ishlatildi. Ko‘rdingizmi, mantiq oddiy: bir martalik harakat — mukammal, takror va jarayon — nomukammal.",
+   "say": "Они поедут на море. Они будут плавать каждый день. Он останется дома и будет работать.",
+   "say_uz": "Ular dengizga boradi. Ular har kuni suzadi. U uyda qoladi va ishlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ona tili ta’siri: xatolar",
+   "emotion": "stern",
+   "board": [
+    "✗ Я буду прочитать",
+    "✓ Я прочитаю / Я буду читать",
+    "✗ Я работал вчера целый день, закончил",
+    "✓ Я работал вчера целый день и закончил"
+   ],
+   "examples": [],
+   "say_native": "Keling, o‘zbek tilidan o‘tadigan to‘rtta tipik xatoni jamlaymiz. Birinchi: «буду» ni mukammal infinitiv bilan ishlatish: «я буду прочитать» noto‘g‘ri. Ikkinchi: takror bilan mukammal. Uchinchi: inkorda vid ma’nosini e’tiborsiz qoldirish. To‘rtinchi: o‘zbekcha «-gan edi» ni har doim «был» bilan tarjima qilish. Ruscha o‘tgan zamonda «был» kerak emas: «я читал», «я читал» emas «я был читал».",
+   "say": "Неправильно: я буду прочитать. Правильно: я прочитаю или я буду читать. Я работал целый день и закончил.",
+   "say_uz": "Noto‘g‘ri: «я буду прочитать». To‘g‘ri: o‘qib chiqaman yoki o‘qiyman. Butun kun ishladim va tugatdim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Xatoni toping",
+   "emotion": "encouraging",
+   "board": [
+    "1) Каждый вечер я прочитаю одну страницу.",
+    "2) Завтра я буду написать письмо.",
+    "3) Вчера он был читал газету."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta gapda xato bor. Uni toping va to‘g‘rilang. Birinchi gapda «har kuni» takror, demak vid noto‘g‘ri. Ikkinchi gapda «буду» bilan noto‘g‘ri infinitiv. Uchinchi gapda keraksiz «был». Tuzatilgan gaplarni ayting.",
+   "say": "Каждый вечер я читаю одну страницу. Завтра я напишу письмо. Вчера он читал газету.",
+   "say_uz": "Har kuni kechqurun bir bet o‘qiyman. Ertaga xat yozaman. Kecha u gazeta o‘qidi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "читаю (НСВ, каждый вечер)",
+    "напишу / буду писать",
+    "читал (без «был»)"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: «каждый вечер я читаю», takror uchun nomukammal. Ikkinchi: «напишу» yoki «буду писать», lekin «буду написать» yo‘q. Uchinchi: «вчера он читал», «был» ni olib tashlaymiz. Shu uch xato eng ko‘p uchraydi, ularni eslab qolsangiz, nutqingiz ancha toza bo‘ladi.",
+   "say": "Каждый вечер я читаю одну страницу. Завтра я напишу письмо. Вчера он читал газету.",
+   "say_uz": "Har kuni kechqurun bir bet o‘qiyman. Ertaga xat yozaman. Kecha u gazeta o‘qidi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Urg‘u va o‘tgan zamon",
+   "emotion": "thinking",
+   "board": [
+    "чита́л, читала́, чита́ло",
+    "пил, пила́, пи́ло",
+    "взял, взяла́, взя́ло"
+   ],
+   "examples": [
+    {
+     "t": "Он взял книгу, а она взяла́ ручку.",
+     "uz": "U kitob oldi, u esa ruchka oldi."
+    }
+   ],
+   "say_native": "Bir muhim talaffuz nuqtasi. Ba’zi fe’llarda o‘tgan zamonda urg‘u ayol jinsida oxirgi bo‘g‘inga o‘tadi: «он пил, она пила́, оно пи́ло». «Он взял, она взяла́, оно взя́ло, они взя́ли». Bunday fe’llar kam emas, shuning uchun lug‘atdagi urg‘uga qarab o‘rganing. Urg‘u noto‘g‘ri bo‘lsa, so‘z tushunarsiz ham bo‘lishi mumkin.",
+   "say": "Он взял книгу, а она взяла ручку. Он пил чай, а она пила кофе. Они взяли билеты.",
+   "say_uz": "U kitob oldi, u esa ruchka oldi. U choy ichdi, u esa kofe ichdi. Ular chipta olishdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "120 so‘zlik matn rejasi",
+   "emotion": "encouraging",
+   "board": [
+    "Расскажите о своём вчерашнем дне и планах",
+    "5 разных форм",
+    "настоящее · прошедшее НСВ/СВ · будущее НСВ/СВ"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy mashq. O‘z kuningiz haqida, kamida beshta turli shakl bilan qisqa hikoya tuzing. Hozirgi zamon, o‘tgan nomukammal, o‘tgan mukammal, kelasi nomukammal va kelasi mukammal. Misol: «Обычно я встаю рано. Вчера я долго читал и написал письмо. Завтра я буду работать и отправлю документы». Ayting va keyin namunani eshiting.",
+   "say": "Обычно я встаю рано. Вчера я долго читал и написал другу письмо. Завтра я буду работать весь день, а вечером позвоню родителям.",
+   "say_uz": "Odatda erta turaman. Kecha uzoq o‘qidim va do‘stimga xat yozdim. Ertaga butun kun ishlayman, kechqurun ota-onamga qo‘ng‘iroq qilaman.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "3 времени + 2 вида",
+    "настоящее · прош. НСВ/СВ · буд. НСВ/СВ",
+    "маркеры: обычно / вдруг / за час",
+    "выбор по смыслу"
+   ],
+   "examples": [],
+   "say_native": "Bugun nimani o‘rgandik. Birinchi: rus tilida uchta zamon va ikkita vid bor, mukammal vidda hozirgi zamon yo‘q. Ikkinchi: har bir zamonning shakli va ma’nosi. Uchinchi: vaqt belgilari vidni tanlashga yordam beradi. To‘rtinchi: tarjimaga emas, ma’noga qarab tanlash. Beshinchi: ona tilidan o‘tadigan xatolar, ya’ni «буду прочитать», takror uchun mukammal vid va keraksiz «был». Endi siz zamonlar xaritasini ko‘z oldingizga keltira olasiz.",
+   "say": "Сегодня мы повторили всю систему времён и видов. Помните: выбираем форму по смыслу. Вы хорошо поработали!",
+   "say_uz": "Bugun zamonlar va vidlar tizimini takrorladik. Esda tuting: shaklni ma’noga qarab tanlaymiz. Yaxshi ishladingiz!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "120 слов, 5 разных форм",
+    "настоящее · прош. НСВ · прош. СВ · буд. НСВ · буд. СВ",
+    "Keyingi dars: tugallangan zamon va tajriba"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. O‘zingiz haqingizda, taxminan 120 so‘zlik ruscha matn yozing. Unda kamida beshta turli shakl bo‘lsin: hozirgi, o‘tgan nomukammal, o‘tgan mukammal, kelasi nomukammal va kelasi mukammal. Muvaffaqiyat mezoni: har bir shakl ma’noga mos va vid xatosi yo‘q. Keyingi darsda tugallangan harakat va hayot tajribasi haqida gapirishni o‘rganamiz. Ko‘rishguncha!",
+   "say": "Напишите текст о себе из ста двадцати слов и используйте пять разных форм. До встречи!",
+   "say_uz": "O‘zingiz haqingizda 120 so‘zlik matn yozing va beshta turli shakldan foydalaning. Ko‘rishguncha!",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz":"Besh xil zamon bilan yuz yigirma so‘zlik matn yozing. Mezon: har bir gap rus tilida, “я читал”, “я читаю”, “я буду читать”, “сейчас я читаю”, “я уже читал” iboralari ishlatilgan.",
- "quiz":[
-  {"q":"How do you say ‘I read’ past?","options":["Я читал.","Я читал есть.","Я читаю.","Я будет читать."],"answer":0,"why_uz":"Я читал — men o‘qidim."},
-  {"q":"How do you say ‘I read’ present?","options":["Я читаю.","Я читаю есть.","Я читал.","Я будет читать."],"answer":0,"why_uz":"Я читаю — men o‘qiyman."},
-  {"q":"How do you say ‘I will read’?","options":["Я буду читать.","Я буду читать есть.","Я читаю.","Я читал."],"answer":0,"why_uz":"Я буду читать — men o‘qiyman (kelajakda)."},
-  {"q":"How do you say ‘Now I am reading’?","options":["Сейчас я читаю.","Сейчас я читаю есть.","Сейчас я читал.","Сейчас я буду читать."],"answer":0,"why_uz":"Сейчас я читаю — hozir men o‘qiyman."},
-  {"q":"How do you say ‘Usually I read’?","options":["Обычно я читаю.","Обычно я читаю есть.","Обычно я читал.","Обычно я буду читать."],"answer":0,"why_uz":"Обычно я читаю — odatda men o‘qiyman."},
-  {"q":"How do you say ‘I already read’?","options":["Я уже читал.","Я уже читал есть.","Я уже читаю.","Я уже буду читать."],"answer":0,"why_uz":"Я уже читал — men allaqachon o‘qidim."},
-  {"q":"How do you say ‘I have never read’?","options":["Я никогда не читал.","Я никогда не читал есть.","Я никогда не читаю.","Я никогда не буду читать."],"answer":0,"why_uz":"Я никогда не читал — men hech qachon o‘qimadim."},
-  {"q":"Which word means ‘yesterday’?","options":["вчера","завтра","сегодня","сейчас"],"answer":0,"why_uz":"Вчера — kecha."},
-  {"q":"Which word means ‘tomorrow’?","options":["завтра","вчера","сегодня","сейчас"],"answer":0,"why_uz":"Завтра — ertaga."},
-  {"q":"How do you say ‘I read yesterday’?","options":["Я читал вчера.","Я читал вчера есть.","Я читаю вчера.","Я буду читать вчера."],"answer":0,"why_uz":"Я читал вчера — men kecha o‘qidim."}
+ "homework_uz": "O‘zingiz haqingizda taxminan 120 so‘zlik ruscha matn yozing. Unda kamida beshta turli shakl bo‘lsin: hozirgi, o‘tgan nomukammal va mukammal, kelasi nomukammal va mukammal. Har bir shakl ma’noga mos bo‘lsin. Keyingi darsda tugallangan harakat va tajriba haqida gapirishni o‘rganamiz.",
+ "quiz": [
+  {
+   "q": "Mukammal vidda qaysi zamon yo‘q?",
+   "options": [
+    "o‘tgan",
+    "hozirgi",
+    "kelasi",
+    "hech biri"
+   ],
+   "answer": 1,
+   "why_uz": "Mukammal vid tugallangan harakatni bildiradi, shuning uchun hozirgi zamoni yo‘q."
+  },
+  {
+   "q": "«Каждый день я ___ газету.»",
+   "options": [
+    "прочитаю",
+    "читаю",
+    "прочитал",
+    "буду прочитать"
+   ],
+   "answer": 1,
+   "why_uz": "«Каждый день» takrorni bildiradi, demak nomukammal: читаю."
+  },
+  {
+   "q": "«Вдруг он ___ правду.»",
+   "options": [
+    "говорил",
+    "сказал",
+    "говорит",
+    "будет говорить"
+   ],
+   "answer": 1,
+   "why_uz": "«Вдруг» bir martalik hodisani bildiradi, mukammal: сказал."
+  },
+  {
+   "q": "Qaysi shakl to‘g‘ri?",
+   "options": [
+    "Я буду прочитать",
+    "Я буду читать",
+    "Я был читать",
+    "Я буду читал"
+   ],
+   "answer": 1,
+   "why_uz": "«Буду» nomukammal infinitiv bilan keladi."
+  },
+  {
+   "q": "«Я прочитал книгу за два дня» da «за два дня» nimani bildiradi?",
+   "options": [
+    "Takror",
+    "Natija va tugallanish",
+    "Jarayon davomiyligi",
+    "Odat"
+   ],
+   "answer": 1,
+   "why_uz": "«За + vaqt» mukammal vid: kitob shu vaqtda tugagan."
+  },
+  {
+   "q": "«Завтра я ___ письмо.» (bir marta)",
+   "options": [
+    "пишу",
+    "буду писать",
+    "напишу",
+    "писал"
+   ],
+   "answer": 2,
+   "why_uz": "Bir martalik natija: напишу."
+  },
+  {
+   "q": "«Я не читал книгу» va «Я не прочитал книгу» farqi nima?",
+   "options": [
+    "Farqi yo‘q",
+    "Birinchisi umuman o‘qimagan, ikkinchisi tugata olmagan",
+    "Birinchisi kelasi zamon",
+    "Ikkinchisi odat"
+   ],
+   "answer": 1,
+   "why_uz": "Inkorda ham vid ma’noni o‘zgartiradi."
+  },
+  {
+   "q": "Takror bildiruvchi so‘z qaysi?",
+   "options": [
+    "вдруг",
+    "наконец",
+    "обычно",
+    "сразу"
+   ],
+   "answer": 2,
+   "why_uz": "«Обычно» odatni bildiradi va nomukammalga mos."
+  },
+  {
+   "q": "Shart mayli qanday yasaladi?",
+   "options": [
+    "буду + inf.",
+    "o‘tgan zamon + бы",
+    "hozirgi + бы",
+    "mukammal + будет"
+   ],
+   "answer": 1,
+   "why_uz": "Shart mayli: o‘tgan zamon shakli plyus «бы»."
+  },
+  {
+   "q": "Taqiqda odatda qaysi vid ishlatiladi?",
+   "options": [
+    "Mukammal",
+    "Nomukammal",
+    "Ikkalasi bir xil",
+    "Hech biri"
+   ],
+   "answer": 1,
+   "why_uz": "«Не открывай», «не читай» — taqiqda nomukammal."
+  }
  ]
 }

@@ -1,73 +1,861 @@
 {
  "title": "Murakkab qo‘shma gaplar tuzish",
- "goal_uz": "Dars yakunida rus tilida murakkab qo‘shma gaplarni tuzib bera olasiz. «Хотя ...», «Когда ...», «Потому что ...», «Если ...» bog‘lovchilarini o‘rinli qo‘llaysiz, asosiy va ergash gapni ulaysiz. Oxirida o‘nta oddiy gapni to‘rt murakkab gapga birlashtirib bera olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilida teng va ergash bog‘lovchilar, sifatdosh va ravishdosh oborotlari, qarshilik va sabab ifodalari yordamida murakkab gaplar tuzasiz va oddiy gaplarni ravon matnga birlashtirasiz.",
  "vocab": [
-  {"w": "хотя", "uz": "garchi"},
-  {"w": "когда", "uz": "qachon"},
-  {"w": "потому что", "uz": "chunki"},
-  {"w": "если", "uz": "agar"},
-  {"w": "но", "uz": "lekin"},
-  {"w": "и", "uz": "va"},
-  {"w": "или", "uz": "yoki"},
-  {"w": "поэтому", "uz": "shuning uchun"},
-  {"w": "однако", "uz": "ammo"},
-  {"w": "также", "uz": "shuningdek"}
+  {
+   "w": "сочинение",
+   "uz": "teng bog‘lanish"
+  },
+  {
+   "w": "подчинение",
+   "uz": "ergash bog‘lanish"
+  },
+  {
+   "w": "причастие",
+   "uz": "sifatdosh"
+  },
+  {
+   "w": "деепричастие",
+   "uz": "ravishdosh"
+  },
+  {
+   "w": "придаточное предложение",
+   "uz": "ergash gap"
+  },
+  {
+   "w": "хотя",
+   "uz": "garchi"
+  },
+  {
+   "w": "несмотря на",
+   "uz": "...ga qaramay"
+  },
+  {
+   "w": "вопреки",
+   "uz": "...ga qarshi, qaramay"
+  },
+  {
+   "w": "благодаря",
+   "uz": "tufayli"
+  },
+  {
+   "w": "поскольку",
+   "uz": "chunki, ...ligi sababli"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Yigirma beshinchi dars: murakkab gap","emotion":"happy","board":["Хотя ...","Когда ...","Потому что ...","Если ..."],"examples":[],"say_native":"Assalomu alaykum! Yigirma beshinchi darsda murakkab qo‘shma gaplarni tuzishni o‘rganamiz. Bugun «хотя», «когда», «потому что» va «если» bog‘lovchilarini bir-biriga ulashni mashq qilamiz. Oxirida o‘nta oddiy gapni to‘rt murakkab gapga birlashtirib bera olasiz. Keyingi darsda so‘z birikmalarini o‘rganamiz.","say":"Здравствуйте! Сегодня строим сложные предложения.","say_uz":"Assalomu alaykum! Bugun murakkab gaplarni tuzamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Garchi bog‘lovchisi nafosati","emotion":"neutral","board":["Хотя ...","Хотя это хорошо.","Хотя это плохо.","Хотя это интересно."],"examples":[{"t":"Хотя это хорошо.","uz":"Garchi bu yaxshi bo‘lsa ham."},{"t":"Хотя это плохо.","uz":"Garchi bu yomon bo‘lsa ham."}],"say_native":"«Хотя ...» bog‘lovchisi qarama-qarshi holatni yumshatib bayon qiladi. «Хотя это хорошо» — garchi bu yaxshi bo‘lsa ham, «хотя это плохо» — garchi bu yomon bo‘lsa ham, «хотя это интересно» — garchi bu qiziqarli bo‘lsa ham. Bu shakl asosiy gap bilan ergash gapni zich ulab qo‘yadi.","say":"Хотя это хорошо. Хотя это плохо. Хотя это интересно.","say_uz":"Garchi bu yaxshi bo‘lsa ham. Garchi bu yomon bo‘lsa ham. Garchi bu qiziqarli bo‘lsa ham.","practice_seconds":0},
-  {"kind":"practice","title":"Garchini ayting","emotion":"encouraging","board":["1) Garchi bu yaxshi bo‘lsa ham.","2) Garchi bu yomon bo‘lsa ham.","3) Garchi bu qiziqarli bo‘lsa ham."],"examples":[],"say_native":"«Хотя» bog‘lovchisini uch qator bilan mustahkamlab oling. Birinchisi: «хотя это хорошо». Ikkinchisi: «хотя это плохо». Uchinchisi: «хотя это интересно». Har birini murakkab gap shaklida talaffuz qiling.","say":"Хотя это хорошо. Хотя это плохо. Хотя это интересно.","say_uz":"Garchi bu yaxshi bo‘lsa ham. Garchi bu yomon bo‘lsa ham. Garchi bu qiziqarli bo‘lsa ham.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Хотя это хорошо.","Хотя это плохо.","Хотя это интересно."],"examples":[],"say_native":"«Хотя» javoblari uchta olg‘i qator bilan barqaror qoldi. «Хотя это хорошо» — yaxshilik e’tirofi, «хотя это плохо» — yomonlik e’tirofi, «хотя это интересно» — qiziqarlilik e’tirofi. Murakkab gapda shu uchlikni erkin ishlatib bera olasiz.","say":"Хотя это хорошо. Хотя это плохо. Хотя это интересно.","say_uz":"Garchi bu yaxshi bo‘lsa ham. Garchi bu yomon bo‘lsa ham. Garchi bu qiziqarli bo‘lsa ham.","practice_seconds":0},
-  {"kind":"explain","title":"Qachon ulagichi","emotion":"thinking","board":["Когда ...","Когда это хорошо.","Когда это плохо.","Когда это интересно."],"examples":[{"t":"Когда это хорошо.","uz":"Qachon bu yaxshi."},{"t":"Когда это плохо.","uz":"Qachon bu yomon."}],"say_native":"«Когда ...» ulagichi vaqtni qatlam bilan bildira boshlaydi. «Когда это хорошо» — qachon bu yaxshi, «когда это плохо» — qachon bu yomon, «когда это интересно» — qachon bu qiziqarli. Asosiy gap bilan ergash gapni kelasi zamon bilan ulab qo‘ysangiz, gap ancha mustahkam bo‘ladi.","say":"Когда это хорошо. Когда это плохо. Когда это интересно.","say_uz":"Qachon bu yaxshi. Qachon bu yomon. Qachon bu qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Qachonn i ayting","emotion":"encouraging","board":["1) Qachon bu yaxshi.","2) Qachon bu yomon.","3) Qachon bu qiziqarli."],"examples":[],"say_native":"«Когда» bog‘lovchisini uch qator bilan mustahkamlab oling. Birinchisi: «когда это хорошо». Ikkinchisi: «когда это плохо». Uchinchisi: «когда это интересно». Har birini vaqt ohangida ifoda qiling.","say":"Когда это хорошо. Когда это плохо. Когда это интересно.","say_uz":"Qachon bu yaxshi. Qachon bu yomon. Qachon bu qiziqarli.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Когда это хорошо.","Когда это плохо.","Когда это интересно."],"examples":[],"say_native":"«Когда» javoblari vaqt bog‘lovchisi bilan yashinlashib tugallandi. «Когда это хорошо» — yaxshi vaqt, «когда это плохо» — yomon vaqt, «когда это интересно» — qiziqarli vaqt. Endi murakkab gapda vaqtni mustahkam ulay olasiz.","say":"Когда это хорошо. Когда это плохо. Когда это интересно.","say_uz":"Qachon bu yaxshi. Qachon bu yomon. Qachon bu qiziqarli.","practice_seconds":0},
-  {"kind":"explain","title":"Sabab bog‘lovchisi","emotion":"neutral","board":["Потому что ...","Потому что это хорошо.","Потому что это плохо.","Потому что это интересно."],"examples":[{"t":"Потому что это хорошо.","uz":"Chunki bu yaxshi."},{"t":"Потому что это плохо.","uz":"Chunki bu yomon."}],"say_native":"«Потому что ...» sabab bog‘lovchisi gapga dalil bag‘ishlaydi. «Потому что это хорошо» — chunki bu yaxshi, «потому что это плохо» — chunki bu yomon, «потому что это интересно» — chunki bu qiziqarli. Asosiy gapni sabab bog‘lovchisida ushlab tursangiz, murakkab gap tiniq qayta qotib qoladi.","say":"Потому что это хорошо. Потому что это плохо. Потому что это интересно.","say_uz":"Chunki bu yaxshi. Chunki bu yomon. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Sababni ayting","emotion":"encouraging","board":["1) Chunki bu yaxshi.","2) Chunki bu yomon.","3) Chunki bu qiziqarli."],"examples":[],"say_native":"«Потому что» bog‘lovchisini uch qator bilan mustahkamlab oling. Birinchisi: «потому что это хорошо». Ikkinchisi: «потому что это плохо». Uchinchisi: «потому что это интересно». Har birini sabab ohangida talaffuz qiling.","say":"Потому что это хорошо. Потому что это плохо. Потому что это интересно.","say_uz":"Chunki bu yaxshi. Chunki bu yomon. Chunki bu qiziqarli.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Потому что это хорошо.","Потому что это плохо.","Потому что это интересно."],"examples":[],"say_native":"Sabab javoblari dalil qatori bilan barqaror tugadi. «Потому что это хорошо» — yaxshilik sababi, «потому что это плохо» — yomonlik sababi, «потому что это интересно» — qiziqarlilik sababi. Gapda sabab qatlami shu uchun mustahkam bo‘lib qoladi.","say":"Потому что это хорошо. Потому что это плохо. Потому что это интересно.","say_uz":"Chunki bu yaxshi. Chunki bu yomon. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"explain","title":"Agar shart ulagichi","emotion":"thinking","board":["Если ...","Если это хорошо.","Если это плохо.","Если это интересно."],"examples":[{"t":"Если это хорошо.","uz":"Agar bu yaxshi bo‘lsa."},{"t":"Если это плохо.","uz":"Agar bu yomon bo‘lsa."}],"say_native":"«Если ...» shart bog‘lovchisi kelasi ehtimolini ochib beradi. «Если это хорошо» — agar bu yaxshi bo‘lsa, «если это плохо» — agar bu yomon bo‘lsa, «если это интересно» — agar bu qiziqarli bo‘lsa. Shart gapining birinchi bosqichi ehtimol bilan boshlanib, asosiy gap bilan ulangan holatda tugallanadi.","say":"Если это хорошо. Если это плохо. Если это интересно.","say_uz":"Agar bu yaxshi bo‘lsa. Agar bu yomon bo‘lsa. Agar bu qiziqarli bo‘lsa.","practice_seconds":0},
-  {"kind":"practice","title":"Agarni ayting","emotion":"encouraging","board":["1) Agar bu yaxshi bo‘lsa.","2) Agar bu yomon bo‘lsa.","3) Agar bu qiziqarli bo‘lsa."],"examples":[],"say_native":"«Если» bog‘lovchini uch qator bilan mustahkamlab oling. Birinchisi: «если это хорошо». Ikkinchisi: «если это плохо». Uchinchisi: «если это интересно». Har birini shart ohangida talaffuz qiling.","say":"Если это хорошо. Если это плохо. Если это интересно.","say_uz":"Agar bu yaxshi bo‘lsa. Agar bu yomon bo‘lsa. Agar bu qiziqarli bo‘lsa.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Если это хорошо.","Если это плохо.","Если это интересно."],"examples":[],"say_native":"«Если» javoblari kelasi ehtimol bilan ajratilib qoldi. «Если это хорошо» — yaxshi shart, «если это плохо» — yomon shart, «если это интересно» — qiziqarli shart. Endi shart ulagichini mustahkam ishlatib bera olasiz.","say":"Если это хорошо. Если это плохо. Если это интересно.","say_uz":"Agar bu yaxshi bo‘lsa. Agar bu yomon bo‘lsa. Agar bu qiziqarli bo‘lsa.","practice_seconds":0},
-  {"kind":"mistake","title":"Bog‘lovchini kuningda to‘rtburchak qolishi","emotion":"stern","board":["✗ Хотя это хорошо.","✓ Хотя это хорошо, я читаю.","✗ Когда это хорошо.","✓ Когда это хорошо, я читаю."],"examples":[],"say_native":"Ko‘p uchraydigan xato — bog‘lovchini yolg‘iz qo‘yib, ergash gapni tugatib qo‘yishdir. To‘g‘ri shakl: «хотя это хорошо, я читаю» — ergash gap bilan asosiy gap ulangan. Xuddi shunday, «когда это хорошо, я читаю». Bog‘lovchi hech qachon bitta o‘zi qo‘llanilmaydi.","say":"Хотя это хорошо, я читаю. Когда это хорошо, я читаю.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Qachon bu yaxshi bo‘lsa, men o‘qiyman.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: qiyinlik bilan","emotion":"happy","board":["— Что ты читаешь?","— Хотя это плохо, я читаю.","— Почему? — Потому что это интересно."],"examples":[],"say_native":"Birinchi dialog qiyinlikni yengib o‘tgan fikrni bayon qiladi. «Что ты читаешь?» — nima o‘qiysan deb so‘raydi. «Хотя это плохо, я читаю» — garchi bu yomon bo‘lsa ham, men o‘qiyman. «Почему? — Потому что это интересно» — sabab. Uch qator murakkab gapning namunasi bo‘ladi.","say":"Что ты читаешь? Хотя это плохо, я читаю. Почему? Потому что это интересно.","say_uz":"Nima o‘qiysan? Garchi bu yomon bo‘lsa ham, men o‘qiyman. Nega? Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima o‘qiysan?","2) Nega?"],"examples":[],"say_native":"Dialog savollarini mustahkamlab oling. Birinchi savol: «что ты читаешь?» — nima o‘qiysan. Ikkinchi: «почему?» — nega. Javoblarda «хотя» va «потому что» bog‘lovchilarini aniq qo‘llang.","say":"Что ты читаешь? Хотя это плохо, я читаю. Почему? Потому что это интересно.","say_uz":"Nima o‘qiysan? Garchi bu yomon bo‘lsa ham, men o‘qiyman. Nega? Chunki bu qiziqarli.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Хотя это плохо, я читаю.","Потому что это интересно."],"examples":[],"say_native":"Birinchi dialog javoblari qiyinlik bilan quvvatlangan holatda. «Хотя это плохо, я читаю» — qiyinlikka qaramay o‘quv, «потому что это интересно» — sabab. Endi murakkab gapda qiyinlikni yengib o‘tib bayon qilasiz.","say":"Хотя это плохо, я читаю. Потому что это интересно.","say_uz":"Garchi bu yomon bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: aralash shart","emotion":"neutral","board":["— Если это хорошо, что ты делаешь?","— Я читаю и работаю.","— Но? — Но это плохо."],"examples":[],"say_native":"Ikkinchi dialog aralash shart bog‘lovchisini namoyish ettiradi. «Если это хорошо, что ты делаешь?» — agar bu yaxshi bo‘lsa, nima qilasan. «Я читаю и работаю» — javob. «Но? — Но это плохо» — qarshilik. Uch qator aralash shartning namunasi.","say":"Если это хорошо, что ты делаешь? Я читаю и работаю. Но? Но это плохо.","say_uz":"Agar bu yaxshi bo‘lsa, nima qilasan? Men o‘qiyman va ishlayman. Lekin? Lekin bu yomon.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Agar bu yaxshi bo‘lsa, nima qilasan?","2) Lekin?"],"examples":[],"say_native":"Aralash shart savollarini mustahkamlab oling. Birinchi savol: «если это хорошо, что ты делаешь?» — agar bu yaxshi bo‘lsa, nima qilasan. Ikkinchisi: «но?» — lekin deb. Javoblarda bog‘lovchilarni birlashtiring.","say":"Если это хорошо, что ты делаешь? Я читаю и работаю. Но? Но это плохо.","say_uz":"Agar bu yaxshi bo‘lsa, nima qilasan? Men o‘qiyman va ishlayman. Lekin? Lekin bu yomon.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я читаю и работаю.","Но это плохо."],"examples":[],"say_native":"Ikkinchi dialog javoblari shart bilan qarshilikning bitta keyinda uchrashtirib qo‘yilgan holatda. «Я читаю и работаю» — harakat, «но это плохо» — qarshilik. Murakkab gap endi aralash holatda mustahkam bo‘lib qoladi.","say":"Я читаю и работаю. Но это плохо.","say_uz":"Men o‘qiyman va ishlayman. Lekin bu yomon.","practice_seconds":0},
-  {"kind":"explain","title":"Bog‘lovchilarda urg‘u","emotion":"thinking","board":["хотя · когда · потому что · если","но · и · или · поэтому"],"examples":[{"t":"Хотя это хорошо.","uz":"Garchi bu yaxshi bo‘lsa ham."},{"t":"Когда это хорошо.","uz":"Qachon bu yaxshi."}],"say_native":"Bog‘lovchilarda urg‘u murakkab gap intonatsiyasini belgilab turadi. «Хотя» — ikkinchi o‘rinda, «когда» — ikkinchi o‘rinda, «потому что» — ikkinchida, «если» — ikkinchida urg‘u oladi. «Но» va «и» esa yakka o‘qitgich. Urg‘u joyini yo‘qotib yuborsangiz, gap ohangi g‘alati eshitiladi.","say":"Хотя. Когда. Потому что. Если. Но. И. Или. Поэтому.","say_uz":"Garchi. Qachon. Chunki. Agar. Lekin. Va. Yoki. Shuning uchun.","practice_seconds":0},
-  {"kind":"explain","title":"Murakkab gapni yoyish","emotion":"neutral","board":["Хотя это плохо, я читаю.","Если это хорошо, что ты делаешь?","Потому что это интересно."],"examples":[{"t":"Хотя это плохо, я читаю.","uz":"Garchi bu yomon bo‘lsa ham, men o‘qiyman."},{"t":"Если это хорошо, что ты делаешь?","uz":"Agar bu yaxshi bo‘lsa, nima qilasan?"}],"say_native":"Murakkab gapni yoyish ergash gap bilan boshlanib, asosiy gap bilan tugatiladi. «Хотя это плохо, я читаю» — garchi bu yomon bo‘lsa ham, men o‘qiyman. «Если это хорошо, что ты делаешь?» — agar bu yaxshi bo‘lsa, nima qilasan. «Потому что это интересно» — chunki bu qiziqarli. Uch qator murakkab gap ag‘rag‘ini ochib beradi.","say":"Хотя это плохо, я читаю. Если это хорошо, что ты делаешь? Потому что это интересно.","say_uz":"Garchi bu yomon bo‘lsa ham, men o‘qiyman. Agar bu yaxshi bo‘lsa, nima qilasan? Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Gapni yoying","emotion":"encouraging","board":["1) Garchi bu yomon bo‘lsa ham, men o‘qiyman.","2) Agar bu yaxshi bo‘lsa, nima qilasan?"],"examples":[],"say_native":"Murakkab gapni yoyishni ikki qator bilan mustahkamlab oling. Birinchisi: «хотя это плохо, я читаю». Ikkinchisi: «если это хорошо, что ты делаешь?». Har birini verb bilan yakunlash unini tingani nafas bilan tugatilsa, gap umuman ulangan bo‘ladi.","say":"Хотя это плохо, я читаю. Если это хорошо, что ты делаешь?","say_uz":"Garchi bu yomon bo‘lsa ham, men o‘qiyman. Agar bu yaxshi bo‘lsa, nima qilasan?","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Хотя это плохо, я читаю.","Если это хорошо, что ты делаешь?"],"examples":[],"say_native":"Gapni yoyish javoblari ikki qator murakkab gapni do‘stona ko‘rsatdi. «Хотя это плохо, я читаю» — e’tirofli o‘quv, «если это хорошо, что ты делаешь?» — shartli harakat. Endi murakkab gapni mustaqil ravishda yoyib bera olasiz.","say":"Хотя это плохо, я читаю. Если это хорошо, что ты делаешь?","say_uz":"Garchi bu yomon bo‘lsa ham, men o‘qiyman. Agar bu yaxshi bo‘lsa, nima qilasan?","practice_seconds":0},
-  {"kind":"explain","title":"Bitta murakkab gapni tekshirish","emotion":"neutral","board":["Хотя это хорошо, я читаю.","Потому что это интересно.","Но это плохо."],"examples":[{"t":"Хотя это хорошо, я читаю.","uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman."},{"t":"Потому что это интересно.","uz":"Chunki bu qiziqarli."}],"say_native":"Murakkab gapni tekshirish bitta gapning bog‘lanishini ajratib turishdan iborat. «Хотя это хорошо, я читаю» — e’tirof bilan harakat, «потому что это интересно» — sabab bog‘lovchisi, «но это плохо» — qarshilik. Bu uch qator bitta murakkab gapni tekshirishning to‘rt mustaqil bo‘lgan bo‘lagidir.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: murakkab gap","emotion":"encouraging","board":["1) Garchi bu yaxshi bo‘lsa ham, men o‘qiyman.","2) Chunki bu qiziqarli.","3) Lekin bu yomon.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda o‘nta oddiy gapni to‘rt murakkab gapga birlashtiring. Birinchisi: «хотя это хорошо, я читаю». Ikkinchisi: «потому что это интересно». Uchinchisi: «но это плохо». To‘rtinchisi: «спасибо!». Shu to‘rt qatorni to‘liq yozma shaklda bayon qiling.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо. Спасибо!","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Хотя это хорошо, я читаю.","Потому что это интересно.","Но это плохо."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «хотя это хорошо, я читаю». Ikkinchisi: «потому что это интересно». Uchinchisi: «но это плохо». Shu uch qator o‘nta oddiy gapni to‘rt murakkab gapga birlashtirish xulosasi bo‘ladi.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":0},
-  {"kind":"explain","title":"Bitta murakkab gapni tekshirish","emotion":"thinking","board":["Хотя это хорошо, я читаю.","Потому что это интересно.","Но это плохо."],"examples":[{"t":"Хотя это хорошо, я читаю.","uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman."},{"t":"Потому что это интересно.","uz":"Chunki bu qiziqarli."}],"say_native":"Bitta murakkab gapni tekshirish chiziq bilan bo‘lib, bog‘lanish qoidasi bilan tinch esga tushadi. «Хотя это хорошо, я читаю» bog‘lovchini saqlagan murakkab shakl ekani ko‘rinadi. «Потому что это интересно» sababni qirg‘oqda saqlab qoladi. «Но это плохо» qarshilik awalidi bilan ergash gapning bitta namunasidir.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":0},
-  {"kind":"practice","title":"Tekshirib ko‘ring","emotion":"encouraging","board":["1) Garchi bu yaxshi bo‘lsa ham, men o‘qiyman.","2) Chunki bu qiziqarli.","3) Lekin bu yomon."],"examples":[],"say_native":"Bitta murakkab gapni tekshirib ko‘ring. Birinchisi: «хотя это хорошо, я читаю». Ikkinchisi: «потому что это интересно». Uchinchisi: «но это плохо». Har birini tinch urg‘u bilan talaffuz qiling.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Хотя это хорошо, я читаю.","Потому что это интересно.","Но это плохо."],"examples":[],"say_native":"Bitta murakkab gap tekshiruvi javoblari uch qator bilan butunlik hosil qildi. «Хотя это хорошо, я читаю» — e’tirof, «потому что это интересно» — sabab, «но это плохо» — qarshilik. Bitta murakkab gapning uch muvozanat buzilmagan holat bilan ajoyib bo‘lib qoladi.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":0},
-  {"kind":"explain","title":"Murakkab gapni chuqur yoyish","emotion":"neutral","board":["Хотя ...","Когда ...","Потому что ...","Если ..."],"examples":[{"t":"Хотя ...","uz":"Garchi ..."},{"t":"Если ...","uz":"Agar ..."}],"say_native":"Murakkab gapni chuqur yoyish to‘rt bog‘lovchinining ketma-ketlik zanjirini mustahkamlashdan iborat bo‘lib qoladi. «Хотя ...» e’tirofni, «когда ...» vaqtni, «потому что ...» sababni, «если ...» shartni ochib beradi. Ushbu to‘rt zanjirni bitta nutq bilan ulab qo‘ysangiz, murakkab gapning izchilligi jonlanib, baholashda mustahkam o‘rinni egallaydi.\n Shaxsiy fikr bayonida har bir bog‘lovchini navbat bilan yoygan holatda so‘zlash amaliyotda foydali bo‘ladi. Bitta matn ustida to‘rt xil murakkab gapni ishlatib bo‘ladi: «хотя» bilan e’tirof, «когда» bilan vaqt, «потому что» bilan sabab, «если» bilan shart. Qog‘ozda ham bu to‘rtlikni tartibli yozish nutqni mustahkamlaydi.","say":"Хотя ... Когда ... Потому что ... Если ...","say_uz":"Garchi ... Qachon ... Chunki ... Agar ...","practice_seconds":0},
-  {"kind":"practice","title":"Zanjirni mustahkamlang","emotion":"encouraging","board":["1) Garchi ...","2) Qachon ...","3) Chunki ...","4) Agar ..."],"examples":[],"say_native":"Zanjir bog‘lovchilarini to‘rt bosqichda uttaling. Birinchisi: «хотя ...». Ikkinchisi: «когда ...». Uchinchisi: «потому что ...». Yakunda: «если ...». Har birini bitta nafas bilan murakkab gap shaklida talaffuz qiling.","say":"Хотя ... Когда ... Потому что ... Если ...","say_uz":"Garchi ... Qachon ... Chunki ... Agar ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Хотя ...","Когда ...","Потому что ...","Если ..."],"examples":[],"say_native":"Zanjir javoblari to‘rt qator bilan to‘liq ko‘rindi. «Хотя ...» — e’tirof, «когда ...» — vaqt, «потому что ...» — sabab, «если ...» — shart. Ushbu to‘rtlik murakkab gapni jonlantirib qo‘yadi.","say":"Хотя ... Когда ... Потому что ... Если ...","say_uz":"Garchi ... Qachon ... Chunki ... Agar ...","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Хотя ...","Когда ...","Потому что ...","Если ..."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. «Хотя» bog‘lovchisi bilan e’tirofni ayta olasizmi? «Когда» bilan vaqtni qo‘llay olasizmi? «Потому что» bilan sababni bayon qila olasizmi? «Если» bilan shartni bog‘lay olasizmi? To‘rt joyida ijobiy bo‘lsa, murakkab gap sizga do‘st bo‘ladi.","say":"Хотя ... Когда ... Потому что ... Если ...","say_uz":"Garchi ... Qachon ... Chunki ... Agar ...","practice_seconds":0},
-  {"kind":"explain","title":"Murakkab gapni tugallash","emotion":"neutral","board":["Хотя это хорошо, я читаю.","Потому что это интересно.","Но это плохо."],"examples":[{"t":"Хотя это хорошо, я читаю.","uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman."},{"t":"Но это плохо.","uz":"Lekin bu yomon."}],"say_native":"Murakkab gapni tugallash murakkab bog‘lanish bilan bitadi. «Хотя это хорошо, я читаю» — e’tirof oldidan bajarilgan harakat, «потому что это интересно» — sabab dalili, «но это плохо» — qarshilik belgisi. Bitta gap tugallanib, tinglovchi fikringizni to‘liq anglaydi.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":0},
-  {"kind":"practice","title":"Murakkab gapni tugallang","emotion":"encouraging","board":["1) Garchi bu yaxshi bo‘lsa ham, men o‘qiyman.","2) Chunki bu qiziqarli.","3) Lekin bu yomon."],"examples":[],"say_native":"Murakkab gap tugatishni uch qator bilan mustahkamlab oling. Birinchisi: «хотя это хорошо, я читаю». Ikkinchisi: «потому что это интересно». Uchinchisi: «но это плохо». Har birini bitta nafas bilan tugating.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Хотя это хорошо, я читаю.","Потому что это интересно.","Но это плохо."],"examples":[],"say_native":"Murakkab gap tugatish javoblari uch qator bog‘liqlikda yakunlandi. «Хотя это хорошо, я читаю» — e’tirof harakati, «потому что это интересно» — sabab, «но это плохо» — qarshilik. Endi bitta murakkab gapni mustahkam tugatib bera olasiz.","say":"Хотя это хорошо, я читаю. Потому что это интересно. Но это плохо.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Chunki bu qiziqarli. Lekin bu yomon.","practice_seconds":0},
-  {"kind":"explain","title":"Ergash gapni uyg‘unlashtirish","emotion":"thinking","board":["Хотя это хорошо, я читаю.","Если это хорошо, что ты делаешь?","Потому что это интересно."],"examples":[{"t":"Хотя это хорошо, я читаю.","uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman."},{"t":"Если это хорошо, что ты делаешь?","uz":"Agar bu yaxshi bo‘lsa, nima qilasan?"}],"say_native":"Ergash gapni uyg‘unlashtirish boshqaruv bilan boradi. «Хотя это хорошо, я читаю» — bog‘lovchi bilan harakat uyg‘unlashadi. «Если это хорошо, что ты делаешь?» — shart bilan harakat uyg‘une aylangan. «Потому что это интересно» — sabab bilan dalil birlashgan. Bitta murakkab gap shu tarzda to‘qilgan bo‘ladi.","say":"Хотя это хорошо, я читаю. Если это хорошо, что ты делаешь? Потому что это интересно.","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Agar bu yaxshi bo‘lsa, nima qilasan? Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Ergash gapni birlashtiring","emotion":"encouraging","board":["1) Garchi bu yaxshi bo‘lsa ham, men o‘qiyman.","2) Agar bu yaxshi bo‘lsa, nima qilasan?"],"examples":[],"say_native":"Ergash gapni uyg‘unlashtirishni ikki qator bilan mustahkamlab oling. Birinchisi: «хотя это хорошо, я читаю». Ikkinchisi: «если это хорошо, что ты делаешь?». Har birini bog‘lovchiga mos holda talaffuz qiling.","say":"Хотя это хорошо, я читаю. Если это хорошо, что ты делаешь?","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Agar bu yaxshi bo‘lsa, nima qilasan?","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Хотя это хорошо, я читаю.","Если это хорошо, что ты делаешь?"],"examples":[],"say_native":"Ergash gapni uyg‘unlashtirish javoblari ikki qator bog‘liq yakun bilan to‘liq ko‘rindi. «Хотя это хорошо, я читаю» — e’tirof harakati birlashuvi, «если это хорошо, что ты делаешь?» — shart harakatining birlashuvi. Endi ergash gapni uyg‘unlik bilan birlashtirib bera olasiz.","say":"Хотя это хорошо, я читаю. Если это хорошо, что ты делаешь?","say_uz":"Garchi bu yaxshi bo‘lsa ham, men o‘qiyman. Agar bu yaxshi bo‘lsa, nima qilasan?","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["хотя · когда · потому что · если","но · и · или · поэтому"],"examples":[],"say_native":"Bugunning xulosasi: ergash gap bilan bog‘lash, qarama-qarshi e’tirof va sabab ulagichlarini o‘rgandik. «Хотя» — e’tirof, «когда» — vaqt, «потому что» — sabab, «если» — shart. O‘nta oddiy gapni to‘rt murakkab gapga birlashtirib bera olasiz.","say":"Отлично! Теперь вы строите сложные предложения.","say_uz":"Ajoyib! Endi murakkab gaplarni tuzasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["O‘nta oddiy gapni to‘rt murakkab gapga birlashtiring","Ergash gap · bog‘lovchi · shart","Keyingi dars: eng ko‘p ishlatiladigan 100 ta so‘z birikmasi"],"examples":[],"say_native":"Uyga vazifa: o‘nta oddiy gapni to‘rt murakkab gapga birlashtiring. Matnda «хотя», «когда», «потому что», «если» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda eng ko‘p ishlatiladigan so‘z birikmalarini o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем говорить о выражениях.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Iboralar haqida gaplashamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Murakkab qo‘shma gaplar",
+   "emotion": "happy",
+   "board": [
+    "Сложные предложения",
+    "(Murakkab qo‘shma gaplar)",
+    "сочинение · подчинение · причастие · уступка"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda rasmiy va norasmiy xat yozishni o‘rgandik. Endi gaplarning o‘zini murakkabroq, chiroyliroq qilamiz. B2 darajasida «Я пошёл. Я купил хлеб. Я вернулся» kabi qisqa gaplar yetarli emas. Bugun gaplarni bog‘lash, sifatdosh va ravishdosh iboralari, qarshilik ifodalash va uslub xilma-xilligini o‘rganamiz.",
+   "say": "Здравствуйте! Сегодня мы строим сложные предложения. Вы научитесь соединять мысли союзами, использовать причастные и деепричастные обороты, выражать уступку и разнообразить стиль.",
+   "say_uz": "Assalomu alaykum! Bugun murakkab gaplar tuzamiz. Fikrlarni bog‘lovchilar bilan birlashtirish, sifatdosh va ravishdosh oborotlarini ishlatish, qarshilikni bildirish va uslubni boyitishni o‘rganasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Teng bog‘lanish",
+   "emotion": "neutral",
+   "board": [
+    "и · а · но · или · да",
+    "не только …, но и …",
+    "как …, так и …"
+   ],
+   "examples": [
+    {
+     "t": "Мы долго спорили, но в итоге пришли к решению.",
+     "uz": "Biz uzoq bahslashdik, biroq oxiri qarorga keldik."
+    },
+    {
+     "t": "Он не только говорит по-русски, но и пишет статьи.",
+     "uz": "U nafaqat ruscha gapiradi, balki maqolalar ham yozadi."
+    }
+   ],
+   "say_native": "Teng bog‘lanishda gap qismlari bir-biriga bo‘ysunmaydi, ular teng huquqli. Bog‘lovchilar: «и» — va, «а» — esa, qarama-qarshilik, «но» — biroq, «или» — yoki. Ruschada qismlar orasiga odatda vergul qo‘yiladi: ... спорили, но ... Qo‘shma bog‘lovchi «не только …, но и …» — nafaqat, balki. Uzbek tilidagi «-u/-yu» ga o‘xshab, «и» ni ham ishlatasiz.",
+   "say": "Сочинение соединяет равноправные части. Мы долго спорили, но в итоге пришли к решению. Он не только говорит по-русски, но и пишет статьи для журнала.",
+   "say_uz": "Teng bog‘lanish teng huquqli qismlarni birlashtiradi. Biz uzoq bahslashdik, biroq oxir-oqibat qarorga keldik. U nafaqat ruscha gapiradi, balki jurnalga maqolalar ham yozadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ergash bog‘lanish",
+   "emotion": "neutral",
+   "board": [
+    "что · чтобы · потому что",
+    "если · когда · пока",
+    "который · где · куда"
+   ],
+   "examples": [
+    {
+     "t": "Я знаю, что ты занят.",
+     "uz": "Bilaman, bandsan."
+    },
+    {
+     "t": "Мы остались дома, потому что шёл дождь.",
+     "uz": "Yomg‘ir yog‘ayotgani uchun uyda qoldik."
+    }
+   ],
+   "say_native": "Ergash gapda bir qism asosiy gapga tayanadi. Mana bog‘lovchi so‘zlar: «что» — ekanini, «потому что» — chunki, «если» — agar, «когда» — qachonki, «который» — qaysiki. Ruschada ergash gapni doim vergul bilan ajratamiz, o‘zbekchada esa bunday emas. Masalan, «Я знаю, что ты занят» — vergul albatta shart. Shu qoidani avtomatik qiling.",
+   "say": "В подчинении одна часть зависит от другой. Я знаю, что ты занят. Мы остались дома, потому что шёл дождь. Если будет время, позвони мне.",
+   "say_uz": "Ergash bog‘lanishda bir qism ikkinchisiga bog‘liq. Bilaman, bandsan. Yomg‘ir yog‘ayotgani uchun uyda qoldik. Vaqting bo‘lsa, menga qo‘ng‘iroq qil.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "«Что» va «чтобы»",
+   "emotion": "thinking",
+   "board": [
+    "Я знаю, что он придёт. (факт)",
+    "Я хочу, чтобы он пришёл. (желание)",
+    "Я пришёл, чтобы помочь. (цель)"
+   ],
+   "examples": [
+    {
+     "t": "Она позвонила, чтобы узнать новости.",
+     "uz": "U yangiliklarni bilish uchun qo‘ng‘iroq qildi."
+    },
+    {
+     "t": "Преподаватель требует, чтобы мы приходили вовремя.",
+     "uz": "O‘qituvchi vaqtida kelishimizni talab qiladi."
+    }
+   ],
+   "say_native": "«Что» fakt, ma’lumotni bildiradi, «чтобы» esa istak, talab yoki maqsadni. Qoida: «чтобы» dan keyin gapning egasi boshqa bo‘lsa, fe’l o‘tgan zamon shaklida keladi: Я хочу, чтобы он пришёл. Ega bir xil bo‘lsa, infinitiv ishlatiladi: Я пришёл, чтобы помочь. O‘zbekchada «-ish uchun» yoki «-sin deb» deymiz, ruschada esa «чтобы» bir so‘zda hamma ma’noni beradi.",
+   "say": "Преподаватель требует, чтобы мы приходили вовремя. Она позвонила, чтобы узнать новости. А вот факт мы вводим словом что: я знаю, что он придёт.",
+   "say_uz": "O‘qituvchi vaqtida kelishimizni talab qiladi. U yangiliklarni bilish uchun qo‘ng‘iroq qildi. Faktni esa «что» bilan beramiz: bilaman, u keladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "«Который» bog‘lovchi so‘zi",
+   "emotion": "thinking",
+   "board": [
+    "род и число — от слова перед ним",
+    "падеж — от глагола в своей части",
+    "книга, которую я читаю"
+   ],
+   "examples": [
+    {
+     "t": "Девушка, с которой я познакомился на курсах, преподаёт английский.",
+     "uz": "Kursda tanishgan qizim ingliz tilidan dars beradi."
+    },
+    {
+     "t": "Книга, которая лежит на столе, очень интересная.",
+     "uz": "Stol ustida yotgan kitob juda qiziq."
+    }
+   ],
+   "say_native": "«Который» — eng foydali bog‘lovchi so‘z, o‘zbekchadagi «-gan, -adigan» sifatdoshiga yaqin ish bajaradi. Uning jinsi va soni oldidagi so‘zga qarab belgilanadi: книга — которая, город — который, девушка — которая. Kelishigi esa o‘z qismidagi fe’lga yoki predlogga bog‘liq: с которой, в котором, которую. Shuning uchun u bitta so‘zda ikkita qoidani birlashtiradi.",
+   "say": "Книга, которая лежит на столе, очень интересная. Девушка, с которой я познакомился на курсах, преподаёт английский. Город, в котором я вырос, сильно изменился.",
+   "say_uz": "Stol ustida yotgan kitob juda qiziq. Kursda tanishgan qizim ingliz tilidan dars beradi. Men katta bo‘lgan shahar juda o‘zgarib ketdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Bog‘langan matn",
+   "emotion": "impressed",
+   "board": [
+    "Короткие → одно предложение"
+   ],
+   "examples": [
+    {
+     "t": "Мы вернулись домой, когда стемнело, и сразу легли спать.",
+     "uz": "Qorong‘i tushganda uyga qaytdik va darhol yotdik."
+    }
+   ],
+   "say_native": "Bu uzun gap oddiy emas, lekin tushunarli. Unda «когда» — vaqt, «потому что» — sabab, «который» — aniqlovchi ergash gap. Asosiy gap esa «мы вернулись и легли спать». Uzun gapni quyidagicha o‘qing: avval asosiy gapni toping, keyin har bir ergash gapni uning qaysi so‘ziga tegishli ekanini aniqlang. Shunda hech narsa chalkashmaydi.",
+   "say": "Мы вернулись домой, когда стемнело, и сразу легли спать, потому что устали за день, который прошёл в дороге.",
+   "say_uz": "Qorong‘i tushganda uyga qaytdik va darhol yotdik, chunki yo‘lda o‘tgan kunda charchagan edik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Bog‘lovchi xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ книга, который я читал",
+    "✓ книга, которую я читал",
+    "✗ Я хочу, чтобы пойти.",
+    "✓ Я хочу пойти. / Я хочу, чтобы он пошёл."
+   ],
+   "examples": [
+    {
+     "t": "Я хочу, чтобы вы пришли пораньше.",
+     "uz": "Erta kelishingizni xohlayman."
+    }
+   ],
+   "say_native": "Ikkita keng tarqalgan xato. Birinchisi: «который» ning jinsini unutish, kitob ayol jinsida, shuning uchun «которая» yoki, vinitelnyyda, «которую». Ikkinchisi: «чтобы» ni infinitiv bilan noto‘g‘ri qo‘llash. Agar xohlovchi va bajaruvchi bir kishi bo‘lsa, «чтобы» kerak emas: Я хочу пойти. Boshqa kishi bo‘lsa, o‘tgan zamon: Я хочу, чтобы он пошёл.",
+   "say": "Не говорите «книга, который я читал». Говорите: книга, которую я читал. И не «я хочу, чтобы пойти», а «я хочу пойти».",
+   "say_uz": "«Книга, который я читал» demang. To‘g‘risi: книга, которую я читал. «Я хочу, чтобы пойти» emas, я хочу пойти.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘g‘ri bog‘lovchini tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "Фильм, ___ мы вчера смотрели, был длинным. (который/которую/который)",
+    "Он приехал, ___ помочь родителям. (что/чтобы)",
+    "Я знаю, ___ она скоро придёт. (что/чтобы)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta gapda bo‘sh joy bor. Birinchisida «фильм» erkak jinsida, ammo kelishik fe’lga qarab belgilanadi: «смотрели» — nimani, ya’ni «который» kerak. Ikkinchisida maqsad, ya’ni «чтобы». Uchinchisida fakt, ya’ni «что». Har bir gapni ovoz chiqarib aytib, vergulga ham e’tibor bering.",
+   "say": "Выберите нужное слово. Фильм, который мы вчера смотрели, был длинным. Остальные два предложения закончите самостоятельно: приехал, чтобы помочь, и знаю, что она придёт.",
+   "say_uz": "Kerakli so‘zni tanlang. Kecha ko‘rgan filmimiz uzun edi. Qolgan ikki gapni o‘zingiz tugallang: ota-onasiga yordam berish uchun keldi, va u tez orada kelishini bilaman.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "фильм, который",
+    "приехал, чтобы помочь",
+    "знаю, что она придёт"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: «фильм, который мы смотрели» — erkak jins, vinitelnyy esa jonsiz otlarda nominativ bilan bir xil, shuning uchun «который». «Приехал, чтобы помочь» — maqsad, ega bir xil, shuning uchun infinitiv. «Знаю, что она придёт» — fakt. Har uch gapda ergash gap oldidan vergul bor, uni ham tekshirib ko‘ring.",
+   "say": "Правильно: фильм, который мы смотрели; он приехал, чтобы помочь родителям; я знаю, что она скоро придёт. Не забывайте запятую перед союзом.",
+   "say_uz": "To‘g‘ri: kecha ko‘rgan filmimiz, ota-onasiga yordam berish uchun keldi, u tez orada kelishini bilaman. Bog‘lovchi oldidan vergulni unutmang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sifatdosh: faol",
+   "emotion": "thinking",
+   "board": [
+    "-ущ-/-ющ-, -ащ-/-ящ- (наст.)",
+    "-вш-/-ш- (прош.)",
+    "студент, читающий / прочитавший"
+   ],
+   "examples": [
+    {
+     "t": "Студент, читающий книгу, не слышит звонка.",
+     "uz": "Kitob o‘qiyotgan talaba qo‘ng‘iroqni eshitmaydi."
+    },
+    {
+     "t": "Врач, осмотревший больного, назначил лечение.",
+     "uz": "Bemorni ko‘rgan shifokor davo buyurdi."
+    }
+   ],
+   "say_native": "Sifatdosh — o‘zbekchadagi «o‘qiyotgan, ko‘rgan» kabi shakl. Ruschada u fe’ldan yasaladi va ot kabi o‘zgaradi. Hozirgi zamon: читающий, говорящий. O‘tgan zamon: прочитавший, осмотревший. U «который» o‘rnini bosadi: студент, который читает = студент, читающий. Sifatdosh jins, son va kelishikda otga moslashadi, shuning uchun oxirgi qo‘shimchasi o‘zgaradi.",
+   "say": "Студент, читающий книгу, не слышит звонка. Врач, осмотревший больного, назначил лечение. Действительное причастие заменяет придаточное с «который».",
+   "say_uz": "Kitob o‘qiyotgan talaba qo‘ng‘iroqni eshitmaydi. Bemorni ko‘rgan shifokor davo buyurdi. Faol sifatdosh «который» li ergash gapni almashtiradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sifatdosh: majhul",
+   "emotion": "thinking",
+   "board": [
+    "-ем-/-им- (наст.)",
+    "-нн-/-т- (прош.)",
+    "письмо, написанное Анной"
+   ],
+   "examples": [
+    {
+     "t": "Письмо, написанное Анной, пришло вчера.",
+     "uz": "Annaning yozgan xati kecha keldi."
+    },
+    {
+     "t": "Проект, обсуждаемый сегодня, очень важен.",
+     "uz": "Bugun muhokama qilinayotgan loyiha juda muhim."
+    }
+   ],
+   "say_native": "Majhul sifatdosh predmetga qaratilgan: xat yozilgan, loyiha muhokama qilinmoqda. O‘tgan zamon qo‘shimchalari: -нн-, -т-: написанный, открытый. Hozirgi zamon: -ем-, -им-: обсуждаемый, читаемый. Ijrochini tvoritelnyy bilan beramiz: написанное Анной. B2 da bu shakl asosan yozma va rasmiy uslubda uchraydi, og‘zaki nutqda «который» ko‘proq ishlatiladi.",
+   "say": "Письмо, написанное Анной, пришло вчера. Проект, обсуждаемый сегодня, очень важен. Страдательное причастие показывает, что действие совершают над предметом.",
+   "say_uz": "Annaning yozgan xati kecha keldi. Bugun muhokama qilinayotgan loyiha juda muhim. Majhul sifatdosh harakat predmet ustida bajarilganini ko‘rsatadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ravishdosh",
+   "emotion": "neutral",
+   "board": [
+    "читая · делая (несов.)",
+    "прочитав · сделав (сов.)",
+    "одно лицо!"
+   ],
+   "examples": [
+    {
+     "t": "Читая газету, он пил чай.",
+     "uz": "Gazeta o‘qib, u choy ichdi."
+    },
+    {
+     "t": "Прочитав письмо, она улыбнулась.",
+     "uz": "Xatni o‘qib, u jilmaydi."
+    }
+   ],
+   "say_native": "Ravishdosh — «o‘qib», «o‘qiganda» ga o‘xshaydi. Nesovershennyy fe’ldan yasalgan ravishdosh: читая — o‘qib turib, bir vaqtda. Sovershennyy fe’ldan: прочитав — o‘qib bo‘lgach. Eng muhim qoida: ravishdoshdagi harakatni ham asosiy gapning egasi bajaradi. Ravishdosh oboroti vergul bilan ajratiladi, bu yerda ham xuddi shunday.",
+   "say": "Читая газету, он пил чай. Прочитав письмо, она улыбнулась. Деепричастный оборот показывает дополнительное действие того же человека.",
+   "say_uz": "Gazeta o‘qib, u choy ichdi. Xatni o‘qib bo‘lgach, u jilmaydi. Ravishdosh oboroti bir xil shaxsning qo‘shimcha harakatini ko‘rsatadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Sifatdosh va ravishdosh",
+   "emotion": "impressed",
+   "board": [
+    "Город, расположенный у моря, …",
+    "Приехав, мы …"
+   ],
+   "examples": [
+    {
+     "t": "Город, расположенный у моря, привлекает туристов.",
+     "uz": "Dengiz bo‘yida joylashgan shahar turistlarni jalb qiladi."
+    }
+   ],
+   "say_native": "Mana bir gapda uchala shakl. «Расположенный» — majhul sifatdosh, «приехав» — sovershennyy ravishdosh, «любуясь» — nesovershennyy ravishdosh. Hamma ravishdoshlar «мы» ga tegishli, ya’ni ega bir xil. Bunday gap kitob tilidagi chiroyli uslubni beradi, lekin ularni bir gapga ko‘p tiqmang, aks holda o‘qish og‘irlashadi.",
+   "say": "Город, расположенный у моря, привлекает туристов. Приехав туда впервые, мы сразу пошли на набережную и, любуясь закатом, забыли о времени.",
+   "say_uz": "Dengiz bo‘yida joylashgan shahar turistlarni jalb qiladi. U yerga birinchi marta kelib, darhol sohilga bordik va quyosh botishidan zavqlanib, vaqtni unutdik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Ravishdosh xatosi",
+   "emotion": "stern",
+   "board": [
+    "✗ Читая книгу, у меня заболела голова.",
+    "✓ Когда я читал книгу, у меня заболела голова.",
+    "✗ студентка, читающий",
+    "✓ студентка, читающая"
+   ],
+   "examples": [
+    {
+     "t": "Читая книгу, я задремал.",
+     "uz": "Kitob o‘qib o‘tirib, uyqum keldi."
+    }
+   ],
+   "say_native": "Ravishdosh obortida ega har doim bitta bo‘lishi kerak. «Читая» ni kim bajaryapti? Men. Lekin asosiy gapning egasi «голова». Bunday xato o‘zbekcha «o‘qiganimda boshim og‘ridi» ga o‘xshab tuzilganda chiqadi. Ikkinchi xato — sifatdoshning jins va sonini moslamaslik: студентка — читающая, студент — читающий.",
+   "say": "Нельзя говорить: «Читая книгу, у меня заболела голова». Нужно: когда я читал книгу, у меня заболела голова. Или: читая книгу, я почувствовал головную боль.",
+   "say_uz": "«Читая книгу, у меня заболела голова» deb bo‘lmaydi. To‘g‘risi: kitob o‘qiganimda boshim og‘ridi, yoki «читая книгу, я почувствовал головную боль».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sifatdoshga aylantiring",
+   "emotion": "encouraging",
+   "board": [
+    "Человек, который стоит у окна, мой брат.",
+    "Когда он вошёл в комнату, он поздоровался.",
+    "Письмо, которое написала Анна, пришло."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Ergash gaplarni sifatdosh yoki ravishdosh oborotiga aylantiring. Birinchi gap tayyor: «Человек, стоящий у окна, мой брат». Ikkinchida «вошёл» fe’lidan ravishdosh yasang. Uchinchisida «написала Анна» ni «написанное Анной» ga o‘zgartiring. Asosiy gap ma’nosi o‘zgarmasin.",
+   "say": "Замените придаточные причастными и деепричастными оборотами. Человек, стоящий у окна, мой брат. Остальные два предложения преобразуйте вслух.",
+   "say_uz": "Ergash gaplarni sifatdosh va ravishdosh oborotlari bilan almashtiring. Deraza yonida turgan kishi akam. Qolgan ikkitasini ovoz chiqarib o‘zgartiring.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Человек, стоящий у окна",
+    "Войдя в комнату, он поздоровался.",
+    "Письмо, написанное Анной"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: «стоящий у окна»; «войдя в комнату, он поздоровался» — «вошёл» dan «войдя»; «письмо, написанное Анной, пришло» — majhul sifatdosh va ijrochi tvoritelnyyda. Gap ixchamroq bo‘ldi, ma’no o‘zgarmadi. Yodda tuting: bunday almashtirish yozma nutq va rasmiy matnda qulay, kundalik suhbatda esa ko‘pincha «который» yaxshiroq.",
+   "say": "Правильно: человек, стоящий у окна; войдя в комнату, он поздоровался; письмо, написанное Анной, пришло. Смысл остался тем же, а стиль стал компактнее.",
+   "say_uz": "To‘g‘ri: deraza yonida turgan kishi; xonaga kirib, u salomlashdi; Anna yozgan xat keldi. Ma’no o‘zgarmadi, uslub ixchamroq bo‘ldi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qarshilik: хотя va unga o‘xshashlar",
+   "emotion": "neutral",
+   "board": [
+    "хотя + факт",
+    "несмотря на то что + факт",
+    "пусть + желание",
+    "как ни + глагол"
+   ],
+   "examples": [
+    {
+     "t": "Хотя было поздно, мы продолжили работу.",
+     "uz": "Kech bo‘lsa-da, ishni davom ettirdik."
+    },
+    {
+     "t": "Как ни старался он, ничего не вышло.",
+     "uz": "U qanchalik urinmasin, hech narsa chiqmadi."
+    }
+   ],
+   "say_native": "Qarshilik, ya’ni уступка — kutilgan natija chiqmagani. «Хотя» va «несмотря на то что» — «garchi … bo‘lsa-da» ma’nosida, ikkalasidan keyin ham to‘liq gap keladi. «Как ни + fe’l» — «qanchalik … bo‘lmasin». «Пусть» — «mayli, bo‘lsin». Bu bog‘lovchilar mantiqiy fikrni boyitadi va nutqingizni B2 darajasiga olib chiqadi.",
+   "say": "Хотя было поздно, мы продолжили работу. Несмотря на то что дорога была трудной, команда не отступила. Как ни старался он, ничего не вышло.",
+   "say_uz": "Kech bo‘lsa-da, ishni davom ettirdik. Yo‘l og‘ir bo‘lishiga qaramay, jamoa chekinmadi. U qanchalik urinmasin, hech narsa chiqmadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Predlog bilan qarshilik",
+   "emotion": "neutral",
+   "board": [
+    "несмотря на + В.п.",
+    "вопреки + Д.п.",
+    "невзирая на + В.п.",
+    "при всём + П.п."
+   ],
+   "examples": [
+    {
+     "t": "Вопреки прогнозу, погода была солнечной.",
+     "uz": "Prognozga qaramay, havo quyoshli bo‘ldi."
+    },
+    {
+     "t": "Несмотря на усталость, он продолжил бег.",
+     "uz": "Charchoqqa qaramay, u yugurishda davom etdi."
+    }
+   ],
+   "say_native": "Ot bilan qarshilikni ikki xil beramiz. «Несмотря на» va «невзирая на» — vinitelnyy: несмотря на усталость. «Вопреки» — datelnyy: вопреки прогнозу, вопреки ожиданиям. Bu juda tez-tez uchraydigan farq, chunki kelishik predlogga bog‘liq. Bundan tashqari gap oxirini birdan qisqartirib, fikrni ixcham ifodalash mumkin: ergash gap o‘rniga ot.",
+   "say": "Вопреки прогнозу, погода была солнечной. Несмотря на усталость, он продолжил бег. Невзирая на трудности, они закончили проект.",
+   "say_uz": "Prognozga qaramay, havo quyoshli bo‘ldi. Charchoqqa qaramay, u yugurishda davom etdi. Qiyinchiliklarga qaramay, ular loyihani tugatdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Qarshilik matni",
+   "emotion": "impressed",
+   "board": [
+    "Ожидание ≠ результат"
+   ],
+   "examples": [
+    {
+     "t": "Хотя команда была неопытной, она победила.",
+     "uz": "Jamoa tajribasiz bo‘lsa-da, g‘alaba qozondi."
+    }
+   ],
+   "say_native": "Bu matnda uchta qarshilik vositasi bor: «вопреки ожиданиям», «хотя» va «несмотря на волнение». Qarang, hammasi bir fikrni — kutilganidan boshqacha natijani — turlicha ifodalaydi. Aynan shu xilma-xillik matnni jonli qiladi. Bir xil «хотя» ni uch marta takrorlash esa zerikarli.",
+   "say": "Вопреки ожиданиям, команда новичков выиграла турнир. Хотя соперники были сильнее, ребята не растерялись и, несмотря на волнение, сыграли уверенно.",
+   "say_uz": "Kutilganidan farqli ravishda, yangi o‘yinchilar jamoasi turnirda g‘olib bo‘ldi. Raqiblar kuchli bo‘lsa-da, yigitlar o‘zlarini yo‘qotmadi va hayajonga qaramay, ishonch bilan o‘ynadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Qarshilik xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ вопреки прогноза",
+    "✓ вопреки прогнозу",
+    "✗ несмотря на то, он пришёл",
+    "✓ несмотря на то что он устал, он пришёл"
+   ],
+   "examples": [
+    {
+     "t": "Несмотря на то что шёл снег, мы вышли гулять.",
+     "uz": "Qor yog‘ayotganiga qaramay, sayrga chiqdik."
+    }
+   ],
+   "say_native": "«Вопреки» datelnyy bilan ishlaydi, bu rus tilida «к» predlogiga o‘xshab eslab qolinadi: вопреки прогнозу, вопреки совету. O‘zbek tilida «-ga qaramay» deymiz, shuning uchun ko‘pchilik datelnyyni unutadi. Ikkinchi xato — murakkab bog‘lovchini kesib tashlash: «несмотря на то что» to‘liq holda yoziladi va gapning ikki qismini bog‘laydi.",
+   "say": "Не говорите «вопреки прогноза». Правильно — вопреки прогнозу. И нельзя терять «что» в союзе: несмотря на то что.",
+   "say_uz": "«Вопреки прогноза» demang. To‘g‘risi: вопреки прогнозу. Murakkab bog‘lovchidagi «что» ni tushirib qoldirmang: несмотря на то что.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qarshilik ifodalash",
+   "emotion": "encouraging",
+   "board": [
+    "___ дождь, мы пошли гулять. (несмотря на)",
+    "___ ожиданиям, билеты стоили дёшево. (вопреки)",
+    "___ он устал, он закончил работу. (хотя / несмотря на то что)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta gapni tugallang. Birinchisida «несмотря на» dan keyin vinitelnyy keladi, «дождь» esa o‘zgarmaydi. Ikkinchisida «вопреки» dan keyin datelnyy kerak: ожиданиям. Uchinchisida to‘liq gap, shuning uchun «хотя» yoki «несмотря на то что». Har bir gapni to‘liq ayting.",
+   "say": "Закончите предложения. Несмотря на дождь, мы пошли гулять. Теперь составьте вторую и третью фразы с помощью подсказок.",
+   "say_uz": "Gaplarni tugallang. Yomg‘irga qaramay, biz sayrga chiqdik. Endi maslahatlar yordamida ikkinchi va uchinchi iborani tuzing.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Несмотря на дождь",
+    "Вопреки ожиданиям",
+    "Хотя он устал / Несмотря на то что он устал"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: «несмотря на дождь» — vinitelnyy; «вопреки ожиданиям» — datelnyy, «ожидания» ko‘plikda; «хотя он устал» yoki «несмотря на то что он устал» — to‘liq gap. Uchinchi gapda ikkala variant ham to‘g‘ri, birinchisi oddiyroq, ikkinchisi rasmiyroq. Hamma gapda vergulni to‘g‘ri qo‘yganingizni tekshiring.",
+   "say": "Правильно: несмотря на дождь; вопреки ожиданиям, билеты стоили дёшево; хотя он устал, он закончил работу.",
+   "say_uz": "To‘g‘ri: yomg‘irga qaramay; kutilganidan farqli ravishda chiptalar arzon bo‘ldi; charchagan bo‘lsa-da, u ishni tugatdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sabab bog‘lovchilari",
+   "emotion": "thinking",
+   "board": [
+    "потому что · так как · поскольку",
+    "благодаря + Д.п. (хорошо)",
+    "из-за + Р.п. (плохо)",
+    "ввиду того что (офиц.)"
+   ],
+   "examples": [
+    {
+     "t": "Благодаря помощи друзей он успел вовремя.",
+     "uz": "Do‘stlari yordami tufayli u o‘z vaqtida ulgurdi."
+    },
+    {
+     "t": "Из-за пробок мы опоздали.",
+     "uz": "Tirbandlik sababli kechikdik."
+    }
+   ],
+   "say_native": "Sabab bildiruvchi vositalar uslubga qarab tanlanadi. «Потому что» — og‘zaki va neytral. «Так как», «поскольку» — yozma. «Ввиду того что» — rasmiy. Ot bilan: «благодаря» yaxshi sabab uchun, datelnyy bilan; «из-за» yomon sabab uchun, roditelnyy bilan. Aynan shu rangni farqlash gapni aniqroq qiladi.",
+   "say": "Благодаря помощи друзей он успел вовремя. Из-за пробок мы опоздали. Поскольку время ограничено, начнём сразу.",
+   "say_uz": "Do‘stlari yordami tufayli u vaqtida ulgurdi. Tirbandlik sababli kechikdik. Vaqt cheklangani uchun darhol boshlaymiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Uslub xilma-xilligi",
+   "emotion": "neutral",
+   "board": [
+    "короткое предложение — акцент",
+    "длинное — объяснение",
+    "порядок слов, оборот, вводные слова"
+   ],
+   "examples": [
+    {
+     "t": "Он опоздал. Причина была простая: сломался автобус.",
+     "uz": "U kechikdi. Sabab oddiy edi: avtobus buzildi."
+    }
+   ],
+   "say_native": "Yaxshi matn bir xil uzunlikdagi gaplardan iborat bo‘lmaydi. Qisqa gap fikrga urg‘u beradi, uzun gap tushuntiradi. Gapning boshini ham o‘zgartiring: bir gap ega bilan, ikkinchisi ravishdosh oborot bilan, uchinchisi «хотя» bilan boshlansin. Kirish so‘zlar, masalan «к сожалению», «впрочем», ham ritm beradi. Shu usullar insho balini oshiradi.",
+   "say": "Он опоздал. Причина была простая: сломался автобус, который должен был прийти в восемь, а пришёл лишь через час. Короткое предложение подчёркивает факт, длинное объясняет.",
+   "say_uz": "U kechikdi. Sabab oddiy edi: sakkizda kelishi kerak bo‘lgan avtobus faqat bir soatdan keyin keldi. Qisqa gap faktni ta’kidlaydi, uzun gap tushuntiradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Gaplarni birlashtirish",
+   "emotion": "impressed",
+   "board": [
+    "Было холодно. Мы взяли чай. Мы пошли в парк.",
+    "→ Взяв чай, мы пошли в парк, хотя было холодно."
+   ],
+   "examples": [
+    {
+     "t": "Хотя было холодно, мы взяли чай и пошли в парк.",
+     "uz": "Sovuq bo‘lsa-da, choy olib parkka bordik."
+    }
+   ],
+   "say_native": "Uchta qisqa gapni bittaga birlashtirdik. Qanday? «Хотя» bilan qarshilik, «и» bilan ketma-ket harakat, «где» bilan joy ergash gapi, «несмотря на ветер» bilan yana bir qarshilik. Sinab ko‘ring: gapni bir nafasda o‘qiy olasizmi? Agar qiyin bo‘lsa, ikkiga bo‘ling. Asosiy qoida — ravshanlik.",
+   "say": "Хотя было холодно, мы взяли горячий чай и пошли в парк, где, несмотря на ветер, провели целый час.",
+   "say_uz": "Sovuq bo‘lsa-da, issiq choy olib parkka bordik va u yerda shamolga qaramay, butun bir soat o‘tkazdik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Uslub xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ из-за помощи друзей (хорошее)",
+    "✓ благодаря помощи друзей",
+    "✗ слишком длинная цепь «и … и … и …»",
+    "✓ разделить на два предложения"
+   ],
+   "examples": [
+    {
+     "t": "Из-за дождя матч отменили.",
+     "uz": "Yomg‘ir sababli o‘yin bekor qilindi."
+    }
+   ],
+   "say_native": "«Из-за» odatda salbiy sababda ishlatiladi: из-за дождя, из-за ошибки. Yaxshi sabab uchun «благодаря». Ba’zan uzoq gap bir nechta «и … и … и» bilan cho‘zilib ketadi. Bunday gapni ikkiga bo‘ling. O‘zbekchada «-lib, -lib» bilan uzun gap tuzish odatiy, ruschada esa o‘qish qiyinlashadi.",
+   "say": "Не говорите «из-за помощи друзей» — это звучит странно. Для хорошей причины используйте «благодаря». А слишком длинную цепь лучше разделить.",
+   "say_uz": "«Из-за помощи друзей» demang. Yaxshi sabab uchun «благодаря» ishlatiladi. Haddan tashqari uzun zanjirni ikkiga bo‘lish yaxshi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Birlashtiring",
+   "emotion": "encouraging",
+   "board": [
+    "Я долго готовился. Экзамен был трудным. Я сдал его.",
+    "Зима была холодной. Мы любим снег. Мы поехали в горы.",
+    "Анна помогла нам. Мы закончили проект."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uch guruh qisqa gapni bitta murakkab gapga birlashtiring. Birinchisi tayyor: «Хотя экзамен был трудным, я сдал его, потому что долго готовился». Ikkinchida sabab va qarshilikni ishlating. Uchinchisida «благодаря» dan foydalaning, chunki sabab yaxshi. Bir nechta variant bo‘lishi mumkin.",
+   "say": "Соедините предложения в одно сложное. Например: хотя экзамен был трудным, я сдал его, потому что долго готовился. Теперь сделайте то же с двумя другими группами.",
+   "say_uz": "Gaplarni bitta murakkab gapga birlashtiring. Masalan: imtihon qiyin bo‘lsa-da, uzoq tayyorlanganim uchun topshirdim. Endi qolgan ikki guruh bilan ham shunday qiling.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Поскольку мы любим снег, мы поехали в горы, несмотря на холодную зиму.",
+    "Благодаря помощи Анны мы закончили проект."
+   ],
+   "examples": [],
+   "say_native": "Namuna javoblar: «Поскольку мы любим снег, мы поехали в горы, несмотря на холодную зиму» va «Благодаря помощи Анны мы закончили проект». Sizning variantingiz boshqacha bo‘lishi mumkin, bu normal. Asosiysi, bog‘lovchi to‘g‘ri tanlangan, vergul o‘z joyida va ma’no saqlangan. Agar variantingiz shu mezonlarga mos bo‘lsa, javobingiz to‘g‘ri.",
+   "say": "Один из вариантов: поскольку мы любим снег, мы поехали в горы, несмотря на холодную зиму. И второй: благодаря помощи Анны мы закончили проект.",
+   "say_uz": "Variantlardan biri: qorni yaxshi ko‘rgani uchun biz sovuq qishga qaramay tog‘larga bordik. Ikkinchisi: Anna yordami tufayli loyihani tugatdik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: insho muhokamasi",
+   "emotion": "happy",
+   "board": [
+    "Диалог 1",
+    "Преподаватель и студентка обсуждают эссе"
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog: o‘qituvchi va talaba insho haqida gaplashadi. Eshitayotganda o‘qituvchi qanday takliflar berayotganiga e’tibor bering. Savollar keyingi mashqda.",
+   "say": "— Я прочитал ваше эссе. Идеи интересные, но предложения слишком короткие. — Я боялась, что длинные фразы получатся неправильными. — Попробуйте соединять мысли. Вместо двух фраз напишите одну: город, расположенный у реки, быстро развивается, поскольку туда приезжают инвесторы. — А причастный оборот не сделает текст тяжёлым? — Если не злоупотреблять, нет. Чередуйте короткие и длинные предложения.",
+   "say_uz": "— Inshongizni o‘qidim. G‘oyalar qiziq, biroq gaplar juda qisqa. — Uzun gaplar noto‘g‘ri chiqishidan qo‘rqdim. — Fikrlarni birlashtirib ko‘ring. Ikki gap o‘rniga bitta yozing: daryo bo‘yida joylashgan shahar tez rivojlanmoqda, chunki u yerga investorlar kelmoqda. — Sifatdosh oboroti matnni og‘irlashtirmaydimi? — Ortiqcha ishlatmasangiz, yo‘q. Qisqa va uzun gaplarni almashtirib turing.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. В чём проблема эссе?",
+    "2. Чего боялась студентка?",
+    "3. Какой совет дал преподаватель?"
+   ],
+   "examples": [],
+   "say_native": "Dialogga javob bering. Birinchi savol: insho muammosi nimada. Ikkinchi savol: talaba nimadan qo‘rqqan. Uchinchi savol: o‘qituvchi qanday maslahat bergan. Javobda «потому что» yoki «чтобы» ni ishlatishga urinib ko‘ring.",
+   "say": "Ответьте на вопросы по диалогу. В чём проблема эссе? Чего боялась студентка? Какой совет дал преподаватель?",
+   "say_uz": "Dialogdagi savollarga javob bering. Inshoning muammosi nimada? Talaba nimadan qo‘rqqan? O‘qituvchi qanday maslahat bergan?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog javoblari",
+   "emotion": "proud",
+   "board": [
+    "1. Слишком короткие предложения",
+    "2. Что длинные фразы будут неправильными",
+    "3. Соединять мысли, чередовать длину"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: muammo — gaplar juda qisqa. Talaba uzun gaplar noto‘g‘ri chiqishidan qo‘rqqan. Maslahat esa fikrlarni birlashtirish va qisqa hamda uzun gaplarni almashtirib turish. E’tibor bering, javobda «что» ham, «чтобы» ham to‘g‘ri ishlatilgan bo‘lsa, siz bugungi qoidalarni qo‘llayapsiz.",
+   "say": "Проблема в том, что предложения слишком короткие. Студентка боялась, что длинные фразы получатся неправильными. Преподаватель советует соединять мысли и чередовать короткие и длинные предложения.",
+   "say_uz": "Muammo shundaki, gaplar juda qisqa. Talaba uzun iboralar noto‘g‘ri chiqishidan qo‘rqqan. O‘qituvchi fikrlarni birlashtirish va qisqa hamda uzun gaplarni almashtirib turishni maslahat beradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: hisobotni tahrirlash",
+   "emotion": "happy",
+   "board": [
+    "Диалог 2",
+    "Двое коллег проверяют отчёт"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog — ikki hamkasb hisobotni tahrirlayapti. Aynan bugungi mavzudagi ikkita xatoni toping: ravishdosh va «хотя» bilan «но». Keyingi mashqda savollarga javob berasiz.",
+   "say": "— Посмотри, пожалуйста, мой отчёт. — Вот здесь ошибка: «Подписав договор, у компании появились обязательства». — Почему? — Деепричастие и подлежащее должны относиться к одному лицу. Лучше: после того как компания подписала договор, у неё появились обязательства. — Точно, не заметил. — И ещё: «хотя продажи выросли, но прибыль упала» — слово «но» лишнее.",
+   "say_uz": "— Iltimos, hisobotimni ko‘rib chiq. — Mana bu yerda xato: «Shartnomani imzolab, kompaniyada majburiyatlar paydo bo‘ldi». — Nega? — Ravishdosh va ega bir shaxsga tegishli bo‘lishi kerak. Yaxshisi: kompaniya shartnomani imzolagach, unda majburiyatlar paydo bo‘ldi. — To‘g‘ri, sezmabman. — Yana: «sotuvlar oshgan bo‘lsa-da, lekin foyda tushdi» — «lekin» ortiqcha.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikkinchi dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. В чём первая ошибка?",
+    "2. Как её исправить?",
+    "3. Какое слово лишнее?"
+   ],
+   "examples": [],
+   "say_native": "Savollar: birinchi xato nimada, uni qanday tuzatish mumkin va ikkinchi gapda qaysi so‘z ortiqcha. Javob berayotganda dialogda aytilgan qoidani ham eslang.",
+   "say": "Ответьте на вопросы. В чём первая ошибка? Как её исправить? Какое слово во второй фразе лишнее?",
+   "say_uz": "Savollarga javob bering. Birinchi xato nimada? Uni qanday tuzatish mumkin? Ikkinchi iboradagi qaysi so‘z ortiqcha?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1. Деепричастие и подлежащее — разные лица",
+    "2. После того как компания подписала договор, …",
+    "3. «но»"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: xato — ravishdosh bir shaxsga, ega boshqa narsaga tegishli. Tuzatish: «после того как компания подписала договор, у неё появились обязательства». Ortiqcha so‘z — «но», chunki «хотя» allaqachon qarshilikni bildirgan. Bu ikkala qoidani endi o‘z matningizda tekshirib ko‘ring.",
+   "say": "Ошибка в том, что деепричастие и подлежащее относятся к разным лицам. Исправить можно так: после того как компания подписала договор. Лишнее слово — «но».",
+   "say_uz": "Xato shundaki, ravishdosh va ega turli shaxslarga tegishli. Tuzatish: kompaniya shartnomani imzolagach. Ortiqcha so‘z — «но».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy topshiriq",
+   "emotion": "encouraging",
+   "board": [
+    "Дождь шёл всю ночь. Река вышла из берегов. Жители покинули дом. Помощь прибыла быстро.",
+    "Составьте 2 сложных предложения."
+   ],
+   "examples": [],
+   "say_native": "Yakuniy topshiriq. Doskada to‘rtta qisqa gap bor: yomg‘ir, daryo toshishi, aholi uyni tark etishi va yordam kelishi. Ularni ikkita murakkab gapga birlashtiring. Kamida bittasida sifatdosh yoki ravishdosh, bittasida sabab yoki qarshilik bog‘lovchisi bo‘lsin. O‘ylab ko‘ring, keyin namunani eshitasiz.",
+   "say": "Объедините четыре предложения в два сложных. Используйте союз, причастный или деепричастный оборот и уступку.",
+   "say_uz": "To‘rtta gapni ikkita murakkab gapga birlashtiring. Bog‘lovchi, sifatdosh yoki ravishdosh oborot va qarshilik ishlating.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "example",
+   "title": "Namuna javob",
+   "emotion": "impressed",
+   "board": [
+    "2 сложных предложения"
+   ],
+   "examples": [],
+   "say_native": "Namuna: birinchi gapda sabab bog‘lovchisi «так как», sifatdosh oboroti «покинувшие дом» va «и» bilan teng bog‘lanish bor. Ikkinchi gapda «несмотря на» bilan qarshilik. Gaplar uzun, lekin tushunarli. Sizning variantingiz boshqacha bo‘lishi mumkin, asosiysi ravshanlik va to‘g‘ri bog‘lovchilar.",
+   "say": "Так как дождь шёл всю ночь, река вышла из берегов, и жители, покинувшие дом, ждали помощи. Несмотря на сложную обстановку, помощь прибыла быстро.",
+   "say_uz": "Yomg‘ir tun bo‘yi yog‘gani uchun daryo toshib ketdi va uyni tark etgan aholi yordam kutdi. Murakkab vaziyatga qaramay, yordam tez yetib keldi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Dars xulosasi",
+   "emotion": "proud",
+   "board": [
+    "и · а · но · что · чтобы · который",
+    "причастие · деепричастие",
+    "хотя · несмотря на · вопреки",
+    "благодаря · из-за · поскольку"
+   ],
+   "examples": [],
+   "say_native": "Bugungi to‘rt asosiy narsa: birinchi — teng va ergash bog‘lanish, «что», «чтобы», «который». Ikkinchi — sifatdosh va ravishdosh oborotlari, ega bir xil bo‘lishi qoidasi. Uchinchi — qarshilik: «хотя», «несмотря на», «вопреки». To‘rtinchi — sabab bog‘lovchilari va uslub xilma-xilligi. Murakkab gap — bu uzun gap emas, balki yaxshi bog‘langan gap.",
+   "say": "Подведём итог. Мы научились соединять мысли союзами, использовать причастные и деепричастные обороты, выражать уступку и разнообразить стиль.",
+   "say_uz": "Xulosa. Fikrlarni bog‘lovchilar bilan birlashtirish, sifatdosh va ravishdosh oborotlarini ishlatish, qarshilikni bildirish va uslubni boyitishni o‘rgandik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "encouraging",
+   "board": [
+    "10 простых предложений → 4 сложных",
+    "используйте: который, чтобы, оборот, хотя"
+   ],
+   "examples": [],
+   "say_native": "Uy vazifasi: o‘nta oddiy gapni to‘rtta murakkab gapga birlashtiring. Unda «который», «чтобы», kamida bitta sifatdosh yoki ravishdosh oborot va bitta qarshilik ishlatilsin. Muvaffaqiyat mezoni — hamma gap to‘g‘ri tinish belgilari bilan yozilsin. Keyingi darsda eng ko‘p ishlatiladigan yuzta so‘z birikmasini o‘rganamiz.",
+   "say": "Домашнее задание: соедините десять простых предложений в четыре сложных. Используйте «который», «чтобы», один причастный или деепричастный оборот и уступку.",
+   "say_uz": "Uy vazifasi: o‘nta oddiy gapni to‘rtta murakkab gapga birlashtiring. «Который», «чтобы», oborot va qarshilikdan foydalaning.",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "O‘nta oddiy gapni to‘rt murakkab gapga birlashtiring. Mezon: har bir gap rus tilida, «хотя, когда, потому что, если» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “although”?","options":["хотя","когда","потому что","если"],"answer":0,"why_uz":"Хотя — garchi."},
-  {"q":"Which word means “when”?","options":["когда","хотя","потому что","если"],"answer":0,"why_uz":"Когда — qachon."},
-  {"q":"Which word means “because”?","options":["потому что","когда","хотя","если"],"answer":0,"why_uz":"Потому что — chunki."},
-  {"q":"Which word means “if”?","options":["если","когда","потому что","хотя"],"answer":0,"why_uz":"Если — agar."},
-  {"q":"How do you say “Although it is good, I read”?","options":["Хотя это хорошо, я читаю.","Хотя это хорошо есть.","Хотя это хорошо является.","Хотя это хорошо был."],"answer":0,"why_uz":"Хотя это хорошо, я читаю — garchi bu yaxshi bo‘lsa ham, men o‘qiyman."},
-  {"q":"How do you ask “What do you read?”?","options":["Что ты читаешь?","Что ты читаешь есть?","Что ты читаешь является?","Что ты читаешь был?"],"answer":0,"why_uz":"Что ты читаешь? — nima o‘qiysan?"},
-  {"q":"How do you say “If it is good, what do you do?”?","options":["Если это хорошо, что ты делаешь?","Если это хорошо, что ты делаешь есть?","Если это хорошо, что ты делаешь является?","Если это хорошо, что ты делаешь был?"],"answer":0,"why_uz":"Если это хорошо, что ты делаешь? — agar bu yaxshi bo‘lsa, nima qilasan?"},
-  {"q":"Which word means “but”?","options":["но","и","или","поэтому"],"answer":0,"why_uz":"Но — lekin."},
-  {"q":"Which word means “and”?","options":["и","но","или","поэтому"],"answer":0,"why_uz":"И — va."},
-  {"q":"Which word means “or”?","options":["или","и","но","поэтому"],"answer":0,"why_uz":"Или — yoki."}
+ "homework_uz": "O‘nta oddiy gapni to‘rtta murakkab gapga birlashtiring. «Который», «чтобы», kamida bitta sifatdosh yoki ravishdosh oborot va bitta qarshilik bog‘lovchisi ishlating. Barcha tinish belgilari to‘g‘ri bo‘lsa, vazifa bajarilgan. Keyingi darsda eng ko‘p ishlatiladigan yuzta so‘z birikmasini o‘rganamiz.",
+ "quiz": [
+  {
+   "q": "«Книга, ... я читал» — bo‘sh joyga nima kerak?",
+   "options": [
+    "который",
+    "которая",
+    "которую",
+    "которого"
+   ],
+   "answer": 2,
+   "why_uz": "Kitob ayol jinsida, vinitelnyyda «которую»."
+  },
+  {
+   "q": "«Я хочу, ... он пришёл» — nima kerak?",
+   "options": [
+    "что",
+    "чтобы",
+    "если",
+    "хотя"
+   ],
+   "answer": 1,
+   "why_uz": "Istak uchun «чтобы» ishlatiladi."
+  },
+  {
+   "q": "Qaysi gap to‘g‘ri?",
+   "options": [
+    "Читая книгу, у меня заболела голова.",
+    "Читая книгу, я почувствовал боль.",
+    "Читая, голова болит.",
+    "Читав книга, я болел."
+   ],
+   "answer": 1,
+   "why_uz": "Ravishdosh va ega bir shaxs bo‘lishi kerak."
+  },
+  {
+   "q": "«Вопреки» qaysi kelishik bilan keladi?",
+   "options": [
+    "Datelnyy",
+    "Roditelnyy",
+    "Tvoritelnyy",
+    "Vinitelnyy"
+   ],
+   "answer": 0,
+   "why_uz": "Вопреки прогнозу — datelnyy."
+  },
+  {
+   "q": "«Несмотря на» dan keyin qaysi kelishik?",
+   "options": [
+    "Roditelnyy",
+    "Vinitelnyy",
+    "Predlojnyy",
+    "Datelnyy"
+   ],
+   "answer": 1,
+   "why_uz": "Несмотря на усталость — vinitelnyy."
+  },
+  {
+   "q": "Yaxshi sabab uchun qaysi predlog ishlatiladi?",
+   "options": [
+    "из-за",
+    "благодаря",
+    "вопреки",
+    "несмотря на"
+   ],
+   "answer": 1,
+   "why_uz": "«Благодаря» ijobiy sabab."
+  },
+  {
+   "q": "«Хотя» bilan gapda nima ortiqcha?",
+   "options": [
+    "Vergul",
+    "«но» ikkinchi qismda",
+    "Fe’l",
+    "Ot"
+   ],
+   "answer": 1,
+   "why_uz": "«Хотя … но» birga ishlatilmaydi."
+  },
+  {
+   "q": "«Студентка, ...» — to‘g‘ri sifatdosh qaysi?",
+   "options": [
+    "читающий",
+    "читающая",
+    "читающее",
+    "читающие"
+   ],
+   "answer": 1,
+   "why_uz": "Студентка ayol jinsida: читающая."
+  },
+  {
+   "q": "«Письмо, написанное Анной» — bu qanday sifatdosh?",
+   "options": [
+    "Faol hozirgi",
+    "Majhul o‘tgan",
+    "Faol o‘tgan",
+    "Ravishdosh"
+   ],
+   "answer": 1,
+   "why_uz": "Написанное — majhul o‘tgan zamon sifatdoshi."
+  },
+  {
+   "q": "Qaysi bog‘lovchi qarshilik bildiradi?",
+   "options": [
+    "потому что",
+    "поскольку",
+    "хотя",
+    "чтобы"
+   ],
+   "answer": 2,
+   "why_uz": "«Хотя» — garchi."
+  }
  ]
 }

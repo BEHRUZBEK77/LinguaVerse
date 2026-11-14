@@ -1,705 +1,361 @@
 {
- "title": "Xatolarsiz yozish: tahrir va korrektura",
- "goal_uz": "Dars oxirida Xatolarsiz yozish: tahrir va korrektura ni o‘rgansiz.",
+ "title": "Xatosiz yozish: tahrir va korrektura",
+ "goal_uz": "Dars oxirida o‘z arabcha matningizni tizimli tahrir qilasiz: o‘z-o‘zini tekshirish ro‘yxatidan foydalanasiz, hamza, ta’ marbuta/ha, alif maqsura, son-jins moslashuvi va inna/anna kabi nozik xatolarni topasiz, arab tinish belgilarini to‘g‘ri qo‘llaysiz va ortiqcha, qolipli iboralarni qisqa, aniq jumlaga aylantirasiz",
+ "homework_uz": "Taxminan 300 so‘zlik arabcha matn tanlang (o‘z yozganingiz yoki maqola) va uni mukammal holga keltiring. Tahrirni to‘rt o‘tishda bajaring: mazmun, tuzilma, imlo va grammatika, tinish belgilari va qisqartirish. Muvaffaqiyat mezoni: kamida o‘n beshta o‘zgartirishni ro‘yxatga yozing, har biriga sabab ko‘rsating, matn harakatlar bilan yozilgan bo‘lsin va tahrirdan keyin kamida 10 foiz qisqarsin. Keyingi darsda gapirish bo‘yicha to‘liq mock imtihonni o‘tkazamiz.",
  "vocab": [
-  {
-   "w": "الِاتِّصَالُ",
-   "uz": "aloqa"
-  },
-  {
-   "w": "الْهَدَفُ",
-   "uz": "maqsad"
-  },
-  {
-   "w": "التَّعَلُّمُ",
-   "uz": "o‘rganish"
-  },
-  {
-   "w": "التَّحْسِينُ",
-   "uz": "yaxshilanish"
-  },
-  {
-   "w": "الْإِنْجَازُ",
-   "uz": "yutuq"
-  },
-  {
-   "w": "الْمِهْنَةُ",
-   "uz": "kasb"
-  },
-  {
-   "w": "الْعَمَلُ",
-   "uz": "ish"
-  },
-  {
-   "w": "الْمَهَارَةُ",
-   "uz": "mahorat"
-  },
-  {
-   "w": "اللُّغَةُ",
-   "uz": "til"
-  },
-  {
-   "w": "الْمُمَارَسَةُ",
-   "uz": "amaliyot"
-  }
+  {"w": "التَّحْرِيرُ", "uz": "tahrir"},
+  {"w": "التَّدْقِيقُ", "uz": "korrektura, sinchiklab tekshirish"},
+  {"w": "الْإِمْلَاءُ", "uz": "imlo"},
+  {"w": "عَلَامَاتُ التَّرْقِيمِ", "uz": "tinish belgilari"},
+  {"w": "الِاخْتِصَارُ", "uz": "qisqartirish, ixchamlik"},
+  {"w": "الْحَشْوُ", "uz": "ortiqcha so‘zlar"},
+  {"w": "الْمُسَوَّدَةُ", "uz": "qoralama"},
+  {"w": "الْمُطَابَقَةُ", "uz": "moslashuv"},
+  {"w": "الْهَمْزَةُ", "uz": "hamza"},
+  {"w": "قَائِمَةُ الْمُرَاجَعَةِ", "uz": "tekshiruv ro‘yxati"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Bugun nima qilamiz?",
+   "title": "Bugungi maqsad: matnni mukammallashtirish",
    "emotion": "happy",
-   "board": [
-    "Mavzu",
-    "Tuzilish",
-    "Reja"
-   ],
-   "examples": [],
-   "say_native": "Salom, o‘quvchilar! Oldingi darsda Ilg‘or talaffuz: tabiiy nutq oqimi mavzusini o‘rgandik. Bugun Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusini o‘rganamiz. Dars oxirida Edit a 300-word text to perfection. . Har bir gapda bitta fikr bo‘lsin. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "أَهْلًا وَسَهْلًا! الْيَوْمَ نَتَعَلَّمُ Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing بِاللُّغَةِ الْعَرَبِيَّةِ.",
-   "say_uz": "Salom! Bugun mavzuni o‘rgamiz. Juda chiroyli.",
+   "board": ["التَّحْرِيرُ وَالتَّدْقِيقُ", "الْإِمْلَاءُ · التَّرْقِيمُ · الِاخْتِصَارُ", "الْكِتَابَةُ بِلَا أَخْطَاءٍ"],
+   "examples": [{"t": "الْكِتَابَةُ الْجَيِّدَةُ تُولَدُ فِي التَّحْرِيرِ لَا فِي الْمُسَوَّدَةِ.", "uz": "Yaxshi yozuv qoralamada emas, tahrirda tug‘iladi."}],
+   "say": "مَرْحَبًا بِكُمْ. فِي الدَّرْسِ الْمَاضِي دَرَّبْنَا النُّطْقَ وَالِانْسِيَابَ، وَالْيَوْمَ نَنْتَقِلُ إِلَى الْمَكْتُوبِ. الْكِتَابَةُ الْجَيِّدَةُ تُولَدُ فِي التَّحْرِيرِ، فَسَنَتَعَلَّمُ كَيْفَ نُرَاجِعُ نَصَّنَا وَنُصْلِحُ الْأَخْطَاءَ الدَّقِيقَةَ وَنَخْتَصِرُ.",
+   "say_native": "Assalomu alaykum! Oldingi darsda talaffuz va nutq oqimini mashq qildik. Bugun yozma nutqqa o‘tamiz. Yuqori darajada xato odatda katta grammatik emas, nozik bo‘ladi: bitta hamza, bitta noto‘g‘ri moslashuv, ortiqcha so‘z. Ularni o‘zingiz topa olishingiz kerak, chunki imtihonda ham, ishda ham sizni boshqa hech kim tekshirmaydi. Bugun to‘rt narsani o‘rganamiz: o‘zini tekshirish ro‘yxati, nozik xatolar, tinish belgilari va ixchamlik. Oxirida 300 so‘zlik matnni tahrir qilish usulini bilib olasiz.",
+   "say_uz": "Bugun tahrir ro‘yxati, nozik xatolar, tinish belgilari va ixchamlikni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Xatolarsiz lug‘ati",
-   "emotion": "neutral",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
-   "examples": [],
-   "say_native": "Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Xatolarsiz lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Lug‘at misollar",
-   "emotion": "neutral",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [
-    {
-     "t": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-     "uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli."
-    }
-   ],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Lug‘atni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) aloqa",
-    "2) maqsad",
-    "3) o‘rganish",
-    "4) yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. yaxshilanish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: aloqa. maqsad. o‘rganish. yaxshilanish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. yaxshilanish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Asosiy tushuncha",
-   "emotion": "neutral",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْإِنْجَازُ مُهِمٌّ جِدًّا. الْمِهْنَةُ مُفِيدٌ وَعَمَلِيٌّ. الْعَمَلُ مُهِمٌّ.",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Tushuncha misollar",
-   "emotion": "neutral",
-   "board": [
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "examples": [
-    {
-     "t": "الْإِنْجَازُ مُهِمٌّ جِدًّا. الْمِهْنَةُ مُفِيدٌ وَعَمَلِيٌّ. الْعَمَلُ مُهِمٌّ.",
-     "uz": "yutuq juda chiroyli. kasb tez. ish chiroyli."
-    }
-   ],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْإِنْجَازُ مُهِمٌّ جِدًّا. الْمِهْنَةُ مُفِيدٌ وَعَمَلِيٌّ. الْعَمَلُ مُهِمٌّ.",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tushunchani ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) yutuq",
-    "2) kasb",
-    "3) ish",
-    "4) mahorat"
-   ],
-   "examples": [],
-   "say_native": "To‘rt tushunchani ayting. Har bir gapda shaklni ishlating. Javobni to‘liq gapda ayting. Bu qism — tushunchani aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Tushunchani ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْإِنْجَازُ مُهِمٌّ جِدًّا. الْمِهْنَةُ مُفِيدٌ. الْعَمَلُ عَمَلِيٌّ. الْمَهَارَةُ مُهِمٌّ جِدًّا.",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli. mahorat chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "mahorat"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: yutuq. kasb. ish. mahorat. Tushunchalar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْإِنْجَازُ مُهِمٌّ جِدًّا. الْمِهْنَةُ مُفِيدٌ. الْعَمَلُ عَمَلِيٌّ. الْمَهَارَةُ مُهِمٌّ جِدًّا.",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli. mahorat chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ikkinchi tushuncha",
+   "title": "Tahrirning to‘rt o‘tishi",
    "emotion": "thinking",
-   "board": [
-    "tushuncha",
-    "farq",
-    "misol"
-   ],
-   "examples": [],
-   "say_native": "Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing ning ikkinchi tushunchasini bilib oling. Farqini ajratib oling. Har bir shaklni alohida yozing. Bu qism — ikkinchi tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Ikkinchi tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْمَهَارَةُ مُهِمٌّ جِدًّا. اللُّغَةُ مُفِيدٌ وَعَمَلِيٌّ. الْمُمَارَسَةُ مُهِمٌّ.",
-   "say_uz": "mahorat juda chiroyli. til tez. amaliyot chiroyli.",
+   "board": ["١) الْمَضْمُونُ", "٢) الْبِنَاءُ", "٣) الْإِمْلَاءُ وَالنَّحْوُ", "٤) التَّرْقِيمُ وَالِاخْتِصَارُ"],
+   "examples": [{"t": "لَا أُصْلِحُ كُلَّ شَيْءٍ فِي قِرَاءَةٍ وَاحِدَةٍ، بَلْ أَقْرَأُ النَّصَّ أَرْبَعَ مَرَّاتٍ.", "uz": "Hammasini bir o‘qishda emas, matnni to‘rt marta o‘qib tuzataman."}],
+   "say": "نُحَرِّرُ النَّصَّ فِي أَرْبَعِ مَرَّاتٍ. فِي الْأُولَى نَسْأَلُ: هَلْ الْفِكْرَةُ وَاضِحَةٌ؟ فِي الثَّانِيَةِ: هَلْ التَّرْتِيبُ مَنْطِقِيٌّ؟ فِي الثَّالِثَةِ نُرَاجِعُ الْإِمْلَاءَ وَالنَّحْوَ. وَفِي الرَّابِعَةِ نُضِيفُ التَّرْقِيمَ وَنَحْذِفُ الزَّائِدَ.",
+   "say_native": "Birinchi qoida: matnni bir o‘qishda hamma jihatdan tekshirib bo‘lmaydi. Miya bir vaqtning o‘zida fikr, tuzilma va imloga e’tibor bera olmaydi. Shuning uchun to‘rt o‘tish. Birinchi o‘tish mazmunga qaratilgan: fikr aniqmi, kerakli narsa aytilganmi? Ikkinchi: tuzilma, ya’ni abzaslar tartibi mantiqiymi? Uchinchi: imlo va grammatika, bu eng ko‘p vaqt oladigan bosqich. To‘rtinchi: tinish belgilari va ortiqchani olib tashlash. Tartibni o‘zgartirmang: avval katta, keyin kichik, chunki jumlani chiroyli qilib, keyin uni butunlay o‘chirib tashlash isrofgarchilik.",
+   "say_uz": "Mazmun, tuzilma, imlo va grammatika, tinish va qisqartirish: to‘rt o‘tish.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Farq misollar",
-   "emotion": "neutral",
-   "board": [
-    "mahorat",
-    "til",
-    "amaliyot"
-   ],
-   "examples": [
-    {
-     "t": "الْمَهَارَةُ مُهِمٌّ جِدًّا. اللُّغَةُ مُفِيدٌ وَعَمَلِيٌّ. الْمُمَارَسَةُ مُهِمٌّ.",
-     "uz": "mahorat juda chiroyli. til tez. amaliyot chiroyli."
-    }
-   ],
-   "say_native": "Farq misollarini o‘qib, har birini takrorlang. Farqlarni ajrating. Bu qism — farq misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Farq misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْمَهَارَةُ مُهِمٌّ جِدًّا. اللُّغَةُ مُفِيدٌ وَعَمَلِيٌّ. الْمُمَارَسَةُ مُهِمٌّ.",
-   "say_uz": "mahorat juda chiroyli. til tez. amaliyot chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Farqni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) mahorat",
-    "2) til",
-    "3) amaliyot",
-    "4) aloqa"
-   ],
-   "examples": [],
-   "say_native": "To‘rt farqni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — farqni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Farqni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْمَهَارَةُ مُهِمٌّ جِدًّا. اللُّغَةُ مُفِيدٌ. الْمُمَارَسَةُ عَمَلِيٌّ. الِاتِّصَالُ مُهِمٌّ جِدًّا.",
-   "say_uz": "mahorat juda chiroyli. til tez. amaliyot chiroyli. aloqa chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "mahorat",
-    "til",
-    "amaliyot",
-    "aloqa"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: mahorat. til. amaliyot. aloqa. Farqlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْمَهَارَةُ مُهِمٌّ جِدًّا. اللُّغَةُ مُفِيدٌ. الْمُمَارَسَةُ عَمَلِيٌّ. الِاتِّصَالُ مُهِمٌّ جِدًّا.",
-   "say_uz": "mahorat juda chiroyli. til tez. amaliyot chiroyli. aloqa chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "1) aloqa",
-    "2) maqsad",
-    "3) o‘rganish",
-    "4) yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "Lug‘atlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: lug‘at\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. yaxshilanish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: aloqa. maqsad. o‘rganish. yaxshilanish. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. yaxshilanish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "1) mahorat",
-    "2) til",
-    "3) amaliyot",
-    "4) aloqa"
-   ],
-   "examples": [],
-   "say_native": "Farqlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: farq\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْمَهَارَةُ مُهِمٌّ جِدًّا. اللُّغَةُ مُفِيدٌ. الْمُمَارَسَةُ عَمَلِيٌّ. الِاتِّصَالُ مُهِمٌّ جِدًّا.",
-   "say_uz": "mahorat juda chiroyli. til tez. amaliyot chiroyli. aloqa chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "mahorat",
-    "til",
-    "amaliyot",
-    "aloqa"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: mahorat. til. amaliyot. aloqa. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْمَهَارَةُ مُهِمٌّ جِدًّا. اللُّغَةُ مُفِيدٌ. الْمُمَارَسَةُ عَمَلِيٌّ. الِاتِّصَالُ مُهِمٌّ جِدًّا.",
-   "say_uz": "mahorat juda chiroyli. til tez. amaliyot chiroyli. aloqa chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) aloqa?",
-    "2) maqsad?",
-    "3) o‘rganish?",
-    "4) yaxshilanish?"
-   ],
-   "examples": [],
-   "say_native": "Matn savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa? maqsad? o‘rganish? yaxshilanish?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Matn matni",
-   "emotion": "neutral",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [
-    {
-     "t": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-     "uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli."
-    }
-   ],
-   "say_native": "Matn matnini o‘qib, har birini takrorlang. Qismlarni ajrating. Bu qism — matn matniga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Matn matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) aloqa?",
-    "2) maqsad?",
-    "3) o‘rganish?",
-    "4) yaxshilanish?"
-   ],
-   "examples": [],
-   "say_native": "To‘rt matn savoliga javob bering. Har bir javobni to‘liq gapda ayting. Bu qism — matn savollariga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa? maqsad? o‘rganish? yaxshilanish?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: aloqa. maqsad. o‘rganish. yaxshilanish. Matn savollariga javob berildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. yaxshilanish chiroyli.",
+   "title": "Kuzatish usullari",
+   "emotion": "impressed",
+   "board": ["١) أَتْرُكُ النَّصَّ يَوْمًا", "٢) أَقْرَأُ بِصَوْتٍ عَالٍ", "٣) أَقْرَأُ مِنَ الْأَخِيرِ إِلَى الْأَوَّلِ", "٤) سِجِلُّ أَخْطَائِي"],
+   "examples": [{"t": "عِنْدَمَا أَقْرَأُ بِصَوْتٍ عَالٍ أَسْمَعُ الْأَخْطَاءَ الَّتِي لَا تَرَاهَا عَيْنِي.", "uz": "Ovoz chiqarib o‘qiganda ko‘zim ko‘rmagan xatolarni eshitaman."}],
+   "say": "هُنَاكَ حِيَلٌ تُسَاعِدُ الْعَيْنَ. نَتْرُكُ النَّصَّ يَوْمًا قَبْلَ الْمُرَاجَعَةِ، وَنَقْرَأُ بِصَوْتٍ عَالٍ، وَنَقْرَأُ الْجُمَلَ مِنَ الْأَخِيرَةِ إِلَى الْأُولَى، وَنَحْتَفِظُ بِسِجِلٍّ لِأَخْطَائِنَا الْمُتَكَرِّرَةِ.",
+   "say_native": "Muallif o‘z matnidagi xatoni ko‘rmaydi, chunki miya nima yozmoqchi bo‘lganini biladi va xatoni o‘zi to‘g‘rilab o‘qiydi. Buni chetlab o‘tish uchun to‘rtta usul bor. Birinchi: matnni bir kun qo‘yib turing. Ikkinchi: ovoz chiqarib o‘qing, quloq xatoni ko‘zdan yaxshi ushlaydi. Uchinchi: jumlalarni oxirgisidan boshlab, teskari tartibda o‘qing, shunda mazmunga emas, shaklga qaraysiz. To‘rtinchi: o‘zingizning takroriy xatolaringiz ro‘yxatini yuriting. Ko‘pchilikning xatolari bir necha tur bo‘ladi, ularni bilsangiz, topish osonlashadi.",
+   "say_uz": "Bir kun kutish, ovoz chiqarib o‘qish, teskari o‘qish va xato jurnali.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Keng tarqalgan xatolar",
-   "emotion": "stern",
-   "board": [
-    "✗ aloqa maqsad emas",
-    "✗ o‘rganish yaxshilanish emas",
-    "✗ Xatolarsiz"
-   ],
-   "examples": [],
-   "say_native": "Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing so‘zlarida uchraydigan uchta xato: ma’no adashtirish. Har bir xatoni tuzating. Bu qism — xatolarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli.",
+   "title": "Xato: yozib bo‘lgach darhol tekshirish",
+   "emotion": "disappointed",
+   "board": ["✗ كِتَابَةٌ ثُمَّ تَسْلِيمٌ فَوْرًا", "✓ كِتَابَةٌ ← رَاحَةٌ ← مُرَاجَعَةٌ", "✗ قِرَاءَةٌ وَاحِدَةٌ لِكُلِّ شَيْءٍ", "✓ أَرْبَعُ قِرَاءَاتٍ"],
+   "examples": [{"t": "لَا أُسَلِّمُ النَّصَّ قَبْلَ أَنْ أُرَاجِعَهُ.", "uz": "Tekshirmasdan matnni topshirmayman."}],
+   "say": "مِنَ الْخَطَأِ أَنْ نُسَلِّمَ النَّصَّ بَعْدَ كِتَابَتِهِ مُبَاشَرَةً، أَوْ أَنْ نُرَاجِعَ كُلَّ شَيْءٍ فِي قِرَاءَةٍ وَاحِدَةٍ. فِي هَذِهِ الْحَالَةِ تَفُوتُنَا أَخْطَاءٌ كَثِيرَةٌ، وَيَظْهَرُ النَّصُّ كَأَنَّهُ كُتِبَ بِسُرْعَةٍ.",
+   "say_native": "Ikki keng tarqalgan xato. Birinchisi: yozib bo‘lgach, darhol topshirish. Bu holda matn hali ko‘z oldingizda yangi, shuning uchun uni o‘zingiz bilgan shaklda o‘qiysiz va xatoni ko‘rmaysiz. Ikkinchisi: bir o‘qishda hammasini tuzatishga urinish. Natijada mazmunni yaxshilaysiz, lekin imlo xatolari qoladi, yoki aksincha. Tuzatish: yozish, dam olish, keyin to‘rt o‘tish. Imtihonda bir kun kutish imkoni yo‘q, shuning uchun u yerda kamida oxirgi besh daqiqani faqat tekshiruvga ajrating.",
+   "say_uz": "Darhol topshirmang va hammasini bir o‘qishda tuzatmang.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatolarni tuzating",
+   "title": "Mashq 1: xatoni toping",
    "emotion": "encouraging",
-   "board": [
-    "1) aloqa maqsad emas",
-    "2) o‘rganish yaxshilanish emas",
-    "3) Xatolarsiz",
-    "4) aloqa"
-   ],
+   "board": ["١) ذَهَبَ الطُّلَّابُ إِلَى الْمَدْرَسَةُ.", "٢) كَتَبَتِ الْمُعَلِّمُ الدَّرْسَ.", "٣) لَمْ يَذْهَبُ أَحْمَدُ.", "٤) رَأَيْتُ مُعَلِّمُونَ فِي الْمَكْتَبِ."],
    "examples": [],
-   "say_native": "To‘rt xatoni tuzating. Har biriga to‘g‘ri shakl yozing. Javobni to‘liq gapda ayting. Bu qism — xatolarni tuzatishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. الِاتِّصَالُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. aloqa.",
-   "practice_seconds": 12
+   "say": "فِي كُلِّ جُمْلَةٍ خَطَأٌ وَاحِدٌ. اقْرَأْهَا بِصَوْتٍ عَالٍ، وَحَدِّدِ الْخَطَأَ، ثُمَّ صَحِّحْهُ.",
+   "say_native": "Mashq. To‘rtta gapning har birida bitta xato bor. Ularni ovoz chiqarib o‘qing, xatoni toping va to‘g‘rilang. Maslahat: birinchisida predlogdan keyingi ot holiga qarang, ikkinchisida fe’l va ega jinsiga, uchinchisida «lam» dan keyingi fe’l shakliga, to‘rtinchisida fe’lning to‘ldiruvchisi holiga e’tibor bering. Javoblar keyingi sahnada.",
+   "say_uz": "Har gapdagi xatoni toping va tuzating.",
+   "practice_seconds": 20
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Mashq 1: javoblar",
    "emotion": "proud",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "aloqa"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: aloqa. maqsad. o‘rganish. aloqa. Xatolar tuzatildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. الِاتِّصَالُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. aloqa.",
+   "board": ["١) إِلَى الْمَدْرَسَةِ", "٢) كَتَبَ الْمُعَلِّمُ", "٣) لَمْ يَذْهَبْ", "٤) رَأَيْتُ مُعَلِّمِينَ"],
+   "examples": [{"t": "رَأَيْتُ مُعَلِّمِينَ فِي الْمَكْتَبِ وَلَمْ يَذْهَبْ أَحْمَدُ.", "uz": "Idorada o‘qituvchilarni ko‘rdim, Ahmad esa bormadi."}],
+   "say": "الْأُولَى: بَعْدَ حَرْفِ الْجَرِّ نَقُولُ إِلَى الْمَدْرَسَةِ بِالْكَسْرَةِ. الثَّانِيَةُ: كَتَبَ الْمُعَلِّمُ لِأَنَّ الْمُعَلِّمَ مُذَكَّرٌ. الثَّالِثَةُ: لَمْ يَذْهَبْ بِالسُّكُونِ. الرَّابِعَةُ: رَأَيْتُ مُعَلِّمِينَ لِأَنَّهُمْ مَفْعُولٌ بِهِ.",
+   "say_native": "Javoblar. Birinchi: predlogdan keyin ot kasra bilan, «ilā al-madrasa», «ilā al-madrasatu» emas. Ikkinchi: «mu‘allim» erkak, shuning uchun fe’l «kataba», «katabati» emas. Uchinchi: «lam» dan keyin fe’l majzum, ya’ni oxirida sukun: «lam yadhhab». To‘rtinchi: «raaytu» fe’lining to‘ldiruvchisi mansub, shuning uchun ko‘plik «mu‘allimīna». Bu xatolar maxsus tushuntirishni emas, shunchaki diqqat bilan o‘qishni talab qiladi. Ovoz chiqarib o‘qish ularni ko‘pincha o‘zi ochib beradi.",
+   "say_uz": "Javoblar: kasra, jins moslashuvi, majzum, mansub ko‘plik.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yakuniy vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "takrorlash",
-    "yakun"
-   ],
-   "examples": [],
-   "say_native": "Yakuniy vazifani bajaring: Edit a 300-word text to perfection. . Har bir gapda bitta fikr bo‘lsin. Bu qism — yakuniy vazifaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Yakuniy vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "النِّحَاءُ مُهِمٌّ جِدًّا. التَّكْرَارُ سَرِيعٌ. الْمُمَارَسَةُ مُهِمَّةٌ.",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez. Amaliyot chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Yakun",
-    "Takrorlash"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Yakun. Takrorlash. Vazifa tayyor bo‘ldi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "النِّحَاءُ مُهِمٌّ جِدًّا. التَّكْرَارُ سَرِيعٌ.",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez.",
+   "title": "Hamza: inna va anna",
+   "emotion": "thinking",
+   "board": ["قَالَ إِنَّ الْمُدِيرَ مَشْغُولٌ", "يَعْلَمُ أَنَّ الْمُدِيرَ مَشْغُولٌ", "إِنَّ — بِدَايَةُ الْجُمْلَةِ / بَعْدَ قَالَ", "أَنَّ — بَعْدَ الْعِلْمِ وَالظَّنِّ"],
+   "examples": [{"t": "قَالَ الْمُعَلِّمُ إِنَّ الِامْتِحَانَ غَدًا، وَنَحْنُ نَعْلَمُ أَنَّهُ صَعْبٌ.", "uz": "O‘qituvchi imtihon ertaga dedi, biz esa uning qiyinligini bilamiz."}],
+   "say": "نَكْتُبُ إِنَّ بِكَسْرَةٍ فِي بِدَايَةِ الْجُمْلَةِ وَبَعْدَ الْفِعْلِ قَالَ، كَمَا فِي قَالَ إِنَّ الِامْتِحَانَ غَدًا. وَنَكْتُبُ أَنَّ بِفَتْحَةٍ حِينَ تَكُونُ مَعَ مَا بَعْدَهَا فِي مَعْنَى الْمَصْدَرِ، كَمَا فِي نَعْلَمُ أَنَّهُ صَعْبٌ.",
+   "say_native": "Birinchi nozik xato: «inna» va «anna». Ikkalasi «ki» kabi ma’no beradi, lekin ularning qo‘llanishi farq qiladi. «Inna», kasra bilan, gap boshida yoki «qāla» fe’lidan keyin keladi: «qāla inna al-imtiḥān ghadan». «Anna», fatha bilan, «bilmoq, o‘ylamoq» kabi fe’llardan keyin: «na‘lamu annahu ṣa‘b». Oddiy tekshiruv: agar «anna» dan keyingi qismni masdar bilan almashtirib bo‘lsa, «anna» kerak, aks holda «inna». Masalan, «uning qiyinligini bilamiz». Yozuvda faqat bitta harakat farq qiladi, shuning uchun bu xatoni topish qiyin.",
+   "say_uz": "Inna: gap boshi va «qāla» dan keyin; anna: bilish va o‘ylash fe’llaridan keyin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Imlo tuzoqlari: alif, ya va ta",
+   "emotion": "impressed",
+   "board": ["عَلَى · إِلَى · حَتَّى (ى)", "فِي · الَّذِي · مَنْ (ي)", "مَدْرَسَةٌ (ة) ≠ كِتَابُهُ (هـ)", "أَكَلَ · إِنْسَانٌ · ٱسْمٌ"],
+   "examples": [{"t": "ذَهَبَ إِلَى الْمَكْتَبَةِ حَتَّى يَقْرَأَ كِتَابَهُ.", "uz": "U kitobini o‘qish uchun kutubxonaga bordi."}],
+   "say": "نَكْتُبُ عَلَى وَإِلَى وَحَتَّى بِأَلِفٍ مَقْصُورَةٍ، وَنَكْتُبُ فِي بِيَاءٍ. وَالتَّاءُ الْمَرْبُوطَةُ فِي آخِرِ مَدْرَسَةٍ تَخْتَلِفُ عَنِ الْهَاءِ فِي كِتَابُهُ. وَتُكْتَبُ هَمْزَةُ الْقَطْعِ فِي أَكَلَ وَإِنْسَانٍ، أَمَّا فِي اسْمٍ فَهِيَ هَمْزَةُ وَصْلٍ.",
+   "say_native": "Imlo tuzoqlari. Birinchi: «alā, ilā, ḥattā» oxirida alif maqsura, ya’ni nuqtasiz «ى», bilan yoziladi; «fī» esa nuqtali «ي» bilan. Bu ikki harf talaffuzda bir xil, shuning uchun uni yodlash kerak. Ikkinchi: ta’ marbuta «ة» ot oxirida, masalan «madrasa»; «h» esa egalik qo‘shimchasi, masalan «kitābuhu». Ularni aralashtirish ma’noni buzadi. Uchinchi: hamza. «Akala», «insān» da hamza qat‘ yoziladi, «ism» da esa vasl, ya’ni yozuvda alif ustida belgi bo‘lmaydi. Shubha bo‘lsa, so‘zni gap o‘rtasida ayting: hamza saqlansa qat‘, tushib qolsa vasl.",
+   "say_uz": "Alif maqsura va ya, ta’ marbuta va ha, hamza qat‘ va vasl.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sonlar va ko‘plik moslashuvi",
+   "emotion": "thinking",
+   "board": ["ثَلَاثَةُ طُلَّابٍ (مُذَكَّرٌ)", "ثَلَاثُ طَالِبَاتٍ (مُؤَنَّثٌ)", "الْكُتُبُ جَدِيدَةٌ", "الْمُعَلِّمُونَ جُدُدٌ"],
+   "examples": [{"t": "اشْتَرَيْتُ ثَلَاثَةَ كُتُبٍ جَدِيدَةٍ مِنْ ثَلَاثِ مَكْتَبَاتٍ.", "uz": "Uchta kutubxonadan uchta yangi kitob sotib oldim."}],
+   "say": "مِنْ أَدَقِّ الْأَخْطَاءِ عَدَدٌ مِنْ ثَلَاثَةٍ إِلَى عَشَرَةٍ، فَهُوَ يُخَالِفُ الْمَعْدُودَ فِي التَّذْكِيرِ وَالتَّأْنِيثِ. نَقُولُ ثَلَاثَةُ كُتُبٍ لِأَنَّ كِتَابًا مُذَكَّرٌ، وَثَلَاثُ مَكْتَبَاتٍ لِأَنَّ مَكْتَبَةً مُؤَنَّثَةٌ. وَجَمْعُ غَيْرِ الْعَاقِلِ يُوصَفُ بِالْمُفْرَدِ الْمُؤَنَّثِ.",
+   "say_native": "Eng nozik moslashuv xatolaridan biri: uchdan o‘ngacha bo‘lgan sonlar sanalayotgan narsaga qarama-qarshi jinsda keladi. «Kitob» erkak, shuning uchun «thalāthat kutub», ya’ni ta’ marbutali shakl. «Maktaba» ayol, shuning uchun «thalāth maktabāt», ta’ marbutasiz. Bu qoida ko‘pchilikda xato qoladi, chunki o‘zbekchada bunday farq yo‘q. Ikkinchi qoida: jonsiz narsalarning ko‘pligi sifat bilan birlikdagi ayol shaklida keladi: «al-kutub jadīda», «al-kutub jadīdūn» emas. Jonli, aqlli ko‘plikda esa «al-mu‘allimūn judud» deyiladi.",
+   "say_uz": "3–10 sonlari jinsga teskari keladi; jonsiz ko‘plik sifat birlik ayol shaklida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: son va ko‘plik",
+   "emotion": "disappointed",
+   "board": ["✗ ثَلَاثُ كُتُبٍ", "✓ ثَلَاثَةُ كُتُبٍ", "✗ الْمَدَارِسُ الْجَدِيدُونَ", "✓ الْمَدَارِسُ الْجَدِيدَةُ"],
+   "examples": [{"t": "فِي الْمَدْرَسَةِ خَمْسَةُ مُعَلِّمِينَ وَخَمْسُ مُعَلِّمَاتٍ.", "uz": "Maktabda beshta o‘qituvchi va beshta o‘qituvchi ayol bor."}],
+   "say": "كَثِيرٌ مِنَ الطُّلَّابِ يَقُولُونَ ثَلَاثُ كُتُبٍ بِدَلَ ثَلَاثَةِ كُتُبٍ. وَيَقُولُونَ الْمَدَارِسُ الْجَدِيدُونَ بِدَلَ الْمَدَارِسُ الْجَدِيدَةُ. فَإِذَا رَأَيْتَ عَدَدًا أَوْ جَمْعًا، فَتَوَقَّفْ وَافْحَصِ الْمُطَابَقَةَ.",
+   "say_native": "Aynan shu ikki xatoni ko‘p uchratasiz. Birinchisi: «thalāth kutub» deb yozish, chunki «kitob» erkak, kerakli shakl «thalāthat kutub». Ikkinchisi: «al-madāris al-jadīdūn» deb jonsiz ko‘plikni jonli ko‘plik sifati bilan moslash. To‘g‘ri variant «al-madāris al-jadīda». Tahrirlashda xotirada bitta qoida saqlang: har gal son yoki ko‘plikni ko‘rsangiz, to‘xtab, moslashuvni tekshiring. Bu odat ikki-uch hafta ichida avtomatik bo‘ladi, va xatolaringiz kamayadi. Bu yerda tezlik emas, diqqat yutadi.",
+   "say_uz": "Son yoki ko‘plikni ko‘rsangiz, to‘xtab moslashuvni tekshiring.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
+   "title": "Mashq 2: to‘g‘risini tanlang",
    "emotion": "encouraging",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
+   "board": ["١) اشْتَرَيْتُ (ثَلَاثَ / ثَلَاثَةَ) كُتُبٍ.", "٢) الْمَدَارِسُ (الْجَدِيدَةُ / الْجَدِيدُونَ) كَبِيرَةٌ.", "٣) قَالَ (إِنَّ / أَنَّ) الْمُدِيرَ مَشْغُولٌ.", "٤) نَجَحَ (عَلَى / عَلَي) الِامْتِحَانِ"],
    "examples": [],
-   "say_native": "Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Xatolarsiz lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: lug‘at — C2-21 ga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli.",
-   "practice_seconds": 14
+   "say": "اخْتَرِ الصَّوَابَ فِي كُلِّ جُمْلَةٍ، ثُمَّ فَسِّرْ سَبَبَ اخْتِيَارِكَ فِي جُمْلَةٍ قَصِيرَةٍ.",
+   "say_native": "Mashq. To‘rtta gapda to‘g‘ri variantni tanlang va tanlovingiz sababini qisqa ayting. Birinchi: «thalāth» yoki «thalātha» kitoblar uchun? Ikkinchi: jonsiz ko‘plik uchun qaysi sifat? Uchinchi: «qāla» dan keyin «inna» yoki «anna»? To‘rtinchi gapda esa imlo savoli bor: alif maqsura qanday yoziladi. Javoblar keyingi sahnada.",
+   "say_uz": "To‘rtta nozik xatoni tanlang va sababini ayting.",
+   "practice_seconds": 20
   },
   {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: farq — C2-21 ga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ وَعَمَلِيٌّ. التَّعَلُّمُ مُهِمٌّ.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) aloqa",
-    "2) maqsad",
-    "3) o‘rganish",
-    "4) yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: matn savollari — C2-21 ga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. yaxshilanish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: aloqa. maqsad. o‘rganish. yaxshilanish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: takrorlash — C2-21 ga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang.",
-   "say": "الِاتِّصَالُ مُهِمٌّ جِدًّا. الْهَدَفُ مُفِيدٌ. التَّعَلُّمُ عَمَلِيٌّ. التَّحْسِينُ مُهِمٌّ جِدًّا.",
-   "say_uz": "aloqa juda chiroyli. maqsad tez. o‘rganish chiroyli. yaxshilanish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: savollar 2",
-   "emotion": "encouraging",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: savollar 2 — C2-21 ga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang.",
-   "say": "الْإِنْجَازُ مُهِمٌّ جِدًّا. الْمِهْنَةُ مُفِيدٌ وَعَمَلِيٌّ. الْعَمَلُ مُهِمٌّ.",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: yakuniy",
-   "emotion": "encouraging",
-   "board": [
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "examples": [],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: yakuniy — C2-21 ga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang.",
-   "say": "الْإِنْجَازُ مُهِمٌّ جِدًّا. الْمِهْنَةُ مُفِيدٌ وَعَمَلِيٌّ. الْعَمَلُ مُهِمٌّ.",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa",
+   "kind": "explain",
+   "title": "Mashq 2: javoblar",
    "emotion": "proud",
-   "board": [
-    "Xulosa",
-    "takrorlash"
-   ],
+   "board": ["١) ثَلَاثَةَ", "٢) الْجَدِيدَةُ", "٣) إِنَّ", "٤) عَلَى — nuqtasiz"],
+   "examples": [{"t": "قَالَ إِنَّ الْمَدَارِسَ الْجَدِيدَةَ كَبِيرَةٌ.", "uz": "Yangi maktablar katta, dedi."}],
+   "say": "الْأُولَى: ثَلَاثَةَ كُتُبٍ لِأَنَّ الْكِتَابَ مُذَكَّرٌ. الثَّانِيَةُ: الْجَدِيدَةُ لِأَنَّ الْمَدَارِسَ جَمْعُ غَيْرِ الْعَاقِلِ. الثَّالِثَةُ: إِنَّ بَعْدَ قَالَ. الرَّابِعَةُ: عَلَى بِأَلِفٍ مَقْصُورَةٍ، وَنَقُولُ نَجَحَ فِي الِامْتِحَانِ.",
+   "say_native": "Javoblar. Birinchi: «thalātha kutub», chunki «kitāb» erkak. Ikkinchi: «al-jadīda», chunki «madāris» jonsiz ko‘plik. Uchinchi: «inna», chunki «qāla» dan keyin gap boshlanadi. To‘rtinchi: «‘alā» alif maqsura bilan yoziladi, ya’ni nuqtasiz. Lekin gapda yana bir nozik joy bor edi: «najaḥa» fe’li bilan «fī al-imtiḥān» ishlatiladi, «‘alā» emas. Bu ikki xato bir gapda: imlo va predlog tanlovi. Agar buni sezgan bo‘lsangiz, siz nozik darajada tahrir qilyapsiz.",
+   "say_uz": "Javoblar: thalātha, al-jadīda, inna, alif maqsura; «najaḥa fī».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Arab tinish belgilari",
+   "emotion": "thinking",
+   "board": ["الْفَاصِلَةُ ،", "الْفَاصِلَةُ الْمَنْقُوطَةُ ؛", "عَلَامَةُ الِاسْتِفْهَامِ ؟", "النُّقْطَتَانِ : وَالْأَقْوَاسُ « »"],
+   "examples": [{"t": "قَالَ الْمُدِيرُ: «سَنَبْدَأُ غَدًا». هَلْ أَنْتُمْ مُسْتَعِدُّونَ؟", "uz": "Direktor: «Ertaga boshlaymiz», dedi. Tayyormisizlar?"}],
+   "say": "فِي الْعَرَبِيَّةِ فَاصِلَةٌ مَقْلُوبَةٌ هَكَذَا، وَعَلَامَةُ اسْتِفْهَامٍ مَقْلُوبَةٌ أَيْضًا، وَفَاصِلَةٌ مَنْقُوطَةٌ. نَسْتَعْمِلُ النُّقْطَتَيْنِ قَبْلَ الْقَوْلِ، وَنَضَعُ الْكَلَامَ الْمَنْقُولَ بَيْنَ عَلَامَتَيِ التَّنْصِيصِ.",
+   "say_native": "Arab tinish belgilari lotin belgilarining ko‘zgudagi aksiga o‘xshaydi. Vergul «،» teskari, so‘roq belgisi «؟» ham teskari, nuqtali vergul «؛». Nuqta va ikki nuqta o‘zbekchadagi kabi. Ikki nuqta ko‘chirma gapdan oldin yoki sanash oldidan qo‘yiladi, ko‘chirma esa «  » qavslari ichida yoziladi. Muhim narsa: o‘zbekcha matn yozishdan o‘rganib qolgan vergul va so‘roq belgisini arabcha matnga qo‘ymang, chunki ular o‘ngdan chapga yozuvda noto‘g‘ri ko‘rinadi va muharrir uni xato deb sanaydi.",
+   "say_uz": "Arab vergul va so‘roq belgisi teskari; ikki nuqta ko‘chirma oldidan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinish belgilari ishda",
+   "emotion": "impressed",
+   "board": ["بَعْدَ الْجُمْلَةِ الشَّرْطِيَّةِ ،", "بَيْنَ عَنَاصِرِ الْقَائِمَةِ ،", "؛ قَبْلَ جُمْلَةٍ تُفَسِّرُ مَا قَبْلَهَا", "لَا فَاصِلَةَ بَيْنَ الْفِعْلِ وَفَاعِلِهِ"],
+   "examples": [{"t": "إِذَا أَرَدْتَ النَّجَاحَ، فَاعْمَلْ بِجِدٍّ؛ فَالْجُهْدُ يَصْنَعُ الْفَرْقَ.", "uz": "Muvaffaqiyat istasangiz, qattiq mehnat qiling; chunki mehnat farqni yaratadi."}],
+   "say": "إِذَا أَرَدْتَ النَّجَاحَ، فَاعْمَلْ بِجِدٍّ؛ فَالْجُهْدُ يَصْنَعُ الْفَرْقَ. اشْتَرَيْتُ كُتُبًا، وَأَقْلَامًا، وَدَفَاتِرَ. هُنَا نَضَعُ الْفَاصِلَةَ بَعْدَ جُمْلَةِ الشَّرْطِ، وَالْفَاصِلَةَ الْمَنْقُوطَةَ قَبْلَ الْجُمْلَةِ الَّتِي تُعَلِّلُ مَا قَبْلَهَا.",
+   "say_native": "Endi qoidalarni ishda ko‘ramiz. Shart gapidan keyin vergul qo‘yamiz: «idhā aradta an-najāḥ, fa‘mal bijidd». Nuqtali vergul oldingi fikrni izohlovchi gapdan oldin qo‘yiladi: «fa-l-juhd yaṣna‘ al-farq». Ro‘yxatda elementlar vergul bilan ajratiladi: kitoblar, qalamlar, daftarlar. Bir xato esa fe’l va ega orasiga vergul qo‘yish, masalan «katabat, al-mu‘allima» deb yozib bo‘lmaydi. Yana bir amaliy maslahat: jumlani ovoz chiqarib o‘qing, tabiiy to‘xtash joyiga vergul qo‘ying, tabiiy to‘xtash bo‘lmagan joyga qo‘ymang.",
+   "say_uz": "Shart gapidan keyin vergul, izoh oldidan nuqtali vergul, fe’l va ega orasida vergul yo‘q.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: cheksiz «va» zanjiri",
+   "emotion": "disappointed",
+   "board": ["✗ ذَهَبْتُ وَقَرَأْتُ وَكَتَبْتُ وَرَجَعْتُ وَنِمْتُ", "✓ ذَهَبْتُ إِلَى الْمَكْتَبَةِ، وَقَرَأْتُ، ثُمَّ كَتَبْتُ مُلَخَّصًا.", "✗ , و ?", "✓ ، و ؟"],
+   "examples": [{"t": "ذَهَبْتُ إِلَى الْمَكْتَبَةِ، فَقَرَأْتُ، ثُمَّ رَجَعْتُ إِلَى الْبَيْتِ.", "uz": "Kutubxonaga bordim, o‘qidim va keyin uyga qaytdim."}],
+   "say": "مِنَ الْأَخْطَاءِ الْمَأْلُوفَةِ رَبْطُ جُمَلٍ كَثِيرَةٍ بِوَاوٍ وَاحِدَةٍ مِنْ غَيْرِ تَرْقِيمٍ، وَاسْتِعْمَالُ الْفَاصِلَةِ اللَّاتِينِيَّةِ. الْأَفْضَلُ أَنْ نُقَسِّمَ الْكَلَامَ بِالْفَوَاصِلِ وَنَسْتَعْمِلَ أَدَوَاتِ رَبْطٍ مُتَنَوِّعَةً مِثْلَ فَ وَثُمَّ.",
+   "say_native": "Yozishda ko‘p yo‘l qo‘yiladigan xato: ko‘plab gaplarni bitta «va» bilan zanjirdek bog‘lash. «Bordim va o‘qidim va yozdim va qaytdim va uxladim» deb yozish arabchada ham, o‘zbekchada ham zerikarli. Arabchada bog‘lovchilar ko‘p va ular ma’no beradi: «wa» oddiy qo‘shish, «fa» natija yoki tezkor ketma-ketlik, «thumma» kechikib keladigan ketma-ketlik. Ularni almashtirib ishlating. Ikkinchi xato: lotin vergulini arabcha matnga qo‘yish. Qo‘l bilan «،» belgisini ishlating, kompyuterda esa arabcha klaviatura raskladkasini yoqing.",
+   "say_uz": "«Va» zanjirini fa va thumma bilan xilma-xil qiling; arabcha vergul ishlating.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq 3: tinish belgilarini qo‘ying",
+   "emotion": "encouraging",
+   "board": ["١) قَالَ الْمُدِيرُ سَنَبْدَأُ غَدًا هَلْ أَنْتُمْ مُسْتَعِدُّونَ", "٢) اشْتَرَيْتُ تُفَّاحًا وَمَوْزًا وَبُرْتُقَالًا", "٣) إِذَا تَأَخَّرْتَ اتَّصِلْ بِي"],
    "examples": [],
-   "say_native": "Xulosa. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusini o‘rgandik. Har bir mavzuni alohida yodlab olish kerak. Keyingi darsda C2-22 To‘liq mock imtihon: Speaking ni o‘rganamiz. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "الْخُلَاصَةُ مُهِمَّةٌ جِدًّا. التَّكْرَارُ سَرِيعٌ.",
-   "say_uz": "Xulosa juda chiroyli. Takrorlash tez.",
+   "say": "ضَعْ عَلَامَاتِ التَّرْقِيمِ الْمُنَاسِبَةَ فِي الْجُمَلِ الثَّلَاثِ: الْفَاصِلَةَ وَالنُّقْطَتَيْنِ وَعَلَامَةَ الِاسْتِفْهَامِ وَعَلَامَتَيِ التَّنْصِيصِ حَيْثُ تَلْزَمُ.",
+   "say_native": "Mashq. Uchta gapni tinish belgilari bilan to‘ldiring. Birinchi gapda to‘g‘ridan-to‘g‘ri nutq va savol bor: ikki nuqta, qavslar, nuqta va so‘roq belgisi kerak. Ikkinchida ro‘yxat. Uchinchida shart gapi. Qaysi joyda vergul kerakligini ovoz chiqarib o‘qib aniqlang. Javoblar keyingi sahnada.",
+   "say_uz": "Uchta gapga tinish belgilarini qo‘ying.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq 3: javoblar",
+   "emotion": "proud",
+   "board": ["١) قَالَ الْمُدِيرُ: «سَنَبْدَأُ غَدًا». هَلْ أَنْتُمْ مُسْتَعِدُّونَ؟", "٢) اشْتَرَيْتُ تُفَّاحًا، وَمَوْزًا، وَبُرْتُقَالًا.", "٣) إِذَا تَأَخَّرْتَ، فَاتَّصِلْ بِي."],
+   "examples": [{"t": "إِذَا تَأَخَّرْتَ، فَاتَّصِلْ بِي.", "uz": "Kechiksangiz, menga qo‘ng‘iroq qiling."}],
+   "say": "الْأُولَى: قَالَ الْمُدِيرُ: «سَنَبْدَأُ غَدًا». هَلْ أَنْتُمْ مُسْتَعِدُّونَ؟ الثَّانِيَةُ: اشْتَرَيْتُ تُفَّاحًا، وَمَوْزًا، وَبُرْتُقَالًا. الثَّالِثَةُ: إِذَا تَأَخَّرْتَ، فَاتَّصِلْ بِي.",
+   "say_native": "Javoblar. Birinchi gap: «qāla al-mudīr:» ikki nuqta, so‘ng ko‘chirma qavslar ichida, keyin yangi gap savol belgisi bilan tugaydi. Ikkinchi: har bir element vergul bilan ajratiladi. Uchinchi: shart gapidan keyin vergul, natija gapi esa «fa» bilan boshlanadi: «fa-ttaṣil bī». Eslatma: zamonaviy yozuvda uchinchi misolda «fa» ni tushirib qoldirish ham uchraydi, lekin rasmiy matnda uni saqlash tavsiya etiladi. Agar siz har bir elementdan oldin «wa» qo‘ygan bo‘lsangiz, bu ham mumkin, lekin ortiqcha.",
+   "say_uz": "Javoblar: ikki nuqta va qavslar, ro‘yxat vergullari, shartdan keyin vergul.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ixchamlik: ortiqcha so‘zlarni olib tashlash",
+   "emotion": "thinking",
+   "board": ["قَامَ بِدِرَاسَةِ ← دَرَسَ", "تَمَّ اتِّخَاذُ قَرَارٍ ← قَرَّرْنَا", "فِي حَالَةِ كَوْنِ ← إِذَا كَانَ", "الْفِعْلُ أَقْوَى مِنَ الْمَصْدَرِ"],
+   "examples": [{"t": "قَامَ الْمُدِيرُ بِإِجْرَاءِ مُقَابَلَةٍ مَعَ الْمُوَظَّفِ، فَقَابَلَ الْمُدِيرُ الْمُوَظَّفَ.", "uz": "Direktor xodim bilan suhbat o‘tkazdi, ya’ni xodimni qabul qildi."}],
+   "say": "كَثِيرًا مَا نَكْتُبُ عِبَارَاتٍ طَوِيلَةً بِلَا حَاجَةٍ، مِثْلَ قَامَ بِدِرَاسَةِ الْمَوْضُوعِ، وَالْأَوْلَى أَنْ نَقُولَ دَرَسَ الْمَوْضُوعَ. وَبَدَلَ فِي حَالَةِ كَوْنِ الطَّقْسِ جَمِيلًا نَقُولُ إِذَا كَانَ الطَّقْسُ جَمِيلًا.",
+   "say_native": "To‘rtinchi o‘tish: ixchamlik. Yuqori darajada yozuvchi uzun, qolipli iboralarni qisqa fe’lga almashtiradi. «Qāma bi-dirāsat al-mawḍū‘» o‘rniga oddiy «darasa al-mawḍū‘». «Tamma ittikhādh qarār» o‘rniga «qarrarnā». «Fī ḥālat kawn aṭ-ṭaqs jamīlan» o‘rniga «idhā kāna aṭ-ṭaqs jamīlan». Umumiy qoida: fe’l masdardan kuchliroq, shuning uchun «qāma bi + masdar» konstruksiyasini bitta fe’lga aylantiring. Bu iboralar o‘zbekchadan so‘zma-so‘z o‘tgan «amalga oshirmoq» qoliplariga o‘xshaydi.",
+   "say_uz": "«Qāma bi + masdar» o‘rniga bitta fe’l, uzun shartli iboralar o‘rniga idhā.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Oldin va keyin",
+   "emotion": "impressed",
+   "board": ["قَبْلُ: نَظَرًا لِكَوْنِ الطَّقْسِ سَيِّئًا أُلْغِيَتِ الرِّحْلَةُ", "بَعْدُ: أُلْغِيَتِ الرِّحْلَةُ لِسُوءِ الطَّقْسِ", "قَبْلُ: قَامَ بِالْكِتَابَةِ", "بَعْدُ: كَتَبَ"],
+   "examples": [{"t": "أُلْغِيَتِ الرِّحْلَةُ لِسُوءِ الطَّقْسِ.", "uz": "Sayohat ob-havo yomonligi sababli bekor qilindi."}],
+   "say": "قَبْلَ التَّحْرِيرِ: نَظَرًا لِكَوْنِ الطَّقْسِ سَيِّئًا أُلْغِيَتِ الرِّحْلَةُ. بَعْدَ التَّحْرِيرِ: أُلْغِيَتِ الرِّحْلَةُ لِسُوءِ الطَّقْسِ. الْمَعْنَى نَفْسُهُ، وَلَكِنَّ الْجُمْلَةَ أَقْصَرُ وَأَوْضَحُ وَأَجْمَلُ.",
+   "say_native": "Yana bir misol. Tahrirdan oldin: «naẓaran li-kawn aṭ-ṭaqs sayyi’an ulghiyat ar-riḥla». Tahrirdan keyin: «ulghiyat ar-riḥla li-sū’ aṭ-ṭaqs». Ma’no bir xil, lekin gap bir necha so‘zga qisqardi. E’tibor bering: qisqartirish ma’noni yo‘qotmaydi, faqat «kawn» kabi bo‘sh so‘zlarni olib tashlaydi va bitta ot bilan, «sū’», ya’ni «yomonlik», fikrni ifodalaydi. Ammo ehtiyot bo‘ling: har qisqartirish ham yaxshi emas. Agar ma’no yoki ohang yo‘qolsa, uzunroq variantni qoldiring.",
+   "say_uz": "Qisqartirish ma’noni saqlaydi, bo‘sh so‘zlarni olib tashlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq 4: qisqartiring",
+   "emotion": "encouraging",
+   "board": ["١) قَامَ الطَّالِبُ بِكِتَابَةِ الرِّسَالَةِ", "٢) تَمَّ اتِّخَاذُ قَرَارٍ بِالسَّفَرِ", "٣) فِي حَالَةِ كَوْنِ الْوَقْتِ مُتَاحًا"],
+   "examples": [],
+   "say": "اخْتَصِرِ الْجُمَلَ الثَّلَاثَ دُونَ أَنْ يَتَغَيَّرَ الْمَعْنَى. اسْتَعْمِلْ فِعْلًا وَاحِدًا بَدَلَ الْعِبَارَةِ الطَّوِيلَةِ.",
+   "say_native": "Mashq. Uchta uzun iborani ma’noni o‘zgartirmasdan qisqartiring. Birinchisini bitta fe’lga aylantiring. Ikkinchisini «biz» fe’liga aylantiring. Uchinchisini shart gapiga aylantiring. Javoblar keyingi sahnada.",
+   "say_uz": "Uchta uzun iborani qisqartiring.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq 4: javoblar",
+   "emotion": "proud",
+   "board": ["١) كَتَبَ الطَّالِبُ الرِّسَالَةَ", "٢) قَرَّرْنَا السَّفَرَ", "٣) إِذَا كَانَ الْوَقْتُ مُتَاحًا"],
+   "examples": [{"t": "كَتَبَ الطَّالِبُ الرِّسَالَةَ، وَقَرَّرْنَا السَّفَرَ إِذَا كَانَ الْوَقْتُ مُتَاحًا.", "uz": "Talaba xatni yozdi, vaqt bo‘lsa, safarga qaror qildik."}],
+   "say": "الْأُولَى: كَتَبَ الطَّالِبُ الرِّسَالَةَ. الثَّانِيَةُ: قَرَّرْنَا السَّفَرَ. الثَّالِثَةُ: إِذَا كَانَ الْوَقْتُ مُتَاحًا.",
+   "say_native": "Javoblar. Birinchi: «kataba aṭ-ṭālib ar-risāla», «qāma bi-kitāba» o‘rniga bitta fe’l. Ikkinchi: «qarrarnā as-safar»: ot «qarār» o‘rniga fe’l keldi. Passiv «tamma» ham tushib qoldi, shu bilan kim qaror qilgani aniq bo‘ldi. Uchinchi: «idhā kāna al-waqt mutāḥan». Uchala holatda matn qisqardi va jonlandi. Ba’zan arab mualliflari «tamma» shaklini rasmiy yozuvda ishlatadi, lekin yaxshi uslubda fe’l shaklini afzal ko‘rishadi.",
+   "say_uz": "Javoblar: bitta fe’l, qarrarnā, idhā kāna.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash dialogi 1: muharrir va muallif",
+   "emotion": "neutral",
+   "board": ["الْمُحَرِّرُ: الْمَقَالُ جَيِّدٌ", "خَالِدٌ: أَيْنَ أَخْتَصِرُ؟", "الْمُحَرِّرُ: الْفِقْرَةُ الثَّانِيَةُ تُكَرِّرُ الْأُولَى"],
+   "examples": [{"t": "يَعْلَمُ خَالِدٌ أَنَّ الْمَقَالَ يَحْتَاجُ إِلَى اخْتِصَارٍ.", "uz": "Xolid maqolaga qisqartirish kerakligini biladi."}],
+   "say": "الْمُحَرِّرُ: قَرَأْتُ مَقَالَكَ يَا خَالِدُ، وَهُوَ جَيِّدٌ لَكِنَّهُ طَوِيلٌ. خَالِدٌ: أَيْنَ أَخْتَصِرُ؟ الْمُحَرِّرُ: الْفِقْرَةُ الثَّانِيَةُ تُكَرِّرُ مَا فِي الْأُولَى. وَهُنَاكَ خَطَأٌ فِي الْهَمْزَةِ، فَقَدْ كَتَبْتَ يَعْلَمُ إِنَّ وَالصَّوَابُ يَعْلَمُ أَنَّ.",
+   "say_native": "Birinchi tinglash dialogi. Muharrir Xolidning maqolasini o‘qib chiqqan. U maqola yaxshi, lekin uzun deydi. Xolid qayerni qisqartirishni so‘raydi. Muharrir ikkinchi abzas birinchisini takrorlayotganini aytadi va bitta imlo xatosini ko‘rsatadi: «ya‘lamu» dan keyin «inna» yozilgan, to‘g‘risi «anna». Bu aynan bugun o‘rgangan qoidamiz. Endi savollar. Birinchi: muharrir maqolani qanday baholaydi? Ikkinchi: takror qayerda? Uchinchi: hamza xatosi nima?",
+   "say_uz": "Muharrir takrorni va inna/anna xatosini ko‘rsatadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq 5: dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": ["١) مَا رَأْيُ الْمُحَرِّرِ فِي الْمَقَالِ؟", "٢) أَيْنَ التَّكْرَارُ؟", "٣) مَا خَطَأُ الْهَمْزَةِ؟"],
+   "examples": [],
+   "say": "أَجِبْ شَفَهِيًّا عَنِ الْأَسْئِلَةِ الثَّلَاثَةِ، ثُمَّ تَحَقَّقْ مِنْ إِجَابَتِكَ فِي الْمَشْهَدِ التَّالِي.",
+   "say_native": "Dialog bo‘yicha uchta savolga og‘zaki javob bering. Muharrir maqola haqida nima deydi? Takror qaysi abzasda? Hamza xatosi qaysi so‘zlarda? To‘liq arabcha gap bilan javob berishga harakat qiling. Javoblar keyingi sahnada.",
+   "say_uz": "Muharrir fikri, takror va hamza xatosi haqida javob bering.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq 5: javoblar",
+   "emotion": "proud",
+   "board": ["١) جَيِّدٌ لَكِنَّهُ طَوِيلٌ", "٢) فِي الْفِقْرَةِ الثَّانِيَةِ", "٣) يَعْلَمُ إِنَّ ← يَعْلَمُ أَنَّ"],
+   "examples": [{"t": "الْمَقَالُ جَيِّدٌ لَكِنَّهُ طَوِيلٌ.", "uz": "Maqola yaxshi, lekin uzun."}],
+   "say": "الْأُولَى: الْمَقَالُ جَيِّدٌ لَكِنَّهُ طَوِيلٌ. الثَّانِيَةُ: التَّكْرَارُ فِي الْفِقْرَةِ الثَّانِيَةِ. الثَّالِثَةُ: كَتَبَ يَعْلَمُ إِنَّ وَالصَّوَابُ يَعْلَمُ أَنَّ.",
+   "say_native": "Javoblar. Birinchi: maqola yaxshi, ammo uzun. Ikkinchi: ikkinchi abzas birinchisini takrorlaydi. Uchinchi: «ya‘lamu inna» emas, «ya‘lamu anna». Ko‘rdingizmi, muharrir avval umumiy fikrni, keyin tuzilmani, oxirida imloni ko‘rsatdi. Bu bizning to‘rt o‘tish tartibimizga mos. Yaxshi muharrirdek fikrlang: katta muammodan boshlang va kichik xatolarga o‘ting, shunda vaqtingiz behuda ketmaydi.",
+   "say_uz": "Maqola uzun, ikkinchi abzas takror, inna o‘rniga anna.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash dialogi 2: o‘qituvchi va talaba",
+   "emotion": "neutral",
+   "board": ["سَارَةُ: كَيْفَ أُدَقِّقُ نَصِّي؟", "الْمُعَلِّمُ: اتْرُكِيهِ يَوْمًا", "اقْرَئِي مِنَ الْأَخِيرِ", "نَوْعٌ وَاحِدٌ مِنَ الْخَطَأِ فِي كُلِّ قِرَاءَةٍ"],
+   "examples": [{"t": "اقْرَئِي كُلَّ مَرَّةٍ بَحْثًا عَنْ نَوْعٍ وَاحِدٍ مِنَ الْأَخْطَاءِ.", "uz": "Har safar faqat bitta turdagi xatoni qidirib o‘qing."}],
+   "say": "سَارَةُ: كَيْفَ أُدَقِّقُ نَصِّي قَبْلَ التَّسْلِيمِ؟ الْمُعَلِّمُ: اتْرُكِيهِ يَوْمًا كَامِلًا. ثُمَّ اقْرَئِي الْجُمَلَ مِنَ الْأَخِيرَةِ إِلَى الْأُولَى، وَابْحَثِي فِي كُلِّ قِرَاءَةٍ عَنْ نَوْعٍ وَاحِدٍ مِنَ الْأَخْطَاءِ. سَارَةُ: وَمَاذَا لَوْ لَمْ يَكُنْ عِنْدِي وَقْتٌ؟ الْمُعَلِّمُ: إِذًا اقْرَئِي بِصَوْتٍ عَالٍ.",
+   "say_native": "Ikkinchi dialog. Sora o‘qituvchidan matnini topshirishdan oldin qanday tekshirishni so‘raydi. O‘qituvchi uchta maslahat beradi: matnni bir kun qoldiring, jumlalarni oxirgisidan birinchisiga qarab o‘qing va har o‘qishda faqat bitta turdagi xatoni qidiring. Sora vaqt bo‘lmasa nima qilish kerakligini so‘raydi. O‘qituvchi ovoz chiqarib o‘qishni maslahat beradi. E’tibor bering, ayolga murojaatda «utrukīhi, iqra’ī, abḥathī» kabi «-ī» oxirlari bor. Savollar keyingi sahnada.",
+   "say_uz": "Bir kun kutish, teskari o‘qish, har safar bitta xato turi, vaqt yo‘q bo‘lsa ovoz chiqarib o‘qish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Mashq 6: ikkinchi dialog bo‘yicha",
+   "emotion": "encouraging",
+   "board": ["١) كَمْ يَتْرُكُ النَّصَّ؟", "٢) كَيْفَ تَقْرَأُ الْجُمَلَ؟", "٣) مَاذَا تَفْعَلُ إِذَا ضَاقَ الْوَقْتُ؟"],
+   "examples": [],
+   "say": "أَجِبْ عَنِ الْأَسْئِلَةِ: كَمْ تَتْرُكُ سَارَةُ النَّصَّ؟ كَيْفَ تَقْرَأُ الْجُمَلَ؟ وَمَاذَا تَفْعَلُ إِذَا ضَاقَ الْوَقْتُ؟",
+   "say_native": "Uchta savol. Sora matnni qancha vaqt qoldirishi kerak? Jumlalarni qaysi tartibda o‘qiydi? Vaqt kam bo‘lsa nima qiladi? Qisqa javob bering, so‘ng keyingi sahnada tekshiring.",
+   "say_uz": "Dialog bo‘yicha uchta savolga javob bering.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq 6: javoblar",
+   "emotion": "proud",
+   "board": ["١) يَوْمًا كَامِلًا", "٢) مِنَ الْأَخِيرَةِ إِلَى الْأُولَى", "٣) تَقْرَأُ بِصَوْتٍ عَالٍ"],
+   "examples": [{"t": "إِذَا ضَاقَ الْوَقْتُ فَاقْرَئِي بِصَوْتٍ عَالٍ.", "uz": "Vaqt tang bo‘lsa, ovoz chiqarib o‘qing."}],
+   "say": "الْأُولَى: تَتْرُكُهُ يَوْمًا كَامِلًا. الثَّانِيَةُ: مِنَ الْأَخِيرَةِ إِلَى الْأُولَى. الثَّالِثَةُ: تَقْرَأُ بِصَوْتٍ عَالٍ إِذَا ضَاقَ الْوَقْتُ.",
+   "say_native": "Javoblar. Birinchi: bir kun to‘liq. Ikkinchi: oxirgi jumladan birinchisiga qarab. Uchinchi: vaqt tang bo‘lsa, ovoz chiqarib o‘qish. Bu uch usul bizning bugungi mashg‘ulotimizning mohiyati. Esda tuting, o‘zingizni tekshirish mahorati tug‘ma qobiliyat emas, odat. Har bir matn bilan uni takrorlasangiz, xato qilish ehtimoli doimiy kamayadi, va yozganingizga ishonchingiz ortadi.",
+   "say_uz": "Bir kun kutish, teskari o‘qish, vaqt kam bo‘lsa ovoz chiqarib o‘qish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy mashq: bitta xatboshini tahrir qiling",
+   "emotion": "encouraging",
+   "board": ["قَامَ الطُّلَّابُ بِمُرَاجَعَةِ الدَّرْسِ فِي حَالَةِ وُجُودِ وَقْتٍ كَافٍ وَذَهَبَ ثَلَاثُ طُلَّابٍ إِلَى الْمَكْتَبَةِ وَسَأَلُوا الْمُعَلِّمَةَ هَلْ الْوَاجِبُ سَهْلٌ"],
+   "examples": [],
+   "say": "حَرِّرْ هَذِهِ الْفِقْرَةَ كُلَّهَا. اخْتَصِرِ الْعِبَارَاتِ الطَّوِيلَةَ، وَصَحِّحِ الْمُطَابَقَةَ، وَأَضِفْ عَلَامَاتِ التَّرْقِيمِ. تَذَكَّرْ أَنْ تَقْرَأَهَا بِصَوْتٍ عَالٍ فِي النِّهَايَةِ.",
+   "say_native": "Yakuniy mashq. Ekrandagi bitta uzun jumla uchta qatlamli xatoga ega. Birinchi: «qāma bi-murāja‘a» kabi uzun ibora. Ikkinchi: «thalāth ṭullāb» dagi son moslashuvi. Uchinchi: tinish belgilari butunlay yo‘q, to‘g‘ridan-to‘g‘ri savol ham bor. To‘rt o‘tish tartibini qo‘llang va yangi, tahrirlangan variantni ovoz chiqarib ayting. Javob keyingi sahnada.",
+   "say_uz": "Bitta paragrafni qisqartiring, moslashuvni to‘g‘rilang va tinish belgilarini qo‘ying.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Yakuniy mashq: namuna javob",
+   "emotion": "proud",
+   "board": ["رَاجَعَ الطُّلَّابُ الدَّرْسَ كُلَّمَا وَجَدُوا وَقْتًا كَافِيًا،", "وَذَهَبَ ثَلَاثَةُ طُلَّابٍ إِلَى الْمَكْتَبَةِ", "وَسَأَلُوا الْمُعَلِّمَةَ: هَلِ الْوَاجِبُ سَهْلٌ؟"],
+   "examples": [{"t": "رَاجَعَ الطُّلَّابُ الدَّرْسَ كُلَّمَا وَجَدُوا وَقْتًا كَافِيًا، وَذَهَبَ ثَلَاثَةُ طُلَّابٍ إِلَى الْمَكْتَبَةِ وَسَأَلُوا الْمُعَلِّمَةَ: هَلِ الْوَاجِبُ سَهْلٌ؟", "uz": "Talabalar vaqt topgan sari darsni takrorlashdi, uch talaba kutubxonaga borib, o‘qituvchidan: «Uy vazifasi oson-mi?» deb so‘rashdi."}],
+   "say": "رَاجَعَ الطُّلَّابُ الدَّرْسَ كُلَّمَا وَجَدُوا وَقْتًا كَافِيًا، وَذَهَبَ ثَلَاثَةُ طُلَّابٍ إِلَى الْمَكْتَبَةِ وَسَأَلُوا الْمُعَلِّمَةَ: هَلِ الْوَاجِبُ سَهْلٌ؟ لَقَدْ أَصْبَحَتِ الْفِقْرَةُ أَقْصَرَ وَأَدَقَّ.",
+   "say_native": "Namuna javob. Birinchi: «qāma bi-murāja‘a fī ḥālat wujūd waqt kāfin» ni «rāja‘a ... kullamā wajadū waqtan kāfiyan» qilib qisqartirdik. Ikkinchi: «thalāth ṭullāb» o‘rniga «thalātha ṭullāb», chunki «ṭālib» erkak. Uchinchi: tinish belgilari, ikki nuqta va so‘roq belgisi qo‘shildi, «hal al-wājib» da hamza tushgani uchun «hali l-wājib» deb ulanadi. Uslub variantlari bo‘lishi mumkin, masalan «idhā tawaffara waqt», lekin ma’no bir xil. O‘z javobingiz boshqacha bo‘lsa va to‘g‘ri bo‘lsa, ham yaxshi.",
+   "say_uz": "Namuna: qisqargan fe’l, to‘g‘ri son moslashuvi va tinish belgilari.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
+   "title": "Uy vazifasi va xulosa",
    "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "keyingi dars"
-   ],
-   "examples": [],
-   "say_native": "Uyga vazifa. Edit a 300-word text to perfection. . Har bir gapda bitta fikr bo‘lsin. Keyingi darsda C2-22 To‘liq mock imtihon: Speaking ni o‘rganamiz. C2-21 Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-21 suhbatida aniq qo‘llang. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "إِلَى اللِّقَاءِ! مَعَ السَّلَامَةِ! هَذَا مُهِمٌّ جِدًّا.",
-   "say_uz": "Ko‘rishguncha! Xayr! Juda chiroyli.",
+   "board": ["٣٠٠ كَلِمَةٍ: أَرْبَعُ قِرَاءَاتٍ", "١٥ تَعْدِيلًا مَعَ السَّبَبِ", "اخْتِصَارٌ ١٠٪", "الدَّرْسُ التَّالِي: اخْتِبَارٌ تَجْرِيبِيٌّ فِي الْمُحَادَثَةِ"],
+   "examples": [{"t": "أُحَرِّرُ النَّصَّ فِي أَرْبَعِ قِرَاءَاتٍ وَأَكْتُبُ سَبَبَ كُلِّ تَعْدِيلٍ.", "uz": "Matnni to‘rt o‘qishda tahrir qilaman va har o‘zgarish sababini yozaman."}],
+   "say": "الْوَاجِبُ: حَرِّرْ نَصًّا مِنْ ثَلَاثِمِئَةِ كَلِمَةٍ فِي أَرْبَعِ قِرَاءَاتٍ، وَاكْتُبْ خَمْسَةَ عَشَرَ تَعْدِيلًا مَعَ أَسْبَابِهَا، وَاخْتَصِرِ النَّصَّ بِنِسْبَةِ عَشَرَةٍ فِي الْمِئَةِ عَلَى الْأَقَلِّ. وَفِي الدَّرْسِ التَّالِي نُجْرِي اخْتِبَارًا تَجْرِيبِيًّا فِي الْمُحَادَثَةِ.",
+   "say_native": "Uy vazifasi: taxminan 300 so‘zlik arabcha matnni to‘rt o‘tishda tahrir qiling. Muvaffaqiyat mezoni: kamida o‘n beshta o‘zgartirishni yozing va har biriga sabab ko‘rsating, matn harakatlar bilan yozilgan bo‘lsin, va tahrirdan keyin matn kamida o‘n foiz qisqarsin. Bugun biz tahrir ro‘yxati, hamza, imlo va son moslashuvi, tinish belgilari va ixchamlik haqida gaplashdik. Keyingi darsda gapirish bo‘yicha to‘liq mock imtihonni o‘tkazamiz.",
+   "say_uz": "300 so‘zlik matnni tahrir qiling, 15 ta o‘zgartirishni asoslang.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Edit a 300-word text to perfection.. Keyingi darsda C2-22 To‘liq mock imtihon: Speaking ni o‘rganamiz.",
  "quiz": [
-  {
-   "q": "«الِاتِّصَالُ» nimani bildiradi?",
-   "options": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "answer": 0,
-   "why_uz": "الِاتِّصَالُ — aloqa. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«الْهَدَفُ» nimani bildiradi?",
-   "options": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq"
-   ],
-   "answer": 0,
-   "why_uz": "الْهَدَفُ — maqsad. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«التَّعَلُّمُ» nimani bildiradi?",
-   "options": [
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "answer": 0,
-   "why_uz": "التَّعَلُّمُ — o‘rganish. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«التَّحْسِينُ» nimani bildiradi?",
-   "options": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "answer": 0,
-   "why_uz": "التَّحْسِينُ — yaxshilanish. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«الْإِنْجَازُ» nimani bildiradi?",
-   "options": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "mahorat"
-   ],
-   "answer": 0,
-   "why_uz": "الْإِنْجَازُ — yutuq. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«الْمِهْنَةُ» nimani bildiradi?",
-   "options": [
-    "kasb",
-    "ish",
-    "mahorat",
-    "til"
-   ],
-   "answer": 0,
-   "why_uz": "الْمِهْنَةُ — kasb. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«الْعَمَلُ» nimani bildiradi?",
-   "options": [
-    "ish",
-    "mahorat",
-    "til",
-    "amaliyot"
-   ],
-   "answer": 0,
-   "why_uz": "الْعَمَلُ — ish. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«الْمَهَارَةُ» nimani bildiradi?",
-   "options": [
-    "mahorat",
-    "til",
-    "amaliyot",
-    "aloqa"
-   ],
-   "answer": 0,
-   "why_uz": "الْمَهَارَةُ — mahorat. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«اللُّغَةُ» nimani bildiradi?",
-   "options": [
-    "til",
-    "amaliyot",
-    "aloqa",
-    "maqsad"
-   ],
-   "answer": 0,
-   "why_uz": "اللُّغَةُ — til. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«الْمُمَارَسَةُ» nimani bildiradi?",
-   "options": [
-    "amaliyot",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "answer": 0,
-   "why_uz": "الْمُمَارَسَةُ — amaliyot. Xatolarsiz yozish: tahrir va korrektura   ko‘nikma: Writing mavzusiga oid."
-  }
+  {"q": "Which sentence uses the correct form after 'قَالَ'?", "options": ["قَالَ إِنَّ الِامْتِحَانَ غَدًا", "قَالَ أَنَّ الِامْتِحَانَ غَدًا", "قَالَ إِنْ الِامْتِحَانُ غَدًا", "قَالَ أَنْ الِامْتِحَانَ غَدًا"], "answer": 0, "why_uz": "«Qāla» dan keyin gap boshlanadi, shuning uchun kasrali «inna» yoziladi."},
+  {"q": "Which is correct: three books?", "options": ["ثَلَاثَةُ كُتُبٍ", "ثَلَاثُ كُتُبٍ", "ثَلَاثُونَ كُتُبًا", "ثَلَاثَةُ كِتَابٍ"], "answer": 0, "why_uz": "«Kitāb» erkak, 3–10 sonlari teskari jinsda: thalāthat kutub."},
+  {"q": "Which adjective fits 'الْمَدَارِسُ'?", "options": ["الْجَدِيدَةُ", "الْجَدِيدُونَ", "الْجَدِيدَانِ", "الْجَدِيدُ"], "answer": 0, "why_uz": "Jonsiz ko‘plik sifati birlikdagi ayol shaklida bo‘ladi."},
+  {"q": "How is 'إِلَى' written at the end?", "options": ["With dotless alif maqsura (ى)", "With dotted ya (ي)", "With ta marbuta (ة)", "With hamza (ء)"], "answer": 0, "why_uz": "Ilā, ‘alā, ḥattā alif maqsura bilan yoziladi."},
+  {"q": "Which verb form is correct after 'لَمْ'?", "options": ["لَمْ يَذْهَبْ", "لَمْ يَذْهَبُ", "لَمْ يَذْهَبَ", "لَمْ ذَهَبَ"], "answer": 0, "why_uz": "«Lam» dan keyin fe’l majzum, oxirida sukun bo‘ladi."},
+  {"q": "Which mark is the Arabic question mark?", "options": ["؟", "?", "¿", "!"], "answer": 0, "why_uz": "Arabcha so‘roq belgisi teskari: ؟."},
+  {"q": "Which is the most concise version of 'قَامَ بِدِرَاسَةِ الْمَوْضُوعِ'?", "options": ["دَرَسَ الْمَوْضُوعَ", "كَانَ يَدْرُسُ بِالْمَوْضُوعِ", "قَامَ يَدْرُسُ الْمَوْضُوعَ", "حَصَلَ دِرَاسَةُ الْمَوْضُوعِ"], "answer": 0, "why_uz": "Bitta fe’l uzun «qāma bi + masdar» iborasidan kuchliroq."},
+  {"q": "What is the best order of editing passes?", "options": ["Content, structure, spelling and grammar, punctuation and concision", "Punctuation, spelling, content, structure", "Concision, content, punctuation, spelling", "All at once in one reading"], "answer": 0, "why_uz": "Avval katta masalalar, keyin kichik xatolar tekshiriladi."},
+  {"q": "Which trick helps you notice errors your eye misses?", "options": ["Read the sentences from last to first", "Submit the text immediately", "Read silently and fast", "Only use spellcheck"], "answer": 0, "why_uz": "Teskari o‘qish mazmundan shaklga e’tiborni o‘tkazadi."},
+  {"q": "Where should you NOT place a comma?", "options": ["Between a verb and its subject", "After a conditional clause", "Between list items", "Before a quotation after a colon"], "answer": 0, "why_uz": "Fe’l va ega orasiga vergul qo‘yilmaydi."}
  ]
 }

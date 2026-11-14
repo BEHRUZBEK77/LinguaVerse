@@ -1,75 +1,831 @@
 {
  "title": "O‘zingiz haqingizda ravon gapirish",
- "goal_uz": "Dars yakunida rus tilida o‘zingiz haqingizda ravonda va tafsilotli gapira olasiz. «Я ...», «Например ...», «Потому что ...» kabi iboralarni o‘rinli qo‘llaysiz, sabab bilan misol qo‘shib nutqingizni zo‘rlaysiz. Oxirida beshta shaxsiy savolga 30 soniyalikk javob bilan javob bera olasiz.",
+ "goal_uz": "Dars oxirida siz o‘zingiz haqingizdagi savollarga kengaytirilgan javob formulasi, sabab va misol, to‘ldiruvchi so‘zlar va boy lug‘at bilan o‘ttiz soniyadan ravon javob bera olasiz.",
  "vocab": [
-  {"w": "я", "uz": "men"},
-  {"w": "например", "uz": "masalan"},
-  {"w": "потому что", "uz": "chunki"},
-  {"w": "поэтому", "uz": "shuning uchun"},
-  {"w": "однако", "uz": "ammo"},
-  {"w": "вообще", "uz": "umuman"},
-  {"w": "кстати", "uz": "aytgancha"},
-  {"w": "конечно", "uz": "albatta"},
-  {"w": "хорошо", "uz": "yaxshi"},
-  {"w": "интересно", "uz": "qiziqarli"}
+  {
+   "w": "поскольку / так как",
+   "uz": "chunki (rasmiyroq)"
+  },
+  {
+   "w": "ведь",
+   "uz": "axir"
+  },
+  {
+   "w": "например",
+   "uz": "masalan"
+  },
+  {
+   "w": "честно говоря",
+   "uz": "rostini aytsam"
+  },
+  {
+   "w": "что касается ..., то ...",
+   "uz": "... ga kelsak"
+  },
+  {
+   "w": "кроме того",
+   "uz": "bundan tashqari"
+  },
+  {
+   "w": "увлекаться",
+   "uz": "qiziqmoq"
+  },
+  {
+   "w": "замечательный",
+   "uz": "ajoyib"
+  },
+  {
+   "w": "планировать",
+   "uz": "rejalashtirmoq"
+  },
+  {
+   "w": "мечтать",
+   "uz": "orzu qilmoq"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Yetmish sakkizinchi dars: ravon gapirish","emotion":"happy","board":["Я ...","Например ...","Потому что ..."],"examples":[],"say_native":"Assalomu alaykum! Yetmish sakkizinchi darsda o‘zingiz haqingizda ravon gapirish mashqini chuqur egallaysiz. Bugun javobni to‘liq xonadan tashqariga kengaytirib, sabab bilan misol qo‘shib bayon qilasiz. Natijada 30 soniyaga to‘liq keladigan shaxsiy javoblar qivomda shakllanadi. Keyingi o‘rinlarda shart gaplarni tekshirib chiqamiz.","say":"Здравствуйте! Сегодня говорим о себе.","say_uz":"Assalomu alaykum! Bugun o‘zimiz haqida gaplashamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Kengaytirilgan javobni yodlab olish","emotion":"neutral","board":["Я ...","Например ...","Потому что ..."],"examples":[{"t":"Я ...","uz":"Men ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Ravon gapirishning birinchi mezon — kengaytirilgan javob. «Я ...» bilan boshlanib, «например ...» bilan misol va «потому что ...» bilan sabab qo‘shilgan javob tabiiy ravonda chiqadi. Bir necha so‘zlik javob bilan to‘xtab qolsangiz, nutq zo‘rlay olmaydi. Shu uchta tayanch so‘z nutqni 30 soniyaga yetqizib beradi.","say":"Я ... Например ... Потому что ...","say_uz":"Men ... Masalan ... Chunki ...","practice_seconds":0},
-  {"kind":"practice","title":"Keng javobni ayting","emotion":"encouraging","board":["1) Men ...","2) Masalan ...","3) Chunki ..."],"examples":[],"say_native":"Uchta tayanch bog‘lovchini talaffuz bilan mustahkamlab oling. Birinchisi: «я ...». Ikkinchisi: «например ...». Uchinchisi: «потому что ...». Har birini 30 soniyalik javobda foydalanib, nutq uzunligi bilan zo‘rlab ko‘ring.","say":"Я ... Например ... Потому что ...","say_uz":"Men ... Masalan ... Chunki ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я ...","Например ...","Потому что ..."],"examples":[],"say_native":"Keng javob javoblari shu uch belgida to‘liq ko‘rindi. «Я ...» boshlanish, «например ...» misol, «потому что ...» sabab. Endi shaxsiy savolga javob berishda nutqni 30 soniyagacha cho‘zib bera olasiz.","say":"Я ... Например ... Потому что ...","say_uz":"Men ... Masalan ... Chunki ...","practice_seconds":0},
-  {"kind":"explain","title":"Misol belgisi charxi","emotion":"thinking","board":["Например ...","Например, это хорошо.","Например, это важно."],"examples":[{"t":"Например, это хорошо.","uz":"Masalan, bu yaxshi."},{"t":"Например, это важно.","uz":"Masalan, bu muhim."}],"say_native":"Misol belgisi «например» nutqni jonli qiladi. «Например, это хорошо» — masalan, bu yaxshi, «например, это важно» — masalan, bu muhim degan uch qator bir javob ichida amaliy rang beradi. Har bir shaxsiy javobda misol qo‘shib bayon qilsangiz, nutq samimiy va aniq tuganadi.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Misolni ayting","emotion":"encouraging","board":["1) Masalan, bu yaxshi.","2) Masalan, bu muhim."],"examples":[],"say_native":"Misol belgisi bilan ikki qatorni mustahkamlab oling. Birinchisi: «например, это хорошо». Ikkinchisi: «например, это важно». Har birini shaxsiy javobida foydalanib ko‘ring.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Например, это хорошо.","Например, это важно."],"examples":[],"say_native":"Misol javoblari shu ikki qator bog‘liqlikda yakunlandi. «Например, это хорошо» — misolli yaxshilik, «например, это важно» — misolli muhimlik. Endi nutqingizga misol qo‘shishda samarali qo‘llashingiz seziladi.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Sabab bog‘lovchisi nafosati","emotion":"neutral","board":["Потому что ...","Потому что это хорошо.","Потому что это важно."],"examples":[{"t":"Потому что это хорошо.","uz":"Chunki bu yaxshi."},{"t":"Потому что это важно.","uz":"Chunki bu muhim."}],"say_native":"Sabab bog‘lovchisi «потому что» javobni chuqurlashtiradi. «Потому что это хорошо» — chunki bu yaxshi, «потому что это важно» — chunki bu muhim degan qatorlar shaxsiy javobni dalil bilan mustahkamlaydi. Javob har qanday savolga sabab bilan tugallansa, ravonlik oshadi.","say":"Потому что это хорошо. Потому что это важно.","say_uz":"Chunki bu yaxshi. Chunki bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Sababni ayting","emotion":"encouraging","board":["1) Chunki bu yaxshi.","2) Chunki bu muhim."],"examples":[],"say_native":"Sabab bog‘lovchisi bilan ikki qatorni mashq qilib oling. Birinchisi: «потому что это хорошо». Ikkinchisi: «потому что это важно». Har birini to‘liq javob shaklida talaffuz qiling.","say":"Потому что это хорошо. Потому что это важно.","say_uz":"Chunki bu yaxshi. Chunki bu muhim.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Потому что это хорошо.","Потому что это важно."],"examples":[],"say_native":"Sabab javoblari dalillar bilan ikki qatorga yig‘ildi. «Потому что это хорошо» — yaxshilik sababi, «потому что это важно» — muhimlik sababi. Shaxsiy javobingiz kelgusi savolga chuqur shaklda tayyor bo‘ladi.","say":"Потому что это хорошо. Потому что это важно.","say_uz":"Chunki bu yaxshi. Chunki bu muhim.","practice_seconds":0},
-  {"kind":"mistake","title":"To‘rtburchak javob xatosi","emotion":"stern","board":["✗ Men o‘qiyman.","✓ Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.","✗ Men ishlayman.","✓ Men ishlayman. Masalan, har kuni ishlayman. Chunki bu muhim."],"examples":[],"say_native":"Ko‘p uchrayadigan xato — javobni to‘rtburchak qilib tugatib qo‘yishdir. «Мен o‘qiyman.» bitta so‘z bilan javob ravonlikka yetmaydi. To‘g‘ri shakl: «men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.» — uch qator bilan. Bitta jumla emas, uch dumli javob yozing.","say":"Я читаю. Например, читаю каждый день. Потому что это интересно.","say_uz":"Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: shaxsiy javob","emotion":"happy","board":["— Что ты читаешь?","— Я читаю. Например, каждый день.","— Почему? — Потому что это интересно."],"examples":[],"say_native":"Birinchi dialog shaxsiy savol javobini ravonlikka yetkazadi. «Что ты читаешь?» — nima o‘qiysan deb so‘raydi. «Я читаю. Например, каждый день» — misolli javob. «Почему? — Потому что это интересно» — sabolli yakun. Bu uch qator javobni 30 soniyaga yetqazib qo‘yadi.","say":"Что ты читаешь? Я читаю. Например, каждый день. Потому что это интересно.","say_uz":"Nima o‘qiysan? Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima o‘qiysan?","2) Nega?"],"examples":[],"say_native":"Shaxsiy savollarga ravon javob bering. Birinchi savol: «что ты читаешь?» — nima o‘qiysan. Ikkinchi: «почему?» — nega. Javoblarda «например» va «потому что» bog‘lovchilarini aniq qo‘llang.","say":"Что ты читаешь? Я читаю. Например, каждый день. Потому что это интересно.","say_uz":"Nima o‘qiysan? Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я читаю.","Например, каждый день.","Потому что это интересно."],"examples":[],"say_native":"Shaxsiy javoblar uch qator bog‘liqligi bilan to‘liq ko‘rindi. «Я читаю» — boshlanish, «например, каждый день» — misol, «потому что это интересно» — sabab. Shaxsiy javob endi bundan keyin ham shu zanjirda davom etadi.","say":"Я читаю. Например, каждый день. Потому что это интересно.","say_uz":"Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: ish va sayr","emotion":"neutral","board":["— Что ты делаешь?","— Я работаю. Например, каждый день.","— А гуляешь? — Конечно, гуляю."],"examples":[],"say_native":"Ikkinchi dialog ish va sayr javobini ravonlikka yetqazadi. «Что ты делаешь?» — nima qilasan. «Я работаю. Например, каждый день» — misolli ish. «А гуляешь? — Конечно, гуляю» — tasdiq bilan sayr. Uch qator shaxsiy nutqni jonlantirish egasi bo‘ladi.","say":"Что ты делаешь? Я работаю. Например, каждый день. А гуляешь? Конечно, гуляю.","say_uz":"Nima qilasan? Men ishlayman. Masalan, har kuni ishlayman. Sayr qilasanmi? Albatta, sayr qilaman.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima qilasan?","2) Sayr qilasanmi?"],"examples":[],"say_native":"Ikkinchi dialog savollarini mustahkamlab oling. Birinchi savol: «что ты делаешь?» — nima qilasan. Ikkinchi: «а гуляешь?» — sayr qilasanmi deb. Javoblarda «например» va «конечно» bog‘lovchilarini aniq qo‘llang.","say":"Что ты делаешь? Я работаю. Например, каждый день. А гуляешь? Конечно, гуляю.","say_uz":"Nima qilasan? Men ishlayman. Masalan, har kuni ishlayman. Sayr qilasanmi? Albatta, sayr qilaman.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я работаю.","Например, каждый день.","Конечно, гуляю."],"examples":[],"say_native":"Ikkinchi dialog javoblari uchta shaklda to‘liq. «Я работаю» — ish, «например, каждый день» — misol, «конечно, гуляю» — tasdiq. Endi ish va sayr savolida ravon javob berish sizga do‘st bo‘lib qoladi.","say":"Я работаю. Например, каждый день. Конечно, гуляю.","say_uz":"Men ishlayman. Masalan, har kuni ishlayman. Albatta, sayr qilaman.","practice_seconds":0},
-  {"kind":"explain","title":"Umumlashtirish bog‘lovchisi","emotion":"thinking","board":["Вообще ...","Вообще, это хорошо.","Вообще, это важно."],"examples":[{"t":"Вообще, это хорошо.","uz":"Umuman, bu yaxshi."},{"t":"Вообще, это важно.","uz":"Umuman, bu muhim."}],"say_native":"Umumlashtirish bog‘lovchisi «вообще» shaxsiy javobni umumiy pozitsiyaga ko‘taradi. «Вообще, это хорошо» — umuman, bu yaxshi, «вообще, это важно» — umuman, bu muhim. Shaxsiy javob yakuniga «вообще» qo‘shib qo‘ysangiz, nutq universal ohangga o‘tib, har qanday auditoriyada samara beradi.","say":"Вообще, это хорошо. Вообще, это важно.","say_uz":"Umuman, bu yaxshi. Umuman, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Umumlashtiring","emotion":"encouraging","board":["1) Umuman, bu yaxshi.","2) Umuman, bu muhim."],"examples":[],"say_native":"Umumlashtirish bog‘lovchisi bilan ikki qator bayon bering. Birinchisi: «вообще, это хорошо». Ikkinchisi: «вообще, это важно». Har birini shaxsiy javobingiz yakunida talaffuz qiling.","say":"Вообще, это хорошо. Вообще, это важно.","say_uz":"Umuman, bu yaxshi. Umuman, bu muhim.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Вообще, это хорошо.","Вообще, это важно."],"examples":[],"say_native":"Umumlashtirish javoblari ikki qator hukm tarzida yakunlandi. «Вообще, это хорошо» — yaxshilik hukmi, «вообще, это важно» — muhimlik hukmi. Endi shaxsiy javobni umumiy tarzda tugatishga erishasiz.","say":"Вообще, это хорошо. Вообще, это важно.","say_uz":"Umuman, bu yaxshi. Umuman, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Tabiiy tanaffus belgisi","emotion":"neutral","board":["Конечно ...","Конечно, читаю.","Конечно, работаю.","Конечно, гуляю."],"examples":[{"t":"Конечно, читаю.","uz":"Albatta, o‘qiyman."},{"t":"Конечно, работаю.","uz":"Albatta, ishlayman."}],"say_native":"Tabiiy tanaffus belgisi «конечно» so‘zi javobni to‘ldirib qo‘yadi. «Конечно, читаю» — albatta, o‘qiyman, «конечно, работаю» — albatta, ishlayman, «конечно, гуляю» — albatta, sayr qilaman. Bu shakl javobni nafas bilan cutib qo‘yib, xotirjam ohangni saqlab qoladi.","say":"Конечно, читаю. Конечно, работаю. Конечно, гуляю.","say_uz":"Albatta, o‘qiyman. Albatta, ishlayman. Albatta, sayr qilaman.","practice_seconds":0},
-  {"kind":"practice","title":"Tabiiylikni ayting","emotion":"encouraging","board":["1) Albatta, o‘qiyman.","2) Albatta, ishlayman.","3) Albatta, sayr qilaman."],"examples":[],"say_native":"Tabiiy bog‘lovchini uchta javobda mustahkamlang. Birinchisi: «конечно, читаю». Ikkinchisi: «конечно, работаю». Uchinchisi: «конечно, гуляю». Har birini tabiiy ohangda talaffuz qiling.","say":"Конечно, читаю. Конечно, работаю. Конечно, гуляю.","say_uz":"Albatta, o‘qiyman. Albatta, ishlayman. Albatta, sayr qilaman.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Конечно, читаю.","Конечно, работаю.","Конечно, гуляю."],"examples":[],"say_native":"Tabiiylik javoblari uchta tinch pozitsiya shaklida qoldi. «Конечно, читаю» — tasdiqli o‘quv, «конечно, работаю» — tasdiqli ish, «конечно, гуляю» — tasdiqli sayr. Ravonlik shu to‘rtburchak shaklda barqaror turibdi.","say":"Конечно, читаю. Конечно, работаю. Конечно, гуляю.","say_uz":"Albatta, o‘qiyman. Albatta, ishlayman. Albatta, sayr qilaman.","practice_seconds":0},
-  {"kind":"explain","title":"Mavzuni o‘zgartirish belgisi","emotion":"thinking","board":["Кстати ...","Кстати, читаю.","Кстати, работаю.","Кстати, гуляю."],"examples":[{"t":"Кстати, читаю.","uz":"Aytgancha, o‘qiyman."},{"t":"Кстати, работаю.","uz":"Aytgancha, ishlayman."}],"say_native":"Shaxsiy savolga javob berayotganda mavzuni muvozanat bilan o‘zgartirish mumkin. «Кстати, читаю» — aytgancha, o‘qiyman, «кстати, работаю» — aytgancha, ishlayman, «кстати, гуляю» — aytgancha, sayr qilaman. Bu shakl javobni ilstonlilik bilan zo‘rlab qo‘yadi.","say":"Кстати, читаю. Кстати, работаю. Кстати, гуляю.","say_uz":"Aytgancha, o‘qiyman. Aytgancha, ishlayman. Aytgancha, sayr qilaman.","practice_seconds":0},
-  {"kind":"practice","title":"Mavzuni o‘zgartiring","emotion":"encouraging","board":["1) Aytgancha, o‘qiyman.","2) Aytgancha, ishlayman.","3) Aytgancha, sayr qilaman."],"examples":[],"say_native":"Mavzuni zo‘rlash belgisini uch ta javob bilan mustahkamlab oling. Birinchisi: «кстати, читаю». Ikkinchisi: «кстати, работаю». Uchinchisi: «кстати, гуляю». Har birini o‘zgartirilgan ma’no bilan bayon qiling.","say":"Кстати, читаю. Кстати, работаю. Кстати, гуляю.","say_uz":"Aytgancha, o‘qiyman. Aytgancha, ishlayman. Aytgancha, sayr qilaman.","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Кстати, читаю.","Кстати, работаю.","Кстати, гуляю."],"examples":[],"say_native":"Mavzu javoblari shu uchta nuqtaga to‘g‘irildi. «Кстати, читаю» — o‘quv o‘zgarishi, «кстати, работаю» — ish o‘zgarishi, «кстати, гуляю» — sayr o‘zgarishi. Endi nutq o‘zgarishi har qanday shaxsiy savolda erkin uslub bilan bajariladi.","say":"Кстати, читаю. Кстати, работаю. Кстати, гуляю.","say_uz":"Aytgancha, o‘qiyman. Aytgancha, ishlayman. Aytgancha, sayr qilaman.","practice_seconds":0},
-  {"kind":"explain","title":"Ravonlik chaqiruvi","emotion":"neutral","board":["Я читаю. Например, каждый день.","Потому что это интересно.","Конечно, гуляю."],"examples":[{"t":"Я читаю. Например, каждый день.","uz":"Men o‘qiyman. Masalan, har kuni o‘qiyman."},{"t":"Потому что это интересно.","uz":"Chunki bu qiziqarli."}],"say_native":"Ravonlik chaqiruvi 30 soniyalik javobni uzun shaklga tayyorlashdan iborat. «Я читаю. Например, каждый день» — misollar bilan to‘ldirilgan javob, «потому что это интересно» — sabab bog‘lovchisi. So‘nggi qator: «конечно, гуляю» — bog‘lash-belgi bilan tugallangan yakun. Ushbu chaqiruv har qanday shaxsiy savolda yaxshi ishlatiladi.","say":"Я читаю. Например, каждый день. Потому что это интересно.","say_uz":"Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy to‘p: shaxsiy savol","emotion":"encouraging","board":["1) Men o‘qiyman. Masalan, har kuni o‘qiyman.","2) Chunki bu qiziqarli.","3) Albatta, sayr qilaman."],"examples":[],"say_native":"Bitta shaxsiy savolga 30 soniyalik javob bering. Boshlanish: «я читаю. Например, каждый день». Sabab: «потому что это интересно». Yakun: «конечно, гуляю». Shu uchlikni to‘liq shaklda talaffuz qiling.","say":"Я читаю. Например, каждый день. Потому что это интересно. Конечно, гуляю.","say_uz":"Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli. Albatta, sayr qilaman.","practice_seconds":25},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Я читаю. Например, каждый день.","Потому что это интересно."],"examples":[],"say_native":"Namunaviy javob ikki jumlada qisqacha ko‘rindi. Birinchisi: «я читаю. Например, каждый день.» Ikkinchisi: «потому что это интересно.» Shu ikki jumla shaxsiy savolga 30 soniyalik javobni mukammal shaklla beradi.","say":"Я читаю. Например, каждый день. Потому что это интересно.","say_uz":"Men o‘qiyman. Masalan, har kuni o‘qiyman. Chunki bu qiziqarli.","practice_seconds":0},
-  {"kind":"explain","title":"Ravon javobni kengaytirish","emotion":"neutral","board":["Я ...","Например ...","Потому что ...","Конечно ..."],"examples":[{"t":"Я ...","uz":"Men ..."},{"t":"Конечно ...","uz":"Albatta ..."}],"say_native":"Ravon javobni kengaytirish 30 soniyaga yetkazishning asosiy talabi bo‘lib qoladi. «Я ...» bilan shaxsiy boshlanishni aniqlash, «например ...» bilan misolni singdirish, «потому что ...» bilan sababni bayon etish va «конечно ...» bilan tasdiq bilan yakunlash — javobni to‘liq siklga aylantiradi. Bitta so‘zlik javob bilan to‘xtab qolsangiz, tinglovchi keyingi savolga o‘tib ketadi.\n Har bir shaxsiy javobda quyidagi tuzilgan bosqichlarga amal qiling. Boshlanishda shaxsiy istagni isoniyat bilan ayting. Misolda aniq amaliy namunasini qo‘shing. Sababda — hayajonli dalil bilan chuqurlashtirib yoping. Yakunda — tasdiqli so‘z bilan tugatilesa, javobga quvvat bag‘ishlaydi.","say":"Я ... Например ... Потому что ... Конечно ...","say_uz":"Men ... Masalan ... Chunki ... Albatta ...","practice_seconds":0},
-  {"kind":"practice","title":"Kengayishni mustahkamlang","emotion":"encouraging","board":["1) Men ...","2) Masalan ...","3) Chunki ...","4) Albatta ..."],"examples":[],"say_native":"Kengayish bog‘lovchilarini to‘rt bosqichda uttaling. Birinchi: «я ...». Ikkinchisi: «например ...». Uchinchisi: «потому что ...». Va yakunda: «конечно ...». Har birini 30 soniyalik javobda bir-biriga uzilmagan holda qatorlashtirib ayting.","say":"Я ... Например ... Потому что ... Конечно ...","say_uz":"Men ... Masalan ... Chunki ... Albatta ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я ...","Например ...","Потому что ...","Конечно ..."],"examples":[],"say_native":"To‘rt bog‘lovchili javob qator bilan tekshirildi. «Я ...» — boshlanish, «например ...» — misol, «потому что ...» — sabab, «конечно ...» — tasdiq. Ushbu to‘rt qatlamdan iborat javob nutq tekshiruvida 30 soniya serquvvat bo‘lsa kerak.","say":"Я ... Например ... Потому что ... Конечно ...","say_uz":"Men ... Masalan ... Chunki ... Albatta ...","practice_seconds":0},
-  {"kind":"explain","title":"Shaxsiy savolda tuyg‘u bog‘lash","emotion":"thinking","board":["Я думаю ...","Я считаю ...","Я люблю ..."],"examples":[{"t":"Я думаю ...","uz":"Men o‘ylayman ..."},{"t":"Я люблю ...","uz":"Men sevaman ..."}],"say_native":"Shaxsiy savolga javob berayotganda tuyg‘u bog‘lash nutqni jonlantiradi. «Я думаю ...» — fikr, «я считаю ...» — hukm, «я люблю ...» — sevgi deb uch qatlam nutqni ichki tinchlikka aylantiradi. Tuyg‘uni ifoda qilsangiz, javob suxbat ko‘rinishida bo‘lib, tinglovchi o‘zini qamrab oladi.","say":"Я думаю ... Я считаю ... Я люблю ...","say_uz":"Men o‘ylayman ... Men hisoblayman ... Men sevaman ...","practice_seconds":0},
-  {"kind":"practice","title":"Tuyg‘uni bayon qiling","emotion":"encouraging","board":["1) Men o‘ylayman ...","2) Men hisoblayman ...","3) Men sevaman ..."],"examples":[],"say_native":"Tuyg‘u bog‘lovchilarini uch bosqich bilan mustahkamlab oling. Birinchisi: «я думаю ...». Ikkinchisi: «я считаю ...». Uchinchisi: «я люблю ...». Har birini 30 soniyalik javobda bayon qiling.","say":"Я думаю ... Я считаю ... Я люблю ...","say_uz":"Men o‘ylayman ... Men hisoblayman ... Men sevaman ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я думаю ...","Я считаю ...","Я люблю ..."],"examples":[],"say_native":"Tuyg‘u javoblari uch qatlamda to‘liq ko‘rindi. «Я думаю» — fikr, «я считаю» — hukm, «я люблю» — sevgi. Endi shaxsiy javobda tuyg‘u bilan ish tutib, nutqni mustahkam bo‘lib qoladi.","say":"Я думаю ... Я считаю ... Я люблю ...","say_uz":"Men o‘ylayman ... Men hisoblayman ... Men sevaman ...","practice_seconds":0},
-  {"kind":"explain","title":"Mavzuni aniqlashtirish","emotion":"neutral","board":["Я ...","Например ...","Вообще ...","Конечно ..."],"examples":[{"t":"Я ...","uz":"Men ..."},{"t":"Вообще ...","uz":"Umuman ..."}],"say_native":"Mavzuni aniqlashtirish 30 soniyalik javobni tugallangan shaklga aylantiradi. «Я ...» bilan boshlab, «например ...» bilan misol bilan to‘ldirib, «вообще ...» bilan umumlashtiring, «конечно ...» bilan tasdiq bilan tugating. Shunda javob tinglovchidan suxbat ko‘rinishida do‘st bo‘lib qoladi.","say":"Я ... Например ... Вообще ... Конечно ...","say_uz":"Men ... Masalan ... Umuman ... Albatta ...","practice_seconds":0},
-  {"kind":"practice","title":"Aniqlashtirishni mashq qiling","emotion":"encouraging","board":["1) Men ...","2) Masalan ...","3) Umuman ...","4) Albatta ..."],"examples":[],"say_native":"Mavzuni aniqlashtirishni to‘rt qator bilan mustahkamlab oling. Birinchisi: «я ...». Ikkinchisi: «например ...». Uchinchisi: «вообще ...». Yakunda: «конечно ...». Har birini umumlashtirib tugallang.","say":"Я ... Например ... Вообще ... Конечно ...","say_uz":"Men ... Masalan ... Umuman ... Albatta ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я ...","Например ...","Вообще ...","Конечно ..."],"examples":[],"say_native":"Mavzuni aniqlashtirish javoblari to‘rt qator bilan yakunlandi. «Я ...» — boshlanish, «например ...» — misol, «вообще ...» — umum, «конечно ...» — tasdiq. Ushbu to‘rt qatlam nutqni barqaror xulosa qatoriga quyuq bo‘lib qoladi.","say":"Я ... Например ... Вообще ... Конечно ...","say_uz":"Men ... Masalan ... Umuman ... Albatta ...","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Я ...","Например ...","Потому что ..."],"examples":[],"say_native":"O‘zingizni imtihon qiling. Boshlanishni «я» bilan ayta olasizmi? Misolni «например» bilan qo‘shib bera olasizmi? Sababni «потому что» bilan izohlay olasizmi? Uchala javob ijobiy bo‘lsa, ravon javob sizga do‘st bo‘ladi.","say":"Я ... Например ... Потому что ...","say_uz":"Men ... Masalan ... Chunki ...","practice_seconds":0},
-  {"kind":"explain","title":"Nutqni zo‘rlash yo‘li","emotion":"neutral","board":["Я ...","Например ...","Потому что ..."],"examples":[{"t":"Я ...","uz":"Men ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Nutqni zo‘rlashyo‘li uch bog‘lovchini qator bilan birlashtirishdan iborat bo‘lib qoladi. «Я ...» — boshlanish, «например ...» — misol, «потому что ...» — sabab. Ularni zo‘rlab bo‘lsa, 30 soniyalik javob o‘zgina bitta so‘z bilan emas, to‘liq matn bilan tugallanib qoladi.","say":"Я ... Например ... Потому что ...","say_uz":"Men ... Masalan ... Chunki ...","practice_seconds":0},
-  {"kind":"practice","title":"Zo‘rlashni mashq qiling","emotion":"encouraging","board":["1) Men ...","2) Masalan ...","3) Chunki ..."],"examples":[],"say_native":"Zo‘rlash yo‘lini uchta qator bilan mustahkamlab oling. Birinchisi: «я ...». Ikkinchisi: «например ...». Uchinchisi: «потому что ...». Har birini uzun javob bilan tugallang.","say":"Я ... Например ... Потому что ...","say_uz":"Men ... Masalan ... Chunki ...","practice_seconds":25},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я ...","Например ...","Потому что ..."],"examples":[],"say_native":"Zo‘rlash javoblari shu uch qator bog‘liqligida tobora aniq o‘rinlarni egalladi. «Я ...» — boshlanish, «например ...» — misol, «потому что ...» — sabab. Endi siz ham shaxsiy javobni mustaqil 30 soniyalik darajada yakunlaysiz.","say":"Я ... Например ... Потому что ...","say_uz":"Men ... Masalan ... Chunki ...","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["я · например · потому что","вообще · конечно · кстати"],"examples":[],"say_native":"Bugunning xulosasi: shaxsiy savolga 30 soniyalik ravon javob berishni o‘rgandik. «Я» — boshlanish, «например» — misol, «потому что» — sabab, «вообще» — umumlashtirish, «конечно» — tasdiq, «кстати» — o‘zgarish. Bu olti bog‘lovchi nutqni zo‘rlab qo‘ydi.","say":"Отлично! Теперь вы говорите свободно.","say_uz":"Ajoyib! Endi ravon gapirasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["Beshta shaxsiy savolga 30 soniyalik javob","Bog‘lovchilar · misol · sabab","Keyingi dars: shart gaplar: real, gipotetik, aralash"],"examples":[],"say_native":"Uyga vazifa: beshta shaxsiy savolga 30 soniyalik javob yozing. Har bir javobda «я», «например», «потому что» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda shart gaplarni o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем говорить об условиях.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Shartlar haqida gaplashamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "O‘zingiz haqingizda ravon gapirish",
+   "emotion": "happy",
+   "board": [
+    "Рассказать о себе свободно и подробно",
+    "(O‘zingiz haqingizda batafsil)",
+    "ответ · причина · пример · продолжение"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda zamonlarning nozik farqlarini ko‘rdik, bugun esa o‘zingiz haqingizda ravon va batafsil gapirishni mashq qilamiz. «Kim bo‘lib ishlaysiz?» yoki «Bo‘sh vaqtingizda nima qilasiz?» degan savolga «Men o‘qituvchiman» deb to‘xtab qolish B1 darajasi. B2 da esa javob kengayadi: sabab, misol va qo‘shimcha tafsilot bilan. Dars oxirida siz beshta shaxsiy savolga o‘ttiz soniyadan ravon javob berasiz.",
+   "say": "Здравствуйте! Сегодня мы учимся рассказывать о себе свободно и подробно. Короткий ответ — это начало. Хороший ответ включает причину, пример и деталь.",
+   "say_uz": "Assalomu alaykum! Bugun o‘zingiz haqingizda erkin va batafsil gapirishni o‘rganamiz. Qisqa javob — bu boshlanish. Yaxshi javobda sabab, misol va tafsilot bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qisqa javob nega yetmaydi",
+   "emotion": "thinking",
+   "board": [
+    "— Чем вы занимаетесь? — Я юрист.",
+    "(qisqa, lekin to‘xtatuvchi)",
+    "Нужно: ответ + деталь + пример"
+   ],
+   "examples": [
+    {
+     "t": "— Чем вы занимаетесь? — Я юрист.",
+     "uz": "— Nima ish qilasiz? — Men yuristman."
+    }
+   ],
+   "say_native": "Qisqa javob grammatik jihatdan to‘g‘ri, lekin suhbatni to‘xtatadi. Suhbatdosh nima deyishni bilmay qoladi. Sizning vazifangiz — unga yangi ip berish: bir tafsilot, sabab yoki qiziq misol. «Я юрист» o‘rniga «Я юрист, работаю в небольшой фирме и занимаюсь в основном семейными делами» desangiz, suhbat davom etadi. Imtihonda ham aynan shunday uzun javob uchun yuqori ball beriladi.",
+   "say": "Я юрист. Я работаю в небольшой фирме и занимаюсь в основном семейными делами. Мне нравится, что каждое дело не похоже на другое.",
+   "say_uz": "Men yuristman. Kichik firmada ishlayman va asosan oilaviy ishlar bilan shug‘ullanaman. Menga har bir ish boshqasiga o‘xshamasligi yoqadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kengaytirilgan javob formulasi",
+   "emotion": "neutral",
+   "board": [
+    "ОТВЕТ → ПРИЧИНА → ПРИМЕР → ДОПОЛНЕНИЕ",
+    "(javob → sabab → misol → qo‘shimcha)",
+    "3–5 предложений = 30 секунд"
+   ],
+   "examples": [],
+   "say_native": "Ravon javob uchun oddiy formula: javob, sabab, misol, qo‘shimcha. Birinchi gap to‘g‘ridan-to‘g‘ri javob beradi. Ikkinchi gap sababni aytadi: nima uchun. Uchinchi gap konkret misol keltiradi. To‘rtinchi gap yangi tafsilot qo‘shadi yoki rejaga bog‘laydi. Bu uch-besh gap taxminan o‘ttiz soniya beradi, ya’ni aynan sizga kerakli hajm. Formulani yodlab, har savolga qo‘llang.",
+   "say": "Сначала дайте прямой ответ. Потом объясните причину. Затем приведите пример и добавьте ещё одну деталь.",
+   "say_uz": "Avval to‘g‘ridan-to‘g‘ri javob bering. Keyin sababni tushuntiring. So‘ng misol keltiring va yana bir tafsilot qo‘shing.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Formula amalda: kasb",
+   "emotion": "happy",
+   "board": [
+    "Ответ: Я врач.",
+    "Причина: люблю помогать.",
+    "Пример: на прошлой неделе ...",
+    "Дополнение: хочу специализироваться."
+   ],
+   "examples": [
+    {
+     "t": "Я врач, работаю в детской поликлинике.",
+     "uz": "Men shifokorman, bolalar poliklinikasida ishlayman."
+    },
+    {
+     "t": "Мне нравится помогать детям, поэтому я выбрал эту профессию.",
+     "uz": "Menga bolalarga yordam berish yoqadi, shuning uchun bu kasbni tanladim."
+    }
+   ],
+   "say_native": "Mana formula to‘rt bosqichda. Javob: men shifokorman, bolalar poliklinikasida ishlayman. Sabab: bolalarga yordam berish yoqadi. Misol: o‘tgan hafta bir bola onasi bilan kelib, qo‘rqib turgan edi, uni tinchlantirishga muvaffaq bo‘ldim. Qo‘shimcha: kelajakda pediatriya bo‘yicha ixtisoslashmoqchiman. Har bir bosqich yangi gap beradi, ular qo‘shilib bir daqiqalik nutq bo‘ladi.",
+   "say": "Я врач, работаю в детской поликлинике. Мне нравится помогать детям, поэтому я выбрал эту профессию. На прошлой неделе мне удалось успокоить испуганного мальчика, и это был лучший момент месяца. Сейчас я хочу специализироваться на детской неврологии.",
+   "say_uz": "Men shifokorman, bolalar poliklinikasida ishlayman. Menga bolalarga yordam berish yoqadi, shuning uchun bu kasbni tanladim. O‘tgan hafta qo‘rqib ketgan bolani tinchlantira oldim va bu oyning eng yaxshi lahzasi bo‘ldi. Hozir bolalar nevrologiyasi bo‘yicha ixtisoslashmoqchiman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Formulani qo‘llang: kasb",
+   "emotion": "encouraging",
+   "board": [
+    "Ответьте на вопрос: «Чем вы занимаетесь?»",
+    "1) Ответ",
+    "2) Причина",
+    "3) Пример",
+    "4) Дополнение"
+   ],
+   "examples": [],
+   "say_native": "Mashq. «Чем вы занимаетесь?» savoliga o‘zingiz haqingizda to‘rt gapdan iborat javob bering. Birinchi gap: kasb yoki mashg‘ulot. Ikkinchi: nega bu ishni tanlagansiz. Uchinchi: konkret misol. To‘rtinchi: kelajak yoki qo‘shimcha tafsilot. Hozir o‘ylash uchun vaqtingiz bor, keyin ayting.",
+   "say": "Я программист и работаю в небольшой компании. Я выбрал эту профессию, потому что люблю решать сложные задачи. Недавно мы запустили приложение для школьников, и я отвечал за его безопасность. Теперь хочу изучать искусственный интеллект.",
+   "say_uz": "Men dasturchiman va kichik kompaniyada ishlayman. Bu kasbni tanladim, chunki murakkab masalalarni yechishni yaxshi ko‘raman. Yaqinda maktab o‘quvchilari uchun ilova ishga tushirdik va men uning xavfsizligi uchun javob berdim. Endi sun’iy intellektni o‘rganmoqchiman.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna tahlili",
+   "emotion": "proud",
+   "board": [
+    "прямой ответ",
+    "причина (потому что)",
+    "пример (недавно)",
+    "планы (хочу)"
+   ],
+   "examples": [],
+   "say_native": "Namuna tahlili. Birinchi gap to‘g‘ridan-to‘g‘ri javob: dasturchi. Ikkinchi: «потому что» bilan sabab. Uchinchi: «недавно» bilan konkret misol, ya’ni ilova va xavfsizlik. To‘rtinchi: kelajak rejasi. Sizning kasbingiz boshqa, lekin tuzilish o‘sha. Eng muhim: misol aniq bo‘lsin, umumiy gap emas. «Ko‘p ishlayman» deyishdan ko‘ra «yaqinda ilova ishga tushirdik» ancha kuchli.",
+   "say": "Прямой ответ, причина, пример и планы — это четыре части сильного ответа.",
+   "say_uz": "To‘g‘ridan-to‘g‘ri javob, sabab, misol va rejalar — kuchli javobning to‘rt qismi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sabab so‘zlarini boyiting",
+   "emotion": "neutral",
+   "board": [
+    "потому что → ведь, поскольку, так как",
+    "поэтому → именно поэтому",
+    "(rasmiyroq va boyroq)"
+   ],
+   "examples": [
+    {
+     "t": "Я выбрал эту профессию, поскольку люблю решать задачи.",
+     "uz": "Men bu kasbni tanladim, chunki masalalarni yechishni yaxshi ko‘raman."
+    },
+    {
+     "t": "Именно поэтому я остался в этом городе.",
+     "uz": "Aynan shuning uchun men shu shaharda qoldim."
+    }
+   ],
+   "say_native": "B2 darajasida «потому что» ni almashtiradigan boshqa so‘zlar kerak. «Поскольку» va «так как» yozma va rasmiy ohangda. «Ведь» esa so‘zlashuv ohangida, tinglovchiga allaqachon ma’lum sababni eslatadi: «ведь это очень интересно». «Именно поэтому» natijani kuchaytiradi: aynan shuning uchun. O‘zbek tilida «chunki» va «shuning uchun» bor, ammo ruscha tanlov ohangni ham aniqlaydi. Takrorlanmaslik uchun almashtirib turing.",
+   "say": "Я выбрал эту профессию, поскольку люблю решать задачи. Мне нравится гулять пешком, ведь так я лучше узнаю город. Именно поэтому я остался в этом городе.",
+   "say_uz": "Men bu kasbni tanladim, chunki masalalarni yechishni yaxshi ko‘raman. Menga piyoda yurish yoqadi, axir shunda shaharni yaxshiroq bilaman. Aynan shuning uchun men shu shaharda qoldim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sababni boshqacha ayting",
+   "emotion": "encouraging",
+   "board": [
+    "1) Я учу русский, потому что ... (поскольку)",
+    "2) Я люблю читать, потому что ... (ведь)",
+    "3) Я переехал, поэтому ... (именно поэтому)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta gapni boshqa sabab so‘zi bilan qayta ayting. Birinchi: rus tilini o‘rganaman, chunki kerak; «поскольку» ishlating. Ikkinchi: o‘qishni yaxshi ko‘raman; «ведь» bilan. Uchinchi: ko‘chib o‘tdim; «именно поэтому» bilan natijani ayting. O‘z hayotingizdan misol keltiring.",
+   "say": "Я учу русский, поскольку он нужен мне для работы. Я люблю читать, ведь книги помогают мне отдыхать. Я переехал в другой город, и именно поэтому у меня теперь новые друзья.",
+   "say_uz": "Men rus tilini o‘rganaman, chunki u menga ish uchun kerak. Men o‘qishni yaxshi ko‘raman, axir kitoblar dam olishimga yordam beradi. Men boshqa shaharga ko‘chdim va aynan shuning uchun endi yangi do‘stlarim bor.",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Misol so‘zlari",
+   "emotion": "neutral",
+   "board": [
+    "например / к примеру",
+    "в частности",
+    "скажем",
+    "недавно / как-то раз"
+   ],
+   "examples": [
+    {
+     "t": "Я люблю путешествовать. Например, в прошлом году я объездил всю Грузию.",
+     "uz": "Men sayohat qilishni yaxshi ko‘raman. Masalan, o‘tgan yili butun Gruziyani aylanib chiqdim."
+    },
+    {
+     "t": "Как-то раз я потерял телефон в метро, и это научило меня внимательности.",
+     "uz": "Bir kuni metroda telefonimni yo‘qotdim va bu menga e’tiborlilikni o‘rgatdi."
+    }
+   ],
+   "say_native": "Misol keltirish nutqni jonli qiladi. «Например» — masalan, eng keng tarqalgan. «В частности» — xususan, aniqroq misol uchun. «Скажем» — aytaylik, noaniq misol uchun. Hikoya shaklidagi misol «как-то раз» yoki «недавно» bilan boshlanadi. O‘zbekchada «masalan» bilan «bir kuni» ishlatamiz, ruscha ham shunday ishlaydi. Hikoyali misol eng kuchli, chunki tinglovchi uni eslab qoladi.",
+   "say": "Я люблю путешествовать. Например, в прошлом году я объездил всю Грузию. Как-то раз я потерял телефон в метро, и это научило меня внимательности.",
+   "say_uz": "Men sayohat qilishni yaxshi ko‘raman. Masalan, o‘tgan yili butun Gruziyani aylanib chiqdim. Bir kuni metroda telefonimni yo‘qotdim va bu menga e’tiborlilikni o‘rgatdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Misol bilan javob: xarakter",
+   "emotion": "impressed",
+   "board": [
+    "Вопрос: Какой у вас характер?",
+    "Ответ → причина → история"
+   ],
+   "examples": [
+    {
+     "t": "Я довольно терпеливый человек.",
+     "uz": "Men ancha sabrli odamman."
+    },
+    {
+     "t": "Например, когда в очереди все нервничают, я спокойно жду.",
+     "uz": "Masalan, navbatda hamma xafa bo‘lsa, men bemalol kutaman."
+    }
+   ],
+   "say_native": "Mana misol bilan javob. Savol: sizning xarakteringiz qanday? Javob: ancha sabrli odamman. Misol: navbatda hamma jahli chiqsa, men xotirjam kutaman. Qo‘shimcha: bu menga ishda ham yordam beradi, chunki murakkab mijozlar bilan gaplashamiz. Xarakter haqida gapirganda sifatning o‘zi emas, uni tasdiqlovchi konkret vaziyat muhim.",
+   "say": "Я довольно терпеливый человек. Например, когда в очереди все нервничают, я спокойно жду. Это помогает мне и на работе, особенно с трудными клиентами.",
+   "say_uz": "Men ancha sabrli odamman. Masalan, navbatda hamma xafa bo‘lsa, men xotirjam kutaman. Bu menga ishda ham, ayniqsa qiyin mijozlar bilan yordam beradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "O‘z xarakteringiz haqida",
+   "emotion": "encouraging",
+   "board": [
+    "Какой у вас характер?",
+    "1) Качество",
+    "2) Пример",
+    "3) Польза"
+   ],
+   "examples": [],
+   "say_native": "Mashq. O‘z xarakteringiz haqida uch gap ayting. Birinchi gap: bitta asosiy fazilat. Ikkinchi gap: «например» bilan konkret vaziyat. Uchinchi gap: bu fazilat hayotingizda nima foyda beradi. Faqat umumiy so‘zlar emas, aniq voqea bo‘lsin.",
+   "say": "Я человек очень организованный. Например, я всегда составляю список дел на неделю и редко что-то забываю. Благодаря этому я успеваю и работать, и заниматься спортом.",
+   "say_uz": "Men juda tartibli odamman. Masalan, har doim haftalik ishlar ro‘yxatini tuzaman va kamdan-kam narsani unutaman. Shu sababli ham ishlashga, ham sport bilan shug‘ullanishga ulgurib qolaman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Tahlil",
+   "emotion": "proud",
+   "board": [
+    "качество",
+    "«например» + ситуация",
+    "польза / результат"
+   ],
+   "examples": [],
+   "say_native": "Tahlil. Birinchi gapda sifat aniq: tartibli. Ikkinchi gapda «например» bilan haftalik ro‘yxat, bu kuzatish mumkin bo‘lgan odat. Uchinchi gapda «благодаря этому» bilan foyda. Ko‘ryapsizmi, «благодаря» ni oldingi darsda o‘rgandik va u shu yerda ham ijobiy natija uchun ishladi. Shunday qilib yangi iboralar eskilari bilan bog‘lanadi.",
+   "say": "Качество, пример и польза — три шага. «Благодаря этому» хорошо связывает пример и результат.",
+   "say_uz": "Sifat, misol va foyda — uch qadam. «Благодаря этому» misol bilan natijani yaxshi bog‘laydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "To‘ldiruvchi so‘zlar",
+   "emotion": "thinking",
+   "board": [
+    "ну, так сказать, в общем",
+    "честно говоря, знаете",
+    "скажем так, то есть",
+    "(pauza ≠ jim turish)"
+   ],
+   "examples": [
+    {
+     "t": "Ну, я бы сказал, что работа у меня довольно творческая.",
+     "uz": "Xo‘sh, ishim ancha ijodiy desam bo‘ladi."
+    },
+    {
+     "t": "Честно говоря, я не сразу решил стать учителем.",
+     "uz": "Rostini aytsam, o‘qituvchi bo‘lishga darhol qaror qilmadim."
+    }
+   ],
+   "say_native": "Tabiiy nutqda to‘xtamasdan o‘ylash uchun to‘ldiruvchi so‘zlar kerak. «Ну» — xo‘sh, «так сказать» — aytganda, «в общем» — xullas, «честно говоря» — rostini aytsam, «скажем так» — aytaylik. Ular jimlikni tabiiy pauzaga aylantiradi. Ammo me’yorni saqlang: har gapda bo‘lsa, nutq zerikarli bo‘ladi. Imtihonda ham ular yaxshi ta’sir qiladi, agar o‘rinli ishlatilsa.",
+   "say": "Ну, я бы сказал, что работа у меня довольно творческая. Честно говоря, я не сразу решил стать учителем. В общем, мне всё нравится.",
+   "say_uz": "Xo‘sh, ishim ancha ijodiy desam bo‘ladi. Rostini aytsam, o‘qituvchi bo‘lishga darhol qaror qilmadim. Xullas, hammasi menga yoqadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xato: «э-э-э» va haddan ortiq to‘ldiruvchi",
+   "emotion": "stern",
+   "board": [
+    "✗ э-э-э ... ммм ... ну ... ну ... как бы ...",
+    "✓ Ну, скажем так, ... Честно говоря, ...",
+    "(1–2 на ответ)"
+   ],
+   "examples": [],
+   "say_native": "Ikki chekka xato bor. Birinchisi: «э-э-э» va «мм» bilan uzoq pauzalar, bu nutqni ishonchsiz qiladi. Ikkinchisi: bir gapda uch to‘ldiruvchi so‘z, bu nutqni bo‘laklarga bo‘ladi. Eng yaxshi usul: bir javobda bir-ikki to‘ldiruvchi, ular aniq joyda: javob boshlanishida yoki fikr o‘zgarishida. «Как бы» ni ehtiyot bo‘lib ishlating, ko‘pchilik uni tez-tez takrorlab yuboradi va nutq noaniq chiqadi.",
+   "say": "Неправильно: э-э-э, ну, ну, как бы. Правильно: ну, скажем так, это сложно. Одно-два слова-паразита на ответ — достаточно.",
+   "say_uz": "Noto‘g‘ri: э-э-э, ну, ну, как бы. To‘g‘ri: xo‘sh, aytaylik, bu qiyin. Javobga bitta-ikkita to‘ldiruvchi so‘z yetarli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘xtamay boshlang",
+   "emotion": "encouraging",
+   "board": [
+    "Вопрос: Расскажите о своей семье.",
+    "Начните с «Ну, ...» или «Честно говоря, ...»",
+    "3–4 предложения"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Oilangiz haqida to‘rt gapda gapiring. Birinchi gapni «ну» yoki «честно говоря» bilan boshlang. Keyin kimlar borligini, ularning qiziqarli tafsilotini va bitta konkret xotirani ayting. Ikkitadan ortiq to‘ldiruvchi so‘z ishlatmang.",
+   "say": "Ну, у меня большая семья. Мы живём вместе с бабушкой, родителями и двумя братьями. Каждое воскресенье мы собираемся за большим столом, и бабушка обязательно готовит плов. Честно говоря, это моё любимое время недели.",
+   "say_uz": "Xo‘sh, mening oilam katta. Biz buvim, ota-onam va ikkita akam bilan birga yashaymiz. Har yakshanba katta dasturxon atrofida yig‘ilamiz va buvim albatta palov pishiradi. Rostini aytsam, bu haftaning eng sevimli vaqti.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Tahlil",
+   "emotion": "proud",
+   "board": [
+    "Ну, ... — boshlanish",
+    "konkret tafsilot: плов, воскресенье",
+    "Честно говоря, ... — shaxsiy munosabat"
+   ],
+   "examples": [],
+   "say_native": "Tahlil. «Ну» javobni tabiiy boshladi. Keyin oila a’zolari sanab o‘tildi. Eng kuchli qism: har yakshanba, buvim va palov, ya’ni aniq odat va tafsilot. Oxirida «честно говоря» bilan shaxsiy munosabat aytildi. Mana shunday javob oddiy «mening oilam katta» dan ancha jonli va esda qoladi.",
+   "say": "Хороший ответ содержит конкретные детали и личное отношение.",
+   "say_uz": "Yaxshi javobda aniq tafsilotlar va shaxsiy munosabat bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Lug‘at boyligi: sifatlarni almashtirish",
+   "emotion": "neutral",
+   "board": [
+    "хороший → замечательный, отличный",
+    "интересный → увлекательный",
+    "трудный → непростой, сложный",
+    "большой → огромный, значительный"
+   ],
+   "examples": [
+    {
+     "t": "Это была замечательная поездка.",
+     "uz": "Bu ajoyib sayohat edi."
+    },
+    {
+     "t": "Работа у меня непростая, зато увлекательная.",
+     "uz": "Ishim oson emas, lekin qiziqarli."
+    }
+   ],
+   "say_native": "B2 darajasida «хороший», «интересный», «трудный» ni doim takrorlash zerikarli. Ularni boyroq so‘zlar bilan almashtiring. «Хороший» o‘rniga «замечательный» yoki «отличный». «Интересный» o‘rniga «увлекательный». «Трудный» o‘rniga «непростой» yoki «сложный». «Большой» o‘rniga «огромный» yoki «значительный». O‘zbek tilida ham «yaxshi» o‘rniga «ajoyib» deymiz, shuning uchun bu fikr tanish. Har bir javobda kamida bitta boy so‘z ishlating.",
+   "say": "Это была замечательная поездка. Работа у меня непростая, зато увлекательная. В нашем городе огромное количество парков.",
+   "say_uz": "Bu ajoyib sayohat edi. Ishim oson emas, lekin qiziqarli. Bizning shaharda parklar juda ko‘p.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "So‘zni almashtiring",
+   "emotion": "encouraging",
+   "board": [
+    "1) Это хороший фильм. → ...",
+    "2) У меня интересная работа. → ...",
+    "3) Это трудный вопрос. → ...",
+    "4) У нас большая квартира. → ..."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Har bir gapda oddiy sifatni boyroq sinonim bilan almashtiring. Birinchi: «хороший фильм». Ikkinchi: «интересная работа». Uchinchi: «трудный вопрос». To‘rtinchi: «большая квартира». Yangi so‘zlarni ishlatib, har bir gapni to‘liq ayting.",
+   "say": "Это замечательный фильм. У меня увлекательная работа. Это непростой вопрос. У нас просторная квартира.",
+   "say_uz": "Bu ajoyib film. Mening ishim qiziqarli. Bu oson bo‘lmagan savol. Bizning keng kvartiramiz bor.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "замечательный",
+    "увлекательная",
+    "непростой",
+    "просторная"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. «Замечательный фильм», «увлекательная работа», «непростой вопрос». Oxirgisi «просторная квартира», ya’ni keng kvartira. «Огромная» ham mumkin, lekin «просторная» xonaning kengligini aniqroq beradi. Ko‘rdingizmi, sinonimni tanlaganda ma’no ham o‘zgaradi, shuning uchun mazmunga qarab tanlash kerak. Har doim ham birinchi sinonim mos kelmaydi.",
+   "say": "Замечательный фильм. Увлекательная работа. Непростой вопрос. Просторная квартира.",
+   "say_uz": "Ajoyib film. Qiziqarli ish. Oson bo‘lmagan savol. Keng kvartira.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Fikrni davom ettirish iboralari",
+   "emotion": "neutral",
+   "board": [
+    "Кроме того, ...",
+    "Более того, ...",
+    "При этом ...",
+    "Что касается ..., то ..."
+   ],
+   "examples": [
+    {
+     "t": "Кроме того, я люблю работать в команде.",
+     "uz": "Bundan tashqari, jamoada ishlashni yaxshi ko‘raman."
+    },
+    {
+     "t": "Что касается хобби, то я увлекаюсь фотографией.",
+     "uz": "Hobbiga kelsak, men suratga olish bilan qiziqaman."
+    }
+   ],
+   "say_native": "Javobni uzaytirishning yana bir yo‘li — bog‘lovchi iboralar. «Кроме того» — bundan tashqari. «Более того» — bundan ham ortiq. «При этом» — shu bilan birga. «Что касается ..., то ...» — ... ga kelsak. Oxirgisi mavzuni almashtirish uchun juda qulay: «что касается хобби, то ...». Bu iboralar ikki gapni tabiiy bog‘laydi va nutqingizni kitobiy emas, tuzilgan qiladi.",
+   "say": "Кроме того, я люблю работать в команде. Что касается хобби, то я увлекаюсь фотографией. При этом я никогда не занимался этим профессионально.",
+   "say_uz": "Bundan tashqari, jamoada ishlashni yaxshi ko‘raman. Hobbiga kelsak, men suratga olish bilan qiziqaman. Shu bilan birga, buni hech qachon professional tarzda qilmaganman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "To‘liq javob: bo‘sh vaqt",
+   "emotion": "happy",
+   "board": [
+    "— Чем вы занимаетесь в свободное время?"
+   ],
+   "examples": [
+    {
+     "t": "— Я увлекаюсь фотографией и часто гуляю с камерой.",
+     "uz": "— Men suratga olish bilan qiziqaman va tez-tez kamera bilan sayr qilaman."
+    },
+    {
+     "t": "— Что касается техники, то я предпочитаю старые плёночные камеры.",
+     "uz": "— Texnikaga kelsak, men eski plyonkali kameralarni afzal ko‘raman."
+    }
+   ],
+   "say_native": "Mana to‘liq javob namunasi. Savol: bo‘sh vaqtda nima bilan shug‘ullanasiz? Javob qismlari: asosiy mashg‘ulot, «что касается» bilan tafsilot, «например» bilan misol va «кроме того» bilan qo‘shimcha. Tinglang va qaysi iboralar qanday vazifa bajarayotganini payqang. Savol esa keyin beriladi.",
+   "say": "Я увлекаюсь фотографией и часто гуляю с камерой. Что касается техники, то я предпочитаю старые плёночные камеры. Например, недавно я снял целый фильм на плёнку в Самарканде. Кроме того, я мечтаю провести выставку.",
+   "say_uz": "Men suratga olish bilan qiziqaman va tez-tez kamera bilan sayr qilaman. Texnikaga kelsak, eski plyonkali kameralarni afzal ko‘raman. Masalan, yaqinda Samarqandda butun plyonkani suratga oldim. Bundan tashqari, ko‘rgazma o‘tkazishni orzu qilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Javob qismlarini toping",
+   "emotion": "encouraging",
+   "board": [
+    "1) Основное увлечение?",
+    "2) Какая техника?",
+    "3) Какой пример?",
+    "4) Какая мечта?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: asosiy hobbi nima? Ikkinchi: qanday texnikani afzal ko‘radi? Uchinchi: qanday misol keltirildi? To‘rtinchi: qanday orzusi bor? Javoblarni qisqa ruscha ayting. Siz shu yerda javobning to‘rt qismini topyapsiz.",
+   "say": "Основное увлечение — фотография. Он предпочитает старые плёночные камеры. Недавно он снял плёнку в Самарканде. Он мечтает провести выставку.",
+   "say_uz": "Asosiy hobbi — suratga olish. U eski plyonkali kameralarni afzal ko‘radi. Yaqinda u Samarqandda plyonka suratga oldi. U ko‘rgazma o‘tkazishni orzu qiladi.",
+   "practice_seconds": 13
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "фотография",
+    "плёночные камеры",
+    "Самарканд, плёнка",
+    "выставка"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Asosiy hobbi — suratga olish. Texnika: eski plyonkali kameralar. Misol: Samarqandda plyonkaga suratga olish. Orzu: ko‘rgazma o‘tkazish. Ko‘rdingizmi, javob to‘rt aniq qismga bo‘lingan va har bir qism yangi ma’lumot beradi. Siz ham o‘z javobingizni shu tartibda qurishingiz mumkin.",
+   "say": "Увлечение, техника, пример, мечта — четыре части одного ответа.",
+   "say_uz": "Hobbi, texnika, misol, orzu — bitta javobning to‘rt qismi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Rejalar haqida gapirish",
+   "emotion": "neutral",
+   "board": [
+    "Я планирую + инфинитив",
+    "Я собираюсь + инфинитив",
+    "Надеюсь, что + будущее",
+    "Мечтаю + инфинитив"
+   ],
+   "examples": [
+    {
+     "t": "Я планирую сменить работу в следующем году.",
+     "uz": "Men kelasi yili ishni almashtirishni rejalashtiryapman."
+    },
+    {
+     "t": "Надеюсь, что мне удастся съездить в Японию.",
+     "uz": "Umid qilamanki, Yaponiyaga borishga muvaffaq bo‘laman."
+    }
+   ],
+   "say_native": "Shaxsiy javoblarning muhim qismi — rejalar. «Я планирую» — rejalashtiryapman, «я собираюсь» — niyat qilyapman, ikkalasidan keyin infinitiv. «Надеюсь, что» — umid qilamanki, undan keyin kelasi zamon. «Мечтаю» — orzu qilaman. Aniqlik darajasi farq qiladi: «планирую» — aniq reja, «мечтаю» — uzoq orzu. Bu so‘zlar sizga ishonch darajasini ko‘rsatishga yordam beradi.",
+   "say": "Я планирую сменить работу в следующем году. Надеюсь, что мне удастся съездить в Японию. Мечтаю когда-нибудь открыть своё кафе.",
+   "say_uz": "Men kelasi yili ishni almashtirishni rejalashtiryapman. Umid qilamanki, Yaponiyaga borishga muvaffaq bo‘laman. Qachondir o‘z kafemni ochishni orzu qilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Rejalaringiz haqida",
+   "emotion": "encouraging",
+   "board": [
+    "Каковы ваши планы на ближайшие годы?",
+    "1) Конкретный план",
+    "2) Надежда",
+    "3) Мечта"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Yaqin yillardagi rejalaringiz haqida uch gapda gapiring. Birinchisi: aniq reja, «я планирую». Ikkinchisi: «надеюсь, что». Uchinchisi: uzoq orzu, «мечтаю». Har bir gapni konkret qiling, masalan, sana yoki joy ko‘rsating.",
+   "say": "Я планирую в этом году сдать экзамен по русскому языку. Надеюсь, что в следующем году мне удастся съездить в Санкт-Петербург. Мечтаю когда-нибудь работать переводчиком.",
+   "say_uz": "Men bu yil rus tili imtihonini topshirishni rejalashtiryapman. Umid qilamanki, kelasi yili Sankt-Peterburgga borishga muvaffaq bo‘laman. Qachondir tarjimon bo‘lib ishlashni orzu qilaman.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Tahlil",
+   "emotion": "proud",
+   "board": [
+    "планирую — aniq",
+    "надеюсь, что — umid",
+    "мечтаю — uzoq orzu"
+   ],
+   "examples": [],
+   "say_native": "Tahlil. Uchta gap — uch daraja. Birinchisi aniq reja va muddat: «в этом году». Ikkinchisi umid va «что» dan keyin kelasi zamon. Uchinchisi uzoq orzu va «когда-нибудь». Bu darajalar suhbatdoshga sizning niyatingiz qanchalik jiddiy ekanini tushuntiradi. Bu juda tabiiy va uslubiy jihatdan boy javob.",
+   "say": "Планы бывают разные: точные, надеющиеся и мечтательные. Выбирайте слово по степени уверенности.",
+   "say_uz": "Rejalar har xil: aniq, umidli va orzuviy. So‘zni ishonch darajasiga qarab tanlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: yangi tanishuv",
+   "emotion": "happy",
+   "board": [
+    "— Расскажите немного о себе.",
+    "— Конечно!"
+   ],
+   "examples": [
+    {
+     "t": "— Расскажите немного о себе.",
+     "uz": "— O‘zingiz haqingizda biroz gapirib bering."
+    },
+    {
+     "t": "— Ну, я родом из Бухары, но уже пять лет живу в Ташкенте.",
+     "uz": "— Xo‘sh, men Buxorodanman, lekin besh yildirki Toshkentda yashayman."
+    }
+   ],
+   "say_native": "Birinchi dialog yangi tanishuvda. Savol juda keng: «o‘zingiz haqingizda gapirib bering». Eshiting, javobda nechta qism bor va qaysi to‘ldiruvchi so‘zlar ishlatilgan. Tinglagandan keyin sizdan nechta ma’lumot berilganini sanaysiz.",
+   "say": "— Расскажите немного о себе. — Ну, я родом из Бухары, но уже пять лет живу в Ташкенте. Работаю в банке, а по вечерам учу русский язык, потому что хочу читать русскую литературу в оригинале. Кроме того, я люблю готовить, особенно плов.",
+   "say_uz": "— O‘zingiz haqingizda biroz gapirib bering. — Xo‘sh, men Buxorodanman, lekin besh yildirki Toshkentda yashayman. Bankda ishlayman, kechqurunlari rus tilini o‘rganaman, chunki rus adabiyotini asl nusxada o‘qishni xohlayman. Bundan tashqari, ovqat pishirishni, ayniqsa palov pishirishni yaxshi ko‘raman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": [
+    "1) Откуда он родом?",
+    "2) Где работает?",
+    "3) Почему учит русский?",
+    "4) Что любит готовить?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: u qayerlik? Ikkinchi: qayerda ishlaydi? Uchinchi: nima uchun rus tilini o‘rganadi? To‘rtinchi: nima pishirishni yaxshi ko‘radi? Javoblarni qisqa ayting. Siz to‘rtta aniq ma’lumotni topishingiz kerak.",
+   "say": "Он родом из Бухары. Он работает в банке. Он учит русский, потому что хочет читать литературу в оригинале. Он любит готовить плов.",
+   "say_uz": "U Buxorolik. U bankda ishlaydi. U rus tilini adabiyotni asl nusxada o‘qish uchun o‘rganadi. U palov pishirishni yaxshi ko‘radi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "Бухара",
+    "банк",
+    "чтение литературы",
+    "плов"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. U Buxorolik, bankda ishlaydi, rus adabiyotini asl nusxada o‘qish uchun rus tilini o‘rganadi va palov pishirishni yaxshi ko‘radi. Dialogda ma’lumotlar bir-biriga mantiqan ulandi: yashash joyi, ish, qiziqish, hobbi. «Потому что» sabab, «кроме того» qo‘shimcha. Shunday qilib, javob ro‘yxat emas, hikoya bo‘lib eshitildi.",
+   "say": "Родом из Бухары, работает в банке, учит русский для литературы, любит плов.",
+   "say_uz": "Buxorolik, bankda ishlaydi, adabiyot uchun rus tilini o‘rganadi, palovni yaxshi ko‘radi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: suhbatda",
+   "emotion": "neutral",
+   "board": [
+    "— А почему вы выбрали эту профессию?",
+    "— Это длинная история."
+   ],
+   "examples": [
+    {
+     "t": "— Почему вы выбрали эту профессию?",
+     "uz": "— Nega bu kasbni tanladingiz?"
+    },
+    {
+     "t": "— Знаете, в детстве я часто болел, и врачи казались мне героями.",
+     "uz": "— Bilasizmi, bolaligimda tez-tez kasal bo‘lardim va shifokorlar menga qahramondek tuyulardi."
+    }
+   ],
+   "say_native": "Ikkinchi dialog ishga suhbatda. Savol sababi haqida. Javobda «знаете» va bolalikdan hikoya bor. Tinglang va nima uchun hikoya qilish javobni kuchli qilishini toping.",
+   "say": "— А почему вы выбрали эту профессию? — Знаете, в детстве я часто болел, и врачи казались мне настоящими героями. Именно поэтому я решил стать таким же. Сейчас, когда я работаю, я понимаю, что был прав.",
+   "say_uz": "— Nega bu kasbni tanladingiz? — Bilasizmi, bolaligimda tez-tez kasal bo‘lardim va shifokorlar menga haqiqiy qahramondek tuyulardi. Aynan shuning uchun men ham shunday bo‘lishga qaror qildim. Hozir ishlayotganimda to‘g‘ri bo‘lganimni tushunaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savol: nega?",
+   "emotion": "encouraging",
+   "board": [
+    "1) Почему он выбрал эту профессию?",
+    "2) Что он говорит сейчас?",
+    "3) Какое слово помогает связать сказанное?"
+   ],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: u nega bu kasbni tanlagan? Ikkinchi: hozir nimani tushunadi? Uchinchi: «именно поэтому» iborasi qanday bog‘lanish ko‘rsatadi? Javoblarni ayting. Oxirgi savolga o‘zbekcha izoh bering.",
+   "say": "В детстве он часто болел, и врачи казались ему героями. Сейчас он понимает, что был прав. «Именно поэтому» показывает причину и следствие.",
+   "say_uz": "Bolaligida u tez-tez kasal bo‘lgan va shifokorlar unga qahramondek tuyulgan. Hozir u to‘g‘ri bo‘lganini tushunadi. «Именно поэтому» sabab va oqibatni ko‘rsatadi.",
+   "practice_seconds": 14
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "болел → врачи как герои",
+    "сейчас понимает, что прав",
+    "причина → следствие"
+   ],
+   "examples": [],
+   "say_native": "Javoblar. U bolaligida tez-tez kasal bo‘lgan, shuning uchun shifokorlarni qahramon deb bilgan. Hozir esa o‘z tanlovi to‘g‘ri ekanini tushunadi. «Именно поэтому» sabab bilan oqibatni bog‘laydi: bolalik taassuroti va kasb tanlovi. Shaxsiy hikoya javobni jonli qiladi, shuning uchun mumkin bo‘lsa, hikoya qiling.",
+   "say": "Он выбрал профессию из-за детских впечатлений. Сейчас он уверен, что поступил правильно.",
+   "say_uz": "U kasbni bolalik taassurotlari tufayli tanlagan. Hozir u to‘g‘ri qilganiga ishonchi komil.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Besh savol, o‘ttiz soniya",
+   "emotion": "encouraging",
+   "board": [
+    "1) Где вы живёте и почему?",
+    "2) Чем вы занимаетесь?",
+    "3) Какой у вас характер?",
+    "4) Ваше увлечение?",
+    "5) Ваши планы?"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy mashq. Beshta shaxsiy savol. Har biriga o‘ttiz soniyali javob bering. Birinchi: qayerda yashaysiz va nega. Ikkinchi: nima ish qilasiz. Uchinchi: xarakteringiz. To‘rtinchi: hobbingiz. Beshinchi: rejalaringiz. Har safar formula: javob, sabab, misol, qo‘shimcha. Birinchi savoldan boshlang.",
+   "say": "Я живу в Самарканде, потому что здесь вся моя семья. Например, каждую пятницу мы вместе обедаем у бабушки. Кроме того, мне нравится, что город очень красивый и в нём много истории.",
+   "say_uz": "Men Samarqandda yashayman, chunki bu yerda butun oilam bor. Masalan, har juma kuni buvimnikida birga tushlik qilamiz. Bundan tashqari, shaharning go‘zalligi va tarixi menga yoqadi.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "explain",
+   "title": "Qolgan javoblar uchun namunalar",
+   "emotion": "proud",
+   "board": [
+    "2) работа",
+    "3) характер",
+    "4) увлечение",
+    "5) планы"
+   ],
+   "examples": [
+    {
+     "t": "Я работаю гидом, ведь люблю рассказывать об истории.",
+     "uz": "Men gid bo‘lib ishlayman, chunki tarix haqida gapirishni yaxshi ko‘raman."
+    },
+    {
+     "t": "Я надеюсь, что в следующем году стану старшим гидом.",
+     "uz": "Umid qilamanki, kelasi yili katta gid bo‘laman."
+    }
+   ],
+   "say_native": "Qolgan to‘rtta javob uchun namunalar. Ish: gid, tarix haqida gapirishni yaxshi ko‘rish. Xarakter: ochiq va suhbatdosh, masalan turistlar bilan tez til topishish. Hobbi: fotosurat yoki o‘qish. Rejalar: «надеюсь, что» bilan. Sizniki albatta boshqacha bo‘ladi, muhimi — har bir javobda sabab, misol va qo‘shimcha bo‘lsin. Shu dars uchun asosiy talab ham shu.",
+   "say": "Я работаю гидом, ведь люблю рассказывать об истории. Я человек общительный и легко знакомлюсь с туристами. Я надеюсь, что в следующем году стану старшим гидом.",
+   "say_uz": "Men gid bo‘lib ishlayman, chunki tarix haqida gapirishni yaxshi ko‘raman. Men ochiq odamman va sayyohlar bilan oson tanishaman. Umid qilamanki, kelasi yili katta gid bo‘laman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Bugun nimani o‘rgandik",
+   "emotion": "proud",
+   "board": [
+    "javob + sabab + misol + qo‘shimcha",
+    "поскольку, ведь, именно поэтому",
+    "ну, честно говоря, что касается",
+    "sinonimlar: замечательный, увлекательный"
+   ],
+   "examples": [],
+   "say_native": "Bugun nimani o‘rgandik. Birinchi: kengaytirilgan javob formulasi, ya’ni javob, sabab, misol va qo‘shimcha. Ikkinchi: sabab so‘zlarining boyroq shakllari, «поскольку», «ведь», «именно поэтому». Uchinchi: misol keltirish iboralari va hikoyali misollar. To‘rtinchi: to‘ldiruvchi so‘zlar, «ну» va «честно говоря», ammo me’yor bilan. Beshinchi: boy sifatlar va rejalar haqida gapirish. Endi o‘zingiz haqingizda o‘ttiz soniya erkin gapira olasiz.",
+   "say": "Сегодня мы научились рассказывать о себе подробно. Помните формулу: ответ, причина, пример и дополнение. Отличная работа!",
+   "say_uz": "Bugun o‘zingiz haqingizda batafsil gapirishni o‘rgandik. Formulani eslang: javob, sabab, misol, qo‘shimcha. Ajoyib ish!",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uyga vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "5 вопросов о себе",
+    "по 30 секунд",
+    "запишите себя",
+    "Keyingi dars: shart gaplar"
+   ],
+   "examples": [],
+   "say_native": "Uyga vazifa. Beshta shaxsiy savolga o‘ttiz soniyadan javob bering: yashash joyi, ish, xarakter, hobbi va rejalar. O‘zingizni telefon yoki diktofonga yozib oling, so‘ng eshiting. Muvaffaqiyat mezoni: har bir javobda sabab, aniq misol va kamida bitta yangi bog‘lovchi ibora bo‘lsin, to‘xtashlar kam. Keyingi darsda shart gaplarni, ya’ni real, gipotetik va aralash turlarni o‘rganamiz. Ko‘rishguncha!",
+   "say": "Ответьте на пять вопросов о себе и запишите свой ответ. До свидания!",
+   "say_uz": "O‘zingiz haqingizdagi beshta savolga javob bering va yozib oling. Ko‘rishguncha!",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "Beshta shaxsiy savolga 30 soniyalik javob yozing. Mezon: har bir gap rus tilida, «я, например, потому что» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “for example”?","options":["например","потому что","поэтому","однако"],"answer":0,"why_uz":"Например — masalan."},
-  {"q":"Which word means “because”?","options":["потому что","например","поэтому","однако"],"answer":0,"why_uz":"Потому что — chunki."},
-  {"q":"How do you say “For example it is good”?","options":["Например, это хорошо.","Например, это хорошо есть.","Например, это хорошо является.","Например, это хорошо был."],"answer":0,"why_uz":"Например, это хорошо — masalan, bu yaxshi."},
-  {"q":"How do you say “Because it is good”?","options":["Потому что это хорошо.","Потому что это хорошо есть.","Потому что это хорошо является.","Потому что это хорошо был."],"answer":0,"why_uz":"Потому что это хорошо — chunki bu yaxshi."},
-  {"q":"Which word means “in general”?","options":["вообще","конечно","кстати","например"],"answer":0,"why_uz":"Вообще — umuman."},
-  {"q":"Which word means “of course”?","options":["конечно","например","потому что","вообще"],"answer":0,"why_uz":"Конечно — albatta."},
-  {"q":"Which word means “by the way”?","options":["кстати","конечно","вообще","например"],"answer":0,"why_uz":"Кстати — aytgancha."},
-  {"q":"How do you ask “What do you read?”?","options":["Что ты читаешь?","Что ты читаешь есть?","Что ты читаешь является?","Что ты читаешь был?"],"answer":0,"why_uz":"Что ты читаешь? — nima o‘qiysan?"},
-  {"q":"Which word means “however”?","options":["однако","например","потому что","поэтому"],"answer":0,"why_uz":"Однако — ammo."},
-  {"q":"Which word means “therefore”?","options":["поэтому","например","потому что","однако"],"answer":0,"why_uz":"Поэтому — shuning uchun."}
+ "homework_uz": "Beshta shaxsiy savolga o‘ttiz soniyadan javob bering: yashash joyi, ish, xarakter, hobbi va rejalar. O‘zingizni yozib oling va eshiting. Har bir javobda sabab, aniq misol va kamida bitta yangi bog‘lovchi ibora bo‘lsin. Keyingi darsda shart gaplarni o‘rganamiz.",
+ "quiz": [
+  {
+   "q": "Kengaytirilgan javob formulasi qaysi?",
+   "options": [
+    "javob, sabab, misol, qo‘shimcha",
+    "savol, javob, savol",
+    "faqat javob",
+    "misol, misol, misol"
+   ],
+   "answer": 0,
+   "why_uz": "Formula: javob, sabab, misol, qo‘shimcha."
+  },
+  {
+   "q": "«Поскольку» qaysi ma’noda?",
+   "options": [
+    "chunki (rasmiyroq)",
+    "lekin",
+    "shuning uchun",
+    "masalan"
+   ],
+   "answer": 0,
+   "why_uz": "«Поскольку» — «потому что» ning rasmiyroq sinonimi."
+  },
+  {
+   "q": "«Ведь» odatda nimani bildiradi?",
+   "options": [
+    "Tinglovchiga ma’lum sababni eslatadi",
+    "Savol beradi",
+    "Inkor qiladi",
+    "Xulosa qiladi"
+   ],
+   "answer": 0,
+   "why_uz": "«Ведь» — axir, ma’lum sababni eslatadi."
+  },
+  {
+   "q": "Mavzuni almashtirishga qaysi ibora mos?",
+   "options": [
+    "Что касается хобби, то ...",
+    "Потому что ...",
+    "Именно поэтому ...",
+    "Например ..."
+   ],
+   "answer": 0,
+   "why_uz": "«Что касается ..., то ...» — ... ga kelsak."
+  },
+  {
+   "q": "Qaysi so‘z «xullas» ma’nosida?",
+   "options": [
+    "в общем",
+    "например",
+    "ведь",
+    "кроме того"
+   ],
+   "answer": 0,
+   "why_uz": "«В общем» — xullas."
+  },
+  {
+   "q": "«Мечтаю» va «планирую» farqi?",
+   "options": [
+    "Mечтаю — uzoq orzu, планирую — aniq reja",
+    "Farqi yo‘q",
+    "Планирую — o‘tgan zamon",
+    "Мечтаю — inkor"
+   ],
+   "answer": 0,
+   "why_uz": "Aniqlik darajasi farq qiladi."
+  },
+  {
+   "q": "«Трудный» ning boyroq sinonimi?",
+   "options": [
+    "непростой",
+    "лёгкий",
+    "маленький",
+    "быстрый"
+   ],
+   "answer": 0,
+   "why_uz": "«Непростой» — oson emas, boyroq so‘z."
+  },
+  {
+   "q": "Javobdagi eng kuchli misol turi qaysi?",
+   "options": [
+    "Umumiy gap",
+    "Hikoyali konkret misol",
+    "Takror",
+    "Savol"
+   ],
+   "answer": 1,
+   "why_uz": "Konkret voqea tinglovchi uchun esda qoladi."
+  },
+  {
+   "q": "To‘ldiruvchi so‘zlardan foydalanishda nimani qilish kerak?",
+   "options": [
+    "Har gapda ishlatish",
+    "Me’yorda, bitta-ikkita",
+    "Umuman ishlatmaslik",
+    "Faqat oxirida"
+   ],
+   "answer": 1,
+   "why_uz": "Me’yorda ishlatilsa, nutq tabiiy bo‘ladi."
+  },
+  {
+   "q": "«Надеюсь, что» dan keyin qaysi shakl keladi?",
+   "options": [
+    "Kelasi zamon",
+    "Infinitiv",
+    "Buyruq",
+    "O‘tgan zamon faqat"
+   ],
+   "answer": 0,
+   "why_uz": "«Надеюсь, что мне удастся ...» — kelasi zamon."
+  }
  ]
 }

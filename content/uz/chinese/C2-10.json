@@ -1,705 +1,294 @@
 {
  "title": "Ilmiy maqola uslubida yozish",
- "goal_uz": "Dars oxirida Ilmiy maqola uslubida yozish ni o‘rgansiz.",
+ "goal_uz": "Dars oxirida siz xitoy tilida ilmiy maqolaning tuzilmasini (annotatsiya, usul, natija, muhokama) bilasiz, ehtiyotkor va aniq ifoda qoliplarini qo‘llaysiz, manbaga havola tilini ishlatasiz, betaraf va obyektiv uslubda yozasiz hamda qisqa annotatsiya tuzasiz. Uy vazifasi: 250 so‘zlik annotatsiya yozish.",
  "vocab": [
-  {
-   "w": "网络 (wǎngluò)",
-   "uz": "tarmoq"
-  },
-  {
-   "w": "联系 (liánxì)",
-   "uz": "aloqa"
-  },
-  {
-   "w": "目标 (mùbiāo)",
-   "uz": "maqsad"
-  },
-  {
-   "w": "学习 (xuéxí)",
-   "uz": "o‘rganish"
-  },
-  {
-   "w": "提高 (tígāo)",
-   "uz": "yaxshilanish"
-  },
-  {
-   "w": "成果 (chéngguǒ)",
-   "uz": "yutuq"
-  },
-  {
-   "w": "职业 (zhíyè)",
-   "uz": "kasb"
-  },
-  {
-   "w": "工作 (gōngzuò)",
-   "uz": "ish"
-  },
-  {
-   "w": "技能 (jìnéng)",
-   "uz": "mahorat"
-  },
-  {
-   "w": "语言 (yǔyán)",
-   "uz": "til"
-  }
+  {"w": "摘要 (zhāiyào)", "uz": "annotatsiya"},
+  {"w": "关键词 (guānjiàncí)", "uz": "kalit so‘zlar"},
+  {"w": "研究方法 (yánjiū fāngfǎ)", "uz": "tadqiqot usuli"},
+  {"w": "样本 (yàngběn)", "uz": "tanlanma, namuna"},
+  {"w": "显著 (xiǎnzhù)", "uz": "sezilarli, statistik ahamiyatli"},
+  {"w": "相关 (xiāngguān)", "uz": "o‘zaro bog‘liq"},
+  {"w": "假设 (jiǎshè)", "uz": "gipoteza, taxmin"},
+  {"w": "文献 (wénxiàn)", "uz": "adabiyotlar, manbalar"},
+  {"w": "局限 (júxiàn)", "uz": "cheklov, kamchilik"},
+  {"w": "表明 (biǎomíng)", "uz": "ko‘rsatmoq, isbotlamoq"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Bugun nima qilamiz?",
+   "title": "Ilm tili: aniqlik va ehtiyotkorlik",
    "emotion": "happy",
-   "board": [
-    "Mavzu",
-    "Tuzilish",
-    "Reja"
-   ],
+   "board": ["学术论文", "摘要 · 方法 · 结果 · 讨论", "谨慎 · 精确 · 客观", "Uy vazifasi: 250 so‘zlik annotatsiya"],
    "examples": [],
-   "say_native": "Salom, o‘quvchilar! Oldingi darsda Siyosat va xalqaro munosabatlar lug‘ati mavzusini o‘rgandik. Bugun Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusini o‘rganamiz. Dars oxirida Write a 250-word abstract. . Har bir gapda bitta fikr bo‘lsin. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "你好！今天我们学习Ilmiy maqola uslubida yozish   ko‘nikma: Writing，而且非常实用。这非常重要。",
-   "say_uz": "Salom! Bugun mavzuni o‘rgamiz. Juda chiroyli.",
+   "say_native": "Assalomu alaykum! Oldingi darsda yangiliklarni betaraf bayon qilishni o‘rgandik. Bugun yozma nutqning yana bir yuqori darajasi — ilmiy maqola. Ilmiy yozuv boshqa janrlardan uch jihati bilan farq qiladi: tuzilmasi qat’iy, ifodasi aniq va ehtiyotkor, ohangi obyektiv. Siz xitoy tilida maqola o‘qiyotgan bo‘lsangiz yoki universitet uchun yozayotgan bo‘lsangiz, bu bilim shart. Bugun to‘rt narsani ko‘ramiz: maqola tuzilmasi, aniq va ehtiyotkor ifoda, manbaga havola tili va obyektivlik. Oxirida qisqa annotatsiya yozamiz.",
+   "say": "大家好。学术论文和日常文章不同，它要求结构清楚、表达精确、态度客观。今天我们来学习怎样用汉语写学术论文，特别是写摘要。",
+   "say_uz": "Hammaga salom. Ilmiy maqola kundalik matndan farq qiladi: tuzilmasi aniq, ifodasi to‘g‘ri va munosabati obyektiv bo‘ladi. Bugun xitoy tilida ilmiy maqola, ayniqsa annotatsiya yozishni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ilmiy lug‘ati",
+   "title": "Maqola tuzilmasi",
    "emotion": "neutral",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
-   "examples": [],
-   "say_native": "Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Ilmiy lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Lug‘at misollar",
-   "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
+   "board": ["题目 · 摘要 · 关键词", "引言 · 文献综述", "研究方法 · 结果 · 讨论", "结论 · 参考文献"],
    "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
+    {"t": "本文首先介绍研究背景，然后说明研究方法，最后讨论研究结果。", "uz": "Maqolada avval tadqiqot fon tushuntiriladi, so‘ng usul bayon qilinadi, oxirida natijalar muhokama qilinadi."},
+    {"t": "论文的最后一部分列出了全部参考文献。", "uz": "Maqolaning oxirgi qismida barcha foydalanilgan adabiyotlar keltiriladi."}
    ],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Lug‘atni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
+   "say_native": "Ilmiy maqolaning tuzilmasi aniq. Boshida 题目 — sarlavha, 摘要 — annotatsiya va 关键词 — kalit so‘zlar. Keyin 引言 — kirish, ko‘pincha 文献综述, ya’ni oldingi tadqiqotlar sharhi bilan. Asosiy qismda 研究方法 — usul, 结果 — natija va 讨论 — muhokama. Oxirida 结论 — xulosa va 参考文献 — manbalar ro‘yxati. Bu ingliz tilidagi IMRaD tuzilmasiga yaqin. Xitoy tilida maqola ko‘pincha 本文 — «ushbu maqola» deb boshlanadi va tuzilmani o‘zi e’lon qiladi: 本文首先……，然后……，最后……. Bu o‘quvchiga yo‘l ko‘rsatadi.",
+   "say": "本文首先介绍研究背景，然后说明研究方法，最后讨论研究结果。论文的最后一部分列出了全部参考文献。",
+   "say_uz": "Maqolada avval tadqiqot fon tushuntiriladi, so‘ng usul bayon qilinadi, oxirida natijalar muhokama qilinadi. Maqolaning oxirgi qismida barcha foydalanilgan adabiyotlar keltiriladi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Asosiy tushuncha",
-   "emotion": "neutral",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Ilmiy maqola uslubida yozish   ko‘nikma: Writing ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Tushuncha misollar",
-   "emotion": "neutral",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "examples": [
-    {
-     "t": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-     "uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli."
-    }
-   ],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tushunchani ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) yaxshilanish",
-    "2) yutuq",
-    "3) kasb",
-    "4) ish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt tushunchani ayting. Har bir gapda shaklni ishlating. Javobni to‘liq gapda ayting. Bu qism — tushunchani aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Tushunchani ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: yaxshilanish. yutuq. kasb. ish. Tushunchalar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ikkinchi tushuncha",
+   "title": "Annotatsiya: to‘rt element",
    "emotion": "thinking",
-   "board": [
-    "tushuncha",
-    "farq",
-    "misol"
-   ],
-   "examples": [],
-   "say_native": "Ilmiy maqola uslubida yozish   ko‘nikma: Writing ning ikkinchi tushunchasini bilib oling. Farqini ajratib oling. Har bir shaklni alohida yozing. Bu qism — ikkinchi tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Ikkinchi tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Farq misollar",
-   "emotion": "neutral",
-   "board": [
-    "ish",
-    "mahorat",
-    "til"
-   ],
+   "board": ["目的 — nima uchun", "方法 — qanday", "结果 — nima topildi", "结论 — nima degani"],
    "examples": [
-    {
-     "t": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-     "uz": "ish juda chiroyli. mahorat tez. til chiroyli."
-    }
+    {"t": "本研究旨在探讨睡眠时间对大学生记忆表现的影响。", "uz": "Bu tadqiqot uyqu davomiyligining talabalar xotirasiga ta’sirini o‘rganishni maqsad qilgan."},
+    {"t": "结果表明，睡眠充足的学生测试成绩明显更高。", "uz": "Natijalar shuni ko‘rsatdiki, uyqusi yetarli talabalarning test natijalari ancha yuqori."}
    ],
-   "say_native": "Farq misollarini o‘qib, har birini takrorlang. Farqlarni ajrating. Bu qism — farq misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Farq misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
+   "say_native": "Annotatsiya, ya’ni 摘要 — butun maqolaning kichik nusxasi. Unda to‘rt element bo‘ladi. Birinchi, 目的: tadqiqot nima uchun o‘tkazilgan, odatda 本研究旨在…… — «bu tadqiqot … ni maqsad qilgan». Ikkinchi, 方法: qanday qilib, ya’ni namuna va usul. Uchinchi, 结果: nima topildi, ko‘pincha 结果表明…… bilan boshlanadi. To‘rtinchi, 结论: bu nimani anglatadi va nimaga ahamiyatli. Annotatsiya odatda 200–300 belgidan iborat bo‘ladi va undagi har bir gap bitta elementga xizmat qiladi. Ortiqcha fon yoki shaxsiy fikr yo‘q.",
+   "say": "本研究旨在探讨睡眠时间对大学生记忆表现的影响。结果表明，睡眠充足的学生测试成绩明显更高。",
+   "say_uz": "Bu tadqiqot uyqu davomiyligining talabalar xotirasiga ta’sirini o‘rganishni maqsad qilgan. Natijalar shuni ko‘rsatdiki, uyqusi yetarli talabalarning test natijalari ancha yuqori.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Farqni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "To‘rt farqni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — farqni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Farqni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Farqlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Lug‘atlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: lug‘at\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Farqlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: farq\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
-   ],
-   "examples": [],
-   "say_native": "Matn savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Matn matni",
+   "title": "Maqsad va usul qoliplari",
    "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
+   "board": ["旨在 · 探讨 · 考察 · 分析", "采用 · 通过 · 基于", "选取……名……作为样本", "随机分为……组"],
    "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
+    {"t": "本研究选取一百二十名大学生作为样本，随机分为实验组和对照组，每组六十人。", "uz": "Tadqiqotda 120 nafar talaba namuna sifatida tanlandi va tasodifiy tarzda tajriba va nazorat guruhlariga bo‘lindi, har bir guruhda 60 nafardan."},
+    {"t": "研究采用问卷调查和测试相结合的方法。", "uz": "Tadqiqotda so‘rovnoma va test usullari birga qo‘llandi."}
    ],
-   "say_native": "Matn matnini o‘qib, har birini takrorlang. Qismlarni ajrating. Bu qism — matn matniga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Matn matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Maqsadni bildiruvchi fe’llar: 旨在, 探讨, 考察, 分析. Ularning ma’nosi yaqin: 探讨 — muhokama qilib o‘rganmoq, 考察 — kuzatib tekshirmoq, 分析 — tahlil qilmoq. Usul uchun: 采用 — qo‘llamoq, 通过 — … orqali, 基于 — … ga tayanib. Namuna haqida aniq yozish shart: 选取一百二十名大学生作为样本. Raqam aniq, hajm aniq. 随机分为实验组和对照组 — tasodifiy ravishda tajriba va nazorat guruhlariga bo‘lindi. Shuni unutmang: usul bo‘limi shunday yozilishi kerakki, boshqa tadqiqotchi uni takrorlay olsin. Shu sababli har bir qadam aniq va ketma-ket yoziladi.",
+   "say": "本研究选取一百二十名大学生作为样本，随机分为实验组和对照组，每组六十人。研究采用问卷调查和测试相结合的方法。",
+   "say_uz": "Tadqiqotda 120 nafar talaba namuna sifatida tanlandi va tasodifiy tarzda tajriba va nazorat guruhlariga bo‘lindi, har bir guruhda 60 nafardan. Tadqiqotda so‘rovnoma va test usullari birga qo‘llandi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
-   ],
+   "title": "Usul bandini yozing",
+   "emotion": "thinking",
+   "board": ["Ma’lumot: 80 nafar o‘qituvchi, so‘rovnoma, 2 hafta", "1 本研究……", "2 采用……", "3 为期……"],
    "examples": [],
-   "say_native": "To‘rt matn savoliga javob bering. Har bir javobni to‘liq gapda ayting. Bu qism — matn savollariga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
+   "say_native": "Usul qismini yozish mashqi. Ma’lumot: 80 nafar o‘qituvchi, so‘rovnoma usuli, ikki hafta davomida. Shu ma’lumotdan foydalanib, ilmiy uslubdagi bitta-ikkita gap tuzing. Qoliplar: 本研究选取……, 采用……, 为期…… — «… muddat davomida». Birinchi shaxsdan qoching: «men so‘radim» emas, «so‘rovnoma o‘tkazildi». Ovoz chiqarib ayting. Keyingi sahnada namunani eshitasiz.",
+   "say": "请根据信息写出方法部分：八十名教师，问卷调查，为期两周。请使用选取、采用、为期这些词。",
+   "say_uz": "Ma’lumotga ko‘ra usul qismini yozing: 80 nafar o‘qituvchi, so‘rovnoma, ikki hafta davomida. Tanlangan, qo‘llangan, muddati so‘zlaridan foydalaning.",
+   "practice_seconds": 120
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Namuna: usul qismi",
    "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
+   "board": ["选取八十名教师作为研究对象", "采用问卷调查法", "为期两周", "被动 · 无“我”"],
+   "examples": [
+    {"t": "本研究选取八十名教师作为研究对象，采用问卷调查法收集数据，调查为期两周。", "uz": "Tadqiqotda 80 nafar o‘qituvchi o‘rganish ob’ekti sifatida tanlandi, ma’lumot so‘rovnoma usuli bilan yig‘ildi, so‘rov ikki hafta davom etdi."}
    ],
+   "say_native": "Namuna: «Tadqiqotda 80 nafar o‘qituvchi o‘rganish ob’ekti sifatida tanlandi, ma’lumot so‘rovnoma usuli bilan yig‘ildi, so‘rov ikki hafta davom etdi». Bu yerda 研究对象 — «o‘rganish ob’ekti», 问卷调查法 — «so‘rovnoma usuli», 收集数据 — «ma’lumot yig‘ish». E’tibor bering, «men» yoki «biz» yo‘q: gap shaxsni emas, jarayonni ko‘rsatadi. Bu obyektivlik belgisi. Agar sizning gapingizda «men so‘radim» bo‘lsa, uni 本研究采用…… shakliga o‘zgartiring. Kiritilgan raqam va muddat aniq bo‘lsa, usul qismi to‘liq hisoblanadi.",
+   "say": "本研究选取八十名教师作为研究对象，采用问卷调查法收集数据，调查为期两周。",
+   "say_uz": "Tadqiqotda 80 nafar o‘qituvchi o‘rganish ob’ekti sifatida tanlandi, ma’lumot so‘rovnoma usuli bilan yig‘ildi, so‘rov ikki hafta davom etdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Natijalarni bayon qilish",
+   "emotion": "neutral",
+   "board": ["结果表明 · 数据显示", "显著高于 · 明显下降", "平均 · 约 · 占", "p < 0.05"],
+   "examples": [
+    {"t": "数据显示，实验组的平均得分为八十二分，显著高于对照组的七十四分。", "uz": "Ma’lumotlarga ko‘ra, tajriba guruhining o‘rtacha bahosi 82 ball bo‘lib, nazorat guruhining 74 balldan sezilarli yuqori."},
+    {"t": "两组之间的差异具有统计学意义（p < 0.05）。", "uz": "Ikki guruh o‘rtasidagi farq statistik ahamiyatga ega (p < 0,05)."}
+   ],
+   "say_native": "Natijalar qismida faqat faktlar bayon qilinadi, izoh keyingi bo‘limga qoldiriladi. Boshlash uchun: 结果表明 yoki 数据显示 — «natijalar ko‘rsatdiki». Taqqoslash: 显著高于 — «sezilarli yuqori», 明显下降 — «ravshan pasaydi». Raqam bilan: 平均 — o‘rtacha, 约 — taxminan, 占 — «ulushini tashkil etdi». Statistik ahamiyat uchun 具有统计学意义 deyiladi, odatda p < 0.05 bilan birga. 显著 so‘zini faqat statistik ahamiyatli farqqa ishlating, oddiy «katta farq» uchun 明显 yoki 较大 deng. Bu farq ilmiy aniqlikning belgisidir.",
+   "say": "数据显示，实验组的平均得分为八十二分，显著高于对照组的七十四分。两组之间的差异具有统计学意义。",
+   "say_uz": "Ma’lumotlarga ko‘ra, tajriba guruhining o‘rtacha bahosi 82 ball bo‘lib, nazorat guruhining 74 balldan sezilarli yuqori. Ikki guruh o‘rtasidagi farq statistik ahamiyatga ega.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ehtiyotkor ifoda: 谨慎措辞",
+   "emotion": "thinking",
+   "board": ["可能 · 似乎 · 倾向于", "在一定程度上", "提示 · 暗示 · 支持", "有待进一步研究"],
+   "examples": [
+    {"t": "这一结果提示，睡眠可能在一定程度上影响记忆的巩固。", "uz": "Bu natija uyqu xotiraning mustahkamlanishiga ma’lum darajada ta’sir qilishi mumkinligiga ishora qiladi."},
+    {"t": "由于样本较小，该结论还有待进一步验证。", "uz": "Namuna kichik bo‘lgani uchun bu xulosani yana tekshirish kerak."}
+   ],
+   "say_native": "Ilmiy yozuvning eng nozik qismi — ehtiyotkor ifoda, ya’ni hedging. Tadqiqot hech qachon mutlaq haqiqatni isbotlamaydi, shuning uchun 可能 — «mumkin», 似乎 — «go‘yo», 倾向于 — «moyil», 在一定程度上 — «ma’lum darajada» kabi so‘zlar ishlatiladi. Fe’llarning ham darajasi bor: 证明 — isbotladi, 表明 — ko‘rsatdi, 提示 — ishora qildi, 暗示 — ishora qildi, va 支持 — qo‘llab-quvvatladi. Kuchsiz dalil bo‘lsa, 提示 yoki 支持 tanlang. Cheklov haqida 由于样本较小, 有待进一步验证 deb yozish tadqiqotchining halolligini ko‘rsatadi.",
+   "say": "这一结果提示，睡眠可能在一定程度上影响记忆的巩固。由于样本较小，该结论还有待进一步验证。",
+   "say_uz": "Bu natija uyqu xotiraning mustahkamlanishiga ma’lum darajada ta’sir qilishi mumkinligiga ishora qiladi. Namuna kichik bo‘lgani uchun bu xulosani yana tekshirish kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ehtiyotkorroq yozing",
+   "emotion": "thinking",
+   "board": ["1 睡眠一定会提高成绩。", "2 这证明手机是失眠的原因。", "3 所有学生都受益。", "→ 更谨慎的说法？"],
    "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Matn savollariga javob berildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
+   "say_native": "Uchta haddan tashqari qat’iy gapni ilmiy ehtiyotkor uslubda qayta yozing. Birinchi: uyqu albatta bahoni oshiradi. Ikkinchi: bu telefonning uyqusizlik sababi ekanini isbotlaydi. Uchinchi: barcha talabalar foyda ko‘radi. Har bir gapda mutlaq so‘zni toping, masalan, 一定, 证明, 所有, va uni yumshoq so‘z bilan almashtiring. Shuningdek, 可能, 表明, 大多数 kabi so‘zlarni ishlating. Ovoz chiqarib ayting. Keyingi sahnada namuna bor.",
+   "say": "请把下面的句子改得更谨慎：第一，睡眠一定会提高成绩。第二，这证明手机是失眠的原因。第三，所有学生都受益。",
+   "say_uz": "Gaplarni ehtiyotkorroq qiling: birinchi, uyqu albatta bahoni oshiradi. Ikkinchi, bu telefon uyqusizlikka sabab ekanini isbotlaydi. Uchinchi, barcha talabalar foyda ko‘radi.",
+   "practice_seconds": 130
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: ehtiyotkor variantlar",
+   "emotion": "proud",
+   "board": ["1 睡眠可能有助于提高成绩。", "2 这表明手机使用可能与失眠有关。", "3 大多数学生从中受益。"],
+   "examples": [
+    {"t": "这表明手机使用时间可能与失眠存在一定的关联。", "uz": "Bu telefondan foydalanish vaqti uyqusizlik bilan ma’lum bog‘liqlikka ega bo‘lishi mumkinligini ko‘rsatadi."}
+   ],
+   "say_native": "Namunalar: birinchi gap — 睡眠可能有助于提高成绩, ya’ni «uyqu bahoni oshirishga yordam berishi mumkin». 一定 ning o‘rniga 可能 va 有助于 ishlatildi. Ikkinchi — 这表明手机使用可能与失眠有关: 证明 ning o‘rniga 表明, «sabab» so‘zi esa «bog‘liqlik» bilan almashtirildi. Chunki bitta tadqiqot sababni emas, faqat aloqani ko‘rsatishi mumkin. Uchinchi — 大多数学生从中受益: 所有 o‘rniga 大多数. Bunday o‘zgartirishlar fikrni zaiflashtirmaydi, aksincha, uni dalilga mos qiladi. Qat’iy, lekin asossiz gapdan ehtiyotkor va isbotli gap yaxshi.",
+   "say": "睡眠可能有助于提高成绩。这表明手机使用时间可能与失眠存在一定的关联。大多数学生从中受益。",
+   "say_uz": "Uyqu bahoni oshirishga yordam berishi mumkin. Bu telefondan foydalanish vaqti uyqusizlik bilan ma’lum bog‘liqlikka ega bo‘lishi mumkinligini ko‘rsatadi. Ko‘pchilik talaba bundan foyda ko‘radi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Bog‘liqlik va sabab",
+   "emotion": "stern",
+   "board": ["相关 ≠ 因果", "与……相关 · 呈正相关", "导致 · 引起 — kuchli", "不能由此断定……"],
+   "examples": [
+    {"t": "数据显示，睡眠时间与成绩呈正相关，但不能由此断定睡眠是成绩提高的唯一原因。", "uz": "Ma’lumotlarga ko‘ra, uyqu davomiyligi va baho o‘rtasida musbat bog‘liqlik bor, ammo bundan uyqu baho oshishining yagona sababi deb xulosa qilib bo‘lmaydi."}
+   ],
+   "say_native": "Ilmiy yozuvdagi eng muhim farq — bog‘liqlik va sabab. 相关 — ikki narsa birga o‘zgaradi, 因果 — bittasi ikkinchisini keltirib chiqaradi. 呈正相关 — musbat bog‘liqlik: biri oshsa, ikkinchisi ham oshadi. Biroq bu uyqu bahoni oshirdi degani emas, ehtimol uchinchi omil, masalan, intizom, ikkalasiga ham ta’sir qilgandir. Shuning uchun 导致 yoki 引起 kabi sabab bildiruvchi fe’llarni faqat eksperiment dalili bo‘lganda ishlating. Aks holda 与……有关 yoki 呈相关 deng. Qoida: 不能由此断定…… — «bundan … deb xulosa qilib bo‘lmaydi».",
+   "say": "数据显示，睡眠时间与成绩呈正相关，但不能由此断定睡眠是成绩提高的唯一原因。",
+   "say_uz": "Ma’lumotlarga ko‘ra, uyqu davomiyligi va baho o‘rtasida musbat bog‘liqlik bor, ammo bundan uyqu baho oshishining yagona sababi deb xulosa qilib bo‘lmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Manbaga havola tili",
+   "emotion": "neutral",
+   "board": ["研究表明 · 指出 · 认为", "与……一致 · 与……不同", "文献综述 · 前人研究", "（张，2019）"],
+   "examples": [
+    {"t": "张明（2019）指出，充足的睡眠有助于记忆巩固。", "uz": "Chjan Min (2019) yetarli uyqu xotira mustahkamlanishiga yordam berishini ta’kidlaydi."},
+    {"t": "本研究的结果与前人的发现基本一致，但在样本规模上有所不同。", "uz": "Ushbu tadqiqot natijalari avvalgi topilmalarga asosan mos, ammo namuna hajmi bo‘yicha farq qiladi."}
+   ],
+   "say_native": "Ilmiy maqolada boshqa tadqiqotchilarga havola qilinadi. Qolip: muallif nomi, yil va fe’l: 张明（2019）指出……. Fe’llar: 指出 — ta’kidlaydi, 认为 — hisoblaydi, 发现 — topdi, 提出 — taklif qildi. Matn ichida ham ishlatiladi: 研究表明 — «tadqiqotlar ko‘rsatadi», bunda ko‘pincha yil qavs ichida beriladi. Natijani avvalgi ishlar bilan solishtirganda: 与……一致 — «… ga mos», 与……不同 — «… dan farq qiladi». Havola — g‘oyaning kimga tegishli ekanini ko‘rsatadi va o‘zgalar fikrini o‘zlashtirib olmaslikni anglatadi. Xitoy ilmiy yozuvida bu juda qat’iy talab.",
+   "say": "张明指出，充足的睡眠有助于记忆巩固。本研究的结果与前人的发现基本一致，但在样本规模上有所不同。",
+   "say_uz": "Chjan Min yetarli uyqu xotira mustahkamlanishiga yordam berishini ta’kidlaydi. Ushbu tadqiqot natijalari avvalgi topilmalarga asosan mos, ammo namuna hajmi bo‘yicha farq qiladi.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Keng tarqalgan xatolar",
+   "title": "Ilmiy yozuvdagi xatolar",
    "emotion": "stern",
-   "board": [
-    "✗ tarmoq aloqa emas",
-    "✗ maqsad o‘rganish emas",
-    "✗ Ilmiy"
+   "board": ["✗ 我觉得 · 我们发现太棒了", "✓ 本研究发现……", "✗ 非常非常显著", "✓ 差异具有统计学意义", "✗ 研究证明了一切"],
+   "examples": [
+    {"t": "本研究发现，使用该方法的学生成绩有所提高。", "uz": "Tadqiqot shuni aniqladiki, bu usuldan foydalangan talabalarning natijalari ma’lum darajada yaxshilandi."}
    ],
-   "examples": [],
-   "say_native": "Ilmiy maqola uslubida yozish   ko‘nikma: Writing so‘zlarida uchraydigan uchta xato: ma’no adashtirish. Har bir xatoni tuzating. Bu qism — xatolarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Uchta tipik xato. Birinchi: shaxsiy va hissiy ifoda: 我觉得, 太棒了. Ilmiy uslubda 本研究发现 ishlatiladi. Ikkinchi: noaniq kuchaytirish: 非常非常显著. 显著 so‘zining o‘zi statistik ma’noga ega, uni kuchaytirish mantiqsiz. Uchinchi: qat’iy da’vo: 研究证明了一切. Hech bir tadqiqot hamma narsani isbotlamaydi. Yana ikkita xato: so‘zlashuv so‘zlari, masalan, 挺, 特别, 搞定, va noaniq so‘zlar: 很多人, 最近 o‘rniga raqam va aniq vaqt yozing, masalan, 百分之六十, 二〇二三年. Ilmiy matn aniqlik bilan yashaydi.",
+   "say": "本研究发现，使用该方法的学生成绩有所提高。与此相比，对照组的成绩没有明显变化。",
+   "say_uz": "Tadqiqot shuni aniqladiki, bu usuldan foydalangan talabalarning natijalari ma’lum darajada yaxshilandi. Taqqoslaganda, nazorat guruhining natijalari ravshan o‘zgarmadi.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Xatolarni tuzating",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq aloqa emas",
-    "2) maqsad o‘rganish emas",
-    "3) Ilmiy",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "To‘rt xatoni tuzating. Har biriga to‘g‘ri shakl yozing. Javobni to‘liq gapda ayting. Bu qism — xatolarni tuzatishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
-   "practice_seconds": 12
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "tarmoq"
+   "title": "Muhokama va xulosa",
+   "emotion": "encouraging",
+   "board": ["讨论：解释 + 比较 + 局限", "本研究的局限在于……", "未来研究可以……", "结论：简明、有依据"],
+   "examples": [
+    {"t": "本研究的局限在于样本仅来自一所大学，未来研究可以扩大样本范围。", "uz": "Ushbu tadqiqotning cheklovi shundaki, namuna faqat bitta universitetdan olingan, kelgusi tadqiqotlar namuna doirasini kengaytirishi mumkin."}
    ],
+   "say_native": "Muhokama qismida natijalar izohlanadi, avvalgi tadqiqotlar bilan solishtiriladi va cheklovlar aytiladi. Xitoy ilmiy yozuvida cheklovni 本研究的局限在于…… qolipi bilan ochiq yozish an’ana. Keyin 未来研究可以…… — «kelgusi tadqiqotlar … qilishi mumkin». Bu zaiflik emas, balki ilmiy halollik belgisi. Xulosa esa qisqa va asosli: natijadan oshib ketmasin. Agar siz natija bo‘yicha o‘z bilimingizdan yangi da’vo qo‘shsangiz, bu xulosa emas, taxmin bo‘ladi. Xulosaning har bir gapi oldingi bo‘limlardagi dalilga tayanishi kerak.",
+   "say": "本研究的局限在于样本仅来自一所大学，未来研究可以扩大样本范围。",
+   "say_uz": "Ushbu tadqiqotning cheklovi shundaki, namuna faqat bitta universitetdan olingan, kelgusi tadqiqotlar namuna doirasini kengaytirishi mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "O‘qish: namunaviy annotatsiya",
+   "emotion": "neutral",
+   "board": ["目的 · 方法", "结果 · 结论", "谨慎措辞", "关键词"],
    "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. tarmoq. Xatolar tuzatildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
+   "say_native": "Endi namunaviy annotatsiyani tinglang. Unda to‘rt element bor: maqsad, usul, natija va xulosa. Tinglash vaqtida ularni ajratib oling, shuningdek, ehtiyotkor so‘zlarni va statistik atamani toping. Gaplar shaxssiz, raqamlar aniq. Keyin savollarga javob berasiz, so‘ng o‘zingiz annotatsiya yozasiz.",
+   "say": "本研究旨在探讨睡眠时间对大学生记忆表现的影响。研究选取一百二十名大学生作为样本，随机分为实验组和对照组，采用记忆测试收集数据。结果表明，实验组的平均得分显著高于对照组。这一结果提示，充足的睡眠可能有助于记忆巩固，但由于样本来源单一，结论还有待进一步验证。关键词：睡眠；记忆；大学生。",
+   "say_uz": "Tadqiqot uyqu davomiyligining talabalar xotirasiga ta’sirini o‘rganishni maqsad qilgan. 120 nafar talaba tanlanib, tasodifiy tajriba va nazorat guruhlariga bo‘lindi, ma’lumot xotira testi bilan yig‘ildi. Natijalar tajriba guruhining o‘rtacha bahosi nazorat guruhidan sezilarli yuqori ekanini ko‘rsatdi. Bu yetarli uyqu xotira mustahkamlanishiga yordam berishi mumkinligini bildiradi, ammo namuna manbai yagona bo‘lgani uchun xulosani yana tekshirish kerak. Kalit so‘zlar: uyqu, xotira, talabalar.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Yakuniy vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "takrorlash",
-    "yakun"
-   ],
+   "title": "Annotatsiya bo‘yicha savollar",
+   "emotion": "thinking",
+   "board": ["1 研究的目的是什么？", "2 样本是什么？", "3 结果是什么？", "4 哪些词体现谨慎？"],
    "examples": [],
-   "say_native": "Yakuniy vazifani bajaring: Write a 250-word abstract. . Har bir gapda bitta fikr bo‘lsin. Bu qism — yakuniy vazifaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Yakuniy vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。练习很重要。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez. Amaliyot chiroyli.",
-   "practice_seconds": 14
+   "say_native": "To‘rtta savolga javob bering. Birinchi: tadqiqotning maqsadi nima? Ikkinchi: namuna qanday va u qanday bo‘lingan? Uchinchi: asosiy natija nima? To‘rtinchi: qaysi so‘zlar ehtiyotkorlikni bildiradi va nima uchun bu xulosa hali yakuniy emas? To‘rtinchi savolda kamida ikkita so‘zni ayting. Keyingi sahnada javoblarni eshitasiz.",
+   "say": "请回答：第一，研究的目的是什么？第二，样本是什么，怎样分组？第三，主要结果是什么？第四，哪些词体现了谨慎的态度？",
+   "say_uz": "Javob bering: birinchi, tadqiqot maqsadi nima? Ikkinchi, namuna nima va qanday bo‘lingan? Uchinchi, asosiy natija nima? To‘rtinchi, qaysi so‘zlar ehtiyotkorlikni bildiradi?",
+   "practice_seconds": 130
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: annotatsiya tahlili",
    "emotion": "proud",
-   "board": [
-    "Yakun",
-    "Takrorlash"
+   "board": ["1 睡眠对记忆的影响", "2 120 名大学生，两组", "3 实验组得分显著更高", "4 可能 · 有待进一步验证"],
+   "examples": [
+    {"t": "这篇摘要用“可能”和“有待进一步验证”表达了谨慎的态度。", "uz": "Bu annotatsiyada «mumkin» va «yana tekshirish kerak» so‘zlari ehtiyotkorlikni ifodalagan."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: Yakun. Takrorlash. Vazifa tayyor bo‘ldi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez.",
+   "say_native": "Javoblar. Birinchi: maqsad — uyquning xotiraga ta’sirini o‘rganish. Ikkinchi: namuna — 120 nafar talaba, ular ikki guruhga, tajriba va nazorat guruhlariga bo‘lingan. Uchinchi: tajriba guruhining o‘rtacha bahosi sezilarli yuqori. To‘rtinchi: 可能, 提示 va 有待进一步验证 ehtiyotkorlikni bildiradi, chunki namuna manbai yagona va bitta tadqiqot hamma narsani isbotlamaydi. Ko‘rdingizmi, har bir gap bitta vazifani bajaradi: maqsad, usul, natija, xulosa. Siz ham o‘z annotatsiyangizni yozganingizdan keyin shu to‘rt savol bilan tekshirib chiqing.",
+   "say": "这篇摘要用可能和有待进一步验证表达了谨慎的态度。每一句话都有明确的作用：目的、方法、结果和结论。",
+   "say_uz": "Bu annotatsiyada «mumkin» va «yana tekshirish kerak» so‘zlari ehtiyotkorlikni ifodalagan. Har bir gap aniq vazifani bajaradi: maqsad, usul, natija va xulosa.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
+   "title": "Ijodiy topshiriq: annotatsiya yozing",
    "emotion": "encouraging",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
+   "board": ["Mavzu: 手机使用与学生专注力", "100 名学生 · 问卷 · 两周", "4 ta element", "谨慎措辞"],
    "examples": [],
-   "say_native": "Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Ilmiy lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: lug‘at — C2-10 ga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Yakuniy topshiriq: qisqa annotatsiya yozing yoki ayting. Shartli mavzu: telefondan foydalanish va talabalarning diqqati. Shartli ma’lumot: 100 nafar talaba, so‘rovnoma, ikki hafta. Natijani o‘zingiz o‘ylab toping, masalan, telefon vaqti ko‘p bo‘lgan guruhning diqqat balli pastroq. Annotatsiyada maqsad, usul, natija va ehtiyotkor xulosa bo‘lsin. Kamida bitta 表明, bitta 可能 va bitta 有待 ishlating. «Men» deb yozmang. Keyingi sahnada namuna bor.",
+   "say": "请写一段摘要，题目是手机使用与学生专注力。条件是：一百名学生，问卷调查，为期两周。要有目的、方法、结果和谨慎的结论。",
+   "say_uz": "Annotatsiya yozing: mavzu telefondan foydalanish va talabalar diqqati; shart: 100 talaba, so‘rovnoma, ikki hafta. Maqsad, usul, natija va ehtiyotkor xulosa bo‘lsin.",
+   "practice_seconds": 180
   },
   {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "examples": [],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: farq — C2-10 ga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: matn savollari — C2-10 ga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: takrorlash — C2-10 ga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: savollar 2",
-   "emotion": "encouraging",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Ilmiy maqola uslubida yozish   ko‘nikma: Writing ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: savollar 2 — C2-10 ga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: yakuniy",
-   "emotion": "encouraging",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "examples": [],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: yakuniy — C2-10 ga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa",
+   "kind": "explain",
+   "title": "Namuna annotatsiya",
    "emotion": "proud",
-   "board": [
-    "Xulosa",
-    "takrorlash"
+   "board": ["旨在探讨……", "选取……，采用……", "结果表明……", "可能……，有待……"],
+   "examples": [
+    {"t": "本研究旨在探讨手机使用时间对学生专注力的影响。研究选取一百名学生，采用问卷调查法，为期两周。结果表明，手机使用时间较长的学生，专注力得分较低。这提示手机使用可能与专注力下降有关，但因果关系有待进一步研究。", "uz": "Tadqiqot telefondan foydalanish davomiyligining talabalar diqqatiga ta’sirini o‘rganishni maqsad qilgan. 100 nafar talaba tanlanib, so‘rovnoma usuli bilan ikki hafta davomida o‘rganildi. Natijalar telefondan ko‘proq foydalangan talabalarning diqqat bali pastroq ekanini ko‘rsatdi. Bu telefon bilan diqqatning pasayishi o‘rtasida bog‘liqlik bo‘lishi mumkinligini bildiradi, ammo sabab-oqibat aloqasini yana o‘rganish kerak."}
    ],
-   "examples": [],
-   "say_native": "Xulosa. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusini o‘rgandik. Har bir mavzuni alohida yodlab olish kerak. Keyingi darsda C2-11 Band 9 esse: to‘liq tahlil ni o‘rganamiz. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是总结，而且非常实用。复习很快。",
-   "say_uz": "Xulosa juda chiroyli. Takrorlash tez.",
+   "say_native": "Namuna annotatsiyada to‘rt element ketma-ket keladi. Birinchi gap maqsadni beradi: 旨在探讨. Ikkinchi gap usulni beradi: 选取一百名学生，采用问卷调查法，为期两周. Uchinchi gap natijani aytadi: 结果表明. To‘rtinchi gap ehtiyotkor xulosa: 提示……可能与……有关，因果关系有待进一步研究. Ko‘ryapsizmi, bog‘liqlik bilan sabab farqlangan. Yana e’tibor bering: «men» yo‘q, hissiy so‘z yo‘q, raqamlar aniq. Agar sizning variantingizda ham shu to‘rt belgi bo‘lsa, topshiriq a’lo bajarilgan.",
+   "say": "本研究旨在探讨手机使用时间对学生专注力的影响。研究选取一百名学生，采用问卷调查法，为期两周。结果表明，手机使用时间较长的学生，专注力得分较低。这提示手机使用可能与专注力下降有关，但因果关系有待进一步研究。",
+   "say_uz": "Tadqiqot telefondan foydalanish davomiyligining talabalar diqqatiga ta’sirini o‘rganishni maqsad qilgan. 100 nafar talaba tanlanib, so‘rovnoma usuli bilan ikki hafta davomida o‘rganildi. Natijalar telefondan ko‘proq foydalangan talabalarning diqqat bali pastroq ekanini ko‘rsatdi. Bu telefon bilan diqqatning pasayishi o‘rtasida bog‘liqlik bo‘lishi mumkinligini bildiradi, ammo sabab-oqibat aloqasini yana o‘rganish kerak.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "keyingi dars"
-   ],
+   "title": "Dars xulosasi",
+   "emotion": "proud",
+   "board": ["摘要：目的 · 方法 · 结果 · 结论", "可能 · 提示 · 有待验证", "相关 ≠ 因果", "指出 · 与……一致 · 客观"],
    "examples": [],
-   "say_native": "Uyga vazifa. Write a 250-word abstract. . Har bir gapda bitta fikr bo‘lsin. Keyingi darsda C2-11 Band 9 esse: to‘liq tahlil ni o‘rganamiz. C2-10 Ilmiy maqola uslubida yozish   ko‘nikma: Writing darsiga oid noyob sharh: bu iborani C2-10 suhbatida aniq qo‘llang. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "再见！祝你一切顺利！这非常重要。",
-   "say_uz": "Ko‘rishguncha! Xayr! Juda chiroyli.",
+   "say_native": "Bugungi darsning xulosasi. Birinchi: ilmiy maqola tuzilmasi — annotatsiya, kirish, usul, natija, muhokama, xulosa, manbalar. Ikkinchi: annotatsiyaning to‘rt elementi — maqsad, usul, natija va xulosa. Uchinchi: ehtiyotkor ifoda — 可能, 提示, 在一定程度上, 有待验证, va mutlaq so‘zlardan qochish. To‘rtinchi: bog‘liqlik va sabab farqi, 显著 so‘zining statistik ma’nosi. Beshinchi: manbaga havola va shaxssiz, aniq, obyektiv uslub. Ilmiy yozuvda ishonchlilik baland ovozdan emas, aniqlik va halollikdan keladi.",
+   "say": "今天我们学了学术论文的结构、摘要的四个要素、谨慎而精确的表达、引用文献的方法，以及保持客观的写作风格。",
+   "say_uz": "Bugun ilmiy maqola tuzilmasini, annotatsiyaning to‘rt elementini, ehtiyotkor va aniq ifodani, manbaga havola usulini va obyektiv yozuv uslubini o‘rgandik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "encouraging",
+   "board": ["Uy vazifasi", "250 so‘zlik annotatsiya", "4 element + ehtiyotkor so‘zlar", "Keyingi dars: Band 9 esse"],
+   "examples": [],
+   "say_native": "Uy vazifasi: o‘zingiz tanlagan mavzu bo‘yicha taxminan 250 so‘zlik annotatsiya yozing. Mavzu shartli bo‘lishi mumkin, lekin tuzilma to‘liq bo‘lsin: maqsad, usul, natija va xulosa. Kamida uchta ehtiyotkor ifoda, bitta statistik atama va bitta cheklov haqida gap bo‘lsin. Birinchi shaxsdan va hissiy so‘zlardan saqlaning. Muvaffaqiyat mezoni: har bir gap bitta elementga xizmat qiladi, raqamlar aniq, xulosa natijadan oshib ketmaydi. Keyingi darsda yuqori ballli esse tahlilini ko‘ramiz. Omad tilayman!",
+   "say": "作业：请写一篇二百五十字左右的摘要，要有目的、方法、结果和结论，并使用谨慎的措辞。下一节课，我们学习写高分议论文。",
+   "say_uz": "Uy vazifasi: taxminan 250 so‘zlik annotatsiya yozing: maqsad, usul, natija va xulosa, ehtiyotkor ifodalar bilan. Keyingi darsda yuqori balli esse yozishni o‘rganamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Write a 250-word abstract.. Keyingi darsda C2-11 Band 9 esse: to‘liq tahlil ni o‘rganamiz.",
+ "homework_uz": "Taxminan 250 so‘zlik annotatsiya yozing (shartli mavzu bo‘lishi mumkin): maqsad, usul, natija va xulosa; kamida uchta ehtiyotkor ifoda, bitta statistik atama va bitta cheklov. Birinchi shaxsdan va hissiy so‘zlardan saqlaning. Muvaffaqiyat mezoni: har bir gap bitta elementga xizmat qiladi, xulosa natijadan oshmaydi.",
  "quiz": [
-  {
-   "q": "«网络 (wǎngluò)» nimani bildiradi?",
-   "options": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "answer": 0,
-   "why_uz": "网络 (wǎngluò) — tarmoq. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«联系 (liánxì)» nimani bildiradi?",
-   "options": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "answer": 0,
-   "why_uz": "联系 (liánxì) — aloqa. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«目标 (mùbiāo)» nimani bildiradi?",
-   "options": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq"
-   ],
-   "answer": 0,
-   "why_uz": "目标 (mùbiāo) — maqsad. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«学习 (xuéxí)» nimani bildiradi?",
-   "options": [
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "answer": 0,
-   "why_uz": "学习 (xuéxí) — o‘rganish. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«提高 (tígāo)» nimani bildiradi?",
-   "options": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "answer": 0,
-   "why_uz": "提高 (tígāo) — yaxshilanish. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«成果 (chéngguǒ)» nimani bildiradi?",
-   "options": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "mahorat"
-   ],
-   "answer": 0,
-   "why_uz": "成果 (chéngguǒ) — yutuq. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«职业 (zhíyè)» nimani bildiradi?",
-   "options": [
-    "kasb",
-    "ish",
-    "mahorat",
-    "til"
-   ],
-   "answer": 0,
-   "why_uz": "职业 (zhíyè) — kasb. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«工作 (gōngzuò)» nimani bildiradi?",
-   "options": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "answer": 0,
-   "why_uz": "工作 (gōngzuò) — ish. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«技能 (jìnéng)» nimani bildiradi?",
-   "options": [
-    "mahorat",
-    "til",
-    "tarmoq",
-    "aloqa"
-   ],
-   "answer": 0,
-   "why_uz": "技能 (jìnéng) — mahorat. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  },
-  {
-   "q": "«语言 (yǔyán)» nimani bildiradi?",
-   "options": [
-    "til",
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "answer": 0,
-   "why_uz": "语言 (yǔyán) — til. Ilmiy maqola uslubida yozish   ko‘nikma: Writing mavzusiga oid."
-  }
+  {"q": "摘要 nima?", "options": ["Annotatsiya", "Manbalar ro‘yxati", "Sarlavha", "Kirish"], "answer": 0, "why_uz": "摘要 — maqolaning qisqacha mazmuni."},
+  {"q": "Annotatsiyaning to‘rt elementi qaysi?", "options": ["Maqsad, usul, natija, xulosa", "Kirish, hikoya, maqol, hazil", "Savol, javob, misol, tahlil", "Fon, ramz, obraz, uslub"], "answer": 0, "why_uz": "Bu 目的, 方法, 结果, 结论."},
+  {"q": "显著 qachon ishlatiladi?", "options": ["Statistik ahamiyatli farq uchun", "Har qanday katta narsa uchun", "Hissiy baho uchun", "Savol uchun"], "answer": 0, "why_uz": "显著 ilmiy matnda statistik ma’noga ega."},
+  {"q": "Qaysi gap eng ehtiyotkor?", "options": ["睡眠可能有助于提高成绩", "睡眠一定会提高成绩", "睡眠证明提高成绩", "所有人都受益"], "answer": 0, "why_uz": "可能 va 有助于 ehtiyotkor ifoda."},
+  {"q": "相关 va 因果 farqi nimada?", "options": ["Bog‘liqlik sabab emas", "Ular bir xil", "因果 kuchsizroq", "相关 sababni isbotlaydi"], "answer": 0, "why_uz": "Bog‘liqlik ikki narsa birga o‘zgarishini bildiradi."},
+  {"q": "Natijalar bo‘limini qaysi so‘zlar bilan boshlash mumkin?", "options": ["结果表明", "我觉得", "太棒了", "据说"], "answer": 0, "why_uz": "结果表明 / 数据显示 — ilmiy qolip."},
+  {"q": "张明（2019）指出…… qanday qolip?", "options": ["Manbaga havola", "Savol", "Maqol", "Xulosa"], "answer": 0, "why_uz": "Muallif, yil va fe’l bilan havola keltiriladi."},
+  {"q": "本研究的局限在于…… nimani bildiradi?", "options": ["Tadqiqot cheklovini", "Tadqiqot natijasini", "Maqsadini", "Manbasini"], "answer": 0, "why_uz": "Cheklovni ochiq aytish ilmiy halollik belgisi."},
+  {"q": "Ilmiy uslubda qaysi ifoda mos emas?", "options": ["我觉得太棒了", "本研究发现", "数据显示", "有待进一步验证"], "answer": 0, "why_uz": "Shaxsiy va hissiy ifoda ilmiy uslubga mos emas."},
+  {"q": "有待进一步验证 nimani bildiradi?", "options": ["Yana tekshirish kerak", "Tasdiqlangan", "Rad etilgan", "Kerak emas"], "answer": 0, "why_uz": "Xulosa hali oxirgi emas."}
  ]
 }

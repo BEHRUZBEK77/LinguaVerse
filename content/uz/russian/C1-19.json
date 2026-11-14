@@ -1,83 +1,414 @@
 {
  "title": "Iqtisod va biznes lug‘ati",
- "goal_uz": "Dars yakunida rus tilida iqtisod va biznes lug‘atini qo‘llay olasiz. «Рынок ...», «Экономика ...», «Цена ...», «Итого ...» bog‘lovchilarini o‘rinli qo‘llaysiz, mukammallashtirib rasmini bayon qilasiz. Oxirida mamlakatingizdagi iqtisodiy tendensiyani tushuntirib bera olasiz.",
+ "goal_uz": "Dars oxirida siz iqtisodiy atamalarni to‘g‘ri birikmalarda ishlatasiz, bozor va tendensiyalarni predloglar bilan aniq tasvirlaysiz, ish muhokamasi iboralarini qo‘llaysiz, raqam va foizlarni kelishik bo‘yicha to‘g‘ri aytasiz va o‘z mamlakatingizdagi iqtisodiy tendensiyani tushuntira olasiz.",
  "vocab": [
-  {"w": "рынок", "uz": "bozor"},
-  {"w": "экономика", "uz": "iqtisodiyot"},
-  {"w": "цена", "uz": "narx"},
-  {"w": "бизнес", "uz": "biznes"},
-  {"w": "рост", "uz": "o‘sish"},
-  {"w": "доход", "uz": "daromad"},
-  {"w": "продажа", "uz": "sotuv"},
-  {"w": "клиент", "uz": "mijoz"},
-  {"w": "компания", "uz": "kompaniya"},
-  {"w": "цель", "uz": "maqsad"}
+  {"w": "инфляция", "uz": "inflyatsiya"},
+  {"w": "спрос и предложение", "uz": "talab va taklif"},
+  {"w": "прибыль", "uz": "foyda"},
+  {"w": "убыток", "uz": "zarar"},
+  {"w": "привлекать инвестиции", "uz": "investitsiya jalb qilmoq"},
+  {"w": "процентная ставка", "uz": "foiz stavkasi"},
+  {"w": "доля рынка", "uz": "bozor ulushi"},
+  {"w": "встречное предложение", "uz": "qarshi taklif"},
+  {"w": "в рамках бюджета", "uz": "byudjet doirasida"},
+  {"w": "пойти на уступки", "uz": "yon bermoq"}
  ],
  "scenes": [
-  {"kind":"intro","title":"Yuz o‘n to‘qqizinchi dars: biznes lug‘ati","emotion":"happy","board":["Рынок ...","Экономика ...","Цена ...","Итого ..."],"examples":[],"say_native":"Assalomu alaykum! Yuz o‘n to‘qqizinchi darsda iqtisod va biznes lug‘atini o‘rganamiz. Bugun «рынок», «экономика», «цена» va «бизнес» bog‘lovchilarini mukammallashtirib rasmini bayon qilamiz. Oxirida mamlakatingizdagi iqtisodiy tendensiyani tushuntirib bera olasiz. Keyingi darsda taqdimot qilishni o‘rganamiz.","say":"Здравствуйте! Сегодня говорим о бизнесе.","say_uz":"Assalomu alaykum! Bugun biznes haqida gaplashamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Bozor belgisi","emotion":"neutral","board":["Рынок ...","Рынок важен.","Рынок хорош."],"examples":[{"t":"Рынок важен.","uz":"Bozor muhim."},{"t":"Рынок хорош.","uz":"Bozor yaxshi."}],"say_native":"«Рынок» — bozor so‘zi biznes lug‘atining kaliti bo‘lib qoladi. «Рынок важен» — bozor muhim, «рынок хорош» — bozor yaxshi. Ushbu belgilar bozor tayanchining birinchi ustuni bo‘ladi.","say":"Рынок важен. Рынок хорош.","say_uz":"Bozor muhim. Bozor yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Bozorni ayting","emotion":"encouraging","board":["1) Bozor muhim.","2) Bozor yaxshi."],"examples":[],"say_native":"Bozor belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «рынок важен». Ikkinchisi: «рынок хорош». Har birini bitta nafas bilan tugallab qo‘ying.","say":"Рынок важен. Рынок хорош.","say_uz":"Bozor muhim. Bozor yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Рынок важен.","Рынок хорош."],"examples":[],"say_native":"Bozor javoblari ikki qator tayanch bayonida barqaror qoldi. «Рынок важен» — muhimlik, «рынок хорош» — yaxshilik. Ushbu ikki shakl bozor tayanchini mustahkam qotib qoladi.","say":"Рынок важен. Рынок хорош.","say_uz":"Bozor muhim. Bozor yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Iqtisodiyot belgisi","emotion":"thinking","board":["Экономика ...","Экономика важна.","Экономика хороша."],"examples":[{"t":"Экономика важна.","uz":"Iqtisodiyot muhim."},{"t":"Экономика хороша.","uz":"Iqtisodiyot yaxshi."}],"say_native":"«Экономика» — iqtisodiyot belgisi biznes lug‘atining ikkinchi tayanchi bo‘ladi. «Экономика важна» — iqtisodiyot muhim, «экономика хороша» — iqtisodiyot yaxshi. Ushbu belgilar iqtisodiyot tayanchining ikkinchi ustuni bo‘ladi.","say":"Экономика важна. Экономика хороша.","say_uz":"Iqtisodiyot muhim. Iqtisodiyot yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Iqtisodiyotni ayting","emotion":"encouraging","board":["1) Iqtisodiyot muhim.","2) Iqtisodiyot yaxshi."],"examples":[],"say_native":"Iqtisodiyot belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «экономика важна». Ikkinchisi: «экономика хороша». Ularni bitta nafas bilan tugallab qo‘ying.","say":"Экономика важна. Экономика хороша.","say_uz":"Iqtisodiyot muhim. Iqtisodiyot yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Экономика важна.","Экономика хороша."],"examples":[],"say_native":"Iqtisodiyot javoblari ikki qator tayanch bayonida barqaror qoldi. «Экономика важна» — muhimlik, «экономика хороша» — yaxshilik. Ushbu ikki shakl iqtisodiyot tayanchini mustahkam qotib qoladi.","say":"Экономика важна. Экономика хороша.","say_uz":"Iqtisodiyot muhim. Iqtisodiyot yaxshi.","practice_seconds":0},
-  {"kind":"mistake","title":"Biznes so‘zini bitta bilan tugatish","emotion":"stern","board":["✗ Рынок важен.","✓ Рынок важен. Например, это важно. Потому что это хорошо.","✗ Экономика хороша.","✓ Экономика хороша. Например, это важно. Потому что это важно."],"examples":[],"say_native":"Ko‘p uchraydigan xato — biznes so‘zini bitta so‘z bilan tugatib qo‘yishdir. Biznes tayanchi to‘liq uch qatorli dalilli bayon bilan tugallanishi shart. Tayanch faqat to‘liq gapda aniq saqlanib qoladi.","say":"Рынок важен. Например, это важно. Потому что это хорошо.","say_uz":"Bozor muhim. Masalan, bu muhim. Chunki bu yaxshi.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: bozor tayanchi","emotion":"happy","board":["— Что ты думаешь?","— Рынок важен.","— Почему? — Например, это важно."],"examples":[],"say_native":"Birinchi dialog bozor tayanchini mungozara qiladi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Рынок важен» — bozor belgisi. «Почему? — Например, это важно» — dalil belgisi bilan tugaydi.","say":"Что ты думаешь? Рынок важен. Почему? Например, это важно.","say_uz":"Nima deb o‘ylaysan? Bozor muhim. Nega? Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Nega?"],"examples":[],"say_native":"Savol-javob mashqini takrorlaymiz. Birinchi so‘rov: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchi so‘rov: «почему?» — nega. Har bir javobni dalil bilan yakunlab bering.","say":"Что ты думаешь? Рынок важен. Почему? Например, это важно.","say_uz":"Nima deb o‘ylaysan? Bozor muhim. Nega? Masalan, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Рынок важен.","Например, это важно."],"examples":[],"say_native":"Birinchi dialog javoblari tayanch bilan dalil borg‘liqligida tugadi. «Рынок важен» — bozor belgisi, «например, это важно» — dalil belgisi. Bozor tayanchi ushbu ikki shakl bilan aniq namoyish etiladi.","say":"Рынок важен. Например, это важно.","say_uz":"Bozor muhim. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: narx xulosasi","emotion":"neutral","board":["— А цена?","— Цена важна.","— Итого? — Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog narx xulosasi bilan yakunlanadi. «А цена?» — narx deb so‘raydi. «Цена важна» — narx belgisi. «Итого? — Итого, это хорошо» — umumiy xulosa bilan tugaydi.","say":"А цена? Цена важна. Итого? Итого, это хорошо.","say_uz":"Narx-chi? Narx muhim. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Narx-chi?","2) Xulosa?"],"examples":[],"say_native":"Narx savollarini mustahkamlab oling. Birinchi savol: «а цена?» — narx-chi deb. Ikkinchisi: «итого?» — xulosa. Javoblarda «цена важна» va «итого» belgilarini aniq qo‘llab yopib qo‘ying.","say":"А цена? Цена важна. Итого? Итого, это хорошо.","say_uz":"Narx-chi? Narx muhim. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Цена важна.","Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog javoblari narx bilan xulosa borg‘liqligida birlashdi. «Цена важна» — narx belgisi, «итого, это хорошо» — xulosa belgisi. Narx xulosasi shu ikki qatorga muhtarkam bo‘lib qoldi.","say":"Цена важна. Итого, это хорошо.","say_uz":"Narx muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Narx belgisi","emotion":"thinking","board":["Цена ...","Цена важна.","Цена хороша."],"examples":[{"t":"Цена важна.","uz":"Narx muhim."},{"t":"Цена хороша.","uz":"Narx yaxshi."}],"say_native":"«Цена» — narx belgisi biznes lug‘atining uchinchi tayanchi bo‘ladi. «Цена важна» — narx muhim, «цена хороша» — narx yaxshi. Ushbu belgilar narx tayanchining uchinchi ustuni bo‘ladi.","say":"Цена важна. Цена хороша.","say_uz":"Narx muhim. Narx yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Narxni ayting","emotion":"encouraging","board":["1) Narx muhim.","2) Narx yaxshi."],"examples":[],"say_native":"Narx belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «цена важна». Ikkinchisi: «цена хороша». Har birini bitta nafas bilan tugallab qo‘ying.","say":"Цена важна. Цена хороша.","say_uz":"Narx muhim. Narx yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Цена важна.","Цена хороша."],"examples":[],"say_native":"Narx javoblari ikki qator tayanch bayonida barqaror qoldi. «Цена важна» — muhimlik, «цена хороша» — yaxshilik. Ushbu ikki shakl narx tayanchini mustahkam qotib qoladi.","say":"Цена важна. Цена хороша.","say_uz":"Narx muhim. Narx yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Biznes qonuni","emotion":"neutral","board":["Бизнес ...","Бизнес важен.","Бизнес хорош."],"examples":[{"t":"Бизнес важен.","uz":"Biznes muhim."},{"t":"Бизнес хорош.","uz":"Biznes yaxshi."}],"say_native":"«Бизнес» — biznes belgisi biznes lug‘atining to‘rtinchi tayanchi bo‘ladi. «Бизнес важен» — biznes muhim, «бизнес хорош» — biznes yaxshi. Ushbu belgilar biznes tayanchining to‘rtinchi ustuni bo‘ladi.","say":"Бизнес важен. Бизнес хорош.","say_uz":"Biznes muhim. Biznes yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Biznesni ayting","emotion":"encouraging","board":["1) Biznes muhim.","2) Biznes yaxshi."],"examples":[],"say_native":"Biznes belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «бизнес важен». Ikkinchisi: «бизнес хорош». Ularni biznes tayanchida tugallab qo‘ying.","say":"Бизнес важен. Бизнес хорош.","say_uz":"Biznes muhim. Biznes yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Бизнес важен.","Бизнес хорош."],"examples":[],"say_native":"Biznes javoblari ikki qator tayanch bayonida barqaror qoldi. «Бизнес важен» — muhimlik, «бизнес хорош» — yaxshilik. Ushbu ikki shakl biznes tayanchini mustahkam qotib qoladi.","say":"Бизнес важен. Бизнес хорош.","say_uz":"Biznes muhim. Biznes yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: tendensiya","emotion":"encouraging","board":["1) Bozor muhim.","2) Masalan, bu muhim.","3) Chunki bu yaxshi.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda mamlakatingizdagi iqtisodiy tendensiyani tushuntirib qo‘ying. Birinchisi: «рынок важен». Ikkinchisi: «например, это важно». Uchinchisi: «потому что это хорошо». Uch qatorni biznes shaklida bitta nafas bilan mustahkam slab qolib, bayon qiling.","say":"Рынок важен. Например, это важно. Потому что это хорошо. Спасибо!","say_uz":"Bozor muhim. Masalan, bu muhim. Chunki bu yaxshi. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Рынок важен.","Например, это важно.","Потому что это хорошо."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «рынок важен». Ikkinchisi: «например, это важно». Uchinchisi: «потому что это хорошо». Ushbu uch qator biznes namunasi sifatida saqlanib qoladi.","say":"Рынок важен. Например, это важно. Потому что это хорошо.","say_uz":"Bozor muhim. Masalan, bu muhim. Chunki bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Biznes qatlamini yoyish","emotion":"neutral","board":["Рынок ...","Экономика ...","Цена ...","Например ..."],"examples":[{"t":"Рынок ...","uz":"Bozor ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Biznes qatlamini yoyish «рынок» so‘zidan boshlanib, «экономика» so‘zi bilan mustahkamlanib, «цена» so‘zi bilan narxlanib, «например ...» bog‘lovchisi bilan tugallanib yoyiladi. Qatlam ketma-ketligi matn sarlavhasiga aniq mos keladi.","say":"Рынок ... Экономика ... Цена ... Например ...","say_uz":"Bozor ... Iqtisodiyot ... Narx ... Masalan ...","practice_seconds":0},
-  {"kind":"practice","title":"Zanjirni mustahkamlang","emotion":"encouraging","board":["1) Bozor ...","2) Iqtisodiyot ...","3) Narx ...","4) Masalan ..."],"examples":[],"say_native":"Biznes qatlamini to‘rt bosqichda mustahkamlab oling. Birinchi: «рынок ...». Ikkinchisi: «экономика ...». Uchinchisi: «цена ...». Yakunda esa: «например ...». Har birini bitta nafas bilan bir qatorda talaffuz qiling.","say":"Рынок ... Экономика ... Цена ... Например ...","say_uz":"Bozor ... Iqtisodiyot ... Narx ... Masalan ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Рынок ...","Экономика ...","Цена ...","Например ..."],"examples":[],"say_native":"Zanjir javoblari to‘rt qator bilan to‘liq ko‘rindi. «Рынок ...» — bozor, «экономика ...» — iqtisodiyot, «цена ...» — narx, «например ...» — dalil. Endi biznes qatlam shu to‘rt belgida mustahkam bo‘lib qoladi.","say":"Рынок ... Экономика ... Цена ... Например ...","say_uz":"Bozor ... Iqtisodiyot ... Narx ... Masalan ...","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Рынок ...","Экономика ...","Цена ..."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. Bozorni «рынок» bilan ayta olasizmi? Iqtisodiyotni «экономика» bilan bayon qila olasizmi? Narxni «цена» bilan belgilay olasizmi? Uchala javob ijobiy bo‘lsa, biznes sizga do‘st bo‘ladi.","say":"Рынок ... Экономика ... Цена ...","say_uz":"Bozor ... Iqtisodiyot ... Narx ...","practice_seconds":0},
-  {"kind":"explain","title":"Biznes namunasi yakunlanishi","emotion":"neutral","board":["Рынок важен.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Рынок важен.","uz":"Bozor muhim."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Biznes namunasi yakunlanishi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «рынок важен» — bozor belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator biznes namunasi yakunlanishi mustahkam tugun bo‘lib qoladi.","say":"Рынок важен. Например, это важно. Итого, это хорошо.","say_uz":"Bozor muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Bozor muhim.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Biznes namunasini uch qator bilan mustahkamlab oling. Birinchisi: «рынок важен». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Рынок важен. Например, это важно. Итого, это хорошо.","say_uz":"Bozor muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Рынок важен.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Рынок важен» — bozor, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Biznes namunasi yakunlanishi shu uch qatlamda tugallanib qoladi.","say":"Рынок важен. Например, это важно. Итого, это хорошо.","say_uz":"Bozor muhim. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Bayonni mustahkamlash","emotion":"thinking","board":["Рынок важен.","Например, это важно.","Итого, это важно."],"examples":[{"t":"Рынок важен.","uz":"Bozor muhim."},{"t":"Итого, это важно.","uz":"Xulosa qilib, bu muhim."}],"say_native":"Bayonni mustahkamlash namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «рынок важен» — bozor belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это важно» — yakun belgisi. Ushbu uch qator bayonni mustahkamlash namunasi mustahkam tugun bo‘lib qoladi.","say":"Рынок важен. Например, это важно. Итого, это важно.","say_uz":"Bozor muhim. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Bayonni mustahkamlang","emotion":"encouraging","board":["1) Bozor muhim.","2) Masalan, bu muhim.","3) Xulosa qilib, bu muhim."],"examples":[],"say_native":"Bayonni uch qator bilan mustahkamlab oling. Birinchisi: «рынок важен». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это важно». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Рынок важен. Например, это важно. Итого, это важно.","say_uz":"Bozor muhim. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Рынок важен.","Например, это важно.","Итого, это важно."],"examples":[],"say_native":"Bayon javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Рынок важен» — bozor, «например, это важно» — dalil, «итого, это важно» — xulosa. Bayon shu uch qatlamda tugallanib qoladi.","say":"Рынок важен. Например, это важно. Итого, это важно.","say_uz":"Bozor muhim. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"O‘sish qo‘shimchasi","emotion":"neutral","board":["Рост ...","Рост важен.","Рост хорош."],"examples":[{"t":"Рост важен.","uz":"O‘sish muhim."},{"t":"Рост хорош.","uz":"O‘sish yaxshi."}],"say_native":"«Рост» — o‘sish so‘zi biznes o‘sish qismini mustahkam slab qo‘yadi. «Рост важен» — o‘sish muhim, «рост хорош» — o‘sish yaxshi. Ushbu ikki belgi o‘sish qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Рост важен. Рост хорош.","say_uz":"O‘sish muhim. O‘sish yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"O‘sishni ayting","emotion":"encouraging","board":["1) O‘sish muhim.","2) O‘sish yaxshi."],"examples":[],"say_native":"O‘sish belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «рост важен». Ikkinchisi: «рост хорош». Ularni o‘sish bayonida tugallab qo‘ying.","say":"Рост важен. Рост хорош.","say_uz":"O‘sish muhim. O‘sish yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Рост важен.","Рост хорош."],"examples":[],"say_native":"O‘sish javoblari ikki qator o‘sish bayonida barqaror qoldi. «Рост важен» — muhimlik, «рост хорош» — yaxshilik. Ushbu ikki shakl o‘sish qatlamini mustahkam qotib qoladi.","say":"Рост важен. Рост хорош.","say_uz":"O‘sish muhim. O‘sish yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Daromad qo‘shimchasi","emotion":"thinking","board":["Доход ...","Доход важен.","Доход хорош."],"examples":[{"t":"Доход важен.","uz":"Daromad muhim."},{"t":"Доход хорош.","uz":"Daromad yaxshi."}],"say_native":"«Доход» — daromad so‘zi biznes daromad qismini mustahkam slab qo‘yadi. «Доход важен» — daromad muhim, «доход хорош» — daromad yaxshi. Ushbu ikki belgi daromad qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Доход важен. Доход хорош.","say_uz":"Daromad muhim. Daromad yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Daromadni ayting","emotion":"encouraging","board":["1) Daromad muhim.","2) Daromad yaxshi."],"examples":[],"say_native":"Daromad belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «доход важен». Ikkinchisi: «доход хорош». Ularni daromad bayonida tugallab qo‘ying.","say":"Доход важен. Доход хорош.","say_uz":"Daromad muhim. Daromad yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Доход важен.","Доход хорош."],"examples":[],"say_native":"Daromad javoblari ikki qator daromad bayonida barqaror qoldi. «Доход важен» — muhimlik, «доход хорош» — yaxshilik. Ushbu ikki shakl daromad qatlamini mustahkam qotib qoladi.","say":"Доход важен. Доход хорош.","say_uz":"Daromad muhim. Daromad yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Sotuv qo‘shimchasi","emotion":"neutral","board":["Продажа ...","Продажа важна.","Продажа хороша."],"examples":[{"t":"Продажа важна.","uz":"Sotuv muhim."},{"t":"Продажа хороша.","uz":"Sotuv yaxshi."}],"say_native":"«Продажа» — sotuv so‘zi biznes sotuv qismini mustahkam slab qo‘yadi. «Продажа важна» — sotuv muhim, «продажа хороша» — sotuv yaxshi. Ushbu ikki belgi sotuv qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Продажа важна. Продажа хороша.","say_uz":"Sotuv muhim. Sotuv yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Sotuvni ayting","emotion":"encouraging","board":["1) Sotuv muhim.","2) Sotuv yaxshi."],"examples":[],"say_native":"Sotuv belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «продажа важна». Ikkinchisi: «продажа хороша». Ularni sotuv bayonida tugallab qo‘ying.","say":"Продажа важна. Продажа хороша.","say_uz":"Sotuv muhim. Sotuv yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Продажа важна.","Продажа хороша."],"examples":[],"say_native":"Sotuv javoblari ikki qator sotuv bayonida barqaror qoldi. «Продажа важна» — muhimlik, «продажа хороша» — yaxshilik. Ushbu ikki shakl sotuv qatlamini mustahkam qotib qoladi.","say":"Продажа важна. Продажа хороша.","say_uz":"Sotuv muhim. Sotuv yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Kompaniya qo‘shimchasi","emotion":"thinking","board":["Компания ...","Компания важна.","Компания хороша."],"examples":[{"t":"Компания важна.","uz":"Kompaniya muhim."},{"t":"Компания хороша.","uz":"Kompaniya yaxshi."}],"say_native":"«Компания» — kompaniya so‘zi biznes kompaniya qismini mustahkam slab qo‘yadi. «Компания важна» — kompaniya muhim, «компания хороша» — kompaniya yaxshi. Ushbu ikki belgi kompaniya qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Компания важна. Компания хороша.","say_uz":"Kompaniya muhim. Kompaniya yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Kompaniyani ayting","emotion":"encouraging","board":["1) Kompaniya muhim.","2) Kompaniya yaxshi."],"examples":[],"say_native":"Kompaniya belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «компания важна». Ikkinchisi: «компания хороша». Ularni kompaniya bayonida tugallab qo‘ying.","say":"Компания важна. Компания хороша.","say_uz":"Kompaniya muhim. Kompaniya yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Компания важна.","Компания хороша."],"examples":[],"say_native":"Kompaniya javoblari ikki qator kompaniya bayonida barqaror qoldi. «Компания важна» — muhimlik, «компания хороша» — yaxshilik. Ushbu ikki shakl kompaniya qatlamini mustahkam qotib qoladi.","say":"Компания важна. Компания хороша.","say_uz":"Kompaniya muhim. Kompaniya yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Mijoz qo‘shimchasi","emotion":"neutral","board":["Клиент ...","Клиент важен.","Клиент хорош."],"examples":[{"t":"Клиент важен.","uz":"Mijoz muhim."},{"t":"Клиент хорош.","uz":"Mijoz yaxshi."}],"say_native":"«Клиент» — mijoz so‘zi biznes mijoz qismini mustahkam slab qo‘yadi. «Клиент важен» — mijoz muhim, «клиент хорош» — mijoz yaxshi. Ushbu ikki belgi mijoz qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Клиент важен. Клиент хорош.","say_uz":"Mijoz muhim. Mijoz yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Mijozni ayting","emotion":"encouraging","board":["1) Mijoz muhim.","2) Mijoz yaxshi."],"examples":[],"say_native":"Mijoz belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «клиент важен». Ikkinchisi: «клиент хорош». Ularni mijoz bayonida tugallab qo‘ying.","say":"Клиент важен. Клиент хорош.","say_uz":"Mijoz muhim. Mijoz yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Клиент важен.","Клиент хорош."],"examples":[],"say_native":"Mijoz javoblari ikki qator mijoz bayonida barqaror qoldi. «Клиент важен» — muhimlik, «клиент хорош» — yaxshilik. Ushbu ikki shakl mijoz qatlamini mustahkam qotib qoladi.","say":"Клиент важен. Клиент хорош.","say_uz":"Mijoz muhim. Mijoz yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Maqsad qo‘shimchasi","emotion":"thinking","board":["Цель ...","Цель важна.","Цель хороша."],"examples":[{"t":"Цель важна.","uz":"Maqsad muhim."},{"t":"Цель хороша.","uz":"Maqsad yaxshi."}],"say_native":"«Цель» — maqsad so‘zi biznes maqsad qismini mustahkam slab qo‘yadi. «Цель важна» — maqsad muhim, «цель хороша» — maqsad yaxshi. Ushbu ikki belgi maqsad qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Цель важна. Цель хороша.","say_uz":"Maqsad muhim. Maqsad yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Maqsadni ayting","emotion":"encouraging","board":["1) Maqsad muhim.","2) Maqsad yaxshi."],"examples":[],"say_native":"Maqsad belgisi mashqini bajaring. Birinchi gap: «цель важна». Ikkinchi gap: «цель хороша». Ikkala gapni mustahkam talaffuz qiling.","say":"Цель важна. Цель хороша.","say_uz":"Maqsad muhim. Maqsad yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Цель важна.","Цель хороша."],"examples":[],"say_native":"Maqsad tekshiruvi natijasi iqro etildi. «Цель важна» — muhimlik bayoni, «цель хороша» — yaxshilik bayoni. Maqsad javobi to‘liq ko‘rindi.","say":"Цель важна. Цель хороша.","say_uz":"Maqsad muhim. Maqsad yaxshi.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["рынок · экономика · цена","бизнес · рост · доход"],"examples":[],"say_native":"Bugunning xulosasi: iqtisod va biznes lug‘atini o‘rgandik va barcha rejani amaliy matnda tekshirib mustahkamlab oldik. «Рынок» — bozor, «экономика» — iqtisodiyot, «цена» — narx, «бизнес» — biznes. Mamlakatingizdagi tendensiyani tushuntirib bera olasiz.","say":"Отлично! Теперь вы говорите о бизнесе.","say_uz":"Ajoyib! Endi biznes haqida gapira olasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["Mamlakatingizdagi tendensiyani tushuntiring","Bozor · iqtisodiyot · narx","Keyingi dars: Taqdimot qilish san’ati"],"examples":[],"say_native":"Uyga vazifa: mamlakatingizdagi iqtisodiy tendensiyani tushuntirib qo‘ying. Matnda «рынок», «экономика», «цена», «бизнес», «итого» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda taqdimot qilishni o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем делать презентации.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Taqdimot qilamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Iqtisod tilida gapirish",
+   "emotion": "happy",
+   "board": ["Экономика и бизнес", "(Iqtisod va biznes lug‘ati)", "термины · тенденции · переговоры · числа"],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda fan va texnologiya haqida munozara qildik. Bugun ruscha iqtisod va biznes lug‘ati. Ish suhbatida, yangiliklarda va imtihonda bu mavzu doim uchraydi. To‘rt narsa o‘rganamiz: atamalar va ularning birikmalari, bozor va tendensiyani tasvirlash, ish muhokamasi iboralari va raqamlar bilan to‘g‘ri gapirish. Rus tilida raqam bilan kelishik masalasi juda muhim, shuning uchun uni alohida ko‘ramiz.",
+   "say": "Здравствуйте! Экономика окружает нас каждый день: цены в магазине, курс валюты, зарплата, кредит. Чтобы говорить о ней уверенно, нужно знать не только слова, но и привычные сочетания. Начнём с главных терминов.",
+   "say_uz": "Assalomu alaykum! Iqtisodiyot har kuni bizni o‘rab turadi: do‘kondagi narxlar, valyuta kursi, ish haqi, kredit. U haqida ishonch bilan gapirish uchun so‘zlarni ham, odatiy birikmalarni ham bilish kerak. Asosiy atamalardan boshlaymiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Asosiy iqtisodiy atamalar",
+   "emotion": "neutral",
+   "board": ["инфляция · безработица · валовой внутренний продукт (ВВП)", "спрос и предложение · конкуренция", "прибыль · убыток · рентабельность", "налог · бюджет · процентная ставка"],
+   "examples": [
+    {"t": "Когда предложение превышает спрос, цены обычно снижаются, а компании теряют часть прибыли.", "uz": "Taklif talabdan oshib ketsa, narxlar odatda tushadi, kompaniyalar esa foydaning bir qismini yo‘qotadi."}
+   ],
+   "say_native": "Birinchi nuqta: asosiy atamalar. «Инфляция» — narxlarning umumiy o‘sishi. «Безработица» — ishsizlik. ВВП — yalpi ichki mahsulot. «Спрос» — talab, «предложение» — taklif. «Прибыль» — foyda, «убыток» — zarar. «Налог», «бюджет» va «процентная ставка». Ularning jinsiga e’tibor bering: инфляция, безработица, прибыль — ayol jinsi, спрос, налог, убыток — erkak jinsi. Bu sifat bilan moslashishda kerak bo‘ladi.",
+   "say": "Когда предложение превышает спрос, цены обычно снижаются, а компании теряют часть прибыли. Высокая инфляция уменьшает покупательную способность населения. Безработица растёт, если экономика замедляется.",
+   "say_uz": "Taklif talabdan oshib ketsa, narxlar odatda tushadi, kompaniyalar esa foydaning bir qismini yo‘qotadi. Yuqori inflyatsiya aholining xarid qobiliyatini pasaytiradi. Iqtisodiyot sekinlashsa, ishsizlik o‘sadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Fe’l bilan birga yodlang",
+   "emotion": "impressed",
+   "board": ["получать / приносить прибыль · нести убытки", "привлекать / вкладывать инвестиции", "повысить / снизить ставку · платить налоги", "занимать долю рынка · выходить на рынок"],
+   "examples": [
+    {"t": "Компания вышла на новый рынок, быстро заняла заметную долю и начала получать стабильную прибыль.", "uz": "Kompaniya yangi bozorga chiqdi, tez orada sezilarli ulushni egalladi va barqaror foyda ola boshladi."}
+   ],
+   "say_native": "Atamalarni fe’l bilan birga eslab qoling. Foyda «получать» yoki «приносить» bilan: kompaniya foyda oladi, loyiha foyda keltiradi. Zarar esa «нести убытки»: zarar ko‘rmoq. Investitsiyani «привлекать» yoki «вкладывать». Stavka «повышать» yoki «снижать». Soliqni «платить». Bozor ulushini «занимать», bozorga esa «выходить». Bu birikmalar ruscha iqtisodiy nutqning asosi, ularni bir butun qilib yodlang.",
+   "say": "Компания вышла на новый рынок, быстро заняла заметную долю и начала получать стабильную прибыль. Банк снизил процентную ставку, чтобы привлечь больше заёмщиков. Инвесторы охотно вкладывают деньги в технологические стартапы.",
+   "say_uz": "Kompaniya yangi bozorga chiqdi, tez orada sezilarli ulushni egalladi va barqaror foyda ola boshladi. Bank ko‘proq qarz oluvchini jalb qilish uchun foiz stavkasini pasaytirdi. Investorlar texnologik startaplarga mamnuniyat bilan pul sarflaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Inglizcha va o‘zbekcha kalkalar",
+   "emotion": "stern",
+   "board": ["✗ делать прибыль / делать деньги", "✓ получать прибыль / зарабатывать деньги", "✗ вложить в проект на 5 млн", "✓ вложить 5 млн в проект", "✗ взять налог → платить налог"],
+   "examples": [],
+   "say_native": "Eng ko‘p uchraydigan xato: «делать» fe’lini hamma joyda ishlatish. Inglizcha «make profit», «make money» ta’siri bilan «делать прибыль», «делать деньги» deyishadi, lekin ruscha «получать прибыль», «зарабатывать деньги». O‘zbekcha «soliq olmoq» o‘rniga ham «платить налог» yoki davlat nuqtai nazaridan «взимать налог». Mablag‘ni «вложить в проект», miqdor esa to‘g‘ridan-to‘g‘ri to‘ldiruvchi. Bu xatolar odatiy.",
+   "say": "Не говорите «делать прибыль» и «делать деньги». По-русски правильно «получать прибыль» и «зарабатывать деньги». Деньги вкладывают в проект: «вложить пять миллионов в проект».",
+   "say_uz": "«Foyda qilmoq» va «pul qilmoq» demang. Ruscha to‘g‘risi «foyda olmoq» va «pul topmoq». Pul loyihaga sarflanadi: «loyihaga besh million sarflamoq».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Birikmani tanlang",
+   "emotion": "encouraging",
+   "board": ["1. Фирма … убытки второй год подряд.", "2. Государство … налоги с населения и бизнеса.", "3. Стартап … инвестиции от зарубежных фондов.", "4. Центробанк … ставку из-за инфляции."],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta gapga mos fe’l tanlang: «нести», «взимать», «привлёк», «повысил». Birinchisida firma ikki yildan beri zarar ko‘rmoqda. Ikkinchisida davlat soliq yig‘adi. Uchinchisi chet el fondlaridan mablag‘ jalb qilish. To‘rtinchisi markaziy bank stavkani inflyatsiya tufayli oshirdi. Vaqt yigirma soniya.",
+   "say": "Вставьте нужные глаголы: нести, взимать, привлёк, повысил. Фирма уже второй год подряд убытки. Государство налоги с населения и бизнеса. Стартап инвестиции от зарубежных фондов. Центробанк ставку из-за инфляции.",
+   "say_uz": "Kerakli fe’llarni qo‘ying: ko‘rmoq, yig‘moq, jalb qildi, oshirdi. Firma ketma-ket ikkinchi yil zarar. Davlat aholi va biznesdan soliq. Startap xorijiy fondlardan investitsiya. Markaziy bank inflyatsiya tufayli stavkani.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Birikma javoblari",
+   "emotion": "proud",
+   "board": ["1. несёт убытки", "2. взимает налоги", "3. привлёк инвестиции", "4. повысил ставку"],
+   "examples": [],
+   "say_native": "Javoblar: «Фирма уже второй год подряд несёт убытки». «Государство взимает налоги с населения и бизнеса». «Стартап привлёк инвестиции от зарубежных фондов». «Центробанк повысил ставку из-за инфляции». Ikkinchi gapda «с» predlogi va tvoritelnyy emas, roditelnyy kelishik: «с населения». «Из-за» — salbiy sabab uchun, ya’ni inflyatsiya yomon sabab. Yaxshi sabab uchun «благодаря» ishlatiladi.",
+   "say": "Фирма уже второй год подряд несёт убытки. Государство взимает налоги с населения и бизнеса. Стартап привлёк инвестиции от зарубежных фондов. Центробанк повысил ставку из-за инфляции.",
+   "say_uz": "Firma ketma-ket ikkinchi yil zarar ko‘rmoqda. Davlat aholi va biznesdan soliq yig‘adi. Startap xorijiy fondlardan investitsiya jalb qildi. Markaziy bank inflyatsiya tufayli stavkani oshirdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tendensiyani tasvirlash: fe’llar",
+   "emotion": "thinking",
+   "board": ["рост: расти · увеличиваться · подскочить", "падение: снижаться · сокращаться · резко упасть", "стабильность: сохраняться · оставаться на уровне", "колебаться · стабилизироваться"],
+   "examples": [
+    {"t": "Цены на жильё резко подскочили весной, но к осени стабилизировались.", "uz": "Uy-joy narxlari bahorda keskin sakradi, ammo kuzga borib barqarorlashdi."}
+   ],
+   "say_native": "Ikkinchi nuqta: tendensiyani tasvirlash. O‘sish: «расти», «увеличиваться», keskin o‘sish uchun «подскочить». Pasayish: «снижаться», «сокращаться», keskin pasayish uchun «резко упасть». Barqarorlik: «сохраняться», «оставаться на уровне». O‘zgarib turish: «колебаться». Muhim: «увеличиваться» va «снижаться» qaytim shaklda, chunki o‘zi bajaradi. Aksincha, «увеличить» va «снизить» — kimdir qilgan harakat: «банк снизил ставку».",
+   "say": "Цены на жильё резко подскочили весной, но к осени стабилизировались. Экспорт постепенно увеличивался, а импорт сокращался. Курс валюты в течение года колебался около одного уровня.",
+   "say_uz": "Uy-joy narxlari bahorda keskin sakradi, ammo kuzga borib barqarorlashdi. Eksport asta-sekin o‘sdi, import esa qisqardi. Valyuta kursi yil davomida bir daraja atrofida tebrandi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Predloglar: на, до, с, в раз",
+   "emotion": "impressed",
+   "board": ["на 10% — o‘zgarish miqdori", "до 15% — yakuniy daraja", "с 8% до 11% — boshlanish va yakun", "в два раза — ko‘paytma"],
+   "examples": [
+    {"t": "Инфляция выросла с восьми до одиннадцати процентов, то есть на три процентных пункта.", "uz": "Inflyatsiya sakkiz foizdan o‘n bir foizgacha oshdi, ya’ni uch foiz bandga."}
+   ],
+   "say_native": "Bu eng muhim jadval. «На» o‘zgarish miqdorini ko‘rsatadi: «выросла на три процента» — uch foizga oshdi. «До» yakuniy darajani: «выросла до одиннадцати процентов» — o‘n bir foizga yetdi. «С… до…» boshlanishdan yakungacha. «В два раза» esa ikki barobar ko‘paydi. O‘zbekchada hammasi «ga» qo‘shimchasi bilan ifodalanadi, shuning uchun talabalar bularni aralashtiradi.",
+   "say": "Инфляция выросла с восьми до одиннадцати процентов, то есть на три процентных пункта. Выручка компании увеличилась в два раза. Безработица снизилась на один процент и достигла шести процентов.",
+   "say_uz": "Inflyatsiya sakkiz foizdan o‘n bir foizgacha oshdi, ya’ni uch foiz bandga. Kompaniya tushumi ikki baravar ko‘paydi. Ishsizlik bir foizga kamaydi va olti foizga yetdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ko‘paytma va ulush ifodalari",
+   "emotion": "neutral",
+   "board": ["в два раза = вдвое · в три раза = втрое", "в полтора раза · почти вдвое", "каждый пятый · более половины · около трети"],
+   "examples": [
+    {"t": "Почти вдвое выросли расходы на рекламу, а каждый пятый клиент стал покупать онлайн.", "uz": "Reklama xarajatlari deyarli ikki baravar oshdi, har beshinchi mijoz esa onlayn xarid qila boshladi."}
+   ],
+   "say_native": "Yana foydali ifodalar. «В два раза» — ikki barobar, «вдвое» ham xuddi shu. «В полтора раза» — bir yarim barobar. «Почти вдвое» — deyarli ikki barobar. Ulush uchun: «каждый пятый» — har beshinchi, «более половины» — yarmidan ko‘pi, «около трети» — uchdan biriga yaqin. Bu iboralar raqamni ko‘p so‘zsiz, chiroyli ifodalaydi va tahliliy matnda ko‘p uchraydi.",
+   "say": "Почти вдвое выросли расходы на рекламу, а каждый пятый клиент стал покупать онлайн. Более половины малых фирм сообщили о нехватке кадров. Цены в полтора раза превысили прошлогодний уровень.",
+   "say_uz": "Reklama xarajatlari deyarli ikki baravar oshdi, har beshinchi mijoz esa onlayn xarid qila boshladi. Kichik firmalarning yarmidan ko‘pi kadrlar yetishmasligini bildirdi. Narxlar o‘tgan yilgi darajadan bir yarim baravar oshib ketdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "«На» va «до» ni aralashtirish",
+   "emotion": "stern",
+   "board": ["✗ Цены выросли до 5% (хотели сказать: на 5%)", "✓ Цены выросли на 5%.", "✗ Выручка выросла на 2 раза", "✓ Выручка выросла в 2 раза."],
+   "examples": [],
+   "say_native": "Ikki xato. Birinchi: «выросли до пяти процентов» yakuniy daraja beradi, ya’ni narx besh foizga yetgan. Agar besh foizga ko‘paygan bo‘lsa, «на пять процентов». Ikkinchi: ko‘paytma bilan «на» ni ishlatish. «На два раза» yo‘q, ruscha «в два раза» deymiz. Bu ikki farq biznes hisobotida jiddiy ma’no o‘zgarishiga olib keladi: besh foizga oshish va besh foizga yetish butunlay boshqa narsa.",
+   "say": "Если цены выросли на пять процентов, нельзя сказать «выросли до пяти процентов»: это означает другое. И по-русски не говорят «выросла на два раза», а только «выросла в два раза».",
+   "say_uz": "Agar narxlar besh foizga oshgan bo‘lsa, «besh foizgacha oshdi» deb bo‘lmaydi: bu boshqa ma’no beradi. Ruscha «ikki martaga oshdi» demaydi, faqat «ikki baravar oshdi» deydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Grafikni so‘zlab bering",
+   "emotion": "encouraging",
+   "board": ["Безработица: 9% → 6%", "Цена нефти: 50 → 100 долларов", "Продажи: 400 → 420 тыс. штук"],
+   "examples": [],
+   "say_native": "Mashq. Uchta ko‘rsatkichni predloglar bilan so‘zlab bering. Ishsizlik to‘qqiz foizdan olti foizgacha. Neft narxi ellik dollardan yuz dollargacha. Sotuvlar to‘rt yuz mingdan to‘rt yuz yigirma mingtagacha. Har birida «с… до…», «на» yoki «в… раза» ni ishlating. Yigirma besh soniya vaqt.",
+   "say": "Опишите изменения: безработица снизилась с девяти до шести процентов. Цена нефти выросла с пятидесяти до ста долларов. Продажи увеличились с четырёхсот до четырёхсот двадцати тысяч штук. Скажите каждое предложение по-своему.",
+   "say_uz": "O‘zgarishlarni tasvirlang: ishsizlik to‘qqiz foizdan olti foizgacha kamaydi. Neft narxi ellik dollardan yuz dollargacha oshdi. Sotuvlar to‘rt yuz mingdan to‘rt yuz yigirma ming donagacha ko‘paydi. Har bir gapni o‘zingizcha ayting.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Grafik javoblari",
+   "emotion": "proud",
+   "board": ["Безработица снизилась с 9% до 6%, то есть на три процентных пункта.", "Цена нефти выросла вдвое.", "Продажи увеличились на 20 тысяч штук, то есть на 5%."],
+   "examples": [],
+   "say_native": "Namuna javoblar. Birinchi: «безработица снизилась с девяти до шести процентов, то есть на три процентных пункта». Ikkinchi: «цена нефти выросла вдвое». Uchinchi: «продажи увеличились на двадцать тысяч штук, то есть на пять процентов». Qarang, bitta o‘zgarishni turli yo‘l bilan aytish mumkin: farq bilan «на», daraja bilan «до», ko‘paytma bilan «вдвое». Qaysisi eng aniq ekanini tanlang.",
+   "say": "Безработица снизилась с девяти до шести процентов, то есть на три процентных пункта. Цена нефти выросла вдвое. Продажи увеличились на двадцать тысяч штук, то есть на пять процентов.",
+   "say_uz": "Ishsizlik to‘qqiz foizdan olti foizgacha kamaydi, ya’ni uch foiz bandga. Neft narxi ikki baravar oshdi. Sotuvlar yigirma ming donaga, ya’ni besh foizga ko‘paydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: byudjet yig‘ilishi",
+   "emotion": "neutral",
+   "board": ["Руководитель и менеджеры обсуждают бюджет", "Что они решили?"],
+   "examples": [],
+   "say_native": "Endi suhbat. Rahbar va menejerlar kelgusi yil byudjetini muhokama qilmoqda. Ularning iboralariga e’tibor bering, bular real yig‘ilishda ishlatiladi. Keyin ular nimani hal qilganini aytasiz.",
+   "say": "— Предлагаю обсудить бюджет на следующий год. — Насколько я понимаю, расходы на рекламу выросли на двадцать процентов, а прибыль осталась прежней. — Позвольте уточнить: мы сокращаем расходы или пересматриваем стратегию? — Мы не можем позволить себе убытки. Давайте вернёмся к вопросу после анализа продаж.",
+   "say_uz": "— Kelgusi yil byudjetini muhokama qilishni taklif qilaman. — Tushunishimcha, reklama xarajatlari yigirma foizga oshdi, foyda esa avvalgicha qoldi. — Aniqlashtirib olay: biz xarajatlarni qisqartiryapmizmi yoki strategiyani qayta ko‘ryapmizmi? — Biz zarar ko‘rishga yo‘l qo‘ya olmaymiz. Sotuvlar tahlilidan keyin bu masalaga qaytaylik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yig‘ilish savollari",
+   "emotion": "encouraging",
+   "board": ["1. Что выросло, а что осталось прежним?", "2. Какой вопрос задаёт один из менеджеров?", "3. Когда они вернутся к обсуждению?"],
+   "examples": [],
+   "say_native": "Savollar. Nima oshdi, nima o‘zgarishsiz qoldi? Menejerlardan biri qanday savol berdi? Ular muhokamaga qachon qaytadi? Qisqa javob bering. O‘n besh soniya.",
+   "say": "Ответьте на вопросы. Что выросло, а что осталось прежним? Какой вопрос задаёт один из менеджеров? Когда они вернутся к обсуждению?",
+   "say_uz": "Savollarga javob bering. Nima oshdi, nima avvalgicha qoldi? Menejerlardan biri qanday savol beradi? Ular muhokamaga qachon qaytadi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Yig‘ilish javoblari",
+   "emotion": "proud",
+   "board": ["1. реклама +20%, прибыль без изменений", "2. Сокращаем расходы или пересматриваем стратегию?", "3. После анализа продаж"],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: reklama xarajatlari yigirma foizga oshdi, foyda esa avvalgicha qoldi. Ikkinchi: menejer «xarajatlarni qisqartiryapmizmi yoki strategiyani qayta ko‘ryapmizmi» deb so‘radi. Uchinchi: sotuvlar tahlilidan keyin. Suhbatda «насколько я понимаю», «позвольте уточнить», «давайте вернёмся к вопросу» iboralari bor, ular fikrni muloyim va professional qiladi. Bularni keyingi nuqtada tartibga solamiz.",
+   "say": "Расходы на рекламу выросли на двадцать процентов, а прибыль не изменилась. Менеджер спрашивает, сокращать расходы или пересматривать стратегию. Вернуться к вопросу решили после анализа продаж.",
+   "say_uz": "Reklama xarajatlari yigirma foizga oshdi, foyda esa o‘zgarmadi. Menejer xarajatlarni qisqartirish yoki strategiyani qayta ko‘rish kerakligini so‘raydi. Masalaga sotuvlar tahlilidan keyin qaytishga qaror qilindi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ish muhokamasi iboralari",
+   "emotion": "thinking",
+   "board": ["Предлагаю обсудить… · Давайте вернёмся к…", "Насколько я понимаю… · Позвольте уточнить…", "Не могу полностью согласиться, поскольку…", "в рамках бюджета · пойти на уступки"],
+   "examples": [
+    {"t": "Не могу полностью согласиться: в рамках текущего бюджета мы не сможем нанять новых сотрудников.", "uz": "To‘liq qo‘shila olmayman: joriy byudjet doirasida biz yangi xodimlar ololmaymiz."}
+   ],
+   "say_native": "Uchinchi nuqta: muhokama iboralari. Boshlash: «предлагаю обсудить…». Aniqlashtirish: «насколько я понимаю…», «позвольте уточнить…». Qaytish: «давайте вернёмся к…». Rozi bo‘lmaslik, muloyim: «не могу полностью согласиться, поскольку…». Cheklov: «в рамках бюджета». Yon berish: «пойти на уступки». Qo‘pol «нет, это неправильно» deyish ish muhitida yaxshi qabul qilinmaydi, shuning uchun bu iboralar kerak.",
+   "say": "Не могу полностью согласиться: в рамках текущего бюджета мы не сможем нанять новых сотрудников. Однако готов пойти на уступки, если поставщик снизит цену. Давайте вернёмся к этому вопросу на следующей неделе.",
+   "say_uz": "To‘liq qo‘shila olmayman: joriy byudjet doirasida biz yangi xodimlar ololmaymiz. Biroq yetkazib beruvchi narxni tushirsa, yon berishga tayyorman. Keyingi hafta bu masalaga qaytaylik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Muzokaralar: taklif va qarshi taklif",
+   "emotion": "impressed",
+   "board": ["предложение · встречное предложение", "условия поставки · скидка · предоплата", "договориться о цене · прийти к соглашению"],
+   "examples": [
+    {"t": "Мы готовы обсудить скидку при условии предоплаты, но не можем снизить цену ниже себестоимости.", "uz": "Oldindan to‘lov sharti bilan chegirmani muhokama qilishga tayyormiz, lekin narxni tannarxdan pastga tushira olmaymiz."}
+   ],
+   "say_native": "Muzokara lug‘ati. «Предложение» — taklif, «встречное предложение» — qarshi taklif. Shartlar: «условия поставки», «скидка», «предоплата». Natija: «договориться о цене», «прийти к соглашению». «При условии» — shart bilan, roditelnyy kelishik bilan: «при условии предоплаты». «Ниже себестоимости» — tannarxdan past. Bu muloyim va qat’iy ohangni birlashtiradi: nimaga tayyorsiz, nimaga yo‘q.",
+   "say": "Мы готовы обсудить скидку при условии предоплаты, но не можем снизить цену ниже себестоимости. Если вы внесёте предоплату до конца месяца, мы пойдём вам навстречу и сохраним прежние условия поставки.",
+   "say_uz": "Oldindan to‘lov sharti bilan chegirmani muhokama qilishga tayyormiz, lekin narxni tannarxdan pastga tushira olmaymiz. Oy oxirigacha oldindan to‘lasangiz, sizga yon beramiz va yetkazib berishning avvalgi shartlarini saqlaymiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Qo‘pol yoki noaniq muloqot",
+   "emotion": "stern",
+   "board": ["✗ Нет, вы неправы.", "✓ Не могу полностью согласиться, поскольку…", "✗ Скидку дайте.", "✓ Не могли бы вы рассмотреть скидку?"],
+   "examples": [],
+   "say_native": "Ish muzokarasida ikki xato. Birinchi: to‘g‘ridan-to‘g‘ri rad etish, «нет, вы неправы». Muloyimi «не могу полностью согласиться, поскольку…». Ikkinchi: buyruq shaklida iltimos, «скидку дайте». Yaxshisi: «не могли бы вы рассмотреть скидку?» «Не могли бы вы» — ruschada eng ishonchli muloyim so‘rov. O‘zbekchada «iltimos» deyish yetarli ko‘rinadi, ruschada esa iboraning ohangi muhim.",
+   "say": "В деловом разговоре лучше не говорить «нет, вы неправы». Мягче: «не могу полностью согласиться, поскольку…». Вместо «скидку дайте» скажите: «не могли бы вы рассмотреть возможность скидки?»",
+   "say_uz": "Ish suhbatida «yo‘q, siz noto‘g‘risiz» demagan ma’qul. Yumshoqrog‘i: «to‘liq qo‘shila olmayman, chunki…». «Chegirma bering» o‘rniga ayting: «chegirma imkoniyatini ko‘rib chiqa olmaysizmi?»",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Muzokarada javob bering",
+   "emotion": "encouraging",
+   "board": ["Партнёр: «Давайте снизим цену на 30%».", "Ваша позиция: максимум 10% и только при предоплате.", "Ответьте вежливо."],
+   "examples": [],
+   "say_native": "Mashq. Sherik: «narxni o‘ttiz foizga tushiraylik». Sizning pozitsiyangiz: eng ko‘pi o‘n foiz va faqat oldindan to‘lov bilan. Muloyim javob bering: rad etishdan oldin tushunganingizni bildiring, keyin shart va qarshi taklif keltiring. «Не могу согласиться» va «при условии» ni ishlating. Yigirma soniya.",
+   "say": "Партнёр говорит: давайте снизим цену на тридцать процентов. Ваша позиция: не больше десяти процентов и только при предоплате. Ответьте вежливо и предложите свои условия.",
+   "say_uz": "Sherik aytadi: narxni o‘ttiz foizga tushiraylik. Sizning pozitsiyangiz: o‘n foizdan ko‘p emas va faqat oldindan to‘lov bilan. Muloyim javob bering va o‘z shartlaringizni taklif qiling.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Muzokara javobi namunasi",
+   "emotion": "proud",
+   "board": ["Понимаю ваш интерес, однако тридцать процентов — слишком много.", "Готовы предложить десять процентов при условии предоплаты.", "Это наше встречное предложение."],
+   "examples": [],
+   "say_native": "Namuna: «Понимаю ваш интерес, однако тридцать процентов — слишком много. Готовы предложить десять процентов при условии предоплаты. Это наше встречное предложение». Uchta qadam: tushunish, sabab bilan rad etish, qarshi taklif. «Слишком много» baho beradi, «при условии предоплаты» shart qo‘yadi. Ohang qat’iy, lekin hurmatli. Sizning variantingizda boshqa raqam bo‘lishi mumkin, tuzilma bir xil.",
+   "say": "Понимаю ваш интерес, однако тридцать процентов — слишком много. Готовы предложить скидку в десять процентов при условии предоплаты. Это наше встречное предложение.",
+   "say_uz": "Qiziqishingizni tushunaman, biroq o‘ttiz foiz juda ko‘p. Oldindan to‘lov sharti bilan o‘n foiz chegirma taklif qilishga tayyormiz. Bu bizning qarshi taklifimiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Raqamlar va foizlar kelishigi",
+   "emotion": "thinking",
+   "board": ["1 → один процент · 2–4 → процента · 5+ → процентов", "21 процент · 22 процента · 25 процентов", "5,5% → пять целых пять десятых процента", "миллион · миллиард = существительные"],
+   "examples": [
+    {"t": "Инфляция составила пять целых пять десятых процента, а бюджет достиг двух миллиардов долларов.", "uz": "Inflyatsiya besh butun besh o‘ndan foizni tashkil etdi, byudjet esa ikki milliard dollarga yetdi."}
+   ],
+   "say_native": "To‘rtinchi nuqta: raqamlar. Foiz so‘zi o‘zgaradi: bitta foiz — «процент», ikkitadan to‘rttagacha — «процента», beshdan ko‘pi — «процентов». Yigirma bir — «двадцать один процент», yigirma ikki — «двадцать два процента», yigirma besh — «двадцать пять процентов». O‘nli kasr: besh butun besh o‘ndan — «пять целых пять десятых процента», shu yerda roditelnyy birlik. «Миллион» va «миллиард» — otlar, shuning uchun «два миллиарда долларов».",
+   "say": "Инфляция составила пять целых пять десятых процента, а бюджет достиг двух миллиардов долларов. Налог вырос на двадцать два процента. В опросе участвовали двадцать один человек.",
+   "say_uz": "Inflyatsiya besh butun besh o‘ndan foizni tashkil etdi, byudjet esa ikki milliard dollarga yetdi. Soliq yigirma ikki foizga oshdi. So‘rovda yigirma bir kishi qatnashdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Raqamlarni o‘qish",
+   "emotion": "impressed",
+   "board": ["1,2 млрд → один миллиард двести миллионов", "в 2024 году → в две тысячи двадцать четвёртом году", "3/4 → три четверти · 1/3 → одна треть"],
+   "examples": [
+    {"t": "В две тысячи двадцать четвёртом году выручка составила один миллиард двести миллионов сумов.", "uz": "2024-yilda tushum bir milliard ikki yuz million so‘mni tashkil etdi."}
+   ],
+   "say_native": "Raqamlarni so‘z bilan o‘qish ham mashq talab qiladi. Yil tartib sonda va predlojnyy kelishikda: «в две тысячи двадцать четвёртом году». Bir milliard ikki yuz million — «один миллиард двести миллионов». Kasr: «три четверти», «одна треть». Raqam bilan kelgan otlarni shunday o‘qish nutqda tabiiy. Imtihonda raqamni ovoz chiqarib aytish ko‘pincha so‘raladi, shuning uchun uni ovoz chiqarib mashq qiling.",
+   "say": "В две тысячи двадцать четвёртом году выручка составила один миллиард двести миллионов сумов. Три четверти доходов поступили от экспорта. Одна треть сотрудников работает удалённо.",
+   "say_uz": "2024-yilda tushum bir milliard ikki yuz million so‘mni tashkil etdi. Daromadlarning to‘rtdan uch qismi eksportdan tushdi. Xodimlarning uchdan biri masofadan ishlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Raqam bilan kelishik xatolari",
+   "emotion": "stern",
+   "board": ["✗ пять процента", "✓ пять процентов", "✗ два миллиард рублей", "✓ два миллиарда рублей", "✗ двадцать два процентов → ✓ двадцать два процента"],
+   "examples": [],
+   "say_native": "Eng ko‘p xatolar kelishikda. «Пять процента» — xato, «пять процентов». «Два миллиард» — xato, «два миллиарда». «Двадцать два процентов» ham xato: oxiri ikki bilan tugagani uchun «процента». O‘zbek tilida son bilan ot ko‘plik olmaydi, shuning uchun bu qoidalar ko‘nikma talab qiladi. Qoida: oxirgi raqamga qarang, bir — birlik, ikki-to‘rt — roditelnyy birlik, qolgani — roditelnyy ko‘plik.",
+   "say": "Говорите «пять процентов», а не «пять процента». Правильно «два миллиарда рублей», а не «два миллиард». Если число оканчивается на два, три или четыре, процент ставится в форме «процента».",
+   "say_uz": "«Пять процентов» deng, «пять процента» demang: ruschada beshdan boshlab ko‘plik roditelnyy shakli ishlatiladi. «Ikki milliard rubl» ham «два миллиарда рублей» bo‘ladi. Son ikki, uch yoki to‘rt bilan tugasa, foiz birlik roditelnyy shaklida, ya’ni «процента» bo‘ladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Raqamlarni ayting",
+   "emotion": "encouraging",
+   "board": ["1. Налог вырос на 3% (три)", "2. Прибыль составила 15,5 млн рублей", "3. Безработица достигла 7% и 22%", "4. Бюджет: 4 млрд долларов"],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta ifodani so‘z bilan ovoz chiqarib ayting. Soliq uch foizga oshdi. Foyda o‘n besh butun besh o‘ndan million rubl. Ishsizlik yetti foiz va yigirma ikki foiz. Byudjet to‘rt milliard dollar. Har bir raqamning kelishigini tekshiring. Yigirma besh soniya vaqtingiz bor.",
+   "say": "Прочитайте вслух с правильными окончаниями. Налог вырос на три процента. Прибыль составила пятнадцать целых пять десятых миллиона рублей. Безработица достигла семи процентов, а в другом регионе двадцати двух процентов. Бюджет составил четыре миллиарда долларов.",
+   "say_uz": "To‘g‘ri qo‘shimchalar bilan ovoz chiqarib o‘qing. Soliq uch foizga oshdi. Foyda o‘n besh butun besh o‘ndan million rublni tashkil etdi. Ishsizlik yetti foizga, boshqa mintaqada esa yigirma ikki foizga yetdi. Byudjet to‘rt milliard dollarni tashkil etdi.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Raqam javoblari",
+   "emotion": "proud",
+   "board": ["на три процента", "пятнадцать целых пять десятых миллиона рублей", "семи процентов · двадцати двух процентов", "четыре миллиарда долларов"],
+   "examples": [],
+   "say_native": "Javoblar. «На три процента» — ikkidan to‘rtgacha qoidasiga muvofiq. «Пятнадцать целых пять десятых миллиона рублей» — kasrdan keyin roditelnyy birlik: «миллиона». «Достигла семи процентов» — «достигнуть» fe’lidan keyin roditelnyy kelishik, shuning uchun «семи процентов», «двадцати двух процентов». «Четыре миллиарда долларов» — to‘rtdan keyin birlik roditelnyy. Eng ko‘p qiynaydigan joy: «достигла» dan keyingi kelishik.",
+   "say": "Налог вырос на три процента. Прибыль составила пятнадцать целых пять десятых миллиона рублей. Безработица достигла семи процентов и двадцати двух процентов. Бюджет составил четыре миллиарда долларов.",
+   "say_uz": "Soliq uch foizga oshdi. Foyda o‘n besh butun besh o‘ndan million rublni tashkil etdi. Ishsizlik yetti foizga va yigirma ikki foizga yetdi. Byudjet to‘rt milliard dollarni tashkil etdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: bozor sharhi",
+   "emotion": "thinking",
+   "board": ["Аналитик рассказывает о рынке жилья", "Какие тенденции он называет?"],
+   "examples": [],
+   "say_native": "Yakuniy tinglash. Tahlilchi uy-joy bozori haqida gapirmoqda. Qanday tendensiyalarni va sabablarni aytadi? Raqamlar va predloglarga e’tibor bering.",
+   "say": "В прошлом году цены на жильё выросли на двенадцать процентов, а в этом году рост замедлился до четырёх процентов. Основная причина — повышение процентных ставок по ипотеке, из-за чего спрос сократился почти вдвое. В долгосрочной перспективе рынок, вероятно, стабилизируется.",
+   "say_uz": "O‘tgan yili uy-joy narxlari o‘n ikki foizga oshdi, bu yil esa o‘sish to‘rt foizgacha sekinlashdi. Asosiy sabab ipoteka bo‘yicha foiz stavkalarining oshishi, shu tufayli talab deyarli ikki baravar qisqardi. Uzoq muddatli istiqbolda bozor, ehtimol, barqarorlashadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sharh savollari",
+   "emotion": "encouraging",
+   "board": ["1. На сколько выросли цены в прошлом году?", "2. До какого уровня замедлился рост?", "3. В чём основная причина?", "4. Что будет в долгосрочной перспективе?"],
+   "examples": [],
+   "say_native": "Savollar. O‘tgan yili narxlar necha foizga oshdi? O‘sish qaysi darajagacha sekinlashdi? Asosiy sabab nima? Uzoq muddatda nima bo‘ladi? Predloglarga e’tibor bering. Yigirma soniya.",
+   "say": "Ответьте на вопросы. На сколько выросли цены в прошлом году? До какого уровня замедлился рост? В чём основная причина? Что произойдёт в долгосрочной перспективе?",
+   "say_uz": "Savollarga javob bering. O‘tgan yili narxlar necha foizga oshdi? O‘sish qaysi darajagacha sekinlashdi? Asosiy sabab nima? Uzoq muddatli istiqbolda nima bo‘ladi?",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Sharh javoblari",
+   "emotion": "proud",
+   "board": ["1. на 12%", "2. до 4%", "3. рост ставок по ипотеке → спрос сократился почти вдвое", "4. рынок, вероятно, стабилизируется"],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: o‘n ikki foizga, bu «на». Ikkinchi: to‘rt foizgacha, bu «до». Uchinchi: ipoteka stavkalari oshdi, shu sababli talab deyarli ikki baravar qisqardi. To‘rtinchi: bozor, ehtimol, barqarorlashadi, ehtiyotkor «вероятно» so‘zi bilan. Bir tinglashda ikki predlog, sabab va bashorat bor. Aynan shunday tuzilma sizning tushuntirishingizda ham bo‘lishi kerak.",
+   "say": "Цены выросли на двенадцать процентов. Рост замедлился до четырёх процентов. Спрос сократился почти вдвое из-за повышения ставок по ипотеке. В долгосрочной перспективе рынок, вероятно, стабилизируется.",
+   "say_uz": "Narxlar o‘n ikki foizga oshdi. O‘sish to‘rt foizgacha sekinlashdi. Talab ipoteka stavkalari oshgani tufayli deyarli ikki baravar qisqardi. Uzoq muddatli istiqbolda bozor, ehtimol, barqarorlashadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tendensiyani tushuntirish sxemasi",
+   "emotion": "neutral",
+   "board": ["1. тенденция + цифры", "2. причины: из-за · благодаря · вследствие", "3. последствия", "4. прогноз: вероятно · можно ожидать"],
+   "examples": [
+    {"t": "Благодаря развитию онлайн-торговли число курьерских служб за три года выросло почти втрое.", "uz": "Onlayn savdo rivoji tufayli kuryerlik xizmatlari soni uch yilda deyarli uch baravar oshdi."}
+   ],
+   "say_native": "Tendensiyani tushuntirish uchun sxema. Birinchi: tendensiya va raqam. Ikkinchi: sabablar. Salbiy uchun «из-за», ijobiy uchun «благодаря», rasmiy uslubda «вследствие». Uchinchi: oqibatlar. To‘rtinchi: bashorat, «вероятно», «можно ожидать». Uy vazifasida ham shu sxemadan foydalanasiz. Eslab qoling: «благодаря» dativ bilan, «из-за» roditelnyy bilan keladi.",
+   "say": "Благодаря развитию онлайн-торговли число курьерских служб за три года выросло почти втрое. Однако из-за высокой конкуренции прибыль каждой отдельной компании снизилась. Можно ожидать, что рынок консолидируется.",
+   "say_uz": "Onlayn savdo rivoji tufayli kuryerlik xizmatlari soni uch yilda deyarli uch baravar oshdi. Biroq yuqori raqobat sababli har bir kompaniyaning foydasi kamaydi. Bozor birlashishini kutish mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qisqa chiqish",
+   "emotion": "encouraging",
+   "board": ["Тема: цены на продукты / курс валюты / зарплаты в вашей стране", "Тенденция + цифры + причина + прогноз"],
+   "examples": [],
+   "say_native": "Mashq. O‘z mamlakatingizdagi biror tendensiyani tanlang: oziq-ovqat narxlari, valyuta kursi yoki ish haqi. Aniq raqamni bilmasangiz, taxminiy ayting: «примерно», «около». Sxema bo‘yicha gapiring: tendensiya, raqam, sabab, bashorat. Qirq soniya vaqtingiz bor.",
+   "say": "Выберите тенденцию в вашей стране: цены на продукты, курс валюты или зарплаты. Расскажите о ней по схеме: тенденция и цифры, причина, прогноз. Если не знаете точной цифры, скажите «примерно» или «около».",
+   "say_uz": "O‘z mamlakatingizdagi tendensiyani tanlang: oziq-ovqat narxlari, valyuta kursi yoki ish haqi. Sxema bo‘yicha gapirib bering: tendensiya va raqamlar, sabab, bashorat. Aniq raqamni bilmasangiz, «taxminan» yoki «atrofida» deng.",
+   "practice_seconds": 28
+  },
+  {
+   "kind": "explain",
+   "title": "Namunaviy chiqish",
+   "emotion": "proud",
+   "board": ["Зарплаты в сфере ИТ", "рост примерно на 15% в год", "из-за дефицита специалистов", "вероятно, рост замедлится"],
+   "examples": [],
+   "say_native": "Namuna: axborot texnologiyalari sohasida ish haqi. Yiliga taxminan o‘n besh foizga oshmoqda. Sabab: mutaxassislar yetishmasligi. Bashorat: o‘sish, ehtimol, sekinlashadi. Qarang, aniq raqam bo‘lmasa ham «примерно» bilan ehtiyotkor va halol ayta olamiz. Muhimi, predlog to‘g‘ri bo‘lsin: «на пятнадцать процентов» o‘zgarish miqdori, «из-за» roditelnyy bilan.",
+   "say": "Зарплаты в сфере информационных технологий растут примерно на пятнадцать процентов в год. Это происходит из-за дефицита специалистов. Вероятно, в ближайшие годы рост замедлится, когда предложение на рынке труда увеличится.",
+   "say_uz": "Axborot texnologiyalari sohasida ish haqi yiliga taxminan o‘n besh foizga oshmoqda. Bu mutaxassislar tanqisligi sababli sodir bo‘lmoqda. Yaqin yillarda, mehnat bozorida taklif ko‘paygach, o‘sish, ehtimol, sekinlashadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Dars xulosasi",
+   "emotion": "happy",
+   "board": ["1. термины + глаголы: получать прибыль, нести убытки", "2. на · до · с…до · в раза", "3. вежливые деловые фразы", "4. числа: 1 процент, 2–4 процента, 5+ процентов"],
+   "examples": [],
+   "say_native": "Xulosa. Birinchi: iqtisodiy atamalarni fe’l bilan yodlang: foyda olmoq, zarar ko‘rmoq. Ikkinchi: tendensiyani «на», «до», «с… до…», «в… раза» bilan aniq tasvirlang. Uchinchi: muzokarada muloyim iboralardan foydalaning. To‘rtinchi: foiz va katta sonlarning kelishigini to‘g‘ri qo‘ying. Endi siz iqtisodiy mavzuda ishonch bilan gapirasiz.",
+   "say": "Сегодня вы научились употреблять экономические термины в устойчивых сочетаниях, описывать тенденции с помощью предлогов, вести вежливые деловые переговоры и правильно произносить числа. Эти навыки пригодятся и на экзамене, и на работе.",
+   "say_uz": "Bugun siz iqtisodiy atamalarni barqaror birikmalarda ishlatishni, tendensiyalarni predloglar yordamida tasvirlashni, muloyim ish muzokaralari olib borishni va sonlarni to‘g‘ri aytishni o‘rgandingiz. Bu ko‘nikmalar imtihonda ham, ishda ham asqotadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "proud",
+   "board": ["Объясните экономическую тенденцию в вашей стране", "2 минуты: цифры, причины, последствия, прогноз", "используйте на · до · в раза и 3 термина"],
+   "examples": [],
+   "say_native": "Uy vazifasi: o‘z mamlakatingizdagi biror iqtisodiy tendensiyani tushuntiring. Ikki daqiqa gapiring yoki bir sahifa yozing. Raqamlar, sabablar, oqibatlar va bashorat bo‘lsin. Kamida uchta atama va «на», «до», «в раза» predloglaridan foydalaning. Raqamlarning kelishigini tekshiring. Muvaffaqiyat mezoni: tinglovchi tendensiyani raqamlar bilan tushunadi. Keyingi darsda taqdimot qilish san’atini o‘rganamiz.",
+   "say": "Домашнее задание: объясните экономическую тенденцию в вашей стране. Расскажите о ней в течение двух минут: назовите цифры, причины, последствия и прогноз. Используйте не менее трёх терминов и предлоги «на», «до», «в раза».",
+   "say_uz": "Uy vazifasi: o‘z mamlakatingizdagi iqtisodiy tendensiyani tushuntiring. Ikki daqiqa davomida gapiring: raqamlarni, sabablarni, oqibatlarni va bashoratni ayting. Kamida uchta atama va «на», «до», «в раза» predloglaridan foydalaning.",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "Mamlakatingizdagi iqtisodiy tendensiyani tushuntirib qo‘ying. Mezon: har bir gap rus tilida, «рынок, экономика, цена, бизнес, итого» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “market”?","options":["рынок","экономика","цена","бизнес"],"answer":0,"why_uz":"Рынок — bozor."},
-  {"q":"Which word means “economy”?","options":["экономика","рынок","цена","бизнес"],"answer":0,"why_uz":"Экономика — iqtisodiyot."},
-  {"q":"Which word means “price”?","options":["цена","рынок","экономика","бизнес"],"answer":0,"why_uz":"Цена — narx."},
-  {"q":"How do you say “The market is important”?","options":["Рынок важен.","Рынок важен есть.","Рынок важен является.","Рынок важен был."],"answer":0,"why_uz":"Рынок важен — bozor muhim."},
-  {"q":"Which word means “business”?","options":["бизнес","цена","рынок","экономика"],"answer":0,"why_uz":"Бизнес — biznes."},
-  {"q":"Which word means “growth”?","options":["рост","бизнес","цена","рынок"],"answer":0,"why_uz":"Рост — o‘sish."},
-  {"q":"Which word means “income”?","options":["доход","рост","бизнес","цена"],"answer":0,"why_uz":"Доход — daromad."},
-  {"q":"Which word means “sales”?","options":["продажа","доход","рост","бизнес"],"answer":0,"why_uz":"Продажа — sotuv."},
-  {"q":"Which word means “client”?","options":["клиент","продажа","доход","рост"],"answer":0,"why_uz":"Клиент — mijoz."},
-  {"q":"Which word means “company”?","options":["компания","клиент","продажа","доход"],"answer":0,"why_uz":"Компания — kompaniya."}
+ "homework_uz": "O‘z mamlakatingizdagi biror iqtisodiy tendensiyani tushuntiring: ikki daqiqa gapiring yoki bir sahifa yozing. Raqamlar, sabablar, oqibatlar va bashorat bo‘lsin; kamida uchta atama va «на», «до», «в раза» predloglarini ishlating, raqam kelishiklarini tekshiring. Vazifa bajarilgan hisoblanadi, agar tinglovchi tendensiyani raqamlar bilan tushunsa. Keyingi darsda taqdimot qilish san’atini o‘rganamiz.",
+ "quiz": [
+  {"q": "Qaysi birikma to‘g‘ri?", "options": ["делать прибыль", "получать прибыль", "брать прибыль", "ставить прибыль"], "answer": 1, "why_uz": "Ruscha «получать прибыль» yoki «приносить прибыль» deyiladi."},
+  {"q": "«Цены выросли на 5%» nimani bildiradi?", "options": ["Narxlar 5 foizga oshdi", "Narxlar 5 foizga yetdi", "Narxlar 5 baravar oshdi", "Narx 5 foiz bor"], "answer": 0, "why_uz": "«На» o‘zgarish miqdorini ko‘rsatadi."},
+  {"q": "«Выросла до 11%» nimani bildiradi?", "options": ["11 foizga ko‘paydi", "11 foiz darajasiga yetdi", "11 baravar oshdi", "11 foizga kamaydi"], "answer": 1, "why_uz": "«До» yakuniy darajani bildiradi."},
+  {"q": "«Ikki baravar oshdi» ruschada qanday aytiladi?", "options": ["выросла на два", "выросла в два раза", "выросла до два", "выросла у два"], "answer": 1, "why_uz": "Ko‘paytma «в два раза» bilan ifodalanadi."},
+  {"q": "5 foizni qanday aytamiz?", "options": ["пять процент", "пять процента", "пять процентов", "пять процентах"], "answer": 2, "why_uz": "Beshdan boshlab «процентов»."},
+  {"q": "22 foizni qanday aytamiz?", "options": ["двадцать два процентов", "двадцать два процента", "двадцать два процент", "двадцать две процента"], "answer": 1, "why_uz": "Ikki bilan tugasa «процента»."},
+  {"q": "Muloyim rad etish iborasi qaysi?", "options": ["Нет, вы неправы.", "Не могу полностью согласиться, поскольку…", "Это глупо.", "Скидку дайте."], "answer": 1, "why_uz": "Faqat shu ibora professional va muloyim."},
+  {"q": "«Благодаря» qaysi kelishik bilan keladi?", "options": ["Roditelnyy", "Dativ", "Tvoritelnyy", "Predlojnyy"], "answer": 1, "why_uz": "«Благодаря развитию» — dativ."},
+  {"q": "«Нести убытки» nimani bildiradi?", "options": ["Foyda olmoq", "Zarar ko‘rmoq", "Soliq to‘lamoq", "Investitsiya jalb qilmoq"], "answer": 1, "why_uz": "«Убыток» — zarar."},
+  {"q": "Tendensiya tushuntirish sxemasida qaysi tartib to‘g‘ri?", "options": ["Prognoz, sabab, raqam", "Tendensiya va raqamlar, sabab, oqibat, prognoz", "Faqat prognoz", "Sabab, tendensiya"], "answer": 1, "why_uz": "Raqamli tendensiya, sabab, oqibat, prognoz."}
  ]
 }

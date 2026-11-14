@@ -45,4 +45,5 @@ Qoidalar o'sha: to'lov/kalit/o'chirish/release — tegilmaydi; har o'zgarish tes
 - [x] N4. Fanlar: darsdagi xatoni xabar qilish + admin panelda "Fan darslari xatolari" (qayta yozdirish).
 - [x] N5. Lug'at/fanlar: umumiy so'rov cheklovlari; lug'at fayllari keshlanadi.
 - [x] N6. lesson-check: sahnalarning yarmidan ko'pi takror → shablon (navbatga +87 dars).
-- [~] N7. Shablon darslarni qayta yozish (agentlar, faqat lesson-check ✅ bo'lganlari push qilinadi).
+- [~] N7. Shablon darslarni qayta yozish: 102 ta dars qayta yozilib push qilindi (hammasi lesson-check ✅). Koreys, ispan, nemis — 200/200. Qolgani 329 ta (turk, rus, arab, xitoy, ingliz) — `node scripts/lesson-next.mjs <til>` orqali davom ettirish mumkin (OpenCode).
+- 2026-11-14 (tungi sessiya, Claude): N1–N6 bajarildi, N7 qisman (102 dars). Claude haftalik limiti tugadi (18-noyabr 15:00 gacha). npm test hammasi o'tdi.

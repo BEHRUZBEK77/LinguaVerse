@@ -1,68 +1,412 @@
 {
  "title": "Kogeziya: bog‘lovchi vositalar",
- "goal_uz": "Dars yakunida rus tilida bog‘lovchi vositalarni mahorat bilan qo‘llay olasiz. «Таким образом ...», «Например ...», «Однако ...», «Итого ...» bog‘lovchilarini o‘rinli qo‘llaysiz, mukammallashtirib rasmini bayon qilasiz. Oxirida berilgan matn bog‘lanishini yaxshilab bera olasiz.",
+ "goal_uz": "Dars oxirida siz matnda olmosh, sinonim va tushirib qoldirish orqali takrorni yo‘qotasiz, ilg‘or bog‘lovchi iboralarni o‘rnida ishlatasiz, abzatslarni bir-biriga ulaysiz va mexanik bog‘lashdan qochib, berilgan matnning kogeziyasini yaxshilay olasiz.",
  "vocab": [
-  {"w": "таким образом", "uz": "shunday qilib"},
-  {"w": "например", "uz": "masalan"},
-  {"w": "однако", "uz": "ammo"},
-  {"w": "итого", "uz": "xulosa qilib"},
-  {"w": "поэтому", "uz": "shuning uchun"},
-  {"w": "потому что", "uz": "chunki"},
-  {"w": "вообще", "uz": "umuman"},
-  {"w": "конечно", "uz": "albatta"},
-  {"w": "хорошо", "uz": "yaxshi"},
-  {"w": "важно", "uz": "muhim"}
+  {"w": "связность", "uz": "bog‘liqlik, kogeziya"},
+  {"w": "тем не менее", "uz": "shunga qaramay"},
+  {"w": "вместе с тем", "uz": "shu bilan birga"},
+  {"w": "более того", "uz": "bundan tashqari, hatto"},
+  {"w": "следовательно", "uz": "demak, shunday ekan"},
+  {"w": "в то время как", "uz": "holbuki, bir paytda"},
+  {"w": "указанный", "uz": "yuqorida ko‘rsatilgan"},
+  {"w": "опущение", "uz": "tushirib qoldirish"},
+  {"w": "переход", "uz": "o‘tish, ulanish"},
+  {"w": "повтор", "uz": "takror"}
  ],
  "scenes": [
-  {"kind":"intro","title":"Yuz o‘ninchi dars: bog‘lovchi vositalar","emotion":"happy","board":["Таким образом ...","Например ...","Однако ...","Итого ..."],"examples":[],"say_native":"Assalomu alaykum! Yuz o‘ninchi darsda bog‘lovchi vositalarni mahorat bilan qo‘llashni o‘rganamiz. Bugun «таким образом», «например», «однако» va «итого» bog‘lovchilarini mukammallashtirib rasmini bayon qilamiz. Oxirida berilgan matn bog‘lanishini yaxshilab bera olasiz. Keyingi darsda argumentli esseni o‘rganamiz.","say":"Здравствуйте! Сегодня учим связки.","say_uz":"Assalomu alaykum! Bugun bog‘lovchilarni o‘rganamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Shunday qilib bog‘lovchisi","emotion":"neutral","board":["Таким образом ...","Таким образом, это хорошо.","Таким образом, это важно."],"examples":[{"t":"Таким образом, это хорошо.","uz":"Shunday qilib, bu yaxshi."},{"t":"Таким образом, это важно.","uz":"Shunday qilib, bu muhim."}],"say_native":"«Таким образом» — shunday qilib bog‘lovchisi bog‘lovchi vositaning birinchi o‘rini egallab qoladi. «Таким образом, это хорошо» — shunday qilib, bu yaxshi; «таким образом, это важно» — shunday qilib, bu muhim. Ushbu bog‘lovchilar matn bog‘lanishini yaxshilab qo‘yadi.","say":"Таким образом, это хорошо. Таким образом, это важно.","say_uz":"Shunday qilib, bu yaxshi. Shunday qilib, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Bog‘lovchini ayting","emotion":"encouraging","board":["1) Shunday qilib, bu yaxshi.","2) Shunday qilib, bu muhim."],"examples":[],"say_native":"Bog‘lovchini ikki qator bilan mustahkamlab oling. Birinchisi: «таким образом, это хорошо». Ikkinchisi: «таким образом, это важно». Har birini bitta nafas bilan tugallang.","say":"Таким образом, это хорошо. Таким образом, это важно.","say_uz":"Shunday qilib, bu yaxshi. Shunday qilib, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таким образом, это хорошо.","Таким образом, это важно."],"examples":[],"say_native":"Bog‘lovchi javoblari ikki qator matn bog‘lanishi bilan tugadi. «Таким образом, это хорошо» — yaxshilik bog‘lovchisi, «таким образом, это важно» — muhimlik bog‘lovchisi. Matn bog‘lanishi shu ikki shakl bilan mushtahkam balanti bo‘lib qoldi.","say":"Таким образом, это хорошо. Таким образом, это важно.","say_uz":"Shunday qilib, bu yaxshi. Shunday qilib, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Masalan belgisi bog‘lovchisi","emotion":"thinking","board":["Например ...","Например, это хорошо.","Например, это важно."],"examples":[{"t":"Например, это хорошо.","uz":"Masalan, bu yaxshi."},{"t":"Например, это важно.","uz":"Masalan, bu muhim."}],"say_native":"«Например» — masalan bog‘lovchisi matn bog‘lanishini misol bilan to‘ldirib qo‘yadi. «Например, это хорошо» — masalan, bu yaxshi, «например, это важно» — masalan, bu muhim. Ushbu belgilar matn bog‘lanishini mustahkam slab qolishining ikkinchi a’zosi bo‘ladi.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Masalan deb ayting","emotion":"encouraging","board":["1) Masalan, bu yaxshi.","2) Masalan, bu muhim."],"examples":[],"say_native":"Masalan belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «например, это хорошо». Ikkinchisi: «например, это важно». Ularni bitta nafas bilan tugallab qo‘ying.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Например, это хорошо.","Например, это важно."],"examples":[],"say_native":"Masalan javoblari ikki qator matn bog‘lanishi bilan tugunlarga qotib qolib mustahkam bo‘lib qoladi. «Например, это хорошо» — misolli yaxshilik, «например, это важно» — misolli muhimlik. Matn bog‘lanishi shu ikki shakl bilan mustahkamlanadi.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"mistake","title":"Bog‘lovchini bitta so‘z bilan tugatish","emotion":"stern","board":["✗ Например.","✓ Например, это хорошо. Например, это важно. Потому что это важно.","✗ Однако.","✓ Однако, это плохо. Однако, это хорошо. Потому что это важно."],"examples":[],"say_native":"Ko‘p uchraydigan xato — bog‘lovchini bitta so‘z bilan tugatib qo‘yishdir. «Например» bitta so‘z bilan tugallanib qolishi mumkin emas. To‘g‘ri shakl uch qatorli dalilli xulosa bilang tugallanadi.","say":"Например, это хорошо. Например, это важно. Потому что это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim. Chunki bu muhim.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: bog‘lovchi o‘rni","emotion":"happy","board":["— Что ты думаешь?","— Таким образом, это хорошо.","— Почему? — Например, это хорошо."],"examples":[],"say_native":"Birinchi dialog bog‘lovchi o‘rnini mungozara qiladi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Таким образом, это хорошо» — bog‘lash belgisi. «Почему? — Например, это хорошо» — dalil belgisi bilan tugaydi.","say":"Что ты думаешь? Таким образом, это хорошо. Почему? Например, это хорошо.","say_uz":"Nima deb o‘ylaysan? Shunday qilib, bu yaxshi. Nega? Masalan, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Nega?"],"examples":[],"say_native":"Bog‘lovchi savollarini mustahkamlab oling. Birinchi savol: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchisi: «почему?» — nega. Javoblarda «например» bog‘lovchisini aniq qo‘llab yakunlab qo‘ying.","say":"Что ты думаешь? Таким образом, это хорошо. Почему? Например, это хорошо.","say_uz":"Nima deb o‘ylaysan? Shunday qilib, bu yaxshi. Nega? Masalan, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таким образом, это хорошо.","Например, это хорошо."],"examples":[],"say_native":"Birinchi dialog javoblari bog‘lash bilan dalil borg‘liqligida tugadi. «Таким образом, это хорошо» — bog‘lash belgisi, «например, это хорошо» — dalil belgisi. Bog‘lovchi o‘rni ushbu ikki shakl bilan aniq namoyish etiladi.","say":"Таким образом, это хорошо. Например, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu yaxshi.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: qarshilik xulosasi","emotion":"neutral","board":["— А однако?","— Однако, это плохо.","— Итого? — Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog qarshilik xulosasi bilan yakunlanadi. «А однако?» — ammo deb so‘raydi. «Однако, это плохо» — qarshilik belgisi. «Итого? — Итого, это хорошо» — umumiy xulosa bilan tugaydi.","say":"А однако? Однако, это плохо. Итого? Итого, это хорошо.","say_uz":"Ammo-chi? Ammo, bu yomon. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Ammo-chi?","2) Xulosa?"],"examples":[],"say_native":"Qarshilik savollarini mustahkamlab oling. Birinchi savol: «а однако?» — ammo-chi deb. Ikkinchisi: «итого?» — xulosa. Javoblarda «однако» va «итого» belgilarini aniq qo‘llab yopib qo‘ying.","say":"А однако? Однако, это плохо. Итого? Итого, это хорошо.","say_uz":"Ammo-chi? Ammo, bu yomon. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Однако, это плохо.","Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog javoblari qarshilik bilan xulosa borg‘liqligida birlashdi. «Однако, это плохо» — qarshilik belgisi, «итого, это хорошо» — xulosa belgisi. Qarshilik xulosasi shu ikki qatorga muhtarkam bo‘lib qoldi.","say":"Однако, это плохо. Итого, это хорошо.","say_uz":"Ammo, bu yomon. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Ammo belgisi","emotion":"thinking","board":["Однако ...","Однако, это плохо.","Однако, это хорошо."],"examples":[{"t":"Однако, это плохо.","uz":"Ammo, bu yomon."},{"t":"Однако, это хорошо.","uz":"Ammo, bu yaxshi."}],"say_native":"«Однако» — ammo belgisi bog‘lovchi vositalarning qarshilik qismini ochib qo‘yadi. «Однако, это плохо» — ammo, bu yomon, «однако, это хорошо» — ammo, bu yaxshi. Ushbu belgilar qarshilik xulosasini mustahkam slab qolishining uchinchi a’zosi bo‘ladi.","say":"Однако, это плохо. Однако, это хорошо.","say_uz":"Ammo, bu yomon. Ammo, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Ammo deb ayting","emotion":"encouraging","board":["1) Ammo, bu yomon.","2) Ammo, bu yaxshi."],"examples":[],"say_native":"Ammo belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «однако, это плохо». Ikkinchisi: «однако, это хорошо». Ularni bitta nafas bilan tugallab qo‘ying.","say":"Однако, это плохо. Однако, это хорошо.","say_uz":"Ammo, bu yomon. Ammo, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Однако, это плохо.","Однако, это хорошо."],"examples":[],"say_native":"Ammo javoblari ikki qator bog‘lovchi vositalarga chizish belgisi bilan tugunlarga qotib qolib mustahkam bo‘lib qoladi. «Однако, это плохо» — qarshilikning yomon qismi, «однако, это хорошо» — qarshilikning yaxshi qismi. Qarshilik xulosasi ushbu ikki shakl bilang ifodalanib qoladi.","say":"Однако, это плохо. Однако, это хорошо.","say_uz":"Ammo, bu yomon. Ammo, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Umumi baho belgisi","emotion":"neutral","board":["Вообще ...","Вообще, это хорошо.","Вообще, это важно."],"examples":[{"t":"Вообще, это хорошо.","uz":"Umuman, bu yaxshi."},{"t":"Вообще, это важно.","uz":"Umuman, bu muhim."}],"say_native":"«Вообще» — umuman belgisi bog‘lovchi vositalarning umumiy baho qismini ochib qo‘yadi. «Вообще, это хорошо» — umuman, bu yaxshi, «вообще, это важно» — umuman, bu muhim. Ushbu belgilar umumiy xulosani mustahkam slab qolishining to‘rtinchi a’zosi bo‘ladi.","say":"Вообще, это хорошо. Вообще, это важно.","say_uz":"Umuman, bu yaxshi. Umuman, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Umuman deb ayting","emotion":"encouraging","board":["1) Umuman, bu yaxshi.","2) Umuman, bu muhim."],"examples":[],"say_native":"Umuman belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «вообще, это хорошо». Ikkinchisi: «вообще, это важно». Ularni bitta tugun bilan tugallab qo‘ying.","say":"Вообще, это хорошо. Вообще, это важно.","say_uz":"Umuman, bu yaxshi. Umuman, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Вообще, это хорошо.","Вообще, это важно."],"examples":[],"say_native":"Umuman javoblari ikki qator umumiy baho bilan barqaror qoldi. «Вообще, это хорошо» — yaxshilikning umumiysi, «вообще, это важно» — muhimlikning umumiysi. Ushbu ikki shakl umumiy xulosani mustahkam qotib qoladi.","say":"Вообще, это хорошо. Вообще, это важно.","say_uz":"Umuman, bu yaxshi. Umuman, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: bog‘lovchilar","emotion":"encouraging","board":["1) Shunday qilib, bu yaxshi.","2) Masalan, bu yaxshi.","3) Xulosa qilib, bu yaxshi.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda matn bog‘lanishini yaxshilab qo‘ying. Birinchisi: «таким образом, это хорошо». Ikkinchisi: «например, это хорошо». Uchinchisi: «итого, это хорошо». Uch qatorni matn bog‘lanishi shaklida bitta nafas bilan mustahkam slab qolib, bayon qiling.","say":"Таким образом, это хорошо. Например, это хорошо. Итого, это хорошо. Спасибо!","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu yaxshi. Xulosa qilib, bu yaxshi. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Таким образом, это хорошо.","Например, это хорошо.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «таким образом, это хорошо». Ikkinchisi: «например, это хорошо». Uchinchisi: «итого, это хорошо». Ushbu uch qator matn bog‘lanishini yaxshilash namunasi zaken bo‘lib turadi.","say":"Таким образом, это хорошо. Например, это хорошо. Итого, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu yaxshi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Bog‘lovchi qatlamini yoyish","emotion":"neutral","board":["Таким образом ...","Например ...","Однако ...","Итого ..."],"examples":[{"t":"Таким образом ...","uz":"Shunday qilib ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Bog‘lovchi qatlamini yoyish «таким образом» so‘zidan boshlanib, «например» so‘zi bilan misollanib, «однако» so‘zi bilan qarshilanib, «итого ...» bog‘lovchisi bilan mustahkamlanib yoyiladi. Matn sarlavhasi ham, bayon kirishi ham shu to‘rt belgi bilan mustahkamlanib, bog‘lanish vositasini aniq shakl oladi. Berilgan matn bog‘lanishini yaxshilab qo‘yayotganda bog‘lovchi qatlamini tartibli yozsa, o‘quvchi qoniqarli xulosa chiqarib oladi.","say":"Таким образом ... Например ... Однако ... Итого ...","say_uz":"Shunday qilib ... Masalan ... Ammo ... Xulosa ...","practice_seconds":0},
-  {"kind":"practice","title":"Zanjirni mustahkamlang","emotion":"encouraging","board":["1) Shunday qilib ...","2) Masalan ...","3) Ammo ...","4) Xulosa ..."],"examples":[],"say_native":"Bog‘lovchi qatlamini to‘rt bosqichda mustahkamlab oling. Birinchi: «таким образом ...». Ikkinchisi: «например ...». Uchinchisi: «однако ...». Yakunda esa: «итого ...». Har birini bitta nafas bilan bir qatorda talaffuz qiling.","say":"Таким образом ... Например ... Однако ... Итого ...","say_uz":"Shunday qilib ... Masalan ... Ammo ... Xulosa ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таким образом ...","Например ...","Однако ...","Итого ..."],"examples":[],"say_native":"Zanjir javoblari to‘rt qator bilan to‘liq ko‘rindi. «Таким образом ...» — shunday qilib, «например ...» — misol, «однако ...» — ammo, «итого ...» — xulosa. Endi matn bog‘lanishi shu to‘rt belgida mustahkam bo‘lib qoladi.","say":"Таким образом ... Например ... Однако ... Итого ...","say_uz":"Shunday qilib ... Masalan ... Ammo ... Xulosa ...","practice_seconds":0},
-  {"kind":"explain","title":"Bog‘lovchini tugatish namunasi","emotion":"neutral","board":["Таким образом, это хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Таким образом, это хорошо.","uz":"Shunday qilib, bu yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Bog‘lovchini tugatish namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «таким образом, это хорошо» — bog‘lash belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator matn bog‘lanishini yaxshilash namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda bog‘lovchi namunasi uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi. So‘z bitta bilan emas, uch qator belgisi bilang tugatilgani uchun mustahkam bo‘lib qoladi. Qog‘ozda ham bu izchillik saqlangsa, baho yuqoriga chiqadi va bir qator oralig‘ida kichik tanaffus bilan nuqtani tiklab qo‘ying hamda har bir maqsad mustahkamlanib yodda saqlanadi va amaliy shaklda qo‘llaniladi va mustahkamlanib, amaliy mashqlarda qo‘llaniladi va mustahkamlagani uchun keyingi danishda ishonch beradi va reja qatlamini mustahkamlaydi hamda yodda saqlaydi.","say":"Таким образом, это хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Shunday qilib, bu yaxshi.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Bog‘lovchi namunasini uch qator bilan mustahkamlab oling. Birinchisi: «таким образом, это хорошо». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Таким образом, это хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таким образом, это хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Таким образом, это хорошо» — bog‘lash, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Matn bog‘lanishi namunasi shu uch qatlamda tugallanib qoladi.","say":"Таким образом, это хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Bog‘lovchini mustahkamlash","emotion":"thinking","board":["Таким образом, это важно.","Например, это важно.","Итого, это важно."],"examples":[{"t":"Таким образом, это важно.","uz":"Shunday qilib, bu muhim."},{"t":"Итого, это важно.","uz":"Xulosa qilib, bu muhim."}],"say_native":"Bog‘lovchini mustahkamlash namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «таким образом, это важно» — bog‘lash belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это важно» — yakun belgisi. Ushbu uch qator bog‘lovchini mustahkamlash namunasi mustahkam tugun bo‘lib qoladi.","say":"Таким образом, это важно. Например, это важно. Итого, это важно.","say_uz":"Shunday qilib, bu muhim. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Mustahkamlashni bajaring","emotion":"encouraging","board":["1) Shunday qilib, bu muhim.","2) Masalan, bu muhim.","3) Xulosa qilib, bu muhim."],"examples":[],"say_native":"Bog‘lovchini mustahkamlashni uch qator bilan mustahkamlab oling. Birinchisi: «таким образом, это важно». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это важно». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Таким образом, это важно. Например, это важно. Итого, это важно.","say_uz":"Shunday qilib, bu muhim. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таким образом, это важно.","Например, это важно.","Итого, это важно."],"examples":[],"say_native":"Mustahkamlash javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Таким образом, это важно» — bog‘lash, «например, это важно» — dalil, «итого, это важно» — xulosa. Bog‘lovchini mustahkamlash shu uch qatlamda tugallanib qoladi.","say":"Таким образом, это важно. Например, это важно. Итого, это важно.","say_uz":"Shunday qilib, bu muhim. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Таким образом ...","Например ...","Однако ..."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. Bog‘lashioning «таким образом» bilan boshlay olasizmi? Misolni «например» bilan to‘ldirib bera olasizmi? Qarshi xulosani «однако» bilan baholay olasizmi? Uchala javob ijobiy bo‘lsa, bog‘lovchi vosita sizga do‘st bo‘ladi.","say":"Таким образом ... Например ... Однако ...","say_uz":"Shunday qilib ... Masalan ... Ammo ...","practice_seconds":0},
-  {"kind":"explain","title":"Bog‘lovchini yakunlash","emotion":"neutral","board":["Таким образом, это хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Таким образом, это хорошо.","uz":"Shunday qilib, bu yaxshi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Bog‘lovchini yakunlash namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «таким образом, это хорошо» — bog‘lash belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator bog‘lovchini yakunlash namunasi mustahkam tugun bo‘lib qoladi.\n Har bir javobda bog‘lovchi namunasi uch qatlam bilan uylab qo‘ysa, o‘quvchi qoniqarli xulosa chiqarib oladi. So‘z bitta bilan emas, uch qator belgisi bilang tugatilgani uchun mustahkam bo‘lib qoladi. Qog‘ozda ham bu izchillik saqlangsa, baho yuqoriga chiqadi va bir qator oralig‘ida kichik tanaffus bilan nuqtani tiklab qo‘ying hamda har bir maqsad mustahkamlanib yodda saqlanadi va amaliy shaklda qo‘llaniladi va mustahkamlanib, amaliy mashqlarda qo‘llaniladi va mustahkamlagani uchun keyingi danishda ishonch beradi va reja qatlamini mustahkamlaydi hamda yodda saqlaydi.","say":"Таким образом, это хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Yakunlashni mustahkamlang","emotion":"encouraging","board":["1) Shunday qilib, bu yaxshi.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Bog‘lovchini yakunlashni uch qator bilan mustahkamlab oling. Birinchisi: «таким образом, это хорошо». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Таким образом, это хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таким образом, это хорошо.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Yakunlash javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Таким образом, это хорошо» — bog‘lash, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Bog‘lovchini yakunlash shu uch qatlamda tugallanib qoladi.","say":"Таким образом, это хорошо. Например, это важно. Итого, это хорошо.","say_uz":"Shunday qilib, bu yaxshi. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["таким образом · например · однако","итого · вообще · конечно"],"examples":[],"say_native":"Bugunning xulosasi: bog‘lovchi vositalarni mahorat bilan qo‘llashni o‘rgandik. «Таким образом» — shunday qilib, «например» — masalan, «однако» — ammo, «итого» — xulosa. Berilgan matn bog‘lanishini yaxshilab bera olasiz.","say":"Отлично! Теперь вы свяжете текст.","say_uz":"Ajoyib! Endi matnni bog‘lashni bilasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["Berilgan matnni bog‘lash","Shunday qilib · masalan · ammo","Keyingi dars: Argumentli esse: band 7–8 namunalar"],"examples":[],"say_native":"Uyga vazifa: berilgan matn bog‘lanishini yaxshilab qo‘ying. Matnda «таким образом», «например», «однако», «итого» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda argumentli esseni o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем писать эссе.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Esse yozamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Matn qanday ushlab turiladi",
+   "emotion": "happy",
+   "board": ["Связность текста", "(Matn bog‘liqligi, kogeziya)", "местоимения · союзы · переходы"],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda fe’lni otga aylantirib, ilmiy uslubni o‘rgandik. Bugun yozma nutqning ikkinchi ustuni: kogeziya, ya’ni gaplar va abzatslarni bir-biriga bog‘lash. Yaxshi gaplar hali yaxshi matn emas. O‘quvchi fikr zanjirini sezmasa, matn alohida bo‘laklarga bo‘linib ketadi. Bugun to‘rt narsani ko‘rib chiqamiz: olmosh, sinonim va tushirib qoldirish; ilg‘or bog‘lovchilar; abzatslar orasidagi ko‘prik; va mexanik bog‘lashdan qochish. Dars oxirida berilgan matnni o‘zingiz tahrir qilasiz, shuning uchun qalam va qog‘oz tayyor tursin.",
+   "say": "Здравствуйте! Хороший текст похож на цепь, в которой каждое звено держится за соседнее. Сегодня мы научимся делать так, чтобы читатель без усилий переходил от одной мысли к другой.",
+   "say_uz": "Assalomu alaykum! Yaxshi matn zanjirga o‘xshaydi, unda har bir halqa qo‘shnisidan ushlab turadi. Bugun o‘quvchi bir fikrdan ikkinchisiga zo‘riqmasdan o‘tishi uchun nima qilish kerakligini o‘rganamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Olmosh orqali ishora",
+   "emotion": "neutral",
+   "board": ["это · такой · данный · указанный", "Эта проблема · Такой подход", "олмош = ссылка назад"],
+   "examples": [
+    {"t": "Город принял новую программу. Данная программа сократила пробки на пятую часть.", "uz": "Shahar yangi dasturni qabul qildi. Bu dastur tirbandliklarni beshdan biriga qisqartirdi."}
+   ],
+   "say_native": "Birinchi vosita: ishora, ya’ni oldingi gapdagi narsaga qaytish. Faqat «он» va «она» bilan cheklanmang. Ilmiy matnda «данный», «указанный», «такой», «этот» kabi so‘zlar ko‘proq ishlatiladi: «данная программа». Ular aynan nimaga qaytayotganini ko‘rsatadi. Muhimi, olmosh qaysi otga tegishli ekani aniq bo‘lsin, ikki ot orasida adashtirmasin.",
+   "say": "Город принял новую программу. Данная программа сократила пробки на пятую часть. Такой результат нельзя считать случайным, поскольку указанный эффект сохранялся два года.",
+   "say_uz": "Shahar yangi dasturni qabul qildi. Ushbu dastur tirbandliklarni beshdan biriga qisqartirdi. Bunday natijani tasodifiy deb bo‘lmaydi, chunki ko‘rsatilgan ta’sir ikki yil saqlandi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sinonim va umumlashtiruvchi so‘z",
+   "emotion": "thinking",
+   "board": ["реформа → преобразование → эти изменения", "исследование → работа → эксперимент", "обобщающее слово: фактор, явление, мера"],
+   "examples": [
+    {"t": "Власти ввели ограничение на выбросы. Эта мера дала быстрый эффект.", "uz": "Hokimiyat chiqindilarga cheklov joriy qildi. Bu chora tez natija berdi."}
+   ],
+   "say_native": "Ikkinchi vosita: sinonim yoki umumlashtiruvchi so‘z. Bir so‘zni uch marta takrorlash o‘rniga uni «реформа», keyin «преобразование», keyin «эти изменения» deb almashtiring. Yashirin yordamchi: «мера», «фактор», «явление», «процесс». Ular oldingi gapdagi butun fikrni bitta so‘zga sig‘dirib, keyingi gapga ko‘prik bo‘ladi. O‘zbekchada «bu chora», «bu holat» deganimizga o‘xshaydi.",
+   "say": "Власти ввели ограничение на выбросы. Эта мера дала быстрый эффект: воздух стал чище уже через полгода. Подобные шаги редко приносят результат так скоро.",
+   "say_uz": "Hokimiyat chiqindilarga cheklov joriy qildi. Bu chora tez natija berdi: havo yarim yildayoq tozalandi. Bunday qadamlar kamdan-kam hollarda shunchalik tez natija beradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tushirib qoldirish: emmissiya",
+   "emotion": "thinking",
+   "board": ["Одни выбирают город, другие — деревню.", "Он читает книги, она — журналы.", "тире на месте пропущенного глагола"],
+   "examples": [
+    {"t": "Младшие дети любят сказки, старшие — приключения.", "uz": "Kichik bolalar ertaklarni yaxshi ko‘radi, kattalari esa sarguzashtlarni."}
+   ],
+   "say_native": "Uchinchi vosita: tushirib qoldirish, ya’ni takrorlanadigan fe’lni aytmaslik. «Одни выбирают город, другие — деревню»: ikkinchi qismda «выбирают» yo‘q, o‘rnida tire turadi. Bu qisqa, chiroyli va o‘zbekcha «boshqalari esa qishloqni» tarzidagi qurilishga yaqin. Lekin bu faqat fe’l ikki qismda bir xil bo‘lganda ishlaydi, aks holda o‘quvchi chalkashadi.",
+   "say": "Младшие дети любят сказки, старшие — приключения. Одни студенты готовятся заранее, другие — в последнюю ночь. Первый курс сдал экзамен целиком, второй — лишь наполовину.",
+   "say_uz": "Kichik bolalar ertaklarni yaxshi ko‘radi, kattalari esa sarguzashtlarni. Ba’zi talabalar oldindan tayyorlanadi, boshqalari esa oxirgi kechada. Birinchi kurs imtihonni to‘liq topshirdi, ikkinchisi esa yarmini.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Olmosh kimga qaytadi",
+   "emotion": "stern",
+   "board": ["✗ Директор сказал министру, что он опоздал.", "✓ Директор сказал министру, что тот опоздал.", "✓ …, что директор опоздал."],
+   "examples": [],
+   "say_native": "Eng ko‘p uchraydigan xato: olmosh ikki otdan qaysisiga tegishli ekani noaniq. «Директор сказал министру, что он опоздал» — kim kechikdi, direktormi yoki vazirmi? Ruscha ravshan qilish usuli bor: «тот» uzoqroq, oxirgi ot, «этот» esa yaqin ot. Yoki uyalmay, otni qaytaring. Aniqlik chiroydan muhimroq.",
+   "say": "Фраза «директор сказал министру, что он опоздал» неоднозначна: непонятно, кто именно опоздал. Скажите «что тот опоздал», если речь о министре, или просто повторите слово «директор».",
+   "say_uz": "«Direktor vazirga uning kechikkanini aytdi» iborasi noaniq: aynan kim kechikkani tushunarsiz. Gap vazir haqida bo‘lsa, «tot» deng yoki shunchaki «direktor» so‘zini takrorlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Takrorni yo‘qoting",
+   "emotion": "encouraging",
+   "board": ["Автор написал статью. Статья вызвала спор. Спор разделил читателей.", "Брат изучает физику, сестра изучает химию."],
+   "examples": [],
+   "say_native": "Mashq. Doskada ikkita parcha. Birinchisida «статья» va «спор» takrorlanmoqda: olmosh yoki umumlashtiruvchi so‘z bilan ularni yengillating. Ikkinchi gapda takrorlanayotgan fe’lni tushirib qoldiring va tire qo‘ying. Yigirma soniya vaqtingiz bor.",
+   "say": "Исправьте повторы. Автор написал статью. Статья вызвала спор. Спор разделил читателей. Брат изучает физику, сестра изучает химию.",
+   "say_uz": "Takrorlarni tuzating. Muallif maqola yozdi. Maqola bahs uyg‘otdi. Bahs o‘quvchilarni ikkiga bo‘ldi. Aka fizikani o‘rganadi, singil kimyoni o‘rganadi.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Takrorsiz variantlar",
+   "emotion": "proud",
+   "board": ["Автор написал статью, которая вызвала спор, разделивший читателей.", "Брат изучает физику, сестра — химию."],
+   "examples": [],
+   "say_native": "Javoblar. Birinchisi: «Автор написал статью, которая вызвала спор, разделивший читателей». Bu yerda «которая» va sifatdosh ishladi, uch qisqa gap bitta uzun gapga birikdi. Mumkin bo‘lgan boshqa yo‘l: «Эта статья вызвала спор, и он разделил читателей». Ikkinchisi: «Брат изучает физику, сестра — химию». Ko‘rdingizmi, takrorsiz matn ravonroq.",
+   "say": "Автор написал статью, которая вызвала спор, разделивший читателей. Брат изучает физику, сестра — химию. Здесь повтор убран с помощью придаточного, причастного оборота и тире.",
+   "say_uz": "Muallif maqola yozdi, u bahs uyg‘otdi va bu bahs o‘quvchilarni ikkiga bo‘ldi. Aka fizikani o‘rganadi, singil esa kimyoni. Bu yerda takror ergash gap, sifatdosh oborot va tire yordamida yo‘qotildi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qarama-qarshilik bog‘lovchilari",
+   "emotion": "neutral",
+   "board": ["тем не менее · вместе с тем · между тем", "впрочем · напротив · в отличие от этого", "в то время как · тогда как"],
+   "examples": [
+    {"t": "Расходы выросли. Тем не менее проект остался прибыльным.", "uz": "Xarajatlar oshdi. Shunga qaramay, loyiha foydali bo‘lib qoldi."}
+   ],
+   "say_native": "Endi ilg‘or bog‘lovchilar. Qarama-qarshilik uchun «но» yetmaydi. «Тем не менее» — shunga qaramay: oldingi gapdagi to‘siqqa qaramay natija bor. «Вместе с тем» — shu bilan birga, yumshoq qarama-qarshilik. «В то время как» yoki «тогда как» ikki holatni solishtiradi. «Напротив» esa fikrni butunlay teskari qiladi. Har birining o‘z soyasi bor.",
+   "say": "Расходы выросли. Тем не менее проект остался прибыльным. Вместе с тем нельзя забывать о рисках. Экспорт увеличился, в то время как внутренний спрос почти не изменился.",
+   "say_uz": "Xarajatlar oshdi. Shunga qaramay, loyiha foydali bo‘lib qoldi. Shu bilan birga, xavflarni unutmaslik kerak. Eksport oshdi, ichki talab esa deyarli o‘zgarmadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qo‘shish va natija bog‘lovchilari",
+   "emotion": "thinking",
+   "board": ["более того · к тому же · помимо этого", "следовательно · в связи с этим · вследствие этого", "таким образом · иными словами"],
+   "examples": [
+    {"t": "Метод дёшев. Более того, он не требует специального оборудования.", "uz": "Usul arzon. Bundan tashqari, u maxsus uskunani talab qilmaydi."}
+   ],
+   "say_native": "Qo‘shish uchun «более того» eng kuchlisi: oldingi dalildan ham muhimroq narsani qo‘shadi. «К тому же» yengilroq, og‘zakiga yaqin. Natija uchun «следовательно» mantiqiy xulosa beradi, «вследствие этого» esa sababni oldingi gapdan oladi. «Таким образом» umumlashtiradi, «иными словами» esa qaytadan oddiyroq aytadi. Bularni tasodifan emas, mantiqni sezib tanlang.",
+   "say": "Метод недорогой. Более того, он не требует специального оборудования. Следовательно, его можно применять в небольших школах. Иными словами, технология стала доступной.",
+   "say_uz": "Usul arzon. Bundan tashqari, u maxsus uskunani talab qilmaydi. Demak, uni kichik maktablarda qo‘llash mumkin. Boshqacha aytganda, texnologiya hamma uchun qulay bo‘ldi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Misol va aniqlik kiritish",
+   "emotion": "neutral",
+   "board": ["например · так · в частности", "то есть · а именно", "в целом · в итоге"],
+   "examples": [
+    {"t": "Некоторые отрасли пострадали сильнее, в частности туризм и общепит.", "uz": "Ba’zi tarmoqlar ko‘proq zarar ko‘rdi, xususan turizm va umumiy ovqatlanish."}
+   ],
+   "say_native": "Yana bir guruh vositalar: misol keltirish va aniqlashtirish. «Например» eng oddiysi. «Так» gap boshida kelsa, ham misol vazifasini bajaradi: «Так, в прошлом году…». «В частности» umumiy fikrdan alohida holatga o‘tadi. «То есть» va «а именно» esa avval aytilganni aniqlashtiradi. «В итоге» va «в целом» esa xulosani boshlaydi. O‘zbek tilida «xususan», «ya’ni» deganimizga to‘g‘ri keladi.",
+   "say": "Некоторые отрасли пострадали сильнее, в частности туризм и общепит. Так, число гостей в отелях сократилось вдвое. Поддержка была выделена тем, кто потерял больше всего, а именно малому бизнесу.",
+   "say_uz": "Ba’zi tarmoqlar ko‘proq zarar ko‘rdi, xususan turizm va umumiy ovqatlanish. Masalan, mehmonxonalardagi mehmonlar soni ikki baravar kamaydi. Yordam eng ko‘p yo‘qotganlarga, ya’ni kichik biznesga ajratildi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Misol va aniqlik mashqi",
+   "emotion": "encouraging",
+   "board": ["1. Многие профессии исчезают, … кассир и телефонист.", "2. Рынок вырос. … продажи удвоились.", "3. Мы работаем в ночную смену, … с десяти вечера."],
+   "examples": [],
+   "say_native": "Mashq. Uchta bo‘sh joyni to‘ldiring. Variantlar: «в частности», «так» va «а именно». Birinchisida umumiy fikrdan ikkita holat ajratilmoqda. Ikkinchisida raqamli misol keltiriladi. Uchinchisida aniq vaqt ko‘rsatilmoqda. Har bir tanlovni asoslab bering. Vaqt o‘n besh soniya.",
+   "say": "Вставьте нужное слово: в частности, так или а именно. Многие профессии исчезают, кассир и телефонист. Рынок вырос, продажи удвоились. Мы работаем в ночную смену, с десяти вечера.",
+   "say_uz": "Kerakli so‘zni qo‘ying: xususan, masalan yoki ya’ni. Ko‘p kasblar yo‘qolmoqda, kassir va telefonchi. Bozor o‘sdi, savdo ikki baravar oshdi. Biz tungi smenada ishlaymiz, kechki o‘ndan.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Misol mashqi javoblari",
+   "emotion": "proud",
+   "board": ["1. в частности", "2. Так, продажи удвоились.", "3. а именно"],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: «в частности» — umumiy fikr, keyin alohida holatlar ro‘yxati. Ikkinchi: «Так, продажи удвоились» — «так» gap boshida, ko‘rsatilgan faktni misol qilib keltiradi va vergulga e’tibor bering. Uchinchi: «а именно» — avval aytilganni aniq vaqt bilan to‘ldiradi. Yodda tuting, «то есть» ham deyarli shu vazifani bajaradi, ammo u ko‘proq sharh beradi.",
+   "say": "Многие профессии исчезают, в частности кассир и телефонист. Рынок вырос. Так, продажи удвоились. Мы работаем в ночную смену, а именно с десяти вечера.",
+   "say_uz": "Ko‘p kasblar yo‘qolmoqda, xususan kassir va telefonchi. Bozor o‘sdi. Masalan, savdo ikki baravar oshdi. Biz tungi smenada ishlaymiz, ya’ni kechki o‘ndan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Bog‘lovchini noto‘g‘ri tanlash",
+   "emotion": "stern",
+   "board": ["✗ Он болел. Следовательно, он пришёл на экзамен.", "✓ Он болел. Тем не менее он пришёл на экзамен.", "✗ Мы повысили цену, более того, спрос упал."],
+   "examples": [],
+   "say_native": "Bog‘lovchi mantiqqa mos kelishi shart. «Он болел. Следовательно, он пришёл» — ma’nosiz: kasal bo‘lgani uchun kelmagan bo‘lishi kerak edi. To‘g‘risi «тем не менее». «Более того» faqat o‘sha yo‘nalishdagi dalilni qo‘shadi, qarama-qarshisini emas. O‘zbek talabalari ko‘pincha ma’nosini tekshirmay chiroyli so‘zni qo‘yadi. Avval gaplar orasidagi aloqani aniqlang.",
+   "say": "Если человек болел, но всё же пришёл на экзамен, нужно сказать «тем не менее», а не «следовательно». Слово «более того» усиливает мысль, а не противопоставляет её предыдущей.",
+   "say_uz": "Agar odam kasal bo‘lsa-yu, baribir imtihonga kelgan bo‘lsa, «shunga qaramay» deyish kerak, «demak» emas. «Bundan tashqari» so‘zi fikrni kuchaytiradi, oldingisiga qarama-qarshi qo‘ymaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "To‘g‘ri bog‘lovchini tanlang",
+   "emotion": "encouraging",
+   "board": ["1. Цены упали. … спрос не вырос.", "2. Лекция была полезной. … она была короткой.", "3. Погода испортилась. … поход отменили."],
+   "examples": [],
+   "say_native": "Mashq. Uchta bo‘sh joyga mos bog‘lovchini tanlang. Birinchisida kutilgan natija chiqmadi. Ikkinchisida ikkinchi fazilat qo‘shilmoqda. Uchinchisida sabab va natija bor. Variantlar: «тем не менее», «более того», «вследствие этого». O‘n besh soniya.",
+   "say": "Выберите нужную связку: тем не менее, более того или вследствие этого. Цены упали, спрос не вырос. Лекция была полезной, она была короткой. Погода испортилась, поход отменили.",
+   "say_uz": "Kerakli bog‘lovchini tanlang: shunga qaramay, bundan tashqari yoki shu sababli. Narxlar tushdi, talab oshmadi. Ma’ruza foydali bo‘ldi, u qisqa ham edi. Ob-havo buzildi, sayohat bekor qilindi.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Bog‘lovchilar javoblari",
+   "emotion": "proud",
+   "board": ["1. Тем не менее", "2. Более того", "3. Вследствие этого"],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: «Цены упали. Тем не менее спрос не вырос» — kutilganning aksi. Ikkinchi: «Лекция была полезной. Более того, она была короткой» — fazilat qo‘shilmoqda. Uchinchi: «Погода испортилась. Вследствие этого поход отменили» — sabab-natija. Bir juftlik ikki bog‘lovchiga to‘g‘ri kelmasa, ma’no o‘zgarmaydi degan xulosa noto‘g‘ri, har biri o‘z vazifasiga ega.",
+   "say": "Цены упали. Тем не менее спрос не вырос. Лекция была полезной. Более того, она была короткой. Погода испортилась. Вследствие этого поход отменили.",
+   "say_uz": "Narxlar tushdi. Shunga qaramay, talab oshmadi. Ma’ruza foydali bo‘ldi. Bundan tashqari, u qisqa edi. Ob-havo buzildi. Shu sababli sayohat bekor qilindi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Abzatslar orasidagi ko‘prik",
+   "emotion": "thinking",
+   "board": ["известное → новое", "конец абзаца → начало следующего", "Эта тенденция… · Другая сторона вопроса…"],
+   "examples": [
+    {"t": "Эта тенденция заслуживает отдельного внимания.", "uz": "Bu tendensiya alohida e’tiborga loyiq."}
+   ],
+   "say_native": "Endi abzatslar orasidagi bog‘lanish. Asosiy qoida: gap eskidan yangiga qarab yuradi. Abzats oldingisining oxirgi fikrini bir so‘z bilan qaytarib boshlansa, o‘quvchi to‘xtamaydi: «Эта тенденция заслуживает отдельного внимания». Yoki yangi tomonga burish: «Другая сторона вопроса связана с…». Abzats birinchi gapi shunday ko‘prik bo‘ladi.",
+   "say": "Эта тенденция заслуживает отдельного внимания. Другая сторона вопроса связана с затратами. Рассмотрим теперь, как эти процессы проявились на практике.",
+   "say_uz": "Bu tendensiya alohida e’tiborga loyiq. Masalaning boshqa tomoni xarajatlar bilan bog‘liq. Endi bu jarayonlar amalda qanday namoyon bo‘lganini ko‘rib chiqamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Ko‘prikli ikki abzats",
+   "emotion": "impressed",
+   "board": ["Абзац 1: рост онлайн-торговли", "Мост: Эта перемена коснулась и работников.", "Абзац 2: занятость на складах"],
+   "examples": [],
+   "say_native": "Ko‘ring, bu qanday ishlaydi. Birinchi abzats onlayn savdoning o‘sishi haqida tugaydi. Ikkinchisi «bu o‘zgarish xodimlarga ham ta’sir qildi» deb boshlanadi va ombordagi ish bilan davom etadi. O‘quvchi mavzu o‘zgarganini sezmaydi, aksincha, mantiqiy davomni his qiladi. Ana shu ko‘rinmas ip kogeziyaning yuragi.",
+   "say": "Онлайн-торговля растёт быстрее, чем любая другая отрасль. Эта перемена коснулась и работников: на складах резко выросла потребность в сменном персонале. Однако стабильной такую занятость назвать трудно.",
+   "say_uz": "Onlayn savdo boshqa har qanday tarmoqdan tezroq o‘smoqda. Bu o‘zgarish xodimlarga ham ta’sir qildi: omborlarda smenali xodimlarga ehtiyoj keskin oshdi. Biroq bunday bandlikni barqaror deb bo‘lmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Uzilgan abzats",
+   "emotion": "stern",
+   "board": ["✗ Абзац кончился. Новый: «Налоги растут.»", "✓ Рост налогов — следствие этих перемен.", "ни ссылки, ни моста — читатель теряется"],
+   "examples": [],
+   "say_native": "Teskari holat: abzats hech qanday ko‘priksiz boshlanadi. Oldin ish bandligi haqida yozdingiz, keyingi abzats «Налоги растут» deb boshlanadi. O‘quvchi nima uchun to‘satdan soliqqa o‘tilganini tushunmaydi. «Рост налогов — следствие этих перемен» deb yozsangiz, ikki abzats bog‘lanadi. Ko‘prik uchun bitta qisqa ibora yetadi.",
+   "say": "Нельзя начинать новый абзац так, будто предыдущего не было. Вместо резкого «налоги растут» напишите: «рост налогов стал прямым следствием этих перемен». Тогда читатель увидит связь.",
+   "say_uz": "Yangi abzatsni oldingisi bo‘lmagandek boshlab bo‘lmaydi. To‘satdan «soliqlar oshmoqda» deb yozish o‘rniga «soliqlar oshishi bu o‘zgarishlarning bevosita natijasi bo‘ldi» deb yozing. Shunda o‘quvchi bog‘liqlikni ko‘radi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikkinchi abzatsni boshlang",
+   "emotion": "encouraging",
+   "board": ["Абзац 1 заканчивается: «…число пользователей смартфонов удвоилось.»", "Начните абзац 2 о здоровье детей."],
+   "examples": [],
+   "say_native": "Mashq. Birinchi abzats «smartfon foydalanuvchilari soni ikki baravar oshdi» deb tugaydi. Ikkinchi abzatsni bolalar sog‘lig‘i haqida boshlang, lekin birinchi gap oldingi fikrga ulansin. «Это», «такой рост», «в связи с этим» kabi vositalardan birini ishlating. Yigirma soniya.",
+   "say": "Первый абзац заканчивается словами: число пользователей смартфонов удвоилось. Начните второй абзац о здоровье детей так, чтобы он продолжал предыдущую мысль.",
+   "say_uz": "Birinchi abzats so‘zlar bilan tugaydi: smartfon foydalanuvchilari soni ikki baravar oshdi. Ikkinchi abzatsni bolalar sog‘lig‘i haqida shunday boshlangki, u oldingi fikrni davom ettirsin.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Ko‘prik namunalari",
+   "emotion": "proud",
+   "board": ["Такой рост вызывает тревогу у врачей.", "В связи с этим всё чаще обсуждается здоровье детей.", "Следствием стало и изменение режима дня школьников."],
+   "examples": [],
+   "say_native": "Namunalar: «Такой рост вызывает тревогу у врачей» — «такой» oldingi o‘sishga qaytadi. «В связи с этим всё чаще обсуждается здоровье детей» — bog‘lovchi ibora orqali o‘tish. Uchinchisi: «Следствием стало и изменение режима дня школьников». Sizniki boshqacha bo‘lishi mumkin. Asosiysi, birinchi gap orqaga qaraydi va oldinga yo‘l ochadi.",
+   "say": "Такой рост вызывает тревогу у врачей. В связи с этим всё чаще обсуждается здоровье детей. Следствием стало и изменение режима дня школьников.",
+   "say_uz": "Bunday o‘sish shifokorlarda xavotir uyg‘otmoqda. Shu munosabat bilan bolalar sog‘lig‘i tobora ko‘proq muhokama qilinmoqda. Natija sifatida o‘quvchilar kun tartibi ham o‘zgardi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mexanik bog‘lashdan qochish",
+   "emotion": "stern",
+   "board": ["не начинайте каждое предложение со связки", "во-первых, во-вторых, в-третьих…", "связь может быть в самом смысле"],
+   "examples": [
+    {"t": "Дождь не прекращался. Дороги размыло, и колонна встала.", "uz": "Yomg‘ir to‘xtamadi. Yo‘llarni yuvib ketdi va kolonna to‘xtab qoldi."}
+   ],
+   "say_native": "Endi to‘rtinchi nuqta: mexanik bog‘lash. Ba’zi talabalar har gapni «кроме того», «более того», «следовательно» bilan boshlaydi. Natijada matn qo‘pol, sun’iy chiqadi. Yaxshi matnda bog‘liqlik ko‘pincha ma’noning o‘zida bo‘ladi: «Дождь не прекращался. Дороги размыло, и колонна встала» — bog‘lovchisiz ham sabab ravshan. Bog‘lovchi faqat zarur joyda turadi.",
+   "say": "Дождь не прекращался. Дороги размыло, и колонна встала. Ни одного слова вроде «следовательно» здесь не нужно: причина и следствие понятны из самих событий.",
+   "say_uz": "Yomg‘ir to‘xtamadi. Yo‘llarni yuvib ketdi va kolonna to‘xtab qoldi. Bu yerda «demak» kabi so‘z kerak emas: sabab va oqibat voqealarning o‘zidan ma’lum.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Hamma gap bog‘lovchi bilan",
+   "emotion": "disappointed",
+   "board": ["✗ Во-первых… Кроме того… Более того… Таким образом…", "✓ Одна связка на абзац, остальное — смыслом", "✗ также, также, также"],
+   "examples": [],
+   "say_native": "Tipik uslubiy xato: abzatsda to‘rtta gap, to‘rttasi ham bog‘lovchi bilan boshlanadi. «Во-первых… Кроме того… Более того… Таким образом…». O‘qish xuddi o‘quv slaydi kabi. Bundan tashqari «также» ni ketma-ket uch marta ishlatish ham zerikarli. Qoida oddiy: abzatsda bitta yoki ikkita aniq bog‘lovchi, qolganini ma’no, olmosh va tartib bog‘lasin.",
+   "say": "Когда каждое предложение начинается со связки, текст звучит как шаблон. Оставьте одну точную связку на абзац, а остальные переходы создайте с помощью местоимений, порядка слов и логики изложения.",
+   "say_uz": "Har bir gap bog‘lovchi bilan boshlansa, matn qolipga o‘xshab eshitiladi. Abzatsda bitta aniq bog‘lovchi qoldiring, qolgan o‘tishlarni olmosh, so‘z tartibi va bayon mantig‘i bilan yarating.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: tahrir suhbati",
+   "emotion": "neutral",
+   "board": ["Редактор и автор обсуждают черновик", "Что не так с текстом?"],
+   "examples": [],
+   "say_native": "Endi suhbat tinglaymiz. Muharrir va muallif qoralama matnni muhokama qilmoqda. Ularning gapiga e’tibor bering: muharrir nimani tanqid qilmoqda va qanday yechim taklif qilmoqda. Keyin savollarga javob berasiz. Ikki marta tinglash mumkin, qaytarishni bosing.",
+   "say": "— Ваша статья интересная, но читается тяжело. Почти каждое предложение начинается со слов «кроме того» или «таким образом». — А разве это плохо? Так текст выглядит логичным. — Логика должна быть в содержании. Попробуйте убрать половину связок и вместо них повторить ключевое слово в начале следующей фразы.",
+   "say_uz": "— Maqolangiz qiziq, lekin o‘qish og‘ir. Deyarli har bir gap «bundan tashqari» yoki «shunday qilib» bilan boshlanadi. — Bu yomonmi? Shunda matn mantiqli ko‘rinadi. — Mantiq mazmunda bo‘lishi kerak. Bog‘lovchilarning yarmini olib tashlang va o‘rniga keyingi gap boshida kalit so‘zni takrorlang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Suhbat bo‘yicha savollar",
+   "emotion": "encouraging",
+   "board": ["1. Что не нравится редактору?", "2. Что отвечает автор?", "3. Какой совет даёт редактор?"],
+   "examples": [],
+   "say_native": "Savollar. Birinchi: muharrirga nima yoqmayapti. Ikkinchi: muallif o‘zini qanday oqlayapti. Uchinchi: muharrir qanday maslahat beryapti. Javoblaringizni o‘z so‘zlaringiz bilan to‘liq gap qilib ayting. O‘n besh soniya vaqtingiz bor.",
+   "say": "Ответьте на вопросы по диалогу. Что не нравится редактору? Что отвечает автор? Какой совет даёт редактор?",
+   "say_uz": "Suhbat bo‘yicha savollarga javob bering. Muharrirga nima yoqmaydi? Muallif nima deb javob beradi? Muharrir qanday maslahat beradi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Suhbat javoblari",
+   "emotion": "proud",
+   "board": ["1. Почти каждое предложение начинается со связки.", "2. Автор считает, что так текст логичнее.", "3. Убрать половину связок и повторить ключевое слово."],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: muharrirga deyarli har gap bog‘lovchi bilan boshlanishi yoqmaydi. Ikkinchi: muallif bu matnni mantiqli ko‘rsatadi deb o‘ylaydi. Uchinchi: muharrir bog‘lovchilarning yarmini olib tashlashni va kalit so‘zni takrorlashni maslahat beradi. Aytgancha, kalit so‘zni takrorlash ham ko‘prik bo‘la oladi, faqat u bir-ikki marta, tabiiy ravishda bo‘lsin.",
+   "say": "Редактору не нравится, что почти каждая фраза начинается со связки. Автор уверен, что так текст логичнее. Редактор советует убрать часть связок и повторить ключевое слово.",
+   "say_uz": "Muharrirga deyarli har bir ibora bog‘lovchi bilan boshlanishi yoqmaydi. Muallif shunda matn mantiqliroq bo‘ladi deb ishonadi. Muharrir bog‘lovchilarning bir qismini olib tashlashni va kalit so‘zni takrorlashni maslahat beradi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: talaba va ustoz",
+   "emotion": "thinking",
+   "board": ["Преподаватель проверяет эссе", "Какие приёмы связности названы?"],
+   "examples": [],
+   "say_native": "Ikkinchi suhbat. Ustoz talabaning inshosini tekshirmoqda. U qaysi bog‘lovchi vositalarni tilga oladi va nimani yaxshilashni so‘raydi? Ehtiyotkorlik bilan tinglang, chunki bir nechta usul aytiladi.",
+   "say": "— В целом вы пишете чётко. В третьем абзаце вы пишете «он» дважды, но неясно, о ком речь: о министре или об инспекторе. — Я думал, что и так понятно. — Читатель не обязан догадываться. И ещё: между вторым и третьим абзацами нет перехода. Добавьте одну фразу, например: «Эта проблема затрагивает и малый бизнес».",
+   "say_uz": "— Umuman, siz aniq yozasiz. Uchinchi abzatsda «u»ni ikki marta yozibsiz, lekin kim haqida ekani noaniq: vazirmi yoki inspektormi. — Men buning o‘zi tushunarli deb o‘ylagandim. — O‘quvchi taxmin qilishga majbur emas. Yana ikkinchi va uchinchi abzats orasida o‘tish yo‘q. Bitta gap qo‘shing, masalan: «Bu muammo kichik biznesga ham tegishli».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikkinchi suhbat savollari",
+   "emotion": "encouraging",
+   "board": ["1. Что неясно в третьем абзаце?", "2. Чего не хватает между абзацами?", "3. Какую фразу предлагает преподаватель?"],
+   "examples": [],
+   "say_native": "Savollar. Uchinchi abzatsda nima noaniq? Abzatslar orasida nima yetishmayapti? Ustoz qanday gap taklif qilyapti? Qisqa va aniq javob bering. Vaqt o‘n besh soniya.",
+   "say": "Ответьте на вопросы. Что неясно в третьем абзаце? Чего не хватает между абзацами? Какую фразу предлагает преподаватель?",
+   "say_uz": "Savollarga javob bering. Uchinchi abzatsda nima noaniq? Abzatslar orasida nima yetishmaydi? Ustoz qanday gap taklif qiladi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Ikkinchi suhbat javoblari",
+   "emotion": "proud",
+   "board": ["1. Непонятно, к кому относится «он»", "2. Нет перехода между вторым и третьим абзацами", "3. «Эта проблема затрагивает и малый бизнес»"],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: «он» olmoshi kimga tegishli ekani noma’lum, ya’ni vazirga yoki inspektorga. Ikkinchi: ikkinchi va uchinchi abzats orasida o‘tish yo‘q. Uchinchi: ustoz «Эта проблема затрагивает и малый бизнес» degan gapni taklif qiladi. Bu bir vaqtning o‘zida ham olmosh xatosi, ham abzats ko‘prigi masalasi, ya’ni bugungi ikki mavzuning kesishgan joyi.",
+   "say": "Непонятно, к кому относится слово «он»: к министру или к инспектору. Между вторым и третьим абзацами нет перехода. Преподаватель предлагает фразу: «Эта проблема затрагивает и малый бизнес».",
+   "say_uz": "«U» so‘zi kimga tegishli ekani noma’lum: vazirgami yoki inspektorgami. Ikkinchi va uchinchi abzats orasida o‘tish yo‘q. Ustoz taklif qiladi: «Bu muammo kichik biznesga ham tegishli».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qoralamani tahrir qilish usuli",
+   "emotion": "thinking",
+   "board": ["1. подчеркните повторы", "2. проверьте каждое «он/это»", "3. оставьте нужные связки", "4. проверьте мосты между абзацами"],
+   "examples": [
+    {"t": "Сначала я подчёркиваю повторяющиеся слова, потом проверяю каждое «это».", "uz": "Avval takrorlangan so‘zlarni chizaman, so‘ng har bir «это»ni tekshiraman."}
+   ],
+   "say_native": "Tahrir uchun amaliy usul. Birinchi, takrorlangan so‘zlarni chizib chiqing. Ikkinchi, har bir «он», «это», «такой» nimaga qaytayotganini tekshiring. Uchinchi, bog‘lovchilarni sanang va ortiqchalarini olib tashlang. To‘rtinchi, har abzats boshi oldingi abzats oxiriga ulanayotganini ko‘ring. Shu to‘rt bosqich bilan har qanday qoralama sezilarli yaxshilanadi.",
+   "say": "Сначала я подчёркиваю повторяющиеся слова, потом проверяю каждое «это» и «он». Затем считаю связки и убираю лишние. В конце читаю только первые фразы абзацев и смотрю, образуют ли они цепь.",
+   "say_uz": "Avval takrorlangan so‘zlarni chizaman, so‘ng har bir «это» va «он»ni tekshiraman. Keyin bog‘lovchilarni sanab, ortiqchalarini olib tashlayman. Oxirida faqat abzatslarning birinchi gaplarini o‘qib, ular zanjir hosil qilishini ko‘raman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Matnni tahrir qiling",
+   "emotion": "encouraging",
+   "board": ["Школа ввела дистанционные уроки. Дистанционные уроки понравились не всем. Дистанционные уроки требовали хорошего интернета. Многие семьи не имели хорошего интернета. Кроме того, учителя не были готовы. Более того, ученики уставали."],
+   "examples": [],
+   "say_native": "Yakuniy mashq. Doskadagi parchada takror ko‘p, bog‘lovchilar ham mexanik. Uni qayta yozing: «дистанционные уроки» ni olmosh yoki sinonim bilan almashtiring, ortiqcha bog‘lovchilarni olib tashlang, gaplarni qo‘shing. Yigirma besh soniya vaqtingiz bor.",
+   "say": "Улучшите связность текста. Школа ввела дистанционные уроки. Дистанционные уроки понравились не всем. Дистанционные уроки требовали хорошего интернета. Многие семьи не имели хорошего интернета.",
+   "say_uz": "Matn bog‘liqligini yaxshilang. Maktab masofaviy darslarni joriy qildi. Masofaviy darslar hammaga ham yoqmadi. Masofaviy darslar yaxshi internet talab qildi. Ko‘p oilalarda yaxshi internet yo‘q edi.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Tahrir qilingan variant",
+   "emotion": "proud",
+   "board": ["Школа ввела дистанционные уроки, однако такой формат понравился не всем.", "Он требовал хорошего интернета, которого у многих семей не было.", "К тому же учителя не были готовы к работе онлайн."],
+   "examples": [],
+   "say_native": "Namuna variant: «Школа ввела дистанционные уроки, однако такой формат понравился не всем. Он требовал хорошего интернета, которого у многих семей не было». Qarang: «такой формат» sinonim vazifasida, «он» olmosh, «которого» ergash gap bilan takror yo‘qoldi. Bitta «к тому же» qoldi. Sizning variantingiz boshqacha bo‘lsa ham, ravonlik va aniqlik asosiy mezon.",
+   "say": "Школа ввела дистанционные уроки, однако такой формат понравился не всем. Он требовал хорошего интернета, которого у многих семей не было. К тому же учителя не были готовы к работе онлайн.",
+   "say_uz": "Maktab masofaviy darslarni joriy qildi, biroq bunday format hammaga ham yoqmadi. U yaxshi internetni talab qildi, ko‘p oilalarda esa u yo‘q edi. Bundan tashqari, o‘qituvchilar onlayn ishlashga tayyor emas edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Dars xulosasi",
+   "emotion": "happy",
+   "board": ["1. олмош · синоним · опущение", "2. точные связки: тем не менее, вместе с тем…", "3. мост между абзацами", "4. без механических связок"],
+   "examples": [],
+   "say_native": "Xulosa. Birinchi: takrorni olmosh, sinonim va tushirib qoldirish bilan yo‘qoting. Ikkinchi: ilg‘or bog‘lovchilarni ma’noga qarab tanlang. Uchinchi: abzatslarni qisqa ko‘prik bilan ulang, eskidan yangiga qarab yuring. To‘rtinchi: har gapni bog‘lovchi bilan boshlamang. Endi siz matnni zanjir kabi qurasiz.",
+   "say": "Сегодня вы увидели, как убирать повторы, как выбирать точные связки, как строить мосты между абзацами и почему не нужно соединять каждую фразу механически. Связность — это логика, а не набор слов.",
+   "say_uz": "Bugun takrorlarni qanday yo‘qotish, aniq bog‘lovchilarni qanday tanlash, abzatslar orasida ko‘prik qurish va nega har bir iborani mexanik ulash shart emasligini ko‘rdingiz. Kogeziya mantiqdir, so‘zlar to‘plami emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "proud",
+   "board": ["Возьмите свой текст (150–200 слов)", "улучшите связность: повторы, связки, мосты", "подчеркните три изменения"],
+   "examples": [],
+   "say_native": "Uy vazifasi: o‘zingiz yozgan yoki berilgan yuz ellik-ikki yuz so‘zlik ruscha matnni olib, uning kogeziyasini yaxshilang. Takrorlarni olib tashlang, bog‘lovchilarni aniqlashtiring, abzatslar orasiga ko‘prik qo‘ying. Uchta eng muhim o‘zgarishni belgilab qo‘ying. Muvaffaqiyat mezoni: matn bir nafasda o‘qiladi. Keyingi darsda argumentli esse namunalarini tahlil qilamiz.",
+   "say": "Домашнее задание: возьмите текст объёмом от ста пятидесяти до двухсот слов и улучшите его связность. Уберите повторы, уточните связки и добавьте переходы между абзацами. Отметьте три главных изменения.",
+   "say_uz": "Uy vazifasi: yuz ellikdan ikki yuz so‘zgacha bo‘lgan matnni olib, uning bog‘liqligini yaxshilang. Takrorlarni olib tashlang, bog‘lovchilarni aniqlashtiring va abzatslar orasiga o‘tishlar qo‘shing. Uchta asosiy o‘zgarishni belgilang.",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "Berilgan matnni bog‘lashni yaxshilab qo‘ying. Mezon: har bir gap rus tilida, «таким образом, например, однако, итого» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “thus / in this way”?","options":["таким образом","например","однако","итого"],"answer":0,"why_uz":"Таким образом — shunday qilib."},
-  {"q":"Which word means “for example”?","options":["например","таким образом","однако","итого"],"answer":0,"why_uz":"Например — masalan."},
-  {"q":"Which word means “however”?","options":["однако","например","таким образом","итого"],"answer":0,"why_uz":"Однако — ammo."},
-  {"q":"Which word means “in total”?","options":["итого","например","однако","таким образом"],"answer":0,"why_uz":"Итого — xulosa qilib."},
-  {"q":"How do you say “Thus it is good”?","options":["Таким образом, это хорошо.","Таким образом, это хорошо есть.","Таким образом, это хорошо является.","Таким образом, это хорошо был."],"answer":0,"why_uz":"Таким образом, это хорошо — shunday qilib, bu yaxshi."},
-  {"q":"How do you say “For example it is important”?","options":["Например, это важно.","Например, это важно есть.","Например, это важно является.","Например, это важно был."],"answer":0,"why_uz":"Например, это важно — masalan, bu muhim."},
-  {"q":"Which word means “therefore”?","options":["поэтому","таким образом","однако","итого"],"answer":0,"why_uz":"Поэтому — shuning uchun."},
-  {"q":"Which word means “because”?","options":["потому что","таким образом","однако","итого"],"answer":0,"why_uz":"Потому что — chunki."},
-  {"q":"Which word means “in general”?","options":["вообще","таким образом","однако","итого"],"answer":0,"why_uz":"Вообще — umuman."},
-  {"q":"Which word means “of course”?","options":["конечно","таким образом","однако","итого"],"answer":0,"why_uz":"Конечно — albatta."}
+ "homework_uz": "O‘zingiz yozgan yoki berilgan yuz ellikdan ikki yuz so‘zgacha bo‘lgan ruscha matnni olib, uning kogeziyasini yaxshilang: takrorlarni olmosh va sinonim bilan almashtiring, ortiqcha bog‘lovchilarni olib tashlang, abzatslar orasiga ko‘prik qo‘ying. Uchta asosiy o‘zgarishni belgilang. Vazifa bajarilgan hisoblanadi, agar matn bir nafasda o‘qilsa. Keyingi darsda argumentli esse namunalarini tahlil qilamiz.",
+ "quiz": [
+  {"q": "«Тем не менее» qaysi ma’noni beradi?", "options": ["Demak", "Shunga qaramay", "Masalan", "Bundan tashqari"], "answer": 1, "why_uz": "«Тем не менее» — kutilganga qaramay natija bor."},
+  {"q": "«Директор сказал министру, что он опоздал» gapidagi asosiy muammo nima?", "options": ["Kelishik xatosi", "Olmosh noaniq", "Zamon xatosi", "Predlog yo‘q"], "answer": 1, "why_uz": "«Он» direktorga ham, vazirga ham tegishli bo‘lishi mumkin."},
+  {"q": "Qaysi gapda tushirib qoldirish to‘g‘ri qo‘llangan?", "options": ["Брат читает книги, сестра — журналы.", "Брат читает книги, сестра журналы.", "Брат — читает книги, сестра журналы.", "Брат читает, книги сестра — журналы."], "answer": 0, "why_uz": "Takrorlanadigan fe’l tushiriladi, o‘rniga tire qo‘yiladi."},
+  {"q": "Ikkita zid holatni solishtirish uchun qaysi ibora mos?", "options": ["следовательно", "в то время как", "иными словами", "таким образом"], "answer": 1, "why_uz": "«В то время как» ikki holatni qarama-qarshi qo‘yadi."},
+  {"q": "«Он болел. … он пришёл на экзамен.» Bo‘sh joyga nima mos?", "options": ["Следовательно", "Тем не менее", "Вследствие этого", "К тому же"], "answer": 1, "why_uz": "Kasal bo‘lsa ham kelgan, ya’ni kutilmagan natija."},
+  {"q": "Abzatslarni bog‘lashda gap qaysi tartibda yuradi?", "options": ["Yangidan eskiga", "Eskidan yangiga", "Tasodifiy", "Faqat savol bilan"], "answer": 1, "why_uz": "Eskidan yangiga yurish o‘quvchiga qulay."},
+  {"q": "Quyidagilardan qaysi biri mexanik bog‘lashga misol?", "options": ["Bir abzatsda bitta aniq bog‘lovchi", "Har gapni «кроме того» bilan boshlash", "Olmoshdan foydalanish", "Qisqa ko‘prik gap"], "answer": 1, "why_uz": "Har gapni bog‘lovchi bilan boshlash matnni sun’iy qiladi."},
+  {"q": "«Более того» qanday vazifa bajaradi?", "options": ["Fikrga qarshi chiqadi", "Kuchliroq dalil qo‘shadi", "Natija chiqaradi", "Savol beradi"], "answer": 1, "why_uz": "«Более того» o‘sha yo‘nalishda kuchliroq dalil qo‘shadi."},
+  {"q": "«Эта мера дала быстрый эффект» gapida «эта мера» nima vazifani bajaradi?", "options": ["Oldingi fikrni umumlashtiradi", "Savol beradi", "Zamonni o‘zgartiradi", "Predlog vazifasi"], "answer": 0, "why_uz": "Umumlashtiruvchi so‘z oldingi gapga ko‘prik bo‘ladi."},
+  {"q": "Tahrir qilishning qaysi bosqichi to‘g‘ri tartibda birinchi?", "options": ["Hamma bog‘lovchilarni qo‘shish", "Takror so‘zlarni belgilash", "Matnni yo‘q qilish", "Sarlavhani o‘zgartirish"], "answer": 1, "why_uz": "Avval takrorlarni topish kerak."}
  ]
 }

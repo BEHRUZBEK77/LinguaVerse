@@ -1,705 +1,323 @@
 {
  "title": "Adabiy matnlarni tahlil qilish",
- "goal_uz": "Dars oxirida Adabiy matnlarni tahlil qilish ni o‘rgansiz.",
+ "goal_uz": "Dars oxirida siz xitoy adabiy matnidagi badiiy vositalarni (obraz, ramz, o‘xshatish, jonlantirish, oq chizgi, tabiat orqali his) aniqlaysiz, mavzu va ramzni ajratasiz, uslub va nuqtai nazarni tavsiflovchi leksikadan foydalanasiz va qisqa tahlil yozish tuzilmasini egallaysiz. Uy vazifasi: qisqa parchaning 200 so‘zlik tahlilini yozish.",
  "vocab": [
-  {
-   "w": "网络 (wǎngluò)",
-   "uz": "tarmoq"
-  },
-  {
-   "w": "联系 (liánxì)",
-   "uz": "aloqa"
-  },
-  {
-   "w": "目标 (mùbiāo)",
-   "uz": "maqsad"
-  },
-  {
-   "w": "学习 (xuéxí)",
-   "uz": "o‘rganish"
-  },
-  {
-   "w": "提高 (tígāo)",
-   "uz": "yaxshilanish"
-  },
-  {
-   "w": "成果 (chéngguǒ)",
-   "uz": "yutuq"
-  },
-  {
-   "w": "职业 (zhíyè)",
-   "uz": "kasb"
-  },
-  {
-   "w": "工作 (gōngzuò)",
-   "uz": "ish"
-  },
-  {
-   "w": "技能 (jìnéng)",
-   "uz": "mahorat"
-  },
-  {
-   "w": "语言 (yǔyán)",
-   "uz": "til"
-  }
+  {"w": "意象 (yìxiàng)", "uz": "badiiy obraz (his bilan boyigan tasvir)"},
+  {"w": "象征 (xiàngzhēng)", "uz": "ramz, ramziy ma’no"},
+  {"w": "主题 (zhǔtí)", "uz": "asarning bosh mavzusi, g‘oya"},
+  {"w": "白描 (báimiáo)", "uz": "oddiy, bezaksiz tasvir"},
+  {"w": "借景抒情 (jiè jǐng shū qíng)", "uz": "tabiat orqali his ifodalash"},
+  {"w": "拟人 (nǐrén)", "uz": "jonlantirish"},
+  {"w": "反讽 (fǎnfěng)", "uz": "kinoya (adabiy)"},
+  {"w": "视角 (shìjiǎo)", "uz": "hikoya nuqtai nazari"},
+  {"w": "基调 (jīdiào)", "uz": "asosiy kayfiyat, ohang"},
+  {"w": "含蓄 (hánxù)", "uz": "ishora bilan aytilgan, vazmin"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Bugun nima qilamiz?",
+   "title": "Matn nima demoqchi?",
    "emotion": "happy",
-   "board": [
-    "Mavzu",
-    "Tuzilish",
-    "Reja"
-   ],
+   "board": ["文学分析", "手法 · 主题 · 风格", "意象 · 象征 · 视角", "Uy vazifasi: 200 so‘zlik tahlil"],
    "examples": [],
-   "say_native": "Salom, o‘quvchilar! Oldingi darsda Murakkab grammatik tuzilmalar ustasi mavzusini o‘rgandik. Bugun Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusini o‘rganamiz. Dars oxirida Write a 200-word analysis of a short literary passage. . Har bir gapda bitta fikr bo‘lsin. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "你好！今天我们学习Adabiy matnlarni tahlil qilish   ko‘nikma: Reading，而且非常实用。这非常重要。",
-   "say_uz": "Salom! Bugun mavzuni o‘rgamiz. Juda chiroyli.",
+   "say_native": "Assalomu alaykum! Oldingi darsda murakkab grammatika bilan ishladik. Bugun esa o‘qishga o‘tamiz: adabiy matn nafaqat nima aytilganini, balki qanday aytilganini ham bildiradi. Xitoy adabiyoti, ayniqsa she’riyat, ishora va obraz tilida yaratilgan, shuning uchun tahlil mahorati bu tilni chuqur tushunishning kalitidir. Bugun to‘rt narsani ko‘ramiz: badiiy vositalar, mavzu va ramz, uslubni tasvirlovchi so‘zlar va tahlil yozish tuzilmasi. Misollar klassik she’rdan va qisqa nasriy parchadan olinadi. Oxirida o‘zingiz tahlil yozasiz.",
+   "say": "大家好。读一篇文学作品，不只要知道它写了什么，更要看它是怎么写的。今天我们来学习怎样分析文学作品的手法、主题和风格。",
+   "say_uz": "Hammaga salom. Adabiy asarni o‘qiganda nima yozilganini bilishgina emas, qanday yozilganini ham ko‘rish kerak. Bugun asarning usullarini, mavzusini va uslubini tahlil qilishni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Adabiy lug‘ati",
+   "title": "Obraz va ramz: 意象, 象征",
    "emotion": "neutral",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
-   "examples": [],
-   "say_native": "Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Adabiy lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Lug‘at misollar",
-   "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
+   "board": ["意象 — his bilan to‘lgan obraz", "月亮 → 思乡", "柳 → 惜别", "象征 — mavhum g‘oya = konkret narsa"],
    "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
+    {"t": "床前明月光，疑是地上霜。举头望明月，低头思故乡。", "uz": "Karavot oldida yorqin oy nuri, go‘yo yerga qirov tushgandek. Boshimni ko‘tarib oyga boqaman, boshimni egib vatanni o‘ylayman."},
+    {"t": "月亮在中国诗歌里常常象征思念。", "uz": "Xitoy she’riyatida oy ko‘pincha sog‘inchni ramz qiladi."}
    ],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Lug‘atni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
+   "say_native": "Birinchi tushuncha — 意象. Bu shunchaki narsa emas, balki shoir his bilan boyitgan obraz. Li Baining «Jingye si» she’rida oy yorug‘ligi qirovga o‘xshatiladi va oxirida shoirni vatanini o‘ylashga olib keladi. Shunday qilib, oy obrazi xitoy she’riyatida sog‘inch ramziga aylangan. 象征 esa mavhum g‘oyani aniq narsa orqali ifodalash. Misol uchun, 柳 daraxti 留 so‘ziga talaffuzdosh bo‘lgani uchun xayrlashuv va ayriliqni anglatadi. Matnni o‘qiyotganda so‘rang: bu obraz nimani eslatadi va nima uchun aynan shu obraz tanlangan?",
+   "say": "床前明月光，疑是地上霜。举头望明月，低头思故乡。月亮在中国诗歌里常常象征思念。",
+   "say_uz": "Karavot oldida yorqin oy nuri, go‘yo yerga qirov tushgandek. Boshimni ko‘tarib oyga boqaman, boshimni egib vatanni o‘ylayman. Xitoy she’riyatida oy ko‘pincha sog‘inchni ramz qiladi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Asosiy tushuncha",
-   "emotion": "neutral",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Adabiy matnlarni tahlil qilish   ko‘nikma: Reading ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Tushuncha misollar",
-   "emotion": "neutral",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "examples": [
-    {
-     "t": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-     "uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli."
-    }
-   ],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tushunchani ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) yaxshilanish",
-    "2) yutuq",
-    "3) kasb",
-    "4) ish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt tushunchani ayting. Har bir gapda shaklni ishlating. Javobni to‘liq gapda ayting. Bu qism — tushunchani aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Tushunchani ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: yaxshilanish. yutuq. kasb. ish. Tushunchalar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ikkinchi tushuncha",
+   "title": "O‘xshatish va jonlantirish",
    "emotion": "thinking",
-   "board": [
-    "tushuncha",
-    "farq",
-    "misol"
-   ],
-   "examples": [],
-   "say_native": "Adabiy matnlarni tahlil qilish   ko‘nikma: Reading ning ikkinchi tushunchasini bilib oling. Farqini ajratib oling. Har bir shaklni alohida yozing. Bu qism — ikkinchi tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Ikkinchi tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Farq misollar",
-   "emotion": "neutral",
-   "board": [
-    "ish",
-    "mahorat",
-    "til"
-   ],
+   "board": ["比喻 — A 像 B", "拟人 — narsa odamdek", "通感 — hislar aralashuvi", "夸张 — bo‘rttirish"],
    "examples": [
-    {
-     "t": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-     "uz": "ish juda chiroyli. mahorat tez. til chiroyli."
-    }
+    {"t": "风轻轻地吻过湖面，湖水害羞地泛起了涟漪。", "uz": "Shamol ko‘l yuzini mayin o‘pdi, ko‘l suvi uyalib to‘lqinlanib ketdi."},
+    {"t": "远处传来阵阵清香，仿佛是一首无声的歌。", "uz": "Uzoqdan xushbo‘y hid keldi, go‘yo ovozsiz qo‘shiq kabi."}
    ],
-   "say_native": "Farq misollarini o‘qib, har birini takrorlang. Farqlarni ajrating. Bu qism — farq misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Farq misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
+   "say_native": "Ikkinchi guruh — tasvir vositalari. 比喻 — o‘xshatish: bir narsa boshqasiga o‘xshatiladi. 拟人 — jonlantirish: shamol «o‘padi», suv «uyaladi». Bu usul tabiatni jonli qiladi. 通感 esa hislar aralashuvi: hidni qo‘shiqqa o‘xshatganda hid hissi eshitish hissiga o‘tadi. Bunday vositalar tilni boyitadi, lekin tahlilda faqat nomini aytib qo‘ymang, uning ta’sirini ham tushuntiring: masalan, jonlantirish tabiatni yumshoq va muloyim ko‘rsatadi. Atama bilan birga ta’sir ham bo‘lishi kerak.",
+   "say": "风轻轻地吻过湖面，湖水害羞地泛起了涟漪。远处传来阵阵清香，仿佛是一首无声的歌。",
+   "say_uz": "Shamol ko‘l yuzini mayin o‘pdi, ko‘l suvi uyalib to‘lqinlanib ketdi. Uzoqdan xushbo‘y hid keldi, go‘yo ovozsiz qo‘shiq kabi.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Farqni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "To‘rt farqni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — farqni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Farqni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Farqlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Lug‘atlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: lug‘at\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Farqlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: farq\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
-   ],
-   "examples": [],
-   "say_native": "Matn savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Matn matni",
+   "title": "Oq chizgi va tabiat orqali his",
    "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
+   "board": ["白描 — bezaksiz tasvir", "借景抒情", "以乐景写哀情", "含蓄 — ochiq aytmaslik"],
    "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
+    {"t": "国破山河在，城春草木深。", "uz": "Mamlakat vayron, tog‘-daryo hamon turibdi, shahar bahorida o‘t-o‘lan quyuq o‘sibdi."},
+    {"t": "老屋的门槛已经磨得发白，母亲每天坐在门口，望着村口的路。", "uz": "Eski uyning ostonasi ishqalanib oqarib ketgan, ona har kuni eshik oldida o‘tirib, qishloq chekkasidagi yo‘lga qaraydi."}
    ],
-   "say_native": "Matn matnini o‘qib, har birini takrorlang. Qismlarni ajrating. Bu qism — matn matniga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Matn matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "白描 — sifat va bezakdan qochib, faqat ko‘rinishni sodda ayttirish. Masalan: «Ona har kuni eshik oldida o‘tirib yo‘lga qaraydi». Bu yerda «sog‘inadi» so‘zi yo‘q, lekin biz sog‘inchni sezamiz. Bu — 含蓄. 借景抒情 esa tabiat tasviri orqali his ifodasi. Du Funing «Chunwang» she’rida 城春草木深 — bahor keldi, o‘t-o‘lan o‘sdi, lekin shahar vayron: tabiat jonlangan, inson dardi esa kuchaygan. Bunday qarama-qarshi tasvirni 以乐景写哀情 deyishadi: quvnoq manzara orqali qayg‘uni ifodalash. Bu usul qayg‘uni yanada kuchli qiladi.",
+   "say": "国破山河在，城春草木深。老屋的门槛已经磨得发白，母亲每天坐在门口，望着村口的路。",
+   "say_uz": "Mamlakat vayron, tog‘-daryo hamon turibdi, shahar bahorida o‘t-o‘lan quyuq o‘sibdi. Eski uyning ostonasi ishqalanib oqarib ketgan, ona har kuni eshik oldida o‘tirib, qishloq chekkasidagi yo‘lga qaraydi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
-   ],
+   "title": "Vositani aniqlang",
+   "emotion": "thinking",
+   "board": ["A 柳条是离别的象征。", "B 月亮害羞地躲进了云里。", "C 他走了，桌上的茶还冒着热气。", "D 战乱之后，春天的花依旧盛开。"],
    "examples": [],
-   "say_native": "To‘rt matn savoliga javob bering. Har bir javobni to‘liq gapda ayting. Bu qism — matn savollariga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
+   "say_native": "To‘rtta gapdagi vositalarni aniqlang. A: majnuntol xayrlashuvning ramzi. B: oy uyalib bulut ichiga yashirindi. C: u ketdi, stoldagi choy hamon bug‘ chiqarib turibdi. D: urushdan keyin ham bahor gullari ochilmoqda. Har bir gap uchun uchta narsani ayting: vosita nomi, uning belgisi va ta’siri. Misol uchun C da nima aytilmagan, lekin sezilmoqda? Javoblarni keyingi sahnada tekshiramiz.",
+   "say": "请判断下面各句用了什么手法：A，柳条是离别的象征。B，月亮害羞地躲进了云里。C，他走了，桌上的茶还冒着热气。D，战乱之后，春天的花依旧盛开。",
+   "say_uz": "Aniqlang: A, majnuntol xayrlashuvning ramzi. B, oy uyalib bulut ichiga yashirindi. C, u ketdi, stoldagi choy hamon bug‘ chiqarib turibdi. D, urushdan keyin ham bahor gullari ochilmoqda.",
+   "practice_seconds": 120
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: vositalar",
    "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
+   "board": ["A 象征", "B 拟人", "C 白描 + 含蓄", "D 以乐景写哀情"],
+   "examples": [
+    {"t": "桌上的茶还冒着热气，说明他刚刚离开，留下了淡淡的失落。", "uz": "Stoldagi choy hamon bug‘ chiqarib turishi uning endigina ketganini bildiradi va yengil yo‘qotish hissini qoldiradi."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Matn savollariga javob berildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
+   "say_native": "Javoblar: A — 象征, chunki majnuntol xayrlashuvni bildiradi. B — 拟人, oyga uyalish xususiyati berilgan. C — 白描 va 含蓄: «u ketdi» va «choy hamon issiq» qarama-qarshi qo‘yilgan; uning ketganiga hali ko‘p vaqt o‘tmagani sezilib, ichki yo‘qotish his qilinadi, lekin bu so‘z bilan aytilmagan. D — 以乐景写哀情: tabiat qayg‘usiz gullaydi, odam esa qayg‘uda. Tahlilni yozayotganda faqat vosita nomini yozib qo‘ymang. C uchun ham «oq chizgi» deb to‘xtamang, uning hosil qilgan tuyg‘usini ham ayting. Bu yaxshi tahlilning belgisi.",
+   "say": "桌上的茶还冒着热气，说明他刚刚离开，留下了淡淡的失落。第一句是象征，第二句是拟人，第四句是以乐景写哀情。",
+   "say_uz": "Stoldagi choy hamon bug‘ chiqarib turishi uning endigina ketganini bildiradi va yengil yo‘qotish hissini qoldiradi. Birinchi gap ramz, ikkinchi gap jonlantirish, to‘rtinchi gap quvnoq manzara orqali qayg‘u.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mavzu va g‘oya: 主题",
+   "emotion": "neutral",
+   "board": ["题材 — nima haqida", "主题 — nima demoqchi", "路 → 希望", "走的人多了，也便成了路"],
+   "examples": [
+    {"t": "其实地上本没有路，走的人多了，也便成了路。", "uz": "Aslida yerda yo‘l yo‘q edi, ko‘p odam yurgach, yo‘lga aylandi."},
+    {"t": "这篇小说的题材是乡村生活，主题却是对命运的思考。", "uz": "Bu hikoyaning mavzusi qishloq hayoti, g‘oyasi esa taqdir haqida mulohaza."}
+   ],
+   "say_native": "Ikki tushunchani farqlang: 题材 va 主题. 题材 — asar nima haqida, ya’ni voqea va dunyo. 主题 esa muallif nima demoqchi, ya’ni g‘oya. Bitta hikoyaning 题材si qishloq hayoti bo‘lishi mumkin, 主题si esa taqdir yoki yolg‘izlik. Lu Xunning «Vatan» hikoyasi oxiridagi mashhur gap: 其实地上本没有路，走的人多了，也便成了路. Bu yerda «yo‘l» shunchaki yo‘l emas, umid va ko‘pchilikning birgalikdagi harakati ramzi. Mavzuni topishning yo‘li: obrazni oling, uni ramz sifatida o‘qing va bu butun asar bilan bog‘liq bo‘lishini tekshiring.",
+   "say": "其实地上本没有路，走的人多了，也便成了路。这篇小说的题材是乡村生活，主题却是对命运的思考。",
+   "say_uz": "Aslida yerda yo‘l yo‘q edi, ko‘p odam yurgach, yo‘lga aylandi. Bu hikoyaning mavzusi qishloq hayoti, g‘oyasi esa taqdir haqida mulohaza.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Uslub tavsifi lug‘ati",
+   "emotion": "thinking",
+   "board": ["质朴 · 简洁 · 含蓄", "华丽 · 细腻 · 犀利", "幽默 · 冷峻 · 抒情", "语言风格"],
+   "examples": [
+    {"t": "这篇散文语言质朴，感情细腻。", "uz": "Bu nasriy asarning tili oddiy, tuyg‘ulari nozik."},
+    {"t": "他的文字冷峻而犀利，常常带着一丝讽刺。", "uz": "Uning matni sovuqqon va o‘tkir, tez-tez kinoya tomizadi."}
+   ],
+   "say_native": "Uslubni tasvirlash uchun so‘zlar kerak. 质朴 — oddiy va samimiy, 简洁 — qisqa va ixcham, 含蓄 — ishora bilan. Boshqa guruh: 华丽 — bezakli, 细腻 — nozik, 犀利 — o‘tkir, 冷峻 — sovuqqon, 抒情 — lirik. Ular qo‘shilib ishlatiladi: 语言质朴，感情细腻. Bu yerda til haqida bir sifat, tuyg‘u haqida boshqasi ishlatilgan. Tahlilda faqat sifat bilan cheklanmang: nima uchun shunday deyayotganingizni matndan misol bilan isbotlang. Masalan, «sodda til» deganda qaysi jumlada shuni ko‘rishingizni ko‘rsating.",
+   "say": "这篇散文语言质朴，感情细腻。他的文字冷峻而犀利，常常带着一丝讽刺。",
+   "say_uz": "Bu nasriy asarning tili oddiy, tuyg‘ulari nozik. Uning matni sovuqqon va o‘tkir, tez-tez kinoya tomizadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nuqtai nazar va kayfiyat",
+   "emotion": "neutral",
+   "board": ["第一人称 · 第三人称", "叙述视角", "基调：悲凉 · 欢快 · 压抑", "节奏 · 语气"],
+   "examples": [
+    {"t": "小说用第一人称叙述，让读者感觉更真实。", "uz": "Hikoya birinchi shaxs tilida aytilgan, bu o‘quvchida ishonchli taassurot qoldiradi."},
+    {"t": "全诗的基调是悲凉的，节奏缓慢而沉重。", "uz": "Butun she’rning kayfiyati g‘amgin, ritmi sekin va og‘ir."}
+   ],
+   "say_native": "Hikoya kim tilidan aytilayotganini aniqlang: 第一人称, ya’ni «men» tilidan, yoki 第三人称, ya’ni «u» tilidan. Birinchi shaxs yaqinlik va ishonch beradi, lekin faqat «men» biladigan narsani aytadi. Uchinchi shaxs esa kengroq ko‘rinish beradi. Bunga 叙述视角 deyiladi. Keyin 基调, ya’ni asosiy kayfiyat: 悲凉 g‘amgin, 欢快 quvnoq, 压抑 ezuvchi. Uni ritm va ohang bilan bog‘lang: qisqa jumlalar tez, uzun jumlalar sekin ritm beradi. Tahlilda «nima uchun bu kayfiyat?» degan savolga javob izlang va uni matn dalillari bilan quvvatlang.",
+   "say": "小说用第一人称叙述，让读者感觉更真实。全诗的基调是悲凉的，节奏缓慢而沉重。",
+   "say_uz": "Hikoya birinchi shaxs tilida aytilgan, bu o‘quvchida ishonchli taassurot qoldiradi. Butun she’rning kayfiyati g‘amgin, ritmi sekin va og‘ir.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Keng tarqalgan xatolar",
+   "title": "Tahlildagi xatolar",
    "emotion": "stern",
-   "board": [
-    "✗ tarmoq aloqa emas",
-    "✗ maqsad o‘rganish emas",
-    "✗ Adabiy"
+   "board": ["✗ Matnni qayta aytib berish", "✓ Vosita + dalil + ta’sir", "✗ 这篇文章很好，很感人。", "✓ 作者用白描手法，含蓄地表现了思念。"],
+   "examples": [
+    {"t": "作者用白描手法，含蓄地表现了母亲的思念。", "uz": "Muallif oq chizgi usuli bilan onaning sog‘inchini vazmin ifodaladi."}
    ],
+   "say_native": "Tahlil yozishdagi eng katta xato — matnni qayta hikoya qilish. «Ona eshik oldida o‘tiradi, yo‘lga qaraydi» deb yozish tahlil emas, bu yengil qayta bayon. Tahlil — vosita, dalil va ta’sirni birga aytish: «Muallif oq chizgi usuli bilan onaning sog‘inchini vazmin ifodalaydi». Ikkinchi xato — umumiy baho: «bu asar juda yaxshi va ta’sirchan». Bunday gap hech narsa isbotlamaydi. Uchinchi xato — vositani noto‘g‘ri nomlash, masalan, har bir qiyoslashni «ramz» deb atash. Ramz umumiy va takrorlanadigan ma’noga ega, oddiy o‘xshatish esa faqat bir joyda.",
+   "say": "作者用白描手法，含蓄地表现了母亲的思念。这样的分析比一句很感人要具体得多。",
+   "say_uz": "Muallif oq chizgi usuli bilan onaning sog‘inchini vazmin ifodaladi. Bunday tahlil «juda ta’sirli» degan gapdan ancha aniqroq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "O‘qish: qisqa parcha",
+   "emotion": "neutral",
+   "board": ["老屋 · 门槛 · 路", "母亲 · 等待", "白描 · 含蓄", "主题？"],
    "examples": [],
-   "say_native": "Adabiy matnlarni tahlil qilish   ko‘nikma: Reading so‘zlarida uchraydigan uchta xato: ma’no adashtirish. Har bir xatoni tuzating. Bu qism — xatolarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Endi qisqa parchani tinglang va uni o‘zingiz tahlil qilishga tayyorlaning. Unda eski uy, ostona, yo‘l va kutayotgan ona tasvirlangan. Parchani eshitganda uchta narsaga e’tibor bering: qaysi obrazlar takrorlanyapti, tasvir qanday, ya’ni bezakli yoki sodda, va kimning ko‘zi bilan aytilyapti. Gaplarda «sog‘inch» yoki «kutish» so‘zi bor-yo‘qligini ham eshiting. Keyin savollarga javob berasiz.",
+   "say": "老屋的门槛已经被磨得发白。母亲每天清晨都坐在门口，望着村口那条路，仿佛路的尽头会走来一个人。灶上的饭热了又凉，凉了又热，她始终没有起身。",
+   "say_uz": "Eski uy ostonasi ishqalanib oqarib ketgan. Ona har kuni ertalab eshik oldida o‘tirib, qishloq chekkasidagi yo‘lga qaraydi, go‘yo yo‘lning oxiridan kimdir kelib qoladigandek. Pechdagi ovqat isib sovub, sovub isidi, u esa hech qachon o‘rnidan turmadi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatolarni tuzating",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq aloqa emas",
-    "2) maqsad o‘rganish emas",
-    "3) Adabiy",
-    "4) tarmoq"
-   ],
+   "title": "Parchani tahlil qiling",
+   "emotion": "thinking",
+   "board": ["1 哪些意象反复出现？", "2 用了什么手法？", "3 表现了什么感情？", "4 主题可能是什么？"],
    "examples": [],
-   "say_native": "To‘rt xatoni tuzating. Har biriga to‘g‘ri shakl yozing. Javobni to‘liq gapda ayting. Bu qism — xatolarni tuzatishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
-   "practice_seconds": 12
+   "say_native": "Parcha bo‘yicha to‘rt savolga javob bering. Birinchi: qaysi obrazlar takrorlanyapti? Ikkinchi: muallif qaysi tasvir usulini qo‘llagan? Uchinchi: matn qanday tuyg‘uni ifodalaydi va bu tuyg‘u ochiq aytilganmi? To‘rtinchi: asarning mavzusi nima bo‘lishi mumkin? Har bir javobingizni matndagi aniq so‘z bilan isbotlang, masalan, qaysi so‘z yoki jumla sizni shunday fikrga olib keldi. Bir daqiqa o‘ylang. Keyingi sahnada javoblar.",
+   "say": "请回答：第一，哪些意象反复出现？第二，作者用了什么手法？第三，表现了什么感情？这种感情是直接说出来的吗？第四，主题可能是什么？",
+   "say_uz": "Javob bering: birinchi, qaysi obrazlar takrorlanadi? Ikkinchi, muallif qaysi usulni ishlatgan? Uchinchi, qanday tuyg‘u ifodalangan va u ochiq aytilganmi? To‘rtinchi, mavzu nima bo‘lishi mumkin?",
+   "practice_seconds": 120
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: parcha tahlili",
    "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "tarmoq"
+   "board": ["1 门槛 · 路 · 饭", "2 白描 + 细节", "3 等待与思念（含蓄）", "4 亲情与等待"],
+   "examples": [
+    {"t": "饭热了又凉，凉了又热，写出了母亲等待之久。", "uz": "Ovqatning isib sovishi, sovub isishi onaning qanchalik uzoq kutganini ko‘rsatadi."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. tarmoq. Xatolar tuzatildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
+   "say_native": "Javoblar. Birinchi: ostona, yo‘l va ovqat takrorlanadi. Ostonaning oqarib ketishi uzoq vaqt kutilganini, yo‘l esa kutilayotgan odamning kelishini ramziy bildiradi. Ikkinchi: oq chizgi va aniq tafsilotlar. Ayniqsa, 热了又凉，凉了又热 ning takrori vaqt o‘tishini ko‘rsatadi. Uchinchi: sog‘inch va umid, lekin hech bir joyda ochiq aytilmagan, bu 含蓄. To‘rtinchi: mavzu — ota-ona mehri va kutish, ya’ni «ayriliq oldida sabr». Sizning javoblaringiz boshqacha bo‘lishi mumkin, muhimi, ular matn dalili bilan quvvatlansin.",
+   "say": "饭热了又凉，凉了又热，写出了母亲等待之久。作者没有直接写思念，而是用细节含蓄地表现。",
+   "say_uz": "Ovqatning isib sovishi, sovub isishi onaning qanchalik uzoq kutganini ko‘rsatadi. Muallif sog‘inchni ochiq yozmadi, balki tafsilot orqali vazmin ifodaladi.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yakuniy vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "takrorlash",
-    "yakun"
-   ],
-   "examples": [],
-   "say_native": "Yakuniy vazifani bajaring: Write a 200-word analysis of a short literary passage. . Har bir gapda bitta fikr bo‘lsin. Bu qism — yakuniy vazifaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Yakuniy vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。练习很重要。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez. Amaliyot chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Yakun",
-    "Takrorlash"
+   "title": "Tahlil yozish tuzilmasi",
+   "emotion": "encouraging",
+   "board": ["1 概述：作者 · 内容", "2 手法：手法 + 例子 + 效果", "3 主题：思想感情", "4 评价：语言风格"],
+   "examples": [
+    {"t": "本文通过细致的描写，表现了母亲对远方亲人的牵挂。", "uz": "Ushbu matn nozik tasvir orqali onaning uzoqdagi yaqin odamiga bo‘lgan g‘amxo‘rligini ifodalaydi."},
+    {"t": "总的来说，作品语言朴实，却饱含深情。", "uz": "Umuman, asarning tili oddiy, ammo chuqur tuyg‘uga to‘la."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: Yakun. Takrorlash. Vazifa tayyor bo‘ldi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez.",
+   "say_native": "Tahlil yozish uchun to‘rt qismli tuzilma bor. Birinchi, 概述: matn nima haqida, mualliflik va umumiy mazmun, bir-ikki gapda. Ikkinchi, 手法: vosita nomi, matndan misol va uning ta’siri. Uchinchi, 主题: asar qaysi tuyg‘u va g‘oyani ifodalaydi. To‘rtinchi, 评价: til uslubi va umumiy baho. Foydali qoliplar: 本文通过……表现了……, 作者运用……的手法, 突出了……, 总的来说……. Har bir ikkinchi qismda «vosita + dalil + ta’sir» uchligini unutmang. Bu tuzilma sizga 200 so‘zlik matnni aniq va ixcham yozishga yordam beradi.",
+   "say": "本文通过细致的描写，表现了母亲对远方亲人的牵挂。总的来说，作品语言朴实，却饱含深情。",
+   "say_uz": "Ushbu matn nozik tasvir orqali onaning uzoqdagi yaqin odamiga bo‘lgan g‘amxo‘rligini ifodalaydi. Umuman, asarning tili oddiy, ammo chuqur tuyg‘uga to‘la.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tahlil namunasi",
+   "emotion": "proud",
+   "board": ["本文通过白描……", "门槛、路、饭 → 等待", "含蓄 → 余味", "语言质朴而深情"],
+   "examples": [
+    {"t": "作者运用白描手法，用门槛、道路和饭菜这些日常细节，含蓄地写出了母亲漫长的等待，语言质朴而深情。", "uz": "Muallif oq chizgi usuli bilan ostona, yo‘l va ovqat kabi kundalik tafsilotlar orqali onaning uzoq kutishini vazmin tasvirlagan, tili oddiy va samimiy."}
+   ],
+   "say_native": "Namuna tahlil: «Muallif oq chizgi usuli bilan ostona, yo‘l va ovqat kabi kundalik tafsilotlar orqali onaning uzoq kutishini vazmin tasvirlagan, tili oddiy va samimiy». Bu bitta jumlada uch qatlam bor: vosita nomi, dalil va ta’sir. Keyingi jumla esa mavzuni ochishi mumkin: «Bu parcha ota-ona mehri va kutishning og‘irligi haqida». Siz o‘z tahlilingizda ham shunday ketma-ketlikka amal qiling: dalil keltiring, so‘ng u haqida mulohaza yuriting. Faqat tilning go‘zalligini maqtash bilan cheklansangiz, tahlil yuzaki bo‘lib qoladi.",
+   "say": "作者运用白描手法，用门槛、道路和饭菜这些日常细节，含蓄地写出了母亲漫长的等待，语言质朴而深情。",
+   "say_uz": "Muallif oq chizgi usuli bilan ostona, yo‘l va ovqat kabi kundalik tafsilotlar orqali onaning uzoq kutishini vazmin tasvirlagan, tili oddiy va samimiy.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
+   "title": "Ijodiy topshiriq: she’r tahlili",
    "emotion": "encouraging",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
+   "board": ["春望：国破山河在，城春草木深。", "1 手法？", "2 感情？", "3 一两句分析"],
    "examples": [],
-   "say_native": "Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Adabiy lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: lug‘at — C2-07 ga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Yakuniy topshiriq. Du Funing she’ridagi ikki misrani oling: 国破山河在，城春草木深. Uchta narsani qiling. Birinchi: bu yerda qaysi vosita ishlatilgan? Ikkinchi: shoir qanday tuyg‘uni ifodalamoqda? Uchinchi: bir-ikki gapli qisqa tahlil yozing yoki ovoz chiqarib ayting va «vosita, dalil, ta’sir» uchligini unutmang. Xohlasangiz, «本文通过……表现了……» qolipidan foydalaning. Keyingi sahnada namuna keladi.",
+   "say": "请分析杜甫《春望》中的两句：国破山河在，城春草木深。说出手法、感情，并用一两句话写出你的分析。",
+   "say_uz": "Du Funing «Chunwang» she’ridagi ikki misrani tahlil qiling: usul, tuyg‘u va bir-ikki gapli tahlil.",
+   "practice_seconds": 100
   },
   {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "examples": [],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: farq — C2-07 ga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: matn savollari — C2-07 ga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: takrorlash — C2-07 ga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: savollar 2",
-   "emotion": "encouraging",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Adabiy matnlarni tahlil qilish   ko‘nikma: Reading ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: savollar 2 — C2-07 ga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: yakuniy",
-   "emotion": "encouraging",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "examples": [],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: yakuniy — C2-07 ga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa",
+   "kind": "explain",
+   "title": "Namuna: Chunwang tahlili",
    "emotion": "proud",
-   "board": [
-    "Xulosa",
-    "takrorlash"
+   "board": ["山河 · 草木 ← 自然依旧", "国破 ← 人事已非", "对比 + 借景抒情", "感情：忧国伤时"],
+   "examples": [
+    {"t": "诗人用山河依旧、草木茂盛的春景，反衬国家破碎，借景抒发了忧国伤时之情。", "uz": "Shoir tog‘-daryoning o‘z joyida turishi va o‘t-o‘lanning quyuq o‘sishini bahor manzarasi sifatida keltirib, mamlakat vayron bo‘lganiga qarama-qarshi qo‘ydi va tabiat orqali vatan g‘ami hamda zamondan ranj tuyg‘usini ifodaladi."}
    ],
+   "say_native": "Namuna: «Shoir tog‘-daryoning joyida turishi va o‘t-o‘lanning quyuq o‘sishini bahor manzarasi sifatida keltirib, mamlakat vayron bo‘lganiga qarama-qarshi qo‘ydi va tabiat orqali vatan g‘ami hamda zamondan ranj tuyg‘usini ifodaladi». Bu yerda ikkita vosita nomi bor: 对比, ya’ni tabiatning o‘zgarmasligi bilan insonning ayanchli taqdiri o‘rtasidagi qarama-qarshilik, va 借景抒情. Ta’sir esa aniq: tabiat qayg‘usiz bo‘lgani uchun inson dardi yanada chuqur ko‘rinadi. Sizning javobingizda uchala narsa bo‘lsa, topshiriq a’lo bajarilgan.",
+   "say": "诗人用山河依旧、草木茂盛的春景，反衬国家破碎，借景抒发了忧国伤时之情。",
+   "say_uz": "Shoir tog‘-daryoning o‘z joyida turishi va o‘t-o‘lanning quyuq o‘sishini bahor manzarasi sifatida keltirib, mamlakat vayron bo‘lganiga qarama-qarshi qo‘ydi va tabiat orqali vatan g‘ami hamda zamondan ranj tuyg‘usini ifodaladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qurilma vositalari: 伏笔, 反讽, 对比",
+   "emotion": "thinking",
+   "board": ["伏笔 — oldindan ishora", "反讽 — adabiy kinoya", "对比 — qarama-qarshi qo‘yish", "首尾呼应 — boshi va oxiri mos"],
+   "examples": [
+    {"t": "开头那盏没有点亮的灯，在结尾处成了全文的伏笔。", "uz": "Boshdagi yoqilmagan chiroq oxirida butun matnning oldindan berilgan ishorasiga aylandi."},
+    {"t": "作者称这位贪官为“清官”，反讽意味十分明显。", "uz": "Muallif bu poraxo‘rni «halol amaldor» deb ataydi, kinoya juda yaqqol."}
+   ],
+   "say_native": "Yana ayrim vositalar matn qurilishiga tegishli. 伏笔 — voqeaning oldinda bo‘ladigan davomiga berilgan yashirin ishora: boshida ahamiyatsiz ko‘ringan tafsilot oxirida ma’no oladi. 首尾呼应 esa matn boshi va oxirining bir-biriga mos kelishi, masalan, birinchi va oxirgi jumlada bir xil obraz. 反讽 — adabiy kinoya: muallif gapda maqtaydi, aslida tanqid qiladi. Oldingi darslarda kinoyani nutq sifatida ko‘rgan edik, bu yerda esa uni butun asar bo‘ylab kuzatamiz. 对比 ham muhim: ikki qahramon yoki ikki holatni yonma-yon qo‘yib, mavzuni ochib beradi. Tahlilda har birini matndagi aniq o‘rniga bog‘lang.",
+   "say": "开头那盏没有点亮的灯，在结尾处成了全文的伏笔。作者称这位贪官为清官，反讽意味十分明显。",
+   "say_uz": "Boshdagi yoqilmagan chiroq oxirida butun matnning oldindan berilgan ishorasiga aylandi. Muallif bu poraxo‘rni halol amaldor deb ataydi, kinoya juda yaqqol.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ritm va juftlik: 律诗 va 对仗",
+   "emotion": "neutral",
+   "board": ["律诗 — 8 misra", "对仗 duìzhàng — juft muvozanat", "感时花溅泪，恨别鸟惊心", "名词对名词，动词对动词"],
+   "examples": [
+    {"t": "感时花溅泪，恨别鸟惊心。", "uz": "Zamondan ranjib gullar ham ko‘z yosh to‘kadi, ayriliqdan qayg‘urib qushlar ham yurakni cho‘chitadi."},
+    {"t": "烽火连三月，家书抵万金。", "uz": "Urush gulxanlari uch oy tinmadi, uydan xat o‘n ming oltin bilan teng."}
+   ],
+   "say_native": "Klassik she’riyatni tahlil qilganda 律诗 ni bilish foydali. Bu sakkiz misrali, har bir misra besh yoki yetti belgidan iborat qat’iy shakl. Uning o‘rtasidagi ikki juft misrada 对仗 qoidasi bor: ikkinchi misra birinchisiga so‘zma-so‘z mos: ot otga, fe’l fe’lga, rang rangga. Du Funing «Chunwang» she’rida 感时花溅泪，恨别鸟惊心 — 感时 va 恨别, 花 va 鸟, 溅泪 va 惊心 juftlanadi. 烽火连三月，家书抵万金 ham shunday: 烽火 va 家书, 三月 va 万金. 对仗 ritm va muvozanat beradi, shuningdek ikki obrazni qiyoslash orqali ma’noni chuqurlashtiradi. Tahlilda shu juftliklarni toping.",
+   "say": "感时花溅泪，恨别鸟惊心。烽火连三月，家书抵万金。",
+   "say_uz": "Zamondan ranjib gullar ham ko‘z yosh to‘kadi, ayriliqdan qayg‘urib qushlar ham yurakni cho‘chitadi. Urush gulxanlari uch oy tinmadi, uydan xat o‘n ming oltin bilan teng.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Juftlikni toping",
+   "emotion": "thinking",
+   "board": ["烽火连三月，家书抵万金。", "1 烽火 ↔ ？", "2 连 ↔ ？", "3 三月 ↔ ？"],
    "examples": [],
-   "say_native": "Xulosa. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusini o‘rgandik. Har bir mavzuni alohida yodlab olish kerak. Keyingi darsda C2-08 Falsafa va axloq mavzularida munozara ni o‘rganamiz. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是总结，而且非常实用。复习很快。",
-   "say_uz": "Xulosa juda chiroyli. Takrorlash tez.",
+   "say_native": "Juft misralarni tahlil qiling: 烽火连三月，家书抵万金. Birinchi: 烽火 qaysi so‘zga mos keladi? Ikkinchi: 连 fe’liga qaysi fe’l mos? Uchinchi: 三月 ga qaysi so‘z juft? Keyin ikki misra birgalikda qanday tasvir va tuyg‘u beradi, ayting. Urush uzoq cho‘zilgan va uydan xat juda qimmatli bo‘lgan. Javobingizni asoslab, ovoz chiqarib ayting. Keyingi sahnada javoblarni eshitasiz.",
+   "say": "请分析这两句诗的对仗：烽火连三月，家书抵万金。烽火对什么？连对什么？三月对什么？",
+   "say_uz": "Bu ikki misraning juftligini tahlil qiling: 烽火 nimaga mos? 连 nimaga mos? 三月 nimaga mos?",
+   "practice_seconds": 110
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: juftlik",
+   "emotion": "proud",
+   "board": ["烽火 ↔ 家书", "连 ↔ 抵", "三月 ↔ 万金", "战争 + 思念"],
+   "examples": [
+    {"t": "烽火对家书，连对抵，三月对万金，两句形成鲜明的对照。", "uz": "烽火 家书 bilan, 连 抵 bilan, 三月 万金 bilan juftlashadi, ikki misra aniq qarama-qarshi qo‘yiladi."}
+   ],
+   "say_native": "Javoblar: 烽火 juftlanadi 家书 bilan, ikkalasi ot. 连 juftlanadi 抵 bilan, ikkalasi fe’l. 三月 esa 万金 bilan: ikkalasida son va ot bor. Birinchi misra urushning uzoq davomiyligini, ikkinchisi esa uydan kelgan xabarning qadrini ko‘rsatadi. Qarama-qarshilik shunday: urush uchun uch oy, xat uchun o‘n ming oltin, ya’ni vaqt og‘ir, xabar qimmat. Ko‘rdingizmi, 对仗 shunchaki chiroyli shakl emas, u fikrni kuchaytiradi. Tahlilingizda juftliklarni sanab chiqing va ular qaysi ma’noni kuchaytirayotganini yozing.",
+   "say": "烽火对家书，连对抵，三月对万金。上句写战争持续很久，下句写家书特别珍贵。",
+   "say_uz": "Gulxan xat bilan, «tutashdi» «teng» bilan, uch oy o‘n ming oltin bilan juftlashadi. Birinchi misra urush uzoq davom etganini, ikkinchisi xat juda qimmatli ekanini ko‘rsatadi.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "keyingi dars"
-   ],
+   "title": "Dars xulosasi",
+   "emotion": "proud",
+   "board": ["意象 · 象征 · 白描 · 拟人", "题材 ≠ 主题", "质朴 · 细腻 · 含蓄", "概述 → 手法 → 主题 → 评价"],
    "examples": [],
-   "say_native": "Uyga vazifa. Write a 200-word analysis of a short literary passage. . Har bir gapda bitta fikr bo‘lsin. Keyingi darsda C2-08 Falsafa va axloq mavzularida munozara ni o‘rganamiz. C2-07 Adabiy matnlarni tahlil qilish   ko‘nikma: Reading darsiga oid noyob sharh: bu iborani C2-07 suhbatida aniq qo‘llang. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "再见！祝你一切顺利！这非常重要。",
-   "say_uz": "Ko‘rishguncha! Xayr! Juda chiroyli.",
+   "say_native": "Bugungi darsning xulosasi. Birinchi: adabiy tahlilning asosi — obraz va ramzni ko‘rish. Ikkinchi: tasvir vositalari — o‘xshatish, jonlantirish, oq chizgi va tabiat orqali his ifodasi. Uchinchi: mavzu va g‘oyani farqlash: 题材 nima haqida, 主题 esa nima demoqchi. To‘rtinchi: uslub va kayfiyatni tavsiflovchi so‘zlar, nuqtai nazar. Beshinchi: tahlil tuzilmasi — mazmun, vosita, mavzu va baho; va har bir fikrda vosita, dalil, ta’sir. Eng muhim qoida: matnni qayta aytib bermang, uni tahlil qiling.",
+   "say": "今天我们学了意象、象征、白描、拟人等手法，分清了题材和主题，也学习了分析文学作品的结构。记住，分析不是复述，而是解释。",
+   "say_uz": "Bugun obraz, ramz, oq chizgi, jonlantirish kabi usullarni o‘rgandik, mavzu bilan g‘oyani ajratdik va tahlil tuzilmasini o‘zlashtirdik. Esda tuting, tahlil qayta aytib berish emas, tushuntirishdir.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "encouraging",
+   "board": ["Uy vazifasi", "200 so‘zlik tahlil", "Qisqa parcha + 4 qismli tuzilma", "Keyingi dars: falsafa va axloq"],
+   "examples": [],
+   "say_native": "Uy vazifasi: qisqa adabiy parcha tanlang, bu she’r, hikoya yoki esse parchasi bo‘lishi mumkin va u haqida taxminan 200 so‘zlik tahlil yozing. Tuzilma: qisqa mazmun, kamida ikkita vosita matndan misol bilan, mavzu va uslub bahosi. Har bir vosita uchun «vosita, dalil, ta’sir» uchligini ko‘rsating. Muvaffaqiyat mezoni: tahlil matnni qayta aytib bermaydi, har bir fikr dalilga tayanadi. Keyingi darsda falsafa va axloq mavzularida munozara qilishni o‘rganamiz. Omad!",
+   "say": "作业：请选一段短小的文学作品，写一篇两百字左右的分析，要有手法、例子和效果。下一节课，我们学习讨论哲学和伦理问题。",
+   "say_uz": "Uy vazifasi: qisqa adabiy parcha tanlang va 200 so‘zga yaqin tahlil yozing: usul, misol va ta’sir bilan. Keyingi darsda falsafa va axloq masalalarini muhokama qilishni o‘rganamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Write a 200-word analysis of a short literary passage.. Keyingi darsda C2-08 Falsafa va axloq mavzularida munozara ni o‘rganamiz.",
+ "homework_uz": "Qisqa adabiy parcha tanlang va u haqida taxminan 200 so‘zlik tahlil yozing. Tuzilma: qisqa mazmun, kamida ikkita usul (usul, matndan dalil, ta’sir), mavzu va uslub bahosi. Muvaffaqiyat mezoni: matn qayta aytilmaydi, har bir fikr dalilga tayanadi.",
  "quiz": [
-  {
-   "q": "«网络 (wǎngluò)» nimani bildiradi?",
-   "options": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "answer": 0,
-   "why_uz": "网络 (wǎngluò) — tarmoq. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«联系 (liánxì)» nimani bildiradi?",
-   "options": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "answer": 0,
-   "why_uz": "联系 (liánxì) — aloqa. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«目标 (mùbiāo)» nimani bildiradi?",
-   "options": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq"
-   ],
-   "answer": 0,
-   "why_uz": "目标 (mùbiāo) — maqsad. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«学习 (xuéxí)» nimani bildiradi?",
-   "options": [
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "answer": 0,
-   "why_uz": "学习 (xuéxí) — o‘rganish. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«提高 (tígāo)» nimani bildiradi?",
-   "options": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "answer": 0,
-   "why_uz": "提高 (tígāo) — yaxshilanish. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«成果 (chéngguǒ)» nimani bildiradi?",
-   "options": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "mahorat"
-   ],
-   "answer": 0,
-   "why_uz": "成果 (chéngguǒ) — yutuq. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«职业 (zhíyè)» nimani bildiradi?",
-   "options": [
-    "kasb",
-    "ish",
-    "mahorat",
-    "til"
-   ],
-   "answer": 0,
-   "why_uz": "职业 (zhíyè) — kasb. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«工作 (gōngzuò)» nimani bildiradi?",
-   "options": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "answer": 0,
-   "why_uz": "工作 (gōngzuò) — ish. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«技能 (jìnéng)» nimani bildiradi?",
-   "options": [
-    "mahorat",
-    "til",
-    "tarmoq",
-    "aloqa"
-   ],
-   "answer": 0,
-   "why_uz": "技能 (jìnéng) — mahorat. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  },
-  {
-   "q": "«语言 (yǔyán)» nimani bildiradi?",
-   "options": [
-    "til",
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "answer": 0,
-   "why_uz": "语言 (yǔyán) — til. Adabiy matnlarni tahlil qilish   ko‘nikma: Reading mavzusiga oid."
-  }
+  {"q": "意象 nima?", "options": ["His bilan boyitilgan badiiy obraz", "Rasmiy hisobot", "Grammatik qoida", "Qofiya turi"], "answer": 0, "why_uz": "意象 — shoir tuyg‘usi singdirilgan obraz."},
+  {"q": "Xitoy she’riyatida oy ko‘pincha nimani ramz qiladi?", "options": ["Sog‘inchni", "Urushni", "Boylikni", "Qo‘rquvni"], "answer": 0, "why_uz": "Oy sog‘inch va vatan sog‘inchini eslatadi."},
+  {"q": "柳 nega xayrlashuvni bildiradi?", "options": ["留 bilan talaffuzdosh", "Ko‘k rangli", "Suvga yaqin", "Baland"], "answer": 0, "why_uz": "柳 liǔ va 留 liú «qol» ma’nosiga yaqin."},
+  {"q": "拟人 nima?", "options": ["Narsaga inson xususiyatini berish", "O‘xshatish", "Bo‘rttirish", "Savol"], "answer": 0, "why_uz": "Shamol «o‘padi», suv «uyaladi»."},
+  {"q": "题材 va 主题 farqi?", "options": ["题材 nima haqida, 主题 nima demoqchi", "Bir xil", "题材 g‘oya", "主题 voqea"], "answer": 0, "why_uz": "题材 — voqea dunyosi, 主题 — g‘oya."},
+  {"q": "白描 qanday usul?", "options": ["Bezaksiz sodda tasvir", "Ko‘p sifat bilan tasvir", "Savol berish", "O‘xshatish"], "answer": 0, "why_uz": "白描 sifat va bezakdan qochadi."},
+  {"q": "以乐景写哀情 nimani anglatadi?", "options": ["Quvnoq manzara orqali qayg‘uni ifodalash", "Qayg‘uli manzara", "Hazil", "Takror"], "answer": 0, "why_uz": "Qarama-qarshilik qayg‘uni kuchaytiradi."},
+  {"q": "Birinchi shaxs hikoyasining xususiyati?", "options": ["Yaqinlik va cheklangan bilim", "Hamma narsani biladi", "Rasmiylik", "Ritm yo‘q"], "answer": 0, "why_uz": "«Men» faqat o‘zi biladigan narsani aytadi."},
+  {"q": "Tahlilda eng katta xato qaysi?", "options": ["Matnni qayta aytib berish", "Dalil keltirish", "Usulni nomlash", "Ta’sirni izohlash"], "answer": 0, "why_uz": "Tahlil — tushuntirish, qayta bayon emas."},
+  {"q": "«Vosita, dalil, ta’sir» uchligi nima uchun?", "options": ["Fikr isbotli bo‘lishi uchun", "Matn uzayishi uchun", "Qofiya uchun", "Rasmiylik uchun"], "answer": 0, "why_uz": "Vosita nomi, matndan misol va ta’sir birga aytiladi."}
  ]
 }

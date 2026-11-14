@@ -1,74 +1,825 @@
 {
  "title": "Munozara va qarshi fikr bildirish",
- "goal_uz": "Dars yakunida rus tilida hurmat bilan munozarada fikringizni himoya qila olasiz. «Извините, я не согласен», «Давайте уточним», «Итак, подведём итог» bog‘lovchilarini o‘rinli qo‘llaysiz, qarshi fikrni yumshatib rad qilasiz. Oxirida uch daqiqalik munozarada dalilli xulosa qilib bera olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilida suhbatdoshning gapini odob bilan bo‘lasiz, rozi bo‘lib e’tiroz bildirasiz, noaniq joyni aniqlaysiz va munozarani xulosa bilan yakunlaysiz.",
  "vocab": [
-  {"w": "спор", "uz": "munozara"},
-  {"w": "согласие", "uz": "kelishuv"},
-  {"w": "возражение", "uz": "e’tiroz"},
-  {"w": "извините", "uz": "kechirasiz"},
-  {"w": "уточним", "uz": "aniqlashtiramiz"},
-  {"w": "итог", "uz": "xulosa"},
-  {"w": "позиция", "uz": "pozitsiya"},
-  {"w": "доказательство", "uz": "dalil"},
-  {"w": "например", "uz": "masalan"},
-  {"w": "потому что", "uz": "chunki"}
+  {
+   "w": "перебивать",
+   "uz": "gapini bo‘lmoq"
+  },
+  {
+   "w": "возражение",
+   "uz": "e’tiroz"
+  },
+  {
+   "w": "согласиться",
+   "uz": "rozi bo‘lmoq"
+  },
+  {
+   "w": "уточнить",
+   "uz": "aniqlashtirmoq"
+  },
+  {
+   "w": "иметь в виду",
+   "uz": "nazarda tutmoq"
+  },
+  {
+   "w": "иначе говоря",
+   "uz": "boshqacha aytganda"
+  },
+  {
+   "w": "допустим",
+   "uz": "aytaylik"
+  },
+  {
+   "w": "расхождение",
+   "uz": "kelishmovchilik"
+  },
+  {
+   "w": "подвести итог",
+   "uz": "xulosa qilmoq"
+  },
+  {
+   "w": "в свою очередь",
+   "uz": "o‘z navbatida"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"Sog‘liq dars: munozara","emotion":"happy","board":["Извините, я не согласен.","Давайте уточним.","Итак, подведём итог."],"examples":[],"say_native":"Assalomu alaykum! Bugungi darsda munozara va qarshi fikr bildirish texnikasini o‘zlashtiramiz. O‘tgan darsda talaffuz urg‘usini yaxshi bilib oldik, bugun shu bilim ustiga hurmat bilan qarshi fikr aytishni o‘rganamiz. Qarshi fikrni hazil-mutoyib qilmasdan bildirib, keyingi mashqda amaliy mustahkamlaymiz. Hurmat bilan gapni bo‘lib o‘tirish, pozitsiyani yumshatib rad qilish, aniqlashtirish so‘ rash va pozitsiyani yakunlashni mashq qilamiz. Oxirida uch daqiqalik munozarada dalilli xulosa qilib bera olasiz. Keyingi darsda taxmin va ehtimollikni o‘rganamiz.","say":"Здравствуйте! Сегодня спорим по правилам.","say_uz":"Assalomu alaykum! Bugun qoidalar bilan munozara qilamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Qarshi fikr bildirish odobi","emotion":"neutral","board":["Извините, я не согласен.","Извините, я не согласен ...","Согласие интересно."],"examples":[{"t":"Извините, я не согласен.","uz":"Kechirasiz, men rozi emasman."},{"t":"Согласие интересно.","uz":"Kelishuv qiziqarli."}],"say_native":"Qarshi fikr bildirishda «извините, я не согласен» — kechirasiz, men rozi emasman iborasi eng odobli kirish hisoblanadi. Birinchi qism — izn so‘rash, ikkinchi qism — rozi emaslikni bildirish. «Согласие интересно» — kelishuv qiziqarli deyilsa ham, rozi emaslikni aytib o‘tish do‘stona munozara odobi asoslarini shakllantiradi.","say":"Извините, я не согласен. Согласие интересно.","say_uz":"Kechirasiz, men rozi emasman. Kelishuv qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Qarshi fikr bildiring","emotion":"encouraging","board":["1) Kechirasiz, men rozi emasman.","2) Kelishuv qiziqarli."],"examples":[],"say_native":"Qarshi fikrni ikki qator bilan mustahkamlab oling. Birinchisi: «извините, я не согласен». Ikkinchisi: «согласие интересно». Har birini hurmat ohangida talaffuz qiling.","say":"Извините, я не согласен. Согласие интересно.","say_uz":"Kechirasiz, men rozi emasman. Kelishuv qiziqarli.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Извините, я не согласен.","Согласие интересно."],"examples":[],"say_native":"Qarshi fikr javoblari hurmat bilan ikki qatorda tugandi. «Извините, я не согласен» — odobli rozi emaslik, «согласие интересно» — kelishuv e’tirofi. Endi siz ham qarshi fikrni hurmat bilan bildirib bera olasiz.","say":"Извините, я не согласен. Согласие интересно.","say_uz":"Kechirasiz, men rozi emasman. Kelishuv qiziqarli.","practice_seconds":0},
-  {"kind":"explain","title":"E’tiroz so‘zining kuchi","emotion":"thinking","board":["Возражение ...","Возражение понятно.","Возражение важно.","Возражение полезно."],"examples":[{"t":"Возражение понятно.","uz":"E’tiroz tushunarli."},{"t":"Возражение важно.","uz":"E’tiroz muhim."}],"say_native":"«Возражение» — e’tiroz so‘zi munozarada yurtdosh e’tirofini bildirib beradi. «Возражение понятно» — e’tiroz tushunarli; «возражение важно» — e’tiroz muhim; «возражение полезно» — e’tiroz foydali. Ularni dalli belgilarga ayro talqin qilishga urinishsiz ochib qoling. E’tiroz so‘zini so‘z ustida to‘xtov bilan takrorlasangiz, dalil belgisi mustahkam o‘rin oladi. Dalil bilan e’tirozni bir-biridan ajratib tushunib olsangiz, munozara qudrati shubhasiz oshadi. Yakunda shu so‘zlarni bitta xatda yig‘ib berish ishonchingizni oshiradi.","say":"Возражение понятно. Возражение важно. Возражение полезно.","say_uz":"E’tiroz tushunarli. E’tiroz muhim. E’tiroz foydali.","practice_seconds":0},
-  {"kind":"practice","title":"E’tirozni tasdiqlang","emotion":"encouraging","board":["1) E’tiroz tushunarli.","2) E’tiroz muhim.","3) E’tiroz foydali."],"examples":[],"say_native":"E’tiroz so‘zini uch qator bilan mustahkamlab oling. Birinchisi: «возражение понятно». Ikkinchisi: «возражение важно». Uchinchisi: «возражение полезно». Ularni bitta nafas bilan qatarlashtirib talaffuz qiling.","say":"Возражение понятно. Возражение важно. Возражение полезно.","say_uz":"E’tiroz tushunarli. E’tiroz muhim. E’tiroz foydali.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Возражение понятно.","Возражение важно.","Возражение полезно."],"examples":[],"say_native":"E’tiroz javoblari uch qator bilan dalil darajada yakunlandi. «Возражение понятно» — tushunarlilik, «возражение важно» — muhimlik, «возражение полезно» — foydalilik. Endi e’tirozni uyum bilan tinglash va qabuli uchun mustahkamlab oling.","say":"Возражение понятно. Возражение важно. Возражение полезно.","say_uz":"E’tiroz tushunarli. E’tiroz muhim. E’tiroz foydali.","practice_seconds":0},
-  {"kind":"explain","title":"Aniqlashtirish murojaati","emotion":"neutral","board":["Давайте уточним.","Давайте уточним вопрос.","Давайте уточним ответ."],"examples":[{"t":"Давайте уточним вопрос.","uz":"Keling, savolni aniqlashtiramiz."},{"t":"Давайте уточним ответ.","uz":"Keling, javobni aniqlashtiramiz."}],"say_native":"«Давайте уточним» iborasi keling — aniqlashtiramiz murojaatida ajratib turadigan omil bo‘ladi. «Давайте уточним вопрос» — keling, savolni aniqlashtiramiz; «давайте уточним ответ» — keling, javobni aniqlashtiramiz. Munozara qiziganda aniqlashtirish murojaati gapni balandda tutib qolib, tinglovchini o‘zaro hurmat bilan ushlab turadi. Savol-javobning ikki tomoni ham shu murojaat bilan o‘z fikrini muloyim qilib bayon qiladi. Savol berilganda ham, javob berilganda ham shu qoidani saqlab turish sharafga teng bo‘ladi.","say":"Давайте уточним. Давайте уточним вопрос. Давайте уточним ответ.","say_uz":"Keling, aniqlashtiramiz. Keling, savolni aniqlashtiramiz. Keling, javobni aniqlashtiramiz.","practice_seconds":0},
-  {"kind":"practice","title":"Aniqlashtiring","emotion":"encouraging","board":["1) Keling, aniqlashtiramiz.","2) Keling, savolni aniqlashtiramiz.","3) Keling, javobni aniqlashtiramiz."],"examples":[],"say_native":"Aniqlashtirish murojai bog‘lovchisini uch qator bilan mustahkamlab oling. Birinchisi: «давайте уточним». Ikkinchisi: «давайте уточним вопрос». Uchinchisi: «давайте уточним ответ». Ularni bitta savol-javob singari bayon qiling.","say":"Давайте уточним. Давайте уточним вопрос. Давайте уточним ответ.","say_uz":"Keling, aniqlashtiramiz. Keling, savolni aniqlashtiramiz. Keling, javobni aniqlashtiramiz.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Давайте уточним.","Давайте уточним вопрос.","Давайте уточним ответ."],"examples":[],"say_native":"Aniqlashtirish javoblari uch qator murojaat bilan yakun no‘qiga keltirildi. «Давайте уточним» — umumiy murojaat, «давайте уточним вопрос» — savol murojaati, «давайте уточним ответ» — javob murojaati. Endi mumozarada qiziganda ham gapni baland ushlab chiqasiz.","say":"Давайте уточним. Давайте уточним вопрос. Давайте уточним ответ.","say_uz":"Keling, aniqlashtiramiz. Keling, savolni aniqlashtiramiz. Keling, javobni aniqlashtiramiz.","practice_seconds":0},
-  {"kind":"mistake","title":"Umidni ziddiyatlab tugatish","emotion":"stern","board":["✗ Я не согласен.","✓ Извините, я не согласен.","✗ Возражение.","✓ Возражение понятно."],"examples":[],"say_native":"Ko‘p uchraydigan xato — «я не согласен» bitta so‘z bilan tugatib qo‘yishdir. To‘g‘ri shakl: «извините, я не согласен» — oldiga «извините» ni ulab, so‘zning og‘irligi hurmat bilan yumshatiladi. Ikkinchi xato: «возражение» bitta so‘z bilan tugaydigan e’tirofning nochor yopilishi. To‘g‘risi: «возражение понятно».","say":"Извините, я не согласен. Возражение понятно.","say_uz":"Kechirasiz, men rozi emasman. E’tiroz tushunarli.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: munozara kirishi","emotion":"happy","board":["— Что ты думаешь?","— Извините, я не согласен.","— Давайте уточним. — Хорошо."],"examples":[],"say_native":"Birinchi dialog munozara kirish kaliti bilan boshlanadi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Извините, я не согласен» — kechirasiz, men rozi emasman. «Давайте уточним. — Хорошо» — aniqlashtirish va tasdiq. Uch qator munozara kirishi tugunini bildiradi.","say":"Что ты думаешь? Извините, я не согласен. Давайте уточним. Хорошо.","say_uz":"Nima deb o‘ylaysan? Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Keling, aniqlashtiramiz?"],"examples":[],"say_native":"Munozara savollarini mustahkamlab oling. Birinchi savol: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchisi: «давайте уточним?» — keling, aniqlashtiramizmi. Javoblarda «извините» va «давайте уточним» belgilarini aniq qo‘llang.","say":"Что ты думаешь? Извините, я не согласен. Давайте уточним? Хорошо.","say_uz":"Nima deb o‘ylaysan? Kechirasiz, men rozi emasman. Keling, aniqlashtiramizmi? Yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Извините, я не согласен.","Давайте уточним. Хорошо."],"examples":[],"say_native":"Birinchi dialog javoblari kirish kaliti bilan uch qator tugun bo‘lib qoldi. «Извините, я не согласен» — hurmatli rozi emaslik, «давайте уточним. хорошо» — aniqlashtirish bilan tasdiq. Endi mehmonnavoz munozara kirishi sizga do‘st bo‘ladi.","say":"Извините, я не согласен. Давайте уточним. Хорошо.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Yaxshi.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: pozitsiya xulosasi","emotion":"neutral","board":["— Итак?","— Итак, итог ясен.","— Позиция ясна. — Спасибо!"],"examples":[],"say_native":"Ikkinchi dialog pozitsiya xulosasi bilan yakunlanadi. «Итак?» — demak deb so‘raydi. «Итак, итог ясен» — xulosa aniqligi. «Позиция ясна. — Спасибо!» — pozitsiya aniqligi bilan minnat. Uch qator munozara xulosasi tugunlab qo‘yadi.","say":"Итак? Итак, итог ясен. Позиция ясна. Спасибо!","say_uz":"Demak? Demak, xulosa aniq. Pozitsiya aniq. Rahmat!","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Demak?","2) Pozitsiya aniq?"],"examples":[],"say_native":"Pozitsiya xulosasi savollarini mustahkamlab oling. Birinchi savol: «итак?» — demak. Ikkinchi savol: «позиция ясна?» — pozitsiya aniqmi. Javoblarda «итак» va «позиция ясна» belgilarini aniq qo‘llang.","say":"Итак? Итак, итог ясен. Позиция ясна?","say_uz":"Demak? Demak, xulosa aniq. Pozitsiya aniqmi?","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Итак, итог ясен.","Позиция ясна."],"examples":[],"say_native":"Ikkinchi dialog javoblari xulosa va pozitsiya bilan mustahkam yakun topdilar. «Итак, итог ясен» — axloq, «позиция ясна» — ochiqlik. Munozara xulosasi shu uch tugun bilan tugunlarga qotib qoladi.","say":"Итак, итог ясен. Позиция ясна.","say_uz":"Demak, xulosa aniq. Pozitsiya aniq.","practice_seconds":0},
-  {"kind":"explain","title":"Xulosa bog‘lovchisi «итак»","emotion":"thinking","board":["Итак ...","Итак, итог ясен.","Итак, позиция ясна."],"examples":[{"t":"Итак, итог ясен.","uz":"Demak, xulosa aniq."},{"t":"Итак, позиция ясна.","uz":"Demak, pozitsiya aniq."}],"say_native":"«Итак ...» xulosa bog‘lovchisi pozitsiyani mustahkam yopadi. «Итак, итог ясен» — demak, xulosa aniq; «итак, позиция ясна» — demak, pozitsiya aniq. Munozara oxirida «итак» bilan tugallab qo‘ysangiz, tinglovchi xulosani yopiq deb tushunadi.","say":"Итак, итог ясен. Итак, позиция ясна.","say_uz":"Demak, xulosa aniq. Demak, pozitsiya aniq.","practice_seconds":0},
-  {"kind":"practice","title":"Xulosani ayting","emotion":"encouraging","board":["1) Demak, xulosa aniq.","2) Demak, pozitsiya aniq."],"examples":[],"say_native":"«Итак» bog‘lovchisini ikki qator bilan yashinlashib qo‘ying. Birinchisi: «итак, итог ясен». Ikkinchisi: «итак, позиция ясна». Har birini xulosa shaklida tugallang.","say":"Итак, итог ясен. Итак, позиция ясна.","say_uz":"Demak, xulosa aniq. Demak, pozitsiya aniq.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Итак, итог ясен.","Итак, позиция ясна."],"examples":[],"say_native":"Xulosa javoblari yakuniy tugun bilan birlashdi. «Итак, итог ясен» — yakuniy axloq, «итак, позиция ясна» — yakuniy ochiqlik. Endi munozarada xulosani mustahkam yakunlab bera olasiz.","say":"Итак, итог ясен. Итак, позиция ясна.","say_uz":"Demak, xulosa aniq. Demak, pozitsiya aniq.","practice_seconds":0},
-  {"kind":"explain","title":"Yumshatish «однако»","emotion":"neutral","board":["Однако ...","Однако, это плохо.","Однако, это хорошо."],"examples":[{"t":"Однако, это плохо.","uz":"Ammo, bu yomon."},{"t":"Однако, это хорошо.","uz":"Ammo, bu yaxshi."}],"say_native":"Yumshatish «однако ...» munozarada qarshi fikrni sokib pihtalashtirib qo‘yadi. «Однако, это плохо» — ammo, bu yomon; «однако, это хорошо» — ammo, bu yaxshi. Munozarani baland tutib qolmoqchi bo‘lsangiz, qarshi fikrni yumshatib bayon qiling.","say":"Однако, это плохо. Однако, это хорошо.","say_uz":"Ammo, bu yomon. Ammo, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Yumshating","emotion":"encouraging","board":["1) Ammo, bu yomon.","2) Ammo, bu yaxshi."],"examples":[],"say_native":"Yumshatish bog‘lovchisini ikki qator bilan mustahkamlab oling. Birinchisi: «однако, это плохо». Ikkinchisi: «однако, это хорошо». Ularni qarshi fikir bilan bayon qiling.","say":"Однако, это плохо. Однако, это хорошо.","say_uz":"Ammo, bu yomon. Ammo, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Однако, это плохо.","Однако, это хорошо."],"examples":[],"say_native":"Yumshatish javoblari ikki qator barqaror yakun topdilar. «Однако, это плохо» — sovuq tanqid, «однако, это хорошо» — iliq tanqid. Qarshi fikr endi yumshatilib qo‘yiladi.","say":"Однако, это плохо. Однако, это хорошо.","say_uz":"Ammo, bu yomon. Ammo, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Dalil bog‘lovchisi «например»","emotion":"thinking","board":["Например ...","Например, это хорошо.","Например, это важно."],"examples":[{"t":"Например, это хорошо.","uz":"Masalan, bu yaxshi."},{"t":"Например, это важно.","uz":"Masalan, bu muhim."}],"say_native":"Dalil bog‘lovchisi «например ...» pozitsiyani dalillar bilan mustahkamlab qo‘ydi — misol bilan tugallangan da’vo doim mustahkam bo‘lib qoladi. «Например, это хорошо» — masalan, bu yaxshi; «например, это важно» — masalan, bu muhim. Dalilsiz pozitsiya bo‘lmaydi, dalilli pozitsiya barqaror bo‘ladi. Dalil belgisi munozarani yopiq da’vodan mustahkam bayonotga aylantirib qo‘yadi. Misolni dalil sifatida qo‘llagan o‘quvchi tinglovchini bir vaqtning o‘zida ham hurmat bilan qo‘llab quvatlab turadi.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Dalilni ayting","emotion":"encouraging","board":["1) Masalan, bu yaxshi.","2) Masalan, bu muhim."],"examples":[],"say_native":"Dalil bog‘lovchisini ikki qator bilan taftish qilib ko‘ring. Birinchisi: «например, это хорошо». Ikkinchisi: «например, это важно». Ularni pozitsiyangizga singdirib qo‘ying.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Например, это хорошо.","Например, это важно."],"examples":[],"say_native":"Dalil javoblari ishonchli tugun bilan yakun topdilar. «Например, это хорошо» — dalilning yaxshiligi, «например, это важно» — dalilning muhimligi. Pozitsiya endi dalilli asos bilan mustahkam.","say":"Например, это хорошо. Например, это важно.","say_uz":"Masalan, bu yaxshi. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: munozara","emotion":"encouraging","board":["1) Kechirasiz, men rozi emasman.","2) Keling, aniqlashtiramiz.","3) Demak, xulosa aniq.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda uch daqiqalik munozarada pozitsiyani yakunlab qo‘ying. Birinchisi: «извините, я не согласен». Ikkinchisi: «давайте уточним». Uchinchisi: «итак, итог ясен». Shu uch qatorni to‘liq munozara shaklida bayon qiling.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен. Спасибо!","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Извините, я не согласен.","Давайте уточним.","Итак, итог ясен."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchisi: «извините, я не согласен». Ikkinchisi: «давайте уточним». Uchinchisi: «итак, итог ясен». Bu uch qator uch daqiqalik munozaraning monastiri bo‘ladi.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq.","practice_seconds":0},
-  {"kind":"explain","title":"Munozarani chuqur yoyish","emotion":"neutral","board":["Извините, я не согласен.","Давайте уточним.","Итак, итог ясен."],"examples":[{"t":"Извините, я не согласен.","uz":"Kechirasiz, men rozi emasman."},{"t":"Итак, итог ясен.","uz":"Demak, xulosa aniq."}],"say_native":"Munozarani chuqur yoyish uch qatlamli zodagonlik bilan bo‘lib, «извините, я не согласен» — hurmat bilan da’vo, «давайте уточним» — aniqlashtirish va «итак, итог ясен» — xulosa orqali mustahkamlanadi. Da’voni hurmat bilan boshlagan odam tinglovchini o‘ziga agason qator bilan taroqqlashtirib bera olishi aniq ko‘rinadi.\n Har bir qui qatlamni navbat bilan bayon qilganda munozara mustaham qovg‘a qirg‘og‘ida qolib ketmaslikka erishib bo‘ladi. Qog‘ozda ham bu qatlamlarni tartibda ajratib yozish imtihon bahosini oshirib beragi bo‘ladi. Baholashda uch daqiqa saqlangan izchillik yuqori baholanadi. Uch daqiqalik munozarada ushbu uch qatorni uch qator bir qatlam bilang yopilsa, sinovdan mustahkam o‘tib, baholashda yuqoriga chiqish beradi.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq.","practice_seconds":0},
-  {"kind":"practice","title":"Qatlamni mustahkamlang","emotion":"encouraging","board":["1) Kechirasiz, men rozi emasman.","2) Keling, aniqlashtiramiz.","3) Demak, xulosa aniq."],"examples":[],"say_native":"Qatlamni uch bosqich bilan mustahkamlab oling. Birinchi: «извините, я не согласен». Ikkinchisi: «давайте уточним». Yakunda esa: «итак, итог ясен». Uchala bosqichni bitta nafas bilan qatorlashtirib talaffuz qiling.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Извините, я не согласен.","Давайте уточним.","Итак, итог ясен."],"examples":[],"say_native":"Qatlam javoblari uch qator bilan to‘liq ko‘rindi. «Извините, я не согласен» — hurmat da’vosi, «давайте уточним» — aniqlashtirish, «итак, итог ясен» — xulosa. Endi zinni chuqurlashtirish munozarani mustahkam qilib qo‘yadi.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq.","practice_seconds":0},
-  {"kind":"explain","title":"Pozitsiyani himoya qilish yo‘li","emotion":"thinking","board":["Позиция ясна.","Например, это важно.","Однако, это важно."],"examples":[{"t":"Позиция ясна.","uz":"Pozitsiya aniq."},{"t":"Например, это важно.","uz":"Masalan, bu muhim."}],"say_native":"Pozitsiyani himoya qilish dalilli himoyadan iborat bo‘lib, pozitsiya belgisi bilan mustahkamlanib, dalil belgisi bilan tugatilib, yumshatish belgisi bilan yakunlanadi. «Позиция ясна» — ochiqlik, «например, это важно» — dalil, «однако, это важно» — yumshatilgan qarshilik. Uch qatlam bir-biriga uzilmagan holda qatorlashib qolishi taklif qilingan.","say":"Позиция ясна. Например, это важно. Однако, это важно.","say_uz":"Pozitsiya aniq. Masalan, bu muhim. Ammo, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Himoyani mashq qiling","emotion":"encouraging","board":["1) Pozitsiya aniq.","2) Masalan, bu muhim.","3) Ammo, bu muhim."],"examples":[],"say_native":"Himoya yo‘lini uch bosqich bilan uttaling. Birinchisi: «позиция ясна». Ikkinchisi: «например, это важно». Uchinchisi: «однако, это важно». Uchala bosqichni mudofaa bilan yakunlagan holatda talaffuz qiling.","say":"Позиция ясна. Например, это важно. Однако, это важно.","say_uz":"Pozitsiya aniq. Masalan, bu muhim. Ammo, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Позиция ясна.","Например, это важно.","Однако, это важно."],"examples":[],"say_native":"Himoya javoblari uch qator tugun bilan aniq ko‘rindi. «Позиция ясна» — ochiqlik, «например, это важно» — dalillik, «однако, это важно» — yumshatilgan muhimlik. Ushbu uch qator pozitsiyani himoya qilish yo‘lini ochib qo‘yadi.","say":"Позиция ясна. Например, это важно. Однако, это важно.","say_uz":"Pozitsiya aniq. Masalan, bu muhim. Ammo, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Извините, я не согласен.","Давайте уточним.","Итак, подведём итог."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. Qarshi fikrni odob bilan bildira olasizmi? Aniqlashtirishni «давайте уточним» bilan taklif qila olasizmi? Xulosani «итак» bilan tugatib bera olasizmi? Uchala javob ijobiy bo‘lsa, munozara sizga do‘st bo‘ladi.","say":"Извините, я не согласен. Давайте уточним. Итак, подведём итог.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa chiqaramiz.","practice_seconds":0},
-  {"kind":"explain","title":"Munozarani yakunlash","emotion":"neutral","board":["Извините, я не согласен.","Давайте уточним.","Итак, итог ясен."],"examples":[{"t":"Извините, я не согласен.","uz":"Kechirasiz, men rozi emasman."},{"t":"Итак, итог ясен.","uz":"Demak, xulosa aniq."}],"say_native":"Munozarani yakunlash uch qator bilan tiniq qayta mustahkam bo‘lib qoladi. «Извините, я не согласен» — hurmat bilan boshlab, «давайте уточним» — aniqlashtirib, «итак, итог ясен» — yakunlab qo‘yilsa, munozara yopiladi.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq.","practice_seconds":0},
-  {"kind":"practice","title":"Yakunlang","emotion":"encouraging","board":["1) Kechirasiz, men rozi emasman.","2) Keling, aniqlashtiramiz.","3) Demak, xulosa aniq."],"examples":[],"say_native":"Munozarani yakunlashni uch qator bilan mustahkamlab oling. Birinchisi: «извините, я не согласен». Ikkinchisi: «давайте уточним». Uchinchisi: «итак, итог ясен». Har birini yakuniy tugun sifatida talaffuz qiling.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Извините, я не согласен.","Давайте уточним.","Итак, итог ясен."],"examples":[],"say_native":"Yakunlash javoblari uch qator tugun bilan mustahkam tugallandi. «Извините, я не согласен» — hurmat da’vosi, «давайте уточним» — aniqlashtirish, «итак, итог ясен» — xulosa. Endi munozarani mustahkam yakunlab bera olasiz.","say":"Извините, я не согласен. Давайте уточним. Итак, итог ясен.","say_uz":"Kechirasiz, men rozi emasman. Keling, aniqlashtiramiz. Demak, xulosa aniq.","practice_seconds":0},
-  {"kind":"explain","title":"E’tirozni e’tirof etish","emotion":"thinking","board":["Возражение понятно.","Возражение важно.","Возражение полезно."],"examples":[{"t":"Возражение понятно.","uz":"E’tiroz tushunarli."},{"t":"Возражение важно.","uz":"E’tiroz muhim."}],"say_native":"E’tirozni e’tirof etish munozaraning adabiy xat qoidasi bo‘lib qoladi. «Возражение понятно» — tushunarli, «возражение важно» — muhim, «возражение полезно» — foydali. Uch qatorni tinch urg‘u bilan qabul qilsangiz, tinglovchi munozarada o‘zini kotib qoladi.","say":"Возражение понятно. Возражение важно. Возражение полезно.","say_uz":"E’tiroz tushunarli. E’tiroz muhim. E’tiroz foydali.","practice_seconds":0},
-  {"kind":"practice","title":"E’tirof mashqi","emotion":"encouraging","board":["1) E’tiroz tushunarli.","2) E’tiroz muhim.","3) E’tiroz foydali."],"examples":[],"say_native":"E’tirof belgisini uch qator bilan mustahkamlab oling. Birinchisi: «возражение понятно». Ikkinchisi: «возражение важно». Uchinchisi: «возражение полезно». Ularni yopib tugallangan munozara tarzi bilang yakunlab qo‘ying.","say":"Возражение понятно. Возражение важно. Возражение полезно.","say_uz":"E’tiroz tushunarli. E’tiroz muhim. E’tiroz foydali.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Возражение понятно.","Возражение важно.","Возражение полезно."],"examples":[],"say_native":"E’tirof javoblari uch qator yopiq qo‘llanilma bilan tugallandi. «Возражение понятно» — tushunarlilik e’tirofi, «возражение важно» — muhimlik e’tirofi, «возражение полезно» — foydalilik e’tirofi. Endi munozarada e’tirofni hurmat bilan qabul qilib bera olasiz.","say":"Возражение понятно. Возражение важно. Возражение полезно.","say_uz":"E’tiroz tushunarli. E’tiroz muhim. E’tiroz foydali.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["извините, я не согласен · давайте уточним · итак"],"examples":[],"say_native":"Bugunning xulosasi: qarshi fikr bildirish, aniqlashtirish so‘rash va pozitsiyani yakunlashni o‘rgandik. «Извините, я не согласен» — hurmatli rozi emaslik, «давайте уточним» — aniqlashtirish, «итак, итог ясен» — xulosa. Uch daqiqalik munozara shu uch so‘z bilan himoyaga kirishi mumkin.","say":"Отлично! Теперь вы спорите по правилам.","say_uz":"Ajoyib! Endi qoidalar bilan munozara qilasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["3 daqiqalik munozara","Odob · aniqlashtirish · xulosa","Keyingi dars: taxmin va ehtimollik ifodalash"],"examples":[],"say_native":"Uyga vazifa: uch daqiqalik munozarada pozitsiyani yakunlab qo‘ying. Matnda «извините, я не согласен», «давайте уточним», «итак» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda taxmin va ehtimollik belgilarini o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем угадывать.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Taxmin qilamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Munozara va qarshi fikr",
+   "emotion": "happy",
+   "board": [
+    "Дискуссия и контраргументы",
+    "(Munozara va qarshi fikr)",
+    "перебить · согласиться и возразить · уточнить · подвести итог"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda talaffuz, urg‘u va ohangni o‘rgandik, bugun esa shu ohangni haqiqiy munozarada ishlatamiz. Munozarada fikringiz to‘g‘ri bo‘lishi yetarli emas, uni odob bilan aytish ham kerak. Bugun to‘rt ko‘nikma: suhbatni muloyim bo‘lish, rozi bo‘lib e’tiroz bildirish, noaniq joyni so‘rab aniqlash va pozitsiyalarni jamlash.",
+   "say": "Здравствуйте! Сегодня мы учимся вести дискуссию. Вы узнаете, как вежливо перебить собеседника, согласиться и возразить, уточнить непонятное и подвести итог спору.",
+   "say_uz": "Assalomu alaykum! Bugun munozara olib borishni o‘rganamiz. Suhbatdoshning gapini odob bilan bo‘lish, rozi bo‘lib e’tiroz bildirish, tushunarsiz joyni aniqlash va bahsni yakunlashni bilib olasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Gapni muloyim bo‘lish",
+   "emotion": "neutral",
+   "board": [
+    "Простите, что перебиваю, …",
+    "Позвольте добавить …",
+    "Разрешите возразить?",
+    "Минуточку, …"
+   ],
+   "examples": [
+    {
+     "t": "Простите, что перебиваю, но у меня короткий вопрос.",
+     "uz": "Gapingizni bo‘lganim uchun uzr, lekin qisqa savolim bor."
+    },
+    {
+     "t": "Позвольте добавить одну деталь.",
+     "uz": "Bitta tafsilotni qo‘shishga ruxsat bering."
+    }
+   ],
+   "say_native": "Munozarada ba’zan gapni bo‘lish kerak bo‘ladi. Ruschada buning muloyim shakllari bor. «Простите, что перебиваю» — gapingizni bo‘lganim uchun uzr. «Позвольте добавить» — qo‘shishga ruxsat bering. «Разрешите возразить?» — e’tiroz bildirishga ruxsat bering. Bu iboralar rasmiy «вы» muloqotiga mos va hech kimni xafa qilmaydi, o‘zbekchadagi «uzr, gapingizni bo‘lsam» ga yaqin.",
+   "say": "Простите, что перебиваю, но у меня короткий вопрос. Позвольте добавить одну деталь. Разрешите возразить?",
+   "say_uz": "Gapingizni bo‘lganim uchun uzr, lekin qisqa savolim bor. Bitta tafsilotni qo‘shishga ruxsat bering. E’tiroz bildirishga ruxsat bering?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qachon va qanday bo‘lish",
+   "emotion": "thinking",
+   "board": [
+    "пауза → фраза-мостик → короткая мысль",
+    "не повышайте голос",
+    "«ты» — друзьям, «вы» — на дискуссии"
+   ],
+   "examples": [
+    {
+     "t": "Минуточку, я хотел бы уточнить одну цифру.",
+     "uz": "Bir daqiqa, bitta raqamni aniqlamoqchiman."
+    }
+   ],
+   "say_native": "Gapni qachon bo‘lish mumkin? Suhbatdosh to‘xtab nafas olganda yoki bir fikrni tugatganda. Avval qisqa ibora ayting, keyin bitta qisqa fikr. Ovozni ko‘tarmang, ohang tinch bo‘lsin. Rasmiy muhitda «вы» ishlating, do‘st orasida «ты» mumkin. Eslab qoling: bo‘lish odobsizlik emas, agar uzr so‘rab, qisqa gapirsangiz.",
+   "say": "Минуточку, я хотел бы уточнить одну цифру. Не повышайте голос и держите паузу: так вас услышат, не обидевшись.",
+   "say_uz": "Bir daqiqa, bitta raqamni aniqlamoqchiman. Ovozingizni ko‘tarmang va pauza saqlang: shunda sizni xafa qilmasdan eshitishadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Muloyim bo‘lish misoli",
+   "emotion": "impressed",
+   "board": [
+    "Фраза-мостик + вопрос"
+   ],
+   "examples": [
+    {
+     "t": "Извините, можно вас перебить? Вы упомянули цифру тридцать процентов.",
+     "uz": "Kechirasiz, gapingizni bo‘lsam bo‘ladimi? Siz o‘ttiz foiz raqamini aytdingiz."
+    }
+   ],
+   "say_native": "Mana to‘liq misol. Birinchi qadam — «извините, можно вас перебить?». Ikkinchi qadam — nimani aniqlamoqchi ekaningiz: «вы упомянули цифру». Uchinchi qadam — savol. To‘rtinchi — minnatdorchilik va suhbatni suhbatdoshga qaytarish: «благодарю, продолжайте». Bu odob bilan bo‘lishning to‘liq sxemasi.",
+   "say": "Извините, можно вас перебить? Вы упомянули цифру тридцать процентов. Откуда она взялась? Благодарю, продолжайте, пожалуйста.",
+   "say_uz": "Kechirasiz, gapingizni bo‘lsam bo‘ladimi? O‘ttiz foiz raqamini aytdingiz. U qayerdan olingan? Rahmat, davom eting.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Qo‘pol bo‘lish",
+   "emotion": "stern",
+   "board": [
+    "✗ Подожди! Ты неправ!",
+    "✓ Простите, что перебиваю, но позвольте не согласиться.",
+    "✗ Вы не даёте мне сказать!"
+   ],
+   "examples": [
+    {
+     "t": "Минутку, давайте я закончу мысль.",
+     "uz": "Bir daqiqa, fikrimni tugatay."
+    }
+   ],
+   "say_native": "Ko‘pchilik o‘zbek tilidagi «to‘xta, noto‘g‘ri aytyapsan» kabi qisqa buyruqni ruschaga ko‘chiradi. Ruschada bu juda qo‘pol eshitiladi. Odobli variantda uzr, so‘ng ruxsat so‘rash va kelishmovchilik bor. Shuningdek, shaxsga hujum qilmang: «Вы неправы» o‘rniga «я с этим не согласен» deng.",
+   "say": "Не говорите резко: «Подожди! Ты неправ!». Лучше: простите, что перебиваю, но позвольте не согласиться.",
+   "say_uz": "«Подожди! Ты неправ!» deb keskin gapirmang. Yaxshisi: gapingizni bo‘lganim uchun uzr, lekin rozi bo‘lmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Muloyim variantni toping",
+   "emotion": "encouraging",
+   "board": [
+    "Стой! Это неправда!",
+    "Дай мне сказать!",
+    "Подожди, объясни цифры."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Doskada uchta qo‘pol ibora bor. Ularni muloyim shaklga o‘zgartiring. Birinchisini men bajaraman: «Простите, что перебиваю, но, по-моему, это не совсем так». Ikkinchisi va uchinchisini siz o‘zgartiring. «Позвольте», «разрешите» va «не могли бы вы» so‘zlaridan foydalaning.",
+   "say": "Перефразируйте резкие фразы вежливо. Например: простите, что перебиваю, но, по-моему, это не совсем так. Теперь сделайте то же с двумя другими.",
+   "say_uz": "Keskin iboralarni muloyim qilib aytib bering. Masalan: gapingizni bo‘lganim uchun uzr, menimcha, bu unchalik to‘g‘ri emas. Endi qolgan ikkitasi bilan shunday qiling.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Простите, но, по-моему, это не совсем так.",
+    "Позвольте мне закончить мысль.",
+    "Не могли бы вы пояснить цифры?"
+   ],
+   "examples": [],
+   "say_native": "Namunalar: «Позвольте мне закончить мысль» va «Не могли бы вы пояснить цифры?». Sizning variantingiz boshqacha bo‘lishi mumkin. Muhimi — ma’no saqlansin, ohang esa muloyim bo‘lsin. «Не могли бы вы» konstruksiyasi doim iltimosni yumshatadi va juda ko‘p vaziyatlarda ishlaydi.",
+   "say": "Варианты ответа: позвольте мне закончить мысль; не могли бы вы пояснить цифры? Обратите внимание: так же ясно, но намного вежливее.",
+   "say_uz": "Variantlar: fikrimni tugatishga ruxsat bering; raqamlarni tushuntira olasizmi? E’tibor bering: ravshanligi saqlandi, ammo ancha muloyimroq bo‘ldi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Rozi bo‘lib, so‘ng e’tiroz",
+   "emotion": "thinking",
+   "board": [
+    "Вы правы в том, что …",
+    "Это справедливо, однако …",
+    "Допустим, но …",
+    "Согласен частично, но …"
+   ],
+   "examples": [
+    {
+     "t": "Вы правы в том, что дистанционная работа экономит время.",
+     "uz": "Masofaviy ish vaqtni tejashida haqsiz."
+    },
+    {
+     "t": "Допустим, но это не решает проблему общения.",
+     "uz": "Aytaylik, lekin bu muloqot muammosini hal qilmaydi."
+    }
+   ],
+   "say_native": "Yaxshi munozarachi avval rozi bo‘ladi, keyin e’tiroz bildiradi. Bu tinglovchiga hurmat ko‘rsatadi. «Вы правы в том, что» — siz haqsiz. «Это справедливо, однако» — bu to‘g‘ri, biroq. «Допустим, но» — aytaylik, lekin. Qoida shunday: «согласен» deganingizdan keyin «но» yoki «однако» bilan boshqa dalilni keltiring.",
+   "say": "Вы правы в том, что дистанционная работа экономит время. Это справедливо, однако командная работа от этого страдает. Допустим, но проблему общения это не решает.",
+   "say_uz": "Masofaviy ish vaqtni tejashida haqsiz. Bu to‘g‘ri, biroq jamoaviy ish bundan zarar ko‘radi. Aytaylik, lekin bu muloqot muammosini hal qilmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "E’tirozning darajalari",
+   "emotion": "neutral",
+   "board": [
+    "мягко: мне кажется, не совсем так",
+    "нейтрально: я не согласен с тем, что …",
+    "твёрдо: не могу согласиться с …"
+   ],
+   "examples": [
+    {
+     "t": "Мне кажется, это не совсем так.",
+     "uz": "Menimcha, bu unchalik to‘g‘ri emas."
+    },
+    {
+     "t": "Не могу согласиться с вашим выводом.",
+     "uz": "Sizning xulosangizga qo‘shila olmayman."
+    }
+   ],
+   "say_native": "E’tiroz uch daraja bo‘ladi. Yumshoq: «мне кажется, это не совсем так». Neytral: «я не согласен с тем, что …». Qat’iy: «не могу согласиться с вашим выводом». «Согласиться» fe’li tvoritelnyy bilan «с» predlogi orqali ishlaydi: с выводом, с мнением. Munozarada darajani vaziyatga qarab tanlang, aksar hollarda neytral daraja eng xavfsiz.",
+   "say": "Мне кажется, это не совсем так. Я не согласен с тем, что расходы вырастут. Не могу согласиться с вашим выводом.",
+   "say_uz": "Menimcha, bu unchalik to‘g‘ri emas. Xarajatlar oshishiga qo‘shilmayman. Sizning xulosangizga qo‘shila olmayman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "E’tiroz boshqaruvi",
+   "emotion": "thinking",
+   "board": [
+    "согласиться с + Т.п.",
+    "возражать + Д.п. / против + Р.п.",
+    "спорить с + Т.п. о + П.п."
+   ],
+   "examples": [
+    {
+     "t": "Я не согласен с вашим мнением.",
+     "uz": "Men sizning fikringizga qo‘shilmayman."
+    },
+    {
+     "t": "Я возражаю против этого предложения.",
+     "uz": "Men bu taklifga qarshiman."
+    }
+   ],
+   "say_native": "Boshqaruvga yana e’tibor. «Согласиться с» — tvoritelnyy: с вашим мнением. «Возражать против» — roditelnyy: против предложения; «возражать» ni datelnyy bilan ham ishlatamiz: возражать оппоненту. «Спорить с кем о чём» — «bahslashmoq»: с коллегой о бюджете, bu yerda «о» predlojnyy bilan. O‘zbekchada hamma ma’noni «-ga qo‘shilmoq» deymiz, shu sababli adashish oson.",
+   "say": "Я не согласен с вашим мнением. Я возражаю против этого предложения. Мы спорили с коллегой о бюджете.",
+   "say_uz": "Men sizning fikringizga qo‘shilmayman. Men bu taklifga qarshi chiqaman. Biz hamkasb bilan byudjet haqida bahslashdik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Mini-munozara",
+   "emotion": "impressed",
+   "board": [
+    "Тема: четырёхдневная рабочая неделя"
+   ],
+   "examples": [
+    {
+     "t": "Вы правы, что отдых важен, однако бизнесу нужна стабильность.",
+     "uz": "Dam olish muhimligida haqsiz, biroq biznesga barqarorlik kerak."
+    }
+   ],
+   "say_native": "Mana qisqa munozara qismi. Birinchi ishtirokchi roziligini bildirib, «однако» bilan e’tiroz beradi. Ikkinchisi «допустим, но» bilan javob qaytaradi. Uchinchisi «не могу согласиться» deb qat’iy gapiradi, lekin sababini ham aytadi. Ko‘rdingizmi, hech kim «sen noto‘g‘risan» demadi, lekin kelishmovchilik ravshan.",
+   "say": "Вы правы, что отдых важен, однако бизнесу нужна стабильность. Допустим, но эксперименты показывают рост производительности. Не могу согласиться: в других отраслях результаты были иными.",
+   "say_uz": "Dam olish muhimligida haqsiz, biroq biznesga barqarorlik kerak. Aytaylik, lekin tajribalar samaradorlik o‘sishini ko‘rsatadi. Qo‘shila olmayman: boshqa sohalarda natijalar boshqacha edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Boshqaruv xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ согласен с вашему мнению",
+    "✓ согласен с вашим мнением",
+    "✗ возражаю на это",
+    "✓ возражаю против этого"
+   ],
+   "examples": [
+    {
+     "t": "Я возражаю против такого подхода.",
+     "uz": "Men bunday yondashuvga qarshiman."
+    }
+   ],
+   "say_native": "«С» predlogidan keyin tvoritelnyy keladi, datelnyy emas: с мнением, с выводом. Xato ko‘pincha o‘zbekcha «fikringizga» («-ga» qo‘shimchasi) tarjimasidan chiqadi. Ikkinchi xato: «возражать» bilan «на» emas, «против» ishlatiladi. Siz endi bu ikki juftlikni yod olib qo‘ying: согласен с + Т.п., возражаю против + Р.п.",
+   "say": "Не говорите «согласен с вашему мнению». Правильно: согласен с вашим мнением. И не «возражаю на это», а «возражаю против этого».",
+   "say_uz": "«Согласен с вашему мнению» demang. To‘g‘risi: с вашим мнением. «Возражаю на это» emas, возражаю против этого.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Qarshi fikr bering",
+   "emotion": "encouraging",
+   "board": [
+    "Бесплатное высшее образование нужно всем.",
+    "Школьная форма делает всех равными.",
+    "Телевидение уходит в прошлое."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Doskada uchta fikr bor. Birini tanlang va avval qisman rozi bo‘ling, keyin e’tiroz bildiring. Namuna: «Вы правы, что образование важно, однако бесплатное обучение требует больших расходов». «Однако», «допустим, но» yoki «тем не менее» dan foydalaning.",
+   "say": "Согласитесь с мыслью частично и возразите. Например: вы правы, что образование важно, однако бесплатное обучение требует больших расходов. Теперь выберите ещё одно утверждение.",
+   "say_uz": "Fikr bilan qisman rozi bo‘lib, keyin e’tiroz bildiring. Masalan: ta’lim muhimligida haqsiz, biroq bepul ta’lim katta xarajat talab qiladi. Endi yana bitta fikrni tanlang.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Это справедливо, однако …",
+    "Допустим, но …",
+    "Тем не менее …"
+   ],
+   "examples": [],
+   "say_native": "Mumkin bo‘lgan javob: «Вы правы, что форма стирает различия, однако дети всё равно найдут повод для сравнения». Tuzilma har doim bir xil: avval rozilik, keyin «однако», so‘ng sizning dalilingiz. Sizning dalilingiz boshqa bo‘lishi mumkin, ammo shu qolip saqlansa, javobingiz to‘g‘ri.",
+   "say": "Возможный ответ: вы правы, что форма стирает различия, однако дети всё равно найдут повод для сравнения. Структура: согласие, связка, довод.",
+   "say_uz": "Mumkin javob: forma farqlarni yo‘qotishida haqsiz, biroq bolalar baribir solishtirish sababini topadi. Tuzilma: rozilik, bog‘lovchi, dalil.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Aniqlashtirish so‘rovlari",
+   "emotion": "neutral",
+   "board": [
+    "Что вы имеете в виду?",
+    "Вы хотите сказать, что …?",
+    "Не могли бы вы пояснить …?",
+    "Правильно ли я понял, что …?"
+   ],
+   "examples": [
+    {
+     "t": "Что вы имеете в виду под словом «эффективность»?",
+     "uz": "«Samaradorlik» so‘zi ostida nimani nazarda tutasiz?"
+    },
+    {
+     "t": "Правильно ли я понял, что вы против этого проекта?",
+     "uz": "To‘g‘ri tushundimmi, siz bu loyihaga qarshisiz?"
+    }
+   ],
+   "say_native": "Noaniq joyni so‘rab aniqlash — kuchli munozarachining belgisi. «Что вы имеете в виду?» — nimani nazarda tutasiz. «Вы хотите сказать, что …?» — demoqchimisiz. «Правильно ли я понял, что …?» — to‘g‘ri tushundimmi. «Не могли бы вы пояснить» — izohlab bera olasizmi. Bu savollar tushunmaslikni emas, diqqatli tinglashni ko‘rsatadi.",
+   "say": "Что вы имеете в виду под словом «эффективность»? Правильно ли я понял, что вы против этого проекта? Не могли бы вы пояснить свой вывод?",
+   "say_uz": "«Samaradorlik» so‘zi ostida nimani nazarda tutasiz? To‘g‘ri tushundimmi, siz bu loyihaga qarshisiz? Xulosangizni izohlab bera olasizmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Qayta ifodalash",
+   "emotion": "thinking",
+   "board": [
+    "то есть … · иначе говоря …",
+    "другими словами …",
+    "если я вас правильно понимаю, …"
+   ],
+   "examples": [
+    {
+     "t": "Иначе говоря, вы предлагаете сократить расходы.",
+     "uz": "Boshqacha aytganda, siz xarajatlarni qisqartirishni taklif qilyapsiz."
+    }
+   ],
+   "say_native": "Tushunganingizni o‘z so‘zlaringiz bilan qaytarish — eng yaxshi tekshiruv. «То есть» — ya’ni. «Иначе говоря», «другими словами» — boshqacha aytganda. «Если я вас правильно понимаю» — agar sizni to‘g‘ri tushunsam. Shunda suhbatdosh tasdiqlaydi yoki tuzatadi. Bu yolg‘on tushunishning oldini oladi va bahsni halol saqlaydi.",
+   "say": "Иначе говоря, вы предлагаете сократить расходы. То есть главная проблема не в деньгах, а в организации. Если я вас правильно понимаю, вы хотите начать с пилотного проекта.",
+   "say_uz": "Boshqacha aytganda, siz xarajatlarni qisqartirishni taklif qilyapsiz. Ya’ni asosiy muammo pulda emas, tashkilotda. Agar sizni to‘g‘ri tushunsam, pilot loyihadan boshlamoqchisiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Aniqlashtirish misoli",
+   "emotion": "impressed",
+   "board": [
+    "— Нужно ввести лимит.",
+    "— Что вы имеете в виду?"
+   ],
+   "examples": [
+    {
+     "t": "Если я вас правильно понимаю, вы говорите об ограничении, а не о запрете.",
+     "uz": "Agar sizni to‘g‘ri tushunsam, siz taqiq haqida emas, cheklov haqida gapiryapsiz."
+    }
+   ],
+   "say_native": "Mana kichik dialog. Birinchi ishtirokchi umumiy fikr aytdi. Ikkinchisi yo‘naltiruvchi savol berdi: taqiqmi yoki vaqt bo‘yicha cheklovmi. Natijada noaniqlik yo‘qoldi va kelishuv paydo bo‘ldi. Savolni ikki variant bilan bersangiz, javob berish osonroq bo‘ladi.",
+   "say": "— Нужно ввести лимит на использование телефонов. — Что вы имеете в виду: запрет или ограничение по времени? — Именно ограничение. — Тогда я с вами согласна.",
+   "say_uz": "— Telefondan foydalanishga limit kiritish kerak. — Nimani nazarda tutasiz: taqiqnimi yoki vaqt bo‘yicha cheklovni? — Aynan cheklovni. — Unda men sizga qo‘shilaman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Aniqlashtirish xatosi",
+   "emotion": "stern",
+   "board": [
+    "✗ Я вас не понимаю.",
+    "✓ Я не совсем понял, что вы имеете в виду.",
+    "✗ Объясните!",
+    "✓ Не могли бы вы пояснить?"
+   ],
+   "examples": [
+    {
+     "t": "Я не совсем понял вашу мысль.",
+     "uz": "Fikringizni unchalik tushunmadim."
+    }
+   ],
+   "say_native": "«Я вас не понимаю» ruschada ayblov kabi eshitiladi: go‘yo gapingiz tushunarsiz. Muloyimroq: «я не совсем понял», bunda aybni o‘zingizga olasiz. Buyruq shakli «объясните!» ham keskin. «Не могли бы вы пояснить?» — iltimos shakli. O‘zbekchada ham «tushunmadim» yumshoqroq, «sizni tushunmayapman» keskinroq, shunga o‘xshaydi.",
+   "say": "Не говорите прямо «я вас не понимаю» или «объясните!». Лучше: я не совсем понял, что вы имеете в виду. Не могли бы вы пояснить?",
+   "say_uz": "To‘g‘ridan-to‘g‘ri «sizni tushunmayapman» yoki «tushuntiring!» demang. Yaxshisi: nimani nazarda tutayotganingizni unchalik tushunmadim. Izohlab bera olasizmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savol bering",
+   "emotion": "encouraging",
+   "board": [
+    "— Я против этой реформы.",
+    "— Нужно изменить систему.",
+    "— Это слишком дорого."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta fikr aytildi. Har biriga aniqlashtiruvchi savol bering. Birinchisiga: «Что вы имеете в виду, говоря „против“?» Ikkinchisiga «какую именно систему?» deb so‘rang. Uchinchisiga «по сравнению с чем?» yoki «насколько дорого?» deb so‘rang.",
+   "say": "Задайте уточняющий вопрос на каждое высказывание. Например: что вы имеете в виду, говоря «против»? Теперь два других вопроса.",
+   "say_uz": "Har bir fikrga aniqlashtiruvchi savol bering. Masalan: «qarshi» deganda nimani nazarda tutasiz? Endi qolgan ikkitasiga savol bering.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Какую именно систему вы имеете в виду?",
+    "По сравнению с чем это дорого?"
+   ],
+   "examples": [],
+   "say_native": "Mumkin bo‘lgan savollar: «Какую именно систему вы имеете в виду?» va «По сравнению с чем это дорого?». Yaxshi aniqlashtiruvchi savol aniq bo‘ladi: «какую именно», «по сравнению с чем», «в каких случаях». Umumiy «объясните» o‘rniga shunday aniq savol beriladi.",
+   "say": "Возможные вопросы: какую именно систему вы имеете в виду? По сравнению с чем это дорого? Хороший вопрос всегда конкретен.",
+   "say_uz": "Mumkin savollar: aynan qaysi tizimni nazarda tutyapsiz? Nima bilan solishtirganda qimmat? Yaxshi savol doim aniq bo‘ladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Pozitsiyalarni jamlash",
+   "emotion": "neutral",
+   "board": [
+    "Подведу итог: …",
+    "Мы сошлись в том, что …",
+    "Расхождение в том, что …",
+    "В свою очередь …"
+   ],
+   "examples": [
+    {
+     "t": "Подведу итог: мы сошлись в том, что реформа нужна, но не в сроках.",
+     "uz": "Xulosa qilaman: islohot kerakligida kelishdik, ammo muddatlarda emas."
+    }
+   ],
+   "say_native": "Munozara oxirida pozitsiyalarni jamlash kerak. «Подведу итог» — xulosa qilaman. «Мы сошлись в том, что» — nimada kelishdik. «Расхождение в том, что» — qayerda farq qolgan. Shu uch iboradan foydalanib siz munozarani tartibga solasiz. Ko‘pincha moderator shunday qiladi, ammo ishtirokchi ham shunday xulosa qila oladi.",
+   "say": "Подведу итог: мы сошлись в том, что реформа нужна, но не в сроках. Расхождение остаётся в том, кто будет её оплачивать.",
+   "say_uz": "Xulosa qilaman: islohot kerakligida kelishdik, ammo muddatlarda emas. Kelishmovchilik uni kim to‘lashida qolmoqda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Boshqa odam fikrini keltirish",
+   "emotion": "thinking",
+   "board": [
+    "По мнению + Р.п., …",
+    "Анна считает, что …",
+    "Антон, в свою очередь, утверждает, что …",
+    "Обе стороны согласны, что …"
+   ],
+   "examples": [
+    {
+     "t": "По мнению Анны, расходы вырастут.",
+     "uz": "Annaning fikricha, xarajatlar oshadi."
+    },
+    {
+     "t": "Антон, в свою очередь, считает, что рынок справится сам.",
+     "uz": "Anton esa bozor o‘zi hal qiladi, deb hisoblaydi."
+    }
+   ],
+   "say_native": "Boshqa odamning fikrini xolis keltirish uchun «по мнению» + roditelnyy ishlatamiz: по мнению Анны. Yoki fe’l bilan: «Анна считает, что …». «В свою очередь» — o‘z navbatida, ikkinchi tomonni berish uchun qulay. «Обе стороны согласны» — ikkala tomon ham rozi. «По мнению» dan keyin «что» kerak emas, bu odatiy xato.",
+   "say": "По мнению Анны, расходы вырастут. Антон, в свою очередь, считает, что рынок справится сам. Обе стороны согласны, что решение нужно принять быстро.",
+   "say_uz": "Annaning fikricha, xarajatlar oshadi. Anton esa bozor o‘zi hal qiladi, deb hisoblaydi. Ikkala tomon ham qaror tez qabul qilinishi kerakligiga rozi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Xulosa namunasi",
+   "emotion": "impressed",
+   "board": [
+    "Позиции → согласие → расхождение"
+   ],
+   "examples": [
+    {
+     "t": "Итак, обе стороны признают пользу гибкого графика.",
+     "uz": "Demak, ikkala tomon ham moslashuvchan jadval foydali ekanini tan oladi."
+    }
+   ],
+   "say_native": "Mana yaxshi xulosa. Avval Olganing pozitsiyasi: «по мнению Ольги». Keyin Igorning pozitsiyasi: «в свою очередь». Keyin umumiy kelishuv: «обе стороны признают». Va nihoyat farq: «расхождение — в сроках». Xulosada o‘z fikringizni qo‘shmang: faqat ikkala tomonni baravar bering.",
+   "say": "Итак, по мнению Ольги, гибкий график повышает мотивацию. Игорь, в свою очередь, опасается за дисциплину. Обе стороны признают пользу пилотного проекта, расхождение — в сроках.",
+   "say_uz": "Demak, Olganing fikricha, moslashuvchan jadval motivatsiyani oshiradi. Igor esa intizomdan xavotirda. Ikkala tomon ham pilot loyiha foydali ekanini tan oladi, farq esa muddatlarda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Xulosa xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ по мнению Анна",
+    "✓ по мнению Анны",
+    "✗ по мнению, что …",
+    "✓ по мнению Анны, расходы вырастут"
+   ],
+   "examples": [
+    {
+     "t": "По мнению эксперта, цены вырастут.",
+     "uz": "Mutaxassis fikricha, narxlar oshadi."
+    }
+   ],
+   "say_native": "«По мнению» predlog‑ibora, uning keyin roditelnyy keladi: по мнению Анны, по мнению эксперта. Kelishik qo‘shimchasini tushirib qoldirish keng tarqalgan xato. Ikkinchi xato: «по мнению Анны, что расходы вырастут» — bu noto‘g‘ri, «что» ni olib tashlang. «Считает» fe’li bilan esa «что» kerak: Анна считает, что расходы вырастут.",
+   "say": "Не говорите «по мнению Анна». Правильно — по мнению Анны. И не добавляйте «что» после «по мнению».",
+   "say_uz": "«По мнению Анна» demang. To‘g‘risi: по мнению Анны. «По мнению» dan keyin «что» qo‘shmang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Xulosa qiling",
+   "emotion": "encouraging",
+   "board": [
+    "Ольга: нужен гибкий график.",
+    "Игорь: боюсь за дисциплину.",
+    "Итог: ... (по мнению / в свою очередь / обе стороны)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Doskada ikki pozitsiya bor. Ularni xulosa ko‘rinishida ayting. Avval «по мнению Ольги …», keyin «Игорь, в свою очередь, …», oxirida «обе стороны …» bilan umumiy xulosani qo‘shing. Umumiy xulosani o‘zingiz o‘ylab toping.",
+   "say": "Подведите итог спору. Например: по мнению Ольги, нужен гибкий график. Игорь, в свою очередь, опасается за дисциплину. Закончите итог сами.",
+   "say_uz": "Bahsni yakunlang. Masalan: Olganing fikricha, moslashuvchan jadval kerak. Igor esa intizomdan xavotirda. Yakuniy qismni o‘zingiz tugallang.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Обе стороны согласны, что нужен пробный период."
+   ],
+   "examples": [],
+   "say_native": "Mumkin bo‘lgan xulosa: «Обе стороны согласны, что нужен пробный период, а вопрос дисциплины можно решить правилами». Siz boshqacha xulosa chiqargan bo‘lishingiz mumkin. Tekshiring: ikkala pozitsiya aytildimi, umumiy qism ko‘rsatildimi va «по мнению» to‘g‘ri kelishikda ishlatildimi.",
+   "say": "Возможный итог: обе стороны согласны, что нужен пробный период, а вопрос дисциплины можно решить правилами. Главное — назвать позиции и общую часть.",
+   "say_uz": "Mumkin xulosa: ikkala tomon sinov muddati kerakligiga rozi, intizom masalasini qoidalar bilan hal qilish mumkin. Asosiysi — pozitsiyalarni va umumiy qismni aytish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: masofaviy ish",
+   "emotion": "happy",
+   "board": [
+    "Диалог 1",
+    "Два коллеги спорят о работе из дома"
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog — masofaviy ish haqida munozara. Bugungi barcha ko‘nikmalarni topishga harakat qiling: bo‘lish, rozi bo‘lib e’tiroz, aniqlashtirish va xulosa. Keyingi mashqda savollar bor.",
+   "say": "— Я считаю, что работать из дома эффективнее. — Простите, что перебиваю, но что вы имеете в виду под словом «эффективнее»? — Мы тратим меньше времени на дорогу. — Это справедливо, однако команде труднее обмениваться идеями. — Согласен, но для этого есть видеосвязь. — Допустим, но живое общение ничем не заменить. — Давайте подведём итог: у обоих форматов есть плюсы.",
+   "say_uz": "— Menimcha, uydan ishlash samaraliroq. — Uzr, gapingizni bo‘lganim uchun, «samaraliroq» deganda nimani nazarda tutasiz? — Yo‘lga kam vaqt sarflaymiz. — Bu to‘g‘ri, biroq jamoa uchun g‘oyalar almashish qiyinroq. — Roziman, lekin buning uchun videoaloqa bor. — Aytaylik, lekin jonli muloqotni hech narsa almashtirmaydi. — Xulosa qilaylik: ikkala formatning ham afzalliklari bor.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. Что уточнил собеседник?",
+    "2. Какой довод против привёл второй?",
+    "3. К чему пришли в конце?"
+   ],
+   "examples": [],
+   "say_native": "Dialog bo‘yicha uchta savol: nima aniqlashtirildi, qarama-qarshi dalil nima edi va oxirida nimaga kelishildi. Javobda «уточнил», «довод» va «пришли к выводу» so‘zlarini ishlating.",
+   "say": "Ответьте на вопросы по диалогу. Что уточнил собеседник? Какой довод против привёл второй? К чему пришли в конце?",
+   "say_uz": "Dialog bo‘yicha savollarga javob bering. Suhbatdosh nimani aniqladi? Ikkinchisi qanday qarshi dalil keltirdi? Oxirida nimaga kelishdi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog javoblari",
+   "emotion": "proud",
+   "board": [
+    "1. Что значит «эффективнее»",
+    "2. Команде труднее обмениваться идеями",
+    "3. У обоих форматов есть плюсы"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: suhbatdosh «samaraliroq» so‘zining ma’nosini so‘radi. Ikkinchisi jamoaga fikr almashish qiyinligini aytdi. Oxirida ikkalasi ikki formatning ham afzalliklari borligiga kelishdi. Dialogda hech kim «sen noto‘g‘risan» demadi, lekin bahs aniq bo‘ldi. Shu uslubni o‘zingizda ham qo‘llang.",
+   "say": "Собеседник уточнил, что значит «эффективнее». Второй сказал, что команде труднее обмениваться идеями. В конце они пришли к выводу, что у обоих форматов есть плюсы.",
+   "say_uz": "Suhbatdosh «samaraliroq» nimani anglatishini aniqladi. Ikkinchisi jamoaga g‘oyalar almashish qiyinroq ekanini aytdi. Oxirida ikki formatning ham afzalliklari borligiga kelishdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: to‘rt kunlik hafta",
+   "emotion": "happy",
+   "board": [
+    "Диалог 2",
+    "Ведущий, Анна и Антон"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog — moderator bilan uch kishilik munozara. Antonning qanday e’tiroz bildirishini, Anna nimani aniqlashtirishini va moderator qanday xulosa chiqarishini tinglang.",
+   "say": "— Анна считает, что четырёхдневная неделя повысит производительность. Антон, что вы думаете? — Позвольте не согласиться: многие компании не смогут перестроить график. — Правильно ли я поняла, что вы против любых экспериментов? — Нет, я за эксперименты, но осторожные. — Тогда наши позиции ближе, чем кажется. — Итак, оба признают пользу пилотных проектов.",
+   "say_uz": "— Annaning fikricha, to‘rt kunlik hafta samaradorlikni oshiradi. Anton, siz nima deysiz? — Rozi bo‘lmayman: ko‘p kompaniyalar jadvalni qayta qura olmaydi. — To‘g‘ri tushundimmi, siz har qanday tajribaga qarshisiz? — Yo‘q, men tajribaga tarafdorman, lekin ehtiyotkor. — Unda pozitsiyalarimiz ko‘ringanidan yaqin. — Demak, ikkalangiz ham pilot loyihalar foydali ekanini tan olasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikkinchi dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. Чего опасается Антон?",
+    "2. Что уточнила Анна?",
+    "3. Какой вывод сделал ведущий?"
+   ],
+   "examples": [],
+   "say_native": "Savollar: Anton nimadan xavotirda, Anna nimani aniqladi va moderator qanday xulosa chiqardi. Javob berayotganda «опасается», «уточнила» va «пришёл к выводу» fe’llarini ishlating.",
+   "say": "Ответьте на вопросы. Чего опасается Антон? Что уточнила Анна? Какой вывод сделал ведущий?",
+   "say_uz": "Savollarga javob bering. Anton nimadan xavotirda? Anna nimani aniqladi? Moderator qanday xulosa chiqardi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1. Что компании не смогут перестроить график",
+    "2. Против ли он любых экспериментов",
+    "3. Оба признают пользу пилотных проектов"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: Anton kompaniyalar jadvalni qayta qura olmasligidan xavotirda. Anna uning har qanday tajribaga qarshi ekanini aniqladi. Moderator ikkala tomon pilot loyihalarning foydasini tan olishini aytdi. E’tibor bering: «опасается, что» — ergash gap bilan keladi, vergul kerak.",
+   "say": "Антон опасается, что компании не смогут перестроить график. Анна уточнила, против ли он любых экспериментов. Ведущий сделал вывод: оба признают пользу пилотных проектов.",
+   "say_uz": "Anton kompaniyalar jadvalni qayta qura olmasligidan xavotirda. Anna uning har qanday tajribaga qarshi ekanini aniqladi. Moderator xulosa qildi: ikkalasi ham pilot loyihalarning foydasini tan oladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ohang va urg‘u",
+   "emotion": "neutral",
+   "board": [
+    "согла́сен · возраже́ние · мне́ние",
+    "перебива́ть · уточни́ть · поня́л",
+    "интонация: вопрос ↗, уступка →, итог ↘"
+   ],
+   "examples": [
+    {
+     "t": "Я с вами согласен, но у меня есть возражение.",
+     "uz": "Men siz bilan roziman, lekin e’tirozim bor."
+    }
+   ],
+   "say_native": "Munozarada urg‘u va ohang muhim. Bugungi so‘zlar: согла́сен — «-ла-» da; возраже́ние — «-же-» da; мне́ние — birinchi bo‘g‘inda; перебива́ть — «-ва-» da; уточни́ть — oxirida. Ohang: savolda ko‘tariladi, uzr so‘rashda yumshoq va tekis, xulosada pasayadi. Muloyim ibora qo‘pol ohang bilan aytilsa, muloyimligini yo‘qotadi.",
+   "say": "Я с вами согласен, но у меня есть возражение. Следите за ударением: согла́сен, возраже́ние, мне́ние, перебива́ть, уточни́ть.",
+   "say_uz": "Men siz bilan roziman, lekin e’tirozim bor. Urg‘uga e’tibor bering: согла́сен, возраже́ние, мне́ние, перебива́ть, уточни́ть.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy munozara",
+   "emotion": "encouraging",
+   "board": [
+    "Тема: Школьная форма нужна.",
+    "1. Простите, что перебиваю … · 2. Вы правы …, однако …",
+    "3. Что вы имеете в виду?",
+    "4. Подведу итог …"
+   ],
+   "examples": [],
+   "say_native": "Endi asosiy vazifa. Mavzu: maktab formasi kerakmi. Siz ikki rolni o‘ynaysiz: biri tarafdor, ikkinchisi qarshi. To‘rtta qadam: muloyim bo‘lish, rozi bo‘lib e’tiroz bildirish, aniqlashtirish va xulosa. O‘zingiz birinchi ovoz chiqarib ayting, keyin namunani eshitasiz.",
+   "say": "Проведите мини-дискуссию на тему: нужна ли школьная форма. Используйте вежливое прерывание, согласие с возражением, уточнение и итог.",
+   "say_uz": "Maktab formasi kerakmi, shu mavzuda mini-munozara o‘tkazing. Muloyim bo‘lish, rozi bo‘lib e’tiroz bildirish, aniqlashtirish va xulosadan foydalaning.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "example",
+   "title": "Namuna munozara",
+   "emotion": "impressed",
+   "board": [
+    "Школьная форма"
+   ],
+   "examples": [],
+   "say_native": "Namuna munozara. Birinchi tarafdor fikr aytadi. Ikkinchisi muloyim bo‘lib aniqlashtiradi, rozi bo‘lib e’tiroz bildiradi. Uchinchi «допустим, но» bilan javob qaytaradi. Xulosada kelishuv va farq ko‘rsatiladi. Sizning dialogingiz boshqacha bo‘lishi mumkin, ammo shu tuzilmaga mos kelsa, yaxshi.",
+   "say": "— Форма нужна: она делает всех равными. — Простите, что перебиваю, а что вы имеете в виду под «равными»? — Что нет различий в одежде. — Вы правы, однако ученики всё равно найдут повод для сравнения. — Допустим, но тогда конфликтов станет меньше. — Подведу итог: мы согласны, что форма уменьшает расходы, но спорим о равенстве.",
+   "say_uz": "— Forma kerak: u hammani teng qiladi. — Uzr, gapingizni bo‘lganim uchun, «teng» deganda nimani nazarda tutasiz? — Kiyimda farq yo‘qligini. — Haqsiz, biroq o‘quvchilar baribir solishtirish sababini topadi. — Aytaylik, lekin nizolar kamayadi. — Xulosa qilaman: forma xarajatni kamaytirishiga rozimiz, tenglikda esa bahslashamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Dars xulosasi",
+   "emotion": "proud",
+   "board": [
+    "Простите, что перебиваю …",
+    "Вы правы, однако …",
+    "Что вы имеете в виду?",
+    "Подведу итог …"
+   ],
+   "examples": [],
+   "say_native": "Bugun to‘rtta ko‘nikmani o‘rgandik. Birinchi: muloyim bo‘lish, «простите, что перебиваю». Ikkinchi: «вы правы, однако» bilan rozilik va e’tiroz, «согласен с + tvoritelnyy», «возражаю против + roditelnyy». Uchinchi: «что вы имеете в виду?» bilan aniqlash. To‘rtinchi: «по мнению» va «подведу итог» bilan xulosa.",
+   "say": "Подведём итог. Сегодня мы научились вежливо перебивать, соглашаться и возражать, уточнять и подводить итог дискуссии.",
+   "say_uz": "Xulosa qilamiz. Bugun muloyim bo‘lish, rozi bo‘lib e’tiroz bildirish, aniqlashtirish va munozarani yakunlashni o‘rgandik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "encouraging",
+   "board": [
+    "3 минуты · дебаты по подсказкам преподавателя",
+    "используйте все четыре приёма"
+   ],
+   "examples": [],
+   "say_native": "Uy vazifasi: o‘qituvchi bergan mavzularda uch daqiqalik munozara o‘tkazing. Unda kamida bitta uzr bilan bo‘lish, bitta «rozi, biroq» tuzilmasi, bitta aniqlashtiruvchi savol va yakuniy xulosa bo‘lsin. Mezon — to‘rtala ko‘nikma ham ishlatilgan bo‘lsin. Keyingi darsda taxmin va ehtimollik ifodalashni o‘rganamiz.",
+   "say": "Домашнее задание: проведите трёхминутные дебаты с преподавателем по его подсказкам. Используйте вежливое прерывание, согласие с возражением, уточнение и итог.",
+   "say_uz": "Uy vazifasi: o‘qituvchi mavzulari bo‘yicha uch daqiqalik munozara o‘tkazing. To‘rtala ko‘nikmadan foydalaning.",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "3 daqiqalik munozarada pozitsiyani yakunlab qo‘ying. Mezon: har bir gap rus tilida, «извините, я не согласен, давайте уточним, итак» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"How do you say “Excuse me, I disagree”?","options":["Извините, я не согласен.","Извините, я не согласен есть.","Извините, я не согласен является.","Извините, я не согласен был."],"answer":0,"why_uz":"Извините, я не согласен — kechirasiz, men rozi emasman."},
-  {"q":"Which word means “objection”?","options":["возражение","согласие","спор","итог"],"answer":0,"why_uz":"Возражение — e’tiroz."},
-  {"q":"Which word means “agreement”?","options":["согласие","возражение","спор","итог"],"answer":0,"why_uz":"Согласие — kelishuv."},
-  {"q":"How do you say “Let’s clarify”?","options":["Давайте уточним.","Давайте уточним есть.","Давайте уточним является.","Давайте уточним был."],"answer":0,"why_uz":"Давайте уточним — keling, aniqlashtiramiz."},
-  {"q":"Which word means “result / conclusion”?","options":["итог","спор","согласие","возражение"],"answer":0,"why_uz":"Итог — xulosa."},
-  {"q":"How do you say “The position is clear”?","options":["Позиция ясна.","Позиция ясна есть.","Позиция ясна является.","Позиция ясна был."],"answer":0,"why_uz":"Позиция ясна — pozitsiya aniq."},
-  {"q":"Which word means “objection”?","options":["возражение","согласие","спор","итог"],"answer":0,"why_uz":"Возражение — e’tiroz."},
-  {"q":"How do you say “So, let’s sum up”?","options":["Итак, подведём итог.","Итак, подведём итог есть.","Итак, подведём итог является.","Итак, подведём итог был."],"answer":0,"why_uz":"Итак, подведём итог — demak, xulosa chiqaramiz."},
-  {"q":"Which word means “proof”?","options":["доказательство","спор","согласие","возражение"],"answer":0,"why_uz":"Доказательство — dalil."},
-  {"q":"How do you say “For example”?","options":["Например.","Например есть.","Например является.","Например был."],"answer":0,"why_uz":"Например — masalan."}
+ "homework_uz": "O‘qituvchi bergan mavzularda uch daqiqalik munozara o‘tkazing. Uzr bilan bo‘lish, «rozi, biroq» tuzilmasi, aniqlashtiruvchi savol va yakuniy xulosa ishlatilgan bo‘lsa, vazifa bajarilgan. Keyingi darsda taxmin va ehtimollik ifodalashni o‘rganamiz.",
+ "quiz": [
+  {
+   "q": "Muloyim bo‘lish iborasi qaysi?",
+   "options": [
+    "Подожди!",
+    "Простите, что перебиваю",
+    "Замолчи",
+    "Не мешай"
+   ],
+   "answer": 1,
+   "why_uz": "«Простите, что перебиваю» — muloyim ibora."
+  },
+  {
+   "q": "«Согласен ...» — bo‘sh joyga nima kerak?",
+   "options": [
+    "с мнением",
+    "мнению",
+    "мнения",
+    "мнение"
+   ],
+   "answer": 0,
+   "why_uz": "«Согласен с» + tvoritelnyy: с мнением."
+  },
+  {
+   "q": "«Возражаю ...» — qaysi variant to‘g‘ri?",
+   "options": [
+    "на это",
+    "против этого",
+    "к этому",
+    "с этим"
+   ],
+   "answer": 1,
+   "why_uz": "«Возражать против» + roditelnyy."
+  },
+  {
+   "q": "Qisman rozilik iborasi qaysi?",
+   "options": [
+    "Вы правы, однако …",
+    "Я в шоке",
+    "Замолчите",
+    "Не может быть!"
+   ],
+   "answer": 0,
+   "why_uz": "«Вы правы, однако» — rozilik va e’tiroz."
+  },
+  {
+   "q": "«Что вы имеете в виду?» qanday vazifa bajaradi?",
+   "options": [
+    "Xulosa",
+    "Aniqlashtirish",
+    "Rad etish",
+    "Salomlashish"
+   ],
+   "answer": 1,
+   "why_uz": "Noaniq joyni so‘rab aniqlashtiradi."
+  },
+  {
+   "q": "«Иначе говоря» nima uchun ishlatiladi?",
+   "options": [
+    "Mubolag‘a",
+    "Qayta ifodalash",
+    "Salomlashish",
+    "Inkor"
+   ],
+   "answer": 1,
+   "why_uz": "«Иначе говоря» — boshqacha aytganda."
+  },
+  {
+   "q": "«По мнению ...» — to‘g‘ri variant?",
+   "options": [
+    "Анна",
+    "Анны",
+    "Анне",
+    "Анной"
+   ],
+   "answer": 1,
+   "why_uz": "«По мнению» + roditelnyy."
+  },
+  {
+   "q": "«Подведу итог» qachon aytiladi?",
+   "options": [
+    "Boshida",
+    "Oxirida",
+    "Savol berishda",
+    "Salomlashishda"
+   ],
+   "answer": 1,
+   "why_uz": "Xulosa uchun oxirida aytiladi."
+  },
+  {
+   "q": "Qaysi ibora yumshoq e’tirozni bildiradi?",
+   "options": [
+    "Не могу согласиться",
+    "Мне кажется, это не совсем так",
+    "Это чушь",
+    "Замолчите"
+   ],
+   "answer": 1,
+   "why_uz": "«Не совсем так» — yumshoq e’tiroz."
+  },
+  {
+   "q": "«Мнение» so‘zida urg‘u qayerda?",
+   "options": [
+    "Birinchi bo‘g‘inda",
+    "Ikkinchi bo‘g‘inda",
+    "Oxirgi bo‘g‘inda",
+    "Urg‘u yo‘q"
+   ],
+   "answer": 0,
+   "why_uz": "Мне́ние — birinchi bo‘g‘inda."
+  }
  ]
 }

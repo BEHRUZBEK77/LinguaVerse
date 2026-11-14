@@ -1,74 +1,847 @@
 {
  "title": "Taxmin va ehtimollik ifodalash",
- "goal_uz": "Dars yakunida rus tilida taxmin va ehtimollikni ifodalay olasiz. «Наверное ...», «Скорее всего ...», «Возможно ...» bog‘lovchilarini o‘rinli qo‘llaysiz, dalillardan pinti xulosa chiqarasiz. Oxirida olti rasm yoki vaziyat ustida taxmin qilib bera olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilida hozirgi va o‘tgan haqida taxmin qilasiz, ishonch darajalarini aniq farqlaysiz, belgilarga qarab xulosa chiqarasiz va oltita vaziyat haqida ishonchli taxmin ayta olasiz.",
  "vocab": [
-  {"w": "наверное", "uz": "ehtimol"},
-  {"w": "скорее всего", "uz": "ehtimolki"},
-  {"w": "возможно", "uz": "mumkin"},
-  {"w": "конечно", "uz": "albatta"},
-  {"w": "к сожалению", "uz": "afsuski"},
-  {"w": "думаю", "uz": "o‘ylayman"},
-  {"w": "знаю", "uz": "bilaman"},
-  {"w": "правда", "uz": "haqiqat"},
-  {"w": "может", "uz": "mumkin"},
-  {"w": "точно", "uz": "aniq"}
+  {
+   "w": "наверное",
+   "uz": "ehtimol"
+  },
+  {
+   "w": "должно быть",
+   "uz": "bo‘lsa kerak"
+  },
+  {
+   "w": "вероятно",
+   "uz": "ehtimol, ehtimoli bor"
+  },
+  {
+   "w": "скорее всего",
+   "uz": "ko‘pincha ehtimol"
+  },
+  {
+   "w": "судя по",
+   "uz": "...ga qaraganda"
+  },
+  {
+   "w": "по-видимому",
+   "uz": "ko‘rinishidan"
+  },
+  {
+   "w": "наверняка",
+   "uz": "shubhasiz, albatta"
+  },
+  {
+   "w": "неужели",
+   "uz": "rostdanmi"
+  },
+  {
+   "w": "исключено",
+   "uz": "mumkin emas"
+  },
+  {
+   "w": "неизбежно",
+   "uz": "muqarrar"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"To‘qson beshinchi dars: taxmin","emotion":"happy","board":["Наверное ...","Скорее всего ...","Возможно ..."],"examples":[],"say_native":"Assalomu alaykum! To‘qson beshinchi darsda taxmin va ehtimollikni ifodalashni mashq qilamiz. Bugun «наверное`, «скорее всего» va «возможно» bog‘lovchilarini pinti xulosa bilan ishlatasiz. Oxirida olti rasm yoki vaziyat ustida taxmin qilib bera olasiz. Keyingi darsda media masalasini o‘rganamiz.","say":"Здравствуйте! Сегодня гадаем о вероятности.","say_uz":"Assalomu alaykum! Bugun ehtimollik haqida taxmin qilamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Ehtimol ishonch bog‘lovchisi","emotion":"neutral","board":["Наверное ...","Наверное, это хорошо.","Наверное, это важно."],"examples":[{"t":"Наверное, это хорошо.","uz":"Ehtimol, bu yaxshi."},{"t":"Наверное, это важно.","uz":"Ehtimol, bu muhim."}],"say_native":"«Наверное ...» ehtimollik bog‘lovchisi tayanch ishonchni yumshatib qo‘yadi. «Наверное, это хорошо» — ehtimol, bu yaxshi; «наверное, это важно» — ehtimol, bu muhim. Maydonchi xulosa pinti darslashga tayanib bo‘lgan xavfsiz chegara bo‘lib qoladi.","say":"Наверное, это хорошо. Наверное, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimol, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Taxminni ayting","emotion":"encouraging","board":["1) Ehtimol, bu yaxshi.","2) Ehtimol, bu muhim."],"examples":[],"say_native":"Ehtimol bog‘lovchisini ikki qator bilan mustahkamlab oling. Birinchisi: «наверное, это хорошо». Ikkinchisi: «наверное, это важно». Har birini taxmin ohangida talaffuz qiling.","say":"Наверное, это хорошо. Наверное, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimol, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Наверное, это хорошо.","Наверное, это важно."],"examples":[],"say_native":"Taxmin javoblari ikki qator ishonch bilan tugadi. «Наверное, это хорошо» — ehtimolli yaxshilik, «наверное, это важно» — ehtimolli muhimlik. Vaziyatni taxmin qilishda shu ikki bog‘lovchiga tayanib bera olasiz.","say":"Наверное, это хорошо. Наверное, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimol, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Mumkin ehtimollik sabog‘i","emotion":"thinking","board":["Возможно ...","Возможно, это хорошо.","Возможно, это важно."],"examples":[{"t":"Возможно, это хорошо.","uz":"Mumkin, bu yaxshi."},{"t":"Возможно, это важно.","uz":"Mumkin, bu muhim."}],"say_native":"«Возможно ...» mumkinlik belgisi taxminni yumshatib bayon qiladi. «Возможно, это хорошо» — mumkin, bu yaxshi; «возможно, это важно» — mumkin, bu muhim. Dalilsiz taxmin bilan javob berilganda mumkinlik belgisi ishonchni barqaror ushlab qoldiradi.","say":"Возможно, это хорошо. Возможно, это важно.","say_uz":"Mumkin, bu yaxshi. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Mumkin deb ayting","emotion":"encouraging","board":["1) Mumkin, bu yaxshi.","2) Mumkin, bu muhim."],"examples":[],"say_native":"Mumkin belgisi bilan ikki qator bayon bering. Birinchisi: «возможно, это хорошо». Ikkinchisi: «возможно, это важно». Ularni taxmin ohangida talaffuz qiling.","say":"Возможно, это хорошо. Возможно, это важно.","say_uz":"Mumkin, bu yaxshi. Mumkin, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Возможно, это хорошо.","Возможно, это важно."],"examples":[],"say_native":"Mumkin javoblari ikki qator ehtimollik bilan yakun topdilar. «Возможно, это хорошо» — mumkin yaxshilik, «возможно, это важно» — mumkin muhimlik. Vaziyat taxmini shu ikki shakl bilan mustahkam bo‘lib qoladi.","say":"Возможно, это хорошо. Возможно, это важно.","say_uz":"Mumkin, bu yaxshi. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Kuchaytirish belgisi «конечно»","emotion":"neutral","board":["Конечно ...","Конечно, это хорошо.","Конечно, это важно."],"examples":[{"t":"Конечно, это хорошо.","uz":"Albatta, bu yaxshi."},{"t":"Конечно, это важно.","uz":"Albatta, bu muhim."}],"say_native":"«Конечно ...» kuchaytirish belgisi taxminni ishonch bilan tugallab qo‘yadi. «Конечно, это хорошо» — albatta, bu yaxshi; «конечно, это важно» — albatta, bu muhim. Ehtimollik ustunligida «конечно» bilan yakunlasangiz, tinglovchi pinti xulosa chiqarib oladi.","say":"Конечно, это хорошо. Конечно, это важно.","say_uz":"Albatta, bu yaxshi. Albatta, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Kuchaytiring","emotion":"encouraging","board":["1) Albatta, bu yaxshi.","2) Albatta, bu muhim."],"examples":[],"say_native":"Kuchaytirish belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «конечно, это хорошо». Ikkinchisi: «конечно, это важно». Har birini yakuniy bayon shaklida talaffuz qiling.","say":"Конечно, это хорошо. Конечно, это важно.","say_uz":"Albatta, bu yaxshi. Albatta, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Конечно, это хорошо.","Конечно, это важно."],"examples":[],"say_native":"Kuchaytirish javoblari ishonchli tugun bilan yakun topdi. «Конечно, это хорошо» — tan olgan yaxshilik, «конечно, это важно» — tan olgan muhimlik. Taxmin oxirida shu tayanch mustahkam bo‘lib qoladi.","say":"Конечно, это хорошо. Конечно, это важно.","say_uz":"Albatta, bu yaxshi. Albatta, bu muhim.","practice_seconds":0},
-  {"kind":"mistake","title":"Taxmin bilan ishonchni adashtirish","emotion":"stern","board":["✗ Наверное, это хорошо есть.","✓ Наверное, это хорошо.","✗ Возможно, это хорошо есть.","✓ Возможно, это хорошо."],"examples":[],"say_native":"Ko‘p uchraydigan xato — «наверное ... есть», «возможно ... есть» deb ortiqcha fe’l qo‘shib yuborishdir. To‘g‘ri shakl: «наверное, это хорошо», «возможно, это хорошо» — bitta bog‘lovchi bilan tugallanadi. Taxmin belgisi ortiqcha fe’lli bo‘lmasligi shart.","say":"Наверное, это хорошо. Возможно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu yaxshi.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: taxminli vaziyat","emotion":"happy","board":["— Что ты думаешь?","— Наверное, это хорошо.","— Возможно? — Возможно, это важно."],"examples":[],"say_native":"Birinchi dialog taxminli vaziyatni ochib beradi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Наверное, это хорошо» — taxmin belgisi. «Возможно? — Возможно, это важно» — mumkinlik belgisi bilan yakunlanadi.","say":"Что ты думаешь? Наверное, это хорошо. Возможно, это важно.","say_uz":"Nima deb o‘ylaysan? Ehtimol, bu yaxshi. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Mumkin?"],"examples":[],"say_native":"Taxmin savollarini mustahkamlab oling. Birinci savol: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchisi: «возможно?» — mumkinmi deb. Javoblarda «наверное» va «возможно» bog‘lovchilarini aniq qo‘llang.","say":"Что ты думаешь? Наверное, это хорошо. Возможно, это важно.","say_uz":"Nima deb o‘ylaysan? Ehtimol, bu yaxshi. Mumkin, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Наверное, это хорошо.","Возможно, это важно."],"examples":[],"say_native":"Birinchi dialog javoblari taxmin belgisi bilan yakun topdilar. «Наверное, это хорошо» — ehtimolli yaxshilik, «возможно, это важно» — mumkin muhimlik. Vaziyat taxmini shu uchlik bilan mustahkamlanadi.","say":"Наверное, это хорошо. Возможно, это важно.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: ishonch bayoni","emotion":"neutral","board":["— Ты уверен?","— Конечно, это хорошо.","— А важно? — Конечно, это важно."],"examples":[],"say_native":"Ikkinchi dialog ishonch bayoni bilan yakunlanadi. «Ты уверен?» — ishonchimisan deb so‘raydi. «Конечно, это хорошо» — ishonch belgisi. «А важно? — Конечно, это важно» — muhimlikni tan oladi. Uch qator ishonch bayoni mantiqiy bog‘lanish bilan tugaydi.","say":"Ты уверен? Конечно, это хорошо. А важно? Конечно, это важно.","say_uz":"Ishonchimisan? Albatta, bu yaxshi. Muhimmi? Albatta, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Ishonchimisan?","2) Muhimmi?"],"examples":[],"say_native":"Ishonch bayoni savollarini mustahkamlab oling. Birinchi savol: «ты уверен?» — ishonchimisan. Ikkinchisi: «а важно?» — muhimmi. Javoblarda «конечно» bog‘lovchisini aniq qo‘llang.","say":"Ты уверен? Конечно, это хорошо. А важно? Конечно, это важно.","say_uz":"Ishonchimisan? Albatta, bu yaxshi. Muhimmi? Albatta, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Конечно, это хорошо.","Конечно, это важно."],"examples":[],"say_native":"Ikkinchi dialog javoblari ishonch belgisi bilan mustahkam tugun bo‘lib qoldi. «Конечно, это хорошо» — ishonchli yaxshilik, «конечно, это важно» — ishonchli muhimlik. Endi vaziyatni ishonch bilan taxmin qilib bera olasiz.","say":"Конечно, это хорошо. Конечно, это важно.","say_uz":"Albatta, bu yaxshi. Albatta, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Shubha belgisi «может быть»","emotion":"thinking","board":["Может быть ...","Может быть, это хорошо.","Может быть, это важно."],"examples":[{"t":"Может быть, это хорошо.","uz":"Ehtimol, bu yaxshi."},{"t":"Может быть, это важно.","uz":"Ehtimol, bu muhim."}],"say_native":"«Может быть ...» — ehtimol belgisi shubhalanish holatini yumshatib bayon qiladi. «Может быть, это хорошо» — ehtimol, bu yaxshi; «может быть, это важно» — ehtimol, bu muhim. Shubha ustunligida ehtimollik bilan yakunlasangiz, so‘zlov ochiqlik sari yonaltirilib qoladi.","say":"Может быть, это хорошо. Может быть, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimol, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Shubhalaning","emotion":"encouraging","board":["1) Ehtimol, bu yaxshi.","2) Ehtimol, bu muhim."],"examples":[],"say_native":"Shubha bog‘lovchisini ikki qator bilan mustahkamlab oling. Birinchisi: «может быть, это хорошо». Ikkinchisi: «может быть, это важно». Har birini taxmin ohangida talaffuz qiling.","say":"Может быть, это хорошо. Может быть, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimol, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Может быть, это хорошо.","Может быть, это важно."],"examples":[],"say_native":"Shubha javoblari ikki qator ehtimollik bilan tugadi. «Может быть, это хорошо» — ehtimolli yaxshilik, «может быть, это важно» — ehtimolli muhimlik. Endi taxmin qilishda shubhani yumshatib bayon qilib bera olasiz.","say":"Может быть, это хорошо. Может быть, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimol, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Bashorat bog‘lovchisi «думаю»","emotion":"neutral","board":["Думаю ...","Думаю, это хорошо.","Думаю, это важно."],"examples":[{"t":"Думаю, это хорошо.","uz":"Menimcha, bu yaxshi."},{"t":"Думаю, это важно.","uz":"Menimcha, bu muhim."}],"say_native":"«Думаю ...» bashorat bog‘lovchisi o‘ylash bilan taxminni muloyim qilib bayon qiladi. «Думаю, это хорошо» — menimcha, bu yaxshi; «думаю, это важно» — menimcha, bu muhim. Bashoratni o‘ylash bilan muloyimlash, tinglovchini xavfdan asrab qoladi.","say":"Думаю, это хорошо. Думаю, это важно.","say_uz":"Menimcha, bu yaxshi. Menimcha, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Bashorat qiling","emotion":"encouraging","board":["1) Menimcha, bu yaxshi.","2) Menimcha, bu muhim."],"examples":[],"say_native":"Bashorat bog‘lovchisini ikki qator bilan mustahkamlab oling. Birinchisi: «думаю, это хорошо». Ikkinchisi: «думаю, это важно». Ularni taxmin ohangida bayon qiling.","say":"Думаю, это хорошо. Думаю, это важно.","say_uz":"Menimcha, bu yaxshi. Menimcha, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Думаю, это хорошо.","Думаю, это важно."],"examples":[],"say_native":"Bashorat javoblari ikki qator muloyim ohang bilan yakun topdilar. «Думаю, это хорошо» — bashoratli yaxshilik, «думаю, это важно» — bashoratli muhimlik. Endi vaziyatni muloyim taxmin bilan bayon qilib bera olasiz.","say":"Думаю, это хорошо. Думаю, это важно.","say_uz":"Menimcha, bu yaxshi. Menimcha, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Taxmin qatlamini mustahkamlash","emotion":"thinking","board":["Наверное ...","Возможно ...","Конечно ..."],"examples":[{"t":"Наверное ...","uz":"Ehtimol ..."},{"t":"Конечно ...","uz":"Albatta ..."}],"say_native":"Taxmin qatlamini mustahkamlash uchta bog‘lovchining uyg‘un mashq bilan birlashib, kelasi amalni mantiqiy tuzilgan bo‘lib qoladi. «Наверное ...» — ehtimol, «возможно ...» — mumkin, «конечно ...» — albatta. Ushbu uchlikni bir xat deb qatorlashtirib yozsa, taxmin shakli mukammal organib qoladi.","say":"Наверное ... Возможно ... Конечно ...","say_uz":"Ehtimol ... Mumkin ... Albatta ...","practice_seconds":0},
-  {"kind":"practice","title":"Qatlamni mustahkamlang","emotion":"encouraging","board":["1) Ehtimol ...","2) Mumkin ...","3) Albatta ..."],"examples":[],"say_native":"Taxmin qatlami bog‘lovchilarini uch bosqichda uttaling. Birinchisi: «наверное ...». Ikkinchisi: «возможно ...». Uchinchisi: «конечно ...». Har birini taxmin ohangida bayon qiling.","say":"Наверное ... Возможно ... Конечно ...","say_uz":"Ehtimol ... Mumkin ... Albatta ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Наверное ...","Возможно ...","Конечно ..."],"examples":[],"say_native":"Taxmin qatlami javoblari uch qator bilan mukammal ko‘rindi. «Наверное ...» — ehtimol, «возможно ...» — mumkin, «конечно ...» — albatta. Endi taxmin qatlamini bir qatordan mustahkam qotib qoladi.","say":"Наверное ... Возможно ... Конечно ...","say_uz":"Ehtimol ... Mumkin ... Albatta ...","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: taxmin","emotion":"encouraging","board":["1) Ehtimol, bu yaxshi.","2) Mumkin, bu muhim.","3) Albatta, bu yaxshi.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda olti rasm yoki vaziyat ustida taxmin qiling. Birinchi: «наверное, это хорошо». Ikkinchisi: «возможно, это важно». Uchinchisi: «конечно, это хорошо». Uch qatorni to‘liq taxmin shaklida bayon qiling.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо. Спасибо!","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Наверное, это хорошо.","Возможно, это важно.","Конечно, это хорошо."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «наверное, это хорошо». Ikkinchisi: «возможно, это важно». Uchinchisi: «конечно, это хорошо». Shu uch qator olti vaziyat taxminini qotib qolishi kerak.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Taxmin qatlamini chuqur yoyish","emotion":"neutral","board":["Наверное ...","Скорее всего ...","Возможно ...","Конечно ..."],"examples":[{"t":"Наверное ...","uz":"Ehtimol ..."},{"t":"Конечно ...","uz":"Albatta ..."}],"say_native":"Taxmin qatlamini chuqur yoyish uchta ehtimollik belgisi bilan mustahkamlanib, yakuniy taxmin qatorini yopib qo‘yadi. «Наверное ...» — ehtimolli ishonch, «скорее всего ...» — kuchaytirilgan ishonch, «возможно ...» — mumkinli baholash, «конечно ...» — ishonch bilan tugatish. Ushbu to‘rt qatorni bir qatlam bilang uylab qo‘ysa, har qanday murakkab holatda taxmin mutlaqo amaliy qo‘llaniladigan bo‘ladi.\n Baholashda shu qatlamlarni tartibli bayon qilib borsangiz, olti rasm suhbatida mustahkam saqlanib qolib, keyin vijdon bilan tasdiqlash tajribasini mutlaqo tekis tarzda oling va yakunlab qo‘ying hamda yozib qo‘ying, qizg‘in ravishda tabiiy. Rasm kuzatishda har bir qatlamni pinti xulosa bilan mustahkam qilib yozilsa, ehtimollik belgilari to‘liq ishchi holatda qo‘llaniladi. Ushbu qatlamlar amaliyotda ishonch bilan tayanch bo‘ladi.","say":"Наверное ... Скорее всего ... Возможно ... Конечно ...","say_uz":"Ehtimol ... Ehtimolki ... Mumkin ... Albatta ...","practice_seconds":0},
-  {"kind":"practice","title":"Qatlamni mustahkamlang","emotion":"encouraging","board":["1) Ehtimol ...","2) Ehtimolki ...","3) Mumkin ...","4) Albatta ..."],"examples":[],"say_native":"Qatlam bog‘lovchilarini to‘rt bosqich bilan mustahkamlab oling. Birinchi: «наверное ...». Ikkinchisi: «скорее всего ...». Uchinchisi: «возможно ...». Yakunda: «конечно ...». Har birini taxmin shaklida talaffuz qiling.","say":"Наверное ... Скорее всего ... Возможно ... Конечно ...","say_uz":"Ehtimol ... Ehtimolki ... Mumkin ... Albatta ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Наверное ...","Скорее всего ...","Возможно ...","Конечно ..."],"examples":[],"say_native":"Qatlam javoblari to‘rt qator bilan to‘liq ko‘rindi. «Наверное ...» — ehtimol, «скорее всего ...» — ehtimolki, «возможно ...» — mumkin, «конечно ...» — albatta. Ushbu to‘rt qatlam taxmin shaklini mustahkam qilib qo‘yadi.","say":"Наверное ... Скорее всего ... Возможно ... Конечно ...","say_uz":"Ehtimol ... Ehtimolki ... Mumkin ... Albatta ...","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Наверное ...","Возможно ...","Конечно ..."],"examples":[],"say_native":"O‘zingizni imtihon qiling. Taxminni «наверное» bilan ehtimollikda ayta olasizmi? Mumkinlikni «возможно» bilan aytib bera olasizmi? Ishonchni «конечно» bilan yakunlay olasizmi? Uchala javob ijobiy bo‘lsa, taxmin nutqi sizga do‘st bo‘ladi.","say":"Наверное ... Возможно ... Конечно ...","say_uz":"Ehtimol ... Mumkin ... Albatta ...","practice_seconds":0},
-  {"kind":"explain","title":"Taxminni yakunlash namunasi","emotion":"neutral","board":["Наверное, это хорошо.","Возможно, это важно.","Конечно, это хорошо."],"examples":[{"t":"Наверное, это хорошо.","uz":"Ehtimol, bu yaxshi."},{"t":"Конечно, это хорошо.","uz":"Albatta, bu yaxshi."}],"say_native":"Taxminni yakunlash namunasi uch qatorli dalilli bayon bilan tugallanadi. Birinchisi: «наверное, это хорошо» — ehtimolli yaxshilik. Ikkinchisi: «возможно, это важно» — mumkin bo‘lgan muhimlik. Uchinchisi: «конечно, это хорошо» — ishonchli yaxshilik bilan yakun. Uch qator taxmin namunasi olti rasm suhbatining tayanch mustahkamlashidir.\n Har bir qui qatlam qog‘ozda tartibli yozilgan bo‘lsa, taxmin bellami to‘xtab qolsa ham, tinglovchi ishonib qoladi. Mumkinlik shaklini pinti belgilarga tayanib yozib borsangiz, dalil darajasi mustahkam bo‘ladi. Kelajakda har qanday murakkab vaziyatda shu qatlamni qo‘llab oling.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namunani takrorlang","emotion":"encouraging","board":["1) Ehtimol, bu yaxshi.","2) Mumkin, bu muhim.","3) Albatta, bu yaxshi."],"examples":[],"say_native":"Taxmin namunasini uch qator bilan mustahkamlab ko‘ring. Birinchisi: «наверное, это хорошо». Ikkinchisi: «возможно, это важно». Uchinchisi: «конечно, это хорошо». Har birini yakuniy tugun shaklida talaffuz qiling.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Наверное, это хорошо.","Возможно, это важно.","Конечно, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlikda barqaror qoldi. «Наверное, это хорошо» — ehtimolli yaxshilik, «возможно, это важно» — mumkinli muhimlik, «конечно, это хорошо» — ishonchli yaxshilik. Shu uch qator taxmin namunasini mustahkam yakunlab qo‘yadi.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Vaziyatni taxmin qilish yo‘li","emotion":"thinking","board":["Наверное, это хорошо.","Скорее всего, это важно.","Возможно, это важно."],"examples":[{"t":"Наверное, это хорошо.","uz":"Ehtimol, bu yaxshi."},{"t":"Скорее всего, это важно.","uz":"Ehtimolki, bu muhim."}],"say_native":"Vaziyatni taxmin qilish yo‘li rasm kuzatish bilan boshlanib, belgilar bilan qo‘llanilib, abadiy yakun bilan tugatiladi. Rasmni kuzating: «наверное, это хорошо» — ehtimolli yaxshilik. Belgilarni tering: «скорее всего, это важно» — ehtimolki, muhim. Vaziyatni topib: «возможно, это важно» — mumkinli muhim. Uch qatlam pinchoq pinti belgilarga tayanib tasdiqlanib qoladi.","say":"Наверное, это хорошо. Скорее всего, это важно. Возможно, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimolki, bu muhim. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Yo‘lni amaliy sinang","emotion":"encouraging","board":["1) Ehtimol, bu yaxshi.","2) Ehtimolki, bu muhim.","3) Mumkin, bu muhim."],"examples":[],"say_native":"Taxmin yo‘lini uch qator bilan sinab ko‘ring. Birinchisi: «наверное, это хорошо». Ikkinchisi: «скорее всего, это важно». Uchinchisi: «возможно, это важно». Har birini rasm taxmini ustida uttaling.","say":"Наверное, это хорошо. Скорее всего, это важно. Возможно, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimolki, bu muhim. Mumkin, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Наверное, это хорошо.","Скорее всего, это важно.","Возможно, это важно."],"examples":[],"say_native":"Yo‘l javoblari uch qator bog‘liqlik bilan taxminga muvozanat berib qo‘ydi. «Наверное, это хорошо» — ehtimolli yaxshilik, «скорее всего, это важно» — ehtimolki muhimlik, «возможно, это важно» — mumkinli muhimlik. Ushbu uch qatlam olti rasm taxminini muvozanatlab qoladi.","say":"Наверное, это хорошо. Скорее всего, это важно. Возможно, это важно.","say_uz":"Ehtimol, bu yaxshi. Ehtimolki, bu muhim. Mumkin, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Taxminni yakunlash namunasi","emotion":"neutral","board":["Наверное, это хорошо.","Возможно, это важно.","Конечно, это хорошо."],"examples":[{"t":"Наверное, это хорошо.","uz":"Ehtimol, bu yaxshi."},{"t":"Конечно, это хорошо.","uz":"Albatta, bu yaxshi."}],"say_native":"Taxminni yakunlash namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «наверное, это хорошо» — ehtimolli yaxshilik. Ikkinchisi: «возможно, это важно» — mumkinli muhimlik. Uchinchisi: «конечно, это хорошо» — ishonchli yaxshilik. Uch qator taxmin namunasi mustahkam yakunlab qo‘iladi.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Taxminni yakunlang","emotion":"encouraging","board":["1) Ehtimol, bu yaxshi.","2) Mumkin, bu muhim.","3) Albatta, bu yaxshi."],"examples":[],"say_native":"Taxmin yakunini uch qator bilan mustahkamlab oling. Birinchisi: «наверное, это хорошо». Ikkinchisi: «возможно, это важно». Uchinchisi: «конечно, это хорошо». Har birini bitta nafas bilan tugallab qo‘ying.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Наверное, это хорошо.","Возможно, это важно.","Конечно, это хорошо."],"examples":[],"say_native":"Yakunlash javoblari uch qator mustahkam tugun bilan qoldi. «Наверное, это хорошо» — ehtimolli yaxshilik, «возможно, это важно» — mumkinli muhimlik, «конечно, это хорошо» — ishonchli yaxshilik. Endi taxminni yakunlab bera olasiz.","say":"Наверное, это хорошо. Возможно, это важно. Конечно, это хорошо.","say_uz":"Ehtimol, bu yaxshi. Mumkin, bu muhim. Albatta, bu yaxshi.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["наверное · возможно · конечно","может быть · думаю · точно"],"examples":[],"say_native":"Bugunning xulosasi: taxmin, mumkinlik va ishonch belgilarini ajratib qo‘yishni o‘rgandik. «Наверное» — ehtimol, «возможно» — mumkin, «конечно» — albatta, «может быть» — ehtimol. Olti vaziyatni taxmin qilib bera olasiz.","say":"Отлично! Теперь вы угадываете.","say_uz":"Ajoyib! Endi taxmin qilasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["Olti rasm yoki vaziyat ustida taxmin","Ehtimol · mumkin · albatta","Keyingi dars: media, reklama va yangiliklar"],"examples":[],"say_native":"Uyga vazifa: olti rasm yoki vaziyat ustida taxmin qiling. Matnda «наверное», «возможно», «конечно», «может быть» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda media muammosini o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем говорить о СМИ.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Media haqida gaplashamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Taxmin va ehtimollik",
+   "emotion": "happy",
+   "board": [
+    "Предположения и вероятность",
+    "(Taxmin va ehtimollik)",
+    "наверное · мог · судя по · степени уверенности"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda munozara va qarshi fikr bildirishni o‘rgandik. Bugun esa taxmin qilishni o‘rganamiz: «u uyda bo‘lsa kerak», «u unutgan bo‘lishi mumkin», «u bunday demagan bo‘lishi mumkin emas». Ruschada inglizchadagi must have va might have kabi alohida shakllar yo‘q, uning o‘rniga kirish so‘zlar va «мог» fe’li ishlatiladi. Dars oxirida oltita vaziyat haqida taxmin qilasiz.",
+   "say": "Здравствуйте! Сегодня мы учимся строить предположения. Вы узнаете, как сказать, что событие вероятно, невозможно или почти наверняка произошло, и как сделать вывод по признакам.",
+   "say_uz": "Assalomu alaykum! Bugun taxmin qilishni o‘rganamiz. Voqea ehtimolligini, mumkin emasligini yoki deyarli aniq sodir bo‘lganini aytish va belgilarga qarab xulosa chiqarishni bilib olasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hozirgi taxmin",
+   "emotion": "neutral",
+   "board": [
+    "Он, наверное, дома.",
+    "Она, должно быть, занята.",
+    "Они, вероятно, уже на работе."
+   ],
+   "examples": [
+    {
+     "t": "Он, наверное, дома: свет горит.",
+     "uz": "U, ehtimol, uyda: chiroq yonib turibdi."
+    },
+    {
+     "t": "Она, должно быть, занята.",
+     "uz": "U band bo‘lsa kerak."
+    }
+   ],
+   "say_native": "Hozirgi paytdagi taxmin uchun kirish so‘zlardan foydalanamiz: «наверное» — ehtimol, «должно быть» — bo‘lsa kerak, «вероятно» — ehtimoli bor. Ular gap ichida vergul bilan ajratiladi. Fe’l esa oddiy hozirgi zamon shaklida qoladi, ya’ni «он, наверное, дома» da fe’l ham yo‘q. O‘zbekchadagi «-sa kerak», «-ishi mumkin» shakllarining o‘rnini bosadi.",
+   "say": "Он, наверное, дома, ведь свет в окне горит. Она, должно быть, занята: телефон не отвечает. Они, вероятно, уже на работе.",
+   "say_uz": "U, ehtimol, uyda: derazada chiroq yonyapti. U band bo‘lsa kerak: telefon javob bermayapti. Ular, ehtimol, allaqachon ishda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘tgan zamon taxmini",
+   "emotion": "thinking",
+   "board": [
+    "Он, наверное, забыл.",
+    "Она, должно быть, опоздала.",
+    "Они, возможно, ушли."
+   ],
+   "examples": [
+    {
+     "t": "Он, наверное, забыл ключи.",
+     "uz": "U, ehtimol, kalitlarni unutgan."
+    },
+    {
+     "t": "Они, возможно, ушли пораньше.",
+     "uz": "Ular, balki, erta ketgandir."
+    }
+   ],
+   "say_native": "O‘tgan voqea haqida taxmin ham xuddi shu kirish so‘zlar bilan quriladi, fe’l esa o‘tgan zamonda bo‘ladi: «он, наверное, забыл» — u unutgan bo‘lsa kerak. Alohida shakl o‘ylab topish shart emas. Shunisi qulay: ruschada hozirgi va o‘tgan taxmin bitta qolipda, faqat fe’lning zamoni o‘zgaradi. Fe’l odatda sovershennyy shaklda keladi, chunki natija haqida gapiramiz.",
+   "say": "Он, наверное, забыл ключи. Она, должно быть, опоздала на автобус. Они, возможно, ушли пораньше.",
+   "say_uz": "U, ehtimol, kalitlarini unutgan. U avtobusga kechikkan bo‘lsa kerak. Ular, balki, erta ketgandir.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "«Мог» va «не мог»",
+   "emotion": "thinking",
+   "board": [
+    "Он мог забыть. (мог = возможно)",
+    "Он не мог этого сказать. (невозможно)",
+    "Она не могла не заметить. (наверняка заметила)"
+   ],
+   "examples": [
+    {
+     "t": "Он мог перепутать дату.",
+     "uz": "U sanani adashtirgan bo‘lishi mumkin."
+    },
+    {
+     "t": "Она не могла не заметить ошибку.",
+     "uz": "U xatoni sezmasligi mumkin emas edi."
+    }
+   ],
+   "say_native": "«Мог» + infinitiv — «bo‘lishi mumkin edi»: он мог забыть, u unutgan bo‘lishi mumkin. «Не мог» + infinitiv — «bo‘lishi mumkin emas»: он не мог этого сказать — u buni aytgan bo‘lishi mumkin emas. Ikkita inkor «не мог не» esa teskari ma’no beradi: она не могла не заметить — sezmaslik mumkin emas edi, ya’ni albatta sezgan. Bu iboralarni inkor-inkor bo‘lib chalkashtirmang.",
+   "say": "Он мог перепутать дату. Он не мог этого сказать, это не в его характере. А она не могла не заметить ошибку: та была на первой странице.",
+   "say_uz": "U sanani adashtirgan bo‘lishi mumkin. U buni aytgan bo‘lishi mumkin emas, bu uning xarakteriga to‘g‘ri kelmaydi. U esa xatoni sezmasdan qolishi mumkin emas edi: u birinchi sahifada edi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Taxmin misollari",
+   "emotion": "impressed",
+   "board": [
+    "Опоздание друга"
+   ],
+   "examples": [
+    {
+     "t": "Он не мог опоздать: он всегда приходит заранее.",
+     "uz": "U kechikishi mumkin emas: u har doim oldindan keladi."
+    }
+   ],
+   "say_native": "Mana oddiy hayotiy vaziyat: do‘st kelmadi. Matnda to‘rtta taxmin bor: «наверное застрял», «может быть, перепутал», «не мог забыть» — ishonch bilan rad etish va «должно быть, что-то случилось» — umumiy xulosa. Qarang, ishonch darajasi har gapda boshqacha. Yaxshi nutq shunday ranglardan iborat.",
+   "say": "Серёжа до сих пор не пришёл. Он, наверное, застрял в пробке, а может быть, перепутал время. Он не мог забыть, ведь я напоминала ему утром. Должно быть, что-то случилось.",
+   "say_uz": "Serjo hali kelmadi. U tirbandlikda qolgan bo‘lsa kerak, balki vaqtni adashtirgandir. U unutgan bo‘lishi mumkin emas, chunki ertalab eslatgan edim. Nimadir bo‘lgan bo‘lsa kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Taxmin xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ Он, наверное, забыть.",
+    "✓ Он, наверное, забыл.",
+    "✗ Она, должна быть, устала.",
+    "✓ Она, должно быть, устала."
+   ],
+   "examples": [
+    {
+     "t": "Она, должно быть, очень устала.",
+     "uz": "U juda charchagan bo‘lsa kerak."
+    }
+   ],
+   "say_native": "Ikkita xato. Birinchi: «наверное» dan keyin infinitiv qo‘yish. Bu kirish so‘z, u fe’lni o‘zgartirmaydi, shuning uchun fe’l odatiy zamon shaklida: забыл. Ikkinchi: «должно быть» barqaror ibora, u jinsga qarab o‘zgarmaydi. «Должна» deb ayol jinsiga moslashtirsangiz, ma’no buziladi, chunki bu majburiyat ma’nosiga o‘tadi.",
+   "say": "Не говорите «он, наверное, забыть». Нужно: он, наверное, забыл. И не «она, должна быть, устала», а «она, должно быть, устала»: слово «должно» не меняется.",
+   "say_uz": "«Он, наверное, забыть» demang. To‘g‘risi: он, наверное, забыл. «Она, должна быть, устала» emas, она, должно быть, устала: «должно» o‘zgarmaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Taxmin qiling",
+   "emotion": "encouraging",
+   "board": [
+    "Окно закрыто, света нет. (хозяева)",
+    "Журналист не пришёл на встречу. (причина)",
+    "Он сказал, что не знал. (не мог / мог)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta vaziyat. Birinchisida derazalar yopiq, chiroq yo‘q: «Хозяева, наверное, уехали». Ikkinchisida jurnalist uchrashuvga kelmadi: sababini taxmin qiling, «должно быть» yoki «мог» dan foydalaning. Uchinchisida kimdir «bilmasdim» deydi: «не мог не знать» yoki «мог не знать» deb taxmin qiling.",
+   "say": "Сделайте предположение по каждой ситуации. Например: хозяева, наверное, уехали. Теперь придумайте предположения для двух других ситуаций.",
+   "say_uz": "Har bir vaziyat bo‘yicha taxmin qiling. Masalan: uy egalari, ehtimol, ketib qolgan. Endi qolgan ikki vaziyat uchun taxminlar o‘ylab toping.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Журналист, должно быть, заболел.",
+    "Он не мог не знать."
+   ],
+   "examples": [],
+   "say_native": "Mumkin javoblar: «Журналист, должно быть, заболел», «Он мог перепутать время», «Он не мог не знать об этом». Oxirgisi — kuchli xulosa: bilmaslik mumkin emas, ya’ni bilgan. Sizning variantingiz boshqacha bo‘lishi mumkin: kirish so‘z, fe’lning to‘g‘ri zamoni va ishonch darajasiga mos tanlov — mezonlar shu.",
+   "say": "Возможные ответы: журналист, должно быть, заболел или перепутал время. Он не мог не знать об этом: все знали.",
+   "say_uz": "Mumkin javoblar: jurnalist kasal bo‘lgan bo‘lsa kerak yoki vaqtni adashtirgan. U bu haqda bilmasdan qolishi mumkin emas: hamma bilardi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ehtimol, deyarli aniq",
+   "emotion": "neutral",
+   "board": [
+    "вероятно · скорее всего",
+    "по-видимому · по всей видимости",
+    "похоже, что … · кажется, …"
+   ],
+   "examples": [
+    {
+     "t": "Скорее всего, завтра будет дождь.",
+     "uz": "Ehtimol, ertaga yomg‘ir yog‘adi."
+    },
+    {
+     "t": "Похоже, что поезд задерживается.",
+     "uz": "Poyezd kechikayotganga o‘xshaydi."
+    }
+   ],
+   "say_native": "Ehtimolni bildirish uchun yana ko‘p so‘z bor. «Вероятно», «скорее всего» — ehtimol yuqori. «По-видимому» — ko‘rinishidan, hozirgi belgilarga ko‘ra. «Похоже, что» va «кажется» — o‘xshaydi, tuyuladi. Ularning hammasi vergul bilan ajratiladi va fe’lni o‘zgartirmaydi. Ular yordamida «наверное» ni qayta-qayta takrorlamasdan, nutqni boyitasiz.",
+   "say": "Скорее всего, завтра будет дождь. Похоже, что поезд задерживается. По-видимому, расписание изменили без предупреждения.",
+   "say_uz": "Ertaga, ehtimol, yomg‘ir yog‘adi. Poyezd kechikayotganga o‘xshaydi. Ko‘rinishidan, jadval ogohlantirishsiz o‘zgartirilgan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Muqarrarlik",
+   "emotion": "thinking",
+   "board": [
+    "обязательно · непременно",
+    "не может не + инф.",
+    "рано или поздно · неизбежно"
+   ],
+   "examples": [
+    {
+     "t": "Он обязательно придёт: он обещал.",
+     "uz": "U albatta keladi: va’da bergan."
+    },
+    {
+     "t": "Рано или поздно цены не могут не вырасти.",
+     "uz": "Ertami-kechmi narxlar oshmasligi mumkin emas."
+    }
+   ],
+   "say_native": "Ingliz tilidagi bound to ga o‘xshash ma’noni ruschada «обязательно», «непременно», «неизбежно» va «не может не + infinitiv» bilan beramiz. «Он не может не прийти» — u kelmasligi mumkin emas. «Обязательно» esa har doim ham «majburiy» emas: «он обязательно придёт» — u albatta keladi. Faqat shu holatlarda ishlating, mubolag‘a bo‘lmasin.",
+   "say": "Он обязательно придёт, он обещал. Рано или поздно цены не могут не вырасти. Это неизбежно, если спрос продолжит расти.",
+   "say_uz": "U albatta keladi, u va’da bergan. Ertami-kechmi narxlar oshmasligi mumkin emas. Talab o‘sishda davom etsa, bu muqarrar.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "«Похоже» va «будто»",
+   "emotion": "neutral",
+   "board": [
+    "Похоже, что будет дождь.",
+    "Он выглядит так, будто не спал.",
+    "Кажется, он обиделся."
+   ],
+   "examples": [
+    {
+     "t": "Он выглядит так, словно не спал всю ночь.",
+     "uz": "U butun tun uxlamaganga o‘xshab ko‘rinadi."
+    },
+    {
+     "t": "Кажется, она обиделась.",
+     "uz": "U xafa bo‘lganga o‘xshaydi."
+    }
+   ],
+   "say_native": "«Похоже, что» va «кажется» tashqi belgiga qarab taxmin qiladi. «Будто», «словно», «как будто» esa taqqoslab, «go‘yo, xuddi» ma’nosini beradi: он выглядит так, будто не спал. Farqi: «похоже» — taxmin, haqiqatan shunday bo‘lishi mumkin; «будто» — o‘xshashlik, aslida shunday bo‘lmasligi ham mumkin. Bu nozik farq B2 ga xos.",
+   "say": "Он выглядит так, словно не спал всю ночь. Похоже, что будет дождь. Кажется, она обиделась.",
+   "say_uz": "U butun tun uxlamaganga o‘xshab ko‘rinadi. Yomg‘ir yog‘adiganga o‘xshaydi. U xafa bo‘lganga o‘xshaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Belgilar bo‘yicha taxmin",
+   "emotion": "impressed",
+   "board": [
+    "Лужи, зонты, мокрые следы"
+   ],
+   "examples": [
+    {
+     "t": "Похоже, ночью шёл дождь: на улице лужи.",
+     "uz": "Tunda yomg‘ir yog‘ganga o‘xshaydi: ko‘chada ko‘lmaklar bor."
+    }
+   ],
+   "say_native": "Mana belgilardan xulosa chiqarishning kichik namunasi. Belgi: ko‘lmak, ho‘l soyabon. Xulosa: «похоже», «скорее всего». Va oxirida o‘z xulosangizni shubha ostiga qo‘yish: «не обязательно». Yaxshi nutqda ishonch darajasi ham, qarshi imkoniyat ham bo‘ladi. Bu esa fikringiz o‘ylangan ekanini ko‘rsatadi.",
+   "say": "Похоже, ночью шёл дождь: на улице лужи, а у входа стоит мокрый зонт. Скорее всего, кто-то только что вернулся. Но обязательно ли это хозяин? Не обязательно.",
+   "say_uz": "Tunda yomg‘ir yog‘ganga o‘xshaydi: ko‘chada ko‘lmaklar bor, kirish yonida ho‘l soyabon turibdi. Ehtimol, kimdir hozirgina qaytgan. Lekin bu albatta uy egasimi? Shart emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Ishonch darajasi xatosi",
+   "emotion": "stern",
+   "board": [
+    "✗ Наверняка, но я не уверен.",
+    "✓ Наверное, но я не уверен.",
+    "✗ Он вероятный придёт.",
+    "✓ Он, вероятно, придёт."
+   ],
+   "examples": [
+    {
+     "t": "Он, вероятно, уже вышел из дома.",
+     "uz": "U, ehtimol, uydan chiqib ketgan."
+    }
+   ],
+   "say_native": "«Наверняка» — deyarli aniq, taxminan yuz foiz. «Наверное» esa o‘rtacha ishonch. Ko‘p o‘quvchilar ularni bir xil deb o‘ylaydi, chunki o‘zbekchada ikkalasini «albatta» deymiz. Ikkinchi xato: «вероятный» — sifat, «вероятный исход», gap ichida esa ravish «вероятно» kerak. Shuning uchun «он, вероятно, придёт».",
+   "say": "«Наверняка» означает почти полную уверенность, поэтому не говорите «наверняка, но я не уверен». Скажите: наверное, но я не уверен. И не путайте «вероятный» и «вероятно».",
+   "say_uz": "«Наверняка» deyarli to‘liq ishonchni bildiradi, shuning uchun «наверняка, но ishonchim yo‘q» demang. «Наверное, lekin ishonchim yo‘q» deng. «Вероятный» va «вероятно» ni adashtirmang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "So‘zni tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "___ , он дома: свет горит. (почти 100 %)",
+    "___ , он ушёл на работу. (50 %)",
+    "Он ___ не прийти: он болен. (мог / не мог)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Birinchi gapda ishonch deyarli yuz foiz, shuning uchun «наверняка». Ikkinchisida qirq-ellik foiz, demak «возможно». Uchinchisida «мог не прийти»: u kasal, kelmasligi mumkin. Har bir gapni to‘liq ayting va kirish so‘zdan keyin vergulni unutmang.",
+   "say": "Выберите слово по степени уверенности: наверняка, возможно, не мог. Первое: наверняка, он дома, свет горит. Теперь придумайте остальные предложения.",
+   "say_uz": "Ishonch darajasiga qarab so‘zni tanlang: наверняка, возможно, не мог. Birinchisi: shubhasiz, u uyda, chiroq yonib turibdi. Endi qolgan gaplarni o‘zingiz tuzing.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Наверняка, он дома.",
+    "Возможно, он ушёл на работу.",
+    "Он мог не прийти: он болен."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: yuz foiz uchun «наверняка», ellik foiz uchun «возможно», uchinchisida «мог не прийти». Diqqat: «мог не прийти» — kelmagan bo‘lishi mumkin; «не мог прийти» esa — kela olmagan, ya’ni sababi bor. Bu ikki ibora ma’nosi bilan farq qiladi, chunki «не» o‘rni o‘zgargan.",
+   "say": "Правильно: наверняка, он дома. Возможно, он ушёл на работу. Он мог не прийти, ведь он болен.",
+   "say_uz": "To‘g‘ri: shubhasiz, u uyda. Balki ishga ketgandir. U kelmagan bo‘lishi mumkin, chunki kasal.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Dalildan xulosa",
+   "emotion": "thinking",
+   "board": [
+    "судя по + Д.п.",
+    "значит · выходит · следовательно",
+    "из этого следует, что …"
+   ],
+   "examples": [
+    {
+     "t": "Судя по его лицу, он услышал плохие новости.",
+     "uz": "Yuziga qaraganda, u yomon xabar eshitgan."
+    },
+    {
+     "t": "Свет горит, значит, кто-то дома.",
+     "uz": "Chiroq yonib turibdi, demak, kimdir uyda."
+    }
+   ],
+   "say_native": "Dalilga asoslangan xulosa uchun «судя по» ishlatamiz: yuziga qaraganda. «Судя по» dan keyin datelnyy keladi: судя по лицу, судя по слухам. Natijani «значит», «выходит», «следовательно» bilan beramiz. «Из этого следует, что» — rasmiyroq: bundan kelib chiqadiki. Bu qolip dedektiv kabi mantiqiy fikrlash uchun juda qulay.",
+   "say": "Судя по его лицу, он услышал плохие новости. Свет горит, значит, кто-то дома. Из этого следует, что дверь открыта изнутри.",
+   "say_uz": "Yuziga qaraganda, u yomon xabar eshitgan. Chiroq yonib turibdi, demak, kimdir uyda. Bundan kelib chiqadiki, eshik ichkaridan ochiq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mantiqiy zanjir",
+   "emotion": "neutral",
+   "board": [
+    "факт → вывод → проверка",
+    "Следы мокрые. Значит, недавно шёл дождь.",
+    "Но возможно, кто-то полил цветы."
+   ],
+   "examples": [
+    {
+     "t": "Асфальт мокрый, значит, недавно прошёл дождь.",
+     "uz": "Asfalt ho‘l, demak, yaqinda yomg‘ir o‘tgan."
+    }
+   ],
+   "say_native": "Yaxshi xulosa uch qadamdan iborat: fakt, xulosa va tekshirish. Fakt: asfalt ho‘l. Xulosa: yomg‘ir yog‘gan. Tekshirish: boshqa izoh bormi? Ehtimol, maysazor sug‘orilgandir. Shunday qilib, siz xulosangizni mutlaq emas, ehtimoliy qilib aytasiz. Ruschada bunga «возможно» va «однако» yordam beradi.",
+   "say": "Асфальт мокрый, значит, недавно прошёл дождь. Однако это не единственное объяснение: возможно, здесь поливали газон. Поэтому вывод нужно проверить.",
+   "say_uz": "Asfalt ho‘l, demak, yaqinda yomg‘ir o‘tgan. Biroq bu yagona izoh emas: balki bu yerda maysazor sug‘orilgandir. Shuning uchun xulosani tekshirish kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Hikoya: ho‘l soyabon",
+   "emotion": "impressed",
+   "board": [
+    "Улики → вывод"
+   ],
+   "examples": [
+    {
+     "t": "Судя по часам, у нас ещё есть двадцать минут.",
+     "uz": "Soatga qaraganda, yana yigirma daqiqamiz bor."
+    }
+   ],
+   "say_native": "Mana mantiqiy tavsif. «Судя по часам» — soatga qaraganda, «значит» — demak, «выходит» — chiqadiki. Uchta turli vosita bir gapda. Bu uslubdan imtihonda rasm yoki vaziyatni tavsiflashda foydalanasiz. Faqat belgilarni to‘qib chiqarmang, faqat ko‘ringanini ayting.",
+   "say": "Судя по часам, у нас ещё есть двадцать минут. На полу мокрые следы, значит, кто-то только что вошёл. Выходит, он вышел через чёрный ход, иначе его бы заметили у входа.",
+   "say_uz": "Soatga qaraganda, yana yigirma daqiqamiz bor. Polda ho‘l izlar bor, demak, kimdir hozirgina kirgan. Chiqadiki, u orqa eshikdan chiqib ketgan, aks holda kirishda uni ko‘rishgan bo‘lardi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "«Судя по» xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ судя по его слов",
+    "✓ судя по его словам",
+    "✗ судя из его лица",
+    "✓ судя по его лицу"
+   ],
+   "examples": [
+    {
+     "t": "Судя по прогнозу, будет жарко.",
+     "uz": "Prognozga qaraganda, issiq bo‘ladi."
+    }
+   ],
+   "say_native": "«Судя» doim «по» bilan va datelnyy kelishik bilan keladi: по словам, по лицу, по прогнозу. «Из» ishlatish xato, chunki o‘zbekcha «-dan» qo‘shimchasidan ta’sirlanamiz: «yuzidan» deymiz. Ko‘plik shakli ham muhim: «словам», «слова» emas. Qolipni to‘liq eslab qoling.",
+   "say": "Не говорите «судя по его слов» и «судя из его лица». Правильно: судя по его словам, судя по его лицу.",
+   "say_uz": "«Судя по его слов» va «судя из его лица» demang. To‘g‘risi: so‘zlariga qaraganda — судя по его словам, yuziga qaraganda — судя по его лицу.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Rasmni tavsiflang",
+   "emotion": "encouraging",
+   "board": [
+    "1. Мужчина с чемоданом смотрит на табло в аэропорту.",
+    "2. Пустое кафе, мокрая улица.",
+    "3. Ребёнок с грязными ботинками улыбается."
+   ],
+   "examples": [],
+   "say_native": "Mashq. Uchta rasm tavsifi: aeroportdagi erkak, bo‘sh kafe va ho‘l ko‘cha, loyli botinkali bola. Har biri uchun kamida ikkita taxmin ayting: bittasida «судя по», ikkinchisida «наверное», «должно быть» yoki «мог». Birinchi namunani eshitdingiz, qolganlarini o‘zingiz tuzing.",
+   "say": "Сделайте предположения о каждой картинке. Например: мужчина, наверное, опаздывает на рейс. Судя по чемодану, он собирается улететь. Теперь выберите вторую и третью картинки.",
+   "say_uz": "Har bir rasm haqida taxmin qiling. Masalan: erkak, ehtimol, reysga kechikayotgan. Chemodanga qaraganda, u uchib ketmoqchi. Endi ikkinchi va uchinchi rasmni tanlang.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna javoblar",
+   "emotion": "proud",
+   "board": [
+    "Судя по лужам, шёл дождь.",
+    "Ребёнок, должно быть, играл на улице."
+   ],
+   "examples": [],
+   "say_native": "Namuna javoblar: «Судя по лужам, недавно шёл дождь, поэтому кафе пустое». «Ребёнок, должно быть, играл на улице». «Он не мог остаться чистым» — bola toza qolishi mumkin emas. Sizning gaplaringiz boshqacha bo‘lishi mumkin. Tekshiring: «судя по» + datelnyy, kirish so‘z to‘g‘ri ishlatilganmi.",
+   "say": "Судя по лужам, недавно шёл дождь, поэтому кафе пустое. Ребёнок, должно быть, играл на улице. Он не мог остаться чистым после такой прогулки.",
+   "say_uz": "Ko‘lmaklarga qaraganda, yaqinda yomg‘ir yog‘gan, shuning uchun kafe bo‘sh. Bola, ehtimol, ko‘chada o‘ynagan. Shunday sayrdan keyin u toza qolishi mumkin emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Ishonch shkalasi",
+   "emotion": "neutral",
+   "board": [
+    "наверняка > скорее всего > вероятно",
+    "возможно > не исключено",
+    "вряд ли > едва ли > исключено"
+   ],
+   "examples": [
+    {
+     "t": "Исключено, что он согласится: он уже отказал.",
+     "uz": "U rozi bo‘lishi mumkin emas: u allaqachon rad etgan."
+    }
+   ],
+   "say_native": "Mana butun shkala. Eng yuqori ishonch: наверняка. Keyin «скорее всего», вероятно. O‘rtada: возможно, не исключено. Pastda: вряд ли, едва ли. Eng pastda: «исключено» — mutlaqo mumkin emas. Diqqat: «не исключено» — mumkin, lekin «исключено» — mumkin emas, ular teskari ma’noda. Bu juda muhim farq.",
+   "say": "Наверняка, он придёт. Скорее всего, придёт. Вероятно, придёт. Возможно, придёт. Не исключено. Вряд ли. Едва ли. Исключено, что он согласится: он уже отказал.",
+   "say_uz": "Shubhasiz, u keladi. Ehtimol, keladi. Balki keladi. Mumkin. Ehtimoldan xoli emas. Dargumon. Qiyin. Mumkin emas: u rozi bo‘lmaydi, allaqachon rad etgan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hayrat va ishonmaslik",
+   "emotion": "thinking",
+   "board": [
+    "Неужели …?",
+    "Не может быть, чтобы + прош.",
+    "Разве он не знал?"
+   ],
+   "examples": [
+    {
+     "t": "Неужели он забыл о встрече?",
+     "uz": "Rostdanmi, u uchrashuvni unutgan?"
+    },
+    {
+     "t": "Не может быть, чтобы она ошиблась.",
+     "uz": "U xato qilgan bo‘lishi mumkin emas."
+    }
+   ],
+   "say_native": "Taxmin ba’zan ishonmaslik bilan birga keladi. «Неужели» — rostdanmi, shunchalikmi, savol ohangida. «Не может быть, чтобы» — bo‘lishi mumkin emas: bu yerda «чтобы» dan keyin o‘tgan zamon fe’li keladi: не может быть, чтобы она ошиблась. «Разве» ham xuddi shunday hayratni bildiradi. Bu iboralar suhbatni jonli qiladi.",
+   "say": "Неужели он забыл о встрече? Не может быть, чтобы она ошиблась в расчётах. Разве вы не слышали новость?",
+   "say_uz": "Rostdanmi, u uchrashuvni unutgan? U hisob-kitobda xato qilgan bo‘lishi mumkin emas. Yangilikni eshitmadingizmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Hayrat misoli",
+   "emotion": "impressed",
+   "board": [
+    "Не может быть, чтобы …"
+   ],
+   "examples": [
+    {
+     "t": "Не может быть, чтобы он отказался от такой работы.",
+     "uz": "U bunday ishdan voz kechgan bo‘lishi mumkin emas."
+    }
+   ],
+   "say_native": "Hayrat va taxmin birga. Birinchi gap hayrat: bo‘lishi mumkin emas. Ikkinchi gap savol: «неужели». Uchinchi gap ishonchli taxmin: «скорее всего». Shu uchala qadamni ketma-ket ishlatsangiz, taxminingiz tabiiy va jonli chiqadi. Diqqat qiling: «не может быть, чтобы» qolipida fe’l o‘tgan zamonda.",
+   "say": "Не может быть, чтобы он отказался от такой работы. Неужели ему не понравились условия? Скорее всего, у него есть другое предложение, и он просто не хочет об этом говорить.",
+   "say_uz": "U bunday ishdan voz kechgan bo‘lishi mumkin emas. Rostdanmi, shartlar yoqmadi? Ehtimol, unda boshqa taklif bor va u bu haqda gapirishni xohlamayapti.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Ikkilangan ishonch",
+   "emotion": "stern",
+   "board": [
+    "✗ Наверняка, возможно, он дома.",
+    "✓ Он, скорее всего, дома.",
+    "✗ Не может быть, чтобы она ошибается.",
+    "✓ Не может быть, чтобы она ошиблась."
+   ],
+   "examples": [
+    {
+     "t": "Не может быть, чтобы он забыл.",
+     "uz": "U unutgan bo‘lishi mumkin emas."
+    }
+   ],
+   "say_native": "Bir gapda ikki xil ishonch darajasini aralashtirmang: «наверняка» bilan «возможно» qarama-qarshi. Bittasini tanlang. Ikkinchi xato — «чтобы» dan keyin hozirgi zamonni qo‘yish. Bu holatda «чтобы» o‘tgan zamon shakli bilan keladi, lekin zamon haqida emas, balki taxmin haqida. Shu qoidani yodlab oling.",
+   "say": "Не смешивайте разные степени уверенности: «наверняка, возможно» звучит странно. И после «чтобы» ставьте глагол в прошедшем времени: не может быть, чтобы она ошиблась.",
+   "say_uz": "Bir gapda turli ishonch darajalarini aralashtirmang. «Чтобы» dan keyin fe’lni o‘tgan zamonda qo‘ying: u xato qilgan bo‘lishi mumkin emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Darajani tanlang",
+   "emotion": "encouraging",
+   "board": [
+    "1. Он выиграл матч. (90 %)",
+    "2. Он выиграл матч. (50 %)",
+    "3. Он выиграл матч. (5 %)"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Bitta voqea haqida uch xil ishonch darajasi. To‘qson foizda «наверняка» yoki «скорее всего». Ellik foizda «возможно». Besh foizda «вряд ли» yoki «едва ли». Uchinchi gapni o‘zingiz ayting va fe’lni to‘g‘ri zamonda qo‘llang.",
+   "say": "Выразите три степени уверенности об одном событии. Наверняка, он выиграл матч. Возможно, он выиграл. Теперь скажите третье предложение.",
+   "say_uz": "Bitta voqea haqida uch xil ishonch darajasini ifodalang. Shubhasiz, u o‘yinda g‘alaba qozondi. Balki yutgandir. Endi uchinchi gapni ayting.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "Наверняка, он выиграл матч.",
+    "Возможно, он выиграл матч.",
+    "Вряд ли он выиграл матч."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: to‘qson foiz — «наверняка, он выиграл матч»; ellik foiz — «возможно, он выиграл матч»; besh foiz — «вряд ли он выиграл матч». Voqea o‘zgarmadi, faqat ishonch darajasi o‘zgardi. Mana shu — taxmin qilish san’ati: bitta fe’l, turli kirish so‘zlar.",
+   "say": "Правильно: наверняка, он выиграл матч. Возможно, он выиграл матч. Вряд ли он выиграл матч.",
+   "say_uz": "To‘g‘ri: shubhasiz, u o‘yinda yutdi. Balki yutgandir. U yutgani dargumon. Voqea o‘zgarmadi, faqat ishonch darajasi o‘zgardi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: direktor kabineti",
+   "emotion": "happy",
+   "board": [
+    "Диалог 1",
+    "Два коллеги у кабинета директора"
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog: ikki hamkasb direktor kabineti yonida. Ular belgilarga qarab taxmin qilishadi. Qaysi dalil nimani tasdiqlashini tinglang. Savollar keyingi mashqda.",
+   "say": "— Смотри, в кабинете директора горит свет. — Значит, он на месте. — Не обязательно: он мог забыть выключить. — Но его машина стоит у входа. — Тогда, скорее всего, он на совещании. — Вряд ли: расписание совещаний на сегодня пустое. — Сходи и проверь.",
+   "say_uz": "— Qara, direktor kabinetida chiroq yonib turibdi. — Demak, u joyida. — Shart emas: o‘chirishni unutgan bo‘lishi mumkin. — Lekin uning mashinasi kirishda turibdi. — Unda, ehtimol, majlisda. — Dargumon: bugungi majlislar jadvali bo‘sh. — Borib tekshirib ko‘r.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. Какое первое предположение?",
+    "2. Почему оно сомнительно?",
+    "3. Что говорит против совещания?"
+   ],
+   "examples": [],
+   "say_native": "Dialog bo‘yicha uchta savol. Birinchi taxmin qanday edi? Nega u ishonchsiz? Majlisga qarshi qanday dalil bor? Javobingizda «судя по», «значит» va «мог» dan foydalaning.",
+   "say": "Ответьте на вопросы. Какое первое предположение? Почему оно сомнительно? Что говорит против совещания?",
+   "say_uz": "Dialog bo‘yicha savollarga javob bering. Birinchi taxmin qanday edi? Nega u shubhali? Majlisga qarshi qanday dalil bor?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog javoblari",
+   "emotion": "proud",
+   "board": [
+    "1. Директор на месте.",
+    "2. Он мог забыть выключить свет.",
+    "3. Расписание совещаний пустое."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: birinchi taxmin — direktor joyida, chunki chiroq yonib turibdi. Bu shubhali, chunki u chiroqni o‘chirishni unutgan bo‘lishi mumkin. Majlisga qarshi dalil — majlislar jadvali bo‘sh. Siz javobda «мог забыть» qolipini ishlatgan bo‘lsangiz, bugungi mavzuni qo‘llagansiz.",
+   "say": "Первое предположение: директор на месте. Оно сомнительно, потому что он мог забыть выключить свет. Против совещания говорит пустое расписание.",
+   "say_uz": "Birinchi taxmin: direktor joyida. U shubhali, chunki u chiroqni o‘chirishni unutgan bo‘lishi mumkin. Majlisga qarshi dalil — jadval bo‘sh.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: kechikkan do‘st",
+   "emotion": "happy",
+   "board": [
+    "Диалог 2",
+    "Три друга ждут Максима"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog: do‘stlar Maksimni kutib, uning kechikish sababini taxmin qilishadi. Har bir taxmin qanday ishonch bilan aytilganini tinglang.",
+   "say": "— Максим опаздывает уже на сорок минут. — Он, наверное, застрял в пробке. — Не думаю: он обычно предупреждает. — Тогда, возможно, у него сел телефон. — Не исключено. Позвони его жене. — Она сказала, что он выехал давно. — Странно. Должно быть, что-то случилось.",
+   "say_uz": "— Maksim allaqachon qirq daqiqa kechikdi. — U, ehtimol, tirbandlikda qolgan. — Unday emas: u odatda ogohlantiradi. — Unda, balki telefoni o‘chib qolgandir. — Ehtimoldan xoli emas. Xotiniga qo‘ng‘iroq qil. — U Maksim anchadan beri chiqib ketganini aytdi. — Qiziq. Nimadir bo‘lgan bo‘lsa kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikkinchi dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. Какие причины предложили?",
+    "2. Почему первую версию отвергли?",
+    "3. Какой вывод в конце?"
+   ],
+   "examples": [],
+   "say_native": "Savollar: qanday sabablar taklif qilindi, nega birinchi versiya rad etildi va oxirida qanday xulosa chiqarildi. Javobda «наверное», «возможно» va «должно быть» so‘zlarini ishlating.",
+   "say": "Ответьте на вопросы по диалогу. Какие причины предложили? Почему первую версию отвергли? Какой вывод сделали в конце?",
+   "say_uz": "Dialog bo‘yicha savollarga javob bering. Qanday sabablar taklif qilindi? Nega birinchi versiya rad etildi? Oxirida qanday xulosa chiqarildi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1. Пробка, севший телефон",
+    "2. Он обычно предупреждает",
+    "3. Что-то случилось"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: ikki sabab — tirbandlik va telefonning o‘chib qolishi. Birinchisi rad etildi, chunki Maksim odatda ogohlantiradi. Oxirgi xulosa — nimadir bo‘lgan bo‘lsa kerak. Dialogda taxminlar ishonch bo‘yicha tartiblanganini payqadingizmi: «наверное», «возможно», «не исключено», «должно быть».",
+   "say": "Предложили две причины: пробку и севший телефон. Первую версию отвергли, потому что Максим обычно предупреждает. В конце решили: должно быть, что-то случилось.",
+   "say_uz": "Ikki sabab taklif qilindi: tirbandlik va telefonning o‘chishi. Birinchisi rad etildi, chunki Maksim odatda ogohlantiradi. Oxirida: nimadir bo‘lgan bo‘lsa kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz va ohang",
+   "emotion": "neutral",
+   "board": [
+    "наве́рное · наверняка́",
+    "вероя́тно · возмо́жно",
+    "по-ви́димому · неуже́ли"
+   ],
+   "examples": [
+    {
+     "t": "Неужели вы не заметили?",
+     "uz": "Rostdanmi, sezmadingizmi?"
+    }
+   ],
+   "say_native": "Urg‘u: наве́рное — ikkinchi bo‘g‘inda, наверняка́ — oxirida, вероя́тно — «-я-» da, возмо́жно — «-мо́-» da, по-ви́димому — «-ви́-» da, неуже́ли — «-же-» da. Ohang: taxmin gapida kirish so‘z ko‘tarilmaydi, ammo «неужели» savolida ovoz biroz ko‘tariladi. Kirish so‘zdan keyin qisqa pauza qiling.",
+   "say": "Следите за ударением: наве́рное, наверняка́, вероя́тно, возмо́жно, по-ви́димому, неуже́ли. Неужели вы не заметили?",
+   "say_uz": "Urg‘uga e’tibor bering: наве́рное, наверняка́, вероя́тно, возмо́жно, по-ви́димому, неуже́ли. Rostdanmi, sezmadingizmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy topshiriq",
+   "emotion": "encouraging",
+   "board": [
+    "Ситуация: пустая детская площадка, на скамейке забытая куртка",
+    "Дайте 4 предположения разной степени уверенности"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy vazifa. Vaziyat: bo‘sh o‘yin maydonchasi, skameykada unutilgan bolalar kurtkasi. To‘rtta taxmin ayting, har biri boshqa ishonch darajasida: biri «наверняка», biri «скорее всего», biri «возможно», biri «вряд ли». Kamida bittasida «судя по» yoki «мог» bo‘lsin.",
+   "say": "Составьте четыре предположения по ситуации: на пустой площадке на скамейке забытая детская куртка. Используйте разные степени уверенности.",
+   "say_uz": "Vaziyat bo‘yicha to‘rtta taxmin tuzing: bo‘sh maydonchada skameykada unutilgan bolalar kurtkasi. Turli ishonch darajalaridan foydalaning.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "example",
+   "title": "Namuna taxminlar",
+   "emotion": "impressed",
+   "board": [
+    "4 степени"
+   ],
+   "examples": [],
+   "say_native": "Namuna: birinchi taxmin deyarli aniq, ikkinchisi ehtimoliy, uchinchisi ehtimoldan xoli emas, to‘rtinchisi esa dargumon va u dalilga asoslangan: kurtka toza va quruq. Sizning variantingiz boshqa bo‘lishi mumkin. Mezon: har xil ishonch darajasi va kamida bitta dalil.",
+   "say": "Наверняка, куртку забыл ребёнок. Скорее всего, родители ушли в спешке. Возможно, они вернутся за ней. Вряд ли её кто-то потерял давно: куртка чистая и сухая.",
+   "say_uz": "Shubhasiz, kurtkani bola unutgan. Ehtimol, ota-onasi shoshib ketgan. Balki ular uning ortidan qaytar. Uni kimdir anchadan beri yo‘qotgani dargumon: kurtka toza va quruq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Dars xulosasi",
+   "emotion": "proud",
+   "board": [
+    "наверное · должно быть · мог / не мог",
+    "вероятно · похоже · судя по",
+    "наверняка > вероятно > возможно > вряд ли",
+    "неужели · не может быть, чтобы"
+   ],
+   "examples": [],
+   "say_native": "Bugungi darsni jamlaymiz. Birinchi: hozirgi va o‘tgan taxmin uchun «наверное», «должно быть», «мог». Ikkinchi: ehtimollik so‘zlari va «судя по». Uchinchi: ishonch shkalasi, «наверняка» dan «исключено» gacha. To‘rtinchi: hayrat va ishonmaslik. Hammasini yodda tutsangiz, taxmin qilish tabiiy bo‘ladi.",
+   "say": "Подведём итог. Мы научились строить предположения о настоящем и прошлом, различать степени уверенности и делать выводы по признакам.",
+   "say_uz": "Xulosa qilamiz. Hozirgi va o‘tgan haqida taxmin qilish, ishonch darajalarini farqlash va belgilarga qarab xulosa chiqarishni o‘rgandik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "encouraging",
+   "board": [
+    "6 картинок / ситуаций",
+    "для каждой — 2 предположения"
+   ],
+   "examples": [],
+   "say_native": "Uy vazifasi: oltita rasm yoki vaziyat toping va har biri haqida ikkitadan taxmin ayting, ishonch darajasi har xil bo‘lsin. Kamida bitta «судя по», kamida bitta «не мог» va bitta «неужели» ishlating. Mezon — olti vaziyat, o‘n ikkita taxmin. Keyingi darsda media, reklama va yangiliklar lug‘atini o‘rganamiz.",
+   "say": "Домашнее задание: найдите шесть картинок или ситуаций и для каждой сделайте два предположения разной степени уверенности. Используйте «судя по», «наверное» и «не мог».",
+   "say_uz": "Uy vazifasi: oltita rasm yoki vaziyat haqida ikkitadan turli ishonch darajasidagi taxmin ayting. «Судя по», «наверное» va «не мог» dan foydalaning.",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "Olti rasm yoki vaziyat ustida taxmin qiling. Mezon: har bir gap rus tilida, «наверное, вероятно, возможно, конечно» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “probably”?","options":["наверное","скорее всего","возможно","конечно"],"answer":0,"why_uz":"Наверное — ehtimol."},
-  {"q":"Which word means “most likely”?","options":["скорее всего","наверное","возможно","конечно"],"answer":0,"why_uz":"Скорее всего — ehtimolki."},
-  {"q":"Which word means “possibly”?","options":["возможно","наверное","скорее всего","конечно"],"answer":0,"why_uz":"Возможно — mumkin."},
-  {"q":"How do you say “Probably it is good”?","options":["Наверное, это хорошо.","Наверное, это хорошо есть.","Наверное, это хорошо является.","Наверное, это хорошо был."],"answer":0,"why_uz":"Наверное, это хорошо — ehtimol, bu yaxshi."},
-  {"q":"How do you say “Most likely it is bad”?","options":["Скорее всего, это плохо.","Скорее всего, это плохо есть.","Скорее всего, это плохо является.","Скорее всего, это плохо был."],"answer":0,"why_uz":"Скорее всего, это плохо — ehtimolki, bu yomon."},
-  {"q":"Which word means “of course”?","options":["конечно","наверное","возможно","скорее всего"],"answer":0,"why_uz":"Конечно — albatta."},
-  {"q":"Which word means “unfortunately”?","options":["к сожалению","наверное","возможно","конечно"],"answer":0,"why_uz":"К сожалению — afsuski."},
-  {"q":"How do you say “I think it is interesting”?","options":["Думаю, это интересно.","Думаю, это интересно есть.","Думаю, это интересно является.","Думаю, это интересно был."],"answer":0,"why_uz":"Думаю, это интересно — menimcha, bu qiziqarli."},
-  {"q":"Which word means “I know”?","options":["знаю","думаю","наверное","возможно"],"answer":0,"why_uz":"Знаю — bilaman."},
-  {"q":"How do you say “Possibly it is interesting”?","options":["Может быть, это интересно.","Может быть, это интересно есть.","Может быть, это интересно является.","Может быть, это интересно был."],"answer":0,"why_uz":"Может быть, это интересно — ehtimol, bu qiziqarli."}
+ "homework_uz": "Oltita rasm yoki vaziyat toping va har biri haqida ikkitadan turli ishonch darajasidagi taxmin ayting. Kamida bitta «судя по», bitta «не мог» va bitta «неужели» ishlating. O‘n ikkita to‘g‘ri tuzilgan taxmin bo‘lsa, vazifa bajarilgan. Keyingi darsda media, reklama va yangiliklar lug‘atini o‘rganamiz.",
+ "quiz": [
+  {
+   "q": "Qaysi ibora eng yuqori ishonchni bildiradi?",
+   "options": [
+    "возможно",
+    "наверняка",
+    "вряд ли",
+    "едва ли"
+   ],
+   "answer": 1,
+   "why_uz": "«Наверняка» — deyarli aniq."
+  },
+  {
+   "q": "«Он не мог этого сказать» nimani anglatadi?",
+   "options": [
+    "U aytgan bo‘lishi mumkin",
+    "U aytgan bo‘lishi mumkin emas",
+    "U aytishi kerak",
+    "U aytishni xohlagan"
+   ],
+   "answer": 1,
+   "why_uz": "«Не мог» — bo‘lishi mumkin emas."
+  },
+  {
+   "q": "«Она не могла не заметить» nimani bildiradi?",
+   "options": [
+    "Sezmagan",
+    "Albatta sezgan",
+    "Sezishi kerak",
+    "Sezishni xohlamagan"
+   ],
+   "answer": 1,
+   "why_uz": "«Не мог не» — albatta."
+  },
+  {
+   "q": "Qaysi gap to‘g‘ri?",
+   "options": [
+    "Он, наверное, забыть.",
+    "Он, наверное, забыл.",
+    "Он, наверное, забудет бы.",
+    "Он наверное забыв."
+   ],
+   "answer": 1,
+   "why_uz": "Fe’l o‘tgan zamonda."
+  },
+  {
+   "q": "«Должно быть» ... ",
+   "options": [
+    "jinsga qarab o‘zgaradi",
+    "o‘zgarmaydi",
+    "faqat ko‘plikda",
+    "faqat inkorda"
+   ],
+   "answer": 1,
+   "why_uz": "«Должно быть» barqaror ibora."
+  },
+  {
+   "q": "«Судя по» dan keyin qaysi kelishik?",
+   "options": [
+    "Roditelnyy",
+    "Datelnyy",
+    "Tvoritelnyy",
+    "Vinitelnyy"
+   ],
+   "answer": 1,
+   "why_uz": "Судя по лицу — datelnyy."
+  },
+  {
+   "q": "Qaysi ibora «mumkin emas» ma’nosida?",
+   "options": [
+    "не исключено",
+    "исключено",
+    "возможно",
+    "вероятно"
+   ],
+   "answer": 1,
+   "why_uz": "«Исключено» — mumkin emas."
+  },
+  {
+   "q": "«Не может быть, чтобы» dan keyin fe’l qaysi zamonda?",
+   "options": [
+    "Hozirgi",
+    "Kelasi",
+    "O‘tgan",
+    "Buyruq"
+   ],
+   "answer": 2,
+   "why_uz": "«Чтобы» bilan o‘tgan zamon shakli."
+  },
+  {
+   "q": "«Будто» va «похоже» farqi nimada?",
+   "options": [
+    "Hech qanday",
+    "«Будто» — o‘xshashlik, «похоже» — taxmin",
+    "«Похоже» faqat inkorda",
+    "Ikkalasi ham buyruq"
+   ],
+   "answer": 1,
+   "why_uz": "«Будто» — taqqoslash."
+  },
+  {
+   "q": "«Неужели» qanday ma’no beradi?",
+   "options": [
+    "Buyruq",
+    "Hayrat va ishonmaslik",
+    "Xulosa",
+    "Salomlashish"
+   ],
+   "answer": 1,
+   "why_uz": "«Неужели» — rostdanmi."
+  }
  ]
 }

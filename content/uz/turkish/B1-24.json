@@ -1,6 +1,6 @@
 {
  "title": "Muammo va yechim haqida gapirish",
- "goal_uz": "Dars oxirida muammoni tasvirlab, yechim taklif qilasiz: muammo tili, yechim taklif qilish, variantlarni baholash va tavsiya berishni o‘rgansiz.",
+ "goal_uz": "Dars oxirida turkchada muammoni tavsiflaysiz (sorun şu ki, nedeni, yol açıyor, yüzünden), yechim taklif qilasiz (-meli, -sek iyi olur, -ebilir, önerebilirim), variantlarni baholaysiz (avantaj, dezavantaj, etkili, pahalı) va tavsiya berasiz hamda shahringizdagi muammo va uchta yechim haqida 1 daqiqa gapira olasiz.",
  "vocab": [
   {
    "w": "sorun",
@@ -11,534 +11,562 @@
    "uz": "yechim"
   },
   {
-   "w": "öneri",
-   "uz": "taklif"
+   "w": "neden",
+   "uz": "sabab"
   },
   {
-   "w": "değerlendir",
-   "uz": "bahola"
+   "w": "yol açmak",
+   "uz": "sabab bo‘lmoq, olib kelmoq"
   },
   {
-   "w": "tavsiye",
-   "uz": "tavsiya"
+   "w": "yetersiz",
+   "uz": "yetarli bo‘lmagan"
   },
   {
-   "w": "şehir",
-   "uz": "shahar"
+   "w": "önermek",
+   "uz": "taklif qilmoq"
   },
   {
-   "w": "su",
-   "uz": "suv"
+   "w": "etkili",
+   "uz": "samarali"
   },
   {
-   "w": "hava",
-   "uz": "havo"
+   "w": "uygulamak",
+   "uz": "amalga oshirmoq, tatbiq qilmoq"
+  },
+  {
+   "w": "maliyet",
+   "uz": "xarajat, tannarx"
+  },
+  {
+   "w": "tavsiye etmek",
+   "uz": "tavsiya qilmoq"
   }
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Bugun nima qilamiz?",
+   "title": "Bugungi dars",
    "emotion": "happy",
    "board": [
-    "Muammo",
-    "Yechim",
-    "Tavsiya"
+    "sorun · neden · çözüm",
+    "değerlendirmek · tavsiye etmek",
+    "1 dakikalık konuşma"
    ],
    "examples": [],
-   "say_native": "Salom, o‘quvchilar! Oldingi darsda hikoya qilish texnikasini o‘rgandik. Bugun muammo va yechim haqida gapirishni o‘rganamiz. Dars oxirida shahringizdagi muammoni va uchta yechimni gapirib berasiz. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Merhaba! Bugün sorunu ve çözümü anlatmayı öğreneceğiz. Çok güzel.",
-   "say_uz": "Salom! Bugun muammo va yechimni gapirishni o‘rgamiz. Juda chiroyli.",
+   "say_native": "Assalomu alaykum! Oldingi darsda hikoya qilish texnikasini o‘rgandik. Bugun gapirish ko‘nikmasining muhim turi: muammoni tushuntirish va yechim taklif qilish. Hayotda ham, ishda ham, og‘zaki imtihonda ham shu so‘ralaydi. Bugun to‘rt bosqichni o‘rganamiz: muammoni ta’riflash, yechimlar taklif qilish, ularni baholash va yakuniy tavsiya berish. Dars oxirida o‘z shahringizdagi muammo va uchta yechim haqida bir daqiqa gapira olasiz.",
+   "say": "Merhaba! Bugün bir sorunu anlatmayı ve çözüm önermeyi öğreneceğiz. Önce sorunu açıklayacağız, sonra seçenekleri değerlendirip bir tavsiye vereceğiz.",
+   "say_uz": "Salom! Bugun muammoni tushuntirish va yechim taklif qilishni o‘rganamiz. Avval muammoni bayon qilamiz, keyin variantlarni baholab, tavsiya beramiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Muammo tili",
+   "title": "Muammoni ta’riflash",
    "emotion": "neutral",
    "board": [
-    "muammo",
-    "qiyinlik",
-    "kelishmovchilik"
+    "Sorun şu ki ...",
+    "En büyük sorun ...",
+    "... bir sorun haline geldi",
+    "... yetersiz / çok az"
    ],
-   "examples": [],
-   "say_native": "Muammo tili muammo, qiyinlik, kelishmovchilik so‘zlari bilan aytiladi. Har bir so‘zning ma’nosini ajrating. Bu qism — \"Muammo tili\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Muammo tili\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli.",
+   "examples": [
+    {
+     "t": "Sorun şu ki, mahallemizde yeterli park yeri yok.",
+     "uz": "Muammo shundaki, mahallamizda yetarli to‘xtash joyi yo‘q."
+    },
+    {
+     "t": "Trafik artık ciddi bir sorun haline geldi.",
+     "uz": "Tirbandlik endi jiddiy muammoga aylanib qoldi."
+    }
+   ],
+   "say_native": "Muammoni aytishning birinchi qadami uni aniq nomlash. Sorun şu ki, muammo shundaki, bu eng oddiy kirish. En büyük sorun, eng katta muammo. Bir sorun haline geldi, muammoga aylanib qoldi. Yetersiz, yetarli emas, ya’ni miqdori kam. Ular bilan jiddiylik darajasini ham ayting: ciddi sorun, jiddiy muammo, büyük sorun, katta muammo. Bu iboralar o‘zbekchadagi muammo shundaki, eng katta muammo ga juda yaqin, shuning uchun siz ularni tez o‘zlashtirasiz.",
+   "say": "En büyük sorun, toplu taşımanın yetersiz olması. Sorun şu ki, otobüsler çok geç geliyor. Gürültü artık dayanılmaz bir sorun haline geldi.",
+   "say_uz": "Eng katta muammo jamoat transportining yetarli emasligi. Muammo shundaki, avtobuslar juda kech keladi. Shovqin endi chidab bo‘lmas muammoga aylandi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Sabab va oqibat",
+   "emotion": "thinking",
+   "board": [
+    "Bunun nedeni ... -mesi",
+    "... yol açıyor",
+    "... yüzünden",
+    "bunun sonucunda ..."
+   ],
+   "examples": [
+    {
+     "t": "Bunun nedeni, çöp kutularının az olmasıdır.",
+     "uz": "Buning sababi, axlat qutilarining kamligi."
+    },
+    {
+     "t": "Bu durum hava kirliliğine yol açıyor.",
+     "uz": "Bu holat havo ifloslanishiga sabab bo‘lyapti."
+    }
+   ],
+   "say_native": "Muammoni tushuntirgach, sababini va oqibatini aytamiz. Bunun nedeni, buning sababi, undan keyin fe’lning ot shakli keladi: çöp kutularının az olması, axlat qutilarining kam bo‘lishi. Yol açmak, sabab bo‘lmoq, uning oldidan yo‘nalish kelishigi: kirliliğe yol açıyor. Yüzünden, tufayli, salbiy sabab. Bunun sonucunda, buning natijasida, oqibatni bildiradi. Siz o‘zbekchada ham buning sababi, buning oqibatida deysiz, shuning uchun mantiq o‘zgarmaydi. Faqat qo‘shimchalar: -ması, -mesi, -e yol açmak.",
+   "say": "Park yerleri az olduğu için insanlar yolda bekliyor. Bunun sonucunda trafik yoğunlaşıyor. Bu durum hem zaman kaybına hem de strese yol açıyor.",
+   "say_uz": "To‘xtash joylari kam bo‘lgani uchun odamlar yo‘lda kutadi. Buning natijasida tirbandlik kuchayadi. Bu holat ham vaqt yo‘qotishiga, ham stressga olib keladi.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Muammo misollar",
+   "title": "Namuna: trafik muammosi",
    "emotion": "neutral",
    "board": [
-    "Muammo",
-    "Qiyinlik",
-    "Kelishmovchilik"
+    "Sorun → neden → sonuç",
+    "trafik · park yeri · stres"
    ],
-   "examples": [
-    {
-     "t": "Sorun.",
-     "uz": "Muammo."
-    },
-    {
-     "t": "Zorluk.",
-     "uz": "Qiyinlik."
-    },
-    {
-     "t": "Anlaşmazlık.",
-     "uz": "Kelishmovchilik."
-    }
-   ],
-   "say_native": "Muammo misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — \"Muammo misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Muammo misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli.",
+   "examples": [],
+   "say_native": "Muammo ta’rifining namunasi. Tinglang va uch qismni ajrating: muammo nomi, sababi va oqibati. Kalit iboralar: en büyük sorun, bunun nedeni, yol açıyor. Park yeri to‘xtash joyi degani, imkânsız esa mumkin emas.",
+   "say": "Şehrimizin en büyük sorunu trafik. Sabahları işe giderken yolda bir saat kaybediyoruz. Bunun nedeni, toplu taşımanın yetersiz olması ve herkesin kendi arabasını kullanması. Bu durum hem hava kirliliğine hem de strese yol açıyor. Özellikle merkezde park yeri bulmak neredeyse imkânsız.",
+   "say_uz": "Shahrimizning eng katta muammosi tirbandlik. Ertalablari ishga ketayotib yo‘lda bir soat yo‘qotamiz. Buning sababi jamoat transporti yetarli emasligi va hamma o‘z mashinasidan foydalanishi. Bu holat ham havo ifloslanishiga, ham stressga olib keladi. Ayniqsa markazda to‘xtash joyi topish deyarli mumkin emas.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Muammoni ayting",
+   "title": "Muammoni siz ta’riflang",
    "emotion": "encouraging",
    "board": [
-    "1) Muammo",
-    "2) Qiyinlik",
-    "3) Kelishmovchilik",
-    "4) Muammo"
+    "Mahalledeki çöp sorunu",
+    "1) Sorun şu ki ...",
+    "2) Bunun nedeni ...",
+    "3) Bu durum ... yol açıyor"
    ],
    "examples": [],
-   "say_native": "To‘rt muammoni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — \"Muammoni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Muammoni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli. Muammo.",
-   "practice_seconds": 14
+   "say_native": "Endi o‘zingiz mashq qiling. Mahalladagi axlat muammosini ta’riflang. Birinchi gap: sorun şu ki bilan muammoni ayting. Ikkinchi gap: bunun nedeni bilan sababini ayting. Uchinchi gap: bu durum ... yol açıyor bilan oqibatini ayting. Uchta gap yetarli, ular bir-biriga mantiqan bog‘langan bo‘lsin.",
+   "say": "Mahallenizdeki çöp sorununu anlatın. Önce sorunu, sonra nedenini, en sonunda sonucunu söyleyin.",
+   "say_uz": "Mahallangizdagi axlat muammosini tushuntiring. Avval muammoni, keyin sababini, oxirida oqibatini ayting.",
+   "practice_seconds": 20
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Namunaviy javob: axlat muammosi",
    "emotion": "proud",
    "board": [
-    "Muammo",
-    "Qiyinlik",
-    "Kelishmovchilik",
-    "Muammo"
+    "Sorun şu ki, sokaklar kirli.",
+    "Bunun nedeni çöp kutularının az olması.",
+    "Bu durum kötü kokuya yol açıyor."
    ],
    "examples": [],
-   "say_native": "Javoblar: Muammo. Qiyinlik. Kelishmovchilik. Muammo. Muammolar takrorlandi. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli. Muammo.",
+   "say_native": "Namuna: Sorun şu ki, mahallemizde sokaklar çok kirli. Bunun nedeni, çöp kutularının az olması ve çöplerin geç toplanması. Bu durum hem kötü kokuya hem de hastalıklara yol açıyor. Ko‘rdingizmi, uch gap uch vazifani bajaradi: muammo, sabab, oqibat. Siz ularni boshqa so‘zlar bilan aytgan bo‘lsangiz ham, shu tartibni saqlagan bo‘lsangiz yaxshi. Bunda ham nedeni dan keyin ot shakli keladi: olması, toplanması, bu xato qilinadigan joy.",
+   "say": "Sorun şu ki, sokaklarımız çok kirli. Bunun nedeni, çöplerin geç toplanması. Bu durum hem kötü kokuya hem de hastalıklara yol açıyor.",
+   "say_uz": "Muammo shundaki, ko‘chalarimiz juda iflos. Buning sababi, axlatlarning kech yig‘ilishi. Bu holat ham yomon hidga, ham kasalliklarga olib keladi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Yechim taklif",
+   "title": "Yechim taklif qilish: modal usullar",
    "emotion": "neutral",
    "board": [
-    "yechim",
-    "taklif",
-    "tavsiya"
-   ],
-   "examples": [],
-   "say_native": "Yechim taklif tili yechim, taklif, tavsiya so‘zlari bilan aytiladi. Har bir so‘zning ma’nosini ajrating. Bu qism — \"Yechim taklif\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Yechim taklif\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Yechim misollar",
-   "emotion": "neutral",
-   "board": [
-    "Yechim",
-    "Taklif",
-    "Tavsiya"
+    "-meli / -malı",
+    "-se iyi olur",
+    "-elim (taklif)",
+    "Bir çözüm olarak ... önerebilirim"
    ],
    "examples": [
     {
-     "t": "Çözüm.",
-     "uz": "Yechim."
+     "t": "Belediye daha fazla çöp kutusu koymalı.",
+     "uz": "Hokimiyat ko‘proq axlat qutisi qo‘yishi kerak."
     },
     {
-     "t": "Öneri.",
-     "uz": "Taklif."
-    },
-    {
-     "t": "Tavsiye.",
-     "uz": "Tavsiya."
+     "t": "Bir çözüm olarak otobüs sayısını artırmayı önerebilirim.",
+     "uz": "Yechim sifatida avtobuslar sonini oshirishni taklif qilishim mumkin."
     }
    ],
-   "say_native": "Yechim misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — \"Yechim misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Yechim misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli.",
+   "say_native": "Yechim taklif qilishning to‘rt usuli. Birinchi, -meli: belediye çöp kutusu koymalı, hokimiyat axlat qutisi qo‘yishi kerak. Ikkinchi, -se iyi olur: daha erken başlasak iyi olur, avvalroq boshlasak yaxshi bo‘ladi. Uchinchi, -elim, birga qilishni taklif qiladi: bu konuyu konuşalım, bu mavzuni muhokama qilaylik. To‘rtinchi, Bir çözüm olarak ... önerebilirim, yechim sifatida ... ni taklif qilishim mumkin. To‘rtinchisi rasmiyroq, shuning uchun ishda yoki imtihonda ayniqsa mos. Siz oldingi darslarda -meli ni o‘rgangansiz, bu bilan ularning qanday birlashishini ko‘ryapsiz.",
+   "say": "Daha fazla otobüs hattı açılmalı. Erken kalksak trafikten kurtuluruz. Hep birlikte bir çözüm bulalım. Bir çözüm olarak özel şerit açmayı önerebilirim.",
+   "say_uz": "Ko‘proq avtobus yo‘nalishlari ochilishi kerak. Erta tursak, tirbandlikdan qutulamiz. Birgalikda yechim topaylik. Yechim sifatida maxsus qatnov yo‘lagi ochishni taklif qila olaman.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yechimni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) Yechim",
-    "2) Taklif",
-    "3) Tavsiya",
-    "4) Yechim"
-   ],
-   "examples": [],
-   "say_native": "To‘rt yechimni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — \"Yechimni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Yechimni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel. Çözüm.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli. Yechim.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
+   "title": "Yechim taklif qilish: -ebilir va maqsad",
+   "emotion": "thinking",
    "board": [
-    "Yechim",
-    "Taklif",
-    "Tavsiya",
-    "Yechim"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Yechim. Taklif. Tavsiya. Yechim. Yechimlar takrorlandi. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel. Çözüm.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli. Yechim.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Muammo matni",
-   "emotion": "neutral",
-   "board": [
-    "Muammo",
-    "Yechim",
-    "Tavsiya"
+    "... yapılabilir",
+    "-mesi için ... -ebiliriz",
+    "Eğer ... -se, ... -ebilir",
+    "Neden ... -miyoruz?"
    ],
    "examples": [
     {
-     "t": "Sorun.",
-     "uz": "Muammo."
+     "t": "Bunun için yeni bir bisiklet yolu yapılabilir.",
+     "uz": "Buning uchun yangi velosiped yo‘li qurilishi mumkin."
     },
     {
-     "t": "Çözüm.",
-     "uz": "Yechim."
-    },
-    {
-     "t": "Tavsiye.",
-     "uz": "Tavsiya."
+     "t": "Eğer ücretsiz servis olursa, insanlar arabayı bırakabilir.",
+     "uz": "Agar bepul xizmat avtobusi bo‘lsa, odamlar mashinani qoldirishi mumkin."
     }
    ],
-   "say_native": "Muammo matnini o‘qib, har birini takrorlang. Qismlarni ajrating. Bu qism — \"Muammo matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Muammo matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Çözüm hızlı. Tavsiye güzel.",
-   "say_uz": "Muammo juda chiroyli. Yechim tez. Tavsiya chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Muammo savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) Muammo?",
-    "2) Yechim?",
-    "3) Tavsiya?",
-    "4) Bahola?"
-   ],
-   "examples": [],
-   "say_native": "To‘rt muammo savoliga javob bering. Har bir javobni to‘liq gapda ayting. Bu qism — \"Muammo savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Muammo savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun? Çözüm? Tavsiye? Değerlendir?",
-   "say_uz": "Muammo? Yechim? Tavsiya? Bahola?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Muammo",
-    "Yechim",
-    "Tavsiya",
-    "Bahola"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: Muammo. Yechim. Tavsiya. Bahola. Muammo savollariga javob berildi. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Çözüm hızlı. Tavsiye güzel. Değerlendir.",
-   "say_uz": "Muammo juda chiroyli. Yechim tez. Tavsiya chiroyli. Bahola.",
+   "say_native": "Yana to‘rt usul. Majhul nisbat bilan imkoniyat: yapılabilir, qurilishi mumkin, kim qilishi muhim bo‘lmaganda ishlatiladi, bu majhul nisbat darsida o‘rgangan shakl. Maqsad: -mesi için ... -ebiliriz, ... bo‘lishi uchun ... qila olamiz. Shart: eğer ... -se, ... -ebilir, agar ... bo‘lsa, ... mumkin. Savol shaklida taklif: neden ... yapmıyoruz, nega ... qilmaymiz. Eğer ni tushirib qoldirish ham mumkin, lekin shart qo‘shimchasi -se saqlanadi. Bu shakllar muloyim, majburlamaydi va qiziqarli suhbat yaratadi.",
+   "say": "Yeni park yerleri yapılabilir. Trafiğin azalması için servis sayısını artırabiliriz. Eğer bilet ucuz olursa insanlar otobüse biner. Neden bisiklet yollarını genişletmiyoruz?",
+   "say_uz": "Yangi to‘xtash joylari qurilishi mumkin. Tirbandlik kamayishi uchun xizmat avtobuslari sonini oshira olamiz. Agar chipta arzon bo‘lsa, odamlar avtobusga minadi. Nega velosiped yo‘llarini kengaytirmaymiz?",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Keng tarqalgan xatolar",
+   "title": "Xato: yechim taklifidagi xatolar",
    "emotion": "stern",
    "board": [
-    "✗ muammo yechim emas",
-    "✗ taklif tavsiya emas",
-    "✗ muammo"
+    "✗ yapmalı → ✓ yapmalıyız (biz)",
+    "✗ eğer olmak → ✓ eğer olursa",
+    "✗ çözüm yapmak → ✓ çözüm bulmak",
+    "✗ sorunu yapmak → ✓ sorunu çözmek"
    ],
    "examples": [],
-   "say_native": "Muammo so‘zlarida uchraydigan uchta xato: ma’no adashtirish. To‘g‘risi muammo. Har bir xatoni tuzating. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Başlangıç hızlı. Heyecan güzel.",
-   "say_uz": "Muammo juda chiroyli. Boshlanish tez. Hayajon chiroyli.",
+   "say_native": "Yechim haqida gapirganda tez-tez uchraydigan xatolar. Birinchi: -meli dan keyin shaxs qo‘shimchasi kerak, yapmalıyız, biz qilishimiz kerak. Ikkinchi: shart gapida eğer bilan -se, olursa, qo‘shimchasi kerak, değil kerak emas. Uchinchi: yechim bilan fe’l, çözüm bulmak, yechim topmoq, çözüm yapmak emas. To‘rtinchi: sorun bilan çözmek, muammoni hal qilmoq, sorunu yapmak emas. O‘zbekchada muammoni hal qilmoq, yechim topmoq deymiz, ya’ni turkchada ham xuddi shunday. Bu fe’l juftlarini yodlab oling.",
+   "say": "Bu sorunu birlikte çözmeliyiz. Çözüm bulmak için önce nedeni anlamak gerekir. Eğer herkes katılırsa sonuç daha hızlı gelir.",
+   "say_uz": "Bu muammoni birgalikda hal qilishimiz kerak. Yechim topish uchun avval sababni tushunish kerak. Agar hamma qatnashsa, natija tezroq keladi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatolarni tuzating",
+   "title": "Uchta yechim taklif qiling",
    "emotion": "encouraging",
    "board": [
-    "1) Muammo yechim emas",
-    "2) Taklif tavsiya emas",
-    "3) Muammo",
-    "4) Muammo"
+    "Sorun: sokaklar kirli",
+    "1) -meli",
+    "2) -ebilir (majhul)",
+    "3) Eğer ... -se"
    ],
    "examples": [],
-   "say_native": "To‘rt xatoni tuzating. Har biriga to‘g‘ri shakl yozing. Javobni to‘liq gapda ayting. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. B1-24 ga oid noyob sharh: bu iborani B1-24 suhbatida aniq qo‘llang.",
-   "say": "Sorun çok güzel. Başlangıç hızlı. Heyecan güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Boshlanish tez. Hayajon chiroyli. Muammo.",
-   "practice_seconds": 12
+   "say_native": "Axlat muammosi uchun uchta yechim taklif qiling. Birinchisi, -meli bilan: hokimiyat nima qilishi kerak. Ikkinchisi, majhul nisbat va -ebilir bilan: nima qurilishi yoki qo‘yilishi mumkin. Uchinchisi, eğer ... -se shart gapi bilan. Har bir yechim uchun bitta gap ayting. Ovoz chiqarib mashq qiling.",
+   "say": "Sokakların kirli olması sorununa üç çözüm önerin. Biri meli ile, biri ebilir ile, biri de eğer ile olsun.",
+   "say_uz": "Ko‘chalarning iflosligi muammosiga uchta yechim taklif qiling. Biri -meli bilan, biri -ebilir bilan, biri esa eğer bilan bo‘lsin.",
+   "practice_seconds": 20
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: yechim takliflari",
    "emotion": "proud",
    "board": [
-    "Muammo",
-    "Boshlanish",
-    "Hayajon",
-    "Muammo"
+    "Belediye daha çok çöp kutusu koymalı.",
+    "Çöpler günde iki kez toplanabilir.",
+    "Eğer cezalar artarsa insanlar daha dikkatli olur."
    ],
    "examples": [],
-   "say_native": "Javoblar: Muammo. Boshlanish. Hayajon. Muammo. Xatolar tuzatildi. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun çok güzel. Başlangıç hızlı. Heyecan güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Boshlanish tez. Hayajon chiroyli. Muammo.",
+   "say_native": "Javoblar. Belediye daha çok çöp kutusu koymalı, hokimiyat ko‘proq axlat qutisi qo‘yishi kerak. Çöpler günde iki kez toplanabilir, axlat kuniga ikki marta yig‘ilishi mumkin. Eğer cezalar artarsa insanlar daha dikkatli olur, agar jarimalar oshsa, odamlar ehtiyotkorroq bo‘ladi. Har uchala gapda boshqa tuzilma ishlatildi, bu nutqingizni boy qiladi. Sizning takliflaringiz boshqacha bo‘lishi mumkin, masalan, o‘quv kampaniyasi. Bu ham yaxshi yechim.",
+   "say": "Belediye çöp kutularını artırmalı. Çöpler daha sık toplanabilir. Eğer okullarda eğitim verilirse çocuklar daha bilinçli olur.",
+   "say_uz": "Hokimiyat axlat qutilarini ko‘paytirishi kerak. Axlat tez-tez yig‘ilishi mumkin. Agar maktablarda ta’lim berilsa, bolalar ongliroq bo‘ladi.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Muammo va 3 yechim",
-   "emotion": "encouraging",
-   "board": [
-    "muammo",
-    "3 yechim",
-    "takrorlash"
-   ],
-   "examples": [],
-   "say_native": "Shahringizdagi muammoni va uchta yechimni gapiring. Har bir gapda bitta fikr bo‘lsin. Bu qism — \"Muammo va 3 yechim\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Muammo va 3 yechim\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Şehir sorunu ve üç çözüm anlat. Çok güzel.",
-   "say_uz": "Shahar muammasi va uchta yechim gapir. Juda chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
+   "title": "Variantlarni baholash",
+   "emotion": "neutral",
    "board": [
-    "muammo",
-    "3 yechim",
-    "takrorlash"
+    "avantaj · dezavantaj",
+    "etkili · pratik · uygulanabilir",
+    "pahalı · zaman alır",
+    "maliyeti yüksek / düşük"
    ],
-   "examples": [],
-   "say_native": "Javoblar: Muammo. 3 yechim. Takrorlash. Monolog tayyor bo‘ldi. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun. Üç çözüm. Tekrar. Çok güzel.",
-   "say_uz": "Muammo. Uchta yechim. Takrorlash. Juda chiroyli.",
+   "examples": [
+    {
+     "t": "Bu çözümün en büyük avantajı hızlı olmasıdır.",
+     "uz": "Bu yechimning eng katta ustunligi tezkorligidir."
+    },
+    {
+     "t": "Ancak maliyeti oldukça yüksek.",
+     "uz": "Biroq xarajati ancha yuqori."
+    }
+   ],
+   "say_native": "Variantlarni baholash uchun lug‘at kerak. Avantaj, ustunlik, dezavantaj, kamchilik. Etkili, samarali, pratik, amaliy, uygulanabilir, amalga oshirish mumkin. Pahalı qimmat, zaman alır, vaqt oladi. Maliyeti yüksek, xarajati yuqori. Formula: bu çözümün en büyük avantajı ... olması, ya’ni bu yechimning eng katta ustunligi ... bo‘lishi. Keyin qarama-qarshilik: ancak, biroq, ya’ni kamchilik. Bunday baholash nutqingizga mantiqiylik beradi va siz bir yechimni boshqasi bilan solishtirishni boshlaysiz.",
+   "say": "Bu çözümün en büyük avantajı ucuz olması. Dezavantajı ise uzun zaman alması. Servisleri artırmak daha etkili, ancak bütçe gerektiriyor.",
+   "say_uz": "Bu yechimning eng katta ustunligi arzonligi. Kamchiligi esa uzoq vaqt olishi. Xizmat avtobuslarini ko‘paytirish samaraliroq, biroq byudjet talab qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Baholash ifodalari: ranjalash va shartlar",
+   "emotion": "thinking",
+   "board": [
+    "en etkili · en pratik",
+    "birinci sırada ...",
+    "-diği sürece (…ekan)",
+    "hem ... hem de ..."
+   ],
+   "examples": [
+    {
+     "t": "Bence en pratik çözüm, çöp kutularını çoğaltmak.",
+     "uz": "Menimcha eng amaliy yechim, axlat qutilarini ko‘paytirish."
+    },
+    {
+     "t": "İnsanlar bilinçlenmediği sürece sorun devam eder.",
+     "uz": "Odamlar ongli bo‘lmaguncha muammo davom etadi."
+    }
+   ],
+   "say_native": "Baholashda yechimlarni tartib bilan joylashtirish ham foydali. En etkili, eng samarali, en pratik, eng amaliy. Birinci sırada, birinchi o‘rinda, ikinci sırada, ikkinchi o‘rinda. -diği sürece, ... ekan, ... bo‘lmaguncha: insanlar bilinçlenmediği sürece sorun devam eder, odamlar ongli bo‘lmaguncha, muammo davom etadi. Hem ... hem de, ham ... ham, ikki ustunlikni birga aytadi. Bu iboralar nutqingizga tabiiy va ishonchli ohang beradi, ayniqsa baholash qismida.",
+   "say": "Birinci sırada ücretsiz otobüs geliyor, çünkü hem ucuz hem de kolay. Maliyet düşmediği sürece bu çözüm uygulanamaz.",
+   "say_uz": "Birinchi o‘rinda bepul avtobus turadi, chunki ham arzon, ham oson. Xarajat kamaymagan ekan, bu yechimni amalga oshirib bo‘lmaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: muammo",
+   "title": "Ikki variantni baholang",
    "emotion": "encouraging",
    "board": [
-    "1) Muammo",
-    "2) Qiyinlik",
-    "3) Kelishmovchilik",
-    "4) Muammo"
+    "A) Çok katlı otopark",
+    "B) Ücretsiz servis hattı",
+    "avantaj · dezavantaj · maliyet"
    ],
    "examples": [],
-   "say_native": "Muammolarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq: muammo\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli. Muammo.",
-   "practice_seconds": 14
+   "say_native": "Ikki variantni baholang. A: ko‘p qavatli to‘xtash joyi qurish. B: bepul xizmat avtobus yo‘nalishi. Har biri uchun bitta ustunlik va bitta kamchilik ayting: avantaj, dezavantaj, maliyet so‘zlaridan foydalaning. Keyin qaysi biri samaraliroq ekanini ayting.",
+   "say": "İki seçeneği değerlendirin. Çok katlı otopark mı, ücretsiz servis hattı mı? Her birinin bir avantajını ve bir dezavantajını söyleyin.",
+   "say_uz": "Ikki variantni baholang. Ko‘p qavatli to‘xtash joymi yoki bepul xizmat yo‘nalishimi? Har birining bitta ustunligi va bitta kamchiligini ayting.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: baholash",
+   "emotion": "proud",
+   "board": [
+    "Otopark: yer sorununu çözer, ama maliyeti yüksek.",
+    "Servis: ucuz ve hızlı, ancak yeterli olmayabilir.",
+    "B daha etkili."
+   ],
+   "examples": [],
+   "say_native": "Namunaviy javob. Ko‘p qavatli to‘xtash joyi to‘xtash muammosini hal qiladi, ammo xarajati juda yuqori va uzoq vaqt oladi. Bepul xizmat yo‘nalishi arzon va tez amalga oshadi, biroq har doim yetarli bo‘lmasligi mumkin. Mening baholashimga ko‘ra ikkinchi variant samaraliroq, B daha etkili. Muhim: baholash so‘z bilan emas, dalil bilan: ucuz, tez, yuqori maliyet. Siz boshqacha xulosa chiqargan bo‘lsangiz ham muammo yo‘q, agar sababni to‘g‘ri aytsangiz.",
+   "say": "Otopark yer sorununu çözer ama çok pahalı. Servis hattı daha ucuz ve çabuk uygulanır. Bu yüzden bence servis daha etkili.",
+   "say_uz": "To‘xtash joyi joy muammosini hal qiladi, lekin juda qimmat. Xizmat yo‘nalishi arzonroq va tez amalga oshadi. Shuning uchun menimcha xizmat yo‘nalishi samaraliroq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tavsiya berish",
+   "emotion": "neutral",
+   "board": [
+    "Bence en iyi çözüm ...",
+    "... tavsiye ederim",
+    "Sonuç olarak ...",
+    "Bu yüzden önce ..., sonra ..."
+   ],
+   "examples": [
+    {
+     "t": "Bence en iyi çözüm, önce servisleri artırmaktır.",
+     "uz": "Menimcha eng yaxshi yechim, avval xizmat avtobuslarini ko‘paytirishdir."
+    },
+    {
+     "t": "Sonuç olarak bu planı uygulamanızı tavsiye ederim.",
+     "uz": "Xulosa qilib, shu rejani amalga oshirishingizni tavsiya qilaman."
+    }
+   ],
+   "say_native": "Oxirgi qadam tavsiya. Bence en iyi çözüm ..., menimcha eng yaxshi yechim ..., undan keyin fe’lning -mektir shakli: servisleri artırmaktır, xizmat avtobuslarini ko‘paytirishdir. Tavsiye ederim, tavsiya qilaman, undan oldin mashdar va egalik: uygulamanızı tavsiye ederim. Sonuç olarak, xulosa qilib, oxirgi qismni boshlaydi. Bu yüzden önce ..., sonra ... esa bosqichma-bosqich reja beradi. Tavsiyadan keyin albatta bitta sabab ayting, shunda nutqingiz yakunlangan, ishonchli bo‘ladi.",
+   "say": "Bence en iyi çözüm, çöp kutularını artırmaktır. Belediyenin hemen başlamasını tavsiye ederim. Sonuç olarak küçük adımlar büyük fark yaratır.",
+   "say_uz": "Menimcha eng yaxshi yechim axlat qutilarini ko‘paytirishdir. Hokimiyatning darhol boshlashini tavsiya qilaman. Xulosa qilib, kichik qadamlar katta farq yaratadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: ko‘p qavatli uyda shovqin",
+   "emotion": "neutral",
+   "board": [
+    "Ayşe ve Murat",
+    "gürültü · çözüm"
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog, ikki qo‘shni shovqin haqida gaplashadi. Tinglab, muammo nimada, sababi nima va ular qanday yechimga kelishadi, shuni toping. Dialogda taklif qilish va rozi bo‘lish iboralari ko‘p.",
+   "say": "Ayşe: Merhaba komşu, akşam on birden sonra üst kattan çok gürültü geliyor. Murat: Haklısınız, özür dilerim, misafirlerimiz vardı. Ayşe: Bir çözüm bulabilir miyiz? Murat: On ikiden sonra müziği kapatalım. Ayşe: Olur. Ayrıca halı döşeseniz ses daha az gelir. Murat: İyi fikir, yarın bir halı alacağım.",
+   "say_uz": "Ayshe: Salom qo‘shni, kechqurun o‘n birdan keyin yuqori qavatdan juda shovqin keladi. Murat: Haqsiz, kechirasiz, mehmonlarimiz bor edi. Ayshe: Yechim topa olamizmi? Murat: O‘n ikkidan keyin musiqani o‘chiraylik. Ayshe: Bo‘ladi. Bundan tashqari gilam to‘shasangiz, ovoz kamroq keladi. Murat: Yaxshi fikr, ertaga gilam olaman.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: yechim",
+   "title": "Birinchi dialog savollari",
    "emotion": "encouraging",
    "board": [
-    "1) Yechim",
-    "2) Taklif",
-    "3) Tavsiya",
-    "4) Yechim"
+    "1) Sorun ne?",
+    "2) Neden oldu?",
+    "3) Murat hangi çözümü öneriyor?",
+    "4) Ayşe ne öneriyor?"
    ],
    "examples": [],
-   "say_native": "Yechimlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq: yechim\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel. Çözüm.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli. Yechim.",
-   "practice_seconds": 14
+   "say_native": "To‘rtta savol. Birinchi: muammo nima? Ikkinchi: u nega bo‘ldi? Uchinchi: Murat qanday yechim taklif qiladi? To‘rtinchi: Ayshe nimani taklif qiladi? Javoblarni bitta qisqa gap bilan ayting va dialogdagi iboralarni ishlating.",
+   "say": "Sorun nedir? Neden oldu? Murat hangi çözümü öneriyor? Ayşe ne öneriyor?",
+   "say_uz": "Muammo nima? Nega bo‘ldi? Murat qanday yechim taklif qilyapti? Ayshe nimani taklif qilyapti?",
+   "practice_seconds": 16
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: shovqin dialogi",
+   "emotion": "proud",
+   "board": [
+    "Gece gürültü.",
+    "Misafirleri vardı.",
+    "On ikiden sonra müziği kapatmak.",
+    "Halı döşemek."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Muammo kechasi yuqori qavatdan shovqin kelishi. Sababi mehmonlar bo‘lgani, misafirleri vardı. Murat o‘n ikkidan keyin musiqani o‘chirishni taklif qiladi, bu -elim shakli bilan, kapatalım. Ayshe esa gilam to‘shashni maslahat beradi, halı döşeseniz ses daha az gelir. Bunda -se shartli shakl taklifni yumshatadi. Dialog yaxshi tugaydi, chunki ikkala taraf kelishib oladi. Bu muloyim, xushmuomala muammo hal qilish namunasi.",
+   "say": "Gece gelen gürültü sorun oldu. Murat müziği kapatmayı, Ayşe ise halı döşemeyi önerdi. İkisi de bu çözümde anlaştı.",
+   "say_uz": "Kechasi kelayotgan shovqin muammo bo‘ldi. Murat musiqani o‘chirishni, Ayshe esa gilam to‘shashni taklif qildi. Ikkalasi ham bu yechimda kelishdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: hokimiyat yig‘ilishi",
+   "emotion": "neutral",
+   "board": [
+    "Belediye toplantısı",
+    "park sorunu · iki seçenek"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog rasmiyroq, hokimiyat yig‘ilishi. Mavzu: markazda to‘xtash joyi muammosi. Tinglab, muammo nima, ikki variant nima va qaror qanday bo‘lishini aniqlang. Dialogda baholash iboralariga e’tibor bering: maliyeti yüksek, daha ucuz.",
+   "say": "Başkan: Bugünkü konumuz merkezdeki park sorunu. Elif: Park yeri çok az, bu yüzden insanlar yolda bekliyor. Kemal: Çok katlı bir otopark yapılabilir ama maliyeti yüksek. Elif: Alternatif olarak servis hatları artırılabilir; daha ucuz ve hızlı. Başkan: İkisini de değerlendirelim. Önce servisleri artıralım, sonra otopark için bütçe bulalım.",
+   "say_uz": "Rais: Bugungi mavzumiz markazdagi to‘xtash joyi muammosi. Elif: To‘xtash joyi juda kam, shuning uchun odamlar yo‘lda kutadi. Kemal: Ko‘p qavatli to‘xtash joyi qurilishi mumkin, lekin xarajati yuqori. Elif: Muqobil sifatida xizmat yo‘nalishlari oshirilishi mumkin; arzonroq va tez. Rais: Ikkalasini ham baholaylik. Avval xizmatlarni oshiraylik, keyin to‘xtash joyi uchun byudjet topaylik.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: muammo savollari",
+   "title": "Ikkinchi dialog savollari",
    "emotion": "encouraging",
    "board": [
-    "1) Muammo?",
-    "2) Yechim?",
-    "3) Tavsiya?",
-    "4) Bahola?"
+    "1) Sorun ne?",
+    "2) Kemal’in önerisi ve dezavantajı?",
+    "3) Elif’in önerisi ve avantajı?",
+    "4) Başkanın kararı ne?"
    ],
    "examples": [],
-   "say_native": "Muammo savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Savollarni ketma-ketlikda yozing. Bu qism — \"Qo‘shimcha mashq: muammo savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling.",
-   "say": "Sorun? Çözüm? Tavsiye? Değerlendir?",
-   "say_uz": "Muammo? Yechim? Tavsiya? Bahola?",
-   "practice_seconds": 14
+   "say_native": "To‘rtta savol. Birinchi: muammo nima? Ikkinchi: Kemalning taklifi va uning kamchiligi? Uchinchi: Elifning taklifi va ustunligi? To‘rtinchi: rais qanday qaror qabul qiladi? Javoblarda avantaj va dezavantaj so‘zlarini ishlating.",
+   "say": "Sorun nedir? Kemal ne öneriyor ve dezavantajı nedir? Elif ne öneriyor ve avantajı nedir? Başkan ne karar veriyor?",
+   "say_uz": "Muammo nima? Kemal nimani taklif qilyapti va kamchiligi nima? Elif nimani taklif qilyapti va ustunligi nima? Rais qanday qaror qilyapti?",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: hokimiyat yig‘ilishi",
+   "emotion": "proud",
+   "board": [
+    "Merkezde park yeri az.",
+    "Otopark; maliyeti yüksek.",
+    "Servis; ucuz ve hızlı.",
+    "Önce servis, sonra otopark."
+   ],
+   "examples": [],
+   "say_native": "Javoblar. Muammo: markazda to‘xtash joyi kam. Kemal ko‘p qavatli to‘xtash joyini taklif qiladi, kamchiligi xarajati yuqori. Elif xizmat yo‘nalishlarini ko‘paytirishni taklif qiladi, ustunligi arzon va tez. Rais ikkalasini ham baholab, avval xizmatlarni oshirishni, keyin to‘xtash joyi uchun byudjet topishni qaror qiladi. Bu dialog muammo, yechimlar, baholash va tavsiya tartibiga to‘liq mos keladi. Sizning nutqingiz ham shunday bo‘lishi kerak.",
+   "say": "Elif’e göre servis hatları daha ucuz ve hızlı. Başkan önce servisleri artırmaya, sonra otopark için bütçe bulmaya karar verdi.",
+   "say_uz": "Elifning fikricha xizmat yo‘nalishlari arzonroq va tezroq. Rais avval xizmatlarni oshirishga, keyin to‘xtash joyi uchun byudjet topishga qaror qildi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Rozilik va e’tiroz bildirish",
+   "emotion": "thinking",
+   "board": [
+    "Haklısınız · Katılıyorum",
+    "Bence biraz farklı ...",
+    "Ama şunu da düşünmek lazım",
+    "Bu fikre katılmıyorum"
+   ],
+   "examples": [
+    {
+     "t": "Bu fikre kısmen katılıyorum, ama maliyeti de düşünmeliyiz.",
+     "uz": "Bu fikrga qisman qo‘shilaman, lekin xarajatni ham o‘ylashimiz kerak."
+    }
+   ],
+   "say_native": "Yechimlarni muhokama qilganda boshqalarning fikriga rozi bo‘lish yoki muloyim e’tiroz bildirish kerak bo‘ladi. Rozilik: haklısınız, haqsiz, katılıyorum, qo‘shilaman. Qisman rozilik: kısmen katılıyorum, qisman qo‘shilaman. E’tiroz: bence biraz farklı, menimcha biroz boshqacha, ama şunu da düşünmek lazım, lekin buni ham o‘ylash kerak. To‘g‘ridan-to‘g‘ri bu yanlış demang, bu odobsiz eshitiladi. Avval qisman rozilik bildiring, keyin ama bilan o‘z fikringizni qo‘shing. O‘zbekchada ham xuddi shunday muloyim yo‘l tutamiz.",
+   "say": "Bu fikre kısmen katılıyorum, ama maliyeti de düşünmeliyiz. Haklısınız, otopark gerekli. Bence servis hatları da aynı derecede önemli.",
+   "say_uz": "Bu fikrga qisman qo‘shilaman, lekin xarajatni ham o‘ylashimiz kerak. Haqsiz, to‘xtash joyi kerak. Menimcha xizmat yo‘nalishlari ham xuddi shunchalik muhim.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Chekinish va aniqlashtirish iboralari",
+   "emotion": "neutral",
+   "board": [
+    "Yani ... demek istiyorsunuz?",
+    "Tekrar edebilir misiniz?",
+    "Daha açık söyleyeyim",
+    "Örneğin ..."
+   ],
+   "examples": [
+    {
+     "t": "Daha açık söyleyeyim, sorun yalnızca maliyet değil.",
+     "uz": "Aniqroq aytay, muammo faqat xarajat emas."
+    }
+   ],
+   "say_native": "Og‘zaki imtihonda yoki suhbatda tushunmasangiz yoki o‘z fikringizni aniqlashtirmoqchi bo‘lsangiz, tayyor iboralar kerak. Tekrar edebilir misiniz, qaytara olasizmi. Yani ... demek istiyorsunuz, ya’ni ... demoqchisiz. Daha açık söyleyeyim, aniqroq aytay. Örneğin, masalan, misol keltirish uchun. Bu iboralar nutqingizni to‘xtatib qo‘ymaydi, aksincha ravon qiladi. Savolni noto‘g‘ri tushungandan ko‘ra aniqlashtirib olgan yaxshi. Oxirida muhim narsani qisqa takrorlang: kısacası, qisqasi.",
+   "say": "Yani siz otoparkın gereksiz olduğunu mu demek istiyorsunuz? Daha açık söyleyeyim, ikisi de gerekli ama sırası önemli. Örneğin önce servis, sonra otopark.",
+   "say_uz": "Ya’ni siz to‘xtash joyi keraksiz demoqchimisiz? Aniqroq aytay, ikkisi ham kerak, lekin tartibi muhim. Masalan, avval xizmat avtobuslari, keyin to‘xtash joyi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Nutq tuzilmasi: 5 bosqich",
+   "emotion": "thinking",
+   "board": [
+    "1 Sorun",
+    "2 Neden / sonuç",
+    "3 Çözümler",
+    "4 Değerlendirme",
+    "5 Tavsiye"
+   ],
+   "examples": [],
+   "say_native": "Bir daqiqalik nutq uchun besh bosqich. Birinchi: muammoni ayting, sorun şu ki. Ikkinchi: sabab va oqibat, bunun nedeni, yol açıyor. Uchinchi: uchta yechim, birincisi, ikincisi, üçüncüsü. To‘rtinchi: har birini qisqa baholang, avantaj va dezavantaj. Beshinchi: tavsiya, bence en iyi çözüm, çünkü. Vaqtni taqsimlang: muammoga o‘n besh soniya, yechimlarga yigirma besh, baholashga yigirma. Tartib ravshan bo‘lsa, siz ham, tinglovchi ham adashmaydi.",
+   "say": "Önce sorunu söyleyin, sonra nedenini açıklayın. Üç çözüm sunun, hepsini kısaca değerlendirin ve sonunda net bir tavsiye verin.",
+   "say_uz": "Avval muammoni ayting, keyin sababini tushuntiring. Uchta yechim ko‘rsating, hammasini qisqacha baholang va oxirida aniq tavsiya bering.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Namuna: jamoat transporti",
+   "emotion": "happy",
+   "board": [
+    "Toplu taşıma sorunu",
+    "3 çözüm · değerlendirme · tavsiye"
+   ],
+   "examples": [],
+   "say_native": "Endi to‘liq bir daqiqalik namunani tinglang. Besh bosqichni toping: muammo, sabab, uch yechim, baholash va tavsiya. Yechim tartibini bildiruvchi so‘zlarga e’tibor bering: birincisi, ikincisi, üçüncüsü. Siz o‘z nutqingizni shunday tuzishingiz kerak.",
+   "say": "Şehrimizdeki en büyük sorun toplu taşımanın yetersizliği. Otobüsler geç geliyor ve çok kalabalık. Üç çözüm önerebilirim. Birincisi, otobüs sayısını artırmak; etkili ama pahalı. İkincisi, özel şerit açmak; hızlı ve ucuz. Üçüncüsü, bisiklet yollarını genişletmek; sağlıklı ama uzun sürer. Bence en iyi çözüm özel şerit, çünkü ucuz ve çabuk.",
+   "say_uz": "Shahrimizdagi eng katta muammo jamoat transportining yetarli emasligi. Avtobuslar kech keladi va juda gavjum. Uchta yechim taklif qila olaman. Birinchisi, avtobuslar sonini oshirish; samarali, lekin qimmat. Ikkinchisi, maxsus yo‘lak ochish; tez va arzon. Uchinchisi, velosiped yo‘llarini kengaytirish; sog‘lom, lekin uzoq vaqt oladi. Menimcha eng yaxshi yechim maxsus yo‘lak, chunki arzon va tez.",
+   "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: monolog",
+   "title": "O‘z shahringizdagi muammo",
    "emotion": "encouraging",
    "board": [
-    "muammo",
-    "3 yechim"
+    "1) Sorun şu ki ...",
+    "2) Bunun nedeni ...",
+    "3) Üç çözüm",
+    "4) Her çözümün avantajı / dezavantajı",
+    "5) Bence en iyi çözüm ..., çünkü ..."
    ],
    "examples": [],
-   "say_native": "Monologni takrorlab ayting. Har bir gapda bitta fikr bo‘lsin. Takrorlashni Daftar espele yozing. Gaplarni ketma-ketlikda yozing. Bu qism — \"Qo‘shimcha mashq: monolog\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. B1-24 ga oid noyob sharh: bu iborani B1-24 suhbatida aniq qo‘llang.",
-   "say": "Şehir sorunu ve üç çözüm anlat. Çok güzel.",
-   "say_uz": "Shahar muammasi va uchta yechim gapir. Juda chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Asosiy topshiriq. O‘zingiz yashaydigan shahar yoki tumandagi muammoni tanlang: chiqindi, tirbandlik, shovqin, havo yoki boshqa. Besh bosqich bo‘yicha bir daqiqa gapiring: muammo, sabab, uchta yechim, har birining ustunligi yoki kamchiligi va oxirida tavsiya. Taymerni qo‘yib, to‘xtamay gapiring. Agar so‘z topilmasa, to‘ldiruvchi so‘zlardan foydalaning: yani, şöyle söyleyeyim.",
+   "say": "Şehrinizdeki bir sorunu anlatın. Nedenini açıklayın, üç çözüm önerin, değerlendirin ve bir tavsiye verin. Bir dakikanız var.",
+   "say_uz": "Shahringizdagi bir muammoni tushuntiring. Sababini ayting, uchta yechim taklif qiling, baholang va tavsiya bering. Bir daqiqangiz bor.",
+   "practice_seconds": 20
   },
   {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq 5: takrorlash",
-   "emotion": "encouraging",
+   "kind": "explain",
+   "title": "Namunaviy nutq: havo ifloslanishi",
+   "emotion": "proud",
    "board": [
-    "1) Muammo",
-    "2) Qiyinlik",
-    "3) Kelishmovchilik",
-    "4) Muammo"
+    "Sorun: hava kirliliği",
+    "Çözüm: ağaç · araba · enerji",
+    "Tavsiye: ağaç dikmek"
    ],
    "examples": [],
-   "say_native": "Muammolarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq 5: takrorlash\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli. Muammo.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq 6: yechim 2",
-   "emotion": "encouraging",
-   "board": [
-    "1) Yechim",
-    "2) Taklif",
-    "3) Tavsiya",
-    "4) Yechim"
-   ],
-   "examples": [],
-   "say_native": "Yechimlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq 6: yechim 2\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel. Çözüm.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli. Yechim.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: muammo",
-   "emotion": "encouraging",
-   "board": [
-    "1) Muammo",
-    "2) Qiyinlik",
-    "3) Kelishmovchilik",
-    "4) Muammo"
-   ],
-   "examples": [],
-   "say_native": "Muammolarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq: muammo\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Ikkinchi takror — sahna 24 ga oid noyob sharh: uni alohida diqqat bilan takrorlab ayting.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli. Muammo.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: yechim",
-   "emotion": "encouraging",
-   "board": [
-    "1) Yechim",
-    "2) Taklif",
-    "3) Tavsiya",
-    "4) Yechim"
-   ],
-   "examples": [],
-   "say_native": "Yechimlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq: yechim\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Ikkinchi takror — sahna 25 ga oid noyob sharh: uni alohida diqqat bilan takrorlab ayting.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel. Çözüm.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli. Yechim.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: muammo savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) Muammo?",
-    "2) Yechim?",
-    "3) Tavsiya?",
-    "4) Bahola?"
-   ],
-   "examples": [],
-   "say_native": "Muammo savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Savollarni ketma-ketlikda yozing. Bu qism — \"Qo‘shimcha mashq: muammo savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Ikkinchi takror — sahna 26 ga oid noyob sharh: uni alohida diqqat bilan takrorlab ayting.",
-   "say": "Sorun? Çözüm? Tavsiye? Değerlendir?",
-   "say_uz": "Muammo? Yechim? Tavsiya? Bahola?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: monolog",
-   "emotion": "encouraging",
-   "board": [
-    "muammo",
-    "3 yechim"
-   ],
-   "examples": [],
-   "say_native": "Monologni takrorlab ayting. Har bir gapda bitta fikr bo‘lsin. Takrorlashni Daftar espele yozing. Gaplarni ketma-ketlikda yozing. Bu qism — \"Qo‘shimcha mashq: monolog\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Ikkinchi takror — sahna 27 ga oid noyob sharh: uni alohida diqqat bilan takrorlab ayting. B1-24 ga oid noyob sharh: bu iborani B1-24 suhbatida aniq qo‘llang.",
-   "say": "Şehir sorunu ve üç çözüm anlat. Çok güzel.",
-   "say_uz": "Shahar muammasi va uchta yechim gapir. Juda chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq 5: takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "1) Muammo",
-    "2) Qiyinlik",
-    "3) Kelishmovchilik",
-    "4) Muammo"
-   ],
-   "examples": [],
-   "say_native": "Muammolarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq 5: takrorlash\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Ikkinchi takror — sahna 28 ga oid noyob sharh: uni alohida diqqat bilan takrorlab ayting.",
-   "say": "Sorun çok güzel. Zorluk hızlı. Anlaşmazlık güzel. Sorun.",
-   "say_uz": "Muammo juda chiroyli. Qiyinlik tez. Kelishmovchilik chiroyli. Muammo.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq 6: yechim 2",
-   "emotion": "encouraging",
-   "board": [
-    "1) Yechim",
-    "2) Taklif",
-    "3) Tavsiya",
-    "4) Yechim"
-   ],
-   "examples": [],
-   "say_native": "Yechimlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — \"Qo‘shimcha mashq 6: yechim 2\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Ikkinchi takror — sahna 29 ga oid noyob sharh: uni alohida diqqat bilan takrorlab ayting.",
-   "say": "Çözüm çok güzel. Öneri hızlı. Tavsiye güzel. Çözüm.",
-   "say_uz": "Yechim juda chiroyli. Taklif tez. Tavsiya chiroyli. Yechim.",
-   "practice_seconds": 14
+   "say_native": "Namuna: Şehrimizde hava kirliliği ciddi bir sorun. Bunun nedeni, araç sayısının fazla olması. Üç çözüm var: ağaç dikmek, ucuz toplu taşıma sağlamak ve elektrikli araçları desteklemek. Ağaç dikmek ucuz ama yavaş sonuç verir; toplu taşıma daha etkili. Bence en iyi çözüm toplu taşımayı güçlendirmek, çünkü hızlı etki eder. Ko‘rdingizmi, besh bosqich bor va nutq mantiqiy tugallangan. Siz ham o‘z mavzuingizda shunday tuzdingizmi, tekshiring.",
+   "say": "Hava kirliliği ciddi bir sorun. Üç çözüm var: ağaç dikmek, toplu taşımayı güçlendirmek ve elektrikli araçları teşvik etmek. Bence en iyisi toplu taşıma, çünkü hızlı sonuç verir.",
+   "say_uz": "Havo ifloslanishi jiddiy muammo. Uchta yechim bor: daraxt ekish, jamoat transportini kuchaytirish va elektr avtomobillarni rag‘batlantirish. Menimcha eng yaxshisi jamoat transporti, chunki tez natija beradi.",
+   "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Xulosa",
-   "emotion": "proud",
+   "title": "Takrorlash",
+   "emotion": "happy",
    "board": [
-    "Muammo",
-    "Yechim",
-    "Tavsiya"
+    "Sorun şu ki · nedeni · yol açıyor",
+    "-meli · -ebilir · eğer ... -se",
+    "avantaj · dezavantaj · etkili",
+    "Bence en iyi çözüm ..., çünkü ..."
    ],
    "examples": [],
-   "say_native": "Xulosa. Muammo va yechimni o‘rgandik. Har bir mavzuni alohida yodlab olish kerak. Keyingi darsda yakuniy imtihonni o‘rganamiz. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Sorun, çözüm, tavsiye çok güzel.",
-   "say_uz": "Muammo, yechim, tavsiya juda chiroyli.",
+   "say_native": "Takrorlaymiz. Muammoni ayting: sorun şu ki, en büyük sorun, bunun nedeni, yol açıyor. Yechimni taklif qiling: -meli, -ebilir, eğer ... -se, önerebilirim. Baholang: avantaj, dezavantaj, etkili, pahalı, ancak. Tavsiya bering: bence en iyi çözüm ..., tavsiye ederim, sonuç olarak. Besh bosqichni eslang: muammo, sabab, yechimlar, baholash, tavsiya. Bu tuzilma og‘zaki imtihonda ham, ishda ham ishlaydi. Keyingi darsda B1 darajasining yakuniy imtihoni bo‘ladi.",
+   "say": "Sorunu açıkça anlatın, çözümleri değerlendirin ve net bir öneriyle bitirin. Bu yapı her konuda işe yarar.",
+   "say_uz": "Muammoni aniq tushuntiring, yechimlarni baholang va aniq tavsiya bilan tugating. Bu tuzilma har qanday mavzuda ishlaydi.",
    "practice_seconds": 0
   },
   {
@@ -546,127 +574,183 @@
    "title": "Uyga vazifa",
    "emotion": "encouraging",
    "board": [
-    "muammo",
-    "3 yechim"
+    "Şehrinizdeki bir sorun",
+    "3 çözüm",
+    "değerlendirme + tavsiye"
    ],
    "examples": [],
-   "say_native": "Uyga vazifa. Shahringizdagi muammoni va uchta yechimni gapirib yozing. Har bir gapda bitta fikr bo‘lsin. Keyingi darsda yakuniy imtihonni o‘rganamiz. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "Görüşürüz! Hoşça kalın! Çok güzel.",
-   "say_uz": "Ko‘rishguncha! Xayr! Juda chiroyli.",
+   "say_native": "Uyga vazifa: shahringizdagi bitta muammoni va uchta yechimni turkcha tasvirlang, yozma yoki ovoz yozib. Muammoning sababini, har bir yechimning ustunligi va kamchiligini ayting, oxirida tavsiya bering. Muvaffaqiyat mezoni: muammo, sabab, uch yechim, baholash va tavsiya bor, gaplar xatosiz. Yozganingizni ovoz chiqarib o‘qing. Keyingi darsda B1 darajasining yakuniy imtihonini topshirasiz, unga tayyorlaning.",
+   "say": "Ödeviniz şehrinizdeki bir sorunu ve üç çözümü anlatmak. Nedeni, değerlendirmeyi ve tavsiyeyi unutmayın. Bir sonraki derste B1 final sınavı var.",
+   "say_uz": "Uyga vazifangiz shahringizdagi bir muammo va uchta yechimni tushuntirish. Sabab, baholash va tavsiyani unutmang. Keyingi darsda B1 yakuniy imtihoni bor.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Shahringizdagi muammoni va uchta yechimni gapirib yozing. Har bir gapda bitta fikr bo‘lsin. Keyingi darsda yakuniy imtihonni o‘rganamiz.",
+ "homework_uz": "O‘z shahringizdagi bitta muammoni va uchta yechimni turkchada tasvirlang. Muammo sababi, har bir yechimning ustunligi va kamchiligi hamda yakuniy tavsiya bo‘lsin. Ovoz chiqarib o‘qing. Mezon: besh bosqich bor va gaplar xatosiz.",
  "quiz": [
   {
-   "q": "“Muammo” Türkçe nasıl?",
+   "q": "“Muammo shundaki...” turkcha?",
    "options": [
-    "Sorun",
-    "Çözüm",
-    "Öneri",
-    "Tavsiye"
+    "Sorun şu ki ...",
+    "Sorun için ...",
+    "Çözüm şu ki ...",
+    "Sorun ise ..."
    ],
    "answer": 0,
-   "why_uz": "Muammo — sorun."
+   "why_uz": "Sorun şu ki muammoni kiritadi."
   },
   {
-   "q": "“Yechim” Türkçe qanday tarjima qilinadi?",
+   "q": "“Buning sababi” turkcha?",
    "options": [
-    "Çözüm",
-    "Sorun",
-    "Öneri",
-    "Tavsiye"
+    "Bunun nedeni",
+    "Bunun sonucu",
+    "Bu yüzden",
+    "Bunun için"
    ],
    "answer": 0,
-   "why_uz": "Yechim — çözüm."
+   "why_uz": "Bunun nedeni buning sababi."
   },
   {
-   "q": "“Taklif” Türkçe qanday tarjima qilinadi?",
+   "q": "“Havo ifloslanishiga sabab bo‘lmoqda” qaysi?",
    "options": [
-    "Öneri",
-    "Sorun",
-    "Çözüm",
-    "Tavsiye"
+    "Hava kirliliğine yol açıyor.",
+    "Hava kirliliğini yol açıyor.",
+    "Hava kirliliği yol açıyor.",
+    "Hava kirliliğinde yol açıyor."
    ],
    "answer": 0,
-   "why_uz": "Taklif — öneri."
+   "why_uz": "Yol açmak yo‘nalish kelishigi bilan: kirliliğe."
   },
   {
-   "q": "“Bahola” Türkçe qanday tarjima qilinadi?",
+   "q": "“Hokimiyat axlat qutisi qo‘yishi kerak” qaysi?",
    "options": [
-    "Değerlendir",
-    "Sorun",
-    "Çözüm",
-    "Öneri"
+    "Belediye çöp kutusu koymalı.",
+    "Belediye çöp kutusu koymak.",
+    "Belediye çöp kutusu koyabilir değil.",
+    "Belediye çöp kutusu koyduk."
    ],
    "answer": 0,
-   "why_uz": "Bahola — değerlendir."
+   "why_uz": "-malı kerak ma’nosini beradi."
   },
   {
-   "q": "“Tavsiya” Türkçe qanday tarjima qilinadi?",
+   "q": "“Yechim topmoq” qaysi?",
    "options": [
-    "Tavsiye",
-    "Sorun",
-    "Çözüm",
-    "Öneri"
+    "çözüm yapmak",
+    "çözüm bulmak",
+    "çözüm etmek",
+    "çözüm vermek sorun"
    ],
-   "answer": 0,
-   "why_uz": "Tavsiya — tavsiye."
+   "answer": 1,
+   "why_uz": "Çözüm bulmak, sorunu çözmek."
   },
   {
-   "q": "“Shahar” Türkçe qanday tarjima qilinadi?",
+   "q": "“Muammoni hal qilmoq” qaysi?",
    "options": [
-    "Şehir",
-    "Su",
-    "Hava",
-    "Sorun"
+    "sorunu yapmak",
+    "sorunu çözmek",
+    "sorunu bulmak",
+    "sorunu almak"
    ],
-   "answer": 0,
-   "why_uz": "Shahar — şehir."
+   "answer": 1,
+   "why_uz": "Sorunu çözmek muammoni hal qilmoq."
   },
   {
-   "q": "“Suv” Türkçe qanday tarjima qilinadi?",
+   "q": "“Agar chipta arzon bo‘lsa” qaysi?",
    "options": [
-    "Su",
-    "Şehir",
-    "Hava",
-    "Sorun"
+    "Eğer bilet ucuz olursa",
+    "Eğer bilet ucuz olmak",
+    "Eğer bilet ucuzdan",
+    "Eğer bilet ucuz olduğu"
    ],
    "answer": 0,
-   "why_uz": "Suv — su."
+   "why_uz": "Shart: eğer ... olursa."
   },
   {
-   "q": "“Havo” Türkçe qanday tarjima qilinadi?",
+   "q": "“Ustunligi” turkcha?",
    "options": [
-    "Hava",
-    "Su",
-    "Şehir",
-    "Sorun"
+    "dezavantaj",
+    "avantaj",
+    "maliyet",
+    "sorun"
    ],
-   "answer": 0,
-   "why_uz": "Havo — hava."
+   "answer": 1,
+   "why_uz": "Avantaj ustunlik, dezavantaj kamchilik."
   },
   {
-   "q": "“Qiyinlik” Türkçe qanday tarjima qilinadi?",
+   "q": "“Samarali” turkcha?",
    "options": [
-    "Zorluk",
-    "Sorun",
-    "Çözüm",
-    "Öneri"
+    "pahalı",
+    "etkili",
+    "yetersiz",
+    "zorunlu"
    ],
-   "answer": 0,
-   "why_uz": "Qiyinlik — zorluk."
+   "answer": 1,
+   "why_uz": "Etkili samarali."
   },
   {
-   "q": "“Kelishmovchilik” Türkçe qanday tarjima qilinadi?",
+   "q": "“Menimcha eng yaxshi yechim” turkcha?",
    "options": [
-    "Anlaşmazlık",
-    "Zorluk",
-    "Sorun",
-    "Çözüm"
+    "Bence en iyi çözüm",
+    "Bana göre en kötü sorun",
+    "Bu yüzden en iyi",
+    "Sonuç en iyi çözüm"
    ],
    "answer": 0,
-   "why_uz": "Kelishmovchilik — anlaşmazlık."
+   "why_uz": "Bence men uchun, menimcha."
+  },
+  {
+   "q": "“Xulosa qilib” turkcha?",
+   "options": [
+    "Önce",
+    "Sonuç olarak",
+    "Örneğin",
+    "Ancak"
+   ],
+   "answer": 1,
+   "why_uz": "Sonuç olarak xulosani boshlaydi."
+  },
+  {
+   "q": "“Yangi yo‘l qurilishi mumkin” qaysi?",
+   "options": [
+    "Yeni yol yapılabilir.",
+    "Yeni yol yapabilir.",
+    "Yeni yol yapmalı.",
+    "Yeni yol yapıldı."
+   ],
+   "answer": 0,
+   "why_uz": "Majhul nisbat plus -ebilir: yapılabilir."
+  },
+  {
+   "q": "“Arzon, lekin sekin” qaysi?",
+   "options": [
+    "Ucuz ama yavaş",
+    "Ucuz çünkü yavaş",
+    "Ucuz yüzünden yavaş",
+    "Ucuz bu yüzden"
+   ],
+   "answer": 0,
+   "why_uz": "Ama qarama-qarshilik bildiradi."
+  },
+  {
+   "q": "Muammo nutqining to‘g‘ri tartibi?",
+   "options": [
+    "Tavsiya, muammo, sabab",
+    "Muammo, sabab, yechim, baholash, tavsiya",
+    "Yechim, tavsiya, muammo",
+    "Faqat yechim"
+   ],
+   "answer": 1,
+   "why_uz": "Besh bosqich: muammo, sabab, yechimlar, baholash, tavsiya."
+  },
+  {
+   "q": "“Eğer bilinçlenmediği sürece” qanday ma’no beradi?",
+   "options": [
+    "Ongli bo‘lmaguncha",
+    "Ongli bo‘lgandan keyin",
+    "Ongli bo‘lish uchun",
+    "Ongli bo‘lmagani uchun"
+   ],
+   "answer": 0,
+   "why_uz": "-diği sürece ...ekan, ... bo‘lmaguncha ma’nosida."
   }
  ]
 }

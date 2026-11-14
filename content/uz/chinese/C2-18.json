@@ -1,705 +1,314 @@
 {
  "title": "Ommaviy nutq va debat",
- "goal_uz": "Dars oxirida Ommaviy nutq va debat ni o‘rgansiz.",
+ "goal_uz": "Dars oxirida siz xitoy tilida tinglovchilar uchun nutq tuzilmasini (ochilish, asosiy qism, yakun) qura olasiz, debat bosqichlari va qoliplarini bilasiz, raqib dalilini asosli rad etasiz, mantiqiy xatolarni (偷换概念, 以偏概全, 因果倒置) topasiz va ishonchli ohangda so‘zlaysiz. Uy vazifasi: 3 daqiqalik nutq so‘zlash va bitta dalilni rad etish.",
  "vocab": [
-  {
-   "w": "网络 (wǎngluò)",
-   "uz": "tarmoq"
-  },
-  {
-   "w": "联系 (liánxì)",
-   "uz": "aloqa"
-  },
-  {
-   "w": "目标 (mùbiāo)",
-   "uz": "maqsad"
-  },
-  {
-   "w": "学习 (xuéxí)",
-   "uz": "o‘rganish"
-  },
-  {
-   "w": "提高 (tígāo)",
-   "uz": "yaxshilanish"
-  },
-  {
-   "w": "成果 (chéngguǒ)",
-   "uz": "yutuq"
-  },
-  {
-   "w": "职业 (zhíyè)",
-   "uz": "kasb"
-  },
-  {
-   "w": "工作 (gōngzuò)",
-   "uz": "ish"
-  },
-  {
-   "w": "技能 (jìnéng)",
-   "uz": "mahorat"
-  },
-  {
-   "w": "语言 (yǔyán)",
-   "uz": "til"
-  }
+  {"w": "演讲 (yǎnjiǎng)", "uz": "nutq, ma’ruza"},
+  {"w": "辩论 (biànlùn)", "uz": "munozara, debat"},
+  {"w": "立论 (lìlùn)", "uz": "o‘z fikrini asoslash (debatning ochilish nutqi)"},
+  {"w": "驳论 (bólùn)", "uz": "raqib fikrini rad etish"},
+  {"w": "对方辩友 (duìfāng biànyǒu)", "uz": "hurmatli raqib debatchi"},
+  {"w": "偷换概念 (tōuhuàn gàiniàn)", "uz": "tushunchani almashtirib yuborish"},
+  {"w": "以偏概全 (yǐpiān gàiquán)", "uz": "bir qismga qarab umumlashtirish"},
+  {"w": "总结陈词 (zǒngjié chéncí)", "uz": "yakuniy nutq"},
+  {"w": "抑扬顿挫 (yìyáng dùncuò)", "uz": "ohang ko‘tarilib-pasayishi va to‘xtashlari"},
+  {"w": "自信 (zìxìn)", "uz": "o‘ziga ishonch"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Bugun nima qilamiz?",
+   "title": "Minbar va munozara maydoni",
    "emotion": "happy",
-   "board": [
-    "Mavzu",
-    "Tuzilish",
-    "Reja"
-   ],
+   "board": ["演讲 · 辩论", "开场 · 主体 · 结尾", "立论 · 驳论 · 总结", "Uy vazifasi: 3 daqiqalik nutq va rad etish"],
    "examples": [],
-   "say_native": "Salom, o‘quvchilar! Oldingi darsda Mavzuni chuqur rivojlantirish (Part 3 darajasi) mavzusini o‘rgandik. Bugun Ommaviy nutq va debat   ko‘nikma: Speaking mavzusini o‘rganamiz. Dars oxirida Deliver a 3-minute speech and rebut one argument. . Har bir gapda bitta fikr bo‘lsin. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "你好！今天我们学习Ommaviy nutq va debat   ko‘nikma: Speaking，而且非常实用。这非常重要。",
-   "say_uz": "Salom! Bugun mavzuni o‘rgamiz. Juda chiroyli.",
+   "say_native": "Assalomu alaykum! Oldingi darsda javobni chuqur rivojlantirishni o‘rgandik. Bugun ommaviy nutq va debatga o‘tamiz. Bu ikki janrning umumiy tomoni bor: ikkalasida ham siz tinglovchilarni o‘z fikringizga ishontirishingiz kerak. Farqi shundaki, nutqda siz monologni yuritasiz, debatda esa raqibning dalillariga javob berasiz. Bugun to‘rt narsani ko‘ramiz: tinglovchi uchun nutq tuzilmasi, debat formatlari, raqib dalilini rad etish usullari va ishonchli ohang. Oxirida o‘zingiz qisqa nutq va rad etish tayyorlaysiz.",
+   "say": "大家好。今天我们学习两种很有挑战性的表达方式：公开演讲和辩论。演讲要求我们把观点清楚有力地讲给听众，辩论则要求我们既能立论，也能驳论。",
+   "say_uz": "Hammaga salom. Bugun ikki qiyin ifoda turini o‘rganamiz: ommaviy nutq va debat. Nutq fikrni tinglovchilarga aniq va kuchli yetkazishni, debat esa ham o‘z fikrini asoslashni, ham rad etishni talab qiladi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ommaviy lug‘ati",
+   "title": "Nutq tuzilmasi: uch qism",
    "emotion": "neutral",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
-   "examples": [],
-   "say_native": "Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Ommaviy lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Lug‘at misollar",
-   "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
+   "board": ["开场：称呼 + 吸引注意", "主体：三个要点", "结尾：总结 + 号召", "首先 · 其次 · 最后"],
    "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
+    {"t": "我的发言分为三个部分：首先谈现状，其次谈原因，最后谈办法。", "uz": "Nutqim uch qismdan iborat: avval hozirgi holat, keyin sabab, oxirida yechim haqida gapiraman."}
    ],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Lug‘atni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
+   "say_native": "Tinglovchi o‘qiyotgan odam emas, u qaytib o‘qiy olmaydi. Shuning uchun nutq tuzilmasi aniq bo‘lishi kerak. Uch qism: 开场 — ochilish, bunda murojaat va diqqatni tortuvchi boshlanish; 主体 — asosiy qism, odatda uchta tayanch nuqta; 结尾 — yakun, xulosa va chaqiriq. Xitoy nutqida rejani e’lon qilish odat: 我的发言分为三个部分 — «nutqim uch qismdan iborat». 首先, 其次, 最后 yo‘l ko‘rsatkich vazifasini bajaradi. Uchta nuqta eng qulay: ikkitasi kam ko‘rinadi, to‘rttasini esa tinglovchi eslab qolmaydi. Uzbek tilidagi nutq qoidasi bilan mos tushadi.",
+   "say": "我的发言分为三个部分：首先谈现状，其次谈原因，最后谈办法。",
+   "say_uz": "Nutqim uch qismdan iborat: avval hozirgi holat, keyin sabab, oxirida yechim haqida gapiraman.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Asosiy tushuncha",
-   "emotion": "neutral",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Ommaviy nutq va debat   ko‘nikma: Speaking ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Tushuncha misollar",
-   "emotion": "neutral",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "examples": [
-    {
-     "t": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-     "uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli."
-    }
-   ],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tushunchani ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) yaxshilanish",
-    "2) yutuq",
-    "3) kasb",
-    "4) ish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt tushunchani ayting. Har bir gapda shaklni ishlating. Javobni to‘liq gapda ayting. Bu qism — tushunchani aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Tushunchani ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: yaxshilanish. yutuq. kasb. ish. Tushunchalar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ikkinchi tushuncha",
+   "title": "Ochilish: murojaat va ilmoq",
    "emotion": "thinking",
-   "board": [
-    "tushuncha",
-    "farq",
-    "misol"
+   "board": ["尊敬的各位老师、亲爱的同学们", "女士们、先生们", "提问 · 数据 · 故事", "点明题目"],
+   "examples": [
+    {"t": "各位朋友，大家好！请先允许我问大家一个问题：如果明天手机突然没有了网络，你会感到不安吗？", "uz": "Do‘stlar, salom! Avval bir savol berishga ruxsat bering: agar ertaga telefonda to‘satdan internet bo‘lmasa, o‘zingizni bezovta his qilasizmi?"}
    ],
-   "examples": [],
-   "say_native": "Ommaviy nutq va debat   ko‘nikma: Speaking ning ikkinchi tushunchasini bilib oling. Farqini ajratib oling. Har bir shaklni alohida yozing. Bu qism — ikkinchi tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Ikkinchi tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
+   "say_native": "Ochilish ikki vazifani bajaradi: tinglovchi bilan aloqa o‘rnatish va diqqatini tortish. Murojaat auditoriyaga qarab tanlanadi: rasmiy muhitda 尊敬的各位领导、各位来宾, o‘qituvchi va talabalar oldida 尊敬的各位老师、亲爱的同学们, umumiy yig‘inda 女士们、先生们. Keyin «ilmoq»: savol, hayratlanarli raqam yoki qisqa hikoya. Masalan, tinglovchiga to‘g‘ridan-to‘g‘ri savol berish ularni faol qiladi. Ilmoqdan keyin mavzuni darhol ayting: 今天我演讲的题目是…… «bugungi nutqimning mavzusi …». Ochilishni uzaytirmang, yigirma-o‘ttiz soniya yetarli, ya’ni uch daqiqalik nutqda taxminan o‘n foiz.",
+   "say": "各位朋友，大家好！请先允许我问大家一个问题：如果明天手机突然没有了网络，你会感到不安吗？",
+   "say_uz": "Do‘stlar, salom! Avval bir savol berishga ruxsat bering: agar ertaga telefonda to‘satdan internet bo‘lmasa, o‘zingizni bezovta his qilasizmi?",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Farq misollar",
+   "title": "Tinglash: nutqning ochilishi",
    "emotion": "neutral",
-   "board": [
-    "ish",
-    "mahorat",
-    "til"
-   ],
+   "board": ["题目：我们该如何与网络相处", "提问 + 点题", "首先 · 其次 · 最后", "tuzilmani toping"],
+   "examples": [],
+   "say_native": "Endi nutqning ochilish qismini tinglang. Unda murojaat, ilmoq, mavzu va reja bor. Tinglang va ularni ajrating. Shuningdek, nutq qanday ohangda, ya’ni qayerda savol, qayerda rasmiy e’lon ekaniga e’tibor bering. Keyin savollarga javob berasiz.",
+   "say": "尊敬的各位老师，亲爱的同学们，大家好！如果明天手机突然没有了网络，你会感到不安吗？我想，大多数人的答案是肯定的。今天我演讲的题目是《我们该如何与网络相处》。我将从三个方面谈谈我的看法：它的好处、它的代价，以及我们的选择。",
+   "say_uz": "Hurmatli o‘qituvchilar, aziz do‘stlar, salom! Ertaga telefonda to‘satdan internet bo‘lmasa, bezovta bo‘lasizmi? Menimcha, ko‘pchilikning javobi ha. Bugungi nutqim mavzusi «Internet bilan qanday yashashimiz kerak». Fikrimni uch tomondan gapiraman: uning foydasi, uning bahosi va bizning tanlovimiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ochilishni tahlil qiling",
+   "emotion": "thinking",
+   "board": ["1 称呼是什么？", "2 吸引听众的方法是什么？", "3 题目是什么？", "4 三个方面是什么？"],
+   "examples": [],
+   "say_native": "To‘rtta savol. Birinchi: nutq qanday murojaat bilan boshlandi? Ikkinchi: tinglovchi diqqatini tortish uchun qanday usul ishlatildi? Uchinchi: nutq mavzusi nima? To‘rtinchi: spiker qaysi uch tomondan gapirishni va’da qildi? Javoblar keyingi sahnada.",
+   "say": "请回答：第一，演讲者用了什么称呼？第二，用什么方法吸引听众？第三，题目是什么？第四，他将从哪三个方面来谈？",
+   "say_uz": "Javob bering: spiker qanday murojaat ishlatdi? Tinglovchini qanday jalb qildi? Mavzu nima? U qaysi uch tomondan gapirmoqchi?",
+   "practice_seconds": 100
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: ochilish tahlili",
+   "emotion": "proud",
+   "board": ["1 尊敬的各位老师，亲爱的同学们", "2 提问", "3 《我们该如何与网络相处》", "4 好处 · 代价 · 选择"],
    "examples": [
-    {
-     "t": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-     "uz": "ish juda chiroyli. mahorat tez. til chiroyli."
-    }
+    {"t": "演讲者先称呼听众，再用提问引起兴趣，然后点明题目并预告结构。", "uz": "Spiker avval auditoriyaga murojaat qildi, savol bilan qiziqish uyg‘otdi, so‘ng mavzuni aytib, tuzilmani oldindan ma’lum qildi."}
    ],
-   "say_native": "Farq misollarini o‘qib, har birini takrorlang. Farqlarni ajrating. Bu qism — farq misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Farq misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
+   "say_native": "Javoblar. Birinchi: «hurmatli o‘qituvchilar, aziz do‘stlar», maktab auditoriyasiga mos. Ikkinchi: tinglovchiga savol, ularning shaxsiy tajribasiga tegadigan. Uchinchi: mavzu «Internet bilan qanday yashashimiz kerak». To‘rtinchi: foyda, narx va tanlov. Keyingi qadamda reja xotirada qoladi, tinglovchi nutq qayerga ketayotganini biladi. E’tibor bering: nutq «大多数人的答案是肯定的» deb ehtiyotkor, ya’ni 大多数 ishlatgan. Bu oldingi darsda o‘rgangan mutlaq so‘zlardan qochish odatiga mos. Nutqda ham ishonchlilik aniqlikdan keladi.",
+   "say": "演讲者先称呼听众，再用提问引起兴趣，然后点明题目并预告结构。",
+   "say_uz": "Spiker avval auditoriyaga murojaat qildi, savol bilan qiziqish uyg‘otdi, so‘ng mavzuni aytib, tuzilmani oldindan ma’lum qildi.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Farqni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "To‘rt farqni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — farqni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Farqni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Farqlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Lug‘atlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: lug‘at\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Farqlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: farq\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
-   ],
-   "examples": [],
-   "say_native": "Matn savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Matn matni",
+   "title": "Asosiy qism: uch tayanch nuqta",
    "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
+   "board": ["首先 · 其次 · 最后", "每点：观点 + 例子", "排比：它让……，它让……，它让……", "过渡句"],
    "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
+    {"t": "网络让我们看到更大的世界，让我们认识更多的朋友，也让我们更快地学到新知识。", "uz": "Internet bizga kengroq dunyoni ko‘rsatadi, ko‘proq do‘st orttirishga yordam beradi va yangi bilimlarni tezroq o‘rganishga imkon beradi."},
+    {"t": "说完了好处，我们再来看看它的代价。", "uz": "Foydasini aytib bo‘ldik, endi uning bahosiga qaraymiz."}
    ],
-   "say_native": "Matn matnini o‘qib, har birini takrorlang. Qismlarni ajrating. Bu qism — matn matniga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Matn matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Asosiy qismda har bir tayanch nuqta bir fikr va bir misoldan iborat bo‘lsin. Nutqning o‘ziga xos vositasi — 排比, ya’ni parallel tuzilma: «它让……，它让……，它让……» — «u bizga … beradi, … beradi, … beradi». Uch marta takrorlanuvchi tuzilma ritm beradi va esda qoladi. Nuqtalar orasida 过渡句, ya’ni o‘tish gapi: 说完了好处，我们再来看看它的代价 — «foydani aytdik, endi bahosiga qaraymiz». O‘tish gapi tinglovchini yo‘ldan adashtirmaydi. Esse yozishdan farqli, nutqda gaplar qisqaroq va takror ko‘proq bo‘ladi, chunki tinglovchi qayta o‘qiy olmaydi.",
+   "say": "网络让我们看到更大的世界，让我们认识更多的朋友，也让我们更快地学到新知识。说完了好处，我们再来看看它的代价。",
+   "say_uz": "Internet bizga kengroq dunyoni ko‘rsatadi, ko‘proq do‘st orttirishga yordam beradi va yangi bilimlarni tezroq o‘rganishga imkon beradi. Foydasini aytib bo‘ldik, endi uning bahosiga qaraymiz.",
    "practice_seconds": 0
   },
   {
-   "kind": "practice",
-   "title": "Matn savollari",
+   "kind": "explain",
+   "title": "Yakun: xulosa va chaqiriq",
    "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
+   "board": ["总结观点", "号召：让我们……", "金句 · 回应开头", "谢谢大家"],
+   "examples": [
+    {"t": "各位朋友，网络本身没有对错，对错在于使用它的人。让我们学会放下手机，抬起头来，真诚地看一看身边的人。谢谢大家！", "uz": "Do‘stlar, internetning o‘zi to‘g‘ri ham, noto‘g‘ri ham emas, bu foydalanuvchiga bog‘liq. Keling, telefonni qo‘yib, boshimizni ko‘tarib, yoningizdagi odamlarga samimiy boqishni o‘rganaylik. E’tiboringiz uchun rahmat!"}
    ],
-   "examples": [],
-   "say_native": "To‘rt matn savoliga javob bering. Har bir javobni to‘liq gapda ayting. Bu qism — matn savollariga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
+   "say_native": "Yakun nutqning eng esda qoladigan qismi. Uch element bor. Birinchi: asosiy fikrni bir gapda takrorlash. Ikkinchi: chaqiriq, 让我们…… — «keling, …». U tinglovchini harakatga undaydi. Uchinchi: boshlanishga qaytish. Agar ochilishda savol bergan bo‘lsangiz, yakunda unga javob bering, shunda nutq doira yopiladi. Mashhur yakunlovchi gap, 金句, qisqa va mazmunli bo‘ladi: «对错在于使用它的人». Eng so‘nggi gap 谢谢大家 odatiy. Yangi dalil keltirmang va uzr so‘ramang. Xitoy nutqida yakun odatda ijobiy va umidbaxsh ohangda bo‘ladi.",
+   "say": "各位朋友，网络本身没有对错，对错在于使用它的人。让我们学会放下手机，抬起头来，真诚地看一看身边的人。谢谢大家！",
+   "say_uz": "Do‘stlar, internetning o‘zi to‘g‘ri ham, noto‘g‘ri ham emas, bu foydalanuvchiga bog‘liq. Keling, telefonni qo‘yib, boshimizni ko‘tarib, yoningizdagi odamlarga samimiy boqishni o‘rganaylik. E’tiboringiz uchun rahmat!",
+   "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
+   "title": "Debat formati: 辩论赛 bosqichlari",
+   "emotion": "neutral",
+   "board": ["正方 · 反方 · 辩题", "立论陈词", "攻辩 / 质询", "自由辩论 · 总结陈词"],
+   "examples": [
+    {"t": "辩论赛由立论、质询、自由辩论和总结陈词几个环节组成。", "uz": "Debat musobaqasi asoslash, so‘rov, erkin munozara va yakuniy nutq bosqichlaridan iborat."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Matn savollariga javob berildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
+   "say_native": "Xitoy tilidagi rasmiy debat, ya’ni 辩论赛, ikki jamoadan iborat: 正方 — mavzuni qo‘llab-quvvatlovchi, 反方 — qarshi. Mavzu 辩题 deyiladi, masalan, «Internet odamni yolg‘izroq qiladimi». Odatiy bosqichlar: 立论陈词 — har bir jamoa o‘z fikrini asoslaydi; 质询 yoki 攻辩 — raqibga savollar berish; 自由辩论 — ikki jamoa navbat bilan tez-tez gapiradi; 总结陈词 — yakuniy nutq. Debatchilar 一辩, 二辩, 三辩, 四辩 deb nomlanadi, ya’ni birinchi, ikkinchi, uchinchi va to‘rtinchi debatchi. Chair, ya’ni 主席, tartibni boshqaradi, hakamlar esa 评委. Formatlar musobaqaga qarab farq qiladi, shuning uchun qoidalarni oldindan aniqlab oling.",
+   "say": "辩论赛由立论、质询、自由辩论和总结陈词几个环节组成。正方支持辩题，反方反对辩题，评委根据双方的表现打分。",
+   "say_uz": "Debat musobaqasi asoslash, so‘rov, erkin munozara va yakuniy nutq bosqichlaridan iborat. Ijobiy tomon mavzuni qo‘llaydi, salbiy tomon unga qarshi chiqadi, hakamlar ikki tomon chiqishiga qarab ball qo‘yadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Debat qoliplari va muloyimlik",
+   "emotion": "thinking",
+   "board": ["对方辩友 · 请问对方辩友", "我方认为 · 我方的观点是", "谢谢主席，谢谢评委", "值得商榷 · 站不住脚"],
+   "examples": [
+    {"t": "谢谢主席，各位评委，对方辩友。我方的观点是：网络拉近了人与人之间的距离。", "uz": "Rahmat, raisga, hakamlarga va raqib debatchiga. Bizning fikrimiz: internet odamlar orasidagi masofani qisqartiradi."},
+    {"t": "请问对方辩友，视频通话让千里之外的家人天天见面，这也是孤独吗？", "uz": "Raqib debatchidan so‘rayman: video qo‘ng‘iroq uzoqdagi oila a’zolarini har kuni uchrashtirsa, bu ham yolg‘izlikmi?"}
+   ],
+   "say_native": "Debatning o‘z qoliplari bor. Raqibga murojaat 对方辩友 — «hurmatli raqib debatchi», u do‘stona, lekin rasmiy. O‘z jamoangizdan gapirganda 我方 — «bizning tomon» va 我方认为 ishlatiladi. Savol berganda 请问对方辩友 — «raqib debatchidan so‘rayman». Boshlanishda 谢谢主席, 谢谢评委 aytiladi. Raqib fikriga e’tiroz uchun kuchli, lekin hurmatli iboralar: 值得商榷 «muhokamaga arziydi», 站不住脚 «asosga ega emas». Shaxsni emas, fikrni tanqid qiling. Qoida shunday: muloyim til dalil kuchini kamaytirmaydi, aksincha, hakamga ishonchli taassurot beradi.",
+   "say": "谢谢主席，各位评委，对方辩友。我方的观点是：网络拉近了人与人之间的距离。请问对方辩友，视频通话让千里之外的家人天天见面，这也是孤独吗？",
+   "say_uz": "Rahmat, raisga, hakamlarga va raqib debatchiga. Bizning fikrimiz: internet odamlar orasidagi masofani qisqartiradi. Raqib debatchidan so‘rayman: video qo‘ng‘iroq uzoqdagi oila a’zolarini har kuni uchrashtirsa, bu ham yolg‘izlikmi?",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Rad etishning to‘rt qadami",
+   "emotion": "stern",
+   "board": ["1 复述对方观点", "2 指出问题", "3 给出反证", "4 回到我方论点"],
+   "examples": [
+    {"t": "对方辩友认为网络让人更孤独。但这个说法有一个问题：他只看到了独处的人，却忽略了通过网络重新联系上亲友的人。因此，我方的观点依然成立。", "uz": "Raqib debatchi internet odamni yolg‘izroq qiladi deb hisoblaydi. Lekin bu fikrda bitta muammo bor: u faqat yolg‘iz qolganlarni ko‘rdi, internet orqali yaqinlari bilan qayta bog‘langanlarni e’tiborsiz qoldirdi. Shuning uchun bizning fikrimiz o‘z kuchida."}
+   ],
+   "say_native": "Raqib dalilini rad etish to‘rt qadamli. Birinchi: uning fikrini adolatli takrorlang, 对方辩友认为……. Bu sizning uni tinglaganingizni ko‘rsatadi. Ikkinchi: muammoni ko‘rsating, 但这个说法有一个问题. Uchinchi: qarshi dalil yoki misol keltiring. To‘rtinchi: o‘z fikringizga qayting, 因此，我方的观点依然成立. Shu tartibni bajarsangiz, rad etishingiz tartibli va ishonarli eshitiladi. Foydali qo‘shimcha usul: 退一步说 — «bir qadam orqaga chekinib aytsak», ya’ni raqib haq bo‘lsa ham, baribir sizning fikringiz kuchda. Misol: 即便如此，……也…….",
+   "say": "对方辩友认为网络让人更孤独。但这个说法有一个问题：他只看到了独处的人，却忽略了通过网络重新联系上亲友的人。因此，我方的观点依然成立。",
+   "say_uz": "Raqib debatchi internet odamni yolg‘izroq qiladi deb hisoblaydi. Lekin bu fikrda bitta muammo bor: u faqat yolg‘iz qolganlarni ko‘rdi, internet orqali yaqinlari bilan qayta bog‘langanlarni e’tiborsiz qoldirdi. Shuning uchun bizning fikrimiz o‘z kuchida.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Mantiqiy xatolarni topish",
+   "emotion": "thinking",
+   "board": ["偷换概念：独处 → 孤独", "以偏概全：个别 → 全部", "因果倒置：先后颠倒", "指出 + 举例"],
+   "examples": [
+    {"t": "对方辩友把独处和孤独混为一谈，这是偷换概念；仅凭几个例子就下结论，则是以偏概全。", "uz": "Raqib debatchi tanho qolish bilan yolg‘izlik tuyg‘usini aralashtirdi, bu tushunchani almashtirish; bir necha misolga qarab xulosa chiqarish esa bir qismga qarab umumlashtirish."}
+   ],
+   "say_native": "Mantiqiy xatolarni tanish rad etishning eng kuchli quroli. Birinchi: 偷换概念 — muhim so‘zning ma’nosini o‘rtada o‘zgartirib yuborish. Masalan, 独处 «yolg‘iz vaqt o‘tkazish» va 孤独 «yolg‘izlik tuyg‘usi» bir narsa emas. Ikkinchi: 以偏概全 — bir necha misolga qarab hammaga xulosa chiqarish. Uchinchi: 因果倒置 — sabab va oqibatni almashtirish, masalan, telefonga ko‘p qaraydiganlar yolg‘iz bo‘lib qoladi emas, yolg‘iz odamlar telefonga ko‘proq qaraydi deb ham aytish mumkin. Xatoni aniq nom bilan atang, keyin qisqa misol bilan ko‘rsating. Shunda hakam sizning tahlilingizni ko‘radi.",
+   "say": "对方辩友把独处和孤独混为一谈，这是偷换概念；仅凭几个例子就下结论，则是以偏概全。",
+   "say_uz": "Raqib debatchi tanho qolish bilan yolg‘izlik tuyg‘usini aralashtirdi, bu tushunchani almashtirish; bir necha misolga qarab xulosa chiqarish esa bir qismga qarab umumlashtirish.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Keng tarqalgan xatolar",
+   "title": "Debatdagi tipik xatolar",
    "emotion": "stern",
-   "board": [
-    "✗ tarmoq aloqa emas",
-    "✗ maqsad o‘rganish emas",
-    "✗ Ommaviy"
+   "board": ["✗ 你胡说！", "✓ 对方辩友的说法值得商榷。", "✗ 人身攻击", "✓ 针对观点，不针对人"],
+   "examples": [
+    {"t": "对方辩友的说法值得商榷，因为他没有提供任何数据来支持自己的结论。", "uz": "Raqib debatchining fikri muhokamaga arziydi, chunki u o‘z xulosasini qo‘llab-quvvatlaydigan hech qanday ma’lumot keltirmadi."}
    ],
+   "say_native": "Debatda uchta tipik xato bor. Birinchi: qo‘pol til, 你胡说 «bema’nilik gapiryapsiz». Bu hakamda yomon taassurot qoldiradi, o‘rniga 值得商榷 yoki 站不住脚 deng. Ikkinchi: 人身攻击 — raqibning shaxsiga hujum qilish, masalan, «siz hali yoshsiz». Fikrni tanqid qiling, shaxsni emas. Uchinchi: savolga javob bermay, boshqa mavzuga o‘tib ketish. Hakam buni qochish deb baholaydi. Agar savolga javobingiz qiyin bo‘lsa, qisqa tan oling va o‘z dalilingizga qayting. Mantiqli va hurmatli debatchi har doim ishonchliroq ko‘rinadi, hatto yutqazganda ham.",
+   "say": "对方辩友的说法值得商榷，因为他没有提供任何数据来支持自己的结论。我们讨论的是观点，而不是个人。",
+   "say_uz": "Raqib debatchining fikri muhokamaga arziydi, chunki u o‘z xulosasini qo‘llab-quvvatlaydigan hech qanday ma’lumot keltirmadi. Biz fikrni muhokama qilyapmiz, shaxsni emas.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: qisqa debat almashinuvi",
+   "emotion": "neutral",
+   "board": ["正方 · 反方", "以偏概全 · 偷换概念", "请问 · 退一步说", "kim qanday rad etdi?"],
    "examples": [],
-   "say_native": "Ommaviy nutq va debat   ko‘nikma: Speaking so‘zlarida uchraydigan uchta xato: ma’no adashtirish. Har bir xatoni tuzating. Bu qism — xatolarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Endi qisqa debat almashinuvini tinglang. Mavzu: internet odamni yolg‘izroq qiladimi. Ijobiy tomon salbiy tomonning dalilini rad etadi, salbiy tomon esa javob beradi. Tinglang va aniqlang: qaysi mantiqiy xato ko‘rsatildi, kim savol berdi va javob qanday qurildi. Keyin savollarga javob berasiz.",
+   "say": "正方：对方辩友说网络让人更孤独，可是，视频通话让千里之外的家人天天见面，这也是孤独吗？反方：对方辩友以偏概全了。我方说的是，把大量时间花在网络上，会减少面对面的交流。退一步说，即便视频能见面，也代替不了拥抱。",
+   "say_uz": "Ijobiy tomon: Raqib debatchi internet odamni yolg‘izroq qiladi deydi, lekin video qo‘ng‘iroq uzoqdagi oilani har kuni uchrashtirsa, bu ham yolg‘izlikmi? Salbiy tomon: Raqib debatchi bir qismga qarab umumlashtirdi. Biz internetga ko‘p vaqt sarflash yuzma-yuz muloqotni kamaytiradi, deymiz. Bir qadam chekinsak ham, video uchrashuv quchoqni almashtirmaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatolarni tuzating",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq aloqa emas",
-    "2) maqsad o‘rganish emas",
-    "3) Ommaviy",
-    "4) tarmoq"
-   ],
+   "title": "Debat parchasini tahlil qiling",
+   "emotion": "thinking",
+   "board": ["1 正方怎样提问？", "2 反方指出什么错误？", "3 “退一步说”的作用？", "4 谁的论证更有说服力，为什么？"],
    "examples": [],
-   "say_native": "To‘rt xatoni tuzating. Har biriga to‘g‘ri shakl yozing. Javobni to‘liq gapda ayting. Bu qism — xatolarni tuzatishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
-   "practice_seconds": 12
+   "say_native": "To‘rtta savol. Birinchi: ijobiy tomon raqibga qanday savol berdi? Ikkinchi: salbiy tomon qaysi mantiqiy xatoni ko‘rsatdi? Uchinchi: «退一步说» iborasi qanday vazifa bajardi? To‘rtinchi: sizningcha, kimning dalili kuchliroq va nega? Javobingizda aniq so‘z keltiring. Javoblar keyingi sahnada.",
+   "say": "请回答：第一，正方是怎样提问的？第二，反方指出了什么错误？第三，退一步说起什么作用？第四，你觉得谁的论证更有说服力，为什么？",
+   "say_uz": "Javob bering: ijobiy tomon qanday savol berdi? Salbiy tomon qaysi xatoni ko‘rsatdi? «退一步说» qanday vazifa bajardi? Kimning dalili kuchliroq va nega?",
+   "practice_seconds": 130
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: debat tahlili",
    "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "tarmoq"
+   "board": ["1 反问：这也是孤独吗？", "2 以偏概全", "3 让步后仍坚持", "4 看是否回应了对方"],
+   "examples": [
+    {"t": "反方先指出对方以偏概全，再退一步承认视频的作用，最后用拥抱这个例子回到自己的论点。", "uz": "Salbiy tomon avval raqibning bir qismga qarab umumlashtirganini ko‘rsatdi, keyin videoning rolini tan oldi, oxirida quchoq misoli bilan o‘z fikriga qaytdi."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. tarmoq. Xatolar tuzatildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
+   "say_native": "Javoblar. Birinchi: ijobiy tomon ritorik savol berdi, «bu ham yolg‘izlikmi?», ya’ni javob oldindan ma’lum, lekin raqibni qiyin ahvolga qo‘yadi. Ikkinchi: salbiy tomon 以偏概全 xatosini ko‘rsatdi: bir misolga qarab umumiy xulosa. Uchinchi: 退一步说 — qisman tan olish. Salbiy tomon video foydali ekanini tan oldi, lekin 即便……也…… bilan o‘z fikrini saqlab qoldi. To‘rtinchi: ikkalasi ham kuchli, lekin salbiy tomon raqib dalilini qabul qilib, undan o‘tib ketdi, bu odatda hakamga ko‘proq yoqadi. Rad etishda qarshi tomonning eng kuchli nuqtasini tan olish zaiflik emas, kuchdir.",
+   "say": "反方先指出对方以偏概全，再退一步承认视频的作用，最后用拥抱这个例子回到自己的论点。",
+   "say_uz": "Salbiy tomon avval raqibning bir qismga qarab umumlashtirganini ko‘rsatdi, keyin videoning rolini tan oldi, oxirida quchoq misoli bilan o‘z fikriga qaytdi.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yakuniy vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "takrorlash",
-    "yakun"
-   ],
-   "examples": [],
-   "say_native": "Yakuniy vazifani bajaring: Deliver a 3-minute speech and rebut one argument. . Har bir gapda bitta fikr bo‘lsin. Bu qism — yakuniy vazifaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Yakuniy vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。练习很重要。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez. Amaliyot chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Yakun",
-    "Takrorlash"
+   "title": "Ishonchli yetkazish",
+   "emotion": "encouraging",
+   "board": ["语速：适中 · 重点放慢", "停顿：强调前后", "抑扬顿挫", "目光 · 手势 · 站姿"],
+   "examples": [
+    {"t": "说到最关键的一句话时，请放慢语速，停顿一秒，再看着听众慢慢说出来。", "uz": "Eng muhim gapga kelganda tezlikni pasaytiring, bir soniya to‘xtang va tinglovchiga qarab sekin ayting."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: Yakun. Takrorlash. Vazifa tayyor bo‘ldi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez.",
+   "say_native": "Ishonchli yetkazish to‘rt narsadan iborat. Birinchi: tezlik, ya’ni 语速. Odatiy tezlik o‘rtacha, lekin eng muhim gapni sekinlashtiring. Ikkinchi: pauza, 停顿: asosiy fikr oldidan va keyin bir soniya to‘xtash uni ta’kidlaydi. Uchinchi: 抑扬顿挫, ya’ni ohang ko‘tarilishi va pasayishi, to‘xtashlar. Bir xil ohang tinglovchini uxlatadi. Xitoy tilida ton o‘zgarmasligi kerak, lekin gapning umumiy ohangi, balandligi va urg‘usi o‘zgaradi. To‘rtinchi: ko‘z bilan aloqa, qo‘l harakatlari va tik tayanch holati. Asabiylikda chuqur nafas oling va sekin boshlang. Qo‘rquv emas, tayyorgarlik ishonch beradi.",
+   "say": "说到最关键的一句话时，请放慢语速，停顿一秒，再看着听众慢慢说出来。声音要有抑扬顿挫，不能一直用同一种语调。",
+   "say_uz": "Eng muhim gapga kelganda tezlikni pasaytiring, bir soniya to‘xtang va tinglovchiga qarab sekin ayting. Ovozda ko‘tarilish-pasayish bo‘lishi kerak, hamma vaqt bir xil ohangda gapirib bo‘lmaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
+   "title": "Yetkazishni mashq qiling",
+   "emotion": "thinking",
+   "board": ["对错在于使用它的人。", "1 慢速 + 停顿", "2 重读“人”", "3 看向“听众”"],
    "examples": [],
-   "say_native": "Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Ommaviy lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: lug‘at — C2-18 ga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Mashq: «对错在于使用它的人» gapini uch xil usulda ayting. Birinchi: sekin tezlikda va 在于 dan keyin pauza bilan. Ikkinchi: oxirgi so‘z 人 ga urg‘u berib. Uchinchi: tinglovchiga qarab, ya’ni ko‘zni oldingizda bor deb tasavvur qilib. Qaysi variant eng kuchli eshitiladi? Ovozingizni yozib oling va tinglang. Javob keyingi sahnada.",
+   "say": "请用三种方式说这句话：慢速并停顿，重读人字，看着听众说。哪一种最有力？对错在于使用它的人。",
+   "say_uz": "Bu gapni uch usulda ayting: sekin va pauza bilan, «odam» so‘ziga urg‘u bilan, tinglovchiga qarab. Qaysi biri kuchliroq?",
+   "practice_seconds": 120
   },
   {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "examples": [],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: farq — C2-18 ga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: matn savollari — C2-18 ga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: takrorlash — C2-18 ga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: savollar 2",
-   "emotion": "encouraging",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Ommaviy nutq va debat   ko‘nikma: Speaking ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: savollar 2 — C2-18 ga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: yakuniy",
-   "emotion": "encouraging",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "examples": [],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: yakuniy — C2-18 ga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa",
+   "kind": "explain",
+   "title": "Javob: yetkazish natijasi",
    "emotion": "proud",
-   "board": [
-    "Xulosa",
-    "takrorlash"
+   "board": ["停顿 → 期待", "重读“人” → 重点", "目光 → 联系", "三者结合最有力"],
+   "examples": [
+    {"t": "最有力的说法，是把停顿、重音和目光结合在一起。", "uz": "Eng kuchli usul pauza, urg‘u va nigohni birlashtirishdir."}
    ],
+   "say_native": "Javob: uchala usul ham ishlaydi, lekin eng kuchlisi ularning birikmasi. Pauza kutish tuyg‘usini yaratadi, urg‘u asosiy so‘zni ko‘rsatadi, ko‘z bilan aloqa esa tinglovchi bilan bog‘lanishni beradi. Yozib olingan ovozni tinglaganingizda uch narsaga e’tibor bering: takror so‘zlar, ya’ni «hmm», 那个, 就是 kabi to‘ldiruvchilar, juda tez tezlik va monoton ohang. Ko‘pchilik o‘z ovozini birinchi marta eshitganda hayron bo‘ladi, bu normal. Bir hafta ichida tuzatsangiz, farq sezilarli bo‘ladi. Eng yaxshi mashq: ovoz chiqarib, yozib va qayta tinglab.",
+   "say": "最有力的说法，是把停顿、重音和目光结合在一起。录下自己的声音再听一遍，是最有效的练习方法。",
+   "say_uz": "Eng kuchli usul pauza, urg‘u va nigohni birlashtirishdir. O‘z ovozingizni yozib, qayta tinglash eng samarali mashq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ijodiy topshiriq: nutq va rad etish",
+   "emotion": "encouraging",
+   "board": ["辩题：大学生应该先工作还是先读研？", "1 开场 + 三个要点 + 结尾", "2 驳论：复述 · 问题 · 反证", "3 抑扬顿挫"],
    "examples": [],
-   "say_native": "Xulosa. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusini o‘rgandik. Har bir mavzuni alohida yodlab olish kerak. Keyingi darsda C2-19 Tarjima va ikki tilli fikrlash ni o‘rganamiz. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是总结，而且非常实用。复习很快。",
-   "say_uz": "Xulosa juda chiroyli. Takrorlash tez.",
+   "say_native": "Yakuniy topshiriq. Mavzu: «Talaba avval ishlashi kerakmi yoki magistraturada o‘qishi kerakmi?» Bir tomonni tanlang va qisqa nutq tayyorlang: ochilish, uchta tayanch nuqta va yakun. Keyin raqibning bitta dalilini tasavvur qiling, masalan, «ish tajribasi muhimroq», va uni to‘rt qadamda rad eting: takrorlash, muammo, qarshi dalil va o‘z fikringizga qaytish. Pauza va urg‘uga e’tibor bering. Keyingi sahnada namunani eshitasiz.",
+   "say": "请选择一个立场，就“大学生应该先工作还是先读研”这个辩题准备一段演讲，并驳斥对方的一个观点。",
+   "say_uz": "Bir tomonni tanlab, «talaba avval ishlashi kerakmi yoki magistraturada o‘qishi kerakmi» mavzusida nutq tayyorlang va raqibning bitta dalilini rad eting.",
+   "practice_seconds": 180
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna nutq va rad etish",
+   "emotion": "proud",
+   "board": ["立场：先读研", "三点：知识 · 视野 · 机会", "驳论：经验重要 → 基础也重要", "结尾 + 号召"],
+   "examples": [
+    {"t": "我支持先读研。首先，系统的知识是职业发展的基础；其次，研究生阶段能开阔视野；最后，它为未来提供更多机会。有人认为工作经验更重要，但这个说法忽略了：没有扎实的基础，经验很难转化为能力。", "uz": "Men avval magistraturada o‘qishni qo‘llayman. Birinchidan, tizimli bilim kasbiy rivojlanish asosi; ikkinchidan, magistratura ufqni kengaytiradi; uchinchidan, kelajakda ko‘proq imkoniyat beradi. Ba’zilar ish tajribasi muhimroq deydi, lekin bu fikr shuni e’tiborsiz qoldiradi: puxta asos bo‘lmasa, tajriba qobiliyatga aylanishi qiyin."}
+   ],
+   "say_native": "Namuna: pozitsiya, ya’ni magistraturada o‘qish. Uch tayanch nuqta: bilim, ufq va imkoniyat, ular 首先, 其次, 最后 bilan berilgan. Keyin rad etish: «ish tajribasi muhimroq» fikrini takrorlab, 但这个说法忽略了 deb muammoni ko‘rsatdi, keyin qarshi dalil: asos bo‘lmasa, tajriba qobiliyatga aylanmaydi. Bu to‘rt qadamli rad etish. Sizning nutqingiz boshqa tomonni qo‘llashi mumkin, masalan, avval ishlash, va bu yaxshi, chunki hech bir tomon mutlaq to‘g‘ri emas. Muhimi: tuzilma, aniq tayanch nuqtalar va hurmatli rad etish.",
+   "say": "我支持先读研。首先，系统的知识是职业发展的基础；其次，研究生阶段能开阔视野；最后，它为未来提供更多机会。",
+   "say_uz": "Men avval magistraturada o‘qishni qo‘llayman. Birinchidan, tizimli bilim kasbiy rivojlanish asosi; ikkinchidan, magistratura ufqni kengaytiradi; uchinchidan, kelajakda ko‘proq imkoniyat beradi.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "keyingi dars"
-   ],
+   "title": "Dars xulosasi",
+   "emotion": "proud",
+   "board": ["开场 · 主体 · 结尾", "立论 · 质询 · 自由辩论 · 总结", "复述 · 指出 · 反证 · 回扣", "语速 · 停顿 · 抑扬顿挫"],
    "examples": [],
-   "say_native": "Uyga vazifa. Deliver a 3-minute speech and rebut one argument. . Har bir gapda bitta fikr bo‘lsin. Keyingi darsda C2-19 Tarjima va ikki tilli fikrlash ni o‘rganamiz. C2-18 Ommaviy nutq va debat   ko‘nikma: Speaking darsiga oid noyob sharh: bu iborani C2-18 suhbatida aniq qo‘llang. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "再见！祝你一切顺利！这非常重要。",
-   "say_uz": "Ko‘rishguncha! Xayr! Juda chiroyli.",
+   "say_native": "Bugungi darsning xulosasi. Birinchi: nutq tuzilmasi, ya’ni ochilish, uch tayanch nuqta va yakun, 首先, 其次, 最后 yo‘l ko‘rsatkichlari bilan. Ikkinchi: debat bosqichlari, 立论, 质询, 自由辩论 va 总结陈词, hamda 对方辩友, 我方 kabi qoliplar. Uchinchi: rad etishning to‘rt qadami: takrorlash, muammo, qarshi dalil va o‘z fikriga qaytish. To‘rtinchi: mantiqiy xatolar, 偷换概念, 以偏概全 va 因果倒置. Beshinchi: ishonchli yetkazish, ya’ni tezlik, pauza, urg‘u va ko‘z aloqasi. Hurmatli, aniq va tayyorgarlik bilan so‘zlash ishonch beradi.",
+   "say": "今天我们学习了演讲的结构、辩论的环节和常用语、驳论的方法、常见的逻辑错误，以及怎样自信而有感染力地表达。",
+   "say_uz": "Bugun nutq tuzilmasini, debat bosqichlari va qoliplarini, rad etish usulini, keng tarqalgan mantiqiy xatolarni hamda ishonchli va ta’sirli ifodalashni o‘rgandik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "encouraging",
+   "board": ["Uy vazifasi", "3 daqiqalik nutq + 1 ta rad etish", "ovoz yozing", "Keyingi dars: tarjima va ikki tilli fikrlash"],
+   "examples": [],
+   "say_native": "Uy vazifasi: o‘zingiz tanlagan mavzuda uch daqiqalik nutq so‘zlang va bitta raqib dalilini rad eting. Nutqda ochilish, uchta tayanch nuqta va yakun bo‘lsin, rad etish esa to‘rt qadam bo‘yicha qurilsin. Nutqni ovoz yozuviga oling va tinglab, tezlik, pauza va to‘ldiruvchi so‘zlarni tekshiring. Muvaffaqiyat mezoni: nutq taxminan uch daqiqa, tuzilma aniq, kamida bitta mantiqiy xato nom bilan atalgan va ohang rang-barang. Keyingi darsda tarjima va ikki tilli fikrlashni o‘rganamiz. Omad!",
+   "say": "作业：请就自己选择的话题做一次三分钟的演讲，并驳斥对方的一个观点，同时录音检查语速和停顿。下一节课，我们学习翻译和双语思维。",
+   "say_uz": "Uy vazifasi: tanlagan mavzuda uch daqiqalik nutq so‘zlang va raqibning bitta dalilini rad eting, ovoz yozib tezlik va pauzani tekshiring. Keyingi darsda tarjima va ikki tilli fikrlashni o‘rganamiz.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Deliver a 3-minute speech and rebut one argument.. Keyingi darsda C2-19 Tarjima va ikki tilli fikrlash ni o‘rganamiz.",
+ "homework_uz": "O‘zingiz tanlagan mavzuda 3 daqiqalik nutq so‘zlang va bitta raqib dalilini to‘rt qadamda rad eting. Ovozingizni yozib, tezlik, pauza va to‘ldiruvchi so‘zlarni tekshiring. Muvaffaqiyat mezoni: tuzilma aniq (ochilish, uch nuqta, yakun), kamida bitta mantiqiy xato nom bilan atalgan.",
  "quiz": [
-  {
-   "q": "«网络 (wǎngluò)» nimani bildiradi?",
-   "options": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "answer": 0,
-   "why_uz": "网络 (wǎngluò) — tarmoq. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«联系 (liánxì)» nimani bildiradi?",
-   "options": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "answer": 0,
-   "why_uz": "联系 (liánxì) — aloqa. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«目标 (mùbiāo)» nimani bildiradi?",
-   "options": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq"
-   ],
-   "answer": 0,
-   "why_uz": "目标 (mùbiāo) — maqsad. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«学习 (xuéxí)» nimani bildiradi?",
-   "options": [
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "answer": 0,
-   "why_uz": "学习 (xuéxí) — o‘rganish. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«提高 (tígāo)» nimani bildiradi?",
-   "options": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "answer": 0,
-   "why_uz": "提高 (tígāo) — yaxshilanish. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«成果 (chéngguǒ)» nimani bildiradi?",
-   "options": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "mahorat"
-   ],
-   "answer": 0,
-   "why_uz": "成果 (chéngguǒ) — yutuq. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«职业 (zhíyè)» nimani bildiradi?",
-   "options": [
-    "kasb",
-    "ish",
-    "mahorat",
-    "til"
-   ],
-   "answer": 0,
-   "why_uz": "职业 (zhíyè) — kasb. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«工作 (gōngzuò)» nimani bildiradi?",
-   "options": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "answer": 0,
-   "why_uz": "工作 (gōngzuò) — ish. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«技能 (jìnéng)» nimani bildiradi?",
-   "options": [
-    "mahorat",
-    "til",
-    "tarmoq",
-    "aloqa"
-   ],
-   "answer": 0,
-   "why_uz": "技能 (jìnéng) — mahorat. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  },
-  {
-   "q": "«语言 (yǔyán)» nimani bildiradi?",
-   "options": [
-    "til",
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "answer": 0,
-   "why_uz": "语言 (yǔyán) — til. Ommaviy nutq va debat   ko‘nikma: Speaking mavzusiga oid."
-  }
+  {"q": "Nutqning uch qismi?", "options": ["Ochilish, asosiy qism, yakun", "Savol, javob, rahmat", "Sana, joy, ism", "Maqol, hazil, hikoya"], "answer": 0, "why_uz": "开场, 主体, 结尾."},
+  {"q": "对方辩友 kimga murojaat?", "options": ["Raqib debatchiga", "Hakamga", "Raisga", "Tomoshabinga"], "answer": 0, "why_uz": "Raqibga hurmatli murojaat qolipi."},
+  {"q": "正方 nimani bildiradi?", "options": ["Mavzuni qo‘llovchi tomon", "Hakam", "Rais", "Qarshi tomon"], "answer": 0, "why_uz": "反方 esa qarshi tomon."},
+  {"q": "Rad etishning birinchi qadami?", "options": ["Raqib fikrini takrorlash", "Qochish", "Kulish", "Jim turish"], "answer": 0, "why_uz": "Adolatli takrorlash tinglaganingizni ko‘rsatadi."},
+  {"q": "偷换概念 nima?", "options": ["Tushunchani almashtirib yuborish", "Ko‘p gapirish", "Sekin gapirish", "Savol berish"], "answer": 0, "why_uz": "Masalan, 独处 va 孤独 ni aralashtirish."},
+  {"q": "以偏概全 nima?", "options": ["Bir qismga qarab hammaga xulosa", "To‘liq tahlil", "Qisqa nutq", "Rad etish"], "answer": 0, "why_uz": "Bir necha misolga qarab umumlashtirish xato."},
+  {"q": "Debatda qaysi ibora muloyim e’tiroz?", "options": ["值得商榷", "你胡说", "闭嘴", "不听"], "answer": 0, "why_uz": "Fikrni tanqid qiladi, shaxsni emas."},
+  {"q": "退一步说 nima vazifa bajaradi?", "options": ["Qisman tan olib, fikrni saqlash", "Voz kechish", "Salomlashish", "Savol"], "answer": 0, "why_uz": "Raqib haq bo‘lsa ham, o‘z fikringiz kuchda qoladi."},
+  {"q": "抑扬顿挫 nimani bildiradi?", "options": ["Ohang ko‘tarilib-pasayishi va to‘xtashlar", "Tez gapirish", "Jim turish", "Qichqirish"], "answer": 0, "why_uz": "Bir xil ohang tinglovchini zeriktiradi."},
+  {"q": "Yakunda nimadan qochish kerak?", "options": ["Yangi dalil kiritish", "Chaqiriq", "Xulosa", "Rahmat"], "answer": 0, "why_uz": "Yakun xulosa va chaqiriq uchun."}
  ]
 }

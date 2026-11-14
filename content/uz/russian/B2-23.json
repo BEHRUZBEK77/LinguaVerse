@@ -1,74 +1,879 @@
 {
  "title": "Grafik va jadvalni tasvirlash",
- "goal_uz": "Dars yakunida rus tilida grafik va jadvalni tasvirlay olasiz. «График растёт ...», «Число падает ...», «Примерно ...» bog‘lovchilarini o‘rinli qo‘llaysiz, mukammallashtirib rasmini bayon qilasiz. Oxirida yuz ellik so‘zlik jadval tavsifini yozib bera olasiz.",
+ "goal_uz": "Dars oxirida siz rus tilida grafik va jadvalni yozma tasvirlaysiz: davrni to‘g‘ri aytib kirish yozasiz, umumiy tendensiyani bitta gapda berasiz, ma’lumotlarni taqqoslaysiz va sonlarni aniq hamda taxminiy shaklda nomlaysiz.",
  "vocab": [
-  {"w": "график", "uz": "grafik"},
-  {"w": "таблица", "uz": "jadval"},
-  {"w": "число", "uz": "son"},
-  {"w": "рост", "uz": "o‘sish"},
-  {"w": "падение", "uz": "kamayish"},
-  {"w": "примерно", "uz": "taxminan"},
-  {"w": "больше", "uz": "ko‘proq"},
-  {"w": "меньше", "uz": "kamroq"},
-  {"w": "сейчас", "uz": "hozir"},
-  {"w": "потом", "uz": "keyin"}
+  {
+   "w": "показатель",
+   "uz": "ko‘rsatkich"
+  },
+  {
+   "w": "рост",
+   "uz": "o‘sish"
+  },
+  {
+   "w": "снижение",
+   "uz": "pasayish"
+  },
+  {
+   "w": "колебаться",
+   "uz": "tebranmoq"
+  },
+  {
+   "w": "достичь пика",
+   "uz": "cho‘qqiga yetmoq"
+  },
+  {
+   "w": "опережать",
+   "uz": "o‘zib ketmoq"
+  },
+  {
+   "w": "уступать",
+   "uz": "ortda qolmoq"
+  },
+  {
+   "w": "в целом",
+   "uz": "umuman"
+  },
+  {
+   "w": "приблизительно",
+   "uz": "taxminan"
+  },
+  {
+   "w": "доля",
+   "uz": "ulush"
+  }
  ],
  "scenes": [
-  {"kind":"intro","title":"To‘qson sakkizinchi dars: grafik","emotion":"happy","board":["График растёт ...","Число падает ...","Примерно ..."],"examples":[],"say_native":"Assalomu alaykum! To‘qson sakkizinchi darsda grafik va jadvalni tasvirlashni o‘rganamiz. Bugun «график» — grafik, «таблица» — jadval va «число» — son lug‘atlarini mukammallashtirib mustahkamlab olamiz. Oxirida yuz ellik so‘zlik jadval tavsifini yozib bera olasiz. Keyingi darsda imtihon strategiyasini o‘rganamiz.","say":"Здравствуйте! Сегодня читаем графики.","say_uz":"Assalomu alaykum! Bugun grafiklarni o‘qiymiz.","practice_seconds":0},
-  {"kind":"explain","title":"Grafik o‘sish belgisi","emotion":"neutral","board":["График ...","График растёт.","График падает."],"examples":[{"t":"График растёт.","uz":"Grafik o‘sadi."},{"t":"График падает.","uz":"Grafik kamayadi."}],"say_native":"«График» — grafik so‘zi chizig‘i o‘sish tuguni bilan tanilgan bo‘ladi. «График растёт» — grafik o‘sadi, «график падает» — grafik kamayadi. Ikkala belgi grafik tahlilini muvozanatli tuzib qo‘yib, matn ustida geografik bayonni to‘ldirib qo‘yadi.","say":"График растёт. График падает.","say_uz":"Grafik o‘sadi. Grafik kamayadi.","practice_seconds":0},
-  {"kind":"practice","title":"Grafikni ayting","emotion":"encouraging","board":["1) Grafik o‘sadi.","2) Grafik kamayadi."],"examples":[],"say_native":"Grafik o‘sish belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «график растёт». Ikkinchisi: «график падает». Har birini bitta nafas bilan tugallang.","say":"График растёт. График падает.","say_uz":"Grafik o‘sadi. Grafik kamayadi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["График растёт.","График падает."],"examples":[],"say_native":"Grafik javoblari ikki qator o‘sish belgisi bilan tugadi. «График растёт» — o‘sish belgisi, «график падает» — kamayish belgisi. Endi grafik tahlilini shu ikki shakl bilan mustahkam slab bera olasiz.","say":"График растёт. График падает.","say_uz":"Grafik o‘sadi. Grafik kamayadi.","practice_seconds":0},
-  {"kind":"explain","title":"Son belgisi","emotion":"thinking","board":["Число ...","Число растёт.","Число падает."],"examples":[{"t":"Число растёт.","uz":"Son o‘sadi."},{"t":"Число падает.","uz":"Son kamayadi."}],"say_native":"«Число» — son belgisi grafik sonlarni mushlatib qo‘yadi. «Число растёт» — son o‘sadi, «число падает» — son kamayadi. Jadval tasvirida son aynan shu ikki belgi bilan shakl topib qoladi.","say":"Число растёт. Число падает.","say_uz":"Son o‘sadi. Son kamayadi.","practice_seconds":0},
-  {"kind":"practice","title":"Sonni ayting","emotion":"encouraging","board":["1) Son o‘sadi.","2) Son kamayadi."],"examples":[],"say_native":"Son belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «число растёт». Ikkinchisi: «число падает». Ularni bitta nafas bilan tafsiflab qo‘ying.","say":"Число растёт. Число падает.","say_uz":"Son o‘sadi. Son kamayadi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Число растёт.","Число падает."],"examples":[],"say_native":"Son javoblari ikki qator chiziq bilan tugallanib qoldi. «Число растёт» — o‘sish soni, «число падает» — kamayish soni. Jadval tasvirini shu ikki shakl bilan tugallab bera olasiz.","say":"Число растёт. Число падает.","say_uz":"Son o‘sadi. Son kamayadi.","practice_seconds":0},
-  {"kind":"mistake","title":"Grafikni bitta so‘z bilan tugatish","emotion":"stern","board":["✗ График растёт.","✓ График растёт. Например, это важно. Потому что это рост.","✗ Число падает.","✓ Число падает. Например, это важно. Потому что это падение."],"examples":[],"say_native":"Ko‘p uchraydigan xato — grafikni bitta so‘z bilan tugatib qo‘yishdir. «График растёт» bitta so‘z bilan tugallanib qolishi mumkin emas. To‘g‘ri shakl: «график растёт. например, это важно. потому что это рост.» — uch qatorli dalil bilan tugallanadi.","say":"График растёт. Например, это важно. Потому что это рост.","say_uz":"Grafik o‘sadi. Masalan, bu muhim. Chunki bu o‘sish.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: grafik o‘sishi","emotion":"happy","board":["— Что ты думаешь?","— Я думаю, что график растёт.","— Почему? — Например, это важно."],"examples":[],"say_native":"Birinchi dialog grafik o‘sishini mungozara qiladi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Я думаю, что график растёт» — fikr belgisi. «Почему? — Например, это важно» — dalil belgisi bilan tugallanadi.","say":"Что ты думаешь? Я думаю, что график растёт. Почему? Например, это важно.","say_uz":"Nima deb o‘ylaysan? Menimcha, grafik o‘sadi. Nega? Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Nega?"],"examples":[],"say_native":"Grafik savollarini mustahkamlab oling. Birinchi savol: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchisi: «почему?» — nega. Javoblarda «например» bog‘lovchisini yodda tutib qo‘llang.","say":"Что ты думаешь? Я думаю, что график растёт. Почему? Например, это важно.","say_uz":"Nima deb o‘ylaysan? Menimcha, grafik o‘sadi. Nega? Masalan, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Я думаю, что график растёт.","Например, это важно."],"examples":[],"say_native":"Birinchi dialog javoblari fikr bilan dalil borg‘liqligida tugadi. «Я думаю, что график растёт» — fikr belgisi, «например, это важно» — dalil belgisi. Endi grafik o‘sishini dalil bilan bayon qila olasiz.","say":"Я думаю, что график растёт. Например, это важно.","say_uz":"Menimcha, grafik o‘sadi. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: jadval bahosi","emotion":"neutral","board":["— Таблица?","— Таблица показывает.","— Итого? — Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog jadval bahosi bilan yakunlanadi. «Таблица?» — jadval deb so‘raydi. «Таблица показывает» — chizig‘i belgisi. «Итого? — Итого, это хорошо» — umumiy xulosa bilan tugatiladi.","say":"Таблица? Таблица показывает. Итого? Итого, это хорошо.","say_uz":"Jadval? Jadval ko‘rsatadi. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Jadval?","2) Xulosa?"],"examples":[],"say_native":"Jadval savollarini mustahkamlab oling. Birinchi savol: «таблица?» — jadval. Ikkinchisi: «итого?» — xulosa. Javoblarda «таблица показывает» va «итого» belgilarini aniq qo‘llab yopib qo‘ying.","say":"Таблица? Таблица показывает. Итого? Итого, это хорошо.","say_uz":"Jadval? Jadval ko‘rsatadi. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таблица показывает.","Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog javoblari chiziq bilan xulosa borg‘liqligida birlashdi. «Таблица показывает» — chizig‘i belgisi, «итого, это хорошо» — xulosa belgisi. Jadval bahosi shu ikki qatorga sug‘urilib mustahkam bo‘lib qoldi.","say":"Таблица показывает. Итого, это хорошо.","say_uz":"Jadval ko‘rsatadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Jadval belgisi","emotion":"thinking","board":["Таблица ...","Таблица показывает.","Таблица интересна."],"examples":[{"t":"Таблица показывает.","uz":"Jadval ko‘rsatadi."},{"t":"Таблица интересна.","uz":"Jadval qiziqarli."}],"say_native":"«Таблица» — jadval so‘zi chiziq bayonining chizig‘iga burchak sifatida yoziladi. «Таблица показывает» — jadval ko‘rsatadi, «таблица интересна» — jadval qiziqarli. Ikkala belgi jadval tahlilini bir-biriga yopishtirib tugallamab qo‘yadi.","say":"Таблица показывает. Таблица интересна.","say_uz":"Jadval ko‘rsatadi. Jadval qiziqarli.","practice_seconds":0},
-  {"kind":"practice","title":"Jadvalni ayting","emotion":"encouraging","board":["1) Jadval ko‘rsatadi.","2) Jadval qiziqarli."],"examples":[],"say_native":"Jadval belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «таблица показывает». Ikkinchisi: «таблица интересна». Ularni jadval bayonida talaffuz qiling.","say":"Таблица показывает. Таблица интересна.","say_uz":"Jadval ko‘rsatadi. Jadval qiziqarli.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Таблица показывает.","Таблица интересна."],"examples":[],"say_native":"Jadval javoblari ikki qator jadval bayonida mustahkam qo‘llanildi. «Таблица показывает» — ko‘rsatish belgisi, «таблица интересна» — qiziqarlilik belgisi. Jadval tahlili shu ikki shakl bilan yakun lanib qoladi.","say":"Таблица показывает. Таблица интересна.","say_uz":"Jadval ko‘rsatadi. Jadval qiziqarli.","practice_seconds":0},
-  {"kind":"explain","title":"Taxminan so‘zi","emotion":"neutral","board":["Примерно ...","Примерно сто.","Примерно десять."],"examples":[{"t":"Примерно сто.","uz":"Taxminan yuz."},{"t":"Примерно десять.","uz":"Taxminan o‘n."}],"say_native":"«Примерно» — taxminan belgisi grafikni yaxlitlab bayon qiladi. «Примерно сто» — taxminan yuz, «примерно десять» — taxminan o‘n. Sonlar taxminiy ko‘rsatilgan bo‘lsa, jadval bayoni haqiqiy raqam bilan farqlanib qolmasligi aynihaqda zarur.","say":"Примерно сто. Примерно десять.","say_uz":"Taxminan yuz. Taxminan o‘n.","practice_seconds":0},
-  {"kind":"practice","title":"Taxminanni ayting","emotion":"encouraging","board":["1) Taxminan yuz.","2) Taxminan o‘n."],"examples":[],"say_native":"Taxminan belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «примерно сто». Ikkinchisi: «примерно десять». Har birini bitta nafas bilan tugallang.","say":"Примерно сто. Примерно десять.","say_uz":"Taxminan yuz. Taxminan o‘n.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Примерно сто.","Примерно десять."],"examples":[],"say_native":"Taxminan javoblari ikki qator yaxlit belgisi bilan tugun topdilar. «Примерно сто» — yuz belgisi, «примерно десять» — o‘n belgisi. Endi grafik yaxlit sonlarini mustahkam bayon qilib bera olasiz.","say":"Примерно сто. Примерно десять.","say_uz":"Taxminan yuz. Taxminan o‘n.","practice_seconds":0},
-  {"kind":"explain","title":"O‘sish belgisi","emotion":"thinking","board":["Рост ...","Рост сейчас.","Рост больше."],"examples":[{"t":"Рост сейчас.","uz":"O‘sish hozir."},{"t":"Рост больше.","uz":"O‘sish ko‘proq."}],"say_native":"«Рост» — o‘sish so‘zi grafik o‘sishini oxirgi qatorga qotib qo‘ydi. «Рост сейчас» — o‘sish hozir, «рост больше» — o‘sish ko‘proq. Ikkala belgi grafikni jadvalga chizig‘ini tugatib qo‘yadi.","say":"Рост сейчас. Рост больше.","say_uz":"O‘sish hozir. O‘sish ko‘proq.","practice_seconds":0},
-  {"kind":"practice","title":"O‘sishni ayting","emotion":"encouraging","board":["1) O‘sish hozir.","2) O‘sish ko‘proq."],"examples":[],"say_native":"O‘sish belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «рост сейчас». Ikkinchisi: «рост больше». Ularni grafik bayonida talaffuz qiling.","say":"Рост сейчас. Рост больше.","say_uz":"O‘sish hozir. O‘sish ko‘proq.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Рост сейчас.","Рост больше."],"examples":[],"say_native":"O‘sish javoblari ikki qator jadval tahlilida barqaror qoldi. «Рост сейчас» — hozirgi o‘sish, «рост больше» — kuchli o‘sish. Grafik o‘sishi shu ikki shakl bilan ifodalanib qoladi.","say":"Рост сейчас. Рост больше.","say_uz":"O‘sish hozir. O‘sish ko‘proq.","practice_seconds":0},
-  {"kind":"explain","title":"Kamroq so‘zi manbadasi","emotion":"neutral","board":["Меньше ...","Меньше сейчас.","Меньше потом."],"examples":[{"t":"Меньше сейчас.","uz":"Kamroq hozir."},{"t":"Меньше потом.","uz":"Kamroq keyin."}],"say_native":"«Меньше» — kamroq belgisi grafik kamayishini madaniy bayon qiladi. «Меньше сейчас» — kamroq hozir, «меньше потом» — kamroq keyin. Ikkala belgi grafik kamayishi bilan jadvalni bir-biriga yopishtirib qo‘yadi.","say":"Меньше сейчас. Меньше потом.","say_uz":"Kamroq hozir. Kamroq keyin.","practice_seconds":0},
-  {"kind":"practice","title":"Kamroqni ayting","emotion":"encouraging","board":["1) Kamroq hozir.","2) Kamroq keyin."],"examples":[],"say_native":"Kamroq belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «меньше сейчас». Ikkinchisi: «меньше потом». Har birini bitta nafas bilan tugallang.","say":"Меньше сейчас. Меньше потом.","say_uz":"Kamroq hozir. Kamroq keyin.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Меньше сейчас.","Меньше потом."],"examples":[],"say_native":"Kamroq javoblari ikki qator grafik kamayishida barqaror qoldi. «Меньше сейчас» — hozirgi kamayish, «меньше потом» — keyingi kamayish. Endi grafik kamayishini shu ikki shakl bilan bayon qilib bera olasiz.","say":"Меньше сейчас. Меньше потом.","say_uz":"Kamroq hozir. Kamroq keyin.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: tavsiflash","emotion":"encouraging","board":["1) Grafik o‘sadi.","2) Son kamayadi.","3) Xulosa qilib, bu yaxshi.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda yuz ellik so‘zlik jadval tavsifini yozing. Birinchisi: «график растёт». Ikkinchisi: «число падает». Uchinchisi: «итого, это хорошо». Uch qatorni to‘liq jadval bayon shaklida bitta nafas bilan bayon qiling.","say":"График растёт. Число падает. Итого, это хорошо. Спасибо!","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["График растёт.","Число падает.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «график растёт». Ikkinchisi: «число падает». Uchinchisi: «итого, это хорошо». Ushbu uch qator yuz ellik so‘zlik jadval tavsifining uch burchagi hisoblanadi.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Jadval qatlamini yoyish","emotion":"neutral","board":["График ...","Число ...","Примерно ...","Например ..."],"examples":[{"t":"График ...","uz":"Grafik ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Jadval qatlamini yoyish «график» so‘zidan boshlanib, «число» so‘zi bilan mustahkamlanib, «примерно» bog‘lovchisi bilan yaxlitlanib, «например ...» bog‘lovchisi bilan mustahkamlanib yoyiladi. Matn sarlavhasi ham, bayon kirishi ham shu to‘rt belgi bilan mustahkamlanib, jadval tahlilini aniq shakl oladi. Bitta rasmni bir daqiqada tahlil qilsangiz, o‘quvchi qoniqarli xulosa chiqarib oladi.\n Yuz ellik so‘zlik jadval tavsifida qog‘ozda qatlamlar tartibli yozilghani maqsadga yetgan bo‘ladi. Qog‘ozda ham shu izchillikni saqlab turish sharafdir va baholashda yuqori baho olishga judayordam beradi. Bitta rasmni to‘xtab qolib, bitta so‘z bilan emas, uch qator bog‘liqlikda yakunlab qo‘yilsa, imtihon tahlili mustahkam bo‘lib qoladi.","say":"График ... Число ... Примерно ... Например ...","say_uz":"Grafik ... Son ... Taxminan ... Masalan ...","practice_seconds":0},
-  {"kind":"practice","title":"Zanjirni mustahkamlang","emotion":"encouraging","board":["1) Grafik ...","2) Son ...","3) Taxminan ...","4) Masalan ..."],"examples":[],"say_native":"Jadval qatlamini to‘rt bosqichda mustahkamlab oling. Birinchi: «график ...». Ikkinchisi: «число ...». Uchinchisi: «примерно ...». Yakunda esa: «например ...». Har birini bitta nafas bilan bir qatorda talaffuz qiling.","say":"График ... Число ... Примерно ... Например ...","say_uz":"Grafik ... Son ... Taxminan ... Masalan ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["График ...","Число ...","Примерно ...","Например ..."],"examples":[],"say_native":"Zanjir javoblari to‘rt qator bilan to‘liq ko‘rindi. «График ...» — grafik, «число ...» — son, «примерно ...» — taxminan, «например ...» — dalil. Endi jadval tahlili shu to‘rt belgida mustahkam bo‘lib qoladi.","say":"График ... Число ... Примерно ... Например ...","say_uz":"Grafik ... Son ... Taxminan ... Masalan ...","practice_seconds":0},
-  {"kind":"explain","title":"Grafik bayoni modeli","emotion":"thinking","board":["График растёт.","Число падает.","Итого, это хорошо."],"examples":[{"t":"График растёт.","uz":"Grafik o‘sadi."},{"t":"Число падает.","uz":"Son kamayadi."}],"say_native":"Grafik bayoni modeli uch qatorli bayon bilan tugatiladi. Birinchisi: «график растёт» — o‘sish belgisi. Ikkinchisi: «число падает» — kamayish belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Bitta rasmdan jadvalga o‘tish bitta kanal bilan qirg‘og‘ida bo‘lib qoladi.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Modelni mustahkamlang","emotion":"encouraging","board":["1) Grafik o‘sadi.","2) Son kamayadi.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Grafik modelini uch qator bilan mustahkamlab oling. Birinchisi: «график растёт». Ikkinchisi: «число падает». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan yakunlab qo‘ying.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["График растёт.","Число падает.","Итого, это хорошо."],"examples":[],"say_native":"Model javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «График растёт» — o‘sish, «число падает» — kamayish, «итого, это хорошо» — yakun. Grafik bayoni shu uchlikni mustahkam ushlab turadi.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["График ...","Число ...","Примерно ..."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. Grafikni «график» bilan ayta olasizmi? Sonni «число» bilan mustahkamlab bera olasizmi? Taxminni «примерно» bilan yaxlitlay olasizmi? Uchala javob ijobiy bo‘lsa, jadval bayoni sizga do‘st bo‘ladi.","say":"График ... Число ... Примерно ...","say_uz":"Grafik ... Son ... Taxminan ...","practice_seconds":0},
-  {"kind":"explain","title":"Jadvalni yakunlash","emotion":"neutral","board":["График растёт.","Число падает.","Итого, это хорошо."],"examples":[{"t":"График растёт.","uz":"Grafik o‘sadi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Jadvalni yakunlash namunasi uch qatorli dalilli bayon bilan bitadi. Birinchisi: «график растёт» — o‘sish belgisi. Ikkinchisi: «число падает» — kamayish belgisi. Uchinchisi: «итого, это хорошо» — umumiy xulosa. Har bir rasmdan jadvalga o‘tishda avval grafik belgisi bilan belgilanadi. Bitta rasmni bitta so‘z bilan tugatmasdan, uch dovom so‘rovda yopilsa, imtihon xulosasi tugunlanib yotadi.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Tavsifni yakunlang","emotion":"encouraging","board":["1) Grafik o‘sadi.","2) Son kamayadi.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Jadval tavsifini yakunlashni uch qator bilan mustahkamlab oling. Birinchisi: «график растёт». Ikkinchisi: «число падает». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan tugallab qo‘ying.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["График растёт.","Число падает.","Итого, это хорошо."],"examples":[],"say_native":"Yakunlash javoblari uch qator mustahkam tugun bilan qoldi. «График растёт» — o‘sish belgisi, «число падает» — kamayish belgisi, «итого, это хорошо» — umumiy xulosa. Endi yuz ellik so‘zlik jadval tavsifini yakunlab bera olasiz.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Grafikni yakuniy bayonlash","emotion":"neutral","board":["График растёт.","Число падает.","Итого, это хорошо."],"examples":[{"t":"График растёт.","uz":"Grafik o‘sadi."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Grafikni yakuniy bayonlash uch qatorli dalilli bayon bilan bitadi. Birinchisi: «график растёт» — o‘sish belgisi. Ikkinchisi: «число падает» — kamayish belgisi. Uchinchisi: «итого, это хорошо» — umumiy xulosa. Uch qator yuz ellik so‘zlik jadval tavsifining yagona klavi bo‘lib qoladi.\n Har bir rasmdan jadvalga o‘tishda avval grafik belgisi bilan belgilanadi. Bitta rasmni bitta so‘z bilan tugatmasdan, uch dovom so‘rovda yopilsa, imtihon xulosasi tugunlanib yotadi. Qog‘ozda ham bu izchillik saqlangsa, baho yuqoriga chiqadi.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Grafikni yakunlang","emotion":"encouraging","board":["1) Grafik o‘sadi.","2) Son kamayadi.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Grafik yakunini uch qator bilan mustahkamlab oling. Birinchisi: «график растёт». Ikkinchisi: «число падает». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan tugallab qo‘ying.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["График растёт.","Число падает.","Итого, это хорошо."],"examples":[],"say_native":"Yakunlash javoblari uch qator mustahkam tugun bilan qoldi. «График растёт» — o‘sish belgisi, «число падает» — kamayish belgisi, «итого, это хорошо» — umumiy xulosa. Endi jadval tavsifini yakunlab bera olasiz.","say":"График растёт. Число падает. Итого, это хорошо.","say_uz":"Grafik o‘sadi. Son kamayadi. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["график · число · примерно","рост · меньше · итого"],"examples":[],"say_native":"Bugunning xulosasi: grafik va jadvalni tasvirlashni o‘rgandik. «График растёт» — o‘sish, «число падает» — kamayish, «примерно ...» — yaxlitlanish, «итого» — xulosa. Yuz ellik so‘zlik jadval tavsifini shu uch so‘z bilan mustahkam slab bera olasiz.","say":"Отлично! Теперь вы читаете графики.","say_uz":"Ajoyib! Endi grafiklarni o‘qiysiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["150 so‘zlik jadval tavsifi","Grafik · son · taxminan","Keyingi dars: imtihon strategiyasi: B2 darajasi"],"examples":[],"say_native":"Uyga vazifa: yuz ellik so‘zlik jadval tavsifini yozing. Matnda «график», «число», «примерно», «например», «итого» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda imtihon strategiyasini o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Готовимся к экзамену.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Imtihonga tayyorlanamiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Grafik va jadvalni tasvirlash",
+   "emotion": "happy",
+   "board": [
+    "Описание графиков и таблиц",
+    "(Grafik va jadvalni tasvirlash)",
+    "динамика · сравнение · обзор · точные числа"
+   ],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda madaniyatlararo farqlarni o‘rgandik. Bugun esa yozma ko‘nikma: grafik va jadvalni tasvirlash. Bu vazifa imtihonda ham, ish hisobotida ham uchraydi. Dars oxirida siz yuz ellik so‘zli tasvir yoza olasiz: unda kirish, umumiy tendensiya, aniq raqamlar va taqqoslash bo‘ladi.",
+   "say": "Здравствуйте! Сегодня мы учимся описывать графики и таблицы письменно. Вы освоите лексику роста и падения, научитесь сравнивать данные, писать обзорное предложение и точно называть числа.",
+   "say_uz": "Assalomu alaykum! Bugun grafik va jadvallarni yozma tasvirlashni o‘rganamiz. O‘sish va pasayish lug‘ati, ma’lumotlarni taqqoslash, umumiy xulosa gapi va aniq sonlarni nomlashni o‘zlashtirasiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘sish va pasayish",
+   "emotion": "neutral",
+   "board": [
+    "рост · увеличение · подъём",
+    "снижение · спад · падение · сокращение",
+    "расти — вырасти · снижаться — снизиться",
+    "увеличиваться · сокращаться · падать"
+   ],
+   "examples": [
+    {
+     "t": "Число туристов за год выросло на десять процентов.",
+     "uz": "Turistlar soni bir yilda o‘n foizga oshdi."
+    },
+    {
+     "t": "Затем начался спад, и показатель снизился.",
+     "uz": "Keyin pasayish boshlandi va ko‘rsatkich kamaydi."
+    }
+   ],
+   "say_native": "Grafikni tasvirlashda eng muhim so‘zlar shular. Otlar: «рост», «увеличение», «подъём» — o‘sish; «снижение», «спад», «падение», «сокращение» — pasayish. Fe’llar juft: «расти — вырасти», «снижаться — снизиться». Jarayonni tasvirlasangiz nesovershennyy, natijani aytsangiz sovershennyy: «число растёт», «число выросло». «Показатель» — ko‘rsatkich, doim ishlatiladigan so‘z.",
+   "say": "Число туристов растёт. За год оно выросло на десять процентов, и рост продолжился. Затем начался спад, и показатель снизился почти до прежнего уровня.",
+   "say_uz": "Turistlar soni oshmoqda. Bir yilda u o‘n foizga o‘sdi va o‘sish davom etdi. Keyin pasayish boshlandi va ko‘rsatkich deyarli oldingi darajagacha kamaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tezlik va daraja",
+   "emotion": "thinking",
+   "board": [
+    "резко · стремительно · заметно",
+    "плавно · постепенно · слегка",
+    "резкий скачок · плавное снижение",
+    "незначительное изменение"
+   ],
+   "examples": [
+    {
+     "t": "Цены стремительно выросли после зимы.",
+     "uz": "Narxlar qishdan keyin keskin oshdi."
+    },
+    {
+     "t": "Наблюдалось плавное снижение расходов.",
+     "uz": "Xarajatlarning silliq kamayishi kuzatildi."
+    }
+   ],
+   "say_native": "O‘zgarish qanchalik tez va katta ekanini ravish va sifat bilan beramiz. Ravishlar: «резко», «стремительно» — keskin, «заметно» — sezilarli, «плавно», «постепенно» — silliq, asta-sekin, «слегка» — biroz. Sifat bilan: «резкий скачок», «плавное снижение», «незначительное изменение». Ravish fe’l bilan keladi: резко вырос; sifat otdan oldin turadi: резкий рост.",
+   "say": "Цены стремительно выросли после зимы. Затем наблюдалось плавное снижение расходов, а количество заказов изменилось лишь незначительно.",
+   "say_uz": "Narxlar qishdan keyin keskin oshdi. Keyin xarajatlarning silliq kamayishi kuzatildi, buyurtmalar soni esa faqat ozgina o‘zgardi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Barqarorlik, tebranish, cho‘qqi",
+   "emotion": "thinking",
+   "board": [
+    "оставаться на одном уровне",
+    "колебаться в пределах от … до …",
+    "достичь пика · максимума",
+    "опуститься до минимума"
+   ],
+   "examples": [
+    {
+     "t": "Показатель колебался в пределах от пятидесяти до шестидесяти процентов.",
+     "uz": "Ko‘rsatkich ellik foizdan oltmish foizgacha tebrandi."
+    },
+    {
+     "t": "Продажи достигли пика в декабре.",
+     "uz": "Savdo dekabrda cho‘qqiga chiqdi."
+    }
+   ],
+   "say_native": "Hamma narsa o‘sib yoki kamayib borishi shart emas. «Оставаться на одном уровне» — bir darajada qolmoq. «Колебаться в пределах от … до …» — tebranmoq. «Достичь пика» yoki «максимума» — eng yuqori nuqtaga yetmoq, bunda «достичь» roditelnyy bilan ishlaydi: достичь пика. «Опуститься до минимума» — eng past nuqtaga tushmoq. Bu iboralar grafik shaklini aniq beradi.",
+   "say": "Показатель колебался в пределах от пятидесяти до шестидесяти процентов. Продажи достигли пика в декабре, а затем опустились до минимума. После этого цифра некоторое время оставалась на одном уровне.",
+   "say_uz": "Ko‘rsatkich ellik foizdan oltmish foizgacha tebrandi. Savdo dekabrda cho‘qqiga chiqdi, keyin eng past darajaga tushdi. Shundan keyin raqam ma’lum vaqt bir darajada qoldi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Grafik tavsifi",
+   "emotion": "impressed",
+   "board": [
+    "Посетители музея (тыс.): 2015 — 120, 2017 — 150, 2019 — 210, 2020 — 60, 2022 — 180"
+   ],
+   "examples": [
+    {
+     "t": "В две тысячи двадцатом году наблюдалось резкое падение до шестидесяти тысяч.",
+     "uz": "2020-yilda oltmish mingga keskin tushish kuzatildi."
+    }
+   ],
+   "say_native": "Mana grafik tavsifining to‘liq namunasi. Avval davr: «с … по … год». Keyin umumiy o‘sish: «постепенно росло … со ста двадцати до двухсот десяти». Keyin tebranish: «резкое падение до шестидесяти». Oxirida qaytish: «восстановился и достиг». Qarang, «с … до …» miqdorlar uchun, «с … по … год» yillar uchun ishlatilgan. Bu ikki juftlikni adashtirmang.",
+   "say": "С две тысячи пятнадцатого по две тысячи девятнадцатый год число посетителей музея постепенно росло: со ста двадцати до двухсот десяти тысяч. В две тысячи двадцатом году наблюдалось резкое падение до шестидесяти тысяч, после чего показатель восстановился и достиг ста восьмидесяти тысяч.",
+   "say_uz": "2015-yildan 2019-yilgacha muzey tashrifchilari soni asta-sekin oshdi: yuz yigirma mingdan ikki yuz o‘n minggacha. 2020-yilda oltmish mingga keskin tushish kuzatildi, shundan keyin ko‘rsatkich tiklandi va bir yuz sakson mingga yetdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Fe’l va ot xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ Рост снизился.",
+    "✓ Показатель снизился. / Рост замедлился.",
+    "✗ достиг на пик",
+    "✓ достиг пика"
+   ],
+   "examples": [
+    {
+     "t": "Показатель достиг максимума в марте.",
+     "uz": "Ko‘rsatkich martda maksimumga yetdi."
+    }
+   ],
+   "say_native": "Ikkita xato. Birinchisi: «рост снизился» — mantiqiy xato, chunki «рост» o‘zi o‘sishni bildiradi. Pasaygan narsa — ko‘rsatkich. Ikkinchisi: «достичь» fe’li predlogsiz va roditelnyy bilan ishlaydi: достичь пика, достичь уровня. O‘zbekchada «cho‘qqiga yetdi» deymiz, shuning uchun ba’zilar ruschada «на» qo‘yib yuboradi.",
+   "say": "Не говорите «рост снизился»: рост не может снижаться. Скажите: показатель снизился или рост замедлился. И не «достиг на пик», а «достиг пика».",
+   "say_uz": "«Рост снизился» demang: o‘sish pasaya olmaydi. Ko‘rsatkich pasaydi yoki o‘sish sekinlashdi, deng. «Достиг на пик» emas, достиг пика.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dinamikani tasvirlang",
+   "emotion": "encouraging",
+   "board": [
+    "Заказы (тыс.): 2018 — 30, 2019 — 45, 2020 — 45, 2021 — 25",
+    "Опишите три этапа"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Doskada buyurtmalar bo‘yicha to‘rt yil ma’lumoti bor. Uch bosqichni tasvirlang: o‘sish, barqarorlik, pasayish. Har bir bosqichga raqam qo‘shing. «С … до …», «оставаться на одном уровне» va «сократиться до» iboralaridan foydalaning. Yillarni «в … году» shaklida ayting.",
+   "say": "Опишите динамику заказов. Сначала число заказов выросло, затем оставалось на одном уровне, потом сократилось. Теперь назовите числа для каждого этапа.",
+   "say_uz": "Buyurtmalar dinamikasini tasvirlang. Avval buyurtmalar soni oshdi, keyin bir darajada qoldi, so‘ng kamaydi. Endi har bir bosqich uchun raqamlarni ayting.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "рост с 30 до 45 тысяч",
+    "стабильно на уровне 45 тысяч",
+    "сокращение до 25 тысяч"
+   ],
+   "examples": [],
+   "say_native": "Javob: o‘sish «с тридцати до сорока пяти тысяч»; barqarorlik «оставалось на уровне сорока пяти тысяч»; pasayish «сократилось до двадцати пяти тысяч». Diqqat: «с» va «до» dan keyin roditelnyy, «тысяч» ham roditelnyy ko‘plikda. Siz yillarni ham to‘g‘ri aytgan bo‘lsangiz, tavsif to‘liq.",
+   "say": "Число заказов выросло с тридцати до сорока пяти тысяч, затем оставалось на уровне сорока пяти тысяч, а потом сократилось до двадцати пяти тысяч.",
+   "say_uz": "Buyurtmalar soni o‘ttiz mingdan qirq besh minggacha oshdi, keyin qirq besh ming darajasida qoldi, so‘ng yigirma besh minggacha kamaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Taqqoslash qoliplari",
+   "emotion": "neutral",
+   "board": [
+    "больше / меньше, чем …",
+    "в два раза больше · вдвое меньше",
+    "на пять процентов выше",
+    "по сравнению с + Т.п."
+   ],
+   "examples": [
+    {
+     "t": "Доля онлайн-покупок вдвое больше доли покупок в магазинах.",
+     "uz": "Onlayn xaridlar ulushi do‘kondagi xaridlar ulushidan ikki baravar ko‘p."
+    },
+    {
+     "t": "По сравнению с прошлым годом расходы выросли.",
+     "uz": "O‘tgan yilga nisbatan xarajatlar oshdi."
+    }
+   ],
+   "say_native": "Taqqoslashda uchta usul bor. Birinchi: «больше, чем» — dan ko‘p. Ikkinchi: baravar: «в два раза больше», «вдвое меньше». Uchinchi: farq: «на пять процентов выше». «По сравнению с» tvoritelnyy bilan keladi: по сравнению с прошлым годом. Muhim: «чем» dan keyin ikkinchi o‘lchov nominativda, yoki roditelnyy: «больше доли».",
+   "say": "Доля онлайн-покупок вдвое больше, чем доля покупок в магазинах. По сравнению с прошлым годом расходы выросли на пять процентов, а доходы оказались на три процента выше.",
+   "say_uz": "Onlayn xaridlar ulushi do‘kondagi xaridlar ulushidan ikki baravar ko‘p. O‘tgan yilga nisbatan xarajatlar besh foizga oshdi, daromadlar esa uch foizga yuqori bo‘ldi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yetakchi va ortda qolgan",
+   "emotion": "thinking",
+   "board": [
+    "лидировать · занимать первое место",
+    "опережать + В.п. · уступать + Д.п.",
+    "составлять · на долю + Р.п. приходится"
+   ],
+   "examples": [
+    {
+     "t": "Город А опережает город Б по числу студентов.",
+     "uz": "A shahar talabalar soni bo‘yicha B shahardan o‘zib ketgan."
+    },
+    {
+     "t": "Город Б уступает городу А.",
+     "uz": "B shahar A shahardan ortda."
+    }
+   ],
+   "say_native": "Yetakchilikni bildirish uchun maxsus fe’llar. «Лидировать» — yetakchi bo‘lmoq. «Опережать» — o‘zib ketmoq va vinitelnyy talab qiladi: опережать город Б. «Уступать» — ortda qolmoq va datelnyy: уступать городу А. «Составлять» — tashkil qilmoq; «на долю … приходится» — ulushiga to‘g‘ri keladi. Kelishiklarni adashtirmang: опережает — vinitelnyy, уступает — datelnyy.",
+   "say": "Город А опережает город Б по числу студентов. Город Б уступает городу А, но лидирует по числу библиотек. На долю онлайн-курсов приходится около тридцати процентов всех записей.",
+   "say_uz": "A shahar talabalar soni bo‘yicha B shahardan o‘zib ketgan. B shahar A shahardan ortda, lekin kutubxonalar soni bo‘yicha yetakchi. Onlayn kurslarga barcha yozilishlarning taxminan o‘ttiz foizi to‘g‘ri keladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Taqqoslash namunasi",
+   "emotion": "impressed",
+   "board": [
+    "Город А: 200 тыс. студентов; Город Б: 120 тыс.",
+    "Город Б: 15 вузов; Город А: 10 вузов"
+   ],
+   "examples": [
+    {
+     "t": "Город А лидирует по числу студентов, тогда как в городе Б больше вузов.",
+     "uz": "A shahar talabalar soni bo‘yicha yetakchi, B shaharda esa oliy o‘quv yurtlari ko‘proq."
+    }
+   ],
+   "say_native": "Mana tayyor taqqoslash. «Лидирует по числу студентов» — talabalar soni bo‘yicha yetakchi. «Тем не менее» bilan qarshi tomonga o‘tildi: «опережает по числу вузов». Raqamlar aniq berildi. Shu usulda grafikning ikki qismi solishtiriladi va o‘quvchi umumiy rasmni ko‘radi. «По числу» — soni bo‘yicha, roditelnyy bilan.",
+   "say": "Город А лидирует по числу студентов: их двести тысяч, а в городе Б только сто двадцать тысяч. Тем не менее город Б опережает город А по числу вузов: там их пятнадцать, а в городе А только десять.",
+   "say_uz": "A shahar talabalar soni bo‘yicha yetakchi: ular ikki yuz ming, B shaharda esa atigi bir yuz yigirma ming. Shunga qaramay, B shahar oliy o‘quv yurtlari soni bo‘yicha A shahardan o‘zib ketgan: u yerda o‘n beshta, A shaharda esa atigi o‘nta.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Taqqoslash xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ Город Б уступает город А.",
+    "✓ Город Б уступает городу А.",
+    "✗ Город А опережает города Б.",
+    "✓ Город А опережает город Б."
+   ],
+   "examples": [
+    {
+     "t": "Первый показатель опережает второй.",
+     "uz": "Birinchi ko‘rsatkich ikkinchisidan o‘zib ketgan."
+    }
+   ],
+   "say_native": "Bu ikki fe’l ma’nosi yaqin, lekin kelishigi har xil. «Уступать» — datelnyy: уступает городу А, ya’ni «A shaharga yutqazadi». «Опережать» — vinitelnyy: опережает город Б, «B shaharni quvib o‘tadi». O‘zbekcha «-dan ortda» va «-dan o‘zib ketdi» ikkalasida ham chiqish kelishigi bo‘lgani uchun adashish oson.",
+   "say": "Не говорите «уступает город А». Правильно: уступает городу А. А «опережает» требует винительного падежа: опережает город Б.",
+   "say_uz": "«Уступает город А» demang. To‘g‘risi: уступает городу А. «Опережает» esa vinitelnyy talab qiladi: опережает город Б.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Taqqoslang",
+   "emotion": "encouraging",
+   "board": [
+    "Магазин А: 80 тыс. покупателей",
+    "Магазин Б: 40 тыс. покупателей",
+    "Магазин А — ? магазин Б"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Ikki do‘kon: A — sakson ming xaridor, B — qirq ming xaridor. Birinchi gapni aytdim: A do‘kon B dan o‘zib ketgan. Endi nechi baravar ko‘pligini ayting va «уступать» fe’lidan to‘g‘ri kelishik bilan foydalaning.",
+   "say": "Сравните два магазина. Магазин А опережает магазин Б по числу покупателей. Скажите, во сколько раз покупателей больше, и используйте глагол «уступать».",
+   "say_uz": "Ikki do‘konni solishtiring. A do‘kon xaridorlar soni bo‘yicha B do‘kondan o‘zib ketgan. Necha baravar ko‘pligini ayting va «уступать» fe’lidan foydalaning.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "В два раза больше.",
+    "Магазин Б уступает магазину А."
+   ],
+   "examples": [],
+   "say_native": "Javoblar: A do‘konda xaridorlar ikki baravar ko‘p. B do‘kon A ga «уступает», va «магазину А» — datelnyy. «Вдвое больше» ham to‘g‘ri. Raqam bo‘yicha: sakson ming qirq mingdan ikki marta ko‘p, shuning uchun «в два раза» yoki «вдвое».",
+   "say": "Покупателей в магазине А в два раза больше. Магазин Б уступает магазину А.",
+   "say_uz": "A do‘konda xaridorlar ikki baravar ko‘p. B do‘kon A do‘kondan ortda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tavsif tuzilishi",
+   "emotion": "neutral",
+   "board": [
+    "1. Введение: что показывает график",
+    "2. Обзор: главная тенденция",
+    "3. Детали: числа и сравнение",
+    "(вывод не обязателен)"
+   ],
+   "examples": [
+    {
+     "t": "Диаграмма показывает динамику продаж за пять лет.",
+     "uz": "Diagramma besh yillik savdo dinamikasini ko‘rsatadi."
+    }
+   ],
+   "say_native": "Yaxshi tasvir uchta qismdan iborat. Birinchi: kirish, grafik nima ko‘rsatayotganini o‘z so‘zlaringiz bilan aytasiz. Ikkinchi: umumiy tendensiyani bitta gapda beradigan obzor. Uchinchi: aniq raqamlar va taqqoslashlar. Xulosa, ya’ni «вывод» ixtiyoriy, chunki grafikni tasvirlashda o‘z fikringizni qo‘shmaysiz. Faqat ma’lumotni yozasiz.",
+   "say": "Диаграмма показывает динамику продаж за пять лет. В целом наблюдается устойчивый рост. Подробнее: в первый год продажи составили двести тысяч, а в последний достигли трёхсот.",
+   "say_uz": "Diagramma besh yillik savdo dinamikasini ko‘rsatadi. Umuman, barqaror o‘sish kuzatiladi. Batafsilroq: birinchi yili savdo ikki yuz mingni tashkil etdi, oxirgi yili esa uch yuz mingga yetdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kirish va davr",
+   "emotion": "neutral",
+   "board": [
+    "показывает · отражает · иллюстрирует",
+    "данные о + П.п. за период с … по … год",
+    "в + П.п. году · к + Д.п. году"
+   ],
+   "examples": [
+    {
+     "t": "Таблица отражает данные о населении за период с две тысячи десятого по две тысячи двадцатый год.",
+     "uz": "Jadval aholi haqidagi ma’lumotni 2010-yildan 2020-yilgacha bo‘lgan davr uchun aks ettiradi."
+    }
+   ],
+   "say_native": "Kirish gapi uchun fe’llar: «показывает», «отражает», «иллюстрирует». Keyin «данные о» + predlojnyy: данные о численности, данные о продажах. Davr: «за период с … по … год», yillar tartib son bilan: с две тысячи десятого по две тысячи двадцатый. Alohida yil: «в … году», yilni predlojnyyda aytamiz. «К концу периода» — davr oxiriga kelib. «Из таблицы видно, что» — jadvaldan ko‘rinadiki.",
+   "say": "Таблица отражает данные о численности студентов за период с две тысячи десятого по две тысячи двадцатый год. Из таблицы видно, что к концу периода показатель вырос.",
+   "say_uz": "Jadval talabalar soni haqidagi ma’lumotni 2010-yildan 2020-yilgacha bo‘lgan davr uchun aks ettiradi. Jadvaldan ko‘rinadiki, davr oxiriga kelib ko‘rsatkich oshgan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Umumiy xulosa gapi",
+   "emotion": "thinking",
+   "board": [
+    "В целом …",
+    "Наиболее заметная тенденция — …",
+    "Бросается в глаза …",
+    "Главное различие состоит в том, что …"
+   ],
+   "examples": [
+    {
+     "t": "В целом число пользователей неуклонно росло.",
+     "uz": "Umuman, foydalanuvchilar soni to‘xtovsiz oshdi."
+    },
+    {
+     "t": "Бросается в глаза резкий скачок в третьем году.",
+     "uz": "Uchinchi yildagi keskin sakrash ko‘zga tashlanadi."
+    }
+   ],
+   "say_native": "Umumiy xulosa gapi tasvirning yuragi. U tafsilotga kirmaydi, faqat eng muhim tendensiyani beradi: «в целом число пользователей неуклонно росло». Boshqa qoliplar: «наиболее заметная тенденция — …», «бросается в глаза …» — ko‘zga tashlanadi, «главное различие состоит в том, что …». Bu gapni kirishdan keyin yozing, raqamlarni esa keyingi gaplarga qoldiring.",
+   "say": "В целом число пользователей неуклонно росло. Наиболее заметная тенденция — стремительное увеличение в последние годы. Бросается в глаза резкий скачок в третьем году.",
+   "say_uz": "Umuman, foydalanuvchilar soni to‘xtovsiz oshdi. Eng sezilarli tendensiya — so‘nggi yillarda keskin ko‘payish. Uchinchi yildagi keskin sakrash ko‘zga tashlanadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "To‘liq tavsif namunasi",
+   "emotion": "impressed",
+   "board": [
+    "Интернет-пользователи: 2010 — 40 %, 2022 — 90 %"
+   ],
+   "examples": [
+    {
+     "t": "К концу периода почти девять из десяти жителей пользовались интернетом.",
+     "uz": "Davr oxiriga kelib deyarli har o‘n aholidan to‘qqiztasi internetdan foydalangan."
+    }
+   ],
+   "say_native": "Mana qisqa tavsif: kirish, umumiy tendensiya, tafsilot va davr oxiri. «Особенно быстро доля росла в первые годы, а затем темп замедлился» — o‘sish sur’ati haqida ma’lumot. «Девять из десяти» — «o‘ntadan to‘qqiztasi», kasr o‘rniga qulay ibora. Bu uslub yozma topshiriqda aynan kerak, ya’ni ixcham, aniq va xolis.",
+   "say": "На графике представлены данные о доле интернет-пользователей. В целом наблюдался устойчивый рост: с сорока до девяноста процентов. Особенно быстро доля росла в первые годы, а затем темп замедлился. К концу периода почти девять из десяти жителей пользовались интернетом.",
+   "say_uz": "Grafikda internet foydalanuvchilari ulushi haqidagi ma’lumotlar keltirilgan. Umuman, barqaror o‘sish kuzatildi: qirq foizdan to‘qson foizgacha. Ayniqsa dastlabki yillarda ulush tez o‘sdi, keyin sur’at sekinlashdi. Davr oxiriga kelib deyarli har o‘n aholidan to‘qqiztasi internetdan foydalangan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Davr va yil xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ в 2015 год → ✓ в 2015 году",
+    "✗ с 2010 до 2020 год → ✓ с 2010 по 2020 год",
+    "✗ показывает о продажах → ✓ показывает данные о продажах"
+   ],
+   "examples": [
+    {
+     "t": "Диаграмма показывает данные о продажах.",
+     "uz": "Diagramma savdo haqidagi ma’lumotlarni ko‘rsatadi."
+    }
+   ],
+   "say_native": "Uchta xato. Birinchisi: yil bilan «в» predlogidan keyin predlojnyy: в 2015 году. Ikkinchisi: yillar davri uchun «с … по …», «с … до …» esa miqdor uchun. Uchinchisi: «показывать» to‘g‘ridan-to‘g‘ri to‘ldiruvchi talab qiladi: показывает данные, динамику, долю. «О продажах» o‘zbekcha «savdo haqida» dan o‘girilgan, lekin ruschada ortiqcha.",
+   "say": "Не говорите «в 2015 год». Нужно: в 2015 году. Для периода используйте «с … по … год», а не «до». И не «показывает о продажах», а «показывает данные о продажах».",
+   "say_uz": "«В 2015 год» demang. To‘g‘risi: в 2015 году. Davr uchun «с … по … год», «до» emas. «Показывает о продажах» emas, показывает данные о продажах.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Kirish va xulosa yozing",
+   "emotion": "encouraging",
+   "board": [
+    "Продажи (млн): 2018 — 2, 2019 — 3, 2020 — 5, 2021 — 6",
+    "Напишите введение и обзор"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Doskada to‘rt yillik savdo ma’lumoti bor. Ikki gap ayting: kirish va umumiy xulosa. Kirish gapini men aytdim: «Диаграмма показывает динамику продаж». Endi «в целом» bilan boshlanuvchi umumiy gapni ayting va tendensiyani to‘g‘ri nomlang.",
+   "say": "Напишите введение и обзорное предложение к данным о продажах. Диаграмма показывает динамику продаж. Теперь скажите обзорное предложение.",
+   "say_uz": "Savdo ma’lumotlari uchun kirish va umumiy xulosa gapini yozing. Diagramma savdo dinamikasini ko‘rsatadi. Endi umumiy xulosa gapini ayting.",
+   "practice_seconds": 18
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "В целом продажи неуклонно росли.",
+    "С двух до шести миллионов."
+   ],
+   "examples": [],
+   "say_native": "Javob: «В целом продажи неуклонно росли». Xohlasangiz, qisqa diapazonni ham qo‘shing: «с двух до шести миллионов». Kirishda «за четыре года» deb davrni ham ko‘rsating. Umumiy xulosa gapida batafsil raqam kerak emas, faqat tendensiya yetarli.",
+   "say": "В целом продажи неуклонно росли: с двух до шести миллионов. Диаграмма показывает динамику продаж за четыре года.",
+   "say_uz": "Umuman, savdo to‘xtovsiz oshdi: ikki milliondan olti milliongacha. Diagramma to‘rt yillik savdo dinamikasini ko‘rsatadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Taxminiy sonlar",
+   "emotion": "neutral",
+   "board": [
+    "около · примерно · приблизительно",
+    "почти · чуть менее · чуть более",
+    "свыше · более · порядка",
+    "ровно · точно"
+   ],
+   "examples": [
+    {
+     "t": "Число посетителей составило около двух тысяч.",
+     "uz": "Tashrifchilar soni taxminan ikki ming bo‘ldi."
+    },
+    {
+     "t": "Прибыль превысила три миллиона, а расходы составили чуть менее двух.",
+     "uz": "Foyda uch milliondan oshdi, xarajat esa ikki milliondan sal kam bo‘ldi."
+    }
+   ],
+   "say_native": "Grafikdagi har bir raqamni aniq aytish shart emas. Taxminiy so‘zlar: «около», «примерно», «приблизительно» — taxminan. «Почти» — deyarli, «чуть менее» — sal kam, «чуть более» — sal ko‘p. «Свыше», «более», «порядка» — dan ko‘p, atrofida. Aniq son uchun «ровно», «точно». Bu so‘zlar qaysi raqamga yaqinligini aniq ko‘rsatadi, ularni birga ishlatmang.",
+   "say": "Число посетителей составило около двух тысяч. Прибыль превысила три миллиона, а расходы составили чуть менее двух. Ровно половина опрошенных выбрала первый вариант.",
+   "say_uz": "Tashrifchilar soni taxminan ikki ming bo‘ldi. Foyda uch milliondan oshdi, xarajat esa ikki milliondan sal kam bo‘ldi. So‘rovda qatnashganlarning roppa-rosa yarmi birinchi variantni tanladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Kasrlar va ulushlar",
+   "emotion": "thinking",
+   "board": [
+    "половина · треть · четверть",
+    "две трети · три четверти",
+    "каждый пятый · каждый десятый",
+    "процентный пункт"
+   ],
+   "examples": [
+    {
+     "t": "Каждый пятый студент учится дистанционно.",
+     "uz": "Har beshinchi talaba masofadan o‘qiydi."
+    },
+    {
+     "t": "Три четверти респондентов выбрали второй вариант.",
+     "uz": "Respondentlarning to‘rtdan uch qismi ikkinchi variantni tanladi."
+    }
+   ],
+   "say_native": "Ulushni so‘z bilan aytish uchun: «половина» — yarim, «треть» — uchdan bir, «четверть» — to‘rtdan bir, «две трети» — uchdan ikki, «три четверти» — to‘rtdan uch. «Каждый пятый» — har beshinchi, ya’ni yigirma foiz. «Процентный пункт» — ikki foiz ko‘rsatkich orasidagi farq. Eslab qoling: kasrdan keyin ot roditelnyy ko‘plikda: три четверти респондентов.",
+   "say": "Каждый пятый студент учится дистанционно. Три четверти респондентов выбрали второй вариант, а треть отдала предпочтение первому. Доля выросла на пять процентных пунктов.",
+   "say_uz": "Har beshinchi talaba masofadan o‘qiydi. Respondentlarning to‘rtdan uch qismi ikkinchi variantni tanladi, uchdan bir qismi birinchisini ma’qul ko‘rdi. Ulush besh foiz punktiga oshdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Jadvalni o‘qish",
+   "emotion": "neutral",
+   "board": [
+    "столбец · строка · ячейка",
+    "в таблице указано …",
+    "показатель · единица измерения",
+    "в тысячах человек · в процентах"
+   ],
+   "examples": [
+    {
+     "t": "В таблице указана численность населения в тысячах человек.",
+     "uz": "Jadvalda aholi soni ming kishi hisobida ko‘rsatilgan."
+    },
+    {
+     "t": "Самый высокий показатель приходится на последний столбец.",
+     "uz": "Eng yuqori ko‘rsatkich oxirgi ustunga to‘g‘ri keladi."
+    }
+   ],
+   "say_native": "Jadvalni tavsiflash uchun yangi so‘zlar: «столбец» — ustun, «строка» — satr, «ячейка» — katak. «В таблице указано» — jadvalda ko‘rsatilgan. «Единица измерения» — o‘lchov birligi: «в тысячах человек», «в процентах». «Приходится на» — to‘g‘ri keladi. Bu so‘zlar jadvalni tavsiflashda o‘quvchiga qaysi joy haqida gapirayotganingizni aniq bildiradi.",
+   "say": "В таблице указана численность населения в тысячах человек. Самый высокий показатель приходится на последний столбец, а самый низкий — на вторую строку. Данные приведены в процентах.",
+   "say_uz": "Jadvalda aholi soni ming kishi hisobida ko‘rsatilgan. Eng yuqori ko‘rsatkich oxirgi ustunga, eng pasti esa ikkinchi satrga to‘g‘ri keladi. Ma’lumotlar foizlarda berilgan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Jadval tavsifi",
+   "emotion": "impressed",
+   "board": [
+    "Таблица: Читатели библиотек (тыс.)",
+    "Город А: 30 · 36 · 45",
+    "Город Б: 28 · 28 · 30"
+   ],
+   "examples": [
+    {
+     "t": "В городе А число читателей выросло в полтора раза, а в городе Б осталось почти неизменным.",
+     "uz": "A shaharda o‘quvchilar soni bir yarim baravar oshdi, B shaharda esa deyarli o‘zgarmadi."
+    }
+   ],
+   "say_native": "Jadval tavsifida avval bir shahar, keyin ikkinchisi, oxirida taqqoslash. «В полтора раза» — bir yarim baravar. «Почти неизменным» — deyarli o‘zgarmagan. «Таким образом» — shunday qilib, bu yerda xulosa kiritadi. Sizning hisobotingizda ham ikki ob’ektni shunday solishtirasiz. Aniq sonlarni «около» bilan yumshating.",
+   "say": "В городе А число читателей выросло с тридцати до сорока пяти тысяч, то есть в полтора раза. В городе Б показатель остался почти неизменным: около тридцати тысяч. Таким образом, город А заметно опережает город Б.",
+   "say_uz": "A shaharda o‘quvchilar soni o‘ttiz mingdan qirq besh minggacha, ya’ni bir yarim baravar oshdi. B shaharda ko‘rsatkich deyarli o‘zgarmadi: taxminan o‘ttiz ming. Shunday qilib, A shahar B shahardan sezilarli o‘zib ketgan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Sonlar xatolari",
+   "emotion": "stern",
+   "board": [
+    "✗ около примерно 30 процентов → ✓ около 30 процентов",
+    "✗ три четверти студенты → ✓ три четверти студентов",
+    "✗ на 5 процентов пунктов → ✓ на 5 процентных пунктов"
+   ],
+   "examples": [
+    {
+     "t": "Три четверти студентов сдали экзамен.",
+     "uz": "Talabalarning to‘rtdan uch qismi imtihonni topshirdi."
+    }
+   ],
+   "say_native": "Ikkita xato. Birinchisi: ikkita taxminiy so‘zni birga qo‘yish, «около примерно». Bitta yetarli. Ikkinchisi: kasrdan keyin ot roditelnyy ko‘plikda bo‘lishi kerak: три четверти студентов, две трети жителей. O‘zbekchada «talabalarning to‘rtdan uch qismi» deymiz va ot yo‘q, shuning uchun ruschada kelishikni unutish oson.",
+   "say": "Не говорите «около примерно тридцати процентов»: достаточно одного слова. И не «три четверти студенты», а «три четверти студентов».",
+   "say_uz": "«Около примерно» demang, bittasi yetarli. «Три четверти студенты» emas, три четверти студентов.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Sonlarni ayting",
+   "emotion": "encouraging",
+   "board": [
+    "20 % → каждый ___",
+    "75 % → ___ четверти",
+    "33 % → ___"
+   ],
+   "examples": [],
+   "say_native": "Mashq. Foizlarni boshqacha ifodalang. Yigirma foiz — har beshinchi. Yetmish besh foiz va o‘ttiz uch foizni so‘z bilan ayting: kasr yoki «каждый» yordamida. Keyin «около» yoki «почти» dan foydalanib, jumla tuzing.",
+   "say": "Выразите проценты другими словами. Двадцать процентов — это каждый пятый. Теперь скажите, как выразить семьдесят пять процентов и тридцать три процента.",
+   "say_uz": "Foizlarni boshqacha ayting. Yigirma foiz — har beshinchi. Yetmish besh foiz va o‘ttiz uch foizni qanday ifodalashni ayting.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Mashq javoblari",
+   "emotion": "proud",
+   "board": [
+    "75 % — три четверти",
+    "33 % — примерно треть"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: yetmish besh foiz — «три четверти», o‘ttiz uch foiz — «примерно треть». Eslang, «примерно» ni «около» bilan almashtirish mumkin, ammo ikkalasini birga ishlatmang. Natijada gapingiz aniq va tabiiy chiqadi.",
+   "say": "Семьдесят пять процентов — это три четверти. Тридцать три процента — примерно треть.",
+   "say_uz": "Yetmish besh foiz — to‘rtdan uch qism. O‘ttiz uch foiz — taxminan uchdan bir.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: diagramma",
+   "emotion": "happy",
+   "board": [
+    "Диалог 1",
+    "Преподаватель и студент у диаграммы"
+   ],
+   "examples": [],
+   "say_native": "Birinchi dialog: o‘qituvchi va talaba diagrammani tavsiflashni mashq qiladi. Talaba qanday boshlaydi, qanday umumiy xulosa chiqaradi va raqamni qanday aytadi, tinglang. Savollar keyingi mashqda.",
+   "say": "— Посмотрим на диаграмму. Как вы начнёте описание? — Диаграмма показывает данные о продажах за пять лет. — Хорошо. Что дальше? — В целом продажи выросли, хотя в третьем году наблюдался спад. — Верно. Теперь добавьте цифры: насколько вырос показатель? — Он вырос с двухсот до трёхсот тысяч, то есть в полтора раза. — Отлично.",
+   "say_uz": "— Diagrammaga qarab ko‘ramiz. Tavsifni qanday boshlaysiz? — Diagramma besh yillik savdo ma’lumotlarini ko‘rsatadi. — Yaxshi. Keyin-chi? — Umuman, savdo oshdi, garchi uchinchi yilda pasayish kuzatilgan bo‘lsa-da. — To‘g‘ri. Endi raqamlarni qo‘shing: ko‘rsatkich qanchaga oshdi? — U ikki yuz mingdan uch yuz minggacha, ya’ni bir yarim baravar oshdi. — A’lo.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. Как студент начал описание?",
+    "2. Какая общая тенденция?",
+    "3. Насколько вырос показатель?"
+   ],
+   "examples": [],
+   "say_native": "Savollar: talaba tavsifni qanday boshladi, umumiy tendensiya nima va ko‘rsatkich qanchaga oshdi. Javobingizda to‘liq gap bilan, «в целом» va «с … до …» ni ishlating.",
+   "say": "Ответьте на вопросы по диалогу. Как студент начал описание? Какая общая тенденция? Насколько вырос показатель?",
+   "say_uz": "Dialog bo‘yicha savollarga javob bering. Talaba tavsifni qanday boshladi? Umumiy tendensiya qanday? Ko‘rsatkich qanchaga oshdi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Dialog javoblari",
+   "emotion": "proud",
+   "board": [
+    "1. Диаграмма показывает данные о продажах за пять лет",
+    "2. В целом рост, но спад в третьем году",
+    "3. С двухсот до трёхсот тысяч — в полтора раза"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: talaba kirishni «диаграмма показывает данные о продажах за пять лет» deb boshladi. Umumiy tendensiya — o‘sish, faqat uchinchi yilda pasayish bo‘lgan. Ko‘rsatkich ikki yuz mingdan uch yuz minggacha, ya’ni bir yarim baravar o‘sdi. Mana shu tartib: kirish, obzor, tafsilot.",
+   "say": "Студент начал так: диаграмма показывает данные о продажах за пять лет. В целом продажи выросли, хотя в третьем году был спад. Показатель вырос с двухсот до трёхсот тысяч, в полтора раза.",
+   "say_uz": "Talaba shunday boshladi: diagramma besh yillik savdo ma’lumotlarini ko‘rsatadi. Umuman, savdo oshdi, uchinchi yilda esa pasayish bo‘lgan. Ko‘rsatkich ikki yuz mingdan uch yuz minggacha, bir yarim baravar oshdi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Dialog: so‘rov natijalari",
+   "emotion": "happy",
+   "board": [
+    "Диалог 2",
+    "Два коллеги обсуждают опрос"
+   ],
+   "examples": [],
+   "say_native": "Ikkinchi dialog: ikki hamkasb so‘rov natijalarini muhokama qiladi. Ular qanday taxminiy sonlar va ulushlar ishlatishini tinglang.",
+   "say": "— По результатам опроса почти две трети сотрудников предпочитают гибкий график. — А сколько человек участвовало? — Около трёхсот. Из них лишь каждый десятый хочет работать только в офисе. — Значит, лидирует гибкий график, а офисный формат заметно уступает. — Именно: разрыв составляет более пятидесяти процентных пунктов.",
+   "say_uz": "— So‘rov natijalariga ko‘ra, xodimlarning deyarli uchdan ikki qismi moslashuvchan jadvalni afzal ko‘radi. — Nechta odam qatnashgan? — Taxminan uch yuz. Ulardan atigi har o‘ninchisi faqat ofisda ishlashni xohlaydi. — Demak, moslashuvchan jadval yetakchi, ofis formati esa sezilarli ortda. — Aynan: farq ellik foiz punktidan ko‘proq.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Ikkinchi dialog savollari",
+   "emotion": "encouraging",
+   "board": [
+    "1. Сколько предпочитают гибкий график?",
+    "2. Сколько человек участвовало?",
+    "3. Какой формат уступает?"
+   ],
+   "examples": [],
+   "say_native": "Savollar: moslashuvchan jadvalni qancha ulush xodim afzal ko‘radi, nechta odam qatnashdi va qaysi format ortda qoldi. Javobda «почти две трети», «около» va «уступает» so‘zlarini ishlating.",
+   "say": "Ответьте на вопросы. Какая доля сотрудников предпочитает гибкий график? Сколько человек участвовало в опросе? Какой формат уступает?",
+   "say_uz": "Savollarga javob bering. Xodimlarning qancha qismi moslashuvchan jadvalni afzal ko‘radi? So‘rovda nechta odam qatnashdi? Qaysi format ortda qoldi?",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar",
+   "emotion": "proud",
+   "board": [
+    "1. Почти две трети",
+    "2. Около трёхсот человек",
+    "3. Офисный формат"
+   ],
+   "examples": [],
+   "say_native": "Javoblar: deyarli uchdan ikki qism moslashuvchan jadvalni tanlaydi. So‘rovda taxminan uch yuz kishi qatnashdi. Ofis formati ortda qoldi: «уступает» + datelnyy, «гибкому графику». Bunday tafsilotlarni ham grafik tavsifida ishlatsangiz bo‘ladi.",
+   "say": "Гибкий график предпочитает почти две трети сотрудников. В опросе участвовало около трёхсот человек. Офисный формат уступает гибкому графику.",
+   "say_uz": "Xodimlarning deyarli uchdan ikki qismi moslashuvchan jadvalni afzal ko‘radi. So‘rovda taxminan uch yuz kishi qatnashdi. Ofis formati moslashuvchan jadvaldan ortda.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Talaffuz va urg‘u",
+   "emotion": "neutral",
+   "board": [
+    "диагра́мма · показа́тель · тенде́нция",
+    "проце́нт · проце́нтов",
+    "колеба́ться · сокраща́ться"
+   ],
+   "examples": [
+    {
+     "t": "Показатель колебался около пятидесяти процентов.",
+     "uz": "Ko‘rsatkich ellik foiz atrofida tebrandi."
+    }
+   ],
+   "say_native": "Urg‘u: диагра́мма — ikkinchi bo‘g‘inda; показа́тель — «-за-» da; тенде́нция — «-де́-» da; проце́нт va проце́нтов — «-це́-» da; колеба́ться — «-ба́-» da; сокраща́ться — «-ща́-» da. Raqamlarni og‘zaki aytganda gap sekin, aniq bo‘lsin. Kasr va foizlarni ham so‘z bilan ayting, raqamdan ko‘ra aniqroq eshitiladi.",
+   "say": "Правильно ставьте ударение: диагра́мма, показа́тель, тенде́нция, проце́нтов, колеба́ться, сокраща́ться. Показатель колебался около пятидесяти процентов.",
+   "say_uz": "Urg‘uni to‘g‘ri qo‘ying: диагра́мма, показа́тель, тенде́нция, проце́нтов, колеба́ться, сокраща́ться. Ko‘rsatkich taxminan ellik foiz atrofida tebrandi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Yakuniy yozma vazifa",
+   "emotion": "encouraging",
+   "board": [
+    "Таблица: Интернет-пользователи",
+    "2010 — 40 % · 2014 — 60 % · 2018 — 80 % · 2022 — 90 %",
+    "Введение · обзор · 2 детали"
+   ],
+   "examples": [],
+   "say_native": "Yakuniy vazifa. Jadvalda to‘rt yillik ma’lumot bor. Qisqa tavsif yozing: kirish, umumiy xulosa va ikki tafsilot, raqam yoki taxminiy ifoda bilan. «Показывает данные о», «в целом», «с … до …» va «почти» ni ishlating. Ayting yoki yozing, keyin namunani eshitasiz.",
+   "say": "Напишите короткое описание таблицы об интернет-пользователях. Нужны введение, обзорное предложение и две детали с числами или приближениями.",
+   "say_uz": "Internet foydalanuvchilari jadvalining qisqa tavsifini yozing. Kirish, umumiy xulosa gapi va raqam yoki taxminiy ifodali ikki tafsilot kerak.",
+   "practice_seconds": 30
+  },
+  {
+   "kind": "example",
+   "title": "Namuna tavsif",
+   "emotion": "impressed",
+   "board": [
+    "Введение → обзор → детали"
+   ],
+   "examples": [],
+   "say_native": "Namuna: kirish gapi davrni aytadi, obzor gapi tendensiyani beradi, tafsilotlarda aniq farq va taxminiy ifoda bor. «За четыре года она выросла на двадцать процентных пунктов» — ikki foiz ko‘rsatkich orasidagi farq. Sizning tavsifingiz boshqacha bo‘lishi mumkin, ammo uch qism va raqamlar bo‘lsin.",
+   "say": "Таблица показывает данные о доле интернет-пользователей за период с две тысячи десятого по две тысячи двадцать второй год. В целом наблюдался устойчивый рост: с сорока до девяноста процентов. Особенно заметно доля увеличилась в первые годы: за четыре года она выросла на двадцать процентных пунктов. К концу периода интернетом пользовались почти девять из десяти жителей.",
+   "say_uz": "Jadval 2010-yildan 2022-yilgacha davr uchun internet foydalanuvchilari ulushi haqidagi ma’lumotlarni ko‘rsatadi. Umuman, barqaror o‘sish kuzatildi: qirq foizdan to‘qson foizgacha. Ayniqsa dastlabki yillarda ulush sezilarli oshdi: to‘rt yilda yigirma foiz punktiga. Davr oxiriga kelib internetdan deyarli har o‘n aholidan to‘qqiztasi foydalangan.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Dars xulosasi",
+   "emotion": "proud",
+   "board": [
+    "вырос · снизился · колебался · достиг пика",
+    "опережает + В.п. · уступает + Д.п.",
+    "В целом … · около · почти · три четверти",
+    "с … по … год · в … году"
+   ],
+   "examples": [],
+   "say_native": "Bugungi darsni jamlaymiz. Birinchi: o‘sish, pasayish, tebranish va cho‘qqi lug‘ati. Ikkinchi: taqqoslash va «опережать», «уступать» ning kelishiklari. Uchinchi: kirish, umumiy xulosa gapi va davrni to‘g‘ri aytish, «с … по … год». To‘rtinchi: taxminiy sonlar, kasrlar va ulushlar. Endi grafikni yozma tasvirlashga tayyorsiz.",
+   "say": "Подведём итог. Сегодня мы выучили лексику динамики, научились сравнивать данные, писать обзорное предложение и точно называть числа.",
+   "say_uz": "Xulosa qilamiz. Dinamika lug‘atini o‘rgandik, ma’lumotlarni taqqoslash, umumiy xulosa gapini yozish va sonlarni aniq nomlashni o‘rgandik.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "encouraging",
+   "board": [
+    "150 слов",
+    "описание графика или диаграммы"
+   ],
+   "examples": [],
+   "say_native": "Uy vazifasi: istalgan diagramma yoki grafikni yuz ellik so‘zda tasvirlang. Unda kirish, umumiy xulosa gapi, kamida bitta taqqoslash va kamida ikkita taxminiy son bo‘lsin. Mezon — taxminan yuz ellik so‘z va uch qism. Keyingi darsda imtihon strategiyasi, B2 darajasini ko‘rib chiqamiz.",
+   "say": "Домашнее задание: напишите описание любой диаграммы или графика объёмом сто пятьдесят слов. Используйте введение, обзор, сравнение и приближённые числа.",
+   "say_uz": "Uy vazifasi: istalgan diagramma yoki grafikni yuz ellik so‘zda tasvirlang. Kirish, obzor, taqqoslash va taxminiy sonlardan foydalaning.",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "150 so‘zlik jadval tavsifini yozing. Mezon: har bir gap rus tilida, «график, число, примерно, например, итого» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “graph”?","options":["график","таблица","число","рост"],"answer":0,"why_uz":"График — grafik."},
-  {"q":"Which word means “table”?","options":["таблица","график","число","рост"],"answer":0,"why_uz":"Таблица — jadval."},
-  {"q":"Which word means “number”?","options":["число","график","таблица","рост"],"answer":0,"why_uz":"Число — son."},
-  {"q":"How do you say “The graph grows”?","options":["График растёт.","График растёт есть.","График растёт является.","График растёт был."],"answer":0,"why_uz":"График растёт — grafik o‘sadi."},
-  {"q":"How do you say “The number falls”?","options":["Число падает.","Число падает есть.","Число падает является.","Число падает был."],"answer":0,"why_uz":"Число падает — son kamayadi."},
-  {"q":"Which word means “approximately”?","options":["примерно","больше","меньше","сейчас"],"answer":0,"why_uz":"Примерно — taxminan."},
-  {"q":"Which word means “growth”?","options":["рост","падение","график","таблица"],"answer":0,"why_uz":"Рост — o‘sish."},
-  {"q":"How do you say “Approximately one hundred”?","options":["Примерно сто.","Примерно сто есть.","Примерно сто является.","Примерно сто был."],"answer":0,"why_uz":"Примерно сто — taxminan yuz."},
-  {"q":"Which word means “more”?","options":["больше","меньше","примерно","сейчас"],"answer":0,"why_uz":"Больше — ko‘proq."},
-  {"q":"Which word means “now”?","options":["сейчас","потом","больше","меньше"],"answer":0,"why_uz":"Сейчас — hozir."}
+ "homework_uz": "Istalgan diagramma yoki grafikni yuz ellik so‘zda yozma tasvirlang. Unda kirish, umumiy xulosa gapi, kamida bitta taqqoslash va kamida ikkita taxminiy son bo‘lsin. Shu uch qism va taxminan yuz ellik so‘z bo‘lsa, vazifa bajarilgan. Keyingi darsda B2 imtihon strategiyasini ko‘rib chiqamiz.",
+ "quiz": [
+  {
+   "q": "Qaysi gap to‘g‘ri?",
+   "options": [
+    "Рост снизился.",
+    "Показатель снизился.",
+    "Рост упал вниз.",
+    "Показатель выросла."
+   ],
+   "answer": 1,
+   "why_uz": "Pasayadigan narsa — ko‘rsatkich."
+  },
+  {
+   "q": "«Достичь» qaysi kelishik bilan ishlaydi?",
+   "options": [
+    "Roditelnyy",
+    "Datelnyy",
+    "Tvoritelnyy",
+    "Predlojnyy"
+   ],
+   "answer": 0,
+   "why_uz": "Достичь пика — roditelnyy."
+  },
+  {
+   "q": "Yillar davri uchun qaysi qolip to‘g‘ri?",
+   "options": [
+    "с 2010 до 2020",
+    "с 2010 по 2020 год",
+    "от 2010 к 2020",
+    "на 2010 по 2020"
+   ],
+   "answer": 1,
+   "why_uz": "Yillar uchun «с … по … год»."
+  },
+  {
+   "q": "«Опережать» qaysi kelishik bilan?",
+   "options": [
+    "Datelnyy",
+    "Vinitelnyy",
+    "Roditelnyy",
+    "Tvoritelnyy"
+   ],
+   "answer": 1,
+   "why_uz": "Опережать + vinitelnyy."
+  },
+  {
+   "q": "«Уступать» qaysi kelishik bilan?",
+   "options": [
+    "Datelnyy",
+    "Vinitelnyy",
+    "Roditelnyy",
+    "Tvoritelnyy"
+   ],
+   "answer": 0,
+   "why_uz": "Уступать + datelnyy."
+  },
+  {
+   "q": "Umumiy xulosa gapi qanday boshlanadi?",
+   "options": [
+    "В целом …",
+    "Дорогой друг …",
+    "Я думаю …",
+    "Однако …"
+   ],
+   "answer": 0,
+   "why_uz": "«В целом» — umuman."
+  },
+  {
+   "q": "«Три четверти ...» dan keyin ot qaysi shaklda?",
+   "options": [
+    "Roditelnyy ko‘plik",
+    "Nominativ birlik",
+    "Datelnyy",
+    "Vinitelnyy birlik"
+   ],
+   "answer": 0,
+   "why_uz": "Три четверти студентов — roditelnyy."
+  },
+  {
+   "q": "«Каждый пятый» necha foizni bildiradi?",
+   "options": [
+    "10",
+    "20",
+    "25",
+    "50"
+   ],
+   "answer": 1,
+   "why_uz": "Har beshinchi — 20 foiz."
+  },
+  {
+   "q": "Qaysi ibora taxminiy?",
+   "options": [
+    "ровно",
+    "около",
+    "точно",
+    "именно"
+   ],
+   "answer": 1,
+   "why_uz": "«Около» — taxminan."
+  },
+  {
+   "q": "«Колебаться в пределах» nimani bildiradi?",
+   "options": [
+    "O‘sish",
+    "Pasayish",
+    "Ma’lum oraliqda tebranish",
+    "Cho‘qqi"
+   ],
+   "answer": 2,
+   "why_uz": "Колебаться в пределах — tebranish."
+  }
  ]
 }

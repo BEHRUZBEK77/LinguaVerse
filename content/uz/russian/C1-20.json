@@ -1,83 +1,403 @@
 {
  "title": "Taqdimot qilish san’ati",
- "goal_uz": "Dars yakunida rus tilida samarali taqdimot qilasiz. «Сегодня я расскажу ...», «Далее ...», «Итак ...», «Спасибо ...» bog‘lovchilarini o‘rinli qo‘llaysiz, nutqni tuzib rasmini bayon qilasiz. Oxirida uch daqiqalik taqdimot qilib bera olasiz.",
+ "goal_uz": "Dars oxirida siz taqdimotni aniq tuzilma bilan boshlaysiz va tugatasiz, bo‘limlar orasida yo‘naltiruvchi iboralarni ishlatasiz, auditoriyaning e’tiborini ushlab turasiz, savollarga ishonch bilan javob berasiz va uch daqiqalik taqdimotga tayyor bo‘lasiz.",
  "vocab": [
-  {"w": "сегодня", "uz": "bugun"},
-  {"w": "далее", "uz": "keyin"},
-  {"w": "итак", "uz": "demak"},
-  {"w": "слушатель", "uz": "tinglovchi"},
-  {"w": "вопрос", "uz": "savol"},
-  {"w": "ответ", "uz": "javob"},
-  {"w": "структура", "uz": "tuzilma"},
-  {"w": "план", "uz": "reja"},
-  {"w": "пример", "uz": "misol"},
-  {"w": "конец", "uz": "yakun"}
+  {"w": "выступление", "uz": "chiqish"},
+  {"w": "слушатели", "uz": "tinglovchilar"},
+  {"w": "остановиться на", "uz": "to‘xtalib o‘tmoq"},
+  {"w": "перейти к", "uz": "o‘tmoq (keyingi masalaga)"},
+  {"w": "подвести итог", "uz": "xulosa qilmoq"},
+  {"w": "риторический вопрос", "uz": "ritorik savol"},
+  {"w": "обратить внимание", "uz": "e’tiborni qaratmoq"},
+  {"w": "уточнить", "uz": "aniqlashtirmoq"},
+  {"w": "вернуться к", "uz": "qaytmoq (masalaga)"},
+  {"w": "наглядный", "uz": "ko‘rgazmali"}
  ],
  "scenes": [
-  {"kind":"intro","title":"Yuz yigirmanchi dars: taqdimot","emotion":"happy","board":["Сегодня ...","Далее ...","Итак ...","Спасибо ..."],"examples":[],"say_native":"Assalomu alaykum! Yuz yigirmanchi darsda taqdimot qilish san’atini o‘rganamiz. Bugun «сегодня», «далее», «итак» va «спасибо» bog‘lovchilarini mukammallashtirib rasmini bayon qilamiz. Oxirida uch daqiqalik taqdimot qilib bera olasiz. Keyingi darsda ohang orqali ma’no berishni o‘rganamiz.","say":"Здравствуйте! Сегодня презентуем.","say_uz":"Assalomu alaykum! Bugun taqdimot qilamiz.","practice_seconds":0},
-  {"kind":"explain","title":"Bugun bog‘lovchisi","emotion":"neutral","board":["Сегодня ...","Сегодня я расскажу.","Сегодня я покажу."],"examples":[{"t":"Сегодня я расскажу.","uz":"Bugun men aytib beraman."},{"t":"Сегодня я покажу.","uz":"Bugun men ko‘rsataman."}],"say_native":"«Сегодня» — bugun so‘zi taqdimot kirish kaliti bo‘lib qoladi. «Сегодня я расскажу» — bugun men aytib beraman, «сегодня я покажу» — bugun men ko‘rsataman. Ushbu belgilar taqdimot kirishini mustahkam slab qolishining asos yotqizuvchisi bo‘ladi.","say":"Сегодня я расскажу. Сегодня я покажу.","say_uz":"Bugun men aytib beraman. Bugun men ko‘rsataman.","practice_seconds":0},
-  {"kind":"practice","title":"Kirishni ayting","emotion":"encouraging","board":["1) Bugun men aytib beraman.","2) Bugun men ko‘rsataman."],"examples":[],"say_native":"Kirish belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «сегодня я расскажу». Ikkinchisi: «сегодня я покажу». Har birini bitta nafas bilan tugallab qo‘ying.","say":"Сегодня я расскажу. Сегодня я покажу.","say_uz":"Bugun men aytib beraman. Bugun men ko‘rsataman.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Сегодня я расскажу.","Сегодня я покажу."],"examples":[],"say_native":"Kirish javoblari ikki qator taqdimot belgisi bilan tugadi. «Сегодня я расскажу» — hikoya kirishi, «сегодня я покажу» — ko‘rsatish kirishi. Taqdimot kirishi shu ikki shakl bilan boshlanib qoladi.","say":"Сегодня я расскажу. Сегодня я покажу.","say_uz":"Bugun men aytib beraman. Bugun men ko‘rsataman.","practice_seconds":0},
-  {"kind":"explain","title":"Keyin belgisi","emotion":"thinking","board":["Далее ...","Далее — план.","Далее — пример."],"examples":[{"t":"Далее — план.","uz":"Keyin — reja."},{"t":"Далее — пример.","uz":"Keyin — misol."}],"say_native":"«Далее» — keyin so‘zi taqdimot harakati belgisidir. «Далее — план» — keyin reja, «далее — пример» — keyin misol. Ushbu belgilar taqdimot harakatining ikkinchi ustuni bo‘ladi.","say":"Далее — план. Далее — пример.","say_uz":"Keyin — reja. Keyin — misol.","practice_seconds":0},
-  {"kind":"practice","title":"Keyin deb ayting","emotion":"encouraging","board":["1) Keyin — reja.","2) Keyin — misol."],"examples":[],"say_native":"Keyin belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «далее — план». Ikkinchisi: «далее — пример». Ularni bitta nafas bilan tugallab qo‘ying.","say":"Далее — план. Далее — пример.","say_uz":"Keyin — reja. Keyin — misol.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Далее — план.","Далее — пример."],"examples":[],"say_native":"Keyin javoblari ikki qator harakat belgisi bilan tugunlarga qotib qolib mustahkam bo‘lib qoladi. «Далее — план» — reja harakati, «далее — пример» — misolli harakat. Taqdimot harakati shu ikki shakl bilan mustahkamlanadi.","say":"Далее — план. Далее — пример.","say_uz":"Keyin — reja. Keyin — misol.","practice_seconds":0},
-  {"kind":"mistake","title":"Taqdimotni bitta so‘z bilan tugatish","emotion":"stern","board":["✗ Сегодня я расскажу.","✓ Сегодня я расскажу. Например, это важно. Потому что это хорошо.","✗ Далее — план.","✓ Далее — план. Например, это важно. Потому что это важно."],"examples":[],"say_native":"Ko‘p uchraydigan xato — taqdimotni bitta so‘z bilan tugatib qo‘yishdir. Taqdimot to‘liq uch qatorli dalilli bayon bilan tugallanishi shart. Kirish faqat to‘liq gapda aniq saqlanib qoladi.","say":"Сегодня я расскажу. Например, это важно. Потому что это хорошо.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Chunki bu yaxshi.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 1: taqdimot kirishi","emotion":"happy","board":["— Что ты думаешь?","— Сегодня я расскажу.","— Почему? — Например, это важно."],"examples":[],"say_native":"Birinchi dialog taqdimot kirishini mungozara qiladi. «Что ты думаешь?» — nima deb o‘ylaysan deb so‘raydi. «Сегодня я расскажу» — kirish belgisi. «Почему? — Например, это важно» — dalil belgisi bilan tugaydi.","say":"Что ты думаешь? Сегодня я расскажу. Почему? Например, это важно.","say_uz":"Nima deb o‘ylaysan? Bugun men aytib beraman. Nega? Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Nima deb o‘ylaysan?","2) Nega?"],"examples":[],"say_native":"Kirish savollarini takrorlab oling. Birinchi so‘rov: «что ты думаешь?» — nima deb o‘ylaysan. Ikkinchi so‘rov: «почему?» — nega. Javoblarda dalil bog‘lovchisini aniq qo‘llab yakunlab bering.","say":"Что ты думаешь? Сегодня я расскажу. Почему? Например, это важно.","say_uz":"Nima deb o‘ylaysan? Bugun men aytib beraman. Nega? Masalan, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Сегодня я расскажу.","Например, это важно."],"examples":[],"say_native":"Birinchi dialog javoblari kirish bilan dalil borg‘liqligida tugadi. «Сегодня я расскажу» — kirish belgisi, «например, это важно» — dalil belgisi. Taqdimot kirishi ushbu ikki shakl bilan aniq namoyish etiladi.","say":"Сегодня я расскажу. Например, это важно.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim.","practice_seconds":0},
-  {"kind":"example","title":"Dialog 2: savol javobi","emotion":"neutral","board":["— А вопрос?","— Вопрос важен.","— Итого? — Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog savol javobi bilan yakunlanadi. «А вопрос?» — savol deb so‘raydi. «Вопрос важен» — savol belgisi. «Итого? — Итого, это хорошо» — umumiy xulosa bilan tugaydi.","say":"А вопрос? Вопрос важен. Итого? Итого, это хорошо.","say_uz":"Savol-chi? Savol muhim. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Dialog bo‘yicha savollar","emotion":"encouraging","board":["1) Savol-chi?","2) Xulosa?"],"examples":[],"say_native":"Savol savollarini takrorlab oling. Birinchi so‘rov: «а вопрос?» — savol-chi deb. Ikkinchi so‘rov: «итого?» — xulosa. Javoblarda «вопрос важен» va «итого» belgilarini aniq qo‘llab yopib bering.","say":"А вопрос? Вопрос важен. Итого? Итого, это хорошо.","say_uz":"Savol-chi? Savol muhim. Xulosa? Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Вопрос важен.","Итого, это хорошо."],"examples":[],"say_native":"Ikkinchi dialog javoblari savol bilan xulosa borg‘liqligida birlashdi. «Вопрос важен» — savol belgisi, «итого, это хорошо» — xulosa belgisi. Savol javobi shu ikki qatorga muhtarkam bo‘lib qoldi.","say":"Вопрос важен. Итого, это хорошо.","say_uz":"Savol muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Tinglovchi belgisi","emotion":"thinking","board":["Слушатель ...","Слушатель важен.","Слушатель хорош."],"examples":[{"t":"Слушатель важен.","uz":"Tinglovchi muhim."},{"t":"Слушатель хорош.","uz":"Tinglovchi yaxshi."}],"say_native":"«Слушатель» — tinglovchi belgisi auditoriya tayanchini mustahkam slab qo‘yadi. «Слушатель важен» — tinglovchi muhim, «слушатель хорош» — tinglovchi yaxshi. Ushbu belgilar auditoriya tayanchining uchinchi ustuni bo‘ladi.","say":"Слушатель важен. Слушатель хорош.","say_uz":"Tinglovchi muhim. Tinglovchi yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Tinglovchini ayting","emotion":"encouraging","board":["1) Tinglovchi muhim.","2) Tinglovchi yaxshi."],"examples":[],"say_native":"Tinglovchi belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «слушатель важен». Ikkinchisi: «слушатель хорош». Har birini bitta nafas bilan tugallab qo‘ying.","say":"Слушатель важен. Слушатель хорош.","say_uz":"Tinglovchi muhim. Tinglovchi yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Слушатель важен.","Слушатель хорош."],"examples":[],"say_native":"Tinglovchi javoblari ikki qator auditoriya bayonida barqaror qoldi. «Слушатель важен» — muhimlik, «слушатель хорош» — yaxshilik. Ushbu ikki shakl auditoriya tayanchini mustahkam qotib qoladi.","say":"Слушатель важен. Слушатель хорош.","say_uz":"Tinglovchi muhim. Tinglovchi yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Tuzilma qonuni","emotion":"neutral","board":["Структура ...","Структура важна.","Структура хороша."],"examples":[{"t":"Структура важна.","uz":"Tuzilma muhim."},{"t":"Структура хороша.","uz":"Tuzilma yaxshi."}],"say_native":"«Структура» — tuzilma belgisi taqdimot tuzilmasini mustahkam slab qo‘yadi. «Структура важна» — tuzilma muhim, «структура хороша» — tuzilma yaxshi. Ushbu belgilar tuzilma tayanchining to‘rtinchi ustuni bo‘ladi.","say":"Структура важна. Структура хороша.","say_uz":"Tuzilma muhim. Tuzilma yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Tuzilmani ayting","emotion":"encouraging","board":["1) Tuzilma muhim.","2) Tuzilma yaxshi."],"examples":[],"say_native":"Tuzilmani jurnal nutqida sinab ko‘ring. Birinchi qator: «структура важна». Ikkinchi qator: «структура хороша». Ikkala qatorni mustahkam talaffuz qiling.","say":"Структура важна. Структура хороша.","say_uz":"Tuzilma muhim. Tuzilma yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Структура важна.","Структура хороша."],"examples":[],"say_native":"Tuzilma javoblari ikki qator tayanch bayonida barqaror qoldi. «Структура важна» — muhimlik, «структура хороша» — yaxshilik. Ushbu ikki shakl tuzilma tayanchini mustahkam qotib qoladi.","say":"Структура важна. Структура хороша.","say_uz":"Tuzilma muhim. Tuzilma yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Yakuniy mashq: taqdimot","emotion":"encouraging","board":["1) Bugun men aytib beraman.","2) Masalan, bu muhim.","3) Chunki bu yaxshi.","4) Rahmat!"],"examples":[],"say_native":"Yakuniy mashqda uch daqiqalik taqdimot qilib qo‘ying. Birinchisi: «сегодня я расскажу». Ikkinchisi: «например, это важно». Uchinchisi: «потому что это хорошо». Uch qatorni taqdimot shaklida bitta nafas bilan mustahkam slab qolib, bayon qiling.","say":"Сегодня я расскажу. Например, это важно. Потому что это хорошо. Спасибо!","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Chunki bu yaxshi. Rahmat!","practice_seconds":45},
-  {"kind":"explain","title":"Namuna javob","emotion":"proud","board":["Сегодня я расскажу.","Например, это важно.","Потому что это хорошо."],"examples":[],"say_native":"Namuna javob uch qator bilan begonalashtirildi. Birinchi: «сегодня я расскажу». Ikkinchisi: «например, это важно». Uchinchisi: «потому что это хорошо». Ushbu uch qator taqdimot namunasi sifatida saqlanib qoladi.","say":"Сегодня я расскажу. Например, это важно. Потому что это хорошо.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Chunki bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Taqdimot qatlamini yoyish","emotion":"neutral","board":["Сегодня ...","Далее ...","Итак ...","Например ..."],"examples":[{"t":"Сегодня ...","uz":"Bugun ..."},{"t":"Например ...","uz":"Masalan ..."}],"say_native":"Taqdimot qatlamini yoyish «сегодня» so‘zidan boshlanib, «далее» so‘zi bilan davom etilib, «итак» so‘zi bilan yakunlanib, «например ...» bog‘lovchisi bilan tugallanib yoyiladi. Qatlam ketma-ketligi matn sarlavhasiga aniq mos keladi.","say":"Сегодня ... Далее ... Итак ... Например ...","say_uz":"Bugun ... Keyin ... Demak ... Masalan ...","practice_seconds":0},
-  {"kind":"practice","title":"Zanjirni mustahkamlang","emotion":"encouraging","board":["1) Bugun ...","2) Keyin ...","3) Demak ...","4) Masalan ..."],"examples":[],"say_native":"Taqdimot qatlamini to‘rt bosqichda mustahkamlab oling. Birinchi: «сегодня ...». Ikkinchisi: «далее ...». Uchinchisi: «итак ...». Yakunda esa: «например ...». Har birini bitta nafas bilan bir qatorda talaffuz qiling.","say":"Сегодня ... Далее ... Итак ... Например ...","say_uz":"Bugun ... Keyin ... Demak ... Masalan ...","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Сегодня ...","Далее ...","Итак ...","Например ..."],"examples":[],"say_native":"Zanjir javoblari to‘rt qator bilan to‘liq ko‘rindi. «Сегодня ...» — bugun, «далее ...» — keyin, «итак ...» — demak, «например ...» — dalil. Endi taqdimot qatlam shu to‘rt belgida mustahkam bo‘lib qoladi.","say":"Сегодня ... Далее ... Итак ... Например ...","say_uz":"Bugun ... Keyin ... Demak ... Masalan ...","practice_seconds":0},
-  {"kind":"explain","title":"O‘zingizni tekshiring","emotion":"proud","board":["Сегодня ...","Далее ...","Итак ..."],"examples":[],"say_native":"O‘zingizni sinovdan o‘tkazing. Kirishni «сегодня» bilan ayta olasizmi? Davomni «далее» bilan bayon qila olasizmi? Yakunni «итак» bilan belgilay olasizmi? Uchala javob ijobiy bo‘lsa, taqdimot sizga do‘st bo‘ladi.","say":"Сегодня ... Далее ... Итак ...","say_uz":"Bugun ... Keyin ... Demak ...","practice_seconds":0},
-  {"kind":"explain","title":"Taqdimot namunasi yakunlanishi","emotion":"neutral","board":["Сегодня я расскажу.","Например, это важно.","Итого, это хорошо."],"examples":[{"t":"Сегодня я расскажу.","uz":"Bugun men aytib beraman."},{"t":"Итого, это хорошо.","uz":"Xulosa qilib, bu yaxshi."}],"say_native":"Taqdimot namunasi yakunlanishi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «сегодня я расскажу» — kirish belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это хорошо» — yakun belgisi. Ushbu uch qator taqdimot namunasi yakunlanishi mustahkam tugun bo‘lib qoladi.","say":"Сегодня я расскажу. Например, это важно. Итого, это хорошо.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Namuna mustahkamlanadi","emotion":"encouraging","board":["1) Bugun men aytib beraman.","2) Masalan, bu muhim.","3) Xulosa qilib, bu yaxshi."],"examples":[],"say_native":"Taqdimot namunasini uch qator bilan mustahkamlab oling. Birinchisi: «сегодня я расскажу». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это хорошо». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Сегодня я расскажу. Например, это важно. Итого, это хорошо.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Сегодня я расскажу.","Например, это важно.","Итого, это хорошо."],"examples":[],"say_native":"Namuna javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Сегодня я расскажу» — kirish, «например, это важно» — dalil, «итого, это хорошо» — xulosa. Taqdimot namunasi yakunlanishi shu uch qatlamda tugallanib qoladi.","say":"Сегодня я расскажу. Например, это важно. Итого, это хорошо.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Xulosa qilib, bu yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Bayonni mustahkamlash","emotion":"thinking","board":["Сегодня я расскажу.","Например, это важно.","Итого, это важно."],"examples":[{"t":"Сегодня я расскажу.","uz":"Bugun men aytib beraman."},{"t":"Итого, это важно.","uz":"Xulosa qilib, bu muhim."}],"say_native":"Bayonni mustahkamlash namunasi uch qatorli dalilli bayon bilan tugatiladi. Birinchisi: «сегодня я расскажу» — kirish belgisi. Ikkinchisi: «например, это важно» — dalil belgisi. Uchinchisi: «итого, это важно» — yakun belgisi. Ushbu uch qator bayonni mustahkamlash namunasi mustahkam tugun bo‘lib qoladi.","say":"Сегодня я расскажу. Например, это важно. Итого, это важно.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":0},
-  {"kind":"practice","title":"Bayonni mustahkamlang","emotion":"encouraging","board":["1) Bugun men aytib beraman.","2) Masalan, bu muhim.","3) Xulosa qilib, bu muhim."],"examples":[],"say_native":"Bayonni uch qator bilan mustahkamlab oling. Birinchisi: «сегодня я расскажу». Ikkinchisi: «например, это важно». Uchinchisi: «итого, это важно». Har birini bitta nafas bilan muntazam ravishda yakunlab qo‘ying.","say":"Сегодня я расскажу. Например, это важно. Итого, это важно.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Сегодня я расскажу.","Например, это важно.","Итого, это важно."],"examples":[],"say_native":"Bayon javoblari uch qator bog‘liqlik bilan tugunlarga qotib qolib barqaror qoldi. «Сегодня я расскажу» — kirish, «например, это важно» — dalil, «итого, это важно» — xulosa. Bayon shu uch qatlamda tugallanib qoladi.","say":"Сегодня я расскажу. Например, это важно. Итого, это важно.","say_uz":"Bugun men aytib beraman. Masalan, bu muhim. Xulosa qilib, bu muhim.","practice_seconds":0},
-  {"kind":"explain","title":"Reja qo‘shimchasi","emotion":"neutral","board":["План ...","План важен.","План хорош."],"examples":[{"t":"План важен.","uz":"Reja muhim."},{"t":"План хорош.","uz":"Reja yaxshi."}],"say_native":"«План» — reja so‘zi taqdimot reja qismini mustahkam slab qo‘yadi. «План важен» — reja muhim, «план хорош» — reja yaxshi. Ushbu ikki belgi reja qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"План важен. План хорош.","say_uz":"Reja muhim. Reja yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Rejani ayting","emotion":"encouraging","board":["1) Reja muhim.","2) Reja yaxshi."],"examples":[],"say_native":"Rejani jurnal nutqida sinab ko‘ring. Birinchi qator: «план важен». Ikkinchi qator: «план хорош». Ikkala qatorni mustahkam talaffuz qiling.","say":"План важен. План хорош.","say_uz":"Reja muhim. Reja yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["План важен.","План хорош."],"examples":[],"say_native":"Reja bahosi yakuniy tekshiruvda barqaror deb topildi. «План важен» — qat’iy yakun, «план хорош» — iliq yakun. Javob to‘liq saqlangan.","say":"План важен. План хорош.","say_uz":"Reja muhim. Reja yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Misol qo‘shimchasi","emotion":"thinking","board":["Пример ...","Пример важен.","Пример хорош."],"examples":[{"t":"Пример важен.","uz":"Misol muhim."},{"t":"Пример хорош.","uz":"Misol yaxshi."}],"say_native":"«Пример» — misol so‘zi taqdimot misol qismini mustahkam slab qo‘yadi. «Пример важен» — misol muhim, «пример хорош» — misol yaxshi. Ushbu ikki belgi misol qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Пример важен. Пример хорош.","say_uz":"Misol muhim. Misol yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Misolni ayting","emotion":"encouraging","board":["1) Misol muhim.","2) Misol yaxshi."],"examples":[],"say_native":"Misol belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «пример важен». Ikkinchisi: «пример хорош». Ularni misol bayonida tugallab qo‘ying.","say":"Пример важен. Пример хорош.","say_uz":"Misol muhim. Misol yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Пример важен.","Пример хорош."],"examples":[],"say_native":"Misol javoblari ikki qator misol bayonida barqaror qoldi. «Пример важен» — muhimlik, «пример хорош» — yaxshilik. Ushbu ikki shakl misol qatlamini mustahkam qotib qoladi.","say":"Пример важен. Пример хорош.","say_uz":"Misol muhim. Misol yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Yakun qo‘shimchasi","emotion":"neutral","board":["Конец ...","Конец важен.","Конец хорош."],"examples":[{"t":"Конец важен.","uz":"Yakun muhim."},{"t":"Конец хорош.","uz":"Yakun yaxshi."}],"say_native":"«Конец» — yakun so‘zi taqdimot yakun qismini mustahkam slab qo‘yadi. «Конец важен» — yakun muhim, «конец хорош» — yakun yaxshi. Ushbu ikki belgi yakun qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Конец важен. Конец хорош.","say_uz":"Yakun muhim. Yakun yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Yakunni ayting","emotion":"encouraging","board":["1) Yakun muhim.","2) Yakun yaxshi."],"examples":[],"say_native":"Yakun belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «конец важен». Ikkinchisi: «конец хорош». Ularni yakun bayonida tugallab qo‘ying.","say":"Конец важен. Конец хорош.","say_uz":"Yakun muhim. Yakun yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Конец важен.","Конец хорош."],"examples":[],"say_native":"Yakun javoblari ikki qator yakun bayonida barqaror qoldi. «Конец важен» — muhimlik, «конец хорош» — yaxshilik. Ushbu ikki shakl yakun qatlamini mustahkam qotib qoladi.","say":"Конец важен. Конец хорош.","say_uz":"Yakun muhim. Yakun yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Javob qo‘shimchasi","emotion":"thinking","board":["Ответ ...","Ответ важен.","Ответ хорош."],"examples":[{"t":"Ответ важен.","uz":"Javob muhim."},{"t":"Ответ хорош.","uz":"Javob yaxshi."}],"say_native":"«Ответ» — javob so‘zi taqdimot savol qismini mustahkam slab qo‘yadi. «Ответ важен» — javob muhim, «ответ хорош» — javob yaxshi. Ushbu ikki belgi javob qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Ответ важен. Ответ хорош.","say_uz":"Javob muhim. Javob yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Javobni ayting","emotion":"encouraging","board":["1) Javob muhim.","2) Javob yaxshi."],"examples":[],"say_native":"Javob belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «ответ важен». Ikkinchisi: «ответ хорош». Ularni javob bayonida tugallab qo‘ying.","say":"Ответ важен. Ответ хорош.","say_uz":"Javob muhim. Javob yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Ответ важен.","Ответ хорош."],"examples":[],"say_native":"Javob javoblari ikki qator javob bayonida barqaror qoldi. «Ответ важен» — muhimlik, «ответ хорош» — yaxshilik. Ushbu ikki shakl javob qatlamini mustahkam qotib qoladi.","say":"Ответ важен. Ответ хорош.","say_uz":"Javob muhim. Javob yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Savol qo‘shimchasi","emotion":"neutral","board":["Вопрос ...","Вопрос важен.","Вопрос хорош."],"examples":[{"t":"Вопрос важен.","uz":"Savol muhim."},{"t":"Вопрос хорош.","uz":"Savol yaxshi."}],"say_native":"«Вопрос» — savol so‘zi taqdimot savol qismini mustahkam slab qo‘yadi. «Вопрос важен» — savol muhim, «вопрос хорош» — savol yaxshi. Ushbu ikki belgi savol qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Вопрос важен. Вопрос хорош.","say_uz":"Savol muhim. Savol yaxshi.","practice_seconds":0},
-  {"kind":"practice","title":"Savolni ayting","emotion":"encouraging","board":["1) Savol muhim.","2) Savol yaxshi."],"examples":[],"say_native":"Savol belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «вопрос важен». Ikkinchisi: «вопрос хорош». Ularni savol bayonida tugallab qo‘ying.","say":"Вопрос важен. Вопрос хорош.","say_uz":"Savol muhim. Savol yaxshi.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Вопрос важен.","Вопрос хорош."],"examples":[],"say_native":"Savol javoblari ikki qator savol bayonida barqaror qoldi. «Вопрос важен» — muhimlik, «вопрос хорош» — yaxshilik. Ushbu ikki shakl savol qatlamini mustahkam qotib qoladi.","say":"Вопрос важен. Вопрос хорош.","say_uz":"Savol muhim. Savol yaxshi.","practice_seconds":0},
-  {"kind":"explain","title":"Rahmat qo‘shimchasi","emotion":"thinking","board":["Спасибо ...","Спасибо большое.","Спасибо за внимание."],"examples":[{"t":"Спасибо большое.","uz":"Katta rahmat."},{"t":"Спасибо за внимание.","uz":"E’tibor uchun rahmat."}],"say_native":"«Спасибо» — rahmat so‘zi taqdimot yakun qismini mustahkam slab qo‘yadi. «Спасибо большое» — katta rahmat, «спасибо за внимание» — e’tibor uchun rahmat. Ushbu ikki belgi rahmat qatlamining qo‘shimcha asosini mustahkamlaydi.","say":"Спасибо большое. Спасибо за внимание.","say_uz":"Katta rahmat. E’tibor uchun rahmat.","practice_seconds":0},
-  {"kind":"practice","title":"Rahmatni ayting","emotion":"encouraging","board":["1) Katta rahmat.","2) E’tibor uchun rahmat."],"examples":[],"say_native":"Rahmat belgisini ikki qator bilan mustahkamlab oling. Birinchisi: «спасибо большое». Ikkinchisi: «спасибо за внимание». Ularni rahmat bayonida tugallab qo‘ying.","say":"Спасибо большое. Спасибо за внимание.","say_uz":"Katta rahmat. E’tibor uchun rahmat.","practice_seconds":45},
-  {"kind":"explain","title":"Javoblar","emotion":"proud","board":["Спасибо большое.","Спасибо за внимание."],"examples":[],"say_native":"Rahmat javoblari ikki qator rahmat bayonida barqaror qoldi. «Спасибо большое» — katta rahmat, «спасибо за внимание» — e’tibor uchun rahmat. Ushbu ikki shakl rahmat qatlamini mustahkam qotib qoladi.","say":"Спасибо большое. Спасибо за внимание.","say_uz":"Katta rahmat. E’tibor uchun rahmat.","practice_seconds":0},
-  {"kind":"recap","title":"Bugun nimani o‘rgandik","emotion":"proud","board":["сегодня · далее · итак","структура · план · пример"],"examples":[],"say_native":"Bugunning xulosasi: taqdimot qilish san’atini o‘rgandik va barcha rejani amaliy matnda tekshirib mustahkamlab oldik. «Сегодня» — bugun, «далее» — keyin, «итак» — demak, «спасибо» — rahmat. Uch daqiqalik taqdimot qilib bera olasiz.","say":"Отлично! Теперь вы презентуете.","say_uz":"Ajoyib! Endi taqdimot qilasiz.","practice_seconds":0},
-  {"kind":"recap","title":"Uyga vazifa","emotion":"encouraging","board":["3 daqiqalik taqdimot","Bugun · keyin · demak","Keyingi dars: Ohang orqali ma’no berish"],"examples":[],"say_native":"Uyga vazifa: uch daqiqalik taqdimot qilib qo‘ying. Matnda «сегодня», «далее», «итак», «например», «спасибо» bog‘lovchilaridan foydalaning — belgilangaan mezon bo‘yicha. Keyingi darsda ohang orqali ma’no berishni o‘rganamiz.","say":"До свидания! До встречи на следующем уроке. Будем работать над интонацией.","say_uz":"Xayr! Keyingi darsda ko‘rishamiz. Ohang ustida ishlaymiz.","practice_seconds":0}
+  {
+   "kind": "intro",
+   "title": "Sahnada o‘zingizni ishonchli his qiling",
+   "emotion": "happy",
+   "board": ["Искусство презентации", "(Taqdimot qilish san’ati)", "структура · ориентиры · контакт · вопросы"],
+   "examples": [],
+   "say_native": "Assalomu alaykum! Oldingi darsda iqtisod va biznes lug‘atini o‘rgandik. Bugun bilimingizni auditoriya oldida ko‘rsatamiz: taqdimot qilish. Ruscha taqdimot o‘z odatlariga ega: rasmiy kirish, aniq reja, yo‘naltiruvchi iboralar va savol-javob. To‘rt narsa ko‘ramiz: tuzilma, yo‘naltirish, tinglovchi bilan aloqa, savollar bilan ishlash. Oxirida uch daqiqalik taqdimot rejangizni tuzasiz.",
+   "say": "Здравствуйте! Хорошая презентация — это не просто красивые слайды. Это история, которую слушатель легко запоминает, потому что у неё есть начало, середина и конец. Сегодня мы научимся строить такое выступление.",
+   "say_uz": "Assalomu alaykum! Yaxshi taqdimot shunchaki chiroyli slaydlar emas. Bu tinglovchi osongina eslab qoladigan hikoya, chunki uning boshi, o‘rtasi va oxiri bor. Bugun shunday chiqishni qurishni o‘rganamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Taqdimot tuzilmasi",
+   "emotion": "neutral",
+   "board": ["1. приветствие и тема", "2. цель и план", "3. основная часть (2–3 пункта)", "4. вывод", "5. вопросы"],
+   "examples": [
+    {"t": "Уважаемые коллеги, добрый день! Меня зовут Азиза Каримова, и сегодня я расскажу о том, как сократить использование пластика в офисе.", "uz": "Hurmatli hamkasblar, xayrli kun! Mening ismim Aziza Karimova va bugun men ofisda plastikdan foydalanishni qanday kamaytirish haqida gapirib beraman."}
+   ],
+   "say_native": "Birinchi nuqta: tuzilma. Taqdimot besh qismdan iborat: salomlashish va mavzu, maqsad va reja, asosiy qism ikki-uch banddan, xulosa va savollar. Eng muhim narsa: reja boshida e’lon qilinadi, shunda tinglovchi nima kutishini biladi. Kirishda ismingizni va mavzuni ayting. «Уважаемые коллеги, добрый день!» — rasmiy murojaat. Do‘stlar davrasida «привет, ребята» mumkin, auditoriyada esa bu mos kelmaydi.",
+   "say": "Уважаемые коллеги, добрый день! Меня зовут Азиза Каримова, и сегодня я расскажу о том, как сократить использование пластика в офисе. Цель моего выступления — предложить три простых шага.",
+   "say_uz": "Hurmatli hamkasblar, xayrli kun! Mening ismim Aziza Karimova va bugun men ofisda plastikdan foydalanishni qanday kamaytirish haqida gapirib beraman. Chiqishimning maqsadi uchta oddiy qadamni taklif qilish.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Reja e’lon qilish",
+   "emotion": "impressed",
+   "board": ["Цель моего выступления — …", "Выступление состоит из трёх частей.", "Сначала… затем… в завершение…", "Вопросы — в конце."],
+   "examples": [
+    {"t": "Моё выступление состоит из трёх частей: сначала я опишу проблему, затем предложу решения, а в завершение отвечу на ваши вопросы.", "uz": "Chiqishim uch qismdan iborat: avval muammoni tasvirlayman, keyin yechimlarni taklif qilaman, oxirida esa savollaringizga javob beraman."}
+   ],
+   "say_native": "Reja e’lon qilish iboralari. «Цель моего выступления — …» — maqsad. «Выступление состоит из трёх частей» — reja. «Сначала…, затем…, в завершение…» — ketma-ketlik. «Вопросы — в конце» yoki «вопросы можно задавать по ходу» — savol qoidasi. Qarang, «моё выступление» o‘rta jinsda, chunki «выступление» — o‘rta jins. Talabalar ko‘pincha «мой выступление» deb xato qiladi. Bu juda tez-tez uchraydi.",
+   "say": "Моё выступление состоит из трёх частей: сначала я опишу проблему, затем предложу решения, а в завершение отвечу на ваши вопросы. Вопросы, пожалуйста, оставьте на конец.",
+   "say_uz": "Chiqishim uch qismdan iborat: avval muammoni tasvirlayman, keyin yechimlarni taklif qilaman, oxirida esa savollaringizga javob beraman. Savollarni, iltimos, oxiriga qoldiring.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Kirishdagi xatolar",
+   "emotion": "stern",
+   "board": ["✗ Мой выступление", "✓ Моё выступление", "✗ Мы начинаем наш презентация", "✓ Наша презентация · наш доклад", "✗ Ну, в общем, я хочу рассказать…"],
+   "examples": [],
+   "say_native": "Kirishdagi uch xato. Birinchi: jins. «Выступление» — o‘rta jins, shuning uchun «моё выступление». «Презентация» — ayol jinsi, «наша презентация». «Доклад» — erkak jinsi, «наш доклад». Ikkinchi: kirishda to‘ldiruvchi so‘zlar, «ну, в общем» kabi. Ular noaniqlik ko‘rsatadi. Uchinchi: uzoq uzr, «men yaxshi gapira olmayman». O‘zbek talabalari ko‘pincha shunday boshlaydi, bu ishonchni pasaytiradi.",
+   "say": "Говорите «моё выступление», «наша презентация» и «наш доклад»: у каждого слова свой род. Не начинайте со слов «ну, в общем». Лучше сразу назовите тему: «Сегодня я расскажу о…».",
+   "say_uz": "«Mening chiqishim», «bizning taqdimotimiz» va «bizning ma’ruzamiz» deng: har bir so‘zning o‘z jinsi bor. «Xullas, umuman» so‘zlari bilan boshlamang. Yaxshisi, darhol mavzuni ayting: «Bugun men … haqida gapirib beraman».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Kirishni yarating",
+   "emotion": "encouraging",
+   "board": ["Тема: Как повысить мотивацию студентов", "Составьте вступление: приветствие, тема, цель, план из трёх частей."],
+   "examples": [],
+   "say_native": "Mashq. Mavzu: talabalar motivatsiyasini qanday oshirish mumkin. To‘rt qismli kirish tuzing: salomlashish, mavzu, maqsad va uch qismli reja. Rasmiy murojaat ishlating. Yigirma besh soniya vaqt.",
+   "say": "Тема: как повысить мотивацию студентов. Составьте вступление: поприветствуйте слушателей, назовите тему и цель и объявите план из трёх частей.",
+   "say_uz": "Mavzu: talabalar motivatsiyasini qanday oshirish mumkin. Kirish tuzing: tinglovchilar bilan salomlashing, mavzu va maqsadni ayting va uch qismli rejani e’lon qiling.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Kirish namunasi",
+   "emotion": "proud",
+   "board": ["Добрый день, уважаемые слушатели!", "Тема: мотивация студентов", "Цель: предложить практические приёмы", "План: причины · приёмы · результаты"],
+   "examples": [],
+   "say_native": "Namuna kirish: «Добрый день, уважаемые слушатели! Сегодня я расскажу о том, как повысить мотивацию студентов. Цель моего выступления — предложить практические приёмы. Оно состоит из трёх частей: причины низкой мотивации, три эффективных приёма и результаты внедрения». Qarang, reja uchta band bilan, kirish yigirma so‘z atrofida. Uzun kirish tinglovchini charchatadi.",
+   "say": "Добрый день, уважаемые слушатели! Сегодня я расскажу о том, как повысить мотивацию студентов. Цель моего выступления — предложить практические приёмы. Оно состоит из трёх частей: причины, приёмы и результаты.",
+   "say_uz": "Xayrli kun, hurmatli tinglovchilar! Bugun men talabalar motivatsiyasini qanday oshirish haqida gapirib beraman. Chiqishimning maqsadi amaliy usullarni taklif qilish. U uch qismdan iborat: sabablar, usullar va natijalar.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yo‘naltiruvchi iboralar",
+   "emotion": "thinking",
+   "board": ["Перейдём к следующему пункту…", "Теперь обратимся к…", "Позвольте остановиться на…", "Вернёмся к вопросу о…", "Подведём итог."],
+   "examples": [
+    {"t": "Итак, с причинами мы разобрались. Перейдём ко второй части: какие приёмы действительно работают?", "uz": "Demak, sabablarni ko‘rib chiqdik. Ikkinchi qismga o‘taylik: qaysi usullar haqiqatan ishlaydi?"}
+   ],
+   "say_native": "Ikkinchi nuqta: yo‘naltiruvchi iboralar, ya’ni tinglovchiga qayerda ekanimizni ko‘rsatadigan so‘zlar. Keyingisiga o‘tish: «перейдём к следующему пункту», «теперь обратимся к…». Bitta narsada to‘xtalish: «позвольте остановиться на…». Orqaga qaytish: «вернёмся к вопросу о…». Yakun: «подведём итог». «Итак» oldingi qismni yopadi. Bu iboralar taqdimotni xarita kabi qiladi.",
+   "say": "Итак, с причинами мы разобрались. Перейдём ко второй части: какие приёмы действительно работают? Позвольте остановиться на самом простом из них. Подведём итог: мотивация растёт, когда цель понятна.",
+   "say_uz": "Demak, sabablarni ko‘rib chiqdik. Ikkinchi qismga o‘taylik: qaysi usullar haqiqatan ishlaydi? Ularning eng oddiysiga to‘xtalib o‘tay. Xulosa qilaylik: maqsad tushunarli bo‘lsa, motivatsiya o‘sadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Slaydga ishora qilish",
+   "emotion": "neutral",
+   "board": ["на этом слайде · как вы видите на графике", "обратите внимание на…", "цифра говорит сама за себя"],
+   "examples": [
+    {"t": "На этом слайде вы видите динамику за три года. Обратите внимание на резкий рост во втором квартале.", "uz": "Bu slaydda uch yillik dinamikani ko‘rasiz. Ikkinchi chorakdagi keskin o‘sishga e’tibor bering."}
+   ],
+   "say_native": "Slaydga ishora qilish iboralari. «На этом слайде» — predlojnyy kelishik, chunki joy: kimda, nimada. «Как вы видите на графике», «обратите внимание на…» — «на» dan keyin vinitelnyy, chunki yo‘nalish. «Цифра говорит сама за себя» — raqam o‘zi gapiradi. Slaydni o‘qib bermang, uni sharhlang. Tinglovchi uni o‘zi o‘qiy oladi, sizdan esa ma’no kerak.",
+   "say": "На этом слайде вы видите динамику за три года. Обратите внимание на резкий рост во втором квартале. Цифра говорит сама за себя: расходы сократились на четверть.",
+   "say_uz": "Bu slaydda uch yillik dinamikani ko‘rasiz. Ikkinchi chorakdagi keskin o‘sishga e’tibor bering. Raqam o‘zi gapiradi: xarajatlar to‘rtdan birga qisqardi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Slaydni o‘qish va yo‘naltirmaslik",
+   "emotion": "stern",
+   "board": ["✗ читать слайд слово в слово", "✗ без связок: «Первое… Второе…» без перехода", "✓ слайд → комментарий → переход"],
+   "examples": [],
+   "say_native": "Ikki mashhur xato. Birinchi: slaydni so‘zma-so‘z o‘qish. Tinglovchi buni o‘zi ko‘radi va zerikadi. Slayd qisqa, siz esa uni tushuntirasiz. Ikkinchi: yo‘naltiruvchi iboralarsiz «birinchi, ikkinchi» deyish. Tinglovchi bir qismdan ikkinchisiga qanday o‘tganingizni sezmaydi. Har bir slayddan keyin qisqa o‘tish: «Теперь посмотрим, как это работает на практике». Shu ikki odatni o‘zgartirsangiz, taqdimot sifati sezilarli oshadi.",
+   "say": "Не читайте слайд слово в слово: слушатели прочтут его сами. Лучше прокомментируйте главное и сделайте переход: «Теперь посмотрим, как это работает на практике».",
+   "say_uz": "Slaydni so‘zma-so‘z o‘qimang: tinglovchilar uni o‘zlari o‘qiydi. Yaxshisi, asosiy narsani sharhlang va o‘tish qiling: «Endi bu amalda qanday ishlashini ko‘raylik».",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "O‘tish iboralarini tanlang",
+   "emotion": "encouraging",
+   "board": ["1. … второй части: что делать? (перейти)", "2. … самом интересном примере. (остановиться)", "3. … внимание на этот график. (обратить)", "4. … итог. (подвести)"],
+   "examples": [],
+   "say_native": "Mashq. To‘rtta bo‘sh joyni to‘ldiring: «перейдём к», «позвольте остановиться на», «обратите внимание на», «подведём итог». Qaysi biri qayerga mos? Birinchisi keyingi qismga o‘tish, ikkinchisi misolda to‘xtalish, uchinchisi grafik, to‘rtinchisi yakun. Kelishiklarni ham tekshiring. O‘n besh soniya.",
+   "say": "Вставьте нужные выражения: перейдём, позвольте остановиться, обратите внимание, подведём итог. Перейдём ко второй части. Позвольте остановиться на самом интересном примере. Обратите внимание на этот график. Подведём итог.",
+   "say_uz": "Kerakli iboralarni qo‘ying: o‘taylik, to‘xtalib o‘tay, e’tibor bering, xulosa qilaylik. Ikkinchi qismga o‘taylik. Eng qiziq misolga to‘xtalib o‘tay. Mana bu grafikka e’tibor bering. Xulosa qilaylik.",
+   "practice_seconds": 15
+  },
+  {
+   "kind": "explain",
+   "title": "O‘tish iboralari javoblari",
+   "emotion": "proud",
+   "board": ["1. Перейдём ко второй части", "2. Позвольте остановиться на самом интересном примере", "3. Обратите внимание на этот график", "4. Подведём итог"],
+   "examples": [],
+   "say_native": "Javoblar. «Перейдём ко второй части» — «к» dan keyin dativ, «ко второй». «Позвольте остановиться на самом интересном примере» — «на» dan keyin predlojnyy, chunki «останавливаться на чём». «Обратите внимание на этот график» — vinitelnyy: «на что». «Подведём итог» — oddiy vinitelnyy. Eslab qoling: bir predlog turli kelishik bilan kela oladi va fe’l buni belgilaydi.",
+   "say": "Перейдём ко второй части. Позвольте остановиться на самом интересном примере. Обратите внимание на этот график. Подведём итог. Каждый глагол требует своего падежа после предлога.",
+   "say_uz": "Ikkinchi qismga o‘taylik. Eng qiziq misolga to‘xtalib o‘tay. Mana bu grafikka e’tibor bering. Xulosa qilaylik. Har bir fe’l predlogdan keyin o‘z kelishigini talab qiladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Tinglovchi e’tiborini ushlash",
+   "emotion": "thinking",
+   "board": ["риторический вопрос: Задумывались ли вы…?", "представьте себе…", "яркая цифра · короткая история", "пауза · взгляд · обращение: вы, наши слушатели"],
+   "examples": [
+    {"t": "Задумывались ли вы когда-нибудь, сколько часов в год мы тратим на поиск нужных файлов?", "uz": "Hech o‘ylab ko‘rganmisiz, biz yiliga kerakli fayllarni izlashga necha soat sarflaymiz?"}
+   ],
+   "say_native": "Uchinchi nuqta: tinglovchini ushlab turish. Eng samarali usullar: ritorik savol, «задумывались ли вы…?»; tasavvur qilishga chaqirish, «представьте себе…»; yorqin raqam yoki qisqa hikoya. Nutqda pauza qo‘ying, tinglovchilarga qarang. Rus ruhidagi taqdimotda «вы» bilan murojaat qilish keng tarqalgan. Savol berishdan keyin ikki soniya jim turish, uni o‘ylab ko‘rishga imkon beradi.",
+   "say": "Задумывались ли вы когда-нибудь, сколько часов в год мы тратим на поиск нужных файлов? Представьте себе офис, где любой документ находится за десять секунд. Звучит как мечта, но это вполне достижимо.",
+   "say_uz": "Hech o‘ylab ko‘rganmisiz, biz yiliga kerakli fayllarni izlashga necha soat sarflaymiz? Tasavvur qiling, har qanday hujjat o‘n soniyada topiladigan ofis. Orzudek eshitiladi, lekin bunga erishish mumkin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Raqam va hikoya bilan boshlash",
+   "emotion": "impressed",
+   "board": ["Цифра: 40% рабочего времени уходит на письма", "История: в прошлом месяце коллега потерял договор", "Цитата или контраст"],
+   "examples": [
+    {"t": "В прошлом месяце мой коллега потерял важный договор. Не потому, что был невнимателен, а потому, что у нас нет единой системы хранения.", "uz": "O‘tgan oy hamkasbim muhim shartnomani yo‘qotdi. Bu e’tiborsizlikdan emas, balki bizda yagona saqlash tizimi yo‘qligidan edi."}
+   ],
+   "say_native": "Boshlash uchun ikkita kuchli usul. Birinchi: yorqin raqam, masalan «ish vaqtining qirq foizi xatlarga ketadi». Ikkinchi: qisqa shaxsiy hikoya. Misolda hamkasb shartnomani yo‘qotdi, sabab esa yagona tizim yo‘qligi. Bu hikoya muammoni jonli qiladi. «Не потому, что…, а потому, что…» qurilmasi sababni aniqlashtiradi, ya’ni bu emas, aslida bu. Uni ham eslab qoling.",
+   "say": "В прошлом месяце мой коллега потерял важный договор. Не потому, что был невнимателен, а потому, что у нас нет единой системы хранения документов. Эта история не уникальна: по данным опроса, так бывает в каждой пятой компании.",
+   "say_uz": "O‘tgan oy hamkasbim muhim shartnomani yo‘qotdi. Bu e’tiborsizlikdan emas, balki bizda hujjatlarni saqlashning yagona tizimi yo‘qligidan edi. Bu hikoya noyob emas: so‘rov ma’lumotlariga ko‘ra, bunday holat har beshinchi kompaniyada bo‘ladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Tinglovchini yo‘qotish",
+   "emotion": "disappointed",
+   "board": ["✗ монотонное чтение с листа", "✗ говорить в экран, а не в зал", "✗ 20 цифр подряд", "✓ одна яркая цифра, пауза, вопрос"],
+   "examples": [],
+   "say_native": "Tinglovchini yo‘qotishga olib keladigan odatlar. Birinchi: bir xil ohangda qog‘ozdan o‘qish. Ikkinchi: ekranga qarab gapirish, zalga emas. Uchinchi: ketma-ket yigirmata raqam, ularni hech kim eslay olmaydi. Qoidalar: bitta yorqin raqam, pauza, savol. O‘zbek talabalari ko‘pincha o‘z matnini yod olib, shoshilib gapiradi. Sekinroq, aniq va pauza bilan gapiring, tinglovchiga fikringizni qabul qilishga vaqt bering.",
+   "say": "Не читайте текст монотонно с листа и не говорите в экран вместо зала. Двадцать цифр подряд никто не запомнит. Лучше назвать одну яркую цифру, сделать паузу и задать слушателям вопрос.",
+   "say_uz": "Matnni bir xil ohangda qog‘ozdan o‘qimang va zal o‘rniga ekranga qarab gapirmang. Ketma-ket yigirmata raqamni hech kim eslab qolmaydi. Yaxshisi bitta yorqin raqamni ayting, pauza qiling va tinglovchilarga savol bering.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Diqqatni tortuvchi boshlanish",
+   "emotion": "encouraging",
+   "board": ["Тема: Почему стоит читать книги на бумаге?", "Придумайте начало: вопрос, цифра или короткая история."],
+   "examples": [],
+   "say_native": "Mashq. Mavzu: nima uchun qog‘ozdagi kitoblarni o‘qish kerak. Diqqatni tortuvchi boshlanish o‘ylab toping: ritorik savol, taxminiy raqam yoki qisqa hikoya. Ikkita-uchta gap yetarli. Yigirma soniya vaqtingiz bor.",
+   "say": "Тема: почему стоит читать бумажные книги? Придумайте начало, которое привлечёт внимание слушателей: риторический вопрос, яркую цифру или короткую историю.",
+   "say_uz": "Mavzu: nima uchun qog‘ozdagi kitoblarni o‘qish kerak? Tinglovchilar e’tiborini tortadigan boshlanish o‘ylab toping: ritorik savol, yorqin raqam yoki qisqa hikoya.",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Boshlanish namunalari",
+   "emotion": "proud",
+   "board": ["Когда вы в последний раз читали книгу, не отвлекаясь на телефон?", "Представьте: вечер, тишина и только страницы.", "Подумайте: мы смотрим в экран больше шести часов в день."],
+   "examples": [],
+   "say_native": "Namunalar. Ritorik savol: «Когда вы в последний раз читали книгу, не отвлекаясь на телефон?» Tasavvur: «Представьте: вечер, тишина и только страницы». Raqam: «Мы смотрим в экран больше шести часов в день», bu faraziy raqam, uni haqiqiy ma’lumot bilan almashtirasiz. Ko‘rdingizmi, har biri ikki gap, shunda tinglovchi o‘zini mavzuga tegishli his qiladi. Siznikidan biri shu uslubda bo‘lsa, yaxshi.",
+   "say": "Когда вы в последний раз читали книгу, не отвлекаясь на телефон? Представьте: вечер, тишина и только страницы. Исследования показывают, что бумажная книга помогает лучше сосредоточиться.",
+   "say_uz": "Oxirgi marta qachon telefonga chalg‘imasdan kitob o‘qigansiz? Tasavvur qiling: kech, sukunat va faqat sahifalar. Tadqiqotlar qog‘oz kitob diqqatni yaxshiroq jamlashga yordam berishini ko‘rsatadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Savollarga javob berish",
+   "emotion": "neutral",
+   "board": ["Спасибо за вопрос.", "Если я правильно понял, вы спрашиваете…", "К сожалению, точных данных у меня нет, но…", "Позвольте ответить после выступления."],
+   "examples": [
+    {"t": "Спасибо за вопрос. Если я правильно понял, вы спрашиваете о стоимости внедрения? Точных цифр у меня нет, но порядок такой: около двух миллионов сумов.", "uz": "Savol uchun rahmat. To‘g‘ri tushunsam, siz joriy etish narxi haqida so‘rayapsiz? Aniq raqamlar menda yo‘q, lekin tartib shunday: taxminan ikki million so‘m."}
+   ],
+   "say_native": "To‘rtinchi nuqta: savollar. Birinchi, minnatdorchilik: «спасибо за вопрос» — bu vaqt beradi. Ikkinchi, savolni qaytarib tasdiqlash: «если я правильно понял, вы спрашиваете…». Uchinchi, javob. Bilmasangiz, halol ayting: «точных данных у меня нет, но…» va nimani bilsangiz, shuni qo‘shing. Savol mavzudan tashqarida bo‘lsa: «позвольте ответить после выступления». Oddiy «bilmayman» deyish o‘rniga shu iboralar ishonch beradi.",
+   "say": "Спасибо за вопрос. Если я правильно понял, вы спрашиваете о стоимости внедрения? Точных цифр у меня нет, но порядок такой: около двух миллионов сумов. Более подробно отвечу после выступления.",
+   "say_uz": "Savol uchun rahmat. To‘g‘ri tushunsam, siz joriy etish narxi haqida so‘rayapsiz? Aniq raqamlar menda yo‘q, lekin tartib shunday: taxminan ikki million so‘m. Batafsilroq javobni chiqishdan keyin beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Qiyin savol va ehtiyotkor javob",
+   "emotion": "thinking",
+   "board": ["Это выходит за рамки сегодняшней темы.", "Отвечу кратко: …", "Этот вопрос заслуживает отдельного обсуждения."],
+   "examples": [
+    {"t": "Это интересный вопрос, но он выходит за рамки сегодняшней темы. Давайте обсудим его после встречи.", "uz": "Bu qiziq savol, lekin u bugungi mavzu doirasidan chiqib ketadi. Uni uchrashuvdan keyin muhokama qilaylik."}
+   ],
+   "say_native": "Qiyin savollar uchun iboralar. «Это выходит за рамки сегодняшней темы» — bu bugungi mavzudan tashqarida. «Отвечу кратко» — qisqa javob beraman, vaqt kam bo‘lsa. «Этот вопрос заслуживает отдельного обсуждения» — alohida muhokamaga loyiq. Bu iboralar savolni rad etmaydi, hurmat bilan boshqa vaqtga ko‘chiradi. «Выходить за рамки» roditelnyy kelishik bilan: «за рамки темы».",
+   "say": "Это интересный вопрос, но он выходит за рамки сегодняшней темы. Давайте обсудим его после встречи. Отвечу кратко: да, но только при определённых условиях. Подробности лучше разобрать отдельно.",
+   "say_uz": "Bu qiziq savol, lekin u bugungi mavzu doirasidan chiqib ketadi. Uni uchrashuvdan keyin muhokama qilaylik. Qisqa javob beraman: ha, lekin faqat ma’lum shartlarda. Tafsilotlarni alohida ko‘rib chiqqan ma’qul.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Savol-javobdagi xatolar",
+   "emotion": "stern",
+   "board": ["✗ Не знаю.", "✓ Точных данных у меня нет, но…", "✗ Это глупый вопрос.", "✗ Я же уже сказал!"],
+   "examples": [],
+   "say_native": "Uch xato. Birinchi: yalang «bilmayman» deyish. Bu suhbatni o‘ldiradi. «Точных данных у меня нет, но…» deb, bilganingizni qo‘shing. Ikkinchi: savolni haqorat qilish, «это глупый вопрос». Hech qachon. Uchinchi: asabiylashib «я же уже сказал!» deyish. Savol takrorlansa, boshqa so‘z bilan qayta tushuntiring. O‘zbek madaniyatida ustozga e’tiroz qilish odat emas, shuning uchun savol-javob qiyin tuyuladi, lekin professional muhitda ochiq savol — qiziqish belgisi.",
+   "say": "Не отвечайте просто «не знаю»: лучше сказать «точных данных у меня нет, но…». Никогда не называйте вопрос глупым. Если вопрос повторяется, перефразируйте ответ, а не раздражайтесь.",
+   "say_uz": "Shunchaki «bilmayman» deb javob bermang: «aniq ma’lumot menda yo‘q, lekin…» degan yaxshiroq. Savolni hech qachon ahmoqona demang. Savol takrorlansa, javobni boshqacha so‘zlar bilan ayting, jahlingiz chiqmasin.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Savolga javob bering",
+   "emotion": "encouraging",
+   "board": ["Слушатель: «Сколько это будет стоить и когда окупится?»", "Вы не знаете точных цифр.", "Ответьте уверенно и вежливо."],
+   "examples": [],
+   "say_native": "Mashq. Tinglovchi so‘raydi: bu qancha turadi va qachon o‘zini oqlaydi. Siz aniq raqamlarni bilmaysiz. Ishonchli va muloyim javob bering: minnatdorchilik, savolni aniqlashtirish, bilganingiz va va’da. Yigirma besh soniya vaqtingiz bor.",
+   "say": "Слушатель спрашивает: сколько это будет стоить и когда окупится? Точных цифр вы не знаете. Ответьте вежливо и уверенно, используя фразы из этого урока.",
+   "say_uz": "Tinglovchi so‘raydi: bu qancha turadi va qachon o‘zini oqlaydi? Siz aniq raqamlarni bilmaysiz. Shu darsdagi iboralardan foydalanib, muloyim va ishonchli javob bering.",
+   "practice_seconds": 25
+  },
+  {
+   "kind": "explain",
+   "title": "Javob namunasi",
+   "emotion": "proud",
+   "board": ["Спасибо за вопрос.", "Точной цифры у меня нет, но по предварительным расчётам…", "Окупиться проект должен за полтора-два года.", "Пришлю подробный расчёт."],
+   "examples": [],
+   "say_native": "Namuna: «Спасибо за вопрос. Точной цифры у меня нет, но по предварительным расчётам проект должен окупиться за полтора-два года. Пришлю вам подробный расчёт». Minnatdorchilik, halollik, taxminiy javob, va’da. «За полтора-два года» — muddat ifodasi, «за» bilan. «Пришлю» — mukammal tur, va’da uchun. Bilmaslik zaiflik emas, agar uni to‘g‘ri bildirsangiz.",
+   "say": "Спасибо за вопрос. Точной цифры у меня нет, но по предварительным расчётам проект должен окупиться за полтора-два года. Подробный расчёт я пришлю вам сегодня.",
+   "say_uz": "Savol uchun rahmat. Aniq raqam menda yo‘q, lekin dastlabki hisob-kitoblarga ko‘ra loyiha bir yarim-ikki yilda o‘zini oqlashi kerak. Batafsil hisob-kitobni bugun yuboraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Namuna: bir daqiqalik taqdimot",
+   "emotion": "impressed",
+   "board": ["Послушайте мини-выступление", "Найдите: вопрос, план, переход, вывод"],
+   "examples": [],
+   "say_native": "Endi to‘liq namuna eshiting: bir daqiqalik mini-chiqish. Tinglab turib to‘rtta elementni toping: ritorik savol, reja, o‘tish iborasi va xulosa. Keyingi sahnada ularni birga topamiz. Ona tilida eshitish xuddi shu tuzilmani ongingizga o‘rnatadi, shuning uchun ikki marta tinglab ko‘rishingiz mumkin.",
+   "say": "Сколько раз вы откладывали важное дело на потом? Сегодня я предложу два способа бороться с этим. Сначала поговорим о правиле двух минут. Если задача занимает меньше двух минут, делайте её сразу. Перейдём ко второму способу: разбивать большое дело на маленькие шаги. Подведём итог: начинайте с малого, и большое станет проще.",
+   "say_uz": "Muhim ishni necha marta keyinga qoldirgansiz? Bugun men bunga qarshi kurashishning ikki usulini taklif qilaman. Avval ikki daqiqa qoidasi haqida gaplashamiz. Agar vazifa ikki daqiqadan kam vaqt olsa, uni darhol bajaring. Ikkinchi usulga o‘taylik: katta ishni kichik qadamlarga bo‘lish. Xulosa qilaylik: kichikdan boshlang, katta ish osonlashadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna tahlili",
+   "emotion": "proud",
+   "board": ["Вопрос: «Сколько раз вы откладывали…?»", "План: два способа", "Переход: «Перейдём ко второму способу»", "Вывод: «Подведём итог…»"],
+   "examples": [],
+   "say_native": "Tahlil. Ritorik savol: «Сколько раз вы откладывали важное дело на потом?» Reja: ikki usul, darhol aytildi. O‘tish iborasi: «Перейдём ко второму способу». Xulosa: «Подведём итог: начинайте с малого». Qarang, hammasi bir daqiqaga sig‘di va har bir gap o‘z vazifasini bajarmoqda. «Откладывать» tugallanmagan tur, chunki takroriy holat. Bunday qisqa va tuzilmali nutq eng ishonarli nutq bo‘ladi.",
+   "say": "Первый вопрос вовлекает слушателей. Фраза «два способа» объявляет план. Выражение «перейдём ко второму способу» ведёт слушателя дальше. А фраза «подведём итог» подготавливает к завершению.",
+   "say_uz": "Birinchi savol tinglovchilarni jalb qiladi. «Ikki usul» iborasi rejani e’lon qiladi. «Ikkinchi usulga o‘taylik» iborasi tinglovchini oldinga olib boradi. «Xulosa qilaylik» iborasi yakunga tayyorlaydi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yakuniy qism",
+   "emotion": "thinking",
+   "board": ["Итак, подведём итог: …", "Главная мысль: …", "Призыв к действию: Давайте начнём с …", "Благодарю за внимание!"],
+   "examples": [
+    {"t": "Подведём итог: три шага помогут сократить расходы на четверть. Давайте начнём уже в следующем месяце. Благодарю за внимание!", "uz": "Xulosa qilaylik: uch qadam xarajatlarni to‘rtdan biriga qisqartirishga yordam beradi. Keyingi oyning o‘zidan boshlaylik. E’tiboringiz uchun rahmat!"}
+   ],
+   "say_native": "Taqdimot oxiri: «итак, подведём итог» — qisqa xulosa. Asosiy fikringizni bir gapda takrorlang. Keyin harakatga chaqiriq: «давайте начнём с…». Oxirida «благодарю за внимание» yoki «спасибо за внимание». Faqat «ну всё, спасибо» deb tugatish zaif ko‘rinadi. Eng yaxshi xulosa tinglovchi nimani eslab qolishini, nima qilishini bilib ketishini ta’minlaydi.",
+   "say": "Подведём итог: три шага помогут сократить расходы на четверть. Давайте начнём уже в следующем месяце. Благодарю за внимание, буду рада ответить на ваши вопросы.",
+   "say_uz": "Xulosa qilaylik: uch qadam xarajatlarni to‘rtdan biriga qisqartirishga yordam beradi. Keyingi oyning o‘zidan boshlaylik. E’tiboringiz uchun rahmat, savollaringizga mamnuniyat bilan javob beraman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: taqdimotdan oldingi mashq",
+   "emotion": "neutral",
+   "board": ["Два коллеги репетируют выступление", "Какие советы даёт один другому?"],
+   "examples": [],
+   "say_native": "Yakuniy tinglash. Ikki hamkasb taqdimotga tayyorlanmoqda. Bittasi ikkinchisiga maslahat bermoqda. Qanday maslahatlar eshitasiz? Diqqat bilan tinglang, so‘ng savollarga javob berasiz.",
+   "say": "— Я начал со слов «ну, в общем, сегодня я хочу рассказать». — Лучше сразу назвать тему и цель. И задайте вопрос залу, чтобы привлечь внимание. — А слайды? — Не читайте их. Поясняйте главное. И не забудьте сделать паузу перед выводом.",
+   "say_uz": "— Men «xullas, bugun gapirib bermoqchiman» so‘zlari bilan boshladim. — Darhol mavzu va maqsadni aytgan yaxshi. Va e’tiborni tortish uchun zalga savol bering. — Slaydlar-chi? — Ularni o‘qimang. Asosiy narsani tushuntiring. Va xulosadan oldin pauza qilishni unutmang.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Maslahat savollari",
+   "emotion": "encouraging",
+   "board": ["1. Что не так с началом?", "2. Что советуют сделать, чтобы привлечь внимание?", "3. Что делать со слайдами?", "4. Когда нужна пауза?"],
+   "examples": [],
+   "say_native": "Savollar. Boshlanishda nima noto‘g‘ri? E’tiborni tortish uchun nima qilish maslahat beriladi? Slaydlar bilan nima qilish kerak? Pauza qachon kerak? Qisqa javob bering. Yigirma soniya.",
+   "say": "Ответьте на вопросы. Что не так с началом выступления? Что советуют сделать, чтобы привлечь внимание? Как нужно работать со слайдами? Когда нужна пауза?",
+   "say_uz": "Savollarga javob bering. Chiqish boshlanishida nima noto‘g‘ri? E’tiborni tortish uchun nima qilish maslahat beriladi? Slaydlar bilan qanday ishlash kerak? Pauza qachon kerak?",
+   "practice_seconds": 20
+  },
+  {
+   "kind": "explain",
+   "title": "Maslahat javoblari",
+   "emotion": "proud",
+   "board": ["1. «ну, в общем» — слабое начало", "2. назвать тему и цель, задать вопрос залу", "3. не читать, а пояснять главное", "4. перед выводом"],
+   "examples": [],
+   "say_native": "Javoblar. Birinchi: «ну, в общем» zaif boshlanish. Ikkinchi: darhol mavzu va maqsadni aytish va zalga savol berish. Uchinchi: slaydni o‘qimaslik, asosiy narsani tushuntirish. To‘rtinchi: xulosadan oldin pauza. Hamkasb mashq qilmoqda, bu juda yaxshi odat. Imkon bo‘lsa, taqdimotni ovoz chiqarib uch marta mashq qiling, hammasi ancha ravonlashadi.",
+   "say": "Слова «ну, в общем» делают начало слабым. Нужно сразу назвать тему и цель и задать вопрос залу. Слайды не читают, а поясняют. Паузу делают перед выводом.",
+   "say_uz": "«Xullas, umuman» so‘zlari boshlanishni zaif qiladi. Darhol mavzu va maqsadni aytish va zalga savol berish kerak. Slaydlar o‘qilmaydi, tushuntiriladi. Pauza xulosadan oldin qilinadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Uch daqiqalik taqdimot rejasi",
+   "emotion": "neutral",
+   "board": ["0:00–0:30 вступление: вопрос + тема + цель + план", "0:30–2:15 основная часть: 2 пункта с примерами", "2:15–2:45 вывод и призыв", "2:45–3:00 благодарность, вопросы"],
+   "examples": [
+    {"t": "Три минуты — это около четырёхсот слов, поэтому каждый пункт должен быть коротким и конкретным.", "uz": "Uch daqiqa taxminan to‘rt yuz so‘z, shuning uchun har bir band qisqa va aniq bo‘lishi kerak."}
+   ],
+   "say_native": "Uch daqiqalik rejaga vaqt taqsimoti. O‘ttiz soniya: kirish, ya’ni savol, mavzu, maqsad, reja. Bir daqiqa qirq besh soniya: asosiy qism, ikkita band va misollar. O‘ttiz soniya: xulosa va chaqiriq. Oxirgi o‘n besh soniya: minnatdorchilik va savollar. Sekin gapirganda uch daqiqa taxminan yuz ellik yuz yetmish besh so‘z, shuning uchun har bir band qisqa bo‘lsin. Ortiqcha ma’lumotni kesib tashlang.",
+   "say": "Три минуты — это немного, поэтому каждый пункт должен быть коротким и конкретным. Выберите две главные мысли, подкрепите их примерами и завершите ясным выводом. Всё лишнее придётся убрать.",
+   "say_uz": "Uch daqiqa unchalik ko‘p emas, shuning uchun har bir band qisqa va aniq bo‘lishi kerak. Ikkita asosiy fikrni tanlang, ularni misollar bilan mustahkamlang va aniq xulosa bilan yakunlang. Ortiqcha narsani olib tashlashga to‘g‘ri keladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Taqdimot rejasini tuzing",
+   "emotion": "encouraging",
+   "board": ["Тема: Рабочее место будущего", "Составьте план: вопрос, цель, 2 пункта, вывод."],
+   "examples": [],
+   "say_native": "Yakuniy mashq. Mavzu: kelajak ish joyi. Taqdimot rejasini tuzing: ritorik savol, maqsad, ikkita asosiy band va xulosa. Har bir bandni bitta gap bilan ayting. Yo‘naltiruvchi iboralarni ham qo‘shing. O‘ttiz soniya vaqtingiz bor.",
+   "say": "Тема: рабочее место будущего. Составьте план выступления: риторический вопрос, цель, два основных пункта и вывод. Добавьте ориентиры для слушателей, например «перейдём к…».",
+   "say_uz": "Mavzu: kelajak ish joyi. Chiqish rejasini tuzing: ritorik savol, maqsad, ikkita asosiy band va xulosa. Tinglovchilar uchun yo‘naltiruvchi iboralarni ham qo‘shing, masalan «… ga o‘taylik».",
+   "practice_seconds": 28
+  },
+  {
+   "kind": "explain",
+   "title": "Namunaviy reja",
+   "emotion": "proud",
+   "board": ["Вопрос: Где вы работаете лучше всего?", "Цель: показать две тенденции", "1. гибкий график · 2. умные офисы", "Вывод: рабочее место станет гибким"],
+   "examples": [],
+   "say_native": "Namuna reja. Savol: «Где вы работаете лучше всего?» Maqsad: ikki tendensiyani ko‘rsatish. Birinchi band: moslashuvchan jadval. Ikkinchi band: aqlli ofislar. O‘tish: «перейдём ко второй тенденции». Xulosa: ish joyi moslashuvchan bo‘ladi. «Подведём итог: рабочее место станет гибким, а не привязанным к столу». Sizning taqdimotingiz boshqa bo‘lishi mumkin, tuzilma bir xil.",
+   "say": "Где вы работаете лучше всего? Сегодня я покажу две тенденции, меняющие рабочее место. Первая — гибкий график. Перейдём ко второй — умным офисам. Подведём итог: рабочее место станет гибким, а не привязанным к столу.",
+   "say_uz": "Qayerda eng yaxshi ishlaysiz? Bugun men ish joyini o‘zgartirayotgan ikkita tendensiyani ko‘rsataman. Birinchisi moslashuvchan jadval. Ikkinchisi aqlli ofislarga o‘taylik. Xulosa qilaylik: ish joyi stolga bog‘lanmagan, moslashuvchan bo‘ladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Dars xulosasi",
+   "emotion": "happy",
+   "board": ["1. тема → цель → план → пункты → вывод", "2. ориентиры: перейдём · остановимся · итог", "3. вопрос, цифра, история, пауза", "4. вопросы: спасибо → уточнить → ответить"],
+   "examples": [],
+   "say_native": "Xulosa. Birinchi: taqdimot tuzilmasi, ya’ni mavzu, maqsad, reja, bandlar, xulosa. Ikkinchi: yo‘naltiruvchi iboralar: «перейдём», «позвольте остановиться», «подведём итог». Uchinchi: tinglovchini ushlab turish: ritorik savol, raqam, hikoya va pauza. To‘rtinchi: savollar bilan ishlash: minnatdorchilik, aniqlashtirish, halol javob. Endi siz uch daqiqalik taqdimotga tayyorsiz.",
+   "say": "Сегодня вы увидели, как строить выступление, как вести слушателей с помощью ориентиров, как удерживать их внимание и как отвечать на вопросы. Уверенность приходит с подготовкой и тренировкой.",
+   "say_uz": "Bugun siz chiqishni qanday qurish, tinglovchilarni yo‘naltiruvchi iboralar bilan qanday olib borish, ularning e’tiborini qanday ushlab turish va savollarga qanday javob berishni ko‘rdingiz. Ishonch tayyorgarlik va mashq bilan keladi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "recap",
+   "title": "Uy vazifasi",
+   "emotion": "proud",
+   "board": ["Подготовьте презентацию на 3 минуты", "тема на выбор; структура + 3 ориентира + вопрос слушателям", "запишите себя на видео и проверьте"],
+   "examples": [],
+   "say_native": "Uy vazifasi: uch daqiqalik taqdimot tayyorlang. Mavzuni o‘zingiz tanlang. Tuzilma, kamida uchta yo‘naltiruvchi ibora va tinglovchilarga savol bo‘lsin. O‘zingizni yozib oling va tomosha qiling: «ну» va «в общем» ni sanang. Muvaffaqiyat mezoni: taqdimot uch daqiqaga sig‘adi va xulosa aniq. Keyingi darsda ohang orqali ma’no berishni o‘rganamiz.",
+   "say": "Домашнее задание: подготовьте презентацию на три минуты на любую тему. Выстройте структуру, используйте не менее трёх ориентиров и задайте слушателям вопрос. Запишите выступление и посмотрите, сколько раз вы сказали «ну» и «в общем».",
+   "say_uz": "Uy vazifasi: istalgan mavzuda uch daqiqalik taqdimot tayyorlang. Tuzilmani quring, kamida uchta yo‘naltiruvchi ibora ishlating va tinglovchilarga savol bering. Chiqishingizni yozib oling va «xullas», «umuman» so‘zlarini necha marta aytganingizni sanang.",
+   "practice_seconds": 0
+  }
  ],
- "homework_uz": "Uch daqiqalik taqdimot qilib qo‘ying. Mezon: har bir gap rus tilida, «сегодня, далее, итак, например, спасибо» bog‘lovchilari ishlatilgan.",
- "quiz":[
-  {"q":"Which word means “today”?","options":["сегодня","далее","итак","спасибо"],"answer":0,"why_uz":"Сегодня — bugun."},
-  {"q":"Which word means “next / further”?","options":["далее","сегодня","итак","спасибо"],"answer":0,"why_uz":"Далее — keyin."},
-  {"q":"Which word means “so / thus”?","options":["итак","сегодня","далее","спасибо"],"answer":0,"why_uz":"Итак — demak."},
-  {"q":"How do you say “Today I will tell”?","options":["Сегодня я расскажу.","Сегодня я расскажу есть.","Сегодня я расскажу является.","Сегодня я расскажу был."],"answer":0,"why_uz":"Сегодня я расскажу — bugun men aytib beraman."},
-  {"q":"Which word means “listener”?","options":["слушатель","вопрос","ответ","план"],"answer":0,"why_uz":"Слушатель — tinglovchi."},
-  {"q":"Which word means “question”?","options":["вопрос","слушатель","ответ","план"],"answer":0,"why_uz":"Вопрос — savol."},
-  {"q":"Which word means “answer”?","options":["ответ","вопрос","слушатель","план"],"answer":0,"why_uz":"Ответ — javob."},
-  {"q":"Which word means “structure”?","options":["структура","ответ","вопрос","слушатель"],"answer":0,"why_uz":"Структура — tuzilma."},
-  {"q":"Which word means “plan”?","options":["план","структура","ответ","вопрос"],"answer":0,"why_uz":"План — reja."},
-  {"q":"Which word means “example”?","options":["пример","план","структура","ответ"],"answer":0,"why_uz":"Пример — misol."}
+ "homework_uz": "Istalgan mavzuda uch daqiqalik taqdimot tayyorlang: kirish, ikkita band, xulosa, kamida uchta yo‘naltiruvchi ibora va tinglovchilarga savol. Chiqishingizni yozib oling va to‘ldiruvchi so‘zlarni sanang. Vazifa bajarilgan hisoblanadi, agar taqdimot uch daqiqaga sig‘sa va xulosa aniq bo‘lsa. Keyingi darsda ohang orqali ma’no berishni o‘rganamiz.",
+ "quiz": [
+  {"q": "Qaysi gap to‘g‘ri?", "options": ["Мой выступление", "Моё выступление", "Моя выступление", "Мои выступление"], "answer": 1, "why_uz": "«Выступление» o‘rta jinsda."},
+  {"q": "Taqdimotni qaysi so‘zlar bilan boshlash zaif?", "options": ["Уважаемые коллеги, добрый день!", "Ну, в общем, я хочу рассказать…", "Сегодня я расскажу о…", "Цель моего выступления — …"], "answer": 1, "why_uz": "To‘ldiruvchi so‘zlar noaniqlik ko‘rsatadi."},
+  {"q": "«Keyingi qismga o‘taylik» ruschada qaysi?", "options": ["Перейдём к следующему пункту", "Закончим на этом", "Вернёмся назад", "Начнём заново"], "answer": 0, "why_uz": "«Перейти к» + dativ."},
+  {"q": "«На этом слайде» qaysi kelishikda?", "options": ["Roditelnyy", "Predlojnyy", "Dativ", "Tvoritelnyy"], "answer": 1, "why_uz": "«На» + predlojnyy — joy."},
+  {"q": "Ritorik savolga misol qaysi?", "options": ["Задумывались ли вы когда-нибудь, сколько времени мы тратим на поиск файлов?", "Сколько стоит билет?", "Который час?", "Где вы живёте?"], "answer": 0, "why_uz": "Ritorik savol auditoriyani o‘ylashga undaydi."},
+  {"q": "Bilmagan narsangizni so‘rashsa, eng yaxshi javob qaysi?", "options": ["Не знаю.", "Точных данных у меня нет, но…", "Это глупый вопрос.", "Не помню."], "answer": 1, "why_uz": "Halol va ishonchli javob."},
+  {"q": "«Вопрос выходит за рамки темы» nimani bildiradi?", "options": ["Savol mavzudan tashqarida", "Savol juda qisqa", "Savol yaxshi", "Savol takror"], "answer": 0, "why_uz": "«Выходить за рамки» — doiradan chiqmoq."},
+  {"q": "Slaydlar bilan to‘g‘ri ishlash qaysi?", "options": ["Hammasini o‘qib chiqish", "Asosiy narsani sharhlash", "Ularni ko‘rsatmaslik", "Tez o‘tkazib yuborish"], "answer": 1, "why_uz": "Slayd o‘qilmaydi, sharhlanadi."},
+  {"q": "Taqdimot oxirida nima qilinadi?", "options": ["Yangi mavzu boshlanadi", "Xulosa, chaqiriq va minnatdorchilik", "Uzr so‘raladi", "Hech narsa"], "answer": 1, "why_uz": "Yakun qisqa xulosa va rahmat bilan."},
+  {"q": "«Не потому, что…, а потому, что…» qurilmasi nima uchun kerak?", "options": ["Sababni aniqlashtirish", "Savol berish", "Buyruq", "Vaqtni ko‘rsatish"], "answer": 0, "why_uz": "Bu emas, aslida bu ma’nosini beradi."}
  ]
 }

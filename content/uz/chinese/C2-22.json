@@ -1,705 +1,338 @@
 {
  "title": "To‘liq mock imtihon: Speaking",
- "goal_uz": "Dars oxirida To‘liq mock imtihon: Speaking ni o‘rgansiz.",
+ "goal_uz": "Dars oxirida siz og‘zaki imtihonning to‘liq simulyatsiyasini bajarasiz: eshitilgan matnni qayta aytib berish, ovoz chiqarib o‘qish va erkin savolga uyushgan javob berish. Yuqori darajadagi baholash mezonlarini (ravonlik, aniqlik, boylik, talaffuz, mantiq) bilasiz, o‘zingizga fikr-mulohaza berib, takomillashtirish rejasini tuzasiz va hayajonni boshqarasiz. Uy vazifasi: to‘liq og‘zaki mock imtihonni bajarish.",
  "vocab": [
-  {
-   "w": "网络 (wǎngluò)",
-   "uz": "tarmoq"
-  },
-  {
-   "w": "联系 (liánxì)",
-   "uz": "aloqa"
-  },
-  {
-   "w": "目标 (mùbiāo)",
-   "uz": "maqsad"
-  },
-  {
-   "w": "学习 (xuéxí)",
-   "uz": "o‘rganish"
-  },
-  {
-   "w": "提高 (tígāo)",
-   "uz": "yaxshilanish"
-  },
-  {
-   "w": "成果 (chéngguǒ)",
-   "uz": "yutuq"
-  },
-  {
-   "w": "职业 (zhíyè)",
-   "uz": "kasb"
-  },
-  {
-   "w": "工作 (gōngzuò)",
-   "uz": "ish"
-  },
-  {
-   "w": "技能 (jìnéng)",
-   "uz": "mahorat"
-  },
-  {
-   "w": "语言 (yǔyán)",
-   "uz": "til"
-  }
+  {"w": "复述 (fùshù)", "uz": "qayta aytib bermoq"},
+  {"w": "朗读 (lǎngdú)", "uz": "ovoz chiqarib o‘qimoq"},
+  {"w": "流利 (liúlì)", "uz": "ravon"},
+  {"w": "准确 (zhǔnquè)", "uz": "aniq, to‘g‘ri"},
+  {"w": "丰富 (fēngfù)", "uz": "boy, rang-barang"},
+  {"w": "观点 (guāndiǎn)", "uz": "nuqtai nazar, fikr"},
+  {"w": "紧张 (jǐnzhāng)", "uz": "hayajonlangan, tarang"},
+  {"w": "录音 (lùyīn)", "uz": "ovoz yozuvi; yozib olmoq"},
+  {"w": "反馈 (fǎnkuì)", "uz": "fikr-mulohaza"},
+  {"w": "考官 (kǎoguān)", "uz": "imtihon oluvchi"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Bugun nima qilamiz?",
+   "title": "Og‘zaki imtihon sinovi",
    "emotion": "happy",
-   "board": [
-    "Mavzu",
-    "Tuzilish",
-    "Reja"
-   ],
+   "board": ["复述 · 朗读 · 回答问题", "流利 · 准确 · 丰富", "自我反馈 · 提高计划", "战胜紧张"],
    "examples": [],
-   "say_native": "Salom, o‘quvchilar! Oldingi darsda Xatolarsiz yozish: tahrir va korrektura mavzusini o‘rgandik. Bugun To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusini o‘rganamiz. Dars oxirida Complete the full speaking mock. . Har bir gapda bitta fikr bo‘lsin. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "你好！今天我们学习To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon，而且非常实用。这非常重要。",
-   "say_uz": "Salom! Bugun mavzuni o‘rgamiz. Juda chiroyli.",
+   "say_native": "Assalomu alaykum! Oldingi darsda yozma matnni tahrir qilishni o‘rgandik. Bugun og‘zaki imtihonning to‘liq mock simulyatsiyasini o‘tkazamiz. Dars to‘rt qismdan iborat: birinchi, uch bosqichli imtihon sinovi: eshitib qayta aytish, ovoz chiqarib o‘qish va erkin savolga javob; ikkinchi, yuqori darajadagi baholash mezonlari; uchinchi, o‘zingizga fikr-mulohaza berish va takomillashtirish rejasi; to‘rtinchi, hayajonni boshqarish. Imtihon tuzilmasi sinovlarga qarab farq qilishi mumkin, lekin bu mashqlar HSKK kabi og‘zaki imtihonlarga ham mos keladi.",
+   "say": "大家好。今天我们要做一次完整的口语模拟考试。我们先熟悉题型，再练习，然后学会怎样给自己打分和提高。",
+   "say_uz": "Hammaga salom. Bugun to‘liq og‘zaki mock imtihon topshiramiz. Avval savol turlari bilan tanishamiz, keyin mashq qilamiz, so‘ng o‘zimizga baho berish va yaxshilanishni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "To‘liq lug‘ati",
+   "title": "Imtihon tuzilmasi",
    "emotion": "neutral",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
+   "board": ["第一部分：听后复述", "第二部分：朗读", "第三部分：回答问题", "总时间约二十分钟"],
+   "examples": [
+    {"t": "第一部分先听短文，再用自己的话复述主要内容。", "uz": "Birinchi qismda avval qisqa matnni tinglaysiz, keyin asosiy mazmunni o‘z so‘zlaringiz bilan qayta aytasiz."}
    ],
-   "examples": [],
-   "say_native": "To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"To‘liq lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Yuqori darajali og‘zaki imtihonlar odatda uch xil topshiriqdan iborat. Birinchisi: 听后复述, ya’ni qisqa matnni eshitib, asosiy mazmunni o‘z so‘zlaringiz bilan qayta aytish. Bu eshitish, xotira va ifodani birga tekshiradi. Ikkinchisi: 朗读, ya’ni tayyor matnni ovoz chiqarib o‘qish; bu yerda talaffuz, ton, pauza va ritm baholanadi. Uchinchisi: 回答问题, ya’ni erkin savolga mantiqli va keng javob berish. Aniq vaqt va matn soni imtihon turiga bog‘liq, shuning uchun rasmiy yo‘riqnomani alohida tekshiring. Biz bugun umumiy shakl bilan mashq qilamiz, har bir qism uchun alohida strategiya bor.",
+   "say": "第一部分先听短文，再用自己的话复述主要内容。第二部分是朗读，第三部分是回答问题。",
+   "say_uz": "Birinchi qismda avval qisqa matnni tinglab, asosiy mazmunni o‘z so‘zlaringiz bilan qayta aytasiz. Ikkinchi qism ovoz chiqarib o‘qish, uchinchi qism savollarga javob berish.",
    "practice_seconds": 0
   },
   {
    "kind": "example",
-   "title": "Lug‘at misollar",
+   "title": "Birinchi qism: tinglash va qayta aytish",
    "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
-   ],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "board": ["听一遍，记关键词", "人物 · 时间 · 事情 · 结果", "不要背原话", "用自己的话说"],
+   "examples": [],
+   "say_native": "Endi birinchi topshiriq. Qisqa matnni bir marta tinglaysiz. Tinglash paytida to‘liq yozmang, faqat kalit so‘zlarni yodda tuting: kim, qachon, nima bo‘ldi va natija nima. Matn tugagach, o‘z so‘zlaringiz bilan qayta aytib berasiz. Asl gaplarni so‘zma-so‘z eslashga urinmang, ma’noni saqlash muhimroq.",
+   "say": "小李是一家公司的职员，每天上班要坐一个半小时的地铁。起初他觉得很浪费时间，后来他开始在地铁上学英语、听播客。一年以后，他不但英语进步了，还读完了三十多本书。他说，时间不是等来的，而是挤出来的。",
+   "say_uz": "Li kompaniya xodimi, har kuni ishga borish uchun bir yarim soat metroda yuradi. Dastlab u buni vaqt yo‘qotish deb o‘ylagan, keyin metroda ingliz tili o‘rgana va podkast tinglay boshlagan. Bir yildan keyin u nafaqat ingliz tilini yaxshilagan, balki o‘ttizdan ortiq kitob o‘qigan. U vaqt kutib kelmaydi, uni topib olish kerak, deydi.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Lug‘atni ayting",
+   "title": "Matnni qayta aytib bering",
    "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
+   "board": ["谁？", "以前怎么想？", "后来做了什么？", "结果和道理"],
    "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Hozirgina eshitgan matnni qayta aytib bering. Ikki daqiqa vaqtingiz bor. Doskadagi to‘rtta savol tayanch bo‘ladi: kim haqida, dastlab nima deb o‘ylagan, keyin nima qilgan, natija va xulosa nima. Gaplaringiz bog‘langan bo‘lsin: 起初, 后来, 一年以后 kabi so‘zlardan foydalaning. Ovozingizni yozib oling, keyingi sahnada namuna bilan solishtiring.",
+   "say": "请你用自己的话，把刚才听到的短文复述一遍。可以用起初、后来、一年以后这样的词来连接。",
+   "say_uz": "Hozir eshitgan matnni o‘z so‘zlaringiz bilan qayta aytib bering. 起初, 后来, 一年以后 kabi so‘zlar bilan bog‘lashingiz mumkin.",
+   "practice_seconds": 120
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Namuna qayta hikoya va tahlil",
    "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Asosiy tushuncha",
-   "emotion": "neutral",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Tushuncha misollar",
-   "emotion": "neutral",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
+   "board": ["人物：小李，职员", "转变：浪费 → 利用", "结果：英语进步，读书三十本", "道理：时间是挤出来的"],
    "examples": [
-    {
-     "t": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-     "uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli."
-    }
+    {"t": "小李每天坐地铁要花很长时间，起初他很不满，后来他把这段时间用来学习，一年后收获很大，他认为时间是挤出来的。", "uz": "Li har kuni metroda ko‘p vaqt o‘tkazadi, avval norozi edi, keyin bu vaqtni o‘qishga sarfladi, bir yildan keyin yutug‘i katta bo‘ldi va vaqtni topish kerak deb hisoblaydi."}
    ],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tushunchani ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) yaxshilanish",
-    "2) yutuq",
-    "3) kasb",
-    "4) ish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt tushunchani ayting. Har bir gapda shaklni ishlating. Javobni to‘liq gapda ayting. Bu qism — tushunchani aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Tushunchani ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: yaxshilanish. yutuq. kasb. ish. Tushunchalar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。工作 (gōngzuò)，这也非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli. ish chiroyli.",
+   "say_native": "Namuna javob doskada. Muhim narsa — o‘ziga xos tuzilma: birinchi, qahramon va holat; ikkinchi, o‘zgarish; uchinchi, natija; to‘rtinchi, asosiy g‘oya. Siz matndagi so‘zlarni ko‘chirmadingiz, balki sinonimlar ishlatdingiz: «浪费时间» o‘rniga «很不满», «读完了三十多本书» o‘rniga «收获很大». Bu yuqori ball beradigan usul, chunki imtihon oluvchi sizning ma’noni tushunganingizni ko‘radi. Agar kichik tafsilotni unutgan bo‘lsangiz, qo‘rqmang: asosiy mazmunni to‘g‘ri aytsangiz, yetarli. Tafsilotni to‘qib chiqarmang.",
+   "say": "小李每天坐地铁要花很长时间，起初他很不满，后来他把这段时间用来学习，一年后收获很大，他认为时间是挤出来的。",
+   "say_uz": "Li har kuni metroda ko‘p vaqt o‘tkazadi, avval norozi edi, keyin bu vaqtni o‘qishga sarfladi, bir yildan keyin yutug‘i katta bo‘ldi va vaqtni topish kerak deb hisoblaydi.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Ikkinchi tushuncha",
+   "title": "Ikkinchi qism: ovoz chiqarib o‘qish",
    "emotion": "thinking",
-   "board": [
-    "tushuncha",
-    "farq",
-    "misol"
-   ],
-   "examples": [],
-   "say_native": "To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon ning ikkinchi tushunchasini bilib oling. Farqini ajratib oling. Har bir shaklni alohida yozing. Bu qism — ikkinchi tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Ikkinchi tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Farq misollar",
-   "emotion": "neutral",
-   "board": [
-    "ish",
-    "mahorat",
-    "til"
-   ],
+   "board": ["先看一遍，分意群", "标出停顿 / 重音", "注意变调：一个 · 不是", "语速稳，不抢读"],
    "examples": [
-    {
-     "t": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-     "uz": "ish juda chiroyli. mahorat tez. til chiroyli."
-    }
+    {"t": "有的城市节奏很快，有的城市却很安静。", "uz": "Ba’zi shaharlarning ritmi tez, ba’zilari esa juda tinch."}
    ],
-   "say_native": "Farq misollarini o‘qib, har birini takrorlang. Farqlarni ajrating. Bu qism — farq misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Farq misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。这非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli.",
+   "say_native": "O‘qishdan oldin matnni jim bir marta ko‘rib chiqing, bu yerda uchta ish bor. Birinchi: matnni ma’no bloklariga ajratib, pauza joylarini belgilang. Ikkinchi: asosiy so‘zlarga mantiqiy urg‘u qo‘ying. Uchinchi: ton o‘zgarishlariga e’tibor bering, masalan 一个, 不是. Eng katta xato — tez o‘qish: hayajonlangan odam tezlashadi va tonlarni yo‘qotadi. O‘zingizga biroz sekinroq tezlik tanlang. Agar xato qilib qo‘ysangiz, to‘xtab, tez tuzatib davom eting: bu odatiy, hakam buni xatoni sezish qobiliyati deb baholaydi. Katta pauzalarsiz silliq o‘qing.",
+   "say": "有的城市节奏很快，有的城市却很安静。读之前，先把句子分成意群，再决定哪里停、哪里重。",
+   "say_uz": "Ba’zi shaharlarning ritmi tez, ba’zilari esa juda tinch. O‘qishdan oldin gaplarni ma’no guruhlariga bo‘ling, qayerda to‘xtash va qayerga urg‘u berishni hal qiling.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Farqni ayting",
+   "title": "Matnni o‘qing",
    "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
+   "board": ["每个城市都有自己的性格。有的城市节奏很快，人们走路匆匆；有的城市却很安静，人们愿意慢慢地喝一杯茶。其实，没有哪一种更好，关键是你在哪里能找到属于自己的节奏。"],
    "examples": [],
-   "say_native": "To‘rt farqni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — farqni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Farqni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Doskadagi matnni ovoz chiqarib o‘qing. Avval bir daqiqa ko‘rib chiqing, pauza va urg‘uni belgilang. Keyin tabiiy tezlikda o‘qing, to‘xtamasdan. O‘qishni yozib oling. Keyingi sahnada bu matnni qanday bo‘lib o‘qish kerakligini ko‘rsataman. Aniq ritm va 其实 dan keyingi to‘xtashga alohida e’tibor bering.",
+   "say": "每个城市都有自己的性格。有的城市节奏很快，人们走路匆匆；有的城市却很安静，人们愿意慢慢地喝一杯茶。其实，没有哪一种更好，关键是你在哪里能找到属于自己的节奏。",
+   "say_uz": "Har bir shaharning o‘z xarakteri bor. Ba’zi shaharlarning ritmi tez, odamlar shoshib yuradi; ba’zilari esa tinch, odamlar sekin choy ichishni xohlaydi. Aslida biri yaxshiroq emas, asosiysi o‘z ritmingizni qayerda topishingizda.",
+   "practice_seconds": 120
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "O‘qish tahlili: pauza va urg‘u",
    "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Farqlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Lug‘atlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: lug‘at\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "1) ish",
-    "2) mahorat",
-    "3) til",
-    "4) tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Farqlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: farq\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: ish. mahorat. til. tarmoq. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "工作 (gōngzuò)。技能 (jìnéng)，而且非常实用。语言 (yǔyán)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "ish juda chiroyli. mahorat tez. til chiroyli. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
-   ],
-   "examples": [],
-   "say_native": "Matn savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Matn matni",
-   "emotion": "neutral",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
+   "board": ["每个城市 | 都有自己的性格。", "有的城市 | 节奏很快，", "其实， | 没有哪一种更好，", "关键是 | 你在哪里 | 能找到 | 属于自己的节奏"],
    "examples": [
-    {
-     "t": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-     "uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli."
-    }
+    {"t": "其实，没有哪一种更好，关键是你在哪里能找到属于自己的节奏。", "uz": "Aslida biri yaxshiroq emas, asosiysi o‘z ritmingizni qayerda topishingizda."}
    ],
-   "say_native": "Matn matnini o‘qib, har birini takrorlang. Qismlarni ajrating. Bu qism — matn matniga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Matn matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Tahlil. Birinchi gap: «每个城市 | 都有自己的性格» — mavzu va izoh orasida qisqa pauza. Ikkinchi gap: 有的 ... 有的 ... qarama-qarshilikni ko‘rsatadi, shuning uchun «快» va «安静» ga urg‘u tushadi. 其实 dan keyin pauza qilinadi, bu o‘quvchini keyingi fikrga tayyorlaydi. Oxirgi gap uzun: «关键是 | 你在哪里 | 能找到 | 属于自己的节奏», to‘rtta blok. Tonlar: 一杯 da yì, 没有哪一种 da 一 yo‘q, lekin 一种 yì zhǒng. Agar siz bu pauzalarni tabiiy ushlab turgan bo‘lsangiz, ritm muvaffaqiyatli. Yozuvingizni tinglab, pauzalar bilan solishtiring.",
+   "say": "其实，没有哪一种更好，关键是你在哪里能找到属于自己的节奏。读的时候，要在意思完整的地方停一下。",
+   "say_uz": "Aslida biri yaxshiroq emas, asosiysi o‘z ritmingizni qayerda topishingizda. O‘qiyotganda ma’no tugaydigan joyda to‘xtash kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Uchinchi qism: savolga uyushgan javob",
+   "emotion": "neutral",
+   "board": ["观点 → 原因 → 例子 → 总结", "我认为…… · 首先 · 其次 · 比如 · 总之", "回答要完整，不要只说一句", "一到两分钟"],
+   "examples": [
+    {"t": "我认为网络学习很有帮助，但不能完全代替学校教育。首先，它时间灵活；其次，学校有老师的及时指导。", "uz": "Menimcha onlayn o‘qish foydali, lekin maktab ta’limini to‘liq almashtira olmaydi. Birinchidan, vaqti moslashuvchan; ikkinchidan, maktabda o‘qituvchining o‘z vaqtidagi yo‘l-yo‘rig‘i bor."}
+   ],
+   "say_native": "Uchinchi qismda sizga erkin savol beriladi, masalan: «Onlayn o‘qish maktabni almashtira oladimi?». Javob tuzilmasi to‘rt qadam: 观点 — fikringiz, 原因 — sababi, 例子 — misol, 总结 — xulosa. «Menimcha» deb boshlang: 我认为. Keyin 首先, 其次 bilan sabablarni sanang. Keyin 比如 deb shaxsiy misol keltiring: shaxsiy misol hakamga sizning haqiqiy tilingizni ko‘rsatadi. Oxirida 总之 bilan yakunlang. Bir jumlali javob kam baho oladi. Bundan tashqari, ikki tomonni ko‘rsatish, ya’ni «foydali, lekin to‘liq emas», yuqori darajadagi fikrlash belgisi.",
+   "say": "我认为网络学习很有帮助，但不能完全代替学校教育。首先，它时间灵活；其次，学校有老师的及时指导。",
+   "say_uz": "Menimcha onlayn o‘qish foydali, lekin maktab ta’limini to‘liq almashtira olmaydi. Birinchidan, vaqti moslashuvchan; ikkinchidan, maktabda o‘qituvchining o‘z vaqtidagi yo‘l-yo‘rig‘i bor.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Matn savollari",
+   "title": "Savolga javob bering",
    "emotion": "encouraging",
-   "board": [
-    "1) tarmoq?",
-    "2) aloqa?",
-    "3) maqsad?",
-    "4) o‘rganish?"
-   ],
+   "board": ["有人认为，旅行比读书更能让人成长。你怎么看？", "观点 · 原因 · 例子 · 总结", "一分半钟"],
    "examples": [],
-   "say_native": "To‘rt matn savoliga javob bering. Har bir javobni to‘liq gapda ayting. Bu qism — matn savollariga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq? aloqa? maqsad? o‘rganish?",
-   "practice_seconds": 14
+   "say_native": "Endi o‘zingiz javob berasiz. Savol: «Ba’zilar sayohat o‘qishdan ko‘ra insonni ko‘proq o‘stiradi deb hisoblaydi. Siz nima deb o‘ylaysiz?» To‘rt qadamdan foydalaning: fikr, sabab, misol, xulosa. Bir yarim daqiqa gapiring. Doskadagi tayanch so‘zlardan foydalaning. Ovozingizni yozib oling va keyingi sahnada namuna bilan solishtiring.",
+   "say": "有人认为，旅行比读书更能让人成长。你怎么看？请说说你的观点、原因，并举一个例子。",
+   "say_uz": "Ba’zilar sayohat o‘qishdan ko‘ra insonni ko‘proq o‘stiradi deb hisoblaydi. Siz nima deb o‘ylaysiz? Fikringizni, sababini ayting va bitta misol keltiring.",
+   "practice_seconds": 120
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Namuna javob va mezon",
    "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
+   "board": ["观点：两者互补", "原因：书给知识，旅行给体验", "例子：我去上海", "总结：读书 + 旅行"],
+   "examples": [
+    {"t": "我认为两者不能比较，它们互相补充。读书给我们知识，旅行给我们亲身体验。比如我去上海以后，才真正理解书里写的城市生活。总之，最好的办法是边读书边旅行。", "uz": "Menimcha ularni solishtirib bo‘lmaydi, ular bir-birini to‘ldiradi. Kitob bilim beradi, sayohat shaxsiy tajriba beradi. Masalan, Shanxayga borgach, kitobda yozilgan shahar hayotini chindan tushundim. Xullas, eng yaxshi yo‘l kitob o‘qib, sayohat qilishdir."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Matn savollariga javob berildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
+   "say_native": "Namuna javobni tahlil qilamiz. Fikr: ikkalasi bir-birini to‘ldiradi, bu 互补 so‘zi bilan berilgan. Sabab: kitob bilim, sayohat tajriba beradi. Misol: shaxsiy tajriba, Shanxayga borish. Xulosa: ikkalasini birlashtirish. Siz boshqa fikr bildirgan bo‘lishingiz mumkin, masalan «sayohat muhimroq», bu ham to‘g‘ri, hech kim «to‘g‘ri javob» ni belgilamaydi. Hakam tuzilmani, tilni va dalil sifatini baholaydi. Yozuvingizni tinglang: fikr aniq aytilganmi, sabab bormi, shaxsiy misol bormi, xulosa bormi? To‘rtta savolga «ha» deb javob bersangiz, tuzilma yaxshi.",
+   "say": "我认为两者不能比较，它们互相补充。读书给我们知识，旅行给我们亲身体验。比如我去上海以后，才真正理解书里写的城市生活。总之，最好的办法是边读书边旅行。",
+   "say_uz": "Menimcha ularni solishtirib bo‘lmaydi, ular bir-birini to‘ldiradi. Kitob bilim beradi, sayohat shaxsiy tajriba beradi. Masalan, Shanxayga borgach, kitobda yozilgan shahar hayotini chindan tushundim. Xullas, eng yaxshi yo‘l kitob o‘qib, sayohat qilishdir.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Yuqori daraja mezonlari",
+   "emotion": "thinking",
+   "board": ["流利：不卡壳，有自然停顿", "准确：声调、语法少错", "丰富：词汇和句式多样", "逻辑：衔接清楚"],
+   "examples": [
+    {"t": "既要说得流利，也要说得准确，还要让内容有条理。", "uz": "Ravon ham, aniq ham gapirish va mazmunni tartibli berish kerak."}
+   ],
+   "say_native": "Yuqori darajadagi og‘zaki nutq odatda beshta mezon bilan baholanadi, nomlar imtihonlarda har xil bo‘lsa-da, mazmun o‘xshash. Birinchi: 流利, ravonlik, ya’ni uzoq jimlik va takrorlarsiz gapirish. Ikkinchi: 准确, aniqlik, ya’ni ton va grammatika xatolarining kamligi. Uchinchi: 丰富, boylik: ko‘p xil so‘z va gap tuzilmasi, masalan 虽然……但是……, 不仅……而且……. To‘rtinchi: 发音和语调, talaffuz va ohang. Beshinchi: 逻辑, fikrlar orasidagi aniq bog‘lanish. Eng yuqori darajada muhimi: oddiy xatolar kam, murakkab tuzilmalar erkin va mavzu chuqur ochilgan bo‘ladi. Bu mezonlarni rasmiy imtihon yo‘riqnomasi bilan solishtiring.",
+   "say": "既要说得流利，也要说得准确，还要让内容有条理。词汇和句式越丰富，水平就越高。",
+   "say_uz": "Ravon ham, aniq ham gapirish va mazmunni tartibli berish kerak. So‘z va gap tuzilmalari qanchalik rang-barang bo‘lsa, daraja shunchalik yuqori.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "O‘rta darajadan yuqori darajaga",
+   "emotion": "encouraging",
+   "board": ["这个办法很好。", "→ 这个办法既实用又省时间。", "我同意。", "→ 我基本同意，不过有一点想补充。"],
+   "examples": [
+    {"t": "这个办法既实用又省时间，我很赞同；不过，实施的时候还需要考虑成本。", "uz": "Bu usul ham amaliy, ham vaqtni tejaydi, men to‘liq qo‘llab-quvvatlayman; lekin amalga oshirishda xarajatni ham hisobga olish kerak."}
+   ],
+   "say_native": "O‘rta darajadagi javob oddiy va to‘g‘ri, yuqori darajadagi javob esa aniq, boy va nozik. «这个办法很好» o‘rniga 这个办法既实用又省时间 desangiz, siz sababni ko‘rsatgan bo‘lasiz. «我同意» o‘rniga 我基本同意，不过有一点想补充 desangiz, siz fikrni nozik tomonlama bildirasiz. Shuningdek, 不容忽视, 值得关注, 取决于 kabi ifodalar nutqni jiddiy qiladi. Lekin ehtiyot bo‘ling: murakkab so‘z kerak emas, o‘rinli so‘z kerak. Har bir yangi ifodani avval bir necha gapda ishlatib ko‘ring, keyin imtihonda erkin ishlating.",
+   "say": "这个办法既实用又省时间，我很赞同；不过，实施的时候还需要考虑成本。",
+   "say_uz": "Bu usul ham amaliy, ham vaqtni tejaydi, men to‘liq qo‘llab-quvvatlayman; lekin amalga oshirishda xarajatni ham hisobga olish kerak.",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Keng tarqalgan xatolar",
+   "title": "Og‘zaki imtihondagi tipik xatolar",
    "emotion": "stern",
-   "board": [
-    "✗ tarmoq aloqa emas",
-    "✗ maqsad o‘rganish emas",
-    "✗ To‘liq"
+   "board": ["✗ 一句话回答", "✓ 观点 + 原因 + 例子", "✗ 背模板，答非所问", "✓ 先听清题，再回答"],
+   "examples": [
+    {"t": "这个问题很有意思，让我想一想……我的看法是，网络学习有利也有弊。", "uz": "Bu juda qiziq savol, o‘ylab ko‘rayin... fikrimcha, onlayn o‘qishning ham foydasi, ham zarari bor."}
    ],
-   "examples": [],
-   "say_native": "To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon so‘zlarida uchraydigan uchta xato: ma’no adashtirish. Har bir xatoni tuzating. Bu qism — xatolarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
+   "say_native": "Uchta xato imtihonda eng ko‘p uchraydi. Birinchisi: qisqa javob. «Ha, menimcha foydali» desangiz, nima qilganingizni baholash uchun material yo‘q. Ikkinchisi: yodlangan shablonni savolga bog‘lamay aytish. Hakam bu hiylani tez sezadi va ball kamayadi. Har doim savolni diqqat bilan eshiting va aynan savolga javob bering. Uchinchisi: gapni boshlashdan oldin juda uzoq jim turish. Buning o‘rniga 让我想一想 kabi qisqa ibora bilan vaqt yutib oling. Bu ham o‘ylash vaqtini beradi, ham tabiiy eshitiladi.",
+   "say": "这个问题很有意思，让我想一想……我的看法是，网络学习有利也有弊。",
+   "say_uz": "Bu juda qiziq savol, o‘ylab ko‘rayin... fikrimcha, onlayn o‘qishning ham foydasi, ham zarari bor.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatolarni tuzating",
+   "title": "Javobni yaxshilang",
    "emotion": "encouraging",
-   "board": [
-    "1) tarmoq aloqa emas",
-    "2) maqsad o‘rganish emas",
-    "3) To‘liq",
-    "4) tarmoq"
-   ],
+   "board": ["1 我觉得环境问题很重要。", "2 他的意见我不同意。", "3 这个计划很好，但有点难。", "→ 说得更丰富、更准确"],
    "examples": [],
-   "say_native": "To‘rt xatoni tuzating. Har biriga to‘g‘ri shakl yozing. Javobni to‘liq gapda ayting. Bu qism — xatolarni tuzatishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
-   "practice_seconds": 12
+   "say_native": "Uchta oddiy gapni yuqori darajaga ko‘taring. Birinchi: «Menimcha, ekologik muammo muhim». Ikkinchi: «Uning fikriga qo‘shilmayman». Uchinchi: «Bu reja yaxshi, lekin biroz qiyin». Har birini bir yoki ikkita aniq gapga aylantiring: sabab qo‘shing, tuzilma o‘zgartiring, aniq so‘z ishlating. Gapingizni ovoz chiqarib ayting, keyin keyingi sahnadagi namunalar bilan solishtiring.",
+   "say": "请把这三句话说得更丰富、更准确：我觉得环境问题很重要；他的意见我不同意；这个计划很好，但有点难。",
+   "say_uz": "Bu uch gapni boyroq va aniqroq ayting: ekologik muammo muhim deb o‘ylayman; uning fikriga qo‘shilmayman; bu reja yaxshi, lekin biroz qiyin.",
+   "practice_seconds": 100
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: gapni boyitish",
    "emotion": "proud",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "tarmoq"
+   "board": ["环境问题关系到每个人，不容忽视。", "他的看法有一定道理，但我不能完全同意。", "这个计划很有价值，不过实施起来有一定难度。"],
+   "examples": [
+    {"t": "他的看法有一定道理，但我不能完全同意，因为数据还不够充分。", "uz": "Uning fikrida ma’lum haqiqat bor, lekin to‘liq qo‘shila olmayman, chunki ma’lumotlar hali yetarli emas."}
    ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. tarmoq. Xatolar tuzatildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。网络 (wǎngluò)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. tarmoq.",
+   "say_native": "Namuna javoblar. Birinchi: 环境问题关系到每个人，不容忽视, «ekologik muammo hammaga daxldor, uni e’tiborsiz qoldirib bo‘lmaydi». Ikkinchi: 他的看法有一定道理，但我不能完全同意, bu qo‘pol «rad etish» emas, balki odobli va nozik fikr bildirish. Uchinchi: 这个计划很有价值，不过实施起来有一定难度, «reja qimmatli, lekin amalga oshirish biroz qiyin». Ko‘rdingizmi, har javobda aniq so‘z va yumshoq o‘tish bor. Sizning variantingiz boshqacha bo‘lishi mumkin, muhimi bu o‘zgarishlar: sabab, aniqlik va muloyimlik. Shunday qilib, nutqingiz yuqori darajaga yaqinlashadi.",
+   "say": "他的看法有一定道理，但我不能完全同意，因为数据还不够充分。这个计划很有价值，不过实施起来有一定难度。",
+   "say_uz": "Uning fikrida ma’lum haqiqat bor, lekin to‘liq qo‘shila olmayman, chunki ma’lumotlar hali yetarli emas. Bu reja qimmatli, lekin amalga oshirish biroz qiyin.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Yakuniy vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "takrorlash",
-    "yakun"
-   ],
-   "examples": [],
-   "say_native": "Yakuniy vazifani bajaring: Complete the full speaking mock. . Har bir gapda bitta fikr bo‘lsin. Bu qism — yakuniy vazifaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Yakuniy vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。练习很重要。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez. Amaliyot chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "Yakun",
-    "Takrorlash"
+   "title": "O‘ziga fikr-mulohaza berish",
+   "emotion": "thinking",
+   "board": ["录音 → 转写 → 标记", "标出：停顿 · 重复 · 错误", "每次只改一个重点", "对照范文"],
+   "examples": [
+    {"t": "我把录音听了两遍，标出了五处错误和三处不自然的停顿。", "uz": "Men yozuvni ikki marta tingladim, beshta xato va uchta tabiiy bo‘lmagan pauzani belgiladim."}
    ],
+   "say_native": "Mock imtihondan keyin eng muhim bosqich boshlanadi: o‘zingizga fikr-mulohaza berish. To‘rt qadam. Birinchi: yozuvni qayta tinglang, bir marta ham to‘xtamang. Ikkinchi: gapingizni yozib chiqing, buni 转写 deyiladi, shunda o‘zingizga xatolar ko‘rinadi. Uchinchi: xatolarni uch rangda belgilang: ton va talaffuz, grammatika, ortiqcha pauza va takrorlar. To‘rtinchi: namuna javob bilan solishtiring, qaysi tuzilma va so‘zlar sizda yo‘q? Hamma xatoni birdan tuzatishga urinmang. Eng ko‘p takrorlangan xato turini tanlab, keyingi mashqda faqat shunga e’tibor bering.",
+   "say": "我把录音听了两遍，标出了五处错误和三处不自然的停顿。下次我只改最常出现的那一类。",
+   "say_uz": "Men yozuvni ikki marta tingladim, beshta xato va uchta tabiiy bo‘lmagan pauzani belgiladim. Keyingi safar faqat eng ko‘p takrorlangan turini tuzataman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "To‘rt haftalik takomillashtirish rejasi",
+   "emotion": "encouraging",
+   "board": ["第一周：复述", "第二周：朗读和语调", "第三周：观点表达", "第四周：模拟考试"],
+   "examples": [
+    {"t": "第一周练复述，第二周练朗读，第三周练回答问题，第四周做完整的模拟考试。", "uz": "Birinchi hafta qayta aytish, ikkinchi hafta o‘qish, uchinchi hafta savolga javob, to‘rtinchi hafta to‘liq mock imtihon mashq qilinadi."}
+   ],
+   "say_native": "Endi reja tuzing. To‘rt hafta yetarli, agar kun sayin mashq qilsangiz. Birinchi hafta: 听后复述, har kuni bitta qisqa matnni tinglab qayta ayting. Ikkinchi hafta: 朗读 va intonatsiya, kuniga bitta parchani yozib oling. Uchinchi hafta: 观点表达, har kuni bitta savolga bir yarim daqiqa javob bering. To‘rtinchi hafta: to‘liq mock imtihon, haqiqiy vaqt chegarasida. Har kuni yigirma-o‘ttiz daqiqa. Har haftaning oxirida o‘zingizga mezonlar bo‘yicha baho bering. Reja yozma bo‘lsin va ko‘rinadigan joyda tursin, shunda siz uni bajarishga majbur bo‘lasiz.",
+   "say": "第一周练复述，第二周练朗读，第三周练回答问题，第四周做完整的模拟考试。每天二三十分钟就够了。",
+   "say_uz": "Birinchi hafta qayta aytish, ikkinchi hafta o‘qish, uchinchi hafta savolga javob, to‘rtinchi hafta to‘liq mock imtihon mashq qilinadi. Har kuni yigirma-o‘ttiz daqiqa yetarli.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hayajonni boshqarish",
+   "emotion": "encouraging",
+   "board": ["深呼吸：吸四秒，呼六秒", "慢一点说话", "把考官当听众", "紧张是正常的"],
+   "examples": [
+    {"t": "我先深呼吸，告诉自己：慢一点，说清楚就行。", "uz": "Avval chuqur nafas olaman va o‘zimga aytaman: sekinroq, aniq aytsam bas."}
+   ],
+   "say_native": "Hayajon — oddiy hodisa. Uni yo‘q qilish emas, boshqarish kerak. Beshta amaliy usul. Birinchi: imtihon oldidan chuqur nafas: to‘rt soniya nafas olib, olti soniya chiqaring, bu yuragingiz urishini sekinlashtiradi. Ikkinchi: gapirishni sekin boshlang, hayajonda odam tezlashadi, tonlar buziladi. Uchinchi: imtihon oluvchini dushman emas, tinglovchi deb tasavvur qiling. To‘rtinchi: xato qilsangiz, to‘xtab tuzating va davom eting, bu odatiy. Beshinchi: kecha uxlab, nonushta qilib keling. Hayajon haddan tashqari kuchli bo‘lsa, uni tan oling: «hozir hayajonlandim, davom etaman» deb o‘ylang.",
+   "say": "我先深呼吸，告诉自己：慢一点，说清楚就行。紧张是正常的，大家都会紧张。",
+   "say_uz": "Avval chuqur nafas olaman va o‘zimga aytaman: sekinroq, aniq aytsam bas. Hayajonlanish tabiiy, hamma hayajonlanadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "So‘z topilmaganda va jim qolganda",
+   "emotion": "thinking",
+   "board": ["让我想一想……", "我的意思是……", "换句话说……", "忘了词：换个说法"],
+   "examples": [
+    {"t": "我的意思是，网络可以帮助学习，但不能替代老师。换句话说，两者缺一不可。", "uz": "Aytmoqchi bo‘lganim, internet o‘qishga yordam beradi, lekin o‘qituvchi o‘rnini bosa olmaydi. Boshqacha aytganda, ikkalasi ham kerak."}
+   ],
+   "say_native": "Gapirayotganda so‘z esdan chiqsa, to‘xtab qolmang. Uchta usul bor. Birinchi: vaqt yutish, 让我想一想 yoki 这个问题很有意思. Ikkinchi: sinonim yoki izoh bilan aylanib o‘tish, masalan 就是……的意思 yoki 我想说的是……. Uchinchi: 换句话说 bilan gapni boshqacha aytib berish. Aniq so‘z esingizda bo‘lmasa, uni tasvirlab bering: «hamma uchun ochiq» deb aytsangiz ham ma’no yetadi. Muhimi: qo‘rqmay davom etish. Jim qolish va uzr so‘rash ko‘p vaqtni olib qo‘yadi, ball ham kamayadi.",
+   "say": "我的意思是，网络可以帮助学习，但不能替代老师。换句话说，两者缺一不可。",
+   "say_uz": "Aytmoqchi bo‘lganim, internet o‘qishga yordam beradi, lekin o‘qituvchi o‘rnini bosa olmaydi. Boshqacha aytganda, ikkalasi ham kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Hayajon keltirib chiqaradigan xatolar",
+   "emotion": "disappointed",
+   "board": ["✗ 对不起，我汉语不好", "✓ 请允许我再想一想", "✗ 说得越来越快", "✓ 保持稳定的速度"],
+   "examples": [
+    {"t": "请允许我再想一想，我想把这个问题说得更清楚一些。", "uz": "Menga yana bir oz o‘ylashga ruxsat bering, bu masalani aniqroq aytmoqchiman."}
+   ],
+   "say_native": "Hayajonda ikki odatiy xato bor. Birinchisi: o‘zingizni kamsitish: «uzr, xitoychani yaxshi bilmayman». Bu hakamga yomon taassurot qoldiradi va o‘zingizga ishonchni yo‘qotadi. Uning o‘rniga 请允许我再想一想 deng, bu ham muloyim, ham ishonchli. Ikkinchisi: gapni tobora tezlashtirish. Hayajonda odam tez gapiradi, tonlar va so‘zlar aralashib ketadi. Har bir gapdan keyin qisqa pauza qiling va nafas oling. Tez gap ravon nutq emas, tartibsiz nutq. Sekin va barqaror nutq esa ishonchli taassurot beradi.",
+   "say": "请允许我再想一想，我想把这个问题说得更清楚一些。",
+   "say_uz": "Menga yana bir oz o‘ylashga ruxsat bering, bu masalani aniqroq aytmoqchiman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: qisqa suhbat sinovi",
+   "emotion": "neutral",
+   "board": ["考官：请介绍你的家乡", "考生：我来自撒马尔罕", "考官：你推荐去哪儿？", "注意：观点 + 理由"],
    "examples": [],
-   "say_native": "Javoblar: Yakun. Takrorlash. Vazifa tayyor bo‘ldi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez.",
+   "say_native": "Endi bir imtihon oluvchi va nomzod suhbatini tinglang. Nomzod o‘z shahrini tasvirlaydi. Diqqat bering: nomzod qaysi shahardan, u shahar nima bilan mashhur, nimani tavsiya qiladi va nima uchun. Tuzilmaga ham e’tibor bering: fikr, sabab, misol.",
+   "say": "考官：请介绍一下你的家乡。考生：我来自撒马尔罕，那是一座有两千多年历史的古城。那里有很多古老的清真寺和美丽的广场。考官：如果有朋友去，你推荐他做什么？考生：我建议他先去老城区走一走，因为那里能感受到真正的生活；然后尝尝当地的抓饭，味道特别地道。",
+   "say_uz": "Imtihon oluvchi: O‘z shahringizni tanishtiring. Nomzod: Men Samarqanddanman, bu ikki ming yildan ortiq tarixga ega qadimiy shahar. U yerda juda ko‘p qadimiy masjidlar va go‘zal maydonlar bor. Imtihon oluvchi: Agar do‘stingiz borsa, unga nimani tavsiya qilasiz? Nomzod: Avval eski shahar tumaniga borib aylanishni tavsiya qilaman, chunki u yerda haqiqiy hayotni his qilish mumkin; keyin mahalliy palovni tatib ko‘rish kerak, ta’mi juda asl.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
+   "title": "Suhbat bo‘yicha savollar",
+   "emotion": "thinking",
+   "board": ["1 考生来自哪儿？", "2 这座城市有什么特点？", "3 他推荐做什么？", "4 他为什么这样推荐？"],
    "examples": [],
-   "say_native": "To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"To‘liq lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: lug‘at — C2-22 ga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
+   "say_native": "To‘rtta savol. Birinchi: nomzod qayerdan? Ikkinchi: shahar nima bilan ajralib turadi? Uchinchi: u do‘stiga nimani tavsiya qiladi? To‘rtinchi: nima uchun aynan shuni tavsiya qiladi? Xitoychada to‘liq gap bilan javob bering, bir so‘zli javob yetmaydi.",
+   "say": "请回答：考生来自哪儿？这座城市有什么特点？他推荐朋友做什么？他为什么这样推荐？",
+   "say_uz": "Javob bering: nomzod qayerdan? Shaharning qanday xususiyati bor? U do‘stiga nima qilishni tavsiya qiladi? Nima uchun bunday tavsiya qiladi?",
+   "practice_seconds": 100
   },
   {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "examples": [],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: farq — C2-22 ga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。这非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) tarmoq",
-    "2) aloqa",
-    "3) maqsad",
-    "4) o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: matn savollari — C2-22 ga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: tarmoq. aloqa. maqsad. o‘rganish. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: takrorlash — C2-22 ga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang.",
-   "say": "网络 (wǎngluò)。联系 (liánxì)，而且非常实用。目标 (mùbiāo)。学习 (xuéxí)，这也非常重要。",
-   "say_uz": "tarmoq juda chiroyli. aloqa tez. maqsad chiroyli. o‘rganish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: savollar 2",
-   "emotion": "encouraging",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: savollar 2 — C2-22 ga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: yakuniy",
-   "emotion": "encouraging",
-   "board": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "examples": [],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: yakuniy — C2-22 ga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang.",
-   "say": "提高 (tígāo)。成果 (chéngguǒ)，而且非常实用。职业 (zhíyè)。这非常重要。",
-   "say_uz": "yaxshilanish juda chiroyli. yutuq tez. kasb chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa",
+   "kind": "explain",
+   "title": "Suhbat javoblari",
    "emotion": "proud",
-   "board": [
-    "Xulosa",
-    "takrorlash"
+   "board": ["1 撒马尔罕", "2 两千多年历史，古老的清真寺和广场", "3 逛老城区，尝抓饭", "4 能感受真正的生活"],
+   "examples": [
+    {"t": "他来自撒马尔罕，那里有两千多年的历史；他建议朋友逛老城区、尝抓饭，因为能感受到真正的生活。", "uz": "U Samarqanddan, u yerda ikki ming yildan ortiq tarix bor; do‘stiga eski shaharni aylanishni va palov tatib ko‘rishni tavsiya qiladi, chunki haqiqiy hayotni his qilish mumkin."}
    ],
-   "examples": [],
-   "say_native": "Xulosa. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusini o‘rgandik. Har bir mavzuni alohida yodlab olish kerak. Keyingi darsda C2-23 To‘liq mock imtihon: Writing va Reading ni o‘rganamiz. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是总结，而且非常实用。复习很快。",
-   "say_uz": "Xulosa juda chiroyli. Takrorlash tez.",
+   "say_native": "Javoblar. Birinchi: Samarqand, 撒马尔罕. Ikkinchi: ikki ming yildan ortiq tarix, qadimiy masjidlar va go‘zal maydonlar. Uchinchi: eski shahar tumanini aylanish va palov, ya’ni 抓饭 ni tatib ko‘rish. To‘rtinchi: chunki u yerda haqiqiy hayotni his qilish mumkin, shuning uchun sabab 因为 bilan berilgan. E’tibor bering, nomzod ikkita tavsiya berib, birini sabab bilan tushuntirgan: bu fikr, sabab, misol tuzilmasining qisqa ko‘rinishi. Siz o‘z shahringiz haqida shu tuzilmadan foydalanib gapira olasiz. Mashq sifatida o‘z shahringiz haqida bir daqiqa gapiring va yozib oling.",
+   "say": "他来自撒马尔罕，那里有两千多年的历史；他建议朋友逛老城区、尝抓饭，因为能感受到真正的生活。",
+   "say_uz": "U Samarqanddan, u yerda ikki ming yildan ortiq tarix bor; do‘stiga eski shaharni aylanishni va palov tatib ko‘rishni tavsiya qiladi, chunki haqiqiy hayotni his qilish mumkin.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "keyingi dars"
-   ],
+   "title": "Xulosa va uy vazifasi",
+   "emotion": "happy",
+   "board": ["复述 · 朗读 · 回答问题", "流利 · 准确 · 丰富", "录音 → 反馈 → 计划", "作业：完整口语模考"],
    "examples": [],
-   "say_native": "Uyga vazifa. Complete the full speaking mock. . Har bir gapda bitta fikr bo‘lsin. Keyingi darsda C2-23 To‘liq mock imtihon: Writing va Reading ni o‘rganamiz. C2-22 To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon darsiga oid noyob sharh: bu iborani C2-22 suhbatida aniq qo‘llang. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "再见！祝你一切顺利！这非常重要。",
-   "say_uz": "Ko‘rishguncha! Xayr! Juda chiroyli.",
+   "say_native": "Xulosa. Siz uch bosqichli og‘zaki mockni sinab ko‘rdingiz: eshitib qayta aytish, ovoz chiqarib o‘qish va savolga uyushgan javob. Yuqori darajali mezonlarni, ya’ni ravonlik, aniqlik, boylik, talaffuz va mantiqni bildingiz. O‘zingizga fikr-mulohaza berishni va to‘rt haftalik reja tuzishni, hayajonni boshqarishni o‘rgandingiz. Uy vazifasi: butun og‘zaki mock imtihonni o‘zingiz bajaring: bitta matnni qayta ayting, bitta parchani o‘qing va ikkita savolga javob bering. Hammasini yozib oling. Muvaffaqiyat mezoni: yozuvni tinglab, kamida uchta tuzatish nuqtasi va bitta kuchli tomonni yozib qo‘ygansiz. Keyingi darsda yozma va o‘qish qismi mock imtihonini topshiramiz.",
+   "say": "今天我们做了一次口语模拟考试，学习了评分标准、自我反馈的方法，也学会了怎样面对紧张。请你自己完整地做一遍，并录音。",
+   "say_uz": "Bugun og‘zaki mock imtihon topshirdik, baholash mezonlarini, o‘ziga fikr-mulohaza berish usulini va hayajon bilan kurashishni o‘rgandik. Butun mockni o‘zingiz bajaring va yozib oling.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Complete the full speaking mock.. Keyingi darsda C2-23 To‘liq mock imtihon: Writing va Reading ni o‘rganamiz.",
+ "homework_uz": "To‘liq og‘zaki mock imtihonni o‘zingiz bajaring: bitta qisqa matnni tinglab qayta ayting, bitta parchani ovoz chiqarib o‘qing va ikkita erkin savolga (har biriga 1–2 daqiqa) javob bering. Hammasini yozib oling. Muvaffaqiyat mezoni: yozuvni tinglab, kamida uchta tuzatish nuqtasini va bitta kuchli tomonni belgilagansiz hamda keyingi to‘rt haftalik reja yozgansiz.",
  "quiz": [
-  {
-   "q": "«网络 (wǎngluò)» nimani bildiradi?",
-   "options": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "answer": 0,
-   "why_uz": "网络 (wǎngluò) — tarmoq. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«联系 (liánxì)» nimani bildiradi?",
-   "options": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "answer": 0,
-   "why_uz": "联系 (liánxì) — aloqa. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«目标 (mùbiāo)» nimani bildiradi?",
-   "options": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq"
-   ],
-   "answer": 0,
-   "why_uz": "目标 (mùbiāo) — maqsad. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«学习 (xuéxí)» nimani bildiradi?",
-   "options": [
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "answer": 0,
-   "why_uz": "学习 (xuéxí) — o‘rganish. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«提高 (tígāo)» nimani bildiradi?",
-   "options": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "answer": 0,
-   "why_uz": "提高 (tígāo) — yaxshilanish. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«成果 (chéngguǒ)» nimani bildiradi?",
-   "options": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "mahorat"
-   ],
-   "answer": 0,
-   "why_uz": "成果 (chéngguǒ) — yutuq. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«职业 (zhíyè)» nimani bildiradi?",
-   "options": [
-    "kasb",
-    "ish",
-    "mahorat",
-    "til"
-   ],
-   "answer": 0,
-   "why_uz": "职业 (zhíyè) — kasb. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«工作 (gōngzuò)» nimani bildiradi?",
-   "options": [
-    "ish",
-    "mahorat",
-    "til",
-    "tarmoq"
-   ],
-   "answer": 0,
-   "why_uz": "工作 (gōngzuò) — ish. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«技能 (jìnéng)» nimani bildiradi?",
-   "options": [
-    "mahorat",
-    "til",
-    "tarmoq",
-    "aloqa"
-   ],
-   "answer": 0,
-   "why_uz": "技能 (jìnéng) — mahorat. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  },
-  {
-   "q": "«语言 (yǔyán)» nimani bildiradi?",
-   "options": [
-    "til",
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "answer": 0,
-   "why_uz": "语言 (yǔyán) — til. To‘liq mock imtihon: Speaking   ko‘nikma: Imtihon mavzusiga oid."
-  }
+  {"q": "听后复述 topshirig‘ida nima qilinadi?", "options": ["Eshitgan matn mazmuni o‘z so‘zlar bilan aytiladi", "Matn so‘zma-so‘z yoziladi", "Matn o‘zbekchaga tarjima qilinadi", "Faqat bitta savolga javob beriladi"], "answer": 0, "why_uz": "Ma’noni saqlab, o‘z so‘zlar bilan qayta aytish talab qilinadi."},
+  {"q": "Qayta aytishda tinglash paytida nimani yodda tutish kerak?", "options": ["Kalit so‘zlar: kim, qachon, nima, natija", "Har bir so‘zni", "Faqat sonlarni", "Faqat birinchi gapni"], "answer": 0, "why_uz": "Kalit axborot ma’no saqlashga yordam beradi."},
+  {"q": "朗读 da eng katta xato nima?", "options": ["Hayajonda tez o‘qib, tonlarni yo‘qotish", "Sekin o‘qish", "Pauza qilish", "Matnni oldin ko‘rib chiqish"], "answer": 0, "why_uz": "Tez o‘qish tonlarni va ritmni buzadi."},
+  {"q": "Erkin savolga javob tuzilmasi qaysi?", "options": ["Fikr, sabab, misol, xulosa", "Faqat ha yoki yo‘q", "Faqat misol", "Savolni takrorlash"], "answer": 0, "why_uz": "观点, 原因, 例子, 总结 tuzilmasi javobni to‘liq qiladi."},
+  {"q": "Yuqori darajaga mos javob qaysi?", "options": ["这个办法既实用又省时间", "这个办法很好", "我喜欢这个办法", "办法好"], "answer": 0, "why_uz": "Sabab va aniq so‘z qo‘shilgani uchun javob boyroq."},
+  {"q": "Nozik rozi bo‘lmaslik ifodasi qaysi?", "options": ["他的看法有一定道理，但我不能完全同意", "你说得不对", "我不同意", "不行"], "answer": 0, "why_uz": "Bu variant odobli va dalilga yo‘l ochadi."},
+  {"q": "So‘z esdan chiqqanda nima qilish kerak?", "options": ["Izoh yoki sinonim bilan davom etish", "Jim turish", "O‘zbekchaga o‘tish", "Imtihonni tugatish"], "answer": 0, "why_uz": "Aylanib o‘tish ravonlikni saqlaydi."},
+  {"q": "Hayajon bilan kurashishda qaysi usul to‘g‘ri?", "options": ["Chuqur nafas va sekin boshlash", "Tezroq gapirish", "Uzr so‘rash", "Jim qolish"], "answer": 0, "why_uz": "Sekin va barqaror nutq ishonchli taassurot beradi."},
+  {"q": "Mock dan keyin eng foydali birinchi qadam nima?", "options": ["Yozuvni tinglab, xatolarni belgilash", "Keyingi testga o‘tish", "Yozuvni o‘chirish", "Hech narsa qilmaslik"], "answer": 0, "why_uz": "O‘z xatoingizni eshitish eng samarali fikr-mulohaza."},
+  {"q": "Qaysi biri yuqori daraja mezonlaridan biri emas?", "options": ["Qo‘l yozuvining chiroyi", "Ravonlik", "Aniqlik", "Mantiqiy bog‘lanish"], "answer": 0, "why_uz": "Og‘zaki imtihonda ravonlik, aniqlik, boylik, talaffuz va mantiq baholanadi."}
  ]
 }

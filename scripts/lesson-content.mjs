@@ -91,6 +91,26 @@ function toDoc({ native, lang, level, idx, cefr, L }) {
   };
 }
 
+// contentHash — butun dars (test bilan); videoHash — faqat videoga kiradigan qism (testsiz).
+// Test savoli o'zgarsa dars saytda yangilanadi, lekin video qayta yasalmaydi.
+export function lessonHashes(L) {
+  const crypto = require('node:crypto');
+  const sha = v => crypto.createHash('sha1').update(JSON.stringify(v)).digest('hex');
+  const { quiz, ...core } = L;
+  return { hash: sha(L), videoHash: sha(core) };
+}
+// cur — bazadagi yozuv. fileNewerThanVideo() — eski (hashsiz) yozuvlar uchun zaxira tekshiruv.
+export function pushPlan(cur, hash, videoHash, fileNewerThanVideo = () => false) {
+  if (cur && cur.contentHash === hash) return { action: cur.videoHash ? 'skip' : 'backfill', stale: false };
+  let stale = false;
+  if (cur && cur.videoPath) {
+    stale = cur.videoHash ? cur.videoHash !== videoHash
+      : cur.contentHash ? cur.contentHash !== hash
+      : !!fileNewerThanVideo();
+  }
+  return { action: 'write', stale };
+}
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();
 
 async function main() {
@@ -121,23 +141,24 @@ async function main() {
     const crypto = require('node:crypto');
     const { execSync } = require('node:child_process');
     const fileTime = rel => { try { return Number(execSync(`git log -1 --format=%ct -- "${rel}"`, { cwd: ROOT }).toString().trim()) * 1000 || 0; } catch { return 0; } };
-    let written = 0, unchanged = 0, stale = 0;
+    let written = 0, unchanged = 0, stale = 0, backfilled = 0;
     for (const x of lessons) {
       const d = toDoc(x);
-      const hash = crypto.createHash('sha1').update(JSON.stringify(x.L)).digest('hex');
+      const { hash, videoHash } = lessonHashes(x.L);
       const cur = await fsdb.getDoc(d.path).catch(() => null);
-      if (cur && cur.contentHash === hash) { unchanged++; continue; }          // o'zgarmagan — yozmaymiz
-      const extra = { contentHash: hash };
-      if (cur && cur.videoPath) {
+      const plan = pushPlan(cur, hash, videoHash, () => {
         const vt = cur.videoUpdatedAt ? new Date(cur.videoUpdatedAt).getTime() : 0;
-        const changed = cur.contentHash ? cur.contentHash !== hash : fileTime(`content/${x.native}/${x.lang}/${x.id}.json`) > vt + 60000;
-        // Eski video saytda qoladi (videoPath o'zgarmaydi), lekin videoStaleAt — video jarayoni yangisini yasab almashtiradi
-        if (changed) { Object.assign(extra, { videoOldPath: cur.videoPath, videoStaleAt: new Date() }); stale++; console.log('♻️  video eskirdi, qayta yasaladi:', d.path); }
-      }
+        return fileTime(`content/${x.native}/${x.lang}/${x.id}.json`) > vt + 60000;
+      });
+      if (plan.action === 'skip') { unchanged++; continue; }                     // o'zgarmagan — yozmaymiz
+      if (plan.action === 'backfill') { await fsdb.setDoc(d.path, { videoHash }); backfilled++; continue; }
+      const extra = { contentHash: hash, videoHash };
+      // Eski video saytda qoladi (videoPath o'zgarmaydi), lekin videoStaleAt — video jarayoni yangisini yasab almashtiradi
+      if (plan.stale) { Object.assign(extra, { videoOldPath: cur.videoPath, videoStaleAt: new Date() }); stale++; console.log('♻️  video eskirdi, qayta yasaladi:', d.path); }
       await fsdb.setDoc(d.path, { ...d.data, createdAt: cur?.createdAt || new Date(), ...extra });
       written++; console.log('↑', d.path);
     }
-    console.log(`\nYozildi: ${written}, o'zgarmagan: ${unchanged}, videosi qayta yasaladigan: ${stale}`);
+    console.log(`\nYozildi: ${written}, o'zgarmagan: ${unchanged}, videoHash to'ldirildi: ${backfilled}, videosi qayta yasaladigan: ${stale}`);
   }
   if (SKIPPED.length) {
     console.log(`\n❌ ${SKIPPED.length} ta dars xato sababli saytga chiqarilmadi:`);

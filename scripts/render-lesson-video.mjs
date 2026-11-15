@@ -261,9 +261,10 @@ async function renderOne(n, browser, baseUrl) {
   const L = await loadLesson(n);
   const core = L.core;
   // Render davomida dars matni o'zgarsa, "eskirgan" belgisini o'chirib yubormaslik uchun boshlang'ich hash
-  const startHash = args.upload && !args.json
-    ? (await require(path.join(ROOT, 'netlify/functions/_firestore.js')).getDoc(require(path.join(ROOT, 'netlify/functions/course.js')).lessonPath(LANG, LEVEL, n, NATIVE)).catch(() => null))?.contentHash || null
+  const startDoc = args.upload && !args.json
+    ? await require(path.join(ROOT, 'netlify/functions/_firestore.js')).getDoc(require(path.join(ROOT, 'netlify/functions/course.js')).lessonPath(LANG, LEVEL, n, NATIVE)).catch(() => null)
     : null;
+  const startHash = startDoc?.contentHash || null, startVideoHash = startDoc?.videoHash || null;
   if (!langInfo || !L.meta || !Array.isArray(core.scenes) || !core.scenes.length) throw new Error('Invalid lesson script');
   const renderScenes = core.scenes.flatMap((scene, lessonScene) => [
     ...(scene.say_native ? [{ ...scene, lessonScene, say: scene.say_native, say_uz: '', nativeSpeech: true, practice_seconds: 0 }] : []),
@@ -376,7 +377,10 @@ async function renderOne(n, browser, baseUrl) {
     const objectName = `courseVideos/v3/${NATIVE}/${LANG}_${LEVEL}_${n}.mp4`;
     const up = await storage.upload(objectName, fs.readFileSync(file), 'video/mp4');
     const nowDoc = await fsdb.getDoc(course.lessonPath(LANG, LEVEL, n, NATIVE)).catch(() => null);
-    const changedMeanwhile = !!(startHash && nowDoc?.contentHash && nowDoc.contentHash !== startHash);
+    // videoHash (testsiz qism) bo'lsa — o'shani solishtiramiz: faqat test o'zgargan bo'lsa video eskirmaydi
+    const changedMeanwhile = startVideoHash && nowDoc?.videoHash
+      ? nowDoc.videoHash !== startVideoHash
+      : !!(startHash && nowDoc?.contentHash && nowDoc.contentHash !== startHash);
     if (changedMeanwhile) console.log('  ⚠️ render paytida dars matni o\'zgardi — video yana navbatga qo\'yiladi');
     await fsdb.setDoc(course.lessonPath(LANG, LEVEL, n, NATIVE), { videoPath: up?.stored || storage.storedPath(objectName), videoVoice: VOICE_TAG(), videoWanted: false, videoDuration: Math.round(duration), videoQuality: SCALE > 1 ? '1080p' : '720p', videoUpdatedAt: new Date(), videoRenderingAt: null, videoChapters: metadata.chapters, videoCaptions: metadata.captions, nativeLang: NATIVE, videoError: null, videoErrorAt: null, videoStaleAt: changedMeanwhile ? new Date() : null, videoOldPath: null });
     await bumpStatus(fsdb, `${LANG}_${LEVEL}`, 1);

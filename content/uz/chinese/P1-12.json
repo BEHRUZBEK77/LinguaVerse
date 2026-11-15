@@ -1,705 +1,339 @@
 {
  "title": "Bank, pul va hujjatlar",
- "goal_uz": "Dars oxirida Bank, pul va hujjatlar ni o‘rgansiz.",
+ "goal_uz": "Dars oxirida siz xitoy tilida bankda hisob ochish, karta va pul o‘tkazmalari haqida so‘rash, komissiya va valyuta kursini aniqlash, rasmiy blankani to‘ldirish va kerakli hujjatlar hamda muddatlarni so‘rashni bajara olasiz. Uy vazifasi: namunaviy blankani to‘ldirib, har bir maydonni xitoychada tushuntirasiz.",
  "vocab": [
-  {
-   "w": "水平 (shuǐpíng)",
-   "uz": "daraja"
-  },
-  {
-   "w": "经验 (jīngyàn)",
-   "uz": "tajriba"
-  },
-  {
-   "w": "网络 (wǎngluò)",
-   "uz": "tarmoq"
-  },
-  {
-   "w": "联系 (liánxì)",
-   "uz": "aloqa"
-  },
-  {
-   "w": "目标 (mùbiāo)",
-   "uz": "maqsad"
-  },
-  {
-   "w": "学习 (xuéxí)",
-   "uz": "o‘rganish"
-  },
-  {
-   "w": "提高 (tígāo)",
-   "uz": "yaxshilanish"
-  },
-  {
-   "w": "成果 (chéngguǒ)",
-   "uz": "yutuq"
-  },
-  {
-   "w": "职业 (zhíyè)",
-   "uz": "kasb"
-  },
-  {
-   "w": "工作 (gōngzuò)",
-   "uz": "ish"
-  }
+  {"w": "开户 (kāihù)", "uz": "bank hisobi ochmoq"},
+  {"w": "银行卡 (yínhángkǎ)", "uz": "bank kartasi"},
+  {"w": "转账 (zhuǎnzhàng)", "uz": "pul o‘tkazmoq (hisobdan hisobga)"},
+  {"w": "手续费 (shǒuxùfèi)", "uz": "komissiya, xizmat haqi"},
+  {"w": "汇率 (huìlǜ)", "uz": "valyuta kursi"},
+  {"w": "余额 (yú’é)", "uz": "hisobdagi qoldiq"},
+  {"w": "填写 (tiánxiě)", "uz": "to‘ldirmoq (blankani)"},
+  {"w": "原件 (yuánjiàn)", "uz": "asl nusxa, original hujjat"},
+  {"w": "复印件 (fùyìnjiàn)", "uz": "nusxa (kserokopiya)"},
+  {"w": "截止日期 (jiézhǐ rìqī)", "uz": "oxirgi muddat"}
  ],
  "scenes": [
   {
    "kind": "intro",
-   "title": "Bugun nima qilamiz?",
-   "emotion": "happy",
-   "board": [
-    "Mavzu",
-    "Tuzilish",
-    "Reja"
-   ],
+   "title": "Bank va hujjatlar bilan ishlash",
+   "emotion": "neutral",
+   "board": ["银行 · 开户 · 转账", "银行卡 · 手续费 · 汇率", "填写表格 · 材料 · 截止日期", "作业：填写样表并说明"],
    "examples": [],
-   "say_native": "Salom, o‘quvchilar! Oldingi darsda Shifokor va dorixona mavzusini o‘rgandik. Bugun Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusini o‘rganamiz. Dars oxirida Fill in a sample form and explain each field. . Har bir gapda bitta fikr bo‘lsin. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Bugun nima qilamiz?\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "你好！今天我们学习Bank, pul va hujjatlar   ko‘nikma: Lug‘at，而且非常实用。这非常重要。",
-   "say_uz": "Salom! Bugun mavzuni o‘rgamiz. Juda chiroyli.",
+   "say_native": "Assalomu alaykum! Oldingi darsda shifokor va dorixonada gapirishni o‘rgandingiz. Bugun yana bir hayotiy vaziyat: bank, pul va rasmiy hujjatlar. Xitoyda o‘qiyotgan, ishlayotgan yoki sayohat qilayotgan odam ertami-kechmi bankka boradi. Bugun to‘rt narsani ko‘ramiz: hisob ochish; karta, pul o‘tkazish va komissiyalar; blankalarni to‘ldirish; hujjatlar va muddatlar haqida so‘rash. Maqsadimiz shuki, siz bankda o‘zingizni ishonchli his qilasiz va xatosiz tushunasiz.",
+   "say": "大家好。无论是留学、工作还是长期旅行，我们迟早都要去银行办事。今天我们来学习开户、转账、填表，还有怎样询问需要的材料和办理时间。",
+   "say_uz": "Hammaga salom. O‘qish, ish yoki uzoq safar bo‘lsin, bir kun bankka borishga to‘g‘ri keladi. Bugun hisob ochish, pul o‘tkazish, blanka to‘ldirish va kerakli hujjatlar hamda muddatni so‘rashni o‘rganamiz.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Bank, lug‘ati",
+   "title": "Hisob ochish: asosiy gaplar",
    "emotion": "neutral",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
-   "examples": [],
-   "say_native": "Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Bank, lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Lug‘at misollar",
-   "emotion": "neutral",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq"
-   ],
+   "board": ["开户 · 账户 · 储蓄", "取号 · 窗口", "护照 · 签证 · 手机号", "办理业务"],
    "examples": [
-    {
-     "t": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-     "uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli."
-    }
+    {"t": "您好，我想开一个账户，需要带什么材料？", "uz": "Assalomu alaykum, hisob ochmoqchiman, qanday hujjatlar olib kelishim kerak?"},
+    {"t": "请先取号，然后到三号窗口办理业务。", "uz": "Avval navbat talonini oling, keyin uchinchi oynada xizmat oling."}
    ],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Lug‘atni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) daraja",
-    "2) tajriba",
-    "3) tarmoq",
-    "4) aloqa"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. aloqa chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq",
-    "aloqa"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: daraja. tajriba. tarmoq. aloqa. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. aloqa chiroyli.",
+   "say_native": "Bankda birinchi so‘z 开户, ya’ni hisob ochish. Gap oddiy: 我想开一个账户. Bankka kirganingizda odatda avval 取号, ya’ni navbat talonini olasiz va 窗口, ya’ni oynada o‘z navbatingizni kutasiz. Xizmat ko‘rsatish 办理业务 deyiladi. Chet elliklar uchun odatda pasport, viza yoki yashash ruxsatnomasi va mahalliy telefon raqami so‘raladi, lekin aniq talablar bankka qarab o‘zgaradi, shuning uchun oldindan so‘rab oling. Xitoychada «hisob» uchun 账户 ishlatiladi, «hisob raqami» uchun esa 账号. Ularni aralashtirmang.",
+   "say": "您好，我想开一个账户，需要带什么材料？请先取号，然后到三号窗口办理业务。",
+   "say_uz": "Assalomu alaykum, hisob ochmoqchiman, qanday hujjatlar olib kelishim kerak? Avval talon oling, keyin uchinchi oynaga boring.",
    "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Asosiy tushuncha",
-   "emotion": "neutral",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Bank, pul va hujjatlar   ko‘nikma: Lug‘at ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "目标 (mùbiāo)。学习 (xuéxí)，而且非常实用。提高 (tígāo)。这非常重要。",
-   "say_uz": "maqsad juda chiroyli. o‘rganish tez. yaxshilanish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Tushuncha misollar",
-   "emotion": "neutral",
-   "board": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "examples": [
-    {
-     "t": "目标 (mùbiāo)。学习 (xuéxí)，而且非常实用。提高 (tígāo)。这非常重要。",
-     "uz": "maqsad juda chiroyli. o‘rganish tez. yaxshilanish chiroyli."
-    }
-   ],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "目标 (mùbiāo)。学习 (xuéxí)，而且非常实用。提高 (tígāo)。这非常重要。",
-   "say_uz": "maqsad juda chiroyli. o‘rganish tez. yaxshilanish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Tushunchani ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) maqsad",
-    "2) o‘rganish",
-    "3) yaxshilanish",
-    "4) yutuq"
-   ],
-   "examples": [],
-   "say_native": "To‘rt tushunchani ayting. Har bir gapda shaklni ishlating. Javobni to‘liq gapda ayting. Bu qism — tushunchani aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Tushunchani ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "目标 (mùbiāo)。学习 (xuéxí)，而且非常实用。提高 (tígāo)。成果 (chéngguǒ)，这也非常重要。",
-   "say_uz": "maqsad juda chiroyli. o‘rganish tez. yaxshilanish chiroyli. yutuq chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: maqsad. o‘rganish. yaxshilanish. yutuq. Tushunchalar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "目标 (mùbiāo)。学习 (xuéxí)，而且非常实用。提高 (tígāo)。成果 (chéngguǒ)，这也非常重要。",
-   "say_uz": "maqsad juda chiroyli. o‘rganish tez. yaxshilanish chiroyli. yutuq chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "explain",
-   "title": "Ikkinchi tushuncha",
+   "title": "Hisob turlari va karta",
    "emotion": "thinking",
-   "board": [
-    "tushuncha",
-    "farq",
-    "misol"
-   ],
-   "examples": [],
-   "say_native": "Bank, pul va hujjatlar   ko‘nikma: Lug‘at ning ikkinchi tushunchasini bilib oling. Farqini ajratib oling. Har bir shaklni alohida yozing. Bu qism — ikkinchi tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Ikkinchi tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "成果 (chéngguǒ)。职业 (zhíyè)，而且非常实用。工作 (gōngzuò)。这非常重要。",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "example",
-   "title": "Farq misollar",
-   "emotion": "neutral",
-   "board": [
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
+   "board": ["储蓄卡 · 信用卡", "密码 · 激活", "手机银行 · 网上银行", "银行卡丢了 → 挂失"],
    "examples": [
-    {
-     "t": "成果 (chéngguǒ)。职业 (zhíyè)，而且非常实用。工作 (gōngzuò)。这非常重要。",
-     "uz": "yutuq juda chiroyli. kasb tez. ish chiroyli."
-    }
+    {"t": "这张储蓄卡需要先设置密码，然后才能使用。", "uz": "Bu jamg‘arma kartasi uchun avval parol o‘rnatiladi, shundan keyin ishlatiladi."},
+    {"t": "我的银行卡丢了，请帮我挂失。", "uz": "Bank kartam yo‘qoldi, iltimos, bloklab bering."}
    ],
-   "say_native": "Farq misollarini o‘qib, har birini takrorlang. Farqlarni ajrating. Bu qism — farq misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Farq misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "成果 (chéngguǒ)。职业 (zhíyè)，而且非常实用。工作 (gōngzuò)。这非常重要。",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli.",
+   "say_native": "Xitoyda kundalik ishlatiladigan karta ko‘pincha 储蓄卡, ya’ni debet yoki jamg‘arma kartasi. 信用卡 esa kredit kartasi. 密码 parol, ya’ni PIN-kod, uni hech kimga aytmang. Kartani ishlatishdan oldin ba’zan 激活, ya’ni faollashtirish kerak. Ko‘pchilik 手机银行 yoki 网上银行, ya’ni mobil va onlayn bankdan foydalanadi. Karta yo‘qolsa, darhol 挂失 deb ayting, bu «bloklash» degani. «Kartam yo‘qoldi» o‘zbekchada «yo‘qotdim», xitoychada «丢了», ya’ni «tushib qoldi, yo‘qoldi». Bu ibora xuddi shu so‘zlashuv tilida juda keng ishlatiladi.",
+   "say": "这张储蓄卡需要先设置密码，然后才能使用。我的银行卡丢了，请帮我挂失。",
+   "say_uz": "Bu jamg‘arma kartasi uchun avval parol o‘rnatiladi, keyin ishlatiladi. Bank kartam yo‘qoldi, iltimos, bloklab bering.",
    "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Farqni ayting",
-   "emotion": "encouraging",
-   "board": [
-    "1) yutuq",
-    "2) kasb",
-    "3) ish",
-    "4) daraja"
-   ],
-   "examples": [],
-   "say_native": "To‘rt farqni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — farqni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Farqni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "成果 (chéngguǒ)。职业 (zhíyè)，而且非常实用。工作 (gōngzuò)。水平 (shuǐpíng)，这也非常重要。",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli. daraja chiroyli.",
-   "practice_seconds": 14
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "daraja"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: yutuq. kasb. ish. daraja. Farqlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "成果 (chéngguǒ)。职业 (zhíyè)，而且非常实用。工作 (gōngzuò)。水平 (shuǐpíng)，这也非常重要。",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli. daraja chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
-   "emotion": "encouraging",
-   "board": [
-    "1) daraja",
-    "2) tajriba",
-    "3) tarmoq",
-    "4) aloqa"
-   ],
-   "examples": [],
-   "say_native": "Lug‘atlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: lug‘at\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. aloqa chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq",
-    "aloqa"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: daraja. tajriba. tarmoq. aloqa. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. aloqa chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "1) yutuq",
-    "2) kasb",
-    "3) ish",
-    "4) daraja"
-   ],
-   "examples": [],
-   "say_native": "Farqlarni takrorlab ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: farq\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "成果 (chéngguǒ)。职业 (zhíyè)，而且非常实用。工作 (gōngzuò)。水平 (shuǐpíng)，这也非常重要。",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli. daraja chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "daraja"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: yutuq. kasb. ish. daraja. Takrorlash yakunlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "成果 (chéngguǒ)。职业 (zhíyè)，而且非常实用。工作 (gōngzuò)。水平 (shuǐpíng)，这也非常重要。",
-   "say_uz": "yutuq juda chiroyli. kasb tez. ish chiroyli. daraja chiroyli.",
-   "practice_seconds": 0
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) daraja?",
-    "2) tajriba?",
-    "3) tarmoq?",
-    "4) aloqa?"
-   ],
-   "examples": [],
-   "say_native": "Matn savollarini takrorlab ayting. Har bir javobni to‘liq gapda ayting. Takrorlashni Daftar espele yozing. Bu qism — qo‘shimcha mashqqa oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Qo‘shimcha mashq: matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja? tajriba? tarmoq? aloqa?",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "example",
-   "title": "Matn matni",
+   "title": "Pul solish va yechish",
    "emotion": "neutral",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq"
-   ],
+   "board": ["存钱 · 取钱", "余额 · 查询", "自动取款机", "每天限额"],
    "examples": [
-    {
-     "t": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-     "uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli."
-    }
+    {"t": "我想存五千块钱，再查一下余额。", "uz": "Besh ming yuan solmoqchiman va qoldiqni ham tekshirmoqchiman."},
+    {"t": "自动取款机一次最多能取多少钱？", "uz": "Bankomatdan bir marta eng ko‘pi bilan qancha pul yechsa bo‘ladi?"}
    ],
-   "say_native": "Matn matnini o‘qib, har birini takrorlang. Qismlarni ajrating. Bu qism — matn matniga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Matn matni\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli.",
+   "say_native": "Pul solish 存钱, pul yechish 取钱. Bu ikki fe’lni aralashtirmang: 存 «saqlamoq, solmoq», 取 «olmoq, yechmoq». Qoldiq 余额, uni tekshirish 查余额. Bankomat 自动取款机, qisqacha ATM ham aytiladi. Yuan so‘zlashuvda 块, yozuvda 元 deyiladi: 五千块 yoki 五千元. Bankomatda 限额, ya’ni kunlik yoki bir martalik limit bor, shuning uchun «一次最多能取多少» deb so‘rash foydali. Miqdorni aytganda raqamdan keyin 块 qo‘yiladi, «钱» ni qo‘shish ham mumkin: 五千块钱. Hammasi to‘g‘ri, tushunarli bo‘ladi.",
+   "say": "我想存五千块钱，再查一下余额。自动取款机一次最多能取多少钱？",
+   "say_uz": "Besh ming yuan solmoqchiman va qoldiqni tekshirmoqchiman. Bankomatdan bir marta eng ko‘pi bilan qancha pul yechsa bo‘ladi?",
    "practice_seconds": 0
   },
   {
-   "kind": "practice",
-   "title": "Matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) daraja?",
-    "2) tajriba?",
-    "3) tarmoq?",
-    "4) aloqa?"
+   "kind": "explain",
+   "title": "Pul o‘tkazish: 转账 va 汇款",
+   "emotion": "thinking",
+   "board": ["转账 · 汇款", "收款人 · 账号", "到账时间", "转给 · 汇到"],
+   "examples": [
+    {"t": "我想给国内的朋友转一笔钱，需要知道他的账号吗？", "uz": "Mamlakat ichidagi do‘stimga pul o‘tkazmoqchiman, uning hisob raqamini bilishim kerakmi?"},
+    {"t": "这笔钱大概几天能到账？", "uz": "Bu pul taxminan necha kunda hisobga tushadi?"}
    ],
-   "examples": [],
-   "say_native": "To‘rt matn savoliga javob bering. Har bir javobni to‘liq gapda ayting. Bu qism — matn savollariga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Matn savollari\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja? tajriba? tarmoq? aloqa?",
-   "practice_seconds": 14
+   "say_native": "Pulni hisobdan hisobga o‘tkazish 转账 deyiladi. Chet elga yoki chet eldan o‘tkazma esa 汇款. Qabul qiluvchi 收款人, uning hisob raqami 账号. Pulni qanday yuborishni aytishda 转给 «…ga o‘tkazmoq» ishlatiladi: 转给朋友. Hisobga tushishi 到账 deyiladi, shuning uchun «几天能到账?» deb so‘rash ayni muddao. Yana bir foydali so‘z: 一笔钱, bu yerda 笔 pul uchun o‘lchov so‘zi, «bir qism pul». Xitoyda mahalliy o‘tkazmalar tez va ko‘pincha telefondan amalga oshadi, xalqaro o‘tkazma uchun esa qo‘shimcha ma’lumotlar kerak bo‘lishi mumkin.",
+   "say": "我想给国内的朋友转一笔钱，需要知道他的账号吗？这笔钱大概几天能到账？",
+   "say_uz": "Mamlakat ichidagi do‘stimga pul o‘tkazmoqchiman, uning hisob raqamini bilishim kerakmi? Bu pul taxminan necha kunda tushadi?",
+   "practice_seconds": 0
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
-   "emotion": "proud",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq",
-    "aloqa"
+   "title": "Komissiya va valyuta kursi",
+   "emotion": "thinking",
+   "board": ["手续费 · 免手续费", "汇率 · 今天的汇率", "兑换 · 换成", "收费 · 年费"],
+   "examples": [
+    {"t": "转账要收手续费吗？今天的汇率是多少？", "uz": "O‘tkazma uchun komissiya olinadimi? Bugungi kurs qancha?"},
+    {"t": "我想把美元换成人民币，手续费怎么算？", "uz": "Dollarni yuanga almashtirmoqchiman, komissiya qanday hisoblanadi?"}
    ],
-   "examples": [],
-   "say_native": "Javoblar: daraja. tajriba. tarmoq. aloqa. Matn savollariga javob berildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. aloqa chiroyli.",
+   "say_native": "Pul masalasida ikki so‘z doim kerak: 手续费 «komissiya» va 汇率 «valyuta kursi». Savol ham oddiy: 要收手续费吗? 今天的汇率是多少? Pul almashtirishda 换成 qolipi ishlatiladi: 把美元换成人民币 «dollarni yuanga almashtirmoq». Yana 兑换 rasmiyroq: 兑换外币 «chet el valyutasini almashtirmoq». 收费 «haq olmoq» va 免手续费 «komissiyasiz». Kartada yillik 年费 bo‘lishi mumkin, shuning uchun band qilishdan oldin so‘rang. Raqamlarni qog‘ozga yozib oling va hisoblab ko‘ring. Aniq tarif va kurslar bankda va kunlarda farq qiladi, shuning uchun hech qachon taxmin qilmang.",
+   "say": "转账要收手续费吗？今天的汇率是多少？我想把美元换成人民币，手续费怎么算？",
+   "say_uz": "O‘tkazma uchun komissiya olinadimi? Bugungi kurs qancha? Dollarni yuanga almashtirmoqchiman, komissiya qanday hisoblanadi?",
    "practice_seconds": 0
   },
   {
    "kind": "mistake",
-   "title": "Keng tarqalgan xatolar",
+   "title": "Bank gaplaridagi xatolar",
    "emotion": "stern",
-   "board": [
-    "✗ daraja tajriba emas",
-    "✗ tarmoq aloqa emas",
-    "✗ Bank,"
-   ],
+   "board": ["✗ 我想换美元人民币。", "✓ 我想把美元换成人民币。", "✗ 我转钱他。", "✓ 我想把钱转给他。"],
    "examples": [],
-   "say_native": "Bank, pul va hujjatlar   ko‘nikma: Lug‘at so‘zlarida uchraydigan uchta xato: ma’no adashtirish. Har bir xatoni tuzating. Bu qism — xatolarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Keng tarqalgan xatolar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli.",
+   "say_native": "Ikkita xato juda keng tarqalgan. Birinchisi: ikki valyutani yonma-yon qo‘yib, «我想换美元人民币» deyish. O‘zbekchada «dollarni yuanga» deymiz, xitoychada esa 把 ... 换成 ... qolipi kerak: «dollarni yuanga almashtirmoq». Ikkinchisi: «unga pul o‘tkazaman» ni «我转钱他» deb aytish. Xitoychada «kimga» so‘zi 给 bilan keladi: 转给他 yoki 给他转钱. Eng ishonchli yo‘l: 把钱转给他. Ikkala gapda ham gap tuzilishi o‘zbekchadan farq qiladi, chunki bizda qo‘shimchalar bor, xitoychada esa so‘z tartibi va 给, 成 kabi bo‘laklar vazifani bajaradi.",
+   "say": "我想把美元换成人民币，再把一部分钱转给朋友。",
+   "say_uz": "Dollarni yuanga almashtirmoqchiman, keyin pulning bir qismini do‘stimga o‘tkazaman.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Xatolarni tuzating",
+   "title": "Bank oynasida: uch vaziyat",
    "emotion": "encouraging",
-   "board": [
-    "1) daraja tajriba emas",
-    "2) tarmoq aloqa emas",
-    "3) Bank,",
-    "4) daraja"
-   ],
+   "board": ["1 开账户 · 带护照", "2 美元换人民币 · 问手续费", "3 银行卡丢了"],
    "examples": [],
-   "say_native": "To‘rt xatoni tuzating. Har biriga to‘g‘ri shakl yozing. Javobni to‘liq gapda ayting. Bu qism — xatolarni tuzatishga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Xatolarni tuzating\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。水平 (shuǐpíng)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. daraja.",
-   "practice_seconds": 12
+   "say_native": "Mashq. Uchta vaziyatda bank xodimiga nima deysiz? Birinchi: hisob ochmoqchisiz va qanday hujjat kerakligini so‘raysiz. Ikkinchi: dollarni yuanga almashtirmoqchisiz va komissiya haqida so‘raysiz. Uchinchi: kartangiz yo‘qoldi va uni bloklashni so‘raysiz. Har biri uchun odobli, to‘liq gap tuzing. Salomdan boshlang. Javoblar keyingi sahnada.",
+   "say": "请你对银行职员说：一，你想开账户，问需要什么材料；二，你想把美元换成人民币，问手续费；三，你的银行卡丢了，请对方挂失。",
+   "say_uz": "Bank xodimiga ayting: birinchi, hisob ochmoqchisiz va qanday hujjat kerakligini so‘raysiz; ikkinchi, dollarni yuanga almashtirmoqchisiz va komissiyani so‘raysiz; uchinchi, kartangiz yo‘qoldi, bloklashni so‘raysiz.",
+   "practice_seconds": 100
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: bank oynasida",
    "emotion": "proud",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq",
-    "daraja"
-   ],
+   "board": ["1 我想开账户，需要带什么材料？", "2 我想把美元换成人民币，要收手续费吗？", "3 我的银行卡丢了，请帮我挂失。"],
    "examples": [],
-   "say_native": "Javoblar: daraja. tajriba. tarmoq. daraja. Xatolar tuzatildi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。水平 (shuǐpíng)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. daraja.",
+   "say_native": "Javoblar doskada. Birinchi: 我想开账户，需要带什么材料? Bu yerda «带» ni «olib kelmoq» ma’nosida ishlatdik. Ikkinchi: 我想把美元换成人民币，要收手续费吗? Bu yerda 把 ... 换成 ... qolipi ishlatildi. Uchinchi: 我的银行卡丢了，请帮我挂失. 请帮我 «menga yordam bering» ma’nosida iltimosni yumshatadi. Hammasiga «您好» yoki «不好意思» bilan boshlash odob. Xodim sizga javob berganda raqamlarni, ya’ni summa va muddatni yozib olishni unutmang, shunda keyin chalkashlik bo‘lmaydi.",
+   "say": "我想开账户，需要带什么材料？我想把美元换成人民币，要收手续费吗？我的银行卡丢了，请帮我挂失。",
+   "say_uz": "Hisob ochmoqchiman, qanday hujjat olib kelishim kerak? Dollarni yuanga almashtirmoqchiman, komissiya olinadimi? Bank kartam yo‘qoldi, iltimos, bloklab bering.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: hisob ochish",
+   "emotion": "neutral",
+   "board": ["职员：请出示护照", "客户：我想开储蓄账户", "职员：需要填写这张表", "客户：多久能办好？"],
+   "examples": [],
+   "say_native": "Endi bank xodimi va mijoz suhbatini tinglang. Mijoz yangi hisob ochmoqchi. Uchta narsaga e’tibor bering: mijoz qanday hisob ochmoqchi, xodim undan nima talab qilyapti va ish qancha vaqt oladi. Dialog bir marta o‘qiladi.",
+   "say": "职员：您好，请问办什么业务？客户：我想开一个储蓄账户。职员：好的，请出示您的护照和签证。客户：给您。职员：请填写这张表，写好以后签名。办好以后，今天就可以拿到银行卡。客户：太好了。请问需要多长时间？职员：大概二十分钟。",
+   "say_uz": "Xodim: Salom, qanday xizmat kerak? Mijoz: Jamg‘arma hisobi ochmoqchiman. Xodim: Yaxshi, pasport va vizangizni ko‘rsating. Mijoz: Mana. Xodim: Mana bu blankani to‘ldiring, tayyor bo‘lgach imzo qo‘ying. Bugunoq bank kartasini olasiz. Mijoz: Juda yaxshi. Qancha vaqt ketadi? Xodim: Taxminan yigirma daqiqa.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Yakuniy vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "takrorlash",
-    "yakun"
-   ],
+   "title": "Dialog bo‘yicha savollar",
+   "emotion": "thinking",
+   "board": ["1 客户想开什么账户？", "2 职员要什么证件？", "3 开户以后要做什么？", "4 需要多长时间？"],
    "examples": [],
-   "say_native": "Yakuniy vazifani bajaring: Fill in a sample form and explain each field. . Har bir gapda bitta fikr bo‘lsin. Bu qism — yakuniy vazifaga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Yakuniy vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。练习很重要。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez. Amaliyot chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Savollar. Birinchi: mijoz qanday hisob ochmoqchi? Ikkinchi: xodim qaysi hujjatlarni so‘radi? Uchinchi: blankani to‘ldirgandan keyin nima qilish kerak? To‘rtinchi: bu qancha vaqt oladi? Xitoychada to‘liq gap bilan javob bering. Javoblar keyingi sahnada.",
+   "say": "请回答：客户想开什么账户？职员要看什么证件？填好表以后要做什么？需要多长时间？",
+   "say_uz": "Javob bering: mijoz qanday hisob ochmoqchi? Xodim qaysi hujjatlarni ko‘rmoqchi? Blanka to‘ldirilgach nima qilinadi? Qancha vaqt ketadi?",
+   "practice_seconds": 75
   },
   {
    "kind": "explain",
-   "title": "Javoblar",
+   "title": "Javoblar: hisob ochish dialogi",
    "emotion": "proud",
-   "board": [
-    "Yakun",
-    "Takrorlash"
+   "board": ["1 储蓄账户", "2 护照和签证", "3 签名", "4 大概二十分钟"],
+   "examples": [
+    {"t": "他想开储蓄账户，要护照和签证，填好表后签名，大概二十分钟。", "uz": "U jamg‘arma hisobi ochmoqchi, pasport va viza kerak, blankani to‘ldirib imzo qo‘yadi, taxminan yigirma daqiqa ketadi."}
    ],
+   "say_native": "Javoblar: mijoz 储蓄账户, ya’ni jamg‘arma hisobi ochmoqchi. Xodim 护照 va 签证 so‘radi. Blankani to‘ldirgach 签名 qilish kerak, ya’ni imzo qo‘yish. Jarayon 大概二十分钟, taxminan yigirma daqiqa oladi. 大概 «taxminan» degani. Muhim detal: xodim aniq so‘ramasdan oldin hujjatni so‘radi, siz esa oldindan tayyorlab olsangiz, vaqt tejaladi. Imzo haqida: bank blankasida imzo odatda o‘zingiz yozgan nom shaklida bo‘ladi, hujjatdagi ism bilan mos bo‘lishi kerak.",
+   "say": "他想开储蓄账户，要护照和签证，填好表后签名，大概二十分钟。",
+   "say_uz": "U jamg‘arma hisobi ochmoqchi, pasport va viza kerak, blankani to‘ldirib imzo qo‘yadi, taxminan yigirma daqiqa ketadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Blanka maydonlari",
+   "emotion": "thinking",
+   "board": ["姓名 · 性别 · 国籍", "出生日期 · 护照号码", "联系电话 · 住址", "签名 · 日期"],
+   "examples": [
+    {"t": "姓名、国籍和护照号码要和证件上的一样。", "uz": "Ism, fuqarolik va pasport raqami hujjatdagi bilan bir xil bo‘lishi kerak."},
+    {"t": "联系电话请写能收到短信的手机号。", "uz": "Bog‘lanish telefoni sifatida SMS qabul qila oladigan raqamni yozing."}
+   ],
+   "say_native": "Blankadagi maydonlarni bilish juda foydali. 姓名 ism-familiya, 性别 jins, 国籍 fuqarolik, 出生日期 tug‘ilgan sana, 护照号码 pasport raqami, 联系电话 aloqa telefoni, 住址 yashash manzili, 签名 imzo, 日期 sana. Bu so‘zlar blankada ko‘p uchraydi, shuning uchun ularni yod oling. Ism va pasport raqami hujjatdagidek bo‘lishi shart. Telefon raqami uchun SMS kodi kelishi mumkin, shu sababli ishlaydigan raqam yozing. Blanka tilida rasmiy so‘zlar ko‘p, ular kundalik nutqda kam ishlatiladi, lekin bank va idoralarda doim uchraydi.",
+   "say": "姓名、国籍和护照号码要和证件上的一样。联系电话请写能收到短信的手机号。",
+   "say_uz": "Ism, fuqarolik va pasport raqami hujjatdagi bilan bir xil bo‘lishi kerak. Bog‘lanish telefoni sifatida SMS qabul qiladigan raqamni yozing.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Blankani to‘ldirish qoidalari",
+   "emotion": "neutral",
+   "board": ["用黑色的笔", "不要涂改", "年—月—日", "签名要清楚"],
+   "examples": [
+    {"t": "请用黑色的笔填写，写错了不要涂改，可以重新拿一张。", "uz": "Qora ruchka bilan to‘ldiring, xato yozsangiz o‘chirmang, yangi blanka olishingiz mumkin."},
+    {"t": "日期请按年、月、日的顺序写。", "uz": "Sanani yil, oy, kun tartibida yozing."}
+   ],
+   "say_native": "Blankani to‘ldirishda bir necha odat bor. Ko‘pincha 用黑色的笔, ya’ni qora ruchka so‘raladi. 不要涂改 «o‘chirib yoki ustidan chizib tuzatmang», xato bo‘lsa yangi blanka oling. Sana tartibi o‘zbek tilidagidan farq qiladi: xitoychada 年, 月, 日 tartibida, ya’ni yil, oy, kun: 2026年11月14日. Biz esa odatda kun, oy, yil deymiz. Bu xato sizga muddat bilan bog‘liq muammo keltirishi mumkin. Imzo aniq o‘qiladigan bo‘lsin. Hammasini topshirishdan oldin bir marta qayta tekshirib chiqing, chunki rasmiy hujjat xatolarni kechirmaydi.",
+   "say": "请用黑色的笔填写，写错了不要涂改，可以重新拿一张。日期请按年、月、日的顺序写。",
+   "say_uz": "Qora ruchka bilan to‘ldiring, xato yozsangiz o‘chirmang, yangi blanka olishingiz mumkin. Sanani yil, oy, kun tartibida yozing.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Muddatlar va jarayon",
+   "emotion": "thinking",
+   "board": ["截止日期 · 之前 · 以内", "工作日 · 周末", "审核 · 通知", "三个工作日内"],
+   "examples": [
+    {"t": "申请材料请在十二月一号之前交，逾期不再受理。", "uz": "Ariza hujjatlarini birinchi dekabrgacha topshiring, muddat o‘tsa qabul qilinmaydi."},
+    {"t": "审核需要三个工作日，结果会用短信通知您。", "uz": "Ko‘rib chiqish uch ish kuni oladi, natijani SMS orqali xabar qilamiz."}
+   ],
+   "say_native": "Muddat haqida so‘rash uchun bir nechta so‘z kerak. 截止日期 «oxirgi muddat», ... 之前 «…gacha, oldin», 以内 «…ichida». 工作日 ish kunlari, ya’ni dam olish kunlarisiz. 审核 «ko‘rib chiqish, tekshiruv». Natijani 通知, ya’ni xabar qilishadi. Misol: 三个工作日内, ya’ni uch ish kuni ichida. Savol: 什么时候截止? «Qachon tugaydi?». Muddatdan keyin 逾期 deyiladi, bu «kechikib qolish». Dam olish va bayram kunlarida bank yopiq bo‘lishi mumkin, shuning uchun ish kunlarini hisoblang. Ayniqsa viza muddati yaqin bo‘lsa, buni oldindan rejalashtiring.",
+   "say": "申请材料请在十二月一号之前交，逾期不再受理。审核需要三个工作日，结果会用短信通知您。",
+   "say_uz": "Ariza hujjatlarini birinchi dekabrgacha topshiring, muddat o‘tsa qabul qilinmaydi. Ko‘rib chiqish uch ish kuni oladi, natijani SMS bilan xabar qilamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "mistake",
+   "title": "Sana va muddatdagi xatolar",
+   "emotion": "stern",
+   "board": ["✗ 十四日十一月二〇二六年", "✓ 二〇二六年十一月十四日", "✗ 三个工作日里办好", "✓ 三个工作日内办好"],
    "examples": [],
-   "say_native": "Javoblar: Yakun. Takrorlash. Vazifa tayyor bo‘ldi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是最终任务，而且非常实用。复习很快。",
-   "say_uz": "Yakun juda chiroyli. Takrorlash tez.",
+   "say_native": "Ikki xato. Birinchisi: sanani o‘zbekchadagi tartibda, ya’ni kun, oy, yil deb yozish. Xitoychada tartib teskari: yildan boshlanib kunga boradi: 二〇二六年十一月十四日. Bu qoidani doim eslang, chunki hujjatda sana noto‘g‘ri bo‘lsa, ariza qaytarilishi mumkin. Ikkinchisi: muddat uchun 里 so‘zini ishlatish. 工作日里 so‘zlashuvda uchrashi mumkin, lekin rasmiy muhitda 内 to‘g‘ri tanlov: 三个工作日内, ya’ni uch ish kuni ichida. 以内 ham ishlatiladi. Rasmiy hujjat va bank bilan gaplashuvda 内 aniqroq va ishonchliroq eshitiladi.",
+   "say": "我是二〇二六年十一月十四日来的，请在三个工作日内办好。",
+   "say_uz": "Men 2026-yil 14-noyabrda keldim, iltimos, uch ish kuni ichida tayyorlab bering.",
    "practice_seconds": 0
   },
   {
    "kind": "practice",
-   "title": "Qo‘shimcha mashq: lug‘at",
+   "title": "Blankani og‘zaki to‘ldiring",
    "emotion": "encouraging",
-   "board": [
-    "lug‘at",
-    "so‘z",
-    "ma’no"
-   ],
+   "board": ["姓名：阿里 · 国籍：乌兹别克斯坦", "出生日期：1999年3月8日", "联系电话：138 0013 8000", "申请日期：2026年11月14日"],
    "examples": [],
-   "say_native": "Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid asosiy lug‘atlarni bilib oling. Har bir so‘zning ma’nosini ajrating. Daftar espele yozing. Bu qism — lug‘atga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Bank, lug‘ati\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: lug‘at — P1-12 ga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli.",
-   "practice_seconds": 14
+   "say_native": "Mashq. Blankaga ma’lumot yozilgan: ism Ali, fuqaroligi O‘zbekiston, tug‘ilgan sana 1999-yil 8-mart, telefon va ariza sanasi 2026-yil 14-noyabr. Siz xodimga bu ma’lumotlarni xitoychada ovoz chiqarib o‘qib bering. Sanani yil-oy-kun tartibida ayting. Telefon raqamini bir-bir ayting. Javoblar keyingi sahnada.",
+   "say": "请把表上的信息读出来：姓名阿里，国籍乌兹别克斯坦，出生日期一九九九年三月八日，申请日期二〇二六年十一月十四日。",
+   "say_uz": "Blankadagi ma’lumotlarni o‘qing: ism Ali, fuqaroligi O‘zbekiston, tug‘ilgan sana 1999-yil 8-mart, ariza sanasi 2026-yil 14-noyabr.",
+   "practice_seconds": 95
   },
   {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: farq",
-   "emotion": "encouraging",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq"
-   ],
-   "examples": [],
-   "say_native": "Lug‘at misollarini o‘qib, har birini takrorlang. So‘zlarni yodlab oling. Bu qism — lug‘at misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Lug‘at misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: farq — P1-12 ga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。这非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: matn savollari",
-   "emotion": "encouraging",
-   "board": [
-    "1) daraja",
-    "2) tajriba",
-    "3) tarmoq",
-    "4) aloqa"
-   ],
-   "examples": [],
-   "say_native": "To‘rt so‘z ni ayting. Har bir gapda so‘z ni ishlating. Javobni to‘liq gapda ayting. Bu qism — lug‘atni aytishga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Lug‘atni ayting\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: matn savollari — P1-12 ga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. aloqa chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: takrorlash",
-   "emotion": "encouraging",
-   "board": [
-    "daraja",
-    "tajriba",
-    "tarmoq",
-    "aloqa"
-   ],
-   "examples": [],
-   "say_native": "Javoblar: daraja. tajriba. tarmoq. aloqa. Lug‘atlar takrorlandi. Bu qism — javoblarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Javoblar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: takrorlash — P1-12 ga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang.",
-   "say": "水平 (shuǐpíng)。经验 (jīngyàn)，而且非常实用。网络 (wǎngluò)。联系 (liánxì)，这也非常重要。",
-   "say_uz": "daraja juda chiroyli. tajriba tez. tarmoq chiroyli. aloqa chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: savollar 2",
-   "emotion": "encouraging",
-   "board": [
-    "tushuncha",
-    "belgi",
-    "farq"
-   ],
-   "examples": [],
-   "say_native": "Bank, pul va hujjatlar   ko‘nikma: Lug‘at ning asosiy tushunchasini bilib oling. Belgisini topib, shaklni aniqlang. Har bir shaklni alohida eslab qoling. Bu qism — asosiy tushunchaga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Asosiy tushuncha\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: savollar 2 — P1-12 ga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang.",
-   "say": "目标 (mùbiāo)。学习 (xuéxí)，而且非常实用。提高 (tígāo)。这非常重要。",
-   "say_uz": "maqsad juda chiroyli. o‘rganish tez. yaxshilanish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "practice",
-   "title": "Qo‘shimcha mashq: yakuniy",
-   "emotion": "encouraging",
-   "board": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "examples": [],
-   "say_native": "Tushuncha misollarini o‘qib, har birini takrorlang. Ma’nolarni ajrating. Bu qism — tushuncha misollarga oid: uni diqqat bilan o‘qing, takrorlab ayting. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Tushuncha misollar\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing. Qo‘shimcha takror: Qo‘shimcha mashq: yakuniy — P1-12 ga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang.",
-   "say": "目标 (mùbiāo)。学习 (xuéxí)，而且非常实用。提高 (tígāo)。这非常重要。",
-   "say_uz": "maqsad juda chiroyli. o‘rganish tez. yaxshilanish chiroyli.",
-   "practice_seconds": 14
-  },
-  {
-   "kind": "recap",
-   "title": "Xulosa",
+   "kind": "explain",
+   "title": "Javoblar: blanka ma’lumotlari",
    "emotion": "proud",
-   "board": [
-    "Xulosa",
-    "takrorlash"
+   "board": ["姓名：阿里", "出生日期：一九九九年三月八日", "电话：幺三八，零零一三，八零零零", "日期：二〇二六年十一月十四日"],
+   "examples": [
+    {"t": "我叫阿里，国籍是乌兹别克斯坦，一九九九年三月八日出生。", "uz": "Ismim Ali, fuqaroligim O‘zbekiston, 1999-yil 8-martda tug‘ilganman."}
    ],
+   "say_native": "Javoblar: ism 阿里, fuqarolik 乌兹别克斯坦, tug‘ilgan sana 一九九九年三月八日. Yil raqamlari bittadan o‘qiladi: 一九九九, ya’ni «bir to‘qqiz to‘qqiz to‘qqiz», o‘zbekchadagi «ming to‘qqiz yuz to‘qson to‘qqiz» emas. Telefon raqamini ham raqamlab o‘qiymiz, bunda 1 odatda yāo deyiladi: 幺三八. Nol 零. Xitoychada «tug‘ilgan» ni 出生 bilan aytadi: 我一九九九年出生. Bu yerda 出生 faqat tug‘ilish fe’li. Sana va raqamlarni xatosiz o‘qish rasmiy ishlarda eng muhim ko‘nikmalardan biri.",
+   "say": "我叫阿里，国籍是乌兹别克斯坦，一九九九年三月八日出生。",
+   "say_uz": "Ismim Ali, fuqaroligim O‘zbekiston, 1999-yil 8-martda tug‘ilganman.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "explain",
+   "title": "Hujjatlar: asl nusxa va nusxa",
+   "emotion": "neutral",
+   "board": ["原件 · 复印件", "证明 · 盖章", "翻译 · 公证", "需要……吗？"],
+   "examples": [
+    {"t": "请带护照原件，再复印一份交给我们。", "uz": "Pasportning asl nusxasini olib keling, yana bitta nusxasini ko‘chirib bizga bering."},
+    {"t": "这份证明需要翻译，还要公证。", "uz": "Bu ma’lumotnomani tarjima qilish va notarial tasdiqlash kerak."}
+   ],
+   "say_native": "Hujjatlar haqida gaplashishda 原件 va 复印件 farqini bilish shart: 原件 asl nusxa, 复印件 nusxa. Odatda ikkalasi ham so‘raladi: «请带原件，再复印一份». 证明 ma’lumotnoma yoki tasdiqlovchi hujjat, 盖章 muhr bosish. Chet eldan hujjat topshirsangiz, ba’zan 翻译 va 公证, ya’ni tarjima va notarial tasdiq kerak bo‘ladi. Bu talab idoraga qarab farq qiladi, shuning uchun oldindan so‘rang: 需要翻译和公证吗? «份» bu hujjatlar uchun o‘lchov so‘zi: 一份证明, 两份复印件. Hujjat sonini ham aniq so‘rang.",
+   "say": "请带护照原件，再复印一份交给我们。这份证明需要翻译，还要公证。",
+   "say_uz": "Pasportning asl nusxasini olib keling, yana bitta nusxasini ko‘chirib bizga bering. Bu ma’lumotnomani tarjima qilish va notarial tasdiqlash kerak.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "example",
+   "title": "Tinglash: hujjat va muddat",
+   "emotion": "neutral",
+   "board": ["客户：需要什么材料？", "职员：护照原件和复印件", "客户：什么时候能办好？", "职员：五个工作日内"],
    "examples": [],
-   "say_native": "Xulosa. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusini o‘rgandik. Har bir mavzuni alohida yodlab olish kerak. Keyingi darsda P1-13 Ijara va kommunal xizmatlar ni o‘rganamiz. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Xulosa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "这是总结，而且非常实用。复习很快。",
-   "say_uz": "Xulosa juda chiroyli. Takrorlash tez.",
+   "say_native": "Yana bir dialog. Mijoz bankdan ariza uchun kerakli hujjatlarni va muddatni so‘rayapti. Diqqat bilan tinglang: qanday hujjatlar kerak, nechta nusxa so‘raladi, qachon tayyor bo‘ladi va aloqa qanday amalga oshadi.",
+   "say": "客户：您好，我想办一张信用卡，需要什么材料？职员：需要护照原件，还要一份复印件，另外要有三个月的收入证明。客户：收入证明需要盖章吗？职员：需要，请让公司盖章。客户：什么时候能知道结果？职员：审核大概要五个工作日，结果会发短信通知您。",
+   "say_uz": "Mijoz: Salom, kredit kartasi olmoqchiman, qanday hujjatlar kerak? Xodim: Pasportning asl nusxasi, bitta nusxasi va uch oylik daromad ma’lumotnomasi kerak. Mijoz: Daromad ma’lumotnomasiga muhr bosish kerakmi? Xodim: Ha, kompaniyangizga muhr bosdiring. Mijoz: Natijani qachon bilaman? Xodim: Ko‘rib chiqish taxminan besh ish kuni oladi, natijani SMS bilan xabar qilamiz.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Hujjatlar dialogi bo‘yicha savollar",
+   "emotion": "thinking",
+   "board": ["1 客户想办什么？", "2 需要哪些材料？", "3 收入证明要做什么？", "4 多久知道结果？"],
+   "examples": [],
+   "say_native": "To‘rtta savol. Mijoz nima olmoqchi? Qanday hujjatlar kerak? Daromad ma’lumotnomasi bilan nima qilish kerak? Natija qancha vaqtda ma’lum bo‘ladi va qanday xabar qilinadi? Xitoychada javob bering. Javoblar keyingi sahnada.",
+   "say": "请回答：客户想办什么？需要哪些材料？收入证明要怎么处理？多久知道结果？",
+   "say_uz": "Javob bering: mijoz nima olmoqchi? Qanday hujjatlar kerak? Daromad ma’lumotnomasi bilan nima qilinadi? Natija qachon ma’lum bo‘ladi?",
+   "practice_seconds": 75
+  },
+  {
+   "kind": "explain",
+   "title": "Javoblar: hujjatlar va muddat",
+   "emotion": "proud",
+   "board": ["1 信用卡", "2 护照原件、复印件、收入证明", "3 请公司盖章", "4 五个工作日，发短信"],
+   "examples": [],
+   "say_native": "Javoblar: mijoz 信用卡, ya’ni kredit kartasi olmoqchi. Kerakli hujjatlar: pasportning asl nusxasi, bitta nusxa va uch oylik 收入证明. Ma’lumotnomani kompaniyaga 盖章 qildirish kerak. Natija 五个工作日, ya’ni besh ish kuni ichida 短信 orqali xabar qilinadi. Bu yerda «让公司盖章» tuzilishi «kompaniyaga muhr bosdirmoq» ma’nosida. 让 «bajartirmoq» degani. Siz bunday so‘rov bilan o‘z ishxonangizga ham murojaat qila olasiz. Doim muddat va hujjat sonini yozib oling, chunki bank keyinroq «yana bir hujjat kerak» deyishi mumkin.",
+   "say": "客户想办信用卡，要带护照原件、复印件和收入证明，收入证明要请公司盖章，五个工作日以后发短信通知。",
+   "say_uz": "Mijoz kredit kartasi olmoqchi, pasportning asl nusxasi, nusxasi va daromad ma’lumotnomasini olib keladi, ma’lumotnomaga kompaniya muhr bosadi, besh ish kunidan keyin SMS orqali xabar qilinadi.",
+   "practice_seconds": 0
+  },
+  {
+   "kind": "practice",
+   "title": "Rolli o‘yin: bankda ish bitirish",
+   "emotion": "encouraging",
+   "board": ["想开账户 · 带什么材料", "转账给朋友 · 手续费", "多久到账", "什么时候办好"],
+   "examples": [],
+   "say_native": "Yakuniy mashq. Siz bankdasiz va xodim bilan gaplashasiz. Quyidagilarni ayting: hisob ochmoqchisiz, qanday hujjatlar kerakligini so‘raysiz; keyin do‘stingizga pul o‘tkazmoqchisiz, komissiyani so‘raysiz; oxirida pul necha kunda tushishini va hammasi qachon tayyor bo‘lishini so‘raysiz. Kamida to‘rt-besh gap tuzing, odob so‘zlarini qo‘shing. Keyingi sahnada namuna bor.",
+   "say": "请你在银行跟职员对话：你想开账户，问需要什么材料；你要给朋友转账，问手续费；最后问多久到账、什么时候办好。",
+   "say_uz": "Bankda xodim bilan suhbatlashing: hisob ochmoqchisiz, hujjatni so‘raysiz; do‘stingizga pul o‘tkazasiz, komissiyani so‘raysiz; oxirida necha kunda tushishini va qachon tayyor bo‘lishini so‘raysiz.",
+   "practice_seconds": 105
+  },
+  {
+   "kind": "explain",
+   "title": "Namuna: bank suhbati",
+   "emotion": "proud",
+   "board": ["您好，我想开一个账户", "要收手续费吗？", "几天能到账？", "谢谢，麻烦您了"],
+   "examples": [
+    {"t": "您好，我想开一个账户，需要带什么材料？我还想给朋友转账，要收手续费吗？大概几天能到账？麻烦您了，谢谢。", "uz": "Assalomu alaykum, hisob ochmoqchiman, qanday hujjat kerak? Yana do‘stimga pul o‘tkazmoqchiman, komissiya olinadimi? Taxminan necha kunda tushadi? Bezovta qilganim uchun uzr, rahmat."}
+   ],
+   "say_native": "Namuna doskada. Tartib mantiqiy: salom, birinchi maqsad, ikkinchi maqsad, savollar va minnatdorchilik. 我还想 «yana ... ham xohlayman» bilan ikkinchi ishni qo‘shdik. 麻烦您了 «sizni bezovta qildim, rahmat» ma’nosida, xizmat ko‘rsatuvchiga murojaatda juda o‘rinli. Gaplar qisqa, har bir savol bitta narsa haqida. Agar xodimning javobini tushunmasangiz, «请再说一遍» yoki «请写下来» deb so‘rang. Yozib berishni so‘rash ayniqsa raqam va muddatda qo‘l keladi.",
+   "say": "您好，我想开一个账户，需要带什么材料？我还想给朋友转账，要收手续费吗？大概几天能到账？麻烦您了，谢谢。",
+   "say_uz": "Assalomu alaykum, hisob ochmoqchiman, qanday hujjat kerak? Yana do‘stimga pul o‘tkazmoqchiman, komissiya olinadimi? Taxminan necha kunda tushadi? Bezovta qilganim uchun uzr, rahmat.",
    "practice_seconds": 0
   },
   {
    "kind": "recap",
-   "title": "Uyga vazifa",
-   "emotion": "encouraging",
-   "board": [
-    "vazifa",
-    "keyingi dars"
-   ],
+   "title": "Xulosa va uy vazifasi",
+   "emotion": "happy",
+   "board": ["开户 · 转账 · 汇率", "原件 · 复印件 · 签名", "年—月—日", "作业：填样表并说明"],
    "examples": [],
-   "say_native": "Uyga vazifa. Fill in a sample form and explain each field. . Har bir gapda bitta fikr bo‘lsin. Keyingi darsda P1-13 Ijara va kommunal xizmatlar ni o‘rganamiz. P1-12 Bank, pul va hujjatlar   ko‘nikma: Lug‘at darsiga oid noyob sharh: bu iborani P1-12 suhbatida aniq qo‘llang. Bu qism — \"Uyga vazifa\" ga oid: uni diqqat bilan o‘qing, takrorlab ayting va daftar espele yozib oling. Har bir iborani kundalik suhbatda ishonch bilan qo‘llashni mashq qiling. Har bir gapni ketma-ketlikda yozing.",
-   "say": "再见！祝你一切顺利！这非常重要。",
-   "say_uz": "Ko‘rishguncha! Xayr! Juda chiroyli.",
+   "say_native": "Xulosa. Siz hisob ochish, karta, naqd pul va o‘tkazmalar haqida gapirishni, komissiya va kursni so‘rashni o‘rgandingiz. Blanka maydonlarini va to‘ldirish qoidalarini ko‘rdingiz. Muddat va hujjatlar haqida so‘rashni mashq qildingiz. Eng muhim narsalar: sana yil-oy-kun tartibida, 把 ... 换成 ... va 转给 qoliplari, hamda 原件 va 复印件 farqi. Uy vazifasi: namunaviy blankani to‘ldiring va har bir maydonni xitoychada tushuntiring. Muvaffaqiyat mezoni: kamida sakkizta maydon, sana to‘g‘ri tartibda, har bir maydonga bitta tushuntirish. Keyingi darsda ijara va kommunal xizmatlarni o‘rganamiz.",
+   "say": "今天我们学习了开户、转账、手续费和汇率，也学习了怎样填表、准备材料和询问办理时间。请填写一张样表，并用中文说明每一项。",
+   "say_uz": "Bugun hisob ochish, o‘tkazma, komissiya va kursni, shuningdek blankani to‘ldirish, hujjat tayyorlash va muddatni so‘rashni o‘rgandik. Namunaviy blankani to‘ldiring va har bir bandni xitoychada tushuntiring.",
    "practice_seconds": 0
   }
  ],
- "homework_uz": "Fill in a sample form and explain each field.. Keyingi darsda P1-13 Ijara va kommunal xizmatlar ni o‘rganamiz.",
+ "homework_uz": "Internetdan yoki o‘zingiz tuzib, bitta namunaviy bank blankasi oling va uni to‘ldiring. Kamida sakkizta maydonni to‘ldiring: ism, fuqarolik, tug‘ilgan sana, pasport raqami, telefon, manzil, imzo va sana. Har bir maydon nimani bildirishini xitoychada bir gap bilan tushuntiring. Sanani yil, oy, kun tartibida yozing.",
  "quiz": [
-  {
-   "q": "«水平 (shuǐpíng)» nimani bildiradi?",
-   "options": [
-    "daraja",
-    "tajriba",
-    "tarmoq",
-    "aloqa"
-   ],
-   "answer": 0,
-   "why_uz": "水平 (shuǐpíng) — daraja. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«经验 (jīngyàn)» nimani bildiradi?",
-   "options": [
-    "tajriba",
-    "tarmoq",
-    "aloqa",
-    "maqsad"
-   ],
-   "answer": 0,
-   "why_uz": "经验 (jīngyàn) — tajriba. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«网络 (wǎngluò)» nimani bildiradi?",
-   "options": [
-    "tarmoq",
-    "aloqa",
-    "maqsad",
-    "o‘rganish"
-   ],
-   "answer": 0,
-   "why_uz": "网络 (wǎngluò) — tarmoq. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«联系 (liánxì)» nimani bildiradi?",
-   "options": [
-    "aloqa",
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish"
-   ],
-   "answer": 0,
-   "why_uz": "联系 (liánxì) — aloqa. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«目标 (mùbiāo)» nimani bildiradi?",
-   "options": [
-    "maqsad",
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq"
-   ],
-   "answer": 0,
-   "why_uz": "目标 (mùbiāo) — maqsad. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«学习 (xuéxí)» nimani bildiradi?",
-   "options": [
-    "o‘rganish",
-    "yaxshilanish",
-    "yutuq",
-    "kasb"
-   ],
-   "answer": 0,
-   "why_uz": "学习 (xuéxí) — o‘rganish. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«提高 (tígāo)» nimani bildiradi?",
-   "options": [
-    "yaxshilanish",
-    "yutuq",
-    "kasb",
-    "ish"
-   ],
-   "answer": 0,
-   "why_uz": "提高 (tígāo) — yaxshilanish. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«成果 (chéngguǒ)» nimani bildiradi?",
-   "options": [
-    "yutuq",
-    "kasb",
-    "ish",
-    "daraja"
-   ],
-   "answer": 0,
-   "why_uz": "成果 (chéngguǒ) — yutuq. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«职业 (zhíyè)» nimani bildiradi?",
-   "options": [
-    "kasb",
-    "ish",
-    "daraja",
-    "tajriba"
-   ],
-   "answer": 0,
-   "why_uz": "职业 (zhíyè) — kasb. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  },
-  {
-   "q": "«工作 (gōngzuò)» nimani bildiradi?",
-   "options": [
-    "ish",
-    "daraja",
-    "tajriba",
-    "tarmoq"
-   ],
-   "answer": 0,
-   "why_uz": "工作 (gōngzuò) — ish. Bank, pul va hujjatlar   ko‘nikma: Lug‘at mavzusiga oid."
-  }
+  {"q": "“Hisob ochmoq” xitoychada qaysi so‘z?", "options": ["开户", "取号", "挂失", "转账"], "answer": 0, "why_uz": "开户 bank hisobi ochishni bildiradi."},
+  {"q": "“Komissiya, xizmat haqi” qaysi so‘z?", "options": ["余额", "汇率", "手续费", "密码"], "answer": 2, "why_uz": "手续费 xizmat uchun to‘lanadigan komissiya."},
+  {"q": "“Dollarni yuanga almashtirmoqchiman” qaysi gap?", "options": ["我想换美元人民币", "我想把美元换成人民币", "我想美元换人民币成", "我想换成美元把人民币"], "answer": 1, "why_uz": "把 ... 换成 ... qolipi almashtirishni bildiradi."},
+  {"q": "“Do‘stimga pul o‘tkazmoqchiman” uchun qaysi variant to‘g‘ri?", "options": ["我转钱朋友", "我想把钱转给朋友", "我想朋友转给钱", "我转给钱想朋友"], "answer": 1, "why_uz": "“Kimga” so‘zi 给 bilan keladi: 转给朋友."},
+  {"q": "“Karta yo‘qoldi, bloklab bering” gapida qaysi so‘z kerak?", "options": ["激活", "挂失", "审核", "公证"], "answer": 1, "why_uz": "挂失 yo‘qolgan kartani yoki hujjatni bloklashni bildiradi."},
+  {"q": "2026-yil 14-noyabr xitoychada qanday yoziladi?", "options": ["十四日十一月二〇二六年", "十一月十四日二〇二六年", "二〇二六年十一月十四日", "十四日二〇二六年十一月"], "answer": 2, "why_uz": "Xitoychada sana yil, oy, kun tartibida yoziladi."},
+  {"q": "“Asl nusxa” va “nusxa” juftligi qaysi?", "options": ["原件 va 复印件", "证明 va 签名", "余额 va 汇率", "账号 va 密码"], "answer": 0, "why_uz": "原件 asl nusxa, 复印件 kserokopiya."},
+  {"q": "“Uch ish kuni ichida” qaysi ibora?", "options": ["三个工作日内", "三个周末里", "三个日工作", "工作日三内"], "answer": 0, "why_uz": "工作日 ish kuni, 内 «ichida» degani."},
+  {"q": "Telefon raqami va xona raqamida 1 raqami odatda qanday o‘qiladi?", "options": ["yī", "yāo", "èr", "liǎng"], "answer": 1, "why_uz": "Raqam qatorida 1 ko‘pincha yāo deb o‘qiladi, yī ni qī bilan adashtirmaslik uchun."},
+  {"q": "“Ikki tabletka” kabi miqdor aytganda qaysi so‘z ishlatiladi?", "options": ["二", "两", "双", "俩"], "answer": 1, "why_uz": "Miqdor bilan o‘lchov so‘zidan oldin 两 ishlatiladi: 两片."}
  ]
 }

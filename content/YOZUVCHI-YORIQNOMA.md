@@ -35,7 +35,7 @@ Each scene has these keys:
 - `practice_seconds`: 8–20 in `practice` scenes, otherwise 0.
 
 `quiz`: 10 questions, or 15 in the level exam lesson (`-25`). Each question has:
-- `q`: the question, in English
+- `q`: the question. In the English course: in English. In every other course: in **Uzbek** (the learner is an Uzbek speaker and may not know English) — the target-language word or sentence being tested stays in the target language inside the question.
 - `options`: exactly 4 options
 - `answer`: the index (0–3) of the correct option
 - `why_uz`: a short explanation in Uzbek
@@ -75,6 +75,8 @@ Distractors should come from typical mistakes Uzbek speakers make.
 ## Other target languages (russian, spanish, german, turkish, arabic, korean, chinese)
 The course structure, the JSON format and all the rules above stay exactly the same. Only these points change:
 - **File and brief:** `content/uz/<lang>/<ID>.json`; run `node scripts/lesson-brief.mjs <lang> <ID>` and `node scripts/lesson-check.mjs content/uz/<lang>/<ID>.json`.
+- **Quiz:** `q` is written in Uzbek, never in English. Options are in the target language when they are the forms being tested, otherwise in Uzbek. Never use English as a bridge language anywhere in these courses.
+- **`say_uz`:** a complete, faithful Uzbek translation of `say` sentence by sentence — not a summary and not a comment about it (it is shown as the subtitle while `say` is spoken).
 - **`say` and `examples[].t`:** written in the target language. They are read by a native TTS voice of that language, so write normal script, not transliteration.
 - **Standard variety:**
   - Russian: standard Russian.
